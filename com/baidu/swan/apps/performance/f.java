@@ -15,26 +15,25 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.ubc.r;
+import com.baidu.swan.ubc.q;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public static boolean aEb = false;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static boolean aEc = false;
     @Deprecated
-    private static com.baidu.swan.apps.performance.a aEc;
+    private static com.baidu.swan.apps.performance.a aEd;
 
     private static com.baidu.swan.apps.performance.a FQ() {
-        if (aEc == null) {
-            aEc = new com.baidu.swan.apps.performance.a();
-            a(aEc);
+        if (aEd == null) {
+            aEd = new com.baidu.swan.apps.performance.a();
+            a(aEd);
         }
-        return aEc;
+        return aEd;
     }
 
     private static void a(com.baidu.swan.apps.performance.a aVar) {
@@ -56,7 +55,7 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "onEvent " + aVar);
         }
-        r.onEvent(aVar.eventId, aVar.toJSONObject());
+        q.onEvent(aVar.eventId, aVar.toJSONObject());
     }
 
     @Deprecated
@@ -122,8 +121,8 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup: info=" + bVar);
         }
-        if (bVar != null && (bundle = bVar.axP) != null) {
-            final String str = bVar.axH;
+        if (bVar != null && (bundle = bVar.axQ) != null) {
+            final String str = bVar.axI;
             final boolean z = bundle.getBoolean("aiapp_launch_ext_ab", false);
             if (DEBUG) {
                 Log.i("SwanAppPerformanceUBC", "xpass -> recordFromLaunchInfoForStartup: extAbSwitch=" + z);
@@ -132,26 +131,26 @@ public final class f {
                 @Override // java.lang.Runnable
                 public void run() {
                     HybridUbcFlow fy = f.fy("startup");
-                    if (!f.aEb) {
+                    if (!f.aEc) {
                         f.q(bundle);
                         f.a(fy, bundle, "aiapp_launch_activity_timestamp", "na_launch_activity");
                     }
                     if (!z) {
                         f.p(bundle);
                     }
-                    String str2 = TextUtils.isEmpty(bVar.axF) ? "NA" : bVar.axF;
-                    if (bVar.axW == 1) {
+                    String str2 = TextUtils.isEmpty(bVar.axG) ? "NA" : bVar.axG;
+                    if (bVar.axX == 1) {
                         fy.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
                     fy.i("from", "swan");
                     fy.i("source", str2);
                     fy.aq("appid", bVar.mAppId);
-                    fy.aq("swan", com.baidu.swan.apps.swancore.b.a(bVar.atp, bVar.axW));
+                    fy.aq("swan", com.baidu.swan.apps.swancore.b.a(bVar.atq, bVar.axX));
                     fy.aq("mobile", g.LS());
                     fy.aq("net", SwanAppNetworkUtils.Fd().type);
                     fy.aq("appversion", bVar.mVersion);
-                    fy.aq("thirdversion", bVar.auf);
-                    fy.i("from", bVar.axW == 1 ? "swangame" : "swan");
+                    fy.aq("thirdversion", bVar.aug);
+                    fy.i("from", bVar.axX == 1 ? "swangame" : "swan");
                     String hF = y.hF(str);
                     if (!TextUtils.isEmpty(hF) && hF.startsWith(File.separator)) {
                         hF = hF.substring(1);
@@ -159,8 +158,8 @@ public final class f {
                     if (TextUtils.isEmpty(hF)) {
                         hF = "";
                     }
-                    fy.aq(ClientCookie.PATH_ATTR, hF);
-                    if (bVar.axW == 0) {
+                    fy.aq("path", hF);
+                    if (bVar.axX == 0) {
                         fy.Fv();
                     }
                 }
@@ -173,7 +172,7 @@ public final class f {
         boolean a2;
         if (bundle != null && !bundle.isEmpty()) {
             HybridUbcFlow fy = fy("startup");
-            if (aEb) {
+            if (aEc) {
                 a2 = false;
             } else {
                 a(fy, bundle, "aiapp_aps_check_start_timestamp", "aps_start_req");
@@ -224,7 +223,7 @@ public final class f {
         }
         fG("startup");
         HybridUbcFlow fy = fy("startup");
-        if (aEb) {
+        if (aEc) {
             fy.f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).A(j));
             fy.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).A(j));
         }
@@ -233,11 +232,11 @@ public final class f {
 
     public static void a(boolean z, Intent intent) {
         boolean K = K(intent);
-        aEb = K || z;
+        aEc = K || z;
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: isIntentNeedDiscard=" + K);
             Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: hasSaved=" + z);
-            Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: sNeedDiscard=" + aEb);
+            Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: sNeedDiscard=" + aEc);
         }
     }
 
@@ -255,9 +254,9 @@ public final class f {
 
     /* loaded from: classes2.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int aEg = 35;
-        public JSONObject aEh;
-        private boolean aEi = true;
+        private static int aEh = 35;
+        public JSONObject aEi;
+        private boolean aEj = true;
         final String eventId;
 
         public a(String str) {
@@ -282,18 +281,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.aSp == null) {
-                this.aSp = new JSONObject();
+            if (this.aSq == null) {
+                this.aSq = new JSONObject();
             }
             try {
-                if (this.aEh != null) {
-                    if (this.aEi) {
-                        String ep = aa.ep(aEg);
+                if (this.aEi != null) {
+                    if (this.aEj) {
+                        String ep = aa.ep(aEh);
                         if (!TextUtils.isEmpty(ep)) {
-                            this.aEh.put("stacktrace", ep);
+                            this.aEi.put("stacktrace", ep);
                         }
                     }
-                    this.aSp.put("info", this.aEh);
+                    this.aSq.put("info", this.aEi);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

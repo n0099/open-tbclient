@@ -13,8 +13,8 @@ import com.baidu.swan.apps.install.c;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class b {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public static String aSP = "/aiapp";
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static String aSQ = "/aiapp";
 
     @Nullable
     public static String aC(String str, String str2) {
@@ -128,7 +128,7 @@ public final class b {
             if (DEBUG) {
                 Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
             }
-            return AppRuntime.getAppContext().getExternalFilesDir(null) + aSP;
+            return AppRuntime.getAppContext().getExternalFilesDir(null) + aSQ;
         }
         return null;
     }
@@ -140,7 +140,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
         }
-        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aSP + "/store" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aSQ + "/store" + File.separator + "aiapp_" + str;
         gZ(str2);
         return str2;
     }
@@ -149,7 +149,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        return AppRuntime.getAppContext().getExternalCacheDir() + aSP;
+        return AppRuntime.getAppContext().getExternalCacheDir() + aSQ;
     }
 
     public static String gX(String str) {
@@ -159,7 +159,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aSP + "/tmp" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aSQ + "/tmp" + File.separator + "aiapp_" + str;
         gZ(str2);
         return str2;
     }
@@ -180,7 +180,7 @@ public final class b {
             return null;
         }
         com.baidu.swan.apps.v.b.b uB = bVar.uB();
-        boolean z = uB != null && uB.axR;
+        boolean z = uB != null && uB.axS;
         if (DEBUG && z) {
             Log.d("StorageUtil", "relative path : " + str);
             ah = c.a.Cs();

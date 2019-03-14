@@ -2,6 +2,7 @@ package cn.jiguang.d.d;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -120,7 +121,7 @@ public final class s {
                 } else if (c.equals(context.getPackageName())) {
                     a = "";
                 } else {
-                    a = c.replaceFirst(context.getPackageName() + ":", "_");
+                    a = c.replaceFirst(context.getPackageName() + Config.TRACE_TODAY_VISIT_SPLIT, "_");
                 }
             }
         }

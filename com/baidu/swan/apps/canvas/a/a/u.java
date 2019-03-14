@@ -4,13 +4,13 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class u extends a {
-    private float alP;
+    private float alQ;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void g(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.alP = (float) jSONArray.optDouble(0);
-            this.alP = (float) Math.toDegrees(this.alP);
+            this.alQ = (float) jSONArray.optDouble(0);
+            this.alQ = (float) Math.toDegrees(this.alQ);
         }
     }
 
@@ -19,6 +19,6 @@ public class u extends a {
         if (bVar.wz() == 0) {
             bVar.bR(canvas.save());
         }
-        canvas.rotate(this.alP);
+        canvas.rotate(this.alQ);
     }
 }

@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes2.dex */
 public class l<T> implements d.b<T, T> {
-    private final Long jYi = null;
-    private final rx.functions.a jYj = null;
-    private final a.d jYk = rx.a.jUY;
+    private final Long jYa = null;
+    private final rx.functions.a jYb = null;
+    private final a.d jYc = rx.a.jUQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        static final l<?> jYp = new l<>();
+        static final l<?> jYh = new l<>();
     }
 
     @Override // rx.functions.f
@@ -24,17 +24,17 @@ public class l<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> l<T> cEl() {
-        return (l<T>) b.jYp;
+    public static <T> l<T> cEo() {
+        return (l<T>) b.jYh;
     }
 
     l() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.jYi, this.jYj, this.jYk);
+        a aVar = new a(jVar, this.jYa, this.jYb, this.jYc);
         jVar.add(aVar);
-        jVar.setProducer(aVar.cEn());
+        jVar.setProducer(aVar.cEq());
         return aVar;
     }
 
@@ -42,19 +42,19 @@ public class l<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a jYj;
-        private final a.d jYk;
-        private final AtomicLong jYm;
-        private final BackpressureDrainManager jYo;
-        private final ConcurrentLinkedQueue<Object> jYl = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean jYn = new AtomicBoolean(false);
+        private final rx.functions.a jYb;
+        private final a.d jYc;
+        private final AtomicLong jYe;
+        private final BackpressureDrainManager jYg;
+        private final ConcurrentLinkedQueue<Object> jYd = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean jYf = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.jYm = l != null ? new AtomicLong(l.longValue()) : null;
-            this.jYj = aVar;
-            this.jYo = new BackpressureDrainManager(this);
-            this.jYk = dVar;
+            this.jYe = l != null ? new AtomicLong(l.longValue()) : null;
+            this.jYb = aVar;
+            this.jYg = new BackpressureDrainManager(this);
+            this.jYc = dVar;
         }
 
         @Override // rx.j
@@ -64,23 +64,23 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.jYn.get()) {
-                this.jYo.terminateAndDrain();
+            if (!this.jYf.get()) {
+                this.jYg.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.jYn.get()) {
-                this.jYo.terminateAndDrain(th);
+            if (!this.jYf.get()) {
+                this.jYg.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (cEm()) {
-                this.jYl.offer(NotificationLite.bq(t));
-                this.jYo.drain();
+            if (cEp()) {
+                this.jYd.offer(NotificationLite.bq(t));
+                this.jYg.drain();
             }
         }
 
@@ -100,42 +100,42 @@ public class l<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.jYl.peek();
+            return this.jYd.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.jYl.poll();
-            if (this.jYm != null && poll != null) {
-                this.jYm.incrementAndGet();
+            Object poll = this.jYd.poll();
+            if (this.jYe != null && poll != null) {
+                this.jYe.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean cEm() {
+        private boolean cEp() {
             long j;
             boolean z;
-            if (this.jYm == null) {
+            if (this.jYe == null) {
                 return true;
             }
             do {
-                j = this.jYm.get();
+                j = this.jYe.get();
                 if (j <= 0) {
                     try {
-                        z = this.jYk.cDy() && poll() != null;
+                        z = this.jYc.cDB() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.jYn.compareAndSet(false, true)) {
+                        if (this.jYf.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.jYj != null) {
+                    if (this.jYb != null) {
                         try {
-                            this.jYj.call();
+                            this.jYb.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.L(th);
-                            this.jYo.terminateAndDrain(th);
+                            this.jYg.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class l<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.jYm.compareAndSet(j, j - 1));
+            } while (!this.jYe.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f cEn() {
-            return this.jYo;
+        protected rx.f cEq() {
+            return this.jYg;
         }
     }
 }

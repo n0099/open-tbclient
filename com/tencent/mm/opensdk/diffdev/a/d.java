@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Base64;
+import com.coremedia.iso.boxes.UserBox;
 import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
@@ -61,7 +62,7 @@ public final class d extends AsyncTask<Void, Void, a> {
                                 } else {
                                     aVar.n = OAuthErrCode.WechatAuth_Err_OK;
                                     aVar.t = decode;
-                                    aVar.o = jSONObject.getString("uuid");
+                                    aVar.o = jSONObject.getString(UserBox.TYPE);
                                     aVar.p = jSONObject.getString("appname");
                                     Log.d("MicroMsg.SDK.GetQRCodeResult", String.format("parse succ, save in memory, uuid = %s, appname = %s, imgBufLength = %d", aVar.o, aVar.p, Integer.valueOf(aVar.t.length)));
                                 }

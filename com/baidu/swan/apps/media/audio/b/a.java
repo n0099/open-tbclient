@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    public JSONObject aAh;
-    private CallbackHandler ayE;
+    private static final boolean DEBUG = b.DEBUG;
+    public JSONObject aAi;
+    private CallbackHandler ayF;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.ayE = callbackHandler;
-        this.aAh = jSONObject;
+        this.ayF = callbackHandler;
+        this.aAi = jSONObject;
     }
 
     public void eX(String str) {
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.aAh = new JSONObject(str);
+            this.aAi = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -40,9 +40,9 @@ public class a {
     }
 
     public void f(String str, JSONObject jSONObject) {
-        if (this.aAh != null) {
+        if (this.aAi != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.ayE.handleSchemeDispatchCallback(this.aAh.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.ayF.handleSchemeDispatchCallback(this.aAi.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
@@ -50,6 +50,6 @@ public class a {
     }
 
     public boolean Ez() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.ayE);
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.ayF);
     }
 }

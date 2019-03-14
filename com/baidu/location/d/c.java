@@ -4,9 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.appsearchlib.Info;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileWriter;
@@ -21,10 +19,10 @@ public final class c {
     private final SQLiteDatabase b;
     private boolean u = true;
     private long v = 8000;
-    private long w = TbConfig.NOTIFY_SOUND_INTERVAL;
-    private long x = TbConfig.NOTIFY_SOUND_INTERVAL;
-    private long y = TbConfig.NOTIFY_SOUND_INTERVAL;
-    private long z = TbConfig.NOTIFY_SOUND_INTERVAL;
+    private long w = 5000;
+    private long x = 5000;
+    private long y = 5000;
+    private long z = 5000;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -80,7 +78,7 @@ public final class c {
                     c.this.f = jSONObject.getBoolean("on");
                     c.this.g = jSONObject.getBoolean("wn");
                     c.this.h = jSONObject.getBoolean("oc");
-                    this.d = jSONObject.getLong(Info.kBaiduTimeKey);
+                    this.d = jSONObject.getLong("t");
                     if (jSONObject.has("ol")) {
                         c.this.k = jSONObject.getBoolean("olv2");
                     }
@@ -274,7 +272,7 @@ public final class c {
                     jSONObject2.put("wn", c.this.g);
                     jSONObject2.put("oc", c.this.h);
                     this.d = System.currentTimeMillis();
-                    jSONObject2.put(Info.kBaiduTimeKey, this.d);
+                    jSONObject2.put("t", this.d);
                     jSONObject2.put("ver", string);
                     jSONObject2.put("rgcon", c.this.j);
                     jSONObject2.put("rgcgp", c.this.l);
@@ -331,7 +329,22 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long a(String str) {
-        return str.equals("2G") ? this.v : str.equals("3G") ? this.w : str.equals("4G") ? this.x : str.equals("WIFI") ? this.y : str.equals("unknown") ? this.z : TbConfig.NOTIFY_SOUND_INTERVAL;
+        if (str.equals("2G")) {
+            return this.v;
+        }
+        if (str.equals("3G")) {
+            return this.w;
+        }
+        if (str.equals("4G")) {
+            return this.x;
+        }
+        if (str.equals("WIFI")) {
+            return this.y;
+        }
+        if (str.equals("unknown")) {
+            return this.z;
+        }
+        return 5000L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -15,7 +15,6 @@ import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.download.b;
 import com.baidu.tieba.d;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashSet;
@@ -23,18 +22,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    public static String crD = null;
-    private View bVY;
-    private ImageView crE;
-    private TextView crF;
-    private View crG;
+    private View bVZ;
+    private ImageView crD;
+    private TextView crE;
+    private View crF;
+    private TextView crG;
     private TextView crH;
-    private TextView crI;
-    private PluginStatus crJ;
-    private TextView crK;
-    private ShadowLayout crL;
+    private PluginStatus crI;
+    private ShadowLayout crJ;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
         if (context != null && pluginStatus != null) {
@@ -55,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.crJ = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.crI = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.crJ = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.crI = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.crJ == null) {
+        if (this.crI == null) {
             finish();
             return;
         }
@@ -69,31 +65,29 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
-        this.bVY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.bVY.setOnClickListener(this);
+        this.bVZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.bVZ.setOnClickListener(this);
         this.mNavigationBar.setTitleText(d.j.pluginstatus_tip_title);
-        this.crE = (ImageView) findViewById(d.g.plugin_error_tip_image);
-        this.crF = (TextView) findViewById(d.g.plugin_error_install_fail);
-        this.crH = (TextView) findViewById(d.g.plugin_error_tip_resolve);
-        this.crG = findViewById(d.g.plugin_error_parent);
-        this.crK = (TextView) findViewById(d.g.plugin_install_complete_apk);
-        this.crK.setOnClickListener(this);
-        this.crL = (ShadowLayout) findViewById(d.g.plugin_error_shadow_layout);
-        this.crI = (TextView) findViewById(d.g.plugin_error_btn);
-        this.crI.setOnClickListener(this);
-        this.crH.setText(getString(d.j.plugin_error_tips, new Object[]{this.crJ.getErrorMsg(), this.crJ.nR()}));
-        if (this.crJ.getErrorCode() == 5 || this.crJ.getErrorCode() == 1 || this.crJ.getErrorCode() == 100) {
-            this.crI.setText(d.j.pluginstatus_btn_restartapp);
-            this.crI.setVisibility(0);
+        this.crD = (ImageView) findViewById(d.g.plugin_error_tip_image);
+        this.crE = (TextView) findViewById(d.g.plugin_error_install_fail);
+        this.crG = (TextView) findViewById(d.g.plugin_error_tip_resolve);
+        this.crF = findViewById(d.g.plugin_error_parent);
+        this.crJ = (ShadowLayout) findViewById(d.g.plugin_error_shadow_layout);
+        this.crH = (TextView) findViewById(d.g.plugin_error_btn);
+        this.crH.setOnClickListener(this);
+        this.crG.setText(getString(d.j.plugin_error_tips, new Object[]{this.crI.getErrorMsg(), this.crI.nR()}));
+        if (this.crI.getErrorCode() == 5 || this.crI.getErrorCode() == 1 || this.crI.getErrorCode() == 100) {
+            this.crH.setText(d.j.pluginstatus_btn_restartapp);
+            this.crH.setVisibility(0);
             return;
         }
-        this.crI.setVisibility(8);
+        this.crH.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.crJ);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.crI);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -101,10 +95,10 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bVY) {
+        if (view == this.bVZ) {
             finish();
-        } else if (view == this.crI) {
-            if (this.crJ != null && this.crJ.getErrorCode() == 100) {
+        } else if (view == this.crH) {
+            if (this.crI != null && this.crI.getErrorCode() == 100) {
                 com.baidu.adp.plugin.b.a.mS().ap(true);
             }
             showLoadingDialog(getResources().getString(d.j.waiting));
@@ -128,15 +122,6 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     Process.killProcess(Process.myPid());
                 }
             }, 2000L);
-        } else if (view == this.crK) {
-            if (this.mPermissionJudgement == null) {
-                this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
-            }
-            this.mPermissionJudgement.adQ();
-            this.mPermissionJudgement.e(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgement.Y(getActivity())) {
-                b.alL().a("1101", crD, "completed_tieba", null);
-            }
         }
     }
 
@@ -144,13 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.c(this.crE, d.f.new_pic_emotion_05);
-        al.j(this.crF, d.C0236d.cp_cont_c);
-        al.l(this.crG, d.C0236d.cp_bg_line_d);
-        al.j(this.crK, d.C0236d.cp_cont_c);
-        al.j(this.crH, d.C0236d.cp_cont_b);
-        al.j(this.crI, d.C0236d.cp_cont_g);
-        al.k(this.crI, d.f.selector_blue_gradient_button);
-        this.crL.setShadowColor(d.C0236d.plugin_button_shadow_blue);
+        al.c(this.crD, d.f.new_pic_emotion_05);
+        al.j(this.crE, d.C0277d.cp_cont_c);
+        al.l(this.crF, d.C0277d.cp_bg_line_d);
+        al.j(this.crG, d.C0277d.cp_cont_b);
+        al.j(this.crH, d.C0277d.cp_cont_g);
+        al.k(this.crH, d.f.selector_blue_gradient_button);
+        this.crJ.setShadowColor(d.C0277d.plugin_button_shadow_blue);
     }
 }

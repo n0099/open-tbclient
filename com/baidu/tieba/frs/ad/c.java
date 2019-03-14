@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fdR = BdUniqueId.gen();
-    private String bwC;
-    private String bwD;
+    public static final BdUniqueId fdQ = BdUniqueId.gen();
+    private String bwE;
+    private String bwF;
+    private String fdR;
     private String fdS;
-    private String fdT;
-    private List<MediaData> fdU;
-    private int fdV;
+    private List<MediaData> fdT;
+    private int fdU;
     public boolean isLast = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.fdS = adInfo.portrait;
-            this.bwC = adInfo.ad_name;
-            this.fdT = adInfo.ad_desc;
-            this.bwD = adInfo.ad_url;
-            this.fdV = adInfo.show_rule.intValue();
+            this.fdR = adInfo.portrait;
+            this.bwE = adInfo.ad_name;
+            this.fdS = adInfo.ad_desc;
+            this.bwF = adInfo.ad_url;
+            this.fdU = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.fdU = new ArrayList();
+                this.fdT = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.fdU.add(mediaData);
+                    this.fdT.add(mediaData);
                 }
             }
         }
     }
 
-    public int beD() {
-        return this.fdV;
+    public int beC() {
+        return this.fdU;
+    }
+
+    public String beD() {
+        return this.fdR;
     }
 
     public String beE() {
-        return this.fdS;
+        return this.bwE;
     }
 
     public String beF() {
-        return this.bwC;
+        return this.fdS;
     }
 
-    public String beG() {
+    public String apP() {
+        return this.bwF;
+    }
+
+    public List<MediaData> beG() {
         return this.fdT;
-    }
-
-    public String apQ() {
-        return this.bwD;
-    }
-
-    public List<MediaData> beH() {
-        return this.fdU;
     }
 
     public void ju(boolean z) {
         this.isLast = z;
     }
 
-    public boolean beI() {
+    public boolean beH() {
         return this.isLast;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fdR;
+        return fdQ;
     }
 }

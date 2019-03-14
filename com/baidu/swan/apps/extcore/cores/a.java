@@ -2,26 +2,25 @@ package com.baidu.swan.apps.extcore.cores;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.baidu.swan.apps.c;
-import com.baidu.swan.apps.swancore.d.b;
+import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private static volatile a avv;
+    private static final boolean DEBUG = b.DEBUG;
+    private static volatile a avw;
 
     public static a Bo() {
-        if (avv == null) {
+        if (avw == null) {
             synchronized (a.class) {
-                if (avv == null) {
-                    avv = new a();
+                if (avw == null) {
+                    avw = new a();
                 }
             }
         }
-        return avv;
+        return avw;
     }
 
     public void a(@Nullable final com.baidu.swan.apps.extcore.c.a aVar, int i) {
-        b.KW().a(new com.baidu.swan.apps.swancore.a.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1
+        com.baidu.swan.apps.swancore.d.b.KW().a(new com.baidu.swan.apps.swancore.a.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1
             @Override // com.baidu.swan.apps.swancore.a.a
             public void uL() {
                 com.baidu.swan.apps.extcore.a.Bj().a(new com.baidu.swan.apps.extcore.c.a() { // from class: com.baidu.swan.apps.extcore.cores.a.1.1
@@ -37,8 +36,8 @@ public class a {
     }
 
     public void Bp() {
-        b.KW().a((com.baidu.swan.apps.swancore.a.a) null, 0);
-        b.KW().a((com.baidu.swan.apps.swancore.a.a) null, 1);
+        com.baidu.swan.apps.swancore.d.b.KW().a((com.baidu.swan.apps.swancore.a.a) null, 0);
+        com.baidu.swan.apps.swancore.d.b.KW().a((com.baidu.swan.apps.swancore.a.a) null, 1);
         com.baidu.swan.apps.extcore.a.Bj().a((com.baidu.swan.apps.extcore.c.a) null);
     }
 

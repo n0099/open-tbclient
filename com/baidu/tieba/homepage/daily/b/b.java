@@ -8,11 +8,11 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes4.dex */
 public class b {
-    private List<a> fIe;
+    private List<a> fId;
     private List<m> mDataList = new ArrayList();
 
-    public List<a> blF() {
-        return this.fIe;
+    public List<a> blE() {
+        return this.fId;
     }
 
     public List<m> getDataList() {
@@ -20,10 +20,10 @@ public class b {
     }
 
     public List<a> cv(List<GodBanner> list) {
-        if (this.fIe == null) {
-            this.fIe = new ArrayList();
+        if (this.fId == null) {
+            this.fId = new ArrayList();
         }
-        this.fIe.clear();
+        this.fId.clear();
         if (v.T(list)) {
             return null;
         }
@@ -31,18 +31,18 @@ public class b {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
                 aVar.lf(godBanner.pic_url);
-                aVar.wf(godBanner.link_url);
+                aVar.wd(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.fIe.add(aVar);
-                if (v.S(this.fIe) == 5) {
+                this.fId.add(aVar);
+                if (v.S(this.fId) == 5) {
                     break;
                 }
             }
         }
-        return this.fIe;
+        return this.fId;
     }
 
-    public boolean aoJ() {
-        return v.T(this.fIe) && v.T(this.mDataList);
+    public boolean aoI() {
+        return v.T(this.fId) && v.T(this.mDataList);
     }
 }

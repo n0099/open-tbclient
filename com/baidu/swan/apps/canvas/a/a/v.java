@@ -14,7 +14,7 @@ public class v extends a {
             bVar.save();
             canvas.save();
         } catch (CloneNotSupportedException e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

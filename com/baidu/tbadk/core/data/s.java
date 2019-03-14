@@ -5,18 +5,18 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class s implements com.baidu.tbadk.core.flow.a.a {
-    private String byg;
-    private String byh;
     private String byi;
     private String byj;
-    private boolean byk;
+    private String byk;
+    private String byl;
+    private boolean bym;
     private String mTitle;
     private String tagNameUrl;
     private float tagRatio;
 
     public s(String str, String str2, String str3) {
-        this.byg = str;
-        this.byh = str2;
+        this.byi = str;
+        this.byj = str2;
         this.mTitle = str3;
     }
 
@@ -25,28 +25,28 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.byg;
+        return this.byi;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String Xi() {
-        return this.byh;
+        return this.byj;
     }
 
     public String getImageUrl() {
-        return this.byg;
+        return this.byi;
     }
 
     public void setImageUrl(String str) {
-        this.byg = str;
+        this.byi = str;
     }
 
     public String getLinkUrl() {
-        return this.byh;
+        return this.byj;
     }
 
     public void setLinkUrl(String str) {
-        this.byh = str;
+        this.byj = str;
     }
 
     public String Xj() {
@@ -61,11 +61,11 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
     /* renamed from: Xl */
     public s clone() {
         s sVar = new s();
-        sVar.byg = this.byg;
-        sVar.byh = this.byh;
-        sVar.mTitle = this.mTitle;
         sVar.byi = this.byi;
         sVar.byj = this.byj;
+        sVar.mTitle = this.mTitle;
+        sVar.byk = this.byk;
+        sVar.byl = this.byl;
         sVar.tagNameUrl = this.tagNameUrl;
         sVar.tagRatio = this.tagRatio;
         return sVar;
@@ -73,8 +73,8 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
 
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.byg = headImgs.img_url;
-            this.byh = headImgs.pc_url;
+            this.byi = headImgs.img_url;
+            this.byj = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -93,19 +93,19 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.byi = headImgs.subtitle.trim();
+                this.byk = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.byj = headImgs.btn_text.trim();
+                this.byl = headImgs.btn_text.trim();
             }
         }
     }
 
     public boolean Xm() {
-        return this.byk;
+        return this.bym;
     }
 
     public void di(boolean z) {
-        this.byk = z;
+        this.bym = z;
     }
 }

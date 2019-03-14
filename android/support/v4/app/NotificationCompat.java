@@ -836,8 +836,8 @@ public class NotificationCompat {
         }
 
         protected static CharSequence limitCharSequenceLength(CharSequence charSequence) {
-            if (charSequence != null && charSequence.length() > MAX_CHARSEQUENCE_LENGTH) {
-                return charSequence.subSequence(0, MAX_CHARSEQUENCE_LENGTH);
+            if (charSequence != null && charSequence.length() > 5120) {
+                return charSequence.subSequence(0, 5120);
             }
             return charSequence;
         }
@@ -1442,7 +1442,7 @@ public class NotificationCompat {
             private Bundle toBundle() {
                 Bundle bundle = new Bundle();
                 if (this.mText != null) {
-                    bundle.putCharSequence(KEY_TEXT, this.mText);
+                    bundle.putCharSequence("text", this.mText);
                 }
                 bundle.putLong("time", this.mTimestamp);
                 if (this.mSender != null) {
@@ -1488,8 +1488,8 @@ public class NotificationCompat {
 
             static Message getMessageFromBundle(Bundle bundle) {
                 try {
-                    if (bundle.containsKey(KEY_TEXT) && bundle.containsKey("time")) {
-                        Message message = new Message(bundle.getCharSequence(KEY_TEXT), bundle.getLong("time"), bundle.getCharSequence("sender"));
+                    if (bundle.containsKey("text") && bundle.containsKey("time")) {
+                        Message message = new Message(bundle.getCharSequence("text"), bundle.getLong("time"), bundle.getCharSequence("sender"));
                         if (bundle.containsKey("type") && bundle.containsKey(KEY_DATA_URI)) {
                             message.setData(bundle.getString("type"), (Uri) bundle.getParcelable(KEY_DATA_URI));
                         }

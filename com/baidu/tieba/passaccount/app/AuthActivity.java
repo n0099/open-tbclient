@@ -2,7 +2,6 @@ package com.baidu.tieba.passaccount.app;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -38,7 +37,7 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.bHa();
+            PassManagerStatic.bGZ();
             init();
             setupViews();
         } catch (Throwable th) {
@@ -77,7 +76,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    private String bGL() {
+    private String bGK() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", HTTP.UTF_8)));
@@ -92,13 +91,13 @@ public class AuthActivity extends BaseActivity {
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap(SapiUtils.getDefaultHttpsEnabled()) + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String bGM() {
+    private String bGL() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
-            arrayList.add(new PassNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
+            arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
             arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, HTTP.UTF_8)));
             arrayList.add(new PassNameValuePair("client", "android"));
             arrayList.add(new PassNameValuePair("clientfrom", "native"));
@@ -112,7 +111,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> bGN() {
+    private List<PassNameValuePair> bGM() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -145,11 +144,11 @@ public class AuthActivity extends BaseActivity {
                     AuthActivity.this.p(true, str);
                 }
             });
-            this.sapiWebView.loadUrl(bGL());
+            this.sapiWebView.loadUrl(bGK());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(bGM(), bGN());
+            this.sapiWebView.loadUrl(bGL(), bGM());
             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_CHANGE_PWD, IEventCenterService.EventResult.PHASE.START);
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
@@ -202,13 +201,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(boolean z, String str) {
         if (this.type == 0) {
-            b.bHf().r(z, str);
+            b.bHe().r(z, str);
         } else if (this.type == 1) {
-            b.bHf().mO(z);
+            b.bHe().mO(z);
         } else if (this.type == 2) {
-            b.bHf().mP(z);
+            b.bHe().mP(z);
         } else {
-            b.bHf().a((AuthVerifyData.c) null);
+            b.bHe().a((AuthVerifyData.c) null);
         }
         finish();
     }

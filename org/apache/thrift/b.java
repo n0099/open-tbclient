@@ -1,6 +1,5 @@
 package org.apache.thrift;
 
-import android.support.v4.app.FrameMetricsAggregator;
 import java.nio.ByteBuffer;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -161,7 +160,7 @@ public final class b {
     }
 
     public static String a(byte b) {
-        return Integer.toHexString((b | 256) & FrameMetricsAggregator.EVERY_DURATION).toUpperCase().substring(1);
+        return Integer.toHexString((b | 256) & 511).toUpperCase().substring(1);
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {

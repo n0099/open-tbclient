@@ -13,11 +13,11 @@ public class PersonPrivateData extends OrmObject {
     private int chn = 1;
     private int cho = 1;
 
-    public int als() {
+    public int alr() {
         return this.chk;
     }
 
-    public int alt() {
+    public int als() {
         return this.cho;
     }
 

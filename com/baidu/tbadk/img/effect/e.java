@@ -32,7 +32,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.anq().jM(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.anp().jM(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.cnr == 0 || this.cnr == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.cnr);
         }

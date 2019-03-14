@@ -24,15 +24,15 @@ public class b extends k {
         }
     }
 
-    public void aWQ() {
+    public void aWP() {
         if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).aWQ();
+            ((EditorInfoContainer) this.ciu).aWP();
         }
     }
 
-    public void cps() {
+    public void cpv() {
         if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).cps();
+            ((EditorInfoContainer) this.ciu).cpv();
         }
     }
 }

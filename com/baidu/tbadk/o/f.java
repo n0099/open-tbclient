@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class f extends g {
     public long Cw;
-    public long Oh;
+    public long Oi;
     public long cqe;
     public long cqf;
     public long cqg;
@@ -23,13 +23,13 @@ public class f extends g {
         }
     };
 
-    public void apd() {
+    public void apc() {
         this.cqk.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ape() {
-        j jVar = (j) m.apl().ka(this.mSubType);
+    public void apd() {
+        j jVar = (j) m.apk().ka(this.mSubType);
         if (jVar != null) {
             jVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.cqi = m.apl().apo();
-            f.this.ape();
+            f.this.cqi = m.apk().apn();
+            f.this.apd();
             return Boolean.TRUE;
         }
 

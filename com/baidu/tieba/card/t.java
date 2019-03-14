@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    private static t ejW;
-    private List<am> cMr;
+    private static t ejS;
+    private List<am> cMo;
 
-    public static t aQG() {
-        if (ejW == null) {
+    public static t aQF() {
+        if (ejS == null) {
             synchronized (t.class) {
-                if (ejW == null) {
-                    ejW = new t();
+                if (ejS == null) {
+                    ejS = new t();
                 }
             }
         }
-        return ejW;
+        return ejS;
     }
 
     public void b(am amVar) {
         if (amVar != null) {
-            if (this.cMr == null) {
-                this.cMr = new ArrayList();
+            if (this.cMo == null) {
+                this.cMo = new ArrayList();
             }
-            this.cMr.add(amVar);
+            this.cMo.add(amVar);
         }
     }
 
     public void go(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.S(this.cMr) != 0) {
+        if (com.baidu.tbadk.core.util.v.S(this.cMo) != 0) {
             int i2 = -1;
-            for (am amVar : this.cMr) {
+            for (am amVar : this.cMo) {
                 if (amVar != null) {
                     if (amVar.getPosition() == 0) {
                         amVar.T("obj_param2", z ? 1 : 0);
@@ -50,30 +50,30 @@ public class t {
                     i2 = i;
                 }
             }
-            this.cMr.clear();
+            this.cMo.clear();
         }
     }
 
     public void hQ(boolean z) {
-        if (com.baidu.tbadk.core.util.v.S(this.cMr) != 0) {
-            for (am amVar : this.cMr) {
+        if (com.baidu.tbadk.core.util.v.S(this.cMo) != 0) {
+            for (am amVar : this.cMo) {
                 if (amVar != null) {
                     amVar.T("obj_type", z ? 1 : 0);
                     TiebaStatic.log(amVar);
                 }
             }
-            this.cMr.clear();
+            this.cMo.clear();
         }
     }
 
-    public void aAp() {
-        if (com.baidu.tbadk.core.util.v.S(this.cMr) != 0) {
-            for (am amVar : this.cMr) {
+    public void aAo() {
+        if (com.baidu.tbadk.core.util.v.S(this.cMo) != 0) {
+            for (am amVar : this.cMo) {
                 if (amVar != null) {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.cMr.clear();
+            this.cMo.clear();
         }
     }
 }

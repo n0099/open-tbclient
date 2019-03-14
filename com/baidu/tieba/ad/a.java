@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.recapp.h;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,17 +16,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern bLz = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a cNl = new a();
+    private static final Pattern bLA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a cNi = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> bLx = new ConcurrentHashMap<>();
-    private h.c cNm = null;
+    private final ConcurrentHashMap<String, h.b> bLy = new ConcurrentHashMap<>();
+    private h.c cNj = null;
 
     private a() {
     }
 
-    public static a awF() {
-        return cNl;
+    public static a awE() {
+        return cNi;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +50,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.cNm = cVar;
+        this.cNj = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,9 +77,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.bLx.get(mR(str2));
+        h.b bVar = this.bLy.get(mR(str2));
         if (bVar != null) {
-            bVar.k(context, mQ(qQ(str2)));
+            bVar.k(context, mQ(qO(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +94,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.cNm != null) {
+        if (!z3 && this.cNj != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,9 +105,9 @@ public final class a implements h {
         return z4;
     }
 
-    private String qQ(String str) {
+    private String qO(String str) {
         int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
+        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 0) {
             return str.substring(lastIndexOf + 1);
         }
         return null;
@@ -135,8 +136,8 @@ public final class a implements h {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        if (str.contains(":")) {
-            return str.substring(0, str.lastIndexOf(":"));
+        if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
+            return str.substring(0, str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT));
         }
         return str;
     }
@@ -152,13 +153,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (bLz.matcher(str2).find()) {
-            this.cNm.b(context, str, str2, z, dVar, z2);
+        if (bLA.matcher(str2).find()) {
+            this.cNj.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean qR(String str) {
-        return bLz.matcher(str).find();
+    public boolean qP(String str) {
+        return bLA.matcher(str).find();
     }
 }

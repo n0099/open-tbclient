@@ -32,6 +32,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
 import com.baidu.pass.gid.utils.GIDEvent;
@@ -227,7 +228,7 @@ public class SapiUtils {
         } else if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
             str = Build.getSerial();
         }
-        return "000000000000000".equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
+        return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
     }
 
     public static String getLocalIpAddress() {
@@ -495,7 +496,7 @@ public class SapiUtils {
                 }
                 String bssid = connectionInfo.getBSSID();
                 if (bssid != null) {
-                    str2 = bssid.replace(":", "");
+                    str2 = bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
                     i = abs;
                     str3 = ssid;
                 } else {
@@ -514,7 +515,7 @@ public class SapiUtils {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
                     int abs2 = StrictMath.abs(scanResult.level);
-                    String replace = str4 != null ? str4.replace(":", "") : "";
+                    String replace = str4 != null ? str4.replace(Config.TRACE_TODAY_VISIT_SPLIT, "") : "";
                     if (!replace.equals(str2) && abs2 != 0) {
                         if (i2 >= 10) {
                             break;
@@ -774,7 +775,7 @@ public class SapiUtils {
     }
 
     public static boolean isQrLoginSchema(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains(KEY_QR_LOGIN_SIGN) && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
             HashMap hashMap = new HashMap();
             for (String str2 : str.split("&")) {
                 String[] split = str2.split("=");
@@ -784,7 +785,7 @@ public class SapiUtils {
                     hashMap.put(split[0], "");
                 }
             }
-            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_SIGN)) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
         }
         return false;
     }
@@ -809,7 +810,7 @@ public class SapiUtils {
         HashMap hashMap = new HashMap();
         if (isQrLoginSchema(str)) {
             Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            if (QR_LOGIN_LP_PC.equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+            if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
                 HashMap hashMap2 = new HashMap();
                 if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
                     hashMap2.put("islogin", "0");
@@ -905,13 +906,13 @@ public class SapiUtils {
                 case 10003:
                     event = GIDEvent.BUSINESS_ACCOUNT_REG;
                     break;
-                case SapiGIDEvent.BUSINESS_GET_GID /* 10004 */:
+                case 10004:
                     event = GIDEvent.BUSINESS_GET_GID;
                     break;
-                case SapiGIDEvent.BUSINESS_LOGOUT /* 10005 */:
+                case 10005:
                     event = GIDEvent.BUSINESS_LOGOUT;
                     break;
-                case SapiGIDEvent.SYSTEM_SCREEN_ON /* 10006 */:
+                case 10006:
                     event = GIDEvent.SYSTEM_SCREEN_ON;
                     break;
                 case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE /* 11001 */:

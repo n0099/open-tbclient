@@ -72,7 +72,7 @@ public class EditorBar extends RawLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alU() {
+    public void alT() {
         RawLayout.a aVar;
         if (!v.T(this.cii) || this.cio == 4) {
             eG(true);
@@ -198,8 +198,8 @@ public class EditorBar extends RawLayout {
                         break;
                 }
                 if (((l) view).getToolId() == 8) {
-                    al.k(this, d.C0236d.common_color_10055);
-                    view.setBackgroundColor(getResources().getColor(d.C0236d.white_alpha0));
+                    al.k(this, d.C0277d.common_color_10055);
+                    view.setBackgroundColor(getResources().getColor(d.C0277d.white_alpha0));
                 }
                 addView(view, aVar);
             }
@@ -213,7 +213,7 @@ public class EditorBar extends RawLayout {
             this.cik = new Paint();
             this.cik.setStyle(Paint.Style.FILL);
         }
-        this.cik.setColor(al.getColor(this.mSkinType, d.C0236d.cp_bg_line_c));
+        this.cik.setColor(al.getColor(this.mSkinType, d.C0277d.cp_bg_line_c));
         if (this.cis) {
             if (this.cir) {
                 canvas.drawRect(0.0f, this.cjg[0] - this.cin, getMeasuredWidth(), this.cjg[0], this.cik);
@@ -301,7 +301,7 @@ public class EditorBar extends RawLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void jr(int i) {
-        if (i == 2 && alV() && this.cip != null) {
+        if (i == 2 && alU() && this.cip != null) {
             this.cip.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
@@ -361,7 +361,7 @@ public class EditorBar extends RawLayout {
         return null;
     }
 
-    private boolean alV() {
+    private boolean alU() {
         for (a aVar : this.cij) {
             if (aVar.position == 5 && aVar.ciu != null && (aVar.ciu instanceof View) && ((View) aVar.ciu).getVisibility() == 0) {
                 return true;

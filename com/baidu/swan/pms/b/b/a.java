@@ -13,23 +13,23 @@ public class a extends d<com.baidu.swan.pms.b.c.a> {
         com.baidu.swan.pms.b.c.a aA = com.baidu.swan.pms.d.d.aA(cVar.RL());
         if (aA == null) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2102, "response data empty");
-            this.bme.a(bVar);
+            this.bmf.a(bVar);
             return bVar;
         } else if (!a(aA)) {
             com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RL().toString());
-            this.bme.a(bVar2);
+            this.bmf.a(bVar2);
             return bVar2;
         } else {
-            this.bme.zC();
-            com.baidu.swan.pms.c.a.V(aA.aug);
+            this.bmf.zC();
+            com.baidu.swan.pms.c.a.V(aA.auh);
             com.baidu.swan.pms.d.e eVar = new com.baidu.swan.pms.d.e();
-            a(aA.bmK, eVar);
             a(aA.bmL, eVar);
+            a(aA.bmM, eVar);
             if (eVar.Sq() == 0) {
-                this.bme.zz();
+                this.bmf.zz();
             } else {
-                this.bme.a(eVar);
-                com.baidu.swan.pms.b.a.a.a(aA, this.bme);
+                this.bmf.a(eVar);
+                com.baidu.swan.pms.b.a.a.a(aA, this.bmf);
             }
             return null;
         }
@@ -39,8 +39,8 @@ public class a extends d<com.baidu.swan.pms.b.c.a> {
         if (aVar == null) {
             return false;
         }
-        if (aVar.bmK == null || aVar.bmK.RK()) {
-            return aVar.bmL == null || aVar.bmL.RK();
+        if (aVar.bmL == null || aVar.bmL.RK()) {
+            return aVar.bmM == null || aVar.bmM.RK();
         }
         return false;
     }

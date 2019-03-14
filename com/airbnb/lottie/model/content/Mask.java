@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.h;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Mask {
@@ -32,7 +32,7 @@ public class Mask {
             char c = 65535;
             switch (optString.hashCode()) {
                 case 97:
-                    if (optString.equals("a")) {
+                    if (optString.equals(Config.APP_VERSION_CODE)) {
                         c = 0;
                         break;
                     }
@@ -44,7 +44,7 @@ public class Mask {
                     }
                     break;
                 case 115:
-                    if (optString.equals(NotifyType.SOUND)) {
+                    if (optString.equals("s")) {
                         c = 1;
                         break;
                     }
@@ -64,7 +64,7 @@ public class Mask {
                     maskMode = MaskMode.MaskModeUnknown;
                     break;
             }
-            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject("pt"), eVar), d.a.g(jSONObject.optJSONObject("o"), eVar));
+            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar), d.a.g(jSONObject.optJSONObject(Config.OS), eVar));
         }
     }
 

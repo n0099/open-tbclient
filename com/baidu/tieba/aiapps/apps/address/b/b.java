@@ -9,11 +9,11 @@ public interface b {
 
     void ao(String str, int i);
 
-    void aym();
+    void ayl();
 
     void g(List<com.baidu.tieba.aiapps.apps.address.c.b> list, int i);
 
     void onFailure();
 
-    void rr(String str);
+    void rp(String str);
 }

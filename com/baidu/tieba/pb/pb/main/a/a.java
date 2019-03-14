@@ -15,63 +15,63 @@ import com.baidu.tieba.pb.pb.main.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class a extends k<i, C0284a> {
-    private View.OnClickListener bRv;
-    private b hyR;
-    private final LinkedList<C0284a> hyS;
+public class a extends k<i, C0357a> {
+    private View.OnClickListener bRw;
+    private b hyL;
+    private final LinkedList<C0357a> hyM;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.hyS = new LinkedList<>();
-        this.hyR = new b(this.hpd);
+        this.hyM = new LinkedList<>();
+        this.hyL = new b(this.hoW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bD */
-    public C0284a onCreateViewHolder(ViewGroup viewGroup) {
-        C0284a c0284a = new C0284a(LayoutInflater.from(this.mContext).inflate(d.h.layout_pb_thread_praise_item, viewGroup, false));
-        this.hyS.add(c0284a);
-        return c0284a;
+    public C0357a onCreateViewHolder(ViewGroup viewGroup) {
+        C0357a c0357a = new C0357a(LayoutInflater.from(this.mContext).inflate(d.h.layout_pb_thread_praise_item, viewGroup, false));
+        this.hyM.add(c0357a);
+        return c0357a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0284a c0284a) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, c0284a);
-        if (iVar != null && c0284a != null) {
-            c0284a.hyT.setOnClickOutListener(this.bRv);
-            c0284a.hyT.setPostId(getPostId());
-            c0284a.hyT.setForumId(getForumId());
-            c0284a.a(iVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0357a c0357a) {
+        super.onFillViewHolder(i, view, viewGroup, iVar, c0357a);
+        if (iVar != null && c0357a != null) {
+            c0357a.hyN.setOnClickOutListener(this.bRw);
+            c0357a.hyN.setPostId(getPostId());
+            c0357a.hyN.setForumId(getForumId());
+            c0357a.a(iVar);
         }
         return view;
     }
 
     public void onDestroy() {
         bNE();
-        if (this.hyR != null) {
-            this.hyR.onDestroy();
+        if (this.hyL != null) {
+            this.hyL.onDestroy();
         }
     }
 
     private void bNE() {
-        Iterator<C0284a> it = this.hyS.iterator();
+        Iterator<C0357a> it = this.hyM.iterator();
         while (it.hasNext()) {
-            C0284a next = it.next();
-            if (next != null && next.hyT != null) {
-                next.hyT.onDestroy();
+            C0357a next = it.next();
+            if (next != null && next.hyN != null) {
+                next.hyN.onDestroy();
             }
         }
     }
 
     public void nr(String str) {
-        Iterator<C0284a> it = this.hyS.iterator();
+        Iterator<C0357a> it = this.hyM.iterator();
         while (it.hasNext()) {
-            C0284a next = it.next();
-            if (next != null && next.hyT != null) {
-                next.hyT.nr(str);
+            C0357a next = it.next();
+            if (next != null && next.hyN != null) {
+                next.hyN.nr(str);
             }
         }
     }
@@ -82,53 +82,53 @@ public class a extends k<i, C0284a> {
     }
 
     private String getForumId() {
-        return this.hpd.bJb() != null ? this.hpd.bJb().getForumId() : "";
+        return this.hoW.bJa() != null ? this.hoW.bJa().getForumId() : "";
     }
 
     private bg bNF() {
-        if (this.hpd.bJb() == null || this.hpd.bJb().getPbData() == null) {
+        if (this.hoW.bJa() == null || this.hoW.bJa().getPbData() == null) {
             return null;
         }
-        return this.hpd.bJb().getPbData().bIa();
+        return this.hoW.bJa().getPbData().bHZ();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bRv = onClickListener;
+        this.bRw = onClickListener;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0284a extends v.a {
-        public PbThreadCommentAndPraiseInfoLayout hyT;
-        public View hyU;
+    public static class C0357a extends v.a {
+        public PbThreadCommentAndPraiseInfoLayout hyN;
+        public View hyO;
 
-        public C0284a(View view) {
+        public C0357a(View view) {
             super(view);
             if (view != null) {
-                this.hyT = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_bottom_func_layout);
+                this.hyN = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(d.g.card_bottom_func_layout);
                 com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-                dVar.bxh = 4;
-                dVar.bxm = 7;
-                this.hyT.setAgreeStatisticData(dVar);
-                this.hyU = view.findViewById(d.g.bottom_divider_line);
-                this.hyU.setVisibility(0);
+                dVar.bxj = 4;
+                dVar.bxo = 7;
+                this.hyN.setAgreeStatisticData(dVar);
+                this.hyO = view.findViewById(d.g.bottom_divider_line);
+                this.hyO.setVisibility(0);
             }
         }
 
         public void a(i iVar) {
-            if (iVar != null && iVar.bTk != null) {
-                if (iVar.bTk.aaH() != null) {
-                    iVar.bTk.aaH().postId = iVar.bTk.Zh();
+            if (iVar != null && iVar.bTl != null) {
+                if (iVar.bTl.aaH() != null) {
+                    iVar.bTl.aaH().postId = iVar.bTl.Zh();
                 }
-                this.hyT.setData(iVar.bTk);
-                this.hyU.setVisibility(iVar.bIC() ? 0 : 8);
+                this.hyN.setData(iVar.bTl);
+                this.hyO.setVisibility(iVar.bIB() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            al.l(this.hyU, d.C0236d.cp_bg_line_e);
-            this.hyT.onChangeSkinType();
+            al.l(this.hyO, d.C0277d.cp_bg_line_e);
+            this.hyN.onChangeSkinType();
         }
     }
 }

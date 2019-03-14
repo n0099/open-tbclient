@@ -38,8 +38,13 @@ public final class au {
             if (aVar.WU() != null) {
                 createFromThreadCfg.addLocateParam(aVar.WU());
             }
+            if (i == 3 || i == 15) {
+                createFromThreadCfg.setVideo_source("frs");
+            } else if (i == 2) {
+                createFromThreadCfg.setVideo_source("index");
+            }
             createFromThreadCfg.setJumpGodReply(z);
-            com.baidu.tieba.card.n.tC(WR.getTid());
+            com.baidu.tieba.card.n.tA(WR.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
@@ -107,7 +112,7 @@ public final class au {
             textView.setVisibility(0);
             textView.setOnTouchListener(new com.baidu.tieba.view.k(Ys));
             textView.setText(Ys);
-            com.baidu.tieba.card.n.a(textView, bgVar.getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
+            com.baidu.tieba.card.n.a(textView, bgVar.getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
         }
     }
 
@@ -170,7 +175,7 @@ public final class au {
             } else {
                 textView.setVisibility(8);
             }
-            com.baidu.tieba.card.n.a(textView, bgVar.getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
+            com.baidu.tieba.card.n.a(textView, bgVar.getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
             return;
         }
         textView.setVisibility(8);

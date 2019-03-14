@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 /* loaded from: classes2.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.apps.res.widget.loadingview.b<BdShimmerView> {
-    private ImageView aFS;
+    private ImageView aFT;
     private int mType;
 
     public BdShimmerView(Context context) {
@@ -25,9 +25,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     }
 
     protected void init(Context context) {
-        this.aFS = new ImageView(context);
-        this.aFS.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        addView(this.aFS);
+        this.aFT = new ImageView(context);
+        this.aFT.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        addView(this.aFT);
     }
 
     public void setType(int i) {
@@ -38,7 +38,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     private void GS() {
         switch (this.mType) {
             case 0:
-                this.aFS.setImageDrawable(getResources().getDrawable(b.e.aiapps_black_shimmer_loading));
+                this.aFT.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
                 ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
                 if (com.baidu.swan.apps.u.a.CT().Ds()) {
                     maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
@@ -46,7 +46,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
                 setMaskShape(maskShape);
                 return;
             case 1:
-                this.aFS.setImageDrawable(getResources().getDrawable(b.e.aiapps_white_shimmer_loading));
+                this.aFT.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
                 setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
                 return;
             default:

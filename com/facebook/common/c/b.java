@@ -1,16 +1,17 @@
 package com.facebook.common.c;
 
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b jAb = new b();
-    private String jAc = "unknown";
-    private int jAd = 5;
+    public static final b jzT = new b();
+    private String jzU = "unknown";
+    private int jzV = 5;
 
-    public static b ctK() {
-        return jAb;
+    public static b ctN() {
+        return jzT;
     }
 
     private b() {
@@ -18,7 +19,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.jAd <= i;
+        return this.jzV <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -57,7 +58,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void el(String str, String str2) {
+    public void ek(String str, String str2) {
         n(6, str, str2);
     }
 
@@ -67,16 +68,16 @@ public class b implements c {
     }
 
     private void n(int i, String str, String str2) {
-        Log.println(i, FA(str), str2);
+        Log.println(i, Fy(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, FA(str), h(str2, th));
+        Log.println(i, Fy(str), h(str2, th));
     }
 
-    private String FA(String str) {
-        if (this.jAc != null) {
-            return this.jAc + ":" + str;
+    private String Fy(String str) {
+        if (this.jzU != null) {
+            return this.jzU + Config.TRACE_TODAY_VISIT_SPLIT + str;
         }
         return str;
     }

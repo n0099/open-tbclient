@@ -14,7 +14,7 @@ import rx.j;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class c {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(boolean z, String str, @NonNull final a aVar) {
         if (TextUtils.isEmpty(str)) {

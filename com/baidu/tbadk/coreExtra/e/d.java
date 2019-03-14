@@ -45,10 +45,10 @@ public class d {
         this.cge.sendEmptyMessageDelayed(0, 50000L);
         this.cgg = new a();
         this.cgg.setSelfExecute(true);
-        this.cgg.execute(akX() + str);
+        this.cgg.execute(akW() + str);
     }
 
-    private String akX() {
+    private String akW() {
         switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";

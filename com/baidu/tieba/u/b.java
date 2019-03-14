@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String cQv = File.separator;
-    private a jhh;
+    public static final String cQs = File.separator;
+    private a jgZ;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.jhh = aVar;
+        this.jgZ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
             return "";
         }
         new File(this.mPath).mkdirs();
-        String str = this.mPath + cQv + "videosplash.temp";
+        String str = this.mPath + cQs + "videosplash.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.jr().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cmP();
+            return cmS();
         }
         return "";
     }
@@ -49,18 +49,18 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.jhh != null) {
+        if (this.jgZ != null) {
             if (!ap.isEmpty(str)) {
-                this.jhh.b(true, str, this.mUrl);
+                this.jgZ.b(true, str, this.mUrl);
             } else {
-                this.jhh.b(false, null, null);
+                this.jgZ.b(false, null, null);
             }
         }
     }
 
-    private String cmP() {
-        File file = new File(this.mPath + cQv + "videosplash.temp");
-        File file2 = new File(this.mPath + cQv + (s.bC(this.mUrl) + ".mp4"));
+    private String cmS() {
+        File file = new File(this.mPath + cQs + "videosplash.temp");
+        File file2 = new File(this.mPath + cQs + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }

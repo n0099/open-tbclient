@@ -1,0 +1,39 @@
+package com.baidu.tieba.myCollection.baseHistory;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.HistoryMessage;
+/* loaded from: classes6.dex */
+public class Static {
+    static {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2001278) { // from class: com.baidu.tieba.myCollection.baseHistory.Static.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage instanceof HistoryMessage) {
+                    HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
+                    if (historyMessage.Activity != null) {
+                        PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
+                        a aVar = new a();
+                        aVar.setThreadId(historyMessage.threadId);
+                        aVar.setForumName(historyMessage.forumName);
+                        aVar.zl(historyMessage.threadName);
+                        aVar.zm(historyMessage.postID);
+                        aVar.mG(historyMessage.isHostOnly);
+                        aVar.mH(historyMessage.isSquence);
+                        aVar.setThreadType(historyMessage.threadType);
+                        aVar.setCartoonId(historyMessage.cartoonId);
+                        aVar.setChapterId(historyMessage.chapterId);
+                        aVar.setIsShareThread(historyMessage.isShareThread);
+                        aVar.setManga(historyMessage.isManga);
+                        aVar.zn(historyMessage.liveId);
+                        aVar.setUserName(historyMessage.userName);
+                        aVar.setDescription(historyMessage.description);
+                        pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);
+                    }
+                }
+            }
+        });
+    }
+}

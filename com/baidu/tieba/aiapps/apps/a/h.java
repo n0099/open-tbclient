@@ -15,9 +15,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class h implements com.baidu.swan.apps.u.b.c {
-    private static String cRp = " swan/1.6";
-    private final List<com.baidu.swan.apps.a.c> cRq = new LinkedList();
-    private String cRr = null;
+    private static String cRl = " swan/1.6";
+    private final List<com.baidu.swan.apps.a.c> cRm = new LinkedList();
+    private String cRn = null;
 
     public h() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.aiapps.apps.a.h.1
@@ -25,8 +25,8 @@ public class h implements com.baidu.swan.apps.u.b.c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 boolean isNULL = StringUtils.isNULL(h.this.bl(TbadkCoreApplication.getInst()));
-                synchronized (h.this.cRq) {
-                    for (com.baidu.swan.apps.a.c cVar : h.this.cRq) {
+                synchronized (h.this.cRm) {
+                    for (com.baidu.swan.apps.a.c cVar : h.this.cRm) {
                         cVar.aL(isNULL);
                     }
                 }
@@ -35,7 +35,7 @@ public class h implements com.baidu.swan.apps.u.b.c {
     }
 
     public String bl(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dF(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dE(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
@@ -49,12 +49,12 @@ public class h implements com.baidu.swan.apps.u.b.c {
 
     @Override // com.baidu.swan.apps.u.b.c
     public boolean bH(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bk(context) : a.dG(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bk(context) : a.dF(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
     public String bI(Context context) {
-        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dF(context);
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dE(context);
     }
 
     @Override // com.baidu.swan.apps.u.b.c
@@ -65,9 +65,9 @@ public class h implements com.baidu.swan.apps.u.b.c {
     @Override // com.baidu.swan.apps.u.b.c
     public void a(com.baidu.swan.apps.a.c cVar) {
         if (cVar != null) {
-            synchronized (this.cRq) {
-                if (!this.cRq.contains(cVar)) {
-                    this.cRq.add(cVar);
+            synchronized (this.cRm) {
+                if (!this.cRm.contains(cVar)) {
+                    this.cRm.add(cVar);
                 }
             }
         }

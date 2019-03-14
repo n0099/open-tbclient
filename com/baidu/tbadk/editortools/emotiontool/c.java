@@ -8,9 +8,9 @@ public abstract class c {
     private int cols;
     private int rows;
 
-    public abstract boolean ami();
+    public abstract boolean amh();
 
-    public abstract EmotionGroupType amj();
+    public abstract EmotionGroupType ami();
 
     public abstract int getEmotionsCount();
 
@@ -30,7 +30,7 @@ public abstract class c {
 
     public abstract com.baidu.adp.widget.ImageView.a oL(String str);
 
-    public com.baidu.adp.widget.ImageView.a amk() {
+    public com.baidu.adp.widget.ImageView.a amj() {
         return this.cjs;
     }
 
@@ -41,7 +41,7 @@ public abstract class c {
         this.cjs = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a aml() {
+    public com.baidu.adp.widget.ImageView.a amk() {
         return this.cjt;
     }
 
@@ -52,7 +52,7 @@ public abstract class c {
         this.cjt = aVar;
     }
 
-    public int amm() {
+    public int aml() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int amn() {
+    public int amm() {
         return this.rows;
     }
 

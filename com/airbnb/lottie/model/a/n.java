@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.a;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
@@ -36,7 +36,7 @@ public class n<T> {
 
     private List<com.airbnb.lottie.a.a<T>> ea() {
         if (this.qS != null) {
-            Object opt = this.qS.opt("k");
+            Object opt = this.qS.opt(Config.APP_KEY);
             if (j(opt)) {
                 return a.C0005a.a((JSONArray) opt, this.nj, this.scale, this.qT);
             }
@@ -51,7 +51,7 @@ public class n<T> {
             if (!list.isEmpty()) {
                 return list.get(0).oh;
             }
-            return this.qT.b(this.qS.opt("k"), this.scale);
+            return this.qT.b(this.qS.opt(Config.APP_KEY), this.scale);
         }
         return null;
     }
@@ -59,7 +59,7 @@ public class n<T> {
     private static boolean j(Object obj) {
         if (obj instanceof JSONArray) {
             Object opt = ((JSONArray) obj).opt(0);
-            return (opt instanceof JSONObject) && ((JSONObject) opt).has(Info.kBaiduTimeKey);
+            return (opt instanceof JSONObject) && ((JSONObject) opt).has("t");
         }
         return false;
     }

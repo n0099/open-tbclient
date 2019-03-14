@@ -5,27 +5,27 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bfx = new ReentrantLock();
-    private static volatile a bfy;
-    private d baL;
-    private List<c> bbv = new ArrayList(3);
+    private static final ReentrantLock bfy = new ReentrantLock();
+    private static volatile a bfz;
+    private d baM;
+    private List<c> bbw = new ArrayList(3);
 
     private a() {
     }
 
     public static a Pi() {
-        if (bfy == null) {
+        if (bfz == null) {
             synchronized (a.class) {
-                if (bfy == null) {
-                    bfy = new a();
+                if (bfz == null) {
+                    bfz = new a();
                 }
             }
         }
-        return bfy;
+        return bfz;
     }
 
     public void a(d dVar) {
-        this.baL = dVar;
+        this.baM = dVar;
         Pj();
     }
 
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.baL = null;
-        this.bbv.clear();
+        this.baM = null;
+        this.bbw.clear();
     }
 
     private void a(c cVar) {
-        bfx.lock();
+        bfy.lock();
         try {
-            if (this.baL != null) {
-                this.baL.c(cVar);
+            if (this.baM != null) {
+                this.baM.c(cVar);
             } else {
-                this.bbv.add(cVar);
+                this.bbw.add(cVar);
             }
         } finally {
-            bfx.unlock();
+            bfy.unlock();
         }
     }
 
     private void Pj() {
-        if (!this.bbv.isEmpty() && this.baL != null) {
-            bfx.lock();
+        if (!this.bbw.isEmpty() && this.baM != null) {
+            bfy.lock();
             try {
-                for (c cVar : this.bbv) {
-                    this.baL.c(cVar);
+                for (c cVar : this.bbw) {
+                    this.baM.c(cVar);
                 }
-                this.bbv.clear();
+                this.bbw.clear();
             } finally {
-                bfx.unlock();
+                bfy.unlock();
             }
         }
     }

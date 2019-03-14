@@ -17,27 +17,27 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static String ags = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
-    private static a agt;
-    private d agg;
-    private final String agu = tx();
-    private final int agv;
+    private static String agt = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
+    private static a agu;
+    private d agh;
+    private final String agv = tx();
+    private final int agw;
 
     private a(d dVar, int i) {
-        this.agg = dVar;
-        this.agv = i;
+        this.agh = dVar;
+        this.agw = i;
     }
 
     public static void a(d dVar, int i) {
-        agt = new a(dVar, i);
+        agu = new a(dVar, i);
     }
 
     public static a tw() {
-        return agt;
+        return agu;
     }
 
     private String tx() {
-        return this.agv == a.b.agk ? "https://nop.nuomi.com/nop/server/rest" : this.agv == a.b.agl ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
+        return this.agw == a.b.agl ? "https://nop.nuomi.com/nop/server/rest" : this.agw == a.b.agm ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
     }
 
     public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar) {
@@ -52,12 +52,12 @@ public class a {
         tG.put("nop_method", "nuomi.integration_cashier.launchpayment");
         tG.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         a(bundle, tG, bVar);
-        HttpSigner.a(tG, this.agv);
-        String d = d(this.agu, tG);
+        HttpSigner.a(tG, this.agw);
+        String d = d(this.agv, tG);
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "launchPayment via url " + d);
         }
-        this.agg.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
+        this.agh.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {
@@ -103,12 +103,12 @@ public class a {
         tG.put("nop_method", "nuomi.pay_platform.pay");
         tG.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         a(bundle, tG, bVar);
-        HttpSigner.a(tG, this.agv);
-        String d = d(this.agu, tG);
+        HttpSigner.a(tG, this.agw);
+        String d = d(this.agv, tG);
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "launchPayment via url " + d);
         }
-        this.agg.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
+        this.agh.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str) {
@@ -161,7 +161,7 @@ public class a {
     private void a(Bundle bundle, Map<String, String> map, b bVar) {
         String string = bundle.getString("bduss");
         if (!TextUtils.isEmpty(string)) {
-            map.put("bduss", ags);
+            map.put("bduss", agt);
             String str = bVar.get("Cookie");
             String str2 = "BDUSS=" + string;
             if (str == null) {
@@ -184,12 +184,12 @@ public class a {
         tG.put("nop_method", "nuomi.integration_cashier.gatewaylist");
         tG.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         a(bundle, tG, bVar);
-        HttpSigner.a(tG, this.agv);
-        String d = d(this.agu, tG);
+        HttpSigner.a(tG, this.agw);
+        String d = d(this.agv, tG);
         if (Log.isLoggable(TAG, 4)) {
             Log.i(TAG, "getChannelList via url " + d);
         }
-        this.agg.a(d, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
+        this.agh.a(d, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {

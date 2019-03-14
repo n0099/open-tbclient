@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    private String avR;
+    private String avS;
 
     public a(j jVar) {
         super(jVar, "/swan/getFormId");
@@ -39,8 +39,8 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         }
-        this.avR = c.optString("cb");
-        if (TextUtils.isEmpty(this.avR)) {
+        this.avS = c.optString("cb");
+        if (TextUtils.isEmpty(this.avS)) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "mCallBack is null");
             }
@@ -67,7 +67,7 @@ public class a extends y {
             com.baidu.swan.apps.u.a.Db().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
                 @Override // com.baidu.swan.apps.ad.a
                 public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.avR, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+                    callbackHandler.handleSchemeDispatchCallback(a.this.avS, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

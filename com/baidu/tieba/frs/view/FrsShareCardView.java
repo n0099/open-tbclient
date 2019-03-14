@@ -16,22 +16,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class FrsShareCardView extends LinearLayout {
-    private LinearLayout bFu;
+    private LinearLayout bFw;
     private Context context;
-    private TextView dfo;
-    private HeadImageView fAa;
+    private TextView dfk;
+    private TextView fAa;
     private TextView fAb;
-    private TextView fAc;
-    private ShareFromFrsMsgData fAd;
-    private EditText fzZ;
+    private ShareFromFrsMsgData fAc;
+    private EditText fzY;
+    private HeadImageView fzZ;
 
     public EditText getChatMsgView() {
-        return this.fzZ;
+        return this.fzY;
     }
 
     public void ag(String str, boolean z) {
-        if (this.fAa != null) {
-            this.fAa.startLoad(str, 15, false);
+        if (this.fzZ != null) {
+            this.fzZ.startLoad(str, 15, false);
         }
     }
 
@@ -48,34 +48,34 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.fAa.setPageId(bdUniqueId);
+        this.fzZ.setPageId(bdUniqueId);
     }
 
     private void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_share_card_view, this);
         setOrientation(1);
-        this.bFu = (LinearLayout) findViewById(d.g.share_content);
-        this.dfo = (TextView) findViewById(d.g.frs_card_name);
-        this.fzZ = (EditText) findViewById(d.g.chat_msg);
-        this.fAa = (HeadImageView) findViewById(d.g.frs_card_img);
-        this.fAc = (TextView) findViewById(d.g.frs_card_member_num);
-        this.fAb = (TextView) findViewById(d.g.frs_card_post_num);
-        al.d(this.dfo, d.C0236d.cp_cont_b, 1);
-        al.d(this.fzZ, d.C0236d.cp_cont_b, 2);
-        this.fzZ.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
-        this.fzZ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        bki();
+        this.bFw = (LinearLayout) findViewById(d.g.share_content);
+        this.dfk = (TextView) findViewById(d.g.frs_card_name);
+        this.fzY = (EditText) findViewById(d.g.chat_msg);
+        this.fzZ = (HeadImageView) findViewById(d.g.frs_card_img);
+        this.fAb = (TextView) findViewById(d.g.frs_card_member_num);
+        this.fAa = (TextView) findViewById(d.g.frs_card_post_num);
+        al.d(this.dfk, d.C0277d.cp_cont_b, 1);
+        al.d(this.fzY, d.C0277d.cp_cont_b, 2);
+        this.fzY.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
+        this.fzY.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        bkh();
     }
 
-    public void bki() {
-        this.bFu.setFocusable(true);
-        this.bFu.setFocusableInTouchMode(true);
-        this.bFu.requestFocus();
+    public void bkh() {
+        this.bFw.setFocusable(true);
+        this.bFw.setFocusableInTouchMode(true);
+        this.bFw.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.fzZ != null) {
-            return k.a(this.fzZ.getText(), null);
+        if (this.fzY != null) {
+            return k.a(this.fzY.getText(), null);
         }
         return null;
     }
@@ -88,16 +88,16 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.fAd = shareFromFrsMsgData;
+        this.fAc = shareFromFrsMsgData;
         GR();
     }
 
     private void GR() {
-        this.dfo.setText(mM(this.fAd.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.fAd.getImageUrl());
-        this.fAa.startLoad(this.fAd.getImageUrl(), 15, false);
-        this.fAc.setText(ap.ax(this.fAd.getMemberNum()));
-        this.fAb.setText(ap.ax(this.fAd.getPostNum()));
+        this.dfk.setText(mM(this.fAc.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.fAc.getImageUrl());
+        this.fzZ.startLoad(this.fAc.getImageUrl(), 15, false);
+        this.fAb.setText(ap.ax(this.fAc.getMemberNum()));
+        this.fAa.setText(ap.ax(this.fAc.getPostNum()));
     }
 
     private String mM(String str) {

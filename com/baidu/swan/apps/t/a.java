@@ -2,7 +2,7 @@ package com.baidu.swan.apps.t;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
 /* loaded from: classes2.dex */
 public class a {
-    public static final boolean DEBUG = c.DEBUG;
+    public static final boolean DEBUG = b.DEBUG;
 
     /* JADX WARN: Removed duplicated region for block: B:34:0x0091 A[Catch: all -> 0x00b5, TRY_LEAVE, TryCatch #5 {, blocks: (B:4:0x0004, B:6:0x000f, B:8:0x0013, B:28:0x0080, B:30:0x0085, B:32:0x0089, B:34:0x0091, B:40:0x00b9, B:46:0x00d5, B:48:0x00da, B:51:0x00e0, B:56:0x00f0, B:58:0x00f5, B:59:0x00f8, B:61:0x00fa), top: B:80:0x0004, inners: #0, #2, #8 }] */
     /* JADX WARN: Removed duplicated region for block: B:58:0x00f5 A[Catch: all -> 0x00b5, IOException -> 0x00f9, TRY_LEAVE, TryCatch #0 {IOException -> 0x00f9, blocks: (B:56:0x00f0, B:58:0x00f5), top: B:73:0x00f0, outer: #5 }] */

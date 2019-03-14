@@ -8,13 +8,13 @@ import com.baidu.poly.widget.ChannelListView;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 /* loaded from: classes2.dex */
 public class a {
-    private ChannelListView agd;
+    private ChannelListView agf;
     private Context context;
 
     /* loaded from: classes2.dex */
     public static class b {
-        public static int agk = 1;
-        public static int agl = 2;
+        public static int agl = 1;
+        public static int agm = 2;
         public static int PREVIEW = 3;
     }
 
@@ -34,11 +34,11 @@ public class a {
         if (bundle == null) {
             throw new NullPointerException("arguments can not be null");
         }
-        if (this.agd == null || !this.agd.tP()) {
-            this.agd = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
+        if (this.agf == null || !this.agf.tP()) {
+            this.agf = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
                 @Override // com.baidu.poly.widget.ChannelListView.a
                 public void onClose() {
-                    a.this.agd = null;
+                    a.this.agf = null;
                 }
             }).tO();
         }
@@ -51,9 +51,9 @@ public class a {
     }
 
     public boolean tu() {
-        if (this.agd != null) {
-            this.agd.detach();
-            this.agd = null;
+        if (this.agf != null) {
+            this.agf.detach();
+            this.agf = null;
             return true;
         }
         return false;
@@ -73,24 +73,24 @@ public class a {
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0049a {
-        private d agg;
-        private com.baidu.poly.b.c agh;
-        private com.baidu.poly.d.a agi;
-        private int agj = b.agk;
+    public static class C0078a {
+        private d agh;
+        private com.baidu.poly.b.c agi;
+        private com.baidu.poly.d.a agj;
+        private int agk = b.agl;
 
-        public C0049a a(com.baidu.poly.d.a aVar) {
-            this.agi = aVar;
+        public C0078a a(com.baidu.poly.d.a aVar) {
+            this.agj = aVar;
             return this;
         }
 
-        public C0049a bE(int i) {
-            this.agj = i;
+        public C0078a bE(int i) {
+            this.agk = i;
             return this;
         }
 
         public a bf(Context context) {
-            return new a(context, this.agg, this.agh, this.agi, this.agj);
+            return new a(context, this.agh, this.agi, this.agj, this.agk);
         }
     }
 }

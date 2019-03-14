@@ -1,4 +1,6 @@
 package com.baidu.location.g;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class a {
     public static String a = "baidu_location_service";
@@ -9,7 +11,7 @@ public class a {
     public static int f = 3;
     public static int g = 4;
     public static int h = 5;
-    public static int i = 5120;
+    public static int i = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
     public static int j = 0;
     public static int k = 1;
     public static int l = 2;

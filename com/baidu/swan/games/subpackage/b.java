@@ -11,19 +11,19 @@ import com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, int i) {
         if (swanGameSubPackageAPSInfo != null) {
             if (b(swanGameSubPackageAPSInfo)) {
-                swanGameSubPackageAPSInfo.bfr = i;
+                swanGameSubPackageAPSInfo.bfs = i;
                 a(swanGameSubPackageAPSInfo);
                 return;
             }
             swanGameSubPackageAPSInfo.resultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfr, 111, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfs, 111, bundle);
         }
     }
 
@@ -41,6 +41,6 @@ public class b {
         if (DEBUG && swanGameSubPackageAPSInfo != null) {
             Log.e("GetGamesSubHelper", swanGameSubPackageAPSInfo.toString());
         }
-        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfs) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bft) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfv)) ? false : true;
+        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bft) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfu) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfw)) ? false : true;
     }
 }

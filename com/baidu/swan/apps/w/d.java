@@ -11,10 +11,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes2.dex */
 public class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private c ayr = new c(this);
-    private a ays = new a();
-    private boolean ayt;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private c ays = new c(this);
+    private a ayt = new a();
+    private boolean ayu;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -22,17 +22,17 @@ public class d {
     }
 
     public void bN(Context context) {
-        if (!this.ayt) {
-            this.ayt = true;
-            context.registerReceiver(this.ayr, c.getIntentFilter());
+        if (!this.ayu) {
+            this.ayu = true;
+            context.registerReceiver(this.ays, c.getIntentFilter());
         }
     }
 
     public void bO(Context context) {
-        if (this.ayt) {
-            this.ayt = false;
+        if (this.ayu) {
+            this.ayu = false;
             try {
-                context.unregisterReceiver(this.ayr);
+                context.unregisterReceiver(this.ays);
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -54,42 +54,42 @@ public class d {
     }
 
     public void a(b bVar) {
-        this.ays.a(bVar);
+        this.ayt.a(bVar);
     }
 
     public void DT() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.ays.jL();
+        this.ayt.jL();
     }
 
     private void DU() {
-        this.ays.DX();
+        this.ayt.DX();
     }
 
     private void DV() {
-        this.ays.DY();
+        this.ayt.DY();
     }
 
     public void DW() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.ays.stopTimer();
+        this.ayt.stopTimer();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private b ayu;
-        private long ayv = 300;
+        private b ayv;
+        private long ayw = 300;
         private int mStatus = 0;
         private Timer mTimer;
 
         static /* synthetic */ long b(a aVar) {
-            long j = aVar.ayv - 1;
-            aVar.ayv = j;
+            long j = aVar.ayw - 1;
+            aVar.ayw = j;
             return j;
         }
 
@@ -135,11 +135,11 @@ public class d {
         }
 
         private void Ea() {
-            this.ayv = 300L;
+            this.ayw = 300L;
         }
 
         public void a(b bVar) {
-            this.ayu = bVar;
+            this.ayv = bVar;
         }
 
         private TimerTask Eb() {
@@ -147,11 +147,11 @@ public class d {
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
-                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.ayv);
+                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.ayw);
                     }
                     a.b(a.this);
-                    if (a.this.ayv <= 0 && a.this.ayu != null) {
-                        a.this.ayu.cF(1);
+                    if (a.this.ayw <= 0 && a.this.ayv != null) {
+                        a.this.ayv.cF(1);
                         a.this.stopTimer();
                     }
                 }

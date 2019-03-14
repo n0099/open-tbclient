@@ -13,9 +13,9 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> aca = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String acb = "";
-    private static String abJ = "";
+    private static com.baidu.crabsdk.c.b<List> acb = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String acd = "";
+    private static String abK = "";
     private static int widthPixels = 0;
     private static int heightPixels = 0;
 
@@ -46,7 +46,7 @@ public final class t {
     }
 
     public static String rV() {
-        return aca.size() > 0 ? new JSONArray((Collection) aca).toString() : "";
+        return acb.size() > 0 ? new JSONArray((Collection) acb).toString() : "";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
@@ -68,10 +68,10 @@ public final class t {
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(abJ)) {
+                if (!name.equals(abK)) {
                     com.baidu.crabsdk.c.a.cx("***** !tempName.equals(activityName) *****");
-                    abJ = name;
-                    aca.clear();
+                    abK = name;
+                    acb.clear();
                 }
                 if (activity != null) {
                     try {
@@ -80,17 +80,17 @@ public final class t {
                             K = K(decorView);
                             if (K == null) {
                                 String url = K.getUrl();
-                                if (url.equals(acb)) {
+                                if (url.equals(acd)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.cx("-------- !tempUrl.equals(mUrl) --------");
-                                acb = url;
+                                acd = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 arrayList.add(K.getTitle());
-                                arrayList.add(acb);
-                                com.baidu.crabsdk.c.a.cx("title:" + K.getTitle() + "; url:" + acb);
-                                aca.add(arrayList);
+                                arrayList.add(acd);
+                                com.baidu.crabsdk.c.a.cx("title:" + K.getTitle() + "; url:" + acd);
+                                acb.add(arrayList);
                                 com.baidu.crabsdk.c.a.cx("###### jsonArray.toString() : " + rV());
                                 return;
                             }

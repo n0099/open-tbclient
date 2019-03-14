@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class RawLayout extends ViewGroup {
     private static final Pattern cja = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
-    private final List<View> MV;
+    private final List<View> MW;
     private final List<View> cjb;
     private final List<View> cjc;
     private int[] cjd;
@@ -32,7 +32,7 @@ public class RawLayout extends ViewGroup {
     public RawLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.cjb = new ArrayList();
-        this.MV = new ArrayList();
+        this.MW = new ArrayList();
         this.cjc = new ArrayList();
         this.cjd = new int[]{0, 0, 0};
         this.cjg = new int[3];
@@ -116,7 +116,7 @@ public class RawLayout extends ViewGroup {
     public void removeAllViews() {
         super.removeAllViews();
         this.cjb.clear();
-        this.MV.clear();
+        this.MW.clear();
         this.cjc.clear();
     }
 
@@ -129,8 +129,8 @@ public class RawLayout extends ViewGroup {
                 }
                 return;
             case 2:
-                if (!this.MV.contains(view)) {
-                    this.MV.add(view);
+                if (!this.MW.contains(view)) {
+                    this.MW.add(view);
                     return;
                 }
                 return;
@@ -151,7 +151,7 @@ public class RawLayout extends ViewGroup {
                 this.cjb.remove(view);
                 return;
             case 2:
-                this.MV.remove(view);
+                this.MW.remove(view);
                 return;
             case 3:
                 this.cjc.remove(view);
@@ -227,7 +227,7 @@ public class RawLayout extends ViewGroup {
         } else {
             f = 0.0f;
             i3 = 0;
-            for (View view3 : this.MV) {
+            for (View view3 : this.MW) {
                 if (view3.getVisibility() != 8) {
                     a aVar3 = (a) view3.getLayoutParams();
                     f += aVar3.weight;
@@ -249,7 +249,7 @@ public class RawLayout extends ViewGroup {
                 int i18 = resolveSize;
                 int i19 = 0;
                 int i20 = 0;
-                for (View view4 : this.MV) {
+                for (View view4 : this.MW) {
                     if (view4.getVisibility() != 8) {
                         a aVar4 = (a) view4.getLayoutParams();
                         a generateDefaultLayoutParams2 = aVar4 == null ? generateDefaultLayoutParams() : aVar4;
@@ -273,7 +273,7 @@ public class RawLayout extends ViewGroup {
                 break;
             case 0:
                 int i23 = resolveSize;
-                for (View view5 : this.MV) {
+                for (View view5 : this.MW) {
                     a aVar5 = (a) view5.getLayoutParams();
                     a generateDefaultLayoutParams3 = aVar5 == null ? generateDefaultLayoutParams() : aVar5;
                     if (i23 != 0 && f > 0.0f && generateDefaultLayoutParams3.weight > 0.0f) {
@@ -294,7 +294,7 @@ public class RawLayout extends ViewGroup {
                 int paddingTop = ((((i6 - i12) - i16) - i9) - getPaddingTop()) - getPaddingBottom();
                 int i25 = paddingTop;
                 int i26 = resolveSize;
-                for (View view6 : this.MV) {
+                for (View view6 : this.MW) {
                     if (view6.getVisibility() != 8) {
                         a aVar6 = (a) view6.getLayoutParams();
                         a generateDefaultLayoutParams4 = aVar6 == null ? generateDefaultLayoutParams() : aVar6;
@@ -356,7 +356,7 @@ public class RawLayout extends ViewGroup {
             a(this.cjb, paddingLeft, paddingTop, this.cjg[0]);
             int i5 = paddingTop + this.cjg[0] + this.cje;
             if (this.cjg[1] != -1) {
-                a(this.MV, paddingLeft, i5, this.cjg[1]);
+                a(this.MW, paddingLeft, i5, this.cjg[1]);
                 int i6 = i5 + this.cjg[1] + this.cjf;
                 if (this.cjg[2] != -1) {
                     a(this.cjc, paddingLeft, i6, this.cjg[2]);
@@ -471,7 +471,7 @@ public class RawLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: amg */
+    /* renamed from: amf */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 19, 0);
     }

@@ -6,7 +6,7 @@ public class l {
     private long chv;
     private String imgUrl;
 
-    public long aly() {
+    public long alx() {
         return this.chv;
     }
 

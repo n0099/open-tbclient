@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.coremedia.iso.boxes.UserBox;
 import com.tencent.open.SocialConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
@@ -26,7 +27,7 @@ public class o {
                 nVar = a;
             } else {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
-                String string = sharedPreferences.getString("uuid", null);
+                String string = sharedPreferences.getString(UserBox.TYPE, null);
                 String string2 = sharedPreferences.getString("token", null);
                 String string3 = sharedPreferences.getString("security", null);
                 String string4 = sharedPreferences.getString("app_id", null);
@@ -112,7 +113,7 @@ public class o {
 
     public static void a(Context context, n nVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString("uuid", nVar.a);
+        edit.putString(UserBox.TYPE, nVar.a);
         edit.putString("security", nVar.c);
         edit.putString("token", nVar.b);
         edit.putString("app_id", nVar.d);

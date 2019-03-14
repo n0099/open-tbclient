@@ -8,11 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private final ArrayList<MetaData> joQ = new ArrayList<>();
+    private final ArrayList<MetaData> joI = new ArrayList<>();
 
     public void a(JSONObject jSONObject, b bVar) {
         String str;
-        HashMap<String, String> cpq = bVar.cpq();
+        HashMap<String, String> cpt = bVar.cpt();
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             int i = 0;
@@ -22,10 +22,10 @@ public class c {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i2));
                     metaData.setName_show(metaData.getUserName());
-                    if (cpq != null && (str = cpq.get(metaData.getUserName())) != null) {
+                    if (cpt != null && (str = cpt.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.joQ.add(metaData);
+                    this.joI.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -49,8 +49,8 @@ public class c {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.joQ.size()) {
-                    MetaData metaData = this.joQ.get(i2);
+                if (i2 < this.joI.size()) {
+                    MetaData metaData = this.joI.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> cpr() {
-        return this.joQ;
+    public ArrayList<MetaData> cpu() {
+        return this.joI;
     }
 }

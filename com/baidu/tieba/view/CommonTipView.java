@@ -9,6 +9,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
@@ -22,7 +23,7 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context) {
         super(context);
-        this.mDuration = 4000;
+        this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
         this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
@@ -45,7 +46,7 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mDuration = 4000;
+        this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
         this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
@@ -68,7 +69,7 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDuration = 4000;
+        this.mDuration = UIMsg.m_AppUI.MSG_APP_SAVESCREEN;
         this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
         this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
@@ -167,8 +168,8 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        al.e(this, d.C0236d.common_color_10260, i);
-        al.c(this, d.C0236d.cp_cont_g, 1, i);
+        al.e(this, d.C0277d.common_color_10260, i);
+        al.c(this, d.C0277d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {

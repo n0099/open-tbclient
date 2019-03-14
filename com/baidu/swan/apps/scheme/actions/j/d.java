@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class d extends com.baidu.swan.apps.model.a.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public String mSrc;
 
     public d() {
@@ -40,6 +40,6 @@ public final class d extends com.baidu.swan.apps.model.a.a.a {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aBC);
+        return !TextUtils.isEmpty(this.aBD);
     }
 }

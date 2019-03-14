@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static b.a awL;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static b.a awM;
 
     public static void a(b.a aVar) {
-        awL = aVar;
+        awM = aVar;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && awL != null) {
+        if (editText != null && awM != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UBC.CONTENT_KEY_VALUE, editText.getText());
@@ -28,7 +28,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            awL.d(String.valueOf(editText.getTag()), jSONObject);
+            awM.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class e {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && awL != null) {
+        if (editText != null && awM != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UBC.CONTENT_KEY_VALUE, editText.getText());
@@ -57,7 +57,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            awL.d(String.valueOf(editText.getTag()), jSONObject);
+            awM.d(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

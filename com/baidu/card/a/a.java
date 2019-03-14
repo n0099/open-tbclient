@@ -7,31 +7,31 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private SparseArray<List<b>> Zt = new SparseArray<>();
+    private SparseArray<List<b>> Zu = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface b {
-        boolean a(C0037a c0037a);
+        boolean a(C0039a c0039a);
     }
 
     public void c(int i, b bVar) {
-        if (this.Zt == null) {
-            this.Zt = new SparseArray<>();
+        if (this.Zu == null) {
+            this.Zu = new SparseArray<>();
         }
-        List<b> list = this.Zt.get(i);
+        List<b> list = this.Zu.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.Zt.put(i, list);
+            this.Zu.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.Zt.remove(i);
+            this.Zu.remove(i);
             return;
         }
-        List<b> list = this.Zt.get(i);
+        List<b> list = this.Zu.get(i);
         if (!v.T(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0037a c0037a) {
-        List<b> list = this.Zt.get(c0037a.Zu);
+    public boolean b(C0039a c0039a) {
+        List<b> list = this.Zu.get(c0039a.Zv);
         if (v.T(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0037a)) {
+            if (bVar != null && bVar.a(c0039a)) {
                 return true;
             }
         }
@@ -57,29 +57,29 @@ public class a {
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0037a {
-        private int Zu;
-        private Object Zv;
+    public static class C0039a {
+        private int Zv;
+        private Object Zw;
 
-        public C0037a(int i, Object obj) {
-            this.Zu = i;
-            this.Zv = obj;
+        public C0039a(int i, Object obj) {
+            this.Zv = i;
+            this.Zw = obj;
         }
 
-        public C0037a(int i) {
-            this.Zu = i;
+        public C0039a(int i) {
+            this.Zv = i;
         }
 
         public int getActionType() {
-            return this.Zu;
+            return this.Zv;
         }
 
         public void setExtraData(Object obj) {
-            this.Zv = obj;
+            this.Zw = obj;
         }
 
         public Object rD() {
-            return this.Zv;
+            return this.Zw;
         }
     }
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.v.a;
 import com.baidu.tbadk.TbPageContext;
@@ -17,33 +16,33 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes3.dex */
 public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected static final int eYs;
     protected static final int eYt;
     protected static final int eYu;
-    protected static final int eYv;
-    protected r eEv;
+    protected com.baidu.adp.widget.ListView.r eEr;
     private boolean eYA;
-    private boolean eYB;
-    protected com.baidu.tieba.card.ab eYC;
-    protected FrsViewData eYw;
-    protected d eYx;
-    protected int eYy;
-    protected f eYz;
+    protected com.baidu.tieba.card.ab eYB;
+    protected FrsViewData eYv;
+    protected d eYw;
+    protected int eYx;
+    protected f eYy;
+    private boolean eYz;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        eYt = resources.getDimensionPixelSize(d.e.ds8);
-        eYu = resources.getDimensionPixelSize(d.e.ds16);
-        eYv = resources.getDimensionPixelSize(d.e.ds1);
+        eYs = resources.getDimensionPixelSize(d.e.ds8);
+        eYt = resources.getDimensionPixelSize(d.e.ds16);
+        eYu = resources.getDimensionPixelSize(d.e.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.eYB = false;
+        this.eYA = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -51,7 +50,7 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.eYB = false;
+        this.eYA = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -66,24 +65,24 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.eYx = null;
+        this.eYw = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.eYz != null) {
-            this.eYz.destory();
-            this.eYz = null;
+        if (this.eYy != null) {
+            this.eYy.destory();
+            this.eYy = null;
         }
     }
 
-    public void a(r rVar) {
-        this.eEv = rVar;
+    public void a(com.baidu.adp.widget.ListView.r rVar) {
+        this.eEr = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eEv = (r) viewGroup;
+        this.eEr = (com.baidu.adp.widget.ListView.r) viewGroup;
         if (t instanceof bf) {
             ((bf) t).threadData.setResource(2);
             return null;
@@ -96,23 +95,23 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(FrsViewData frsViewData) {
-        this.eYw = frsViewData;
+        this.eYv = frsViewData;
     }
 
     public void a(d dVar) {
-        this.eYx = dVar;
+        this.eYw = dVar;
     }
 
     public void pS(int i) {
-        this.eYy = i;
+        this.eYx = i;
     }
 
     public void a(f fVar) {
-        this.eYz = fVar;
+        this.eYy = fVar;
     }
 
-    public boolean bck() {
-        return this.eYA;
+    public boolean bcj() {
+        return this.eYz;
     }
 
     public View p(ViewGroup viewGroup, int i) {

@@ -34,7 +34,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
@@ -208,7 +207,7 @@ public class AuthAgent extends BaseApi {
             a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
-        a2.putString(SapiUtils.KEY_QR_LOGIN_SIGN, h.b(e.a(), str));
+        a2.putString("sign", h.b(e.a(), str));
         a2.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
         a2.putString("display", "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");

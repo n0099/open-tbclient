@@ -8,6 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.webSocket.e;
 import com.baidu.adp.lib.webSocket.g;
 import com.baidu.adp.lib.webSocket.k;
+import com.baidu.mobstat.Config;
 import java.net.SocketException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -59,7 +60,7 @@ public class i implements g {
                         i.this.HN = System.currentTimeMillis() - currentTimeMillis;
                         i.this.lS();
                         i.this.lR();
-                        k.b bVar = new k.b(i.this.HE + ":" + i.this.HF);
+                        k.b bVar = new k.b(i.this.HE + Config.TRACE_TODAY_VISIT_SPLIT + i.this.HF);
                         bVar.mPath = i.this.HG;
                         bVar.mQuery = i.this.HH;
                         bVar.HU = i.this.Hs;

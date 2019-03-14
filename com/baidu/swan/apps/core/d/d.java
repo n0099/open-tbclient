@@ -5,34 +5,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.a;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.a {
-    private FrameLayout aqU;
-    private a arJ;
+    private FrameLayout aqV;
+    private a arK;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.arJ = aVar;
+        this.arK = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.a
     protected View f(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(b.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.aqU = (FrameLayout) inflate.findViewById(b.f.ssl_certificate_container);
+        View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
+        this.aqV = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
         zq();
         return inflate;
     }
 
     private void zq() {
-        if (this.arJ == null) {
+        if (this.arK == null) {
             return;
         }
-        this.aqU.addView(this.arJ.contentView);
+        this.aqV.addView(this.arK.contentView);
     }
 
     /* loaded from: classes2.dex */

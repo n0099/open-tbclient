@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends y {
-    private f aqZ;
+    private f ara;
 
     public e(j jVar) {
         super(jVar, "/swan/webviewPostMessage");
@@ -25,12 +25,12 @@ public class e extends y {
             Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         com.baidu.swan.apps.console.c.i("webviewPostMsg", "start post webview msg");
-        if (this.aqZ == null) {
+        if (this.ara == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none webview widget");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
             return false;
         }
-        d wf = this.aqZ.wf();
+        d wf = this.ara.wf();
         if (wf == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none WWWParams");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
@@ -51,7 +51,7 @@ public class e extends y {
             try {
                 jSONObject.put("data", optString);
                 jSONObject.put("eventType", "message");
-                jSONObject.put("wvID", wf.aBC);
+                jSONObject.put("wvID", wf.aBD);
                 jSONObject.put("webviewId", wf.id);
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -59,7 +59,7 @@ public class e extends y {
                 }
                 com.baidu.swan.apps.console.c.e("webviewPostMsg", "meet json exception");
             }
-            com.baidu.swan.apps.view.container.c.d.b(wf.aBC, wf.id, "webview", "message", jSONObject);
+            com.baidu.swan.apps.view.container.c.d.b(wf.aBD, wf.id, "webview", "message", jSONObject);
             com.baidu.swan.apps.console.c.i("webviewPostMsg", "post webview msg success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -67,6 +67,6 @@ public class e extends y {
     }
 
     public void c(f fVar) {
-        this.aqZ = fVar;
+        this.ara = fVar;
     }
 }

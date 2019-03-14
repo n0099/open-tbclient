@@ -5,7 +5,7 @@ import android.view.Choreographer;
 @TargetApi(16)
 /* loaded from: classes.dex */
 public class c implements Choreographer.FrameCallback {
-    private long aEo;
+    private long aEp;
     private long mStartTime;
     private long cpY = 0;
     private int cpZ = 0;
@@ -14,7 +14,7 @@ public class c implements Choreographer.FrameCallback {
 
     public void start() {
         this.mStartTime = System.currentTimeMillis();
-        this.aEo = this.mStartTime + 1000;
+        this.aEp = this.mStartTime + 1000;
         this.cpY = 0L;
         this.cpZ = 0;
         this.mFps = -1;
@@ -40,7 +40,7 @@ public class c implements Choreographer.FrameCallback {
         }
         this.cpY = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.aEo && !this.cqa) {
+        if (currentTimeMillis < this.aEp && !this.cqa) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }

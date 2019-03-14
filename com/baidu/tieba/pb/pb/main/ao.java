@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class ao extends com.baidu.tbadk.core.view.userLike.c {
-    private String ctx;
-    public boolean hvJ;
-    private int hvK;
-    private int hvL;
+    private String ctu;
+    public boolean hvC;
+    private int hvD;
+    private int hvE;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.hvJ = false;
+        this.hvC = false;
         this.isBigV = false;
-        this.hvK = 0;
-        this.hvK = i;
+        this.hvD = 0;
+        this.hvD = i;
         this.mPageContext = tbPageContext;
-        if (this.hvK == 1) {
+        if (this.hvD == 1) {
             super.setFromType("4");
-        } else if (this.hvK == 3) {
+        } else if (this.hvD == 3) {
             super.setFromType("5");
         } else {
             super.setFromType("0");
@@ -33,14 +33,14 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
     }
 
     public void setTid(String str) {
-        this.ctx = str;
+        this.ctu = str;
     }
 
     public void wx(int i) {
-        this.hvL = i;
+        this.hvE = i;
     }
 
-    private int bMj() {
+    private int bMi() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -71,31 +71,31 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.bUx != null ? this.bUx.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bMj()).bJ(VideoPlayActivityConfig.OBJ_ID, userId).bJ("tid", this.ctx));
-            if (this.hvK != 1) {
-                i = this.hvK == 3 ? 2 : 0;
+            String userId = this.bUy != null ? this.bUy.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bMi()).bJ(VideoPlayActivityConfig.OBJ_ID, userId).bJ("tid", this.ctu));
+            if (this.hvD != 1) {
+                i = this.hvD == 3 ? 2 : 0;
             }
             com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c12507");
             amVar.T("obj_locate", i);
             amVar.bJ(VideoPlayActivityConfig.OBJ_ID, userId);
-            amVar.bJ("tid", this.ctx);
-            amVar.T("obj_param1", this.hvL);
+            amVar.bJ("tid", this.ctu);
+            amVar.T("obj_param1", this.hvE);
             if (!com.baidu.tbadk.core.util.ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(amVar);
             super.onClick(view);
-            if (this.hvJ && this.bUx != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").bJ(VideoPlayActivityConfig.OBJ_ID, this.bUx.getUserId()));
+            if (this.hvC && this.bUy != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").bJ(VideoPlayActivityConfig.OBJ_ID, this.bUy.getUserId()));
             }
-            if (this.isBigV && this.bUx != null) {
-                if (this.hvK == 1) {
+            if (this.isBigV && this.bUy != null) {
+                if (this.hvD == 1) {
                     i2 = 1;
-                } else if (this.hvK != 2) {
+                } else if (this.hvD != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").T("obj_locate", i2).bJ(VideoPlayActivityConfig.OBJ_ID, this.bUx.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").T("obj_locate", i2).bJ(VideoPlayActivityConfig.OBJ_ID, this.bUy.getUserId()));
             }
         }
     }

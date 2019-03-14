@@ -18,7 +18,7 @@ public class c {
     private c() {
     }
 
-    public static synchronized c aoX() {
+    public static synchronized c aoW() {
         c cVar;
         synchronized (c.class) {
             if (cpX == null) {
@@ -29,11 +29,11 @@ public class c {
         return cVar;
     }
 
-    public boolean aoY() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && aoZ();
+    public boolean aoX() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && aoY();
     }
 
-    public boolean aoZ() {
+    public boolean aoY() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -52,7 +52,7 @@ public class c {
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(d.j.plugin_pay_error);
-        } else if (!aoY()) {
+        } else if (!aoX()) {
             showToast(d.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));

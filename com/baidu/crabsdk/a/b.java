@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public final class b {
-    private static b aaR;
-    private c aaS;
+    private static b aaS;
+    private c aaT;
     private boolean af = false;
 
     private b(Context context) {
-        this.aaS = c.ba(context);
+        this.aaT = c.ba(context);
     }
 
     public static b aY(Context context) {
@@ -17,18 +17,18 @@ public final class b {
     }
 
     private static b aZ(Context context) {
-        if (aaR == null) {
+        if (aaS == null) {
             synchronized (b.class) {
-                if (aaR == null) {
-                    aaR = new b(context);
+                if (aaS == null) {
+                    aaS = new b(context);
                 }
             }
         }
-        return aaR;
+        return aaS;
     }
 
     public static b rK() {
-        return aaR;
+        return aaS;
     }
 
     public final void start() {
@@ -38,7 +38,7 @@ public final class b {
         }
         this.af = true;
         try {
-            Looper.getMainLooper().setMessageLogging(this.aaS.aaT);
+            Looper.getMainLooper().setMessageLogging(this.aaT.aaU);
             com.baidu.crabsdk.c.a.cv("Start main-thread block monitoring!");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("setMessageLogging error!!", e);
@@ -52,7 +52,7 @@ public final class b {
         }
         this.af = false;
         Looper.getMainLooper().setMessageLogging(null);
-        this.aaS.aaU.stop();
+        this.aaT.aaV.stop();
         com.baidu.crabsdk.c.a.cv("Stop main-thread block monitoring!");
     }
 }

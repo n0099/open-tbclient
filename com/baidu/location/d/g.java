@@ -7,8 +7,9 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -63,7 +64,7 @@ public final class g {
                         String string2 = jSONObject2.has("cyc") ? jSONObject2.getString("cyc") : null;
                         String string3 = jSONObject2.has("prov") ? jSONObject2.getString("prov") : null;
                         String string4 = jSONObject2.has("ctc") ? jSONObject2.getString("ctc") : null;
-                        String string5 = jSONObject2.has("ct") ? jSONObject2.getString("ct") : null;
+                        String string5 = jSONObject2.has(Config.EXCEPTION_CRASH_TYPE) ? jSONObject2.getString(Config.EXCEPTION_CRASH_TYPE) : null;
                         String string6 = jSONObject2.has("dist") ? jSONObject2.getString("dist") : null;
                         if (stringBuffer.length() > 0) {
                             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -108,7 +109,7 @@ public final class g {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                                String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
+                                String string = jSONObject2.has("st") ? jSONObject2.getString("st") : null;
                                 Double valueOf = jSONObject2.has("x1") ? Double.valueOf(jSONObject2.getDouble("x1")) : null;
                                 Double valueOf2 = jSONObject2.has("y1") ? Double.valueOf(jSONObject2.getDouble("y1")) : null;
                                 Double valueOf3 = jSONObject2.has("x2") ? Double.valueOf(jSONObject2.getDouble("x2")) : null;
@@ -158,9 +159,9 @@ public final class g {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                                String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
+                                String string = jSONObject2.has("st") ? jSONObject2.getString("st") : null;
                                 String string2 = jSONObject2.has("stn") ? jSONObject2.getString("stn") : null;
-                                Double valueOf = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
+                                Double valueOf = jSONObject2.has(Config.EVENT_HEAT_X) ? Double.valueOf(jSONObject2.getDouble(Config.EVENT_HEAT_X)) : null;
                                 Double valueOf2 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
                                 if (stringBuffer2.length() > 0) {
                                     stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -185,7 +186,7 @@ public final class g {
                 return arrayList;
             }
         },
-        POI("RGCPOI", "poi", "poiv", 1000, 5000) { // from class: com.baidu.location.d.g.b.4
+        POI("RGCPOI", "poi", "poiv", 1000, UIMsg.m_AppUI.MSG_APP_GPS) { // from class: com.baidu.location.d.g.b.4
             @Override // com.baidu.location.d.g.b
             List<String> a(JSONObject jSONObject, String str, int i) {
                 JSONArray jSONArray;
@@ -209,7 +210,7 @@ public final class g {
                                 String string2 = jSONObject2.has("ne") ? jSONObject2.getString("ne") : null;
                                 String string3 = jSONObject2.has("tp") ? jSONObject2.getString("tp") : null;
                                 Integer valueOf = jSONObject2.has("rk") ? Integer.valueOf(jSONObject2.getInt("rk")) : null;
-                                Double valueOf2 = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
+                                Double valueOf2 = jSONObject2.has(Config.EVENT_HEAT_X) ? Double.valueOf(jSONObject2.getDouble(Config.EVENT_HEAT_X)) : null;
                                 Double valueOf3 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
                                 if (stringBuffer2.length() > 0) {
                                     stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);

@@ -2,6 +2,7 @@ package com.baidu.afd.videopaster.data;
 
 import android.text.TextUtils;
 import com.baidu.afd.ParseError;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -69,7 +70,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             while (true) {
                 if (i < optJSONArray3.length()) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i);
-                    if (optJSONObject4 == null || !TextUtils.equals("extraParam", optJSONObject4.optString("k"))) {
+                    if (optJSONObject4 == null || !TextUtils.equals("extraParam", optJSONObject4.optString(Config.APP_KEY))) {
                         i++;
                     } else {
                         this.pasterData.extra = optJSONObject4.optString("v");
@@ -139,8 +140,8 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
                 if (optJSONObject4 != null) {
-                    this.pasterData.Ue.add(optJSONObject4.optString("show_url"));
-                    this.pasterData.Uf.add(optJSONObject4.optString("click_url"));
+                    this.pasterData.Uf.add(optJSONObject4.optString("show_url"));
+                    this.pasterData.Ug.add(optJSONObject4.optString("click_url"));
                 }
             }
         }
@@ -148,14 +149,14 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString5 = optJSONObject3.optString(BigdayActivityConfig.JUMP_URL);
         String str = null;
         if (TextUtils.isEmpty(optString4)) {
-            this.pasterData.Ub = true;
-            this.pasterData.Uc = 10;
-            this.pasterData.Ud = 2;
+            this.pasterData.Uc = true;
+            this.pasterData.Ud = 10;
+            this.pasterData.Ue = 2;
             this.pasterData.bl(3);
         } else if (TextUtils.isEmpty(optString5)) {
-            this.pasterData.Ub = true;
-            this.pasterData.Uc = 10;
-            this.pasterData.Ud = 1;
+            this.pasterData.Uc = true;
+            this.pasterData.Ud = 10;
+            this.pasterData.Ue = 1;
             this.pasterData.bl(3);
         } else {
             JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
@@ -169,9 +170,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 }
                 str = optJSONObject5.optString("image");
                 if (TextUtils.isEmpty(str)) {
-                    this.pasterData.Ub = true;
-                    this.pasterData.Uc = 10;
-                    this.pasterData.Ud = 3;
+                    this.pasterData.Uc = true;
+                    this.pasterData.Ud = 10;
+                    this.pasterData.Ue = 3;
                     throw new ParseError(2, "image has no data");
                 }
             }
@@ -192,9 +193,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 str2 = optJSONObject7.optString("url");
                 str3 = optJSONObject7.optString("cover");
                 if (TextUtils.isEmpty(str2)) {
-                    this.pasterData.Ub = true;
-                    this.pasterData.Uc = 10;
-                    this.pasterData.Ud = 4;
+                    this.pasterData.Uc = true;
+                    this.pasterData.Ud = 10;
+                    this.pasterData.Ue = 4;
                     throw new ParseError(2, "video url or cover has no data");
                 }
             }
@@ -204,20 +205,20 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 i2 = optJSONObject8.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             }
             if (this.type == 3) {
-                this.pasterData.Ub = true;
-                this.pasterData.Uc = 10;
-                this.pasterData.Ud = 24;
+                this.pasterData.Uc = true;
+                this.pasterData.Ud = 10;
+                this.pasterData.Ue = 24;
             }
             this.pasterData.adid = optString3;
             this.pasterData.bl(this.type);
             this.pasterData.tplName = optString2;
-            this.pasterData.TW = i2;
-            this.pasterData.TV = optString5;
-            this.pasterData.TU = optString4;
-            this.pasterData.TZ = optString7;
-            this.pasterData.TY = optString6;
-            this.pasterData.Ua = optString8;
-            this.pasterData.TX = str3;
+            this.pasterData.TX = i2;
+            this.pasterData.TW = optString5;
+            this.pasterData.TV = optString4;
+            this.pasterData.Ua = optString7;
+            this.pasterData.TZ = optString6;
+            this.pasterData.Ub = optString8;
+            this.pasterData.TY = str3;
             this.pasterData.videoUrl = str2;
             this.pasterData.picUrl = str;
         }

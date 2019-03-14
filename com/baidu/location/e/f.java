@@ -18,7 +18,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.a.j;
 import com.baidu.location.a.n;
 import com.baidu.location.a.q;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -59,12 +59,12 @@ public class f {
                     public void run() {
                         f.this.s();
                         j.c().i();
-                        if (System.currentTimeMillis() - n.b() <= TbConfig.NOTIFY_SOUND_INTERVAL) {
+                        if (System.currentTimeMillis() - n.b() <= 5000) {
                             q.a().c();
                         }
                     }
                 });
-            } else if (action.equals("android.net.wifi.STATE_CHANGE") && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= TbConfig.NOTIFY_SOUND_INTERVAL) {
+            } else if (action.equals("android.net.wifi.STATE_CHANGE") && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= 5000) {
                 this.b = System.currentTimeMillis();
                 if (this.c) {
                     return;
@@ -230,7 +230,7 @@ public class f {
 
     public boolean f() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.g <= 0 || currentTimeMillis - this.g > TbConfig.NOTIFY_SOUND_INTERVAL) {
+        if (currentTimeMillis - this.g <= 0 || currentTimeMillis - this.g > 5000) {
             this.g = currentTimeMillis;
             b();
             return g();
@@ -244,7 +244,7 @@ public class f {
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.f > 0) {
-            if (currentTimeMillis - this.f <= this.j + TbConfig.NOTIFY_SOUND_INTERVAL || currentTimeMillis - (a * 1000) <= this.j + TbConfig.NOTIFY_SOUND_INTERVAL) {
+            if (currentTimeMillis - this.f <= this.j + 5000 || currentTimeMillis - (a * 1000) <= this.j + 5000) {
                 return false;
             }
             if (j() && currentTimeMillis - this.f <= StatisticConfig.MIN_UPLOAD_INTERVAL + this.j) {
@@ -323,7 +323,7 @@ public class f {
             }
             String bssid = connectionInfo.getBSSID();
             if (bssid != null) {
-                String replace = bssid.replace(":", "");
+                String replace = bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
                 if ("000000000000".equals(replace)) {
                     return null;
                 }
@@ -345,7 +345,7 @@ public class f {
         if (l == null || l.getBSSID() == null) {
             return null;
         }
-        String replace = l.getBSSID().replace(":", "");
+        String replace = l.getBSSID().replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
         int rssi = l.getRssi();
         String n = a().n();
         if (rssi < 0) {

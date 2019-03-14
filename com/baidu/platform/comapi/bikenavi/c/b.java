@@ -1,0 +1,575 @@
+package com.baidu.platform.comapi.bikenavi.c;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.Button;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.walknavi.model.RouteGuideKind;
+import com.baidu.platform.comapi.wnplatform.h.e;
+import com.baidu.platform.comapi.wnplatform.o.f;
+import com.baidu.tieba.R;
+import java.math.BigDecimal;
+/* loaded from: classes5.dex */
+public class b extends com.baidu.platform.comapi.wnplatform.n.a {
+    LatLng a;
+    LatLng b;
+    private View e;
+    private Activity f;
+    private com.baidu.platform.comapi.bikenavi.widget.a g;
+    private com.baidu.platform.comapi.bikenavi.widget.g h;
+    private com.baidu.platform.comapi.walknavi.widget.a i;
+    private com.baidu.platform.comapi.walknavi.widget.a j;
+    private boolean l;
+    private long m;
+    private double n;
+    private com.baidu.platform.comapi.walknavi.g.b.a k = null;
+    private Bitmap o = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.abc_scrubber_track_mtrl_alpha);
+    private BitmapDescriptor p = BitmapDescriptorFactory.fromBitmap(this.o);
+    private Bitmap q = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.abc_scrubber_primary_mtrl_alpha);
+    private BitmapDescriptor r = BitmapDescriptorFactory.fromBitmap(this.q);
+    private Handler s = new Handler();
+    private Runnable t = new c(this);
+    final Runnable c = new d(this);
+    final Runnable d = new e(this);
+    private int u = -1;
+    private a v = null;
+    private com.baidu.platform.comapi.wnplatform.walkmap.c w = new k(this);
+
+    public b(Activity activity) {
+        this.f = activity;
+        this.e = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_menu_item_layout, null);
+        v();
+        u();
+    }
+
+    private void u() {
+        int a2 = com.baidu.platform.comapi.walknavi.b.a().D().a();
+        com.baidu.platform.comapi.wnplatform.d.a.a("yang10", "all size:" + a2);
+        if (a2 > 2) {
+            int[] iArr = new int[a2 - 2];
+            int[] iArr2 = new int[a2 - 2];
+            int[] iArr3 = new int[a2 - 2];
+            com.baidu.platform.comapi.walknavi.b.a().D().b(iArr, iArr2, iArr3);
+            com.baidu.platform.comapi.wnplatform.g.c.b().a(this.f, iArr, iArr2, iArr3);
+        }
+    }
+
+    private void v() {
+        com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(x()).icon(this.p).zIndex(9).draggable(false));
+        com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(w()).icon(this.r).zIndex(9).draggable(false));
+        this.g = new com.baidu.platform.comapi.bikenavi.widget.a(this.f, this, this.e);
+        this.h = new com.baidu.platform.comapi.bikenavi.widget.g(this.f, this, this.e);
+        a(this.f, com.baidu.platform.comapi.walknavi.b.a().G().a(), 70, 0, 0, 60);
+    }
+
+    private LatLng w() {
+        if (this.b == null) {
+            this.b = com.baidu.platform.comapi.walknavi.b.a().N();
+        }
+        return this.b;
+    }
+
+    private LatLng x() {
+        if (this.a == null) {
+            this.a = com.baidu.platform.comapi.walknavi.b.a().M();
+        }
+        return this.a;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public boolean c() {
+        return this.e == null || this.f == null;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a, com.baidu.platform.comapi.walknavi.a
+    public boolean ready() {
+        A();
+        y();
+        return true;
+    }
+
+    private void y() {
+        this.m = System.currentTimeMillis();
+    }
+
+    private void z() {
+        if (this.o != null && !this.o.isRecycled()) {
+            this.o.recycle();
+            this.o = null;
+        }
+        if (this.q != null && !this.q.isRecycled()) {
+            this.q.recycle();
+            this.q = null;
+        }
+        if (this.p != null) {
+            this.p.recycle();
+            this.p = null;
+        }
+        if (this.r != null) {
+            this.r.recycle();
+            this.r = null;
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a, com.baidu.platform.comapi.walknavi.a
+    public void release() {
+        B();
+        if (this.s != null) {
+            this.s.removeCallbacks(this.c);
+            this.s = null;
+        }
+        z();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void d() {
+        this.l = false;
+        E();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void e() {
+        this.l = true;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public int f() {
+        return (int) (com.baidu.platform.comapi.wnplatform.o.b.b.a().d() * 45.0f);
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public int g() {
+        return com.baidu.platform.comapi.wnplatform.o.b.b.a().b() - ((int) (com.baidu.platform.comapi.wnplatform.o.b.b.a().d() * 30.0f));
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public View h() {
+        return this.e;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void i() {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public int j() {
+        return 0;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void b(int i) {
+        if (this.s != null && this.t != null) {
+            this.s.removeCallbacks(this.t);
+            this.s.postDelayed(this.t, i);
+        }
+    }
+
+    public void k() {
+        if (this.s != null && this.c != null) {
+            this.s.removeCallbacks(this.c);
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void l() {
+        if (this.g != null) {
+            this.g.e();
+        }
+        if (this.s != null && this.c != null) {
+            this.s.removeCallbacks(this.c);
+            this.s.postDelayed(this.c, 15000L);
+        }
+    }
+
+    public void m() {
+        if (this.s != null && this.d != null) {
+            this.s.removeCallbacks(this.d);
+            this.s.postDelayed(this.d, 3000L);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CountDownTimer {
+        Activity a;
+        com.baidu.platform.comapi.walknavi.widget.a b;
+
+        public a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+            super(j, j2);
+            this.a = activity;
+            this.b = aVar;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            if (this.b != null) {
+                ((Button) this.b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            b.this.q();
+            if (this.a != null && !this.a.isFinishing()) {
+                this.b.dismiss();
+            }
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public int n() {
+        return 0;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void o() {
+        if (this.s != null && this.t != null) {
+            this.s.removeCallbacks(this.t);
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void a(boolean z) {
+        if (this.g != null) {
+            this.g.a(z);
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void a(Bundle bundle) {
+        try {
+            double doubleValue = new BigDecimal((bundle.getFloat("curSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue();
+            double doubleValue2 = new BigDecimal((bundle.getFloat("maxSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue();
+            double doubleValue3 = new BigDecimal((bundle.getFloat("avgSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue();
+            this.u = bundle.getInt("AddDist");
+            double doubleValue4 = new BigDecimal(bundle.getInt("AddDist") / 1000.0f).setScale(1, 4).doubleValue();
+            double doubleValue5 = new BigDecimal(bundle.getInt("RouteDist") / 1000.0f).setScale(1, 4).doubleValue();
+            this.g.a(new BigDecimal(bundle.getFloat("realDistance")).setScale(1, 4).doubleValue(), bundle.getLong("secTime"));
+            float f = bundle.getFloat("calorie");
+            com.baidu.platform.comapi.wnplatform.d.a.b("bike cal:" + f + "or:" + bundle.getFloat("calorie"));
+            double doubleValue6 = new BigDecimal(f).setScale(1, 4).doubleValue();
+            float f2 = bundle.getFloat("altidiff");
+            float f3 = bundle.getFloat("altitude");
+            this.n = doubleValue4 / doubleValue5;
+            this.g.a(doubleValue, doubleValue3, doubleValue2);
+            this.g.a((float) doubleValue6, f2, f3);
+        } catch (Exception e) {
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void c(int i) {
+        if (this.g != null) {
+            this.g.a(i);
+        }
+    }
+
+    private void A() {
+        com.baidu.platform.comapi.walknavi.b.a().C().a(this);
+        com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.a) this);
+        com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.b) this);
+        com.baidu.platform.comapi.walknavi.b.a().P().a(this);
+    }
+
+    private void B() {
+        com.baidu.platform.comapi.walknavi.b.a().C().a((com.baidu.platform.comapi.wnplatform.i.a) null);
+        com.baidu.platform.comapi.walknavi.b.a().E().b((com.baidu.platform.comapi.wnplatform.h.a) null);
+        com.baidu.platform.comapi.walknavi.b.a().E().b((com.baidu.platform.comapi.wnplatform.h.b) null);
+        com.baidu.platform.comapi.walknavi.b.a().P().b((com.baidu.platform.comapi.wnplatform.c.a) null);
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    public void a() {
+        com.baidu.platform.comapi.walknavi.b.a().D().i();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    public void b() {
+        com.baidu.platform.comapi.walknavi.b.a().G().a(1);
+        C();
+        com.baidu.platform.comapi.walknavi.b.a().D().h();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    public void a(int i) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.c.a
+    public void d(int i) {
+        E();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.c.a
+    public void a(Message message) {
+        if (message.arg1 == 0) {
+            com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
+            if (this.h != null) {
+                this.h.a(R.drawable.abc_btn_borderless_material, "GPS弱");
+                this.h.c();
+            }
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.b
+    public void b(Message message) {
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.farAway");
+        com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "call onRouteFarAway");
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.r();
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
+        if (this.h != null) {
+            this.h.a(R.drawable.abc_action_bar_item_background_material, "已偏航");
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.b
+    public void c(Message message) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.b
+    public void d(Message message) {
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.reRoute");
+        com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "call onReRouteComplete");
+        if (!this.l) {
+            com.baidu.platform.comapi.walknavi.b.a().F().run("收到偏航算路成功消息");
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.b
+    public void e(Message message) {
+        p();
+        m();
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.b
+    public void f(Message message) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void b(Bundle bundle) {
+        int i = bundle.getInt("simpleUpdateType");
+        if (i != 0 && i != 3 && bundle.containsKey("enGuideType") && bundle.containsKey("nDistance2GP")) {
+            int i2 = bundle.getInt("enGuideType");
+            int a2 = com.baidu.platform.comapi.bikenavi.c.a.a(com.baidu.platform.comapi.wnplatform.h.c.b(RouteGuideKind.values()[i2]));
+            int i3 = bundle.getInt("nDistance2GP");
+            int i4 = ((i3 + 5) / 10) * 10;
+            if ("到达目的地".equals(bundle.getString("usGuideText"))) {
+                m();
+            }
+            StringBuilder sb = new StringBuilder();
+            if (i2 != 0) {
+                com.baidu.platform.comapi.wnplatform.d.a.b("update guidance type:" + i2 + "dis:" + i3);
+                StringBuffer stringBuffer = new StringBuffer();
+                com.baidu.platform.comapi.wnplatform.o.f.a(i4, f.a.ZH, stringBuffer);
+                sb.append(stringBuffer.toString());
+                int i5 = bundle.getInt("enSpliceType");
+                if (i5 == 1) {
+                    sb.append("前");
+                } else if (i5 == 3) {
+                    sb.append("后");
+                }
+                this.h.a(a2, sb.toString());
+                this.h.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void c(Bundle bundle) {
+        if (bundle.getInt("updatetype") == e.a.c) {
+            int i = bundle.getInt("totaldist");
+            int i2 = bundle.getInt("totaltime");
+            StringBuffer stringBuffer = new StringBuffer();
+            com.baidu.platform.comapi.wnplatform.o.f.a(i, f.a.ZH, stringBuffer);
+            this.g.a(stringBuffer.toString(), com.baidu.platform.comapi.wnplatform.o.f.a(i2, 2));
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void a(Context context, View view, int i, int i2, int i3, int i4) {
+        super.a(context, view, i, i2, i3, i4);
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void a(byte[] bArr) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void d(Bundle bundle) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void e(Bundle bundle) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.h.a
+    public void f(Bundle bundle) {
+    }
+
+    private void C() {
+    }
+
+    public void p() {
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviAutoComplete");
+        if (this.g != null) {
+            this.g.e();
+        }
+    }
+
+    private void D() {
+        int i = 0;
+        int i2 = (int) (this.n * 100.0d);
+        if (i2 >= 0 && i2 < 30) {
+            com.baidu.platform.comapi.wnplatform.k.a.a().a("ratio", 0);
+        } else if (i2 >= 30 && i2 < 50) {
+            com.baidu.platform.comapi.wnplatform.k.a.a().a("ratio", 1);
+        } else if (i2 >= 50 && i2 < 80) {
+            com.baidu.platform.comapi.wnplatform.k.a.a().a("ratio", 2);
+        } else if (i2 >= 80 && i2 <= 100) {
+            com.baidu.platform.comapi.wnplatform.k.a.a().a("ratio", 3);
+        }
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.realDisAndTotalDisRatio");
+        if (this.u < 0 || this.u > 1000) {
+            if (this.u > 1000 && this.u <= 3000) {
+                i = 1;
+            } else if (this.u > 3000 && this.u <= 5000) {
+                i = 2;
+            } else if (this.u > 5000 && this.u <= 10000) {
+                i = 3;
+            } else if (this.u > 10000 && this.u <= 20000) {
+                i = 4;
+            } else if (this.u > 20000 && this.u <= 30000) {
+                i = 5;
+            } else if (this.u > 30000 && this.u <= 50000) {
+                i = 6;
+            } else if (this.u <= 50000) {
+                i = -1;
+            } else {
+                i = 7;
+            }
+        }
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("distance", i);
+        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.navDistance");
+    }
+
+    public void a(boolean z, int i) {
+        String b;
+        try {
+            if (this.f == null || this.f.isFinishing()) {
+                com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.exitNavi");
+                s();
+                return;
+            }
+            com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_action_menu_overflow_description));
+            if (com.baidu.platform.comapi.walknavi.g.a.b.a == 2) {
+                b = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
+            } else {
+                b = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
+            }
+            this.i = b2.a(b).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_action_bar_home_description)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_action_mode_done)).a(new f(this));
+            if (z) {
+                this.v = new a(7000L, 1000L, this.f, this.i);
+                this.v.start();
+            }
+            if (!this.i.isShowing() && this.f != null && !this.f.isFinishing()) {
+                this.i.show();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void q() {
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.r();
+        D();
+        s();
+        if (this.e != null) {
+            ViewParent parent = this.e.getParent();
+            if (parent != null && (parent instanceof ViewGroup)) {
+                ((ViewGroup) parent).removeAllViews();
+            }
+            this.e = null;
+        }
+        if (this.f != null && !this.f.isFinishing()) {
+            this.f.finish();
+        }
+        this.f = null;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public float r() {
+        return 0.0f;
+    }
+
+    private void E() {
+        if (!this.l) {
+            if (!com.baidu.platform.comapi.walknavi.b.a().P().c()) {
+                F();
+            } else {
+                G();
+            }
+        }
+    }
+
+    private void F() {
+        try {
+            if (this.j == null) {
+                this.j = new com.baidu.platform.comapi.walknavi.widget.a(this.f).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_action_menu_overflow_description)).a(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_activity_chooser_view_see_all)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_activitychooserview_choose_application)).a().a(new i(this)).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_action_mode_done)).b(new h(this));
+                this.j.setOnCancelListener(new j(this));
+            }
+            if (this.f != null && !this.f.isFinishing()) {
+                this.j.show();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void G() {
+        if (this.j != null && this.f != null && !this.f.isFinishing()) {
+            if (this.j.isShowing()) {
+                this.j.dismiss();
+            }
+            this.j = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void H() {
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.r();
+        if (this.f != null) {
+            com.baidu.platform.comapi.walknavi.g.c.c.a(this.f, com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.string.abc_capital_off));
+        }
+        s();
+    }
+
+    public void s() {
+        com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "call quitNavWhenConfirm:" + this.k);
+        if (this.k != null) {
+            this.k.y();
+        }
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void a(com.baidu.platform.comapi.walknavi.g.b.a aVar) {
+        this.k = aVar;
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public void a(String str) {
+    }
+
+    @Override // com.baidu.platform.comapi.wnplatform.n.a
+    public Handler t() {
+        return null;
+    }
+}

@@ -8,38 +8,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    private String jwA;
-    private JSONObject jwB;
-    private List<h> jwC = new ArrayList();
-    private int jwz;
+    private int jwr;
+    private String jws;
+    private JSONObject jwt;
+    private List<h> jwu = new ArrayList();
     private int mThreshold;
 
     public n(String str, JSONObject jSONObject) {
-        this.jwA = str;
-        this.jwB = jSONObject;
+        this.jws = str;
+        this.jwt = jSONObject;
     }
 
-    public String csc() {
-        return this.jwA;
+    public String csf() {
+        return this.jws;
     }
 
     public int getThreshold() {
         return this.mThreshold;
     }
 
-    public int csd() {
-        return this.jwz;
+    public int csg() {
+        return this.jwr;
     }
 
-    public List<h> cse() {
-        return this.jwC;
+    public List<h> csh() {
+        return this.jwu;
     }
 
-    public boolean csf() {
+    public boolean csi() {
         try {
-            JSONObject jSONObject = this.jwB;
+            JSONObject jSONObject = this.jwt;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.jwz = jSONObject.getInt("timeup");
+            this.jwr = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -65,9 +65,9 @@ public class n {
                         hVar.BI(jSONObject2.getInt("limitCnt"));
                     }
                     if (jSONObject2.has("idtype")) {
-                        hVar.EM(jSONObject2.getString("idtype"));
+                        hVar.EK(jSONObject2.getString("idtype"));
                     }
-                    this.jwC.add(hVar);
+                    this.jwu.add(hVar);
                 }
             }
             return true;

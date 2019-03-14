@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
@@ -30,7 +31,7 @@ public final class StatService {
     static {
         a.put(Info.kBaiduPIDKey, "111");
         a.put("type", "1023");
-        a.put("device", "android");
+        a.put(Config.DEVICE_PART, "android");
     }
 
     public static void onEvent(StatEvent statEvent) {
@@ -56,7 +57,7 @@ public final class StatService {
                     httpHashMapWrap.putAll(a);
                     httpHashMapWrap.put("name", str);
                     httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
-                    httpHashMapWrap.put("device", Build.MODEL);
+                    httpHashMapWrap.put(Config.DEVICE_PART, Build.MODEL);
                     httpHashMapWrap.put("tpl", confignation.tpl);
                     httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
                     httpHashMapWrap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
@@ -92,7 +93,7 @@ public final class StatService {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         for (String str : linkedHashMap.keySet()) {
-            sb.append(str).append(":").append(linkedHashMap.get(str));
+            sb.append(str).append(Config.TRACE_TODAY_VISIT_SPLIT).append(linkedHashMap.get(str));
         }
         sb.append("}");
         map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));

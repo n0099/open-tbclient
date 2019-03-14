@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
+    private View.OnClickListener fAl;
     private View.OnClickListener fAm;
-    private View.OnClickListener fAn;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -39,9 +39,9 @@ public class ProfessionDialogLayout extends LinearLayout {
         LayoutInflater.from(context).inflate(d.h.profession_dialog_layout, this);
         setOrientation(1);
         TbImageView tbImageView = (TbImageView) findViewById(d.g.img_bg);
-        al.j((TextView) findViewById(d.g.desc_1), d.C0236d.cp_cont_j);
-        al.j((TextView) findViewById(d.g.desc_2), d.C0236d.cp_cont_j);
-        al.j((TextView) findViewById(d.g.button), d.C0236d.cp_link_tip_a);
+        al.j((TextView) findViewById(d.g.desc_1), d.C0277d.cp_cont_j);
+        al.j((TextView) findViewById(d.g.desc_2), d.C0277d.cp_cont_j);
+        al.j((TextView) findViewById(d.g.button), d.C0277d.cp_link_tip_a);
         setImageAttribute(tbImageView);
         al.c(tbImageView, d.f.img_frs_professinal_popup);
         TbImageView tbImageView2 = (TbImageView) findViewById(d.g.close_btn);
@@ -49,27 +49,27 @@ public class ProfessionDialogLayout extends LinearLayout {
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fAn != null) {
-                    ProfessionDialogLayout.this.fAn.onClick(view);
+                if (ProfessionDialogLayout.this.fAm != null) {
+                    ProfessionDialogLayout.this.fAm.onClick(view);
                 }
             }
         });
         findViewById(d.g.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fAm != null) {
-                    ProfessionDialogLayout.this.fAm.onClick(view);
+                if (ProfessionDialogLayout.this.fAl != null) {
+                    ProfessionDialogLayout.this.fAl.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.fAm = onClickListener;
+        this.fAl = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.fAn = onClickListener;
+        this.fAm = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {

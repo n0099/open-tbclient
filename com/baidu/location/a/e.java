@@ -6,7 +6,7 @@ import android.location.Location;
 import android.net.http.Headers;
 import android.os.Handler;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
@@ -100,7 +100,7 @@ public class e {
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
                     jSONObject.put("prod", com.baidu.location.g.b.d);
-                    jSONObject.put("uptime", System.currentTimeMillis());
+                    jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
                     e.this.e(jSONObject.toString());
                 } catch (Exception e) {
                 }
@@ -284,7 +284,7 @@ public class e {
             }
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
-            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
+            byte[] bytes2 = (b("%d_%02d_%02d") + Config.TRACE_TODAY_VISIT_SPLIT + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
@@ -358,8 +358,8 @@ public class e {
                 if (jSONObject.has("nondrper")) {
                     this.x = jSONObject.getInt("nondrper");
                 }
-                if (jSONObject.has("uptime")) {
-                    this.z = jSONObject.getLong("uptime");
+                if (jSONObject.has(Config.DEVICE_UPTIME)) {
+                    this.z = jSONObject.getLong(Config.DEVICE_UPTIME);
                 }
                 k();
             } catch (JSONException e) {
@@ -383,7 +383,7 @@ public class e {
             } catch (Exception e) {
             }
         }
-        this.K = a(com.baidu.location.g.b.d + ":" + com.baidu.location.g.b.a().b);
+        this.K = a(com.baidu.location.g.b.d + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.a().b);
     }
 
     private void d(Location location) {
@@ -419,9 +419,9 @@ public class e {
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile.read(bArr, 0, readInt2);
                 String str2 = new String(bArr);
-                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
+                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
                     try {
-                        String[] split = str2.split(":");
+                        String[] split = str2.split(Config.TRACE_TODAY_VISIT_SPLIT);
                         if (split.length > 1) {
                             this.y = Integer.valueOf(split[1]).intValue();
                         }
@@ -466,7 +466,7 @@ public class e {
             this.c = this.b;
         }
         this.b = location;
-        if (this.b != null && this.c != null && this.b.getTime() > this.c.getTime() && this.b.getTime() - this.c.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+        if (this.b != null && this.c != null && this.b.getTime() > this.c.getTime() && this.b.getTime() - this.c.getTime() < 5000) {
             long time = this.b.getTime() - this.c.getTime();
             float[] fArr = new float[2];
             Location.distanceBetween(this.b.getAltitude(), this.b.getLongitude(), this.c.getLatitude(), this.c.getLongitude(), fArr);

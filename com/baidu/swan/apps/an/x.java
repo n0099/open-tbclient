@@ -18,16 +18,16 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AbsoluteLayout;
 import android.widget.TextView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class x {
-    private static DisplayMetrics aWr;
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static final DisplayMetrics aWs = com.baidu.swan.apps.u.a.Cy().getResources().getDisplayMetrics();
-    private static final float aWt = aWs.density;
+    private static DisplayMetrics aWs;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final DisplayMetrics aWt = com.baidu.swan.apps.u.a.Cy().getResources().getDisplayMetrics();
+    private static final float aWu = aWt.density;
 
     public static int co(Context context) {
         int i;
@@ -41,7 +41,7 @@ public class x {
         int statusBarHeight = getStatusBarHeight();
         int cp = cp(context);
         try {
-            i = context.getResources().getDimensionPixelSize(b.d.aiapps_normal_base_action_bar_height);
+            i = context.getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
         } catch (Resources.NotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -59,7 +59,7 @@ public class x {
             }
             if (yO != null && yO.yc()) {
                 try {
-                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(b.d.aiapps_action_bar_shadow_height);
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_action_bar_shadow_height);
                     if (dimensionPixelSize > 0) {
                         i += dimensionPixelSize;
                     }
@@ -101,13 +101,13 @@ public class x {
             return 0;
         }
         try {
-            i = context.getResources().getDimensionPixelSize(b.d.aiapps_bottom_tab_height);
+            i = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height);
         } catch (Resources.NotFoundException e2) {
             i = 0;
             e = e2;
         }
         try {
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(b.d.aiapps_bottom_tab_shadow_height);
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_shadow_height);
             if (dimensionPixelSize > 0) {
                 return i + dimensionPixelSize;
             }
@@ -129,20 +129,20 @@ public class x {
         } else if ("1".equals(String.valueOf(str))) {
             bdBaseImageView.setVisibility(0);
             textView.setVisibility(0);
-            textView.setText(b.h.aiapps_history_aiapp_tag);
+            textView.setText(a.h.aiapps_history_aiapp_tag);
         } else if ("2".equals(String.valueOf(str))) {
             bdBaseImageView.setVisibility(0);
             textView.setVisibility(0);
-            textView.setText(b.h.aiapps_history_aiapp_tag_trial);
+            textView.setText(a.h.aiapps_history_aiapp_tag_trial);
         } else if ("3".equals(String.valueOf(str))) {
             bdBaseImageView.setVisibility(0);
             textView.setVisibility(0);
-            textView.setText(b.h.aiapps_history_aiapp_tag_experience);
+            textView.setText(a.h.aiapps_history_aiapp_tag_experience);
         }
     }
 
     public static void O(Activity activity) {
-        if (activity != null && com.baidu.swan.apps.view.a.b.aKV) {
+        if (activity != null && com.baidu.swan.apps.view.a.b.aKW) {
             new com.baidu.swan.apps.view.a.b(activity).es(-1);
         }
     }
@@ -173,44 +173,44 @@ public class x {
 
     public static int getDisplayWidth(Context context) {
         cs(com.baidu.swan.apps.u.a.Cy());
-        if (aWr != null) {
-            return aWr.widthPixels;
+        if (aWs != null) {
+            return aWs.widthPixels;
         }
         return 0;
     }
 
     public static int getDisplayHeight(Context context) {
         cs(com.baidu.swan.apps.u.a.Cy());
-        if (aWr != null) {
-            return aWr.heightPixels;
+        if (aWs != null) {
+            return aWs.heightPixels;
         }
         return 0;
     }
 
     public static float cq(Context context) {
         cs(com.baidu.swan.apps.u.a.Cy());
-        if (aWr != null) {
-            return aWr.density;
+        if (aWs != null) {
+            return aWs.density;
         }
         return 0.0f;
     }
 
     public static int cr(Context context) {
         cs(com.baidu.swan.apps.u.a.Cy());
-        if (aWr != null) {
-            return aWr.densityDpi;
+        if (aWs != null) {
+            return aWs.densityDpi;
         }
         return 0;
     }
 
     private static void cs(Context context) {
-        if (aWr == null) {
+        if (aWs == null) {
             Application Cy = com.baidu.swan.apps.u.a.Cy();
             if (Cy != null) {
                 context = Cy;
             }
             if (context != null) {
-                aWr = context.getResources().getDisplayMetrics();
+                aWs = context.getResources().getDisplayMetrics();
             }
         }
     }
@@ -270,7 +270,7 @@ public class x {
             }
         }
         if (i == 0) {
-            return (int) (25.0f * aWt);
+            return (int) (25.0f * aWu);
         }
         return i;
     }

@@ -8,44 +8,43 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.u.a;
 /* loaded from: classes2.dex */
 public class WheelView extends BdGallery {
-    private static final int[] aKN = {-1, -1140850689, ViewCompat.MEASURED_SIZE_MASK};
-    private static final int[] aKO = {-15132391, -1155983079, 1644825};
-    private Drawable aKP;
-    private Rect aKQ;
-    private Drawable aKR;
+    private static final int[] aKO = {-1, -1140850689, ViewCompat.MEASURED_SIZE_MASK};
+    private static final int[] aKP = {-15132391, -1155983079, 1644825};
+    private Drawable aKQ;
+    private Rect aKR;
     private Drawable aKS;
-    private int aKT;
+    private Drawable aKT;
+    private int aKU;
     private int mShadowHeight;
 
     public WheelView(Context context) {
         super(context);
-        this.aKP = null;
-        this.aKQ = new Rect();
-        this.aKR = null;
+        this.aKQ = null;
+        this.aKR = new Rect();
         this.aKS = null;
+        this.aKT = null;
         initialize(context);
     }
 
     public WheelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aKP = null;
-        this.aKQ = new Rect();
-        this.aKR = null;
+        this.aKQ = null;
+        this.aKR = new Rect();
         this.aKS = null;
+        this.aKT = null;
         initialize(context);
     }
 
     public WheelView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aKP = null;
-        this.aKQ = new Rect();
-        this.aKR = null;
+        this.aKQ = null;
+        this.aKR = new Rect();
         this.aKS = null;
+        this.aKT = null;
         initialize(context);
     }
 
@@ -56,28 +55,28 @@ public class WheelView extends BdGallery {
         setGravity(1);
         setUnselectedAlpha(1.0f);
         setWillNotDraw(false);
-        this.aKP = getContext().getResources().getDrawable(b.e.aiapps_wheel_val);
-        if (a.CT().Ds()) {
-            this.aKR = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKO);
-            this.aKS = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKO);
+        this.aKQ = getContext().getResources().getDrawable(a.e.aiapps_wheel_val);
+        if (com.baidu.swan.apps.u.a.CT().Ds()) {
+            this.aKS = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKP);
+            this.aKT = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKP);
         } else {
-            this.aKR = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKN);
-            this.aKS = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKN);
+            this.aKS = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKO);
+            this.aKT = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKO);
         }
         setSoundEffectsEnabled(false);
-        this.aKT = x.dip2px(getContext(), 50.0f);
+        this.aKU = x.dip2px(getContext(), 50.0f);
     }
 
     public void setSelectorDrawable(Drawable drawable) {
-        if (this.aKP != drawable) {
-            this.aKP = drawable;
+        if (this.aKQ != drawable) {
+            this.aKQ = drawable;
             invalidate();
         }
     }
 
     public void setShadowDrawable(Drawable drawable, Drawable drawable2) {
-        this.aKR = drawable;
-        this.aKS = drawable2;
+        this.aKS = drawable;
+        this.aKT = drawable2;
         invalidate();
     }
 
@@ -119,9 +118,9 @@ public class WheelView extends BdGallery {
     }
 
     private void s(Canvas canvas) {
-        if (this.aKQ != null && !this.aKQ.isEmpty() && this.aKP != null) {
-            this.aKP.setBounds(this.aKQ);
-            this.aKP.draw(canvas);
+        if (this.aKR != null && !this.aKR.isEmpty() && this.aKQ != null) {
+            this.aKQ.setBounds(this.aKR);
+            this.aKQ.draw(canvas);
         }
     }
 
@@ -138,33 +137,33 @@ public class WheelView extends BdGallery {
 
     private void v(Canvas canvas) {
         if (this.mShadowHeight <= 0) {
-            this.mShadowHeight = (int) (2.0d * this.aKQ.height());
-            this.mShadowHeight = Math.min(this.mShadowHeight, this.aKQ.top);
+            this.mShadowHeight = (int) (2.0d * this.aKR.height());
+            this.mShadowHeight = Math.min(this.mShadowHeight, this.aKR.top);
         }
         int i = this.mShadowHeight;
-        if (this.aKR != null) {
-            this.aKR.setBounds(0, 0, getWidth(), i);
-            this.aKR.draw(canvas);
-        }
         if (this.aKS != null) {
-            this.aKS.setBounds(0, getHeight() - i, getWidth(), getHeight());
+            this.aKS.setBounds(0, 0, getWidth(), i);
             this.aKS.draw(canvas);
+        }
+        if (this.aKT != null) {
+            this.aKT.setBounds(0, getHeight() - i, getWidth(), getHeight());
+            this.aKT.draw(canvas);
         }
     }
 
     private void Ij() {
         int centerOfGallery = getCenterOfGallery();
         View childAt = getChildAt(0);
-        int measuredWidth = childAt != null ? childAt.getMeasuredWidth() : this.aKT;
+        int measuredWidth = childAt != null ? childAt.getMeasuredWidth() : this.aKU;
         int i = centerOfGallery - (measuredWidth / 2);
-        this.aKQ.set(i, getPaddingTop(), measuredWidth + i, getHeight() - getPaddingBottom());
+        this.aKR.set(i, getPaddingTop(), measuredWidth + i, getHeight() - getPaddingBottom());
     }
 
     private void Ik() {
         int centerOfGallery = getCenterOfGallery();
         View childAt = getChildAt(0);
-        int measuredHeight = childAt != null ? childAt.getMeasuredHeight() : this.aKT;
+        int measuredHeight = childAt != null ? childAt.getMeasuredHeight() : this.aKU;
         int i = centerOfGallery - (measuredHeight / 2);
-        this.aKQ.set(getPaddingLeft(), i, getWidth() - getPaddingRight(), measuredHeight + i);
+        this.aKR.set(getPaddingLeft(), i, getWidth() - getPaddingRight(), measuredHeight + i);
     }
 }

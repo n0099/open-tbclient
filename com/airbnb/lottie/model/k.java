@@ -1,6 +1,7 @@
 package com.airbnb.lottie.model;
 
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class k {
@@ -25,7 +26,7 @@ public class k {
     }
 
     public String toString() {
-        return getScaleX() + "x" + getScaleY();
+        return getScaleX() + Config.EVENT_HEAT_X + getScaleY();
     }
 
     /* loaded from: classes2.dex */

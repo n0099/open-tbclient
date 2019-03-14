@@ -38,7 +38,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Date;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class VoiceManager extends BroadcastReceiver implements SensorEventListener {
     public static final boolean BOOLEAN_SEEKTO = false;
@@ -1039,7 +1038,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         l lVar = new l();
-                        lVar.l(ClientCookie.PATH_ATTR, "/sys/class/switch/h2w/state");
+                        lVar.l("path", "/sys/class/switch/h2w/state");
                         TiebaStatic.voiceError(TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), lVar.toString());
                         if (fileReader != null) {
                             try {
@@ -1051,7 +1050,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     } catch (Exception e4) {
                         e = e4;
                         l lVar2 = new l();
-                        lVar2.l(ClientCookie.PATH_ATTR, "/sys/class/switch/h2w/state");
+                        lVar2.l("path", "/sys/class/switch/h2w/state");
                         TiebaStatic.voiceError(TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), lVar2.toString());
                         if (fileReader != null) {
                             try {

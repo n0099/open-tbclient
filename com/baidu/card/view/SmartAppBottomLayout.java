@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SmartAppBottomLayout extends LinearLayout implements i<a> {
-    private ImageView aaH;
-    private TextView aaI;
+    private ImageView aaI;
+    private TextView aaJ;
     private int mSkinType;
     private View mView;
 
@@ -35,8 +35,8 @@ public class SmartAppBottomLayout extends LinearLayout implements i<a> {
     private void aX(Context context) {
         this.mView = LayoutInflater.from(context).inflate(d.h.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aaH = (ImageView) this.mView.findViewById(d.g.ai_smart_app_icon);
-        this.aaI = (TextView) this.mView.findViewById(d.g.ai_smart_app_text);
+        this.aaI = (ImageView) this.mView.findViewById(d.g.ai_smart_app_icon);
+        this.aaJ = (TextView) this.mView.findViewById(d.g.ai_smart_app_text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class SmartAppBottomLayout extends LinearLayout implements i<a> {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            al.j(this.aaI, d.C0236d.cp_cont_d);
-            al.c(this.aaH, d.f.icon_avatar_smallapp_tie);
+            al.j(this.aaJ, d.C0277d.cp_cont_d);
+            al.c(this.aaI, d.f.icon_avatar_smallapp_tie);
         }
     }
 }

@@ -51,10 +51,10 @@ public final class f extends Handler {
                     context2 = this.lD.h;
                     cn.jiguang.a.c.c.a(context2, false);
                     return;
-                case PointerIconCompat.TYPE_HELP /* 1003 */:
+                case 1003:
                     d.b(this.lD);
                     return;
-                case PointerIconCompat.TYPE_WAIT /* 1004 */:
+                case 1004:
                     d.a(this.lD, true);
                     return;
                 case 1005:

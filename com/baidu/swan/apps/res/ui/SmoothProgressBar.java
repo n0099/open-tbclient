@@ -8,13 +8,13 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 /* loaded from: classes2.dex */
 public class SmoothProgressBar extends RotateProgressBar {
-    private static final int aHH;
+    private static final int aHI;
 
     static {
         if (Build.VERSION.SDK_INT > 15) {
-            aHH = 36;
+            aHI = 36;
         } else {
-            aHH = 25;
+            aHI = 25;
         }
     }
 
@@ -34,22 +34,22 @@ public class SmoothProgressBar extends RotateProgressBar {
     }
 
     private void init() {
-        this.aHh = (int) ((((this.aHh * 12.0f) / aHH) / 2.0f) + 0.5f);
+        this.aHi = (int) ((((this.aHi * 12.0f) / aHI) / 2.0f) + 0.5f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
     protected synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.aHf;
+        Drawable drawable = this.aHg;
         if (drawable != null) {
             drawable.draw(canvas);
-            if (SystemClock.uptimeMillis() - this.aHg >= this.aHh) {
-                this.aHg = SystemClock.uptimeMillis();
-                this.mDegree += 10000 / aHH;
+            if (SystemClock.uptimeMillis() - this.aHh >= this.aHi) {
+                this.aHh = SystemClock.uptimeMillis();
+                this.mDegree += 10000 / aHI;
                 if (this.mDegree >= 10000) {
                     this.mDegree -= 10000;
                 }
                 drawable.setLevel(this.mDegree);
-                postInvalidateDelayed(this.aHh);
+                postInvalidateDelayed(this.aHi);
             }
         }
     }

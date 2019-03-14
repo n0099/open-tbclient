@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.statistic;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.net.ConnectionFactory;
 import com.sina.weibo.sdk.net.NetStateManager;
@@ -173,7 +172,7 @@ public class LogReport {
                 try {
                     jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, System.currentTimeMillis() / 1000);
                     jSONObject.put("length", jSONArray.length());
-                    jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)));
+                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)));
                     jSONObject.put("content", jSONArray);
                     LogUtil.d(WBAgent.TAG, "post content--- " + jSONObject.toString());
                 } catch (JSONException e3) {

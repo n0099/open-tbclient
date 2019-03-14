@@ -12,14 +12,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
-    private String ctx;
-    private i hWN;
-    private String hXc;
+    private String ctu;
+    private i hWH;
+    private String hWW;
 
     public a(String str, String str2, i iVar) {
-        this.ctx = str;
-        this.hXc = str2;
-        this.hWN = iVar;
+        this.ctu = str;
+        this.hWW = str2;
+        this.hWH = iVar;
     }
 
     @Override // com.baidu.tieba.j.e.a
@@ -27,14 +27,14 @@ public class a implements e.a {
         if (i == 1) {
             am amVar = new am("c12620");
             amVar.T("obj_locate", 1);
-            amVar.bJ("tid", this.ctx);
+            amVar.bJ("tid", this.ctu);
             TiebaStatic.log(amVar);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
-            httpMessage.addParam("thread_id", this.ctx);
-            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.hXc);
+            httpMessage.addParam("thread_id", this.ctu);
+            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.hWW);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.hWN != null) {
-                this.hWN.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.hWH != null) {
+                this.hWH.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.j.b
                     public void bx(JSONObject jSONObject) throws JSONException {
                     }
@@ -57,10 +57,10 @@ public class a implements e.a {
         am amVar = new am("c12621");
         amVar.T("obj_locate", 1);
         amVar.T("obj_param1", z ? 1 : 0);
-        amVar.bJ("tid", this.ctx);
+        amVar.bJ("tid", this.ctu);
         TiebaStatic.log(amVar);
-        if (this.hWN != null) {
-            this.hWN.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.hWH != null) {
+            this.hWH.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.j.b
                 public void bx(JSONObject jSONObject) throws JSONException {
                 }

@@ -1,4 +1,6 @@
 package com.baidu.android.pushservice;
+
+import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 /* loaded from: classes3.dex */
 public final class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
@@ -20,7 +22,7 @@ public final class PushConstants {
     public static String a(int i) {
         switch (i) {
             case 0:
-                return "Success";
+                return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
             case 10001:
                 return "Network Problem";
             case 10002:

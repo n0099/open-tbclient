@@ -8,7 +8,7 @@ import com.baidu.swan.apps.scheme.actions.u;
 import com.baidu.swan.apps.storage.a.k;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();

@@ -35,7 +35,7 @@ public class LegoListActivityConfig extends IntentConfig {
             intent.putExtra(ITEM_ID, str);
         }
         intent.putExtra(IS_IMMERSIVE, i2);
-        intent.putExtra(RN, i3);
+        intent.putExtra("rn", i3);
         intent.putExtra(PARAMS, str2);
         if (!(this.mContext instanceof Activity)) {
             intent.addFlags(268435456);

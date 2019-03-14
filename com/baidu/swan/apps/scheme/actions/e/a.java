@@ -6,6 +6,7 @@ import android.net.http.Headers;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -35,12 +36,12 @@ public final class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final C0137a gF = C0137a.gF(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+        final C0166a gF = C0166a.gF(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
         if (gF == null || !gF.isValid()) {
             c.e(Headers.LOCATION, "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (TextUtils.isEmpty(gF.aPX)) {
+        } else if (TextUtils.isEmpty(gF.aPY)) {
             c.e(Headers.LOCATION, "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
@@ -58,7 +59,7 @@ public final class a extends y {
                     if (bool.booleanValue()) {
                         a.this.a(context, callbackHandler, gF);
                     } else {
-                        callbackHandler.handleSchemeDispatchCallback(gF.aPX, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
+                        callbackHandler.handleSchemeDispatchCallback(gF.aPY, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
                     }
                 }
             });
@@ -68,15 +69,15 @@ public final class a extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final CallbackHandler callbackHandler, final C0137a c0137a) {
+    public void a(final Context context, final CallbackHandler callbackHandler, final C0166a c0166a) {
         if (aa.Mo()) {
-            b(context, callbackHandler, c0137a);
+            b(context, callbackHandler, c0166a);
         } else {
-            e.Ec().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0078a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0078a
+            e.Ec().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
-                        callbackHandler.handleSchemeDispatchCallback(c0137a.aPX, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
+                        callbackHandler.handleSchemeDispatchCallback(c0166a.aPY, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
                         if (a.DEBUG) {
                             Log.e("GetLocationAction", "onRequestPermissionsResult requestCode error.");
                         }
@@ -85,7 +86,7 @@ public final class a extends y {
                     }
                     for (int i2 : iArr) {
                         if (i2 == -1) {
-                            callbackHandler.handleSchemeDispatchCallback(c0137a.aPX, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
+                            callbackHandler.handleSchemeDispatchCallback(c0166a.aPY, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
                             if (a.DEBUG) {
                                 Log.d("GetLocationAction", "onRequestPermissionsResult user reject.");
                             }
@@ -93,33 +94,33 @@ public final class a extends y {
                             return;
                         }
                     }
-                    a.this.b(context, callbackHandler, c0137a);
+                    a.this.b(context, callbackHandler, c0166a);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Context context, final CallbackHandler callbackHandler, final C0137a c0137a) {
+    public void b(Context context, final CallbackHandler callbackHandler, final C0166a c0166a) {
         String str;
-        if (TextUtils.equals(c0137a.mType, "gcj02")) {
-            str = "gcj02";
+        if (TextUtils.equals(c0166a.mType, CoordinateType.GCJ02)) {
+            str = CoordinateType.GCJ02;
         } else {
-            str = "wgs84";
+            str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.u.a.CR().a(str, false, c0137a.aPW, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
+        com.baidu.swan.apps.u.a.CR().a(str, false, c0166a.aPX, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
             @Override // com.baidu.swan.apps.u.b.n.a
             public void a(b bVar) {
                 if (a.DEBUG) {
                     Log.d("GetLocationAction", "convert info : " + bVar.toJSON());
                 }
-                callbackHandler.handleSchemeDispatchCallback(c0137a.aPX, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0166a.aPY, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
             }
 
             @Override // com.baidu.swan.apps.u.b.n.a
             public void onFailed(int i) {
                 c.e(Headers.LOCATION, "request location error code : " + i);
-                callbackHandler.handleSchemeDispatchCallback(c0137a.aPX, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0166a.aPY, UnitedSchemeUtility.wrapCallbackParams(i).toString());
             }
         });
     }
@@ -127,31 +128,31 @@ public final class a extends y {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.scheme.actions.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0137a {
-        public boolean aPW;
-        public String aPX;
+    public static class C0166a {
+        public boolean aPX;
+        public String aPY;
         public String mType;
 
-        private C0137a() {
+        private C0166a() {
         }
 
-        public static C0137a gF(String str) {
+        public static C0166a gF(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C0137a c0137a = new C0137a();
+            C0166a c0166a = new C0166a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                c0137a.mType = jSONObject.optString("type");
-                if (TextUtils.isEmpty(c0137a.mType)) {
-                    c0137a.mType = "wgs84";
+                c0166a.mType = jSONObject.optString("type");
+                if (TextUtils.isEmpty(c0166a.mType)) {
+                    c0166a.mType = CoordinateType.WGS84;
                 }
-                c0137a.aPW = jSONObject.optBoolean("altitude");
-                c0137a.aPX = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0137a.aPX)) {
+                c0166a.aPX = jSONObject.optBoolean("altitude");
+                c0166a.aPY = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0166a.aPY)) {
                     return null;
                 }
-                return c0137a;
+                return c0166a;
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     Log.e("GetLocationAction", "parse failed: " + Log.getStackTraceString(e));
@@ -162,7 +163,7 @@ public final class a extends y {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, "wgs84") || TextUtils.equals(this.mType, "gcj02")) && !TextUtils.isEmpty(this.aPX);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, CoordinateType.GCJ02)) && !TextUtils.isEmpty(this.aPY);
         }
     }
 }

@@ -20,8 +20,8 @@ public final class b extends c {
             bVar.q(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
             bVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             bVar.setAppKey(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WBConstants.SSO_APP_KEY)));
-            bVar.Fp(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
-            bVar.Fr(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            bVar.Fn(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
+            bVar.Fp(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + bVar.toString());
             return bVar;
         } catch (Exception e) {

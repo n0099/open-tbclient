@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.media.a.b.c;
 import com.baidu.swan.apps.u.b.h;
 import java.io.File;
-import org.apache.http.cookie.ClientCookie;
 import rx.d;
 import rx.functions.f;
 import rx.schedulers.Schedulers;
@@ -16,7 +15,7 @@ public class a implements h {
     public void a(Context context, Bundle bundle, final c.a aVar) {
         final Bundle bundle2 = new Bundle();
         bundle2.putBoolean("success", true);
-        final String string = bundle.getString(ClientCookie.PATH_ATTR);
+        final String string = bundle.getString("path");
         final String string2 = bundle.getString("outputPath");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
             aVar.a(false, null);
@@ -24,15 +23,15 @@ public class a implements h {
             d.bn("").b(Schedulers.io()).d(new f<String, Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: rI */
+                /* renamed from: rG */
                 public Object call(String str) {
                     com.baidu.swan.c.b.e(new File(string), new File(string2));
                     return null;
                 }
-            }).a(rx.a.b.a.cDR()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.1
+            }).a(rx.a.b.a.cDU()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.1
                 @Override // rx.functions.b
                 public void call(Object obj) {
-                    bundle2.putString(ClientCookie.PATH_ATTR, string2);
+                    bundle2.putString("path", string2);
                     aVar.a(true, bundle2);
                 }
             });

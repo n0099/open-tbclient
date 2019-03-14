@@ -49,6 +49,6 @@ public class PbNewLocationInfoView extends TextView {
     }
 
     public void onChangeSkinType() {
-        setTextColor(al.getColor(d.C0236d.cp_cont_f));
+        setTextColor(al.getColor(d.C0277d.cp_cont_f));
     }
 }

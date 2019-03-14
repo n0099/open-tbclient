@@ -214,7 +214,7 @@ public class SdkConfigOptions {
                 livenessConfigOption.detectInterval = jSONObject.optString(DETECT_INTERVAL);
                 livenessConfigOption.yaw = jSONObject.optString(YAW_RANGE);
                 livenessConfigOption.pitch = jSONObject.optString(PITCH_RANGE);
-                livenessConfigOption.roll = jSONObject.optString(ROLL_RANGE);
+                livenessConfigOption.roll = jSONObject.optString("roll");
                 livenessConfigOption.maxRegImgNum = jSONObject.optString(MAX_REG_IMG_NUM);
                 livenessConfigOption.prefetchRegImgInterval = jSONObject.optString(PREFETCH_REG_IMG_INTERVAL);
                 livenessConfigOption.cropFaceSize = jSONObject.optString(CROP_FACE_SIZE);
@@ -237,7 +237,7 @@ public class SdkConfigOptions {
                 jSONObject.put(DETECT_INTERVAL, this.detectInterval);
                 jSONObject.put(YAW_RANGE, this.yaw);
                 jSONObject.put(PITCH_RANGE, this.pitch);
-                jSONObject.put(ROLL_RANGE, this.roll);
+                jSONObject.put("roll", this.roll);
                 jSONObject.put(MAX_REG_IMG_NUM, this.maxRegImgNum);
                 jSONObject.put(PREFETCH_REG_IMG_INTERVAL, this.prefetchRegImgInterval);
                 jSONObject.put(CROP_FACE_SIZE, this.cropFaceSize);

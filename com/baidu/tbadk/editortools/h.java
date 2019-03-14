@@ -40,8 +40,8 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     public void init(Context context) {
         jF(4);
         jG(2);
-        a(new a.InterfaceC0203a() { // from class: com.baidu.tbadk.editortools.h.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0203a
+        a(new a.InterfaceC0237a() { // from class: com.baidu.tbadk.editortools.h.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0237a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 DLauncher jx = h.this.jx(i);
                 if (jx.getLayoutParams() == null) {
@@ -50,12 +50,12 @@ public class h extends com.baidu.tbadk.editortools.view.a {
                 return jx;
             }
         });
-        amZ().c(this);
+        amY().c(this);
         a(new CommonTabContentView.b() { // from class: com.baidu.tbadk.editortools.h.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.b
             public void c(View view, int i, long j) {
-                if ((view instanceof DLauncher) && h.this.VM != null) {
-                    h.this.VM.aV(view);
+                if ((view instanceof DLauncher) && h.this.VN != null) {
+                    h.this.VN.aV(view);
                 }
             }
         });

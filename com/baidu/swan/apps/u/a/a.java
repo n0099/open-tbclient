@@ -5,9 +5,8 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.c;
-import com.baidu.swan.apps.d;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.ubc.r;
+import com.baidu.swan.ubc.q;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +14,7 @@ import org.json.JSONObject;
 public class a implements com.baidu.swan.pms.b {
     @Override // com.baidu.swan.pms.b
     public boolean isDebug() {
-        return c.DEBUG;
+        return com.baidu.swan.apps.b.DEBUG;
     }
 
     @Override // com.baidu.swan.pms.b
@@ -40,7 +39,7 @@ public class a implements com.baidu.swan.pms.b {
 
     @Override // com.baidu.swan.pms.b
     public String Dk() {
-        return d.getVersion();
+        return c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
@@ -52,7 +51,7 @@ public class a implements com.baidu.swan.pms.b {
     public String Dm() {
         ExtensionCore At = com.baidu.swan.apps.extcore.a.Bj().At();
         if (At != null) {
-            String str = At.avL;
+            String str = At.avM;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
@@ -91,7 +90,7 @@ public class a implements com.baidu.swan.pms.b {
             if (jSONObject != null) {
                 jSONObject2.put("ext", jSONObject);
             }
-            r.onEvent("874", jSONObject2);
+            q.onEvent("874", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }

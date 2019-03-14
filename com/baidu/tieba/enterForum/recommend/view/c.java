@@ -9,9 +9,9 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.d> {
-    private TextView eGs;
-    private TextView eGt;
-    private com.baidu.tieba.enterForum.recommend.b.d eGu;
+    private TextView eGo;
+    private TextView eGp;
+    private com.baidu.tieba.enterForum.recommend.b.d eGq;
     private TbPageContext mContext;
     private int mSkinType;
 
@@ -24,26 +24,26 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     private void initUI() {
         View view = getView();
-        this.eGs = (TextView) view.findViewById(d.g.recommend_title);
-        this.eGt = (TextView) view.findViewById(d.g.recommend_update);
-        this.eGt.setOnClickListener(this);
+        this.eGo = (TextView) view.findViewById(d.g.recommend_title);
+        this.eGp = (TextView) view.findViewById(d.g.recommend_update);
+        this.eGp.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        al.j(this.eGs, d.C0236d.cp_cont_j);
-        al.l(getView(), d.C0236d.cp_bg_line_c);
+        al.j(this.eGo, d.C0277d.cp_cont_j);
+        al.l(getView(), d.C0277d.cp_bg_line_c);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.enterForum.recommend.b.d dVar) {
         if (dVar != null) {
-            this.eGu = dVar;
+            this.eGq = dVar;
             onChangeSkinType(this.mContext, this.mSkinType);
             if (!StringUtils.isNull(dVar.getTitle())) {
-                this.eGs.setText(dVar.getTitle());
+                this.eGo.setText(dVar.getTitle());
             }
         }
     }
@@ -55,9 +55,9 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ab<com.baidu.tieba.enterForum.recommend.b.d> aQi;
-        if (view == this.eGt && (aQi = aQi()) != null && this.eGu.aXf() < this.eGu.getForumList().size()) {
-            aQi.a(view, this.eGu);
+        ab<com.baidu.tieba.enterForum.recommend.b.d> aQh;
+        if (view == this.eGp && (aQh = aQh()) != null && this.eGq.aXe() < this.eGq.getForumList().size()) {
+            aQh.a(view, this.eGq);
         }
     }
 }

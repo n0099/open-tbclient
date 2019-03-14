@@ -26,7 +26,7 @@ public class e extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dp = com.baidu.swan.apps.camera.a.wn().dp(bVar2.aBC);
+        final CameraPreview dp = com.baidu.swan.apps.camera.a.wn().dp(bVar2.aBD);
         if (dp == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
@@ -61,8 +61,8 @@ public class e extends a {
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, bVar2);
             return;
         }
-        com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0078a() { // from class: com.baidu.swan.apps.camera.a.e.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0078a
+        com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.e.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {
@@ -108,7 +108,7 @@ public class e extends a {
         } catch (Exception e3) {
             e = e3;
             cameraPreview.wv();
-            com.baidu.swan.apps.camera.a.wn().c(bVar2.aBC, bVar2.akG, false);
+            com.baidu.swan.apps.camera.a.wn().c(bVar2.aBD, bVar2.akH, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

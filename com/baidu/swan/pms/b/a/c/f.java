@@ -11,21 +11,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f<T> implements Runnable {
-    c bmA;
-    T bms;
-    e bmx;
-    File bmy;
-    AtomicBoolean bmz = new AtomicBoolean(false);
+    AtomicBoolean bmA = new AtomicBoolean(false);
+    c bmB;
+    T bmt;
+    e bmy;
+    File bmz;
 
     public f(e eVar, T t, c cVar) {
-        this.bmx = eVar;
-        this.bms = t;
-        this.bmA = cVar;
+        this.bmy = eVar;
+        this.bmt = t;
+        this.bmB = cVar;
     }
 
     public void cS(boolean z) {
-        if (this.bmz.get() != z) {
-            this.bmz.set(z);
+        if (this.bmA.get() != z) {
+            this.bmA.set(z);
         }
     }
 
@@ -33,52 +33,52 @@ public class f<T> implements Runnable {
         if (fVar == null) {
             return false;
         }
-        return this.bms.equals(fVar.bms);
+        return this.bmt.equals(fVar.bmt);
     }
 
     public com.baidu.swan.pms.a.a<T> RU() {
-        return this.bmA;
+        return this.bmB;
     }
 
     public void a(c cVar) {
-        this.bmA.a(cVar);
+        this.bmB.a(cVar);
     }
 
     public T RV() {
-        return this.bms;
+        return this.bmt;
     }
 
     public int RW() {
-        return this.bmx.bmw.state;
+        return this.bmy.bmx.state;
     }
 
     public void RX() {
         fh(1);
-        this.bmA.F(this.bms);
+        this.bmB.F(this.bmt);
     }
 
     public void RY() {
-        this.bmA.U(this.bms);
+        this.bmB.U(this.bmt);
     }
 
     public void RZ() {
         fh(2);
-        this.bmA.V(this.bms);
+        this.bmB.V(this.bmt);
     }
 
     public void Sa() {
         fh(10);
-        this.bmA.E(this.bms);
+        this.bmB.E(this.bmt);
     }
 
     public void Sb() {
         fh(3);
-        this.bmA.a(this.bms, this.bmx.bmv);
+        this.bmB.a(this.bmt, this.bmy.bmw);
     }
 
     public boolean fh(int i) {
-        if (this.bmx.bmw.state != i) {
-            this.bmx.bmw.state = i;
+        if (this.bmy.bmx.state != i) {
+            this.bmy.bmx.state = i;
             if (i == 2 || i == 3 || i == 10) {
                 cS(true);
                 return true;
@@ -92,37 +92,37 @@ public class f<T> implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (com.baidu.swan.pms.e.DEBUG) {
-            Log.d("ThunderInfoTask", "run:" + this.bmx.bmw.downloadUrl);
+            Log.d("ThunderInfoTask", "run:" + this.bmy.bmx.downloadUrl);
         }
         j jVar = new j(this);
         while (true) {
-            if (this.bmx.bmv == null || this.bmx.bmv.errorNo != 2200) {
-                if (this.bmz.get()) {
+            if (this.bmy.bmw == null || this.bmy.bmw.errorNo != 2200) {
+                if (this.bmA.get()) {
                     if (com.baidu.swan.pms.e.DEBUG) {
-                        Log.d("ThunderInfoTask", "stopped:" + this.bmx.bmw.downloadUrl);
+                        Log.d("ThunderInfoTask", "stopped:" + this.bmy.bmx.downloadUrl);
                     }
                     RZ();
                     return;
                 }
                 jVar.Se();
-                if (this.bmx.bmv != null) {
-                    switch (this.bmx.bmv.errorNo) {
+                if (this.bmy.bmw != null) {
+                    switch (this.bmy.bmw.errorNo) {
                         case PushConstants.EXPIRE_NOTIFICATION /* 2200 */:
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("ThunderInfoTask", "success download:" + this.bmx.bmw.downloadUrl);
+                                Log.d("ThunderInfoTask", "success download:" + this.bmy.bmx.downloadUrl);
                             }
                             Sa();
-                            a(this.bmx.bmv.errorNo, this.bmx.bmw);
+                            a(this.bmy.bmw.errorNo, this.bmy.bmx);
                             return;
                         default:
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("ThunderInfoTask", "retry download:" + this.bmx.bmw.downloadUrl);
+                                Log.d("ThunderInfoTask", "retry download:" + this.bmy.bmx.downloadUrl);
                             }
-                            this.bmA.mRetryCount++;
-                            if (this.bmA.mRetryCount < 3) {
+                            this.bmB.mRetryCount++;
+                            if (this.bmB.mRetryCount < 3) {
                                 try {
-                                    if (!this.bmz.get()) {
-                                        Thread.sleep(this.bmA.mRetryCount * 1000);
+                                    if (!this.bmA.get()) {
+                                        Thread.sleep(this.bmB.mRetryCount * 1000);
                                         break;
                                     } else {
                                         break;
@@ -132,7 +132,7 @@ public class f<T> implements Runnable {
                                 }
                             } else {
                                 Sb();
-                                a(this.bmx.bmv.errorNo, this.bmx.bmw);
+                                a(this.bmy.bmw.errorNo, this.bmy.bmx);
                                 return;
                             }
                     }
@@ -145,13 +145,13 @@ public class f<T> implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean Sc() {
-        if (TextUtils.isEmpty(this.bmx.bmw.filePath)) {
-            this.bmy = com.baidu.swan.pms.d.c.bj(this.bmA.hp(), this.bmx.bmw.md5);
-            if (this.bmy == null) {
-                this.bmA.a(this.bms, new com.baidu.swan.pms.model.b(2203, "download : path not available"));
+        if (TextUtils.isEmpty(this.bmy.bmx.filePath)) {
+            this.bmz = com.baidu.swan.pms.d.c.bj(this.bmB.hp(), this.bmy.bmx.md5);
+            if (this.bmz == null) {
+                this.bmB.a(this.bmt, new com.baidu.swan.pms.model.b(2203, "download : path not available"));
                 return false;
             }
-            this.bmx.bmw.filePath = this.bmy.getAbsolutePath();
+            this.bmy.bmx.filePath = this.bmz.getAbsolutePath();
             return true;
         }
         return true;
@@ -160,7 +160,7 @@ public class f<T> implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean T(long j) {
         boolean z = false;
-        String hp = this.bmA.hp();
+        String hp = this.bmB.hp();
         if (hp != null) {
             try {
                 StatFs statFs = new StatFs(hp);
@@ -205,7 +205,7 @@ public class f<T> implements Runnable {
             }
             try {
                 if (fVar instanceof com.baidu.swan.pms.model.g) {
-                    jSONObject.put("appId", fVar.blV);
+                    jSONObject.put("appId", fVar.blW);
                 }
             } catch (JSONException e2) {
                 e = e2;

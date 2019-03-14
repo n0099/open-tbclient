@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
@@ -33,7 +33,7 @@ public class e extends y {
         } else {
             int optInt = c.optInt("useExtension");
             if (!com.baidu.swan.apps.extcore.d.b.Bq().exists()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(b.h.aiapps_debug_no_extension_core));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                 return false;
             }
             com.baidu.swan.apps.ac.a.a.bw(com.baidu.swan.apps.extcore.d.a.cu(optInt));

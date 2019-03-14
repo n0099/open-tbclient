@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e ihN = new e();
+    private static e ihH = new e();
     private static DownloadData chZ = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private a ihO = null;
+    private a ihI = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler cib = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.e.1
@@ -47,8 +47,8 @@ public class e {
     private e() {
     }
 
-    public static e bWQ() {
-        return ihN;
+    public static e bWS() {
+        return ihH;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -101,7 +101,7 @@ public class e {
                 } else {
                     downloadData.setStatus(5);
                     mTaskList.add(downloadData);
-                    alO();
+                    alN();
                     return;
                 }
             }
@@ -109,12 +109,12 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alO() {
+    public void alN() {
         if (chZ == null && !mTaskList.isEmpty()) {
             chZ = mTaskList.get(0);
             if (chZ != null) {
-                this.ihO = new a();
-                this.ihO.execute(chZ);
+                this.ihI = new a();
+                this.ihI.execute(chZ);
             }
         }
     }
@@ -126,10 +126,10 @@ public class e {
     public void O(String str, boolean z) {
         if (chZ != null && chZ.getUrl().equals(str)) {
             if (z) {
-                this.ihO.alR();
+                this.ihI.alQ();
                 return;
             } else {
-                this.ihO.cancel(true);
+                this.ihI.cancel(true);
                 return;
             }
         }
@@ -176,7 +176,7 @@ public class e {
         a() {
         }
 
-        public void alR() {
+        public void alQ() {
             if (this.mNetWork != null) {
                 this.mNetWork.jl();
             }
@@ -197,7 +197,7 @@ public class e {
                 e.mTaskList.remove(0);
             }
             DownloadData unused = e.chZ = null;
-            e.this.alO();
+            e.this.alN();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=5, 393=4, 394=4, 395=4] */
@@ -369,7 +369,7 @@ public class e {
                 DownloadData unused = e.chZ = null;
                 if (!e.mTaskList.isEmpty()) {
                     e.mTaskList.remove(0);
-                    e.this.alO();
+                    e.this.alN();
                 }
             }
         }

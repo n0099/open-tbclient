@@ -6,31 +6,31 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class j {
-    private static int cto;
-    private static final int[] ctp = {d.C0236d.cp_atp_a, d.C0236d.cp_atp_b, d.C0236d.cp_atp_c, d.C0236d.cp_atp_d, d.C0236d.cp_atp_e};
-    private static int ctq;
-    private static LinkedHashMap<String, Integer> ctr;
+    private static int ctl;
+    private static final int[] ctm = {d.C0277d.cp_atp_a, d.C0277d.cp_atp_b, d.C0277d.cp_atp_c, d.C0277d.cp_atp_d, d.C0277d.cp_atp_e};
+    private static int ctn;
+    private static LinkedHashMap<String, Integer> cto;
 
-    public static int pF(String str) {
-        if (ctr == null) {
-            ctr = new LinkedHashMap<>(20);
+    public static int pD(String str) {
+        if (cto == null) {
+            cto = new LinkedHashMap<>(20);
         }
         if (StringUtils.isNull(str)) {
-            return ctp[0];
+            return ctm[0];
         }
-        if (ctr.containsKey(str)) {
-            return ctr.get(str).intValue();
+        if (cto.containsKey(str)) {
+            return cto.get(str).intValue();
         }
-        int nextInt = new Random().nextInt(ctp.length);
-        if (ctq != nextInt) {
-            ctq = nextInt;
+        int nextInt = new Random().nextInt(ctm.length);
+        if (ctn != nextInt) {
+            ctn = nextInt;
         } else {
-            ctq = (ctq + 1) % ctp.length;
+            ctn = (ctn + 1) % ctm.length;
         }
-        if (ctq < ctp.length) {
-            cto = ctp[ctq];
+        if (ctn < ctm.length) {
+            ctl = ctm[ctn];
         }
-        ctr.put(str, Integer.valueOf(cto));
-        return cto;
+        cto.put(str, Integer.valueOf(ctl));
+        return ctl;
     }
 }

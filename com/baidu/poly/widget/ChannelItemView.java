@@ -13,11 +13,11 @@ import com.baidu.poly.b;
 import com.baidu.poly.bean.PayChannel;
 /* loaded from: classes2.dex */
 public class ChannelItemView extends RelativeLayout implements View.OnClickListener {
-    private ImageView ahm;
-    private TextView ahn;
+    private ImageView ahn;
     private TextView aho;
-    private ImageView ahp;
-    private a ahq;
+    private TextView ahp;
+    private ImageView ahq;
+    private a ahr;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -39,10 +39,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
 
     private void initView(Context context) {
         LayoutInflater.from(context).inflate(b.d.view_channel_list_item, (ViewGroup) this, true);
-        this.ahm = (ImageView) findViewById(b.c.channel_icon_view);
-        this.ahn = (TextView) findViewById(b.c.channel_name_view);
-        this.aho = (TextView) findViewById(b.c.channel_desc_view);
-        this.ahp = (ImageView) findViewById(b.c.channel_select_view);
+        this.ahn = (ImageView) findViewById(b.c.channel_icon_view);
+        this.aho = (TextView) findViewById(b.c.channel_name_view);
+        this.ahp = (TextView) findViewById(b.c.channel_desc_view);
+        this.ahq = (ImageView) findViewById(b.c.channel_select_view);
         setOnClickListener(this);
     }
 
@@ -52,30 +52,30 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         String icon = payChannel.getIcon();
         boolean isSelected = payChannel.isSelected();
         boolean isEnable = payChannel.isEnable();
-        com.baidu.poly.b.b.tz().b(this.ahm, icon);
-        this.ahn.setText(displayName);
+        com.baidu.poly.b.b.tz().b(this.ahn, icon);
+        this.aho.setText(displayName);
         if (isSelected) {
-            this.ahp.setImageResource(b.C0053b.channel_checked);
+            this.ahq.setImageResource(b.C0082b.channel_checked);
         }
         if (isEnable) {
-            this.ahq = aVar;
+            this.ahr = aVar;
         } else {
-            this.ahm.setAlpha(0.4f);
             this.ahn.setAlpha(0.4f);
             this.aho.setAlpha(0.4f);
-            this.ahp.setVisibility(8);
+            this.ahp.setAlpha(0.4f);
+            this.ahq.setVisibility(8);
         }
         if (!TextUtils.isEmpty(payText)) {
-            this.aho.setText(payText);
+            this.ahp.setText(payText);
         } else {
-            this.aho.setVisibility(8);
+            this.ahp.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ahq != null) {
-            this.ahq.tL();
+        if (this.ahr != null) {
+            this.ahr.tL();
         }
     }
 }

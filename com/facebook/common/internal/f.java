@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0332a jzV;
-        private C0332a jzW;
-        private boolean jzX;
+        private C0425a jzN;
+        private C0425a jzO;
+        private boolean jzP;
 
         private a(String str) {
-            this.jzV = new C0332a();
-            this.jzW = this.jzV;
-            this.jzX = false;
+            this.jzN = new C0425a();
+            this.jzO = this.jzN;
+            this.jzP = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,45 +54,45 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.jzX;
+            boolean z = this.jzP;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0332a c0332a = this.jzV.jzY; c0332a != null; c0332a = c0332a.jzY) {
-                if (!z || c0332a.value != null) {
+            for (C0425a c0425a = this.jzN.jzQ; c0425a != null; c0425a = c0425a.jzQ) {
+                if (!z || c0425a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0332a.name != null) {
-                        append.append(c0332a.name).append('=');
+                    if (c0425a.name != null) {
+                        append.append(c0425a.name).append('=');
                     }
-                    append.append(c0332a.value);
+                    append.append(c0425a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0332a ctH() {
-            C0332a c0332a = new C0332a();
-            this.jzW.jzY = c0332a;
-            this.jzW = c0332a;
-            return c0332a;
+        private C0425a ctK() {
+            C0425a c0425a = new C0425a();
+            this.jzO.jzQ = c0425a;
+            this.jzO = c0425a;
+            return c0425a;
         }
 
         private a r(String str, @Nullable Object obj) {
-            C0332a ctH = ctH();
-            ctH.value = obj;
-            ctH.name = (String) g.checkNotNull(str);
+            C0425a ctK = ctK();
+            ctK.value = obj;
+            ctK.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0332a {
-            C0332a jzY;
+        public static final class C0425a {
+            C0425a jzQ;
             String name;
             Object value;
 
-            private C0332a() {
+            private C0425a() {
             }
         }
     }

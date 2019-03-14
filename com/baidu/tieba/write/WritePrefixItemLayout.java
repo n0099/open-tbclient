@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
-    private TextView dOe;
-    private ImageView jmA;
-    private View jmB;
-    private TextView jmz;
+    private TextView dOa;
+    private TextView jmr;
+    private ImageView jms;
+    private View jmt;
     private Context mContext;
 
     public WritePrefixItemLayout(Context context) {
@@ -33,40 +33,40 @@ public class WritePrefixItemLayout extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.dOe = (TextView) findViewById(d.g.prefix_text);
-        this.jmz = (TextView) findViewById(d.g.prefix_no_tip);
-        this.jmA = (ImageView) findViewById(d.g.prefix_checked);
-        this.jmB = findViewById(d.g.prefix_item_divider);
-        this.dOe.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        al.j(this.jmz, d.C0236d.cp_cont_d);
-        this.jmA.setBackgroundDrawable(al.getDrawable(d.f.icon_set_list_ok_s));
-        al.l(this.jmB, d.C0236d.cp_bg_line_c);
+        this.dOa = (TextView) findViewById(d.g.prefix_text);
+        this.jmr = (TextView) findViewById(d.g.prefix_no_tip);
+        this.jms = (ImageView) findViewById(d.g.prefix_checked);
+        this.jmt = findViewById(d.g.prefix_item_divider);
+        this.dOa.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        al.j(this.jmr, d.C0277d.cp_cont_d);
+        this.jms.setBackgroundDrawable(al.getDrawable(d.f.icon_set_list_ok_s));
+        al.l(this.jmt, d.C0277d.cp_bg_line_c);
         al.k(this, d.f.addresslist_item_bg);
     }
 
     public void setPrefixText(String str) {
-        this.dOe.setText(str);
+        this.dOa.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.dOe.setTextColor(i);
+        this.dOa.setTextColor(i);
     }
 
     public void qX(boolean z) {
-        this.jmz.setVisibility(z ? 0 : 8);
+        this.jmr.setVisibility(z ? 0 : 8);
     }
 
     public void qY(boolean z) {
         if (z) {
-            this.jmA.setVisibility(0);
+            this.jms.setVisibility(0);
         } else {
-            this.jmA.setVisibility(8);
+            this.jms.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.jmB.getLayoutParams()).setMargins(l.h(this.mContext, d.e.ds30), 0, l.h(this.mContext, d.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.jmt.getLayoutParams()).setMargins(l.h(this.mContext, d.e.ds30), 0, l.h(this.mContext, d.e.ds30), 0);
         }
     }
 }

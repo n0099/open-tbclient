@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.azW().putBoolean(str, z);
+            a.azV().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.d(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.azW().getBoolean(str, z);
+            return a.azV().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.d(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -32,26 +32,26 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.tieba.aiapps.apps.o.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0232a {
-            private static final a cWF = new a();
+        public static final class C0271a {
+            private static final a cWB = new a();
         }
 
-        public static a azW() {
-            return C0232a.cWF;
+        public static a azV() {
+            return C0271a.cWB;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class e {
-        final int aSW;
-        final String aSX;
+        final int aSX;
         final String aSY;
+        final String aSZ;
 
         e(int i, String str, String str2) {
-            this.aSW = i;
-            this.aSX = str;
-            this.aSY = str2;
+            this.aSX = i;
+            this.aSY = str;
+            this.aSZ = str2;
         }
 
         static e I(Bundle bundle) {
@@ -70,16 +70,16 @@ public class b {
         }
 
         public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aSW + ", mPrefName='" + this.aSX + "', mDataValue='" + this.aSY + "'}";
+            return "SpMethodInfo{mDataType=" + this.aSX + ", mPrefName='" + this.aSY + "', mDataValue='" + this.aSZ + "'}";
         }
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static abstract class AbstractC0233b extends ProviderDelegation {
+    private static abstract class AbstractC0272b extends ProviderDelegation {
         protected abstract Bundle a(e eVar);
 
-        private AbstractC0233b() {
+        private AbstractC0272b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
@@ -93,16 +93,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class d extends AbstractC0233b {
+    public static class d extends AbstractC0272b {
         private d() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0233b
+        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
-            switch (eVar.aSW) {
+            switch (eVar.aSX) {
                 case 1:
-                    a.azW().putBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY));
+                    a.azV().putBoolean(eVar.aSY, Boolean.parseBoolean(eVar.aSZ));
                     break;
             }
             return Bundle.EMPTY;
@@ -111,17 +111,17 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class c extends AbstractC0233b {
+    public static class c extends AbstractC0272b {
         private c() {
             super();
         }
 
-        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0233b
+        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
-            switch (eVar.aSW) {
+            switch (eVar.aSX) {
                 case 1:
-                    bundle.putBoolean("result_value", a.azW().getBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY)));
+                    bundle.putBoolean("result_value", a.azV().getBoolean(eVar.aSY, Boolean.parseBoolean(eVar.aSZ)));
                     break;
             }
             return bundle;

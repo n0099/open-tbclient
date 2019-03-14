@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes2.dex */
 public class ProgressButton extends FrameLayout {
-    private TextView ahH;
-    private ImageView ahI;
-    private Animation ahJ;
+    private TextView ahI;
+    private ImageView ahJ;
+    private Animation ahK;
     private boolean enable;
 
     public ProgressButton(Context context) {
@@ -47,23 +47,23 @@ public class ProgressButton extends FrameLayout {
 
     private void d(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(b.d.button_progress, (ViewGroup) this, true);
-        this.ahH = (TextView) findViewById(b.c.text_view);
-        this.ahI = (ImageView) findViewById(b.c.progress_bar);
-        this.ahJ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.ahI = (TextView) findViewById(b.c.text_view);
+        this.ahJ = (ImageView) findViewById(b.c.progress_bar);
+        this.ahK = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.e.ProgressButton);
-        this.ahH.setTextColor(obtainStyledAttributes.getColor(b.e.ProgressButton_textColor, -1));
+        this.ahI.setTextColor(obtainStyledAttributes.getColor(b.e.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void setText(String str) {
-        this.ahH.setText(str);
-        this.ahI.setVisibility(4);
-        this.ahH.setVisibility(0);
+        this.ahI.setText(str);
+        this.ahJ.setVisibility(4);
+        this.ahI.setVisibility(0);
     }
 
     public void startLoading() {
-        this.ahI.setVisibility(0);
-        this.ahI.startAnimation(this.ahJ);
-        this.ahH.setVisibility(4);
+        this.ahJ.setVisibility(0);
+        this.ahJ.startAnimation(this.ahK);
+        this.ahI.setVisibility(4);
     }
 }

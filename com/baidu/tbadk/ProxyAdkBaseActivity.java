@@ -91,8 +91,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         }
     };
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         this.mSwipeBackLayout = new SwipeBackLayout(getActivity());
         this.mSwipeBackLayout.t(getActivity());
         this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -237,8 +238,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         finish();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    protected void onDestroy() {
+    public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
             this.mGuidPage.aek();
@@ -478,8 +480,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         this.mSkinType = i;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    protected void onResume() {
+    public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
         this.customToast.onResume();
@@ -520,7 +523,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     protected void onResourceRecycle() {
     }
 
-    protected void onChangeSkinType(int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
             this.loadingView.onChangeSkinType();
         }
@@ -813,9 +817,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
         }
     }
 
-    protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.anD() != null && (this.refreshView.anD().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.anD().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
+        if (this.refreshView != null && this.refreshView.isViewAttached() && this.refreshView.anC() != null && (this.refreshView.anC().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.anC().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

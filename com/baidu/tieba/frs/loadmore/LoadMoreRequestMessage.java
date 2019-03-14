@@ -80,7 +80,7 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         s.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bXx().bXA();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bXz().bXC();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

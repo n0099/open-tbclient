@@ -17,14 +17,14 @@ import com.baidu.tieba.frs.ForumWriteData;
 /* loaded from: classes.dex */
 public class i {
     public static void a(final TbPageContext tbPageContext, final String str, final ForumWriteData forumWriteData) {
-        if (forumWriteData != null && tbPageContext != null && com.baidu.tbadk.plugins.c.b(tbPageContext, "com.baidu.tieba.pluginVideo")) {
+        if (forumWriteData != null && tbPageContext != null) {
             com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
             aVar.adQ();
             aVar.e(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.CAMERA");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-            aVar.a(new a.InterfaceC0193a() { // from class: com.baidu.tieba.write.i.1
-                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0193a
+            aVar.a(new a.InterfaceC0227a() { // from class: com.baidu.tieba.write.i.1
+                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0227a
                 public void adR() {
                     i.b(TbPageContext.this, str, forumWriteData);
                 }
@@ -38,7 +38,7 @@ public class i {
         String str2;
         String str3;
         if (forumWriteData != null && tbPageContext != null) {
-            if (cos()) {
+            if (cov()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str, 0)));
             } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
@@ -87,52 +87,52 @@ public class i {
 
     /* loaded from: classes.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private TbPageContext fvd;
-        private ForumWriteData jmG;
-        private com.baidu.tbadk.core.dialog.c jmH;
+        private TbPageContext fvc;
+        private ForumWriteData jmy;
+        private com.baidu.tbadk.core.dialog.c jmz;
 
         public a(TbPageContext tbPageContext, ForumWriteData forumWriteData, com.baidu.tbadk.core.dialog.c cVar) {
-            this.fvd = null;
-            this.fvd = tbPageContext;
-            this.jmG = forumWriteData;
-            this.jmH = cVar;
+            this.fvc = null;
+            this.fvc = tbPageContext;
+            this.jmy = forumWriteData;
+            this.jmz = cVar;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jmH != null) {
-                this.jmH.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jmz != null) {
+                this.jmz.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (this.jmH != null) {
-                com.baidu.adp.lib.g.g.b(this.jmH, this.fvd);
+            if (this.jmz != null) {
+                com.baidu.adp.lib.g.g.b(this.jmz, this.fvc);
             }
-            this.fvd.showToast(d.j.plugin_video_installing);
+            this.fvc.showToast(d.j.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (this.jmH != null) {
-                com.baidu.adp.lib.g.g.b(this.jmH, this.fvd);
+            if (this.jmz != null) {
+                com.baidu.adp.lib.g.g.b(this.jmz, this.fvc);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.fvd != null) {
-                this.fvd.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.fvc != null) {
+                this.fvc.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.ni().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (this.jmH != null) {
-                com.baidu.adp.lib.g.g.b(this.jmH, this.fvd);
+            if (this.jmz != null) {
+                com.baidu.adp.lib.g.g.b(this.jmz, this.fvc);
             }
             if (i == 0) {
-                i.a(this.fvd, "", this.jmG);
+                i.a(this.fvc, "", this.jmy);
             } else {
-                this.fvd.showToast(this.fvd.getString(d.j.install_failed) + str);
+                this.fvc.showToast(this.fvc.getString(d.j.install_failed) + str);
             }
             PluginPackageManager.ni().a((com.baidu.adp.plugin.packageManager.d) null);
         }
@@ -154,7 +154,7 @@ public class i {
         return cVar;
     }
 
-    public static boolean cos() {
+    public static boolean cov() {
         return com.baidu.adp.lib.b.d.iQ().aO("add_video_thread_switch") != 1;
     }
 }

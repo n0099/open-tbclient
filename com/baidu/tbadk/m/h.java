@@ -25,7 +25,7 @@ public class h extends a {
         return this.cnz;
     }
 
-    public EmotionButton anH() {
+    public EmotionButton anG() {
         return this.cnK;
     }
 
@@ -120,27 +120,27 @@ public class h extends a {
         }
     }
 
-    public void anC() {
+    public void anB() {
         this.cnK.setVisibility(0);
         this.cnz.setVisibility(0);
-        al.d(this.cny, d.C0236d.cp_cont_d, 1);
+        al.d(this.cny, d.C0277d.cp_cont_d, 1);
     }
 
-    public void anI() {
+    public void anH() {
         this.cnK.setVisibility(8);
         this.cnz.setVisibility(8);
-        al.d(this.cny, d.C0236d.cp_cont_b, 1);
+        al.d(this.cny, d.C0277d.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         al.c(this.cnx, this.cnL);
-        al.c(this.cny, d.C0236d.cp_cont_d, 1, skinType);
-        al.c(this.cnz, d.C0236d.cp_cont_j, 1, skinType);
-        al.l(this.attachedView, d.C0236d.cp_bg_line_d);
+        al.c(this.cny, d.C0277d.cp_cont_d, 1, skinType);
+        al.c(this.cnz, d.C0277d.cp_cont_j, 1, skinType);
+        al.l(this.attachedView, d.C0277d.cp_bg_line_d);
     }
 
-    public View anD() {
+    public View anC() {
         return this.attachedView;
     }
 }

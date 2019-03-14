@@ -2,11 +2,11 @@ package com.baidu.swan.apps.am;
 
 import android.util.Log;
 import com.baidu.swan.apps.an.j;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     public static void G(int i, int i2) {
         com.baidu.swan.apps.extcore.cores.a.Bo().B(i, i2);

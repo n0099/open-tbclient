@@ -11,7 +11,6 @@ import android.os.Process;
 import android.support.v4.view.PointerIconCompat;
 import cn.jiguang.d.d.o;
 import cn.jpush.android.service.PushService;
-import com.baidu.tbadk.TbConfig;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
@@ -166,7 +165,7 @@ public final class d {
                 dVar.ly.sendEmptyMessageDelayed(1005, 10000L);
             } else if (d && !dVar.h()) {
                 cn.jiguang.e.c.a("JiguangTcpManager", "Already logged in. Give up to retry.");
-                dVar.ly.sendEmptyMessageDelayed(1005, TbConfig.NOTIFY_SOUND_INTERVAL);
+                dVar.ly.sendEmptyMessageDelayed(1005, 5000L);
             } else {
                 if (dVar.lx != null) {
                     dVar.lx.a();
@@ -320,7 +319,6 @@ public final class d {
     }
 
     public final void b(boolean z, long j2) {
-        int i = PointerIconCompat.TYPE_WAIT;
         if (cn.jiguang.d.a.d.i(this.h)) {
             cn.jiguang.e.c.a("JiguangTcpManager", "tcp has close by active");
         } else if (g.a.get() == 0) {
@@ -329,21 +327,13 @@ public final class d {
             if (z) {
                 this.ly.removeMessages(1005);
             }
-            f fVar = this.ly;
-            if (!z) {
-                i = 1005;
-            }
-            fVar.sendEmptyMessageDelayed(i, j2);
+            this.ly.sendEmptyMessageDelayed(z ? 1004 : 1005, j2);
         } else {
             this.ly.removeMessages(1005);
             if (z) {
-                this.ly.removeMessages(PointerIconCompat.TYPE_WAIT);
+                this.ly.removeMessages(1004);
             }
-            f fVar2 = this.ly;
-            if (!z) {
-                i = 1005;
-            }
-            fVar2.sendEmptyMessage(i);
+            this.ly.sendEmptyMessage(z ? 1004 : 1005);
         }
     }
 

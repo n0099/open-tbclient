@@ -13,11 +13,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
-import com.baidu.swan.apps.c;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public final class SwanAppAudioService extends Service implements com.baidu.swan.apps.media.audio.service.a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final int INVALID_DURATION = -1;
     private static final int INVALID_ERROR_CODE = -1;
     private static final String TAG = "SwanAppAudioService";

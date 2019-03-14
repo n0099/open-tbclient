@@ -54,6 +54,6 @@ public class a extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, e eVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        eVar.dY("adLanding").A(e.aqI, e.aqK).a("adLanding", bVar).za();
+        eVar.dY("adLanding").A(e.aqJ, e.aqL).a("adLanding", bVar).za();
     }
 }

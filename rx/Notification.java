@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> jVl = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind jVj;
-    private final Throwable jVk;
+    private static final Notification<Void> jVd = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind jVb;
+    private final Throwable jVc;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cDA() {
-        return (Notification<T>) jVl;
+    public static <T> Notification<T> cDD() {
+        return (Notification<T>) jVd;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.jVk = th;
-        this.jVj = kind;
+        this.jVc = th;
+        this.jVb = kind;
     }
 
-    public Throwable cDB() {
-        return this.jVk;
+    public Throwable cDE() {
+        return this.jVc;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cDG() && this.value != null;
-    }
-
-    public boolean cDC() {
-        return cDE() && this.jVk != null;
-    }
-
-    public Kind cDD() {
-        return this.jVj;
-    }
-
-    public boolean cDE() {
-        return cDD() == Kind.OnError;
+        return cDJ() && this.value != null;
     }
 
     public boolean cDF() {
-        return cDD() == Kind.OnCompleted;
+        return cDH() && this.jVc != null;
     }
 
-    public boolean cDG() {
-        return cDD() == Kind.OnNext;
+    public Kind cDG() {
+        return this.jVb;
+    }
+
+    public boolean cDH() {
+        return cDG() == Kind.OnError;
+    }
+
+    public boolean cDI() {
+        return cDG() == Kind.OnCompleted;
+    }
+
+    public boolean cDJ() {
+        return cDG() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cDD());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cDG());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cDC()) {
-            append.append(' ').append(cDB().getMessage());
+        if (cDF()) {
+            append.append(' ').append(cDE().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cDD().hashCode();
+        int hashCode = cDG().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cDC()) {
-            return (hashCode * 31) + cDB().hashCode();
+        if (cDF()) {
+            return (hashCode * 31) + cDE().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cDD() != cDD() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.jVk != notification.jVk && (this.jVk == null || !this.jVk.equals(notification.jVk))))) {
+            if (notification.cDG() != cDG() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.jVc != notification.jVc && (this.jVc == null || !this.jVc.equals(notification.jVc))))) {
                 z = false;
             }
             return z;

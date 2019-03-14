@@ -2,7 +2,6 @@ package com.baidu.swan.apps.s;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -56,7 +55,7 @@ public class a extends y {
                             return;
                         }
                         c.i("chooseInvoiceTitle", OAuthResult.ERROR_MSG_UNKNOWN);
-                        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((int) PointerIconCompat.TYPE_HELP, "Permission denied").toString(), optString);
+                        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "Permission denied").toString(), optString);
                     }
                 });
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -82,7 +81,7 @@ public class a extends y {
                     jSONObject = UnitedSchemeUtility.wrapCallbackParams(1002, "choose canceled").toString();
                 } else {
                     c.i("chooseInvoiceTitle", "选择失败");
-                    jSONObject = UnitedSchemeUtility.wrapCallbackParams((int) PointerIconCompat.TYPE_HELP, "choose failed").toString();
+                    jSONObject = UnitedSchemeUtility.wrapCallbackParams(1003, "choose failed").toString();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, jSONObject, str);
             }

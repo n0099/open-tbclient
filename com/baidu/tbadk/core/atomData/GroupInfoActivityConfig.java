@@ -23,7 +23,7 @@ public class GroupInfoActivityConfig extends IntentConfig {
     public GroupInfoActivityConfig(Context context, long j, int i) {
         super(context);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i);
+        getIntent().putExtra("activity_from", i);
         if (!(context instanceof Activity)) {
             getIntent().addFlags(268435456);
         }
@@ -32,10 +32,10 @@ public class GroupInfoActivityConfig extends IntentConfig {
     public GroupInfoActivityConfig(Context context, long j, int i, String str, long j2) {
         super(context);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i);
-        getIntent().putExtra(DEFAULT_INVITE_MSG, str);
-        getIntent().putExtra(INVITE_USER_ID, j2);
-        getIntent().putExtra(JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
+        getIntent().putExtra("activity_from", i);
+        getIntent().putExtra("default_invite_msg", str);
+        getIntent().putExtra("inviter_user_id", j2);
+        getIntent().putExtra("join_type", ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
         if (!(context instanceof Activity)) {
             getIntent().addFlags(268435456);
         }
@@ -45,7 +45,7 @@ public class GroupInfoActivityConfig extends IntentConfig {
         super(activity);
         getIntent().putExtra(REQUEST_CODE, i);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i2);
+        getIntent().putExtra("activity_from", i2);
         if (!(activity instanceof Activity)) {
             getIntent().addFlags(268435456);
         }

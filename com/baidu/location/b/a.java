@@ -7,6 +7,7 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -21,7 +22,7 @@ public class a {
     private static final String d = g.h() + "/gal.db";
     private SQLiteDatabase e = null;
     private boolean f = false;
-    C0044a a = null;
+    C0046a a = null;
     private String g = null;
     private double h = Double.MAX_VALUE;
     private double i = Double.MAX_VALUE;
@@ -29,14 +30,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0044a extends com.baidu.location.g.e {
+    public class C0046a extends com.baidu.location.g.e {
         int a;
         int b;
         int c;
         int d;
         double e;
 
-        C0044a() {
+        C0046a() {
             this.k = new HashMap();
         }
 
@@ -92,8 +93,8 @@ public class a {
                                         if (split[(i3 * sqrt) + i4].contains("E")) {
                                             contentValues.put("aldata", Double.valueOf(10000.0d));
                                             contentValues.put("sigma", Double.valueOf(10000.0d));
-                                        } else if (split[(i3 * sqrt) + i4].contains(":")) {
-                                            String[] split2 = split[(i3 * sqrt) + i4].split(":");
+                                        } else if (split[(i3 * sqrt) + i4].contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                                            String[] split2 = split[(i3 * sqrt) + i4].split(Config.TRACE_TODAY_VISIT_SPLIT);
                                             if (split2.length == 2) {
                                                 contentValues.put("aldata", Double.valueOf(split2[0]));
                                                 contentValues.put("sigma", split2[1]);
@@ -142,7 +143,7 @@ public class a {
 
     private void a(double d2, double d3, double d4) {
         if (this.a == null) {
-            this.a = new C0044a();
+            this.a = new C0046a();
         }
         this.a.a(d2, d3, d4);
     }

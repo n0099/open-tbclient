@@ -4,13 +4,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class i {
-    private final com.facebook.common.references.c<byte[]> jAh;
-    final a jJt;
+    final a jJl;
+    private final com.facebook.common.references.c<byte[]> jzZ;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.jJP > 0);
-        this.jJt = new a(cVar, rVar, n.czj());
-        this.jAh = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.jJH > 0);
+        this.jJl = new a(cVar, rVar, n.czm());
+        this.jzZ = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: aa */
@@ -21,11 +21,11 @@ public class i {
     }
 
     public com.facebook.common.references.a<byte[]> CC(int i) {
-        return com.facebook.common.references.a.a(this.jJt.get(i), this.jAh);
+        return com.facebook.common.references.a.a(this.jJl.get(i), this.jzZ);
     }
 
     public void aa(byte[] bArr) {
-        this.jJt.release(bArr);
+        this.jJl.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public class i {
 
         @Override // com.facebook.imagepipeline.memory.BasePool
         d<byte[]> Cx(int i) {
-            return new o(Cv(i), this.jJd.jJP, 0);
+            return new o(Cv(i), this.jIV.jJH, 0);
         }
     }
 }

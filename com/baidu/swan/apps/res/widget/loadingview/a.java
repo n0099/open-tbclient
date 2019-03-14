@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.res.ui.BdShimmerView;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = c.DEBUG & true;
-    private static final WeakHashMap<ViewGroup, b> aME = new WeakHashMap<>();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG & true;
+    private static final WeakHashMap<ViewGroup, b> aMF = new WeakHashMap<>();
 
     public static boolean d(Context context, ViewGroup viewGroup) {
         return a(context, viewGroup, "");
@@ -54,11 +53,11 @@ public final class a {
             layoutParams3.gravity = 17;
             viewGroup.addView(loadingView2, layoutParams3);
         }
-        aME.put(viewGroup, loadingView);
+        aMF.put(viewGroup, loadingView);
         loadingView2.setVisibility(0);
         if (DEBUG) {
-            Log.d("LoadingViewHelper", "The count of cached loading views is : " + aME.size());
-            Log.d("LoadingViewHelper", "The content of cached views is : " + aME.toString());
+            Log.d("LoadingViewHelper", "The count of cached loading views is : " + aMF.size());
+            Log.d("LoadingViewHelper", "The content of cached views is : " + aMF.toString());
         }
         return true;
     }
@@ -69,7 +68,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = aME.get(viewGroup);
+        b bVar2 = aMF.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(0);
             return true;
@@ -77,10 +76,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(0);
-                aME.put(viewGroup, bVar);
+                aMF.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aME.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + aME.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aMF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + aMF.toString());
                 }
                 return true;
             }
@@ -94,7 +93,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = aME.get(viewGroup);
+        b bVar2 = aMF.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(8);
             return true;
@@ -102,10 +101,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
-                aME.put(viewGroup, bVar);
+                aMF.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aME.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + aME.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aMF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + aMF.toString());
                 }
                 return true;
             }
@@ -119,7 +118,7 @@ public final class a {
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = aME.get(viewGroup);
+        b bVar2 = aMF.get(viewGroup);
         if (bVar2 != null) {
             View loadingView2 = bVar2.getLoadingView();
             if (loadingView2 != null) {
@@ -128,10 +127,10 @@ public final class a {
                 }
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
-                aME.remove(viewGroup);
+                aMF.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aME.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + aME.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aMF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + aMF.toString());
                 }
             }
             return true;
@@ -140,10 +139,10 @@ public final class a {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
                 viewGroup.removeView((View) bVar);
-                aME.remove(viewGroup);
+                aMF.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aME.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + aME.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + aMF.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + aMF.toString());
                 }
                 return true;
             }
@@ -152,12 +151,12 @@ public final class a {
     }
 
     public static void IA() {
-        for (ViewGroup viewGroup : aME.keySet()) {
-            b bVar = aME.get(viewGroup);
+        for (ViewGroup viewGroup : aMF.keySet()) {
+            b bVar = aMF.get(viewGroup);
             if (bVar != null && bVar.getLoadingView() != null) {
                 viewGroup.removeView(bVar.getLoadingView());
             }
         }
-        aME.clear();
+        aMF.clear();
     }
 }

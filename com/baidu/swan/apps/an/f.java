@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
     public static File LR() {

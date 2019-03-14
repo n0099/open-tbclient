@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     @NonNull
     public static Uri a(int i, @NonNull String str, @Nullable String str2, @NonNull String str3) {

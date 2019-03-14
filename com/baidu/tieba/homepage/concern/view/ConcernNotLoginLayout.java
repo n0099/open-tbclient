@@ -14,9 +14,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes4.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView fHD;
+    private ImageView fHC;
+    private TextView fHD;
     private TextView fHE;
-    private TextView fHF;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.fHD = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
-        this.fHE = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
-        this.fHF = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
-        this.fHF.setOnClickListener(this);
+        this.fHC = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
+        this.fHD = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
+        this.fHE = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
+        this.fHE.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.g.tv_concern_login_and_see_more) {
             bc.cZ(this.mContext);
-            HomePageStatic.fFM = true;
+            HomePageStatic.fFL = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.fHD, d.f.pic_jinba_login);
-        al.j(this.fHE, d.C0236d.cp_cont_b);
-        al.j(this.fHF, d.C0236d.cp_btn_a);
-        al.k(this.fHF, d.f.btn_all_blue);
+        al.c(this.fHC, d.f.pic_jinba_login);
+        al.j(this.fHD, d.C0277d.cp_cont_b);
+        al.j(this.fHE, d.C0277d.cp_btn_a);
+        al.k(this.fHE, d.f.btn_all_blue);
     }
 }

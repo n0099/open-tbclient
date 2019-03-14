@@ -3,9 +3,9 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    int amh();
+    int amg();
 
-    C0204a aw(Context context, String str);
+    C0238a aw(Context context, String str);
 
     int oG(String str);
 
@@ -15,11 +15,11 @@ public interface a {
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0204a {
+    public static class C0238a {
         private int mHeight;
         private int mWidth;
 
-        public C0204a(int i, int i2) {
+        public C0238a(int i, int i2) {
             this.mWidth = 0;
             this.mHeight = 0;
             this.mWidth = i;

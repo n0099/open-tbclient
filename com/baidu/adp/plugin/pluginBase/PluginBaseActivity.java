@@ -465,7 +465,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         return this.mProxyActivity.proxyOnRetainNonConfigurationInstance();
     }
 
-    protected void onSaveInstanceState(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onSaveInstanceState(Bundle bundle) {
         this.mProxyActivity.proxyOnSaveInstanceState(bundle);
     }
 

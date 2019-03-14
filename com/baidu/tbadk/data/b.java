@@ -29,7 +29,7 @@ public class b implements com.baidu.adp.widget.ListView.m {
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
             if (!v.T(list)) {
-                all();
+                alk();
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -41,7 +41,7 @@ public class b implements com.baidu.adp.widget.ListView.m {
         }
     }
 
-    private void all() {
+    private void alk() {
         String string;
         a aVar = new a();
         aVar.cgM = -100;

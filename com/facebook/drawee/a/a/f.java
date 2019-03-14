@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class f implements i<e> {
-    private final g jBA;
-    private final com.facebook.imagepipeline.d.g jBL;
-    private final Set<com.facebook.drawee.controller.c> jBN;
+    private final com.facebook.imagepipeline.d.g jBD;
+    private final Set<com.facebook.drawee.controller.c> jBF;
+    private final g jBs;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, j.cxQ(), bVar);
+        this(context, j.cxT(), bVar);
     }
 
     public f(Context context, j jVar, @Nullable b bVar) {
@@ -22,22 +22,22 @@ public class f implements i<e> {
 
     public f(Context context, j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.jBL = jVar.cuC();
-        com.facebook.imagepipeline.a.a.b cxR = jVar.cxR();
-        com.facebook.imagepipeline.a.a.a eN = cxR != null ? cxR.eN(context) : null;
-        if (bVar != null && bVar.cuy() != null) {
-            this.jBA = bVar.cuy();
+        this.jBD = jVar.cuF();
+        com.facebook.imagepipeline.a.a.b cxU = jVar.cxU();
+        com.facebook.imagepipeline.a.a.a eM = cxU != null ? cxU.eM(context) : null;
+        if (bVar != null && bVar.cuB() != null) {
+            this.jBs = bVar.cuB();
         } else {
-            this.jBA = new g();
+            this.jBs = new g();
         }
-        this.jBA.a(context.getResources(), com.facebook.drawee.components.a.cuM(), eN, com.facebook.common.b.f.ctG(), this.jBL.cxi(), bVar != null ? bVar.cux() : null, bVar != null ? bVar.cuz() : null);
-        this.jBN = set;
+        this.jBs.a(context.getResources(), com.facebook.drawee.components.a.cuP(), eM, com.facebook.common.b.f.ctJ(), this.jBD.cxl(), bVar != null ? bVar.cuA() : null, bVar != null ? bVar.cuC() : null);
+        this.jBF = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cuL */
+    /* renamed from: cuO */
     public e get() {
-        return new e(this.mContext, this.jBA, this.jBL, this.jBN);
+        return new e(this.mContext, this.jBs, this.jBD, this.jBF);
     }
 }

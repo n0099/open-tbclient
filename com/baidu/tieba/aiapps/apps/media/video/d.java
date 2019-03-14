@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {

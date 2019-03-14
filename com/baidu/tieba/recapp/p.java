@@ -25,7 +25,7 @@ public class p implements com.baidu.c.a.b.b {
             headImageView.setDrawerType(1);
             headImageView.setDefaultResource(d.f.icon_default_avatar100);
             headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultBgResource(d.C0236d.cp_bg_line_e);
+            headImageView.setDefaultBgResource(d.C0277d.cp_bg_line_e);
             return headImageView;
         } else if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);
@@ -68,8 +68,8 @@ public class p implements com.baidu.c.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.acN > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.acN * view.getResources().getDisplayMetrics().density));
+            if (aVar.acO > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.acO * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -79,11 +79,11 @@ public class p implements com.baidu.c.a.b.b {
         if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.acS);
+                textView.setTextColor(aVar.acT);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.acT * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.acU * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);

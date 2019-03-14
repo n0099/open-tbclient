@@ -1,5 +1,6 @@
 package com.xiaomi.stats;
 
+import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.xiaomi.channel.commonutils.stats.a;
 import com.xiaomi.push.service.XMPushService;
@@ -23,17 +24,17 @@ public class f {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0366a c0366a) {
-        if (c0366a.a == 0) {
-            if (c0366a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0366a.c;
+    private com.xiaomi.push.thrift.b a(a.C0460a c0460a) {
+        if (c0460a.a == 0) {
+            if (c0460a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0460a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0366a.a);
-        f.c(c0366a.b);
+        f.c(c0460a.a);
+        f.c(c0460a.b);
         return f;
     }
 
@@ -53,7 +54,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0366a> c = this.f.c();
+        LinkedList<a.C0460a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());
@@ -91,16 +92,19 @@ public class f {
     }
 
     public void a(int i) {
+        int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
-            int i2 = i * 1000;
-            int i3 = i2 <= 604800000 ? i2 : 604800000;
-            if (this.c == i3 && this.b) {
+            int i3 = i * 1000;
+            if (i3 <= 604800000) {
+                i2 = i3;
+            }
+            if (this.c == i2 && this.b) {
                 return;
             }
             this.b = true;
             this.d = System.currentTimeMillis();
-            this.c = i3;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.d);
+            this.c = i2;
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.d);
         }
     }
 

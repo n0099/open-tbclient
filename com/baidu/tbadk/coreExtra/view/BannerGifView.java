@@ -15,7 +15,7 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BannerGifView extends RelativeLayout {
-    private String byh;
+    private String byj;
     private GifView cch;
     private ImageView cci;
     private boolean ccj;
@@ -35,7 +35,7 @@ public class BannerGifView extends RelativeLayout {
             @Override // com.baidu.tbadk.h.b
             public boolean ay(View view) {
                 if (BannerGifView.this.ccl == null || !BannerGifView.this.ccl.ay(view)) {
-                    BannerGifView.this.ajZ();
+                    BannerGifView.this.ajY();
                 }
                 return true;
             }
@@ -103,7 +103,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.f(this.mMaskView, d.C0236d.black_alpha30, i);
+        al.f(this.mMaskView, d.C0277d.black_alpha30, i);
         iY(i);
     }
 
@@ -113,10 +113,10 @@ public class BannerGifView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajZ() {
+    public void ajY() {
         try {
-            if (!TextUtils.isEmpty(this.byh)) {
-                ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{this.byh});
+            if (!TextUtils.isEmpty(this.byj)) {
+                ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{this.byj});
             }
         } catch (Exception e) {
             e.printStackTrace();

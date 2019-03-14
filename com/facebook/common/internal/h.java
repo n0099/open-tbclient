@@ -18,7 +18,7 @@ public final class h {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> ctI() {
+    public static <E> Set<E> ctL() {
         return newSetFromMap(new IdentityHashMap());
     }
 
@@ -26,7 +26,7 @@ public final class h {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> ctJ() {
+    public static <E> CopyOnWriteArraySet<E> ctM() {
         return new CopyOnWriteArraySet<>();
     }
 }

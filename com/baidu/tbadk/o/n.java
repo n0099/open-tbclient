@@ -33,7 +33,7 @@ public class n extends l {
     private long cry = -1;
     private long crz = -1;
 
-    public boolean app() {
+    public boolean apo() {
         return this.cra;
     }
 
@@ -45,7 +45,7 @@ public class n extends l {
         this.cre = j;
     }
 
-    public long apq() {
+    public long app() {
         return this.cre;
     }
 
@@ -138,7 +138,7 @@ public class n extends l {
         this.crt = j;
     }
 
-    public static n apr() {
+    public static n apq() {
         if (crA == null) {
             synchronized (n.class) {
                 if (crA == null) {
@@ -149,9 +149,9 @@ public class n extends l {
         return crA;
     }
 
-    public void aps() {
+    public void apr() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016482, (Class) null);
-        if ((this.crz - this.cre) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.crb && m.apl().apm()) {
+        if ((this.crz - this.cre) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.crb && m.apk().apl()) {
             this.crb = true;
             long j = this.crf - this.cre;
             long j2 = -1;
@@ -194,7 +194,7 @@ public class n extends l {
     }
 
     public void br(long j) {
-        if (m.apl().apm() && j > 0) {
+        if (m.apk().apl() && j > 0) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("procname", "remote");
             jC.append("costt", String.valueOf(j));

@@ -19,8 +19,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.apB() != null) {
-            return a.apB().query(uri, strArr, str, strArr2, str2);
+        if (a.apA() != null) {
+            return a.apA().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -28,8 +28,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.apB() != null) {
-            return a.apB().getType(uri);
+        if (a.apA() != null) {
+            return a.apA().getType(uri);
         }
         return null;
     }
@@ -37,8 +37,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.apB() != null) {
-            return a.apB().insert(uri, contentValues);
+        if (a.apA() != null) {
+            return a.apA().insert(uri, contentValues);
         }
         return null;
     }
@@ -46,8 +46,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.apB() != null) {
-            return a.apB().delete(uri, str, strArr);
+        if (a.apA() != null) {
+            return a.apA().delete(uri, str, strArr);
         }
         return 0;
     }
@@ -55,8 +55,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.apB() != null) {
-            return a.apB().update(uri, contentValues, str, strArr);
+        if (a.apA() != null) {
+            return a.apA().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
@@ -64,8 +64,8 @@ public class DownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>(2921337, this), (Class) null);
-            if (a.apB() != null) {
-                a.apB().onCreate();
+            if (a.apA() != null) {
+                a.apA().onCreate();
                 this.isPluginSetted = true;
             }
         }

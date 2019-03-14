@@ -89,12 +89,12 @@ public final class a {
     private static final int a = 6;
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
-    private C0059a d;
+    private C0088a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0059a {
+    public static class C0088a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -106,7 +106,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0059a(Context context) {
+        public C0088a(Context context) {
             this.a = context;
             e();
             f();
@@ -142,7 +142,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.d = new C0059a(context);
+        this.d = new C0088a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1008,7 +1008,7 @@ public final class a {
         httpHashMapWrap.put("appid", this.c.appId);
         httpHashMapWrap.put("tpl", this.c.tpl);
         httpHashMapWrap.put("bduss", str);
-        httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_SIGN, MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
+        httpHashMapWrap.put("sign", MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
         httpHashMapWrap.put("client", "android");
         httpHashMapWrap.put("return_type", "1");
         if (!TextUtils.isEmpty(str2)) {

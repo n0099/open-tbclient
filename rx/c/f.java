@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f kct = new f();
-    static final b kcy = new b() { // from class: rx.c.f.1
+    private static final f kcl = new f();
+    static final b kcq = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> kcu = new AtomicReference<>();
-    private final AtomicReference<d> kcv = new AtomicReference<>();
-    private final AtomicReference<h> kcw = new AtomicReference<>();
-    private final AtomicReference<a> kcx = new AtomicReference<>();
-    private final AtomicReference<g> jVz = new AtomicReference<>();
+    private final AtomicReference<b> kcm = new AtomicReference<>();
+    private final AtomicReference<d> kcn = new AtomicReference<>();
+    private final AtomicReference<h> kco = new AtomicReference<>();
+    private final AtomicReference<a> kcp = new AtomicReference<>();
+    private final AtomicReference<g> jVr = new AtomicReference<>();
 
     @Deprecated
-    public static f cFa() {
-        return kct;
+    public static f cFd() {
+        return kcl;
     }
 
     f() {
     }
 
-    public b cFb() {
-        if (this.kcu.get() == null) {
+    public b cFe() {
+        if (this.kcm.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.kcu.compareAndSet(null, kcy);
+                this.kcm.compareAndSet(null, kcq);
             } else {
-                this.kcu.compareAndSet(null, (b) a);
+                this.kcm.compareAndSet(null, (b) a);
             }
         }
-        return this.kcu.get();
+        return this.kcm.get();
     }
 
-    public d cFc() {
-        if (this.kcv.get() == null) {
+    public d cFf() {
+        if (this.kcn.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.kcv.compareAndSet(null, e.cEZ());
+                this.kcn.compareAndSet(null, e.cFc());
             } else {
-                this.kcv.compareAndSet(null, (d) a);
+                this.kcn.compareAndSet(null, (d) a);
             }
         }
-        return this.kcv.get();
+        return this.kcn.get();
     }
 
-    public h cFd() {
-        if (this.kcw.get() == null) {
+    public h cFg() {
+        if (this.kco.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.kcw.compareAndSet(null, i.cFn());
+                this.kco.compareAndSet(null, i.cFq());
             } else {
-                this.kcw.compareAndSet(null, (h) a);
+                this.kco.compareAndSet(null, (h) a);
             }
         }
-        return this.kcw.get();
+        return this.kco.get();
     }
 
-    public a cFe() {
-        if (this.kcx.get() == null) {
+    public a cFh() {
+        if (this.kcp.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.kcx.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.kcp.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.kcx.compareAndSet(null, (a) a);
+                this.kcp.compareAndSet(null, (a) a);
             }
         }
-        return this.kcx.get();
+        return this.kcp.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g cFf() {
-        if (this.jVz.get() == null) {
+    public g cFi() {
+        if (this.jVr.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.jVz.compareAndSet(null, g.cFm());
+                this.jVr.compareAndSet(null, g.cFp());
             } else {
-                this.jVz.compareAndSet(null, (g) a);
+                this.jVr.compareAndSet(null, (g) a);
             }
         }
-        return this.jVz.get();
+        return this.jVr.get();
     }
 }

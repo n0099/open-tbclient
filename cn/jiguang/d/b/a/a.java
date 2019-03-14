@@ -3,6 +3,7 @@ package cn.jiguang.d.b.a;
 import android.text.TextUtils;
 import cn.jiguang.d.b.j;
 import cn.jiguang.d.c.p;
+import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.InetAddress;
 import java.util.Iterator;
@@ -20,7 +21,7 @@ public final class a {
         if (!TextUtils.isEmpty(str)) {
             for (String str2 : str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
                 if (!TextUtils.isEmpty(str2)) {
-                    String[] split2 = str2.split(":");
+                    String[] split2 = str2.split(Config.TRACE_TODAY_VISIT_SPLIT);
                     if (split2.length > 2) {
                         try {
                             i = Integer.decode(split2[1]).intValue();
@@ -138,7 +139,7 @@ public final class a {
         StringBuilder sb = new StringBuilder();
         if (this.lc != null) {
             for (Map.Entry<c, String> entry : this.lc.entrySet()) {
-                sb.append(entry.getKey().toString()).append(":").append(entry.getValue()).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                sb.append(entry.getKey().toString()).append(Config.TRACE_TODAY_VISIT_SPLIT).append(entry.getValue()).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
             if (!this.lc.isEmpty()) {
                 sb.deleteCharAt(sb.length() - 1);

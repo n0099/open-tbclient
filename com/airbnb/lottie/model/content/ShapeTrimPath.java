@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.a.a.q;
 import com.airbnb.lottie.model.a.b;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeTrimPath implements b {
@@ -71,7 +71,7 @@ public class ShapeTrimPath implements b {
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static ShapeTrimPath B(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new ShapeTrimPath(jSONObject.optString("nm"), Type.forId(jSONObject.optInt("m", 1)), b.a.a(jSONObject.optJSONObject(NotifyType.SOUND), eVar, false), b.a.a(jSONObject.optJSONObject("e"), eVar, false), b.a.a(jSONObject.optJSONObject("o"), eVar, false));
+            return new ShapeTrimPath(jSONObject.optString("nm"), Type.forId(jSONObject.optInt(Config.MODEL, 1)), b.a.a(jSONObject.optJSONObject("s"), eVar, false), b.a.a(jSONObject.optJSONObject("e"), eVar, false), b.a.a(jSONObject.optJSONObject(Config.OS), eVar, false));
         }
     }
 }

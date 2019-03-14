@@ -70,8 +70,8 @@ public class a extends y {
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode()).toString());
             } else {
                 jSONObject.put("code", gVar.mData.code);
-                jSONObject.put("errMsg", gVar.mData.aRs ? "authorize:ok" : "authorize:fail auth deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aRs ? 0 : 10003).toString());
+                jSONObject.put("errMsg", gVar.mData.aRt ? "authorize:ok" : "authorize:fail auth deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aRt ? 0 : 10003).toString());
             }
         } catch (JSONException e) {
             if (DEBUG) {

@@ -1,53 +1,52 @@
 package com.coloros.mcssdk.e;
 
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long jys;
-    long jyt;
-    int jyu;
-    String jyw;
+    long jyk;
+    long jyl;
+    int jym;
+    String jyo;
     String title;
-    String jyv = "08:00-22:00";
-    int jyx = 0;
-    int jyy = 0;
+    String jyn = "08:00-22:00";
+    int jyp = 0;
+    int jyq = 0;
 
     public void BO(int i) {
-        this.jyu = i;
+        this.jym = i;
     }
 
     public void BP(int i) {
-        this.jyx = i;
+        this.jyp = i;
     }
 
     public void BQ(int i) {
-        this.jyy = i;
+        this.jyq = i;
     }
 
-    public void Fn(String str) {
+    public void Fl(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.jyv = str;
+        this.jyn = str;
     }
 
-    public void Fo(String str) {
-        this.jyw = str;
+    public void Fm(String str) {
+        this.jyo = str;
     }
 
     public void ea(long j) {
-        this.jys = j;
+        this.jyk = j;
     }
 
     public void eb(long j) {
-        this.jyt = j;
+        this.jyl = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
     public int getType() {
-        return InputDeviceCompat.SOURCE_TOUCHSCREEN;
+        return 4098;
     }
 
     public void setContent(String str) {
@@ -60,19 +59,19 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.jyD);
-        sb.append(",taskID:" + this.jyE);
+        sb.append("messageID:" + this.jyv);
+        sb.append(",taskID:" + this.jyw);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.jyw);
+        sb.append(",rule:" + this.jyo);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.jyu);
-        sb.append(",startTime:" + this.jys);
-        sb.append(",endTime:" + this.jyt);
-        sb.append(",balanceTime:" + this.jyu);
-        sb.append(",timeRanges:" + this.jyv);
-        sb.append(",forcedDelivery:" + this.jyx);
-        sb.append(",distinctBycontent:" + this.jyy);
+        sb.append(",balanceTime:" + this.jym);
+        sb.append(",startTime:" + this.jyk);
+        sb.append(",endTime:" + this.jyl);
+        sb.append(",balanceTime:" + this.jym);
+        sb.append(",timeRanges:" + this.jyn);
+        sb.append(",forcedDelivery:" + this.jyp);
+        sb.append(",distinctBycontent:" + this.jyq);
         return sb.toString();
     }
 }

@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.setting.oauth.e;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Iterator;
@@ -13,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull

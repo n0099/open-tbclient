@@ -1,12 +1,13 @@
 package okhttp3;
 
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public enum Protocol {
     HTTP_1_0("http/1.0"),
     HTTP_1_1("http/1.1"),
     SPDY_3("spdy/3.1"),
-    HTTP_2("h2"),
+    HTTP_2(Config.EVENT_NATIVE_VIEW_HIERARCHY),
     H2_PRIOR_KNOWLEDGE("h2_prior_knowledge"),
     QUIC("quic");
     

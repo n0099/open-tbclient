@@ -1,10 +1,8 @@
 package cn.jpush.android.data;
 
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
-import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -58,7 +56,7 @@ public abstract class b implements Serializable {
         while (it.hasNext()) {
             String next = it.next();
             String str3 = (next == null || next.startsWith("http://")) ? next : str + next;
-            byte[] a = cn.jpush.android.b.a.a(str3, 5, TbConfig.NOTIFY_SOUND_INTERVAL, 4);
+            byte[] a = cn.jpush.android.b.a.a(str3, 5, 5000L, 4);
             if (a != null) {
                 try {
                     if (next.startsWith("http://")) {
@@ -70,7 +68,7 @@ public abstract class b implements Serializable {
                     z2 = false;
                 }
             } else {
-                cn.jpush.android.a.e.a(str2, PointerIconCompat.TYPE_GRAB, cn.jpush.android.d.a.a(context, str3), context);
+                cn.jpush.android.a.e.a(str2, 1020, cn.jpush.android.d.a.a(context, str3), context);
                 z2 = false;
             }
         }

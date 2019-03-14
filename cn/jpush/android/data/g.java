@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
-import com.baidu.tbadk.TbConfig;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -69,7 +68,7 @@ public final class g extends b implements Runnable {
                         Context context = this.R;
                         if (str5.endsWith(".jpg") || str5.endsWith(".png")) {
                             str2 = cn.jpush.android.d.c.b(context, str3) + (str3 + str5.substring(str5.lastIndexOf(".")));
-                            byte[] a = cn.jpush.android.b.a.a(str5, 5, TbConfig.NOTIFY_SOUND_INTERVAL, 4);
+                            byte[] a = cn.jpush.android.b.a.a(str5, 5, 5000L, 4);
                             if (a == null) {
                                 str2 = "";
                             } else if (!cn.jpush.android.d.c.a(str2, a)) {
@@ -109,7 +108,7 @@ public final class g extends b implements Runnable {
         } else {
             if (!TextUtils.isEmpty(str4)) {
                 for (int i = 0; i < 4; i++) {
-                    cn.jiguang.h.c a2 = cn.jpush.android.b.a.a(str4, 5, TbConfig.NOTIFY_SOUND_INTERVAL);
+                    cn.jiguang.h.c a2 = cn.jpush.android.b.a.a(str4, 5, 5000L);
                     if (a2 != null && a2.getResponseCode() == 200) {
                         z = true;
                         str = a2.cr();

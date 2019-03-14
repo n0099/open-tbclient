@@ -6,8 +6,8 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int jjd;
-    private int jje;
+    private int jiV;
+    private int jiW;
     private int mCurrentState;
 
     public SwitchImageView(Context context) {
@@ -27,33 +27,33 @@ public class SwitchImageView extends AppCompatImageView {
 
     private void init() {
         this.mCurrentState = 0;
-        this.jjd = 0;
-        this.jje = 0;
+        this.jiV = 0;
+        this.jiW = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.jjd = i;
-        this.jje = i2;
+        this.jiV = i;
+        this.jiW = i2;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.mCurrentState = 0;
-            setImageResource(this.jjd);
+            setImageResource(this.jiV);
         } else if (i == 1) {
             this.mCurrentState = 1;
-            setImageResource(this.jje);
+            setImageResource(this.jiW);
         }
     }
 
-    public void cnc() {
+    public void cnf() {
         if (this.mCurrentState == 0) {
             this.mCurrentState = 1;
-            setImageResource(this.jje);
+            setImageResource(this.jiW);
             return;
         }
         this.mCurrentState = 0;
-        setImageResource(this.jjd);
+        setImageResource(this.jiV);
     }
 
     public int getCurrentState() {

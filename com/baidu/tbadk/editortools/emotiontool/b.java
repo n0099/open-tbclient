@@ -239,12 +239,12 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int amh() {
+    public int amg() {
         return cjp.size();
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public a.C0204a aw(Context context, String str) {
+    public a.C0238a aw(Context context, String str) {
         return null;
     }
 }

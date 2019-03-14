@@ -1,16 +1,16 @@
 package com.baidu.tieba.aiapps.apps.media.b.a;
 
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
-    private static final boolean DEBUG = c.DEBUG;
-    public int cVA;
-    public int cVB;
-    public int cVy;
-    public int cVz;
+    private static final boolean DEBUG = b.DEBUG;
+    public int cVu;
+    public int cVv;
+    public int cVw;
+    public int cVx;
     public int mVideoHeight;
     public int mVideoWidth;
 
@@ -18,10 +18,10 @@ public final class a {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("videoBitrate", this.cVy);
-            jSONObject2.put("audioBitrate", this.cVz);
-            jSONObject2.put("videoFPS", this.cVA);
-            jSONObject2.put("netSpeed", this.cVB);
+            jSONObject2.put("videoBitrate", this.cVu);
+            jSONObject2.put("audioBitrate", this.cVv);
+            jSONObject2.put("videoFPS", this.cVw);
+            jSONObject2.put("netSpeed", this.cVx);
             jSONObject2.put("videoWidth", this.mVideoWidth);
             jSONObject2.put("videoHeight", this.mVideoHeight);
             jSONObject.putOpt("detail", jSONObject2);

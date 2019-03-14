@@ -12,9 +12,9 @@ public class d {
                     return "system error";
                 case 1002:
                     return "the request is prohibited";
-                case PointerIconCompat.TYPE_HELP /* 1003 */:
+                case 1003:
                     return "invalid common params";
-                case PointerIconCompat.TYPE_WAIT /* 1004 */:
+                case 1004:
                     return "invalid query params";
                 case 1005:
                 case PointerIconCompat.TYPE_CELL /* 1006 */:

@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class l extends c implements com.baidu.tbadk.core.util.e.a {
-    public bg cZD;
-    public static final BdUniqueId bBb = BdUniqueId.gen();
-    public static final BdUniqueId elN = BdUniqueId.gen();
-    public static final BdUniqueId elO = BdUniqueId.gen();
-    public static String elw = "";
+    public bg cZz;
+    public static final BdUniqueId bBd = BdUniqueId.gen();
+    public static final BdUniqueId elJ = BdUniqueId.gen();
+    public static final BdUniqueId elK = BdUniqueId.gen();
+    public static String els = "";
+    public static String elL = "";
+    public static String elM = "";
+    public static String elr = "";
+    public static String elN = "";
+    public static String elO = "";
     public static String elP = "";
-    public static String elQ = "";
-    public static String elv = "";
-    public static String elR = "";
-    public static String elS = "";
-    public static String elT = "";
-    public boolean elM = false;
-    public boolean elU = true;
-    public boolean bAD = false;
-    public boolean elV = false;
-    public boolean bAI = false;
-    public boolean bAJ = false;
-    public boolean elK = false;
+    public boolean elI = false;
+    public boolean elQ = true;
+    public boolean bAF = false;
+    public boolean elR = false;
+    public boolean bAK = false;
+    public boolean bAL = false;
+    public boolean elG = false;
     public int sourceType = 0;
 
     public l(bg bgVar) {
-        this.cZD = bgVar;
+        this.cZz = bgVar;
     }
 
     public static boolean W(bg bgVar) {
@@ -37,65 +37,65 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.cZD == null) {
+        if (this.cZz == null) {
             return k.TYPE;
         }
-        if (this.bAD) {
-            return k.elz;
+        if (this.bAF) {
+            return k.elv;
         }
-        if (this.elV) {
-            return bBb;
+        if (this.elR) {
+            return bBd;
         }
-        if (this.bAI) {
-            return k.elG;
+        if (this.bAK) {
+            return k.elC;
         }
-        if (this.bAJ) {
-            return k.elF;
+        if (this.bAL) {
+            return k.elB;
         }
-        if (this.elK) {
-            return k.elE;
+        if (this.elG) {
+            return k.elA;
         }
-        return bBb;
+        return bBd;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
     public bg WR() {
-        if (this.cZD == null) {
+        if (this.cZz == null) {
             return null;
         }
-        if (this.cZD.YF() != 5) {
-            this.cZD.setResource(1);
+        if (this.cZz.YF() != 5) {
+            this.cZz.setResource(1);
         }
-        return this.cZD;
+        return this.cZz;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public String WS() {
-        if (this.cZD == null) {
+        if (this.cZz == null) {
             return null;
         }
-        return this.cZD.bCX;
+        return this.cZz.bCZ;
     }
 
-    public am tJ(String str) {
+    public am tH(String str) {
         am amVar = new am(str);
-        if (this.cZD != null) {
-            amVar.k(ImageViewerConfig.FORUM_ID, this.cZD.getFid());
-            amVar.bJ("tid", this.cZD.getTid());
+        if (this.cZz != null) {
+            amVar.k(ImageViewerConfig.FORUM_ID, this.cZz.getFid());
+            amVar.bJ("tid", this.cZz.getTid());
             amVar.T("obj_type", 2);
-            amVar.T("obj_param1", aQV() ? 2 : 1);
-            if (this.cZD.YR() != null) {
-                amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.cZD.YR().getUserId());
+            amVar.T("obj_param1", aQU() ? 2 : 1);
+            if (this.cZz.YR() != null) {
+                amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.cZz.YR().getUserId());
             }
         }
         return amVar;
     }
 
-    public am aRb() {
-        am S = S(elQ, true);
+    public am aRa() {
+        am S = S(elM, true);
         if (S != null && WR() != null) {
             bg WR = WR();
-            S.T("obj_name", WR.aap() != null && (WR.aap().cet() != null || WR.aap().asG() != null) ? 1 : 0);
+            S.T("obj_name", WR.aap() != null && (WR.aap().cev() != null || WR.aap().asF() != null) ? 1 : 0);
             if (WR.YR() != null) {
                 S.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
             }
@@ -105,9 +105,9 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
 
     public am b(bg bgVar, int i) {
         if (bgVar.aab() != null && bgVar.aab().channelId > 0) {
-            return S(elR, true);
+            return S(elN, true);
         }
-        am S = S(elv, true);
+        am S = S(elr, true);
         if (S != null && i != -1) {
             S.T("click_locate", i);
             return S;
@@ -119,23 +119,23 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return b(bgVar, -1);
     }
 
-    public am aRi() {
-        return S(elT, true);
-    }
-
-    public am aRd() {
+    public am aRh() {
         return S(elP, true);
     }
 
+    public am aRc() {
+        return S(elL, true);
+    }
+
     public am Z(bg bgVar) {
-        return (bgVar.aab() == null || bgVar.aab().channelId <= 0) ? S(elw, true) : S(elS, true);
+        return (bgVar.aab() == null || bgVar.aab().channelId <= 0) ? S(els, true) : S(elO, true);
     }
 
     @Override // com.baidu.tbadk.core.util.e.a
     public String getVideoUrl() {
-        if (this.cZD == null || this.cZD.Zi() == null || this.cZD.Zi().video_url == null) {
+        if (this.cZz == null || this.cZz.Zi() == null || this.cZz.Zi().video_url == null) {
             return null;
         }
-        return this.cZD.Zi().video_url;
+        return this.cZz.Zi().video_url;
     }
 }

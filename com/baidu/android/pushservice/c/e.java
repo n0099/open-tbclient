@@ -11,7 +11,6 @@ import com.baidu.android.pushservice.h;
 import com.baidu.android.pushservice.j.j;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.ByteArrayInputStream;
@@ -345,7 +344,7 @@ public class e extends b {
 
     private static boolean i(Context context) {
         try {
-            return com.coloros.mcssdk.a.eJ(context);
+            return com.coloros.mcssdk.a.eI(context);
         } catch (Exception e2) {
             return false;
         }
@@ -353,7 +352,7 @@ public class e extends b {
 
     private boolean j() {
         long j = 0;
-        if (System.currentTimeMillis() - j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > TbConfig.APP_OVERDUR_DRAFT_BOX) {
+        if (System.currentTimeMillis() - j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > 604800000) {
             return true;
         }
         long b = j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");

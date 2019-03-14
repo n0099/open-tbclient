@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import java.text.SimpleDateFormat;
@@ -18,26 +19,26 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private final LinkedHashMap<SwanAppProcessInfo, b> aEX;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private final LinkedHashMap<SwanAppProcessInfo, b> aEY;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.service.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0126a {
-        private static a aEY = new a();
+    public static class C0155a {
+        private static a aEZ = new a();
     }
 
     public static a Gw() {
-        return C0126a.aEY;
+        return C0155a.aEZ;
     }
 
     private a() {
         SwanAppProcessInfo[] indexById;
-        this.aEX = new LinkedHashMap<>();
+        this.aEY = new LinkedHashMap<>();
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indexById()) {
             if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
-                this.aEX.put(swanAppProcessInfo, new b(swanAppProcessInfo));
+                this.aEY.put(swanAppProcessInfo, new b(swanAppProcessInfo));
             }
         }
     }
@@ -47,11 +48,11 @@ public final class a {
     }
 
     public synchronized b a(SwanAppProcessInfo swanAppProcessInfo) {
-        return this.aEX.get(swanAppProcessInfo);
+        return this.aEY.get(swanAppProcessInfo);
     }
 
     public synchronized LinkedHashSet<b> Gx() {
-        return new LinkedHashSet<>(this.aEX.values());
+        return new LinkedHashSet<>(this.aEY.values());
     }
 
     public synchronized b fO(@Nullable String str) {
@@ -67,7 +68,7 @@ public final class a {
     public synchronized b fP(@Nullable String str) {
         b fO;
         fO = fO(str);
-        b(fO.aEZ);
+        b(fO.aFa);
         return fO;
     }
 
@@ -81,8 +82,8 @@ public final class a {
             b bVar3 = null;
             while (true) {
                 if (i <= 5) {
-                    a = this.aEX.get(SwanAppProcessInfo.getById(i));
-                    if (a != null && a.aEZ.isSwanAppProcess()) {
+                    a = this.aEY.get(SwanAppProcessInfo.getById(i));
+                    if (a != null && a.aFa.isSwanAppProcess()) {
                         if (a.GI()) {
                             a = bVar2;
                             bVar = bVar3;
@@ -91,7 +92,7 @@ public final class a {
                                 Log.i("SwanAppClientObjManager", "computNextAvailableProcess: firstPreloadedClient=" + a);
                             }
                         } else {
-                            if (bVar3 == null && a.aFd) {
+                            if (bVar3 == null && a.aFe) {
                                 bVar3 = a;
                             }
                             if (bVar2 == null) {
@@ -118,7 +119,7 @@ public final class a {
                     }
                     a = bVar2;
                 } else {
-                    Iterator<b> it = this.aEX.values().iterator();
+                    Iterator<b> it = this.aEY.values().iterator();
                     while (true) {
                         if (it.hasNext()) {
                             a = it.next();
@@ -148,8 +149,8 @@ public final class a {
         bVar = null;
         while (true) {
             if (i <= 5) {
-                b bVar2 = this.aEX.get(SwanAppProcessInfo.getById(i));
-                if (bVar2 != null && bVar2.aEZ.isSwanAppProcess()) {
+                b bVar2 = this.aEY.get(SwanAppProcessInfo.getById(i));
+                if (bVar2 != null && bVar2.aFa.isSwanAppProcess()) {
                     if (bVar2.GI()) {
                         bVar2 = bVar;
                     } else if (bVar2.GH()) {
@@ -184,7 +185,7 @@ public final class a {
         ArrayList arrayList;
         arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
-            for (b bVar : this.aEX.values()) {
+            for (b bVar : this.aEY.values()) {
                 if (TextUtils.equals(bVar.mAppId, str)) {
                     arrayList.add(bVar);
                 }
@@ -194,9 +195,9 @@ public final class a {
     }
 
     public synchronized void b(SwanAppProcessInfo swanAppProcessInfo) {
-        b remove = this.aEX.remove(swanAppProcessInfo);
+        b remove = this.aEY.remove(swanAppProcessInfo);
         if (remove != null) {
-            this.aEX.put(swanAppProcessInfo, remove);
+            this.aEY.put(swanAppProcessInfo, remove);
         }
         fS("lru -> " + swanAppProcessInfo);
     }
@@ -212,8 +213,8 @@ public final class a {
                             Log.i("SwanAppClientObjManager", "deduplicateClients: exClient=" + bVar2);
                         }
                         bVar2.GD().GC();
-                        if (bVar2.aFd) {
-                            com.baidu.swan.apps.process.messaging.service.b.GK().a(bVar2.aEZ, 110, new Bundle());
+                        if (bVar2.aFe) {
+                            com.baidu.swan.apps.process.messaging.service.b.GK().a(bVar2.aFa, 110, new Bundle());
                         }
                     }
                 }
@@ -223,28 +224,28 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static final class b {
-        public final SwanAppProcessInfo aEZ;
-        public SwanAppCores aFa;
-        private long aFb;
-        private boolean aFc;
-        public boolean aFd;
+        public final SwanAppProcessInfo aFa;
+        public SwanAppCores aFb;
+        private long aFc;
+        private boolean aFd;
+        public boolean aFe;
         private String mAppId;
         public Messenger mMessenger;
 
         private b(SwanAppProcessInfo swanAppProcessInfo) {
             this.mAppId = "";
             this.mMessenger = null;
-            this.aFb = 0L;
-            this.aFc = false;
+            this.aFc = 0L;
             this.aFd = false;
-            this.aEZ = swanAppProcessInfo;
+            this.aFe = false;
+            this.aFa = swanAppProcessInfo;
         }
 
         public b GB() {
             GC();
             this.mMessenger = null;
-            this.aFd = false;
-            this.aFa = null;
+            this.aFe = false;
+            this.aFb = null;
             GD();
             return this;
         }
@@ -255,8 +256,8 @@ public final class a {
         }
 
         public b GD() {
-            this.aFc = false;
-            this.aFb = 0L;
+            this.aFd = false;
+            this.aFc = 0L;
             return this;
         }
 
@@ -277,18 +278,18 @@ public final class a {
         }
 
         public b GF() {
-            this.aFb = System.currentTimeMillis();
+            this.aFc = System.currentTimeMillis();
             return this;
         }
 
         public b GG() {
-            this.aFc = true;
-            this.aFb = 0L;
+            this.aFd = true;
+            this.aFc = 0L;
             return this;
         }
 
         public boolean GH() {
-            return this.aFc;
+            return this.aFd;
         }
 
         public boolean GI() {
@@ -296,17 +297,17 @@ public final class a {
         }
 
         public b GJ() {
-            this.aFc = false;
+            this.aFd = false;
             return this;
         }
 
         public String toString() {
             Locale locale = Locale.getDefault();
             Object[] objArr = new Object[5];
-            objArr[0] = this.aEZ.toString();
-            objArr[1] = Integer.valueOf(this.aFd ? 1 : 0);
-            objArr[2] = Integer.valueOf(this.aFc ? 1 : 0);
-            objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.aFb));
+            objArr[0] = this.aFa.toString();
+            objArr[1] = Integer.valueOf(this.aFe ? 1 : 0);
+            objArr[2] = Integer.valueOf(this.aFd ? 1 : 0);
+            objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.aFc));
             objArr[4] = this.mAppId;
             return String.format(locale, "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", objArr);
         }
@@ -323,7 +324,7 @@ public final class a {
 
     public String toString() {
         LinkedHashSet<b> Gx = Gx();
-        StringBuilder append = new StringBuilder().append(super.toString()).append(":").append("\n-> clients: ");
+        StringBuilder append = new StringBuilder().append(super.toString()).append(Config.TRACE_TODAY_VISIT_SPLIT).append("\n-> clients: ");
         for (b bVar : Gx) {
             append.append("\n--> ").append(bVar.toString());
         }

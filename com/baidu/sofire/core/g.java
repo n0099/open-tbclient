@@ -12,12 +12,11 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.o;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.PathClassLoader;
 import java.io.File;
@@ -425,7 +424,7 @@ public final class g {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
-            jSONObject.put("m", str2);
+            jSONObject.put(Config.MODEL, str2);
             jSONArray.put(jSONObject);
             String jSONArray2 = jSONArray.toString();
             com.baidu.sofire.b.a();
@@ -444,9 +443,9 @@ public final class g {
             if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
             }
-            applicationInfo.theme = optJSONObject.optInt(Info.kBaiduTimeKey);
+            applicationInfo.theme = optJSONObject.optInt("t");
             packageInfo.applicationInfo = applicationInfo;
-            JSONArray optJSONArray = optJSONObject.optJSONArray("a");
+            JSONArray optJSONArray = optJSONObject.optJSONArray(Config.APP_VERSION_CODE);
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -458,8 +457,8 @@ public final class g {
                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                         }
                         activityInfo.packageName = packageInfo.packageName;
-                        activityInfo.theme = jSONObject2.optInt(Info.kBaiduTimeKey);
-                        activityInfo.labelRes = jSONObject2.optInt(NotifyType.LIGHTS);
+                        activityInfo.theme = jSONObject2.optInt("t");
+                        activityInfo.labelRes = jSONObject2.optInt("l");
                         if (!TextUtils.isEmpty(activityInfo.name)) {
                             arrayList.add(activityInfo);
                         }
@@ -502,7 +501,7 @@ public final class g {
         HashSet hashSet = new HashSet();
         StringBuilder sb = new StringBuilder();
         a(apkInfo, str, hashSet, sb, true, false);
-        String str3 = ":" + System.getProperty("java.library.path");
+        String str3 = Config.TRACE_TODAY_VISIT_SPLIT + System.getProperty("java.library.path");
         if (Build.VERSION.SDK_INT >= 25) {
             str3 = "";
         }
@@ -517,7 +516,7 @@ public final class g {
             } catch (Throwable th) {
                 com.baidu.sofire.b.e.a();
             }
-            str4 = str6 != null ? str5 + ":" + str6 + str3 : str5 + str3;
+            str4 = str6 != null ? str5 + Config.TRACE_TODAY_VISIT_SPLIT + str6 + str3 : str5 + str3;
         } else {
             try {
                 if (Build.VERSION.SDK_INT >= 8 && hashSet.contains(Build.CPU_ABI2)) {

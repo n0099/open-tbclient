@@ -22,15 +22,15 @@ public class SwanAppCores extends SwanAppIPCData {
             return new SwanAppCores[i];
         }
     };
-    private SwanCoreVersion atp;
-    private ExtensionCore atq;
+    private SwanCoreVersion atq;
+    private ExtensionCore atr;
 
     public SwanAppCores() {
     }
 
     private SwanAppCores(Parcel parcel) {
-        this.atp = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
-        this.atq = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
+        this.atq = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
+        this.atr = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -40,27 +40,27 @@ public class SwanAppCores extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.atp, i);
         parcel.writeParcelable(this.atq, i);
+        parcel.writeParcelable(this.atr, i);
     }
 
     public String toString() {
-        return "SwanAppCores{mSwanCoreVersion=" + this.atp + ", mExtensionCore=" + this.atq + '}';
+        return "SwanAppCores{mSwanCoreVersion=" + this.atq + ", mExtensionCore=" + this.atr + '}';
     }
 
     public SwanCoreVersion As() {
-        return this.atp;
-    }
-
-    public void a(SwanCoreVersion swanCoreVersion) {
-        this.atp = swanCoreVersion;
-    }
-
-    public ExtensionCore At() {
         return this.atq;
     }
 
+    public void a(SwanCoreVersion swanCoreVersion) {
+        this.atq = swanCoreVersion;
+    }
+
+    public ExtensionCore At() {
+        return this.atr;
+    }
+
     public void a(ExtensionCore extensionCore) {
-        this.atq = extensionCore;
+        this.atr = extensionCore;
     }
 }

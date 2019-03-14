@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.statistic;
 /* loaded from: classes2.dex */
 public final class b {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static int aSd = 0;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static int aSe = 0;
 
     public static String dA(int i) {
         switch (i) {
@@ -18,10 +18,10 @@ public final class b {
     }
 
     public static int Kr() {
-        return aSd;
+        return aSe;
     }
 
     public static void dB(int i) {
-        aSd = i;
+        aSe = i;
     }
 }

@@ -28,9 +28,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ForumTestActivity extends BaseActivity implements b {
-    private NoNetworkView dbq;
-    private ForumTestWebView eCe;
-    private long eCf;
+    private NoNetworkView dbm;
+    private ForumTestWebView eCa;
+    private long eCb;
     private NavigationBar mNavigationBar;
     private String mUrl = "https://tieba.baidu.com/mo/q/recomforum?testId=";
 
@@ -43,18 +43,18 @@ public class ForumTestActivity extends BaseActivity implements b {
         setContentView(d.h.activity_forum_test_layout);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.activity_forum_test_nav);
         this.mNavigationBar.setVisibility(8);
-        this.dbq = (NoNetworkView) findViewById(d.g.activity_forum_test_net);
-        this.eCe = (ForumTestWebView) findViewById(d.g.activity_forum_test_web);
-        this.eCe.a(this);
+        this.dbm = (NoNetworkView) findViewById(d.g.activity_forum_test_net);
+        this.eCa = (ForumTestWebView) findViewById(d.g.activity_forum_test_web);
+        this.eCa.a(this);
         initData();
-        this.eCe.loadUrl(this.mUrl);
+        this.eCa.loadUrl(this.mUrl);
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.eCf = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
-            this.mUrl += this.eCf;
+            this.eCb = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
+            this.mUrl += this.eCb;
         }
     }
 
@@ -95,11 +95,11 @@ public class ForumTestActivity extends BaseActivity implements b {
                 return true;
             } else if ("finishTestAnswer".equals(str2)) {
                 try {
-                    this.eCf = new JSONObject(str3).optLong("testId");
+                    this.eCb = new JSONObject(str3).optLong("testId");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.eCf)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.eCb)));
                 finish();
                 jsPromptResult.confirm("finishTestAnswer");
                 return true;
@@ -112,20 +112,20 @@ public class ForumTestActivity extends BaseActivity implements b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eCe.onResume();
+        this.eCa.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eCe.onPause();
+        this.eCa.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.eCe.canGoBack()) {
-            this.eCe.goBack();
+        if (i == 4 && this.eCa.canGoBack()) {
+            this.eCa.goBack();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -134,12 +134,12 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eCe != null) {
-            this.eCe.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            this.eCe.clearHistory();
-            ((ViewGroup) this.eCe.getParent()).removeView(this.eCe);
-            this.eCe.destroy();
-            this.eCe = null;
+        if (this.eCa != null) {
+            this.eCa.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            this.eCa.clearHistory();
+            ((ViewGroup) this.eCa.getParent()).removeView(this.eCa);
+            this.eCa.destroy();
+            this.eCa = null;
         }
         super.onDestroy();
     }

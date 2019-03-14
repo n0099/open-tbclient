@@ -48,7 +48,7 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        alS();
+        alR();
         setVisibility(8);
     }
 
@@ -67,7 +67,7 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            al.c(this.mTip, d.C0236d.cp_cont_g, 1, this.mSkinType);
+            al.c(this.mTip, d.C0277d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
@@ -83,7 +83,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void alS() {
+    public void alR() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,7 +98,7 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                alS();
+                alR();
             } else if (aVar.data instanceof String) {
                 oE((String) aVar.data);
             }
@@ -110,7 +110,7 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         al.b(this, this.mIcon, i);
         if (this.mTip != null) {
-            al.c(this.mTip, d.C0236d.cp_cont_g, 1, i);
+            al.c(this.mTip, d.C0277d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
                 al.e(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {

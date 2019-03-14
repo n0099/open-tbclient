@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.b.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class a {
     protected String EI;
@@ -186,7 +187,7 @@ public class a {
     }
 
     public static String bb(String str) {
-        if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || "msg".equals(str)) {
+        if ("net".equals(str) || Config.OPERATOR.equals(str) || "crash".equals(str) || "msg".equals(str)) {
             return "error";
         }
         return str;

@@ -6,12 +6,12 @@ import com.baidu.swan.apps.core.a.i;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 /* loaded from: classes2.dex */
 public class c extends d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private com.baidu.swan.apps.v.b.c ajw;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private com.baidu.swan.apps.v.b.c ajx;
 
     public c(com.baidu.swan.apps.v.b.c cVar) {
         super(cVar.mAppId);
-        this.ajw = cVar;
+        this.ajx = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.e
@@ -35,7 +35,7 @@ public class c extends d {
     @Override // com.baidu.swan.pms.a.e
     public void zz() {
         super.zz();
-        if (this.asf != null) {
+        if (this.asg != null) {
             zJ();
             l("checkForUpdate", false);
         }
@@ -43,9 +43,9 @@ public class c extends d {
 
     @Override // com.baidu.swan.apps.core.pms.d
     protected void zA() {
-        this.aoO.add(new UbcFlowEvent("na_start_update_db"));
+        this.aoP.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.ak.a zI = zI();
-        this.aoO.add(new UbcFlowEvent("na_end_update_db"));
+        this.aoP.add(new UbcFlowEvent("na_end_update_db"));
         if (zI == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "异步更新-> DB 存储成功");
@@ -76,7 +76,7 @@ public class c extends d {
     }
 
     private void l(String str, boolean z) {
-        String str2 = this.ajw != null ? this.ajw.mAppId : null;
+        String str2 = this.ajx != null ? this.ajx.mAppId : null;
         if (!TextUtils.isEmpty(str2)) {
             i.d(str, str2, z);
         }

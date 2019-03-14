@@ -4,34 +4,34 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class f {
-    private static volatile f beL;
-    private boolean beM;
-    private String beN;
+    private static volatile f beM;
+    private boolean beN;
+    private String beO;
 
     public static f OM() {
-        if (beL == null) {
+        if (beM == null) {
             synchronized (f.class) {
-                if (beL == null) {
-                    beL = new f();
+                if (beM == null) {
+                    beM = new f();
                 }
             }
         }
-        return beL;
+        return beM;
     }
 
     private f() {
     }
 
     public boolean ON() {
-        return this.beM;
+        return this.beN;
     }
 
     public void cy(boolean z) {
-        this.beM = z;
+        this.beN = z;
     }
 
     public String OO() {
-        return this.beN;
+        return this.beO;
     }
 
     public String OP() {
@@ -42,6 +42,6 @@ public class f {
     }
 
     public void iT(String str) {
-        this.beN = str;
+        this.beO = str;
     }
 }

@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.setting.a.g;
@@ -19,16 +20,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends g<c> {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public g.a aRC;
-    public b aRD = new b(Looper.getMainLooper(), this);
-    public Bundle aRE;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public g.a aRD;
+    public b aRE = new b(Looper.getMainLooper(), this);
+    public Bundle aRF;
     protected final Activity mActivity;
 
     public e(Activity activity, g.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.aRC = aVar;
-        this.aRE = bundle;
+        this.aRD = aVar;
+        this.aRF = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -94,7 +95,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.aRD.removeMessages(1);
+        this.aRE.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,7 +112,7 @@ public class e extends g<c> {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bk + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bk) {
-                Jc.a(e.this.mActivity, e.this.aRE, this);
+                Jc.a(e.this.mActivity, e.this.aRF, this);
             }
             return bk;
         }
@@ -122,12 +123,12 @@ public class e extends g<c> {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_UESR_REFUSE", (Boolean) true);
-                    m(new OAuthException("login cancel by user", (int) SapiGIDEvent.BUSINESS_GET_GID));
+                    m(new OAuthException("login cancel by user", 10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_LOGIN", (Boolean) true);
-                    m(new OAuthException("system login error", (int) SapiGIDEvent.BUSINESS_GET_GID));
+                    m(new OAuthException("system login error", 10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
@@ -152,23 +153,23 @@ public class e extends g<c> {
 
     /* loaded from: classes2.dex */
     public static class b extends Handler {
-        private WeakReference<e> aRG;
+        private WeakReference<e> aRH;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.aRG = new WeakReference<>(eVar);
+            this.aRH = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.aRG.get();
+            e eVar = this.aRH.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:
                         if (e.DEBUG) {
                             Log.d("LoginRequest", "handleMessage: timeout");
                         }
-                        eVar.l(new OAuthException("request timeout", 10007));
+                        eVar.l(new OAuthException("request timeout", (int) HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL));
                         return;
                     default:
                         return;

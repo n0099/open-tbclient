@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.a.l;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
@@ -101,7 +102,7 @@ public class PolystarShape implements b {
             com.airbnb.lottie.model.a.b bVar2;
             String optString = jSONObject.optString("nm");
             Type forValue = Type.forValue(jSONObject.optInt("sy"));
-            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject("pt"), eVar, false);
+            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar, false);
             m<PointF, PointF> h = com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar);
             com.airbnb.lottie.model.a.b a2 = b.a.a(jSONObject.optJSONObject("r"), eVar, false);
             com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("or"), eVar);

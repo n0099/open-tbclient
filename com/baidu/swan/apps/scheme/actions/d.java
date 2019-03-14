@@ -9,6 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
@@ -24,14 +26,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends y {
-    private String aPh;
     private String aPi;
+    private String aPj;
     private String mCallback;
     private int mCount;
 
@@ -61,7 +62,7 @@ public class d extends y {
             return false;
         }
         try {
-            this.mCount = Integer.parseInt(dk.optString("count"));
+            this.mCount = Integer.parseInt(dk.optString(Config.TRACE_VISIT_RECENT_COUNT));
             if (this.mCount < 1 || this.mCount > 9) {
                 this.mCount = 9;
             }
@@ -69,15 +70,15 @@ public class d extends y {
             com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
             this.mCount = 9;
         }
-        this.aPh = m(dk.optJSONArray("sizeType"));
-        this.aPi = n(dk.optJSONArray("sourceType"));
-        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.aPh + ",sourceType: " + this.aPi);
-        if (TextUtils.equals(this.aPi, "album")) {
+        this.aPi = m(dk.optJSONArray("sizeType"));
+        this.aPj = n(dk.optJSONArray("sourceType"));
+        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.aPi + ",sourceType: " + this.aPj);
+        if (TextUtils.equals(this.aPj, "album")) {
             com.baidu.swan.apps.u.a.CN().a(context, this.mCount, new a() { // from class: com.baidu.swan.apps.scheme.actions.d.1
                 @Override // com.baidu.swan.apps.scheme.actions.d.a
                 public void g(ArrayList<String> arrayList) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        if (TextUtils.equals(d.this.aPh, "compressed")) {
+                        if (TextUtils.equals(d.this.aPi, "compressed")) {
                             d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                             return;
                         } else {
@@ -104,7 +105,7 @@ public class d extends y {
                         d.this.o(context, unitedSchemeEntity, callbackHandler, bVar);
                         return;
                     }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200101);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
                     com.baidu.swan.apps.console.c.e("chooseImage", "camera authorize failure");
                 }
             });
@@ -119,12 +120,12 @@ public class d extends y {
         if (com.baidu.swan.apps.camera.a.wn().bt(context)) {
             p(context, unitedSchemeEntity, callbackHandler, bVar);
         } else {
-            com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0078a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0078a
+            com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.scheme.actions.d.3
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     boolean z = false;
                     if (i != 1) {
-                        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(200102, "system camera not authorized").toString(), d.this.mCallback);
+                        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION, "system camera not authorized").toString(), d.this.mCallback);
                         com.baidu.swan.apps.console.c.e("chooseImage", "handleAuthorized end, failure");
                         return;
                     }
@@ -144,7 +145,7 @@ public class d extends y {
                         d.this.p(context, unitedSchemeEntity, callbackHandler, bVar);
                         return;
                     }
-                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(200102, "system camera not authorized").toString(), d.this.mCallback);
+                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION, "system camera not authorized").toString(), d.this.mCallback);
                     com.baidu.swan.apps.console.c.e("chooseImage", "user want not authorize");
                 }
             });
@@ -176,7 +177,7 @@ public class d extends y {
                         if (i == -1) {
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(c.getAbsolutePath());
-                            if (TextUtils.equals(d.this.aPh, "compressed")) {
+                            if (TextUtils.equals(d.this.aPi, "compressed")) {
                                 d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                                 return true;
                             }
@@ -311,7 +312,7 @@ public class d extends y {
                     String aD = com.baidu.swan.apps.storage.b.aD(next.getAbsolutePath(), bVar.id);
                     jSONArray.put(aD + "." + jZ);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(ClientCookie.PATH_ATTR, aD);
+                    jSONObject2.put("path", aD);
                     jSONObject2.put("size", next.length());
                     jSONArray2.put(jSONObject2);
                 }

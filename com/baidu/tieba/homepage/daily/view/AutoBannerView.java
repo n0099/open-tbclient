@@ -17,28 +17,28 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
-    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> bGb;
+    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> bGd;
     private com.baidu.tbadk.h.a cck;
-    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> eNy;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fIy;
+    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> eNu;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fIx;
     private List<com.baidu.tieba.homepage.daily.b.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.bGb = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
+        this.bGd = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void y(int i, String str) {
-                if (AutoBannerView.this.fIy != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fIy.y(i, str);
+                if (AutoBannerView.this.fIx != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fIx.y(i, str);
                 }
-                AutoBannerView.this.wj(str);
+                AutoBannerView.this.wh(str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.homepage.daily.b.a aVar) {
-                if (AutoBannerView.this.fIy != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fIy.a(i, aVar);
+                if (AutoBannerView.this.fIx != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fIx.a(i, aVar);
                 }
                 if (aVar == null) {
                 }
@@ -48,7 +48,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.eNy = new CoverFlowView<>(getContext());
+        this.eNu = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e abn() {
@@ -83,11 +83,11 @@ public class AutoBannerView extends RelativeLayout {
                 return null;
             }
         };
-        this.eNy.setIndicatorNoOffet(true);
-        this.eNy.setDisableParentEvent(false);
-        this.eNy.setCoverFlowFactory(bVar);
-        this.eNy.setCallback(this.bGb);
-        addView(this.eNy);
+        this.eNu.setIndicatorNoOffet(true);
+        this.eNu.setDisableParentEvent(false);
+        this.eNu.setCoverFlowFactory(bVar);
+        this.eNu.setCallback(this.bGd);
+        addView(this.eNu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,27 +96,27 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wj(String str) {
+    public void wh(String str) {
         if (!TextUtils.isEmpty(str)) {
             ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{str});
         }
     }
 
     public void afm() {
-        if (this.eNy != null) {
-            this.eNy.abq();
+        if (this.eNu != null) {
+            this.eNu.abq();
         }
     }
 
     public void afl() {
-        if (this.eNy != null) {
-            this.eNy.abp();
+        if (this.eNu != null) {
+            this.eNu.abp();
         }
     }
 
     public void cx(List<com.baidu.tieba.homepage.daily.b.a> list) {
         this.mData = list;
-        this.eNy.setData(list);
+        this.eNu.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
@@ -124,12 +124,12 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setOutOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dVar) {
-        this.fIy = dVar;
+        this.fIx = dVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eNy != null) {
-            this.eNy.onChangeSkinType();
+        if (this.eNu != null) {
+            this.eNu.onChangeSkinType();
         }
     }
 

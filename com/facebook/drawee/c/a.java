@@ -5,75 +5,75 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    float dmQ;
-    float dmR;
-    InterfaceC0338a jEF;
-    final float jEG;
-    boolean jEH;
-    boolean jEI;
-    long jEJ;
+    float dmM;
+    float dmN;
+    boolean jEA;
+    long jEB;
+    InterfaceC0431a jEx;
+    final float jEy;
+    boolean jEz;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0338a {
-        boolean cuY();
+    public interface InterfaceC0431a {
+        boolean cvb();
     }
 
     public a(Context context) {
-        this.jEG = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.jEy = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a eL(Context context) {
+    public static a eK(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.jEF = null;
+        this.jEx = null;
         reset();
     }
 
     public void reset() {
-        this.jEH = false;
-        this.jEI = false;
+        this.jEz = false;
+        this.jEA = false;
     }
 
-    public void a(InterfaceC0338a interfaceC0338a) {
-        this.jEF = interfaceC0338a;
+    public void a(InterfaceC0431a interfaceC0431a) {
+        this.jEx = interfaceC0431a;
     }
 
-    public boolean cwc() {
-        return this.jEH;
+    public boolean cwf() {
+        return this.jEz;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.jEH = true;
-                this.jEI = true;
-                this.jEJ = motionEvent.getEventTime();
-                this.dmQ = motionEvent.getX();
-                this.dmR = motionEvent.getY();
+                this.jEz = true;
+                this.jEA = true;
+                this.jEB = motionEvent.getEventTime();
+                this.dmM = motionEvent.getX();
+                this.dmN = motionEvent.getY();
                 break;
             case 1:
-                this.jEH = false;
-                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jEG || Math.abs(motionEvent.getY() - this.dmR) > this.jEG) {
-                    this.jEI = false;
+                this.jEz = false;
+                if (Math.abs(motionEvent.getX() - this.dmM) > this.jEy || Math.abs(motionEvent.getY() - this.dmN) > this.jEy) {
+                    this.jEA = false;
                 }
-                if (this.jEI && motionEvent.getEventTime() - this.jEJ <= ViewConfiguration.getLongPressTimeout() && this.jEF != null) {
-                    this.jEF.cuY();
+                if (this.jEA && motionEvent.getEventTime() - this.jEB <= ViewConfiguration.getLongPressTimeout() && this.jEx != null) {
+                    this.jEx.cvb();
                 }
-                this.jEI = false;
+                this.jEA = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jEG || Math.abs(motionEvent.getY() - this.dmR) > this.jEG) {
-                    this.jEI = false;
+                if (Math.abs(motionEvent.getX() - this.dmM) > this.jEy || Math.abs(motionEvent.getY() - this.dmN) > this.jEy) {
+                    this.jEA = false;
                     break;
                 }
                 break;
             case 3:
-                this.jEH = false;
-                this.jEI = false;
+                this.jEz = false;
+                this.jEA = false;
                 break;
         }
         return true;

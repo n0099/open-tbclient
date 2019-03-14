@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> fSa = new ArrayList<>(5);
+    private static ArrayList<a> fRZ = new ArrayList<>(5);
+    public int fSd;
     public int fSe;
-    public int fSf;
-    int fSg;
+    int fSf;
     public int type;
 
-    private void auZ() {
+    private void auY() {
+        this.fSd = 0;
         this.fSe = 0;
         this.fSf = 0;
-        this.fSg = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long bnI() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.fSe, this.fSf) : ExpandableListView.getPackedPositionForGroup(this.fSe);
+    public long bnH() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.fSd, this.fSe) : ExpandableListView.getPackedPositionForGroup(this.fSd);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a w(int i, int i2, int i3, int i4) {
-        a bnJ = bnJ();
-        bnJ.type = i;
-        bnJ.fSe = i2;
-        bnJ.fSf = i3;
-        bnJ.fSg = i4;
-        return bnJ;
+        a bnI = bnI();
+        bnI.type = i;
+        bnI.fSd = i2;
+        bnI.fSe = i3;
+        bnI.fSf = i4;
+        return bnI;
     }
 
-    private static a bnJ() {
+    private static a bnI() {
         a aVar;
-        synchronized (fSa) {
-            if (fSa.size() > 0) {
-                aVar = fSa.remove(0);
-                aVar.auZ();
+        synchronized (fRZ) {
+            if (fRZ.size() > 0) {
+                aVar = fRZ.remove(0);
+                aVar.auY();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (fSa) {
-            if (fSa.size() < 5) {
-                fSa.add(this);
+        synchronized (fRZ) {
+            if (fRZ.size() < 5) {
+                fRZ.add(this);
             }
         }
     }

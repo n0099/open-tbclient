@@ -21,14 +21,14 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private a btd;
+    private a bte;
     private final Context mContext;
-    private final String bsR = TbConfig.getTempDirName();
-    private int bte = 0;
-    private String[] btf = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-    private String[] btg = {"_id", "_data", "title", "mime_type", "_display_name", UBC.CONTENT_KEY_DURATION, "datetaken", "date_modified", "date_added"};
-    private String[] bth = {"video_id", "_data", "width", "height"};
-    private HashMap<String, com.baidu.tbadk.album.a> bti = new HashMap<>();
+    private final String bsS = TbConfig.getTempDirName();
+    private int btf = 0;
+    private String[] btg = {"bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    private String[] bth = {"_id", "_data", "title", "mime_type", "_display_name", UBC.CONTENT_KEY_DURATION, "datetaken", "date_modified", "date_added"};
+    private String[] bti = {"video_id", "_data", "width", "height"};
+    private HashMap<String, com.baidu.tbadk.album.a> btj = new HashMap<>();
 
     public f(Context context) {
         this.mContext = context;
@@ -36,11 +36,11 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public g UT() {
-        this.bti.clear();
+        this.btj.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
         List<VideoFileInfo> list = null;
-        if (this.bte != 2) {
+        if (this.btf != 2) {
             list = UU();
         }
         ArrayList arrayList = new ArrayList();
@@ -64,17 +64,17 @@ public class f {
                 }
             });
         }
-        ArrayList arrayList2 = new ArrayList(this.bti.values());
+        ArrayList arrayList2 = new ArrayList(this.btj.values());
         if (!v.T(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(com.baidu.tbadk.album.a aVar, com.baidu.tbadk.album.a aVar2) {
-                    if (f.this.bsR.equals(aVar.getName())) {
+                    if (f.this.bsS.equals(aVar.getName())) {
                         return -1;
                     }
-                    if (f.this.bsR.equals(aVar2.getName())) {
+                    if (f.this.bsS.equals(aVar2.getName())) {
                         return 1;
                     }
                     long sortTime = aVar2.UN().getSortTime() - aVar.UN().getSortTime();
@@ -85,9 +85,9 @@ public class f {
                 }
             });
         }
-        gVar.btl = arrayList2;
-        gVar.btn = list;
-        gVar.btm = arrayList;
+        gVar.btm = arrayList2;
+        gVar.btp = list;
+        gVar.bto = arrayList;
         return gVar;
     }
 
@@ -112,7 +112,7 @@ public class f {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.mContext.getContentResolver().query(uri, this.btf, "mime_type like 'image/%'", null, "date_added DESC");
+            cursor = this.mContext.getContentResolver().query(uri, this.btg, "mime_type like 'image/%'", null, "date_added DESC");
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -138,10 +138,10 @@ public class f {
                 imageFileInfo.setModifyTime(ap.aH(j2));
                 imageFileInfo.setSortTime(j);
                 arrayList.add(imageFileInfo);
-                com.baidu.tbadk.album.a aVar2 = this.bti.get(string);
+                com.baidu.tbadk.album.a aVar2 = this.btj.get(string);
                 if (aVar2 == null) {
                     com.baidu.tbadk.album.a aVar3 = new com.baidu.tbadk.album.a();
-                    this.bti.put(string, aVar3);
+                    this.btj.put(string, aVar3);
                     aVar = aVar3;
                 } else {
                     aVar = aVar2;
@@ -173,7 +173,7 @@ public class f {
         HashSet hashSet = new HashSet();
         Cursor cursor2 = null;
         try {
-            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.btg, null, null, "date_added DESC");
+            cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, this.bth, null, null, "date_added DESC");
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
@@ -228,20 +228,20 @@ public class f {
             return false;
         }
         UV();
-        this.bte = i;
-        this.btd = new a(eVar);
-        this.btd.setPriority(3);
-        this.btd.execute(new Object[0]);
+        this.btf = i;
+        this.bte = new a(eVar);
+        this.bte.setPriority(3);
+        this.bte.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e btk;
+        private final e btl;
 
         public a(e eVar) {
-            this.btk = eVar;
+            this.btl = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,8 +256,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.btk != null) {
-                this.btk.onPreLoad();
+            if (this.btl != null) {
+                this.btl.onPreLoad();
             }
         }
 
@@ -267,16 +267,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.btk != null) {
-                this.btk.a(gVar);
+            if (this.btl != null) {
+                this.btl.a(gVar);
             }
         }
     }
 
     public void UV() {
-        if (this.btd != null) {
-            this.btd.cancel();
-            this.btd = null;
+        if (this.bte != null) {
+            this.bte.cancel();
+            this.bte = null;
         }
     }
 }

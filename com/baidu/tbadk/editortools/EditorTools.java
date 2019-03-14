@@ -41,7 +41,7 @@ public class EditorTools extends LinearLayout {
     private Runnable ciU;
     private List<Integer> ciV;
 
-    public void alY() {
+    public void alX() {
         k jw = jw(3);
         if (jw != null && (jw.ciu instanceof View)) {
             View view = (View) jw.ciu;
@@ -55,7 +55,7 @@ public class EditorTools extends LinearLayout {
         this.ciK = 1;
         this.ciL = 0;
         this.ciM = false;
-        this.ciN = d.C0236d.common_color_10255;
+        this.ciN = d.C0277d.common_color_10255;
         this.ciO = 0;
         this.ciP = true;
         this.ciR = false;
@@ -69,7 +69,7 @@ public class EditorTools extends LinearLayout {
         this.ciU = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
             @Override // java.lang.Runnable
             public void run() {
-                EditorTools.this.alY();
+                EditorTools.this.alX();
             }
         };
         this.ciV = new ArrayList();
@@ -80,11 +80,11 @@ public class EditorTools extends LinearLayout {
         this.ciR = z;
     }
 
-    public boolean alZ() {
+    public boolean alY() {
         return this.ciR;
     }
 
-    public boolean ama() {
+    public boolean alZ() {
         return this.ciS;
     }
 
@@ -176,7 +176,7 @@ public class EditorTools extends LinearLayout {
                 }
             } else if (aVar.code == 5) {
                 this.ciD.a((k) null);
-                akq();
+                akp();
             } else if (aVar.id > 0) {
                 b bVar = this.ciH.get(aVar.id);
                 if (bVar != null) {
@@ -185,8 +185,8 @@ public class EditorTools extends LinearLayout {
                     }
                     k jw2 = jw(aVar.id);
                     if (jw2 != null && jw2.cjl == 5) {
-                        akq();
-                        amb();
+                        akp();
+                        ama();
                     } else {
                         this.ciE.jr(aVar.id);
                     }
@@ -213,7 +213,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void amb() {
+    public void ama() {
         boolean z;
         com.baidu.adp.lib.g.e.jH().removeCallbacks(this.ciU);
         if (getContext() instanceof Activity) {
@@ -281,7 +281,7 @@ public class EditorTools extends LinearLayout {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010044, this));
     }
 
-    public void alU() {
+    public void alT() {
         i iVar;
         if (this.ciG != null && this.ciG.size() != 0) {
             clear();
@@ -356,8 +356,8 @@ public class EditorTools extends LinearLayout {
                 a.hide();
                 this.ciD.a(0, a);
             }
-            this.ciD.alU();
-            this.ciE.alU();
+            this.ciD.alT();
+            this.ciE.alT();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             this.ciD.setLayoutParams(layoutParams);
             this.ciE.setLayoutParams(layoutParams);
@@ -365,10 +365,10 @@ public class EditorTools extends LinearLayout {
             if (this.ciS) {
                 this.ciD.setPadding(0, 0, 0, 0);
             }
-            akq();
+            akp();
             removeAllViews();
             if (this.ciD.getBarLauncherType() != 4) {
-                amc();
+                amb();
             }
             addView(this.ciD);
             addView(this.ciE);
@@ -376,7 +376,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    private void amc() {
+    private void amb() {
         if (this.ciF == null || this.ciF.getParent() != null) {
             this.ciF = new View(getContext());
             this.ciF.setBackgroundResource(d.f.bottom_shadow);
@@ -393,7 +393,7 @@ public class EditorTools extends LinearLayout {
             if (this.ciD != null) {
                 this.ciD.a(0, a);
                 this.ciD.removeAllViews();
-                this.ciD.alU();
+                this.ciD.alT();
             }
             invalidate();
         }
@@ -420,7 +420,7 @@ public class EditorTools extends LinearLayout {
         return jt;
     }
 
-    public void amd() {
+    public void amc() {
         this.ciD.f(this.ciT);
     }
 
@@ -443,9 +443,9 @@ public class EditorTools extends LinearLayout {
         }
         if (this.ciP) {
             this.ciP = false;
-            akq();
+            akp();
         }
-        if (!alW() && z) {
+        if (!alV() && z) {
             com.baidu.adp.lib.g.e.jH().postDelayed(this.ciU, 200L);
         }
         setVisibility(0);
@@ -457,13 +457,13 @@ public class EditorTools extends LinearLayout {
     }
 
     public void hide() {
-        akq();
+        akp();
         setVisibility(8);
-        amb();
+        ama();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, false));
     }
 
-    public void akq() {
+    public void akp() {
         this.ciE.hide();
         this.ciD.a((k) null);
     }
@@ -476,8 +476,8 @@ public class EditorTools extends LinearLayout {
         this.ciD.setBarLauncherEnabled(z, i);
     }
 
-    public boolean alW() {
-        return this.ciE.alW();
+    public boolean alV() {
+        return this.ciE.alV();
     }
 
     public void setFrom(int i) {
@@ -542,7 +542,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void ame() {
+    public void amd() {
         this.ciD.a((k) null);
     }
 

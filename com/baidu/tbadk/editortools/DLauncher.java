@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
-    private String alI;
+    private String alJ;
     private TextView cif;
     private int cig;
     private int mIcon;
@@ -75,12 +75,12 @@ public class DLauncher extends RelativeLayout implements g {
 
     private void oF(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.alI = str;
+            this.alJ = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            al.c(this.mTip, d.C0236d.common_color_10225, 1, this.mSkinType);
+            al.c(this.mTip, d.C0277d.common_color_10225, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
@@ -95,8 +95,8 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void alS() {
-        this.alI = null;
+    public void alR() {
+        this.alJ = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -106,7 +106,7 @@ public class DLauncher extends RelativeLayout implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                alS();
+                alR();
             } else if (aVar.data instanceof String) {
                 oE((String) aVar.data);
             }
@@ -126,7 +126,7 @@ public class DLauncher extends RelativeLayout implements g {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         al.e(this, d.f.btn_editor_selector, i);
-        al.c(this.cif, d.C0236d.cp_cont_f, 1, i);
+        al.c(this.cif, d.C0277d.cp_cont_f, 1, i);
         if (TextUtils.isEmpty(this.cif.getText())) {
             al.e(this.cif, this.mIcon, i);
         } else {
@@ -137,7 +137,7 @@ public class DLauncher extends RelativeLayout implements g {
             }
         }
         if (this.mTip != null) {
-            al.c(this.mTip, d.C0236d.common_color_10225, 1, i);
+            al.c(this.mTip, d.C0277d.common_color_10225, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText())) {
                 al.e(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {
@@ -148,6 +148,6 @@ public class DLauncher extends RelativeLayout implements g {
     }
 
     public String getText() {
-        return this.alI;
+        return this.alJ;
     }
 }

@@ -13,7 +13,7 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h extends UnitedSchemeBaseDispatcher {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher

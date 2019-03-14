@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class p {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void cf(Context context) {
         if (context != null) {

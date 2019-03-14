@@ -8,6 +8,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class a {
         jC.append("workflow", str + "_cost");
         jC.f("cost", Long.valueOf(j));
         if (i != 0) {
-            jC.f("count", Integer.valueOf(i));
+            jC.f(Config.TRACE_VISIT_RECENT_COUNT, Integer.valueOf(i));
         }
         if (str2 != null) {
             jC.append("pname", str2);

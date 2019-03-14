@@ -23,50 +23,50 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.vr.player.framework.GLTextureView;
 /* loaded from: classes3.dex */
 public class VrPicView extends RelativeLayout {
-    private View btW;
-    private g igp;
-    private GLTextureView ikL;
-    private View ikM;
-    private String ikN;
-    private int ikO;
-    private int ikP;
-    private a.b ikQ;
-    private CustomMessageListener ikR;
+    private View btY;
+    private g igj;
+    private GLTextureView ikE;
+    private View ikF;
+    private String ikG;
+    private int ikH;
+    private int ikI;
+    private a.b ikJ;
+    private CustomMessageListener ikK;
     private b<com.baidu.adp.widget.ImageView.a> mCallback;
     private TbPageContext<?> mPageContext;
     private View mPromptView;
 
     public VrPicView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.igp = null;
+        this.igj = null;
         this.mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
-                if (VrPicView.this.ikQ == null || aVar == null || aVar.oy() == null) {
+                if (VrPicView.this.ikJ == null || aVar == null || aVar.oy() == null) {
                     VrPicView.this.pn(true);
                     return;
                 }
                 VrPicView.this.po(false);
                 Bitmap oy = aVar.oy();
-                VrPicView.this.igp.l(oy.getWidth(), oy.getHeight());
+                VrPicView.this.igj.l(oy.getWidth(), oy.getHeight());
                 try {
-                    VrPicView.this.ikQ.d(oy);
+                    VrPicView.this.ikJ.d(oy);
                 } catch (OutOfMemoryError e) {
                     try {
                         int width = oy.getWidth();
                         int height = oy.getHeight();
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(oy, width / 2, height / 2, true);
-                        VrPicView.this.igp.l(width / 2, height / 2);
-                        VrPicView.this.ikQ.d(resizeBitmap);
+                        VrPicView.this.igj.l(width / 2, height / 2);
+                        VrPicView.this.ikJ.d(resizeBitmap);
                     } catch (OutOfMemoryError e2) {
                         VrPicView.this.pn(true);
                     }
                 }
             }
         };
-        this.ikR = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
+        this.ikK = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -80,35 +80,35 @@ public class VrPicView extends RelativeLayout {
 
     public VrPicView(Context context) {
         super(context);
-        this.igp = null;
+        this.igj = null;
         this.mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
-                if (VrPicView.this.ikQ == null || aVar == null || aVar.oy() == null) {
+                if (VrPicView.this.ikJ == null || aVar == null || aVar.oy() == null) {
                     VrPicView.this.pn(true);
                     return;
                 }
                 VrPicView.this.po(false);
                 Bitmap oy = aVar.oy();
-                VrPicView.this.igp.l(oy.getWidth(), oy.getHeight());
+                VrPicView.this.igj.l(oy.getWidth(), oy.getHeight());
                 try {
-                    VrPicView.this.ikQ.d(oy);
+                    VrPicView.this.ikJ.d(oy);
                 } catch (OutOfMemoryError e) {
                     try {
                         int width = oy.getWidth();
                         int height = oy.getHeight();
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(oy, width / 2, height / 2, true);
-                        VrPicView.this.igp.l(width / 2, height / 2);
-                        VrPicView.this.ikQ.d(resizeBitmap);
+                        VrPicView.this.igj.l(width / 2, height / 2);
+                        VrPicView.this.ikJ.d(resizeBitmap);
                     } catch (OutOfMemoryError e2) {
                         VrPicView.this.pn(true);
                     }
                 }
             }
         };
-        this.ikR = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
+        this.ikK = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -122,35 +122,35 @@ public class VrPicView extends RelativeLayout {
 
     public VrPicView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.igp = null;
+        this.igj = null;
         this.mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
-                if (VrPicView.this.ikQ == null || aVar == null || aVar.oy() == null) {
+                if (VrPicView.this.ikJ == null || aVar == null || aVar.oy() == null) {
                     VrPicView.this.pn(true);
                     return;
                 }
                 VrPicView.this.po(false);
                 Bitmap oy = aVar.oy();
-                VrPicView.this.igp.l(oy.getWidth(), oy.getHeight());
+                VrPicView.this.igj.l(oy.getWidth(), oy.getHeight());
                 try {
-                    VrPicView.this.ikQ.d(oy);
+                    VrPicView.this.ikJ.d(oy);
                 } catch (OutOfMemoryError e) {
                     try {
                         int width = oy.getWidth();
                         int height = oy.getHeight();
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(oy, width / 2, height / 2, true);
-                        VrPicView.this.igp.l(width / 2, height / 2);
-                        VrPicView.this.ikQ.d(resizeBitmap);
+                        VrPicView.this.igj.l(width / 2, height / 2);
+                        VrPicView.this.ikJ.d(resizeBitmap);
                     } catch (OutOfMemoryError e2) {
                         VrPicView.this.pn(true);
                     }
                 }
             }
         };
-        this.ikR = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
+        this.ikK = new CustomMessageListener(2016487) { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -164,76 +164,76 @@ public class VrPicView extends RelativeLayout {
 
     private void init(Context context) {
         if (MessageManager.getInstance().findTask(2016481) != null) {
-            this.btW = LayoutInflater.from(context).inflate(d.h.card_vr_pic_view, (ViewGroup) this, true);
-            this.ikL = this.btW.findViewById(d.g.lego_gl_view);
-            this.ikM = this.btW.findViewById(d.g.error_tips);
-            this.mPromptView = this.btW.findViewById(d.g.loading_img);
+            this.btY = LayoutInflater.from(context).inflate(d.h.card_vr_pic_view, (ViewGroup) this, true);
+            this.ikE = this.btY.findViewById(d.g.lego_gl_view);
+            this.ikF = this.btY.findViewById(d.g.error_tips);
+            this.mPromptView = this.btY.findViewById(d.g.loading_img);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, AdvertAppInfo advertAppInfo) {
-        if (tbPageContext != null && advertAppInfo != null && advertAppInfo.bwL != null) {
+        if (tbPageContext != null && advertAppInfo != null && advertAppInfo.bwN != null) {
             this.mPageContext = tbPageContext;
-            this.ikR.setTag(tbPageContext.getUniqueId());
-            tbPageContext.registerListener(this.ikR);
-            this.ikN = advertAppInfo.bwL.bwW;
-            if (TextUtils.isEmpty(this.ikN)) {
+            this.ikK.setTag(tbPageContext.getUniqueId());
+            tbPageContext.registerListener(this.ikK);
+            this.ikG = advertAppInfo.bwN.bwY;
+            if (TextUtils.isEmpty(this.ikG)) {
                 this.mPageContext.showToast(d.j.lego_error_url);
                 return;
             }
-            this.ikO = advertAppInfo.bwL.width;
-            this.ikP = advertAppInfo.bwL.height;
-            if (this.igp == null) {
-                this.igp = g.h(tbPageContext.getPageActivity()).v(101).w(3).a(new g.c() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.3
+            this.ikH = advertAppInfo.bwN.width;
+            this.ikI = advertAppInfo.bwN.height;
+            if (this.igj == null) {
+                this.igj = g.h(tbPageContext.getPageActivity()).v(101).w(3).a(new g.c() { // from class: com.baidu.tieba.recapp.lego.view.VrPicView.3
                     public void a(a.b bVar) {
-                        VrPicView.this.ikQ = bVar;
-                        VrPicView.this.bXf();
+                        VrPicView.this.ikJ = bVar;
+                        VrPicView.this.bXh();
                     }
-                }).I(true).b(this.ikL);
-                this.igp.onResume(this.mPageContext.getPageActivity());
+                }).I(true).b(this.ikE);
+                this.igj.onResume(this.mPageContext.getPageActivity());
                 return;
             }
-            al(this.ikN);
+            al(this.ikG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXf() {
-        if (!StringUtils.isNull(this.ikN) && this.ikQ != null) {
+    public void bXh() {
+        if (!StringUtils.isNull(this.ikG) && this.ikJ != null) {
             pn(false);
             po(true);
-            c.jB().a(this.ikN, 10, this.mCallback, this.ikO, this.ikP, this.mPageContext.getUniqueId(), new Object[0]);
+            c.jB().a(this.ikG, 10, this.mCallback, this.ikH, this.ikI, this.mPageContext.getUniqueId(), new Object[0]);
         }
     }
 
     public void al(String str) {
-        bXf();
+        bXh();
     }
 
     public void onDestroy() {
-        if (this.igp != null) {
-            this.igp.onDestroy();
+        if (this.igj != null) {
+            this.igj.onDestroy();
         }
     }
 
     public void onResume() {
-        if (this.igp != null) {
-            this.igp.onResume(this.mPageContext.getPageActivity());
+        if (this.igj != null) {
+            this.igj.onResume(this.mPageContext.getPageActivity());
         }
     }
 
     public void onPause() {
-        if (this.igp != null) {
-            this.igp.onPause(this.mPageContext.getPageActivity());
+        if (this.igj != null) {
+            this.igj.onPause(this.mPageContext.getPageActivity());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pn(boolean z) {
         if (z) {
-            this.ikM.setVisibility(0);
+            this.ikF.setVisibility(0);
         } else {
-            this.ikM.setVisibility(8);
+            this.ikF.setVisibility(8);
         }
     }
 

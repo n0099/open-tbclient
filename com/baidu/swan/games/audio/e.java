@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class e {
     public static com.baidu.swan.apps.media.audio.b a(f fVar) {
         com.baidu.swan.apps.media.audio.b bVar = new com.baidu.swan.apps.media.audio.b();
-        bVar.azr = fVar.azr;
-        bVar.azB = fVar.autoplay;
+        bVar.azs = fVar.azs;
+        bVar.azC = fVar.autoplay;
         bVar.mLoop = fVar.loop;
         bVar.mUrl = fVar.src;
-        bVar.azw = fVar.startTime;
-        bVar.azC = fVar.obeyMuteSwitch;
-        bVar.azD = fVar.volume;
-        bVar.azy = Nm().toString();
+        bVar.azx = fVar.startTime;
+        bVar.azD = fVar.obeyMuteSwitch;
+        bVar.azE = fVar.volume;
+        bVar.azz = Nm().toString();
         return bVar;
     }
 
@@ -40,7 +40,7 @@ public class e {
             jSONObject.put("onBufferingUpdate", "buffered");
             jSONObject.put("onWaiting", "waiting");
         } catch (Exception e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

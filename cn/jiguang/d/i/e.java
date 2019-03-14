@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
 import cn.jiguang.d.d.aa;
 import cn.jiguang.g.i;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -177,7 +178,7 @@ public final class e extends a {
         try {
             jSONObject3.put("package", str);
             jSONObject3.put("target", jSONArray);
-            jSONObject3.put("device", Build.MODEL);
+            jSONObject3.put(Config.DEVICE_PART, Build.MODEL);
             jSONObject3.put("os", Build.VERSION.RELEASE);
             return jSONObject3;
         } catch (JSONException e) {

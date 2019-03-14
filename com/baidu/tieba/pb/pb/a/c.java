@@ -8,12 +8,12 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c extends v.a {
-    public ImageView cyi;
+    public ImageView cyf;
     public TextView mTextView;
 
     public c(View view, Context context) {
         super(view);
         this.mTextView = (TextView) view.findViewById(d.g.no_data_text);
-        this.cyi = (ImageView) view.findViewById(d.g.no_data_image);
+        this.cyf = (ImageView) view.findViewById(d.g.no_data_image);
     }
 }

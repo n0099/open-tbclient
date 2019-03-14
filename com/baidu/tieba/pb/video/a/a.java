@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fyi = l.h(TbadkCoreApplication.getInst(), d.e.tbds33);
+    private static final int fyh = l.h(TbadkCoreApplication.getInst(), d.e.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int h;
         if (context != null && textView != null && !StringUtils.isNull(str)) {
-            int color = al.getColor(d.C0236d.cp_cont_j);
+            int color = al.getColor(d.C0277d.cp_cont_j);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
             int h2 = l.aS(context)[0] - (l.h(context, d.e.tbds48) * 2);
@@ -47,7 +47,7 @@ public class a {
             SpannableString spannableString = new SpannableString("_");
             Drawable drawable = al.getDrawable(d.f.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0289a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0362a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
@@ -61,7 +61,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fyi, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(fyh, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -82,12 +82,12 @@ public class a {
 
     /* loaded from: classes4.dex */
     private static class b extends ReplacementSpan {
+        private int fyk;
         private int fyl;
-        private int fym;
 
         public b(int i, int i2) {
-            this.fyl = i;
-            this.fym = i2;
+            this.fyk = i;
+            this.fyl = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -105,16 +105,16 @@ public class a {
 
         private TextPaint c(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fyl);
-            textPaint.setColor(this.fym);
+            textPaint.setTextSize(this.fyk);
+            textPaint.setColor(this.fyl);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0289a extends ImageSpan {
-        public C0289a(Drawable drawable, int i) {
+    private static class C0362a extends ImageSpan {
+        public C0362a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

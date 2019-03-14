@@ -5,21 +5,21 @@ import android.text.TextUtils;
 public class a {
     public String appId;
     public String appKey;
-    public String atT;
     public String atU;
     public String atV;
     public String atW;
     public String atX;
     public String atY;
-    public int atZ;
-    public String aua;
+    public String atZ;
+    public int aua;
     public String aub;
     public String auc;
-    public long aud;
-    public int aue;
-    public String auf;
-    public long aug = 432000;
-    public boolean auh;
+    public String aud;
+    public long aue;
+    public int auf;
+    public String aug;
+    public long auh = 432000;
+    public boolean aui;
     public int category;
     public long createTime;
     public String description;
@@ -35,11 +35,11 @@ public class a {
     public String version;
 
     public static boolean e(a aVar) {
-        return (aVar == null || aVar.aue == 0) ? false : true;
+        return (aVar == null || aVar.auf == 0) ? false : true;
     }
 
     public boolean AF() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aug;
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.auh;
     }
 
     public boolean isValid() {
@@ -47,6 +47,6 @@ public class a {
     }
 
     public String toShortString() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.atT + "', maxSwanVersion='" + this.atU + "', minSwanVersion='" + this.atV + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.atZ + ", targetSwanVersion='" + this.auc + "', mAppZipSize=" + this.aud + ", mPendingApsErrcode=" + this.aue + ", category=" + this.category + ", versionCode='" + this.auf + "', maxAge=" + this.aug + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.auh + '}';
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.atU + "', maxSwanVersion='" + this.atV + "', minSwanVersion='" + this.atW + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.aua + ", targetSwanVersion='" + this.aud + "', mAppZipSize=" + this.aue + ", mPendingApsErrcode=" + this.auf + ", category=" + this.category + ", versionCode='" + this.aug + "', maxAge=" + this.auh + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.aui + '}';
     }
 }

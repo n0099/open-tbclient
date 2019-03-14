@@ -22,58 +22,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends g {
-    private final i ekr;
-    private final List<f> eku;
-    private final i.c ekz;
-    private FrsViewData fwn;
+    private final i ekn;
+    private final List<f> ekq;
+    private final i.c ekv;
+    private FrsViewData fwm;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ekz = new i.c() { // from class: com.baidu.tieba.frs.view.c.1
+        this.ekv = new i.c() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // com.baidu.tbadk.core.dialog.i.c
             public void a(i iVar, int i, View view) {
                 c.this.dismiss();
                 if (!j.kY()) {
                     l.showToast(c.this.mContext, d.j.network_not_available);
                 } else if (i == 1) {
-                    TiebaStatic.log(new am("c13384").bJ(ImageViewerConfig.FORUM_ID, c.this.fwn.getForum().getId()).bJ("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c13384").bJ(ImageViewerConfig.FORUM_ID, c.this.fwm.getForum().getId()).bJ("uid", TbadkCoreApplication.getCurrentAccount()));
                     FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(c.this.mPageContext.getPageActivity());
-                    if (frsPrivateShareDialogView.d(c.this.fwn, c.this.mPageContext)) {
+                    if (frsPrivateShareDialogView.d(c.this.fwm, c.this.mPageContext)) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.mPageContext.getPageActivity());
                         aVar.gF(2);
                         aVar.az(frsPrivateShareDialogView);
                         aVar.b(c.this.mPageContext).aaZ();
                     }
                 } else if (i == 2) {
-                    TiebaStatic.log(new am("c12402").bJ(ImageViewerConfig.FORUM_ID, c.this.fwn.getForum().getId()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ(ImageViewerConfig.FORUM_NAME, c.this.fwn.getForum().getName()));
-                    if (!StringUtils.isNull(c.this.fwn.getForum().getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fwn.getForum().getName(), c.this.fwn.getForum().getId())));
+                    TiebaStatic.log(new am("c12402").bJ(ImageViewerConfig.FORUM_ID, c.this.fwm.getForum().getId()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ(ImageViewerConfig.FORUM_NAME, c.this.fwm.getForum().getName()));
+                    if (!StringUtils.isNull(c.this.fwm.getForum().getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fwm.getForum().getName(), c.this.fwm.getForum().getId())));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.eku = new ArrayList();
-        this.ekr = new i(this.mContext);
-        this.ekr.a(this.ekz);
-        setContentView(this.ekr.abk());
+        this.ekq = new ArrayList();
+        this.ekn = new i(this.mContext);
+        this.ekn.a(this.ekv);
+        setContentView(this.ekn.abk());
     }
 
     public void onChangeSkinType() {
-        if (this.ekr != null) {
-            this.ekr.onChangeSkinType();
+        if (this.ekn != null) {
+            this.ekn.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.eku != null && this.ekr != null) {
-            this.eku.clear();
-            this.eku.add(new f(1, getString(d.j.share, new Object[0]), this.ekr));
-            this.eku.add(new f(2, getString(d.j.search, new Object[0]), this.ekr));
-            this.ekr.P(this.eku);
+        if (this.ekq != null && this.ekn != null) {
+            this.ekq.clear();
+            this.ekq.add(new f(1, getString(d.j.share, new Object[0]), this.ekn));
+            this.ekq.add(new f(2, getString(d.j.search, new Object[0]), this.ekn));
+            this.ekn.P(this.ekq);
         }
     }
 
@@ -85,7 +85,7 @@ public class c extends g {
     }
 
     public void l(FrsViewData frsViewData) {
-        this.fwn = frsViewData;
+        this.fwm = frsViewData;
         createView();
     }
 }

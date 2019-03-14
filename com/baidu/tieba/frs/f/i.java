@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i {
-    private static void vN(String str) {
+    private static void vL(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -86,18 +86,18 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    vN(decode);
+                    vL(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                vN(decode);
+                vL(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.fuR = data.getQueryParameter("from");
+                    dVar.fuQ = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -109,7 +109,7 @@ public class i {
         return dVar;
     }
 
-    public static Intent aI(Context context, String str) {
+    public static Intent aH(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -120,7 +120,7 @@ public class i {
         return intent;
     }
 
-    public static boolean aJ(Context context, String str) {
+    public static boolean aI(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -211,14 +211,14 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bgVar != null) {
             String valueOf = String.valueOf(bgVar.getFid());
-            if (bgVar.bDC == null) {
+            if (bgVar.bDE == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bgVar.bDC.id;
+                str = bgVar.bDE.id;
                 str2 = valueOf;
             }
-            if (bgVar.Zn() > 0 && com.baidu.tieba.tbadkCore.util.e.cfr()) {
+            if (bgVar.Zn() > 0 && com.baidu.tieba.tbadkCore.util.e.cft()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bgVar.getTid(), String.valueOf(bgVar.Zn()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bgVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);

@@ -7,7 +7,7 @@ public class bj extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "video_middle_page_three";
+        return "video_list_weaklock_android";
     }
 
     @Override // com.baidu.adp.lib.b.a

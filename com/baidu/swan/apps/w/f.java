@@ -7,20 +7,20 @@ import android.util.Log;
 import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes2.dex */
 public class f implements Application.ActivityLifecycleCallbacks {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static volatile f ayA;
-    private boolean arn = false;
-    private int ayB;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static volatile f ayB;
+    private boolean aro = false;
+    private int ayC;
 
     public static f Ee() {
-        if (ayA == null) {
+        if (ayB == null) {
             synchronized (f.class) {
-                if (ayA == null) {
-                    ayA = new f();
+                if (ayB == null) {
+                    ayB = new f();
                 }
             }
         }
-        return ayA;
+        return ayB;
     }
 
     private f() {
@@ -39,7 +39,7 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onBackgroundToForeground");
             }
-            this.arn = true;
+            this.aro = true;
         }
     }
 
@@ -48,12 +48,12 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onForegroundToBackground");
             }
-            this.arn = false;
+            this.aro = false;
         }
     }
 
     public boolean Eh() {
-        return this.arn;
+        return this.aro;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -62,8 +62,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        this.ayB++;
-        if (this.ayB == 1) {
+        this.ayC++;
+        if (this.ayC == 1) {
             E(activity);
         }
     }
@@ -78,8 +78,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        this.ayB--;
-        if (this.ayB == 0) {
+        this.ayC--;
+        if (this.ayC == 0) {
             F(activity);
         }
     }

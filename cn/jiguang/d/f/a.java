@@ -23,6 +23,7 @@ import cn.jiguang.d.d.i;
 import cn.jiguang.d.h.f;
 import cn.jiguang.d.h.h;
 import cn.jpush.android.service.DownloadProvider;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.File;
 import java.io.LineNumberReader;
@@ -106,7 +107,7 @@ public final class a {
             try {
                 long optLong = jSONObject.optLong("u");
                 String optString = jSONObject.optString("ak");
-                String optString2 = jSONObject.optString("pn");
+                String optString2 = jSONObject.optString(Config.PACKAGE_NAME);
                 String optString3 = jSONObject.optString("ud");
                 int optInt = jSONObject.optInt("idc", -1);
                 int optInt2 = jSONObject.optInt("sv");
@@ -289,7 +290,7 @@ public final class a {
                 jSONObject.put("ud", r);
                 jSONObject.put("ak", b);
                 jSONObject.put("idc", v);
-                jSONObject.put("pn", context.getPackageName());
+                jSONObject.put(Config.PACKAGE_NAME, context.getPackageName());
                 jSONObject.put("sv", 125);
                 jSONObject.put("uct", af);
                 return cn.jiguang.d.h.a.a.a(jSONObject.toString());

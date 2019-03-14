@@ -8,26 +8,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private long brY;
     private long brZ;
-    private ArrayList<p> bsa;
+    private long bsa;
+    private ArrayList<p> bsb;
     private String mUrl;
 
     public void parseJson(String str) {
         if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.brY = jSONObject.optLong("start_date", 0L) * 1000;
-                this.brZ = jSONObject.optLong("end_date", 0L) * 1000;
+                this.brZ = jSONObject.optLong("start_date", 0L) * 1000;
+                this.bsa = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.bsa = new ArrayList<>();
+                this.bsb = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         p pVar = new p();
                         pVar.g(optJSONArray2);
-                        this.bsa.add(pVar);
+                        this.bsb.add(pVar);
                     }
                 }
             } catch (Exception e) {
@@ -37,11 +37,11 @@ public class m {
     }
 
     public long Uv() {
-        return this.brY;
+        return this.brZ;
     }
 
     public long Uw() {
-        return this.brZ;
+        return this.bsa;
     }
 
     public String getUrl() {
@@ -49,6 +49,6 @@ public class m {
     }
 
     public ArrayList<p> Ux() {
-        return this.bsa;
+        return this.bsb;
     }
 }

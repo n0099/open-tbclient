@@ -14,12 +14,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.sapi2.utils.SapiGIDEvent;
+import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.cookie.CookieJarImpl;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.widget.dialog.e;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import java.util.HashMap;
@@ -33,9 +33,9 @@ import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static final Map<String, a> aRe = new HashMap();
-    private static OkHttpClient aRf;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final Map<String, a> aRf = new HashMap();
+    private static OkHttpClient aRg;
 
     public static Context getAppContext() {
         return AppRuntime.getAppContext();
@@ -81,11 +81,11 @@ public final class c {
     }
 
     public static OkHttpClient EZ() {
-        if (aRf != null) {
-            return aRf;
+        if (aRg != null) {
+            return aRg;
         }
-        OkHttpClient build = com.baidu.swan.apps.ae.e.Jo().aNY.get().uP().uV().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.u.a.CV().Dt())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
-        aRf = build;
+        OkHttpClient build = com.baidu.swan.apps.ae.e.Jo().aNZ.get().uP().uV().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.u.a.CV().Dt())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
+        aRg = build;
         return build;
     }
 
@@ -107,14 +107,14 @@ public final class c {
             aVar.bt(false);
             return;
         }
-        synchronized (aRe) {
-            a aVar2 = aRe.get(eVar.id);
+        synchronized (aRf) {
+            a aVar2 = aRf.get(eVar.id);
             if (aVar2 != null) {
-                aVar2.aRj.add(aVar);
+                aVar2.aRk.add(aVar);
             } else {
                 a aVar3 = new a(eVar.id);
-                aVar3.aRj.add(aVar);
-                aRe.put(eVar.id, aVar3);
+                aVar3.aRk.add(aVar);
+                aRf.put(eVar.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -159,15 +159,15 @@ public final class c {
                 return "network_error";
             case 10003:
                 return "user deny";
-            case SapiGIDEvent.BUSINESS_GET_GID /* 10004 */:
+            case 10004:
                 return "user not login";
-            case SapiGIDEvent.BUSINESS_LOGOUT /* 10005 */:
+            case 10005:
                 return "system deny";
-            case SapiGIDEvent.SYSTEM_SCREEN_ON /* 10006 */:
+            case 10006:
                 return "not found";
-            case 10007:
+            case HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL /* 10007 */:
                 return "request_timeout";
-            case 10008:
+            case HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL /* 10008 */:
                 return "app not installed";
             default:
                 return null;
@@ -177,11 +177,11 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void u(String str, boolean z) {
         a remove;
-        synchronized (aRe) {
-            remove = aRe.remove(str);
+        synchronized (aRf) {
+            remove = aRf.remove(str);
         }
-        if (remove != null && !remove.aRj.isEmpty()) {
-            for (com.baidu.swan.apps.setting.oauth.a aVar : remove.aRj) {
+        if (remove != null && !remove.aRk.isEmpty()) {
+            for (com.baidu.swan.apps.setting.oauth.a aVar : remove.aRk) {
                 if (aVar != null) {
                     aVar.bt(z);
                 }
@@ -191,54 +191,54 @@ public final class c {
 
     private static void a(Context context, com.baidu.swan.apps.ae.b bVar, e eVar, DialogInterface.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Resources resources = context.getResources();
-        View inflate = View.inflate(context, b.g.aiapps_auth_dialog_content_common, null);
-        TextView textView = (TextView) inflate.findViewById(b.f.label);
-        textView.setText(context.getString(b.h.aiapps_auth_dialog_label_common, bVar.getName()));
-        textView.setTextColor(resources.getColor(b.c.aiapps_auth_dialog_label));
+        View inflate = View.inflate(context, a.g.aiapps_auth_dialog_content_common, null);
+        TextView textView = (TextView) inflate.findViewById(a.f.label);
+        textView.setText(context.getString(a.h.aiapps_auth_dialog_label_common, bVar.getName()));
+        textView.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_label));
         if (onClickListener2 != null) {
-            View findViewById = inflate.findViewById(b.f.desc);
+            View findViewById = inflate.findViewById(a.f.desc);
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(onClickListener2);
         }
-        inflate.findViewById(b.f.auth_divider).setBackgroundColor(resources.getColor(b.c.aiapps_auth_dialog_divider));
-        ((SwanAppRoundedImageView) inflate.findViewById(b.f.icon)).setImageDrawable(new BitmapDrawable(resources, aa.a(bVar.uB(), "OAuthUtils", false)));
-        TextView textView2 = (TextView) inflate.findViewById(b.f.scopes);
-        textView2.setTextColor(resources.getColor(b.c.aiapps_auth_dialog_scopes));
-        textView2.setText(context.getString(b.h.aiapps_auth_dialog_scope_entity, eVar.name));
-        new e.a(context).d(context.getString(b.h.aiapps_auth_dialog_title, getAppName(context))).ad(inflate).c(context.getText(b.h.aiapps_auth_dialog_btn_pos), onClickListener).d(context.getText(b.h.aiapps_auth_dialog_btn_neg), onClickListener).dm(b.c.aiapps_auth_dialog_btn_pos).bR(false).a(new com.baidu.swan.apps.view.b.a()).Iu();
+        inflate.findViewById(a.f.auth_divider).setBackgroundColor(resources.getColor(a.c.aiapps_auth_dialog_divider));
+        ((SwanAppRoundedImageView) inflate.findViewById(a.f.icon)).setImageDrawable(new BitmapDrawable(resources, aa.a(bVar.uB(), "OAuthUtils", false)));
+        TextView textView2 = (TextView) inflate.findViewById(a.f.scopes);
+        textView2.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_scopes));
+        textView2.setText(context.getString(a.h.aiapps_auth_dialog_scope_entity, eVar.name));
+        new e.a(context).d(context.getString(a.h.aiapps_auth_dialog_title, getAppName(context))).ad(inflate).c(context.getText(a.h.aiapps_auth_dialog_btn_pos), onClickListener).d(context.getText(a.h.aiapps_auth_dialog_btn_neg), onClickListener).dm(a.c.aiapps_auth_dialog_btn_pos).bR(false).a(new com.baidu.swan.apps.view.b.a()).Iu();
     }
 
     private static void b(Context context, com.baidu.swan.apps.ae.b bVar, e eVar, DialogInterface.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Resources resources = context.getResources();
-        View inflate = View.inflate(context, b.g.aiapps_auth_dialog_content_mobile, null);
-        TextView textView = (TextView) inflate.findViewById(b.f.label);
-        textView.setText(context.getString(b.h.aiapps_auth_dialog_label_mobile, bVar.getName(), getAppName(context)));
-        textView.setTextColor(resources.getColor(b.c.aiapps_auth_dialog_label));
-        TextView textView2 = (TextView) inflate.findViewById(b.f.name);
+        View inflate = View.inflate(context, a.g.aiapps_auth_dialog_content_mobile, null);
+        TextView textView = (TextView) inflate.findViewById(a.f.label);
+        textView.setText(context.getString(a.h.aiapps_auth_dialog_label_mobile, bVar.getName(), getAppName(context)));
+        textView.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_label));
+        TextView textView2 = (TextView) inflate.findViewById(a.f.name);
         textView2.setText(eVar.name);
-        textView2.setTextColor(resources.getColor(b.c.aiapps_auth_dialog_label));
+        textView2.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_label));
         if (onClickListener2 != null) {
-            View findViewById = inflate.findViewById(b.f.desc);
+            View findViewById = inflate.findViewById(a.f.desc);
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(onClickListener2);
         }
-        inflate.findViewById(b.f.auth_divider).setBackgroundColor(resources.getColor(b.c.aiapps_auth_dialog_divider));
-        ((SwanAppRoundedImageView) inflate.findViewById(b.f.icon)).setImageDrawable(new BitmapDrawable(resources, aa.a(bVar.uB(), "OAuthUtils", false)));
-        TextView textView3 = (TextView) inflate.findViewById(b.f.ext);
-        textView3.setTextColor(resources.getColor(b.c.aiapps_auth_dialog_label));
+        inflate.findViewById(a.f.auth_divider).setBackgroundColor(resources.getColor(a.c.aiapps_auth_dialog_divider));
+        ((SwanAppRoundedImageView) inflate.findViewById(a.f.icon)).setImageDrawable(new BitmapDrawable(resources, aa.a(bVar.uB(), "OAuthUtils", false)));
+        TextView textView3 = (TextView) inflate.findViewById(a.f.ext);
+        textView3.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_label));
         StringBuilder sb = new StringBuilder();
-        Iterator<String> it = eVar.aRn.iterator();
+        Iterator<String> it = eVar.aRo.iterator();
         while (it.hasNext()) {
-            sb.append(context.getString(b.h.aiapps_auth_dialog_scope_entity, it.next()));
+            sb.append(context.getString(a.h.aiapps_auth_dialog_scope_entity, it.next()));
             sb.append("\n");
         }
         textView3.setText(sb.toString());
-        new e.a(context).d(context.getString(b.h.aiapps_auth_dialog_title, getAppName(context))).ad(inflate).c(context.getText(b.h.aiapps_auth_dialog_btn_pos), onClickListener).d(context.getText(b.h.aiapps_auth_dialog_btn_neg), onClickListener).dm(b.c.aiapps_auth_dialog_btn_pos).bR(false).a(new com.baidu.swan.apps.view.b.a()).Iu();
+        new e.a(context).d(context.getString(a.h.aiapps_auth_dialog_title, getAppName(context))).ad(inflate).c(context.getText(a.h.aiapps_auth_dialog_btn_pos), onClickListener).d(context.getText(a.h.aiapps_auth_dialog_btn_neg), onClickListener).dm(a.c.aiapps_auth_dialog_btn_pos).bR(false).a(new com.baidu.swan.apps.view.b.a()).Iu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, e eVar) {
-        new e.a(context).d(context.getString(b.h.aiapps_auth_dialog_title, getAppName(context))).gd(eVar.description).b(b.h.aiapps_auth_scope_desc_dialog_btn_pos, null).a(new com.baidu.swan.apps.view.b.a()).Iu();
+        new e.a(context).d(context.getString(a.h.aiapps_auth_dialog_title, getAppName(context))).gd(eVar.description).b(a.h.aiapps_auth_scope_desc_dialog_btn_pos, null).a(new com.baidu.swan.apps.view.b.a()).Iu();
     }
 
     @Deprecated
@@ -249,7 +249,7 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        final Set<com.baidu.swan.apps.setting.oauth.a> aRj = new HashSet();
+        final Set<com.baidu.swan.apps.setting.oauth.a> aRk = new HashSet();
         final String scope;
 
         a(String str) {

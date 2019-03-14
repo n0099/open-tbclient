@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +18,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
     public String toChatMessageContent() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("forumName", this.name);
+            jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.name);
             jSONObject.put("memberNum", this.memberNum);
             jSONObject.put("postNum", this.postNum);
             jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);

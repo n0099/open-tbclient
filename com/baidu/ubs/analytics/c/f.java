@@ -7,8 +7,8 @@ public final class f {
     private static boolean al = false;
     private static long am = StatisticConfig.MIN_UPLOAD_INTERVAL;
     private static boolean ap = false;
-    private static long jxg;
-    private static long jxh;
+    private static long jwY;
+    private static long jwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -16,22 +16,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long csw() {
+    public static long csz() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long csx() {
-        return jxg;
+    public static long csA() {
+        return jwY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        jxg = j;
+        jwY = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean csy() {
+    public static boolean csB() {
         return ak;
     }
 
@@ -46,10 +46,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        jxh = j;
+        jwZ = j;
     }
 
-    public static long csz() {
-        return jxh;
+    public static long csC() {
+        return jwZ;
     }
 }

@@ -2,7 +2,6 @@ package cn.jiguang.d.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -188,17 +187,14 @@ public final class f {
     }
 
     public final f ai(Context context) {
-        long j = TbConfig.APP_OVERDUR_DRAFT_BOX;
         try {
             long currentTimeMillis = System.currentTimeMillis();
             ah(context);
             long f = cn.jiguang.d.a.d.f(context, 3600000L);
-            long j2 = f >= 0 ? f < 60000 ? 60000L : f : 3600000L;
-            if (j2 <= TbConfig.APP_OVERDUR_DRAFT_BOX) {
-                j = j2;
-            }
+            long j = f >= 0 ? f < 60000 ? 60000L : f : 3600000L;
+            long j2 = j <= 604800000 ? j : 604800000L;
             cn.jiguang.d.h.c.a("yyyy-MM-dd HH:mm:ss");
-            if (this.a == 0 || j + this.a < currentTimeMillis) {
+            if (this.a == 0 || j2 + this.a < currentTimeMillis) {
                 y.a(context, this.b == null || this.b.isEmpty());
             }
         } catch (Throwable th) {

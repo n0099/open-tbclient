@@ -18,38 +18,38 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a irs;
-    private b irt;
-    private BaseActivity.LoadDataCallBack iru;
+    private a irl;
+    private b irm;
+    private BaseActivity.LoadDataCallBack irn;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.irs = null;
-        this.irt = null;
+        this.irl = null;
+        this.irm = null;
         this.mContext = null;
-        this.iru = null;
+        this.irn = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bYL() {
-        if (this.irs == null) {
-            this.irs = new a();
-            this.irs.execute(new String[0]);
+    public void bYN() {
+        if (this.irl == null) {
+            this.irl = new a();
+            this.irl.execute(new String[0]);
         }
     }
 
-    public void bYM() {
+    public void bYO() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void bYN() {
-        if (this.irt == null) {
-            this.irt = new b();
-            this.irt.execute(new String[0]);
+    public void bYP() {
+        if (this.irm == null) {
+            this.irm = new b();
+            this.irm.execute(new String[0]);
         }
     }
 
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.irs = null;
-            if (SystemHelpSettingModel.this.iru != null) {
-                SystemHelpSettingModel.this.iru.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.irl = null;
+            if (SystemHelpSettingModel.this.irn != null) {
+                SystemHelpSettingModel.this.irn.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -119,9 +119,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.irt = null;
-            if (SystemHelpSettingModel.this.iru != null) {
-                SystemHelpSettingModel.this.iru.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.irm = null;
+            if (SystemHelpSettingModel.this.irn != null) {
+                SystemHelpSettingModel.this.irn.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -137,6 +137,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iru = loadDataCallBack;
+        this.irn = loadDataCallBack;
     }
 }

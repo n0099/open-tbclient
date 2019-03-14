@@ -10,30 +10,30 @@ import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 import com.baidu.swan.games.subpackage.c;
 /* loaded from: classes2.dex */
 public class d extends EventTargetImpl {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private com.baidu.swan.games.e.b aZY;
-    private String axn;
-    private com.baidu.swan.games.binding.model.a bfn;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private com.baidu.swan.games.e.b aZZ;
+    private String axo;
+    private com.baidu.swan.games.binding.model.a bfo;
 
     public d(com.baidu.swan.games.e.b bVar) {
         super(bVar);
-        this.aZY = bVar;
+        this.aZZ = bVar;
     }
 
     public void k(JsObject jsObject) {
         reset();
         l(jsObject);
-        if (TextUtils.isEmpty(this.axn)) {
+        if (TextUtils.isEmpty(this.axo)) {
             if (DEBUG) {
                 Log.i("LoadSubpackageTask", "params error");
                 return;
             }
             return;
         }
-        c.Pg().a(this.axn, new c.a() { // from class: com.baidu.swan.games.subpackage.d.1
+        c.Pg().a(this.axo, new c.a() { // from class: com.baidu.swan.games.subpackage.d.1
             @Override // com.baidu.swan.games.subpackage.c.a
             public void Ph() {
-                d.this.cA(d.this.ja(d.this.axn));
+                d.this.cA(d.this.ja(d.this.axo));
             }
 
             @Override // com.baidu.swan.games.subpackage.c.a
@@ -61,25 +61,25 @@ public class d extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cA(final boolean z) {
-        if (this.aZY != null) {
-            this.aZY.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.subpackage.d.2
+        if (this.aZZ != null) {
+            this.aZZ.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.subpackage.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.bfn != null && d.this.bfn.baR != null) {
-                        d.this.bfn.onComplete();
+                    if (d.this.bfo != null && d.this.bfo.baS != null) {
+                        d.this.bfo.onComplete();
                         if (d.DEBUG) {
                             Log.i("LoadSubpackageTask", "complete call");
                         }
                     }
                     if (z) {
-                        if (d.this.bfn != null && d.this.bfn.baP != null) {
-                            d.this.bfn.onSuccess();
+                        if (d.this.bfo != null && d.this.bfo.baQ != null) {
+                            d.this.bfo.onSuccess();
                             if (d.DEBUG) {
                                 Log.i("LoadSubpackageTask", "success call");
                             }
                         }
-                    } else if (d.this.bfn != null && d.this.bfn.baQ != null) {
-                        d.this.bfn.onFail();
+                    } else if (d.this.bfo != null && d.this.bfo.baR != null) {
+                        d.this.bfo.onFail();
                         if (d.DEBUG) {
                             Log.i("LoadSubpackageTask", "fail call");
                         }
@@ -90,21 +90,21 @@ public class d extends EventTargetImpl {
     }
 
     private void reset() {
-        this.bfn = null;
-        this.axn = null;
+        this.bfo = null;
+        this.axo = null;
     }
 
     private void l(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c b;
         if (jsObject != null && (b = com.baidu.swan.games.binding.model.c.b(jsObject)) != null) {
-            this.bfn = com.baidu.swan.games.binding.model.a.a(b);
+            this.bfo = com.baidu.swan.games.binding.model.a.a(b);
             try {
-                this.axn = b.getString("name");
+                this.axo = b.getString("name");
             } catch (JSTypeMismatchException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                com.baidu.swan.games.utils.a.a(this.aZY, e);
+                com.baidu.swan.games.utils.a.a(this.aZZ, e);
                 reset();
             }
         }
@@ -112,7 +112,7 @@ public class d extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ja(String str) {
-        if (this.aZY == null) {
+        if (this.aZZ == null) {
             return false;
         }
         String str2 = e.Ec().DL() + a.Pf().L(str, 2);
@@ -120,7 +120,7 @@ public class d extends EventTargetImpl {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(L)) {
             return false;
         }
-        this.aZY.aS(str2, L);
+        this.aZZ.aS(str2, L);
         return true;
     }
 }

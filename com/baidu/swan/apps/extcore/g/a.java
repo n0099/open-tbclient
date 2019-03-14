@@ -3,16 +3,15 @@ package com.baidu.swan.apps.extcore.g;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.storage.b.f;
-import com.baidu.swan.c.b;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     public static boolean BC() {
         return f.KL().getBoolean("key_is_need_update_preset", false);
@@ -34,7 +33,7 @@ public class a {
                         if (DEBUG) {
                             Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
                         }
-                        b.deleteFile(file2);
+                        com.baidu.swan.c.b.deleteFile(file2);
                     }
                 }
             }

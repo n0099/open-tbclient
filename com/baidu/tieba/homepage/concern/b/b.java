@@ -6,34 +6,34 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
+    public static final BdUniqueId fGY = BdUniqueId.gen();
     public static final BdUniqueId fGZ = BdUniqueId.gen();
-    public static final BdUniqueId fHa = BdUniqueId.gen();
-    public bg eNQ;
-    public c fHb;
-    public int fHc;
+    public bg eNM;
+    public c fHa;
+    public int fHb;
     public boolean isLinkThread = false;
     public MetaData metaData;
 
-    public void bly() {
+    public void blx() {
         this.metaData = new MetaData();
-        this.metaData.setPortrait(this.fHb.getPortrait());
-        this.metaData.setName_show(this.fHb.getName());
-        this.metaData.setUserId(this.fHb.getUserId());
-        this.metaData.setIsBigV(this.fHb.isGod());
-        this.metaData.setIsLike(this.fHb.getIsLike());
-        this.metaData.setFansNum(this.fHb.getFansNum());
+        this.metaData.setPortrait(this.fHa.getPortrait());
+        this.metaData.setName_show(this.fHa.getName());
+        this.metaData.setUserId(this.fHa.getUserId());
+        this.metaData.setIsBigV(this.fHa.isGod());
+        this.metaData.setIsLike(this.fHa.getIsLike());
+        this.metaData.setFansNum(this.fHa.getFansNum());
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.isLinkThread ? fHa : fGZ;
+        return this.isLinkThread ? fGZ : fGY;
     }
 
-    public int blz() {
-        return this.fHc;
+    public int bly() {
+        return this.fHb;
     }
 
     public void sj(int i) {
-        this.fHc = i;
+        this.fHb = i;
     }
 }

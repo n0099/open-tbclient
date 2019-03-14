@@ -27,6 +27,6 @@ public class e extends a {
 
     @Override // com.baidu.swan.games.e.a
     protected String Oa() {
-        return com.baidu.swan.games.i.a.ba(this.bbo.zu(), this.bbo.zv());
+        return com.baidu.swan.games.i.a.ba(this.bbp.zu(), this.bbp.zv());
     }
 }

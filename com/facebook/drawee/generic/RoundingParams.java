@@ -5,13 +5,13 @@ import com.facebook.common.internal.g;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class RoundingParams {
-    private RoundingMethod jEB = RoundingMethod.BITMAP_ONLY;
-    private boolean jEC = false;
-    private float[] jED = null;
-    private int jDP = 0;
+    private RoundingMethod jEt = RoundingMethod.BITMAP_ONLY;
+    private boolean jEu = false;
+    private float[] jEv = null;
+    private int jDH = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
-    private float jDI = 0.0f;
+    private float jDA = 0.0f;
 
     /* loaded from: classes2.dex */
     public enum RoundingMethod {
@@ -20,55 +20,55 @@ public class RoundingParams {
     }
 
     public RoundingParams ru(boolean z) {
-        this.jEC = z;
+        this.jEu = z;
         return this;
     }
 
-    public boolean cvV() {
-        return this.jEC;
+    public boolean cvY() {
+        return this.jEu;
     }
 
     public RoundingParams aX(float f) {
-        Arrays.fill(cvZ(), f);
+        Arrays.fill(cwc(), f);
         return this;
     }
 
     public RoundingParams k(float f, float f2, float f3, float f4) {
-        float[] cvZ = cvZ();
-        cvZ[1] = f;
-        cvZ[0] = f;
-        cvZ[3] = f2;
-        cvZ[2] = f2;
-        cvZ[5] = f3;
-        cvZ[4] = f3;
-        cvZ[7] = f4;
-        cvZ[6] = f4;
+        float[] cwc = cwc();
+        cwc[1] = f;
+        cwc[0] = f;
+        cwc[3] = f2;
+        cwc[2] = f2;
+        cwc[5] = f3;
+        cwc[4] = f3;
+        cwc[7] = f4;
+        cwc[6] = f4;
         return this;
     }
 
-    public float[] cvW() {
-        return this.jED;
+    public float[] cvZ() {
+        return this.jEv;
     }
 
-    public RoundingMethod cvX() {
-        return this.jEB;
+    public RoundingMethod cwa() {
+        return this.jEt;
     }
 
     public RoundingParams Ck(@ColorInt int i) {
-        this.jDP = i;
-        this.jEB = RoundingMethod.OVERLAY_COLOR;
+        this.jDH = i;
+        this.jEt = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
-    public int cvY() {
-        return this.jDP;
+    public int cwb() {
+        return this.jDH;
     }
 
-    private float[] cvZ() {
-        if (this.jED == null) {
-            this.jED = new float[8];
+    private float[] cwc() {
+        if (this.jEv == null) {
+            this.jEv = new float[8];
         }
-        return this.jED;
+        return this.jEv;
     }
 
     public RoundingParams aY(float f) {
@@ -77,7 +77,7 @@ public class RoundingParams {
         return this;
     }
 
-    public float cwa() {
+    public float cwd() {
         return this.mBorderWidth;
     }
 
@@ -92,12 +92,12 @@ public class RoundingParams {
 
     public RoundingParams aZ(float f) {
         g.checkArgument(f >= 0.0f, "the padding cannot be < 0");
-        this.jDI = f;
+        this.jDA = f;
         return this;
     }
 
-    public float cwb() {
-        return this.jDI;
+    public float cwe() {
+        return this.jDA;
     }
 
     public boolean equals(Object obj) {
@@ -108,13 +108,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.jEC == roundingParams.jEC && this.jDP == roundingParams.jDP && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.jDI, this.jDI) == 0 && this.jEB == roundingParams.jEB) {
-            return Arrays.equals(this.jED, roundingParams.jED);
+        if (this.jEu == roundingParams.jEu && this.jDH == roundingParams.jDH && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.jDA, this.jDA) == 0 && this.jEt == roundingParams.jEt) {
+            return Arrays.equals(this.jEv, roundingParams.jEv);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.jED != null ? Arrays.hashCode(this.jED) : 0) + (((this.jEC ? 1 : 0) + ((this.jEB != null ? this.jEB.hashCode() : 0) * 31)) * 31)) * 31) + this.jDP) * 31)) * 31) + this.mBorderColor) * 31) + (this.jDI != 0.0f ? Float.floatToIntBits(this.jDI) : 0);
+        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.jEv != null ? Arrays.hashCode(this.jEv) : 0) + (((this.jEu ? 1 : 0) + ((this.jEt != null ? this.jEt.hashCode() : 0) * 31)) * 31)) * 31) + this.jDH) * 31)) * 31) + this.mBorderColor) * 31) + (this.jDA != 0.0f ? Float.floatToIntBits(this.jDA) : 0);
     }
 }

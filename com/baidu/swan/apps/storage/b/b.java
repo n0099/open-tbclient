@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 /* loaded from: classes2.dex */
 public abstract class b extends ProviderDelegation {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     protected abstract Bundle a(a aVar);
 

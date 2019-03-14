@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.JSExceptionType;
@@ -23,12 +24,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class g {
-    private static String bcC = "0123456789abcdef";
-    private static String bcD = "/aigames/sandbox/";
-    private static String bcE;
+    private static String bcD = "0123456789abcdef";
+    private static String bcE = "/aigames/sandbox/";
+    private static String bcF;
 
     public static boolean iu(String str) {
         boolean z = true;
@@ -88,8 +88,8 @@ public class g {
         byte[] bytes = str.getBytes();
         StringBuffer stringBuffer = new StringBuffer(bytes.length * 2);
         for (int i = 0; i < bytes.length; i++) {
-            stringBuffer.append(bcC.charAt((bytes[i] & 240) >> 4));
-            stringBuffer.append(bcC.charAt((bytes[i] & 15) >> 0));
+            stringBuffer.append(bcD.charAt((bytes[i] & 240) >> 4));
+            stringBuffer.append(bcD.charAt((bytes[i] & 15) >> 0));
         }
         return stringBuffer.toString();
     }
@@ -317,7 +317,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             str = md52;
         }
-        return append.append(str).append(bcD).append(Ji).toString();
+        return append.append(str).append(bcE).append(Ji).toString();
     }
 
     private static void aY(String str, String str2) {
@@ -334,7 +334,7 @@ public class g {
                 if (file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     FileOutputStream fileOutputStream = new FileOutputStream(str2 + "/" + file.getName().toString());
-                    byte[] bArr = new byte[5120];
+                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
@@ -397,10 +397,10 @@ public class g {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(bcE) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            bcE = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(bcF) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            bcF = externalFilesDir.getAbsolutePath();
         }
-        return bcE;
+        return bcF;
     }
 
     public static String cv(Context context) {
@@ -559,25 +559,25 @@ public class g {
         if (bVar2 == null || bVar == null) {
             return false;
         }
-        Map<String, Object> map2 = bVar.bbM;
-        if (bVar.bbM == null) {
+        Map<String, Object> map2 = bVar.bbN;
+        if (bVar.bbN == null) {
             return false;
         }
-        c cVar = bVar.bbK;
+        c cVar = bVar.bbL;
         JsFunction e = e(LivenessStat.TYPE_FACE_MATCH_FAIL, map2);
         JsFunction e2 = e("complete", map2);
         JsFunction e3 = e("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            bVar2.errMsg = bVar.bbL + str;
+            bVar2.errMsg = bVar.bbM + str;
             a(aVar, bVar2.errMsg);
             a(e, e2, bVar2, e3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.bbL + "unknown error";
+            bVar2.errMsg = bVar.bbM + "unknown error";
             a(e, e2, bVar2, e3);
             return false;
         } else {
-            bVar2.errMsg = bVar.bbL + cVar.errMsg;
+            bVar2.errMsg = bVar.bbM + cVar.errMsg;
             if (cVar.errCode != 0) {
                 a(e, e2, bVar2, e3);
                 return false;
@@ -592,9 +592,9 @@ public class g {
 
     public static b a(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.bbK = cVar;
-        bVar.bbL = str;
-        bVar.bbM = map;
+        bVar.bbL = cVar;
+        bVar.bbM = str;
+        bVar.bbN = map;
         return bVar;
     }
 
@@ -610,7 +610,7 @@ public class g {
     }
 
     public static boolean R(long j) {
-        return Ok() + j > 52428800;
+        return Ok() + j > Config.RAVEN_LOG_LIMIT;
     }
 
     private static long Ok() {
@@ -623,7 +623,7 @@ public class g {
                 }
                 return Long.valueOf(B.trim()).longValue();
             } catch (Exception e) {
-                if (com.baidu.swan.apps.c.DEBUG) {
+                if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
                     return 0L;
                 }
@@ -739,7 +739,7 @@ public class g {
     private static String K(String str, int i) {
         String str2;
         if (TextUtils.isEmpty(str)) {
-            str = ClientCookie.PATH_ATTR;
+            str = "path";
         }
         switch (i) {
             case 1:
@@ -944,7 +944,7 @@ public class g {
         if (!TextUtils.isEmpty(bI)) {
             bJ = bI;
         }
-        return append.append(bJ).append(bcD).append(str).toString();
+        return append.append(bJ).append(bcE).append(str).toString();
     }
 
     public static boolean iH(String str) {

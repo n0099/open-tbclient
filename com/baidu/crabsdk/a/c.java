@@ -8,19 +8,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class c {
-    private static c aaV;
-    private static Context aaW;
-    private static ExecutorService aaX;
+    private static c aaW;
+    private static Context aaX;
+    private static ExecutorService aaY;
     private static boolean al = false;
-    public l aaT;
-    public p aaU;
+    public l aaU;
+    public p aaV;
 
     private c(Context context) {
-        aaW = context;
-        this.aaU = new p(Looper.getMainLooper().getThread(), a.U);
-        this.aaT = new l(new d(this), context);
-        if (aaX == null) {
-            aaX = Executors.newSingleThreadExecutor();
+        aaX = context;
+        this.aaV = new p(Looper.getMainLooper().getThread(), a.U);
+        this.aaU = new l(new d(this), context);
+        if (aaY == null) {
+            aaY = Executors.newSingleThreadExecutor();
         }
     }
 
@@ -32,25 +32,25 @@ public class c {
             return;
         }
         a rJ = a.rJ();
-        rJ.aaP = c;
+        rJ.aaQ = c;
         rJ.a(j, j2, j3, j4);
     }
 
     public static c ba(Context context) {
-        if (aaV == null) {
+        if (aaW == null) {
             synchronized (c.class) {
-                if (aaV == null) {
-                    aaV = new c(context);
+                if (aaW == null) {
+                    aaW = new c(context);
                 }
             }
         }
-        return aaV;
+        return aaW;
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aaZ.start();
+            e.aba.start();
             com.baidu.crabsdk.c.a.cv("start FrameMonitor...");
         }
     }
@@ -58,7 +58,7 @@ public class c {
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aaZ.stop();
+            e.aba.stop();
         }
     }
 }

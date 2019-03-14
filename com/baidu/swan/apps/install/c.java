@@ -18,8 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static ExecutorService awT = Executors.newSingleThreadExecutor();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static ExecutorService awU = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -32,15 +32,15 @@ public class c {
 
     /* renamed from: com.baidu.swan.apps.install.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0115c {
+    public static class C0144c {
         public String mAppId;
         public String mDownloadUrl;
     }
 
     /* loaded from: classes2.dex */
     public static class g extends com.baidu.swan.apps.install.a {
-        public String awX;
-        public com.baidu.swan.apps.ae.a.c awY;
+        public String awY;
+        public com.baidu.swan.apps.ae.a.c awZ;
     }
 
     public static void a(final com.baidu.swan.apps.v.b.b bVar, final com.baidu.swan.apps.install.b bVar2) {
@@ -53,7 +53,7 @@ public class c {
                 e2.printStackTrace();
             }
         }
-        awT.execute(new Runnable() { // from class: com.baidu.swan.apps.install.c.1
+        awU.execute(new Runnable() { // from class: com.baidu.swan.apps.install.c.1
             @Override // java.lang.Runnable
             public void run() {
                 g a2;
@@ -63,12 +63,12 @@ public class c {
                 } else {
                     a2 = d.a(com.baidu.swan.apps.v.b.b.this, bVar3, jSONObject);
                 }
-                if (a2 == null || a2.awY == null || a2.awY.aOf == null) {
-                    com.baidu.swan.apps.ak.a aVar = bVar3.aWy;
+                if (a2 == null || a2.awZ == null || a2.awZ.aOg == null) {
+                    com.baidu.swan.apps.ak.a aVar = bVar3.aWz;
                     if (aVar == null) {
                         aVar = new com.baidu.swan.apps.ak.a().L(5L).M(20L).hw("小程序loadbundle出错，loadinfo为空或者页面配置空 ");
                     }
-                    com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(com.baidu.swan.apps.v.b.b.this != null ? com.baidu.swan.apps.v.b.b.this.axW : 0)).a(aVar).gU("appjson_config_invalid").r(com.baidu.swan.apps.v.b.b.this));
+                    com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(com.baidu.swan.apps.v.b.b.this != null ? com.baidu.swan.apps.v.b.b.this.axX : 0)).a(aVar).gU("appjson_config_invalid").r(com.baidu.swan.apps.v.b.b.this));
                     com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("error", String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.LC())));
                 } else {
                     com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("narun"));
@@ -94,7 +94,7 @@ public class c {
             if (!file.exists() || file.length() == 0) {
                 com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(5L).M(4L).hw("小程序bundle文件不存在或者空文件! ");
                 if (bVar2 != null) {
-                    bVar2.aWy = hw;
+                    bVar2.aWz = hw;
                 }
             } else {
                 com.baidu.swan.apps.performance.f.FS().f(new UbcFlowEvent("package_start_unzip"));
@@ -112,7 +112,7 @@ public class c {
                 if (!z) {
                     com.baidu.swan.apps.ak.a hw2 = new com.baidu.swan.apps.ak.a().L(5L).M(7L).hw("小程序bundle解压失败! ");
                     if (bVar2 != null) {
-                        bVar2.aWy = hw2;
+                        bVar2.aWz = hw2;
                     }
                 }
                 com.baidu.swan.apps.performance.f.FS().f(new UbcFlowEvent("package_end_unzip"));
@@ -135,15 +135,15 @@ public class c {
                         com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小程序bundle解压失败!").IK();
                         com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(5L).M(7L).hw("小程序bundle解压失败! for release");
                         com.baidu.swan.apps.ak.e.LG().b(hw);
-                        if (bVar2 == null || bVar2.aWy != null) {
+                        if (bVar2 == null || bVar2.aWz != null) {
                             return null;
                         }
-                        bVar2.aWy = hw;
+                        bVar2.aWz = hw;
                         return null;
                     }
                 } else {
                     com.baidu.swan.apps.process.messaging.client.a.Gq().a(8, new SwanAppDeleteInfo(bVar.mAppId, 1));
-                    com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(bVar.axW)).a(new com.baidu.swan.apps.ak.a().L(5L).M(31L).hw("小程序zip和bundle不存在，兜底重置")).r(bVar));
+                    com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(bVar.axX)).a(new com.baidu.swan.apps.ak.a().L(5L).M(31L).hw("小程序zip和bundle不存在，兜底重置")).r(bVar));
                     if (c.DEBUG) {
                         Log.w("SwanAppBundleHelper", "20050004：reset aiapps");
                         return null;
@@ -156,13 +156,13 @@ public class c {
             File file = new File(c, "app.json");
             com.baidu.swan.apps.ae.a.c gk = com.baidu.swan.apps.ae.a.c.gk(com.baidu.swan.c.b.B(file));
             if (gk != null) {
-                gVar.awX = c.getPath() + File.separator;
-                gVar.awY = gk;
+                gVar.awY = c.getPath() + File.separator;
+                gVar.awZ = gk;
                 if (c.DEBUG) {
                     Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                     Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
-                    Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awX);
-                    Log.d("SwanAppBundleHelper", "launchInfo.mSwanCoreVersion.swanCorePath: " + bVar.atp.aTf);
+                    Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awY);
+                    Log.d("SwanAppBundleHelper", "launchInfo.mSwanCoreVersion.swanCorePath: " + bVar.atq.aTg);
                 }
                 return gVar;
             }
@@ -238,7 +238,7 @@ public class c {
                 com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(5L).M(4L).hw("没有小程序包! for release, bundle files are empty");
                 com.baidu.swan.apps.ak.e.LG().b(hw);
                 if (bVar != null) {
-                    bVar.aWy = hw;
+                    bVar.aWz = hw;
                 }
                 return null;
             }
@@ -253,7 +253,7 @@ public class c {
             com.baidu.swan.apps.ak.a hw2 = new com.baidu.swan.apps.ak.a().L(5L).M(4L).hw("没有小程序包! for release, no such bundle file");
             com.baidu.swan.apps.ak.e.LG().b(hw2);
             if (bVar != null) {
-                bVar.aWy = hw2;
+                bVar.aWz = hw2;
             }
             return null;
         }
@@ -292,22 +292,22 @@ public class c {
         }
     }
 
-    public static void a(C0115c c0115c, b bVar) {
-        new com.baidu.swan.apps.k.a().a(c0115c, a.Ct().getPath() + File.separator + String.valueOf(System.currentTimeMillis()) + ".aibundle", bVar);
+    public static void a(C0144c c0144c, b bVar) {
+        new com.baidu.swan.apps.k.a().a(c0144c, a.Ct().getPath() + File.separator + String.valueOf(System.currentTimeMillis()) + ".aibundle", bVar);
     }
 
     public static void a(String str, b bVar) {
-        C0115c c0115c = new C0115c();
-        c0115c.mDownloadUrl = str;
+        C0144c c0144c = new C0144c();
+        c0144c.mDownloadUrl = str;
         com.baidu.swan.apps.swancore.c.a.Br();
-        new com.baidu.swan.apps.k.a().a(c0115c, com.baidu.swan.apps.swancore.c.a.Bs().getPath(), bVar);
+        new com.baidu.swan.apps.k.a().a(c0144c, com.baidu.swan.apps.swancore.c.a.Bs().getPath(), bVar);
     }
 
     public static void b(String str, b bVar) {
-        C0115c c0115c = new C0115c();
-        c0115c.mDownloadUrl = str;
+        C0144c c0144c = new C0144c();
+        c0144c.mDownloadUrl = str;
         com.baidu.swan.apps.extcore.d.b.Br();
-        new com.baidu.swan.apps.k.a().a(c0115c, com.baidu.swan.apps.extcore.d.b.Bs().getPath(), bVar);
+        new com.baidu.swan.apps.k.a().a(c0144c, com.baidu.swan.apps.extcore.d.b.Bs().getPath(), bVar);
     }
 
     /* loaded from: classes2.dex */
@@ -326,15 +326,15 @@ public class c {
                         com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小程序bundle解压失败!").IK();
                         com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(5L).M(7L).hw("小程序bundle解压失败! for debug");
                         com.baidu.swan.apps.ak.e.LG().b(hw);
-                        if (bVar2 != null && bVar2.aWy == null) {
-                            bVar2.aWy = hw;
+                        if (bVar2 != null && bVar2.aWz == null) {
+                            bVar2.aWz = hw;
                         }
                     }
                     gVar = new g();
                     File file = new File(Cr(), "app.json");
                     com.baidu.swan.apps.ae.a.c gk = com.baidu.swan.apps.ae.a.c.gk(com.baidu.swan.c.b.B(file));
-                    gVar.awX = Cr().getPath() + File.separator;
-                    gVar.awY = gk;
+                    gVar.awY = Cr().getPath() + File.separator;
+                    gVar.awZ = gk;
                     if (c.DEBUG) {
                     }
                 } else {
@@ -345,8 +345,8 @@ public class c {
                             com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "小程序bundle解压失败!").IK();
                             com.baidu.swan.apps.ak.a hw2 = new com.baidu.swan.apps.ak.a().L(5L).M(7L).hw("小程序bundle解压失败! for debug");
                             com.baidu.swan.apps.ak.e.LG().b(hw2);
-                            if (bVar2 != null && bVar2.aWy == null) {
-                                bVar2.aWy = hw2;
+                            if (bVar2 != null && bVar2.aWz == null) {
+                                bVar2.aWz = hw2;
                             }
                         } else {
                             IX.Jb().putString("installed_debug_bundle_md5", c);
@@ -355,13 +355,13 @@ public class c {
                     gVar = new g();
                     File file2 = new File(Cr(), "app.json");
                     com.baidu.swan.apps.ae.a.c gk2 = com.baidu.swan.apps.ae.a.c.gk(com.baidu.swan.c.b.B(file2));
-                    gVar.awX = Cr().getPath() + File.separator;
-                    gVar.awY = gk2;
+                    gVar.awY = Cr().getPath() + File.separator;
+                    gVar.awZ = gk2;
                     if (c.DEBUG) {
                         Log.d("SwanAppBundleHelper", "configFile path: " + file2.getPath());
                         Log.d("SwanAppBundleHelper", "configFile exist: " + file2.exists());
-                        Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awX);
-                        Log.d("SwanAppBundleHelper", "launchInfo.mSwanCoreVersion.swanCorePath: " + bVar.atp.aTf);
+                        Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awY);
+                        Log.d("SwanAppBundleHelper", "launchInfo.mSwanCoreVersion.swanCorePath: " + bVar.atq.aTg);
                     }
                 }
             }
@@ -386,7 +386,7 @@ public class c {
                 com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(5L).M(4L).hw("没有小程序包! for debug, bundle files are empty");
                 com.baidu.swan.apps.ak.e.LG().b(hw);
                 if (bVar != null) {
-                    bVar.aWy = hw;
+                    bVar.aWz = hw;
                 }
                 return null;
             }
@@ -419,12 +419,12 @@ public class c {
             g gVar = new g();
             File file = new File(Cs(), "app.json");
             com.baidu.swan.apps.ae.a.c gk = com.baidu.swan.apps.ae.a.c.gk(com.baidu.swan.c.b.B(file));
-            gVar.awX = Cs().getPath() + File.separator;
-            gVar.awY = gk;
+            gVar.awY = Cs().getPath() + File.separator;
+            gVar.awZ = gk;
             if (c.DEBUG) {
                 Log.d("SwanAppBundleHelper", "configFile path: " + file.getPath());
                 Log.d("SwanAppBundleHelper", "configFile exist: " + file.exists());
-                Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awX);
+                Log.d("SwanAppBundleHelper", "info.mAppBundlePath path: " + gVar.awY);
             }
             return gVar;
         }
@@ -457,7 +457,7 @@ public class c {
             if (subPackageAPSInfo == null) {
                 return false;
             }
-            File file = new File(subPackageAPSInfo.axo);
+            File file = new File(subPackageAPSInfo.axp);
             if (!file.exists()) {
                 if (c.DEBUG) {
                     Log.e("SwanAppBundleHelper", "解压分包时，ZIP包不存在");
@@ -496,13 +496,13 @@ public class c {
         }
 
         private static File h(SubPackageAPSInfo subPackageAPSInfo) {
-            if (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.axm) || TextUtils.isEmpty(subPackageAPSInfo.axn)) {
+            if (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.axn) || TextUtils.isEmpty(subPackageAPSInfo.axo)) {
                 if (c.DEBUG) {
                     Log.e("SwanAppBundleHelper", "获取分包解压文件夹失败");
                 }
                 return null;
             }
-            return new File(subPackageAPSInfo.axm, subPackageAPSInfo.axn);
+            return new File(subPackageAPSInfo.axn, subPackageAPSInfo.axo);
         }
     }
 }

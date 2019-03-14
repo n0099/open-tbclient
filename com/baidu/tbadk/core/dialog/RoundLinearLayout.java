@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundLinearLayout extends LinearLayout {
-    private Shape bFK;
+    private Shape bFM;
     private Paint mPaint;
     private float mRadius;
 
@@ -46,16 +46,16 @@ public class RoundLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.bFK == null) {
+            if (this.bFM == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 Arrays.fill(fArr2, 0, 4, this.mRadius);
-                this.bFK = new RoundRectShape(fArr, rectF, fArr2);
+                this.bFM = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.bFK.resize(getWidth(), getHeight());
+            this.bFM.resize(getWidth(), getHeight());
         }
     }
 
@@ -64,8 +64,8 @@ public class RoundLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.bFK != null) {
-            this.bFK.draw(canvas, this.mPaint);
+        if (this.bFM != null) {
+            this.bFM.draw(canvas, this.mPaint);
         }
         canvas.restoreToCount(saveCount);
     }

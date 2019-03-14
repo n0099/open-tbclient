@@ -7,7 +7,7 @@ public abstract class d {
         this.cih = editorTools;
     }
 
-    public EditorTools alT() {
+    public EditorTools alS() {
         return this.cih;
     }
 }

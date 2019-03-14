@@ -26,16 +26,16 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
-    private TextView dOU;
-    private TextView fzK;
-    private HeadImageView iaR;
-    private TextView iaS;
-    private TextView iaT;
-    private TextView iaU;
-    private ProgressBar iaV;
-    private String iaW;
-    private PluginNetConfigInfos.PluginConfig iaX;
-    private ShadowLayout iaY;
+    private TextView dOQ;
+    private TextView fzJ;
+    private HeadImageView iaL;
+    private TextView iaM;
+    private TextView iaN;
+    private TextView iaO;
+    private ProgressBar iaP;
+    private String iaQ;
+    private PluginNetConfigInfos.PluginConfig iaR;
+    private ShadowLayout iaS;
     private boolean mFinished;
     private TextView mName;
     private NavigationBar mNavigationBar;
@@ -43,31 +43,31 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     private d Lt = new d() { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.4
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && PluginDetailActivity.this.iaX != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaX.package_name) && !PluginDetailActivity.this.mFinished) {
-                al.d(PluginDetailActivity.this.iaU, d.C0236d.cp_cont_d, 1);
-                PluginDetailActivity.this.iaY.setShadowColor(0);
-                PluginDetailActivity.this.iaU.setEnabled(false);
-                PluginDetailActivity.this.iaU.setVisibility(8);
-                PluginDetailActivity.this.iaV.setVisibility(0);
-                PluginDetailActivity.this.fzK.setVisibility(0);
-                PluginDetailActivity.this.iaV.setProgress((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && PluginDetailActivity.this.iaR != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaR.package_name) && !PluginDetailActivity.this.mFinished) {
+                al.d(PluginDetailActivity.this.iaO, d.C0277d.cp_cont_d, 1);
+                PluginDetailActivity.this.iaS.setShadowColor(0);
+                PluginDetailActivity.this.iaO.setEnabled(false);
+                PluginDetailActivity.this.iaO.setVisibility(8);
+                PluginDetailActivity.this.iaP.setVisibility(0);
+                PluginDetailActivity.this.fzJ.setVisibility(0);
+                PluginDetailActivity.this.iaP.setProgress((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && PluginDetailActivity.this.iaX != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaX.package_name)) {
-                PluginDetailActivity.this.iaU.setText(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_download_finished));
-                PluginDetailActivity.this.iaU.setEnabled(false);
+            if (bdFileDownloadData != null && PluginDetailActivity.this.iaR != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaR.package_name)) {
+                PluginDetailActivity.this.iaO.setText(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_download_finished));
+                PluginDetailActivity.this.iaO.setEnabled(false);
                 PluginDetailActivity.this.mFinished = true;
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && PluginDetailActivity.this.iaX != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaX.package_name)) {
+            if (bdFileDownloadData != null && PluginDetailActivity.this.iaR != null && bdFileDownloadData.getId().equals(PluginDetailActivity.this.iaR.package_name)) {
                 PluginDetailActivity.this.showToast(bdFileDownloadData.getStatusMsg());
-                PluginDetailActivity.this.bUu();
+                PluginDetailActivity.this.bUw();
                 PluginDetailActivity.this.mFinished = true;
             }
         }
@@ -76,11 +76,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
             if (i == 0) {
                 PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_installation_finished));
-                PluginDetailActivity.this.bUu();
+                PluginDetailActivity.this.bUw();
                 return;
             }
             PluginDetailActivity.this.showToast(PluginDetailActivity.this.getPageContext().getString(d.j.plugin_installation_failed) + str);
-            PluginDetailActivity.this.bUu();
+            PluginDetailActivity.this.bUw();
         }
     };
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.5
@@ -88,7 +88,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kY()) {
-                PluginDetailActivity.this.bUu();
+                PluginDetailActivity.this.bUw();
             }
         }
     };
@@ -106,24 +106,24 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 PluginDetailActivity.this.closeActivity();
             }
         });
-        this.iaR = (HeadImageView) findViewById(d.g.icon);
+        this.iaL = (HeadImageView) findViewById(d.g.icon);
         this.mName = (TextView) findViewById(d.g.name);
-        this.dOU = (TextView) findViewById(d.g.status);
-        this.iaV = (ProgressBar) findViewById(d.g.plugin_download_progress);
-        this.fzK = (TextView) findViewById(d.g.plugin_download_text);
-        this.iaS = (TextView) findViewById(d.g.changelog);
-        this.iaT = (TextView) findViewById(d.g.size);
-        this.iaU = (TextView) findViewById(d.g.enable);
-        this.iaU.setOnClickListener(this);
-        this.iaY = (ShadowLayout) findViewById(d.g.plugin_status_container);
-        this.iaW = getIntent().getStringExtra("name");
+        this.dOQ = (TextView) findViewById(d.g.status);
+        this.iaP = (ProgressBar) findViewById(d.g.plugin_download_progress);
+        this.fzJ = (TextView) findViewById(d.g.plugin_download_text);
+        this.iaM = (TextView) findViewById(d.g.changelog);
+        this.iaN = (TextView) findViewById(d.g.size);
+        this.iaO = (TextView) findViewById(d.g.enable);
+        this.iaO.setOnClickListener(this);
+        this.iaS = (ShadowLayout) findViewById(d.g.plugin_status_container);
+        this.iaQ = getIntent().getStringExtra("name");
         if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nF().nG() != null) {
-            this.iaX = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nF().nG().getPluginConfig(this.iaW);
+            this.iaR = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nF().nG().getPluginConfig(this.iaQ);
         }
-        if (PluginPackageManager.ni().cc(this.iaW)) {
+        if (PluginPackageManager.ni().cc(this.iaQ)) {
             PluginPackageManager.ni().a(this.Lt);
-            al.d(this.iaU, d.C0236d.cp_cont_d, 1);
-            this.iaU.setEnabled(false);
+            al.d(this.iaO, d.C0277d.cp_cont_d, 1);
+            this.iaO.setEnabled(false);
         }
         registerListener(this.mNetworkChangedMessageListener);
     }
@@ -132,26 +132,26 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.iaX != null) {
-            this.iaR.startLoad(this.iaX.icon, 10, false);
-            if (this.iaX.display_name == null) {
-                this.iaX.display_name = "";
+        if (this.iaR != null) {
+            this.iaL.startLoad(this.iaR.icon, 10, false);
+            if (this.iaR.display_name == null) {
+                this.iaR.display_name = "";
             }
-            this.mName.setText(this.iaX.display_name);
-            bUu();
-            if (this.iaX.newest != null) {
-                if (TextUtils.isEmpty(this.iaX.newest.change_log)) {
-                    this.iaS.setText("");
+            this.mName.setText(this.iaR.display_name);
+            bUw();
+            if (this.iaR.newest != null) {
+                if (TextUtils.isEmpty(this.iaR.newest.change_log)) {
+                    this.iaM.setText("");
                 } else {
-                    this.iaS.setText(this.iaX.newest.change_log);
+                    this.iaM.setText(this.iaR.newest.change_log);
                 }
-                if (this.iaX.newest.size <= 0) {
-                    this.iaT.setText("");
+                if (this.iaR.newest.size <= 0) {
+                    this.iaN.setText("");
                 } else {
-                    this.iaT.setText(getPageContext().getString(d.j.plugin_size) + String.valueOf(this.iaX.newest.size / 1024) + "KB");
+                    this.iaN.setText(getPageContext().getString(d.j.plugin_size) + String.valueOf(this.iaR.newest.size / 1024) + "KB");
                 }
             }
-            this.iaU.setOnClickListener(this);
+            this.iaO.setOnClickListener(this);
         }
     }
 
@@ -170,57 +170,57 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUu() {
+    public void bUw() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001303));
-        if (PluginPackageManager.ni().ca(this.iaW) && PluginPackageManager.ni().bY(this.iaW)) {
-            this.dOU.setText(d.j.plugin_enabled);
-            this.iaU.setVisibility(0);
-            this.iaU.setText(d.j.download_update);
-            this.iaU.setEnabled(true);
-            al.k(this.iaU, d.f.selector_blue_gradient_button);
-            this.iaY.setShadowColor(d.C0236d.plugin_button_shadow_blue);
-            al.d(this.iaU, d.C0236d.cp_cont_g, 1);
-            this.iaV.setVisibility(8);
-            this.fzK.setVisibility(8);
+        if (PluginPackageManager.ni().ca(this.iaQ) && PluginPackageManager.ni().bY(this.iaQ)) {
+            this.dOQ.setText(d.j.plugin_enabled);
+            this.iaO.setVisibility(0);
+            this.iaO.setText(d.j.download_update);
+            this.iaO.setEnabled(true);
+            al.k(this.iaO, d.f.selector_blue_gradient_button);
+            this.iaS.setShadowColor(d.C0277d.plugin_button_shadow_blue);
+            al.d(this.iaO, d.C0277d.cp_cont_g, 1);
+            this.iaP.setVisibility(8);
+            this.fzJ.setVisibility(8);
             this.mStatus = 1;
-        } else if (PluginPackageManager.ni().bY(this.iaW)) {
-            this.iaU.setEnabled(true);
-            al.d(this.iaU, d.C0236d.cp_cont_g, 1);
-            this.iaU.setVisibility(0);
-            this.iaV.setVisibility(8);
-            this.fzK.setVisibility(8);
-            if (PluginPackageManager.ni().bZ(this.iaW)) {
-                this.dOU.setText(d.j.plugin_unenabled);
-                this.iaU.setText(d.j.plugin_enable);
-                al.k(this.iaU, d.f.selector_blue_gradient_button);
-                this.iaY.setShadowColor(d.C0236d.plugin_button_shadow_blue);
+        } else if (PluginPackageManager.ni().bY(this.iaQ)) {
+            this.iaO.setEnabled(true);
+            al.d(this.iaO, d.C0277d.cp_cont_g, 1);
+            this.iaO.setVisibility(0);
+            this.iaP.setVisibility(8);
+            this.fzJ.setVisibility(8);
+            if (PluginPackageManager.ni().bZ(this.iaQ)) {
+                this.dOQ.setText(d.j.plugin_unenabled);
+                this.iaO.setText(d.j.plugin_enable);
+                al.k(this.iaO, d.f.selector_blue_gradient_button);
+                this.iaS.setShadowColor(d.C0277d.plugin_button_shadow_blue);
                 this.mStatus = 2;
                 return;
             }
-            this.dOU.setText(d.j.plugin_enabled);
-            this.iaU.setText(d.j.plugin_unenable);
+            this.dOQ.setText(d.j.plugin_enabled);
+            this.iaO.setText(d.j.plugin_unenable);
             this.mStatus = 3;
-            if (this.iaX != null && this.iaX.can_forbidden == 1) {
-                this.iaU.setEnabled(false);
-                this.iaU.setVisibility(8);
-                this.iaY.setShadowColor(0);
+            if (this.iaR != null && this.iaR.can_forbidden == 1) {
+                this.iaO.setEnabled(false);
+                this.iaO.setVisibility(8);
+                this.iaS.setShadowColor(0);
                 return;
             }
-            this.iaU.setEnabled(true);
-            this.iaU.setVisibility(0);
-            al.k(this.iaU, d.f.button_plugin_forbidden);
-            this.iaY.setShadowColor(d.C0236d.plugin_button_shadow_red);
+            this.iaO.setEnabled(true);
+            this.iaO.setVisibility(0);
+            al.k(this.iaO, d.f.button_plugin_forbidden);
+            this.iaS.setShadowColor(d.C0277d.plugin_button_shadow_red);
         } else {
-            this.iaU.setVisibility(0);
-            this.dOU.setText(d.j.plugin_disabled);
-            this.iaU.setText(d.j.install_app);
-            this.iaU.setEnabled(true);
-            al.k(this.iaU, d.f.selector_blue_gradient_button);
-            this.iaY.setShadowColor(d.C0236d.plugin_button_shadow_blue);
-            al.d(this.iaU, d.C0236d.cp_cont_g, 1);
+            this.iaO.setVisibility(0);
+            this.dOQ.setText(d.j.plugin_disabled);
+            this.iaO.setText(d.j.install_app);
+            this.iaO.setEnabled(true);
+            al.k(this.iaO, d.f.selector_blue_gradient_button);
+            this.iaS.setShadowColor(d.C0277d.plugin_button_shadow_blue);
+            al.d(this.iaO, d.C0277d.cp_cont_g, 1);
             this.mStatus = 0;
-            this.iaV.setVisibility(8);
-            this.fzK.setVisibility(8);
+            this.iaP.setVisibility(8);
+            this.fzJ.setVisibility(8);
         }
     }
 
@@ -229,46 +229,46 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iaV.setProgressDrawable(al.getDrawable(d.f.download_progressbar));
-        this.iaV.setIndeterminateDrawable(al.getDrawable(d.f.download_progressbar));
+        this.iaP.setProgressDrawable(al.getDrawable(d.f.download_progressbar));
+        this.iaP.setIndeterminateDrawable(al.getDrawable(d.f.download_progressbar));
         getLayoutMode().setNightMode(i == 1);
         getLayoutMode().onModeChanged(findViewById(16908290));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iaU) {
+        if (view == this.iaO) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                bUv();
+                bUx();
             } else if (this.mStatus == 3) {
-                PluginPackageManager.ni().bW(this.iaW);
-                bUu();
+                PluginPackageManager.ni().bW(this.iaQ);
+                bUw();
             } else if (this.mStatus == 2) {
-                PluginPackageManager.ni().bX(this.iaW);
-                bUu();
+                PluginPackageManager.ni().bX(this.iaQ);
+                bUw();
             }
         }
     }
 
-    private void bUv() {
+    private void bUx() {
         if (!j.kY()) {
             showToast(d.j.neterror);
         } else if (j.la()) {
-            bUw();
-        } else if (this.iaX != null && !TextUtils.isEmpty(this.iaX.package_name) && !PluginPackageManager.ni().cc(this.iaX.package_name)) {
-            this.iaU.setEnabled(false);
+            bUy();
+        } else if (this.iaR != null && !TextUtils.isEmpty(this.iaR.package_name) && !PluginPackageManager.ni().cc(this.iaR.package_name)) {
+            this.iaO.setEnabled(false);
             this.mFinished = false;
-            PluginPackageManager.ni().a(this.iaX, this.Lt);
+            PluginPackageManager.ni().a(this.iaR, this.Lt);
         }
     }
 
-    private void bUw() {
+    private void bUy() {
         String string;
         String string2;
-        if (this.iaX != null && this.iaX.newest != null) {
+        if (this.iaR != null && this.iaR.newest != null) {
             a aVar = new a(getPageContext().getPageActivity());
             boolean z = this.mStatus == 1;
-            float f = this.iaX.newest.size / 1048576.0f;
+            float f = this.iaR.newest.size / 1048576.0f;
             if (z) {
                 string = getResources().getString(d.j.plugin_update_size_prompt, Float.valueOf(f));
                 string2 = getResources().getString(d.j.download_update);
@@ -280,9 +280,9 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             aVar.a(string2, new a.b() { // from class: com.baidu.tieba.pluginCenter.PluginDetailActivity.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(a aVar2) {
-                    al.d(PluginDetailActivity.this.iaU, d.C0236d.cp_cont_d, 1);
-                    PluginDetailActivity.this.iaU.setEnabled(false);
-                    PluginPackageManager.ni().a(PluginDetailActivity.this.iaX, PluginDetailActivity.this.Lt);
+                    al.d(PluginDetailActivity.this.iaO, d.C0277d.cp_cont_d, 1);
+                    PluginDetailActivity.this.iaO.setEnabled(false);
+                    PluginPackageManager.ni().a(PluginDetailActivity.this.iaR, PluginDetailActivity.this.Lt);
                     aVar2.dismiss();
                 }
             });

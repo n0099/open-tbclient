@@ -10,13 +10,13 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     public static final a TF() {
-        return C0184a.bqj;
+        return C0218a.bqk;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0184a {
-        private static final a bqj = new a();
+    private static class C0218a {
+        private static final a bqk = new a();
     }
 
     public synchronized boolean a(b bVar) {

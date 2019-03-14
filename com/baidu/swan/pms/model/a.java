@@ -8,20 +8,20 @@ public class a {
     public String appKey;
     public String appName;
     public int appStatus;
-    public String atT;
-    public String atW;
+    public String atU;
     public String atX;
     public String atY;
-    public long aug = 432000;
-    public long blL;
-    public String blM;
+    public String atZ;
+    public long auh = 432000;
+    public long blM;
     public String blN;
-    public long blO;
-    public int blP;
-    public String blQ;
+    public String blO;
+    public long blP;
+    public int blQ;
     public String blR;
     public String blS;
     public String blT;
+    public String blU;
     public long createTime;
     public String description;
     public String iconUrl;
@@ -31,20 +31,20 @@ public class a {
     public String versionName;
 
     public boolean RI() {
-        return this.blP != 0;
+        return this.blQ != 0;
     }
 
     public boolean AF() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aug;
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.auh;
     }
 
     public void g(g gVar) {
         if (gVar != null) {
-            this.appId = gVar.blV;
+            this.appId = gVar.blW;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.blW;
-            this.blO = gVar.size;
+            this.type = gVar.blX;
+            this.blP = gVar.size;
         }
     }
 
@@ -53,20 +53,20 @@ public class a {
             this.versionCode = aVar.versionCode;
             this.versionName = aVar.versionName;
             this.type = aVar.type;
-            this.blO = aVar.blO;
+            this.blP = aVar.blP;
             this.createTime = aVar.createTime;
             this.orientation = aVar.orientation;
         }
     }
 
     public void RJ() {
-        if (this.aug <= 0) {
-            this.aug = 432000L;
+        if (this.auh <= 0) {
+            this.auh = 432000L;
         }
         this.createTime = System.currentTimeMillis();
     }
 
     public boolean RK() {
-        return !TextUtils.isEmpty(this.appKey) && this.blL > 0;
+        return !TextUtils.isEmpty(this.appKey) && this.blM > 0;
     }
 }

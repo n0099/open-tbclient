@@ -48,13 +48,13 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
-    private static CookieManager cRh;
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static Object cRi = new Object();
+    private static CookieManager cRd;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static Object cRe = new Object();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0221a {
+    public interface InterfaceC0260a {
         void a(b bVar);
 
         void b(b bVar);
@@ -66,26 +66,26 @@ public final class a {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String cRm;
-        public Map<String, String> cRn;
+        public String cRi;
+        public Map<String, String> cRj;
         public int mErrCode;
         public String mErrMsg;
     }
 
-    public static String dC(Context context) {
-        return ProcessUtils.isMainProcess() ? dE(context) : dD(context);
+    public static String dB(Context context) {
+        return ProcessUtils.isMainProcess() ? dD(context) : dC(context);
     }
 
-    public static String dD(Context context) {
+    public static String dC(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, com.baidu.tieba.aiapps.apps.a.b.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }
 
-    public static String dE(Context context) {
-        return !ayc() ? "" : TbadkCoreApplication.getCurrentBduss();
+    public static String dD(Context context) {
+        return !ayb() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
-    public static String dF(Context context) {
+    public static String dE(Context context) {
         if (com.baidu.swan.apps.ae.b.IX() == null) {
             return "";
         }
@@ -95,12 +95,12 @@ public final class a {
     }
 
     public static String bl(Context context) {
-        return !ayc() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !ayb() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String l(Context context, String str, String str2) {
-        return !ayc() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !ayb() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     public static Map<String, String> a(Context context, @NonNull Set<String> set) {
@@ -189,17 +189,17 @@ public final class a {
     }
 
     public static void a(Context context, final com.baidu.swan.apps.an.c.a<Bundle> aVar, @Nullable String... strArr) {
-        if (!ayc()) {
+        if (!ayb()) {
             throw new IllegalStateException("must call in MainProcess");
         }
-        a(new InterfaceC0221a() { // from class: com.baidu.tieba.aiapps.apps.a.a.3
-            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0221a
+        a(new InterfaceC0260a() { // from class: com.baidu.tieba.aiapps.apps.a.a.3
+            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.cRn == null) {
+                if (bVar.mErrCode != 0 || bVar.cRj == null) {
                     com.baidu.swan.apps.an.c.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.cRn.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.cRj.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -208,80 +208,80 @@ public final class a {
                 com.baidu.swan.apps.an.c.a.this.D(bundle);
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0221a
+            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void b(b bVar) {
                 com.baidu.swan.apps.an.c.a.this.D(null);
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0221a
+            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void onStart() {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0221a
+            @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void onFinish() {
             }
-        }, dC(context), strArr == null ? Collections.emptyList() : Arrays.asList(strArr));
+        }, dB(context), strArr == null ? Collections.emptyList() : Arrays.asList(strArr));
     }
 
-    private static void a(final InterfaceC0221a interfaceC0221a, String str, List<String> list) {
+    private static void a(final InterfaceC0260a interfaceC0260a, String str, List<String> list) {
         SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.tieba.aiapps.apps.a.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                if (InterfaceC0221a.this != null) {
+                if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRn = getTplStokenResult.tplStokenMap;
+                        bVar.cRj = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRm = getTplStokenResult.failureType.name();
+                            bVar.cRi = getTplStokenResult.failureType.name();
                         }
                     }
-                    InterfaceC0221a.this.a(bVar);
+                    InterfaceC0260a.this.a(bVar);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(GetTplStokenResult getTplStokenResult) {
-                if (InterfaceC0221a.this != null) {
+                if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRn = getTplStokenResult.tplStokenMap;
+                        bVar.cRj = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRm = getTplStokenResult.failureType.name();
+                            bVar.cRi = getTplStokenResult.failureType.name();
                         }
                     }
-                    InterfaceC0221a.this.b(bVar);
+                    InterfaceC0260a.this.b(bVar);
                 }
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onStart() {
-                if (InterfaceC0221a.this != null) {
-                    InterfaceC0221a.this.onStart();
+                if (InterfaceC0260a.this != null) {
+                    InterfaceC0260a.this.onStart();
                 }
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFinish() {
-                if (InterfaceC0221a.this != null) {
-                    InterfaceC0221a.this.onFinish();
+                if (InterfaceC0260a.this != null) {
+                    InterfaceC0260a.this.onFinish();
                 }
             }
         }, str, list);
     }
 
-    public static boolean dG(Context context) {
+    public static boolean dF(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, f.class, null);
         return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
     }
 
     public static boolean bk(Context context) {
-        if (ayc()) {
+        if (ayb()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -320,7 +320,7 @@ public final class a {
     }
 
     public static void b(Activity activity, String str, final com.baidu.swan.apps.a.a aVar) {
-        if (!ayc()) {
+        if (!ayb()) {
             aVar.onResult(-1);
             return;
         }
@@ -350,7 +350,7 @@ public final class a {
         com.baidu.swan.apps.statistic.c.f(z, str);
     }
 
-    private static boolean ayc() {
+    private static boolean ayb() {
         return ProcessUtils.isMainProcess();
     }
 
@@ -391,10 +391,10 @@ public final class a {
     }
 
     public static CookieManager Dp() {
-        if (cRh == null) {
-            synchronized (cRi) {
-                if (cRh == null) {
-                    cRh = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
+        if (cRd == null) {
+            synchronized (cRe) {
+                if (cRd == null) {
+                    cRd = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
                         @Override // com.baidu.searchbox.http.cookie.CookieManager
                         public boolean shouldAcceptCookie(String str, String str2) {
                             return true;
@@ -446,7 +446,7 @@ public final class a {
                 }
             }
         }
-        return cRh;
+        return cRd;
     }
 
     public static void a(final Activity activity, JSONObject jSONObject) {

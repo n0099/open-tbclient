@@ -3,9 +3,9 @@ package com.baidu.tieba.tbadvert.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public int bCe;
+    public int bCg;
     public long endTime;
-    public String iKk;
+    public String iKc;
     public int id;
     public String linkUrl;
     public long showTime = 3000;
@@ -20,13 +20,13 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt("show_type", 0);
-            this.bCe = jSONObject.optInt("show_status", 0);
-            this.iKk = jSONObject.optString("resource_url");
+            this.bCg = jSONObject.optInt("show_status", 0);
+            this.iKc = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean cfN() {
+    public boolean cfP() {
         return this.showType == 1;
     }
 

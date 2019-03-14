@@ -2,7 +2,6 @@ package com.sina.weibo.sdk.network.intercept;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.base.WbUserInfo;
@@ -23,7 +22,7 @@ public class GuestParamInterception implements IRequestIntercept {
         if (userInfo != null) {
             bundle.putString("gsid", userInfo.getGsid());
             bundle.putString("uid", userInfo.getUid());
-            bundle.putString(NotifyType.SOUND, UtilitySo.getInstance().calculateS(iRequestParam.getContext(), userInfo.getUid()));
+            bundle.putString("s", UtilitySo.getInstance().calculateS(iRequestParam.getContext(), userInfo.getUid()));
             return false;
         }
         return false;

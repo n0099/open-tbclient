@@ -8,28 +8,28 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class s extends c implements i<aj>, j {
-    private static final int Yg = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds115);
-    NEGFeedBackView Yh;
+    private static final int Yh = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds115);
+    NEGFeedBackView Yi;
 
     public s(TbPageContext tbPageContext) {
         bx(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Yg, Yg);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Yh, Yh);
         layoutParams.addRule(11);
         layoutParams.topMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds32);
         a(layoutParams);
-        this.Yh = new NEGFeedBackView(tbPageContext);
-        I(this.Yh);
+        this.Yi = new NEGFeedBackView(tbPageContext);
+        I(this.Yi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.c
     /* renamed from: rp */
     public NEGFeedBackView getDecorView() {
-        return this.Yh;
+        return this.Yi;
     }
 
     public void a(NEGFeedBackView.a aVar) {
-        this.Yh.setEventCallback(aVar);
+        this.Yi.setEventCallback(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,16 +37,16 @@ public class s extends c implements i<aj>, j {
     /* renamed from: a */
     public void C(aj ajVar) {
         if (ajVar == null) {
-            this.Yh.setVisibility(8);
+            this.Yi.setVisibility(8);
             return;
         }
-        this.Yh.setData(ajVar);
-        this.Yh.setFirstRowSingleColumn(true);
-        this.Yh.setVisibility(0);
+        this.Yi.setData(ajVar);
+        this.Yi.setFirstRowSingleColumn(true);
+        this.Yi.setVisibility(0);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Yh.onChangeSkinType();
+        this.Yi.onChangeSkinType();
     }
 }

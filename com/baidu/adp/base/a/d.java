@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
@@ -83,7 +84,7 @@ public abstract class d implements a {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            BdLog.e(str + ":" + th);
+            BdLog.e(str + Config.TRACE_TODAY_VISIT_SPLIT + th);
             return false;
         }
     }

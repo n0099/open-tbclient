@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.an.y;
 /* loaded from: classes2.dex */
 public final class b {
-    public String axH;
+    public String axI;
     public String mBaseUrl;
     public String mParams;
 
     public static b ap(String str, String str2) {
         b bVar = new b();
-        bVar.axH = y.hF(str);
+        bVar.axI = y.hF(str);
         bVar.mParams = y.hG(str);
         bVar.mBaseUrl = str2;
         return bVar;
@@ -21,12 +21,12 @@ public final class b {
             return null;
         }
         if (TextUtils.isEmpty(bVar.mParams)) {
-            return bVar.axH;
+            return bVar.axI;
         }
-        return bVar.axH + "?" + bVar.mParams;
+        return bVar.axI + "?" + bVar.mParams;
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.axH + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "'}";
+        return "SwanAppPageParam{mPage='" + this.axI + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "'}";
     }
 }

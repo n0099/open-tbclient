@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.ab;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tbadk.mainTab.b {
     public d(FrsFragment frsFragment) {
-        anL().cod = frsFragment;
+        anK().cod = frsFragment;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,10 +20,10 @@ public class d extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c anK() {
+    public com.baidu.tbadk.mainTab.c anJ() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 1;
-        cVar.bOd = d.j.chosen_pb_title;
+        cVar.bOe = d.j.chosen_pb_title;
         cVar.coj = com.baidu.tbadk.mainTab.c.cog;
         return cVar;
     }

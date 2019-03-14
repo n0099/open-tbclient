@@ -9,10 +9,10 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class CountDownTextView extends TextView {
-    private int aqg;
-    private Runnable cQP;
-    private b ioF;
-    private boolean ioG;
+    private int aqh;
+    private Runnable cQM;
+    private b ioy;
+    private boolean ioz;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -23,34 +23,34 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.ioF = null;
-        this.ioG = true;
-        bXT();
+        this.ioy = null;
+        this.ioz = true;
+        bXV();
     }
 
-    private void bXT() {
-        this.cQP = new a();
+    private void bXV() {
+        this.cQM = new a();
         this.mHandler = new Handler();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.ioF = null;
-        this.ioG = true;
-        bXT();
+        this.ioy = null;
+        this.ioz = true;
+        bXV();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.ioF = null;
-        this.ioG = true;
-        bXT();
+        this.ioy = null;
+        this.ioz = true;
+        bXV();
     }
 
     public void update(int i) {
-        this.aqg = i;
+        this.aqh = i;
     }
 
     public void startCountDown() {
@@ -58,25 +58,25 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.ioF = bVar;
+        this.ioy = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.ioG = z;
+        this.ioz = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
-        private final WeakReference<CountDownTextView> cQm;
+        private final WeakReference<CountDownTextView> cQj;
 
         private a(CountDownTextView countDownTextView) {
-            this.cQm = new WeakReference<>(countDownTextView);
+            this.cQj = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.cQm.get();
+            CountDownTextView countDownTextView = this.cQj.get();
             if (countDownTextView != null) {
                 countDownTextView.lE(1);
             }
@@ -86,20 +86,20 @@ public class CountDownTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     public void lE(int i) {
         if (i > 0) {
-            if (this.aqg == 0) {
-                if (this.ioF != null && this.ioG && getVisibility() == 0) {
-                    this.ioF.bh(this);
+            if (this.aqh == 0) {
+                if (this.ioy != null && this.ioz && getVisibility() == 0) {
+                    this.ioy.bh(this);
                 }
-                setText(String.valueOf(this.aqg));
+                setText(String.valueOf(this.aqh));
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
             }
-            if (this.aqg > 0) {
-                setText(String.valueOf(this.aqg));
+            if (this.aqh > 0) {
+                setText(String.valueOf(this.aqh));
             }
-            this.mHandler.removeCallbacks(this.cQP);
-            this.mHandler.postDelayed(this.cQP, 1000L);
-            this.aqg -= i;
+            this.mHandler.removeCallbacks(this.cQM);
+            this.mHandler.postDelayed(this.cQM, 1000L);
+            this.aqh -= i;
         }
     }
 
@@ -112,10 +112,10 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        axI();
+        axH();
     }
 
-    private void axI() {
+    private void axH() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

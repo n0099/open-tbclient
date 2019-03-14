@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -20,8 +21,8 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class SapiDataEncryptor {
-    public static final String UID_CIPHER_KEY = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "v", "o", "i", "c", "e", "3", "5", "h", "y", "1", "2"});
-    public static final String UID_CIPHER_KEY_FACE = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "f", "a", "c", "e", "D", "z", "T", "9", "9", "1", "1"});
+    public static final String UID_CIPHER_KEY = TextUtils.join("", new String[]{"b", Config.APP_VERSION_CODE, "i", "d", "u", "v", Config.OS, "i", "c", "e", "3", "5", "h", "y", "1", "2"});
+    public static final String UID_CIPHER_KEY_FACE = TextUtils.join("", new String[]{"b", Config.APP_VERSION_CODE, "i", "d", "u", "f", Config.APP_VERSION_CODE, "c", "e", "D", "z", "T", "9", "9", "1", "1"});
     private static final String a = "0123456789ABCDEF";
     private String b;
     private AES c = new AES();

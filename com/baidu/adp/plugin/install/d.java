@@ -17,6 +17,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.adp.plugin.util.e;
 import com.baidu.adp.plugin.util.f;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
@@ -618,7 +619,7 @@ public class d {
             intent3.putExtra("replace_method_classes", str8);
             intent3.putExtra("is_inject_classloader", z2);
             BdStatisticsManager.getInstance().save();
-            BdBaseApplication.getInst().sendBroadcast(intent3);
+            BdBaseApplication.getInst().sendOrderedBroadcast(intent3, null);
             try {
                 File[] listFiles = Util.nW().listFiles();
                 if (listFiles != null) {
@@ -1059,7 +1060,7 @@ public class d {
                             if (readLine == null) {
                                 break;
                             }
-                            String[] split = readLine.split(":");
+                            String[] split = readLine.split(Config.TRACE_TODAY_VISIT_SPLIT);
                             if (split.length == 2) {
                                 String trim = split[0].trim();
                                 String trim2 = split[1].trim();

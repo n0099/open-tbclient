@@ -1,5 +1,6 @@
 package cn.jiguang.d.c;
 
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
@@ -114,7 +115,7 @@ public class o {
                 StringTokenizer stringTokenizer = new StringTokenizer(readLine);
                 if (stringTokenizer.hasMoreTokens()) {
                     String nextToken = stringTokenizer.nextToken();
-                    if (readLine.indexOf(":") != -1) {
+                    if (readLine.indexOf(Config.TRACE_TODAY_VISIT_SPLIT) != -1) {
                         z = false;
                         z2 = false;
                     } else {
@@ -142,7 +143,7 @@ public class o {
                         while (stringTokenizer.hasMoreTokens()) {
                             nextToken = stringTokenizer.nextToken();
                         }
-                        if (!nextToken.equals(":")) {
+                        if (!nextToken.equals(Config.TRACE_TODAY_VISIT_SPLIT)) {
                             c(nextToken, arrayList2);
                             z3 = z;
                             z4 = true;
@@ -151,7 +152,7 @@ public class o {
                         while (stringTokenizer.hasMoreTokens()) {
                             nextToken = stringTokenizer.nextToken();
                         }
-                        if (!nextToken.equals(":")) {
+                        if (!nextToken.equals(Config.TRACE_TODAY_VISIT_SPLIT)) {
                             c(nextToken, arrayList2);
                             z3 = z;
                             z4 = true;
@@ -161,7 +162,7 @@ public class o {
                             while (stringTokenizer.hasMoreTokens()) {
                                 nextToken = stringTokenizer.nextToken();
                             }
-                            if (!nextToken.equals(":")) {
+                            if (!nextToken.equals(Config.TRACE_TODAY_VISIT_SPLIT)) {
                                 a(nextToken, arrayList);
                                 z = true;
                             }

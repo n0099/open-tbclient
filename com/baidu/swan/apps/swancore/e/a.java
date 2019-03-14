@@ -13,22 +13,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static C0148a c(String str, String str2, String str3, int i) {
+    public static C0177a c(String str, String str2, String str3, int i) {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
         long hg = com.baidu.swan.apps.swancore.b.hg(str);
         if (hg == 0) {
-            return C0148a.hi("invalid version code : " + str);
+            return C0177a.hi("invalid version code : " + str);
         }
         if (!u.c(new File(str2), str3)) {
-            return C0148a.hi("sign failed.");
+            return C0177a.hi("sign failed.");
         }
         if (!com.baidu.swan.c.b.bl(str2, h(hg, i).getPath())) {
-            return C0148a.hi("unzip bundle failed.");
+            return C0177a.hi("unzip bundle failed.");
         }
         if (DEBUG) {
             String c = com.baidu.swan.c.c.c(new File(str2), false);
@@ -41,7 +41,7 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + hg);
         }
-        return C0148a.KX();
+        return C0177a.KX();
     }
 
     private static ArrayList<Long> d(long j, long j2) {
@@ -55,8 +55,8 @@ public class a {
             return arrayList;
         }
         for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Gw().Gx()) {
-            if (bVar.aFd && bVar.aFa != null && (As = bVar.aFa.As()) != null && !arrayList.contains(Long.valueOf(As.aTc))) {
-                arrayList.add(Long.valueOf(As.aTc));
+            if (bVar.aFe && bVar.aFb != null && (As = bVar.aFb.As()) != null && !arrayList.contains(Long.valueOf(As.aTd))) {
+                arrayList.add(Long.valueOf(As.aTd));
             }
         }
         if (DEBUG) {
@@ -99,7 +99,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0148a {
+    public static class C0177a {
         public String message;
         public int statusCode = 0;
 
@@ -107,19 +107,19 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0148a KX() {
+        public static C0177a KX() {
             return p(0, "");
         }
 
-        public static C0148a hi(String str) {
+        public static C0177a hi(String str) {
             return p(1, str);
         }
 
-        public static C0148a p(int i, String str) {
-            C0148a c0148a = new C0148a();
-            c0148a.statusCode = i;
-            c0148a.message = str;
-            return c0148a;
+        public static C0177a p(int i, String str) {
+            C0177a c0177a = new C0177a();
+            c0177a.statusCode = i;
+            c0177a.message = str;
+            return c0177a;
         }
 
         public String toString() {

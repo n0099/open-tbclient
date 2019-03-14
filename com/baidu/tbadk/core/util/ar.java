@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar bLe = null;
-    private boolean bLf = false;
+    private static ar bLf = null;
     private boolean bLg = false;
-    private int bLh = TbConfig.POST_IMAGE_SMALL;
-    private String bLi = String.valueOf(45);
+    private boolean bLh = false;
+    private int bLi = TbConfig.POST_IMAGE_SMALL;
+    private String bLj = String.valueOf(45);
 
     public static ar adp() {
-        if (bLe == null) {
+        if (bLf == null) {
             synchronized (ar.class) {
-                bLe = new ar();
+                bLf = new ar();
             }
         }
-        return bLe;
+        return bLf;
     }
 
     public ar() {
@@ -30,33 +30,33 @@ public class ar {
     }
 
     public void dD(boolean z) {
-        this.bLg = z;
+        this.bLh = z;
     }
 
     public boolean adr() {
-        return this.bLg;
+        return this.bLh;
     }
 
     public void dE(boolean z) {
-        this.bLf = z;
+        this.bLg = z;
         adq();
     }
 
     private void ads() {
-        this.bLf = com.baidu.adp.lib.util.j.kZ();
+        this.bLg = com.baidu.adp.lib.util.j.kZ();
     }
 
     public boolean adt() {
-        return this.bLf;
+        return this.bLg;
     }
 
     public String adu() {
-        return this.bLi;
+        return this.bLj;
     }
 
     public int adv() {
         adz();
-        return this.bLh;
+        return this.bLi;
     }
 
     public int adw() {
@@ -65,7 +65,7 @@ public class ar {
 
     public void adx() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.Wy().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.Wy().getViewImageQuality() != 1 : !this.bLf) {
+        if (com.baidu.tbadk.core.i.Wy().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.Wy().getViewImageQuality() != 1 : !this.bLg) {
             z = false;
         }
         dD(z);
@@ -80,7 +80,7 @@ public class ar {
         } else if (com.baidu.tbadk.core.i.Wy().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.bLi = valueOf;
+        this.bLj = valueOf;
     }
 
     public void adz() {
@@ -104,7 +104,7 @@ public class ar {
                 i = 1800;
                 break;
         }
-        this.bLh = i;
+        this.bLi = i;
     }
 
     public static boolean adA() {

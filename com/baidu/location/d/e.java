@@ -6,6 +6,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -146,7 +147,7 @@ public final class e {
         String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(new Date(System.currentTimeMillis()));
         MatrixCursor matrixCursor = new MatrixCursor(a);
         Object[] objArr = new Object[a.length];
-        objArr[matrixCursor.getColumnIndex("CoorType")] = "gcj02";
+        objArr[matrixCursor.getColumnIndex("CoorType")] = CoordinateType.GCJ02;
         objArr[matrixCursor.getColumnIndex("Time")] = format;
         objArr[matrixCursor.getColumnIndex("LocType")] = Integer.valueOf(bDLocation.getLocType());
         objArr[matrixCursor.getColumnIndex("Longitude")] = Double.valueOf(bDLocation.getLongitude());

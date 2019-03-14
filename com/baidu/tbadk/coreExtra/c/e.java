@@ -39,10 +39,10 @@ public class e {
     }
 
     public static boolean dc(Context context) {
-        return ajX();
+        return ajW();
     }
 
-    public static boolean ajX() {
+    public static boolean ajW() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
@@ -113,7 +113,7 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.ajU() == null) {
+        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.ajT() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";

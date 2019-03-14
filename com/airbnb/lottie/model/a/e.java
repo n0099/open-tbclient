@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.b.h;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -15,10 +15,10 @@ public class e implements m<PointF, PointF> {
     private PointF qB;
 
     public static m<PointF, PointF> h(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-        if (jSONObject.has("k")) {
-            return new e(jSONObject.opt("k"), eVar);
+        if (jSONObject.has(Config.APP_KEY)) {
+            return new e(jSONObject.opt(Config.APP_KEY), eVar);
         }
-        return new i(b.a.e(jSONObject.optJSONObject("x"), eVar), b.a.e(jSONObject.optJSONObject("y"), eVar));
+        return new i(b.a.e(jSONObject.optJSONObject(Config.EVENT_HEAT_X), eVar), b.a.e(jSONObject.optJSONObject("y"), eVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class e implements m<PointF, PointF> {
     private boolean j(Object obj) {
         if (obj instanceof JSONArray) {
             Object opt = ((JSONArray) obj).opt(0);
-            return (opt instanceof JSONObject) && ((JSONObject) opt).has(Info.kBaiduTimeKey);
+            return (opt instanceof JSONObject) && ((JSONObject) opt).has("t");
         }
         return false;
     }

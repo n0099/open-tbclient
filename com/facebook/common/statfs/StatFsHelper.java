@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper jAF;
-    private static final long jAG = TimeUnit.MINUTES.toMillis(2);
-    private volatile File jAI;
-    private volatile File jAK;
+    private static StatFsHelper jAx;
+    private static final long jAy = TimeUnit.MINUTES.toMillis(2);
+    private volatile File jAA;
+    private volatile File jAC;
     @GuardedBy("lock")
-    private long jAL;
-    private volatile StatFs jAH = null;
-    private volatile StatFs jAJ = null;
+    private long jAD;
+    private volatile StatFs jAz = null;
+    private volatile StatFs jAB = null;
     private volatile boolean mInitialized = false;
-    private final Lock jAM = new ReentrantLock();
+    private final Lock jAE = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cud() {
+    public static synchronized StatFsHelper cug() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (jAF == null) {
-                jAF = new StatFsHelper();
+            if (jAx == null) {
+                jAx = new StatFsHelper();
             }
-            statFsHelper = jAF;
+            statFsHelper = jAx;
         }
         return statFsHelper;
     }
@@ -47,24 +47,24 @@ public class StatFsHelper {
     protected StatFsHelper() {
     }
 
-    private void cue() {
+    private void cuh() {
         if (!this.mInitialized) {
-            this.jAM.lock();
+            this.jAE.lock();
             try {
                 if (!this.mInitialized) {
-                    this.jAI = Environment.getDataDirectory();
-                    this.jAK = Environment.getExternalStorageDirectory();
-                    cug();
+                    this.jAA = Environment.getDataDirectory();
+                    this.jAC = Environment.getExternalStorageDirectory();
+                    cuj();
                     this.mInitialized = true;
                 }
             } finally {
-                this.jAM.unlock();
+                this.jAE.unlock();
             }
         }
     }
 
     public boolean a(StorageType storageType, long j) {
-        cue();
+        cuh();
         long a = a(storageType);
         return a <= 0 || a < j;
     }
@@ -73,9 +73,9 @@ public class StatFsHelper {
     public long a(StorageType storageType) {
         long blockSize;
         long availableBlocks;
-        cue();
-        cuf();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.jAH : this.jAJ;
+        cuh();
+        cui();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.jAz : this.jAB;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cuf() {
-        if (this.jAM.tryLock()) {
+    private void cui() {
+        if (this.jAE.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.jAL > jAG) {
-                    cug();
+                if (SystemClock.uptimeMillis() - this.jAD > jAy) {
+                    cuj();
                 }
             } finally {
-                this.jAM.unlock();
+                this.jAE.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cug() {
-        this.jAH = a(this.jAH, this.jAI);
-        this.jAJ = a(this.jAJ, this.jAK);
-        this.jAL = SystemClock.uptimeMillis();
+    private void cuj() {
+        this.jAz = a(this.jAz, this.jAA);
+        this.jAB = a(this.jAB, this.jAC);
+        this.jAD = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = FE(file.getAbsolutePath());
+                statFs = FC(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs FE(String str) {
+    protected static StatFs FC(String str) {
         return new StatFs(str);
     }
 }

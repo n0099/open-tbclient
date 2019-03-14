@@ -492,6 +492,9 @@ public class c {
                 intentFilter.addAction("com.baidu.adp.plugin.installfail");
                 intentFilter.addAction("com.baidu.adp.plugin.installcancel");
                 intentFilter.addAction("com.baidu.adp.plugin.installrepeat");
+                if (!TextUtils.isEmpty(Build.BRAND) && Build.BRAND.toLowerCase().equals("oppo")) {
+                    intentFilter.setPriority(1000);
+                }
                 applicationContext.registerReceiver(this.Ke, intentFilter);
                 this.Kc = true;
             } catch (Exception e) {

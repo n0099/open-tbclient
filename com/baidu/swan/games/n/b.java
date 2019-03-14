@@ -13,22 +13,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private com.baidu.swan.games.e.b bey;
+    private com.baidu.swan.games.e.b bez;
 
     public b(@NonNull com.baidu.swan.games.e.b bVar) {
-        this.bey = bVar;
+        this.bez = bVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c b = com.baidu.swan.games.binding.model.c.b(jsObject);
-        if (b != null && this.bey != null) {
+        if (b != null && this.bez != null) {
             final com.baidu.swan.games.n.a.c cVar = new com.baidu.swan.games.n.a.c();
             try {
                 int i = b.getInt("todayPlayedTime");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("ma_id", bex);
+                    jSONObject.put("ma_id", bey);
                     jSONObject.put("todayPlayedTime", String.valueOf(i));
                 } catch (JSONException e) {
                     if (DEBUG) {
@@ -73,7 +73,7 @@ public class b extends a {
                         if (a.DEBUG) {
                             Log.d("CheckIsUserAdvisedToRestApi", "on success");
                         }
-                        b.this.bey.post(new Runnable() { // from class: com.baidu.swan.games.n.b.1.1
+                        b.this.bez.post(new Runnable() { // from class: com.baidu.swan.games.n.b.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(b, true, aVar);
@@ -90,7 +90,7 @@ public class b extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                         }
-                        b.this.bey.post(new Runnable() { // from class: com.baidu.swan.games.n.b.1.2
+                        b.this.bez.post(new Runnable() { // from class: com.baidu.swan.games.n.b.1.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.a.a(b, false, cVar);

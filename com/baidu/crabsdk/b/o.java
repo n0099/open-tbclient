@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes3.dex */
 public final class o {
-    private static PackageManager abX;
-    private static PackageInfo abY;
-    private static String abZ;
+    private static PackageManager abY;
+    private static PackageInfo abZ;
+    private static String aca;
     private static Context mContext;
 
     public static String G() {
@@ -16,32 +16,32 @@ public final class o {
     }
 
     public static String H() {
-        if (abZ == null) {
-            if (abY == null) {
+        if (aca == null) {
+            if (abZ == null) {
                 return Apn.APN_UNKNOWN;
             }
-            abZ = abY.applicationInfo.loadLabel(abX).toString();
+            aca = abZ.applicationInfo.loadLabel(abY).toString();
         }
-        return abZ;
+        return aca;
     }
 
     public static String I() {
-        return abY == null ? Apn.APN_UNKNOWN : abY.versionName;
+        return abZ == null ? Apn.APN_UNKNOWN : abZ.versionName;
     }
 
     public static int J() {
-        if (abY == null) {
+        if (abZ == null) {
             return 0;
         }
-        return abY.versionCode;
+        return abZ.versionCode;
     }
 
     public static void d(Context context) {
         if (mContext == null) {
             mContext = context;
-            abX = context.getPackageManager();
+            abY = context.getPackageManager();
             try {
-                abY = abX.getPackageInfo(mContext.getPackageName(), 0);
+                abZ = abY.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }

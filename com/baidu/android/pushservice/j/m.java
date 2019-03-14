@@ -34,6 +34,7 @@ import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.meizu.cloud.pushsdk.PushManager;
@@ -777,7 +778,7 @@ public final class m {
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.csR().b(applicationContext, str, str2, bVar);
+            com.coloros.mcssdk.a.csU().b(applicationContext, str, str2, bVar);
         } catch (Exception e) {
         }
     }
@@ -1710,7 +1711,7 @@ public final class m {
             int i = 0;
             while (i < allByName.length) {
                 i++;
-                str2 = str2 + ":" + allByName[i].getHostAddress();
+                str2 = str2 + Config.TRACE_TODAY_VISIT_SPLIT + allByName[i].getHostAddress();
             }
             return str2.length() > 1 ? str2.substring(1) : str2;
         } catch (Exception e) {
@@ -2503,7 +2504,7 @@ public final class m {
             if (a2.length() > 1000) {
                 a2 = a2.substring(500);
             }
-            str = a2 + ":" + str;
+            str = a2 + Config.TRACE_TODAY_VISIT_SPLIT + str;
         }
         j.a(context, "com.baidu.android.pushservice.MESSAGE_IDS_RECEIVED", str);
         return false;

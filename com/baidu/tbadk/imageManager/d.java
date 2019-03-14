@@ -22,12 +22,12 @@ public class d {
         public String url;
     }
 
-    public static String anu() {
+    public static String ant() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String anv() {
-        return Math.abs(anu().hashCode()) + "";
+    public static String anu() {
+        return Math.abs(ant().hashCode()) + "";
     }
 
     public static void pj(String str) {

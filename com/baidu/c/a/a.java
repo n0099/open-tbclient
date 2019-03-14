@@ -7,12 +7,12 @@ import com.baidu.c.a.b.c;
 import com.baidu.c.a.b.d;
 /* loaded from: classes3.dex */
 public class a {
-    private static boolean acK;
     private static boolean acL;
+    private static boolean acM;
 
     public static void init(Context context) {
-        acK = h.kK().n("criusbase", 2);
-        acL = h.kK().n("crius", 2);
+        acL = h.kK().n("criusbase", 2);
+        acM = h.kK().n("crius", 2);
     }
 
     public static void a(b bVar) {

@@ -1,5 +1,7 @@
 package com.baidu.tieba.VideoCacheClient;
 
+import com.baidu.mapapi.UIMsg;
+import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +17,7 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cMc;
+    private static a cLZ;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
@@ -116,13 +118,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String avW = a.this.avW();
-                    if (avW != null && !avW.isEmpty()) {
-                        File file = new File(c.cLR + b.qB(avW) + "/header_downloaded");
+                    String avV = a.this.avV();
+                    if (avV != null && !avV.isEmpty()) {
+                        File file = new File(c.cLO + b.qz(avV) + "/header_downloaded");
                         if (file.exists()) {
-                            d.as(a.TAG, "header exists " + avW);
+                            d.as(a.TAG, "header exists " + avV);
                         } else {
-                            d.as(a.TAG, "client preload start: " + avW);
+                            d.as(a.TAG, "client preload start: " + avV);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -141,12 +143,12 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avW);
-                                    int port = b.avX().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avV);
+                                    int port = b.avW().getPort();
                                     socket = new Socket();
                                     try {
-                                        socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
-                                        socket.setSoTimeout(5000);
+                                        socket.connect(new InetSocketAddress("127.0.0.1", port), UIMsg.m_AppUI.MSG_APP_GPS);
+                                        socket.setSoTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
                                         outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), "utf-8");
                                         try {
                                             outputStreamWriter.write("GET " + str + " HTTP/1.1\r\n");
@@ -163,7 +165,7 @@ public class a {
                                                     try {
                                                         readLine = bufferedReader.readLine();
                                                         if (i2 == 0 && readLine != null && readLine.startsWith(HTTP.CONTENT_LEN)) {
-                                                            String[] split = readLine.split(":");
+                                                            String[] split = readLine.split(Config.TRACE_TODAY_VISIT_SPLIT);
                                                             if (split.length > 1) {
                                                                 j2 = Long.parseLong(split[1].trim());
                                                             }
@@ -199,7 +201,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.as(a.TAG, "client preload check1: " + avW);
+                                            d.as(a.TAG, "client preload check1: " + avV);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -251,7 +253,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.as(a.TAG, "client preload end: " + avW);
+                            d.as(a.TAG, "client preload end: " + avV);
                         }
                     }
                 } else {
@@ -294,23 +296,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a avV() {
-        if (cMc == null) {
+    public static a avU() {
+        if (cLZ == null) {
             synchronized (a.class) {
-                if (cMc == null) {
-                    cMc = new a();
+                if (cLZ == null) {
+                    cLZ = new a();
                 }
             }
         }
-        return cMc;
+        return cLZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String avW() {
+    public synchronized String avV() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void qC(String str) {
+    public synchronized void qA(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

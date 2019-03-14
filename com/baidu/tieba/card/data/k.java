@@ -11,6 +11,10 @@ import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class k extends c {
     public bg threadData;
+    public static String ele = "";
+    public static String elf = "";
+    public static String elg = "";
+    public static String elh = "";
     public static String eli = "";
     public static String elj = "";
     public static String elk = "";
@@ -22,51 +26,47 @@ public class k extends c {
     public static String elq = "";
     public static String elr = "";
     public static String els = "";
-    public static String elt = "";
-    public static String elu = "";
-    public static String elv = "";
-    public static String elw = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public static final BdUniqueId elt = BdUniqueId.gen();
+    public static final BdUniqueId bBb = BdUniqueId.gen();
+    public static final BdUniqueId bBh = BdUniqueId.gen();
+    public static final BdUniqueId elu = BdUniqueId.gen();
+    public static final BdUniqueId elv = BdUniqueId.gen();
+    public static final BdUniqueId elw = BdUniqueId.gen();
     public static final BdUniqueId elx = BdUniqueId.gen();
-    public static final BdUniqueId bAZ = BdUniqueId.gen();
-    public static final BdUniqueId bBf = BdUniqueId.gen();
     public static final BdUniqueId ely = BdUniqueId.gen();
     public static final BdUniqueId elz = BdUniqueId.gen();
     public static final BdUniqueId elA = BdUniqueId.gen();
     public static final BdUniqueId elB = BdUniqueId.gen();
     public static final BdUniqueId elC = BdUniqueId.gen();
-    public static final BdUniqueId elD = BdUniqueId.gen();
-    public static final BdUniqueId elE = BdUniqueId.gen();
-    public static final BdUniqueId elF = BdUniqueId.gen();
-    public static final BdUniqueId elG = BdUniqueId.gen();
-    public static final BdUniqueId bBj = BdUniqueId.gen();
-    public static final BdUniqueId bBk = BdUniqueId.gen();
-    public boolean elH = false;
+    public static final BdUniqueId bBl = BdUniqueId.gen();
+    public static final BdUniqueId bBm = BdUniqueId.gen();
+    public boolean elD = false;
     public boolean isLinkThread = false;
-    public boolean elI = false;
-    public boolean bAD = false;
-    public boolean bAE = false;
-    public boolean elJ = false;
-    public boolean bAH = false;
-    public boolean bAI = false;
+    public boolean elE = false;
+    public boolean bAF = false;
+    public boolean bAG = false;
+    public boolean elF = false;
     public boolean bAJ = false;
-    public boolean elK = false;
-    public boolean elL = false;
-    public boolean elM = false;
+    public boolean bAK = false;
+    public boolean bAL = false;
+    public boolean elG = false;
+    public boolean elH = false;
+    public boolean elI = false;
     public boolean cjO = true;
 
     public static boolean W(bg bgVar) {
         if (bgVar == null) {
             return false;
         }
-        return bgVar.getType() == bg.bAO || bgVar.getType() == bg.bBa || bgVar.getType() == bg.bAZ || bgVar.getType() == bg.bBf || bgVar.getType() == bg.bBh;
+        return bgVar.getType() == bg.bAQ || bgVar.getType() == bg.bBc || bgVar.getType() == bg.bBb || bgVar.getType() == bg.bBh || bgVar.getType() == bg.bBj;
     }
 
     public static boolean X(bg bgVar) {
         if (bgVar == null) {
             return false;
         }
-        return bgVar.getType() == bg.bBj || bgVar.getType() == bg.bBk;
+        return bgVar.getType() == bg.bBl || bgVar.getType() == bg.bBm;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -75,31 +75,31 @@ public class k extends c {
             return TYPE;
         }
         if (this.threadData.threadType == 63) {
-            return bBj;
+            return bBl;
         }
         if (this.threadData.threadType == 64) {
-            return bBk;
+            return bBm;
         }
-        if (this.bAD) {
-            return elz;
+        if (this.bAF) {
+            return elv;
         }
-        if (this.bAE) {
-            return elA;
+        if (this.bAG) {
+            return elw;
         }
-        if (this.elJ) {
-            return elC;
-        }
-        if (this.bAH) {
-            return elD;
-        }
-        if (this.bAI) {
-            return elG;
+        if (this.elF) {
+            return ely;
         }
         if (this.bAJ) {
-            return elF;
+            return elz;
         }
-        if (this.elK) {
-            return elE;
+        if (this.bAK) {
+            return elC;
+        }
+        if (this.bAL) {
+            return elB;
+        }
+        if (this.elG) {
+            return elA;
         }
         return TYPE;
     }
@@ -116,65 +116,65 @@ public class k extends c {
         return this.threadData;
     }
 
-    public boolean aQZ() {
+    public boolean aQY() {
         return (this.threadData == null || v.S(this.threadData.Zf()) == 0) ? false : true;
     }
 
-    public boolean aRa() {
+    public boolean aQZ() {
         return this.threadData == null || this.threadData.ZM();
     }
 
-    public am aRb() {
+    public am aRa() {
         SmartApp ZD;
-        if (aQZ()) {
-            am tH = tH(eln);
-            if (tH != null) {
-                tH.setPosition(this.position);
+        if (aQY()) {
+            am tF = tF(elj);
+            if (tF != null) {
+                tF.setPosition(this.position);
                 if (WR() != null) {
                     bg WR = WR();
-                    tH.T("obj_name", WR.aap() != null && (WR.aap().cet() != null || WR.aap().asG() != null) ? 1 : 0);
+                    tF.T("obj_name", WR.aap() != null && (WR.aap().cev() != null || WR.aap().asF() != null) ? 1 : 0);
                     if (WR.YR() != null) {
-                        tH.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
+                        tF.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
                     }
-                    tH.T("is_full", WR.aaG() ? 1 : 0);
+                    tF.T("is_full", WR.aaG() ? 1 : 0);
                 }
             }
-            return tH;
-        } else if (aRa()) {
-            am tH2 = tH(elt);
-            if (tH2 != null) {
-                tH2.setPosition(this.position);
+            return tF;
+        } else if (aQZ()) {
+            am tF2 = tF(elp);
+            if (tF2 != null) {
+                tF2.setPosition(this.position);
                 if (WR() != null && (ZD = WR().ZD()) != null) {
-                    tH2.bJ("obj_type", ZD.id);
-                    tH2.bJ("obj_name", ZD.name);
-                    return tH2;
+                    tF2.bJ("obj_type", ZD.id);
+                    tF2.bJ("obj_name", ZD.name);
+                    return tF2;
                 }
-                return tH2;
+                return tF2;
             }
-            return tH2;
+            return tF2;
         } else {
-            am tH3 = tH(eli);
-            if (tH3 != null) {
-                tH3.setPosition(this.position);
-                tH3.bJ("ab_tag", aQR()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+            am tF3 = tF(ele);
+            if (tF3 != null) {
+                tF3.setPosition(this.position);
+                tF3.bJ("ab_tag", aQQ()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
                 if (WR() != null) {
                     bg WR2 = WR();
-                    boolean z = (WR2.aap() == null || (WR2.aap().cet() == null && WR2.aap().asG() == null)) ? false : true;
-                    tH3.T("obj_name", z ? 1 : 0);
-                    if (z && WR2.aap().cet() != null && WR2.aap().cet().asx() != null && WR2.aap().cet().asx().size() > 0) {
-                        tH3.T("obj_to", WR2.aap().iGP ? 2 : 1);
+                    boolean z = (WR2.aap() == null || (WR2.aap().cev() == null && WR2.aap().asF() == null)) ? false : true;
+                    tF3.T("obj_name", z ? 1 : 0);
+                    if (z && WR2.aap().cev() != null && WR2.aap().cev().asw() != null && WR2.aap().cev().asw().size() > 0) {
+                        tF3.T("obj_to", WR2.aap().iGH ? 2 : 1);
                     }
                     if (WR2.YR() != null) {
-                        tH3.T("ab_type", WR2.YR().hadConcerned() ? 1 : 0);
+                        tF3.T("ab_type", WR2.YR().hadConcerned() ? 1 : 0);
                     }
-                    tH3.T("is_full", WR2.aaG() ? 1 : 0);
+                    tF3.T("is_full", WR2.aaG() ? 1 : 0);
                 }
             }
-            return tH3;
+            return tF3;
         }
     }
 
-    public am tJ(String str) {
+    public am tH(String str) {
         int i;
         am amVar = new am(str);
         if (this.threadData != null) {
@@ -187,108 +187,108 @@ public class k extends c {
             }
             amVar.T("obj_type", i);
             amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.threadData.YR().getUserId());
-            amVar.T("obj_param1", aQV() ? 2 : 1);
+            amVar.T("obj_param1", aQU() ? 2 : 1);
         }
         return amVar;
     }
 
-    public am tK(String str) {
-        am tH = tH(str);
-        if (tH != null) {
-            tH.bJ("ab_tag", aQR()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+    public am tI(String str) {
+        am tF = tF(str);
+        if (tF != null) {
+            tF.bJ("ab_tag", aQQ()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
             if (WR() != null) {
                 bg WR = WR();
-                boolean z = (WR.aap() == null || (WR.aap().cet() == null && WR.aap().asG() == null)) ? false : true;
-                tH.T("obj_name", z ? 1 : 0);
-                if (z && WR.aap().cet() != null && WR.aap().cet().asx() != null && WR.aap().cet().asx().size() > 0) {
-                    tH.T("obj_to", WR.aap().iGP ? 2 : 1);
+                boolean z = (WR.aap() == null || (WR.aap().cev() == null && WR.aap().asF() == null)) ? false : true;
+                tF.T("obj_name", z ? 1 : 0);
+                if (z && WR.aap().cev() != null && WR.aap().cev().asw() != null && WR.aap().cev().asw().size() > 0) {
+                    tF.T("obj_to", WR.aap().iGH ? 2 : 1);
                 }
             }
         }
-        return tH;
+        return tF;
+    }
+
+    public am aRb() {
+        am tF;
+        SmartApp ZD;
+        if (aQY()) {
+            tF = tF(elk);
+        } else if (aQZ()) {
+            am tF2 = tF(elq);
+            if (tF2 != null && WR() != null && (ZD = WR().ZD()) != null) {
+                tF2.bJ("obj_type", ZD.id);
+                tF2.bJ("obj_name", ZD.name);
+                return tF2;
+            }
+            return tF2;
+        } else {
+            tF = tF(elf);
+            if (tF != null) {
+                tF.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
+            }
+        }
+        if (tF != null && WR() != null) {
+            tF.T("is_full", WR().aaG() ? 1 : 0);
+        }
+        return tF;
     }
 
     public am aRc() {
-        am tH;
-        SmartApp ZD;
-        if (aQZ()) {
-            tH = tH(elo);
-        } else if (aRa()) {
-            am tH2 = tH(elu);
-            if (tH2 != null && WR() != null && (ZD = WR().ZD()) != null) {
-                tH2.bJ("obj_type", ZD.id);
-                tH2.bJ("obj_name", ZD.name);
-                return tH2;
-            }
-            return tH2;
-        } else {
-            tH = tH(elj);
-            if (tH != null) {
-                tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
-            }
+        if (aQY()) {
+            return tF(ell);
         }
-        if (tH != null && WR() != null) {
-            tH.T("is_full", WR().aaG() ? 1 : 0);
-        }
-        return tH;
-    }
-
-    public am aRd() {
-        if (aQZ()) {
-            return tH(elp);
-        }
-        am av = av(elk, 0);
+        am av = av(elg, 0);
         if (av != null) {
-            av.bJ("ab_tag", aQR()).bJ("ab_action", "click");
+            av.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
             return av;
         }
         return av;
     }
 
-    public am aRe() {
+    public am aRd() {
         if (l.W(this.threadData)) {
-            return S(elw, true);
+            return S(els, true);
         }
-        if (aQZ()) {
-            return tH(elq);
+        if (aQY()) {
+            return tF(elm);
         }
-        am tH = tH(ell);
-        if (tH != null) {
-            tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
-            return tH;
+        am tF = tF(elh);
+        if (tF != null) {
+            tF.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
+            return tF;
         }
-        return tH;
+        return tF;
+    }
+
+    public am aRe() {
+        if (aQY()) {
+            return tF(eln);
+        }
+        am tF = tF(eli);
+        if (tF != null) {
+            tF.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
+            return tF;
+        }
+        return tF;
     }
 
     public am aRf() {
-        if (aQZ()) {
-            return tH(elr);
-        }
-        am tH = tH(elm);
-        if (tH != null) {
-            tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
-            return tH;
-        }
-        return tH;
+        return tF(elo);
     }
 
     public am aRg() {
-        return tH(els);
+        return S(elr, true);
     }
 
-    public am aRh() {
-        return S(elv, true);
-    }
-
-    public am tL(String str) {
-        am tH = tH(str);
+    public am tJ(String str) {
+        am tF = tF(str);
         if (this.threadData != null && this.threadData.YR() != null) {
-            tH.T("ab_type", this.threadData.YR().hadConcerned() ? 1 : 0);
+            tF.T("ab_type", this.threadData.YR().hadConcerned() ? 1 : 0);
         }
-        return tH;
+        return tF;
     }
 
-    public am tM(String str) {
-        return tH(str);
+    public am tK(String str) {
+        return tF(str);
     }
 }

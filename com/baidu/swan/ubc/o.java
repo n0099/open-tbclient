@@ -3,119 +3,112 @@ package com.baidu.swan.ubc;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import java.util.Map;
+import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
+import com.baidu.swan.ubc.IRemoteUBCService;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class o {
-    public static final boolean DEBUG = e.DEBUG;
+    private static final boolean DEBUG = e.DEBUG;
+    private static final String TAG = o.class.getSimpleName();
 
-    private o() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        private static final o bpD = new o();
-    }
-
-    public static o Tl() {
-        return a.bpD;
-    }
-
-    public final void onEvent(String str) {
-        onEvent(str, "", 0);
-    }
-
-    public final void onEvent(String str, Map<String, String> map, int i) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue());
+    public static void To() {
+        IPCServiceManager.addService("open_log", new IRemoteUBCService.Stub() { // from class: com.baidu.swan.ubc.OpenStatisticIPCManager$1
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
+                q.onEvent(str, str2, i);
             }
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.d("OpenStatManager", "Open Statistic : UBC onEvent# exception:" + e.getMessage());
-            }
-        }
-        onEvent(str, jSONObject.toString(), i);
-    }
 
-    public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
-            if (r.Ts() == null && TextUtils.isEmpty(str)) {
-                if (DEBUG) {
-                    throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
+                boolean z;
+                String str3;
+                Flow i2 = q.i(str, str2, i);
+                z = o.DEBUG;
+                if (z && i2 != null) {
+                    str3 = o.TAG;
+                    Log.d(str3, " process name " + com.baidu.pyramid.runtime.multiprocess.a.getProcessName() + " flow hashCode " + i2.hashCode() + " flow id " + str + " handle id " + i2.getHandle());
                 }
-                return;
+                return i2;
             }
-            if (DEBUG) {
-                Log.d("OpenStatManager", "Open Statistic : on event id:" + str + " value:" + str2);
-            }
-            m.Tk().h(str, str2, i);
-            return;
-        }
-        try {
-            Tm().ubcOnEvent(str, q.jR(str2), i);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
-            if (r.Ts() != null || !TextUtils.isEmpty(str)) {
-                if (DEBUG) {
-                    Log.d("OpenStatManager", "Open Statistic : on event id:" + str + " value:" + jSONObject.toString());
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
+                boolean z;
+                String str3;
+                if (flow != null) {
+                    flow.addEvent(str, str2);
+                    z = o.DEBUG;
+                    if (z) {
+                        str3 = o.TAG;
+                        Log.d(str3, " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                    }
                 }
-                m.Tk().a(str, jSONObject, i);
-                return;
             }
-            return;
-        }
-        try {
-            Tm().ubcOnEvent(str, q.aH(jSONObject), i);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public Flow i(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
-            if (TextUtils.isEmpty(str)) {
-                if (DEBUG) {
-                    throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
+                if (flow != null) {
+                    flow.addEvent(str, str2, j);
                 }
-                return null;
             }
-            if (DEBUG) {
-                Log.d("OpenStatManager", "begin flow id:" + str + " value:" + str2);
-            }
-            return m.Tk().i(str, str2, i);
-        }
-        return j(str, q.jR(str2), i);
-    }
 
-    private IRemoteUBCService Tm() throws RemoteException {
-        return r.Tm();
-    }
-
-    private Flow j(String str, String str2, int i) {
-        Flow flow;
-        Flow flow2 = null;
-        try {
-            flow2 = Tm().ubcBeginFlow(str, str2, i);
-            if (DEBUG) {
-                Log.d("OpenStatManager", "flow id " + str + " beginFlow  process name " + com.baidu.pyramid.runtime.multiprocess.a.getProcessName() + "flow hashCode " + flow2.hashCode() + " handle id " + flow2.getHandle());
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowSetValue(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.setValue(str);
+                }
             }
-            flow = flow2;
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            flow = flow2;
-        }
-        if (flow == null) {
-            return new Flow();
-        }
-        return flow;
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.setValueWithDuration(str);
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
+                if (flow != null) {
+                    if (TextUtils.isEmpty(str2)) {
+                        flow.startSlot(str, null);
+                        return;
+                    }
+                    try {
+                        flow.startSlot(str, new JSONObject(str2));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowEndSlot(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.endSlot(str);
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowCancel(Flow flow) throws RemoteException {
+                if (flow != null) {
+                    flow.cancel();
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowEnd(Flow flow) throws RemoteException {
+                boolean z;
+                String str;
+                if (flow != null) {
+                    flow.end();
+                    z = o.DEBUG;
+                    if (z) {
+                        str = o.TAG;
+                        Log.d(str, " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                    }
+                }
+            }
+        }, false);
     }
 }

@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements m {
-    protected String cVl = "";
+    protected String cVh = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -42,8 +42,8 @@ public class d implements m {
             return null;
         }
         com.baidu.swan.apps.media.a p = com.baidu.swan.apps.media.b.p(str, str2, str3);
-        if (p == null && ap.equals("/swan/live/open", this.cVl)) {
-            this.cVl = "";
+        if (p == null && ap.equals("/swan/live/open", this.cVh)) {
+            this.cVh = "";
             return new f(context, str3);
         } else if (p == null || !(p.Ek() instanceof f)) {
             return null;
@@ -67,7 +67,7 @@ public class d implements m {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(eV, d.azA());
+        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(eV, d.azz());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("Live", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -83,7 +83,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.1
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.stop();
+                fVar.start();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
@@ -94,7 +94,18 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.2
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                com.baidu.swan.apps.view.container.a hR = com.baidu.swan.apps.view.container.c.c.hR(aVar.aBC);
+                fVar.stop();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+        });
+    }
+
+    private boolean s(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.3
+            @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
+            public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
+                com.baidu.swan.apps.view.container.a hR = com.baidu.swan.apps.view.container.c.c.hR(aVar.aBD);
                 SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, hR);
                 if (hR != null && a2 != null) {
                     com.baidu.swan.apps.view.container.c.c.b(a2, hR);
@@ -107,21 +118,11 @@ public class d implements m {
         });
     }
 
-    private boolean s(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.3
-            @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
-            public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.j(aVar.cVj, aVar.mDirection);
-                return true;
-            }
-        });
-    }
-
     private boolean t(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.4
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.fY(aVar.cVd);
+                fVar.j(aVar.cVf, aVar.mDirection);
                 return true;
             }
         });
@@ -131,7 +132,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.stop();
+                fVar.fY(aVar.cUZ);
                 return true;
             }
         });
@@ -141,14 +142,24 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.6
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.start();
-                return false;
+                fVar.stop();
+                return true;
             }
         });
     }
 
     private boolean w(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.7
+            @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
+            public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
+                fVar.start();
+                return false;
+            }
+        });
+    }
+
+    private boolean x(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.8
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
                 fVar.e(aVar);
@@ -161,8 +172,8 @@ public class d implements m {
         });
     }
 
-    private boolean x(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.8
+    private boolean y(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.9
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
                 fVar.a(aVar);
@@ -173,47 +184,47 @@ public class d implements m {
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        this.cVl = "/swan/live/open";
-        return x(context, unitedSchemeEntity, callbackHandler, bVar);
+        this.cVh = "/swan/live/open";
+        return y(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return w(context, unitedSchemeEntity, callbackHandler, bVar);
+        return x(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean f(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return v(context, unitedSchemeEntity, callbackHandler, bVar);
+        return w(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return u(context, unitedSchemeEntity, callbackHandler, bVar);
+        return v(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return t(context, unitedSchemeEntity, callbackHandler, bVar);
+        return u(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return s(context, unitedSchemeEntity, callbackHandler, bVar);
+        return t(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return r(context, unitedSchemeEntity, callbackHandler, bVar);
+        return s(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return q(context, unitedSchemeEntity, callbackHandler, bVar);
+        return r(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean k(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        return r(context, unitedSchemeEntity, callbackHandler, bVar);
+        return q(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 }

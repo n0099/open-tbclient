@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.mapapi.UIMsg;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.tencent.connect.auth.b;
 import com.tencent.connect.common.Constants;
@@ -210,8 +211,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0353a extends WebViewClient {
-        private C0353a() {
+    public class C0447a extends WebViewClient {
+        private C0447a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -301,7 +302,7 @@ public class a extends Dialog {
             super.onReceivedError(webView, i, str, str2);
             f.c("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
             if (!j.b(a.this.k)) {
-                a.this.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
+                a.this.b.onError(new UiError(UIMsg.m_AppUI.MSG_CLICK_ITEM, "当前网络不可用，请稍后重试！", str2));
                 a.this.dismiss();
             } else if (!a.this.o.startsWith("http://qzs.qq.com/open/mobile/login/qzsjump.html?")) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.q;
@@ -465,7 +466,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0353a());
+        this.j.setWebViewClient(new C0447a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();

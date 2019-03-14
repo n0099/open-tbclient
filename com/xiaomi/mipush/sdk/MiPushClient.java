@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
@@ -609,7 +608,7 @@ public abstract class MiPushClient {
     }
 
     private static boolean shouldSendRegRequest(Context context) {
-        return Math.abs(System.currentTimeMillis() - context.getSharedPreferences(PREF_EXTRA, 0).getLong("last_reg_request", -1L)) > TbConfig.NOTIFY_SOUND_INTERVAL;
+        return Math.abs(System.currentTimeMillis() - context.getSharedPreferences(PREF_EXTRA, 0).getLong("last_reg_request", -1L)) > 5000;
     }
 
     public static boolean shouldUseMIUIPush(Context context) {

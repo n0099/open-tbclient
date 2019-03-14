@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
-    private boolean ZO = true;
+    private boolean ZP = true;
 
     @Override // com.baidu.adp.lib.f.e
     public boolean jE() {
@@ -22,7 +22,7 @@ public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.anq().pi(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.anp().pi(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
@@ -116,11 +116,11 @@ public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             aVar.Dv = iVar;
         }
-        byte[] K = iVar.K(str3, !this.ZO);
+        byte[] K = iVar.K(str3, !this.ZP);
         if (K == null && !iVar.js().Dc) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.anq().jM(TbConfig.getPbImageSize() + K.length);
+        com.baidu.tbadk.imageManager.c.anp().jM(TbConfig.getPbImageSize() + K.length);
         return a(str3, str2, aVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(K), i, i2), iVar.isGif || com.baidu.adp.lib.util.l.s(K), iVar, K);
     }
 
@@ -134,7 +134,7 @@ public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aO(i);
             aVar.aP(i2);
-            com.baidu.tbadk.imageManager.c.anq().c(str, aVar);
+            com.baidu.tbadk.imageManager.c.anp().c(str, aVar);
         }
     }
 

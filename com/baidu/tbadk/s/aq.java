@@ -3,7 +3,7 @@ package com.baidu.tbadk.s;
 public class aq extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void Z(int i) {
-        com.baidu.tbadk.o.m.apl().ff(1 == i);
+        com.baidu.tbadk.o.m.apk().ff(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -28,11 +28,10 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.d;
 import java.net.URLEncoder;
-import org.apache.http.cookie.ClientCookie;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean btI = true;
+    public static boolean btK = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.d.1
@@ -64,7 +63,7 @@ public class d {
         ba.adD().a(new ba.a() { // from class: com.baidu.tbadk.browser.d.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Bundle pS;
+                Bundle pQ;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -136,7 +135,7 @@ public class d {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, ae.bU(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (pS = ae.pS(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(pS.getString(ClientCookie.PATH_ATTR))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (pQ = ae.pQ(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(pQ.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
@@ -327,7 +326,7 @@ public class d {
         }
         String queryParameter = uri.getQueryParameter("page_type");
         String queryParameter2 = uri.getQueryParameter(LegoListActivityConfig.ITEM_ID);
-        String queryParameter3 = uri.getQueryParameter(LegoListActivityConfig.RN);
+        String queryParameter3 = uri.getQueryParameter("rn");
         String queryParameter4 = uri.getQueryParameter(LegoListActivityConfig.PARAMS);
         String queryParameter5 = uri.getQueryParameter(LegoListActivityConfig.PRE_LOAD);
         String queryParameter6 = uri.getQueryParameter(LegoListActivityConfig.NEXT_PAGE);

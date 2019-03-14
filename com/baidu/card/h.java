@@ -14,30 +14,30 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class h extends f {
-    private ThreadGodReplyLayout XD;
-    private am XE;
-    private com.baidu.tbadk.core.data.a Xx;
+    private ThreadGodReplyLayout XE;
+    private am XF;
+    private com.baidu.tbadk.core.data.a Xy;
 
     public h(Context context) {
         super(context);
         setTopMargin(com.baidu.adp.lib.util.l.h(context, d.e.tbds26));
-        this.XD = new ThreadGodReplyLayout(context);
+        this.XE = new ThreadGodReplyLayout(context);
         final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.card.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (h.this.rk() != null) {
-                    h.this.rk().a(view, h.this.Xx);
+                    h.this.rk().a(view, h.this.Xy);
                 }
             }
         };
-        this.XD.setAfterClickListener(onClickListener);
-        this.XD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.h.2
+        this.XE.setAfterClickListener(onClickListener);
+        this.XE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.h.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.Xx.WR().getTid(), h.this.Xx.WR().aap().getId() + "", 1, ImageViewerConfig.FROM_OTHER);
-                createNormalCfg.setStartFrom(h.this.Xp.rt());
+                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.Xy.WR().getTid(), h.this.Xy.WR().aap().getId() + "", 1, ImageViewerConfig.FROM_OTHER);
+                createNormalCfg.setStartFrom(h.this.Xq.rt());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                h.this.Xp.b(new a.C0037a(1));
+                h.this.Xq.b(new a.C0039a(1));
                 onClickListener.onClick(view);
             }
         });
@@ -46,7 +46,7 @@ public class h extends f {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.XD;
+        return this.XE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,40 +54,40 @@ public class h extends f {
     public void rj() {
         a(1, new a.b() { // from class: com.baidu.card.h.3
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0037a c0037a) {
-                com.baidu.tieba.card.n.a(h.this.XD.getGodReplyContent(), h.this.Xx.WR().getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
+            public boolean a(a.C0039a c0039a) {
+                com.baidu.tieba.card.n.a(h.this.XE.getGodReplyContent(), h.this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
                 return false;
             }
         });
     }
 
     public void a(am amVar) {
-        this.XE = amVar;
+        this.XF = amVar;
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.XD.onChangeSkinType();
+        this.XE.onChangeSkinType();
     }
 
     public void setFromCDN(boolean z) {
-        this.XD.setFromCDN(z);
+        this.XE.setFromCDN(z);
     }
 
     public void setForm(String str) {
-        this.XD.setFrom(str);
+        this.XE.setFrom(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Xx = aVar;
+        this.Xy = aVar;
         PostData aap = aVar.WR().aap();
-        if (this.XE != null && aap != null && aap.YR() != null && aap.YR().getUserId() != null) {
-            this.XE.bJ("tid", aVar.WR().tid).bJ("post_id", aap.getId()).bJ("uid", aap.YR().getUserId());
-            com.baidu.tieba.card.t.aQG().b(this.XE);
+        if (this.XF != null && aap != null && aap.YR() != null && aap.YR().getUserId() != null) {
+            this.XF.bJ("tid", aVar.WR().tid).bJ("post_id", aap.getId()).bJ("uid", aap.YR().getUserId());
+            com.baidu.tieba.card.t.aQF().b(this.XF);
         }
-        this.XD.setData(aVar.WR());
+        this.XE.setData(aVar.WR());
     }
 }

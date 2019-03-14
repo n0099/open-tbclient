@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class CircleProgressView extends View {
-    private float azb;
+    private float azc;
     private Paint ccD;
     private Paint ccE;
     private RectF ccF;
@@ -16,30 +16,30 @@ public class CircleProgressView extends View {
 
     public CircleProgressView(Context context) {
         super(context);
-        this.azb = 5.0f;
-        ake();
+        this.azc = 5.0f;
+        akd();
     }
 
     public CircleProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azb = 5.0f;
-        ake();
+        this.azc = 5.0f;
+        akd();
     }
 
-    private void ake() {
+    private void akd() {
         this.ccF = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
         this.ccD = new Paint();
         this.ccD.setAntiAlias(true);
         this.ccD.setDither(true);
         this.ccD.setStyle(Paint.Style.STROKE);
         this.ccD.setStrokeCap(Paint.Cap.ROUND);
-        this.ccD.setStrokeWidth(this.azb);
+        this.ccD.setStrokeWidth(this.azc);
         this.ccE = new Paint();
         this.ccE.setAntiAlias(true);
         this.ccE.setDither(true);
         this.ccE.setStyle(Paint.Style.STROKE);
         this.ccE.setStrokeCap(Paint.Cap.ROUND);
-        this.ccE.setStrokeWidth(this.azb);
+        this.ccE.setStrokeWidth(this.azc);
     }
 
     public void setCircleBackgroundColor(int i) {
@@ -53,7 +53,7 @@ public class CircleProgressView extends View {
     }
 
     public void setWidth(int i) {
-        this.azb = i;
+        this.azc = i;
         this.ccE.setStrokeWidth(i);
         this.ccD.setStrokeWidth(i);
         postInvalidate();
@@ -62,10 +62,10 @@ public class CircleProgressView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         if (this.currentProgress >= 0) {
-            this.ccF.left = this.azb;
-            this.ccF.top = this.azb;
-            this.ccF.right = getWidth() - this.azb;
-            this.ccF.bottom = getHeight() - this.azb;
+            this.ccF.left = this.azc;
+            this.ccF.top = this.azc;
+            this.ccF.right = getWidth() - this.azc;
+            this.ccF.bottom = getHeight() - this.azc;
             canvas.drawArc(this.ccF, 0.0f, 360.0f, false, this.ccE);
             canvas.drawArc(this.ccF, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ccD);
         }

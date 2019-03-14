@@ -8,9 +8,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
-import com.baidu.tieba.person.d;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.adp.widget.ListView.a<d, com.baidu.tieba.person.b.a> {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d, com.baidu.tieba.person.b.a> {
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
@@ -30,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<d, com.baidu.tieba.person
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.bUJ != skinType) {
-                aVar.bUJ = skinType;
-                al.k(aVar.hKT, dVar.coe);
+            if (aVar.bUK != skinType) {
+                aVar.bUK = skinType;
+                al.k(aVar.hKN, dVar.coe);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.hKT.getLayoutParams();
-            if (dVar.hGC > 0) {
-                layoutParams.height = dVar.hGC;
+            ViewGroup.LayoutParams layoutParams = aVar.hKN.getLayoutParams();
+            if (dVar.hGw > 0) {
+                layoutParams.height = dVar.hGw;
             }
-            if (dVar.hGB > 0) {
-                layoutParams.width = dVar.hGB;
+            if (dVar.hGv > 0) {
+                layoutParams.width = dVar.hGv;
             }
-            aVar.hKT.setLayoutParams(layoutParams);
-            aVar.hKT.setOnClickListener(null);
+            aVar.hKN.setLayoutParams(layoutParams);
+            aVar.hKN.setOnClickListener(null);
         }
         return view;
     }

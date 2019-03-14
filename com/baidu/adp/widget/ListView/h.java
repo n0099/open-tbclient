@@ -9,20 +9,20 @@ import android.util.SparseIntArray;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h {
-    private i PJ;
-    private float PM;
+    private i PK;
     private float PN;
+    private float PO;
     private int mCurrentPosition;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private int mScrollState;
-    private boolean PO = false;
-    private SparseIntArray PK = new SparseIntArray();
-    private SparseArray<ValueAnimator> PP = new SparseArray<>();
-    private SparseIntArray PQ = new SparseIntArray();
+    private boolean PP = false;
+    private SparseIntArray PM = new SparseIntArray();
+    private SparseArray<ValueAnimator> PQ = new SparseArray<>();
+    private SparseIntArray PR = new SparseIntArray();
 
     public h(i iVar) {
-        this.PJ = iVar;
+        this.PK = iVar;
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -37,22 +37,22 @@ public class h {
             if (this.mOrientation != 2) {
                 f2 = f;
             }
-            if (Math.abs(f2) < this.PJ.pe()) {
-                this.PO = true;
+            if (Math.abs(f2) < this.PK.pe()) {
+                this.PP = true;
                 oT();
                 return;
             }
             this.mCurrentPosition = i;
-            this.PO = false;
-            if (Math.abs(f2) > this.PJ.pa()) {
-                f3 = f2 > 0.0f ? this.PJ.pa() : -this.PJ.pa();
+            this.PP = false;
+            if (Math.abs(f2) > this.PK.pa()) {
+                f3 = f2 > 0.0f ? this.PK.pa() : -this.PK.pa();
             } else {
                 f3 = f2;
             }
-            this.PK.clear();
-            float oW = f3 * this.PJ.oW();
+            this.PM.clear();
+            float oW = f3 * this.PK.oW();
             if (f3 < 0.0f) {
-                float oX = this.PJ.oX();
+                float oX = this.PK.oX();
                 int i3 = 1;
                 while (true) {
                     int i4 = i - i3;
@@ -61,25 +61,25 @@ public class h {
                     if (f4 > 0.0f) {
                         break;
                     }
-                    float oV = (f4 / this.PJ.oV()) + this.PK.get(i4);
-                    if (Math.abs(oV) > this.PJ.oZ()) {
-                        oV = -this.PJ.oZ();
+                    float oV = (f4 / this.PK.oV()) + this.PM.get(i4);
+                    if (Math.abs(oV) > this.PK.oZ()) {
+                        oV = -this.PK.oZ();
                     }
-                    this.PK.append(i4, (int) oV);
+                    this.PM.append(i4, (int) oV);
                     i3++;
                     oX = f5;
                 }
-                float oX2 = this.PJ.oX();
+                float oX2 = this.PK.oX();
                 while (true) {
                     int i5 = i + i2;
                     float f6 = oW + (i2 * oX2);
                     float f7 = oX2 * 1.4f;
                     if (f6 <= 0.0f) {
-                        float oU = (f6 / this.PJ.oU()) + this.PK.get(i5);
-                        if (Math.abs(oU) > this.PJ.oY()) {
-                            oU = -this.PJ.oY();
+                        float oU = (f6 / this.PK.oU()) + this.PM.get(i5);
+                        if (Math.abs(oU) > this.PK.oY()) {
+                            oU = -this.PK.oY();
                         }
-                        this.PK.append(i5, (int) oU);
+                        this.PM.append(i5, (int) oU);
                         i2++;
                         oX2 = f7;
                     } else {
@@ -87,7 +87,7 @@ public class h {
                     }
                 }
             } else {
-                float oX3 = this.PJ.oX();
+                float oX3 = this.PK.oX();
                 int i6 = 1;
                 while (true) {
                     int i7 = i - i6;
@@ -96,25 +96,25 @@ public class h {
                     if (f8 < 0.0f) {
                         break;
                     }
-                    float oU2 = (f8 / this.PJ.oU()) + this.PK.get(i7);
-                    if (Math.abs(oU2) > this.PJ.oY()) {
-                        oU2 = this.PJ.oY();
+                    float oU2 = (f8 / this.PK.oU()) + this.PM.get(i7);
+                    if (Math.abs(oU2) > this.PK.oY()) {
+                        oU2 = this.PK.oY();
                     }
-                    this.PK.append(i7, (int) oU2);
+                    this.PM.append(i7, (int) oU2);
                     i6++;
                     oX3 = f9;
                 }
-                float oX4 = this.PJ.oX();
+                float oX4 = this.PK.oX();
                 while (true) {
                     int i8 = i + i2;
                     float f10 = oW - (i2 * oX4);
                     float f11 = oX4 * 1.4f;
                     if (f10 >= 0.0f) {
-                        float oV2 = (f10 / this.PJ.oV()) + this.PK.get(i8);
-                        if (Math.abs(oV2) > this.PJ.oZ()) {
-                            oV2 = this.PJ.oZ();
+                        float oV2 = (f10 / this.PK.oV()) + this.PM.get(i8);
+                        if (Math.abs(oV2) > this.PK.oZ()) {
+                            oV2 = this.PK.oZ();
                         }
-                        this.PK.append(i8, (int) oV2);
+                        this.PM.append(i8, (int) oV2);
                         i2++;
                         oX4 = f11;
                     } else {
@@ -129,19 +129,19 @@ public class h {
         if (this.mRecyclerView != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
-                this.PK.clear();
+                this.PM.clear();
                 oT();
             } else if (this.mScrollState == 2) {
                 oT();
             } else if (this.mScrollState == 1) {
-                this.PK.clear();
+                this.PM.clear();
                 oT();
             }
         }
     }
 
     public void l(int i, int i2, int i3) {
-        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.PO) {
+        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.PP) {
             if (this.mOrientation != 2) {
                 i2 = i;
             }
@@ -188,30 +188,30 @@ public class h {
         if (view != null) {
             if (f < 0.0f) {
                 if (i < i2) {
-                    float C = C(view) + (this.PJ.pc() * f);
-                    if (C > (-this.PK.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
+                    float C = C(view) + (this.PK.pc() * f);
+                    if (C > (-this.PM.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
                         m(view, C);
                     } else {
                         e(view, i);
                     }
                 } else if (i > i2) {
-                    float C2 = C(view) + (this.PJ.pb() * f);
-                    if (C2 > (-this.PK.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
+                    float C2 = C(view) + (this.PK.pb() * f);
+                    if (C2 > (-this.PM.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
                         m(view, C2);
                     } else {
                         e(view, i);
                     }
                 }
             } else if (i > i2) {
-                float C3 = C(view) + (this.PJ.pc() * f);
-                if (C3 < (-this.PK.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
+                float C3 = C(view) + (this.PK.pc() * f);
+                if (C3 < (-this.PM.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
                     m(view, C3);
                 } else {
                     e(view, i);
                 }
             } else if (i < i2) {
-                float C4 = C(view) + (this.PJ.pb() * f);
-                if (C4 < (-this.PK.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
+                float C4 = C(view) + (this.PK.pb() * f);
+                if (C4 < (-this.PM.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
                     m(view, C4);
                 } else {
                     e(view, i);
@@ -226,19 +226,19 @@ public class h {
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
-                    float f = -this.PK.get(childAdapterPosition, 0);
+                    float f = -this.PM.get(childAdapterPosition, 0);
                     if (f != 0.0f) {
-                        this.PM = f;
+                        this.PN = f;
                     } else {
-                        f = this.PM;
+                        f = this.PN;
                     }
                     m(view, f + (this.mRecyclerView.getChildAt(1) != null ? C(this.mRecyclerView.getChildAt(1)) : 0.0f));
                 } else {
-                    float f2 = -this.PK.get(childAdapterPosition, 0);
+                    float f2 = -this.PM.get(childAdapterPosition, 0);
                     if (f2 != 0.0f) {
-                        this.PN = f2;
+                        this.PO = f2;
                     } else {
-                        f2 = this.PN;
+                        f2 = this.PO;
                     }
                     m(view, f2 + (this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() + (-2)) != null ? C(this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() - 2)) : 0.0f));
                 }
@@ -251,12 +251,12 @@ public class h {
         if (this.mRecyclerView != null) {
             m(view, 0.0f);
             int childAdapterPosition = this.mRecyclerView.getChildAdapterPosition(view);
-            this.PK.delete(childAdapterPosition);
-            if (this.PP.get(childAdapterPosition) != null) {
-                this.PP.get(childAdapterPosition).cancel();
+            this.PM.delete(childAdapterPosition);
+            if (this.PQ.get(childAdapterPosition) != null) {
+                this.PQ.get(childAdapterPosition).cancel();
             }
-            this.PP.delete(childAdapterPosition);
             this.PQ.delete(childAdapterPosition);
+            this.PR.delete(childAdapterPosition);
         }
     }
 
@@ -270,7 +270,7 @@ public class h {
 
     private void e(final View view, final int i) {
         if (view != null) {
-            ValueAnimator valueAnimator = this.PP.get(i);
+            ValueAnimator valueAnimator = this.PQ.get(i);
             if (valueAnimator == null) {
                 if (Math.abs(C(view)) < 0.1f) {
                     m(view, 0.0f);
@@ -278,7 +278,7 @@ public class h {
                 }
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(C(view), 0.0f);
                 ofFloat.setInterpolator(new j(1.0f));
-                ofFloat.setDuration(this.PJ.pf());
+                ofFloat.setDuration(this.PK.pf());
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.adp.widget.ListView.h.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -292,16 +292,16 @@ public class h {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        h.this.PP.delete(i);
                         h.this.PQ.delete(i);
-                        h.this.PK.delete(i);
+                        h.this.PR.delete(i);
+                        h.this.PM.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        h.this.PP.delete(i);
                         h.this.PQ.delete(i);
+                        h.this.PR.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
@@ -309,8 +309,8 @@ public class h {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.PP.append(i, ofFloat);
-                this.PQ.append(i, (int) C(view));
+                this.PQ.append(i, ofFloat);
+                this.PR.append(i, (int) C(view));
                 ofFloat.start();
                 return;
             }
@@ -318,8 +318,8 @@ public class h {
                 valueAnimator.start();
             }
             float C = C(view);
-            if (Math.abs(C) > Math.abs(this.PQ.get(i)) + this.PJ.pd()) {
-                this.PQ.append(i, (int) C);
+            if (Math.abs(C) > Math.abs(this.PR.get(i)) + this.PK.pd()) {
+                this.PR.append(i, (int) C);
                 valueAnimator.setFloatValues(C, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();

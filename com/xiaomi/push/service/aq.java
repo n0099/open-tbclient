@@ -1,4 +1,6 @@
 package com.xiaomi.push.service;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class aq {
     private static int a = 8;
@@ -32,7 +34,7 @@ public class aq {
         }
         if (z) {
             StringBuilder sb = new StringBuilder();
-            sb.append("S_").append(i - 1).append(":");
+            sb.append("S_").append(i - 1).append(Config.TRACE_TODAY_VISIT_SPLIT);
             for (int i3 = 0; i3 <= i; i3++) {
                 sb.append(" ").append(a(this.b[i3]));
             }

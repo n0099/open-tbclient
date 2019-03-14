@@ -14,28 +14,28 @@ import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> implements com.baidu.tieba.a.f {
-    private String Yz;
+    private String YA;
     public BdUniqueId cnX;
-    private ab eEz;
-    private com.baidu.tieba.homepage.concern.view.a fGD;
+    private ab eEv;
+    private com.baidu.tieba.homepage.concern.view.a fGC;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eEz = new ab<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
+        this.eEv = new ab<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, j jVar) {
-                if (view != null && c.this.fGD != null && c.this.fGD.getView() != null && jVar != null && jVar.WR() != null && !StringUtils.isNull(jVar.WR().getTid())) {
-                    boolean z = view == c.this.fGD.getHeaderImg();
+                if (view != null && c.this.fGC != null && c.this.fGC.getView() != null && jVar != null && jVar.WR() != null && !StringUtils.isNull(jVar.WR().getTid())) {
+                    boolean z = view == c.this.fGC.getHeaderImg();
                     am amVar = new am("c12352");
                     amVar.T("obj_locate", z ? 1 : 2);
-                    amVar.bJ("obj_type", jVar.aQS());
+                    amVar.bJ("obj_type", jVar.aQR());
                     amVar.bJ("tid", jVar.threadData.getTid());
                     amVar.k(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
                     amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     TiebaStatic.log(amVar);
-                    if (view == c.this.fGD.dqz.getCommentContainer() || view == c.this.fGD.dro.bTy.getCommentContainer()) {
+                    if (view == c.this.fGC.dqv.getCommentContainer() || view == c.this.fGC.drk.bTz.getCommentContainer()) {
                         am amVar2 = new am("c12942");
                         amVar2.T("obj_locate", 7);
                         amVar2.T("obj_type", 5);
@@ -53,11 +53,11 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.fGD = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
+        this.fGC = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
         if (this.cnX != null) {
-            this.fGD.k(this.cnX);
+            this.fGC.k(this.cnX);
         }
-        return new com.baidu.tieba.card.a.a<>(this.fGD);
+        return new com.baidu.tieba.card.a.a<>(this.fGC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,21 +65,21 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (jVar == null || aVar == null || aVar.aRj() == null) {
+        if (jVar == null || aVar == null || aVar.aRi() == null) {
             return null;
         }
         jVar.os(i + 1);
-        t.aQG().b(jVar.tI("c12351"));
-        if (aVar.aRj() instanceof com.baidu.tieba.a.e) {
-            aVar.aRj().setPage(this.Yz);
+        t.aQF().b(jVar.tG("c12351"));
+        if (aVar.aRi() instanceof com.baidu.tieba.a.e) {
+            aVar.aRi().setPage(this.YA);
         }
-        aVar.aRj().a(jVar);
-        aVar.aRj().d(this.eEz);
+        aVar.aRi().a(jVar);
+        aVar.aRi().d(this.eEv);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qN(String str) {
-        this.Yz = str;
+    public void qL(String str) {
+        this.YA = str;
     }
 }

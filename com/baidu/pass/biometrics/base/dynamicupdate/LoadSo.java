@@ -6,6 +6,7 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.logging.Log;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.coremedia.iso.boxes.UserBox;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,7 +120,7 @@ public class LoadSo {
 
         private Map<String, String> prepareData() {
             if (LoadSo.this.bundle != null) {
-                this.uuid = LoadSo.this.bundle.getString("uuid");
+                this.uuid = LoadSo.this.bundle.getString(UserBox.TYPE);
                 this.tpl = LoadSo.this.bundle.getString(LIVENESS_TPL);
                 this.productId = LoadSo.this.bundle.getString("productId");
             }

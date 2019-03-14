@@ -20,25 +20,25 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private Drawable Oq;
-    private Paint bOB;
-    private int bQf;
-    private boolean bQg;
-    private String bQh;
-    private int bQi;
-    private Rect bQj;
-    private int bQk;
+    private Drawable Or;
+    private Paint bOC;
+    private int bQg;
+    private boolean bQh;
+    private String bQi;
+    private int bQj;
+    private Rect bQk;
     private int bQl;
     private int bQm;
     private int bQn;
-    private RectF bQo;
-    private int bQp;
+    private int bQo;
+    private RectF bQp;
     private int bQq;
     private int bQr;
     private int bQs;
-    private Paint bQt;
-    private RectF bQu;
-    private int bQv;
+    private int bQt;
+    private Paint bQu;
+    private RectF bQv;
+    private int bQw;
     private Paint mShadowPaint;
     private int mShadowRadius;
     private int mType;
@@ -46,21 +46,21 @@ public class MessageRedDotView extends View {
     public MessageRedDotView(@NonNull Context context) {
         super(context);
         this.mType = 1;
-        this.bQv = 3;
+        this.bQw = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mType = 1;
-        this.bQv = 3;
+        this.bQw = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 1;
-        this.bQv = 3;
+        this.bQw = 3;
         initView();
     }
 
@@ -68,15 +68,15 @@ public class MessageRedDotView extends View {
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         this.mType = 1;
-        this.bQv = 3;
+        this.bQw = 3;
         initView();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.Oq != null) {
-            this.bQp = this.bQm >= this.bQn ? this.mShadowRadius + this.bQm : this.mShadowRadius + this.bQn;
-            setMeasuredDimension(this.Oq.getIntrinsicWidth() + (this.bQp * 2), this.Oq.getIntrinsicHeight() + (this.bQp * 2));
+        if (this.Or != null) {
+            this.bQq = this.bQn >= this.bQo ? this.mShadowRadius + this.bQn : this.mShadowRadius + this.bQo;
+            setMeasuredDimension(this.Or.getIntrinsicWidth() + (this.bQq * 2), this.Or.getIntrinsicHeight() + (this.bQq * 2));
             return;
         }
         setMeasuredDimension(0, 0);
@@ -85,19 +85,19 @@ public class MessageRedDotView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Oq != null) {
-            int intrinsicWidth = this.Oq.getIntrinsicWidth();
-            int intrinsicHeight = this.Oq.getIntrinsicHeight();
-            this.Oq.setBounds(this.bQp, this.bQp, this.bQp + intrinsicWidth, this.bQp + intrinsicHeight);
-            this.Oq.draw(canvas);
-            this.bQo.set(this.bQp, this.bQp, this.bQp + intrinsicWidth, this.bQp + intrinsicHeight);
+        if (this.Or != null) {
+            int intrinsicWidth = this.Or.getIntrinsicWidth();
+            int intrinsicHeight = this.Or.getIntrinsicHeight();
+            this.Or.setBounds(this.bQq, this.bQq, this.bQq + intrinsicWidth, this.bQq + intrinsicHeight);
+            this.Or.draw(canvas);
+            this.bQp.set(this.bQq, this.bQq, this.bQq + intrinsicWidth, this.bQq + intrinsicHeight);
             if (intrinsicWidth != intrinsicHeight) {
-                canvas.drawRoundRect(this.bQo, this.bQq, this.bQq, this.mShadowPaint);
+                canvas.drawRoundRect(this.bQp, this.bQr, this.bQr, this.mShadowPaint);
             } else {
-                canvas.drawOval(this.bQo, this.mShadowPaint);
+                canvas.drawOval(this.bQp, this.mShadowPaint);
             }
-            if (!ap.isEmpty(this.bQh)) {
-                if (this.bQh.equals("...")) {
+            if (!ap.isEmpty(this.bQi)) {
+                if (this.bQi.equals("...")) {
                     x(canvas);
                 } else {
                     y(canvas);
@@ -107,65 +107,65 @@ public class MessageRedDotView extends View {
     }
 
     private void x(Canvas canvas) {
-        if (this.Oq != null) {
-            int intrinsicWidth = (this.Oq.getIntrinsicWidth() / 2) + this.bQp;
-            int intrinsicHeight = (this.Oq.getIntrinsicHeight() / 2) + this.bQp;
-            int i = intrinsicWidth - (this.bQr / 2);
-            int i2 = intrinsicHeight - (this.bQr / 2);
-            int i3 = intrinsicWidth + (this.bQr / 2);
-            int i4 = intrinsicHeight + (this.bQr / 2);
-            this.bQu.set(i, i2, i3, i4);
-            canvas.drawOval(this.bQu, this.bQt);
-            this.bQu.set((i - this.bQs) - this.bQr, i2, i - this.bQs, i4);
-            canvas.drawOval(this.bQu, this.bQt);
-            this.bQu.set(this.bQs + i3, i2, i3 + this.bQs + this.bQr, i4);
-            canvas.drawOval(this.bQu, this.bQt);
+        if (this.Or != null) {
+            int intrinsicWidth = (this.Or.getIntrinsicWidth() / 2) + this.bQq;
+            int intrinsicHeight = (this.Or.getIntrinsicHeight() / 2) + this.bQq;
+            int i = intrinsicWidth - (this.bQs / 2);
+            int i2 = intrinsicHeight - (this.bQs / 2);
+            int i3 = intrinsicWidth + (this.bQs / 2);
+            int i4 = intrinsicHeight + (this.bQs / 2);
+            this.bQv.set(i, i2, i3, i4);
+            canvas.drawOval(this.bQv, this.bQu);
+            this.bQv.set((i - this.bQt) - this.bQs, i2, i - this.bQt, i4);
+            canvas.drawOval(this.bQv, this.bQu);
+            this.bQv.set(this.bQt + i3, i2, i3 + this.bQt + this.bQs, i4);
+            canvas.drawOval(this.bQv, this.bQu);
         }
     }
 
     private void y(Canvas canvas) {
-        if (!ap.isEmpty(this.bQh) && this.Oq != null) {
-            this.bOB.getTextBounds(this.bQh, 0, this.bQh.length(), this.bQj);
-            Paint.FontMetrics fontMetrics = this.bOB.getFontMetrics();
-            int intrinsicWidth = (this.Oq.getIntrinsicWidth() / 2) + this.bQp;
-            canvas.drawText(this.bQh, intrinsicWidth, (getResources().getDimension(d.e.tbds10) + fontMetrics.bottom) - fontMetrics.ascent, this.bOB);
+        if (!ap.isEmpty(this.bQi) && this.Or != null) {
+            this.bOC.getTextBounds(this.bQi, 0, this.bQi.length(), this.bQk);
+            Paint.FontMetrics fontMetrics = this.bOC.getFontMetrics();
+            int intrinsicWidth = (this.Or.getIntrinsicWidth() / 2) + this.bQq;
+            canvas.drawText(this.bQi, intrinsicWidth, (getResources().getDimension(d.e.tbds10) + fontMetrics.bottom) - fontMetrics.ascent, this.bOC);
         }
     }
 
     private void initView() {
         setLayerType(1, null);
         aes();
-        this.bOB = new Paint(1);
-        this.bOB.setColor(al.getColor(d.C0236d.cp_btn_a));
-        this.bOB.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), d.e.tbfontsize26));
-        this.bOB.setTextAlign(Paint.Align.CENTER);
-        this.bOB.setTypeface(Typeface.MONOSPACE);
-        this.bQj = new Rect();
-        this.bQk = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds13);
-        this.bQl = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds42);
+        this.bOC = new Paint(1);
+        this.bOC.setColor(al.getColor(d.C0277d.cp_btn_a));
+        this.bOC.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), d.e.tbfontsize26));
+        this.bOC.setTextAlign(Paint.Align.CENTER);
+        this.bOC.setTypeface(Typeface.MONOSPACE);
+        this.bQk = new Rect();
+        this.bQl = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds13);
+        this.bQm = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds42);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setStyle(Paint.Style.FILL);
-        this.mShadowPaint.setColor(al.getColor(d.C0236d.transparent));
-        this.bQm = 0;
+        this.mShadowPaint.setColor(al.getColor(d.C0277d.transparent));
+        this.bQn = 0;
         this.mShadowRadius = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds8);
-        this.bQn = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds3);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bQm, this.bQn, al.getColor(d.C0236d.cp_cont_h_alpha66));
-        this.bQo = new RectF();
-        this.bQq = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds21);
-        this.bQr = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds8);
-        this.bQs = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds6);
-        this.bQt = new Paint();
-        this.bQt.setAntiAlias(true);
-        this.bQt.setStyle(Paint.Style.FILL);
-        this.bQt.setColor(al.getColor(d.C0236d.cp_btn_a));
-        this.bQu = new RectF();
+        this.bQo = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds3);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bQn, this.bQo, al.getColor(d.C0277d.cp_cont_h_alpha66));
+        this.bQp = new RectF();
+        this.bQr = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds21);
+        this.bQs = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds8);
+        this.bQt = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds6);
+        this.bQu = new Paint();
+        this.bQu.setAntiAlias(true);
+        this.bQu.setStyle(Paint.Style.FILL);
+        this.bQu.setColor(al.getColor(d.C0277d.cp_btn_a));
+        this.bQv = new RectF();
     }
 
     private void aes() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.bQi = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds2);
+            this.bQj = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds2);
         }
     }
 
@@ -174,64 +174,64 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = d.f.icon_news_red_dot;
-            this.bQh = null;
+            this.bQi = null;
         } else if (i < 10) {
-            this.bQh = String.valueOf(i);
+            this.bQi = String.valueOf(i);
             i2 = d.f.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.bQh = String.valueOf(i);
+            this.bQi = String.valueOf(i);
             i2 = d.f.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.bQh = "...";
+            this.bQi = "...";
             i2 = d.f.icon_news_red_dot_three_dot_number;
         } else if (this.mType == 2) {
-            this.bQh = "99+";
+            this.bQi = "99+";
             i2 = d.f.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.bQf) {
-            this.bQg = true;
+        if (i2 != this.bQg) {
+            this.bQh = true;
         } else {
-            this.bQg = false;
+            this.bQh = false;
         }
-        this.bQf = i2;
+        this.bQg = i2;
         onChangeSkinType();
     }
 
     public void M(String str, boolean z) {
         int i;
         if (z) {
-            this.bQh = "...";
+            this.bQi = "...";
             i = d.f.icon_news_red_dot_three_dot_number;
         } else if (ap.isEmpty(str)) {
             i = d.f.icon_news_red_dot;
-            this.bQh = null;
+            this.bQi = null;
         } else {
-            int measureText = (int) this.bOB.measureText(str);
-            if (this.Oq == null || this.Oq.getIntrinsicWidth() - (this.bQk * 2) != measureText) {
+            int measureText = (int) this.bOC.measureText(str);
+            if (this.Or == null || this.Or.getIntrinsicWidth() - (this.bQl * 2) != measureText) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setShape(0);
-                gradientDrawable.setCornerRadius(this.bQq);
-                gradientDrawable.setColor(al.getColor(d.C0236d.cp_cont_h));
-                gradientDrawable.setSize(((int) this.bOB.measureText(str)) + (this.bQk * 2), this.bQl);
-                this.Oq = gradientDrawable;
-                this.bQg = true;
-            } else if (this.bQv != TbadkApplication.getInst().getSkinType() && (this.Oq instanceof GradientDrawable)) {
-                ((GradientDrawable) this.Oq).setColor(al.getColor(d.C0236d.cp_cont_h));
-                this.bQg = false;
+                gradientDrawable.setCornerRadius(this.bQr);
+                gradientDrawable.setColor(al.getColor(d.C0277d.cp_cont_h));
+                gradientDrawable.setSize(((int) this.bOC.measureText(str)) + (this.bQl * 2), this.bQm);
+                this.Or = gradientDrawable;
+                this.bQh = true;
+            } else if (this.bQw != TbadkApplication.getInst().getSkinType() && (this.Or instanceof GradientDrawable)) {
+                ((GradientDrawable) this.Or).setColor(al.getColor(d.C0277d.cp_cont_h));
+                this.bQh = false;
             }
-            this.bQh = str;
-            this.bQf = 0;
+            this.bQi = str;
+            this.bQg = 0;
             onChangeSkinType();
             return;
         }
-        if (i != this.bQf) {
-            this.bQg = true;
+        if (i != this.bQg) {
+            this.bQh = true;
         } else {
-            this.bQg = false;
+            this.bQh = false;
         }
-        this.bQf = i;
+        this.bQg = i;
         onChangeSkinType();
     }
 
@@ -240,19 +240,19 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.bQv = TbadkApplication.getInst().getSkinType();
-        if (this.bQf > 0) {
-            this.Oq = al.getDrawable(this.bQf);
-        } else if (this.Oq instanceof GradientDrawable) {
-            ((GradientDrawable) this.Oq).setColor(al.getColor(d.C0236d.cp_cont_h));
+        this.bQw = TbadkApplication.getInst().getSkinType();
+        if (this.bQg > 0) {
+            this.Or = al.getDrawable(this.bQg);
+        } else if (this.Or instanceof GradientDrawable) {
+            ((GradientDrawable) this.Or).setColor(al.getColor(d.C0277d.cp_cont_h));
         }
-        this.bQt.setColor(al.getColor(d.C0236d.cp_btn_a));
-        if (this.bOB != null) {
-            this.bOB.setColor(al.getColor(d.C0236d.cp_btn_a));
+        this.bQu.setColor(al.getColor(d.C0277d.cp_btn_a));
+        if (this.bOC != null) {
+            this.bOC.setColor(al.getColor(d.C0277d.cp_btn_a));
         }
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bQm, this.bQn, al.getColor(d.C0236d.cp_cont_h_alpha66));
-        if (this.bQg) {
-            this.bQg = false;
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bQn, this.bQo, al.getColor(d.C0277d.cp_cont_h_alpha66));
+        if (this.bQh) {
+            this.bQh = false;
             requestLayout();
         }
         invalidate();

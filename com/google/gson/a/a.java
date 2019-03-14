@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes2.dex */
 public @interface a {
-    boolean cBd() default true;
+    boolean cBg() default true;
 
-    boolean cBe() default true;
+    boolean cBh() default true;
 }

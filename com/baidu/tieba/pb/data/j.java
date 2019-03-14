@@ -14,98 +14,98 @@ import tbclient.PbFloor.DataRes;
 import tbclient.SubPostList;
 /* loaded from: classes4.dex */
 public class j {
-    private bg bTk;
-    private AntiData bWO;
+    private bg bTl;
+    private AntiData bWP;
     private ForumData ckJ;
     private int cld;
-    public boolean fzp;
-    public Error hkW;
+    public boolean fzo;
+    public Error hkV;
     private int mCurrentPage;
     private int mPageSize = 20;
-    private int hkU = -1;
-    private boolean hkV = false;
-    private PostData hkR = null;
-    private ArrayList<PostData> hkS = new ArrayList<>();
-    private int hkT = 1;
+    private int hkT = -1;
+    private boolean hkU = false;
+    private PostData hkQ = null;
+    private ArrayList<PostData> hkR = new ArrayList<>();
+    private int hkS = 1;
 
-    public Error bID() {
-        return this.hkW;
+    public Error bIC() {
+        return this.hkV;
     }
 
-    public PostData bIE() {
-        return this.hkR;
+    public PostData bID() {
+        return this.hkQ;
     }
 
     public void e(PostData postData) {
-        this.hkR = postData;
+        this.hkQ = postData;
+    }
+
+    public int bIE() {
+        if (this.hkT == -1) {
+            this.hkT = this.mCurrentPage;
+        }
+        return this.hkT;
     }
 
     public int bIF() {
-        if (this.hkU == -1) {
-            this.hkU = this.mCurrentPage;
-        }
-        return this.hkU;
-    }
-
-    public int bIG() {
-        return this.hkU;
+        return this.hkT;
     }
 
     public void a(j jVar, boolean z) {
         if (jVar != null) {
-            b(jVar.bbJ());
-            this.hkU = jVar.auv();
-            a(jVar.bIK());
+            b(jVar.bbI());
+            this.hkT = jVar.auu();
+            a(jVar.bIJ());
             setPageSize(jVar.getPageSize());
             aj(jVar.WR());
             setTotalCount(jVar.getTotalCount());
-            oz(jVar.bIJ());
-            this.hkS.addAll(0, jVar.bII());
+            oz(jVar.bII());
+            this.hkR.addAll(0, jVar.bIH());
         }
     }
 
     public void b(j jVar, boolean z) {
         if (jVar != null) {
-            b(jVar.bbJ());
-            a(jVar.bIK());
-            e(jVar.bIE());
+            b(jVar.bbI());
+            a(jVar.bIJ());
+            e(jVar.bID());
             aj(jVar.WR());
-            if (jVar.bII() != null) {
-                setCurrentPage(jVar.auv());
+            if (jVar.bIH() != null) {
+                setCurrentPage(jVar.auu());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                oz(jVar.bIJ());
+                oz(jVar.bII());
             }
-            int size = this.hkS.size();
+            int size = this.hkR.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.hkS.remove(this.hkS.size() - 1);
+                    this.hkR.remove(this.hkR.size() - 1);
                 }
             }
-            this.hkS.addAll(jVar.bII());
+            this.hkR.addAll(jVar.bIH());
         }
     }
 
     public void c(j jVar, boolean z) {
         if (jVar != null) {
-            b(jVar.bbJ());
-            a(jVar.bIK());
-            e(jVar.bIE());
+            b(jVar.bbI());
+            a(jVar.bIJ());
+            e(jVar.bID());
             aj(jVar.WR());
-            if (jVar.bII() != null && jVar.bII().size() > 0) {
-                setCurrentPage(jVar.auv());
+            if (jVar.bIH() != null && jVar.bIH().size() > 0) {
+                setCurrentPage(jVar.auu());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                oz(jVar.bIJ());
+                oz(jVar.bII());
             }
-            int size = this.hkS.size();
+            int size = this.hkR.size();
             if (z && size % this.mPageSize != 0) {
                 for (int i = 0; i < size % this.mPageSize; i++) {
-                    this.hkS.remove(this.hkS.size() - 1);
+                    this.hkR.remove(this.hkR.size() - 1);
                 }
             }
-            this.hkS.addAll(jVar.bII());
-            bIH();
+            this.hkR.addAll(jVar.bIH());
+            bIG();
         }
     }
 
@@ -115,46 +115,46 @@ public class j {
 
     public void a(j jVar) {
         if (jVar != null) {
-            b(jVar.bbJ());
-            a(jVar.bIK());
-            e(jVar.bIE());
+            b(jVar.bbI());
+            a(jVar.bIJ());
+            e(jVar.bID());
             aj(jVar.WR());
-            if (jVar.bII() != null && jVar.bII().size() > 0) {
-                setCurrentPage(jVar.auv());
+            if (jVar.bIH() != null && jVar.bIH().size() > 0) {
+                setCurrentPage(jVar.auu());
                 setPageSize(jVar.getPageSize());
                 setTotalCount(jVar.getTotalCount());
-                oz(jVar.bIJ());
-                this.hkU = (this.mCurrentPage - (((jVar.bII().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
-                if (this.hkU < 0) {
-                    this.hkU = 0;
+                oz(jVar.bII());
+                this.hkT = (this.mCurrentPage - (((jVar.bIH().size() - 1) + this.mPageSize) / this.mPageSize)) + 1;
+                if (this.hkT < 0) {
+                    this.hkT = 0;
                 }
             }
-            this.hkS.addAll(jVar.bII());
+            this.hkR.addAll(jVar.bIH());
         }
     }
 
-    public void bIH() {
-        if (this.hkU < 0) {
-            this.hkU = this.mCurrentPage;
-        } else if (this.hkU > this.mCurrentPage) {
-            this.hkU = this.mCurrentPage;
+    public void bIG() {
+        if (this.hkT < 0) {
+            this.hkT = this.mCurrentPage;
+        } else if (this.hkT > this.mCurrentPage) {
+            this.hkT = this.mCurrentPage;
         }
     }
 
-    public ArrayList<PostData> bII() {
-        return this.hkS;
+    public ArrayList<PostData> bIH() {
+        return this.hkR;
     }
 
     public void aq(ArrayList<PostData> arrayList) {
-        this.hkS = arrayList;
+        this.hkR = arrayList;
     }
 
-    public int bIJ() {
-        return this.hkT;
+    public int bII() {
+        return this.hkS;
     }
 
     public void oz(int i) {
-        this.hkT = i;
+        this.hkS = i;
     }
 
     public int getTotalCount() {
@@ -175,7 +175,7 @@ public class j {
         }
     }
 
-    public int auv() {
+    public int auu() {
         return this.mCurrentPage;
     }
 
@@ -187,36 +187,36 @@ public class j {
         this.ckJ = forumData;
     }
 
-    public ForumData bIK() {
+    public ForumData bIJ() {
         return this.ckJ;
     }
 
     public void b(AntiData antiData) {
-        this.bWO = antiData;
+        this.bWP = antiData;
     }
 
-    public AntiData bbJ() {
-        return this.bWO;
+    public AntiData bbI() {
+        return this.bWP;
     }
 
     public void aj(bg bgVar) {
-        this.bTk = bgVar;
+        this.bTl = bgVar;
     }
 
-    public boolean bvv() {
-        return (this.bTk == null || this.hkR == null || this.bTk.YR() == null || this.bTk.YR().getUserId() == null || this.hkR.YR() == null || this.hkR.YR().getUserId() == null || !this.bTk.YR().getUserId().equals(this.hkR.YR().getUserId())) ? false : true;
+    public boolean bvu() {
+        return (this.bTl == null || this.hkQ == null || this.bTl.YR() == null || this.bTl.YR().getUserId() == null || this.hkQ.YR() == null || this.hkQ.YR().getUserId() == null || !this.bTl.YR().getUserId().equals(this.hkQ.YR().getUserId())) ? false : true;
     }
 
     public boolean Vb() {
-        return this.hkV;
+        return this.hkU;
     }
 
     public boolean hasMore() {
-        return this.mCurrentPage < this.hkT;
+        return this.mCurrentPage < this.hkS;
     }
 
     public bg WR() {
-        return this.bTk;
+        return this.bTl;
     }
 
     public static j a(DataRes dataRes, Context context) {
@@ -235,7 +235,7 @@ public class j {
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
             jVar.a(forumData);
-            jVar.fzp = forumData.isBrandForum;
+            jVar.fzo = forumData.isBrandForum;
             PostData postData = new PostData();
             postData.pU(forumData.isBrandForum);
             postData.a(dataRes.post, context);

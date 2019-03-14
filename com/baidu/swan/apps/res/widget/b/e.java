@@ -24,26 +24,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e {
-    private static Runnable aNe;
-    private static View aNw;
+    private static Runnable aNf;
     private static View aNx;
-    private static boolean aNy = false;
+    private static View aNy;
+    private static boolean aNz = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, int i2, boolean z) {
         TextView textView;
         Resources resources = activity.getResources();
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(b.g.aiapps_normal_toast_view, (ViewGroup) null);
-        relativeLayout.setBackground(resources.getDrawable(b.e.aiapps_normal_toast_view_bg));
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(b.f.normal_toast_text)) != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
+        relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(a.f.normal_toast_text)) != null) {
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
             if (i2 >= 2) {
                 textView.setSingleLine(false);
@@ -53,7 +53,7 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(G(activity), relativeLayout, i, layoutParams, b.a.aiapps_toast_enter);
+        a(G(activity), relativeLayout, i, layoutParams, a.C0107a.aiapps_toast_enter);
     }
 
     static View G(@NonNull Activity activity) {
@@ -67,55 +67,55 @@ public class e {
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i) {
         TextView textView;
         Resources resources = activity.getResources();
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(b.g.aiapps_normal_toast_view, (ViewGroup) null);
-        relativeLayout.setBackground(resources.getDrawable(b.e.aiapps_normal_toast_view_bg));
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(b.f.normal_toast_text)) != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
+        relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(a.f.normal_toast_text)) != null) {
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
-        layoutParams.bottomMargin = (int) resources.getDimension(b.d.aiapps_clickable_toast_view_margin_bottom);
-        a(G(activity), relativeLayout, i, layoutParams, b.a.aiapps_toast_enter);
+        layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
+        a(G(activity), relativeLayout, i, layoutParams, a.C0107a.aiapps_toast_enter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         Resources resources = activity.getResources();
-        aNy = z;
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(b.g.aiapps_highlight_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_highlight_toast_view_bg));
-        TextView textView = (TextView) linearLayout.findViewById(b.f.highlight_toast_text);
+        aNz = z;
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highlight_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
+        TextView textView = (TextView) linearLayout.findViewById(a.f.highlight_toast_text);
         if (textView != null && !TextUtils.isEmpty(charSequence)) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
-        ImageView imageView = (ImageView) linearLayout.findViewById(b.f.highlight_toast_imageView);
+        ImageView imageView = (ImageView) linearLayout.findViewById(a.f.highlight_toast_imageView);
         if (imageView != null) {
             if (drawable == null) {
-                drawable = resources.getDrawable(b.e.aiapps_highlight_toast_image);
+                drawable = resources.getDrawable(a.e.aiapps_highlight_toast_image);
             }
             imageView.setImageDrawable(drawable);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(G(activity), linearLayout, i, layoutParams, b.a.aiapps_highlight_toast_show);
+        a(G(activity), linearLayout, i, layoutParams, a.C0107a.aiapps_highlight_toast_show);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Activity activity, CharSequence charSequence, int i, boolean z) {
         Resources resources = activity.getResources();
-        aNy = z;
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(b.g.aiapps_highloading_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_highlight_toast_view_bg));
-        TextView textView = (TextView) linearLayout.findViewById(b.f.highLoading_progress_toast_title);
+        aNz = z;
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
+        TextView textView = (TextView) linearLayout.findViewById(a.f.highLoading_progress_toast_title);
         if (!TextUtils.isEmpty(charSequence) && textView != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        a(G(activity), linearLayout, i, layoutParams, b.a.aiapps_highlight_toast_show);
+        a(G(activity), linearLayout, i, layoutParams, a.C0107a.aiapps_highlight_toast_show);
     }
 
     private static void a(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
@@ -135,9 +135,9 @@ public class e {
                 view.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.aNy && view != null) {
-                            if (e.aNx != null && (e.aNx.getParent() instanceof ViewGroup)) {
-                                ((ViewGroup) e.aNx.getParent()).removeView(e.aNx);
+                        if (e.aNz && view != null) {
+                            if (e.aNy != null && (e.aNy.getParent() instanceof ViewGroup)) {
+                                ((ViewGroup) e.aNy.getParent()).removeView(e.aNy);
                             }
                             if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                                 FrameLayout frameLayout = new FrameLayout(context);
@@ -146,31 +146,31 @@ public class e {
                                 layoutParams2.topMargin = d.bY(context);
                                 if (view instanceof ViewGroup) {
                                     ((ViewGroup) view).addView(frameLayout, layoutParams2);
-                                    View unused = e.aNx = frameLayout;
+                                    View unused = e.aNy = frameLayout;
                                 }
                             } else {
                                 return;
                             }
                         }
-                        if (e.aNw != null && (e.aNw.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.aNw.getParent()).removeView(e.aNw);
+                        if (e.aNx != null && (e.aNx.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.aNx.getParent()).removeView(e.aNx);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.aNw = view2;
+                            View unused2 = e.aNx = view2;
                         }
                     }
                 });
-                if (aNe == null) {
-                    aNe = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
+                if (aNf == null) {
+                    aNf = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
                         @Override // java.lang.Runnable
                         public void run() {
                             e.cancel();
                         }
                     };
                 }
-                view.postDelayed(aNe, i * 1000);
+                view.postDelayed(aNf, i * 1000);
             }
         }
     }
@@ -181,10 +181,10 @@ public class e {
         Animation animation;
         final TextView textView;
         Resources resources = activity.getResources();
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(b.g.aiapps_icon_title_message_button_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_clickable_toast_view_bg));
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_icon_title_message_button_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(b.f.left_icon);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(a.f.left_icon);
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
@@ -193,10 +193,10 @@ public class e {
         } else {
             simpleDraweeView.setVisibility(8);
         }
-        TextView textView2 = (TextView) linearLayout.findViewById(b.f.title_text);
-        TextView textView3 = (TextView) linearLayout.findViewById(b.f.message_text);
-        textView2.setTextColor(resources.getColor(b.c.aiapps_white_text));
-        textView3.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        TextView textView2 = (TextView) linearLayout.findViewById(a.f.title_text);
+        TextView textView3 = (TextView) linearLayout.findViewById(a.f.message_text);
+        textView2.setTextColor(resources.getColor(a.c.aiapps_white_text));
+        textView3.setTextColor(resources.getColor(a.c.aiapps_white_text));
         if (!TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(charSequence2)) {
             textView2.setText(charSequence);
             textView3.setText(charSequence2);
@@ -215,25 +215,25 @@ public class e {
             z = false;
         }
         if (uri == null && !z) {
-            int dimensionPixelSize = resources.getDimensionPixelSize(b.d.aiapps_clickable_toast_single_line_padding);
-            ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(b.f.text_area).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = resources.getDimensionPixelSize(a.d.aiapps_clickable_toast_single_line_padding);
+            ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(a.f.text_area).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
-        View findViewById = linearLayout.findViewById(b.f.clickable_toast_click_area);
+        View findViewById = linearLayout.findViewById(a.f.clickable_toast_click_area);
         if (!TextUtils.isEmpty(charSequence3)) {
             switch (i2) {
                 case 1:
-                    linearLayout.findViewById(b.f.bg_text_btn).setVisibility(8);
-                    linearLayout.findViewById(b.f.clickable_toast_line).setBackgroundColor(resources.getColor(b.c.aiapps_white_text));
-                    textView = (TextView) linearLayout.findViewById(b.f.clickable_toast_check_text);
-                    textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+                    linearLayout.findViewById(a.f.bg_text_btn).setVisibility(8);
+                    linearLayout.findViewById(a.f.clickable_toast_line).setBackgroundColor(resources.getColor(a.c.aiapps_white_text));
+                    textView = (TextView) linearLayout.findViewById(a.f.clickable_toast_check_text);
+                    textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
                     textView.setText(charSequence3);
-                    ((ImageView) linearLayout.findViewById(b.f.clickable_toast_icon_view)).setImageDrawable(resources.getDrawable(b.e.aiapps_clickable_toast_icon));
+                    ((ImageView) linearLayout.findViewById(a.f.clickable_toast_icon_view)).setImageDrawable(resources.getDrawable(a.e.aiapps_clickable_toast_icon));
                     break;
                 default:
-                    linearLayout.findViewById(b.f.line_text_icon_btn).setVisibility(8);
-                    textView = (TextView) linearLayout.findViewById(b.f.bg_text_btn);
-                    textView.setBackground(resources.getDrawable(b.e.aiapps_toast_button_view_bg));
-                    textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+                    linearLayout.findViewById(a.f.line_text_icon_btn).setVisibility(8);
+                    textView = (TextView) linearLayout.findViewById(a.f.bg_text_btn);
+                    textView.setBackground(resources.getDrawable(a.e.aiapps_toast_button_view_bg));
+                    textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
                     textView.setText(charSequence3);
                     break;
             }
@@ -267,10 +267,10 @@ public class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
-        layoutParams.bottomMargin = (int) resources.getDimension(b.d.aiapps_clickable_toast_view_margin_bottom);
+        layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
         switch (i3) {
             case 2:
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(b.d.aiapps_clickable_toast_view_shift_start_y);
+                int dimensionPixelSize2 = resources.getDimensionPixelSize(a.d.aiapps_clickable_toast_view_shift_start_y);
                 AnimationSet animationSet = new AnimationSet(true);
                 animationSet.setDuration(200L);
                 animationSet.setInterpolator(new DecelerateInterpolator());
@@ -279,7 +279,7 @@ public class e {
                 animation = animationSet;
                 break;
             default:
-                animation = AnimationUtils.loadAnimation(activity, b.a.aiapps_toast_enter);
+                animation = AnimationUtils.loadAnimation(activity, a.C0107a.aiapps_toast_enter);
                 break;
         }
         a(G(activity), linearLayout, i4, layoutParams, animation);
@@ -287,12 +287,12 @@ public class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (aNw != null) {
-                aNw.post(new AnonymousClass2(aNw, aNx));
-                aNw.removeCallbacks(aNe);
-                aNw = null;
-                aNe = null;
+            if (aNx != null) {
+                aNx.post(new AnonymousClass2(aNx, aNy));
+                aNx.removeCallbacks(aNf);
                 aNx = null;
+                aNf = null;
+                aNy = null;
             }
         }
     }
@@ -301,17 +301,17 @@ public class e {
     /* renamed from: com.baidu.swan.apps.res.widget.b.e$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static class AnonymousClass2 implements Runnable {
-        final /* synthetic */ View aNC;
         final /* synthetic */ View aND;
+        final /* synthetic */ View aNE;
 
         AnonymousClass2(View view, View view2) {
-            this.aNC = view;
-            this.aND = view2;
+            this.aND = view;
+            this.aNE = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.aNC.getContext(), b.a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.aND.getContext(), a.C0107a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -319,22 +319,22 @@ public class e {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    if (AnonymousClass2.this.aNC.getParent() instanceof ViewGroup) {
-                        AnonymousClass2.this.aNC.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
+                    if (AnonymousClass2.this.aND.getParent() instanceof ViewGroup) {
+                        AnonymousClass2.this.aND.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aNC.getParent() != null) {
-                                    ((ViewGroup) AnonymousClass2.this.aNC.getParent()).removeView(AnonymousClass2.this.aNC);
+                                if (AnonymousClass2.this.aND.getParent() != null) {
+                                    ((ViewGroup) AnonymousClass2.this.aND.getParent()).removeView(AnonymousClass2.this.aND);
                                 }
                             }
                         });
                     }
-                    if (AnonymousClass2.this.aND != null) {
-                        AnonymousClass2.this.aND.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
+                    if (AnonymousClass2.this.aNE != null) {
+                        AnonymousClass2.this.aNE.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aND != null && AnonymousClass2.this.aND.getParent() != null && (AnonymousClass2.this.aND.getParent() instanceof ViewGroup)) {
-                                    ((ViewGroup) AnonymousClass2.this.aND.getParent()).removeView(AnonymousClass2.this.aND);
+                                if (AnonymousClass2.this.aNE != null && AnonymousClass2.this.aNE.getParent() != null && (AnonymousClass2.this.aNE.getParent() instanceof ViewGroup)) {
+                                    ((ViewGroup) AnonymousClass2.this.aNE.getParent()).removeView(AnonymousClass2.this.aNE);
                                 }
                             }
                         });
@@ -345,7 +345,7 @@ public class e {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aNC.startAnimation(loadAnimation);
+            this.aND.startAnimation(loadAnimation);
         }
     }
 }

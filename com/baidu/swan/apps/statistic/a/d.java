@@ -7,10 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends f {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static int aEg = 35;
-    private boolean aEi = false;
-    private JSONObject aSo;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static int aEh = 35;
+    private boolean aEj = false;
+    private JSONObject aSp;
 
     public d() {
         this.mSource = "NA";
@@ -23,7 +23,7 @@ public class d extends f {
     }
 
     public d cg(boolean z) {
-        this.aEi = z;
+        this.aEj = z;
         return this;
     }
 
@@ -43,17 +43,17 @@ public class d extends f {
     }
 
     public d gU(String str) {
-        this.axH = str;
+        this.axI = str;
         return this;
     }
 
     public d aA(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.aSo == null) {
-                this.aSo = new JSONObject();
+            if (this.aSp == null) {
+                this.aSp = new JSONObject();
             }
             try {
-                this.aSo.put(str, str2);
+                this.aSp.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -63,17 +63,17 @@ public class d extends f {
 
     public d r(com.baidu.swan.apps.v.b.b bVar) {
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.axF)) {
-                this.mSource = bVar.axF;
+            if (!TextUtils.isEmpty(bVar.axG)) {
+                this.mSource = bVar.axG;
             }
             if (!TextUtils.isEmpty(bVar.mAppId)) {
                 this.mAppId = bVar.mAppId;
             }
-            if (!TextUtils.isEmpty(bVar.axG)) {
-                this.aSu = bVar.axG;
-            }
             if (!TextUtils.isEmpty(bVar.axH)) {
-                this.aSw = bVar.axH;
+                this.aSv = bVar.axH;
+            }
+            if (!TextUtils.isEmpty(bVar.axI)) {
+                this.aSx = bVar.axI;
             }
         }
         return this;
@@ -87,11 +87,11 @@ public class d extends f {
             if (!TextUtils.isEmpty(cVar.mAppId)) {
                 this.mAppId = cVar.mAppId;
             }
-            if (!TextUtils.isEmpty(cVar.axG)) {
-                this.aSu = cVar.axG;
-            }
             if (!TextUtils.isEmpty(cVar.axH)) {
-                this.aSw = cVar.axH;
+                this.aSv = cVar.axH;
+            }
+            if (!TextUtils.isEmpty(cVar.axI)) {
+                this.aSx = cVar.axI;
             }
         }
         return this;
@@ -99,18 +99,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.aSp == null) {
-            this.aSp = new JSONObject();
+        if (this.aSq == null) {
+            this.aSq = new JSONObject();
         }
         try {
-            if (this.aSo != null) {
-                if (this.aEi) {
-                    String ep = aa.ep(aEg);
+            if (this.aSp != null) {
+                if (this.aEj) {
+                    String ep = aa.ep(aEh);
                     if (!TextUtils.isEmpty(ep)) {
-                        this.aSo.put("stacktrace", ep);
+                        this.aSp.put("stacktrace", ep);
                     }
                 }
-                this.aSp.put("info", this.aSo);
+                this.aSq.put("info", this.aSp);
             }
         } catch (JSONException e) {
             if (DEBUG) {

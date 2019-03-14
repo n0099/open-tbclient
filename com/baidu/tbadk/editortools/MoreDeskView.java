@@ -16,7 +16,7 @@ public class MoreDeskView extends CommonTabHost {
         super(context);
         this.ciX = new SparseIntArray();
         this.ciY = true;
-        setBackgroundColorId(d.C0236d.cp_bg_line_d);
+        setBackgroundColorId(d.C0277d.cp_bg_line_d);
         setToolId(2);
     }
 
@@ -24,7 +24,7 @@ public class MoreDeskView extends CommonTabHost {
         super(context);
         this.ciX = new SparseIntArray();
         this.ciY = true;
-        setBackgroundColorId(d.C0236d.cp_bg_line_d);
+        setBackgroundColorId(d.C0277d.cp_bg_line_d);
         setToolId(2);
         this.ciY = z;
     }
@@ -47,7 +47,7 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            amf();
+            ame();
         }
     }
 
@@ -67,7 +67,7 @@ public class MoreDeskView extends CommonTabHost {
         this.ciX.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void amf() {
+    private void ame() {
         int i = 0;
         for (int i2 = 0; i2 < this.ciX.size(); i2++) {
             i += this.ciX.valueAt(i2);

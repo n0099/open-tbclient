@@ -24,6 +24,7 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -700,7 +701,7 @@ public final class DeviceId {
     }
 
     private static String imeiCheck(String str) {
-        return (str == null || !str.contains(":")) ? str : "";
+        return (str == null || !str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) ? str : "";
     }
 
     private void initPublicKey() {

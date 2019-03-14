@@ -2,16 +2,17 @@ package com.airbnb.lottie.c;
 
 import android.animation.ValueAnimator;
 import android.support.annotation.FloatRange;
+import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes2.dex */
 public class c extends ValueAnimator {
     private long sJ;
     private boolean sI = false;
     private float speed = 1.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float value = 0.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float sK = 0.0f;
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float sL = 1.0f;
 
     public c() {

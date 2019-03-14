@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -23,7 +24,7 @@ public final class StatService {
     static {
         commonParams.put(Info.kBaiduPIDKey, "111");
         commonParams.put("type", "1023");
-        commonParams.put("device", "android");
+        commonParams.put(Config.DEVICE_PART, "android");
     }
 
     private StatService() {

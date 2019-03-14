@@ -5,7 +5,7 @@ public interface b {
 
     void Vu();
 
-    void apM();
+    void apL();
 
-    void pB(String str);
+    void pz(String str);
 }

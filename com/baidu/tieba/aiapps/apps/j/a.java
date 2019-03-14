@@ -4,13 +4,12 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.swan.apps.u.b.d;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements d {
-    public static final boolean DEBUG = c.DEBUG;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.u.b.d
     public boolean g(Context context, JSONObject jSONObject) {

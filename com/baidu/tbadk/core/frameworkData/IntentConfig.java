@@ -466,7 +466,6 @@ public class IntentConfig extends OrmObject {
                     }
                 }
                 com.baidu.adp.lib.g.f.a(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
-                IntentConfig.this.mContext = null;
             }
         }
 

@@ -4,7 +4,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.ap;
@@ -441,7 +440,7 @@ public class UserData extends MetaData {
                 this.bg_pic = jSONObject.optString("bg_pic");
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
-                this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
+                this.is_mem = jSONObject.optInt("is_mem");
                 JSONObject optJSONObject = jSONObject.optJSONObject("vipInfo");
                 if (optJSONObject != null) {
                     this.vipInfo = new UserVipInfoData();

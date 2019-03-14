@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void d(String str, String str2, boolean z) {
         char c = 65535;
@@ -94,7 +94,7 @@ public class i {
             if (DEBUG) {
                 Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + fQ);
             }
-            if (fQ != null && fQ.aFd && fQ.aEZ.isSwanAppProcess()) {
+            if (fQ != null && fQ.aFe && fQ.aFa.isSwanAppProcess()) {
                 serviceObject.sendMessageToClient(fQ, 107, bundle);
                 return;
             }
@@ -144,8 +144,8 @@ public class i {
         if (aVar != null && aVar.isValid()) {
             SwanAppDbControl bE = SwanAppDbControl.bE(com.baidu.swan.apps.u.a.Cy());
             if (z || aVar.AF()) {
-                if (aVar.aug <= 0) {
-                    aVar.aug = 432000L;
+                if (aVar.auh <= 0) {
+                    aVar.auh = 432000L;
                 }
                 aVar.createTime = System.currentTimeMillis();
                 z2 = bE.e(aVar, true);

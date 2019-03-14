@@ -4,12 +4,12 @@ import java.util.Iterator;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class g<T, R> implements c<R> {
-    private final c<T> jSY;
-    private final kotlin.jvm.a.b<T, R> jTl;
+    private final c<T> jSQ;
+    private final kotlin.jvm.a.b<T, R> jTd;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<R> {
-        private final Iterator<T> jTb;
+        private final Iterator<T> jST;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -18,17 +18,17 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.jTb = g.this.jSY.iterator();
+            this.jST = g.this.jSQ.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.jTl.invoke(this.jTb.next());
+            return (R) g.this.jTd.invoke(this.jST.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.jTb.hasNext();
+            return this.jST.hasNext();
         }
     }
 
@@ -38,8 +38,8 @@ public final class g<T, R> implements c<R> {
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         p.k(cVar, "sequence");
         p.k(bVar, "transformer");
-        this.jSY = cVar;
-        this.jTl = bVar;
+        this.jSQ = cVar;
+        this.jTd = bVar;
     }
 
     @Override // kotlin.sequences.c

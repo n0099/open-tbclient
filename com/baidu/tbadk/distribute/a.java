@@ -122,7 +122,7 @@ public class a {
     private int uploadSize = 10;
     private boolean chG = j.kY();
 
-    public static a alG() {
+    public static a alF() {
         return chF;
     }
 
@@ -133,16 +133,16 @@ public class a {
             if (z) {
                 eE(true);
             } else {
-                alH();
+                alG();
             }
         }
     }
 
-    private void alH() {
+    private void alG() {
         this.handler.removeMessages(1);
     }
 
-    private void alI() {
+    private void alH() {
         this.handler.removeMessages(1);
         this.handler.sendEmptyMessageDelayed(1, this.chI);
     }
@@ -168,13 +168,13 @@ public class a {
         if (z) {
             messageManager.registerTask(getSocketTask());
         }
-        messageManager.registerTask(alJ());
+        messageManager.registerTask(alI());
         messageManager.registerListener(this.chJ);
         messageManager.registerListener(this.chK);
         messageManager.registerListener(this.downloadListener);
     }
 
-    private HttpMessageTask alJ() {
+    private HttpMessageTask alI() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, TbConfig.SERVER_ADDRESS + TbConfig.LOG_TOGETHER + "?cmd=303101");
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
@@ -221,7 +221,7 @@ public class a {
         }
     }
 
-    private boolean alK() {
+    private boolean alJ() {
         return this.handler.hasMessages(1);
     }
 
@@ -229,12 +229,12 @@ public class a {
     public void eE(boolean z) {
         if (this.chG && this.isUpload) {
             List<AdReq> eF = eF(z);
-            if (z || !alK()) {
-                alI();
+            if (z || !alJ()) {
+                alH();
             }
             if (eF != null && eF.size() != 0) {
                 if (!z) {
-                    alI();
+                    alH();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(eF));
             }
@@ -297,27 +297,27 @@ public class a {
                     AdvertAppInfo advertAppInfo = arrayList.get(i2);
                     if (advertAppInfo != null) {
                         if (i2 != size - 1) {
-                            sb.append(advertAppInfo.bwJ).append("|");
+                            sb.append(advertAppInfo.bwL).append("|");
                             sb2.append(advertAppInfo.adPosition).append("|");
-                            sb3.append(advertAppInfo.bwB).append("|");
-                            sb4.append(advertAppInfo.bwL.bwT).append("|");
+                            sb3.append(advertAppInfo.bwD).append("|");
+                            sb4.append(advertAppInfo.bwN.bwV).append("|");
                             sb5.append(advertAppInfo.extensionInfo).append("|");
                             sb6.append(advertAppInfo.price).append("|");
-                            sb7.append(advertAppInfo.bwC).append("|");
-                            sb8.append(advertAppInfo.anB).append("|");
-                            sb9.append(advertAppInfo.bwH).append("|");
+                            sb7.append(advertAppInfo.bwE).append("|");
+                            sb8.append(advertAppInfo.anC).append("|");
+                            sb9.append(advertAppInfo.bwJ).append("|");
                             sb10.append(advertAppInfo.cpid).append("|");
                             sb11.append(advertAppInfo.abtest).append("|");
                         } else {
-                            sb.append(advertAppInfo.bwJ);
+                            sb.append(advertAppInfo.bwL);
                             sb2.append(advertAppInfo.adPosition);
-                            sb3.append(advertAppInfo.bwB);
-                            sb4.append(advertAppInfo.bwL.bwT);
+                            sb3.append(advertAppInfo.bwD);
+                            sb4.append(advertAppInfo.bwN.bwV);
                             sb5.append(advertAppInfo.extensionInfo);
                             sb6.append(advertAppInfo.price);
-                            sb7.append(advertAppInfo.bwC);
-                            sb8.append(advertAppInfo.anB);
-                            sb9.append(advertAppInfo.bwH);
+                            sb7.append(advertAppInfo.bwE);
+                            sb8.append(advertAppInfo.anC);
+                            sb9.append(advertAppInfo.bwJ);
                             sb10.append(advertAppInfo.cpid);
                             sb11.append(advertAppInfo.abtest);
                         }
@@ -349,8 +349,8 @@ public class a {
             return;
         }
         b a = f.a(downloadStaticsData, 101, 0);
-        a.dL("dl", IntentConfig.START);
-        c.bXC().a(a);
+        a.dK("dl", IntentConfig.START);
+        c.bXE().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -380,8 +380,8 @@ public class a {
             } else {
                 return;
             }
-            a.dL("dl", str2);
-            c.bXC().a(a);
+            a.dK("dl", str2);
+            c.bXE().a(a);
         }
     }
 
@@ -390,12 +390,12 @@ public class a {
         if (downloadStaticsData != null) {
             b a = f.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
-            a.dL("dl", WriteImageActivityConfig.DELET_FLAG);
-            c.bXC().a(a);
+            a.dK("dl", WriteImageActivityConfig.DELET_FLAG);
+            c.bXE().a(a);
         }
     }
 
     public void b(AdvertAppInfo advertAppInfo) {
-        this.chN.put(advertAppInfo.bwF, advertAppInfo);
+        this.chN.put(advertAppInfo.bwH, advertAppInfo);
     }
 }

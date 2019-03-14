@@ -20,7 +20,7 @@ public class am extends a {
                 this.mPath.addRect(new RectF(ad, ad2, ad + ad3, ad2 + ad4), Path.Direction.CW);
             }
         } catch (Exception e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

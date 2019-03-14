@@ -6,8 +6,7 @@ import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.content.ShapeStroke;
-import com.baidu.appsearchlib.Info;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -98,20 +97,20 @@ public class e implements b {
         public static e q(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("g");
-            if (optJSONObject != null && optJSONObject.has("k")) {
-                optJSONObject = optJSONObject.optJSONObject("k");
+            if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
+                optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);
             }
             com.airbnb.lottie.model.a.c cVar = null;
             if (optJSONObject != null) {
                 cVar = c.a.f(optJSONObject, eVar);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("o");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             com.airbnb.lottie.model.a.d dVar = null;
             if (optJSONObject2 != null) {
                 dVar = d.a.g(optJSONObject2, eVar);
             }
-            GradientType gradientType = jSONObject.optInt(Info.kBaiduTimeKey, 1) == 1 ? GradientType.Linear : GradientType.Radial;
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(NotifyType.SOUND);
+            GradientType gradientType = jSONObject.optInt("t", 1) == 1 ? GradientType.Linear : GradientType.Radial;
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
             com.airbnb.lottie.model.a.f fVar = null;
             if (optJSONObject3 != null) {
                 fVar = f.a.i(optJSONObject3, eVar);
@@ -121,7 +120,7 @@ public class e implements b {
             if (optJSONObject4 != null) {
                 fVar2 = f.a.i(optJSONObject4, eVar);
             }
-            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("w"), eVar);
+            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject(Config.DEVICE_WIDTH), eVar);
             ShapeStroke.LineCapType lineCapType = ShapeStroke.LineCapType.values()[jSONObject.optInt("lc") - 1];
             ShapeStroke.LineJoinType lineJoinType = ShapeStroke.LineJoinType.values()[jSONObject.optInt("lj") - 1];
             com.airbnb.lottie.model.a.b bVar = null;
@@ -132,7 +131,7 @@ public class e implements b {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
                     String optString2 = optJSONObject5.optString("n");
-                    if (optString2.equals("o")) {
+                    if (optString2.equals(Config.OS)) {
                         bVar2 = b.a.e(optJSONObject5.optJSONObject("v"), eVar);
                     } else if (optString2.equals("d") || optString2.equals("g")) {
                         arrayList.add(b.a.e(optJSONObject5.optJSONObject("v"), eVar));

@@ -23,8 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public static String aoC;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static String aoD;
 
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar) {
         a(context, cVar, true);
@@ -34,8 +34,8 @@ public class c {
         boolean z2;
         String uuid = UUID.randomUUID().toString();
         cVar.DC().putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        com.baidu.swan.apps.performance.b.FJ().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(aoC) ? "" : aoC);
-        aoC = "";
+        com.baidu.swan.apps.performance.b.FJ().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(aoD) ? "" : aoD);
+        aoD = "";
         com.baidu.swan.apps.performance.b.FJ().f(uuid, "is_sileng_updating_when_start", com.baidu.swan.apps.core.a.c.b.xP().isInProgress());
         cVar.DC().putLong("aiapp_start_timestamp", System.currentTimeMillis());
         com.baidu.swan.apps.database.a ef = SwanAppDbControl.bE(context).ef(cVar.mAppId);
@@ -65,7 +65,7 @@ public class c {
                 Log.i("loadSwanAppBundle", "本地有包，并行请求APS");
             }
             final int xB = a.xB();
-            if (ef != null && (z2 = ef.auh)) {
+            if (ef != null && (z2 = ef.aui)) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动: " + z2);
                 }
@@ -100,7 +100,7 @@ public class c {
             if (DEBUG) {
                 Log.d("loadSwanAppBundle", "appId: " + str + ", client: " + fO);
             }
-            if (fO.aFd && fO.aEZ.isSwanAppProcess()) {
+            if (fO.aFe && fO.aFa.isSwanAppProcess()) {
                 SwanAppPreHandleInfo swanAppPreHandleInfo = new SwanAppPreHandleInfo();
                 swanAppPreHandleInfo.appId = str;
                 if (!TextUtils.isEmpty(str3)) {
@@ -119,14 +119,14 @@ public class c {
 
     private static void a(com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.database.a aVar, String str) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axW);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axX);
         fVar.d(cVar);
-        fVar.aSt = str;
+        fVar.aSu = str;
         fVar.mType = "launch";
         if (aVar != null) {
             fVar.mAppVersion = aVar.version;
         }
-        String str2 = cVar.axG;
+        String str2 = cVar.axH;
         if (str2 != null) {
             String queryParameter = Uri.parse(str2).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
@@ -136,7 +136,7 @@ public class c {
                         fVar.ai(optJSONObject);
                     }
                 } catch (JSONException e) {
-                    if (com.baidu.swan.apps.c.DEBUG) {
+                    if (com.baidu.swan.apps.b.DEBUG) {
                         e.printStackTrace();
                     }
                 }
@@ -177,7 +177,7 @@ public class c {
                 Log.i("loadSwanAppBundle", "本地包已过期");
             }
             com.baidu.swan.apps.performance.b.FJ().e(str, "aiapp_launch_state", 1);
-            boolean z = aVar.auh;
+            boolean z = aVar.aui;
             if (z) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动且包过期: " + z);

@@ -70,12 +70,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> cDu;
+                Iterator<String> cDx;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (cDu = hVar.cDu()) != null) {
-                    while (cDu.hasNext()) {
-                        String next = cDu.next();
-                        hashMap.put(next, hVar.Gl(next));
+                if (hVar != null && (cDx = hVar.cDx()) != null) {
+                    while (cDx.hasNext()) {
+                        String next = cDx.next();
+                        hashMap.put(next, hVar.Gj(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -117,13 +117,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                p.Ga("webSocketClient");
+                p.FY("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            p.Ga("webSocketClient");
+            p.FY("webSocketClient");
         }
         aVar7.connect();
     }
@@ -133,7 +133,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.k(str, "reason");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.Ga("webSocketClient");
+            p.FY("webSocketClient");
         }
         aVar.close();
     }
@@ -143,7 +143,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.k(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.Ga("webSocketClient");
+            p.FY("webSocketClient");
         }
         aVar.send(str);
     }
@@ -153,7 +153,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.k(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.Ga("webSocketClient");
+            p.FY("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

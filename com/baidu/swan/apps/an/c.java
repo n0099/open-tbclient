@@ -22,7 +22,7 @@ public final class c {
                         com.baidu.swan.c.b.c(inputStream);
                     } catch (IOException e) {
                         e = e;
-                        if (com.baidu.swan.apps.c.DEBUG) {
+                        if (com.baidu.swan.apps.b.DEBUG) {
                             Log.w("AssetUtils", "loadPresetDatas", e);
                         }
                         com.baidu.swan.c.b.c(inputStream);

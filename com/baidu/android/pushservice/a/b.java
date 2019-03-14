@@ -13,10 +13,10 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.android.pushservice.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        private static class C0030a implements b {
+        private static class C0031a implements b {
             private IBinder a;
 
-            C0030a(IBinder iBinder) {
+            C0031a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -79,7 +79,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.android.pushservice.aidl.IPushServiceListener");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0030a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0031a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

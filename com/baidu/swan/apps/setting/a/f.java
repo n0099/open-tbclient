@@ -46,9 +46,9 @@ public class f extends y {
                         JSONObject wrapCallbackParams;
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
                         if (aVar.Ko()) {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aRQ, 0);
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aRR, 0);
                         } else {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aRR.toString(SapiErrorCode.NETWORK_FAILED));
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aRS.toString(SapiErrorCode.NETWORK_FAILED));
                         }
                         callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                     }

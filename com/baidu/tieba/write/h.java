@@ -11,11 +11,11 @@ import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class h extends PopupWindow {
-    private int biR;
+    private int biS;
     private LinearLayout ceE;
     private Context context;
     private int count;
-    private a jmC;
+    private a jmu;
     private int maxHeight;
 
     /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public class h extends PopupWindow {
 
     public h(Context context) {
         super(context);
-        this.biR = -1;
+        this.biS = -1;
         this.context = context;
         init(context);
     }
@@ -67,7 +67,7 @@ public class h extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.jmC));
+        view.setOnClickListener(new b(this.count, this.jmu));
         this.ceE.addView(view);
         this.count++;
     }
@@ -77,31 +77,31 @@ public class h extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.biR != -1) {
-            this.ceE.getChildAt(this.biR).setSelected(false);
+        if (this.biS != -1) {
+            this.ceE.getChildAt(this.biS).setSelected(false);
         }
-        this.biR = i;
-        this.ceE.getChildAt(this.biR).setSelected(true);
+        this.biS = i;
+        this.ceE.getChildAt(this.biS).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.jmC = aVar;
+        this.jmu = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a jmD;
+        private a jmv;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.jmD = aVar;
+            this.jmv = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.jmD != null) {
-                this.jmD.yZ(this.position);
+            if (this.jmv != null) {
+                this.jmv.yZ(this.position);
             }
         }
     }

@@ -5,7 +5,7 @@ import android.content.Context;
 public abstract class a implements com.baidu.swan.apps.b.b.f {
     @Override // com.baidu.swan.apps.b.b.f
     public boolean isDebug() {
-        return com.baidu.swan.apps.a.DEBUG;
+        return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.f

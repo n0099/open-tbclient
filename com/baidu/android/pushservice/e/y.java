@@ -16,13 +16,13 @@ public class y implements Runnable {
     private Context a;
     private int c;
     private boolean d;
-    private a.C0033a f;
+    private a.C0034a f;
     private int b = 3;
     private boolean e = true;
 
-    public y(Context context, a.C0033a c0033a) {
+    public y(Context context, a.C0034a c0034a) {
         this.a = context.getApplicationContext();
-        this.f = c0033a;
+        this.f = c0034a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x00f6 */

@@ -10,45 +10,45 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.data.i;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<i> {
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> bGb;
-    private LinearLayout hML;
-    private AutoBannerView hMM;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a> bGd;
+    private LinearLayout hMF;
+    private AutoBannerView hMG;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bGb = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.d.1
+        this.bGd = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.data.a>() { // from class: com.baidu.tieba.personCenter.view.d.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void y(int i, String str) {
-                if (d.this.hMM != null && str != null) {
-                    if (d.this.hMM.checkIndex(i)) {
+                if (d.this.hMG != null && str != null) {
+                    if (d.this.hMG.checkIndex(i)) {
                         TiebaStatic.log(new am("c13247").T("obj_locate", i).bJ("obj_param1", str));
                     }
-                    d.this.hMM.afm();
-                    d.this.hMM.wj(str);
+                    d.this.hMG.afm();
+                    d.this.hMG.wh(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.data.a aVar) {
-                if (d.this.hMM != null && aVar != null && aVar.bQv() != null && d.this.hMM.checkIndex(i)) {
-                    TiebaStatic.log(new am("c13246").bJ("uid", TbadkCoreApplication.getCurrentAccount()).T("obj_locate", i).bJ("obj_param1", aVar.bQv()));
+                if (d.this.hMG != null && aVar != null && aVar.bQx() != null && d.this.hMG.checkIndex(i)) {
+                    TiebaStatic.log(new am("c13246").bJ("uid", TbadkCoreApplication.getCurrentAccount()).T("obj_locate", i).bJ("obj_param1", aVar.bQx()));
                 }
             }
         };
-        this.hML = (LinearLayout) getView().findViewById(d.g.viewpager);
-        this.hMM = new AutoBannerView(this.mTbPageContext.getPageActivity());
-        this.hMM.setMarqueenTime(3000L);
-        this.hMM.getCoverFlowView().setCallback(this.bGb);
+        this.hMF = (LinearLayout) getView().findViewById(d.g.viewpager);
+        this.hMG = new AutoBannerView(this.mTbPageContext.getPageActivity());
+        this.hMG.setMarqueenTime(3000L);
+        this.hMG.getCoverFlowView().setCallback(this.bGd);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.hMM != null) {
-                this.hMM.onChangeSkinType(i);
+            if (this.hMG != null) {
+                this.hMG.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
@@ -63,9 +63,9 @@ public class d extends com.baidu.tieba.card.a<i> {
     @Override // com.baidu.tieba.card.a
     public void a(i iVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.hML != null && iVar != null && iVar.hLU != null && this.hMM != null && this.hML.getChildCount() != 1 && iVar.hLU.size() != 0) {
-            this.hMM.cx(iVar.hLU);
-            this.hML.addView(this.hMM);
+        if (this.hMF != null && iVar != null && iVar.hLO != null && this.hMG != null && this.hMF.getChildCount() != 1 && iVar.hLO.size() != 0) {
+            this.hMG.cx(iVar.hLO);
+            this.hMF.addView(this.hMG);
         }
     }
 
@@ -75,8 +75,8 @@ public class d extends com.baidu.tieba.card.a<i> {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        if (this.hMM != null) {
-            this.hMM.afm();
+        if (this.hMG != null) {
+            this.hMG.afm();
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private EditorTools VM;
+    private EditorTools VN;
     private CommonTabHorizonScrollView clD;
     private ImageView clE;
 
@@ -34,7 +34,7 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.VM = editorTools;
+        this.VN = editorTools;
     }
 
     private void init(Context context) {
@@ -46,8 +46,8 @@ public class CommonTabWidgetView extends LinearLayout {
         this.clE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CommonTabWidgetView.this.VM != null) {
-                    CommonTabWidgetView.this.VM.b(new com.baidu.tbadk.editortools.a(3, 3, null));
+                if (CommonTabWidgetView.this.VN != null) {
+                    CommonTabWidgetView.this.VN.b(new com.baidu.tbadk.editortools.a(3, 3, null));
                 }
             }
         });
@@ -79,10 +79,10 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.l(this, d.C0236d.common_color_10223);
+        al.l(this, d.C0277d.common_color_10223);
         this.clD.ij(i);
         al.c(this.clE, d.f.but_face_close);
-        al.l(this.clE, d.C0236d.common_color_10224);
+        al.l(this.clE, d.C0277d.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {

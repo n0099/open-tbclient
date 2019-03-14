@@ -22,10 +22,10 @@ public class UserItemData implements Parcelable {
     };
     public String agree_num;
     public String fans_num;
-    public String iUX;
-    public String iUY;
-    public String iUZ;
-    public String iVa;
+    public String iUP;
+    public String iUQ;
+    public String iUR;
+    public String iUS;
     public String intro;
     public String is_follow;
     public String name_show;
@@ -34,7 +34,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String ciI() {
+    public String ciL() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.iUX);
-        parcel.writeString(this.iUY);
+        parcel.writeString(this.iUP);
+        parcel.writeString(this.iUQ);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.iUZ);
-        parcel.writeString(this.iVa);
+        parcel.writeString(this.iUR);
+        parcel.writeString(this.iUS);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.iUX = parcel.readString();
-        this.iUY = parcel.readString();
+        this.iUP = parcel.readString();
+        this.iUQ = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.iUZ = parcel.readString();
-        this.iVa = parcel.readString();
+        this.iUR = parcel.readString();
+        this.iUS = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

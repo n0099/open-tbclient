@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
@@ -29,12 +28,12 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     public x onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
         x xVar = new x(inflate);
-        al.j(xVar.dis, d.C0236d.cp_cont_b);
-        al.j(xVar.fia, d.C0236d.cp_cont_h);
-        al.c(xVar.fhZ, d.f.icon_news_list_prompt);
-        al.c(xVar.fib, d.f.icon_index_category_arrow_r);
-        al.l(xVar.fic, d.C0236d.cp_bg_line_b);
-        al.l(xVar.fie, d.C0236d.cp_bg_line_b);
+        al.j(xVar.dio, d.C0277d.cp_cont_b);
+        al.j(xVar.fhZ, d.C0277d.cp_cont_h);
+        al.c(xVar.fhY, d.f.icon_news_list_prompt);
+        al.c(xVar.fia, d.f.icon_index_category_arrow_r);
+        al.l(xVar.fib, d.C0277d.cp_bg_line_b);
+        al.l(xVar.fic, d.C0277d.cp_bg_line_b);
         al.k(inflate, d.f.home_thread_card_item_bg);
         return xVar;
     }
@@ -51,17 +50,17 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TiebaStatic.log(new am("c12587").bJ(ImageViewerConfig.FORUM_ID, w.this.mForumId));
-                b.getInstance().putLong("frs_video_activity_tip" + w.this.mForumId, System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + w.this.mForumId, System.currentTimeMillis());
                 if (lVar != null && !StringUtils.isNull(lVar.url)) {
                     com.baidu.tbadk.browser.a.as(w.this.mContext, lVar.url);
                 }
             }
         });
-        xVar.dis.setText(lVar != null ? lVar.text : "");
-        if (cG(b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            xVar.fhZ.setVisibility(0);
+        xVar.dio.setText(lVar != null ? lVar.text : "");
+        if (cG(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            xVar.fhY.setVisibility(0);
         } else {
-            xVar.fhZ.setVisibility(8);
+            xVar.fhY.setVisibility(8);
         }
         return xVar.getView();
     }

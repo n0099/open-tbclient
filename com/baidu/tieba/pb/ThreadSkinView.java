@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo hia;
-    private a.C0309a hib;
+    private SkinInfo hhZ;
+    private a.C0390a hia;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,22 +40,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0309a c0309a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0390a c0390a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hia != skinInfo && c0309a != null) {
-            this.hib = c0309a;
-            this.hib.delete("action_type");
-            this.hib.dY(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.hib.dY("obj_url", skinInfo.url);
-            this.hib.dY("obj_name", skinInfo.monitor_id);
-            this.hib.dY("action_type", "VIEW_TRUE");
-            this.hib.save();
+        if (this.hhZ != skinInfo && c0390a != null) {
+            this.hia = c0390a;
+            this.hia.delete("action_type");
+            this.hia.dX(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.hia.dX("obj_url", skinInfo.url);
+            this.hia.dX("obj_name", skinInfo.monitor_id);
+            this.hia.dX("action_type", "VIEW_TRUE");
+            this.hia.save();
         }
-        this.hia = skinInfo;
+        this.hhZ = skinInfo;
         int aO = l.aO(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = aO;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hia != null && !StringUtils.isNull(this.hia.url)) {
-            if (this.hib != null) {
-                this.hib.delete("action_type");
-                this.hib.dY("action_type", "CLICK");
-                this.hib.save();
+        if (this.hhZ != null && !StringUtils.isNull(this.hhZ.url)) {
+            if (this.hia != null) {
+                this.hia.delete("action_type");
+                this.hia.dX("action_type", "CLICK");
+                this.hia.save();
             }
-            ba.adD().c(this.mTbPageContext, new String[]{this.hia.url});
+            ba.adD().c(this.mTbPageContext, new String[]{this.hhZ.url});
         }
     }
 }

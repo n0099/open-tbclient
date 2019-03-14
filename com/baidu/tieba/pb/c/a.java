@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && dVar != null) {
             am amVar = new am("common_exp");
             a(amVar, dVar, postData, i, i2, false, str);
-            c.cdr().a(bdUniqueId, str2, amVar);
+            c.cdt().a(bdUniqueId, str2, amVar);
         }
     }
 
@@ -71,8 +71,8 @@ public class a {
         if (postData != null) {
             amVar.bJ(Info.kBaiduPIDKey, postData.getId() + "");
         }
-        if (dVar.bIa() != null) {
-            amVar.T("thread_type", dVar.bIa().threadType);
+        if (dVar.bHZ() != null) {
+            amVar.T("thread_type", dVar.bHZ().threadType);
         }
         return amVar;
     }

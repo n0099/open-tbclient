@@ -5,33 +5,33 @@ import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.database.subpackage.SubPackageTable;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private static volatile a auE;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static volatile a auF;
     private Context mContext = AppRuntime.getAppContext();
 
     private a() {
     }
 
     public static a AV() {
-        if (auE == null) {
+        if (auF == null) {
             synchronized (a.class) {
-                if (auE == null) {
-                    auE = new a();
+                if (auF == null) {
+                    auF = new a();
                 }
             }
         }
-        return auE;
+        return auF;
     }
 
     public void ag(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                int delete = this.mContext.getContentResolver().delete(b.auF, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str2});
+                int delete = this.mContext.getContentResolver().delete(b.auG, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str2});
                 if (DEBUG) {
                     Log.e("SubPackageInfoHelper", "clearSubPackageInfo:" + delete);
                 }
@@ -45,7 +45,7 @@ public class a {
 
     public void eu(String str) {
         if (!TextUtils.isEmpty(str)) {
-            int delete = this.mContext.getContentResolver().delete(b.auF, SubPackageTable.Table.app_id + "=?", new String[]{str});
+            int delete = this.mContext.getContentResolver().delete(b.auG, SubPackageTable.Table.app_id + "=?", new String[]{str});
             if (DEBUG) {
                 Log.e("SubPackageInfoHelper", "clearAllVersionSubPackageInfo:" + delete);
             }
@@ -60,7 +60,7 @@ public class a {
         contentValues.put(SubPackageTable.Table.is_exist.toString(), (Integer) 1);
         contentValues.put(SubPackageTable.Table.aps_package_name.toString(), str4);
         try {
-            this.mContext.getContentResolver().insert(b.auF, contentValues);
+            this.mContext.getContentResolver().insert(b.auG, contentValues);
         } catch (IllegalArgumentException e) {
             if (DEBUG) {
                 Log.e("SubPackageInfoHelper", e.getMessage());
@@ -76,7 +76,7 @@ public class a {
         Cursor cursor;
         boolean z = false;
         try {
-            cursor = this.mContext.getContentResolver().query(b.auF, new String[]{SubPackageTable.Table.is_exist.toString()}, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.package_name + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str3, str2}, null);
+            cursor = this.mContext.getContentResolver().query(b.auG, new String[]{SubPackageTable.Table.is_exist.toString()}, SubPackageTable.Table.app_id + "=? AND " + SubPackageTable.Table.package_name + "=? AND " + SubPackageTable.Table.version + "=?", new String[]{str, str3, str2}, null);
             if (cursor != null) {
                 try {
                     try {
@@ -108,7 +108,7 @@ public class a {
             throw th;
         }
         if (DEBUG) {
-            Log.e("SubPackageInfoHelper", str + ":" + str3 + " -> " + z);
+            Log.e("SubPackageInfoHelper", str + Config.TRACE_TODAY_VISIT_SPLIT + str3 + " -> " + z);
         }
         return z;
     }

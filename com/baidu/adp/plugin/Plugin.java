@@ -683,7 +683,7 @@ public class Plugin {
                         classLoader2 = classLoader2.getParent();
                     }
                     a.C0024a a2 = com.baidu.adp.plugin.util.a.a(classLoader2, this.mDexClassLoader, this.mPackageName + ".Static", false, this.mPluginApkFile.getAbsolutePath());
-                    if (a2 == null || !a2.Mx) {
+                    if (a2 == null || !a2.My) {
                         com.baidu.adp.plugin.b.a.mS().g("plugin_load", "createClassLoader_failed", this.mPackageName, "patch apk inject failed!" + a2.mErrMsg);
                         bVar.Jy = false;
                         bVar.reason = "patchClassLoaderInject_failed";
@@ -719,7 +719,7 @@ public class Plugin {
                 }
                 this.mCurrentPluginMode = 1;
                 a.C0024a a3 = com.baidu.adp.plugin.util.a.a(classLoader3, this.mDexClassLoader, this.mPackageName + ".Static", true, this.mPluginApkFile.getAbsolutePath());
-                if (a3 != null && !a3.Mx) {
+                if (a3 != null && !a3.My) {
                     if (PluginPackageManager.ni().isMainProcess()) {
                         com.baidu.adp.plugin.b.a.mS().bP("plugin_inject_failed");
                     }
@@ -752,7 +752,7 @@ public class Plugin {
                         str = sb2.substring(0, sb2.length() - 1);
                     }
                     a.C0024a a4 = com.baidu.adp.plugin.util.a.a(this.mContext, new DexClassLoader(str2, this.mPluginDataRoot.getAbsolutePath(), str, classLoader3), this.mPackageName + ".Static");
-                    if (a4 != null && !a4.Mx) {
+                    if (a4 != null && !a4.My) {
                         if (PluginPackageManager.ni().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.mS().g("plugin_load", "replaceparent_failed", this.mPackageName, a4.mErrMsg);
                         }
@@ -760,7 +760,7 @@ public class Plugin {
                         bVar.reason = "replaceparent_failed";
                         bVar.JA = a4.mErrMsg;
                         return bVar;
-                    } else if (a4 != null && a4.Mx) {
+                    } else if (a4 != null && a4.My) {
                         com.baidu.adp.plugin.b.a.mS().bP("plugin_second_inject_succ");
                     }
                 }

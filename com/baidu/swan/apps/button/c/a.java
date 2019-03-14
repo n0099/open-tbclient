@@ -8,11 +8,12 @@ import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.console.c;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     public static void b(@NonNull com.baidu.swan.apps.button.view.a aVar) {
         c(aVar);
@@ -51,7 +52,7 @@ public class a {
     }
 
     private static void a(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
-        view.setPadding(x.ad((float) aVar.adT), x.ad((float) aVar.adU), x.ad((float) aVar.adV), x.ad((float) aVar.adW));
+        view.setPadding(x.ad((float) aVar.adU), x.ad((float) aVar.adV), x.ad((float) aVar.adW), x.ad((float) aVar.adX));
         float f = aVar.alpha;
         if (f >= 0.0f && f <= 1.0f) {
             view.setAlpha(f);
@@ -61,7 +62,7 @@ public class a {
     private static void b(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(aVar.backgroundColor);
-        gradientDrawable.setCornerRadius(aVar.akg);
+        gradientDrawable.setCornerRadius(aVar.akh);
         gradientDrawable.setStroke(aVar.borderWidth, aVar.borderColor);
         view.setBackground(gradientDrawable);
     }
@@ -75,9 +76,9 @@ public class a {
         boolean z2;
         textView.setText(aVar.text);
         try {
-            textView.setTextColor(Color.parseColor(aVar.akh));
+            textView.setTextColor(Color.parseColor(aVar.aki));
         } catch (Exception e) {
-            com.baidu.swan.apps.console.c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
+            c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
         }
         int i2 = aVar.textSize;
         if (i2 > 0) {
@@ -160,7 +161,7 @@ public class a {
                 }
                 break;
         }
-        String str3 = aVar.aki;
+        String str3 = aVar.akj;
         switch (str3.hashCode()) {
             case -1039745817:
                 if (str3.equals("normal")) {

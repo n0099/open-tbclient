@@ -3,7 +3,7 @@ package com.baidu.swan.apps.res.ui;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class b {
     public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
@@ -19,11 +19,11 @@ public class b {
         if (context == null) {
             return null;
         }
-        int i2 = b.g.aiapps_fullscreen_floatview;
+        int i2 = a.g.aiapps_fullscreen_floatview;
         if (i == 1) {
-            i2 = b.g.aiapps_fullscreen_floatview;
+            i2 = a.g.aiapps_fullscreen_floatview;
         } else if (i == 2) {
-            i2 = b.g.aiapps_fullscreen_floatview_button;
+            i2 = a.g.aiapps_fullscreen_floatview_button;
         }
         return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
     }

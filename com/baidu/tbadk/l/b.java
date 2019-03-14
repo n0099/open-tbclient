@@ -9,7 +9,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
 public class b extends v.a {
-    private int bUJ;
+    private int bUK;
     private HTypeListView cmq;
     private com.baidu.tieba.b.b cmr;
     private View mBottomLine;
@@ -17,7 +17,7 @@ public class b extends v.a {
 
     public b(View view, TbPageContext tbPageContext) {
         super(view);
-        this.bUJ = 3;
+        this.bUK = 3;
         this.mPageContext = tbPageContext;
         this.cmq = (HTypeListView) view.findViewById(d.g.follow_live_list);
         this.mBottomLine = view.findViewById(d.g.follow_live_bottom_line);
@@ -31,11 +31,11 @@ public class b extends v.a {
         }
     }
 
-    public void ano() {
-        if (this.bUJ != TbadkCoreApplication.getInst().getSkinType()) {
-            this.bUJ = TbadkCoreApplication.getInst().getSkinType();
-            al.l(this.cmq, d.C0236d.cp_bg_line_d);
-            al.l(this.mBottomLine, d.C0236d.cp_bg_line_c);
+    public void ann() {
+        if (this.bUK != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bUK = TbadkCoreApplication.getInst().getSkinType();
+            al.l(this.cmq, d.C0277d.cp_bg_line_d);
+            al.l(this.mBottomLine, d.C0277d.cp_bg_line_c);
             this.cmr.notifyDataSetChanged();
         }
     }

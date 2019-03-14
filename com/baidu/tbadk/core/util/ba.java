@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,12 +16,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba bLw = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
-    };
-    private static final Pattern bLz = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> bLx;
-    private c bLy;
+    private final ConcurrentHashMap<String, b> bLy;
+    private c bLz;
     private final List<a> mListeners;
+    private static ba bLx = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    };
+    private static final Pattern bLA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -43,13 +44,13 @@ public class ba {
 
     private ba() {
         this.mListeners = new LinkedList();
-        this.bLx = new ConcurrentHashMap<>();
-        this.bLy = null;
+        this.bLy = new ConcurrentHashMap<>();
+        this.bLz = null;
     }
 
     public static SpannableString av(Context context, String str) {
         int start;
-        Matcher matcher = bLz.matcher(str);
+        Matcher matcher = bLA.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -64,7 +65,7 @@ public class ba {
     }
 
     public static ba adD() {
-        return bLw;
+        return bLx;
     }
 
     public void a(final a aVar) {
@@ -88,7 +89,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.bLy = cVar;
+        this.bLz = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,7 +102,7 @@ public class ba {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bLx.get(mR(str));
+        b bVar = this.bLy.get(mR(str));
         if (bVar != null) {
             bVar.a(tbPageContext, mQ(mP(str)));
             return 0;
@@ -121,7 +122,7 @@ public class ba {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bLx.get(mR(str2));
+        b bVar = this.bLy.get(mR(str2));
         if (bVar != null) {
             bVar.a(tbPageContext, mQ(mP(str2)));
             return true;
@@ -138,7 +139,7 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.bLy != null) {
+        if (!z3 && this.bLz != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -181,7 +182,7 @@ public class ba {
         }
         int lastIndexOf = str.lastIndexOf("://");
         if (lastIndexOf < 0) {
-            int lastIndexOf2 = str.lastIndexOf(":");
+            int lastIndexOf2 = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT);
             if (lastIndexOf2 < 0 || lastIndexOf2 + 1 > str.length()) {
                 return null;
             }
@@ -224,8 +225,8 @@ public class ba {
         if (str.contains("://")) {
             return str.substring(0, str.lastIndexOf("://") + 2);
         }
-        if (str.contains(":")) {
-            return str.substring(0, str.lastIndexOf(":"));
+        if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
+            return str.substring(0, str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT));
         }
         return str;
     }
@@ -243,8 +244,8 @@ public class ba {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bLz.matcher(str2).find()) {
-            this.bLy.a(tbPageContext, str, str2, z, dVar, z2);
+        if (bLA.matcher(str2).find()) {
+            this.bLz.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -252,12 +253,12 @@ public class ba {
         if (!StringUtils.isNull(str) && bVar != null) {
             String mR = mR(str);
             if (!StringUtils.isNull(mR)) {
-                this.bLx.put(mR, bVar);
+                this.bLy.put(mR, bVar);
             }
         }
     }
 
     public boolean mS(String str) {
-        return bLz.matcher(str).find();
+        return bLA.matcher(str).find();
     }
 }

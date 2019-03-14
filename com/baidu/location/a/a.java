@@ -13,6 +13,8 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.List;
 import org.apache.commons.logging.LogFactory;
 /* loaded from: classes3.dex */
 public class a {
-    private ArrayList<C0041a> f;
+    private ArrayList<C0043a> f;
     private static a e = null;
     public static long c = 0;
     private boolean g = false;
@@ -38,14 +40,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0041a {
+    public class C0043a {
         public String a;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
         final /* synthetic */ a e;
 
-        public C0041a(a aVar, Message message) {
+        public C0043a(a aVar, Message message) {
             boolean z = false;
             this.e = aVar;
             this.a = null;
@@ -165,16 +167,16 @@ public class a {
             if (i == 21) {
                 a(27, "locStr", bDLocation2);
             }
-            if (this.c.coorType != null && !this.c.coorType.equals("gcj02")) {
+            if (this.c.coorType != null && !this.c.coorType.equals(CoordinateType.GCJ02)) {
                 double longitude = bDLocation2.getLongitude();
                 double latitude = bDLocation2.getLatitude();
                 if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
-                    if ((bDLocation2.getCoorType() != null && bDLocation2.getCoorType().equals("gcj02")) || bDLocation2.getCoorType() == null) {
+                    if ((bDLocation2.getCoorType() != null && bDLocation2.getCoorType().equals(CoordinateType.GCJ02)) || bDLocation2.getCoorType() == null) {
                         double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.c.coorType);
                         bDLocation2.setLongitude(coorEncrypt[0]);
                         bDLocation2.setLatitude(coorEncrypt[1]);
                         bDLocation2.setCoorType(this.c.coorType);
-                    } else if (bDLocation2.getCoorType() != null && bDLocation2.getCoorType().equals("wgs84") && !this.c.coorType.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+                    } else if (bDLocation2.getCoorType() != null && bDLocation2.getCoorType().equals(CoordinateType.WGS84) && !this.c.coorType.equals("bd09ll")) {
                         double[] coorEncrypt2 = Jni.coorEncrypt(longitude, latitude, "wgs842mc");
                         bDLocation2.setLongitude(coorEncrypt2[0]);
                         bDLocation2.setLatitude(coorEncrypt2[1]);
@@ -207,13 +209,13 @@ public class a {
         this.f = new ArrayList<>();
     }
 
-    private C0041a a(Messenger messenger) {
+    private C0043a a(Messenger messenger) {
         if (this.f == null) {
             return null;
         }
-        Iterator<C0041a> it = this.f.iterator();
+        Iterator<C0043a> it = this.f.iterator();
         while (it.hasNext()) {
-            C0041a next = it.next();
+            C0043a next = it.next();
             if (next.b.equals(messenger)) {
                 return next;
             }
@@ -228,16 +230,16 @@ public class a {
         return e;
     }
 
-    private void a(C0041a c0041a) {
-        if (c0041a == null) {
+    private void a(C0043a c0043a) {
+        if (c0043a == null) {
             return;
         }
-        if (a(c0041a.b) != null) {
-            c0041a.a(14);
+        if (a(c0043a.b) != null) {
+            c0043a.a(14);
             return;
         }
-        this.f.add(c0041a);
-        c0041a.a(13);
+        this.f.add(c0043a);
+        c0043a.a(13);
     }
 
     private void b(String str) {
@@ -255,11 +257,11 @@ public class a {
     }
 
     private void f() {
-        Iterator<C0041a> it = this.f.iterator();
+        Iterator<C0043a> it = this.f.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0041a next = it.next();
+            C0043a next = it.next();
             if (next.c.openGps) {
                 z2 = true;
             }
@@ -273,10 +275,10 @@ public class a {
     }
 
     public void a(Bundle bundle, int i) {
-        Iterator<C0041a> it = this.f.iterator();
+        Iterator<C0043a> it = this.f.iterator();
         while (it.hasNext()) {
             try {
-                C0041a next = it.next();
+                C0043a next = it.next();
                 next.a(i, bundle);
                 if (next.d > 4) {
                     it.remove();
@@ -294,7 +296,7 @@ public class a {
         c = System.currentTimeMillis();
         this.a = true;
         com.baidu.location.e.f.a().b();
-        a(new C0041a(this, message));
+        a(new C0043a(this, message));
         e();
         if (this.k) {
             b(IntentConfig.START);
@@ -323,7 +325,7 @@ public class a {
     }
 
     public void b(Message message) {
-        C0041a a = a(message.replyTo);
+        C0043a a = a(message.replyTo);
         if (a != null) {
             this.f.remove(a);
         }
@@ -347,10 +349,10 @@ public class a {
             if (bDLocation.getLocType() == 61) {
                 bDLocation.setGpsAccuracyStatus(com.baidu.location.b.a.a().a(bDLocation));
             }
-            Iterator<C0041a> it = this.f.iterator();
+            Iterator<C0043a> it = this.f.iterator();
             while (it.hasNext()) {
                 try {
-                    C0041a next = it.next();
+                    C0043a next = it.next();
                     next.a(bDLocation);
                     if (next.d > 4) {
                         it.remove();
@@ -363,10 +365,10 @@ public class a {
                 this.i = new BDLocation();
                 this.i.setLocType(505);
             }
-            Iterator<C0041a> it2 = this.f.iterator();
+            Iterator<C0043a> it2 = this.f.iterator();
             while (it2.hasNext()) {
                 try {
-                    C0041a next2 = it2.next();
+                    C0043a next2 = it2.next();
                     next2.a(this.i);
                     if (next2.d > 4) {
                         it2.remove();
@@ -398,15 +400,15 @@ public class a {
     public String c() {
         StringBuffer stringBuffer = new StringBuffer(256);
         if (this.f.isEmpty()) {
-            return "&prod=" + com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d;
+            return "&prod=" + com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d;
         }
-        C0041a c0041a = this.f.get(0);
-        if (c0041a.c.prodName != null) {
-            stringBuffer.append(c0041a.c.prodName);
+        C0043a c0043a = this.f.get(0);
+        if (c0043a.c.prodName != null) {
+            stringBuffer.append(c0043a.c.prodName);
         }
-        if (c0041a.a != null) {
-            stringBuffer.append(":");
-            stringBuffer.append(c0041a.a);
+        if (c0043a.a != null) {
+            stringBuffer.append(Config.TRACE_TODAY_VISIT_SPLIT);
+            stringBuffer.append(c0043a.a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -435,7 +437,7 @@ public class a {
 
     public boolean c(Message message) {
         boolean z = false;
-        C0041a a = a(message.replyTo);
+        C0043a a = a(message.replyTo);
         if (a != null) {
             int i = a.c.scanSpan;
             a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
@@ -485,7 +487,7 @@ public class a {
     }
 
     public int d(Message message) {
-        C0041a a;
+        C0043a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.c == null) {
             return 1;
         }
@@ -493,7 +495,7 @@ public class a {
     }
 
     public void d() {
-        Iterator<C0041a> it = this.f.iterator();
+        Iterator<C0043a> it = this.f.iterator();
         while (it.hasNext()) {
             it.next().a();
         }

@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.xiaomi.push.service.am;
 import com.xiaomi.push.service.ao;
 import com.xiaomi.xmpush.thrift.ae;
@@ -104,7 +103,7 @@ public class u {
             int i2 = z ? 1 : 0;
             obtain.obj = str;
             obtain.arg1 = i2;
-            this.f.sendMessageDelayed(obtain, TbConfig.NOTIFY_SOUND_INTERVAL);
+            this.f.sendMessageDelayed(obtain, 5000L);
         }
     }
 

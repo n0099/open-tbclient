@@ -29,10 +29,10 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView bqh = aVar.bqh();
-        bqh.a(this.mPageContext, chatMessage, viewGroup);
-        bqh.a(this.gbv);
-        bqh.setPosition(i);
+        MsgReplyCardView bqg = aVar.bqg();
+        bqg.a(this.mPageContext, chatMessage, viewGroup);
+        bqg.a(this.gbu);
+        bqg.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

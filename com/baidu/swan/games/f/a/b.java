@@ -4,15 +4,15 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class b {
-    private int bcF;
+    private int bcG;
     @V8JavascriptField
     public String errMsg;
     private int mID;
 
     public b() {
-        this.bcF = 0;
-        int i = this.bcF;
-        this.bcF = i + 1;
+        this.bcG = 0;
+        int i = this.bcG;
+        this.bcG = i + 1;
         this.mID = i;
     }
 

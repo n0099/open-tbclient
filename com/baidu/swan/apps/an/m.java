@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public class m {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean a(Intent intent, String str, boolean z) {
         try {

@@ -23,7 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements m {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,10 +33,10 @@ public class a implements m {
 
     @Override // com.baidu.ubc.m
     public boolean a(String str, JSONObject jSONObject, boolean z) {
-        String ry = com.baidu.tieba.aiapps.apps.c.d.ry(str + "/tcbox?action=ubc");
-        HttpPost httpPost = new HttpPost(ry);
+        String rw = com.baidu.tieba.aiapps.apps.c.d.rw(str + "/tcbox?action=ubc");
+        HttpPost httpPost = new HttpPost(rw);
         if (DEBUG) {
-            Log.d("UploadManager", ry);
+            Log.d("UploadManager", rw);
         }
         httpPost.setEntity(aY(jSONObject));
         httpPost.setHeader("Content-type", URLEncodedUtils.CONTENT_TYPE);

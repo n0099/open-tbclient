@@ -7,105 +7,105 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class s {
-    private boolean bqf = false;
-    private JSONArray aFK = new JSONArray();
-    private SparseArray<Integer> bqa = new SparseArray<>();
-    private ArrayList<String> bqb = new ArrayList<>();
-    private long bqc = 0;
+    private boolean bqg = false;
+    private JSONArray aFL = new JSONArray();
+    private SparseArray<Integer> bqb = new SparseArray<>();
+    private ArrayList<String> bqc = new ArrayList<>();
     private long bqd = 0;
-    private String bqe = "0";
+    private long bqe = 0;
+    private String bqf = "0";
 
     public final void aI(JSONObject jSONObject) {
-        this.aFK.put(jSONObject);
+        this.aFL.put(jSONObject);
     }
 
     public final SparseArray<Integer> Tv() {
-        return this.bqa;
-    }
-
-    public final void P(int i, int i2) {
-        this.bqa.put(i, Integer.valueOf(i2));
-    }
-
-    public final ArrayList Tw() {
         return this.bqb;
     }
 
+    public final void P(int i, int i2) {
+        this.bqb.put(i, Integer.valueOf(i2));
+    }
+
+    public final ArrayList Tw() {
+        return this.bqc;
+    }
+
     public final void jU(String str) {
-        if (!this.bqb.contains(str)) {
-            this.bqb.add(str);
+        if (!this.bqc.contains(str)) {
+            this.bqc.add(str);
         }
     }
 
     public final void g(long j, long j2) {
-        if ((j < this.bqc || this.bqc == 0) && j != 0) {
-            this.bqc = j;
+        if ((j < this.bqd || this.bqd == 0) && j != 0) {
+            this.bqd = j;
         }
-        if (j2 > this.bqd) {
-            this.bqd = j2;
+        if (j2 > this.bqe) {
+            this.bqe = j2;
         }
     }
 
     public boolean fs(int i) {
-        return this.aFK.toString().getBytes().length >= i;
+        return this.aFL.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.aFK.length() == 0;
+        return this.aFL.length() == 0;
     }
 
-    public JSONObject csi() {
+    public JSONObject csl() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.aFK);
-            if (this.bqc == 0 || this.bqd == 0) {
-                this.bqc = this.bqd;
+            jSONObject.put("data", this.aFL);
+            if (this.bqd == 0 || this.bqe == 0) {
+                this.bqd = this.bqe;
             }
-            jSONObject2.put("mintime", Long.toString(this.bqc));
-            jSONObject2.put("maxtime", Long.toString(this.bqd));
+            jSONObject2.put("mintime", Long.toString(this.bqd));
+            jSONObject2.put("maxtime", Long.toString(this.bqe));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", com.baidu.f.c.toMd5(this.aFK.toString().getBytes(), true));
+            jSONObject2.put("md5", com.baidu.f.c.toMd5(this.aFL.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.bqe);
-            jSONObject.put("isreal", this.bqf ? "1" : "0");
+            jSONObject.put("isAbtest", this.bqf);
+            jSONObject.put("isreal", this.bqg ? "1" : "0");
         } catch (JSONException e) {
         }
         return jSONObject;
     }
 
     public void clearData() {
-        this.bqa.clear();
         this.bqb.clear();
-        this.aFK = null;
+        this.bqc.clear();
+        this.aFL = null;
     }
 
     public void jV(String str) {
-        this.bqe = str;
+        this.bqf = str;
     }
 
     public String Ty() {
-        return this.bqe;
-    }
-
-    public long Tz() {
-        return this.bqc;
-    }
-
-    public long TA() {
-        return this.bqd;
-    }
-
-    public JSONArray TB() {
-        return this.aFK;
-    }
-
-    public boolean TC() {
         return this.bqf;
     }
 
+    public long Tz() {
+        return this.bqd;
+    }
+
+    public long TA() {
+        return this.bqe;
+    }
+
+    public JSONArray TB() {
+        return this.aFL;
+    }
+
+    public boolean TC() {
+        return this.bqg;
+    }
+
     public void cW(boolean z) {
-        this.bqf = z;
+        this.bqg = z;
     }
 }

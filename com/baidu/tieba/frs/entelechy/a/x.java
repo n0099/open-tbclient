@@ -7,22 +7,22 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class x extends v.a {
-    public TextView dis;
-    public ImageView fhZ;
-    public TextView fia;
-    public ImageView fib;
+    public TextView dio;
+    public ImageView fhY;
+    public TextView fhZ;
+    public ImageView fia;
+    public View fib;
     public View fic;
-    public View fie;
 
     public x(View view) {
         super(view);
         if (view != null) {
-            this.dis = (TextView) view.findViewById(d.g.video_activity_item_title);
-            this.fhZ = (ImageView) view.findViewById(d.g.video_activity_item_tip);
-            this.fia = (TextView) view.findViewById(d.g.video_activity_item_type);
-            this.fib = (ImageView) view.findViewById(d.g.video_activity_item_more);
-            this.fic = view.findViewById(d.g.top_divider_line);
-            this.fie = view.findViewById(d.g.bottom_divider_line);
+            this.dio = (TextView) view.findViewById(d.g.video_activity_item_title);
+            this.fhY = (ImageView) view.findViewById(d.g.video_activity_item_tip);
+            this.fhZ = (TextView) view.findViewById(d.g.video_activity_item_type);
+            this.fia = (ImageView) view.findViewById(d.g.video_activity_item_more);
+            this.fib = view.findViewById(d.g.top_divider_line);
+            this.fic = view.findViewById(d.g.bottom_divider_line);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.afd;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +63,7 @@ public class f {
                     }
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
                     if (optJSONObject2 != null) {
-                        String optString2 = optJSONObject2.optString("k");
+                        String optString2 = optJSONObject2.optString(Config.APP_KEY);
                         String optString3 = optJSONObject2.optString("v");
                         if (!TextUtils.isEmpty(optString3) && TextUtils.equals("extraParam", optString2)) {
                             str2 = optString3;
@@ -96,8 +97,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Tm = z;
-                eVar.Tn = com.baidu.tieba.lego.card.b.xX(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Tn = z;
+                eVar.To = com.baidu.tieba.lego.card.b.xV(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

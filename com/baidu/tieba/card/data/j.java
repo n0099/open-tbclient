@@ -20,12 +20,12 @@ public class j extends k {
         return bgVar != null && bgVar.getThreadType() == 49;
     }
 
-    public am tI(String str) {
-        am tJ = tJ(str);
-        tJ.delete("obj_type");
-        tJ.delete("obj_type");
-        tJ.T("obj_type", 3);
-        return tJ;
+    public am tG(String str) {
+        am tH = tH(str);
+        tH.delete("obj_type");
+        tH.delete("obj_type");
+        tH.T("obj_type", 3);
+        return tH;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a

@@ -7,8 +7,8 @@ import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 /* loaded from: classes2.dex */
 public class a {
-    protected static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    protected static final String bex = com.baidu.swan.apps.ae.b.Ji();
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    protected static final String bey = com.baidu.swan.apps.ae.b.Ji();
 
     public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
         if (DEBUG) {

@@ -4,43 +4,43 @@ import android.media.MediaPlayer;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class c implements e {
-    private float azD;
-    private MediaPlayer.OnPreparedListener bah;
-    private d baq;
-    private int bas = 0;
-    private int bat = -1;
-    private boolean bau = true;
-    private MediaPlayer.OnCompletionListener bav;
-    private MediaPlayer.OnErrorListener baw;
+    private float azE;
+    private MediaPlayer.OnPreparedListener bai;
+    private d bas;
+    private int bat = 0;
+    private int bau = -1;
+    private boolean bav = true;
+    private MediaPlayer.OnCompletionListener baw;
+    private MediaPlayer.OnErrorListener bax;
     private long mDuration;
     private String mSrc;
     private long mStartPlayTime;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(d dVar, long j) {
-        this.baq = dVar;
+        this.bas = dVar;
         this.mDuration = j;
     }
 
     @Override // com.baidu.swan.games.audio.b.e
     public void setSrc(String str) throws IOException {
-        this.bau = false;
+        this.bav = false;
         this.mSrc = str;
         load();
     }
 
     @Override // com.baidu.swan.games.audio.b.e
     public void ct(boolean z) {
-        this.bas = z ? -1 : 0;
+        this.bat = z ? -1 : 0;
     }
 
     @Override // com.baidu.swan.games.audio.b.e
     public void setVolume(float f) {
-        this.azD = f;
+        this.azE = f;
     }
 
     public int Nw() {
-        return this.bat;
+        return this.bau;
     }
 
     public String Nx() {
@@ -48,19 +48,19 @@ public class c implements e {
     }
 
     public void I(int i, int i2) {
-        if (this.baw != null) {
-            this.baw.onError(null, i, i2);
+        if (this.bax != null) {
+            this.bax.onError(null, i, i2);
         }
     }
 
     @Override // com.baidu.swan.games.audio.b.e
     public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.bah = onPreparedListener;
+        this.bai = onPreparedListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.e
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.bav = onCompletionListener;
+        this.baw = onCompletionListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.e
@@ -69,7 +69,7 @@ public class c implements e {
 
     @Override // com.baidu.swan.games.audio.b.e
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.baw = onErrorListener;
+        this.bax = onErrorListener;
     }
 
     @Override // com.baidu.swan.games.audio.b.e
@@ -87,28 +87,28 @@ public class c implements e {
 
     @Override // com.baidu.swan.games.audio.a
     public void play() {
-        if (-1 != this.bat) {
-            this.baq.stop(this.bat);
+        if (-1 != this.bau) {
+            this.bas.stop(this.bau);
         }
-        this.bat = this.baq.play(this.baq.ic(this.mSrc), this.azD, this.azD, 1, this.bas, 1.0f);
+        this.bau = this.bas.play(this.bas.ic(this.mSrc), this.azE, this.azE, 1, this.bat, 1.0f);
         this.mStartPlayTime = System.currentTimeMillis();
-        this.bau = false;
-        if (this.bah != null) {
-            this.bah.onPrepared(null);
+        this.bav = false;
+        if (this.bai != null) {
+            this.bai.onPrepared(null);
         }
     }
 
     private void load() {
-        this.bat = this.baq.load(this.mSrc, 1);
-        this.baq.a(this.bat, this);
+        this.bau = this.bas.load(this.mSrc, 1);
+        this.bas.a(this.bau, this);
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void pause() {
-        if (this.bat != 0 || this.baq.ib(this.mSrc)) {
-            this.baq.pause(this.bat);
+        if (this.bau != 0 || this.bas.ib(this.mSrc)) {
+            this.bas.pause(this.bau);
         }
-        this.bau = true;
+        this.bav = true;
     }
 
     @Override // com.baidu.swan.games.audio.a
@@ -117,10 +117,10 @@ public class c implements e {
 
     @Override // com.baidu.swan.games.audio.a
     public void stop() {
-        if (this.bat != 0 || this.baq.ib(this.mSrc)) {
-            this.baq.stop(this.bat);
+        if (this.bau != 0 || this.bas.ib(this.mSrc)) {
+            this.bas.stop(this.bau);
         }
-        this.bau = true;
+        this.bav = true;
     }
 
     @Override // com.baidu.swan.games.audio.a
@@ -136,10 +136,10 @@ public class c implements e {
     public int getCurrentTime() {
         long currentTimeMillis = System.currentTimeMillis() - this.mStartPlayTime;
         if (currentTimeMillis > this.mDuration) {
-            if (this.bas == 0) {
-                this.bau = true;
-                if (this.bav != null) {
-                    this.bav.onCompletion(null);
+            if (this.bat == 0) {
+                this.bav = true;
+                if (this.baw != null) {
+                    this.baw.onCompletion(null);
                 }
             } else {
                 currentTimeMillis %= this.mDuration;
@@ -150,6 +150,6 @@ public class c implements e {
 
     @Override // com.baidu.swan.games.audio.a
     public boolean isPaused() {
-        return this.bau;
+        return this.bav;
     }
 }

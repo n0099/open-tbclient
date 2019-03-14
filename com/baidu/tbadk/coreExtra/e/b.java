@@ -7,14 +7,14 @@ public class b {
         private static b cfT = new b();
     }
 
-    public static b akS() {
+    public static b akR() {
         return a.cfT;
     }
 
     private b() {
     }
 
-    public void akT() {
+    public void akS() {
         or("kLCSError=1");
     }
 
@@ -27,6 +27,6 @@ public class b {
     }
 
     private void or(String str) {
-        com.baidu.adp.framework.client.socket.i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.bvp, str);
+        com.baidu.adp.framework.client.socket.i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.bvr, str);
     }
 }

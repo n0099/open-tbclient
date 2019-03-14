@@ -43,12 +43,12 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.eEV = d.e.tbds16;
+                        cVar.eER = d.e.tbds16;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eEV = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eER = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
             }
         }
     }

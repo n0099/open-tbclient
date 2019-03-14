@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.mipush.sdk.Constants;
@@ -112,7 +111,7 @@ public class SapiStatUtil {
 
     public static void statShareV2OtherFail(Context context, int i) {
         HashMap hashMap = new HashMap();
-        hashMap.put(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, i + "");
+        hashMap.put("error_code", i + "");
         StatService.onEvent("share_v2_oauth_fail", hashMap, true);
     }
 

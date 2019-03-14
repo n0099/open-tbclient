@@ -27,17 +27,17 @@ public class c extends Drawable {
     private float mCornerRadius;
     private final RectF IS = new RectF();
     private final RectF mDrawableRect = new RectF();
-    private final RectF Oj = new RectF();
+    private final RectF Ok = new RectF();
     private final RectF mBorderRect = new RectF();
     private final Matrix mShaderMatrix = new Matrix();
-    private ImageView.ScaleType Om = ImageView.ScaleType.FIT_XY;
+    private ImageView.ScaleType On = ImageView.ScaleType.FIT_XY;
 
     public c(Bitmap bitmap, float f, int i, int i2) {
         this.mBorderWidth = i;
         this.mBorderColor = i2;
         this.mBitmapWidth = bitmap.getWidth();
         this.mBitmapHeight = bitmap.getHeight();
-        this.Oj.set(0.0f, 0.0f, this.mBitmapWidth, this.mBitmapHeight);
+        this.Ok.set(0.0f, 0.0f, this.mBitmapWidth, this.mBitmapHeight);
         this.mCornerRadius = f;
         this.mBitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);
@@ -103,15 +103,15 @@ public class c extends Drawable {
     }
 
     public ImageView.ScaleType getScaleType() {
-        return this.Om;
+        return this.On;
     }
 
     public void setScaleType(ImageView.ScaleType scaleType) {
         if (scaleType == null) {
             scaleType = ImageView.ScaleType.FIT_XY;
         }
-        if (this.Om != scaleType) {
-            this.Om = scaleType;
+        if (this.On != scaleType) {
+            this.On = scaleType;
             Ha();
         }
     }
@@ -123,7 +123,7 @@ public class c extends Drawable {
         float f2 = 0.0f;
         this.mBorderRect.set(this.IS);
         this.mDrawableRect.set(this.mBorderWidth + 0, this.mBorderWidth + 0, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
-        switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.Om.ordinal()]) {
+        switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.On.ordinal()]) {
             case 1:
                 this.mBorderRect.set(this.IS);
                 this.mDrawableRect.set(this.mBorderWidth + 0, this.mBorderWidth + 0, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
@@ -154,37 +154,37 @@ public class c extends Drawable {
                 }
                 this.mShaderMatrix.setScale(min, min);
                 this.mShaderMatrix.postTranslate((int) (((this.IS.width() - (this.mBitmapWidth * min)) * 0.5f) + 0.5f), (int) (((this.IS.height() - (this.mBitmapHeight * min)) * 0.5f) + 0.5f));
-                this.mBorderRect.set(this.Oj);
+                this.mBorderRect.set(this.Ok);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 4:
-                this.mBorderRect.set(this.Oj);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.CENTER);
+                this.mBorderRect.set(this.Ok);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.IS, Matrix.ScaleToFit.CENTER);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 5:
-                this.mBorderRect.set(this.Oj);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.END);
+                this.mBorderRect.set(this.Ok);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.IS, Matrix.ScaleToFit.END);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 6:
-                this.mBorderRect.set(this.Oj);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.START);
+                this.mBorderRect.set(this.Ok);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.IS, Matrix.ScaleToFit.START);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             default:
                 this.mBorderRect.set(this.IS);
                 this.mDrawableRect.set(this.mBorderWidth + 0, this.mBorderWidth + 0, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
                 this.mShaderMatrix.set(null);
-                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Ok, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
         }
         this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);

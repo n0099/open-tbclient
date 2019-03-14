@@ -13,7 +13,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class PostPraiseView extends BasePraiseView<PostData> {
-    private CustomMessageListener bRw;
+    private CustomMessageListener bRx;
     private Context mContext;
 
     public PostPraiseView(Context context) {
@@ -22,7 +22,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRw = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
+        this.bRx = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,7 +30,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
                 if ((customResponsedMessage.getData() instanceof PostData) && PostPraiseView.this.mData != 0 && !TextUtils.isEmpty(((PostData) PostPraiseView.this.mData).getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && ((PostData) PostPraiseView.this.mData).getId().equals(postData.getId())) {
                     ((PostData) PostPraiseView.this.mData).af(postData.aak());
                     ((PostData) PostPraiseView.this.mData).ag(postData.aal());
-                    ((PostData) PostPraiseView.this.mData).pZ(postData.beX());
+                    ((PostData) PostPraiseView.this.mData).pZ(postData.beW());
                     ((PostData) PostPraiseView.this.mData).gA(postData.aan());
                     PostPraiseView.this.GR();
                 }
@@ -58,23 +58,23 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         String string;
         Context context = getContext();
         long num = getNum();
-        context.getString(this.bOd);
-        if (!com.baidu.tbadk.util.a.apN().afN()) {
+        context.getString(this.bOe);
+        if (!com.baidu.tbadk.util.a.apM().afN()) {
         }
         if (num > 0) {
             string = ap.az(num);
         } else {
             string = getContext().getString(d.j.action_praise_default);
         }
-        this.bOi.setText(string);
-        this.bOi.setContentDescription(context.getString(this.bOd) + num);
-        if (this.mData != 0 && ((PostData) this.mData).beX() && aej()) {
-            this.bOj.setImageDrawable(W(this.bOf, this.bOe));
-            this.bOi.setTextColor(createColorStateList(this.bOh, this.bOg));
+        this.bOj.setText(string);
+        this.bOj.setContentDescription(context.getString(this.bOe) + num);
+        if (this.mData != 0 && ((PostData) this.mData).beW() && aej()) {
+            this.bOk.setImageDrawable(W(this.bOg, this.bOf));
+            this.bOj.setTextColor(createColorStateList(this.bOi, this.bOh));
             return;
         }
-        this.bOj.setImageDrawable(W(this.bOe, this.bOf));
-        this.bOi.setTextColor(createColorStateList(this.bOg, this.bOh));
+        this.bOk.setImageDrawable(W(this.bOf, this.bOg));
+        this.bOj.setTextColor(createColorStateList(this.bOh, this.bOi));
     }
 
     public int aei() {
@@ -82,20 +82,20 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).beX() && aej()) {
+        if (((PostData) this.mData).beW() && aej()) {
             ((PostData) this.mData).gA(2);
             ((PostData) this.mData).pZ(false);
             ((PostData) this.mData).af(((PostData) this.mData).aak() - 1);
             ((PostData) this.mData).ag(((PostData) this.mData).aal());
             i = 1;
         } else {
-            if (((PostData) this.mData).beX() && ((PostData) this.mData).aan() == 5) {
+            if (((PostData) this.mData).beW() && ((PostData) this.mData).aan() == 5) {
                 ((PostData) this.mData).ag(((PostData) this.mData).aal() - 1);
             }
             ((PostData) this.mData).pZ(true);
             ((PostData) this.mData).af(((PostData) this.mData).aak() + 1);
             ((PostData) this.mData).gA(2);
-            com.baidu.tieba.n.a.bWp().y(getTbPageContext());
+            com.baidu.tieba.n.a.bWr().y(getTbPageContext());
             i = 0;
         }
         return i;
@@ -108,8 +108,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
             GR();
             hE(i);
             hD(i);
-            if (this.bNt != null) {
-                this.bNt.onClick(view);
+            if (this.bNu != null) {
+                this.bNu.onClick(view);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }

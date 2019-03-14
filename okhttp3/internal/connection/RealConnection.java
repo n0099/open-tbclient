@@ -1,6 +1,7 @@
 package okhttp3.internal.connection;
 
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
@@ -460,6 +461,6 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     public String toString() {
-        return "Connection{" + this.route.address().url().host() + ":" + this.route.address().url().port() + ", proxy=" + this.route.proxy() + " hostAddress=" + this.route.socketAddress() + " cipherSuite=" + (this.handshake != null ? this.handshake.cipherSuite() : "none") + " protocol=" + this.protocol + '}';
+        return "Connection{" + this.route.address().url().host() + Config.TRACE_TODAY_VISIT_SPLIT + this.route.address().url().port() + ", proxy=" + this.route.proxy() + " hostAddress=" + this.route.socketAddress() + " cipherSuite=" + (this.handshake != null ? this.handshake.cipherSuite() : "none") + " protocol=" + this.protocol + '}';
     }
 }

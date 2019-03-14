@@ -12,21 +12,21 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     private NewWriteModel cke;
-    private b jmI;
-    private a jmJ;
-    private AccessState jmK;
+    private b jmA;
+    private a jmB;
+    private AccessState jmC;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jmI = new b(this);
+        this.jmA = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.jmK = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.jmC = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.jmK == null) {
+            if (this.mWriteData == null || this.jmC == null) {
                 finish();
                 return;
             }
@@ -35,9 +35,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (this.mWriteData.getWriteImagesInfo() != null) {
                 this.cke.qd(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.jmJ = new a(this.jmI, this.cke);
-            this.jmI.c(this.jmJ);
-            this.jmJ.al(cot());
+            this.jmB = new a(this.jmA, this.cke);
+            this.jmA.c(this.jmB);
+            this.jmB.al(cow());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jmI.onDestory();
+        this.jmA.onDestory();
     }
 
-    public String cot() {
-        if (this.jmK == null || this.jmK.getUserInfo() == null) {
+    public String cow() {
+        if (this.jmC == null || this.jmC.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.jmK.getToken(), this.jmK.getType(), this.jmK.getUserInfo().strMobile, this.jmK.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.jmC.getToken(), this.jmC.getType(), this.jmC.getUserInfo().strMobile, this.jmC.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

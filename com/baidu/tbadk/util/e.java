@@ -13,19 +13,19 @@ public class e {
 
     public static int ai(List<Integer> list) {
         if (KM == null) {
-            apT();
+            apS();
         }
         Integer aj = aj(list);
-        return aj != null ? aj.intValue() : d.C0236d.cp_atp_a;
+        return aj != null ? aj.intValue() : d.C0277d.cp_atp_a;
     }
 
-    private static void apT() {
+    private static void apS() {
         KM = new LinkedList<>();
-        KM.offer(Integer.valueOf(d.C0236d.cp_atp_a));
-        KM.offer(Integer.valueOf(d.C0236d.cp_atp_b));
-        KM.offer(Integer.valueOf(d.C0236d.cp_atp_c));
-        KM.offer(Integer.valueOf(d.C0236d.cp_atp_d));
-        KM.offer(Integer.valueOf(d.C0236d.cp_atp_e));
+        KM.offer(Integer.valueOf(d.C0277d.cp_atp_a));
+        KM.offer(Integer.valueOf(d.C0277d.cp_atp_b));
+        KM.offer(Integer.valueOf(d.C0277d.cp_atp_c));
+        KM.offer(Integer.valueOf(d.C0277d.cp_atp_d));
+        KM.offer(Integer.valueOf(d.C0277d.cp_atp_e));
     }
 
     private static Integer aj(List<Integer> list) {

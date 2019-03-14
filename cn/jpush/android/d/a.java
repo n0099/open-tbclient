@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import cn.jpush.android.api.JPushInterface;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.xiaomi.mipush.sdk.Constants;
@@ -59,7 +60,7 @@ public final class a {
             jSONObject.put("androidSdkVersion", str2);
             jSONObject.put("model", str3);
             jSONObject.put("baseband", a);
-            jSONObject.put("device", str4);
+            jSONObject.put(Config.DEVICE_PART, str4);
             jSONObject.put(LogBuilder.KEY_CHANNEL, bA);
             jSONObject.put("network", e);
             jSONObject.put("url", str);
@@ -378,7 +379,7 @@ public final class a {
                     return false;
                 }
             }
-            f.b("AndroidUtil", "Current time is in the range of silence time - " + optInt + ":" + optInt2 + " ~ " + optInt3 + ":" + optInt4);
+            f.b("AndroidUtil", "Current time is in the range of silence time - " + optInt + Config.TRACE_TODAY_VISIT_SPLIT + optInt2 + " ~ " + optInt3 + Config.TRACE_TODAY_VISIT_SPLIT + optInt4);
             return true;
         } catch (JSONException e) {
             return false;

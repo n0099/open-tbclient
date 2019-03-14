@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected ImageView agD;
-    protected TextView ahH;
+    protected ImageView agE;
+    protected TextView ahI;
     protected LinearLayout ceE;
     protected TextView ceF;
     private boolean ceH;
@@ -29,7 +29,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context, attributeSet);
         this.ceH = true;
         this.mContext = context;
-        aks();
+        akr();
         c(attributeSet);
     }
 
@@ -37,7 +37,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context);
         this.ceH = true;
         this.mContext = context;
-        aks();
+        akr();
     }
 
     public void displayTip() {
@@ -69,15 +69,15 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.agD.setVisibility(8);
+        this.agE.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.ahH.setText(str);
+        this.ahI.setText(str);
     }
 
     public void setText(int i) {
-        this.ahH.setText(i);
+        this.ahI.setText(i);
     }
 
     public void setTip(String str) {
@@ -92,12 +92,12 @@ public class TbSettingTextTipView extends FrameLayout {
         this.ceF.setBackgroundDrawable(drawable);
     }
 
-    protected void aks() {
+    protected void akr() {
         LayoutInflater.from(this.mContext).inflate(d.h.tb_setting_text_tip_view, (ViewGroup) this, true);
         this.ceE = (LinearLayout) findViewById(d.g.container);
-        this.ahH = (TextView) findViewById(d.g.text);
+        this.ahI = (TextView) findViewById(d.g.text);
         this.ceF = (TextView) findViewById(d.g.tip);
-        this.agD = (ImageView) findViewById(d.g.arrow2);
+        this.agE = (ImageView) findViewById(d.g.arrow2);
         this.mBottomLine = findViewById(d.g.bottom_line_ll);
         this.mTopLine = findViewById(d.g.top_line_ll);
     }
@@ -108,7 +108,7 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(d.l.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(d.l.TbSettingView_settingTip);
             if (string != null) {
-                this.ahH.setText(string);
+                this.ahI.setText(string);
             }
             if (string2 != null) {
                 this.ceF.setText(string2);
@@ -119,7 +119,7 @@ public class TbSettingTextTipView extends FrameLayout {
         this.ceE.setClickable(false);
         this.ceE.setFocusable(false);
         if (!this.ceH) {
-            this.agD.setVisibility(4);
+            this.agE.setVisibility(4);
         }
     }
 
@@ -140,19 +140,19 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setMainTextSize(float f) {
-        this.ahH.setTextSize(0, f);
+        this.ahI.setTextSize(0, f);
     }
 
     private void setTipTextSize(float f) {
         this.ceF.setTextSize(0, f);
     }
 
-    public void akt() {
+    public void aks() {
         int h = l.h(this.mContext, d.e.tbds42);
         int h2 = l.h(this.mContext, d.e.tbds33);
         setMainTextSize(h);
         setTipTextSize(h2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahH.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahI.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
         ((LinearLayout.LayoutParams) this.ceF.getLayoutParams()).setMargins(0, 0, l.h(this.mContext, d.e.tbds18), 0);
         this.ceE.getLayoutParams().height = -1;
@@ -160,11 +160,11 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.l(this.mTopLine, d.C0236d.cp_bg_line_b);
+        al.l(this.mTopLine, d.C0277d.cp_bg_line_b);
         al.k(this.ceE, d.f.setting_item_selector);
-        al.j(this.ahH, d.C0236d.cp_cont_b);
-        al.j(this.ceF, d.C0236d.cp_cont_d);
-        al.c(this.agD, d.f.icon_arrow_gray_right_n);
-        al.l(this.mBottomLine, d.C0236d.cp_bg_line_b);
+        al.j(this.ahI, d.C0277d.cp_cont_b);
+        al.j(this.ceF, d.C0277d.cp_cont_d);
+        al.c(this.agE, d.f.icon_arrow_gray_right_n);
+        al.l(this.mBottomLine, d.C0277d.cp_bg_line_b);
     }
 }

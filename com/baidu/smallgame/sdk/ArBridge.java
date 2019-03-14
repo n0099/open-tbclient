@@ -207,7 +207,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).aiU == dVar) {
+                        if (((a) it.next()).aiV == dVar) {
                             it.remove();
                         }
                     }
@@ -233,9 +233,9 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     public void processIncomingMessage(b bVar) {
         for (a aVar : this.mMsgHandlers) {
-            if (aVar.aiS == 0 || bVar.aiS == aVar.aiS) {
-                if (-1 == aVar.aiT || bVar.aiX == aVar.aiT) {
-                    aVar.aiU.b(bVar.aiS, bVar.aiV, bVar.aiW);
+            if (aVar.aiT == 0 || bVar.aiT == aVar.aiT) {
+                if (-1 == aVar.aiU || bVar.aiY == aVar.aiU) {
+                    aVar.aiV.b(bVar.aiT, bVar.aiW, bVar.aiX);
                 }
             }
         }
@@ -244,30 +244,30 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        public int aiS;
-        public int aiV;
-        public HashMap<String, Object> aiW;
-        public int aiX;
+        public int aiT;
+        public int aiW;
+        public HashMap<String, Object> aiX;
+        public int aiY;
 
         public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-            this.aiS = i;
-            this.aiV = i2;
-            this.aiW = hashMap;
-            this.aiX = i3;
+            this.aiT = i;
+            this.aiW = i2;
+            this.aiX = hashMap;
+            this.aiY = i3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public int aiS;
         public int aiT;
-        public d aiU;
+        public int aiU;
+        public d aiV;
 
         public a(int i, int i2, d dVar) {
-            this.aiS = i;
-            this.aiT = i2;
-            this.aiU = dVar;
+            this.aiT = i;
+            this.aiU = i2;
+            this.aiV = dVar;
         }
     }
 

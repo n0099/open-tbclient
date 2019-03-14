@@ -7,25 +7,25 @@ import com.baidu.swan.games.e.f;
 import com.baidu.swan.games.e.g;
 /* loaded from: classes2.dex */
 public class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private com.baidu.swan.games.e.a arM;
-    private com.baidu.swan.games.binding.a arN = new com.baidu.swan.games.binding.a();
-    private b arO;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private com.baidu.swan.games.e.a arN;
+    private com.baidu.swan.games.binding.a arO = new com.baidu.swan.games.binding.a();
+    private b arP;
 
     /* loaded from: classes2.dex */
     public interface b {
     }
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.arM = f.a(zt(), new a(str, str2), null);
+        this.arN = f.a(zt(), new a(str, str2), null);
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.arM;
+        return this.arN;
     }
 
     public void finish() {
-        this.arM.finish();
+        this.arN.finish();
     }
 
     private g zt() {
@@ -33,11 +33,11 @@ public class d {
     }
 
     public void v(Activity activity) {
-        this.arN.P(activity);
+        this.arO.P(activity);
     }
 
     public void a(b bVar) {
-        this.arO = bVar;
+        this.arP = bVar;
     }
 
     /* loaded from: classes2.dex */
@@ -65,7 +65,7 @@ public class d {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            d.this.arN.a(aVar, com.baidu.swan.apps.u.a.Cy());
+            d.this.arO.a(aVar, com.baidu.swan.apps.u.a.Cy());
         }
     }
 }

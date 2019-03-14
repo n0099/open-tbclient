@@ -24,7 +24,7 @@ public class ad {
             case 4:
                 return com.baidu.adp.lib.util.j.kZ();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.s.w.apI() && com.baidu.adp.lib.util.j.kZ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.s.w.apH() && com.baidu.adp.lib.util.j.kZ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
                     return (com.baidu.adp.lib.util.j.la() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.kZ() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
@@ -40,7 +40,7 @@ public class ad {
         return ke(i);
     }
 
-    public static boolean aqw() {
+    public static boolean aqv() {
         if (!com.baidu.adp.lib.util.j.kZ() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.la() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

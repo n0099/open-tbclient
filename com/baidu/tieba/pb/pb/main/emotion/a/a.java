@@ -5,31 +5,31 @@ import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<EmotionImageData> eHP;
-    private List<String> hzu;
-    private SingleBarEmotionRecommendData hzv;
+    private List<EmotionImageData> eHL;
+    private List<String> hzo;
+    private SingleBarEmotionRecommendData hzp;
 
     public SingleBarEmotionRecommendData bNJ() {
-        return this.hzv;
+        return this.hzp;
     }
 
     public void a(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
-        this.hzv = singleBarEmotionRecommendData;
+        this.hzp = singleBarEmotionRecommendData;
     }
 
-    public List<EmotionImageData> aXL() {
-        return this.eHP;
+    public List<EmotionImageData> aXK() {
+        return this.eHL;
     }
 
     public void bD(List<EmotionImageData> list) {
-        this.eHP = list;
+        this.eHL = list;
     }
 
     public List<String> bNK() {
-        return this.hzu;
+        return this.hzo;
     }
 
     public void dF(List<String> list) {
-        this.hzu = list;
+        this.hzo = list;
     }
 }

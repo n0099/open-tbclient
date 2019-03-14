@@ -9,13 +9,13 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
     private Queue<a> cmP = new ConcurrentLinkedQueue();
-    private volatile C0206b cmQ;
+    private volatile C0240b cmQ;
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.anq().pi(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.anp().pi(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -29,7 +29,7 @@ public class b {
             aVar.cmR = imageFileInfo;
             aVar.cmT = z;
             this.cmP.add(aVar);
-            anz();
+            any();
             return null;
         }
         return a2;
@@ -39,14 +39,14 @@ public class b {
         return a(imageFileInfo, bVar, z, false);
     }
 
-    protected void anz() {
+    protected void any() {
         if (this.cmQ == null && !this.cmP.isEmpty()) {
-            this.cmQ = new C0206b(this.cmP);
+            this.cmQ = new C0240b(this.cmP);
             this.cmQ.execute(new Void[0]);
         }
     }
 
-    public void anA() {
+    public void anz() {
         this.cmP = new ConcurrentLinkedQueue();
         if (this.cmQ != null) {
             this.cmQ.cancel(true);
@@ -57,10 +57,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0206b extends BdAsyncTask<Void, a, a> {
+    public class C0240b extends BdAsyncTask<Void, a, a> {
         final Queue<a> cmX;
 
-        public C0206b(Queue<a> queue) {
+        public C0240b(Queue<a> queue) {
             this.cmX = queue;
             super.setPriority(2);
         }
@@ -80,7 +80,7 @@ public class b {
                     this.cmX.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anq().pi(poll.cmR.toCachedKey(poll.cmT));
+                    com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anp().pi(poll.cmR.toCachedKey(poll.cmT));
                     if (pi != null) {
                         poll.cmU = pi;
                         poll.cmV = true;
@@ -129,7 +129,7 @@ public class b {
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
             b.this.cmQ = null;
-            b.this.anz();
+            b.this.any();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,7 +141,7 @@ public class b {
                 for (a aVar : aVarArr) {
                     com.baidu.adp.widget.ImageView.a aVar2 = aVar.cmU;
                     if (aVar2 != null && !aVar.cmV) {
-                        com.baidu.tbadk.imageManager.c.anq().c(aVar.cmR.toCachedKey(aVar.cmT), aVar2);
+                        com.baidu.tbadk.imageManager.c.anp().c(aVar.cmR.toCachedKey(aVar.cmT), aVar2);
                     }
                     if (aVar.cmS != null) {
                         aVar.cmS.a(aVar2, aVar.cmR.toCachedKey(aVar.cmT), aVar.cmV);
@@ -181,14 +181,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.anB().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.anA().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.anB().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.anA().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

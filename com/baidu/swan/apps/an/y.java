@@ -9,7 +9,7 @@ import java.util.Set;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class y {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static String c(String str, Set<String> set) {
         String[] split;

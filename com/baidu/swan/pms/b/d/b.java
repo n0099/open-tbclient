@@ -1,60 +1,60 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class b extends c {
-    private String bmO;
-    private int bmP;
-    private String bmQ;
+    private String bmP;
+    private int bmQ;
     private String bmR;
-    private String bmT;
+    private String bmS;
     private String bmU;
+    private String bmV;
 
     public b(String str, int i, String str2, int i2) {
-        this.bmO = str;
-        this.bmV = i2;
-        this.bmU = str2;
-        this.bmP = i;
+        this.bmP = str;
+        this.bmW = i2;
+        this.bmV = str2;
+        this.bmQ = i;
     }
 
     public b jv(String str) {
-        this.bmQ = str;
-        return this;
-    }
-
-    public b jw(String str) {
         this.bmR = str;
         return this;
     }
 
+    public b jw(String str) {
+        this.bmS = str;
+        return this;
+    }
+
     public void jx(String str) {
-        this.bmT = str;
+        this.bmU = str;
     }
 
     public String getBundleId() {
-        return this.bmO;
-    }
-
-    public String Sl() {
-        return this.bmU;
-    }
-
-    public int Sf() {
         return this.bmP;
     }
 
-    public String Sh() {
+    public String Sl() {
+        return this.bmV;
+    }
+
+    public int Sf() {
         return this.bmQ;
     }
 
-    public String Si() {
+    public String Sh() {
         return this.bmR;
     }
 
+    public String Si() {
+        return this.bmS;
+    }
+
     public String Sj() {
-        return this.bmT;
+        return this.bmU;
     }
 
     @Override // com.baidu.swan.pms.b.d.c
     public int Sk() {
-        return this.bmV;
+        return this.bmW;
     }
 }

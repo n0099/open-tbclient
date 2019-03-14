@@ -7,7 +7,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class ah extends a {
-    private Paint.Align alZ;
+    private Paint.Align ama;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void g(JSONArray jSONArray) {
@@ -15,15 +15,15 @@ public class ah extends a {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, CustomDialogData.POS_LEFT)) {
-                    this.alZ = Paint.Align.LEFT;
+                    this.ama = Paint.Align.LEFT;
                 } else if (TextUtils.equals(optString, "center")) {
-                    this.alZ = Paint.Align.CENTER;
+                    this.ama = Paint.Align.CENTER;
                 } else if (TextUtils.equals(optString, "right")) {
-                    this.alZ = Paint.Align.RIGHT;
+                    this.ama = Paint.Align.RIGHT;
                 }
             }
         } catch (Exception e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }
@@ -31,8 +31,8 @@ public class ah extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.alZ != null) {
-            bVar.alg.setTextAlign(this.alZ);
+        if (this.ama != null) {
+            bVar.alh.setTextAlign(this.ama);
         }
     }
 }

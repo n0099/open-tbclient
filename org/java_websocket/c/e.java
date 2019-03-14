@@ -1,21 +1,21 @@
 package org.java_websocket.c;
 /* loaded from: classes2.dex */
 public class e extends g implements i {
-    private short jUR;
-    private String jUS;
+    private short jUJ;
+    private String jUK;
 
     @Override // org.java_websocket.c.h
-    public String cDt() {
-        return this.jUS;
+    public String cDw() {
+        return this.jUK;
     }
 
     @Override // org.java_websocket.c.i
-    public void Gk(String str) {
-        this.jUS = str;
+    public void Gi(String str) {
+        this.jUK = str;
     }
 
     @Override // org.java_websocket.c.i
     public void j(short s) {
-        this.jUR = s;
+        this.jUJ = s;
     }
 }

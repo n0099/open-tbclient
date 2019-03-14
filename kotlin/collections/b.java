@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State jSi = State.NotReady;
-    private T jSj;
+    private State jSa = State.NotReady;
+    private T jSb;
 
-    protected abstract void cCo();
+    protected abstract void cCr();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.jSi, State.Failed)) {
-            switch (this.jSi) {
+        if (!kotlin.jvm.internal.p.h(this.jSa, State.Failed)) {
+            switch (this.jSa) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cCn();
+                    return cCq();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.jSi = State.NotReady;
-            return this.jSj;
+            this.jSa = State.NotReady;
+            return this.jSb;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cCn() {
-        this.jSi = State.Failed;
-        cCo();
-        return kotlin.jvm.internal.p.h(this.jSi, State.Ready);
+    private final boolean cCq() {
+        this.jSa = State.Failed;
+        cCr();
+        return kotlin.jvm.internal.p.h(this.jSa, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bj(T t) {
-        this.jSj = t;
-        this.jSi = State.Ready;
+        this.jSb = t;
+        this.jSa = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.jSi = State.Done;
+        this.jSa = State.Done;
     }
 }

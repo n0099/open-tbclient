@@ -14,7 +14,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes3.dex */
 public class AdDebugService extends Service {
     private static TextView mFloatView;
@@ -44,35 +43,35 @@ public class AdDebugService extends Service {
         mFloatView.setTextSize(getResources().getDimension(d.e.ds12));
         al.k(mFloatView, d.f.ad_debug_view_bg);
         mFloatView.setText("AD");
-        this.mParams = new WindowManager.LayoutParams(-2, -2, PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_BROADCAST, 40, -3);
+        this.mParams = new WindowManager.LayoutParams(-2, -2, 2005, 40, -3);
         this.mParams.gravity = 51;
         this.mWindowManager.addView(mFloatView, this.mParams);
         mFloatView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.recapp.AdDebugService.1
-            private int igi;
-            private int igj;
-            private float igk;
-            private float igl;
+            private int igc;
+            private int igd;
+            private float ige;
+            private float igf;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.igi = AdDebugService.this.mParams.x;
-                        this.igj = AdDebugService.this.mParams.y;
-                        this.igk = motionEvent.getRawX();
-                        this.igl = motionEvent.getRawY();
+                        this.igc = AdDebugService.this.mParams.x;
+                        this.igd = AdDebugService.this.mParams.y;
+                        this.ige = motionEvent.getRawX();
+                        this.igf = motionEvent.getRawY();
                         return true;
                     case 1:
-                        float abs = Math.abs(motionEvent.getRawX() - this.igk);
-                        float abs2 = Math.abs(motionEvent.getRawY() - this.igl);
+                        float abs = Math.abs(motionEvent.getRawX() - this.ige);
+                        float abs2 = Math.abs(motionEvent.getRawY() - this.igf);
                         if (abs >= 10.0f || abs2 >= 10.0f) {
                             return true;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                         return true;
                     case 2:
-                        AdDebugService.this.mParams.x = this.igi + ((int) (motionEvent.getRawX() - this.igk));
-                        AdDebugService.this.mParams.y = this.igj + ((int) (motionEvent.getRawY() - this.igl));
+                        AdDebugService.this.mParams.x = this.igc + ((int) (motionEvent.getRawX() - this.ige));
+                        AdDebugService.this.mParams.y = this.igd + ((int) (motionEvent.getRawY() - this.igf));
                         AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                         return true;
                     default:

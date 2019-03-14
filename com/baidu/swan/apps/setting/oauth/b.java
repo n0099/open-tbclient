@@ -10,12 +10,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b<ResultDataT> {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public final g<ResultDataT> aQZ = new g<>();
-    private final Set<com.baidu.swan.apps.an.c.a<g<ResultDataT>>> aQC = new HashSet();
-    private final LinkedList<d> aRa = new LinkedList<>();
-    private boolean aRb = false;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public final g<ResultDataT> aRa = new g<>();
+    private final Set<com.baidu.swan.apps.an.c.a<g<ResultDataT>>> aQD = new HashSet();
+    private final LinkedList<d> aRb = new LinkedList<>();
     private boolean aRc = false;
+    private boolean aRd = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract ResultDataT C(JSONObject jSONObject) throws JSONException;
@@ -32,7 +32,7 @@ public abstract class b<ResultDataT> {
                 return true;
             }
         }.a(this).Kf();
-        this.aRb = true;
+        this.aRc = true;
     }
 
     private void Ka() {
@@ -45,7 +45,7 @@ public abstract class b<ResultDataT> {
                 return true;
             }
         }.a(this).Kf();
-        this.aRc = true;
+        this.aRd = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,19 +58,19 @@ public abstract class b<ResultDataT> {
     }
 
     public b<ResultDataT> c(com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar) {
-        if (this.aQZ.aRp.isCallbackAvailable()) {
-            this.aQC.add(aVar);
+        if (this.aRa.aRq.isCallbackAvailable()) {
+            this.aQD.add(aVar);
         }
         return this;
     }
 
     private void Kb() {
-        for (final com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar : this.aQC) {
+        for (final com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar : this.aQD) {
             c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (aVar != null) {
-                        aVar.D(b.this.aQZ);
+                        aVar.D(b.this.aRa);
                     }
                 }
             });
@@ -87,18 +87,18 @@ public abstract class b<ResultDataT> {
     }
 
     public TaskState Kd() {
-        return this.aQZ.aRp;
+        return this.aRa.aRq;
     }
 
     public void qf() {
-        this.aQZ.aRp = TaskState.INIT;
-        this.aRb = false;
+        this.aRa.aRq = TaskState.INIT;
         this.aRc = false;
+        this.aRd = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.aRa.offer(dVar);
+        this.aRb.offer(dVar);
         return this;
     }
 
@@ -116,11 +116,11 @@ public abstract class b<ResultDataT> {
             if (DEBUG) {
                 c.a("IllegalState on prepare", (Boolean) false);
             }
-        } else if (!this.aRb) {
-            JZ();
-        } else if (!this.aRa.isEmpty()) {
-            this.aRa.poll().Kf();
         } else if (!this.aRc) {
+            JZ();
+        } else if (!this.aRb.isEmpty()) {
+            this.aRb.poll().Kf();
+        } else if (!this.aRd) {
             Ka();
         } else {
             exec();
@@ -133,11 +133,11 @@ public abstract class b<ResultDataT> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void J(ResultDataT resultdatat) {
-        this.aQZ.mData = resultdatat;
+        this.aRa.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.aQZ.aRp = taskState;
+        this.aRa.aRq = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -148,16 +148,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void l(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.aQZ.aRq = (OAuthException) exc;
+            this.aRa.aRr = (OAuthException) exc;
         } else if (exc != null) {
-            this.aQZ.aRq = new OAuthException(exc, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
+            this.aRa.aRr = new OAuthException(exc, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
         }
-        if (!this.aQZ.isOk() && DEBUG && exc != null) {
+        if (!this.aRa.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.a(toString(), (Boolean) false);
         Kb();
-        this.aQC.clear();
+        this.aQD.clear();
     }
 }

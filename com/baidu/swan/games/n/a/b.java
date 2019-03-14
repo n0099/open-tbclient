@@ -1,5 +1,6 @@
 package com.baidu.swan.games.n.a;
 
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
@@ -39,6 +40,6 @@ public class b {
     }
 
     public String toString() {
-        return this.key + ":" + this.value;
+        return this.key + Config.TRACE_TODAY_VISIT_SPLIT + this.value;
     }
 }

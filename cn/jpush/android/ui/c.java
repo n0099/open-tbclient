@@ -11,6 +11,7 @@ import android.support.v4.view.PointerIconCompat;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.baidu.mobstat.Config;
 import java.util.Locale;
 import org.apache.http.HttpHost;
 /* loaded from: classes3.dex */
@@ -97,7 +98,7 @@ public final class c extends WebViewClient {
                     String substring2 = str.substring(indexOf);
                     Intent intent3 = null;
                     if (substring.startsWith("mailto")) {
-                        String[] split = substring.split(":");
+                        String[] split = substring.split(Config.TRACE_TODAY_VISIT_SPLIT);
                         if (split.length == 2) {
                             int indexOf2 = substring2.indexOf("&content=");
                             String substring3 = substring2.substring(substring2.indexOf("title=") + 6, indexOf2);

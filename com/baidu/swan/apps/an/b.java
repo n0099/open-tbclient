@@ -9,10 +9,11 @@ import android.os.Build;
 import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
-import com.baidu.swan.apps.b;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public final class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean a(Context context, Intent intent, boolean z) {
         return a(context, intent, z, true);
@@ -27,13 +28,13 @@ public final class b {
             return true;
         } catch (ActivityNotFoundException e) {
             if (z2) {
-                Toast.makeText(context, b.h.activity_not_found, 0).show();
+                Toast.makeText(context, a.h.activity_not_found, 0).show();
                 return false;
             }
             return false;
         } catch (SecurityException e2) {
             if (z2) {
-                Toast.makeText(context, b.h.activity_not_found, 0).show();
+                Toast.makeText(context, a.h.activity_not_found, 0).show();
             }
             if (DEBUG) {
                 Log.e("ActivityUtils", "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
@@ -79,8 +80,8 @@ public final class b {
             Window window = activity.getWindow();
             window.clearFlags(1024);
             int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (LP() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.aKV) {
-                systemUiVisibility |= 5120;
+            if (com.baidu.swan.apps.res.widget.a.aKW) {
+                systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }

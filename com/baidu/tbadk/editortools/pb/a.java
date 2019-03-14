@@ -4,7 +4,7 @@ public class a {
     private static a cjY;
     private int mStatus = 0;
 
-    public static a amq() {
+    public static a amp() {
         if (cjY == null) {
             synchronized (a.class) {
                 if (cjY == null) {

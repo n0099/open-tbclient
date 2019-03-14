@@ -6,50 +6,50 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ab.a;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private Vibrator aUr;
-    private long aUs;
-    private final a.InterfaceC0078a aUt;
+    private static final boolean DEBUG = b.DEBUG;
+    private Vibrator aUs;
+    private long aUt;
+    private final a.InterfaceC0108a aUu;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.aj.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0084a {
-        public static final a aUv = new a();
+    private static class C0114a {
+        public static final a aUw = new a();
     }
 
     private a() {
-        this.aUs = 0L;
-        this.aUt = new a.InterfaceC0078a() { // from class: com.baidu.swan.apps.aj.f.b.a.1
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0078a
+        this.aUt = 0L;
+        this.aUu = new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.aj.f.b.a.1
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aUr != null) {
-                    a.this.aUr.vibrate(a.this.aUs);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aUs != null) {
+                    a.this.aUs.vibrate(a.this.aUt);
                 }
             }
         };
         this.mContext = AppRuntime.getAppContext();
-        this.aUr = (Vibrator) this.mContext.getSystemService("vibrator");
+        this.aUs = (Vibrator) this.mContext.getSystemService("vibrator");
     }
 
     public static a Lq() {
-        return C0084a.aUv;
+        return C0114a.aUw;
     }
 
     public void vibrate(long j) {
-        this.aUs = j;
+        this.aUt = j;
         if (Lr()) {
-            this.aUr.vibrate(this.aUs);
+            this.aUs.vibrate(this.aUt);
             return;
         }
         String[] strArr = {"android.permission.VIBRATE"};
         e Ec = e.Ec();
         if (Ec != null) {
-            Ec.a(700, strArr, this.aUt);
+            Ec.a(700, strArr, this.aUu);
         }
     }
 

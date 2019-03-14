@@ -8,22 +8,22 @@ import android.hardware.SensorManager;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a aUh;
-    private SensorManager aTv;
-    private SensorEventListener aTw;
-    private Sensor aTx;
-    private SensorEventListener aUi;
-    private Sensor aUj;
-    private InterfaceC0083a aUm;
+    private static volatile a aUi;
+    private SensorManager aTw;
+    private SensorEventListener aTx;
+    private Sensor aTy;
+    private SensorEventListener aUj;
+    private Sensor aUk;
+    private InterfaceC0113a aUn;
     private Context mContext;
-    private float[] aUk = new float[3];
     private float[] aUl = new float[3];
-    private boolean aTA = false;
-    private long aTB = 0;
+    private float[] aUm = new float[3];
+    private boolean aTB = false;
+    private long aTC = 0;
 
     /* renamed from: com.baidu.swan.apps.aj.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0083a {
+    public interface InterfaceC0113a {
         void ac(float f);
     }
 
@@ -31,37 +31,37 @@ public class a {
     }
 
     public static a Lk() {
-        if (aUh == null) {
+        if (aUi == null) {
             synchronized (a.class) {
-                if (aUh == null) {
-                    aUh = new a();
+                if (aUi == null) {
+                    aUi = new a();
                 }
             }
         }
-        return aUh;
+        return aUi;
     }
 
     public void init(Context context) {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0083a interfaceC0083a) {
-        this.aUm = interfaceC0083a;
+    public void a(InterfaceC0113a interfaceC0113a) {
+        this.aUn = interfaceC0113a;
     }
 
     public void Ll() {
         if (this.mContext == null) {
             c.e("compass", "start error, none context");
-        } else if (this.aTA) {
+        } else if (this.aTB) {
             c.w("compass", "has already start");
         } else {
-            this.aTv = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aTv != null) {
-                this.aTx = this.aTv.getDefaultSensor(1);
-                this.aUj = this.aTv.getDefaultSensor(2);
-                this.aTv.registerListener(Le(), this.aTx, 1);
-                this.aTv.registerListener(Ln(), this.aUj, 2);
-                this.aTA = true;
+            this.aTw = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aTw != null) {
+                this.aTy = this.aTw.getDefaultSensor(1);
+                this.aUk = this.aTw.getDefaultSensor(2);
+                this.aTw.registerListener(Le(), this.aTy, 1);
+                this.aTw.registerListener(Ln(), this.aUk, 2);
+                this.aTB = true;
                 c.i("compass", "start listen");
                 return;
             }
@@ -70,56 +70,56 @@ public class a {
     }
 
     public void Lm() {
-        if (!this.aTA) {
+        if (!this.aTB) {
             c.w("compass", "has already stop");
             return;
         }
         c.i("compass", "stop listen");
-        if (this.aTw != null && this.aTv != null) {
-            this.aTv.unregisterListener(this.aTw);
-            this.aTw = null;
+        if (this.aTx != null && this.aTw != null) {
+            this.aTw.unregisterListener(this.aTx);
+            this.aTx = null;
         }
-        if (this.aUi != null && this.aTv != null) {
-            this.aTv.unregisterListener(this.aUi);
-            this.aUi = null;
+        if (this.aUj != null && this.aTw != null) {
+            this.aTw.unregisterListener(this.aUj);
+            this.aUj = null;
         }
-        this.aTv = null;
-        this.aUj = null;
-        this.aTx = null;
-        this.aTA = false;
+        this.aTw = null;
+        this.aUk = null;
+        this.aTy = null;
+        this.aTB = false;
     }
 
     public static void release() {
-        if (aUh != null) {
-            aUh.zP();
+        if (aUi != null) {
+            aUi.zP();
         }
     }
 
     private void zP() {
         c.i("compass", "release");
-        if (this.aTA) {
+        if (this.aTB) {
             Lm();
         }
-        this.aTv = null;
-        this.aUj = null;
-        this.aTx = null;
         this.aTw = null;
-        this.aUi = null;
-        this.aUm = null;
+        this.aUk = null;
+        this.aTy = null;
+        this.aTx = null;
+        this.aUj = null;
+        this.aUn = null;
         this.mContext = null;
-        aUh = null;
+        aUi = null;
     }
 
     private SensorEventListener Le() {
         c.i("compass", "get Accelerometer listener");
-        if (this.aTw != null) {
-            return this.aTw;
+        if (this.aTx != null) {
+            return this.aTx;
         }
-        this.aTw = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.1
+        this.aTx = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.aUk = sensorEvent.values;
+                    a.this.aUl = sensorEvent.values;
                     c.i("compass", "accelerometer changed");
                     a.this.Lp();
                     return;
@@ -131,19 +131,19 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.aTw;
+        return this.aTx;
     }
 
     private SensorEventListener Ln() {
         c.i("compass", "get MagneticFiled listener");
-        if (this.aUi != null) {
-            return this.aUi;
+        if (this.aUj != null) {
+            return this.aUj;
         }
-        this.aUi = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.2
+        this.aUj = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.aUl = sensorEvent.values;
+                    a.this.aUm = sensorEvent.values;
                     c.i("compass", "magneticFiled changed");
                     a.this.Lp();
                     return;
@@ -155,24 +155,24 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.aUi;
+        return this.aUj;
     }
 
     private float Lo() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.aUk, this.aUl);
+        SensorManager.getRotationMatrix(fArr2, null, this.aUl, this.aUm);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Lp() {
-        if (this.aUm != null && System.currentTimeMillis() - this.aTB > 200) {
+        if (this.aUn != null && System.currentTimeMillis() - this.aTC > 200) {
             float Lo = Lo();
             c.i("compass", "orientation changed, orientation : " + Lo);
-            this.aUm.ac(Lo);
-            this.aTB = System.currentTimeMillis();
+            this.aUn.ac(Lo);
+            this.aTC = System.currentTimeMillis();
         }
     }
 }

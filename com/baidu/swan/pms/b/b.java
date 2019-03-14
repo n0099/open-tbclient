@@ -3,7 +3,6 @@ package com.baidu.swan.pms.b;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.HashMap;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class b {
     public static HashMap<String, String> a(com.baidu.swan.pms.b.d.a aVar) {
@@ -28,7 +27,7 @@ public class b {
                 aVar2 = com.baidu.swan.pms.database.a.RA().ji(aVar.getBundleId());
             }
             if (aVar2 != null) {
-                aVar.U(aVar2.blL);
+                aVar.U(aVar2.blM);
             } else {
                 aVar.U(0L);
             }
@@ -51,7 +50,7 @@ public class b {
             hashMap.put("extension_ver", aVar.Sj());
         }
         if (!TextUtils.isEmpty(aVar.getPath())) {
-            hashMap.put(ClientCookie.PATH_ATTR, aVar.getPath());
+            hashMap.put("path", aVar.getPath());
         }
         if (!TextUtils.equals(aVar.getFrom(), LivenessStat.TYPE_STRING_DEFAULT)) {
             hashMap.put("from", aVar.getFrom());

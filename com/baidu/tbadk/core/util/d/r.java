@@ -4,23 +4,23 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class r extends a {
-    private boolean ZO;
-    private boolean bMO;
+    private boolean ZP;
     private boolean bMP;
+    private boolean bMQ;
     private int height;
     private int procType;
     private int width;
 
     public r(boolean z, boolean z2, boolean z3, int i) {
-        this.ZO = true;
-        this.bMO = false;
+        this.ZP = true;
         this.bMP = false;
+        this.bMQ = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.ZO = z;
-        this.bMO = z2;
-        this.bMP = z3;
+        this.ZP = z;
+        this.bMP = z2;
+        this.bMQ = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -43,17 +43,17 @@ public class r extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.ZO;
+        return this.ZP;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean adS() {
-        return this.bMP;
+        return this.bMQ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean adT() {
-        return this.bMO;
+        return this.bMP;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

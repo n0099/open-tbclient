@@ -11,14 +11,14 @@ public class g {
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(d.j.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(d.j.tb_ai_apps_tips);
-    private static final String brO = TbadkCoreApplication.getInst().getString(d.j.cancel);
-    private static final String brP = TbadkCoreApplication.getInst().getString(d.j.check_immediately);
+    private static final String brP = TbadkCoreApplication.getInst().getString(d.j.cancel);
+    private static final String brQ = TbadkCoreApplication.getInst().getString(d.j.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String brQ = "";
     private String brR = "";
+    private String brS = "";
     public String appId = "";
     public String appName = "";
 
@@ -38,8 +38,8 @@ public class g {
                     e.printStackTrace();
                 }
             }
-            this.brQ = StringUtils.isNull(dataRes.btn_sure) ? brP : dataRes.btn_sure;
-            this.brR = StringUtils.isNull(dataRes.btn_cancel) ? brO : dataRes.btn_cancel;
+            this.brR = StringUtils.isNull(dataRes.btn_sure) ? brQ : dataRes.btn_sure;
+            this.brS = StringUtils.isNull(dataRes.btn_cancel) ? brP : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -48,8 +48,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.brQ = dataRes.btn_sure;
-            this.brR = dataRes.btn_cancel;
+            this.brR = dataRes.btn_sure;
+            this.brS = dataRes.btn_cancel;
         }
     }
 
@@ -70,11 +70,11 @@ public class g {
     }
 
     public String Un() {
-        return this.brQ;
+        return this.brR;
     }
 
     public String Uo() {
-        return this.brR;
+        return this.brS;
     }
 
     public int Up() {

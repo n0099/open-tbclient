@@ -2,11 +2,10 @@ package com.baidu.swan.apps.database.subpackage;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import com.baidu.swan.apps.c;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class SubPackageTable {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* loaded from: classes2.dex */
     public enum Table {

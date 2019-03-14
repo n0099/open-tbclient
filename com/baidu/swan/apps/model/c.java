@@ -7,15 +7,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean aBx;
-    private String axH;
+    private boolean aBy;
+    private String axI;
     private String mBaseUrl;
     private String mParams;
 
     public String getPage() {
-        return this.axH;
+        return this.axI;
     }
 
     public String getParams() {
@@ -27,16 +27,16 @@ public final class c {
     }
 
     public void yN() {
-        this.aBx = false;
+        this.aBy = false;
     }
 
     public String EK() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.axH);
+            jSONObject.put("page", this.axI);
             jSONObject.put(LegoListActivityConfig.PARAMS, this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.aBx);
+            jSONObject.put("isFirstPage", this.aBy);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -52,10 +52,10 @@ public final class c {
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.axH = jSONObject.optString("page");
+            cVar.axI = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString(LegoListActivityConfig.PARAMS);
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.aBx = jSONObject.optBoolean("isFirstPage");
+            cVar.aBy = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -68,30 +68,30 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private c apT = new c();
+        private c apU = new c();
 
         public a ff(String str) {
-            this.apT.axH = str;
+            this.apU.axI = str;
             return this;
         }
 
         public a fg(String str) {
-            this.apT.mParams = str;
+            this.apU.mParams = str;
             return this;
         }
 
         public a fh(String str) {
-            this.apT.mBaseUrl = str;
+            this.apU.mBaseUrl = str;
             return this;
         }
 
         public a bp(boolean z) {
-            this.apT.aBx = z;
+            this.apU.aBy = z;
             return this;
         }
 
         public c EL() {
-            return this.apT;
+            return this.apU;
         }
     }
 }

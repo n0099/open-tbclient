@@ -7,7 +7,7 @@ public class bl extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_video_preload";
+        return "android_video_player_reuseable";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class bl extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iH() {
-        return 1;
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_player_reuse_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,9 +28,5 @@ public class bl extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
         return 10;
-    }
-
-    public static boolean jK() {
-        return com.baidu.adp.lib.b.d.iQ().aO("android_video_preload") == 1;
     }
 }

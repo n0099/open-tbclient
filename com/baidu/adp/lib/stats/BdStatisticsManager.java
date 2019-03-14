@@ -20,10 +20,9 @@ import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.stats.switchs.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.s;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -341,12 +340,12 @@ public class BdStatisticsManager {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("alert");
             aVar.append("module", "alert");
             if (!TextUtils.isEmpty(str)) {
-                aVar.append(TimeDisplaySetting.START_SHOW_TIME, str);
+                aVar.append("st", str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.append("alert_log", str2);
             }
-            aVar.append(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+            aVar.append("t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
                 aVar.f(objArr);
             }
@@ -380,10 +379,10 @@ public class BdStatisticsManager {
             aVar.append("op_key", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            aVar.append("pt", str2);
+            aVar.append(Config.PLATFORM_TYPE, str2);
         }
         aVar.append("co", String.valueOf(i));
-        aVar.append(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+        aVar.append("t", String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             aVar.f(objArr);
             aVar.c("mi", 0);
@@ -488,7 +487,7 @@ public class BdStatisticsManager {
         if (!TextUtils.isEmpty(str3)) {
             aVar.append("f", str3);
         }
-        aVar.append(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+        aVar.append("t", String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             aVar.f(objArr);
         }

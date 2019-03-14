@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
@@ -116,6 +117,6 @@ public final class ProcessUtils {
         if (TextUtils.equals(str, sMainProcessName)) {
             return true;
         }
-        return str.startsWith(sMainProcessName) && !str.contains(":");
+        return str.startsWith(sMainProcessName) && !str.contains(Config.TRACE_TODAY_VISIT_SPLIT);
     }
 }

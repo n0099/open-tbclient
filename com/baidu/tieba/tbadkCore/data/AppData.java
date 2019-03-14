@@ -93,9 +93,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo xX = com.baidu.tieba.lego.card.b.xX(str);
-        if (xX != null) {
-            ICardInfo viewItem = xX.getViewItem(0, 4);
+        ICardInfo xV = com.baidu.tieba.lego.card.b.xV(str);
+        if (xV != null) {
+            ICardInfo viewItem = xV.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -114,7 +114,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo xX;
+        ICardInfo xV;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -166,8 +166,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.iQ().aO("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (xX = com.baidu.tieba.lego.card.b.xX(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = xX.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.iQ().aO("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (xV = com.baidu.tieba.lego.card.b.xV(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = xV.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -205,7 +205,7 @@ public class AppData extends OrmObject {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bg.bBn.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bg.bBp.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {

@@ -6,7 +6,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.http.Headers;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -77,11 +76,11 @@ public final class c {
             return;
         }
         if (this.kG.b != null) {
-            if (this.kG.b.hasMessages(PointerIconCompat.TYPE_WAIT)) {
-                this.kG.b.removeMessages(PointerIconCompat.TYPE_WAIT);
+            if (this.kG.b.hasMessages(1004)) {
+                this.kG.b.removeMessages(1004);
             }
-            if (this.kG.b.hasMessages(PointerIconCompat.TYPE_HELP)) {
-                this.kG.b.removeMessages(PointerIconCompat.TYPE_HELP);
+            if (this.kG.b.hasMessages(1003)) {
+                this.kG.b.removeMessages(1003);
             }
             if (this.kG.b.hasMessages(1001)) {
                 this.kG.b.removeMessages(1001);
@@ -138,13 +137,13 @@ public final class c {
                     d();
                 } else if (this.kE.isProviderEnabled("network")) {
                     this.c = "network";
-                    this.kG.b.sendEmptyMessage(PointerIconCompat.TYPE_HELP);
+                    this.kG.b.sendEmptyMessage(1003);
                 } else if (this.kE.isProviderEnabled("gps")) {
                     this.c = "gps";
-                    this.kG.b.sendEmptyMessage(PointerIconCompat.TYPE_HELP);
+                    this.kG.b.sendEmptyMessage(1003);
                 } else {
                     this.c = "network";
-                    this.kG.b.sendEmptyMessage(PointerIconCompat.TYPE_WAIT);
+                    this.kG.b.sendEmptyMessage(1004);
                 }
             } catch (SecurityException e) {
                 d();
@@ -176,10 +175,10 @@ public final class c {
             case 1002:
             default:
                 return;
-            case PointerIconCompat.TYPE_HELP /* 1003 */:
+            case 1003:
                 i = 1001;
                 break;
-            case PointerIconCompat.TYPE_WAIT /* 1004 */:
+            case 1004:
                 i = 1005;
                 break;
             case 1005:

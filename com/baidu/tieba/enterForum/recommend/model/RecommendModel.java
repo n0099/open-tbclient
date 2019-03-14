@@ -13,7 +13,7 @@ import com.baidu.tieba.enterForum.recommend.message.ResponseHttpRecommendMessage
 import com.baidu.tieba.enterForum.recommend.message.ResponseSocketRecommendMessage;
 /* loaded from: classes4.dex */
 public class RecommendModel extends BdBaseModel {
-    private a eEY;
+    private a eEU;
     private boolean mIsLoading;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
     private TbPageContext<?> mPageContext;
@@ -25,7 +25,7 @@ public class RecommendModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 RecommendModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.eEY != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && RecommendModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && RecommendModel.this.eEU != null) {
                     com.baidu.tieba.enterForum.recommend.b.a aVar = null;
                     if (responsedMessage instanceof ResponseHttpRecommendMessage) {
                         aVar = ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData();
@@ -33,14 +33,14 @@ public class RecommendModel extends BdBaseModel {
                     if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                         aVar = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                     }
-                    RecommendModel.this.eEY.a(responsedMessage.getError(), aVar);
+                    RecommendModel.this.eEU.a(responsedMessage.getError(), aVar);
                 }
             }
         };
     }
 
     public void setPresenter(a aVar) {
-        this.eEY = aVar;
+        this.eEU = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,10 +50,10 @@ public class RecommendModel extends BdBaseModel {
         registerListener(this.mNetMessageListener);
     }
 
-    public void aXk() {
+    public void aXj() {
         if (!j.kM()) {
-            if (this.eEY != null) {
-                this.eEY.a(-1, null);
+            if (this.eEU != null) {
+                this.eEU.a(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();

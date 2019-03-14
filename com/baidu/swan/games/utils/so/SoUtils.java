@@ -4,7 +4,6 @@ import android.os.Build;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.c;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +17,7 @@ public final class SoUtils {
     private static final String PRE = "lib";
     private static final String TAG = "SoUtils";
     private static a sUbcImpl;
-    public static final boolean DEBUG = c.DEBUG;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static String[] uris = {"lib/armeabi", "lib/x86", "lib/mips"};
 
     /* loaded from: classes2.dex */

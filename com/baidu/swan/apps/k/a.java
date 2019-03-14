@@ -17,9 +17,9 @@ import okhttp3.ResponseBody;
 public class a {
     private OkHttpClient okHttpClient = new OkHttpClient();
 
-    public void a(c.C0115c c0115c, String str, final c.b bVar) {
+    public void a(c.C0144c c0144c, String str, final c.b bVar) {
         final File file = new File(str);
-        this.okHttpClient.newCall(new Request.Builder().url(c0115c.mDownloadUrl).build()).enqueue(new Callback() { // from class: com.baidu.swan.apps.k.a.1
+        this.okHttpClient.newCall(new Request.Builder().url(c0144c.mDownloadUrl).build()).enqueue(new Callback() { // from class: com.baidu.swan.apps.k.a.1
             @Override // okhttp3.Callback
             public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
                 a.this.a(bVar, 1, 0);

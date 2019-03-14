@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
@@ -118,7 +119,7 @@ public class SapiDeviceUtils {
                     return sb.toString().toLowerCase();
                 }
             }
-            return "02:00:00:00:00:00";
+            return Config.DEF_MAC_ID;
         }
         return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }

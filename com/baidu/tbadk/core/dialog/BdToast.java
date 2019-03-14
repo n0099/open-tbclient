@@ -14,8 +14,8 @@ import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> bFf;
-    private static HashMap<DefaultIcon, Integer> bFg = new HashMap<>(2);
+    private static SoftReference<Toast> bFh;
+    private static HashMap<DefaultIcon, Integer> bFi = new HashMap<>(2);
     private Toast Gu;
     private final Context mContext;
     private final ImageView mIconView;
@@ -37,9 +37,9 @@ public class BdToast {
     }
 
     static {
-        bFg.put(DefaultIcon.SUCCESS, Integer.valueOf(d.f.icon_unite_pass));
-        bFg.put(DefaultIcon.FAILURE, Integer.valueOf(d.f.icon_unite_lose));
-        bFg.put(DefaultIcon.NOT, 0);
+        bFi.put(DefaultIcon.SUCCESS, Integer.valueOf(d.f.icon_unite_pass));
+        bFi.put(DefaultIcon.FAILURE, Integer.valueOf(d.f.icon_unite_lose));
+        bFi.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
@@ -91,7 +91,7 @@ public class BdToast {
         } else {
             this.mIconView.setVisibility(8);
         }
-        al.d(this.mTextView, d.C0236d.cp_btn_a, 1);
+        al.d(this.mTextView, d.C0277d.cp_btn_a, 1);
         this.mTextView.setText(this.mText);
         this.Gu.setGravity(this.mGravity, this.Cd, this.Ce);
         this.Gu.setDuration(this.mDuration);
@@ -109,7 +109,7 @@ public class BdToast {
         } else {
             this.mIconView.setVisibility(8);
         }
-        al.c(this.mTextView, d.C0236d.cp_btn_a, 1, i);
+        al.c(this.mTextView, d.C0277d.cp_btn_a, 1, i);
         this.mTextView.setText(this.mText);
         this.Gu.setGravity(this.mGravity, this.Cd, this.Ce);
         this.Gu.setDuration(this.mDuration);
@@ -119,10 +119,10 @@ public class BdToast {
     }
 
     private void abg() {
-        if (bFf != null && bFf.get() != null) {
-            bFf.get().cancel();
+        if (bFh != null && bFh.get() != null) {
+            bFh.get().cancel();
         }
-        bFf = new SoftReference<>(this.Gu);
+        bFh = new SoftReference<>(this.Gu);
     }
 
     private void gR(int i) {
@@ -160,10 +160,10 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).h(charSequence).gN(bFg.get(defaultIcon).intValue()).abf();
+        return new BdToast(context).h(charSequence).gN(bFi.get(defaultIcon).intValue()).abf();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).h(charSequence).gN(bFg.get(defaultIcon).intValue()).gP(i).abf();
+        return new BdToast(context).h(charSequence).gN(bFi.get(defaultIcon).intValue()).gP(i).abf();
     }
 }

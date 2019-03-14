@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.android.common.so.SoUtils;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -73,7 +74,7 @@ public final class SoLoader {
             iCallingSoLoader.load(str2);
             return true;
         } catch (Throwable th) {
-            this.sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+            this.sb.append(str3 + ":::" + str2 + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -197,7 +198,7 @@ public final class SoLoader {
             iCallingSoLoader.loadLibrary(simpleName);
             return true;
         } catch (Throwable th) {
-            this.sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
+            this.sb.append(str2 + ":::" + simpleName + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -548,7 +549,7 @@ public final class SoLoader {
         if (str == null) {
             str = "/vendor/lib:/system/lib";
         }
-        String[] split = str.split(":");
+        String[] split = str.split(Config.TRACE_TODAY_VISIT_SPLIT);
         for (String str2 : split) {
             File file = new File(str2);
             if (!soSources.contains(file)) {

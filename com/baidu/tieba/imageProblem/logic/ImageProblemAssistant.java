@@ -9,6 +9,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -26,10 +27,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ImageProblemAssistant {
     private StringBuilder FP;
-    private TbCdnIpListData gCB;
+    private TbCdnIpListData gCA;
     private final Context mContext;
     public ArrayList<TestTask> taskList = new ArrayList<>();
-    public boolean gCC = false;
+    public boolean gCB = false;
 
     public ImageProblemAssistant(Context context) {
         String[] strArr;
@@ -43,7 +44,7 @@ public class ImageProblemAssistant {
 
     /* loaded from: classes2.dex */
     public class TestTask {
-        public String gCD;
+        public String gCC;
         public int result;
         public String title;
 
@@ -52,7 +53,7 @@ public class ImageProblemAssistant {
     }
 
     public boolean hasImageProblem() {
-        if (!e.getInstance().bLU) {
+        if (!e.getInstance().bLV) {
             e.getInstance().init();
         }
         return e.getInstance().hasImageProblem();
@@ -62,7 +63,7 @@ public class ImageProblemAssistant {
         this.FP = new StringBuilder();
         Iterator<TestTask> it = this.taskList.iterator();
         while (it.hasNext()) {
-            it.next().gCD = "";
+            it.next().gCC = "";
         }
         TestTask testTask = null;
         try {
@@ -72,7 +73,7 @@ public class ImageProblemAssistant {
                     testTask2.result = 0;
                 } else {
                     testTask2.result = 2;
-                    testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_1);
+                    testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_1);
                     if (this.FP != null) {
                         this.FP.append("1:failed");
                     }
@@ -107,7 +108,7 @@ public class ImageProblemAssistant {
             for (String str : strArr) {
                 if (intToIp(dhcpInfo.dns1).equals(str) || intToIp(dhcpInfo.dns2).equals(str)) {
                     testTask.result = 1;
-                    testTask.gCD = this.mContext.getString(d.j.img_assistant_helptext_2_1) + intToIp(dhcpInfo.dns1) + Constants.ACCEPT_TIME_SEPARATOR_SP + intToIp(dhcpInfo.dns2) + this.mContext.getString(d.j.img_assistant_helptext_2_2);
+                    testTask.gCC = this.mContext.getString(d.j.img_assistant_helptext_2_1) + intToIp(dhcpInfo.dns1) + Constants.ACCEPT_TIME_SEPARATOR_SP + intToIp(dhcpInfo.dns2) + this.mContext.getString(d.j.img_assistant_helptext_2_2);
                     return;
                 }
             }
@@ -140,12 +141,12 @@ public class ImageProblemAssistant {
                 if (property != null && property2 != null && property.length() > 0) {
                     testTask2.result = 1;
                     if (j.kZ()) {
-                        testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_3);
+                        testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_3);
                     } else {
-                        testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_3_mobile);
+                        testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_3_mobile);
                     }
                     if (this.FP != null) {
-                        this.FP.append("_3:" + property + ":" + property2);
+                        this.FP.append("_3:" + property + Config.TRACE_TODAY_VISIT_SPLIT + property2);
                         return;
                     }
                     return;
@@ -178,7 +179,7 @@ public class ImageProblemAssistant {
                 testTask.result = 0;
             } else {
                 testTask.result = 2;
-                testTask.gCD = this.mContext.getString(d.j.img_assistant_helptext_4);
+                testTask.gCC = this.mContext.getString(d.j.img_assistant_helptext_4);
                 if (this.FP != null) {
                     this.FP.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -202,7 +203,7 @@ public class ImageProblemAssistant {
                     testTask2.result = 0;
                 } else {
                     testTask2.result = 2;
-                    testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_5);
+                    testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_5);
                     if (this.FP != null) {
                         this.FP.append("_5:failed");
                     }
@@ -228,14 +229,14 @@ public class ImageProblemAssistant {
                 String acj = new x(TbCdnTachometerModel.IPLIST_ADDRESS).acj();
                 if (!TextUtils.isEmpty(acj)) {
                     JSONObject jSONObject = new JSONObject(acj);
-                    this.gCB = new TbCdnIpListData();
-                    this.gCB.parseJson(jSONObject);
-                    boolean dh = dh(this.gCB.imageUrl, null);
+                    this.gCA = new TbCdnIpListData();
+                    this.gCA.parseJson(jSONObject);
+                    boolean dh = dh(this.gCA.imageUrl, null);
                     boolean dh2 = dh("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                    boolean dh3 = dh(TbConfig.URL_IMAGE_PREFIX + this.gCB.imageUrl, null);
+                    boolean dh3 = dh(TbConfig.URL_IMAGE_PREFIX + this.gCA.imageUrl, null);
                     if (!dh2 && !dh3) {
                         testTask2.result = 2;
-                        testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                        testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_6_1);
                         if (this.FP != null) {
                             this.FP.append("_6:failed1");
                             return;
@@ -243,19 +244,19 @@ public class ImageProblemAssistant {
                         return;
                     } else if (dh && dh2 && dh3) {
                         testTask2.result = 0;
-                        this.gCC = true;
+                        this.gCB = true;
                         return;
                     } else if (dh3) {
                         testTask2.result = 1;
-                        testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_6_2);
+                        testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_6_2);
                         if (this.FP != null) {
                             this.FP.append("_6:warning");
                         }
-                        this.gCC = true;
+                        this.gCB = true;
                         return;
                     } else {
                         testTask2.result = 2;
-                        testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                        testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_6_1);
                         if (this.FP != null) {
                             this.FP.append("_6:failed2");
                             return;
@@ -264,7 +265,7 @@ public class ImageProblemAssistant {
                     }
                 }
                 testTask2.result = 2;
-                testTask2.gCD = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                testTask2.gCC = this.mContext.getString(d.j.img_assistant_helptext_6_1);
                 if (this.FP != null) {
                     this.FP.append("_6:failed:iplist");
                 }
@@ -283,7 +284,7 @@ public class ImageProblemAssistant {
 
     public void fix() {
         s.mt(this.FP.toString());
-        if (this.gCC) {
+        if (this.gCB) {
             try {
                 x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
                 xVar.x("ab_img_m", "1");

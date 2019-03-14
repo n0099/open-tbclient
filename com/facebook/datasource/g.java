@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> cuv() {
+    public static <T> g<T> cuy() {
         return new g<>();
     }
 

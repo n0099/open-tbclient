@@ -14,10 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
-    public static String aFm;
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static boolean aFn = false;
-    public static boolean aFo = true;
+    public static String aFn;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static boolean aFo = false;
+    public static boolean aFp = true;
 
     public static void c(Context context, Bundle bundle) {
         Intent intent = new Intent(context, SwanAppMessengerService.class);
@@ -48,20 +48,20 @@ public final class c {
     }
 
     private static void a(Context context, a.b bVar, Bundle bundle) {
-        if (ProcessUtils.isMainProcess() && bVar != null && bVar.aEZ.isSwanAppProcess() && !bVar.GI()) {
+        if (ProcessUtils.isMainProcess() && bVar != null && bVar.aFa.isSwanAppProcess() && !bVar.GI()) {
             bVar.GF();
             b(context, bVar, bundle);
         }
     }
 
     private static void b(final Context context, final a.b bVar, final Bundle bundle) {
-        if (aFn) {
+        if (aFo) {
             c(context, bVar, bundle);
         } else {
             com.baidu.swan.apps.b.c.a.a.wi().wj().wg().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.c.1
                 @Override // com.baidu.swan.apps.core.container.a.b
                 public void xU() {
-                    boolean unused = c.aFn = true;
+                    boolean unused = c.aFo = true;
                     c.c(context, bVar, bundle);
                 }
             });
@@ -85,11 +85,11 @@ public final class c {
         String str = isMainProcess ? "main" : "aiapp";
         long currentTimeMillis = System.currentTimeMillis();
         if (vg) {
-            if (isMainProcess && TextUtils.isEmpty(aFm)) {
+            if (isMainProcess && TextUtils.isEmpty(aFn)) {
                 try {
-                    aFm = new WebView(context).getSettings().getUserAgentString();
+                    aFn = new WebView(context).getSettings().getUserAgentString();
                 } catch (Exception e) {
-                    aFm = "exception::" + e.toString();
+                    aFn = "exception::" + e.toString();
                     if (DEBUG) {
                         e.printStackTrace();
                     }
@@ -98,8 +98,8 @@ public final class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
-                jSONObject.put("process", bVar.aEZ.id);
-                jSONObject.put("ua", aFm);
+                jSONObject.put("process", bVar.aFa.id);
+                jSONObject.put("ua", aFn);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -114,7 +114,7 @@ public final class c {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis2);
-                jSONObject2.put("process", bVar.aEZ.id);
+                jSONObject2.put("process", bVar.aFa.id);
                 jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
             } catch (JSONException e3) {
                 if (DEBUG) {
@@ -125,7 +125,7 @@ public final class c {
             fJ2.ai(jSONObject2);
             f.onEvent(fJ2);
         }
-        Intent intent = new Intent(context, bVar.aEZ.service);
+        Intent intent = new Intent(context, bVar.aFa.service);
         intent.addCategory("android.intent.category.DEFAULT");
         if (bundle != null) {
             intent.putExtras(bundle);
@@ -140,13 +140,13 @@ public final class c {
         intent.putExtra("bundle_key_v8_ab", com.baidu.swan.apps.u.a.CB().vp());
         intent.putExtra("bundle_key_preload_swan_updated_time", currentTimeMillis2);
         intent.putExtra("bundle_key_preload_src", str);
-        intent.putExtra("bundle_key_process", bVar.aEZ.id);
+        intent.putExtra("bundle_key_process", bVar.aFa.id);
         intent.setExtrasClassLoader(SwanCoreVersion.class.getClassLoader());
         try {
             context.startService(intent);
-            aFo = false;
+            aFp = false;
         } catch (Exception e4) {
-            aFo = true;
+            aFp = true;
             if (DEBUG) {
                 e4.printStackTrace();
             }

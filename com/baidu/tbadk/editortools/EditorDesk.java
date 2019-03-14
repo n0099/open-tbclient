@@ -24,7 +24,7 @@ public class EditorDesk extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
-        this.cim = d.C0236d.cp_bg_line_d;
+        this.cim = d.C0277d.cp_bg_line_d;
         this.cix = null;
         this.ciy = true;
         this.ciz = false;
@@ -52,7 +52,7 @@ public class EditorDesk extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alU() {
+    public void alT() {
         Iterator<l> it = this.ciw.iterator();
         while (it.hasNext()) {
             l next = it.next();
@@ -99,7 +99,7 @@ public class EditorDesk extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void jr(int i) {
         if (jv(i)) {
-            if (alX()) {
+            if (alW()) {
                 this.ciy = true;
             } else {
                 this.ciy = false;
@@ -126,7 +126,7 @@ public class EditorDesk extends FrameLayout {
             }
             if (!this.ciy && (getContext() instanceof Activity)) {
                 if (this.ciA != null) {
-                    this.ciA.amb();
+                    this.ciA.ama();
                 } else {
                     com.baidu.adp.lib.util.l.b(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
@@ -174,11 +174,11 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean alW() {
-        return getVisibility() == 0 && alX();
+    public boolean alV() {
+        return getVisibility() == 0 && alW();
     }
 
-    private boolean alX() {
+    private boolean alW() {
         Iterator<l> it = this.ciw.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {

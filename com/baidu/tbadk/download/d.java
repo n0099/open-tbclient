@@ -47,7 +47,7 @@ public class d {
     private d() {
     }
 
-    public static d alN() {
+    public static d alM() {
         return chY;
     }
 
@@ -101,7 +101,7 @@ public class d {
                 } else {
                     downloadData.setStatus(5);
                     mTaskList.add(downloadData);
-                    alO();
+                    alN();
                     return;
                 }
             }
@@ -109,7 +109,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alO() {
+    public void alN() {
         if (chZ == null && !mTaskList.isEmpty()) {
             try {
                 chZ = mTaskList.get(0);
@@ -130,7 +130,7 @@ public class d {
     public void O(String str, boolean z) {
         if (chZ != null && chZ.getUrl().equals(str)) {
             if (z) {
-                this.cia.alR();
+                this.cia.alQ();
                 return;
             } else {
                 this.cia.cancel(true);
@@ -216,7 +216,7 @@ public class d {
         a() {
         }
 
-        public void alR() {
+        public void alQ() {
             if (this.mNetWork != null) {
                 this.mNetWork.jl();
             }
@@ -238,7 +238,7 @@ public class d {
                     d.mTaskList.remove(0);
                 }
                 DownloadData unused = d.chZ = null;
-                d.this.alO();
+                d.this.alN();
             }
         }
 
@@ -462,7 +462,7 @@ public class d {
                 DownloadData unused = d.chZ = null;
                 if (!d.mTaskList.isEmpty()) {
                     d.mTaskList.remove(0);
-                    d.this.alO();
+                    d.this.alN();
                 }
             }
         }

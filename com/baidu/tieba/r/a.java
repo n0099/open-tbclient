@@ -7,12 +7,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a iOc;
-    private InterfaceC0298a iOd = chf();
+    private static a iNU;
+    private InterfaceC0374a iNV = chi();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0298a {
+    public interface InterfaceC0374a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
         void d(Application application);
@@ -22,53 +22,53 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean che() {
+    private boolean chh() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0298a chf() {
+    private InterfaceC0374a chi() {
         CustomResponsedMessage runTask;
-        if (!che() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0298a.class)) == null) {
+        if (!chh() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0374a.class)) == null) {
             return null;
         }
-        return (InterfaceC0298a) runTask.getData();
+        return (InterfaceC0374a) runTask.getData();
     }
 
-    public static a chg() {
-        if (iOc == null) {
+    public static a chj() {
+        if (iNU == null) {
             synchronized (a.class) {
-                if (iOc == null) {
-                    iOc = new a();
+                if (iNU == null) {
+                    iNU = new a();
                 }
             }
         }
-        return iOc;
+        return iNU;
     }
 
     public void d(Application application) {
-        if (this.iOd != null) {
-            this.iOd.d(application);
+        if (this.iNV != null) {
+            this.iNV.d(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.iOd != null) {
-            this.iOd.onPause(activity);
+        if (this.iNV != null) {
+            this.iNV.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.iOd != null) {
-            this.iOd.onResume(activity);
+        if (this.iNV != null) {
+            this.iNV.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.iOd != null) {
-            this.iOd.behaviorRecordEvent(motionEvent, activity);
+        if (this.iNV != null) {
+            this.iNV.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

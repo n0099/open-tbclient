@@ -4,11 +4,11 @@ import com.baidu.swan.apps.scheme.actions.m;
 import com.baidu.swan.apps.scheme.actions.v;
 /* loaded from: classes2.dex */
 public class i extends j {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.scheme.j
     protected void JH() {
-        this.aPf.clear();
+        this.aPg.clear();
         a(new m(this));
         a(new com.baidu.swan.apps.console.a.a(this));
         a(new v(this));

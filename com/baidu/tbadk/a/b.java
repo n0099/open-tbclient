@@ -3,6 +3,7 @@ package com.baidu.tbadk.a;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -11,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bsA;
+    private static b bsB;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
@@ -21,14 +22,14 @@ public class b {
     }
 
     public static b UD() {
-        if (bsA == null) {
+        if (bsB == null) {
             synchronized (b.class) {
-                if (bsA == null) {
-                    bsA = new b();
+                if (bsB == null) {
+                    bsB = new b();
                 }
             }
         }
-        return bsA;
+        return bsB;
     }
 
     private static String UE() {
@@ -45,8 +46,8 @@ public class b {
 
     private String bq(String str, String str2) {
         a kk = kk(str);
-        if (kk != null && !TextUtils.isEmpty(kk.bsz)) {
-            return kk.bsz;
+        if (kk != null && !TextUtils.isEmpty(kk.bsA)) {
+            return kk.bsA;
         }
         return str2;
     }
@@ -110,6 +111,6 @@ public class b {
     }
 
     public static boolean kl(String str) {
-        return "a".equalsIgnoreCase(UD().bq(str, ""));
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(UD().bq(str, ""));
     }
 }

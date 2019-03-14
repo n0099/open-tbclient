@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import cn.jiguang.d.d.aa;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -484,7 +483,7 @@ public final class i extends Thread {
         treeMap.put("version", cn.jiguang.d.a.a.b(this.g, "number_version", "1.3.0"));
         treeMap.put("app_id", cn.jiguang.d.a.a.b(this.g, "number_appid", "7"));
         treeMap.put("req_time", cn.jiguang.d.h.c.b());
-        treeMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, a(treeMap));
+        treeMap.put("sign", a(treeMap));
         String str5 = "";
         for (Map.Entry<String, String> entry : treeMap.entrySet()) {
             try {

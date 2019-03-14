@@ -11,8 +11,7 @@ import com.airbnb.lottie.c.b;
 import com.airbnb.lottie.c.f;
 import com.airbnb.lottie.e;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.appsearchlib.Info;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -129,13 +128,13 @@ public class a<T> {
             PointF pointF2;
             Interpolator interpolator2;
             float f2 = 0.0f;
-            if (jSONObject.has(Info.kBaiduTimeKey)) {
-                f2 = (float) jSONObject.optDouble(Info.kBaiduTimeKey, 0.0d);
-                Object opt = jSONObject.opt(NotifyType.SOUND);
+            if (jSONObject.has("t")) {
+                f2 = (float) jSONObject.optDouble("t", 0.0d);
+                Object opt = jSONObject.opt("s");
                 T b2 = opt != null ? aVar.b(opt, f) : null;
                 Object opt2 = jSONObject.opt("e");
                 T b3 = opt2 != null ? aVar.b(opt2, f) : null;
-                JSONObject optJSONObject = jSONObject.optJSONObject("o");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Config.OS);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("i");
                 if (optJSONObject == null || optJSONObject2 == null) {
                     pointF = null;

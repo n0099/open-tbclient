@@ -9,7 +9,7 @@ import com.baidu.swan.apps.media.a.b.d;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class b extends c.b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public b(d.a aVar) {
         super(aVar);
@@ -23,33 +23,33 @@ public class b extends c.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public c.C0116c a(Context context, c.C0116c c0116c) {
+    public c.C0145c a(Context context, c.C0145c c0145c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         if (DEBUG) {
-            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aAr.uri);
+            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aAs.uri);
         }
-        if (c0116c == null) {
-            c0116c = new c.C0116c();
+        if (c0145c == null) {
+            c0145c = new c.C0145c();
         }
-        if (this.aAr.uri == null) {
-            c0116c.d(true, "uri in pickData is null");
+        if (this.aAs.uri == null) {
+            c0145c.d(true, "uri in pickData is null");
         } else {
-            String path = this.aAr.uri.getPath();
+            String path = this.aAs.uri.getPath();
             if (TextUtils.isEmpty(path)) {
-                c0116c.d(true, this.aAr.uri + " get file path failed");
+                c0145c.d(true, this.aAs.uri + " get file path failed");
             } else {
                 d.c cVar = new d.c();
-                cVar.aAH = path;
+                cVar.aAI = path;
                 try {
                     mediaMetadataRetriever = new MediaMetadataRetriever();
                     try {
                         try {
-                            mediaMetadataRetriever.setDataSource(cVar.aAH);
+                            mediaMetadataRetriever.setDataSource(cVar.aAI);
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
                             String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
                             String extractMetadata3 = mediaMetadataRetriever.extractMetadata(9);
-                            cVar.aAG = Long.parseLong(extractMetadata);
-                            cVar.aAF = Long.parseLong(extractMetadata2);
+                            cVar.aAH = Long.parseLong(extractMetadata);
+                            cVar.aAG = Long.parseLong(extractMetadata2);
                             cVar.duration = Long.parseLong(extractMetadata3);
                             cVar.size = new File(path).length();
                             if (mediaMetadataRetriever != null) {
@@ -63,10 +63,10 @@ public class b extends c.b {
                             if (mediaMetadataRetriever != null) {
                                 mediaMetadataRetriever.release();
                             }
-                            this.aAr.aAA = cVar;
-                            if (f(this.aAr)) {
+                            this.aAs.aAB = cVar;
+                            if (f(this.aAs)) {
                             }
-                            return c0116c;
+                            return c0145c;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -85,15 +85,15 @@ public class b extends c.b {
                     }
                     throw th;
                 }
-                this.aAr.aAA = cVar;
-                if (f(this.aAr)) {
-                    this.aAr.aAA.aAE = com.baidu.swan.apps.storage.b.aD(path, com.baidu.swan.apps.ae.b.Ji());
-                    c0116c.b(0, this.aAr);
+                this.aAs.aAB = cVar;
+                if (f(this.aAs)) {
+                    this.aAs.aAB.aAF = com.baidu.swan.apps.storage.b.aD(path, com.baidu.swan.apps.ae.b.Ji());
+                    c0145c.b(0, this.aAs);
                 } else {
-                    c0116c.b(1, this.aAr);
+                    c0145c.b(1, this.aAs);
                 }
             }
         }
-        return c0116c;
+        return c0145c;
     }
 }

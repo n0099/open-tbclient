@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void pA(String str) {
+    public void py(String str) {
         this.series = str;
     }
 

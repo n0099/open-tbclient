@@ -3,6 +3,6 @@ package com.baidu.tieba.frs;
 import java.util.List;
 /* loaded from: classes.dex */
 public class x {
-    public int fcE;
-    public List<v> fcF;
+    public int fcD;
+    public List<v> fcE;
 }

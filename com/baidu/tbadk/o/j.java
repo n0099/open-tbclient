@@ -6,13 +6,13 @@ public class j extends l {
     public static int cqH = 100;
     public static int cqI = 10;
 
-    public static void apj() {
-        if (m.apl().apm()) {
+    public static void aph() {
+        if (m.apk().apl()) {
             if (b.cqM > cqI) {
-                b.ape();
+                b.apd();
             }
             if (a.cqJ > cqI) {
-                a.ape();
+                a.apd();
             }
         }
     }
@@ -25,23 +25,23 @@ public class j extends l {
             a.cqL++;
         }
         if (a.cqJ > cqH) {
-            a.ape();
+            a.apd();
         }
     }
 
     public void c(f fVar) {
-        if (m.apl().apm()) {
+        if (m.apk().apl()) {
             if (b.cqM < cqH) {
                 b.cqN += fVar.Cw;
                 b.cqO += fVar.cqf;
                 b.cqP += fVar.cqg;
                 b.cqQ += fVar.cqh;
-                b.cqS += fVar.Oh;
+                b.cqS += fVar.Oi;
                 b.cqR += fVar.cqi;
                 b.cqM++;
                 return;
             }
-            b.ape();
+            b.apd();
         }
     }
 
@@ -52,7 +52,7 @@ public class j extends l {
         public static int cqK;
         public static int cqL;
 
-        public static void ape() {
+        public static void apd() {
             com.baidu.adp.lib.stats.a jC = l.jC();
             jC.append("action", "imbusy");
             jC.append("totalNum", String.valueOf(cqJ));
@@ -80,7 +80,7 @@ public class j extends l {
         public static int cqR;
         public static long cqS;
 
-        public static void ape() {
+        public static void apd() {
             com.baidu.adp.lib.stats.a jC = l.jC();
             jC.append("action", "imcost");
             jC.append("dect", String.valueOf(cqN));
@@ -91,10 +91,10 @@ public class j extends l {
             jC.append("cpu", String.valueOf(cqR));
             jC.append("totalNum", String.valueOf(cqM));
             BdStatisticsManager.getInstance().performance("im", jC);
-            apk();
+            apj();
         }
 
-        public static void apk() {
+        public static void apj() {
             cqM = 0;
             cqN = 0L;
             cqO = 0L;

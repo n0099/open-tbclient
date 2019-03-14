@@ -8,7 +8,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
@@ -151,16 +150,16 @@ public class c extends com.baidu.adp.framework.a.d {
             if (entry != null) {
                 String key = entry.getKey();
                 Object value = entry.getValue();
-                if ((value instanceof String) && !SapiUtils.KEY_QR_LOGIN_SIGN.equals(key)) {
+                if ((value instanceof String) && !"sign".equals(key)) {
                     stringBuffer.append(key + "=");
                     stringBuffer.append(value);
                 }
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, s.bC(stringBuffer.toString()));
+        httpMessage.addParam("sign", s.bC(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && t.jK()) {
-            httpMessage.addParam("sig", StringU.ql(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.qj(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
@@ -169,14 +168,14 @@ public class c extends com.baidu.adp.framework.a.d {
         aa.a acS = aa.acS();
         if (acS != null) {
             httpMessage.addParam("stTime", String.valueOf(acS.mTime));
-            httpMessage.addParam("stSize", String.valueOf(acS.aSN));
-            httpMessage.addParam("stTimesNum", String.valueOf(acS.bJJ));
+            httpMessage.addParam("stSize", String.valueOf(acS.aSO));
+            httpMessage.addParam("stTimesNum", String.valueOf(acS.bJK));
             httpMessage.addParam("stMode", String.valueOf(acS.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(acS.bJI));
+            httpMessage.addParam("stMethod", String.valueOf(acS.bJJ));
         }
         int hg = aa.hg(0);
         if (hg == 0 && acS != null) {
-            hg = acS.bJJ;
+            hg = acS.bJK;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(hg));
     }

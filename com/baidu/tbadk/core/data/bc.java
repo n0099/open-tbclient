@@ -4,9 +4,9 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
     private String avatar;
-    private boolean bAw;
-    private boolean bAx;
-    public v bAy;
+    public v bAA;
+    private boolean bAy;
+    private boolean bAz;
     private String forumId;
     private int forumLevel;
     public String forumName;
@@ -24,11 +24,11 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
     public void dj(boolean z) {
-        this.bAx = z;
+        this.bAz = z;
     }
 
     public boolean Yg() {
-        return this.bAx;
+        return this.bAz;
     }
 
     public String getAvatar() {
@@ -37,12 +37,12 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.bAw;
+        return this.bAy;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.bAw = z;
+        this.bAy = z;
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
@@ -50,11 +50,11 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.bAw = simpleForum.is_liked.intValue() == 1;
+            this.bAy = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.bAy = new v();
-                this.bAy.a(simpleForum.multi_forum_perm);
+                this.bAA = new v();
+                this.bAA.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
         }

@@ -41,14 +41,14 @@ public class n extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anq().pi(str3);
+        com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anp().pi(str3);
         if (pi == null) {
             Bitmap hq = al.hq(com.baidu.adp.lib.g.b.l(str2, 0));
             if (hq == null) {
                 return null;
             }
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(hq, false, str2);
-            com.baidu.tbadk.imageManager.c.anq().c(str3, aVar);
+            com.baidu.tbadk.imageManager.c.anp().c(str3, aVar);
             return aVar;
         }
         return pi;

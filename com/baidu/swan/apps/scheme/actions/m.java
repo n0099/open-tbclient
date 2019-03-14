@@ -54,11 +54,11 @@ public class m extends y {
             }
             final com.baidu.swan.apps.v.b.c cVar = new com.baidu.swan.apps.v.b.c();
             cVar.mAppId = optString;
-            cVar.axH = optString2;
+            cVar.axI = optString2;
             cVar.mFrom = str2;
-            cVar.axG = unitedSchemeEntity.getUri().toString();
-            cVar.axQ = optString6;
-            cVar.axS = optString7;
+            cVar.axH = unitedSchemeEntity.getUri().toString();
+            cVar.axR = optString6;
+            cVar.axT = optString7;
             String valueOf = String.valueOf(System.currentTimeMillis());
             com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a(IntentConfig.START, valueOf, ""));
             com.baidu.swan.apps.statistic.b.c.e(cVar);
@@ -80,18 +80,18 @@ public class m extends y {
                 cVar.al("srcAppPage", JK());
             }
             if (DEBUG && !TextUtils.isEmpty(optString5)) {
-                c.C0115c c0115c = new c.C0115c();
-                c0115c.mAppId = optString;
-                c0115c.mDownloadUrl = optString5;
-                com.baidu.swan.apps.install.c.a(c0115c, new c.b() { // from class: com.baidu.swan.apps.scheme.actions.m.1
+                c.C0144c c0144c = new c.C0144c();
+                c0144c.mAppId = optString;
+                c0144c.mDownloadUrl = optString5;
+                com.baidu.swan.apps.install.c.a(c0144c, new c.b() { // from class: com.baidu.swan.apps.scheme.actions.m.1
                     @Override // com.baidu.swan.apps.install.c.b
                     public void cv(int i) {
                     }
 
                     @Override // com.baidu.swan.apps.install.c.b
                     public void onSuccess() {
-                        cVar.axV = "1.6.0";
-                        cVar.axR = true;
+                        cVar.axW = "1.6.0";
+                        cVar.axS = true;
                         com.baidu.swan.apps.u.a.Cy().startActivity(com.baidu.swan.apps.v.b.c.c(com.baidu.swan.apps.u.a.Cy(), cVar));
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     }
@@ -110,7 +110,7 @@ public class m extends y {
                 String valueOf2 = String.valueOf(System.currentTimeMillis());
                 com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a("scheme", valueOf2, ""));
                 cVar.al("ext_stats_funnel_scheme", valueOf2);
-                cVar.axR = false;
+                cVar.axS = false;
                 Intent c = com.baidu.swan.apps.v.b.c.c(context, cVar);
                 c.addFlags(268435456);
                 context.startActivity(c);

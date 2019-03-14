@@ -21,8 +21,9 @@ public class BdGridView extends GridView {
         super(context);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e) {

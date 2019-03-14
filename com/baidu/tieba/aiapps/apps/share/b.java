@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends ActivityDelegation {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
@@ -20,8 +20,8 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        azT();
-        aH(getAgent(), this.mParams.getString("options"));
+        azS();
+        aG(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -29,13 +29,13 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("ShareDelegation", "onSelfFinish.");
         }
-        azU();
+        azT();
+    }
+
+    private void azS() {
     }
 
     private void azT() {
-    }
-
-    private void azU() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,11 +44,11 @@ public class b extends ActivityDelegation {
             Log.d("ShareDelegation", "notify callBack: " + z);
         }
         this.mResult.putBoolean("share_result", z);
-        azU();
+        azT();
         finish();
     }
 
-    private void aH(Context context, String str) {
+    private void aG(Context context, String str) {
         if (context == null) {
             gb(false);
             return;

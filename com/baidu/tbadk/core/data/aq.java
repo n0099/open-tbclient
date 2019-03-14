@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class aq extends PostData {
-    public static final BdUniqueId bzG = BdUniqueId.gen();
-    public int bxH;
-    public String bxT;
-    public String bxU;
+    public static final BdUniqueId bzI = BdUniqueId.gen();
+    public int bxJ;
     public String bxV;
-    public String bzH;
-    public String bzI;
+    public String bxW;
+    public String bxX;
     public String bzJ;
-    public List<String> bzK;
+    public String bzK;
     public String bzL;
-    public String bzM;
+    public List<String> bzM;
+    public String bzN;
+    public String bzO;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.bzH = recommendBook.recommend_text;
-            this.bzI = recommendBook.suggest_text;
-            this.bzJ = recommendBook.suggest_url;
-            this.bxT = recommendBook.book_id;
-            this.bxH = recommendBook.book_type.intValue();
-            this.bxV = recommendBook.book_cover;
-            this.bxU = recommendBook.book_title;
-            this.bzK = recommendBook.book_tips;
-            this.bzL = recommendBook.botton_text;
-            this.bzM = recommendBook.subscript_icon;
+            this.bzJ = recommendBook.recommend_text;
+            this.bzK = recommendBook.suggest_text;
+            this.bzL = recommendBook.suggest_url;
+            this.bxV = recommendBook.book_id;
+            this.bxJ = recommendBook.book_type.intValue();
+            this.bxX = recommendBook.book_cover;
+            this.bxW = recommendBook.book_title;
+            this.bzM = recommendBook.book_tips;
+            this.bzN = recommendBook.botton_text;
+            this.bzO = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.bxT)) ? false : true;
+        return (this == null || StringUtils.isNull(this.bxV)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return bzG;
+        return bzI;
     }
 }

@@ -19,20 +19,20 @@ import java.util.List;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 public final class v {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aWo;
         public final boolean aWp;
-        public final int aWq;
+        public final boolean aWq;
+        public final int aWr;
         public final String mPath;
 
         a(String str, boolean z, boolean z2, int i) {
             this.mPath = str;
-            this.aWo = z;
-            this.aWp = z2;
-            this.aWq = i;
+            this.aWp = z;
+            this.aWq = z2;
+            this.aWr = i;
         }
     }
 

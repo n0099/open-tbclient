@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f implements h {
-    private String alI;
-    private i bFn;
-    private View bFo;
-    private int bFp;
-    private int bFq;
-    private i.b bFr;
-    private boolean bFs;
+    private String alJ;
+    private i bFp;
+    private View bFq;
+    private int bFr;
+    private int bFs;
+    private i.b bFt;
+    private boolean bFu;
     private int mId;
     private final View.OnClickListener mOnClickListener;
     private int mTextColor;
@@ -31,22 +31,22 @@ public class f implements h {
 
     public f(String str, i iVar) {
         this.mTextColor = d.f.person_more_pop_cancel_text_selector;
-        this.bFp = d.C0236d.cp_bg_line_d;
-        this.bFq = 17;
-        this.bFs = false;
+        this.bFr = d.C0277d.cp_bg_line_d;
+        this.bFs = 17;
+        this.bFu = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.bFr != null) {
-                    f.this.bFr.onClick();
+                if (f.this.bFt != null) {
+                    f.this.bFt.onClick();
                 }
-                if (f.this.bFn != null && f.this.bFn.abj() != null) {
-                    f.this.bFn.abj().a(f.this.bFn, f.this.mId, f.this.mTextView);
+                if (f.this.bFp != null && f.this.bFp.abj() != null) {
+                    f.this.bFp.abj().a(f.this.bFp, f.this.mId, f.this.mTextView);
                 }
             }
         };
-        this.alI = str;
-        this.bFn = iVar;
+        this.alJ = str;
+        this.bFp = iVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -54,23 +54,23 @@ public class f implements h {
 
     public f(int i, String str, i iVar) {
         this.mTextColor = d.f.person_more_pop_cancel_text_selector;
-        this.bFp = d.C0236d.cp_bg_line_d;
-        this.bFq = 17;
-        this.bFs = false;
+        this.bFr = d.C0277d.cp_bg_line_d;
+        this.bFs = 17;
+        this.bFu = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.bFr != null) {
-                    f.this.bFr.onClick();
+                if (f.this.bFt != null) {
+                    f.this.bFt.onClick();
                 }
-                if (f.this.bFn != null && f.this.bFn.abj() != null) {
-                    f.this.bFn.abj().a(f.this.bFn, f.this.mId, f.this.mTextView);
+                if (f.this.bFp != null && f.this.bFp.abj() != null) {
+                    f.this.bFp.abj().a(f.this.bFp, f.this.mId, f.this.mTextView);
                 }
             }
         };
         this.mId = i;
-        this.alI = str;
-        this.bFn = iVar;
+        this.alJ = str;
+        this.bFp = iVar;
         initView();
         initListener();
     }
@@ -81,12 +81,12 @@ public class f implements h {
     }
 
     public void setText(String str) {
-        this.alI = str;
-        this.mTextView.setText(this.alI);
+        this.alJ = str;
+        this.mTextView.setText(this.alJ);
     }
 
     public void a(i.b bVar) {
-        this.bFr = bVar;
+        this.bFt = bVar;
         initListener();
     }
 
@@ -97,22 +97,22 @@ public class f implements h {
 
     @Override // com.baidu.tbadk.core.dialog.h
     public void onChangeSkinType() {
-        al.k(this.mTextView, this.bFp);
+        al.k(this.mTextView, this.bFr);
         al.j(this.mTextView, this.mTextColor);
-        al.l(this.bFo, d.C0236d.cp_bg_line_c);
+        al.l(this.bFq, d.C0277d.cp_bg_line_c);
     }
 
     private void initView() {
-        if (this.bFn != null && this.bFn.getContext() != null) {
-            this.mView = LayoutInflater.from(this.bFn.getContext()).inflate(d.h.popup_dialog_view_item, this.bFn.abi(), false);
+        if (this.bFp != null && this.bFp.getContext() != null) {
+            this.mView = LayoutInflater.from(this.bFp.getContext()).inflate(d.h.popup_dialog_view_item, this.bFp.abi(), false);
             this.mTextView = (TextView) this.mView.findViewById(d.g.item_view);
-            this.mTextView.setText(this.alI);
-            this.mTextView.setGravity(this.bFq);
-            this.bFo = this.mView.findViewById(d.g.divider_line);
-            if (this.bFs) {
-                this.bFo.setVisibility(0);
+            this.mTextView.setText(this.alJ);
+            this.mTextView.setGravity(this.bFs);
+            this.bFq = this.mView.findViewById(d.g.divider_line);
+            if (this.bFu) {
+                this.bFq.setVisibility(0);
             } else {
-                this.bFo.setVisibility(8);
+                this.bFq.setVisibility(8);
             }
             onChangeSkinType();
         }

@@ -4,7 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes3.dex */
 public class MoreModel extends BdBaseModel {
-    private boolean irk;
+    private boolean ird;
     private PersonChangeData mPersonChangeData;
 
     /* loaded from: classes3.dex */
@@ -16,7 +16,7 @@ public class MoreModel extends BdBaseModel {
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
         this.mPersonChangeData = null;
-        this.irk = false;
+        this.ird = false;
         this.mPersonChangeData = personChangeData;
         if (this.mPersonChangeData == null) {
             this.mPersonChangeData = new PersonChangeData();
@@ -28,11 +28,11 @@ public class MoreModel extends BdBaseModel {
     }
 
     public void pw(boolean z) {
-        this.irk = z;
+        this.ird = z;
     }
 
-    public boolean bYK() {
-        return this.irk;
+    public boolean bYM() {
+        return this.ird;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

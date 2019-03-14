@@ -12,6 +12,7 @@ import android.os.Handler;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.a.j;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -38,8 +39,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class AsyncTaskC0045a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0045a() {
+    public class AsyncTaskC0047a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0047a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,7 +158,7 @@ public final class a {
                         return;
                     }
                     ContentValues contentValues = new ContentValues();
-                    String encode2 = Jni.encode2(scanResult.BSSID.replace(":", ""));
+                    String encode2 = Jni.encode2(scanResult.BSSID.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""));
                     try {
                         Cursor rawQuery = sQLiteDatabase.rawQuery("select * from wof where id = \"" + encode2 + "\";", null);
                         if (rawQuery == null || !rawQuery.moveToFirst()) {
@@ -298,8 +299,8 @@ public final class a {
                 if (jSONObject2.has("clf")) {
                     String string = jSONObject2.getString("clf");
                     if (string.equals("0")) {
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
-                        d2 = Double.parseDouble(jSONObject3.getString("x"));
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject(Config.EVENT_HEAT_POINT);
+                        d2 = Double.parseDouble(jSONObject3.getString(Config.EVENT_HEAT_X));
                         d = Double.parseDouble(jSONObject3.getString("y"));
                         f = Float.parseFloat(jSONObject2.getString("radius"));
                     } else {
@@ -398,7 +399,7 @@ public final class a {
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
             i5++;
-            stringBuffer.append("\"").append(Jni.encode2(scanResult.BSSID.replace(":", ""))).append("\"");
+            stringBuffer.append("\"").append(Jni.encode2(scanResult.BSSID.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""))).append("\"");
         }
         Cursor cursor2 = null;
         try {
@@ -577,7 +578,7 @@ public final class a {
             boolean z2 = queryNumEntries2 > 10000;
             sQLiteDatabase.close();
             if (z || z2) {
-                new AsyncTaskC0045a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0047a().execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
         } catch (Exception e2) {
         }

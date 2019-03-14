@@ -17,155 +17,155 @@ import com.baidu.tieba.d;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class HeadPendantView extends RelativeLayout {
-    private TbImageView bPq;
     private TbImageView bPr;
-    private HeadImageView bPs;
-    private boolean bPt;
+    private TbImageView bPs;
+    private HeadImageView bPt;
     private boolean bPu;
-    private int bPv;
+    private boolean bPv;
     private int bPw;
+    private int bPx;
     private Context mContext;
     private BdUniqueId mPageId;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bPt = false;
         this.bPu = false;
-        this.bPv = d.f.pic_v_avatar;
-        this.bPw = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
+        this.bPv = false;
+        this.bPw = d.f.pic_v_avatar;
+        this.bPx = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bPt = false;
         this.bPu = false;
-        this.bPv = d.f.pic_v_avatar;
-        this.bPw = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
+        this.bPv = false;
+        this.bPw = d.f.pic_v_avatar;
+        this.bPx = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context) {
         super(context);
-        this.bPt = false;
         this.bPu = false;
-        this.bPv = d.f.pic_v_avatar;
-        this.bPw = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
+        this.bPv = false;
+        this.bPw = d.f.pic_v_avatar;
+        this.bPx = com.baidu.adp.lib.util.l.h(TbadkApplication.getInst(), d.e.tbds42);
         this.mContext = context;
         init();
     }
 
     public void setHasPendantStyle() {
-        this.bPt = true;
+        this.bPu = true;
     }
 
     public void setHasPendantStyle(boolean z) {
-        this.bPt = z;
+        this.bPu = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.bPt) {
+        if (this.bPu) {
             int size = View.MeasureSpec.getSize(i);
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-            ((RelativeLayout.LayoutParams) this.bPs.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            if (this.bPr != null) {
-                ((RelativeLayout.LayoutParams) this.bPr.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ((RelativeLayout.LayoutParams) this.bPt.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            if (this.bPs != null) {
+                ((RelativeLayout.LayoutParams) this.bPs.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
         super.onMeasure(i, i2);
     }
 
     public void nm(String str) {
-        if (this.bPq != null) {
-            if (this.bPt && !StringUtils.isNull(str)) {
-                this.bPu = true;
-                this.bPq.setVisibility(0);
-                this.bPq.setImageDrawable(null);
-                this.bPq.startLoad(str, 10, false);
+        if (this.bPr != null) {
+            if (this.bPu && !StringUtils.isNull(str)) {
+                this.bPv = true;
+                this.bPr.setVisibility(0);
+                this.bPr.setImageDrawable(null);
+                this.bPr.startLoad(str, 10, false);
                 return;
             }
-            this.bPq.setVisibility(8);
-            this.bPu = false;
+            this.bPr.setVisibility(8);
+            this.bPv = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.bPq.setAutoChangeStyle(z);
-        this.bPs.setAutoChangeStyle(z);
         this.bPr.setAutoChangeStyle(z);
+        this.bPt.setAutoChangeStyle(z);
+        this.bPs.setAutoChangeStyle(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.bPw = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds42);
+        this.bPx = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds42);
         ael();
         aem();
         aen();
     }
 
     private void ael() {
-        this.bPs = new HeadImageView(this.mContext);
-        this.bPs.setDefaultBgResource(com.baidu.tbadk.util.e.get());
-        this.bPs.setDefaultResource(d.C0236d.cp_bg_line_e);
-        this.bPs.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.bPt = new HeadImageView(this.mContext);
+        this.bPt.setDefaultBgResource(com.baidu.tbadk.util.e.get());
+        this.bPt.setDefaultResource(d.C0277d.cp_bg_line_e);
+        this.bPt.setDefaultErrorResource(d.f.icon_default_avatar100);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        this.bPs.setLayoutParams(layoutParams);
-        addView(this.bPs);
+        this.bPt.setLayoutParams(layoutParams);
+        addView(this.bPt);
     }
 
     private void aem() {
-        this.bPq = new TbImageView(this.mContext);
-        this.bPq.setPageId(this.mPageId);
-        this.bPq.setDefaultBgResource(0);
-        this.bPq.setDefaultResource(0);
-        this.bPq.setDefaultErrorResource(0);
-        this.bPq.setImageDrawable(null);
-        this.bPq.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.bPq.setVisibility(8);
-        addView(this.bPq);
-    }
-
-    private void aen() {
         this.bPr = new TbImageView(this.mContext);
         this.bPr.setPageId(this.mPageId);
         this.bPr.setDefaultBgResource(0);
         this.bPr.setDefaultResource(0);
         this.bPr.setDefaultErrorResource(0);
         this.bPr.setImageDrawable(null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bPw, this.bPw);
-        layoutParams.addRule(12, -1);
-        layoutParams.addRule(11, -1);
-        this.bPr.setLayoutParams(layoutParams);
+        this.bPr.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.bPr.setVisibility(8);
         addView(this.bPr);
     }
 
+    private void aen() {
+        this.bPs = new TbImageView(this.mContext);
+        this.bPs.setPageId(this.mPageId);
+        this.bPs.setDefaultBgResource(0);
+        this.bPs.setDefaultResource(0);
+        this.bPs.setDefaultErrorResource(0);
+        this.bPs.setImageDrawable(null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bPx, this.bPx);
+        layoutParams.addRule(12, -1);
+        layoutParams.addRule(11, -1);
+        this.bPs.setLayoutParams(layoutParams);
+        this.bPs.setVisibility(8);
+        addView(this.bPs);
+    }
+
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.bPs != null) {
-            this.bPs.setPageId(bdUniqueId);
-        }
-        if (this.bPq != null) {
-            this.bPq.setPageId(bdUniqueId);
+        if (this.bPt != null) {
+            this.bPt.setPageId(bdUniqueId);
         }
         if (this.bPr != null) {
             this.bPr.setPageId(bdUniqueId);
         }
+        if (this.bPs != null) {
+            this.bPs.setPageId(bdUniqueId);
+        }
     }
 
     public TbImageView getPendantView() {
-        return this.bPq;
+        return this.bPr;
     }
 
     public HeadImageView getHeadView() {
-        return this.bPs;
+        return this.bPt;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -175,41 +175,41 @@ public class HeadPendantView extends RelativeLayout {
 
     public void setBigVDimenSize(int i) {
         if (i > 0) {
-            this.bPw = com.baidu.adp.lib.util.l.h(getContext(), i);
+            this.bPx = com.baidu.adp.lib.util.l.h(getContext(), i);
         }
         aeo();
     }
 
     private void aeo() {
-        if (this.bPw > 0 && this.bPr != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bPr.getLayoutParams();
-            layoutParams.width = this.bPw;
-            layoutParams.height = this.bPw;
-            this.bPr.setLayoutParams(layoutParams);
+        if (this.bPx > 0 && this.bPs != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bPs.getLayoutParams();
+            layoutParams.width = this.bPx;
+            layoutParams.height = this.bPx;
+            this.bPs.setLayoutParams(layoutParams);
         }
     }
 
     public void setBigVIconResId(int i) {
-        this.bPv = i;
+        this.bPw = i;
     }
 
     public void aF(boolean z) {
-        if (this.bPr != null) {
+        if (this.bPs != null) {
             if (z) {
-                this.bPr.setImageDrawable(al.getDrawable(this.bPv));
-                this.bPr.setVisibility(0);
+                this.bPs.setImageDrawable(al.getDrawable(this.bPw));
+                this.bPs.setVisibility(0);
                 return;
             }
-            this.bPr.setVisibility(8);
+            this.bPs.setVisibility(8);
         }
     }
 
     public void setUrl(String str) {
-        this.bPs.setUrl(str);
+        this.bPt.setUrl(str);
     }
 
     public void setDefalutResid(int i) {
-        this.bPs.setDefaultResource(i);
+        this.bPt.setDefaultResource(i);
     }
 
     public void a(MetaData metaData, int i, int i2) {
@@ -226,8 +226,8 @@ public class HeadPendantView extends RelativeLayout {
     public void nn(String str) {
         if (!StringUtils.isNull(str)) {
             String ms = o.ms(str);
-            this.bPs.setImageBitmap(null);
-            this.bPs.setUrl(ms);
+            this.bPt.setImageBitmap(null);
+            this.bPt.setUrl(ms);
             if (ms.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 startLoad(ms, 10, false);
             } else {
@@ -237,7 +237,7 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.bPs.startLoad(str, i, 0, 0, z);
+        this.bPt.startLoad(str, i, 0, 0, z);
     }
 
     public void a(MetaData metaData) {
@@ -264,7 +264,7 @@ public class HeadPendantView extends RelativeLayout {
 
     public void c(MetaData metaData) {
         if (metaData != null) {
-            this.bPs.setShowV(false);
+            this.bPt.setShowV(false);
             if (metaData.isBigV() || !StringUtils.isNull(metaData.getUserTbVipInfoData().getvipV_url())) {
                 aF(true);
             } else {

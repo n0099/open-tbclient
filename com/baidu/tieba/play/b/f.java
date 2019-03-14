@@ -1,5 +1,6 @@
 package com.baidu.tieba.play.b;
 
+import com.coremedia.iso.boxes.UserBox;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -11,12 +12,12 @@ public class f {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String bUr() {
+    public String bUt() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).bUs());
+                jSONObject.put(i + "", this.mList.get(i).bUu());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -27,21 +28,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String iaM;
+        public final String iaG;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.iaM = str3;
+            this.iaG = str3;
         }
 
-        public JSONObject bUs() {
+        public JSONObject bUu() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("uuid", this.uuid);
+                jSONObject.put(UserBox.TYPE, this.uuid);
                 jSONObject.put("error", this.error);
-                jSONObject.put("sub_error", this.iaM);
+                jSONObject.put("sub_error", this.iaG);
             } catch (Exception e) {
                 e.printStackTrace();
             }

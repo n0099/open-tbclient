@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class SwanAppScrollView extends ScrollView {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int mMaxHeight;
 
     public SwanAppScrollView(Context context) {
@@ -57,8 +57,8 @@ public class SwanAppScrollView extends ScrollView {
         if (2 == getContext().getResources().getConfiguration().orientation) {
             i = getContext().getResources().getDisplayMetrics().widthPixels;
         }
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(b.d.aiapps_dialog_message_margin_bottom);
-        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(b.d.aiapps_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(b.d.aiapps_dialog_btns_height);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(a.d.aiapps_dialog_message_margin_bottom);
+        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(a.d.aiapps_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
     }
 
     public void setMaxHeight(int i) {

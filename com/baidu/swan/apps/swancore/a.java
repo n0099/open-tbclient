@@ -1,7 +1,6 @@
 package com.baidu.swan.apps.swancore;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.storage.b.f;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.apps.w.e;
@@ -26,12 +25,12 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0146a {
-        private static final a aTa = new a();
+    private static class C0175a {
+        private static final a aTb = new a();
     }
 
     public static a KM() {
-        return C0146a.aTa;
+        return C0175a.aTb;
     }
 
     public static String dD(int i) {
@@ -51,7 +50,7 @@ public class a {
                 break;
             }
             b next = it.next();
-            if (next != null && next.aTc == j) {
+            if (next != null && next.aTd == j) {
                 z = true;
                 break;
             }
@@ -80,7 +79,7 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.aTb).compareTo(String.valueOf(bVar2.aTb));
+                return String.valueOf(bVar.aTc).compareTo(String.valueOf(bVar2.aTc));
             }
         });
     }
@@ -112,9 +111,9 @@ public class a {
         } else {
             SwanCoreVersion DH = e.Ec().DH();
             b bVar2 = dF.get(size - 1);
-            if (bVar2 != null && DH != null && DH.aTc > bVar2.aTc) {
+            if (bVar2 != null && DH != null && DH.aTd > bVar2.aTd) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), DH.aTc).toString());
+                sb.append(new b(System.currentTimeMillis(), DH.aTd).toString());
             }
         }
         return sb.toString();
@@ -145,7 +144,7 @@ public class a {
             JSONObject jSONObject = new JSONObject(str);
             bVar = new b(jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME), jSONObject.optLong("version"));
         } catch (JSONException e) {
-            if (c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
             bVar = null;
@@ -155,12 +154,12 @@ public class a {
 
     /* loaded from: classes2.dex */
     public class b {
-        long aTb;
         long aTc;
+        long aTd;
 
         b(long j, long j2) {
-            this.aTb = j;
-            this.aTc = j2;
+            this.aTc = j;
+            this.aTd = j2;
         }
 
         public String toString() {
@@ -168,16 +167,16 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.aTb));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.aTc));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
             }
             try {
-                str2 = com.baidu.swan.apps.swancore.b.J(this.aTc);
+                str2 = com.baidu.swan.apps.swancore.b.J(this.aTd);
             } catch (Exception e3) {
                 e = e3;
-                if (c.DEBUG) {
+                if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
                 }
                 return str + " ---> " + str2;
@@ -188,11 +187,11 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.aTb);
-                jSONObject.put("version", this.aTc);
+                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.aTc);
+                jSONObject.put("version", this.aTd);
                 return jSONObject.toString();
             } catch (JSONException e) {
-                if (!c.DEBUG) {
+                if (!com.baidu.swan.apps.b.DEBUG) {
                     return null;
                 }
                 e.printStackTrace();

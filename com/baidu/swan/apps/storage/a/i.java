@@ -30,7 +30,7 @@ public class i extends y {
             return false;
         }
         bVar.Ja().KF().remove(optString);
-        com.baidu.swan.apps.ak.e.aVO.update();
+        com.baidu.swan.apps.ak.e.aVP.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

@@ -6,36 +6,36 @@ import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class as<T> implements ai<T> {
-    private final ai<T> jJY;
-    private final int jLO;
+    private final ai<T> jJQ;
+    private final int jLG;
     private final Executor mExecutor;
     @GuardedBy("this")
-    private final ConcurrentLinkedQueue<Pair<j<T>, aj>> jLQ = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Pair<j<T>, aj>> jLI = new ConcurrentLinkedQueue<>();
     @GuardedBy("this")
-    private int jLP = 0;
+    private int jLH = 0;
 
     static /* synthetic */ int b(as asVar) {
-        int i = asVar.jLP;
-        asVar.jLP = i - 1;
+        int i = asVar.jLH;
+        asVar.jLH = i - 1;
         return i;
     }
 
     public as(int i, Executor executor, ai<T> aiVar) {
-        this.jLO = i;
+        this.jLG = i;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.jJY = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.jJQ = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<T> jVar, aj ajVar) {
         boolean z;
-        ajVar.czF().em(ajVar.getId(), "ThrottlingProducer");
+        ajVar.czI().el(ajVar.getId(), "ThrottlingProducer");
         synchronized (this) {
-            if (this.jLP >= this.jLO) {
-                this.jLQ.add(Pair.create(jVar, ajVar));
+            if (this.jLH >= this.jLG) {
+                this.jLI.add(Pair.create(jVar, ajVar));
                 z = true;
             } else {
-                this.jLP++;
+                this.jLH++;
                 z = false;
             }
         }
@@ -45,8 +45,8 @@ public class as<T> implements ai<T> {
     }
 
     void g(j<T> jVar, aj ajVar) {
-        ajVar.czF().a(ajVar.getId(), "ThrottlingProducer", null);
-        this.jJY.a(new a(jVar), ajVar);
+        ajVar.czI().a(ajVar.getId(), "ThrottlingProducer", null);
+        this.jJQ.a(new a(jVar), ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -58,28 +58,28 @@ public class as<T> implements ai<T> {
 
         @Override // com.facebook.imagepipeline.producers.b
         protected void d(T t, boolean z) {
-            czR().e(t, z);
+            czU().e(t, z);
             if (z) {
-                cAp();
+                cAs();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void B(Throwable th) {
-            czR().C(th);
-            cAp();
+            czU().C(th);
+            cAs();
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
-        protected void cyz() {
-            czR().ctF();
-            cAp();
+        protected void cyC() {
+            czU().ctI();
+            cAs();
         }
 
-        private void cAp() {
+        private void cAs() {
             final Pair pair;
             synchronized (as.this) {
-                pair = (Pair) as.this.jLQ.poll();
+                pair = (Pair) as.this.jLI.poll();
                 if (pair == null) {
                     as.b(as.this);
                 }

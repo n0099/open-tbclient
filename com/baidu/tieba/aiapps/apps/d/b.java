@@ -5,7 +5,7 @@ import com.baidu.swan.apps.setting.oauth.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends f {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
     public boolean shouldAcceptCookie(String str, String str2) {

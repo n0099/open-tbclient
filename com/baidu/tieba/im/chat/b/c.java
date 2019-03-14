@@ -8,7 +8,7 @@ public class c {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.c.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean wz(String str) {
+            public boolean wx(String str) {
                 return true;
             }
         }, false);

@@ -2,6 +2,7 @@ package com.baidu.location;
 
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 /* loaded from: classes3.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
@@ -47,7 +48,7 @@ public final class LocationClientOption {
     }
 
     public LocationClientOption() {
-        this.coorType = "gcj02";
+        this.coorType = CoordinateType.GCJ02;
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
@@ -75,7 +76,7 @@ public final class LocationClientOption {
     }
 
     public LocationClientOption(LocationClientOption locationClientOption) {
-        this.coorType = "gcj02";
+        this.coorType = CoordinateType.GCJ02;
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
@@ -216,7 +217,7 @@ public final class LocationClientOption {
 
     public void setCoorType(String str) {
         String lowerCase = str.toLowerCase();
-        if (lowerCase.equals("gcj02") || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+        if (lowerCase.equals(CoordinateType.GCJ02) || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals("bd09ll")) {
             this.coorType = lowerCase;
         }
     }

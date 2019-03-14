@@ -7,12 +7,12 @@ import android.os.Build;
 import com.xiaomi.channel.commonutils.android.j;
 /* loaded from: classes3.dex */
 public final class a {
-    private static InterfaceC0374a a;
+    private static InterfaceC0468a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.push.service.timers.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0374a {
+    public interface InterfaceC0468a {
         void a();
 
         void a(boolean z);

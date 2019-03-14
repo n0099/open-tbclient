@@ -2,7 +2,6 @@ package com.baidu.swan.games.network;
 
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.baidu.swan.apps.c;
 import com.facebook.common.internal.h;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
@@ -13,9 +12,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    public static final Set<String> aCf = h.K("REFERER", "USER-AGENT");
-    protected static final Set<String> aCe = h.K("localhost", "127.0.0.1");
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static final Set<String> aCg = h.K("REFERER", "USER-AGENT");
+    protected static final Set<String> aCf = h.K("localhost", "127.0.0.1");
 
     /* JADX INFO: Access modifiers changed from: protected */
     public HttpUrl fo(String str) {
@@ -38,7 +37,7 @@ public class a {
             JE = false;
         }
         if (httpUrl != null) {
-            return (!JE || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCe.contains(httpUrl.host().toLowerCase());
+            return (!JE || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCf.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }

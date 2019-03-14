@@ -5,12 +5,6 @@ public interface o {
 
     void b(h<?, ?> hVar);
 
-    void cwA();
-
-    void cwB();
-
-    void cwC();
-
     void cwD();
 
     void cwE();
@@ -20,6 +14,12 @@ public interface o {
     void cwG();
 
     void cwH();
+
+    void cwI();
+
+    void cwJ();
+
+    void cwK();
 
     void n(com.facebook.cache.common.b bVar);
 

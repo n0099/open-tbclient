@@ -1,5 +1,6 @@
 package com.baidu.crabsdk.b;
 
+import com.baidu.mobstat.Config;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class r {
@@ -42,7 +43,7 @@ public final class r {
                         if (fileName == null) {
                             fileName = "unknown";
                         }
-                        sb.append(fileName).append(":").append(stackTraceElement.getLineNumber()).append(")\n");
+                        sb.append(fileName).append(Config.TRACE_TODAY_VISIT_SPLIT).append(stackTraceElement.getLineNumber()).append(")\n");
                     }
                 }
             } catch (Exception e) {

@@ -4,6 +4,7 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.a;
 import com.airbnb.lottie.model.a.d;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
@@ -31,7 +32,7 @@ public class i implements b {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("c");
             com.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0008a.d(optJSONObject, eVar) : null;
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("o");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             return new i(optString, jSONObject.optBoolean("fillEnabled"), jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, d, optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null);
         }
     }

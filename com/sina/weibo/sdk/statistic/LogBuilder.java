@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -155,7 +156,7 @@ public class LogBuilder {
                         if (sb.length() > 0) {
                             sb.append("|");
                         }
-                        sb.append(str).append(":").append(extend.get(str));
+                        sb.append(str).append(Config.TRACE_TODAY_VISIT_SPLIT).append(extend.get(str));
                         i = i2 + 1;
                     }
                     i2 = i;

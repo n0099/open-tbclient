@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
     public static final String cbP = m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int bDT;
+    public int bDV;
     public int cbF;
     public String cbG;
     public String cbH;
@@ -63,7 +63,7 @@ public class d {
     public String extData = null;
     public String cbu = null;
 
-    public Bundle ajT() {
+    public Bundle ajS() {
         return this.cbK;
     }
 
@@ -71,7 +71,7 @@ public class d {
         this.cbK = bundle;
     }
 
-    public Bitmap ajU() {
+    public Bitmap ajT() {
         Bitmap bitmap;
         if (this.cbJ == null || (bitmap = this.cbJ.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -83,7 +83,7 @@ public class d {
         this.cbJ = new WeakReference<>(bitmap);
     }
 
-    public byte[] ajV() {
+    public byte[] ajU() {
         Bitmap bitmap;
         byte[] bArr;
         if (this.cbJ == null || (bitmap = this.cbJ.get()) == null || bitmap.isRecycled()) {
@@ -104,7 +104,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4, 233=4, 235=4, 236=4] */
-    public void ajW() {
+    public void ajV() {
         FileOutputStream fileOutputStream = null;
         if (this.cbJ == null) {
             return;
@@ -121,11 +121,11 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] ajV = ajV();
-                    if (ajV != null) {
+                    byte[] ajU = ajU();
+                    if (ajU != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(ajV);
+                            fileOutputStream3.write(ajU);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
                             this.cbJ = null;

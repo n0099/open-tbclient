@@ -52,7 +52,7 @@ public class b extends y {
                 public void D(Boolean bool) {
                     if (!bool.booleanValue()) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
-                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.a.dC(context))) {
+                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.a.dB(context))) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
                     } else {
                         com.baidu.tieba.aiapps.apps.a.a.a((Activity) context, new com.baidu.swan.apps.an.c.a<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1.1

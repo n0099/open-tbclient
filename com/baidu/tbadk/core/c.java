@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.al;
 import java.util.HashMap;
@@ -169,11 +170,11 @@ public class c {
                     sPacknameLength = sPackagename.length();
                 }
                 if (resourceName.length() > sPacknameLength && resourceName.charAt(sPacknameLength) != ':' && resourceName.startsWith(sPackagename)) {
-                    resourceName = sPackagename + resourceName.substring(resourceName.indexOf(":"));
+                    resourceName = sPackagename + resourceName.substring(resourceName.indexOf(Config.TRACE_TODAY_VISIT_SPLIT));
                 }
                 int identifier = resources2.getIdentifier(resourceName + nightSufix, null, null);
                 if (identifier <= 0) {
-                    String str2 = PLUGIN_NIGHT_RESOURCE + resourceName.substring(resourceName.indexOf(":"));
+                    String str2 = PLUGIN_NIGHT_RESOURCE + resourceName.substring(resourceName.indexOf(Config.TRACE_TODAY_VISIT_SPLIT));
                     i2 = resources2.getIdentifier(str2 + nightSufix, null, null);
                     str = str2;
                 } else {

@@ -22,12 +22,12 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private final QuickWebView eyl;
-    private String ifQ;
-    private HashSet<String> ifN = new HashSet<>();
-    private HashMap<String, String> ifO = new HashMap<>();
-    private HashMap<String, String> ifP = new HashMap<>();
-    private HttpMessageListener bKq = new HttpMessageListener(CmdConfigHttp.CMD_WEB_HTTP_PROXY) { // from class: com.baidu.tieba.quickWebView.b.1
+    private final QuickWebView eyh;
+    private String ifK;
+    private HashSet<String> ifH = new HashSet<>();
+    private HashMap<String, String> ifI = new HashMap<>();
+    private HashMap<String, String> ifJ = new HashMap<>();
+    private HttpMessageListener bKr = new HttpMessageListener(CmdConfigHttp.CMD_WEB_HTTP_PROXY) { // from class: com.baidu.tieba.quickWebView.b.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:23:0x00dd  */
         /* JADX WARN: Removed duplicated region for block: B:25:0x0106  */
@@ -50,14 +50,14 @@ public class b {
                         long j = quickWebViewHttpReqMsg.begin;
                         str = quickWebViewHttpReqMsg.jsCallbackMethod;
                         if (TextUtils.isEmpty(str)) {
-                            str = (String) b.this.ifO.remove(str2);
+                            str = (String) b.this.ifI.remove(str2);
                             if (!TextUtils.isEmpty(str)) {
                             }
                             z = true;
                         } else {
                             z = false;
                         }
-                        b.this.ifN.remove(str2);
+                        b.this.ifH.remove(str2);
                         String str4 = "\"\"";
                         if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
                             str3 = BasicPushStatus.SUCCESS_CODE;
@@ -66,7 +66,7 @@ public class b {
                             str3 = quickWebViewHttpResMsg.getError() + "";
                         }
                         int i = z ? 1 : 0;
-                        String bWj = c.bWi().bWj();
+                        String bWl = c.bWk().bWl();
                         StringBuilder sb = new StringBuilder();
                         sb.append("{");
                         sb.append("\"status\":");
@@ -79,7 +79,7 @@ public class b {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache_version\":");
                         sb.append("\"");
-                        sb.append(bWj);
+                        sb.append(bWl);
                         sb.append("\"");
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         sb.append("\"cache\":");
@@ -88,7 +88,7 @@ public class b {
                         sb.append("\"");
                         sb.append("}");
                         if (!StringUtils.isNull(str)) {
-                            b.this.ifP.put(str2, sb.toString());
+                            b.this.ifJ.put(str2, sb.toString());
                             return;
                         } else {
                             b.this.runJsMethod(str, sb.toString());
@@ -105,7 +105,7 @@ public class b {
                 str3 = quickWebViewHttpResMsg.getError() + "";
                 if (z) {
                 }
-                String bWj2 = c.bWi().bWj();
+                String bWl2 = c.bWk().bWl();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("{");
                 sb2.append("\"status\":");
@@ -118,7 +118,7 @@ public class b {
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache_version\":");
                 sb2.append("\"");
-                sb2.append(bWj2);
+                sb2.append(bWl2);
                 sb2.append("\"");
                 sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 sb2.append("\"cache\":");
@@ -134,22 +134,22 @@ public class b {
     private BdUniqueId cnX = BdUniqueId.gen();
 
     public b(QuickWebView quickWebView) {
-        this.eyl = quickWebView;
-        this.ifQ = quickWebView.getSettings().getUserAgentString();
-        this.bKq.setTag(this.cnX);
-        this.bKq.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bKq);
+        this.eyh = quickWebView;
+        this.ifK = quickWebView.getSettings().getUserAgentString();
+        this.bKr.setTag(this.cnX);
+        this.bKr.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bKr);
     }
 
     public void a(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
         String str2;
         if (quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
-            String remove = this.ifP.remove(quickWebViewBridgeData.url);
+            String remove = this.ifJ.remove(quickWebViewBridgeData.url);
             if (!StringUtils.isNull(remove) && str != null) {
                 runJsMethod(str, remove);
-            } else if (this.ifN.contains(quickWebViewBridgeData.url)) {
+            } else if (this.ifH.contains(quickWebViewBridgeData.url)) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.ifO.put(quickWebViewBridgeData.url, str);
+                    this.ifI.put(quickWebViewBridgeData.url, str);
                 }
             } else {
                 QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
@@ -157,7 +157,7 @@ public class b {
                 quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
                 quickWebViewHttpReqMsg.jsCallbackMethod = str;
                 quickWebViewHttpReqMsg.setTag(this.cnX);
-                CookieSyncManager.createInstance(this.eyl.getContext());
+                CookieSyncManager.createInstance(this.eyh.getContext());
                 String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
                 if (!TextUtils.isEmpty(cookie)) {
                     HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
@@ -175,8 +175,8 @@ public class b {
                         quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
                     }
                 }
-                quickWebViewHttpReqMsg.setUserAgent(this.ifQ);
-                quickWebViewHttpReqMsg.addCookie("cache_version", c.bWi().bWj());
+                quickWebViewHttpReqMsg.setUserAgent(this.ifK);
+                quickWebViewHttpReqMsg.addCookie("cache_version", c.bWk().bWl());
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
                 tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
                 tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -193,26 +193,26 @@ public class b {
                     tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
                 }
                 MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
-                this.ifN.add(quickWebViewBridgeData.url);
+                this.ifH.add(quickWebViewBridgeData.url);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void runJsMethod(String str, String str2) {
-        if (this.eyl != null) {
-            this.eyl.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        if (this.eyh != null) {
+            this.eyh.loadUrl("javascript:window." + str + "('" + str2 + "')");
         }
     }
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterListener(this.cnX);
         MessageManager.getInstance().removeMessage(this.cnX);
-        this.ifN.clear();
-        this.ifN = null;
-        this.ifO.clear();
-        this.ifO = null;
-        this.ifP.clear();
-        this.ifP = null;
+        this.ifH.clear();
+        this.ifH = null;
+        this.ifI.clear();
+        this.ifI = null;
+        this.ifJ.clear();
+        this.ifJ = null;
     }
 }

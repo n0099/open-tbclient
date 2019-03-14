@@ -24,7 +24,6 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -37,7 +36,7 @@ public class b extends y {
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (ap.equals(optParamsAsJo.optString(WBConstants.SSO_APP_KEY), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && ap.equals(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
-            c.aG(context, unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+            c.aF(context, unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -50,7 +49,7 @@ public class b extends y {
         }
         final String Ji = com.baidu.swan.apps.ae.b.Ji();
         final String optString = optParamsAsJo.optString(WBConstants.SSO_APP_KEY);
-        final String optString2 = optParamsAsJo.optString(ClientCookie.PATH_ATTR);
+        final String optString2 = optParamsAsJo.optString("path");
         final String optString3 = optParamsAsJo.optString("from");
         final String optString4 = optParamsAsJo.optString("extraData");
         if (TextUtils.isEmpty(Ji.trim()) || TextUtils.isEmpty(optString.trim())) {

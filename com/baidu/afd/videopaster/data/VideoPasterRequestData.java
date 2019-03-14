@@ -10,6 +10,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -41,7 +42,7 @@ public class VideoPasterRequestData extends HttpMessage {
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", String.valueOf(aVar.pO()));
         addParam("ft", aVar.pM());
-        addParam("ct", "2");
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private static String getExt(com.baidu.afd.videopaster.a aVar) {
@@ -77,7 +78,7 @@ public class VideoPasterRequestData extends HttpMessage {
     private static JSONObject create(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", str);
+            jSONObject.put(Config.APP_KEY, str);
             jSONObject.put("v", str2);
             return jSONObject;
         } catch (JSONException e) {

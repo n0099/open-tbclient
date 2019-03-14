@@ -15,7 +15,7 @@ public class b {
         if (ProcessUtils.isMainProcess()) {
             a.wJ().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0094b.class, k(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0123b.class, k(str, z));
         }
     }
 
@@ -51,20 +51,20 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0093a {
-            private static final a amI = new a();
+        public static final class C0122a {
+            private static final a amJ = new a();
         }
 
         public static a wJ() {
-            return C0093a.amI;
+            return C0122a.amJ;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0094b extends ProviderDelegation {
-        private C0094b() {
+    public static class C0123b extends ProviderDelegation {
+        private C0123b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation

@@ -19,78 +19,78 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class c implements NetModel.b {
-    private FrsCommonTabFragment ffZ;
-    private boolean fgA;
-    private boolean fgf;
-    private d fgs;
-    private FrsCommonTabRequestData fgw;
-    private FrsCommonTabNetModel fgx;
-    private FrsDynamicRequestData fgy;
-    private FrsDynamicModel fgz;
+    private FrsCommonTabFragment ffY;
+    private boolean fge;
+    private d fgr;
+    private FrsCommonTabRequestData fgv;
+    private FrsCommonTabNetModel fgw;
+    private FrsDynamicRequestData fgx;
+    private FrsDynamicModel fgy;
+    private boolean fgz;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> fgB = new HashSet<>();
+    private HashSet<String> fgA = new HashSet<>();
     private int mPn = 1;
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2) {
         if (frsCommonTabFragment != null) {
-            this.ffZ = frsCommonTabFragment;
+            this.ffY = frsCommonTabFragment;
             if (i2 == 89) {
-                this.fgf = true;
-                this.fgy = new FrsDynamicRequestData();
-                this.fgy.forumId = i;
-                this.fgy.scrH = l.aQ(TbadkCoreApplication.getInst());
-                this.fgy.scrW = l.aO(TbadkCoreApplication.getInst());
-                this.fgy.scrDip = l.aR(TbadkCoreApplication.getInst());
-                this.fgz = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.fgy);
-                this.fgz.a(this);
-                this.fgz.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.fge = true;
+                this.fgx = new FrsDynamicRequestData();
+                this.fgx.forumId = i;
+                this.fgx.scrH = l.aQ(TbadkCoreApplication.getInst());
+                this.fgx.scrW = l.aO(TbadkCoreApplication.getInst());
+                this.fgx.scrDip = l.aR(TbadkCoreApplication.getInst());
+                this.fgy = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.fgx);
+                this.fgy.a(this);
+                this.fgy.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
-            this.fgf = false;
-            this.fgw = new FrsCommonTabRequestData();
-            this.fgw.fid = i;
-            this.fgw.tabId = i2;
-            this.fgx = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.fgw);
-            this.fgx.a(this);
-            this.fgx.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.fge = false;
+            this.fgv = new FrsCommonTabRequestData();
+            this.fgv.fid = i;
+            this.fgv.tabId = i2;
+            this.fgw = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.fgv);
+            this.fgw.a(this);
+            this.fgw.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
-    public void bff() {
-        this.fgA = true;
-        if (!this.fgf) {
-            if (!this.fgx.qz()) {
+    public void bfe() {
+        this.fgz = true;
+        if (!this.fge) {
+            if (!this.fgw.qz()) {
                 this.mPn = 1;
-                this.fgw.pn = this.mPn;
-                this.fgx.aov();
+                this.fgv.pn = this.mPn;
+                this.fgw.aou();
             }
-        } else if (!this.fgz.qz()) {
+        } else if (!this.fgy.qz()) {
             if (ar.adp().adr()) {
-                this.fgy.qType = 2;
+                this.fgx.qType = 2;
             } else {
-                this.fgy.qType = 1;
+                this.fgx.qType = 1;
             }
-            this.fgy.lastThreadId = 0L;
-            this.fgz.aov();
+            this.fgx.lastThreadId = 0L;
+            this.fgy.aou();
         }
     }
 
-    public void aBd() {
-        this.fgA = false;
-        if (!this.fgf) {
-            if (!this.fgx.qz()) {
+    public void aBc() {
+        this.fgz = false;
+        if (!this.fge) {
+            if (!this.fgw.qz()) {
                 this.mPn++;
-                this.fgw.pn = this.mPn;
-                this.fgx.aov();
+                this.fgv.pn = this.mPn;
+                this.fgw.aou();
             }
-        } else if (!this.fgz.qz()) {
+        } else if (!this.fgy.qz()) {
             if (ar.adp().adr()) {
-                this.fgy.qType = 2;
+                this.fgx.qType = 2;
             } else {
-                this.fgy.qType = 1;
+                this.fgx.qType = 1;
             }
-            this.fgz.aov();
+            this.fgy.aou();
         }
     }
 
@@ -98,47 +98,47 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.fgA) {
-            this.fgs = dVar;
-            this.fgB.clear();
+        if (this.fgz) {
+            this.fgr = dVar;
+            this.fgA.clear();
             Iterator<m> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 m next = it.next();
                 if (next instanceof bg) {
                     String tid = ((bg) next).getTid();
-                    if (!this.fgB.contains(tid)) {
-                        this.fgB.add(tid);
+                    if (!this.fgA.contains(tid)) {
+                        this.fgA.add(tid);
                     }
                 }
             }
         } else {
-            this.fgs.hasMore = dVar.hasMore;
-            this.fgs.userMap.putAll(dVar.userMap);
+            this.fgr.hasMore = dVar.hasMore;
+            this.fgr.userMap.putAll(dVar.userMap);
             Iterator<m> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 m next2 = it2.next();
                 if (next2 instanceof bg) {
                     String tid2 = ((bg) next2).getTid();
-                    if (!this.fgB.contains(tid2)) {
-                        ((bg) next2).bDD = this.ffZ.isBrandForum;
-                        this.fgs.threadList.add(next2);
-                        this.fgB.add(tid2);
+                    if (!this.fgA.contains(tid2)) {
+                        ((bg) next2).bDF = this.ffY.isBrandForum;
+                        this.fgr.threadList.add(next2);
+                        this.fgA.add(tid2);
                     }
                 }
             }
         }
-        this.ffZ.a(this.fgs);
+        this.ffY.a(this.fgr);
         return true;
     }
 
     public void ad(bg bgVar) {
-        if (bgVar != null && this.fgs != null && this.fgs.threadList != null) {
-            if (v.T(this.fgs.threadList)) {
-                this.fgs.threadList.add(bgVar);
+        if (bgVar != null && this.fgr != null && this.fgr.threadList != null) {
+            if (v.T(this.fgr.threadList)) {
+                this.fgr.threadList.add(bgVar);
             } else {
-                this.fgs.threadList.add(0, bgVar);
+                this.fgr.threadList.add(0, bgVar);
             }
-            this.ffZ.a(this.fgs);
+            this.ffY.a(this.fgr);
         }
     }
 
@@ -158,7 +158,7 @@ public class c implements NetModel.b {
                     if (!v.T(dVar2.threadList)) {
                         m mVar = (m) v.c(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (mVar instanceof bg) {
-                            this.fgy.lastThreadId = com.baidu.adp.lib.g.b.d(((bg) mVar).getId(), 0L);
+                            this.fgx.lastThreadId = com.baidu.adp.lib.g.b.d(((bg) mVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -171,7 +171,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.ffZ.a(errorData);
+                    this.ffY.a(errorData);
                 }
             }
         }
@@ -193,7 +193,7 @@ public class c implements NetModel.b {
                     if (!v.T(dVar2.threadList)) {
                         m mVar = (m) v.c(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (mVar instanceof bg) {
-                            this.fgy.lastThreadId = com.baidu.adp.lib.g.b.d(((bg) mVar).getId(), 0L);
+                            this.fgx.lastThreadId = com.baidu.adp.lib.g.b.d(((bg) mVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -206,13 +206,13 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.ffZ.a(errorData);
+                    this.ffY.a(errorData);
                 }
             }
         }
     }
 
     public boolean hasData() {
-        return (this.fgs == null || v.T(this.fgs.threadList)) ? false : true;
+        return (this.fgr == null || v.T(this.fgr.threadList)) ? false : true;
     }
 }

@@ -33,7 +33,7 @@ public class TbFaceManager {
         ImageSpan pe(String str);
     }
 
-    public static TbFaceManager anp() {
+    public static TbFaceManager ano() {
         if (cms == null) {
             cms = new TbFaceManager();
         }
@@ -57,10 +57,10 @@ public class TbFaceManager {
 
     private com.baidu.adp.widget.ImageView.a D(int i, String str) {
         Bitmap resBitmap;
-        com.baidu.adp.widget.ImageView.a pi = c.anq().pi(str);
+        com.baidu.adp.widget.ImageView.a pi = c.anp().pi(str);
         if (pi == null && (resBitmap = BitmapHelper.getResBitmap(this.mContext, i)) != null) {
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(resBitmap, false, str);
-            c.anq().c(str, aVar);
+            c.anp().c(str, aVar);
             return aVar;
         }
         return pi;
@@ -70,11 +70,11 @@ public class TbFaceManager {
         return this.cmt.oG(str);
     }
 
-    public a.C0204a pd(String str) {
+    public a.C0238a pd(String str) {
         com.baidu.adp.widget.ImageView.a pc;
-        a.C0204a aw = this.cmt.aw(this.mContext, str);
+        a.C0238a aw = this.cmt.aw(this.mContext, str);
         if (aw == null && (pc = pc(str)) != null) {
-            return new a.C0204a(pc.getWidth(), pc.getHeight());
+            return new a.C0238a(pc.getWidth(), pc.getHeight());
         }
         return aw;
     }
@@ -83,8 +83,8 @@ public class TbFaceManager {
         return this.cmt.oH(str);
     }
 
-    public int amh() {
-        return this.cmt.amh();
+    public int amg() {
+        return this.cmt.amg();
     }
 
     public String oI(String str) {

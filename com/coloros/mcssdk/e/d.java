@@ -1,17 +1,17 @@
 package com.coloros.mcssdk.e;
 /* loaded from: classes3.dex */
 public class d extends c {
-    private String aui;
+    private String auj;
     private String content;
     private String description;
-    private String jyF;
+    private String jyx;
 
-    public void Fs(String str) {
-        this.jyF = str;
+    public void Fq(String str) {
+        this.jyx = str;
     }
 
     public void ei(String str) {
-        this.aui = str;
+        this.auj = str;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -28,6 +28,6 @@ public class d extends c {
     }
 
     public String toString() {
-        return "messageID:" + this.jyD + ",taskID:" + this.jyE + ",globalID:" + this.jyF + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.aui;
+        return "messageID:" + this.jyv + ",taskID:" + this.jyw + ",globalID:" + this.jyx + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.auj;
     }
 }

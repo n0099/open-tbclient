@@ -9,7 +9,7 @@ public interface r {
 
     /* loaded from: classes2.dex */
     public static class a implements r {
-        private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+        private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
         @Override // com.baidu.swan.apps.u.b.r
         public void a(String str, com.baidu.swan.apps.n.b bVar) {

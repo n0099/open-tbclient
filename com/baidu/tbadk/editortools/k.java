@@ -33,7 +33,8 @@ public class k {
         this.cjk = i2;
     }
 
-    protected Context getContext() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Context getContext() {
         return this.context;
     }
 

@@ -9,15 +9,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends g<JSONObject> {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    protected final String aRH;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    protected final String aRI;
     protected final Activity mActivity;
     protected final String mScope;
 
     public f(Activity activity, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRH = str2;
+        this.aRI = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -30,8 +30,8 @@ public class f extends g<JSONObject> {
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject.put("app_key", Jn.getAppKey());
-            if (!TextUtils.equals("0", this.aRH)) {
-                jSONObject.put("action_type", this.aRH);
+            if (!TextUtils.equals("0", this.aRI)) {
+                jSONObject.put("action_type", this.aRI);
             }
             String vD = com.baidu.swan.apps.u.a.CK().vD();
             if (!TextUtils.isEmpty(vD)) {

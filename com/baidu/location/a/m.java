@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -42,7 +42,7 @@ public class m extends com.baidu.location.g.e {
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 try {
-                    byte[] bArr = new byte[5120];
+                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
                     while (true) {
                         int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
@@ -334,7 +334,7 @@ public class m extends com.baidu.location.g.e {
                         com.baidu.location.d.d.a().m();
                     }
                 }
-            }, TbConfig.NOTIFY_SOUND_INTERVAL);
+            }, 5000L);
         }
     }
 }

@@ -14,17 +14,17 @@ import com.baidu.tieba.d;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class AudioAnimationView extends View {
-    private int Wb;
     private int Wc;
-    private boolean Wd;
+    private int Wd;
     private boolean We;
-    private int Wf;
+    private boolean Wf;
     private int Wg;
-    private RectF[] Wh;
-    private int[] Wi;
-    private int Wj;
+    private int Wh;
+    private RectF[] Wi;
+    private int[] Wj;
     private int Wk;
-    private final Runnable Wl;
+    private int Wl;
+    private final Runnable Wm;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -33,14 +33,14 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Wb = 0;
-        this.Wc = 8;
-        this.Wd = false;
-        this.We = true;
-        this.Wi = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Wj = l.h(TbadkCoreApplication.getInst(), d.e.tbds5);
-        this.Wk = d.C0236d.cp_btn_a;
-        this.Wl = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.Wc = 0;
+        this.Wd = 8;
+        this.We = false;
+        this.Wf = true;
+        this.Wj = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Wk = l.h(TbadkCoreApplication.getInst(), d.e.tbds5);
+        this.Wl = d.C0277d.cp_btn_a;
+        this.Wm = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.qX();
@@ -54,14 +54,14 @@ public class AudioAnimationView extends View {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.Wb = 0;
-        this.Wc = 8;
-        this.Wd = false;
-        this.We = true;
-        this.Wi = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.Wj = l.h(TbadkCoreApplication.getInst(), d.e.tbds5);
-        this.Wk = d.C0236d.cp_btn_a;
-        this.Wl = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
+        this.Wc = 0;
+        this.Wd = 8;
+        this.We = false;
+        this.Wf = true;
+        this.Wj = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.Wk = l.h(TbadkCoreApplication.getInst(), d.e.tbds5);
+        this.Wl = d.C0277d.cp_btn_a;
+        this.Wm = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
                 AudioAnimationView.this.qX();
@@ -73,42 +73,42 @@ public class AudioAnimationView extends View {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qX() {
-        if (this.Wd) {
+        if (this.We) {
             invalidate();
         }
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.Wl);
-        if (!this.We) {
-            com.baidu.adp.lib.g.e.jH().postDelayed(this.Wl, 250L);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.Wm);
+        if (!this.Wf) {
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.Wm, 250L);
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"DrawAllocation"})
     protected void onMeasure(int i, int i2) {
-        if (this.Wb > 0) {
+        if (this.Wc > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.Wf = this.Wj * ((this.Wb * 2) - 1);
-            this.Wc = this.Wb;
-            i = View.MeasureSpec.makeMeasureSpec(this.Wf, mode);
+            this.Wg = this.Wk * ((this.Wc * 2) - 1);
+            this.Wd = this.Wc;
+            i = View.MeasureSpec.makeMeasureSpec(this.Wg, mode);
         }
         super.onMeasure(i, i2);
-        this.Wg = getMeasuredHeight();
-        this.Wf = getMeasuredWidth();
-        if (this.Wb <= 0) {
-            this.Wc = (this.Wf / this.Wj) / 2;
+        this.Wh = getMeasuredHeight();
+        this.Wg = getMeasuredWidth();
+        if (this.Wc <= 0) {
+            this.Wd = (this.Wg / this.Wk) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Wd) {
-            for (int i = 0; i < this.Wc; i++) {
+        if (this.We) {
+            for (int i = 0; i < this.Wd; i++) {
                 qZ();
-                if (i < this.Wh.length) {
+                if (i < this.Wi.length) {
                     canvas.save();
-                    canvas.translate(0.0f, -(this.Wh[i].top / 2.0f));
-                    canvas.drawRoundRect(this.Wh[i], 10.0f, 10.0f, this.mPaint);
+                    canvas.translate(0.0f, -(this.Wi[i].top / 2.0f));
+                    canvas.drawRoundRect(this.Wi[i], 10.0f, 10.0f, this.mPaint);
                     canvas.restore();
                 }
             }
@@ -120,12 +120,12 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(al.getColor(this.Wk));
+        this.mPaint.setColor(al.getColor(this.Wl));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.mPaint.setColor(al.getColor(this.Wk));
+            this.mPaint.setColor(al.getColor(this.Wl));
             invalidate();
             this.mSkinType = i;
         }
@@ -133,29 +133,29 @@ public class AudioAnimationView extends View {
 
     private void qZ() {
         int nextInt;
-        if (this.Wh == null || this.Wh.length != this.Wc) {
-            this.Wh = new RectF[this.Wc];
+        if (this.Wi == null || this.Wi.length != this.Wd) {
+            this.Wi = new RectF[this.Wd];
         }
-        for (int i = 0; i < this.Wc; i++) {
-            int i2 = this.Wj * i * 2;
-            if (this.We) {
-                nextInt = (int) ((1.0d - (this.Wi[i % 22] / 10.0d)) * this.Wg);
+        for (int i = 0; i < this.Wd; i++) {
+            int i2 = this.Wk * i * 2;
+            if (this.Wf) {
+                nextInt = (int) ((1.0d - (this.Wj[i % 22] / 10.0d)) * this.Wh);
             } else {
-                nextInt = this.Wg > 0 ? this.random.nextInt(this.Wg) : 0;
+                nextInt = this.Wh > 0 ? this.random.nextInt(this.Wh) : 0;
             }
-            int i3 = this.Wj + i2;
-            int i4 = this.Wg;
-            if (this.Wh[i] == null) {
-                this.Wh[i] = new RectF(i2, nextInt, i3, i4);
+            int i3 = this.Wk + i2;
+            int i4 = this.Wh;
+            if (this.Wi[i] == null) {
+                this.Wi[i] = new RectF(i2, nextInt, i3, i4);
             } else {
-                this.Wh[i].set(i2, nextInt, i3, i4);
+                this.Wi[i].set(i2, nextInt, i3, i4);
             }
         }
     }
 
     public void setColumnWidth(int i) {
         if (i > 0) {
-            this.Wj = i;
+            this.Wk = i;
         }
     }
 
@@ -163,30 +163,30 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(al.getColor(i));
         }
-        this.Wk = i;
+        this.Wl = i;
     }
 
     public void start() {
-        this.Wd = true;
-        this.We = false;
+        this.We = true;
+        this.Wf = false;
         qX();
     }
 
     public void setCertainColumnCount(int i) {
         if (i != 0) {
-            this.Wb = i;
+            this.Wc = i;
         }
     }
 
     public void ra() {
-        this.Wd = true;
         this.We = true;
+        this.Wf = true;
         qX();
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.Wl);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.Wm);
     }
 }

@@ -50,7 +50,7 @@ public interface c extends d.b {
 
     void J(Intent intent);
 
-    void a(int i, @NonNull String[] strArr, a.InterfaceC0078a interfaceC0078a);
+    void a(int i, @NonNull String[] strArr, a.InterfaceC0108a interfaceC0108a);
 
     void a(com.baidu.swan.apps.m.a.a aVar);
 

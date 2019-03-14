@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes4.dex */
 public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private SparseArray<SoftReference<Drawable>> hls;
-    private SparseIntArray hlt;
-    protected PbActivity hpd;
-    protected com.baidu.adp.widget.ListView.o hqC;
+    private SparseArray<SoftReference<Drawable>> hlr;
+    private SparseIntArray hls;
+    protected PbActivity hoW;
+    protected com.baidu.adp.widget.ListView.o hqv;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -24,14 +24,14 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.hls = new SparseArray<>();
-        this.hlt = new SparseIntArray();
-        au(pbActivity);
+        this.hlr = new SparseArray<>();
+        this.hls = new SparseIntArray();
+        as(pbActivity);
     }
 
-    public void au(PbActivity pbActivity) {
+    public void as(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.hpd = pbActivity;
+            this.hoW = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -40,7 +40,7 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.hqC = (com.baidu.adp.widget.ListView.o) viewGroup;
+        this.hqv = (com.baidu.adp.widget.ListView.o) viewGroup;
         return null;
     }
 
@@ -50,10 +50,10 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.hlt.get(i, -1);
+        int i2 = this.hls.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.hlt.put(i, dimensionPixelSize);
+            this.hls.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

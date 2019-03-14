@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -14,12 +13,12 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
     protected Context a;
     protected l b;
     protected String c = com.baidu.android.pushservice.h.e();
-    private C0033a d = new C0033a();
+    private C0034a d = new C0034a();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0033a {
-        public C0033a() {
+    public class C0034a {
+        public C0034a() {
         }
 
         public void a(Boolean bool) {
@@ -296,7 +295,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            int i = jSONObject.getInt("error_code");
             String string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
             String string2 = jSONObject.getString("request_id");
             JSONObject jSONObject2 = new JSONObject();

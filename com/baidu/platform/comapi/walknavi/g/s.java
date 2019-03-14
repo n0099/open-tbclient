@@ -1,0 +1,18 @@
+package com.baidu.platform.comapi.walknavi.g;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class s implements View.OnClickListener {
+    final /* synthetic */ a a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(a aVar) {
+        this.a = aVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.u();
+    }
+}

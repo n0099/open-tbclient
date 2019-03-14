@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.ubc.UBC;
 import java.util.HashMap;
 import java.util.Locale;
@@ -14,14 +13,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Flow implements Parcelable {
-    private k bpq;
-    private int mHandle;
-    private String mId;
-    private int mOption;
-    private HashMap<String, Slot> mSlotMaps;
-    private long mStartTime;
-    private boolean mValid;
-    private static final boolean DEBUG = g.DEBUG;
     public static final Parcelable.Creator<Flow> CREATOR = new Parcelable.Creator<Flow>() { // from class: com.baidu.swan.ubc.Flow.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -37,12 +28,19 @@ public class Flow implements Parcelable {
             return new Flow(parcel);
         }
     };
+    private j bpr;
+    private int mHandle;
+    private String mId;
+    private int mOption;
+    private HashMap<String, Slot> mSlotMaps;
+    private long mStartTime;
+    private boolean mValid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Flow() {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpq = r.Ts();
+        this.bpr = q.Ts();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -53,7 +51,7 @@ public class Flow implements Parcelable {
     public Flow(String str, int i, int i2) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpq = r.Ts();
+        this.bpr = q.Ts();
         this.mId = str;
         this.mHandle = i;
         this.mOption = i2;
@@ -63,7 +61,7 @@ public class Flow implements Parcelable {
     private Flow(Parcel parcel) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpq = r.Ts();
+        this.bpr = q.Ts();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();
@@ -73,22 +71,19 @@ public class Flow implements Parcelable {
     }
 
     public final void addEvent(String str, String str2) {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, " flow addEvent, mId:" + this.mId + " handle" + this.mHandle + " eventId:" + str + " value:" + str2 + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().a(this.mId, str, this.mHandle, str2, this.mOption);
+                    l.Tk().a(this.mId, str, this.mHandle, str2, this.mOption);
                 }
-                if (this.bpq != null) {
-                    this.bpq.a(this.mId, str, this.mHandle, str2, this.mOption);
+                if (this.bpr != null) {
+                    this.bpr.a(this.mId, str, this.mHandle, str2, this.mOption);
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowAddEvent(this, str, str2);
+                q.Tm().flowAddEvent(this, str, str2);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -96,22 +91,19 @@ public class Flow implements Parcelable {
     }
 
     public final void addEvent(String str, String str2, long j) {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, " flow addEvent, mId:" + this.mId + " handle" + this.mHandle + " eventId:" + str + " value:" + str2 + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().a(this.mId, str, this.mHandle, str2, j, this.mOption);
+                    l.Tk().a(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
-                if (this.bpq != null) {
-                    this.bpq.a(this.mId, str, this.mHandle, str2, j, this.mOption);
+                if (this.bpr != null) {
+                    this.bpr.a(this.mId, str, this.mHandle, str2, j, this.mOption);
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowAddEventWithTime(this, str, str2, j);
+                q.Tm().flowAddEventWithTime(this, str, str2, j);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -119,22 +111,19 @@ public class Flow implements Parcelable {
     }
 
     public final void setValue(String str) {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, " flow setValue, mId:" + this.mId + " handle" + this.mHandle + " value:" + str + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().c(this.mId, this.mHandle, str);
+                    l.Tk().c(this.mId, this.mHandle, str);
                 }
-                if (this.bpq != null) {
-                    this.bpq.c(this.mId, this.mHandle, str);
+                if (this.bpr != null) {
+                    this.bpr.c(this.mId, this.mHandle, str);
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowSetValue(this, q.jR(str));
+                q.Tm().flowSetValue(this, p.jR(str));
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -142,9 +131,6 @@ public class Flow implements Parcelable {
     }
 
     public void setValueWithDuration(String str) {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, " flow setValueWithDuration, mId:" + this.mId + " handle: " + this.mHandle + " value:" + str + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 JSONObject jSONObject = new JSONObject();
@@ -159,23 +145,20 @@ public class Flow implements Parcelable {
                         }
                         jSONObject.put("option", jSONObject2.toString());
                     }
-                    if (DEBUG) {
-                        Log.d(com.baidu.ubc.Flow.TAG, " flow setValueWithDuration, mId:" + this.mId + ", duration: " + jSONObject.toString());
-                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().c(this.mId, this.mHandle, jSONObject.toString());
+                    l.Tk().c(this.mId, this.mHandle, jSONObject.toString());
                 }
-                if (this.bpq != null) {
-                    this.bpq.c(this.mId, this.mHandle, jSONObject.toString());
+                if (this.bpr != null) {
+                    this.bpr.c(this.mId, this.mHandle, jSONObject.toString());
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowSetValueWithDuration(this, q.jR(str));
+                q.Tm().flowSetValueWithDuration(this, p.jR(str));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -183,9 +166,6 @@ public class Flow implements Parcelable {
     }
 
     public final void end() {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, "end flow, mId:" + this.mId + " handle" + this.mHandle + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 JSONArray jSONArray = new JSONArray();
@@ -202,16 +182,16 @@ public class Flow implements Parcelable {
                     }
                 }
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().a(this.mId, this.mHandle, jSONArray);
+                    l.Tk().a(this.mId, this.mHandle, jSONArray);
                 }
-                if (this.bpq != null) {
-                    this.bpq.a(this.mId, this.mHandle, jSONArray);
+                if (this.bpr != null) {
+                    this.bpr.a(this.mId, this.mHandle, jSONArray);
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowEnd(this);
+                q.Tm().flowEnd(this);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -219,22 +199,19 @@ public class Flow implements Parcelable {
     }
 
     public final void cancel() {
-        if (DEBUG) {
-            Log.d(com.baidu.ubc.Flow.TAG, "cancel flow, mId:" + this.mId + " handle" + this.mHandle + " mValid:" + this.mValid);
-        }
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
                 if (com.baidu.swan.b.c.TE()) {
-                    m.Tk().y(this.mId, this.mHandle);
+                    l.Tk().y(this.mId, this.mHandle);
                 }
-                if (this.bpq != null) {
-                    this.bpq.y(this.mId, this.mHandle);
+                if (this.bpr != null) {
+                    this.bpr.y(this.mId, this.mHandle);
                     return;
                 }
                 return;
             }
             try {
-                r.Tm().flowCancel(this);
+                q.Tm().flowCancel(this);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

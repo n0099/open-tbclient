@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 /* loaded from: classes2.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a jSl = new a(null);
+    public static final a jSd = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -51,35 +51,35 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0377d(this, i, i2);
+        return new C0471d(this, i, i2);
     }
 
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0377d<E> extends d<E> implements RandomAccess {
-        private int jSn;
-        private final d<E> jSo;
-        private final int jSp;
+    private static final class C0471d<E> extends d<E> implements RandomAccess {
+        private int jSf;
+        private final d<E> jSg;
+        private final int jSh;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0377d(d<? extends E> dVar, int i, int i2) {
+        public C0471d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.k(dVar, IntentConfig.LIST);
-            this.jSo = dVar;
-            this.jSp = i;
-            d.jSl.ai(this.jSp, i2, this.jSo.size());
-            this.jSn = i2 - this.jSp;
+            this.jSg = dVar;
+            this.jSh = i;
+            d.jSd.ai(this.jSh, i2, this.jSg.size());
+            this.jSf = i2 - this.jSh;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.jSl.cF(i, this.jSn);
-            return this.jSo.get(this.jSp + i);
+            d.jSd.cF(i, this.jSf);
+            return this.jSg.get(this.jSh + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.jSn;
+            return this.jSf;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return jSl.a(this, (Collection) obj);
+            return jSd.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return jSl.h(this);
+        return jSd.h(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,7 +152,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.jSl.cG(i, d.this.size());
+            d.jSd.cG(i, d.this.size());
             setIndex(i);
         }
 

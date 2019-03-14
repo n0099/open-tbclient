@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static JSONObject gG(String str) {
         return ax(str, "");
@@ -84,20 +84,20 @@ public final class a {
 
     public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
         com.baidu.swan.apps.performance.e.as("route", "createAndLoadPage start.");
-        String x = aa.x(bVar.mBaseUrl, bVar.axH, bVar.mParams);
-        com.baidu.swan.apps.ae.a.d eN = com.baidu.swan.apps.w.e.Ec().eN(bVar.axH);
+        String x = aa.x(bVar.mBaseUrl, bVar.axI, bVar.mParams);
+        com.baidu.swan.apps.ae.a.d eN = com.baidu.swan.apps.w.e.Ec().eN(bVar.axI);
         com.baidu.swan.apps.core.i.b bVar2 = new com.baidu.swan.apps.core.i.b();
-        bVar2.atf = bVar.mBaseUrl;
-        bVar2.atl = com.baidu.swan.apps.model.b.f(bVar);
-        bVar2.atm = eN.aOH;
-        bVar2.atj = String.valueOf(com.baidu.swan.apps.console.a.wI());
+        bVar2.atg = bVar.mBaseUrl;
+        bVar2.atm = com.baidu.swan.apps.model.b.f(bVar);
+        bVar2.atn = eN.aOI;
+        bVar2.atk = String.valueOf(com.baidu.swan.apps.console.a.wI());
         if (com.baidu.swan.apps.ae.b.IX() != null) {
-            String gj = com.baidu.swan.apps.ae.b.IX().gj(bVar.axH);
+            String gj = com.baidu.swan.apps.ae.b.IX().gj(bVar.axI);
             if (!TextUtils.isEmpty(gj)) {
                 if (DEBUG) {
                     Log.d("ActionUtils", "add initData: " + gj);
                 }
-                bVar2.atn = gj;
+                bVar2.ato = gj;
             }
         }
         com.baidu.swan.apps.w.e.Ec().a(cVar.we(), com.baidu.swan.apps.core.i.b.a(bVar2));

@@ -4,8 +4,8 @@ import tbclient.Recommforum.TestInfo;
 /* loaded from: classes4.dex */
 public class f {
     public int createTime;
-    public boolean eEW;
-    public String eEX;
+    public boolean eES;
+    public String eET;
     public String imageUrl;
     public long testId;
     public String title;
@@ -16,8 +16,8 @@ public class f {
             this.title = testInfo.title == null ? "" : testInfo.title;
             this.imageUrl = testInfo.image_url;
             this.createTime = testInfo.create_time.intValue();
-            this.eEW = testInfo.answered.intValue() == 1;
-            this.eEX = testInfo.result_img;
+            this.eES = testInfo.answered.intValue() == 1;
+            this.eET = testInfo.result_img;
         }
     }
 }

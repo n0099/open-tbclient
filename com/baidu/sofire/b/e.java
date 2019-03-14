@@ -20,6 +20,7 @@ import android.os.Process;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -29,7 +30,6 @@ import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.BufferedReader;
@@ -181,7 +181,7 @@ public final class e {
         String hexString;
         try {
             StringBuilder sb = new StringBuilder();
-            sb.append(g.a(context)).append(":");
+            sb.append(g.a(context)).append(Config.TRACE_TODAY_VISIT_SPLIT);
             String hexString2 = Long.toHexString(System.currentTimeMillis() / 1000);
             if (!TextUtils.isEmpty(hexString2)) {
                 int length = hexString2.length();
@@ -574,7 +574,7 @@ public final class e {
                                                 if (!TextUtils.isEmpty(attributeValue3) && str.equals(attributeValue3)) {
                                                     String attributeValue4 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                                     if (!TextUtils.isEmpty(attributeValue4)) {
-                                                        if (attributeValue4.startsWith(":")) {
+                                                        if (attributeValue4.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
                                                             return context.getPackageName() + attributeValue4;
                                                         }
                                                         return attributeValue4;
@@ -590,7 +590,7 @@ public final class e {
                                         if (!TextUtils.isEmpty(attributeValue5) && attributeValue5.equals(canonicalName)) {
                                             String attributeValue6 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                             if (!TextUtils.isEmpty(attributeValue6)) {
-                                                if (attributeValue6.startsWith(":")) {
+                                                if (attributeValue6.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
                                                     return context.getPackageName() + attributeValue6;
                                                 }
                                                 return attributeValue6;
@@ -602,7 +602,7 @@ public final class e {
                                         if (!TextUtils.isEmpty(attributeValue7) && attributeValue7.equals(canonicalName)) {
                                             String attributeValue8 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                             if (!TextUtils.isEmpty(attributeValue8)) {
-                                                if (attributeValue8.startsWith(":")) {
+                                                if (attributeValue8.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
                                                     return context.getPackageName() + attributeValue8;
                                                 }
                                                 return attributeValue8;
@@ -1179,7 +1179,7 @@ public final class e {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     if (packageName.equals(optString) && !TextUtils.isEmpty(str) && str.equalsIgnoreCase(optString2)) {
                         z = true;
                     }
@@ -1231,7 +1231,7 @@ public final class e {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     if (str.equals(optString) && !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(optString2)) {
                         return true;
                     }
@@ -1853,7 +1853,7 @@ public final class e {
             if (a3 != null) {
                 JSONObject jSONObject3 = new JSONObject(a3);
                 JSONArray optJSONArray = jSONObject3.optJSONArray("product");
-                long optLong = jSONObject3.optLong("pt");
+                long optLong = jSONObject3.optLong(Config.PLATFORM_TYPE);
                 if (optJSONArray != null && optLong > 0) {
                     new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
                 }
@@ -1877,7 +1877,7 @@ public final class e {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     new StringBuilder("167:").append(optString).append("_").append(optString2);
                     com.baidu.sofire.b.a();
                     hashMap.put(optString, optString2);

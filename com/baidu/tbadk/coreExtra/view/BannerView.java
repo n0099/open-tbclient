@@ -37,9 +37,9 @@ public class BannerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void akc();
+        void akb();
 
-        void akd();
+        void akc();
     }
 
     public void setBannerType(String str) {
@@ -48,7 +48,7 @@ public class BannerView extends RelativeLayout {
 
     public void setBannerData(x xVar) {
         this.ccy = xVar;
-        s.a(this.ccy.byz, this.cct, this.ccy.byA, l.h(getContext(), d.e.ds26));
+        s.a(this.ccy.byB, this.cct, this.ccy.byC, l.h(getContext(), d.e.ds26));
     }
 
     public void setMtjInfo(String str, String str2) {
@@ -75,7 +75,7 @@ public class BannerView extends RelativeLayout {
                     BannerView.this.ccv = true;
                     BannerView.this.setVisibility(8);
                     if (BannerView.this.ccz != null) {
-                        BannerView.this.ccz.akd();
+                        BannerView.this.ccz.akc();
                         return;
                     }
                     return;
@@ -98,7 +98,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.ccz.akc();
+                BannerView.this.ccz.akb();
             }
         };
         init(context);
@@ -117,7 +117,7 @@ public class BannerView extends RelativeLayout {
         this.ccr.setOnClickListener(this.ccA);
         this.cct = (TbImageView) findViewById(d.g.tv_advert);
         this.ccu = findViewById(d.g.banner_mask);
-        al.l(this.ccu, d.C0236d.black_alpha0);
+        al.l(this.ccu, d.C0277d.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
@@ -166,7 +166,7 @@ public class BannerView extends RelativeLayout {
         this.ccu.setBackgroundColor(i);
     }
 
-    public boolean aka() {
+    public boolean ajZ() {
         return this.ccx;
     }
 
@@ -179,7 +179,7 @@ public class BannerView extends RelativeLayout {
         this.ccx = false;
     }
 
-    public void akb() {
+    public void aka() {
         this.ccr.postInvalidate();
     }
 }

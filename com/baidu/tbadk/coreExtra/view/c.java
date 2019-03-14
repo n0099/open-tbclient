@@ -40,7 +40,7 @@ public class c {
     private View ced;
     private View cee;
     private View cef;
-    private a.InterfaceC0188a ceh;
+    private a.InterfaceC0222a ceh;
     private Activity mContext;
     private int size;
     private View cdI = null;
@@ -81,8 +81,8 @@ public class c {
         this.ceb.setBounds(0, 0, this.size, this.size);
     }
 
-    public void a(a.InterfaceC0188a interfaceC0188a) {
-        this.ceh = interfaceC0188a;
+    public void a(a.InterfaceC0222a interfaceC0222a) {
+        this.ceh = interfaceC0222a;
     }
 
     public void setAccountData(AccountData accountData) {
@@ -97,7 +97,7 @@ public class c {
         this.cdZ = aVar;
     }
 
-    public void akj() {
+    public void aki() {
         ja(0);
     }
 
@@ -114,15 +114,15 @@ public class c {
             this.cdR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.akn();
-                    c.this.akl();
+                    c.this.akm();
+                    c.this.akk();
                 }
             });
             this.cdU = (TextView) this.cdI.findViewById(d.g.confirm);
             this.cdU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.akk();
+                    c.this.akj();
                 }
             });
             this.cdV = (ProgressBar) this.cdI.findViewById(d.g.confirm_progress);
@@ -169,12 +169,12 @@ public class c {
             this.cdP.setOnCheckedChangeListener(this.cdN);
             this.cdQ.setOnCheckedChangeListener(this.cdN);
             this.cdW = (TextView) this.cdI.findViewById(d.g.phone_info);
-            akm();
+            akl();
             this.cdJ = new Dialog(this.mContext, d.k.input_username_dialog);
             this.cdJ.setCanceledOnTouchOutside(false);
             this.cdJ.setCancelable(false);
             this.cdJ.setCanceledOnTouchOutside(false);
-            akb();
+            aka();
         }
         if (i == 1) {
             this.cdW.setText(d.j.tip_init_user_name);
@@ -183,7 +183,7 @@ public class c {
         }
         if (!this.cdJ.isShowing()) {
             this.cdK.setText((CharSequence) null);
-            akm();
+            akl();
             oi(null);
             if (!this.mContext.isFinishing()) {
                 this.cdJ.setContentView(this.cdI);
@@ -191,7 +191,7 @@ public class c {
                 if (this.mContext instanceof BaseActivity) {
                     ((BaseActivity) this.mContext).ShowSoftKeyPadDelay(this.cdK, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
                 } else {
-                    new Handler().postDelayed(new RunnableC0200c(this.cdK), 150L);
+                    new Handler().postDelayed(new RunnableC0234c(this.cdK), 150L);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.coreExtra.view.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0200c implements Runnable {
+    public class RunnableC0234c implements Runnable {
         private View mView;
 
-        public RunnableC0200c(View view) {
+        public RunnableC0234c(View view) {
             this.mView = null;
             this.mView = view;
         }
@@ -223,7 +223,7 @@ public class c {
         }
     }
 
-    public void akk() {
+    public void akj() {
         String obj = this.cdK.getText().toString();
         if (obj == null || obj.length() <= 0) {
             oi(this.mContext.getString(d.j.error_tip_name_cannot_empty));
@@ -237,7 +237,7 @@ public class c {
                 this.cdV.setVisibility(0);
                 this.cdU.setEnabled(false);
                 oi(null);
-                akm();
+                akl();
                 SapiAccountManager.getInstance().getAccountService().fillUsername(new FillUsernameCallback() { // from class: com.baidu.tbadk.coreExtra.view.c.4
                     @Override // com.baidu.sapi2.callback.FillUsernameCallback
                     public void onUserHaveUsername(FillUsernameResult fillUsernameResult) {
@@ -253,7 +253,7 @@ public class c {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     /* renamed from: b */
                     public void onSuccess(FillUsernameResult fillUsernameResult) {
-                        c.this.akn();
+                        c.this.akm();
                         l.showToast(c.this.mContext, d.j.reset_success);
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
                         com.baidu.tbadk.core.a.a.WD().a(session.username, session.bduss, "", null, c.this.ceh);
@@ -285,7 +285,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akl() {
+    public void akk() {
         if (this.cdZ != null) {
             this.cdZ.g(null);
         }
@@ -328,10 +328,10 @@ public class c {
             this.cdS.cancel();
             this.cdS = null;
         }
-        akn();
+        akm();
     }
 
-    public void akm() {
+    public void akl() {
         this.cdL.setVisibility(8);
         this.cdL.clearCheck();
         this.cdM.setVisibility(8);
@@ -344,7 +344,7 @@ public class c {
         this.cdQ.setChecked(false);
     }
 
-    public void akn() {
+    public void akm() {
         if (this.cdJ != null && this.cdJ.isShowing()) {
             g.b(this.cdJ, this.mContext);
         }
@@ -361,23 +361,23 @@ public class c {
         this.cdT.setText(str);
     }
 
-    private void akb() {
+    private void aka() {
         al.k(this.cdI, d.f.dialog_background);
-        al.j(this.cdW, d.C0236d.cp_cont_b);
-        al.j(this.cec, d.C0236d.cp_cont_f);
-        al.j(this.cdK, d.C0236d.cp_cont_b);
+        al.j(this.cdW, d.C0277d.cp_cont_b);
+        al.j(this.cec, d.C0277d.cp_cont_f);
+        al.j(this.cdK, d.C0277d.cp_cont_b);
         al.k(this.ced, d.f.bg_search_input);
-        al.j(this.cdT, d.C0236d.cp_cont_h);
-        al.j(this.cdO, d.C0236d.cp_cont_b);
-        al.j(this.cdP, d.C0236d.cp_cont_b);
-        al.j(this.cdQ, d.C0236d.cp_cont_b);
-        al.l(this.cee, d.C0236d.cp_bg_line_a);
+        al.j(this.cdT, d.C0277d.cp_cont_h);
+        al.j(this.cdO, d.C0277d.cp_cont_b);
+        al.j(this.cdP, d.C0277d.cp_cont_b);
+        al.j(this.cdQ, d.C0277d.cp_cont_b);
+        al.l(this.cee, d.C0277d.cp_bg_line_a);
         al.k(this.cdR, d.f.dialog_left_button_selector);
-        al.j(this.cdR, d.C0236d.cp_link_tip_a);
-        al.l(this.cef, d.C0236d.cp_bg_line_a);
+        al.j(this.cdR, d.C0277d.cp_link_tip_a);
+        al.l(this.cef, d.C0277d.cp_bg_line_a);
         al.k(this.cdU, d.f.dialog_right_button_selector);
-        al.j(this.cdU, d.C0236d.cp_link_tip_a);
-        this.cdK.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
+        al.j(this.cdU, d.C0277d.cp_link_tip_a);
+        this.cdK.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
         this.cdO.setCompoundDrawables(this.ceb, null, null, null);
         this.cdP.setCompoundDrawables(this.ceb, null, null, null);
         this.cdQ.setCompoundDrawables(this.ceb, null, null, null);
@@ -438,7 +438,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             this.cei.oi(null);
-            this.cei.akm();
+            this.cei.akl();
             super.onPreExecute();
         }
     }

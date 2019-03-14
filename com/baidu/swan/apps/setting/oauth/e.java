@@ -13,10 +13,10 @@ public class e {
     public final String id;
     public String grade = "";
     public String name = "";
-    public String aRm = "";
+    public String aRn = "";
     public String description = "";
-    public final List<String> aRn = new ArrayList();
-    public int aRo = -1;
+    public final List<String> aRo = new ArrayList();
+    public int aRp = -1;
     private String type = "";
 
     private e(String str) {
@@ -24,11 +24,11 @@ public class e {
     }
 
     public boolean Kh() {
-        return this.aRo > 0;
+        return this.aRp > 0;
     }
 
     public boolean Ki() {
-        return this.aRo != 0;
+        return this.aRp != 0;
     }
 
     public boolean Kj() {
@@ -52,20 +52,20 @@ public class e {
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.aRm = jSONObject.optString("short_name", "");
+        eVar.aRn = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString(SocialConstants.PARAM_COMMENT, "");
-        eVar.aRo = jSONObject.optInt("tip_status", -1);
+        eVar.aRp = jSONObject.optInt("tip_status", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.aRn.add(optJSONArray.optString(i));
+                eVar.aRo.add(optJSONArray.optString(i));
             }
         }
         return eVar;
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aRo));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aRp));
     }
 }

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.mapapi.UIMsg;
 import com.coloros.mcssdk.c.d;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -21,13 +22,13 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         List<com.coloros.mcssdk.e.c> k = com.coloros.mcssdk.a.c.k(getApplicationContext(), intent);
-        List<com.coloros.mcssdk.b.c> csQ = a.csR().csQ();
-        if (k == null || k.size() == 0 || csQ == null || csQ.size() == 0) {
+        List<com.coloros.mcssdk.b.c> csT = a.csU().csT();
+        if (k == null || k.size() == 0 || csT == null || csT.size() == 0) {
             return super.onStartCommand(intent, i, i2);
         }
         for (com.coloros.mcssdk.e.c cVar : k) {
             if (cVar != null) {
-                for (com.coloros.mcssdk.b.c cVar2 : csQ) {
+                for (com.coloros.mcssdk.b.c cVar2 : csT) {
                     if (cVar2 != null) {
                         try {
                             cVar2.a(getApplicationContext(), cVar, this);
@@ -47,19 +48,19 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
 
     @Override // com.coloros.mcssdk.d.a
     public void processMessage(Context context, com.coloros.mcssdk.e.b bVar) {
-        if (a.csR().csS() == null) {
+        if (a.csU().csV() == null) {
             return;
         }
         switch (bVar.getCommand()) {
-            case 12289:
-                a.csR().csS().onRegister(bVar.getResponseCode(), bVar.getContent());
+            case UIMsg.k_event.MV_MAP_CACHEMANAGE /* 12289 */:
+                a.csU().csV().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.csR().Fl(bVar.getContent());
+                    a.csU().Fj(bVar.getContent());
                     return;
                 }
                 return;
             case 12290:
-                a.csR().csS().onUnRegister(bVar.getResponseCode());
+                a.csU().csV().onUnRegister(bVar.getResponseCode());
                 return;
             case 12291:
             case 12299:
@@ -71,40 +72,40 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
             default:
                 return;
             case 12292:
-                a.csR().csS().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.csU().csV().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12293:
-                a.csR().csS().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.csU().csV().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12294:
-                a.csR().csS().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.csU().csV().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12295:
-                a.csR().csS().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.csU().csV().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12296:
-                a.csR().csS().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.csU().csV().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12297:
-                a.csR().csS().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.csU().csV().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12298:
-                a.csR().csS().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
+                a.csU().csV().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
                 return;
             case 12301:
-                a.csR().csS().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.csU().csV().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12302:
-                a.csR().csS().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.csU().csV().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12303:
-                a.csR().csS().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.csU().csV().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.v(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12306:
-                a.csR().csS().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.csU().csV().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
             case 12309:
-                a.csR().csS().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.csU().csV().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
         }
     }

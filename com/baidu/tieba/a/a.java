@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a {
-    private HashMap<String, b> aiW = new HashMap<>();
-    private ArrayList<Integer> cMl;
-    private c cMm;
+    private HashMap<String, b> aiX = new HashMap<>();
+    private ArrayList<Integer> cMi;
+    private c cMj;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.cMl = arrayList;
-        this.cMm = cVar;
+        this.cMi = arrayList;
+        this.cMj = cVar;
     }
 
     public int ak(String str, int i) {
-        if (this.aiW == null || ap.isEmpty(str) || this.cMl == null || !this.cMl.contains(Integer.valueOf(i))) {
+        if (this.aiX == null || ap.isEmpty(str) || this.cMi == null || !this.cMi.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.aiW.containsKey(str)) {
-            qL(str);
+        if (!this.aiX.containsKey(str)) {
+            qJ(str);
         }
-        b bVar = this.aiW.get(str);
+        b bVar = this.aiX.get(str);
         if (bVar == null) {
             return 0;
         }
         return bVar.lt(i);
     }
 
-    public void qL(String str) {
-        if (this.aiW != null && !ap.isEmpty(str) && this.cMm != null) {
-            if (this.aiW.containsKey(str)) {
-                b bVar = this.aiW.get(str);
-                this.cMm.a(this.cMl, bVar);
-                this.aiW.put(str, bVar);
+    public void qJ(String str) {
+        if (this.aiX != null && !ap.isEmpty(str) && this.cMj != null) {
+            if (this.aiX.containsKey(str)) {
+                b bVar = this.aiX.get(str);
+                this.cMj.a(this.cMi, bVar);
+                this.aiX.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.cMm.a(this.cMl, bVar2);
-            this.aiW.put(str, bVar2);
+            this.cMj.a(this.cMi, bVar2);
+            this.aiX.put(str, bVar2);
         }
     }
 }

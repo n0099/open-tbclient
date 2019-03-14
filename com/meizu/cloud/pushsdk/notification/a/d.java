@@ -10,7 +10,6 @@ import com.meizu.cloud.pushsdk.handler.MessageV4;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
@@ -44,7 +43,7 @@ public class d extends c {
                 com.meizu.cloud.a.a.i("AbstractPushNotification", "zip file " + a);
                 if (a) {
                     Bundle bundle = new Bundle();
-                    bundle.putString(ClientCookie.PATH_ATTR, str2);
+                    bundle.putString("path", str2);
                     Bundle bundle2 = new Bundle();
                     bundle2.putBundle("big", bundle);
                     if (MinSdkChecker.isSupportVideoNotification()) {

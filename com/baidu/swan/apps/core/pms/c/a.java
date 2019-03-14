@@ -11,7 +11,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static File xD() {
         return c.d.Cu();
@@ -55,9 +55,9 @@ public final class a {
             return hw;
         }
         if (fVar.category == 0) {
-            str = xD() + File.separator + fVar.blV + ".aiapps";
+            str = xD() + File.separator + fVar.blW + ".aiapps";
         } else if (fVar.category == 1) {
-            str = zL() + File.separator + fVar.blV + ".aigames";
+            str = zL() + File.separator + fVar.blW + ".aigames";
         } else {
             com.baidu.swan.apps.ak.a hw2 = new com.baidu.swan.apps.ak.a().L(11L).M(2310L).hw("pkh category illegal");
             e.LG().b(hw2);
@@ -83,18 +83,18 @@ public final class a {
         File ah;
         boolean z;
         boolean z2;
-        a.C0114a c0114a;
+        a.C0143a c0143a;
         if (fVar == null) {
             com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(11L).M(2320L).hw("pkg info is empty");
             e.LG().b(hw);
             return hw;
         }
         if (fVar.category == 1) {
-            file = new File(zL(), fVar.blV + ".aigames");
-            ah = a.c.ah(fVar.blV, String.valueOf(fVar.versionCode));
+            file = new File(zL(), fVar.blW + ".aigames");
+            ah = a.c.ah(fVar.blW, String.valueOf(fVar.versionCode));
         } else if (fVar.category == 0) {
-            file = new File(xD(), fVar.blV + ".aiapps");
-            ah = c.d.ah(fVar.blV, String.valueOf(fVar.versionCode));
+            file = new File(xD(), fVar.blW + ".aiapps");
+            ah = c.d.ah(fVar.blW, String.valueOf(fVar.versionCode));
         } else {
             com.baidu.swan.apps.ak.a hw2 = new com.baidu.swan.apps.ak.a().L(11L).M(2320L).hw("pkh category illegal");
             e.LG().b(hw2);
@@ -125,10 +125,10 @@ public final class a {
             if (x != null) {
                 bVar.ac("670", "aiapp_aps_decrypt_start_timestamp");
                 bVar.ac("770", "na_package_start_decrypt");
-                c0114a = com.baidu.swan.apps.install.a.a.a(file, ah, x);
+                c0143a = com.baidu.swan.apps.install.a.a.a(file, ah, x);
                 bVar.ac("670", "aiapp_aps_decrypt_end_timestamp");
                 bVar.ac("770", "na_package_end_decrypt");
-                z2 = c0114a.isSuccess;
+                z2 = c0143a.isSuccess;
                 z = false;
             } else {
                 bVar.ac("670", "aiapp_aps_unzip_start_timestamp");
@@ -138,7 +138,7 @@ public final class a {
                 bVar.ac("770", "na_package_end_unzip");
                 z = true;
                 z2 = bl;
-                c0114a = null;
+                c0143a = null;
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             if (DEBUG) {
@@ -151,7 +151,7 @@ public final class a {
             if (z) {
                 aVar.L(11L).M(2320L).hw("unzip failed");
             } else {
-                aVar.L(11L).M(2330L).hw("decrypt failed:" + (c0114a == null ? "" : c0114a.axb));
+                aVar.L(11L).M(2330L).hw("decrypt failed:" + (c0143a == null ? "" : c0143a.axc));
             }
             e.LG().b(aVar);
             return aVar;

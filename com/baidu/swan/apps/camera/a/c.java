@@ -21,12 +21,12 @@ public class c extends a {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a b = b(unitedSchemeEntity);
-        if (com.baidu.swan.apps.w.e.Ec().eO(b.aBC) != null) {
+        if (com.baidu.swan.apps.w.e.Ec().eO(b.aBD) != null) {
             SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(b, null);
             if (a != null) {
                 a.MK();
             }
-            com.baidu.swan.apps.camera.a.wn().dq(b.aBC);
+            com.baidu.swan.apps.camera.a.wn().dq(b.aBD);
             a(unitedSchemeEntity, callbackHandler, true);
             return true;
         }
@@ -37,7 +37,7 @@ public class c extends a {
     @Override // com.baidu.swan.apps.camera.a.a
     protected com.baidu.swan.apps.model.a.a.a b(UnitedSchemeEntity unitedSchemeEntity) {
         String a = a(unitedSchemeEntity);
-        if (com.baidu.swan.apps.c.DEBUG) {
+        if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("CameraRemoveAction", "parseData:" + a);
         }
         return new com.baidu.swan.apps.camera.d.a(a);

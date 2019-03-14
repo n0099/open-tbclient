@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +14,6 @@ public class RemoteActivityProxyService extends BdBaseService {
     public static final int PLUGIN_CHECK_RESULT = 0;
     public static final int PLUGIN_LOADED_FAILED = 2;
     public static final int PLUGIN_LOADED_SUCCEED = 1;
-    private Messenger mClient;
     private Messenger mMessenger;
 
     @Override // android.app.Service
@@ -26,9 +24,8 @@ public class RemoteActivityProxyService extends BdBaseService {
         return this.mMessenger.getBinder();
     }
 
-    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes.dex */
-    private class a extends Handler {
+    private static class a extends Handler {
         private a() {
         }
 
@@ -36,7 +33,7 @@ public class RemoteActivityProxyService extends BdBaseService {
         public void handleMessage(Message message) {
             boolean z = false;
             if (message != null) {
-                RemoteActivityProxyService.this.mClient = message.replyTo;
+                Messenger messenger = message.replyTo;
                 try {
                     Bundle data = message.getData();
                     if (data != null) {
@@ -49,12 +46,12 @@ public class RemoteActivityProxyService extends BdBaseService {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-                try {
-                    if (RemoteActivityProxyService.this.mClient != null) {
-                        RemoteActivityProxyService.this.mClient.send(Message.obtain(null, 0, z ? 1 : 2, 0));
+                if (messenger != null) {
+                    try {
+                        messenger.send(Message.obtain(null, 0, z ? 1 : 2, 0));
+                    } catch (RemoteException e2) {
+                        e2.printStackTrace();
                     }
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
                 }
             }
         }

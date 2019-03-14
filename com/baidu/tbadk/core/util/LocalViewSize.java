@@ -5,7 +5,7 @@ import com.baidu.location.BDLocation;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize bJj = null;
+    private static LocalViewSize bJk = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -15,10 +15,10 @@ public class LocalViewSize {
     }
 
     public static LocalViewSize acA() {
-        if (bJj == null) {
-            bJj = new LocalViewSize();
+        if (bJk == null) {
+            bJk = new LocalViewSize();
         }
-        return bJj;
+        return bJk;
     }
 
     private LocalViewSize() {

@@ -1,5 +1,6 @@
 package com.xiaomi.network;
 
+import com.baidu.mobstat.Config;
 import java.net.InetSocketAddress;
 /* loaded from: classes3.dex */
 public final class Host {
@@ -12,7 +13,7 @@ public final class Host {
     }
 
     public static Host a(String str, int i) {
-        int lastIndexOf = str.lastIndexOf(":");
+        int lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT);
         if (lastIndexOf != -1) {
             String substring = str.substring(0, lastIndexOf);
             try {
@@ -42,6 +43,6 @@ public final class Host {
     }
 
     public String toString() {
-        return this.b > 0 ? this.a + ":" + this.b : this.a;
+        return this.b > 0 ? this.a + Config.TRACE_TODAY_VISIT_SPLIT + this.b : this.a;
     }
 }

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public final class q {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(Context context, Drawable drawable) {
         a(context, drawable, 255);
@@ -28,6 +28,6 @@ public final class q {
     }
 
     public static int cj(Context context) {
-        return context.getResources().getColor(b.c.aiapps_ui_cover_layer_color);
+        return context.getResources().getColor(a.c.aiapps_ui_cover_layer_color);
     }
 }

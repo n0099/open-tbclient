@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public abstract class c extends SQLiteOpenHelper implements a {
     private a.InterfaceC0012a vt;
@@ -34,7 +35,7 @@ public abstract class c extends SQLiteOpenHelper implements a {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            BdLog.e(str + ":" + th.getMessage());
+            BdLog.e(str + Config.TRACE_TODAY_VISIT_SPLIT + th.getMessage());
             return false;
         }
     }

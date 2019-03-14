@@ -2,7 +2,6 @@ package com.baidu.swan.apps.c.a;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -79,7 +78,7 @@ public class a extends y {
                 if (i == 1) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, "用户取消操作").toString(), a.this.mCallback);
                 } else {
-                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((int) PointerIconCompat.TYPE_HELP, "choose failed").toString(), a.this.mCallback);
+                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "choose failed").toString(), a.this.mCallback);
                 }
             }
         });

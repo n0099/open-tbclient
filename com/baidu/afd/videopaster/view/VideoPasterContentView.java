@@ -20,21 +20,21 @@ import com.baidu.tieba.play.n;
 import com.baidu.tieba.play.y;
 /* loaded from: classes3.dex */
 public class VideoPasterContentView extends FrameLayout {
-    private QuickVideoView TC;
-    private n TD;
-    private j UB;
-    private a UC;
-    private boolean UD;
-    private g UE;
-    private boolean UF;
-    private int UG;
-    private long UH;
-    private boolean UI;
+    private QuickVideoView TD;
+    private n TF;
+    private TbImageView UB;
+    private j UC;
+    private a UD;
+    private boolean UE;
+    private g UF;
+    private boolean UG;
+    private int UH;
+    private long UI;
     private boolean UJ;
-    private int UK;
-    private Runnable UL;
-    private VideoPasterOverlayView Ux;
-    private TbImageView Uy;
+    private boolean UK;
+    private int UL;
+    private Runnable UM;
+    private VideoPasterOverlayView Uy;
     private TbImageView Uz;
     private String mFrom;
     private int mStartPosition;
@@ -49,23 +49,23 @@ public class VideoPasterContentView extends FrameLayout {
 
     public VideoPasterContentView(Context context) {
         super(context);
-        this.UD = false;
-        this.UF = false;
-        this.UG = 100;
+        this.UE = false;
+        this.UG = false;
+        this.UH = 100;
         this.mStartPosition = 0;
-        this.UI = false;
         this.UJ = false;
-        this.UK = 0;
-        this.UL = new Runnable() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.8
+        this.UK = false;
+        this.UL = 0;
+        this.UM = new Runnable() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.8
             @Override // java.lang.Runnable
             public void run() {
-                e.jH().removeCallbacks(VideoPasterContentView.this.UL);
-                if (!VideoPasterContentView.this.UF) {
-                    boolean z = VideoPasterContentView.this.TC.getCurrentPosition() == 0 && VideoPasterContentView.this.UG == 100;
-                    if (VideoPasterContentView.this.TC.getCurrentPosition() > VideoPasterContentView.this.UG) {
+                e.jH().removeCallbacks(VideoPasterContentView.this.UM);
+                if (!VideoPasterContentView.this.UG) {
+                    boolean z = VideoPasterContentView.this.TD.getCurrentPosition() == 0 && VideoPasterContentView.this.UH == 100;
+                    if (VideoPasterContentView.this.TD.getCurrentPosition() > VideoPasterContentView.this.UH) {
                         VideoPasterContentView.this.qB();
                     } else if (z) {
-                        e.jH().postDelayed(VideoPasterContentView.this.UL, 20L);
+                        e.jH().postDelayed(VideoPasterContentView.this.UM, 20L);
                     } else {
                         VideoPasterContentView.this.qB();
                     }
@@ -76,16 +76,16 @@ public class VideoPasterContentView extends FrameLayout {
     }
 
     private void init() {
-        this.Ux = new VideoPasterOverlayView(getContext());
-        this.Uy = new TbImageView(getContext());
+        this.Uy = new VideoPasterOverlayView(getContext());
         this.Uz = new TbImageView(getContext());
-        this.TC = new QuickVideoView(getContext());
-        this.TC.setBackgroundResource(d.C0236d.black_alpha100);
-        this.TD = new n(getContext());
-        this.TC.setPlayerReuseEnable(true);
-        this.TC.setContinuePlayEnable(true);
-        this.TC.setBusiness(this.TD);
-        this.TC.setOnPreparedListener(new g.f() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.1
+        this.UB = new TbImageView(getContext());
+        this.TD = new QuickVideoView(getContext());
+        this.TD.setBackgroundResource(d.C0277d.black_alpha100);
+        this.TF = new n(getContext());
+        this.TD.setPlayerReuseEnable(true);
+        this.TD.setContinuePlayEnable(true);
+        this.TD.setBusiness(this.TF);
+        this.TD.setOnPreparedListener(new g.f() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.1
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(com.baidu.tieba.play.g gVar) {
                 if (gVar != null) {
@@ -98,43 +98,43 @@ public class VideoPasterContentView extends FrameLayout {
                     } else {
                         gVar.setVolume(1.0f, 1.0f);
                     }
-                    VideoPasterContentView.this.UK = gVar.getDuration();
-                    if (VideoPasterContentView.this.Ux != null) {
-                        VideoPasterContentView.this.Ux.b(gVar.getVideoWidth(), gVar.getVideoHeight(), VideoPasterContentView.this.mFrom);
+                    VideoPasterContentView.this.UL = gVar.getDuration();
+                    if (VideoPasterContentView.this.Uy != null) {
+                        VideoPasterContentView.this.Uy.b(gVar.getVideoWidth(), gVar.getVideoHeight(), VideoPasterContentView.this.mFrom);
                     }
                 }
             }
         });
-        this.TC.setOnOutInfoListener(new g.e() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.2
+        this.TD.setOnOutInfoListener(new g.e() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.2
             @Override // com.baidu.tieba.play.g.e
             public boolean onInfo(com.baidu.tieba.play.g gVar, int i, int i2) {
                 return false;
             }
         });
-        this.TC.setOnCompletionListener(new g.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.3
+        this.TD.setOnCompletionListener(new g.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.3
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(com.baidu.tieba.play.g gVar) {
                 VideoPasterContentView.this.qD();
             }
         });
-        this.TC.setOnErrorListener(new g.b() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.4
+        this.TD.setOnErrorListener(new g.b() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.4
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(com.baidu.tieba.play.g gVar, int i, int i2) {
                 VideoPasterContentView.this.qD();
                 return false;
             }
         });
-        this.TC.setOnSurfaceDestroyedListener(new QuickVideoView.b() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.5
+        this.TD.setOnSurfaceDestroyedListener(new QuickVideoView.b() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                VideoPasterContentView.this.UF = false;
-                VideoPasterContentView.this.UG = 100;
-                e.jH().removeCallbacks(VideoPasterContentView.this.UL);
+                VideoPasterContentView.this.UG = false;
+                VideoPasterContentView.this.UH = 100;
+                e.jH().removeCallbacks(VideoPasterContentView.this.UM);
             }
         });
-        this.UB = new j();
-        this.UB.setPlayer(this.TC);
-        this.UB.a(new j.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.6
+        this.UC = new j();
+        this.UC.setPlayer(this.TD);
+        this.UC.a(new j.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.6
             @Override // com.baidu.tieba.play.j.a
             public void qE() {
             }
@@ -144,47 +144,47 @@ public class VideoPasterContentView extends FrameLayout {
 
     public void b(boolean z, boolean z2, String str) {
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty()) {
-            this.Ux.a(this.pasterData, z, z2);
-            if (!this.UD) {
+            this.Uy.a(this.pasterData, z, z2);
+            if (!this.UE) {
                 if (this.pasterData.qu() == 0) {
-                    this.Ux.setCountDownNum(this.pasterData.TW);
-                    bp(this.pasterData.TW);
+                    this.Uy.setCountDownNum(this.pasterData.TX);
+                    bp(this.pasterData.TX);
                 } else if (this.pasterData.qu() == 1) {
-                    this.Ux.setCountDownNum(this.pasterData.TW);
-                    bp(this.pasterData.TW);
+                    this.Uy.setCountDownNum(this.pasterData.TX);
+                    bp(this.pasterData.TX);
                 }
                 this.mFrom = str;
                 if (this.pasterData.qu() == 0) {
                     removeAllViews();
-                    addView(this.Uy);
-                    addView(this.Ux.getRootView());
-                    this.Uy.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    addView(this.Uz);
+                    addView(this.Uy.getRootView());
+                    this.Uz.setScaleType(ImageView.ScaleType.FIT_CENTER);
                     c.jB().a(this.pasterData.picUrl, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.7
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i) {
                             super.onLoaded((AnonymousClass7) aVar, str2, i);
-                            if (aVar != null && aVar.oy() != null && VideoPasterContentView.this.Ux != null) {
-                                VideoPasterContentView.this.Ux.b(aVar.getWidth(), aVar.getHeight(), VideoPasterContentView.this.mFrom);
+                            if (aVar != null && aVar.oy() != null && VideoPasterContentView.this.Uy != null) {
+                                VideoPasterContentView.this.Uy.b(aVar.getWidth(), aVar.getHeight(), VideoPasterContentView.this.mFrom);
                             }
                         }
                     }, null);
-                    this.Uy.startLoad(this.pasterData.picUrl, 10, false);
+                    this.Uz.startLoad(this.pasterData.picUrl, 10, false);
                 } else if (this.pasterData.qu() == 1) {
                     qC();
                     removeAllViews();
-                    addView(this.TC);
-                    addView(this.Uz);
-                    addView(this.Ux.getRootView());
-                    this.Uz.startLoad(this.pasterData.TX, 10, false);
-                    this.TC.setVideoPath(this.pasterData.videoUrl);
-                    this.TC.start();
-                    e.jH().removeCallbacks(this.UL);
-                    e.jH().postDelayed(this.UL, 20L);
+                    addView(this.TD);
+                    addView(this.UB);
+                    addView(this.Uy.getRootView());
+                    this.UB.startLoad(this.pasterData.TY, 10, false);
+                    this.TD.setVideoPath(this.pasterData.videoUrl);
+                    this.TD.start();
+                    e.jH().removeCallbacks(this.UM);
+                    e.jH().postDelayed(this.UM, 20L);
                 }
-                this.UD = true;
-                this.UI = true;
+                this.UE = true;
+                this.UJ = true;
             }
         }
     }
@@ -192,39 +192,39 @@ public class VideoPasterContentView extends FrameLayout {
     public void stop() {
         if (this.pasterData != null) {
             if (this.pasterData.qu() == 0) {
-                if (this.UE != null) {
-                    this.UE.pause();
+                if (this.UF != null) {
+                    this.UF.pause();
                 }
             } else if (this.pasterData.qu() == 1) {
-                this.Uz.setVisibility(0);
-                this.TC.stopPlayback();
-                if (this.UB != null) {
-                    this.UB.stop();
+                this.UB.setVisibility(0);
+                this.TD.stopPlayback();
+                if (this.UC != null) {
+                    this.UC.stop();
                 }
-                if (this.UE != null) {
-                    this.UE.pause();
+                if (this.UF != null) {
+                    this.UF.pause();
                 }
-                e.jH().removeCallbacks(this.UL);
+                e.jH().removeCallbacks(this.UM);
             }
-            if (this.Ux != null) {
-                this.Ux.stop();
+            if (this.Uy != null) {
+                this.Uy.stop();
             }
-            this.UI = false;
-            this.UF = false;
+            this.UJ = false;
+            this.UG = false;
         }
     }
 
     public void qg() {
-        if (this.pasterData != null && this.pasterData.qu() == 1 && this.Uz != null) {
-            this.Uz.setVisibility(0);
+        if (this.pasterData != null && this.pasterData.qu() == 1 && this.UB != null) {
+            this.UB.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qB() {
-        if (!this.UF) {
-            this.UF = true;
-            this.Uz.setVisibility(8);
+        if (!this.UG) {
+            this.UG = true;
+            this.UB.setVisibility(8);
         }
     }
 
@@ -232,54 +232,54 @@ public class VideoPasterContentView extends FrameLayout {
         int i = 100;
         if (this.pasterData != null) {
             if (this.pasterData.qu() == 0) {
-                if (this.UE != null) {
-                    this.UE.resume();
+                if (this.UF != null) {
+                    this.UF.resume();
                 }
             } else if (this.pasterData.qu() == 1) {
-                this.Uz.setVisibility(0);
-                this.TC.setVideoPath(this.pasterData.videoUrl);
-                this.TC.start();
-                if (this.UB != null) {
-                    this.UB.start();
+                this.UB.setVisibility(0);
+                this.TD.setVideoPath(this.pasterData.videoUrl);
+                this.TD.start();
+                if (this.UC != null) {
+                    this.UC.start();
                 }
-                if (this.UE != null) {
-                    this.UE.resume();
+                if (this.UF != null) {
+                    this.UF.resume();
                 }
-                if (this.UD) {
-                    this.mStartPosition = y.bTT().AV(this.pasterData.videoUrl);
-                    if (this.mStartPosition > 100 && this.UK > this.mStartPosition) {
+                if (this.UE) {
+                    this.mStartPosition = y.bTV().AT(this.pasterData.videoUrl);
+                    if (this.mStartPosition > 100 && this.UL > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
-                    this.UG = i;
+                    this.UH = i;
                 } else {
-                    this.UG = 100;
+                    this.UH = 100;
                 }
-                e.jH().removeCallbacks(this.UL);
-                e.jH().postDelayed(this.UL, 20L);
+                e.jH().removeCallbacks(this.UM);
+                e.jH().postDelayed(this.UM, 20L);
             }
-            if (this.Ux != null) {
-                this.Ux.resume();
+            if (this.Uy != null) {
+                this.Uy.resume();
             }
-            this.UI = true;
+            this.UJ = true;
         }
     }
 
     private void bp(int i) {
-        if (this.UE != null) {
-            this.UE.stop();
-            this.UE.a((g.a) null);
+        if (this.UF != null) {
+            this.UF.stop();
+            this.UF.a((g.a) null);
         }
-        this.UE = new com.baidu.tbadk.util.g(i * 1000, 1000L);
-        this.UE.a(new g.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.9
+        this.UF = new com.baidu.tbadk.util.g(i * 1000, 1000L);
+        this.UF.a(new g.a() { // from class: com.baidu.afd.videopaster.view.VideoPasterContentView.9
             @Override // com.baidu.tbadk.util.g.a
             public void b(long j, long j2) {
-                VideoPasterContentView.this.UH = (int) (j2 / 1000);
-                if (VideoPasterContentView.this.Ux != null) {
-                    VideoPasterContentView.this.Ux.setCountDownNum((int) VideoPasterContentView.this.UH);
+                VideoPasterContentView.this.UI = (int) (j2 / 1000);
+                if (VideoPasterContentView.this.Uy != null) {
+                    VideoPasterContentView.this.Uy.setCountDownNum((int) VideoPasterContentView.this.UI);
                 }
-                if (VideoPasterContentView.this.UH == 0) {
+                if (VideoPasterContentView.this.UI == 0) {
                     VideoPasterContentView.this.qD();
-                    VideoPasterContentView.this.UE.stop();
+                    VideoPasterContentView.this.UF.stop();
                 }
             }
 
@@ -288,68 +288,68 @@ public class VideoPasterContentView extends FrameLayout {
                 VideoPasterContentView.this.qD();
             }
         });
-        this.UE.start();
-        this.UJ = false;
+        this.UF.start();
+        this.UK = false;
     }
 
     public void setOverlayViewCallback(VideoPasterOverlayView.a aVar) {
-        if (this.Ux != null) {
-            this.Ux.setOverlayViewCallback(aVar);
+        if (this.Uy != null) {
+            this.Uy.setOverlayViewCallback(aVar);
         }
     }
 
     public void setContentViewCallback(a aVar) {
-        this.UC = aVar;
+        this.UD = aVar;
     }
 
     public boolean qb() {
-        return this.UD;
+        return this.UE;
     }
 
     public boolean qc() {
-        return this.UI;
+        return this.UJ;
     }
 
     public void reset() {
         qC();
         stop();
-        this.Ux.reset();
-        this.UD = false;
+        this.Uy.reset();
+        this.UE = false;
         this.pasterData = null;
-        this.UH = 0L;
-        this.UF = false;
-        this.UG = 100;
-        e.jH().removeCallbacks(this.UL);
+        this.UI = 0L;
+        this.UG = false;
+        this.UH = 100;
+        e.jH().removeCallbacks(this.UM);
     }
 
     private void qC() {
         if (this.pasterData != null && this.pasterData.qu() == 1) {
-            y.bTT().remove(this.pasterData.videoUrl);
-            if (this.TC != null && this.TC.getPlayer() != null) {
-                this.TC.getPlayer().seekTo(0);
+            y.bTV().remove(this.pasterData.videoUrl);
+            if (this.TD != null && this.TD.getPlayer() != null) {
+                this.TD.getPlayer().seekTo(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qD() {
-        this.UJ = true;
-        if (this.UC != null) {
-            this.UC.qr();
+        this.UK = true;
+        if (this.UD != null) {
+            this.UD.qr();
         }
         removeAllViews();
         this.pasterData = null;
-        this.UH = 0L;
-        this.UD = false;
-        this.UI = false;
-        this.UF = false;
-        this.UG = 100;
-        e.jH().removeCallbacks(this.UL);
+        this.UI = 0L;
+        this.UE = false;
+        this.UJ = false;
+        this.UG = false;
+        this.UH = 100;
+        e.jH().removeCallbacks(this.UM);
     }
 
     public void bk(int i) {
-        if (this.Ux != null) {
-            this.Ux.bk(i);
+        if (this.Uy != null) {
+            this.Uy.bk(i);
         }
     }
 
@@ -358,55 +358,55 @@ public class VideoPasterContentView extends FrameLayout {
     }
 
     public int getCurDuration() {
-        if (this.pasterData == null || this.UE == null) {
+        if (this.pasterData == null || this.UF == null) {
             return 0;
         }
-        return ((int) this.UE.apU()) / 1000;
+        return ((int) this.UF.apT()) / 1000;
     }
 
     public int getTotalDuration() {
         if (this.pasterData == null) {
             return -1;
         }
-        return this.pasterData.TW;
+        return this.pasterData.TX;
     }
 
     public void qj() {
-        if (this.Ux != null) {
-            this.Ux.qj();
+        if (this.Uy != null) {
+            this.Uy.qj();
         }
     }
 
     public void qk() {
         int i = 100;
-        if (this.Ux != null) {
-            this.Ux.qk();
+        if (this.Uy != null) {
+            this.Uy.qk();
         }
-        if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.UD && this.pasterData.qu() == 1) {
-            this.Uz.setVisibility(0);
-            this.mStartPosition = y.bTT().AV(this.pasterData.videoUrl);
-            if (this.mStartPosition > 100 && this.UK > this.mStartPosition) {
+        if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.UE && this.pasterData.qu() == 1) {
+            this.UB.setVisibility(0);
+            this.mStartPosition = y.bTV().AT(this.pasterData.videoUrl);
+            if (this.mStartPosition > 100 && this.UL > this.mStartPosition) {
                 i = this.mStartPosition;
             }
-            this.UG = i;
-            e.jH().removeCallbacks(this.UL);
-            e.jH().postDelayed(this.UL, 20L);
+            this.UH = i;
+            e.jH().removeCallbacks(this.UM);
+            e.jH().postDelayed(this.UM, 20L);
         }
     }
 
     public boolean isCompleted() {
-        return this.UJ;
+        return this.UK;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.UC != null) {
-            this.UC.onDetachedFromWindow();
+        if (this.UD != null) {
+            this.UD.onDetachedFromWindow();
         }
     }
 
     public boolean ql() {
-        return this.TC != null && this.TC.isPlaying();
+        return this.TD != null && this.TD.isPlaying();
     }
 }

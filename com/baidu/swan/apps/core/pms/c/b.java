@@ -7,18 +7,18 @@ import com.baidu.swan.pms.model.i;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(String str, int i, List<i> list) {
         if (!TextUtils.isEmpty(str) && list != null && !list.isEmpty()) {
             for (i iVar : list) {
                 if (iVar != null && iVar.RK()) {
                     SubPackageAPSInfo subPackageAPSInfo = new SubPackageAPSInfo();
-                    subPackageAPSInfo.mKey = iVar.blV;
+                    subPackageAPSInfo.mKey = iVar.blW;
                     subPackageAPSInfo.mAppId = str;
                     subPackageAPSInfo.mAppVersion = String.valueOf(i);
-                    subPackageAPSInfo.axn = iVar.Jz;
-                    subPackageAPSInfo.axm = c.d.ah(str, String.valueOf(i)).getPath();
+                    subPackageAPSInfo.axo = iVar.Jz;
+                    subPackageAPSInfo.axn = c.d.ah(str, String.valueOf(i)).getPath();
                     com.baidu.swan.apps.core.a.d.a.a(subPackageAPSInfo, iVar.sign, iVar.filePath, false);
                 }
             }

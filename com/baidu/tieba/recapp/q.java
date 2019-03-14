@@ -23,7 +23,7 @@ public class q implements com.baidu.c.a.b.c {
             criusTbClipImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             criusTbClipImageView.setDrawerType(1);
             criusTbClipImageView.setDefaultResource(17170445);
-            criusTbClipImageView.setDefaultBgResource(d.C0236d.cp_bg_line_e);
+            criusTbClipImageView.setDefaultBgResource(d.C0277d.cp_bg_line_e);
             return criusTbClipImageView;
         } else if ("video".equalsIgnoreCase(str)) {
             View inflate = LayoutInflater.from(context).inflate(d.h.ad_card_video_view, (ViewGroup) null);
@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.acN > 0.0f) {
-                int B = B(aVar.acN, f);
+            if (aVar.acO > 0.0f) {
+                int B = B(aVar.acO, f);
                 ((CriusTbClipImageView) view).setRadius(B, B, B, B);
             } else {
-                ((CriusTbClipImageView) view).setRadius(B(aVar.acO, f), B(aVar.acP, f), B(aVar.acQ, f), B(aVar.acR, f));
+                ((CriusTbClipImageView) view).setRadius(B(aVar.acP, f), B(aVar.acQ, f), B(aVar.acR, f), B(aVar.acS, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -59,7 +59,7 @@ public class q implements com.baidu.c.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.acM;
+            builder.thumbnail_url = aVar.acN;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);

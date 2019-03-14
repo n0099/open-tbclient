@@ -3,7 +3,6 @@ package com.xiaomi.smack.util;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
@@ -90,7 +89,7 @@ public class a {
 
     public static com.xiaomi.smack.packet.d a(XmlPullParser xmlPullParser) {
         String str;
-        if ("1".equals(xmlPullParser.getAttributeValue("", NotifyType.SOUND))) {
+        if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
             String attributeValue = xmlPullParser.getAttributeValue("", "chid");
             String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
@@ -106,7 +105,7 @@ public class a {
             while (!z) {
                 int next = xmlPullParser.next();
                 if (next == 2) {
-                    if (!NotifyType.SOUND.equals(xmlPullParser.getName())) {
+                    if (!"s".equals(xmlPullParser.getName())) {
                         throw new l("error while receiving a encrypted message with wrong format");
                     }
                     if (xmlPullParser.next() != 4) {
@@ -121,7 +120,7 @@ public class a {
                         cVar.m(attributeValue4);
                         cVar.k(attributeValue2);
                         cVar.f(attributeValue5);
-                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a(NotifyType.SOUND, null, null, null);
+                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a("s", null, null, null);
                         aVar.b(text);
                         cVar.a(aVar);
                         return cVar;

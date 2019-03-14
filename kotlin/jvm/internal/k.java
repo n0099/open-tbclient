@@ -5,22 +5,22 @@ import kotlin.collections.ag;
 /* loaded from: classes2.dex */
 final class k extends ag {
     private int index;
-    private final short[] jSK;
+    private final short[] jSC;
 
     public k(short[] sArr) {
         p.k(sArr, "array");
-        this.jSK = sArr;
+        this.jSC = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.jSK.length;
+        return this.index < this.jSC.length;
     }
 
     @Override // kotlin.collections.ag
     public short nextShort() {
         try {
-            short[] sArr = this.jSK;
+            short[] sArr = this.jSC;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

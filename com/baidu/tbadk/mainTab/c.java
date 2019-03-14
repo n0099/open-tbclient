@@ -7,8 +7,8 @@ public class c {
     public static int cog = 2;
     public static int coh = 3;
     public static int coi = 4;
-    public int bOd;
     public int bOe;
+    public int bOf;
     public Fragment cod;
     public int coe;
     public int coj = cof;

@@ -48,41 +48,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.adq = optJSONObject.optString("als_stat");
-            this.buttonClick.adr = optJSONObject.optString("url_stat");
+            this.buttonClick.adr = optJSONObject.optString("als_stat");
+            this.buttonClick.ads = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.iix = new PostAdBaseData.a.C0303a();
-                this.extraData.iix.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.iix.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.iir = new PostAdBaseData.a.C0379a();
+                this.extraData.iir.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.iir.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iix == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iir == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.iix == null) {
+        if (this.extraData == null || this.extraData.iir == null) {
             return null;
         }
-        return this.extraData.iix.downloadUrl;
+        return this.extraData.iir.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.iix == null) {
+        if (this.extraData == null || this.extraData.iir == null) {
             return null;
         }
-        return this.extraData.iix.packageName;
+        return this.extraData.iir.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.iix == null) {
+        if (this.extraData == null || this.extraData.iir == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -93,23 +93,23 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     private void h(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
             if ("apk_download".equals(this.style)) {
-                advertAppInfo.Uw = 3;
+                advertAppInfo.Ux = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.bwB)) {
-                advertAppInfo.bwB = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.bwD)) {
+                advertAppInfo.bwD = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
-            advertAppInfo.bwE = apkDownloadUrl();
+            advertAppInfo.bwG = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.bwF = apkDownloadPackage();
-            advertAppInfo.bwC = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.bwL == null) {
-                advertAppInfo.bwL = new AdvertAppInfo.a();
+            advertAppInfo.bwH = apkDownloadPackage();
+            advertAppInfo.bwE = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.bwN == null) {
+                advertAppInfo.bwN = new AdvertAppInfo.a();
             }
-            advertAppInfo.bwL.userPortrait = this.portrait;
-            advertAppInfo.bwL.userName = this.title;
+            advertAppInfo.bwN.userPortrait = this.portrait;
+            advertAppInfo.bwN.userName = this.title;
         }
     }
 

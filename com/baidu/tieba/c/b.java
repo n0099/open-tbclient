@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView ers;
-    private MessageRedDotView ert;
-    private int eru = d.f.icon_topbar_remind_n_svg;
-    private int erv = d.C0236d.select_topbar_icon_color_tint;
+    private ImageView ern;
+    private MessageRedDotView ero;
+    private int erp = d.f.icon_topbar_remind_n_svg;
+    private int erq = d.C0277d.select_topbar_icon_color_tint;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.widget_message_entrance, (ViewGroup) null);
-        this.ers = (ImageView) this.mRootView.findViewById(d.g.img_message);
-        this.ert = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
+        this.ern = (ImageView) this.mRootView.findViewById(d.g.img_message);
+        this.ero = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView aSk() {
-        return this.ers;
+    public ImageView aSj() {
+        return this.ern;
     }
 
     public void l(boolean z, int i) {
         if (z) {
-            this.ert.refresh(i);
-            this.ert.setVisibility(0);
+            this.ero.refresh(i);
+            this.ero.setVisibility(0);
             return;
         }
-        this.ert.setVisibility(8);
+        this.ero.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.ert.onChangeSkinType();
-        aq.ado().d(this.ers, this.eru, this.erv);
+        this.ero.onChangeSkinType();
+        aq.ado().d(this.ern, this.erp, this.erq);
     }
 
     public void oH(int i) {
-        this.erv = i;
+        this.erq = i;
     }
 
     public void setVisibility(int i) {

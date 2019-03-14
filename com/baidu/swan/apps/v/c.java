@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void b(Context context, com.baidu.swan.apps.v.b.c cVar) {
         b(context, cVar, true);
@@ -115,8 +115,8 @@ public class c {
                                 com.baidu.swan.apps.performance.b.FJ().ar(uuid, str2);
                                 return;
                             case 1:
-                                if (this.aoO != null) {
-                                    this.aoO.add(new UbcFlowEvent(str2));
+                                if (this.aoP != null) {
+                                    this.aoP.add(new UbcFlowEvent(str2));
                                     return;
                                 }
                                 return;
@@ -144,8 +144,8 @@ public class c {
                         @Override // com.baidu.swan.pms.a.e, com.baidu.swan.pms.a.b
                         public void ac(String str, String str2) {
                             super.ac(str, str2);
-                            if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoO != null) {
-                                this.aoO.add(new UbcFlowEvent(str2));
+                            if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoP != null) {
+                                this.aoP.add(new UbcFlowEvent(str2));
                             }
                         }
                     });
@@ -156,8 +156,8 @@ public class c {
                 @Override // com.baidu.swan.pms.a.e, com.baidu.swan.pms.a.b
                 public void ac(String str, String str2) {
                     super.ac(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoO != null) {
-                        this.aoO.add(new UbcFlowEvent(str2));
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoP != null) {
+                        this.aoP.add(new UbcFlowEvent(str2));
                     }
                 }
             });
@@ -171,9 +171,9 @@ public class c {
         com.baidu.swan.pms.b.d.a aVar2 = new com.baidu.swan.pms.b.d.a(cVar.mAppId, 0);
         if (!z && aVar != null) {
             aVar2.fi(aVar.versionCode);
-            aVar2.U(aVar.blL);
+            aVar2.U(aVar.blM);
         }
-        String hF = y.hF(cVar.axH);
+        String hF = y.hF(cVar.axI);
         if (!TextUtils.isEmpty(hF)) {
             if (hF.startsWith(File.separator)) {
                 hF = hF.substring(1);
@@ -251,14 +251,14 @@ public class c {
 
     private static void a(com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.pms.model.a aVar, String str) {
         f fVar = new f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axW);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axX);
         fVar.d(cVar);
         fVar.mType = "launch";
-        fVar.aSt = str;
+        fVar.aSu = str;
         if (aVar != null) {
             fVar.mAppVersion = String.valueOf(aVar.versionCode);
         }
-        String str2 = cVar.axG;
+        String str2 = cVar.axH;
         if (str2 != null) {
             String queryParameter = Uri.parse(str2).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
@@ -268,7 +268,7 @@ public class c {
                         fVar.ai(optJSONObject);
                     }
                 } catch (JSONException e) {
-                    if (com.baidu.swan.apps.c.DEBUG) {
+                    if (com.baidu.swan.apps.b.DEBUG) {
                         e.printStackTrace();
                     }
                 }

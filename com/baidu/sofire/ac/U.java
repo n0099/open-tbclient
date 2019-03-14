@@ -10,7 +10,7 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.a.a;
 import com.baidu.sofire.b;
@@ -25,7 +25,6 @@ import com.baidu.sofire.e;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.security.PublicKey;
@@ -233,7 +232,7 @@ public class U extends Thread {
                         String str3 = com.baidu.sofire.b.e.b() + "p/1/stt";
                         b.a();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("a", "b");
+                        jSONObject.put(Config.APP_VERSION_CODE, "b");
                         String a3 = h.a(this.context, str3, jSONObject.toString(), true);
                         b.a();
                         if (a3 != null) {
@@ -250,7 +249,7 @@ public class U extends Thread {
                             e eVar2 = this.preference;
                             eVar2.c.putInt("appinv_js", optInt2);
                             eVar2.c.commit();
-                            int optInt3 = jSONObject2.optInt("a", 1);
+                            int optInt3 = jSONObject2.optInt(Config.APP_VERSION_CODE, 1);
                             new StringBuilder("after decrypt ResponseDataJsonString=get key-").append(Integer.toString(optInt3));
                             b.a();
                             e eVar3 = this.preference;
@@ -262,7 +261,7 @@ public class U extends Thread {
                             e eVar4 = this.preference;
                             eVar4.c.putInt("appplg_te", optInt4);
                             eVar4.c.commit();
-                            int optInt5 = jSONObject2.optInt("ti", 1);
+                            int optInt5 = jSONObject2.optInt(Config.FEED_LIST_PART, 1);
                             new StringBuilder("sjh-alarm times-").append(Integer.toString(optInt5));
                             b.a();
                             if (optInt5 > 0) {
@@ -319,7 +318,7 @@ public class U extends Thread {
                         jSONObject4.put("cuid", g.a(this.context));
                         jSONObject4.put("al", String.valueOf(Build.VERSION.SDK_INT));
                         jSONObject5.put("al", String.valueOf(Build.VERSION.SDK_INT));
-                        jSONObject4.put("ev", "3.1.9.3");
+                        jSONObject4.put(Config.EVENT_PART, "3.1.9.3");
                         PackageInfo packageInfo = this.context.getPackageManager().getPackageInfo(packageName, 64);
                         if (packageInfo == null) {
                             if (this.mEndReason == 0) {
@@ -343,8 +342,8 @@ public class U extends Thread {
                             }
                         }
                         jSONObject4.put("or", this.preference.a.getInt("opi", 0));
-                        jSONObject4.put("pt", this.preference.e());
-                        jSONObject3.put("device", jSONObject4);
+                        jSONObject4.put(Config.PLATFORM_TYPE, this.preference.e());
+                        jSONObject3.put(Config.DEVICE_PART, jSONObject4);
                         JSONArray jSONArray = new JSONArray();
                         jSONArray.put(jSONObject5);
                         HashMap hashMap = new HashMap();
@@ -400,7 +399,7 @@ public class U extends Thread {
                         ArrayList arrayList2 = new ArrayList();
                         ArrayList arrayList3 = new ArrayList();
                         JSONArray optJSONArray = jSONObject8.optJSONArray("product");
-                        long optLong = jSONObject8.optLong("pt");
+                        long optLong = jSONObject8.optLong(Config.PLATFORM_TYPE);
                         if (optJSONArray != null && optJSONArray.length() > 0 && optLong > 0) {
                             this.preference.a(optJSONArray.toString(), optLong);
                             com.baidu.sofire.b.e.i(this.context);
@@ -417,19 +416,19 @@ public class U extends Thread {
                             while (keys.hasNext()) {
                                 String next = keys.next();
                                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                                int optInt7 = optJSONObject2.optInt(NotifyType.LIGHTS);
+                                int optInt7 = optJSONObject2.optInt("l");
                                 String optString = optJSONObject2.optString("v");
                                 if (this.mCloudKeyMap != null) {
                                     this.mCloudKeyMap.put(Integer.valueOf(optInt7), optString);
                                 }
                                 String optString2 = optJSONObject2.optString("u");
-                                String optString3 = optJSONObject2.optString("m");
+                                String optString3 = optJSONObject2.optString(Config.MODEL);
                                 String optString4 = optJSONObject2.optString("sm");
                                 if (optString3 != null) {
                                     optString3 = optString3.toLowerCase();
                                 }
                                 String lowerCase = optString4 != null ? optString4.toLowerCase() : optString4;
-                                boolean z3 = optJSONObject2.optInt("o") == 1;
+                                boolean z3 = optJSONObject2.optInt(Config.OS) == 1;
                                 boolean z4 = optJSONObject2.optInt("d") == 1;
                                 int optInt8 = optJSONObject2.optInt("r");
                                 if (z3) {
@@ -450,9 +449,9 @@ public class U extends Thread {
                                     if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                                         applicationInfo.className = next + applicationInfo.className;
                                     }
-                                    applicationInfo.theme = optJSONObject2.optInt(Info.kBaiduTimeKey);
+                                    applicationInfo.theme = optJSONObject2.optInt("t");
                                     packageInfo2.applicationInfo = applicationInfo;
-                                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray("a");
+                                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray(Config.APP_VERSION_CODE);
                                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                         ArrayList arrayList4 = new ArrayList();
                                         for (int i = 0; i < optJSONArray2.length(); i++) {
@@ -464,8 +463,8 @@ public class U extends Thread {
                                                     activityInfo.name = next + activityInfo.name;
                                                 }
                                                 activityInfo.packageName = next;
-                                                activityInfo.theme = jSONObject9.optInt(Info.kBaiduTimeKey);
-                                                activityInfo.labelRes = jSONObject9.optInt(NotifyType.LIGHTS);
+                                                activityInfo.theme = jSONObject9.optInt("t");
+                                                activityInfo.labelRes = jSONObject9.optInt("l");
                                                 if (!TextUtils.isEmpty(activityInfo.name)) {
                                                     arrayList4.add(activityInfo);
                                                 }
@@ -477,7 +476,7 @@ public class U extends Thread {
                                     }
                                     ApkInfo apkInfo2 = new ApkInfo(optInt7, next, optString, optString2, optString3);
                                     apkInfo2.isOnce = z3 ? 1 : 0;
-                                    apkInfo2.priority = optJSONObject2.getInt("pr");
+                                    apkInfo2.priority = optJSONObject2.getInt(Config.PRINCIPAL_PART);
                                     apkInfo2.isMem = optJSONObject2.optInt("mem") == 1;
                                     if (packageInfo2 != null) {
                                         apkInfo2.cloudPkgInfo = packageInfo2;
@@ -490,7 +489,7 @@ public class U extends Thread {
                                         apkInfo2.network = optInt10;
                                     }
                                     JSONObject optJSONObject4 = optJSONObject2.optJSONObject("ext");
-                                    if (optJSONObject4 != null && optJSONObject4.optInt("a") == 1) {
+                                    if (optJSONObject4 != null && optJSONObject4.optInt(Config.APP_VERSION_CODE) == 1) {
                                         List<Integer> p = this.preference.p();
                                         if (optInt7 > 0 && !p.contains(Integer.valueOf(optInt7))) {
                                             p.add(Integer.valueOf(optInt7));

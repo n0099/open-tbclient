@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
-    public static int cRc = 0;
+    public static int cQZ = 0;
 
     static {
-        aya();
+        axZ();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -41,8 +41,8 @@ public class SwanAppAbTestStatic {
                         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
                         aVar.adQ();
                         aVar.e(fU, "android.permission.WRITE_EXTERNAL_STORAGE");
-                        aVar.a(new a.InterfaceC0193a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
-                            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0193a
+                        aVar.a(new a.InterfaceC0227a() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1.1
+                            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0227a
                             public void adR() {
                                 SchemeRouter.invokeSchemeForInner(TbadkCoreApplication.getInst(), Uri.parse((String) customMessage.getData()));
                             }
@@ -117,10 +117,10 @@ public class SwanAppAbTestStatic {
         });
     }
 
-    private static void aya() {
+    private static void axZ() {
         com.baidu.tieba.aiapps.apps.c.a(TbadkCoreApplication.getInst(), true);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.b.axU();
+            com.baidu.tieba.aiapps.apps.b.axT();
         }
     }
 }

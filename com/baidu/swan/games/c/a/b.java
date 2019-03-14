@@ -7,10 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.an.e;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.install.c;
 import com.baidu.swan.apps.res.widget.dialog.e;
 import com.baidu.swan.games.c.a.a;
@@ -19,10 +18,10 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private static b bbi;
-    private boolean bbj;
+    private static b bbj;
+    private boolean bbk;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -30,23 +29,23 @@ public class b {
     }
 
     private b() {
-        this.bbj = DEBUG && com.baidu.swan.apps.ac.a.a.Ge();
+        this.bbk = DEBUG && com.baidu.swan.apps.ac.a.a.Ge();
     }
 
     public static b NF() {
-        if (bbi == null) {
+        if (bbj == null) {
             synchronized (b.class) {
-                if (bbi == null) {
-                    bbi = new b();
+                if (bbj == null) {
+                    bbj = new b();
                 }
             }
         }
-        return bbi;
+        return bbj;
     }
 
     private File NG() {
         File file = new File(com.baidu.swan.games.i.a.Cq(), "game_core_console");
-        File file2 = (DEBUG && this.bbj) ? new File(file, "debug") : file;
+        File file2 = (DEBUG && this.bbk) ? new File(file, "debug") : file;
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -89,12 +88,12 @@ public class b {
 
     public void a(String str, final a aVar) {
         if (DEBUG) {
-            final boolean z = this.bbj;
-            this.bbj = true;
-            c.C0115c c0115c = new c.C0115c();
-            c0115c.mDownloadUrl = str;
+            final boolean z = this.bbk;
+            this.bbk = true;
+            c.C0144c c0144c = new c.C0144c();
+            c0144c.mDownloadUrl = str;
             final File NI = NI();
-            new com.baidu.swan.apps.k.a().a(c0115c, NI.getAbsolutePath(), new c.b() { // from class: com.baidu.swan.games.c.a.b.1
+            new com.baidu.swan.apps.k.a().a(c0144c, NI.getAbsolutePath(), new c.b() { // from class: com.baidu.swan.games.c.a.b.1
                 @Override // com.baidu.swan.apps.install.c.b
                 public void cv(int i) {
                 }
@@ -112,13 +111,13 @@ public class b {
                     }
                     com.baidu.swan.c.b.deleteFile(NI);
                     aVar.aV(bl);
-                    b.this.bbj = z;
+                    b.this.bbk = z;
                 }
 
                 @Override // com.baidu.swan.apps.install.c.b
                 public void onFailed() {
                     aVar.aV(false);
-                    b.this.bbj = z;
+                    b.this.bbk = z;
                 }
             });
         }
@@ -152,7 +151,7 @@ public class b {
     }
 
     public void a(@NonNull final a aVar) {
-        if (DEBUG && this.bbj) {
+        if (DEBUG && this.bbk) {
             aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.c.a.b.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -163,7 +162,7 @@ public class b {
         }
         Context appContext = AppRuntime.getAppContext();
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new com.baidu.swan.games.c.a.a(NH(), new a.InterfaceC0160a() { // from class: com.baidu.swan.games.c.a.b.3
+        arrayList.add(new com.baidu.swan.games.c.a.a(NH(), new a.InterfaceC0189a() { // from class: com.baidu.swan.games.c.a.b.3
         }));
         com.baidu.b.a.a.init(appContext, true);
         com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.CV().Dt());
@@ -171,6 +170,6 @@ public class b {
     }
 
     public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
-        new e.a(activity).cn(b.h.aiapps_debug_switch_title).cm(b.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.b.a()).bR(false).b(b.h.aiapps_ok, onClickListener).Iu();
+        new e.a(activity).cn(a.h.aiapps_debug_switch_title).cm(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.b.a()).bR(false).b(a.h.aiapps_ok, onClickListener).Iu();
     }
 }

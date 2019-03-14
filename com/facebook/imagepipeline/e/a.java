@@ -10,18 +10,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.b jHl;
-    private final an jIE;
+    private final com.facebook.imagepipeline.g.b jHd;
+    private final an jIw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        this.jIE = anVar;
-        this.jHl = bVar;
-        this.jHl.a(anVar.czE(), this.jIE.cva(), this.jIE.getId(), this.jIE.czH());
-        aiVar.a(cyy(), anVar);
+        this.jIw = anVar;
+        this.jHd = bVar;
+        this.jHd.a(anVar.czH(), this.jIw.cvd(), this.jIw.getId(), this.jIw.czK());
+        aiVar.a(cyB(), anVar);
     }
 
-    private j<T> cyy() {
+    private j<T> cyB() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
             protected void d(@Nullable T t, boolean z) {
@@ -34,8 +34,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void cyz() {
-                a.this.cyz();
+            protected void cyC() {
+                a.this.cyC();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
@@ -48,19 +48,19 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(@Nullable T t, boolean z) {
         if (super.a((a<T>) t, z) && z) {
-            this.jHl.a(this.jIE.czE(), this.jIE.getId(), this.jIE.czH());
+            this.jHd.a(this.jIw.czH(), this.jIw.getId(), this.jIw.czK());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void B(Throwable th) {
         if (super.u(th)) {
-            this.jHl.a(this.jIE.czE(), this.jIE.getId(), th, this.jIE.czH());
+            this.jHd.a(this.jIw.czH(), this.jIw.getId(), th, this.jIw.czK());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void cyz() {
+    public synchronized void cyC() {
         g.checkState(isClosed());
     }
 
@@ -70,8 +70,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.jHl.FJ(this.jIE.getId());
-            this.jIE.cancel();
+            this.jHd.FH(this.jIw.getId());
+            this.jIw.cancel();
         }
         return true;
     }

@@ -1,50 +1,156 @@
 package com.baidu.swan.ubc;
 
-import android.util.Log;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-class h {
-    private static final boolean DEBUG = g.DEBUG;
-    private static String TAG = "ControlData";
-    private final int bpl;
-    private int mCount;
-    private final String mId;
-    private final int mSize;
+public class h {
+    private String Vi;
+    private String aDu;
+    private int bpn;
+    private JSONObject bpo;
+    private String bpp;
+    private boolean bpq;
+    private String mCategory;
+    private String mContent;
+    private String mId;
+    private int mOption;
     private long mTime;
 
-    public h(String str, int i, int i2) {
+    public h(String str, String str2, int i) {
+        this.mContent = "";
+        this.bpq = false;
+        this.Vi = "";
         this.mId = str;
-        this.bpl = i;
-        this.mSize = i2;
+        this.aDu = str;
+        this.bpn = -1;
+        this.mContent = str2;
+        this.mOption = i;
+        if ((this.mOption & 2) == 0) {
+            this.mTime = System.currentTimeMillis();
+        }
+        try {
+            this.bpo = new JSONObject(this.mContent);
+        } catch (JSONException e) {
+        }
+    }
+
+    public h(String str, JSONObject jSONObject, int i) {
+        this.mContent = "";
+        this.bpq = false;
+        this.Vi = "";
+        this.mId = str;
+        this.aDu = str;
+        this.bpn = -1;
+        this.bpo = jSONObject;
+        this.mOption = i;
+        if ((this.mOption & 2) == 0) {
+            this.mTime = System.currentTimeMillis();
+        }
+    }
+
+    public h(String str, String str2, int i, String str3, int i2) {
+        this.mContent = "";
+        this.bpq = false;
+        this.Vi = "";
+        this.mId = str2;
+        this.aDu = str;
+        this.bpn = i;
+        this.mContent = str3;
+        this.mOption = i2;
+        if ((this.mOption & 2) == 0) {
+            this.mTime = System.currentTimeMillis();
+        }
+        try {
+            this.bpo = new JSONObject(this.mContent);
+        } catch (JSONException e) {
+        }
+    }
+
+    public h(String str, String str2, int i, String str3, long j, int i2) {
+        this.mContent = "";
+        this.bpq = false;
+        this.Vi = "";
+        this.mId = str2;
+        this.aDu = str;
+        this.bpn = i;
+        this.mContent = str3;
+        this.mOption = i2;
+        if ((this.mOption & 2) == 0) {
+            if (j > 0) {
+                this.mTime = j;
+            } else {
+                this.mTime = System.currentTimeMillis();
+            }
+        }
+        if (!TextUtils.isEmpty(this.mContent)) {
+            try {
+                this.bpo = new JSONObject(this.mContent);
+            } catch (JSONException e) {
+            }
+        }
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public String Tc() {
+        return this.aDu;
+    }
+
+    public int Td() {
+        return this.bpn;
+    }
+
+    public String getContent() {
+        return this.mContent;
+    }
+
+    public long getTime() {
+        return this.mTime;
+    }
+
+    public int getOption() {
+        return this.mOption;
+    }
+
+    public String Te() {
+        return this.bpp;
+    }
+
+    public void setCategory(String str) {
+        this.mCategory = str;
+    }
+
+    public String getCategory() {
+        return this.mCategory;
+    }
+
+    public JSONObject Tf() {
+        return this.bpo;
+    }
+
+    public String getFileName() {
+        return this.Vi;
+    }
+
+    public String Tg() {
+        return this.bpo != null ? this.bpo.optString("bizId") : "";
+    }
+
+    public void cV(boolean z) {
+        this.bpq = z;
     }
 
     public boolean Ta() {
-        if (this.bpl == 0 || this.mSize == 0) {
-            return false;
-        }
-        Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (DEBUG) {
-            Log.d(TAG, "id " + this.mId + " mCycle " + this.bpl + " mSize " + this.mSize + "mCount =  " + this.mCount + " duration " + ((valueOf.longValue() - this.mTime) / 1000));
-        }
-        if (this.mTime != 0 && (valueOf.longValue() - this.mTime) / 1000 <= this.bpl && this.mCount >= this.mSize) {
-            if (DEBUG) {
-                Log.d(TAG, "control");
-            }
-            return true;
-        }
-        if (this.mTime == 0) {
-            this.mTime = valueOf.longValue();
-        } else if ((valueOf.longValue() - this.mTime) / 1000 > this.bpl) {
-            this.mTime = valueOf.longValue();
-            this.mCount = 0;
-            if (DEBUG) {
-                Log.d(TAG, "reset");
-            }
-        }
-        this.mCount++;
-        return false;
+        return this.bpq;
     }
 
-    public boolean Tb() {
-        return this.mCount != 0 && this.mCount == this.mSize;
+    public void Th() {
+        if (this.mId != null && this.mId.equals(this.aDu) && d.SW().jI(this.mId)) {
+            this.bpp = q.Ts().Fp();
+        }
     }
 }

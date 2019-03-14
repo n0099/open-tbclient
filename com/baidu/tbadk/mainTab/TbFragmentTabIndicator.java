@@ -102,7 +102,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void anM() {
+    public void anL() {
     }
 
     public void setAnimationResId(int i) {
@@ -135,7 +135,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public int coy;
         public View view;
         public boolean cox = true;
-        public int coz = d.C0236d.common_color_10225;
+        public int coz = d.C0277d.common_color_10225;
 
         public void ij(int i) {
             if (this.coy != 0) {

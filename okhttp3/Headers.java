@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -184,18 +185,18 @@ public final class Headers {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public Builder addLenient(String str) {
-            int indexOf = str.indexOf(":", 1);
+            int indexOf = str.indexOf(Config.TRACE_TODAY_VISIT_SPLIT, 1);
             if (indexOf != -1) {
                 return addLenient(str.substring(0, indexOf), str.substring(indexOf + 1));
             }
-            if (str.startsWith(":")) {
+            if (str.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
                 return addLenient("", str.substring(1));
             }
             return addLenient("", str);
         }
 
         public Builder add(String str) {
-            int indexOf = str.indexOf(":");
+            int indexOf = str.indexOf(Config.TRACE_TODAY_VISIT_SPLIT);
             if (indexOf == -1) {
                 throw new IllegalArgumentException("Unexpected header: " + str);
             }

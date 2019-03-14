@@ -4,28 +4,27 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = c.DEBUG;
-    private static b avQ;
-    public String avL;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static b avR;
+    public String avM;
 
     @NonNull
     public static b eD(@NonNull String str) {
-        if (avQ == null) {
-            avQ = A(eE(str));
+        if (avR == null) {
+            avR = A(eE(str));
         }
-        return avQ;
+        return avR;
     }
 
     @NonNull
     private static b A(JSONObject jSONObject) {
         b bVar = new b();
         if (jSONObject != null) {
-            bVar.avL = jSONObject.optString("extension-core-version");
+            bVar.avM = jSONObject.optString("extension-core-version");
         }
         return bVar;
     }

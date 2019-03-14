@@ -15,7 +15,7 @@ public class e {
     public HashMap<String, String> chc = new HashMap<>();
     public String chd;
 
-    public static synchronized e alp() {
+    public static synchronized e alo() {
         e eVar;
         synchronized (e.class) {
             if (cgZ == null) {

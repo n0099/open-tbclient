@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a jAn;
-    private int jIN = 0;
-    private int jIM = 0;
-    private int jIO = 0;
-    private int jIQ = 0;
-    private int jIP = 0;
-    private int jIL = 0;
+    private final com.facebook.common.memory.a jAf;
+    private int jIF = 0;
+    private int jIE = 0;
+    private int jIG = 0;
+    private int jII = 0;
+    private int jIH = 0;
+    private int jID = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.jAn = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.jAf = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.jIL != 6 && dVar.getSize() > this.jIN) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jAn.get(16384), this.jAn);
+        if (this.jID != 6 && dVar.getSize() > this.jIF) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jAf.get(16384), this.jAf);
             try {
-                com.facebook.common.util.c.a(fVar, this.jIN);
+                com.facebook.common.util.c.a(fVar, this.jIF);
                 return v(fVar);
             } catch (IOException e) {
                 k.s(e);
@@ -36,72 +36,72 @@ public class e {
 
     private boolean v(InputStream inputStream) {
         int read;
-        int i = this.jIP;
-        while (this.jIL != 6 && (read = inputStream.read()) != -1) {
+        int i = this.jIH;
+        while (this.jID != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.jIN++;
-                switch (this.jIL) {
+                this.jIF++;
+                switch (this.jID) {
                     case 0:
                         if (read == 255) {
-                            this.jIL = 1;
+                            this.jID = 1;
                             break;
                         } else {
-                            this.jIL = 6;
+                            this.jID = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.jIL = 2;
+                            this.jID = 2;
                             break;
                         } else {
-                            this.jIL = 6;
+                            this.jID = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.jIL = 3;
+                            this.jID = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.jIL = 3;
+                            this.jID = 3;
                             break;
                         } else if (read == 0) {
-                            this.jIL = 2;
+                            this.jID = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                Cq(this.jIN - 2);
+                                Cq(this.jIF - 2);
                             }
                             if (Cp(read)) {
-                                this.jIL = 4;
+                                this.jID = 4;
                                 break;
                             } else {
-                                this.jIL = 2;
+                                this.jID = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.jIL = 5;
+                        this.jID = 5;
                         break;
                     case 5:
-                        int i2 = ((this.jIM << 8) + read) - 2;
+                        int i2 = ((this.jIE << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.jIN = i2 + this.jIN;
-                        this.jIL = 2;
+                        this.jIF = i2 + this.jIF;
+                        this.jID = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.jIM = read;
+                this.jIE = read;
             } catch (IOException e) {
                 k.s(e);
             }
         }
-        return (this.jIL == 6 || this.jIP == i) ? false : true;
+        return (this.jID == 6 || this.jIH == i) ? false : true;
     }
 
     private static boolean Cp(int i) {
@@ -119,19 +119,19 @@ public class e {
     }
 
     private void Cq(int i) {
-        if (this.jIO > 0) {
-            this.jIQ = i;
+        if (this.jIG > 0) {
+            this.jII = i;
         }
-        int i2 = this.jIO;
-        this.jIO = i2 + 1;
-        this.jIP = i2;
+        int i2 = this.jIG;
+        this.jIG = i2 + 1;
+        this.jIH = i2;
     }
 
-    public int cyD() {
-        return this.jIQ;
+    public int cyG() {
+        return this.jII;
     }
 
-    public int cyE() {
-        return this.jIP;
+    public int cyH() {
+        return this.jIH;
     }
 }

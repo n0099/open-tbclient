@@ -13,7 +13,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.appsearchlib.Info;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Map;
@@ -130,7 +129,7 @@ public class g {
                     aVar = new com.baidu.adp.lib.stats.a(str);
                 }
                 if (!str.equals("stat") && !str.equals("crash")) {
-                    aVar.f("module", str, TimeDisplaySetting.START_SHOW_TIME, str2, Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+                    aVar.f("module", str, "st", str2, "t", String.valueOf(System.currentTimeMillis()));
                 }
                 if (objArr != null && objArr.length > 0) {
                     aVar.f(objArr);

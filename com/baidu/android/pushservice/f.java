@@ -16,7 +16,6 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -789,7 +788,7 @@ public class f {
                 f.c(context, str);
             }
         };
-        j.postDelayed(m, TbConfig.NOTIFY_SOUND_INTERVAL);
+        j.postDelayed(m, 5000L);
     }
 
     private static void p(Context context) {

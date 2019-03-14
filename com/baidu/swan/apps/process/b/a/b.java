@@ -4,13 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.c;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         a fM = fM(str);
@@ -27,9 +26,9 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        fM.aEA = bundle;
-        fM.aEB = i;
-        fM.aEC = str2;
+        fM.aEB = bundle;
+        fM.aEC = i;
+        fM.aED = str2;
         fM.t(bundle);
     }
 

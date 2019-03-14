@@ -10,7 +10,7 @@ public class c {
     private static c cnp = new c();
     private final HashMap<String, Class<? extends b>> cnq = new HashMap<>();
 
-    public static c anB() {
+    public static c anA() {
         return cnp;
     }
 
