@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.flow.a.e;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public interface a {
-    c abm();
+    c abj();
 
-    e abn();
+    e abk();
 
-    View abo();
+    View abl();
 
     TbImageView cG(Context context);
 }

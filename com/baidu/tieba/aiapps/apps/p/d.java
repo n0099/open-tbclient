@@ -4,7 +4,7 @@ import com.baidu.ubc.UBC;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.pyramid.runtime.multiprocess.e {
     @Override // com.baidu.pyramid.runtime.multiprocess.e
-    public void df(String str) {
+    public void dh(String str) {
         UBC.onMutilProcessEvent("765", str, com.baidu.pyramid.runtime.multiprocess.a.getProcessName());
     }
 }

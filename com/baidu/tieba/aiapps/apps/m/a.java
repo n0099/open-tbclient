@@ -15,7 +15,6 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -31,13 +30,13 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        final String optString = n.dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("cb");
+        final String optString = n.dm(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.i("GetSysInfo", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Jb().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.m.a.1
+        bVar.IZ().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.m.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.c.a
             /* renamed from: b */
@@ -58,10 +57,10 @@ public class a extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bJ = com.baidu.swan.apps.u.a.CD().bJ(appContext);
+        String bJ = com.baidu.swan.apps.u.a.CB().bJ(appContext);
         String imei = TbadkCoreApplication.getInst().getImei();
         String gz = FH.gz(TbadkCoreApplication.getInst());
-        String bI = com.baidu.swan.apps.u.a.CD().bI(appContext);
+        String bI = com.baidu.swan.apps.u.a.CB().bI(appContext);
         String cookie = new com.baidu.swan.apps.q.a.b.a().getCookie(".baidu.com");
         String cg = cg(cookie, "BAIDUID");
         String cg2 = cg(cookie, "H_WISE_SIDS");

@@ -40,7 +40,7 @@ public class c {
                     } else if (index == a.C0430a.GenericDraweeHierarchy_progressBarImage) {
                         bVar.q(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_fadeDuration) {
-                        bVar.Cj(obtainStyledAttributes.getInt(index, 0));
+                        bVar.BZ(obtainStyledAttributes.getInt(index, 0));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_viewAspectRatio) {
                         bVar.aW(obtainStyledAttributes.getFloat(index, 0.0f));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_placeholderImageScaleType) {
@@ -74,11 +74,11 @@ public class c {
                     } else if (index == a.C0430a.GenericDraweeHierarchy_roundBottomRight) {
                         z4 = obtainStyledAttributes.getBoolean(index, z4);
                     } else if (index == a.C0430a.GenericDraweeHierarchy_roundWithOverlayColor) {
-                        a(bVar).Ck(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).Ca(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_roundingBorderWidth) {
                         a(bVar).aY(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_roundingBorderColor) {
-                        a(bVar).Cl(obtainStyledAttributes.getColor(index, 0));
+                        a(bVar).Cb(obtainStyledAttributes.getColor(index, 0));
                     } else if (index == a.C0430a.GenericDraweeHierarchy_roundingBorderPadding) {
                         a(bVar).aZ(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                     }
@@ -92,8 +92,8 @@ public class c {
             z3 = true;
             i = 0;
         }
-        if (bVar.cvO() != null && i > 0) {
-            bVar.q(new com.facebook.drawee.drawable.b(bVar.cvO(), i));
+        if (bVar.cvH() != null && i > 0) {
+            bVar.q(new com.facebook.drawee.drawable.b(bVar.cvH(), i));
         }
         if (i2 > 0) {
             a(bVar).k(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
@@ -103,10 +103,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.cvW() == null) {
+        if (bVar.cvP() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.cvW();
+        return bVar.cvP();
     }
 
     @Nullable
@@ -124,21 +124,21 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return n.b.jDM;
+                return n.b.jDg;
             case 1:
-                return n.b.jDN;
+                return n.b.jDh;
             case 2:
-                return n.b.jDO;
+                return n.b.jDi;
             case 3:
-                return n.b.jDP;
+                return n.b.jDj;
             case 4:
-                return n.b.jDQ;
+                return n.b.jDk;
             case 5:
-                return n.b.jDR;
+                return n.b.jDl;
             case 6:
-                return n.b.jDS;
+                return n.b.jDm;
             case 7:
-                return n.b.jDT;
+                return n.b.jDn;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

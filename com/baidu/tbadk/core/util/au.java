@@ -28,15 +28,15 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class au {
     public static void a(com.baidu.tbadk.core.data.a aVar, Context context, int i, boolean z) {
-        if (aVar != null && aVar.WR() != null && context != null) {
-            bg WR = aVar.WR();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(WR, null, com.baidu.tieba.card.n.YE(), 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(WR.getFid()));
+        if (aVar != null && aVar.WO() != null && context != null) {
+            bg WO = aVar.WO();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(WO, null, com.baidu.tieba.card.n.YB(), 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(WO.getFid()));
             createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
-            createFromThreadCfg.setForumName(WR.YW());
+            createFromThreadCfg.setForumName(WO.YT());
             createFromThreadCfg.setStartFrom(i);
-            if (aVar.WU() != null) {
-                createFromThreadCfg.addLocateParam(aVar.WU());
+            if (aVar.WR() != null) {
+                createFromThreadCfg.addLocateParam(aVar.WR());
             }
             if (i == 3 || i == 15) {
                 createFromThreadCfg.setVideo_source("frs");
@@ -44,7 +44,7 @@ public final class au {
                 createFromThreadCfg.setVideo_source("index");
             }
             createFromThreadCfg.setJumpGodReply(z);
-            com.baidu.tieba.card.n.tA(WR.getTid());
+            com.baidu.tieba.card.n.tz(WO.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
@@ -82,7 +82,7 @@ public final class au {
                     }
                 }
             }
-            ImageViewerConfig createConfig = new ImageViewerConfig(context).createConfig(arrayList, i, bgVar.YW(), String.valueOf(bgVar.getFid()), bgVar.getTid(), z, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+            ImageViewerConfig createConfig = new ImageViewerConfig(context).createConfig(arrayList, i, bgVar.YT(), String.valueOf(bgVar.getFid()), bgVar.getTid(), z, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
             if (str != null) {
                 createConfig.getIntent().putExtra("from", str);
             }
@@ -95,8 +95,8 @@ public final class au {
                 historyMessage.Activity = ((TbPageContextSupport) context).getPageContext();
                 historyMessage.threadId = bgVar.getId();
                 historyMessage.threadName = bgVar.getTitle();
-                historyMessage.forumName = bgVar.YW();
-                historyMessage.postID = bgVar.Zh();
+                historyMessage.forumName = bgVar.YT();
+                historyMessage.postID = bgVar.Ze();
                 MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
             }
         }
@@ -104,14 +104,14 @@ public final class au {
 
     public static void a(TextView textView, bg bgVar) {
         if (textView != null && bgVar != null) {
-            SpannableStringBuilder Ys = bgVar.Ys();
-            if (bgVar.Zg() == 1 || Ys == null || ap.bw(Ys.toString())) {
+            SpannableStringBuilder Yp = bgVar.Yp();
+            if (bgVar.Zd() == 1 || Yp == null || ap.bw(Yp.toString())) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setOnTouchListener(new com.baidu.tieba.view.k(Ys));
-            textView.setText(Ys);
+            textView.setOnTouchListener(new com.baidu.tieba.view.k(Yp));
+            textView.setText(Yp);
             com.baidu.tieba.card.n.a(textView, bgVar.getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
         }
     }
@@ -121,10 +121,10 @@ public final class au {
         float f;
         if (bgVar != null) {
             bgVar.dp(false);
-            SpannableString Yt = bgVar.Yt();
-            if (Yt != null && !ap.bw(Yt.toString())) {
-                textView.setOnTouchListener(new com.baidu.tieba.view.k(Yt));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Yt);
+            SpannableString Yq = bgVar.Yq();
+            if (Yq != null && !ap.bw(Yq.toString())) {
+                textView.setOnTouchListener(new com.baidu.tieba.view.k(Yq));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Yq);
                 textView.setVisibility(0);
                 if (textView2.getVisibility() == 8) {
                     i2 = 5;
@@ -151,7 +151,7 @@ public final class au {
                     StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), textView.getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                     float f2 = i;
                     if (staticLayout.getLineCount() >= i2) {
-                        spannableStringBuilder.delete(staticLayout.getLineEnd(i2 - 1), Yt.length());
+                        spannableStringBuilder.delete(staticLayout.getLineEnd(i2 - 1), Yq.length());
                         f = i - staticLayout.getLineWidth(i2 - 1);
                     } else {
                         f = f2;
@@ -182,6 +182,6 @@ public final class au {
     }
 
     public static boolean m(bg bgVar) {
-        return (bgVar == null || bgVar.YR() == null || StringUtils.isNull(bgVar.YR().getUserId()) || !bgVar.YR().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        return (bgVar == null || bgVar.YO() == null || StringUtils.isNull(bgVar.YO().getUserId()) || !bgVar.YO().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 }

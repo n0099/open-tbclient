@@ -33,10 +33,10 @@ public class a implements m {
 
     @Override // com.baidu.ubc.m
     public boolean a(String str, JSONObject jSONObject, boolean z) {
-        String rw = com.baidu.tieba.aiapps.apps.c.d.rw(str + "/tcbox?action=ubc");
-        HttpPost httpPost = new HttpPost(rw);
+        String rx2 = com.baidu.tieba.aiapps.apps.c.d.rx(str + "/tcbox?action=ubc");
+        HttpPost httpPost = new HttpPost(rx2);
         if (DEBUG) {
-            Log.d("UploadManager", rw);
+            Log.d("UploadManager", rx2);
         }
         httpPost.setEntity(aY(jSONObject));
         httpPost.setHeader("Content-type", URLEncodedUtils.CONTENT_TYPE);

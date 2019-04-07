@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
 public class f {
     private static int a(char c) {
-        return (byte) "0123456789ABCDEF".indexOf(c);
+        return (byte) com.coloros.mcssdk.c.a.f.indexOf(c);
     }
 
     public static String a(byte[] bArr, String str, boolean z) {

@@ -148,7 +148,7 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    public void bb(int i) {
+    public void ba(int i) {
         if (this.Rg && i == 1) {
             this.QT.setBackgroundResource(R.color.swipe_layout_night_bg);
         } else {

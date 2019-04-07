@@ -11,36 +11,36 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonLikeButton extends AppCompatTextView implements b {
-    protected String bUl;
-    protected String bUm;
-    protected boolean bUn;
-    private View.OnClickListener bUo;
-    private boolean bUp;
+    protected String bUn;
+    protected String bUo;
+    protected boolean bUp;
+    private View.OnClickListener bUq;
+    private boolean bUr;
 
     public CommonLikeButton(Context context) {
         super(context);
-        this.bUl = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUm = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUn = false;
+        this.bUn = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
+        this.bUo = TbadkCoreApplication.getInst().getString(d.j.attention);
         this.bUp = false;
+        this.bUr = false;
         init();
     }
 
     public CommonLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUl = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUm = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUn = false;
+        this.bUn = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
+        this.bUo = TbadkCoreApplication.getInst().getString(d.j.attention);
         this.bUp = false;
+        this.bUr = false;
         init();
     }
 
     public CommonLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bUl = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUm = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUn = false;
+        this.bUn = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
+        this.bUo = TbadkCoreApplication.getInst().getString(d.j.attention);
         this.bUp = false;
+        this.bUr = false;
         init();
     }
 
@@ -54,14 +54,14 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     @Override // com.baidu.tbadk.core.view.commonLike.b
     public void dU(boolean z) {
         setVisibility(0);
-        this.bUn = z;
+        this.bUp = z;
         if (z) {
             setClickable(false);
-            setText(this.bUl);
+            setText(this.bUn);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.bUm);
+            setText(this.bUo);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -69,8 +69,8 @@ public class CommonLikeButton extends AppCompatTextView implements b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.b
     public void aR(View view) {
-        if (this.bUo != null) {
-            this.bUo.onClick(view);
+        if (this.bUq != null) {
+            this.bUq.onClick(view);
         }
     }
 
@@ -80,7 +80,7 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bUn) {
+        if (this.bUp) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.j(this, d.C0277d.cp_cont_d);
             setBackgroundDrawable(null);
@@ -88,7 +88,7 @@ public class CommonLikeButton extends AppCompatTextView implements b {
         }
         setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         al.j(this, d.C0277d.btn_forum_focus_color);
-        if (this.bUp) {
+        if (this.bUr) {
             al.k(this, d.f.btn_transparent_focus_border_bg);
         } else {
             al.k(this, d.f.btn_focus_border_bg);
@@ -96,11 +96,11 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     }
 
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
-        this.bUo = onClickListener;
+        this.bUq = onClickListener;
     }
 
     public void setBackGroundIsTransMode(boolean z) {
-        this.bUp = z;
+        this.bUr = z;
         al.k(this, d.f.btn_transparent_focus_border_bg);
     }
 }

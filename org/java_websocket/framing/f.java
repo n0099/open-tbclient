@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode jUC;
-    private ByteBuffer jUD = org.java_websocket.e.b.cDA();
-    private boolean jUB = true;
-    private boolean jUE = false;
-    private boolean jUF = false;
-    private boolean jUG = false;
-    private boolean jUH = false;
+    private Framedata.Opcode jTU;
+    private ByteBuffer jTV = org.java_websocket.e.b.cDp();
+    private boolean jTT = true;
+    private boolean jTW = false;
+    private boolean jTX = false;
+    private boolean jTY = false;
+    private boolean jTZ = false;
 
-    public abstract void cDo() throws InvalidDataException;
+    public abstract void cDd() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.jUC = opcode;
+        this.jTU = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDs() {
-        return this.jUF;
+    public boolean cDh() {
+        return this.jTX;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDt() {
-        return this.jUG;
+    public boolean cDi() {
+        return this.jTY;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDu() {
-        return this.jUH;
+    public boolean cDj() {
+        return this.jTZ;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDr() {
-        return this.jUB;
+    public boolean cDg() {
+        return this.jTT;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode cDv() {
-        return this.jUC;
+    public Framedata.Opcode cDk() {
+        return this.jTU;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cDq() {
-        return this.jUD;
+    public ByteBuffer cDf() {
+        return this.jTV;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + cDv() + ", fin:" + cDr() + ", rsv1:" + cDs() + ", rsv2:" + cDt() + ", rsv3:" + cDu() + ", payloadlength:[pos:" + this.jUD.position() + ", len:" + this.jUD.remaining() + "], payload:" + (this.jUD.remaining() > 1000 ? "(too big to display)" : new String(this.jUD.array())) + '}';
+        return "Framedata{ optcode:" + cDk() + ", fin:" + cDg() + ", rsv1:" + cDh() + ", rsv2:" + cDi() + ", rsv3:" + cDj() + ", payloadlength:[pos:" + this.jTV.position() + ", len:" + this.jTV.remaining() + "], payload:" + (this.jTV.remaining() > 1000 ? "(too big to display)" : new String(this.jTV.array())) + '}';
     }
 
     public void t(ByteBuffer byteBuffer) {
-        this.jUD = byteBuffer;
+        this.jTV = byteBuffer;
     }
 
     public void rG(boolean z) {
-        this.jUB = z;
+        this.jTT = z;
     }
 
     public void rH(boolean z) {
-        this.jUF = z;
+        this.jTX = z;
     }
 
     public void rI(boolean z) {
-        this.jUG = z;
+        this.jTY = z;
     }
 
     public void rJ(boolean z) {
-        this.jUH = z;
+        this.jTZ = z;
     }
 
     public void rK(boolean z) {
-        this.jUE = z;
+        this.jTW = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.jUB == fVar.jUB && this.jUE == fVar.jUE && this.jUF == fVar.jUF && this.jUG == fVar.jUG && this.jUH == fVar.jUH && this.jUC == fVar.jUC) {
-            if (this.jUD != null) {
-                z = this.jUD.equals(fVar.jUD);
-            } else if (fVar.jUD != null) {
+        if (this.jTT == fVar.jTT && this.jTW == fVar.jTW && this.jTX == fVar.jTX && this.jTY == fVar.jTY && this.jTZ == fVar.jTZ && this.jTU == fVar.jTU) {
+            if (this.jTV != null) {
+                z = this.jTV.equals(fVar.jTV);
+            } else if (fVar.jTV != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.jUG ? 1 : 0) + (((this.jUF ? 1 : 0) + (((this.jUE ? 1 : 0) + (((this.jUD != null ? this.jUD.hashCode() : 0) + ((((this.jUB ? 1 : 0) * 31) + this.jUC.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.jUH ? 1 : 0);
+        return (((this.jTY ? 1 : 0) + (((this.jTX ? 1 : 0) + (((this.jTW ? 1 : 0) + (((this.jTV != null ? this.jTV.hashCode() : 0) + ((((this.jTT ? 1 : 0) * 31) + this.jTU.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.jTZ ? 1 : 0);
     }
 }

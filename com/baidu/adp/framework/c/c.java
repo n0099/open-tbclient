@@ -3,21 +3,21 @@ package com.baidu.adp.framework.c;
 import com.baidu.mapapi.UIMsg;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c yB = null;
+    private static c yA = null;
 
     public static c hm() {
-        if (yB == null) {
+        if (yA == null) {
             synchronized (c.class) {
-                if (yB == null) {
-                    yB = new c();
+                if (yA == null) {
+                    yA = new c();
                 }
             }
         }
-        return yB;
+        return yA;
     }
 
     private c() {
-        this.yC = new e(20000, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
+        this.yB = new e(20000, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
         this.mRetryCount = 3;
     }
 
@@ -31,6 +31,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.yC = new e(i, i2, i3);
+        this.yB = new e(i, i2, i3);
     }
 }

@@ -13,11 +13,11 @@ import java.io.IOException;
 public class b {
     public static Bitmap F(String str, boolean z) {
         Bitmap bitmap = null;
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX != null) {
-            String a = com.baidu.swan.apps.storage.b.a(str, IX, IX.getVersion());
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        if (IV != null) {
+            String a = com.baidu.swan.apps.storage.b.a(str, IV, IV.getVersion());
             if (!TextUtils.isEmpty(a)) {
-                bitmap = jg(a);
+                bitmap = jh(a);
             }
         }
         if (bitmap == null && z) {
@@ -49,7 +49,7 @@ public class b {
         return bitmap2;
     }
 
-    private static Bitmap jg(String str) {
+    private static Bitmap jh(String str) {
         try {
             FileInputStream fileInputStream = new FileInputStream(new File(str));
             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, new BitmapFactory.Options());

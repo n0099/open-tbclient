@@ -263,7 +263,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.r.c.chq().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.r.c.cho().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -275,11 +275,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.11
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String VJ() {
+                    public String VG() {
                         return "TBHY_COMMON_Performance";
                     }
 
-                    @o(abJ = false, value = "trackFPS")
+                    @o(abG = false, value = "trackFPS")
                     private void trackFPS() {
                     }
                 });
@@ -289,11 +289,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.12
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String VJ() {
+                    public String VG() {
                         return "TBHY_COMMON_Share";
                     }
 
-                    @o(abJ = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+                    @o(abG = false, value = TbConfig.TMP_SHARE_DIR_NAME)
                     private void share(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optString("title");
@@ -318,11 +318,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.13
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String VJ() {
+                    public String VG() {
                         return "TBHY_COMMON_UISwitch";
                     }
 
-                    @o(abJ = false, value = "viewHideSwitch")
+                    @o(abG = false, value = "viewHideSwitch")
                     private void viewHideSwitch(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString(UBC.CONTENT_KEY_VALUE);
@@ -338,11 +338,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.14
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String VJ() {
+                    public String VG() {
                         return "TBHY_COMMON_GAME_COMMENT";
                     }
 
-                    @o(abJ = false, value = "gameComment")
+                    @o(abG = false, value = "gameComment")
                     private void goToGameComment(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameCommentActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), jSONObject.optInt("score"), jSONObject.optInt("forum_id"))));
@@ -352,11 +352,11 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 a2.a(new n(a2) { // from class: com.baidu.tbadk.browser.TbWebViewActivity.15
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
-                    public String VJ() {
+                    public String VG() {
                         return "TBHY_COMMON_COMMENT_FLOOR";
                     }
 
-                    @o(abJ = false, value = "enterCommentFloor")
+                    @o(abG = false, value = "enterCommentFloor")
                     private void goToFrsGameSubPbActivity(JSONObject jSONObject) {
                         if (jSONObject != null && bc.cZ(TbWebViewActivity.this.getPageContext().getPageActivity())) {
                             String optString = jSONObject.optString("forum_id");
@@ -581,7 +581,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.ceV();
+            this.jsBridge.ceR();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -604,7 +604,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* loaded from: classes.dex */
     protected class b extends WebViewClient {
-        public boolean btU;
+        public boolean btX;
 
         protected b() {
         }
@@ -613,7 +613,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btU = false;
+                this.btX = false;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.mWebView.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
                 String title = TbWebViewActivity.this.mWebView.getTitle();
@@ -621,7 +621,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!TbWebViewActivity.this.isShowFullScreen) {
-                    TbWebViewActivity.this.mView.kP(TbWebViewActivity.this.mUrlTitle);
+                    TbWebViewActivity.this.mView.kQ(TbWebViewActivity.this.mUrlTitle);
                 }
                 if (TbWebViewActivity.this.isTranslucent()) {
                     TbWebViewActivity.this.mView.setNavBarVisibility(false);
@@ -638,7 +638,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btU = false;
+                this.btX = false;
                 TbWebViewActivity.this.mWebView.stopLoading();
                 TbWebViewActivity.this.stopLoadTimer();
                 TbWebViewActivity.this.onReceivedError(i);
@@ -649,7 +649,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btU = true;
+                this.btX = true;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.showProgressBar();
                 TbWebViewActivity.this.startLoadTimer();
@@ -663,10 +663,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (av.jK() && this.btU && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
+            if (av.jK() && this.btX && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
                 return false;
             }
-            int b = ba.adD().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int b = ba.adA().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -679,7 +679,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.b.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            TbWebViewActivity.this.mView.VW();
+                            TbWebViewActivity.this.mView.VT();
                         }
                     });
                 }
@@ -801,7 +801,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (!this.isDisableGoBack || this.mCommonTbJsBridge == null) {
             return false;
         }
-        this.mCommonTbJsBridge.VE();
+        this.mCommonTbJsBridge.VB();
         this.isDisableGoBack = false;
         return true;
     }
@@ -844,7 +844,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 this.mUrlTitle = str;
             }
             if (!this.isShowFullScreen && this.mView != null) {
-                this.mView.kP(this.mUrlTitle);
+                this.mView.kQ(this.mUrlTitle);
             }
         }
     }
@@ -852,7 +852,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showRightShareIcon() {
         if (this.mView != null) {
-            this.mView.VP();
+            this.mView.VM();
         }
     }
 
@@ -897,10 +897,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     String optString7 = jSONObject.optString("wbcontent");
                     TbWebViewActivity.this.mShareItem = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
                     TbWebViewActivity.this.mShareItem.topic = optString5;
-                    TbWebViewActivity.this.mShareItem.cbG = optString6;
-                    TbWebViewActivity.this.mShareItem.cbH = optString7;
+                    TbWebViewActivity.this.mShareItem.cbI = optString6;
+                    TbWebViewActivity.this.mShareItem.cbJ = optString7;
                     TbWebViewActivity.this.mShareItem.shareType = jSONObject.optInt("shareimg");
-                    TbWebViewActivity.this.mShareItem.cbO = jSONObject.optInt("weixin_disable");
+                    TbWebViewActivity.this.mShareItem.cbQ = jSONObject.optInt("weixin_disable");
                     String optString8 = jSONObject.optString("extdata");
                     if (!StringUtils.isNull(optString8)) {
                         try {
@@ -910,7 +910,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                TbWebViewActivity.this.mShareItem.cbI = jSONObject3.toString();
+                                TbWebViewActivity.this.mShareItem.cbK = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -935,8 +935,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (this.mOnDialogItemClickListener == null) {
             this.mOnDialogItemClickListener = new a();
         }
-        this.mOnDialogItemClickListener.kL(hitTestResult.getExtra());
-        createListMenu(this.mOnDialogItemClickListener.VN(), this.mOnDialogItemClickListener);
+        this.mOnDialogItemClickListener.kM(hitTestResult.getExtra());
+        createListMenu(this.mOnDialogItemClickListener.VK(), this.mOnDialogItemClickListener);
         showListMenu();
         return true;
     }
@@ -953,36 +953,36 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements b.InterfaceC0225b {
-        private String btR;
-        private int btQ = 1;
-        private List<Integer> btS = new ArrayList();
+        private String btU;
+        private int btT = 1;
+        private List<Integer> btV = new ArrayList();
 
         a() {
         }
 
-        public void kL(String str) {
-            this.btR = str;
+        public void kM(String str) {
+            this.btU = str;
         }
 
-        protected String[] VN() {
-            this.btS.clear();
+        protected String[] VK() {
+            this.btV.clear();
             ArrayList arrayList = new ArrayList();
             arrayList.add(TbWebViewActivity.this.getPageContext().getString(d.j.save_to_local));
-            this.btS.add(Integer.valueOf(this.btQ));
+            this.btV.add(Integer.valueOf(this.btT));
             return (String[]) arrayList.toArray(new String[0]);
         }
 
         @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0225b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-            if (bVar == TbWebViewActivity.this.getListMenu() && i < this.btS.size() && i >= 0) {
-                if (this.btS.get(i).intValue() == 1) {
+            if (bVar == TbWebViewActivity.this.getListMenu() && i < this.btV.size() && i >= 0) {
+                if (this.btV.get(i).intValue() == 1) {
                     if (TbWebViewActivity.this.mPermissionJudgement == null) {
                         TbWebViewActivity.this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
                     }
-                    TbWebViewActivity.this.mPermissionJudgement.adQ();
+                    TbWebViewActivity.this.mPermissionJudgement.adN();
                     TbWebViewActivity.this.mPermissionJudgement.e(TbWebViewActivity.this, "android.permission.WRITE_EXTERNAL_STORAGE");
                     if (!TbWebViewActivity.this.mPermissionJudgement.Y(TbWebViewActivity.this)) {
-                        new com.baidu.tbadk.util.n(TbWebViewActivity.this.getActivity(), this.btR, new n.a() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
+                        new com.baidu.tbadk.util.n(TbWebViewActivity.this.getActivity(), this.btU, new n.a() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
                             @Override // com.baidu.tbadk.util.n.a
                             public void onError(int i2, String str) {
                             }
@@ -1003,7 +1003,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlerWebViewResume() {
-        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.alv() && this.mCommonTbJsBridge != null) {
+        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.als() && this.mCommonTbJsBridge != null) {
             try {
                 this.timerData.ey(true);
                 long currentTimeMillis = System.currentTimeMillis();
@@ -1025,7 +1025,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     private void handlerWebViewPause() {
         if (this.timerData != null && this.timerData.isOpen()) {
-            this.timerData.alw();
+            this.timerData.alt();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_spring_festival_timer"), System.currentTimeMillis());
         }
     }

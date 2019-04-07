@@ -28,7 +28,7 @@ public class BdSoundGate {
     }
 
     public void init(int i, int i2) {
-        qN().a(i, 0.0f, d.br(i2), 0.0f);
+        qN().a(i, 0.0f, d.bq(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {

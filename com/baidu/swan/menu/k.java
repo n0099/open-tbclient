@@ -5,18 +5,18 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class k {
     public boolean Pa;
-    public int bkP;
-    private int bkQ = 0;
-    public f bkR;
+    public int bkS;
+    private int bkT = 0;
+    public f bkU;
     public int mIconResId;
     public int mId;
 
     public k(int i, int i2, int i3, boolean z) {
-        this.bkP = -1;
+        this.bkS = -1;
         this.mIconResId = -1;
         this.Pa = true;
         this.mId = i;
-        this.bkP = i2;
+        this.bkS = i2;
         this.mIconResId = i3;
         this.Pa = z;
     }
@@ -27,7 +27,7 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setTitle(int i) {
-        this.bkP = i;
+        this.bkS = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(f fVar) {
-        this.bkR = fVar;
+        this.bkU = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,16 +46,16 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f Rh() {
-        return this.bkR;
+    public f Rf() {
+        return this.bkU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getTitle(Context context) {
-        if (this.bkP <= 0) {
+        if (this.bkS <= 0) {
             return null;
         }
-        return context.getResources().getString(this.bkP);
+        return context.getResources().getString(this.bkS);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,8 +67,8 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int Ri() {
-        return this.bkQ;
+    public int Rg() {
+        return this.bkT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class k {
         if (kVar == null) {
             return null;
         }
-        return new k(kVar.mId, kVar.bkP, kVar.mIconResId, kVar.Pa);
+        return new k(kVar.mId, kVar.bkS, kVar.mIconResId, kVar.Pa);
     }
 }

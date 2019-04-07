@@ -68,38 +68,38 @@ public class DTSSpecificBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("DTSSpecificBox.java", DTSSpecificBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAvgBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 88);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAvgBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "avgBitRate", "", "void"), 92);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getStreamConstruction", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 128);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setStreamConstruction", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "streamConstruction", "", "void"), 132);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "getCoreLFEPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 136);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setCoreLFEPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLFEPresent", "", "void"), 140);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "getCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 144);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLayout", "", "void"), 148);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 152);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreSize", "", "void"), 156);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "getStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 160);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "stereoDownmix", "", "void"), 164);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDTSSamplingFrequency", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 96);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "getRepresentationType", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 168);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setRepresentationType", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "representationType", "", "void"), 172);
-        ajc$tjp_22 = bVar.a("method-execution", bVar.b("1", "getChannelLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 176);
-        ajc$tjp_23 = bVar.a("method-execution", bVar.b("1", "setChannelLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "channelLayout", "", "void"), SubsamplingScaleImageView.ORIENTATION_180);
-        ajc$tjp_24 = bVar.a("method-execution", bVar.b("1", "getMultiAssetFlag", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 184);
-        ajc$tjp_25 = bVar.a("method-execution", bVar.b("1", "setMultiAssetFlag", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "multiAssetFlag", "", "void"), 188);
-        ajc$tjp_26 = bVar.a("method-execution", bVar.b("1", "getLBRDurationMod", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 192);
-        ajc$tjp_27 = bVar.a("method-execution", bVar.b("1", "setLBRDurationMod", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "LBRDurationMod", "", "void"), 196);
-        ajc$tjp_28 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 200);
-        ajc$tjp_29 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "reserved", "", "void"), 204);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setDTSSamplingFrequency", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "DTSSamplingFrequency", "", "void"), 100);
-        ajc$tjp_30 = bVar.a("method-execution", bVar.b("1", "getReservedBoxPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 208);
-        ajc$tjp_31 = bVar.a("method-execution", bVar.b("1", "setReservedBoxPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "reservedBoxPresent", "", "void"), 212);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getMaxBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 104);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setMaxBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "maxBitRate", "", "void"), 108);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 112);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "pcmSampleDepth", "", "void"), 116);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 120);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "frameDuration", "", "void"), 124);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getAvgBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 88);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setAvgBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "avgBitRate", "", "void"), 92);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getStreamConstruction", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 128);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setStreamConstruction", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "streamConstruction", "", "void"), 132);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "getCoreLFEPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 136);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setCoreLFEPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLFEPresent", "", "void"), 140);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "getCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 144);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLayout", "", "void"), 148);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "getCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 152);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreSize", "", "void"), 156);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "getStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 160);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "setStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "stereoDownmix", "", "void"), 164);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getDTSSamplingFrequency", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 96);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.c("1", "getRepresentationType", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 168);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.c("1", "setRepresentationType", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "representationType", "", "void"), 172);
+        ajc$tjp_22 = bVar.a("method-execution", bVar.c("1", "getChannelLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 176);
+        ajc$tjp_23 = bVar.a("method-execution", bVar.c("1", "setChannelLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "channelLayout", "", "void"), SubsamplingScaleImageView.ORIENTATION_180);
+        ajc$tjp_24 = bVar.a("method-execution", bVar.c("1", "getMultiAssetFlag", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 184);
+        ajc$tjp_25 = bVar.a("method-execution", bVar.c("1", "setMultiAssetFlag", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "multiAssetFlag", "", "void"), 188);
+        ajc$tjp_26 = bVar.a("method-execution", bVar.c("1", "getLBRDurationMod", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 192);
+        ajc$tjp_27 = bVar.a("method-execution", bVar.c("1", "setLBRDurationMod", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "LBRDurationMod", "", "void"), 196);
+        ajc$tjp_28 = bVar.a("method-execution", bVar.c("1", "getReserved", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 200);
+        ajc$tjp_29 = bVar.a("method-execution", bVar.c("1", "setReserved", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "reserved", "", "void"), 204);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setDTSSamplingFrequency", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "DTSSamplingFrequency", "", "void"), 100);
+        ajc$tjp_30 = bVar.a("method-execution", bVar.c("1", "getReservedBoxPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 208);
+        ajc$tjp_31 = bVar.a("method-execution", bVar.c("1", "setReservedBoxPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "reservedBoxPresent", "", "void"), 212);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getMaxBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "long"), 104);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setMaxBitRate", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "long", "maxBitRate", "", "void"), 108);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 112);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setPcmSampleDepth", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "pcmSampleDepth", "", "void"), 116);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 120);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "frameDuration", "", "void"), 124);
     }
 
     public DTSSpecificBox() {
@@ -159,7 +159,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setAvgBitRate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.ei(j)));
         this.avgBitRate = j;
     }
 
@@ -169,7 +169,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setDTSSamplingFrequency(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.ei(j)));
         this.DTSSamplingFrequency = j;
     }
 
@@ -179,7 +179,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setMaxBitRate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.ei(j)));
         this.maxBitRate = j;
     }
 
@@ -189,7 +189,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setPcmSampleDepth(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.pcmSampleDepth = i;
     }
 
@@ -199,7 +199,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.CW(i)));
         this.frameDuration = i;
     }
 
@@ -209,7 +209,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStreamConstruction(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.CW(i)));
         this.streamConstruction = i;
     }
 
@@ -219,7 +219,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLFEPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.CW(i)));
         this.coreLFEPresent = i;
     }
 
@@ -229,7 +229,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.CW(i)));
         this.coreLayout = i;
     }
 
@@ -239,7 +239,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.CW(i)));
         this.coreSize = i;
     }
 
@@ -249,7 +249,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStereoDownmix(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.CW(i)));
         this.stereoDownmix = i;
     }
 
@@ -259,7 +259,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setRepresentationType(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.CW(i)));
         this.representationType = i;
     }
 
@@ -269,7 +269,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setChannelLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.CW(i)));
         this.channelLayout = i;
     }
 
@@ -279,7 +279,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setMultiAssetFlag(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.CW(i)));
         this.multiAssetFlag = i;
     }
 
@@ -289,7 +289,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setLBRDurationMod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.CW(i)));
         this.LBRDurationMod = i;
     }
 
@@ -299,7 +299,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.CW(i)));
         this.reserved = i;
     }
 
@@ -309,7 +309,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReservedBoxPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.CW(i)));
         this.reservedBoxPresent = i;
     }
 }

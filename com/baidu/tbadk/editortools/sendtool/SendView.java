@@ -12,18 +12,18 @@ import com.baidu.tieba.d;
 public class SendView extends TextView implements l {
     private EditorTools VN;
     private int VO;
-    private int bUK;
-    private boolean[] ckE;
-    private int[] ckF;
+    private int bUM;
+    private boolean[] ckG;
+    private int[] ckH;
     private int mType;
-    public static int ckG = 1;
+    public static int ckI = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.ckE = new boolean[]{false, false, false, false, false};
-        this.ckF = new int[]{0, 0};
-        this.bUK = 0;
+        this.ckG = new boolean[]{false, false, false, false, false};
+        this.ckH = new int[]{0, 0};
+        this.bUM = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(d.e.ds17), context.getResources().getDimensionPixelSize(d.e.ds28), context.getResources().getDimensionPixelSize(d.e.ds10), context.getResources().getDimensionPixelSize(d.e.ds28));
         setGravity(17);
@@ -46,67 +46,67 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.ckE[0] = false;
+                        this.ckG[0] = false;
                         break;
                     } else {
-                        this.ckE[0] = true;
+                        this.ckG[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.ckE[0] = false;
-                    this.ckE[1] = false;
-                    this.ckE[2] = false;
-                    this.ckE[3] = false;
-                    this.ckE[4] = false;
-                    this.ckF[0] = 0;
-                    this.ckF[1] = 0;
+                    this.ckG[0] = false;
+                    this.ckG[1] = false;
+                    this.ckG[2] = false;
+                    this.ckG[3] = false;
+                    this.ckG[4] = false;
+                    this.ckH[0] = 0;
+                    this.ckH[1] = 0;
                     break;
                 case 10:
-                    this.ckE[2] = true;
+                    this.ckG[2] = true;
                     break;
                 case 11:
-                    this.ckE[2] = false;
+                    this.ckG[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.cju != null) {
-                            if (aVar2.cju.getChosedFiles() != null) {
-                                this.ckF[0] = aVar2.cju.getChosedFiles().size();
+                        if (aVar2.cjw != null) {
+                            if (aVar2.cjw.getChosedFiles() != null) {
+                                this.ckH[0] = aVar2.cjw.getChosedFiles().size();
                             } else {
-                                this.ckF[0] = 0;
+                                this.ckH[0] = 0;
                             }
                         }
-                        if (this.ckF[0] > 0) {
-                            this.ckE[1] = true;
+                        if (this.ckH[0] > 0) {
+                            this.ckG[1] = true;
                             break;
                         } else {
-                            this.ckE[1] = false;
+                            this.ckG[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.ckF;
+                    int[] iArr = this.ckH;
                     iArr[0] = iArr[0] - 1;
-                    if (this.ckF[0] > 0) {
-                        this.ckE[1] = true;
+                    if (this.ckH[0] > 0) {
+                        this.ckG[1] = true;
                         break;
                     } else {
-                        this.ckE[1] = false;
+                        this.ckG[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.ckE[3] = true;
+                    this.ckG[3] = true;
                     break;
                 case 29:
-                    this.ckE[3] = false;
+                    this.ckG[3] = false;
                     break;
             }
-            jE(this.mType);
+            jD(this.mType);
         }
     }
 
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.bUK = i;
+        this.bUM = i;
         if (isEnabled()) {
             al.c(this, d.C0277d.cp_link_tip_a, 1, i);
         } else {
@@ -161,19 +161,19 @@ public class SendView extends TextView implements l {
         this.mType = i;
     }
 
-    public void jE(int i) {
+    public void jD(int i) {
         if (i == ALL) {
-            if (this.ckE[0] || this.ckE[1] || this.ckE[2] || this.ckE[3] || this.ckE[4]) {
+            if (this.ckG[0] || this.ckG[1] || this.ckG[2] || this.ckG[3] || this.ckG[4]) {
                 setEnabled(true);
-                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUK);
+                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUM);
                 return;
             }
             setEnabled(false);
             al.d(this, d.C0277d.cp_cont_e, 1);
-        } else if (i == ckG) {
-            if (this.ckE[1]) {
+        } else if (i == ckI) {
+            if (this.ckG[1]) {
                 setEnabled(true);
-                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUK);
+                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUM);
                 return;
             }
             setEnabled(false);

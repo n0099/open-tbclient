@@ -23,8 +23,8 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fsL = null;
-    private a iuA = null;
+    private BdListView fsx = null;
+    private a iuk = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,34 +36,34 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.official_account_push_activity);
-        aDC();
-        awm();
-        awl();
+        aDz();
+        awj();
+        awi();
     }
 
-    private void awl() {
+    private void awi() {
         if (!j.kY() && v.T(this.list)) {
-            caM();
+            caI();
         } else if (v.T(this.list)) {
-            bhs();
-        } else if (this.iuA == null) {
-            this.iuA = new a(getPageContext());
-            this.iuA.setData(this.list);
-            this.fsL.setAdapter((ListAdapter) this.iuA);
-            this.iuA.setSwitchStateChangeListener(this);
+            bhq();
+        } else if (this.iuk == null) {
+            this.iuk = new a(getPageContext());
+            this.iuk.setData(this.list);
+            this.fsx.setAdapter((ListAdapter) this.iuk);
+            this.iuk.setSwitchStateChangeListener(this);
         } else {
-            this.iuA.setData(this.list);
-            this.iuA.notifyDataSetChanged();
+            this.iuk.setData(this.list);
+            this.iuk.notifyDataSetChanged();
         }
     }
 
-    private void awm() {
+    private void awj() {
         this.mRootView = (ViewGroup) findViewById(d.g.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.j.offical_account_push_msg));
-        this.fsL = (BdListView) findViewById(d.g.list);
-        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds120)), NoDataViewFactory.d.hU(d.j.no_data_text), null);
+        this.fsx = (BdListView) findViewById(d.g.list);
+        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds120)), NoDataViewFactory.d.hT(d.j.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(d.g.no_network);
     }
@@ -77,24 +77,24 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aDC() {
+    private void aDz() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void bhs() {
-        this.fsL.setVisibility(8);
+    public void bhq() {
+        this.fsx.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.hU(d.j.no_data_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.hT(d.j.no_data_text));
         al.l(this.mRootView, d.C0277d.cp_bg_line_d);
     }
 
-    public void caM() {
-        this.fsL.setVisibility(8);
+    public void caI() {
+        this.fsx.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.hU(d.j.refresh_view_title_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.hT(d.j.refresh_view_title_text));
         al.l(this.mRootView, d.C0277d.cp_bg_line_d);
     }
 
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void d(boolean z, long j) {
-        if (this.list != null && this.iuA != null) {
+        if (this.list != null && this.iuk != null) {
             if (!j.kY()) {
-                this.iuA.notifyDataSetChanged();
+                this.iuk.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iuD = 1;
+                        this.list.get(i).iun = 1;
                     } else {
-                        this.list.get(i).iuD = 0;
+                        this.list.get(i).iun = 0;
                     }
                 }
             }
-            this.iuA.notifyDataSetChanged();
+            this.iuk.notifyDataSetChanged();
         }
     }
 

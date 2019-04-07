@@ -8,14 +8,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends e {
-    public SwanCoreVersion aSr;
+    public SwanCoreVersion aSu;
     public String mAppVersion = "";
-    public String aSs = "";
-    public String aSt = "";
-    public String aSu = "";
     public String aSv = "";
     public String aSw = "";
     public String aSx = "";
+    public String aSy = "";
+    public String aSz = "";
+    public String aSA = "";
 
     public void d(com.baidu.swan.apps.v.b.c cVar) {
         if (cVar == null) {
@@ -27,50 +27,50 @@ public class f extends e {
         }
         this.mAppId = cVar.mAppId;
         this.mSource = cVar.mFrom;
-        this.aSu = cVar.DC().getString("aiapp_extra_need_download", "");
-        this.aSv = cVar.axH;
-        this.aSx = cVar.axI;
+        this.aSx = cVar.DA().getString("aiapp_extra_need_download", "");
+        this.aSy = cVar.axK;
+        this.aSA = cVar.axL;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         try {
-            com.baidu.swan.apps.ae.b zb = com.baidu.swan.apps.w.e.Ec().zb();
-            String a = com.baidu.swan.apps.swancore.b.a(this.aSr, this.mFrom == "swangame" ? 1 : 0);
-            if (zb != null && zb.uB() != null) {
-                com.baidu.swan.apps.v.b.b uB = zb.uB();
+            com.baidu.swan.apps.ae.b za = com.baidu.swan.apps.w.e.Ea().za();
+            String a = com.baidu.swan.apps.swancore.b.a(this.aSu, this.mFrom == "swangame" ? 1 : 0);
+            if (za != null && za.uA() != null) {
+                com.baidu.swan.apps.v.b.b uA = za.uA();
                 if (TextUtils.isEmpty(this.mAppVersion)) {
-                    this.mAppVersion = zb.getVersion();
-                }
-                if (TextUtils.isEmpty(this.aSs)) {
-                    this.aSs = uB.aug;
-                }
-                if (uB.axQ != null) {
-                    this.aSu = uB.axQ.getString("aiapp_extra_need_download", "");
+                    this.mAppVersion = za.getVersion();
                 }
                 if (TextUtils.isEmpty(this.aSv)) {
-                    this.aSv = uB.axH;
+                    this.aSv = uA.auk;
                 }
-                if (TextUtils.isEmpty(this.axI) && !TextUtils.isEmpty(uB.axI)) {
-                    this.aSx = uB.axI;
+                if (uA.axT != null) {
+                    this.aSx = uA.axT.getString("aiapp_extra_need_download", "");
+                }
+                if (TextUtils.isEmpty(this.aSy)) {
+                    this.aSy = uA.axK;
+                }
+                if (TextUtils.isEmpty(this.axL) && !TextUtils.isEmpty(uA.axL)) {
+                    this.aSA = uA.axL;
                 }
             }
-            this.aSt = SwanAppNetworkUtils.Fd().type;
-            if (this.aSq == null) {
-                this.aSq = new JSONObject();
+            this.aSw = SwanAppNetworkUtils.Fb().type;
+            if (this.aSt == null) {
+                this.aSt = new JSONObject();
             }
-            this.aSq.put("swan", a);
-            this.aSq.put("appversion", this.mAppVersion);
-            this.aSq.put("thirdversion", this.aSs);
-            this.aSq.put("net", this.aSt);
-            this.aSq.put("needdown", this.aSu);
-            this.aSq.put("scheme", this.aSv);
-            this.aSq.put("page", this.aSx);
-            if (!TextUtils.isEmpty(this.aSw)) {
-                this.aSq.put("canceltime", this.aSw);
+            this.aSt.put("swan", a);
+            this.aSt.put("appversion", this.mAppVersion);
+            this.aSt.put("thirdversion", this.aSv);
+            this.aSt.put("net", this.aSw);
+            this.aSt.put("needdown", this.aSx);
+            this.aSt.put("scheme", this.aSy);
+            this.aSt.put("page", this.aSA);
+            if (!TextUtils.isEmpty(this.aSz)) {
+                this.aSt.put("canceltime", this.aSz);
             }
             if (DEBUG) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.aSq + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.aSt + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e) {
             if (DEBUG) {

@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class t {
-    private static t bJj;
-    private long bJe = 0;
-    private long bJf = 0;
-    private String bJg = "";
-    private String bJh = "";
-    private final long bJi = 120000;
+    private static t bJl;
+    private long bJg = 0;
+    private long bJh = 0;
+    private String bJi = "";
+    private String bJj = "";
+    private final long bJk = 120000;
 
-    public static t acy() {
-        if (bJj == null) {
+    public static t acv() {
+        if (bJl == null) {
             synchronized (t.class) {
-                if (bJj == null) {
-                    bJj = new t();
+                if (bJl == null) {
+                    bJl = new t();
                 }
             }
         }
-        return bJj;
+        return bJl;
     }
 
-    public String acz() {
+    public String acw() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.bJe > 120000) {
+        if (currentTimeMillis - this.bJg > 120000) {
             if (com.baidu.adp.lib.util.l.ln()) {
                 return "";
             }
-            this.bJe = currentTimeMillis;
-            this.bJg = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.bJg = currentTimeMillis;
+            this.bJi = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.bJg;
+        return this.bJi;
     }
 
-    public String mu(String str) {
+    public String mv(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.bJf > 120000) {
+        if (currentTimeMillis - this.bJh > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.ln()) {
                 return "";
             }
-            this.bJf = currentTimeMillis;
-            this.bJh = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.bJh;
+            this.bJh = currentTimeMillis;
+            this.bJj = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.bJj;
         }
-        return this.bJh;
+        return this.bJj;
     }
 }

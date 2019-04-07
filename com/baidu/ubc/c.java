@@ -21,195 +21,195 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private long boS;
-    private long boT;
-    private long boU;
-    private int boV;
-    private SparseArray<ArrayList> boW;
-    private HashMap<String, Long> boX;
-    private a jvZ;
-    private b jwa;
-    private e jwc;
+    private long boV;
+    private long boW;
+    private long boX;
+    private int boY;
+    private SparseArray<ArrayList> boZ;
+    private HashMap<String, Long> bpa;
+    private a jvP;
+    private b jvQ;
+    private e jvS;
     private Context mContext;
-    private m jwb = UBC.getUBCContext().aAd();
-    private List<j> boR = new ArrayList(20);
+    private m jvR = UBC.getUBCContext().aAa();
+    private List<j> boU = new ArrayList(20);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context) {
         this.mContext = context;
-        this.jvZ = new a(context);
-        this.jwa = new b(context);
-        r csj = r.csj();
-        this.boS = csj.getLong("ubc_last_upload_all_time", 0L);
-        this.boT = csj.getLong("ubc_last_upload_non_real", 0L);
-        this.boU = csj.getLong("ubc_reset_real_time_count_time", 0L);
-        this.boV = csj.getInt("ubc_real_time_count", 0);
-        this.jwc = e.crY();
-        this.jwc.a(this, context);
+        this.jvP = new a(context);
+        this.jvQ = new b(context);
+        r csh = r.csh();
+        this.boV = csh.getLong("ubc_last_upload_all_time", 0L);
+        this.boW = csh.getLong("ubc_last_upload_non_real", 0L);
+        this.boX = csh.getLong("ubc_reset_real_time_count_time", 0L);
+        this.boY = csh.getInt("ubc_real_time_count", 0);
+        this.jvS = e.crW();
+        this.jvS.a(this, context);
     }
 
-    private void SM() {
-        if (this.boW == null) {
-            this.boW = new SparseArray<>();
-            this.jvZ.a(this.boW);
-            this.boX = new HashMap<>();
+    private void SK() {
+        if (this.boZ == null) {
+            this.boZ = new SparseArray<>();
+            this.jvP.a(this.boZ);
+            this.bpa = new HashMap<>();
             int i = 0;
-            for (int i2 = 0; i2 < this.boW.size(); i2++) {
-                int keyAt = this.boW.keyAt(i2);
+            for (int i2 = 0; i2 < this.boZ.size(); i2++) {
+                int keyAt = this.boZ.keyAt(i2);
                 if (keyAt != 0 && i == 0) {
                     i = keyAt;
                 }
-                this.boX.put("ubc_last_upload_time_level_" + keyAt, 0L);
+                this.bpa.put("ubc_last_upload_time_level_" + keyAt, 0L);
             }
-            this.jwc.fo(i);
+            this.jvS.fn(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(j jVar) {
         boolean z = false;
-        if (TextUtils.equals(jVar.getId(), jVar.Tc()) && this.jwc.jH(jVar.getId()) && (jVar.getOption() & 64) == 0) {
+        if (TextUtils.equals(jVar.getId(), jVar.Ta()) && this.jvS.jI(jVar.getId()) && (jVar.getOption() & 64) == 0) {
             z = true;
         }
         if (z && !c(jVar)) {
-            this.jvZ.a(jVar);
-        } else if (Math.abs(System.currentTimeMillis() - this.boT) >= e.crY().SX()) {
+            this.jvP.a(jVar);
+        } else if (Math.abs(System.currentTimeMillis() - this.boW) >= e.crW().SV()) {
             if (!z) {
-                this.boR.add(jVar);
+                this.boU.add(jVar);
             }
-            SR();
+            SP();
         } else if ((jVar.getOption() & 1) == 0) {
             if (!z) {
-                this.boR.add(jVar);
+                this.boU.add(jVar);
             }
-            if (this.boR.size() >= 20) {
-                SN();
+            if (this.boU.size() >= 20) {
+                SL();
             }
         } else if (!z) {
-            this.jvZ.a(jVar);
+            this.jvP.a(jVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(j jVar) {
-        this.jwa.a(jVar, this.jwc.jH(jVar.getId()));
+        this.jvQ.a(jVar, this.jvS.jI(jVar.getId()));
     }
 
-    private void SN() {
-        if (this.boR != null && this.boR.size() != 0) {
-            this.jvZ.G(this.boR);
-            this.boR.clear();
+    private void SL() {
+        if (this.boU != null && this.boU.size() != 0) {
+            this.jvP.G(this.boU);
+            this.boU.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(k kVar) {
-        this.jvZ.a(kVar);
+        this.jvP.a(kVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(String str, int i, String str2) {
-        this.jvZ.c(str, i, str2);
+        this.jvP.c(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        SN();
-        this.jvZ.a(str, i, j, jSONArray);
-        if (this.jwc.jH(str)) {
-            SO();
+        SL();
+        this.jvP.a(str, i, j, jSONArray);
+        if (this.jvS.jI(str)) {
+            SM();
         }
-        if (Math.abs(System.currentTimeMillis() - this.boT) >= e.crY().SX()) {
-            SR();
+        if (Math.abs(System.currentTimeMillis() - this.boW) >= e.crW().SV()) {
+            SP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void y(String str, int i) {
-        SN();
-        this.jvZ.y(str, i);
-        if (Math.abs(System.currentTimeMillis() - this.boT) >= e.crY().SX()) {
-            SR();
+        SL();
+        this.jvP.y(str, i);
+        if (Math.abs(System.currentTimeMillis() - this.boW) >= e.crW().SV()) {
+            SP();
         }
     }
 
     private boolean c(j jVar) {
-        if (cD(this.mContext) && SP()) {
-            SN();
+        if (cD(this.mContext) && SN()) {
+            SL();
             s sVar = new s();
             sVar.cW(true);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("id", jVar.getId());
                 jSONObject.put("timestamp", Long.toString(jVar.getTime()));
-                if (jVar.Tf() != null) {
-                    jSONObject.put("content", jVar.Tf().toString());
+                if (jVar.Td() != null) {
+                    jSONObject.put("content", jVar.Td().toString());
                 } else {
                     jSONObject.put("content", jVar.getContent());
                 }
                 jSONObject.put("type", "0");
-                if (!TextUtils.isEmpty(jVar.Te())) {
-                    jSONObject.put(ImageViewerConfig.ABTEST, jVar.Te());
-                    sVar.jV("1");
+                if (!TextUtils.isEmpty(jVar.Tc())) {
+                    jSONObject.put(ImageViewerConfig.ABTEST, jVar.Tc());
+                    sVar.jW("1");
                 }
                 if (!TextUtils.isEmpty(jVar.getCategory())) {
                     jSONObject.put("c", jVar.getCategory());
                 }
-                if (jVar.Ta()) {
+                if (jVar.SY()) {
                     jSONObject.put("of", "1");
                 }
-                jSONObject.put("idtype", this.jwc.jN(jVar.getId()));
+                jSONObject.put("idtype", this.jvS.jO(jVar.getId()));
                 sVar.aI(jSONObject);
                 sVar.g(jVar.getTime(), jVar.getTime());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (this.boW == null) {
-                SM();
+            if (this.boZ == null) {
+                SK();
             }
-            if (this.boW.size() > 0) {
-                this.jvZ.a(this.boW.valueAt(0), sVar);
+            if (this.boZ.size() > 0) {
+                this.jvP.a(this.boZ.valueAt(0), sVar);
             }
             c(sVar);
-            SQ();
+            SO();
             return true;
         }
         return false;
     }
 
-    private void SO() {
-        if (cD(this.mContext) && SP()) {
+    private void SM() {
+        if (cD(this.mContext) && SN()) {
             s sVar = new s();
             sVar.cW(true);
-            if (this.boW == null) {
-                SM();
+            if (this.boZ == null) {
+                SK();
             }
-            if (this.boW.size() > 0) {
-                if (UBC.getUBCContext().Fq()) {
-                    this.jvZ.a(sVar);
+            if (this.boZ.size() > 0) {
+                if (UBC.getUBCContext().Fo()) {
+                    this.jvP.a(sVar);
                 } else {
-                    this.jvZ.a(this.boW.valueAt(0), sVar);
+                    this.jvP.a(this.boZ.valueAt(0), sVar);
                 }
             }
             c(sVar);
-            SQ();
+            SO();
         }
     }
 
-    private boolean SP() {
-        if (UBC.getUBCContext().Fq()) {
+    private boolean SN() {
+        if (UBC.getUBCContext().Fo()) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (Math.abs(currentTimeMillis - this.boU) > 86400000) {
-            this.boV = 0;
-            this.boU = currentTimeMillis;
-            r.csj().putLong("ubc_reset_real_time_count_time", this.boU);
-            r.csj().putInt("ubc_real_time_count", this.boV);
+        if (Math.abs(currentTimeMillis - this.boX) > 86400000) {
+            this.boY = 0;
+            this.boX = currentTimeMillis;
+            r.csh().putLong("ubc_reset_real_time_count_time", this.boX);
+            r.csh().putInt("ubc_real_time_count", this.boY);
         }
-        if (this.boV >= 1000) {
-            if (this.boV == 1000) {
-                this.boV++;
+        if (this.boY >= 1000) {
+            if (this.boY == 1000) {
+                this.boY++;
                 UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "realLimit");
             }
             return false;
@@ -217,44 +217,44 @@ public class c {
         return true;
     }
 
-    private void SQ() {
-        this.boV++;
-        r.csj().putInt("ubc_real_time_count", this.boV);
+    private void SO() {
+        this.boY++;
+        r.csh().putInt("ubc_real_time_count", this.boY);
     }
 
-    private void SR() {
+    private void SP() {
         if (cD(this.mContext)) {
-            this.boT = System.currentTimeMillis();
-            r.csj().putLong("ubc_last_upload_non_real", this.boT);
-            ST();
-            SN();
-            this.jvZ.SI();
+            this.boW = System.currentTimeMillis();
+            r.csh().putLong("ubc_last_upload_non_real", this.boW);
+            SR();
+            SL();
+            this.jvP.SG();
             HashSet hashSet = new HashSet();
-            if (this.boW == null) {
-                SM();
+            if (this.boZ == null) {
+                SK();
             }
             s sVar = new s();
             sVar.cW(false);
             int i = 0;
-            for (int i2 = 0; i2 < this.boW.size(); i2++) {
-                int keyAt = this.boW.keyAt(i2);
+            for (int i2 = 0; i2 < this.boZ.size(); i2++) {
+                int keyAt = this.boZ.keyAt(i2);
                 if (keyAt != 0) {
-                    long longValue = this.boX.get("ubc_last_upload_time_level_" + keyAt).longValue();
-                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.jwc.SX()) {
-                        i |= this.jvZ.a(this.boW.valueAt(i2), sVar);
-                        this.boX.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                    long longValue = this.bpa.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.jvS.SV()) {
+                        i |= this.jvP.a(this.boZ.valueAt(i2), sVar);
+                        this.bpa.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
                         hashSet.add(Integer.valueOf(keyAt));
                     }
                 }
             }
             if (i != 0) {
-                for (int i3 = 0; i3 < this.boW.size(); i3++) {
-                    int keyAt2 = this.boW.keyAt(i3);
+                for (int i3 = 0; i3 < this.boZ.size(); i3++) {
+                    int keyAt2 = this.boZ.keyAt(i3);
                     if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
-                        if (sVar.fs(51200)) {
+                        if (sVar.fr(51200)) {
                             break;
                         }
-                        this.jvZ.a(this.boW.valueAt(i3), sVar);
+                        this.jvP.a(this.boZ.valueAt(i3), sVar);
                     }
                 }
                 c(sVar);
@@ -263,42 +263,42 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void SS() {
-        if (cD(this.mContext) && Math.abs(System.currentTimeMillis() - this.boS) >= 3600000) {
-            this.jvZ.SI();
+    public void SQ() {
+        if (cD(this.mContext) && Math.abs(System.currentTimeMillis() - this.boV) >= 3600000) {
+            this.jvP.SG();
             s sVar = new s();
-            if (this.jvZ.a(sVar) != 0) {
+            if (this.jvP.a(sVar) != 0) {
                 s sVar2 = new s();
-                sVar2.g(sVar.Tz(), sVar.TA());
-                sVar2.jV(sVar.Ty());
+                sVar2.g(sVar.Tx(), sVar.Ty());
+                sVar2.jW(sVar.Tw());
                 sVar2.cW(true);
                 s sVar3 = new s();
-                sVar3.g(sVar.Tz(), sVar.TA());
-                sVar3.jV(sVar.Ty());
+                sVar3.g(sVar.Tx(), sVar.Ty());
+                sVar3.jW(sVar.Tw());
                 sVar3.cW(false);
-                SparseArray<Integer> Tv = sVar.Tv();
-                int size = Tv.size();
+                SparseArray<Integer> Tt = sVar.Tt();
+                int size = Tt.size();
                 for (int i = 0; i < size; i++) {
-                    if (this.jwc.jH(String.valueOf(Tv.valueAt(i).intValue()))) {
-                        sVar2.P(Tv.keyAt(i), Tv.valueAt(i).intValue());
+                    if (this.jvS.jI(String.valueOf(Tt.valueAt(i).intValue()))) {
+                        sVar2.P(Tt.keyAt(i), Tt.valueAt(i).intValue());
                     } else {
-                        sVar3.P(Tv.keyAt(i), Tv.valueAt(i).intValue());
+                        sVar3.P(Tt.keyAt(i), Tt.valueAt(i).intValue());
                     }
                 }
-                ArrayList Tw = sVar.Tw();
-                int size2 = Tw.size();
+                ArrayList Tu = sVar.Tu();
+                int size2 = Tu.size();
                 for (int i2 = 0; i2 < size2; i2++) {
-                    String str = (String) Tw.get(i2);
-                    if (this.jwc.jH(str)) {
-                        sVar2.jU(str);
+                    String str = (String) Tu.get(i2);
+                    if (this.jvS.jI(str)) {
+                        sVar2.jV(str);
                     } else {
-                        sVar3.jU(str);
+                        sVar3.jV(str);
                     }
                 }
-                JSONArray TB = sVar.TB();
-                int length = TB.length();
+                JSONArray Tz = sVar.Tz();
+                int length = Tz.length();
                 for (int i3 = 0; i3 < length; i3++) {
-                    JSONObject optJSONObject = TB.optJSONObject(i3);
+                    JSONObject optJSONObject = Tz.optJSONObject(i3);
                     if (optJSONObject.has("id")) {
                         String str2 = null;
                         try {
@@ -307,7 +307,7 @@ public class c {
                             e.printStackTrace();
                         }
                         if (!TextUtils.isEmpty(str2)) {
-                            if (this.jwc.jH(str2)) {
+                            if (this.jvS.jI(str2)) {
                                 sVar2.aI(optJSONObject);
                             } else {
                                 sVar3.aI(optJSONObject);
@@ -315,49 +315,49 @@ public class c {
                         }
                     }
                 }
-                if (sVar2.TB().length() > 0) {
+                if (sVar2.Tz().length() > 0) {
                     c(sVar2);
                 }
-                if (sVar3.TB().length() > 0) {
+                if (sVar3.Tz().length() > 0) {
                     c(sVar3);
                 }
-                this.boS = System.currentTimeMillis();
-                r.csj().putLong("ubc_last_upload_all_time", this.boS);
-                this.boT = this.boS;
-                r.csj().putLong("ubc_last_upload_non_real", this.boT);
+                this.boV = System.currentTimeMillis();
+                r.csh().putLong("ubc_last_upload_all_time", this.boV);
+                this.boW = this.boV;
+                r.csh().putLong("ubc_last_upload_non_real", this.boW);
             }
         }
     }
 
     private void c(s sVar) {
         if (!sVar.isEmpty()) {
-            JSONObject csl = sVar.csl();
-            String md5 = com.baidu.f.c.toMd5(csl.toString().getBytes(), true);
-            bk(csl.toString(), md5);
-            if (!this.jvZ.a(sVar.Tv(), sVar.Tw(), sVar.TC(), md5)) {
+            JSONObject csj = sVar.csj();
+            String md5 = com.baidu.f.c.toMd5(csj.toString().getBytes(), true);
+            bk(csj.toString(), md5);
+            if (!this.jvP.a(sVar.Tt(), sVar.Tu(), sVar.TA(), md5)) {
                 sVar.clearData();
                 File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", md5);
                 if (file.exists() && file.delete()) {
                     Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
                 }
-                this.jvZ.jD(md5);
+                this.jvP.jE(md5);
                 return;
             }
-            d.crX().n(csl, md5);
+            d.crV().n(csj, md5);
             sVar.clearData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void n(JSONObject jSONObject, String str) {
-        if (this.jwb.a("https://mbd.baidu.com", jSONObject, false)) {
-            d.crX().G(str, true);
+        if (this.jvR.a("https://mbd.baidu.com", jSONObject, false)) {
+            d.crV().G(str, true);
         } else {
-            d.crX().G(str, false);
+            d.crV().G(str, false);
         }
     }
 
-    private void ST() {
+    private void SR() {
         cU(true);
         cU(false);
     }
@@ -365,51 +365,51 @@ public class c {
     private void cU(boolean z) {
         s sVar = new s();
         sVar.cW(z);
-        if (this.jwa.a(sVar, z)) {
-            JSONObject csl = sVar.csl();
-            this.jwa.cT(z);
-            d.crX().bH(csl);
+        if (this.jvQ.a(sVar, z)) {
+            JSONObject csj = sVar.csj();
+            this.jvQ.cT(z);
+            d.crV().bH(csj);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bH(JSONObject jSONObject) {
-        if (!this.jwb.a("http://m.baidu.com", jSONObject, false)) {
+        if (!this.jvR.a("http://m.baidu.com", jSONObject, false)) {
             UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "sendFail");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a crW() {
-        return this.jvZ;
+    public a crU() {
+        return this.jvP;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(n nVar) {
-        this.jwc.ev(nVar.csh());
-        this.jwc.BE(nVar.csg() * 86400000);
-        this.jwc.BF(nVar.getThreshold());
-        r.csj().putString("ubc_version_md5", nVar.csf());
-        this.jvZ.eu(nVar.csh());
-        nVar.csh().clear();
-        if (this.boW == null) {
-            this.boW = new SparseArray<>();
+        this.jvS.es(nVar.csf());
+        this.jvS.BA(nVar.cse() * 86400000);
+        this.jvS.BB(nVar.getThreshold());
+        r.csh().putString("ubc_version_md5", nVar.csd());
+        this.jvP.er(nVar.csf());
+        nVar.csf().clear();
+        if (this.boZ == null) {
+            this.boZ = new SparseArray<>();
         }
-        this.boW.clear();
-        if (this.boX == null) {
-            this.boX = new HashMap<>();
+        this.boZ.clear();
+        if (this.bpa == null) {
+            this.bpa = new HashMap<>();
         }
-        this.boX.clear();
-        this.jvZ.a(this.boW);
+        this.bpa.clear();
+        this.jvP.a(this.boZ);
         int i = 0;
-        for (int i2 = 0; i2 < this.boW.size(); i2++) {
-            int keyAt = this.boW.keyAt(i2);
+        for (int i2 = 0; i2 < this.boZ.size(); i2++) {
+            int keyAt = this.boZ.keyAt(i2);
             if (keyAt != 0 && i == 0) {
                 i = keyAt;
             }
-            this.boX.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            this.bpa.put("ubc_last_upload_time_level_" + keyAt, 0L);
         }
-        this.jwc.fo(i);
+        this.jvS.fn(i);
     }
 
     private boolean cD(Context context) {
@@ -452,7 +452,7 @@ public class c {
             outputStream = new Base64OutputStream(fileOutputStream, 0);
             outputStream.write(str.getBytes());
             outputStream.flush();
-            o.jT("save to file suc");
+            o.jU("save to file suc");
             if (outputStream != null) {
                 try {
                     outputStream.close();
@@ -486,24 +486,24 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jF(String str) {
+    public void jG(String str) {
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", str);
-        o.jT("delete file");
+        o.jU("delete file");
         if (file.exists() && file.delete()) {
             Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
-            o.jT("delete file suc");
+            o.jU("delete file suc");
         }
-        this.jvZ.jD(str);
+        this.jvP.jE(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void jG(String str) {
-        o.jT("upload file fail");
-        this.jvZ.jE(str);
+    public void jH(String str) {
+        o.jU("upload file fail");
+        this.jvP.jF(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void SV() {
-        this.jvZ.SJ();
+    public void ST() {
+        this.jvP.SH();
     }
 }

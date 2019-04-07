@@ -9,7 +9,6 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.swan.apps.an.n;
 import com.baidu.swan.apps.setting.oauth.c;
 import com.baidu.swan.apps.u.b.f;
-import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes4.dex */
 public class a implements f {
     @Override // com.baidu.swan.apps.u.b.f
@@ -19,7 +18,7 @@ public class a implements f {
             Bundle bundle = new Bundle();
             bundle.putString("openSource", "aiapp");
             bundle.putString("appId", str);
-            bundle.putString(WBConstants.SSO_APP_KEY, str2);
+            bundle.putString("appKey", str2);
             bundle.putString("pkgName", c.getAppContext().getPackageName());
             bundle.putString("keyHash", c.getKeyHash());
             Intent intent = new Intent(context, DeliveryListActivity.class);
@@ -29,11 +28,11 @@ public class a implements f {
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                     public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                         if (i == -1) {
-                            bVar.w(n.dk(intent2.getStringExtra("data")));
+                            bVar.w(n.dm(intent2.getStringExtra("data")));
                         } else if (i == 0) {
-                            bVar.bP(1);
+                            bVar.bO(1);
                         } else {
-                            bVar.bP(0);
+                            bVar.bO(0);
                         }
                         return true;
                     }

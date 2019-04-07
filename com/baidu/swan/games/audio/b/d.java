@@ -4,15 +4,15 @@ import android.media.SoundPool;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class d extends SoundPool implements SoundPool.OnLoadCompleteListener {
-    private int baA;
-    private ConcurrentHashMap<String, Integer> bay;
-    private ConcurrentHashMap<Integer, c> baz;
+    private ConcurrentHashMap<String, Integer> baB;
+    private ConcurrentHashMap<Integer, c> baC;
+    private int baD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d() {
         super(10, 3, 0);
-        this.bay = new ConcurrentHashMap<>();
-        this.baz = new ConcurrentHashMap<>();
+        this.baB = new ConcurrentHashMap<>();
+        this.baC = new ConcurrentHashMap<>();
         setOnLoadCompleteListener(this);
     }
 
@@ -22,40 +22,40 @@ public class d extends SoundPool implements SoundPool.OnLoadCompleteListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ib(String str) {
-        return this.bay.containsKey(str);
+    public boolean ic(String str) {
+        return this.baB.containsKey(str);
     }
 
     private void J(String str, int i) {
-        this.bay.put(str, Integer.valueOf(i));
+        this.baB.put(str, Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ic(String str) {
-        return this.bay.get(str).intValue();
+    public int ie(String str) {
+        return this.baB.get(str).intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, c cVar) {
-        this.baz.put(Integer.valueOf(i), cVar);
+        this.baC.put(Integer.valueOf(i), cVar);
     }
 
-    public boolean Ny() {
-        return 200 <= this.baA;
+    public boolean Nw() {
+        return 200 <= this.baD;
     }
 
     @Override // android.media.SoundPool.OnLoadCompleteListener
     public void onLoadComplete(SoundPool soundPool, int i, int i2) {
-        c remove = this.baz.remove(Integer.valueOf(i));
+        c remove = this.baC.remove(Integer.valueOf(i));
         if (remove != null) {
             if (i2 == 0) {
-                J(remove.Nx(), i);
+                J(remove.Nv(), i);
                 if (!remove.isPaused()) {
                     remove.play();
                 }
-                int Nw = remove.Nw();
-                if (this.baA < Nw) {
-                    this.baA = Nw;
+                int Nu = remove.Nu();
+                if (this.baD < Nu) {
+                    this.baD = Nu;
                     return;
                 }
                 return;

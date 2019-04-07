@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cDV()) {
+                synchronized (aVar.cDK()) {
                     aVar.println(sb.toString());
                 }
                 return;
@@ -153,7 +153,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object cDV();
+        abstract Object cDK();
 
         abstract void println(Object obj);
 
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream jVx;
+        private final PrintStream jUP;
 
         b(PrintStream printStream) {
-            this.jVx = printStream;
+            this.jUP = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cDV() {
-            return this.jVx;
+        Object cDK() {
+            return this.jUP;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.jVx.println(obj);
+            this.jUP.println(obj);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c extends a {
-        private final PrintWriter jVy;
+        private final PrintWriter jUQ;
 
         c(PrintWriter printWriter) {
-            this.jVy = printWriter;
+            this.jUQ = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cDV() {
-            return this.jVy;
+        Object cDK() {
+            return this.jUQ;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.jVy.println(obj);
+            this.jUQ.println(obj);
         }
     }
 

@@ -12,6 +12,7 @@ import com.baidu.android.pushservice.j.j;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
+import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -293,7 +294,7 @@ public class e extends b {
 
     public static boolean f(Context context) {
         try {
-            Class.forName("com.coloros.mcssdk.a");
+            Class.forName("com.coloros.mcssdk.PushManager");
             if (a(context).b() == 8) {
                 return PushSettings.m(context);
             }
@@ -344,7 +345,7 @@ public class e extends b {
 
     private static boolean i(Context context) {
         try {
-            return com.coloros.mcssdk.a.eI(context);
+            return PushManager.isSupportPush(context);
         } catch (Exception e2) {
             return false;
         }

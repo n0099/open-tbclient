@@ -6,18 +6,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String caB;
-    private String caC;
+    private String caA;
     private String caD;
     private String caE;
     private String caF;
     private String caG;
-    private String cav;
-    private String caw;
+    private String caH;
+    private String caI;
     private String cax;
     private String cay;
-    private int cad = 0;
-    private int cae = 0;
+    private String caz;
     private int caf = 0;
     private int cag = 0;
     private int cah = 0;
@@ -32,18 +30,20 @@ public class e {
     private int caq = 0;
     private int car = 0;
     private int cas = 0;
-    private boolean cat = true;
-    private boolean cau = true;
-    private HashMap<String, String> caz = new HashMap<>();
-    private HashMap<String, String> caA = new HashMap<>();
-    private List<a> caH = new ArrayList();
+    private int cat = 0;
+    private int cau = 0;
+    private boolean cav = true;
+    private boolean caw = true;
+    private HashMap<String, String> caB = new HashMap<>();
+    private HashMap<String, String> caC = new HashMap<>();
+    private List<a> caJ = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String caI;
-        public String caJ;
-        public int caK;
+        public String caK;
         public String caL;
+        public int caM;
+        public String caN;
         public String content;
         public String gid;
         public String title;
@@ -51,219 +51,219 @@ public class e {
         public int userType;
     }
 
-    public void aiW() {
-        HashMap<String, String> ajm = ajm();
-        Set<String> keySet = ajm.keySet();
+    public void aiT() {
+        HashMap<String, String> ajj = ajj();
+        Set<String> keySet = ajj.keySet();
         if (keySet.size() != 1) {
-            nP(null);
+            nQ(null);
         } else {
-            nP(ajm.get(keySet.iterator().next()));
+            nQ(ajj.get(keySet.iterator().next()));
         }
     }
 
-    public void aiX() {
-        HashMap<String, String> ajs = ajs();
-        Set<String> keySet = ajs.keySet();
+    public void aiU() {
+        HashMap<String, String> ajp = ajp();
+        Set<String> keySet = ajp.keySet();
         if (keySet.size() != 1) {
-            nV(null);
+            nW(null);
         } else {
-            nV(ajs.get(keySet.iterator().next()));
+            nW(ajp.get(keySet.iterator().next()));
         }
     }
 
-    public int aiY() {
-        return this.cad;
-    }
-
-    public void iG(int i) {
-        this.cad = i;
-    }
-
-    public int aiZ() {
-        return this.cag;
-    }
-
-    public void iH(int i) {
-        this.cag = i;
-    }
-
-    public int aja() {
-        return this.cah;
-    }
-
-    public int ajb() {
-        return this.caj;
-    }
-
-    public void iI(int i) {
-        this.caj = i;
-    }
-
-    public int ajc() {
-        return this.can;
-    }
-
-    public void iJ(int i) {
-        this.can = i;
-    }
-
-    public int ajd() {
-        return this.cam;
-    }
-
-    public void iK(int i) {
-        this.cam = i;
-    }
-
-    public int aje() {
-        return this.cad;
-    }
-
-    public int ajf() {
+    public int aiV() {
         return this.caf;
     }
 
-    public void iL(int i) {
+    public void iF(int i) {
         this.caf = i;
     }
 
-    public boolean ajg() {
-        return this.cat;
-    }
-
-    public void eo(boolean z) {
-        this.cat = z;
-    }
-
-    public String ajh() {
-        return this.cav;
-    }
-
-    public void nO(String str) {
-        this.cav = str;
-    }
-
-    public String aji() {
-        return this.caB;
-    }
-
-    public void nP(String str) {
-        this.caB = str;
-    }
-
-    public void nQ(String str) {
-        this.caC = str;
-    }
-
-    public int ajj() {
-        return this.cae;
-    }
-
-    public void iM(int i) {
-        this.cae = i;
-    }
-
-    public void nR(String str) {
-        this.caD = str;
-    }
-
-    public String ajk() {
-        return this.caF;
-    }
-
-    public String ajl() {
-        return this.caG;
-    }
-
-    public HashMap<String, String> ajm() {
-        return this.caz;
-    }
-
-    public int ajn() {
+    public int aiW() {
         return this.cai;
     }
 
-    public void iN(int i) {
+    public void iG(int i) {
         this.cai = i;
     }
 
-    public int ajo() {
-        return this.cak;
+    public int aiX() {
+        return this.caj;
     }
 
-    public void iO(int i) {
-        this.cak = i;
-    }
-
-    public int ajp() {
-        return this.cao;
-    }
-
-    public void iP(int i) {
-        this.cao = i;
-    }
-
-    public void nS(String str) {
-        this.caw = str;
-    }
-
-    public void nT(String str) {
-        this.cax = str;
-    }
-
-    public int ajq() {
+    public int aiY() {
         return this.cal;
     }
 
-    public void iQ(int i) {
+    public void iH(int i) {
         this.cal = i;
     }
 
-    public String ajr() {
-        return this.cay;
+    public int aiZ() {
+        return this.cap;
     }
 
-    public void nU(String str) {
-        this.cay = str;
+    public void iI(int i) {
+        this.cap = i;
     }
 
-    public HashMap<String, String> ajs() {
-        return this.caA;
+    public int aja() {
+        return this.cao;
     }
 
-    public String ajt() {
-        return this.caE;
+    public void iJ(int i) {
+        this.cao = i;
     }
 
-    public void nV(String str) {
+    public int ajb() {
+        return this.caf;
+    }
+
+    public int ajc() {
+        return this.cah;
+    }
+
+    public void iK(int i) {
+        this.cah = i;
+    }
+
+    public boolean ajd() {
+        return this.cav;
+    }
+
+    public void eo(boolean z) {
+        this.cav = z;
+    }
+
+    public String aje() {
+        return this.cax;
+    }
+
+    public void nP(String str) {
+        this.cax = str;
+    }
+
+    public String ajf() {
+        return this.caD;
+    }
+
+    public void nQ(String str) {
+        this.caD = str;
+    }
+
+    public void nR(String str) {
         this.caE = str;
     }
 
-    public int aju() {
-        return this.caq;
+    public int ajg() {
+        return this.cag;
     }
 
-    public void iR(int i) {
-        this.caq = i;
+    public void iL(int i) {
+        this.cag = i;
     }
 
-    public int ajv() {
-        return this.car;
+    public void nS(String str) {
+        this.caF = str;
     }
 
-    public void iS(int i) {
-        this.car = i;
-    }
-
-    public List<a> ajw() {
+    public String ajh() {
         return this.caH;
     }
 
-    public int ajx() {
+    public String aji() {
+        return this.caI;
+    }
+
+    public HashMap<String, String> ajj() {
+        return this.caB;
+    }
+
+    public int ajk() {
+        return this.cak;
+    }
+
+    public void iM(int i) {
+        this.cak = i;
+    }
+
+    public int ajl() {
+        return this.cam;
+    }
+
+    public void iN(int i) {
+        this.cam = i;
+    }
+
+    public int ajm() {
+        return this.caq;
+    }
+
+    public void iO(int i) {
+        this.caq = i;
+    }
+
+    public void nT(String str) {
+        this.cay = str;
+    }
+
+    public void nU(String str) {
+        this.caz = str;
+    }
+
+    public int ajn() {
+        return this.can;
+    }
+
+    public void iP(int i) {
+        this.can = i;
+    }
+
+    public String ajo() {
+        return this.caA;
+    }
+
+    public void nV(String str) {
+        this.caA = str;
+    }
+
+    public HashMap<String, String> ajp() {
+        return this.caC;
+    }
+
+    public String ajq() {
+        return this.caG;
+    }
+
+    public void nW(String str) {
+        this.caG = str;
+    }
+
+    public int ajr() {
         return this.cas;
     }
 
-    public void iT(int i) {
+    public void iQ(int i) {
         this.cas = i;
+    }
+
+    public int ajs() {
+        return this.cat;
+    }
+
+    public void iR(int i) {
+        this.cat = i;
+    }
+
+    public List<a> ajt() {
+        return this.caJ;
+    }
+
+    public int aju() {
+        return this.cau;
+    }
+
+    public void iS(int i) {
+        this.cau = i;
     }
 }

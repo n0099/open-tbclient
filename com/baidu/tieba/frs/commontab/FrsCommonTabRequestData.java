@@ -16,12 +16,12 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int tabId;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> anY() {
+    public HashMap<String, Object> anV() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> anZ() {
+    public HashMap<String, String> anW() {
         return null;
     }
 

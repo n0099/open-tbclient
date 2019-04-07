@@ -7,7 +7,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes2.dex */
 public class b extends y {
     public b(j jVar) {
@@ -27,7 +26,7 @@ public class b extends y {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         boolean n;
         c.d("VideoPlayerAction", "handleSubAction subAction : " + str);
-        c.d("VideoPlayerAction", "params : " + c(unitedSchemeEntity, LegoListActivityConfig.PARAMS));
+        c.d("VideoPlayerAction", "params : " + c(unitedSchemeEntity, "params"));
         char c = 65535;
         switch (str.hashCode()) {
             case -546094626:
@@ -81,28 +80,28 @@ public class b extends y {
         }
         switch (c) {
             case 0:
-                n = com.baidu.swan.apps.u.a.CL().c(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().c(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 1:
-                n = com.baidu.swan.apps.u.a.CL().d(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().d(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 2:
-                n = com.baidu.swan.apps.u.a.CL().e(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().e(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 3:
-                n = com.baidu.swan.apps.u.a.CL().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().f(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 4:
-                n = com.baidu.swan.apps.u.a.CL().j(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().j(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 5:
-                n = com.baidu.swan.apps.u.a.CL().l(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().l(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 6:
-                n = com.baidu.swan.apps.u.a.CL().m(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().m(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             case 7:
-                n = com.baidu.swan.apps.u.a.CL().n(context, unitedSchemeEntity, callbackHandler, bVar);
+                n = com.baidu.swan.apps.u.a.CJ().n(context, unitedSchemeEntity, callbackHandler, bVar);
                 break;
             default:
                 n = false;

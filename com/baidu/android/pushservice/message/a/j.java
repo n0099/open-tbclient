@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.tencent.open.SocialConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -18,8 +17,8 @@ public final class j {
             if (!jSONObject.isNull("title")) {
                 publicMsg.mTitle = jSONObject.getString("title");
             }
-            if (!jSONObject.isNull(SocialConstants.PARAM_COMMENT)) {
-                publicMsg.mDescription = jSONObject.getString(SocialConstants.PARAM_COMMENT);
+            if (!jSONObject.isNull("description")) {
+                publicMsg.mDescription = jSONObject.getString("description");
             }
             if (!jSONObject.isNull("url")) {
                 publicMsg.mUrl = jSONObject.getString("url");

@@ -66,7 +66,7 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Jb().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
+            bVar.IZ().a((Activity) context, "mapp_i_delete_history", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: b */
@@ -90,23 +90,23 @@ public class b extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, final String str2) {
         c.i("history", "start remove history");
-        d.bn(str).b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.3
+        d.bj(str).b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: fa */
+            /* renamed from: fb */
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).a(rx.a.b.a.cDU()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
+        }).a(rx.a.b.a.cDJ()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: c */
             public void call(Boolean bool) {
-                com.baidu.swan.apps.ae.b IX;
-                com.baidu.swan.apps.process.messaging.client.a BR;
+                com.baidu.swan.apps.ae.b IV;
+                com.baidu.swan.apps.process.messaging.client.a BP;
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(str) && (IX = com.baidu.swan.apps.ae.b.IX()) != null && (BR = IX.BR()) != null) {
-                        BR.a(8, new SwanAppDeleteInfo(str));
+                    if (!TextUtils.isEmpty(str) && (IV = com.baidu.swan.apps.ae.b.IV()) != null && (BP = IV.BP()) != null) {
+                        BP.a(8, new SwanAppDeleteInfo(str));
                     }
                     c.i("history", "remove success");
                     if (b.DEBUG) {

@@ -24,10 +24,10 @@ public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ProtectionSystemSpecificHeaderBox.java", ProtectionSystemSpecificHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSystemId", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "", "", "", "[B"), 38);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setSystemId", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "[B", "systemId", "", "void"), 42);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getContent", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "", "", "", "[B"), 47);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setContent", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "[B", "content", "", "void"), 51);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getSystemId", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "", "", "", "[B"), 38);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setSystemId", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "[B", "systemId", "", "void"), 42);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getContent", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "", "", "", "[B"), 47);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setContent", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "[B", "content", "", "void"), 51);
     }
 
     static {

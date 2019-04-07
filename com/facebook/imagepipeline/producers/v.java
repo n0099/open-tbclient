@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class v extends y {
-    private static final String[] aAn = {"_id", "_data"};
+    private static final String[] aAq = {"_id", "_data"};
     private final ContentResolver mContentResolver;
 
     public v(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -25,16 +25,16 @@ public class v extends y {
     protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.d K;
         InputStream openContactPhotoInputStream;
-        Uri cAu = imageRequest.cAu();
-        if (!com.facebook.common.util.d.v(cAu)) {
-            return (!com.facebook.common.util.d.w(cAu) || (K = K(cAu)) == null) ? e(this.mContentResolver.openInputStream(cAu), -1) : K;
+        Uri cAn = imageRequest.cAn();
+        if (!com.facebook.common.util.d.v(cAn)) {
+            return (!com.facebook.common.util.d.w(cAn) || (K = K(cAn)) == null) ? e(this.mContentResolver.openInputStream(cAn), -1) : K;
         }
-        if (cAu.toString().endsWith("/photo")) {
-            openContactPhotoInputStream = this.mContentResolver.openInputStream(cAu);
+        if (cAn.toString().endsWith("/photo")) {
+            openContactPhotoInputStream = this.mContentResolver.openInputStream(cAn);
         } else {
-            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, cAu);
+            openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, cAn);
             if (openContactPhotoInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + cAu);
+                throw new IOException("Contact photo does not exist: " + cAn);
             }
         }
         return e(openContactPhotoInputStream, -1);
@@ -43,7 +43,7 @@ public class v extends y {
     @Nullable
     private com.facebook.imagepipeline.f.d K(Uri uri) throws IOException {
         com.facebook.imagepipeline.f.d dVar = null;
-        Cursor query = this.mContentResolver.query(uri, aAn, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, aAq, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {
@@ -68,7 +68,7 @@ public class v extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String czS() {
+    protected String czL() {
         return "LocalContentUriFetchProducer";
     }
 }

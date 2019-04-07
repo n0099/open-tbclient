@@ -23,16 +23,16 @@ public final class v {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aWp;
-        public final boolean aWq;
-        public final int aWr;
+        public final boolean aWs;
+        public final boolean aWt;
+        public final int aWu;
         public final String mPath;
 
         a(String str, boolean z, boolean z2, int i) {
             this.mPath = str;
-            this.aWp = z;
-            this.aWq = z2;
-            this.aWr = i;
+            this.aWs = z;
+            this.aWt = z2;
+            this.aWu = i;
         }
     }
 
@@ -42,7 +42,7 @@ public final class v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<a> Me() {
+    public static List<a> Mc() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
@@ -115,7 +115,7 @@ public final class v {
                                 }
                             } else if (aK(nextToken, nextToken2)) {
                                 hashSet.add(nextToken2);
-                                if (hD(nextToken2)) {
+                                if (hE(nextToken2)) {
                                     arrayList.add(new a(nextToken2, false, contains, i2));
                                     i2++;
                                 }
@@ -123,7 +123,7 @@ public final class v {
                         }
                     }
                     for (a aVar : hashMap.values()) {
-                        if (hD(aVar.mPath)) {
+                        if (hE(aVar.mPath)) {
                             arrayList.add(aVar);
                         }
                     }
@@ -196,7 +196,7 @@ public final class v {
         return arrayList;
     }
 
-    private static boolean hD(String str) {
+    private static boolean hE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
     private BdUniqueId Zr;
-    private a bKq;
-    private HttpMessageListener bKr = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.ai.1
+    private a bKs;
+    private HttpMessageListener bKt = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.ai.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,8 +23,8 @@ public class ai {
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.Zr;
-                if (ai.this.bKq != null) {
-                    ai.this.bKq.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                if (ai.this.bKs != null) {
+                    ai.this.bKs.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -39,12 +39,12 @@ public class ai {
     public ai(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.Zr = bdUniqueId;
-        this.bKr.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.bKr);
-        adg();
+        this.bKt.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.bKt);
+        add();
     }
 
-    private static void adg() {
+    private static void add() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -62,6 +62,6 @@ public class ai {
     }
 
     public void a(a aVar) {
-        this.bKq = aVar;
+        this.bKs = aVar;
     }
 }

@@ -502,7 +502,7 @@ public class LottieAnimationView extends AppCompatImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: r */
+            /* renamed from: q */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

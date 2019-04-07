@@ -12,6 +12,7 @@ public class PayConfig implements Serializable {
     public static final int PAYTYPE_TYPE_CARDBOX = 4;
     private static final long serialVersionUID = 1473520404420820966L;
     private int isAutoPay;
+    private int isFromDecreaseGiftStepStrategy;
     public String mClickZone;
     private int mFrom;
     private String mIsLeft;
@@ -35,6 +36,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -51,6 +53,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -79,6 +82,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.isFromDecreaseGiftStepStrategy = 0;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -185,5 +189,13 @@ public class PayConfig implements Serializable {
 
     public int getFrom() {
         return this.mFrom;
+    }
+
+    public int isFromDecreaseGiftStepStrategy() {
+        return this.isFromDecreaseGiftStepStrategy;
+    }
+
+    public void setFromDecreaseGiftStepStrategy(int i) {
+        this.isFromDecreaseGiftStepStrategy = i;
     }
 }

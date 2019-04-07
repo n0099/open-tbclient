@@ -15,14 +15,14 @@ public class d {
                 g.log("this page don't preload ");
                 return;
             }
-            g.log("video preload switch  " + e.adZ().isOpen() + " num " + e.adZ().aea() + " size " + e.adZ().getSize());
-            if (e.adZ().isOpen() && (adapter = pVar.getAdapter()) != null) {
+            g.log("video preload switch  " + e.adW().isOpen() + " num " + e.adW().adX() + " size " + e.adW().getSize());
+            if (e.adW().isOpen() && (adapter = pVar.getAdapter()) != null) {
                 boolean z = pVar.getFirstVisiblePosition() == 0;
                 int lastVisiblePosition = pVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 g.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.adZ().aea(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.adW().adX(); i++) {
                         g.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
@@ -35,7 +35,7 @@ public class d {
                     }
                     g.log("video preload  urls size   " + arrayList.size());
                     if (arrayList.size() > 0) {
-                        h.aeb().V(arrayList);
+                        h.adY().V(arrayList);
                     }
                 }
             }

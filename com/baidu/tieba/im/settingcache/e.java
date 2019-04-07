@@ -11,26 +11,26 @@ import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e gsP = new e();
+    private static e gsC = new e();
 
     private e() {
     }
 
-    public static e bwd() {
-        return gsP;
+    public static e bwa() {
+        return gsC;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: de */
-    public PersonalSettingItemData cZ(String str, String str2) {
+    /* renamed from: df */
+    public PersonalSettingItemData da(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.gsF) {
-            ChatSetting chatSetting = this.gsF.get(str3);
+        synchronized (this.gss) {
+            ChatSetting chatSetting = this.gss.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,22 +43,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void bsg() {
+    public void bsd() {
         super.s(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData cZ;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (cZ = cZ(str, str2)) != null) {
-            cZ.setToPortrait(userData.getPortrait());
-            cZ.setToName(userData.getUserName());
-            a(cZ);
+        PersonalSettingItemData da;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (da = da(str, str2)) != null) {
+            da.setToPortrait(userData.getPortrait());
+            da.setToName(userData.getUserName());
+            a(da);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> bvZ() {
-        return com.baidu.tbadk.core.c.a.aaW().lv("tb.im_personal_chat_setting");
+    protected l<String> bvW() {
+        return com.baidu.tbadk.core.c.a.aaT().lw("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> bvZ = bvZ();
+            l<String> bvW = bvW();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.gsF) {
-                this.gsF.put(str, personalSettingItemData);
+            synchronized (this.gss) {
+                this.gss.put(str, personalSettingItemData);
             }
-            bvZ.e(str, jsonStrWithObject);
+            bvW.e(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.gsF) {
-                this.gsF.put(str, personalSettingItemData);
+            synchronized (this.gss) {
+                this.gss.put(str, personalSettingItemData);
             }
             aa.b(new z<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.z
-                /* renamed from: awV */
+                /* renamed from: awS */
                 public Void doInBackground() {
-                    e.this.bvZ().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.bvW().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, kVar);

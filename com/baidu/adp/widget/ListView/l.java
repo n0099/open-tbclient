@@ -56,13 +56,13 @@ public class l {
             }
             this.PM.clear();
             float oW = f3 * this.PK.oW();
-            int aZ = aZ(i);
-            if (aZ >= 0) {
+            int aY = aY(i);
+            if (aY >= 0) {
                 if (f3 < 0.0f) {
                     float oX = this.PK.oX();
                     int i3 = 1;
                     while (true) {
-                        int i4 = aZ - i3;
+                        int i4 = aY - i3;
                         float f4 = oW + (i3 * oX);
                         float f5 = oX * 1.2f;
                         if (f4 > 0.0f) {
@@ -78,7 +78,7 @@ public class l {
                     }
                     float oX2 = this.PK.oX();
                     while (true) {
-                        int i5 = aZ + i2;
+                        int i5 = aY + i2;
                         float f6 = oW + (i2 * oX2);
                         float f7 = oX2 * 1.2f;
                         if (f6 <= 0.0f) {
@@ -97,7 +97,7 @@ public class l {
                     float oX3 = this.PK.oX();
                     int i6 = 1;
                     while (true) {
-                        int i7 = aZ - i6;
+                        int i7 = aY - i6;
                         float f8 = oW - (i6 * oX3);
                         float f9 = oX3 * 1.2f;
                         if (f8 < 0.0f) {
@@ -113,7 +113,7 @@ public class l {
                     }
                     float oX4 = this.PK.oX();
                     while (true) {
-                        int i8 = aZ + i2;
+                        int i8 = aY + i2;
                         float f10 = oW - (i2 * oX4);
                         float f11 = oX4 * 1.2f;
                         if (f10 >= 0.0f) {
@@ -133,9 +133,9 @@ public class l {
         }
     }
 
-    private int aZ(int i) {
+    private int aY(int i) {
         if (i > 0) {
-            m item = this.Qr.getItem(i);
+            m item = this.Qr.getItem(i - this.Qr.getHeaderViewsCount());
             if (item instanceof com.baidu.tieba.card.data.b) {
                 return ((com.baidu.tieba.card.data.b) item).position;
             }
@@ -144,21 +144,21 @@ public class l {
     }
 
     public void l(int i, int i2, int i3) {
-        int aZ;
-        int aZ2;
+        int aY;
+        int aY2;
         if (this.Qr != null && this.Qs != null && this.mScrollState == 1 && !this.PP) {
             int findFirstVisibleItemPosition = i3 - this.Qs.findFirstVisibleItemPosition();
-            int aZ3 = aZ(i3);
-            if (aZ3 >= 0) {
-                this.Qt.add(Integer.valueOf(aZ3));
+            int aY3 = aY(i3);
+            if (aY3 >= 0) {
+                this.Qt.add(Integer.valueOf(aY3));
                 int i4 = this.mOrientation == 2 ? i2 : i;
                 int childCount = this.Qr.getChildCount();
                 for (int i5 = findFirstVisibleItemPosition - 1; i5 >= 0; i5--) {
                     View childAt = this.Qr.getChildAt(i5);
                     int childAdapterPosition = this.Qr.getChildAdapterPosition(childAt);
-                    if (childAdapterPosition != -1 && (aZ2 = aZ(childAdapterPosition)) >= 0 && !this.Qt.contains(Integer.valueOf(aZ2))) {
-                        this.Qt.add(Integer.valueOf(aZ2));
-                        a(childAt, i4, childAdapterPosition, i3, aZ2);
+                    if (childAdapterPosition != -1 && (aY2 = aY(childAdapterPosition)) >= 0 && !this.Qt.contains(Integer.valueOf(aY2))) {
+                        this.Qt.add(Integer.valueOf(aY2));
+                        a(childAt, i4, childAdapterPosition, i3, aY2);
                     }
                 }
                 int i6 = findFirstVisibleItemPosition + 1;
@@ -167,9 +167,9 @@ public class l {
                     if (i7 <= childCount - 1) {
                         View childAt2 = this.Qr.getChildAt(i7);
                         int childAdapterPosition2 = this.Qr.getChildAdapterPosition(childAt2);
-                        if (childAdapterPosition2 != -1 && (aZ = aZ(childAdapterPosition2)) >= 0 && !this.Qt.contains(Integer.valueOf(aZ))) {
-                            this.Qt.add(Integer.valueOf(aZ));
-                            a(childAt2, i4, childAdapterPosition2, i3, aZ);
+                        if (childAdapterPosition2 != -1 && (aY = aY(childAdapterPosition2)) >= 0 && !this.Qt.contains(Integer.valueOf(aY))) {
+                            this.Qt.add(Integer.valueOf(aY));
+                            a(childAt2, i4, childAdapterPosition2, i3, aY);
                         }
                         i6 = i7 + 1;
                     } else {
@@ -217,9 +217,9 @@ public class l {
     }
 
     private void e(final View view, final int i) {
-        final int aZ;
-        if (view != null && (aZ = aZ(i)) >= 0) {
-            ValueAnimator valueAnimator = this.PQ.get(aZ);
+        final int aY;
+        if (view != null && (aY = aY(i)) >= 0) {
+            ValueAnimator valueAnimator = this.PQ.get(aY);
             if (valueAnimator == null) {
                 if (Math.abs(C(view)) < 0.1f) {
                     a(view, i, 0.0f);
@@ -241,16 +241,16 @@ public class l {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        l.this.PQ.delete(aZ);
-                        l.this.PR.delete(aZ);
-                        l.this.PM.delete(aZ);
+                        l.this.PQ.delete(aY);
+                        l.this.PR.delete(aY);
+                        l.this.PM.delete(aY);
                         l.this.a(view, i, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        l.this.PQ.delete(aZ);
-                        l.this.PR.delete(aZ);
+                        l.this.PQ.delete(aY);
+                        l.this.PR.delete(aY);
                         l.this.a(view, i, 0.0f);
                     }
 
@@ -258,8 +258,8 @@ public class l {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.PQ.append(aZ, ofFloat);
-                this.PR.append(aZ, (int) C(view));
+                this.PQ.append(aY, ofFloat);
+                this.PR.append(aY, (int) C(view));
                 ofFloat.start();
                 return;
             }
@@ -267,8 +267,8 @@ public class l {
                 valueAnimator.start();
             }
             float C = C(view);
-            if (Math.abs(C) > Math.abs(this.PR.get(aZ)) + this.PK.pd()) {
-                this.PR.append(aZ, (int) C);
+            if (Math.abs(C) > Math.abs(this.PR.get(aY)) + this.PK.pd()) {
+                this.PR.append(aY, (int) C);
                 valueAnimator.setFloatValues(C, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();
@@ -276,7 +276,7 @@ public class l {
         }
     }
 
-    public void aX(int i) {
+    public void aW(int i) {
         if (this.Qr != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
@@ -293,18 +293,18 @@ public class l {
 
     public void D(View view) {
         int childAdapterPosition;
-        int aZ;
+        int aY;
         float f;
         float f2;
-        if (this.Qr != null && this.Qs != null && this.mScrollState != 0 && (aZ = aZ((childAdapterPosition = this.Qr.getChildAdapterPosition(view)))) >= 0) {
+        if (this.Qr != null && this.Qs != null && this.mScrollState != 0 && (aY = aY((childAdapterPosition = this.Qr.getChildAdapterPosition(view)))) >= 0) {
             if (childAdapterPosition <= this.Qs.findFirstVisibleItemPosition()) {
                 float C = this.Qr.getChildAt(1) != null ? C(this.Qr.getChildAt(1)) : 0.0f;
-                int aZ2 = aZ(childAdapterPosition + 1);
-                if (aZ2 >= 0) {
-                    if (aZ2 == aZ) {
+                int aY2 = aY(childAdapterPosition + 1);
+                if (aY2 >= 0) {
+                    if (aY2 == aY) {
                         m(view, C);
                     } else {
-                        float f3 = -this.PM.get(aZ, 0);
+                        float f3 = -this.PM.get(aY, 0);
                         if (f3 != 0.0f) {
                             this.PN = f3;
                             f2 = f3;
@@ -318,12 +318,12 @@ public class l {
                 }
             } else {
                 float C2 = this.Qr.getChildAt(this.Qr.getChildCount() + (-2)) != null ? C(this.Qr.getChildAt(this.Qr.getChildCount() - 2)) : 0.0f;
-                int aZ3 = aZ(childAdapterPosition - 1);
-                if (aZ3 >= 0) {
-                    if (aZ3 == aZ) {
+                int aY3 = aY(childAdapterPosition - 1);
+                if (aY3 >= 0) {
+                    if (aY3 == aY) {
                         m(view, C2);
                     } else {
-                        float f4 = -this.PM.get(aZ, 0);
+                        float f4 = -this.PM.get(aY, 0);
                         if (f4 != 0.0f) {
                             this.PO = f4;
                             f = f4;
@@ -343,14 +343,14 @@ public class l {
     public void E(View view) {
         if (this.Qr != null) {
             m(view, 0.0f);
-            int aZ = aZ(this.Qr.getChildAdapterPosition(view));
-            if (aZ >= 0 && b(aZ, 0, true) == -1) {
-                this.PM.delete(aZ);
-                if (this.PQ.get(aZ) != null) {
-                    this.PQ.get(aZ).cancel();
+            int aY = aY(this.Qr.getChildAdapterPosition(view));
+            if (aY >= 0 && b(aY, 0, true) == -1) {
+                this.PM.delete(aY);
+                if (this.PQ.get(aY) != null) {
+                    this.PQ.get(aY).cancel();
                 }
-                this.PQ.delete(aZ);
-                this.PR.delete(aZ);
+                this.PQ.delete(aY);
+                this.PR.delete(aY);
             }
         }
     }
@@ -361,9 +361,9 @@ public class l {
         for (int i = 0; i < childCount; i++) {
             View childAt = this.Qr.getChildAt(i);
             int childAdapterPosition = this.Qr.getChildAdapterPosition(childAt);
-            int aZ = aZ(childAdapterPosition);
-            if (aZ >= 0 && !this.Qu.contains(Integer.valueOf(aZ))) {
-                this.Qu.add(Integer.valueOf(aZ));
+            int aY = aY(childAdapterPosition);
+            if (aY >= 0 && !this.Qu.contains(Integer.valueOf(aY))) {
+                this.Qu.add(Integer.valueOf(aY));
                 e(childAt, childAdapterPosition);
             }
         }
@@ -374,14 +374,14 @@ public class l {
             int count = this.Qr.getCount() - i2;
             for (int i3 = 1; i3 < count; i3++) {
                 int i4 = i2 + i3;
-                if (i == aZ(i4)) {
+                if (i == aY(i4)) {
                     return i4;
                 }
             }
         } else {
             for (int i5 = 1; i5 < i2; i5++) {
                 int i6 = i2 - i5;
-                if (i == aZ(i6)) {
+                if (i == aY(i6)) {
                     return i6;
                 }
             }

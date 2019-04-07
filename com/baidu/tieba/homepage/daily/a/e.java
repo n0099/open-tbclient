@@ -29,10 +29,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.b> aVar) {
-        if (eVar == null || aVar == null || aVar.aRi() == null) {
+        if (eVar == null || aVar == null || aVar.aRg() == null) {
             return null;
         }
-        aVar.aRi().a(eVar);
+        aVar.aRg().a(eVar);
         return aVar.getView();
     }
 }

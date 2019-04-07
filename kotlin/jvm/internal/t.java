@@ -5,7 +5,7 @@ public class t {
         return new r(cls, str);
     }
 
-    public kotlin.reflect.c G(Class cls) {
+    public kotlin.reflect.c F(Class cls) {
         return new m(cls);
     }
 

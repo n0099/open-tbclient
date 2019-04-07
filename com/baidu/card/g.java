@@ -35,7 +35,7 @@ public class g extends f {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Xy = aVar;
-        this.XC.w(aVar.WR());
+        this.XC.w(aVar.WO());
     }
 
     @Override // com.baidu.card.j

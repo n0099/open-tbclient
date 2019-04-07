@@ -47,22 +47,22 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         if (ab.cV(this.context.getPageActivity())) {
             this.VS = fVar;
             if (!m.hy()) {
-                String ace = m.ace();
-                if (ace == null) {
-                    ace = h.getString(d.j.voice_error_sdcard);
+                String acb = m.acb();
+                if (acb == null) {
+                    acb = h.getString(d.j.voice_error_sdcard);
                 }
-                this.VS.onShowErr(0, ace);
+                this.VS.onShowErr(0, acb);
                 return false;
             }
             stopPlay(true);
-            this.VT = com.baidu.tbadk.core.voice.a.afu();
-            String nu = com.baidu.tbadk.core.voice.a.nu(this.VT);
+            this.VT = com.baidu.tbadk.core.voice.a.afr();
+            String nv = com.baidu.tbadk.core.voice.a.nv(this.VT);
             if (this.VU == null) {
                 this.VU = new a();
             }
             com.baidu.audiorecorder.lib.voice.a.stop();
             releaseWakeLock();
-            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(nu, i, this.VU);
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(nv, i, this.VU);
             if (a2) {
                 this.VS.onStartedRecorder(true);
                 h.Ha = 2;
@@ -118,7 +118,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    final String str2 = com.baidu.tbadk.core.voice.a.b.nw(com.baidu.tbadk.core.voice.a.nv(str)).md5;
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.nx(com.baidu.tbadk.core.voice.a.nw(str)).md5;
                     if (e.this.mHandle != null) {
                         e.this.mHandle.removeCallbacks(e.this.VV);
                         if (StringUtils.isNull(str2)) {
@@ -204,14 +204,14 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         }
 
         @Override // com.baidu.adp.lib.voice.e
-        public void aF(int i) {
+        public void aE(int i) {
             if (e.this.VS != null) {
                 e.this.VS.onShowRecording(i);
             }
         }
 
         @Override // com.baidu.adp.lib.voice.g
-        public void aG(int i) {
+        public void aF(int i) {
             if (e.this.VS != null) {
                 e.this.VS.onShowRecordTime(i / 1000);
             }

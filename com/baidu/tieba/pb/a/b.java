@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    public static String bIM() {
+    public static String bIJ() {
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_xlarge);
@@ -21,7 +21,7 @@ public class b {
         return TbadkCoreApplication.getInst().getString(d.j.toast_font_size_small);
     }
 
-    public static void bIN() {
+    public static void bIK() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
@@ -35,10 +35,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.b(TbadkCoreApplication.getInst(), bIM(), d.f.icon_word_t_size, 0).abh();
+        BdToast.b(TbadkCoreApplication.getInst(), bIJ(), d.f.icon_word_t_size, 0).abe();
     }
 
-    public static void bIO() {
+    public static void bIL() {
         int i = 1;
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize == 0) {
@@ -52,10 +52,10 @@ public class b {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
-        BdToast.b(TbadkCoreApplication.getInst(), bIM(), d.f.icon_word_t_size, 0).abh();
+        BdToast.b(TbadkCoreApplication.getInst(), bIJ(), d.f.icon_word_t_size, 0).abe();
     }
 
-    public static void vY(int i) {
+    public static void vU(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));

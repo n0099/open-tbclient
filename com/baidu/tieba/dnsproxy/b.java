@@ -10,17 +10,17 @@ import java.io.IOException;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
-    private static b eyp = null;
+    private static b exZ = null;
 
-    public static final b aUX() {
-        if (eyp == null) {
+    public static final b aUV() {
+        if (exZ == null) {
             synchronized (b.class) {
-                if (eyp == null) {
-                    eyp = new b();
+                if (exZ == null) {
+                    exZ = new b();
                 }
             }
         }
-        return eyp;
+        return exZ;
     }
 
     private b() {
@@ -34,18 +34,18 @@ public class b {
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Void, Boolean> {
-        private static final BdUniqueId dgP = BdUniqueId.gen();
-        Process cgh;
-        private long eyq;
+        private static final BdUniqueId dgS = BdUniqueId.gen();
+        Process cgj;
+        private long eya;
         private String ip;
 
         private a(String str) {
-            this.cgh = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, dgP));
+            this.cgj = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, dgS));
             this.ip = str;
         }
 
-        private String akW() {
+        private String akT() {
             switch (j.netType()) {
                 case 1:
                     return "ping -c 3 -w 3000 ";
@@ -71,31 +71,31 @@ public class b {
             try {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.cgh = runtime.exec(akW() + this.ip);
-                    z = this.cgh.waitFor() == 0;
+                    this.cgj = runtime.exec(akT() + this.ip);
+                    z = this.cgj.waitFor() == 0;
                     try {
-                        this.eyq = System.currentTimeMillis() - currentTimeMillis;
+                        this.eya = System.currentTimeMillis() - currentTimeMillis;
                     } catch (IOException e3) {
                         e2 = e3;
                         BdLog.detailException(e2);
-                        d.aUY().cd("test_speed", e2.getMessage());
-                        this.cgh.destroy();
+                        d.aUW().cd("test_speed", e2.getMessage());
+                        this.cgj.destroy();
                         return Boolean.valueOf(z);
                     } catch (InterruptedException e4) {
                         e = e4;
                         BdLog.detailException(e);
-                        d.aUY().cd("test_speed", e.getMessage());
-                        this.cgh.destroy();
+                        d.aUW().cd("test_speed", e.getMessage());
+                        this.cgj.destroy();
                         return Boolean.valueOf(z);
                     } catch (Throwable th2) {
                         th = th2;
                         BdLog.detailException(th);
-                        d.aUY().cd("test_speed", th.getMessage());
-                        this.cgh.destroy();
+                        d.aUW().cd("test_speed", th.getMessage());
+                        this.cgj.destroy();
                         return Boolean.valueOf(z);
                     }
                 } finally {
-                    this.cgh.destroy();
+                    this.cgj.destroy();
                 }
             } catch (IOException e5) {
                 z = false;
@@ -114,14 +114,14 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.cgh != null) {
+            if (this.cgj != null) {
                 try {
-                    this.cgh.destroy();
+                    this.cgj.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            com.baidu.tieba.dnsproxy.a.d.aVm().c(this.ip, (int) this.eyq, false);
+            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eya, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,12 +129,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            com.baidu.tieba.dnsproxy.a.d.aVm().c(this.ip, (int) this.eyq, booleanValue);
+            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eya, booleanValue);
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_testspeed");
             statsItem.f("issuc", Boolean.valueOf(booleanValue));
             statsItem.append("ip", this.ip);
-            statsItem.f("speed", Integer.valueOf((int) this.eyq));
+            statsItem.f("speed", Integer.valueOf((int) this.eya));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
         }
     }

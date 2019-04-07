@@ -11,13 +11,13 @@ import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class VideoRecordButton extends FrameLayout {
     private TextView VM;
-    private View jeF;
-    private View jeG;
-    private View jeH;
-    private ObjectAnimator jeI;
-    private ObjectAnimator jeJ;
-    private ObjectAnimator jeK;
-    private ObjectAnimator jeL;
+    private View jet;
+    private View jeu;
+    private View jev;
+    private ObjectAnimator jew;
+    private ObjectAnimator jex;
+    private ObjectAnimator jey;
+    private ObjectAnimator jez;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), d.h.layout_record_button, this);
-        this.jeF = findViewById(d.g.record_layer1);
-        this.jeG = findViewById(d.g.record_layer2);
-        this.jeH = findViewById(d.g.record_layer3);
+        this.jet = findViewById(d.g.record_layer1);
+        this.jeu = findViewById(d.g.record_layer2);
+        this.jev = findViewById(d.g.record_layer3);
         this.VM = (TextView) findViewById(d.g.tv_tip);
-        this.jeH.setScaleX(0.766f);
-        this.jeH.setScaleY(0.766f);
+        this.jev.setScaleX(0.766f);
+        this.jev.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.jeH;
+        return this.jev;
     }
 
     public View getLayer1() {
-        return this.jeF;
+        return this.jet;
     }
 
     public View getLayer2() {
-        return this.jeG;
+        return this.jeu;
     }
 
     public TextView getTvTip() {
         return this.VM;
     }
 
-    public void cmh() {
-        if (this.jeL != null && this.jeL.isRunning()) {
-            this.jeK.cancel();
+    public void cmf() {
+        if (this.jez != null && this.jez.isRunning()) {
+            this.jey.cancel();
         }
-        if (this.jeK == null) {
-            this.jeK = ObjectAnimator.ofPropertyValuesHolder(this.jeG, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.jeK.setDuration(200L);
+        if (this.jey == null) {
+            this.jey = ObjectAnimator.ofPropertyValuesHolder(this.jeu, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.jey.setDuration(200L);
         }
-        this.jeK.start();
+        this.jey.start();
     }
 
-    public void cmi() {
-        if (this.jeK != null && this.jeK.isRunning()) {
-            this.jeK.cancel();
+    public void cmg() {
+        if (this.jey != null && this.jey.isRunning()) {
+            this.jey.cancel();
         }
-        if (this.jeG.getScaleX() != 1.0f) {
-            if (this.jeL == null) {
-                this.jeL = ObjectAnimator.ofPropertyValuesHolder(this.jeG, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.jeL.setDuration(200L);
+        if (this.jeu.getScaleX() != 1.0f) {
+            if (this.jez == null) {
+                this.jez = ObjectAnimator.ofPropertyValuesHolder(this.jeu, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.jez.setDuration(200L);
             }
-            this.jeL.start();
+            this.jez.start();
         }
     }
 
     public void qK(boolean z) {
-        if (this.jeJ != null && this.jeJ.isRunning()) {
-            this.jeJ.cancel();
+        if (this.jex != null && this.jex.isRunning()) {
+            this.jex.cancel();
         }
-        if (this.jeI == null) {
-            this.jeI = ObjectAnimator.ofPropertyValuesHolder(this.jeH, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.jeI.setRepeatCount(-1);
-            this.jeI.setRepeatMode(2);
-            this.jeI.setDuration(1000L);
+        if (this.jew == null) {
+            this.jew = ObjectAnimator.ofPropertyValuesHolder(this.jev, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.jew.setRepeatCount(-1);
+            this.jew.setRepeatMode(2);
+            this.jew.setDuration(1000L);
         }
-        this.jeH.setVisibility(0);
+        this.jev.setVisibility(0);
         if (z) {
-            this.jeF.setVisibility(8);
+            this.jet.setVisibility(8);
         } else {
-            this.jeF.setBackgroundResource(d.f.red_square_bg);
+            this.jet.setBackgroundResource(d.f.red_square_bg);
         }
         this.VM.setVisibility(8);
-        this.jeI.start();
+        this.jew.start();
     }
 
-    public void clW() {
-        if (this.jeI != null && this.jeI.isRunning()) {
-            this.jeI.cancel();
+    public void clU() {
+        if (this.jew != null && this.jew.isRunning()) {
+            this.jew.cancel();
         }
-        if (this.jeJ == null) {
-            this.jeJ = ObjectAnimator.ofPropertyValuesHolder(this.jeH, PropertyValuesHolder.ofFloat("scaleX", this.jeH.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.jeH.getScaleY(), 0.766f));
-            this.jeJ.setDuration((500.0f * Math.abs(0.766f - this.jeH.getScaleX())) / 0.3f);
+        if (this.jex == null) {
+            this.jex = ObjectAnimator.ofPropertyValuesHolder(this.jev, PropertyValuesHolder.ofFloat("scaleX", this.jev.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.jev.getScaleY(), 0.766f));
+            this.jex.setDuration((500.0f * Math.abs(0.766f - this.jev.getScaleX())) / 0.3f);
         }
-        this.jeF.setVisibility(0);
-        this.jeF.setBackgroundResource(d.f.red_circle_bg);
-        this.jeJ.start();
+        this.jet.setVisibility(0);
+        this.jet.setBackgroundResource(d.f.red_circle_bg);
+        this.jex.start();
     }
 }

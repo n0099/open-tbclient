@@ -47,7 +47,7 @@ public final class d {
         tbImageView.setDefaultResource(d.f.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(fU);
-        switch (gVar.Up()) {
+        switch (gVar.Un()) {
             case 3:
                 tbImageView.setImageResource(d.f.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.d.1
@@ -61,7 +61,7 @@ public final class d {
                                 }
                                 if (g.this.getUrl().startsWith(f.SCHEME)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.brK, f.brN);
+                                    buildUpon.appendQueryParameter(f.brN, f.brQ);
                                     parse = buildUpon.build();
                                 }
                                 UtilHelper.dealOneScheme(com.baidu.adp.base.a.fT().fU(), parse.toString());
@@ -102,8 +102,8 @@ public final class d {
                         }
                     }
                 };
-                if (!StringUtils.isNull(gVar.Um())) {
-                    tbImageView.startLoad(gVar.Um(), 10, false);
+                if (!StringUtils.isNull(gVar.Uk())) {
+                    tbImageView.startLoad(gVar.Uk(), 10, false);
                     onClickListener = onClickListener2;
                     break;
                 } else {
@@ -114,8 +114,8 @@ public final class d {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.Un());
-        textView2.setText(gVar.Uo());
+        textView.setText(gVar.Ul());
+        textView2.setText(gVar.Um());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

@@ -2,7 +2,6 @@ package com.baidu.swan.apps.view.container.c;
 
 import com.baidu.swan.apps.m.a.f;
 import com.baidu.swan.apps.w.e;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,14 +11,14 @@ public class d {
     public static void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         f fVar = new f();
         fVar.mData = c(str, str2, str3, str4, jSONObject);
-        e.Ec().a(str, fVar);
+        e.Ea().a(str, fVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         f fVar = new f();
         fVar.mData = c(str, str2, str3, str4, jSONObject);
-        e.Ec().a(fVar);
+        e.Ea().a(fVar);
     }
 
     public static JSONObject c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
@@ -31,7 +30,7 @@ public class d {
             jSONObject3.put("e", jSONObject);
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("type", str3);
-            jSONObject4.put(LegoListActivityConfig.PARAMS, jSONObject3);
+            jSONObject4.put("params", jSONObject3);
             jSONObject2.put("slaveId", str);
             jSONObject2.put("type", "abilityMessage");
             jSONObject2.put(UBC.CONTENT_KEY_VALUE, jSONObject4);

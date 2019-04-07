@@ -5,47 +5,47 @@ import android.view.Choreographer;
 @TargetApi(16)
 /* loaded from: classes.dex */
 public class a implements Choreographer.FrameCallback {
-    private long aEp;
+    private long aEs;
     private long mStartTime;
-    private long cpY = 0;
-    private int cpZ = 0;
+    private long cqa = 0;
+    private int cqb = 0;
     private int mFps = -1;
-    private boolean cqa = false;
+    private boolean cqc = false;
 
     public void start() {
         this.mStartTime = System.currentTimeMillis();
-        this.aEp = this.mStartTime + 1000;
-        this.cpY = 0L;
-        this.cpZ = 0;
+        this.aEs = this.mStartTime + 1000;
+        this.cqa = 0L;
+        this.cqb = 0;
         this.mFps = -1;
-        this.cqa = false;
+        this.cqc = false;
         Choreographer.getInstance().postFrameCallback(this);
     }
 
     public void stop() {
-        this.cqa = true;
+        this.cqc = true;
         Choreographer.getInstance().removeFrameCallback(this);
         aT(System.currentTimeMillis());
-        this.cpZ = 0;
+        this.cqb = 0;
         this.mStartTime = 0L;
     }
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        if (this.cpY != 0) {
-            long j2 = (j - this.cpY) / 1000000;
+        if (this.cqa != 0) {
+            long j2 = (j - this.cqa) / 1000000;
             if (j2 > 16 && j2 < 960) {
-                this.cpZ = (int) ((j2 / 16) + this.cpZ);
+                this.cqb = (int) ((j2 / 16) + this.cqb);
             }
         }
-        this.cpY = j;
+        this.cqa = j;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.aEp && !this.cqa) {
+        if (currentTimeMillis < this.aEs && !this.cqc) {
             Choreographer.getInstance().postFrameCallback(this);
             return;
         }
         aT(currentTimeMillis);
-        this.cpZ = 0;
+        this.cqb = 0;
         this.mStartTime = 0L;
     }
 
@@ -53,7 +53,7 @@ public class a implements Choreographer.FrameCallback {
         if (this.mStartTime > 0) {
             long j2 = j - this.mStartTime;
             if (j2 > 0 && this.mFps <= 0) {
-                this.mFps = (int) (60 - ((this.cpZ * 1000) / j2));
+                this.mFps = (int) (60 - ((this.cqb * 1000) / j2));
             }
         }
     }

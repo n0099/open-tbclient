@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.b {
-    private boolean ctQ;
-    private boolean ctR;
+    private boolean ctS;
+    private boolean ctT;
 
     public ContinuousAnimationView(Context context) {
         this(context, null);
@@ -22,8 +22,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ctQ = false;
-        this.ctR = false;
+        this.ctS = false;
+        this.ctT = false;
         init();
     }
 
@@ -31,31 +31,31 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.aqz();
-                ContinuousAnimationView.this.ctQ = true;
+                ContinuousAnimationView.this.aqw();
+                ContinuousAnimationView.this.ctS = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.aqw();
-                if (ContinuousAnimationView.this.ctR) {
-                    ContinuousAnimationView.this.ctR = false;
+                ContinuousAnimationView.this.aqt();
+                if (ContinuousAnimationView.this.ctT) {
+                    ContinuousAnimationView.this.ctT = false;
                 }
-                ContinuousAnimationView.this.ctQ = false;
+                ContinuousAnimationView.this.ctS = false;
                 ContinuousAnimationView.this.setFrame(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.aqx();
+                ContinuousAnimationView.this.aqu();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.aqy();
-                if (ContinuousAnimationView.this.ctR) {
+                ContinuousAnimationView.this.aqv();
+                if (ContinuousAnimationView.this.ctT) {
                     ContinuousAnimationView.this.cancelAnimation();
-                    ContinuousAnimationView.this.ctR = false;
+                    ContinuousAnimationView.this.ctT = false;
                 }
             }
         });
@@ -75,8 +75,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void cw() {
-        if (this.ctQ) {
-            this.ctR = true;
+        if (this.ctS) {
+            this.ctT = true;
         }
     }
 
@@ -91,19 +91,19 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void aqt() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aqu() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aqv() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void aqw() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aqx() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aqy() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aqz() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

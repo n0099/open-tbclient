@@ -10,10 +10,10 @@ import java.util.Set;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class j implements h {
-    private JSONArray zU;
+    private JSONArray zT;
 
     public j(JSONArray jSONArray) {
-        this.zU = jSONArray;
+        this.zT = jSONArray;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
@@ -22,10 +22,10 @@ public class j implements h {
         Type[] hX = cVar.hX();
         if (hY.isArray()) {
             Class<?> componentType = hY.getComponentType();
-            Object newInstance = Array.newInstance(componentType, this.zU.length());
-            int length = this.zU.length();
+            Object newInstance = Array.newInstance(componentType, this.zT.length());
+            int length = this.zT.length();
             for (int i = 0; i < length; i++) {
-                Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
+                Object g = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(componentType));
                 if (g != null) {
                     Array.set(newInstance, i, g);
                 }
@@ -34,11 +34,11 @@ public class j implements h {
         }
         if (hX != null && hX.length >= 1) {
             if (com.baidu.adp.lib.OrmObject.a.a.d(hY, List.class)) {
-                List<Object> a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.a(cVar, this.zU.length());
+                List<Object> a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.a(cVar, this.zT.length());
                 if (a != null) {
-                    int length2 = this.zU.length();
+                    int length2 = this.zT.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i2)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
+                        Object g2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i2)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
                         if (g2 != null) {
                             a.add(g2);
                         }
@@ -47,11 +47,11 @@ public class j implements h {
                 }
                 return a;
             } else if (com.baidu.adp.lib.OrmObject.a.a.d(hY, Set.class)) {
-                Set<Object> b = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.b(cVar, this.zU.length());
+                Set<Object> b = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.b(cVar, this.zT.length());
                 if (b != null) {
-                    int length3 = this.zU.length();
+                    int length3 = this.zT.length();
                     for (int i3 = 0; i3 < length3; i3++) {
-                        Object g3 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i3)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
+                        Object g3 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i3)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
                         if (g3 != null) {
                             b.add(g3);
                         }
@@ -60,11 +60,11 @@ public class j implements h {
                 }
                 return b;
             } else if (com.baidu.adp.lib.OrmObject.a.a.d(hY, Map.class)) {
-                Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.zU.length());
+                Map<String, Object> d = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.d(cVar, this.zT.length());
                 if (d != null) {
-                    int length4 = this.zU.length();
+                    int length4 = this.zT.length();
                     for (int i4 = 0; i4 < length4; i4++) {
-                        Object g4 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i4)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
+                        Object g4 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i4)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
                         if (g4 != null) {
                             d.put(String.valueOf(i4), g4);
                         }
@@ -73,11 +73,11 @@ public class j implements h {
                 }
                 return d;
             } else if (com.baidu.adp.lib.OrmObject.a.a.d(hY, Queue.class)) {
-                Queue<Object> c = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.c(cVar, this.zU.length());
+                Queue<Object> c = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.a.c(cVar, this.zT.length());
                 if (c != null) {
-                    int length5 = this.zU.length();
+                    int length5 = this.zT.length();
                     for (int i5 = 0; i5 < length5; i5++) {
-                        Object g5 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i5)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
+                        Object g5 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i5)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
                         if (g5 != null) {
                             c.add(g5);
                         }
@@ -86,10 +86,10 @@ public class j implements h {
                 }
                 return c;
             } else if (hY == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.zU.length());
-                int length6 = this.zU.length();
+                SparseArray sparseArray = new SparseArray(this.zT.length());
+                int length6 = this.zT.length();
                 for (int i6 = 0; i6 < length6; i6++) {
-                    Object g6 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zU.opt(i6)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
+                    Object g6 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.s(this.zT.opt(i6)).g(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
                     if (g6 != null) {
                         sparseArray.put(i6, g6);
                     }

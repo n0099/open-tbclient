@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.jSl;
-        long j = this.kbB;
-        long cEQ = cEQ();
-        long es = es(cEQ);
-        if (b(eArr, es) != null) {
-            if (cEQ - cEP() > j) {
+        E[] eArr = this.jRD;
+        long j = this.kaT;
+        long cEF = cEF();
+        long er = er(cEF);
+        if (b(eArr, er) != null) {
+            if (cEF - cEE() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, es) != null);
-            a(eArr, es, e);
-            eu(1 + cEQ);
+            } while (b(eArr, er) != null);
+            a(eArr, er, e);
+            et(1 + cEF);
             return true;
         }
-        a(eArr, es, e);
-        eu(1 + cEQ);
+        a(eArr, er, e);
+        et(1 + cEF);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cEP;
-        long cET = cET();
+        long cEE;
+        long cEI = cEI();
         do {
-            cEP = cEP();
-            if (cEP >= cET) {
-                long cEQ = cEQ();
-                if (cEP >= cEQ) {
+            cEE = cEE();
+            if (cEE >= cEI) {
+                long cEF = cEF();
+                if (cEE >= cEF) {
                     return null;
                 }
-                ev(cEQ);
+                eu(cEF);
             }
-        } while (!z(cEP, 1 + cEP));
-        long es = es(cEP);
-        E[] eArr = this.jSl;
-        E a = a(eArr, es);
-        b(eArr, es, null);
+        } while (!z(cEE, 1 + cEE));
+        long er = er(cEE);
+        E[] eArr = this.jRD;
+        E a = a(eArr, er);
+        b(eArr, er, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E et;
-        long cET = cET();
+        E es;
+        long cEI = cEI();
         do {
-            long cEP = cEP();
-            if (cEP >= cET) {
-                long cEQ = cEQ();
-                if (cEP >= cEQ) {
+            long cEE = cEE();
+            if (cEE >= cEI) {
+                long cEF = cEF();
+                if (cEE >= cEF) {
                     return null;
                 }
-                ev(cEQ);
+                eu(cEF);
             }
-            et = et(es(cEP));
-        } while (et == null);
-        return et;
+            es = es(er(cEE));
+        } while (es == null);
+        return es;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cEP = cEP();
+        long cEE = cEE();
         while (true) {
-            long cEQ = cEQ();
-            long cEP2 = cEP();
-            if (cEP == cEP2) {
-                return (int) (cEQ - cEP2);
+            long cEF = cEF();
+            long cEE2 = cEE();
+            if (cEE == cEE2) {
+                return (int) (cEF - cEE2);
             }
-            cEP = cEP2;
+            cEE = cEE2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cEP() == cEQ();
+        return cEE() == cEF();
     }
 }

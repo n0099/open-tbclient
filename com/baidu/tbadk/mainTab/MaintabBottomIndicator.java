@@ -28,19 +28,19 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MaintabBottomIndicator extends TbFragmentTabIndicator {
-    private int bOh;
-    private int cnQ;
-    private HashMap<String, TbFragmentTabIndicator.a> cob;
-    private int coj;
-    private View cok;
-    private View col;
+    private int bOj;
+    private int cnS;
+    private HashMap<String, TbFragmentTabIndicator.a> cod;
+    private int col;
 
     /* renamed from: com  reason: collision with root package name */
-    private TBLottieAnimationView f4com;
-    private OvalActionButton con;
+    private View f4com;
+    private View con;
     private TBLottieAnimationView coo;
-    private int cop;
-    private int coq;
+    private OvalActionButton cop;
+    private TBLottieAnimationView coq;
+    private int cor;
+    private int cos;
     private int mSkinType;
     private TextView mTextView;
     private int nf;
@@ -48,47 +48,47 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     public MaintabBottomIndicator(Context context) {
         super(context);
-        this.cnQ = 0;
+        this.cnS = 0;
         this.mSkinType = 3;
-        this.cob = new HashMap<>();
+        this.cod = new HashMap<>();
         this.nj = null;
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cnQ = 0;
+        this.cnS = 0;
         this.mSkinType = 3;
-        this.cob = new HashMap<>();
+        this.cod = new HashMap<>();
         this.nj = null;
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cnQ = 0;
+        this.cnS = 0;
         this.mSkinType = 3;
-        this.cob = new HashMap<>();
+        this.cod = new HashMap<>();
         this.nj = null;
         init();
     }
 
     private void init() {
-        this.cok = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.f4com = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.cok.setLayoutParams(layoutParams);
-        this.col = this.cok.findViewById(d.g.container_common_item);
-        this.f4com = (TBLottieAnimationView) this.cok.findViewById(d.g.view_bottom_icon);
-        this.f4com.setSpeed(1.2f);
-        this.f4com.asj();
-        this.mTextView = (TextView) this.cok.findViewById(d.g.view_bottom_text);
-        this.con = (OvalActionButton) this.cok.findViewById(d.g.view_write_icon);
-        this.coo = (TBLottieAnimationView) this.cok.findViewById(d.g.animation_view);
-        this.coo.setFirstLoadInternal(true);
-        addView(this.cok);
-        this.cop = l.h(getContext(), d.e.tbds18);
-        this.coq = l.h(getContext(), d.e.tbds10);
+        this.f4com.setLayoutParams(layoutParams);
+        this.con = this.f4com.findViewById(d.g.container_common_item);
+        this.coo = (TBLottieAnimationView) this.f4com.findViewById(d.g.view_bottom_icon);
+        this.coo.setSpeed(1.2f);
+        this.coo.asg();
+        this.mTextView = (TextView) this.f4com.findViewById(d.g.view_bottom_text);
+        this.cop = (OvalActionButton) this.f4com.findViewById(d.g.view_write_icon);
+        this.coq = (TBLottieAnimationView) this.f4com.findViewById(d.g.animation_view);
+        this.coq.setFirstLoadInternal(true);
+        addView(this.f4com);
+        this.cor = l.h(getContext(), d.e.tbds18);
+        this.cos = l.h(getContext(), d.e.tbds10);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -96,7 +96,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cob.entrySet();
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cod.entrySet();
         if (entrySet != null && (r5 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
@@ -119,21 +119,21 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cob.entrySet();
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cod.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
-            while (it.hasNext() && this.mTextView != null && this.f4com != null) {
+            while (it.hasNext() && this.mTextView != null && this.coo != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 if (value != null) {
                     int measuredWidth = value.view.getMeasuredWidth();
                     int measuredHeight3 = value.view.getMeasuredHeight();
-                    if (value.cox) {
-                        left = this.mTextView.getRight() - this.cop;
+                    if (value.coz) {
+                        left = this.mTextView.getRight() - this.cor;
                     } else {
                         left = (this.mTextView.getLeft() + ((int) (this.mTextView.getMeasuredWidth() * 0.14d))) - measuredWidth;
                     }
-                    if (this.cnQ == 1) {
-                        measuredHeight = this.f4com.getTop();
-                        measuredHeight2 = this.coq;
+                    if (this.cnS == 1) {
+                        measuredHeight = this.coo.getTop();
+                        measuredHeight2 = this.cos;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
                         measuredHeight2 = value.view.getMeasuredHeight() / 2;
@@ -147,14 +147,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTipPosType(int i) {
-        this.cnQ = i;
+        this.cnS = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view);
-            this.cob.put(str, aVar);
+            this.cod.put(str, aVar);
         }
     }
 
@@ -162,13 +162,13 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void b(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view, -2, -2);
-            this.cob.put(str, aVar);
+            this.cod.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a pq(String str) {
-        return this.cob.get(str);
+    public TbFragmentTabIndicator.a pr(String str) {
+        return this.cod.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -178,79 +178,79 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextColorResId(int i) {
-        this.bOh = i;
+        this.bOj = i;
     }
 
     public void setShowIconType(int i) {
-        this.coj = i;
+        this.col = i;
     }
 
     public void setWriteIconView() {
-        this.col.setVisibility(8);
-        this.con.setVisibility(0);
+        this.con.setVisibility(8);
+        this.cop.setVisibility(0);
     }
 
     public TBLottieAnimationView getAnimationView() {
-        return this.coo;
+        return this.coq;
     }
 
-    public void akh() {
-        if (this.coo != null && this.coo.getVisibility() == 0) {
+    public void ake() {
+        if (this.coq != null && this.coq.getVisibility() == 0) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f, 1, 0.5f, 1, 0.5f);
             scaleAnimation.setDuration(300L);
-            this.coo.startAnimation(scaleAnimation);
-            this.coo.setVisibility(4);
-            this.f4com.setVisibility(0);
+            this.coq.startAnimation(scaleAnimation);
+            this.coq.setVisibility(4);
+            this.coo.setVisibility(0);
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_lottie_show_count", 4);
         }
     }
 
-    private void anO() {
+    private void anL() {
         if (System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_lottie_show_expired_time", 0L)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_lottie_show_count", 0);
         }
     }
 
-    private void anP() {
+    private void anM() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_lottie_show_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_lottie_show_count", 0) + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anQ() {
+    public void anN() {
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_lottie_show_count", 0);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
-        this.coo.setFrame(this.coo.getFrame());
+        this.coq.setFrame(this.coq.getFrame());
         if (i >= 3) {
-            akh();
+            ake();
         }
     }
 
     public void onDestory() {
-        if (this.coo != null) {
-            this.coo.cancelAnimation();
+        if (this.coq != null) {
+            this.coq.cancelAnimation();
         }
     }
 
     public void setLottieView(boolean z) {
-        if (this.coo != null) {
+        if (this.coq != null) {
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("sync_send_maintab_my_tab_lottie_url", "");
             if (!ap.isEmpty(string) || !z) {
-                anO();
+                anL();
                 if (az.h(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("sync_send_maintab_my_tab_lottie_start_time", 0L), com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("sync_send_maintab_my_tab_lottie_end_time", 0L)) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_lottie_show_count", 0) < 3) {
-                    this.coo.cu();
-                    this.coo.setAnimationUrl(string);
-                    anP();
+                    this.coq.cu();
+                    this.coq.setAnimationUrl(string);
+                    anM();
                     TiebaStatic.log(new am("c13248").bJ("uid", TbadkCoreApplication.getCurrentAccount()));
-                    this.coo.a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
+                    this.coq.a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
-                            MaintabBottomIndicator.this.f4com.setVisibility(8);
-                            MaintabBottomIndicator.this.coo.setVisibility(0);
+                            MaintabBottomIndicator.this.coo.setVisibility(8);
+                            MaintabBottomIndicator.this.coq.setVisibility(0);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            MaintabBottomIndicator.this.anQ();
+                            MaintabBottomIndicator.this.anN();
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -269,83 +269,83 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setAnimationResId(int i) {
         this.nf = i;
-        al.a(this.f4com, this.nf);
+        al.a(this.coo, this.nf);
     }
 
-    public void anR() {
-        al.a(this.f4com, d.i.icon_refresh1);
+    public void anO() {
+        al.a(this.coo, d.i.icon_refresh1);
         setText(d.j.refresh);
-        this.f4com.G(false);
+        this.coo.G(false);
         cu();
     }
 
-    public void anS() {
-        al.a(this.f4com, d.i.icon_refresh2);
+    public void anP() {
+        al.a(this.coo, d.i.icon_refresh2);
         setText(d.j.refresh);
-        this.f4com.G(true);
+        this.coo.G(true);
         cu();
     }
 
-    public void anT() {
-        al.a(this.f4com, d.i.icon_refresh3);
+    public void anQ() {
+        al.a(this.coo, d.i.icon_refresh3);
         setText(d.j.home_recommend);
-        this.f4com.G(false);
+        this.coo.G(false);
         cu();
     }
 
     public void cu() {
-        if (this.f4com != null) {
-            this.f4com.cu();
+        if (this.coo != null) {
+            this.coo.cu();
         }
     }
 
     public boolean isAnimating() {
-        return this.f4com.isAnimating();
+        return this.coo.isAnimating();
     }
 
     public void eU(boolean z) {
         setAnimationResId(this.nf);
-        this.f4com.G(false);
+        this.coo.G(false);
         setText(d.j.home_recommend);
         if (z) {
-            this.f4com.cu();
+            this.coo.cu();
             return;
         }
-        this.f4com.cancelAnimation();
-        this.f4com.setFrame(0);
+        this.coo.cancelAnimation();
+        this.coo.setFrame(0);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ij(TbadkCoreApplication.getInst().getSkinType());
+        ii(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void ij(int i) {
-        super.ij(i);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cob.entrySet();
+    public void ii(int i) {
+        super.ii(i);
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cod.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 if (value != null) {
-                    value.ij(i);
+                    value.ii(i);
                 }
             }
         }
-        if (this.con != null) {
-            this.con.onChangeSkinType(i);
+        if (this.cop != null) {
+            this.cop.onChangeSkinType(i);
         }
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.bOh != 0) {
-                al.j(this.mTextView, this.bOh);
+            if (this.bOj != 0) {
+                al.j(this.mTextView, this.bOj);
             } else {
                 al.j(this.mTextView, d.C0277d.cp_cont_f);
             }
             if (this.nf != 0) {
                 try {
-                    al.a(this.f4com, this.nf);
+                    al.a(this.coo, this.nf);
                 } catch (Resources.NotFoundException e) {
                 }
             }
@@ -357,11 +357,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.eT(z);
         if (this.nf != 0) {
             if (z) {
-                this.f4com.cu();
+                this.coo.cu();
                 return;
             }
-            this.f4com.cancelAnimation();
-            this.f4com.setFrame(0);
+            this.coo.cancelAnimation();
+            this.coo.setFrame(0);
         }
     }
 
@@ -369,7 +369,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            this.f4com.setProgress(1.0f);
+            this.coo.setProgress(1.0f);
         }
     }
 

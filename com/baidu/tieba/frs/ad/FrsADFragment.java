@@ -34,46 +34,46 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     private TbPageContext context;
-    private String eYK;
-    private ADRequestModel.a fdJ;
-    private ADRequestModel fdK;
-    private a fdL;
-    private List<c> fdM;
-    private com.baidu.tbadk.m.c fdN;
+    private String eYw;
+    private com.baidu.tbadk.m.c fdA;
+    private ADRequestModel.a fdw;
+    private ADRequestModel fdx;
+    private a fdy;
+    private List<c> fdz;
     private long forumId;
     private String mFrom;
     private boolean mHasMore;
-    protected e fdI = null;
+    protected e fdv = null;
     private int offset = 0;
     public int Td = 0;
-    private ArrayList<m> eAh = new ArrayList<>();
-    private CustomMessageListener fbP = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.1
+    private ArrayList<m> ezS = new ArrayList<>();
+    private CustomMessageListener fbC = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null && FrsADFragment.this.fdN != null && FrsADFragment.this.fdN.isViewAttached()) {
-                FrsADFragment.this.fdN.jO(num.intValue());
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && (num = (Integer) customResponsedMessage.getData()) != null && FrsADFragment.this.fdA != null && FrsADFragment.this.fdA.isViewAttached()) {
+                FrsADFragment.this.fdA.jN(num.intValue());
             }
         }
     };
-    private final h.c dhq = new h.c() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.3
+    private final h.c dht = new h.c() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.3
         @Override // com.baidu.tbadk.core.view.h.c
         public void dR(boolean z) {
-            if (FrsADFragment.this.fdI != null) {
+            if (FrsADFragment.this.fdv != null) {
                 if (j.kY()) {
-                    FrsADFragment.this.qu(2);
-                    if (v.T(FrsADFragment.this.eAh)) {
+                    FrsADFragment.this.qq(2);
+                    if (v.T(FrsADFragment.this.ezS)) {
                         FrsADFragment.this.showLoadingView();
                         return;
                     }
                     return;
                 }
-                FrsADFragment.this.fdI.fB(false);
+                FrsADFragment.this.fdv.fB(false);
             }
         }
     };
-    private CustomMessageListener fdO = new CustomMessageListener(2001625) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.4
+    private CustomMessageListener fdB = new CustomMessageListener(2001625) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,17 +83,17 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
                     if (FrsADFragment.this.getListView() != null) {
                         FrsADFragment.this.getListView().setSelection(0);
                     }
-                    if (FrsADFragment.this.fdN != null && FrsADFragment.this.fdN.isViewAttached()) {
-                        FrsADFragment.this.qu(0);
-                    } else if (FrsADFragment.this.fdI != null) {
-                        FrsADFragment.this.fdI.startPullRefresh();
+                    if (FrsADFragment.this.fdA != null && FrsADFragment.this.fdA.isViewAttached()) {
+                        FrsADFragment.this.qq(0);
+                    } else if (FrsADFragment.this.fdv != null) {
+                        FrsADFragment.this.fdv.startPullRefresh();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, true));
                     }
                 }
             }
         }
     };
-    private CustomMessageListener eZU = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.5
+    private CustomMessageListener eZG = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -103,27 +103,27 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
                     if (FrsADFragment.this.getListView() != null) {
                         FrsADFragment.this.getListView().setSelection(0);
                     }
-                    if (FrsADFragment.this.fdN != null && FrsADFragment.this.fdN.isViewAttached()) {
-                        FrsADFragment.this.qu(0);
+                    if (FrsADFragment.this.fdA != null && FrsADFragment.this.fdA.isViewAttached()) {
+                        FrsADFragment.this.qq(0);
                         FrsADFragment.this.showLoadingView();
-                    } else if (FrsADFragment.this.fdI != null) {
-                        FrsADFragment.this.fdI.startPullRefresh();
+                    } else if (FrsADFragment.this.fdv != null) {
+                        FrsADFragment.this.fdv.startPullRefresh();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, true));
                     }
                 }
             }
         }
     };
-    private s fao = new s() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.6
+    private s faa = new s() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.6
         @Override // com.baidu.adp.widget.ListView.s
         public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             c cVar;
-            if (mVar != null && (mVar instanceof c) && (cVar = (c) mVar) != null && cVar.apP() != null) {
+            if (mVar != null && (mVar instanceof c) && (cVar = (c) mVar) != null && cVar.apM() != null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new Pair("showad", "1"));
-                ba.adD().c(FrsADFragment.this.context, new String[]{com.baidu.tbadk.browser.a.e(cVar.apP(), arrayList)});
-                if (!ap.isEmpty(cVar.beE())) {
-                    TiebaStatic.log(new am("c13194").bJ("obj_type", cVar.beE()).k(ImageViewerConfig.FORUM_ID, FrsADFragment.this.forumId));
+                ba.adA().c(FrsADFragment.this.context, new String[]{com.baidu.tbadk.browser.a.e(cVar.apM(), arrayList)});
+                if (!ap.isEmpty(cVar.beC())) {
+                    TiebaStatic.log(new am("c13194").bJ("obj_type", cVar.beC()).k(ImageViewerConfig.FORUM_ID, FrsADFragment.this.forumId));
                 }
             }
         }
@@ -132,18 +132,18 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        beB();
+        bez();
     }
 
-    private void beB() {
+    private void bez() {
         if (isPrimary()) {
-            if (this.fdN != null && this.fdN.isViewAttached()) {
-                MessageManager.getInstance().registerListener(this.fbP);
+            if (this.fdA != null && this.fdA.isViewAttached()) {
+                MessageManager.getInstance().registerListener(this.fbC);
                 return;
             }
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.fbP);
+        MessageManager.getInstance().unRegisterListener(this.fbC);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -151,23 +151,23 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
         super.onCreate(bundle);
         this.context = getPageContext();
         initData(bundle);
-        registerListener(this.fdO);
-        registerListener(this.eZU);
-        if (this.fdK == null) {
-            this.fdK = new ADRequestModel(this.context);
+        registerListener(this.fdB);
+        registerListener(this.eZG);
+        if (this.fdx == null) {
+            this.fdx = new ADRequestModel(this.context);
         }
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.eYK = bundle.getString("name");
+            this.eYw = bundle.getString("name");
             this.mFrom = bundle.getString("from");
             this.forumId = Long.parseLong(bundle.getString("forum_id"));
             return;
         }
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.eYK = arguments.getString("name");
+            this.eYw = arguments.getString("name");
             this.mFrom = arguments.getString("from");
             this.forumId = Long.parseLong(arguments.getString("forum_id"));
         }
@@ -176,120 +176,120 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.frs_ad_fragment, (ViewGroup) null);
-        this.fdI = new e(this, inflate);
-        this.fdI.setListPullRefreshListener(this.dhq);
-        this.fdL = new a(this, this.fdI.getListView());
-        this.fdL.setOnAdapterItemClickListener(this.fao);
-        if (this.fdJ == null) {
-            this.fdJ = new ADRequestModel.a() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.2
+        this.fdv = new e(this, inflate);
+        this.fdv.setListPullRefreshListener(this.dht);
+        this.fdy = new a(this, this.fdv.getListView());
+        this.fdy.setOnAdapterItemClickListener(this.faa);
+        if (this.fdw == null) {
+            this.fdw = new ADRequestModel.a() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.2
                 @Override // com.baidu.tieba.frs.adModel.ADRequestModel.a
                 public void a(ADHttpResponseMessage aDHttpResponseMessage) {
-                    if (aDHttpResponseMessage != null && FrsADFragment.this.fdI != null) {
+                    if (aDHttpResponseMessage != null && FrsADFragment.this.fdv != null) {
                         if (aDHttpResponseMessage.getError() == 0) {
                             FrsADFragment.this.offset = (int) aDHttpResponseMessage.getOffset();
-                            FrsADFragment.this.fdM = aDHttpResponseMessage.getList();
+                            FrsADFragment.this.fdz = aDHttpResponseMessage.getList();
                             FrsADFragment.this.mHasMore = aDHttpResponseMessage.getHas_more() == 1;
-                            FrsADFragment.this.aBu();
+                            FrsADFragment.this.aBr();
                             return;
                         }
-                        FrsADFragment.this.aBs();
+                        FrsADFragment.this.aBp();
                     }
                 }
 
                 @Override // com.baidu.tieba.frs.adModel.ADRequestModel.a
                 public void a(ADSocketResponseMessage aDSocketResponseMessage) {
-                    if (aDSocketResponseMessage != null && FrsADFragment.this.fdI != null) {
+                    if (aDSocketResponseMessage != null && FrsADFragment.this.fdv != null) {
                         if (aDSocketResponseMessage.getError() == 0) {
                             FrsADFragment.this.offset = (int) aDSocketResponseMessage.getOffset();
-                            FrsADFragment.this.fdM = aDSocketResponseMessage.getList();
+                            FrsADFragment.this.fdz = aDSocketResponseMessage.getList();
                             FrsADFragment.this.mHasMore = aDSocketResponseMessage.getHas_more() == 1;
-                            FrsADFragment.this.aBu();
+                            FrsADFragment.this.aBr();
                             return;
                         }
-                        FrsADFragment.this.aBs();
+                        FrsADFragment.this.aBp();
                     }
                 }
             };
         }
-        this.fdK.a(this.fdJ);
+        this.fdx.a(this.fdw);
         if (!j.kY()) {
-            aBs();
+            aBp();
         }
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBu() {
-        if (this.fdI != null) {
+    public void aBr() {
+        if (this.fdv != null) {
             hideLoadingView();
             if (this.Td == 0) {
-                if (!v.T(this.fdM)) {
-                    H(true, false);
-                    this.fdI.aCv();
+                if (!v.T(this.fdz)) {
+                    F(true, false);
+                    this.fdv.aCs();
                     return;
                 }
                 showEmptyView();
             } else if (this.Td == 2) {
-                this.fdI.fB(false);
-                if (!v.T(this.fdM)) {
-                    H(true, false);
-                    this.fdI.aCv();
+                this.fdv.fB(false);
+                if (!v.T(this.fdz)) {
+                    F(true, false);
+                    this.fdv.aCs();
                     return;
                 }
                 showEmptyView();
             } else if (this.Td == 1) {
-                if (!v.T(this.fdM)) {
-                    H(false, true);
+                if (!v.T(this.fdz)) {
+                    F(false, true);
                 } else {
-                    this.fdI.aCv();
+                    this.fdv.aCs();
                 }
             }
         }
     }
 
-    private void H(boolean z, boolean z2) {
-        if (this.eAh != null) {
+    private void F(boolean z, boolean z2) {
+        if (this.ezS != null) {
             if (z) {
-                this.eAh.clear();
+                this.ezS.clear();
             }
             if (z2) {
-                for (int i = 0; i < this.eAh.size(); i++) {
-                    m mVar = (m) v.c(this.eAh, i);
+                for (int i = 0; i < this.ezS.size(); i++) {
+                    m mVar = (m) v.c(this.ezS, i);
                     if (mVar instanceof c) {
                         ((c) mVar).ju(false);
                     }
                 }
             }
-            this.eAh.addAll(this.fdM);
-            this.fdI.beJ().setData(this.eAh);
-            this.fdI.beJ().notifyDataSetChanged();
+            this.ezS.addAll(this.fdz);
+            this.fdv.beH().setData(this.ezS);
+            this.fdv.beH().notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void bcd() {
-        if (this.fdI != null && this.fdI.getListView() != null) {
-            this.fdI.getListView().scrollToPosition(0);
+    public void bcb() {
+        if (this.fdv != null && this.fdv.getListView() != null) {
+            this.fdv.getListView().scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aCt() {
-        if (this.fdI != null) {
-            bcd();
-            this.fdI.startPullRefresh();
+    public void aCq() {
+        if (this.fdv != null) {
+            bcb();
+            this.fdv.startPullRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.fdI != null) {
-            if (this.fdI != null && this.fdI.getListView() != null) {
-                this.fdI.getListView().stopScroll();
+        if (this.fdv != null) {
+            if (this.fdv != null && this.fdv.getListView() != null) {
+                this.fdv.getListView().stopScroll();
             }
-            aBq();
+            aBn();
             if (l.lo() && this.mHasMore) {
-                qu(1);
+                qq(1);
             }
         }
     }
@@ -297,123 +297,123 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fdI != null) {
-            this.fdI.onChangeSkinType(i);
+        if (this.fdv != null) {
+            this.fdv.onChangeSkinType(i);
         }
-        if (this.fdN != null && this.fdN.isViewAttached()) {
-            this.fdN.onChangeSkinType();
+        if (this.fdA != null && this.fdA.isViewAttached()) {
+            this.fdA.onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qu(int i) {
-        if (this.fdK != null) {
-            aBt();
+    public void qq(int i) {
+        if (this.fdx != null) {
+            aBq();
             this.Td = i;
             if (i == 0 || i == 2) {
-                this.fdK.b(this.forumId, 0, 20);
+                this.fdx.b(this.forumId, 0, 20);
             } else if (i == 1) {
-                this.fdK.b(this.forumId, this.offset, 20);
+                this.fdx.b(this.forumId, this.offset, 20);
             }
         }
     }
 
     public BdTypeRecyclerView getListView() {
-        if (this.fdI == null) {
+        if (this.fdv == null) {
             return null;
         }
-        return this.fdI.getListView();
+        return this.fdv.getListView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
         if (j.kY()) {
-            qu(0);
+            qq(0);
             showLoadingView();
             return;
         }
-        aBs();
+        aBp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        this.fdI.jv(false);
-        showLoadingView(this.fdI.bdL(), true, getResources().getDimensionPixelSize(d.e.ds250));
+        this.fdv.jv(false);
+        showLoadingView(this.fdv.bdJ(), true, getResources().getDimensionPixelSize(d.e.ds250));
     }
 
     private void hideLoadingView() {
-        this.fdI.jv(true);
-        hideLoadingView(this.fdI.bdL());
+        this.fdv.jv(true);
+        hideLoadingView(this.fdv.bdJ());
     }
 
-    private void aBq() {
+    private void aBn() {
         if (!this.mHasMore) {
-            if (v.T(this.fdM)) {
-                this.fdI.aCw();
+            if (v.T(this.fdz)) {
+                this.fdv.aCt();
                 return;
             } else {
-                this.fdI.aCv();
+                this.fdv.aCs();
                 return;
             }
         }
-        this.fdI.aCu();
+        this.fdv.aCr();
     }
 
     private void showEmptyView() {
-        if (this.eAh != null && this.fdI != null) {
-            this.eAh.add(new com.baidu.tieba.frs.m());
-            this.fdI.beJ().setData(this.eAh);
-            this.fdI.beJ().notifyDataSetChanged();
+        if (this.ezS != null && this.fdv != null) {
+            this.ezS.add(new com.baidu.tieba.frs.m());
+            this.fdv.beH().setData(this.ezS);
+            this.fdv.beH().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBs() {
-        this.fdI.jv(false);
-        this.fdI.beK().setEnabled(false);
+    public void aBp() {
+        this.fdv.jv(false);
+        this.fdv.beI().setEnabled(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, true));
-        this.fdI.aCw();
-        this.fdI.getListView().getData().clear();
-        this.fdI.bdx();
-        if (this.fdN == null) {
-            this.fdN = new com.baidu.tbadk.m.c(getPageContext().getContext(), getNetRefreshListener());
-            this.fdN.setTitle(null);
-            this.fdN.po(null);
-            this.fdN.setButtonText(null);
-            this.fdN.anB();
-            this.fdN.anC().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.fdv.aCt();
+        this.fdv.getListView().getData().clear();
+        this.fdv.bdv();
+        if (this.fdA == null) {
+            this.fdA = new com.baidu.tbadk.m.c(getPageContext().getContext(), getNetRefreshListener());
+            this.fdA.setTitle(null);
+            this.fdA.pp(null);
+            this.fdA.setButtonText(null);
+            this.fdA.any();
+            this.fdA.anz().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.fdN.onChangeSkinType();
-        this.fdN.attachView(this.fdI.bdL(), true);
-        MessageManager.getInstance().registerListener(this.fbP);
+        this.fdA.onChangeSkinType();
+        this.fdA.attachView(this.fdv.bdJ(), true);
+        MessageManager.getInstance().registerListener(this.fbC);
     }
 
-    private void aBt() {
-        this.fdI.jv(true);
-        this.fdI.beK().setEnabled(true);
-        if (this.fdN != null && this.fdN.isViewAttached()) {
-            this.fdN.dettachView(this.fdI.bdL());
-            MessageManager.getInstance().unRegisterListener(this.fbP);
+    private void aBq() {
+        this.fdv.jv(true);
+        this.fdv.beI().setEnabled(true);
+        if (this.fdA != null && this.fdA.isViewAttached()) {
+            this.fdA.dettachView(this.fdv.bdJ());
+            MessageManager.getInstance().unRegisterListener(this.fbC);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (j.kY()) {
-            qu(0);
+            qq(0);
             showLoadingView();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fbP);
-        if (this.fdI != null) {
-            this.fdI.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.fbC);
+        if (this.fdv != null) {
+            this.fdv.onDestroy();
         }
-        if (this.fdK != null) {
-            this.fdK.onDestroy();
+        if (this.fdx != null) {
+            this.fdx.onDestroy();
         }
         super.onDestroy();
     }

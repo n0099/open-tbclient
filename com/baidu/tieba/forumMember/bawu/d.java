@@ -5,20 +5,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes5.dex */
 public class d {
-    private l<byte[]> dfT;
+    private l<byte[]> dfX;
 
     public d() {
-        SM();
+        SK();
     }
 
-    public void SM() {
-        if (this.dfT == null) {
-            this.dfT = com.baidu.tbadk.core.c.a.aaW().lu("tb.bawu_team_info");
+    public void SK() {
+        if (this.dfX == null) {
+            this.dfX = com.baidu.tbadk.core.c.a.aaT().lv("tb.bawu_team_info");
         }
     }
 
-    public byte[] uL(String str) {
-        l.b<byte[]> aF = (this.dfT == null || str == null) ? null : this.dfT.aF(str);
+    public byte[] uK(String str) {
+        l.b<byte[]> aF = (this.dfX == null || str == null) ? null : this.dfX.aF(str);
         if (aF == null || aF.value == null) {
             return null;
         }
@@ -27,8 +27,8 @@ public class d {
 
     public void j(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            SM();
-            this.dfT.a(str, bArr, TbConfig.MILLS_7DAYS);
+            SK();
+            this.dfX.a(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

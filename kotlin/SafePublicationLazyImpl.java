@@ -8,7 +8,7 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> jRX = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> jRp = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
@@ -18,17 +18,17 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.k(aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.jRY;
-        this.f2final = d.jRY;
+        this._value = d.jRq;
+        this.f2final = d.jRq;
     }
 
     public T getValue() {
         T t = (T) this._value;
-        if (t == d.jRY) {
+        if (t == d.jRq) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.cCp().compareAndSet(this, d.jRY, invoke)) {
+                if (Companion.cCe().compareAndSet(this, d.jRq, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -39,7 +39,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     }
 
     public boolean isInitialized() {
-        return this._value != d.jRY;
+        return this._value != d.jRq;
     }
 
     public String toString() {
@@ -60,8 +60,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cCp() {
-            return SafePublicationLazyImpl.jRX;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cCe() {
+            return SafePublicationLazyImpl.jRp;
         }
     }
 }

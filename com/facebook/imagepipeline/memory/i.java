@@ -4,13 +4,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class i {
-    final a jJl;
-    private final com.facebook.common.references.c<byte[]> jzZ;
+    final a jIF;
+    private final com.facebook.common.references.c<byte[]> jzt;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.jJH > 0);
-        this.jJl = new a(cVar, rVar, n.czm());
-        this.jzZ = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.jJb > 0);
+        this.jIF = new a(cVar, rVar, n.czf());
+        this.jzt = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: aa */
@@ -20,12 +20,12 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> CC(int i) {
-        return com.facebook.common.references.a.a(this.jJl.get(i), this.jzZ);
+    public com.facebook.common.references.a<byte[]> Cs(int i) {
+        return com.facebook.common.references.a.a(this.jIF.get(i), this.jzt);
     }
 
     public void aa(byte[] bArr) {
-        this.jJl.release(bArr);
+        this.jIF.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,8 +36,8 @@ public class i {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> Cx(int i) {
-            return new o(Cv(i), this.jIV.jJH, 0);
+        d<byte[]> Cn(int i) {
+            return new o(Cl(i), this.jIp.jJb, 0);
         }
     }
 }

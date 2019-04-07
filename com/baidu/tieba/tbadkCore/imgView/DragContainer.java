@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap cuU;
+    private Bitmap cuW;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -41,7 +41,7 @@ public class DragContainer extends LinearLayout {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.cuU = Bitmap.createBitmap(drawingCache);
+            this.cuW = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class DragContainer extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.cuU != null) {
+            if (this.mScroller.computeScrollOffset() && this.cuW != null) {
                 canvas.save();
-                canvas.drawBitmap(this.cuU, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.cuW, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.cuU != null) {
-                this.cuU.recycle();
+            if (this.cuW != null) {
+                this.cuW.recycle();
             }
-            this.cuU = null;
+            this.cuW = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.cuU != null) {
-            this.cuU.recycle();
+        if (this.cuW != null) {
+            this.cuW.recycle();
         }
-        this.cuU = null;
+        this.cuW = null;
         this.view = null;
     }
 }

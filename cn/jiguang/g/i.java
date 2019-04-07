@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class i {
-    private static String a = "0123456789ABCDEF";
+    private static String a = com.coloros.mcssdk.c.a.f;
     private static SimpleDateFormat b = new SimpleDateFormat("mm:ss:SSS", Locale.ENGLISH);
 
     public static CharSequence a(CharSequence charSequence, int i) {
@@ -35,7 +35,7 @@ public final class i {
             }
             StringBuffer stringBuffer = new StringBuffer(digest.length * 2);
             for (byte b2 : digest) {
-                stringBuffer.append("0123456789ABCDEF".charAt((b2 >> 4) & 15)).append("0123456789ABCDEF".charAt(b2 & 15));
+                stringBuffer.append(com.coloros.mcssdk.c.a.f.charAt((b2 >> 4) & 15)).append(com.coloros.mcssdk.c.a.f.charAt(b2 & 15));
             }
             return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e) {

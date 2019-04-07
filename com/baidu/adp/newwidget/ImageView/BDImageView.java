@@ -93,7 +93,7 @@ public abstract class BDImageView extends ImageView implements h {
             this.mArgs.mBorderWidth = com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f);
             this.mArgs.mBorderColor = DEFAULT_BORDER_COLOR;
         }
-        this.mDrawer = e.mp().aI(this.mDrawerType);
+        this.mDrawer = e.mp().aH(this.mDrawerType);
         this.mDrawer.a(this.mArgs);
     }
 
@@ -344,7 +344,7 @@ public abstract class BDImageView extends ImageView implements h {
     public void setDrawerType(int i) {
         if (this.mDrawerType != i) {
             this.mDrawerType = i;
-            this.mDrawer = e.mp().aI(this.mDrawerType);
+            this.mDrawer = e.mp().aH(this.mDrawerType);
             this.mDrawer.a(this.mArgs);
             this.mNeedRecomputeMatrix = true;
             invalidate();

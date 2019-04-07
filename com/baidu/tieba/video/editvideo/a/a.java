@@ -14,7 +14,7 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0397a iWt;
+    private InterfaceC0397a iWh;
     private List<PendantData> mList;
     private e mPageContext;
 
@@ -59,21 +59,21 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.iWv = (TextView) view.findViewById(d.g.cover_text);
-            bVar.iWw = (TbImageView) view.findViewById(d.g.pendant_image);
-            bVar.iWx = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
-            bVar.iWw.setDefaultBgResource(d.C0277d.transparent);
-            bVar.iWw.setDefaultErrorResource(d.C0277d.cp_btn_a);
-            bVar.iWw.setDefaultResource(d.C0277d.cp_btn_a);
+            bVar.iWj = (TextView) view.findViewById(d.g.cover_text);
+            bVar.iWk = (TbImageView) view.findViewById(d.g.pendant_image);
+            bVar.iWl = (ProgressBar) view.findViewById(d.g.pendant_progressbar);
+            bVar.iWk.setDefaultBgResource(d.C0277d.transparent);
+            bVar.iWk.setDefaultErrorResource(d.C0277d.cp_btn_a);
+            bVar.iWk.setDefaultResource(d.C0277d.cp_btn_a);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.iWt != null) {
+                    if (a.this.iWh != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.iWw.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.iWw.getTag();
+                        if (bVar2.iWk.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.iWk.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.iWt.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.iWh.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,45 +86,45 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.iWw.setTag(Integer.valueOf(i));
+            bVar.iWk.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.iWv.setVisibility(0);
-                    bVar.iWw.setVisibility(8);
-                    bVar.iWx.setVisibility(8);
-                    bVar.iWv.setTextColor(al.getColor(d.C0277d.cp_cont_e));
-                    bVar.iWv.setText("No");
-                    bVar.iWv.setBackgroundDrawable(al.getDrawable(d.f.bg_cover_text_border));
+                    bVar.iWj.setVisibility(0);
+                    bVar.iWk.setVisibility(8);
+                    bVar.iWl.setVisibility(8);
+                    bVar.iWj.setTextColor(al.getColor(d.C0277d.cp_cont_e));
+                    bVar.iWj.setText("No");
+                    bVar.iWj.setBackgroundDrawable(al.getDrawable(d.f.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.iWv.setVisibility(0);
-                    bVar.iWw.setVisibility(8);
-                    bVar.iWx.setVisibility(8);
-                    bVar.iWv.setTextColor(al.getColor(d.C0277d.cp_cont_g));
-                    bVar.iWv.setText("T");
-                    bVar.iWv.setBackgroundColor(al.getColor(d.C0277d.cp_link_tip_a));
+                    bVar.iWj.setVisibility(0);
+                    bVar.iWk.setVisibility(8);
+                    bVar.iWl.setVisibility(8);
+                    bVar.iWj.setTextColor(al.getColor(d.C0277d.cp_cont_g));
+                    bVar.iWj.setText("T");
+                    bVar.iWj.setBackgroundColor(al.getColor(d.C0277d.cp_link_tip_a));
                     break;
                 case 2:
-                    bVar.iWv.setVisibility(0);
-                    bVar.iWw.setVisibility(8);
-                    bVar.iWx.setVisibility(8);
-                    bVar.iWv.setTextColor(al.getColor(d.C0277d.cp_cont_g));
-                    bVar.iWv.setText("T");
-                    bVar.iWv.setBackgroundColor(al.getColor(d.C0277d.cp_cont_d));
+                    bVar.iWj.setVisibility(0);
+                    bVar.iWk.setVisibility(8);
+                    bVar.iWl.setVisibility(8);
+                    bVar.iWj.setTextColor(al.getColor(d.C0277d.cp_cont_g));
+                    bVar.iWj.setText("T");
+                    bVar.iWj.setBackgroundColor(al.getColor(d.C0277d.cp_cont_d));
                     break;
                 case 3:
-                    bVar.iWv.setVisibility(0);
-                    bVar.iWw.setVisibility(8);
-                    bVar.iWx.setVisibility(8);
-                    bVar.iWv.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-                    bVar.iWv.setText("T");
-                    bVar.iWv.setBackgroundDrawable(al.getDrawable(d.f.bg_cover_text_border));
+                    bVar.iWj.setVisibility(0);
+                    bVar.iWk.setVisibility(8);
+                    bVar.iWl.setVisibility(8);
+                    bVar.iWj.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+                    bVar.iWj.setText("T");
+                    bVar.iWj.setBackgroundDrawable(al.getDrawable(d.f.bg_cover_text_border));
                     break;
                 default:
-                    bVar.iWv.setVisibility(8);
-                    bVar.iWw.setVisibility(0);
-                    bVar.iWx.setVisibility(8);
-                    bVar.iWw.startLoad(pendantData.img, 10, false);
+                    bVar.iWj.setVisibility(8);
+                    bVar.iWk.setVisibility(0);
+                    bVar.iWl.setVisibility(8);
+                    bVar.iWk.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
@@ -132,14 +132,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0397a interfaceC0397a) {
-        this.iWt = interfaceC0397a;
+        this.iWh = interfaceC0397a;
     }
 
     /* loaded from: classes5.dex */
     public class b {
-        public TextView iWv;
-        public TbImageView iWw;
-        public ProgressBar iWx;
+        public TextView iWj;
+        public TbImageView iWk;
+        public ProgressBar iWl;
 
         public b() {
         }

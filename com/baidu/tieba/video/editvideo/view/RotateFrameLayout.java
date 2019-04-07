@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 /* loaded from: classes5.dex */
 public class RotateFrameLayout extends FrameLayout {
-    private PaintFlagsDrawFilter bOb;
+    private PaintFlagsDrawFilter bOd;
 
     public RotateFrameLayout(Context context) {
         this(context, null);
@@ -19,12 +19,12 @@ public class RotateFrameLayout extends FrameLayout {
 
     public RotateFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bOb = new PaintFlagsDrawFilter(0, 3);
+        this.bOd = new PaintFlagsDrawFilter(0, 3);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.setDrawFilter(this.bOb);
+        canvas.setDrawFilter(this.bOd);
         super.onDraw(canvas);
     }
 }

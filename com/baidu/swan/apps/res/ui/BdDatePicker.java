@@ -32,19 +32,19 @@ public class BdDatePicker extends LinearLayout {
     private int aFA;
     private int aFB;
     private int aFC;
-    private String aFD;
-    private boolean aFE;
+    private int aFD;
+    private int aFE;
     private int aFF;
-    private BdGallery.c aFG;
-    private WheelView aFq;
-    private WheelView aFr;
-    private WheelView aFs;
-    private b aFt;
-    private Date aFu;
-    private Date aFv;
-    private int aFw;
-    private int aFx;
-    private int aFy;
+    private String aFG;
+    private boolean aFH;
+    private int aFI;
+    private BdGallery.c aFJ;
+    private WheelView aFt;
+    private WheelView aFu;
+    private WheelView aFv;
+    private b aFw;
+    private Date aFx;
+    private Date aFy;
     private int aFz;
 
     /* loaded from: classes2.dex */
@@ -57,34 +57,34 @@ public class BdDatePicker extends LinearLayout {
         this.MC = 1900;
         this.MD = 1;
         this.ME = 1;
-        this.aFw = 1900;
-        this.aFx = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.aFy = 1;
-        this.aFz = 12;
-        this.aFA = 31;
+        this.aFz = 1900;
+        this.aFA = PushConstants.BROADCAST_MESSAGE_ARRIVE;
         this.aFB = 1;
-        this.aFC = this.aFA;
-        this.aFF = 12;
-        this.aFG = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
+        this.aFC = 12;
+        this.aFD = 31;
+        this.aFE = 1;
+        this.aFF = this.aFD;
+        this.aFI = 12;
+        this.aFJ = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdGallery.c
             public void a(BdGallery bdGallery) {
                 long selectedItemPosition = bdGallery.getSelectedItemPosition();
-                if (bdGallery != BdDatePicker.this.aFq) {
-                    if (bdGallery != BdDatePicker.this.aFr) {
-                        if (bdGallery == BdDatePicker.this.aFs) {
-                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                if (bdGallery != BdDatePicker.this.aFt) {
+                    if (bdGallery != BdDatePicker.this.aFu) {
+                        if (bdGallery == BdDatePicker.this.aFv) {
+                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFE);
                         }
                     } else {
-                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFy);
-                        BdDatePicker.this.GQ();
+                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                        BdDatePicker.this.GO();
                     }
                 } else {
-                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFw);
-                    BdDatePicker.this.GP();
-                    BdDatePicker.this.GQ();
+                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFz);
+                    BdDatePicker.this.GN();
+                    BdDatePicker.this.GO();
                 }
-                if (BdDatePicker.this.aFt != null) {
-                    BdDatePicker.this.aFt.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
+                if (BdDatePicker.this.aFw != null) {
+                    BdDatePicker.this.aFw.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
                 }
             }
         };
@@ -96,34 +96,34 @@ public class BdDatePicker extends LinearLayout {
         this.MC = 1900;
         this.MD = 1;
         this.ME = 1;
-        this.aFw = 1900;
-        this.aFx = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.aFy = 1;
-        this.aFz = 12;
-        this.aFA = 31;
+        this.aFz = 1900;
+        this.aFA = PushConstants.BROADCAST_MESSAGE_ARRIVE;
         this.aFB = 1;
-        this.aFC = this.aFA;
-        this.aFF = 12;
-        this.aFG = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
+        this.aFC = 12;
+        this.aFD = 31;
+        this.aFE = 1;
+        this.aFF = this.aFD;
+        this.aFI = 12;
+        this.aFJ = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdGallery.c
             public void a(BdGallery bdGallery) {
                 long selectedItemPosition = bdGallery.getSelectedItemPosition();
-                if (bdGallery != BdDatePicker.this.aFq) {
-                    if (bdGallery != BdDatePicker.this.aFr) {
-                        if (bdGallery == BdDatePicker.this.aFs) {
-                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                if (bdGallery != BdDatePicker.this.aFt) {
+                    if (bdGallery != BdDatePicker.this.aFu) {
+                        if (bdGallery == BdDatePicker.this.aFv) {
+                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFE);
                         }
                     } else {
-                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFy);
-                        BdDatePicker.this.GQ();
+                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                        BdDatePicker.this.GO();
                     }
                 } else {
-                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFw);
-                    BdDatePicker.this.GP();
-                    BdDatePicker.this.GQ();
+                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFz);
+                    BdDatePicker.this.GN();
+                    BdDatePicker.this.GO();
                 }
-                if (BdDatePicker.this.aFt != null) {
-                    BdDatePicker.this.aFt.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
+                if (BdDatePicker.this.aFw != null) {
+                    BdDatePicker.this.aFw.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
                 }
             }
         };
@@ -135,34 +135,34 @@ public class BdDatePicker extends LinearLayout {
         this.MC = 1900;
         this.MD = 1;
         this.ME = 1;
-        this.aFw = 1900;
-        this.aFx = PushConstants.BROADCAST_MESSAGE_ARRIVE;
-        this.aFy = 1;
-        this.aFz = 12;
-        this.aFA = 31;
+        this.aFz = 1900;
+        this.aFA = PushConstants.BROADCAST_MESSAGE_ARRIVE;
         this.aFB = 1;
-        this.aFC = this.aFA;
-        this.aFF = 12;
-        this.aFG = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
+        this.aFC = 12;
+        this.aFD = 31;
+        this.aFE = 1;
+        this.aFF = this.aFD;
+        this.aFI = 12;
+        this.aFJ = new BdGallery.c() { // from class: com.baidu.swan.apps.res.ui.BdDatePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdGallery.c
             public void a(BdGallery bdGallery) {
                 long selectedItemPosition = bdGallery.getSelectedItemPosition();
-                if (bdGallery != BdDatePicker.this.aFq) {
-                    if (bdGallery != BdDatePicker.this.aFr) {
-                        if (bdGallery == BdDatePicker.this.aFs) {
-                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                if (bdGallery != BdDatePicker.this.aFt) {
+                    if (bdGallery != BdDatePicker.this.aFu) {
+                        if (bdGallery == BdDatePicker.this.aFv) {
+                            BdDatePicker.this.ME = (int) (selectedItemPosition + BdDatePicker.this.aFE);
                         }
                     } else {
-                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFy);
-                        BdDatePicker.this.GQ();
+                        BdDatePicker.this.MD = (int) (selectedItemPosition + BdDatePicker.this.aFB);
+                        BdDatePicker.this.GO();
                     }
                 } else {
-                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFw);
-                    BdDatePicker.this.GP();
-                    BdDatePicker.this.GQ();
+                    BdDatePicker.this.MC = (int) (selectedItemPosition + BdDatePicker.this.aFz);
+                    BdDatePicker.this.GN();
+                    BdDatePicker.this.GO();
                 }
-                if (BdDatePicker.this.aFt != null) {
-                    BdDatePicker.this.aFt.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
+                if (BdDatePicker.this.aFw != null) {
+                    BdDatePicker.this.aFw.a(BdDatePicker.this, BdDatePicker.this.MC, BdDatePicker.this.MD, BdDatePicker.this.ME);
                 }
             }
         };
@@ -172,118 +172,118 @@ public class BdDatePicker extends LinearLayout {
     private void init(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(a.g.aiapps_datepicker_layout, this);
-        this.aFF = x.dip2px(context, this.aFF);
-        this.aFq = (WheelView) findViewById(a.f.wheel_year);
-        this.aFq.setOnEndFlingListener(this.aFG);
-        this.aFq.setAdapter((SpinnerAdapter) new a(context));
-        this.aFq.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
-        this.aFq.setSpacing(this.aFF);
-        this.aFr = (WheelView) findViewById(a.f.wheel_month);
-        this.aFr.setOnEndFlingListener(this.aFG);
-        this.aFr.setAdapter((SpinnerAdapter) new a(context));
-        this.aFr.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
-        this.aFr.setSpacing(this.aFF);
-        this.aFs = (WheelView) findViewById(a.f.wheel_day);
-        this.aFs.setOnEndFlingListener(this.aFG);
-        this.aFs.setAdapter((SpinnerAdapter) new a(context));
-        this.aFs.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
-        this.aFs.setSpacing(this.aFF);
-        GM();
+        this.aFI = x.dip2px(context, this.aFI);
+        this.aFt = (WheelView) findViewById(a.f.wheel_year);
+        this.aFt.setOnEndFlingListener(this.aFJ);
+        this.aFt.setAdapter((SpinnerAdapter) new a(context));
+        this.aFt.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
+        this.aFt.setSpacing(this.aFI);
+        this.aFu = (WheelView) findViewById(a.f.wheel_month);
+        this.aFu.setOnEndFlingListener(this.aFJ);
+        this.aFu.setAdapter((SpinnerAdapter) new a(context));
+        this.aFu.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
+        this.aFu.setSpacing(this.aFI);
+        this.aFv = (WheelView) findViewById(a.f.wheel_day);
+        this.aFv.setOnEndFlingListener(this.aFJ);
+        this.aFv.setAdapter((SpinnerAdapter) new a(context));
+        this.aFv.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
+        this.aFv.setSpacing(this.aFI);
+        GK();
     }
 
-    private void GM() {
+    private void GK() {
         Calendar calendar = Calendar.getInstance();
         this.MC = calendar.get(1);
         this.MD = calendar.get(2) + 1;
         this.ME = calendar.get(5);
+        GL();
+    }
+
+    public void GL() {
+        GM();
         GN();
-    }
-
-    public void GN() {
         GO();
-        GP();
-        GQ();
     }
 
-    private void GO() {
-        if (this.MC < this.aFw || this.MC > this.aFx) {
-            this.MC = this.aFw;
+    private void GM() {
+        if (this.MC < this.aFz || this.MC > this.aFA) {
+            this.MC = this.aFz;
         }
-        int i = (this.aFx - this.aFw) + 1;
+        int i = (this.aFA - this.aFz) + 1;
         ArrayList<String> arrayList = new ArrayList<>(i);
         String string = getContext().getString(a.h.date_picker_year);
         for (int i2 = 0; i2 < i; i2++) {
-            arrayList.add(String.format(string, Integer.valueOf(this.aFw + i2)));
+            arrayList.add(String.format(string, Integer.valueOf(this.aFz + i2)));
         }
-        ((a) this.aFq.getAdapter()).setData(arrayList);
+        ((a) this.aFt.getAdapter()).setData(arrayList);
     }
 
-    public void GP() {
-        this.aFy = 1;
-        this.aFz = 12;
-        if (this.aFu != null && this.MC == this.aFw) {
-            this.aFy = this.aFu.getMonth() + 1;
-        }
-        if (this.aFv != null && this.MC == this.aFx) {
-            this.aFz = this.aFv.getMonth() + 1;
-        }
-        ArrayList<String> arrayList = new ArrayList<>((this.aFz - this.aFy) + 1);
-        String string = getContext().getString(a.h.date_picker_month);
-        for (int i = this.aFy; i <= this.aFz; i++) {
-            arrayList.add(String.format(string, Integer.valueOf(i)));
-        }
-        ((a) this.aFr.getAdapter()).setData(arrayList);
-        setMonth(this.MD);
-        this.aFr.invalidate();
-    }
-
-    public void GQ() {
-        int[] iArr = {4, 6, 9, 11};
-        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.MD) >= 0) {
-            this.aFA = 31;
-        } else if (Arrays.binarySearch(iArr, this.MD) >= 0) {
-            this.aFA = 30;
-        } else if ((this.MC % 4 == 0 && this.MC % 100 != 0) || this.MC % 400 == 0) {
-            this.aFA = 29;
-        } else {
-            this.aFA = 28;
-        }
+    public void GN() {
         this.aFB = 1;
-        this.aFC = this.aFA;
-        if (this.aFu != null && this.MC == this.aFw && this.MD == this.aFu.getMonth() + 1) {
-            this.aFB = this.aFu.getDate();
+        this.aFC = 12;
+        if (this.aFx != null && this.MC == this.aFz) {
+            this.aFB = this.aFx.getMonth() + 1;
         }
-        if (this.aFv != null && this.MC == this.aFx && this.MD == this.aFv.getMonth() + 1) {
-            this.aFC = this.aFv.getDate();
+        if (this.aFy != null && this.MC == this.aFA) {
+            this.aFC = this.aFy.getMonth() + 1;
         }
         ArrayList<String> arrayList = new ArrayList<>((this.aFC - this.aFB) + 1);
-        String string = getContext().getString(a.h.date_picker_day);
+        String string = getContext().getString(a.h.date_picker_month);
         for (int i = this.aFB; i <= this.aFC; i++) {
             arrayList.add(String.format(string, Integer.valueOf(i)));
         }
-        ((a) this.aFs.getAdapter()).setData(arrayList);
+        ((a) this.aFu.getAdapter()).setData(arrayList);
+        setMonth(this.MD);
+        this.aFu.invalidate();
+    }
+
+    public void GO() {
+        int[] iArr = {4, 6, 9, 11};
+        if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.MD) >= 0) {
+            this.aFD = 31;
+        } else if (Arrays.binarySearch(iArr, this.MD) >= 0) {
+            this.aFD = 30;
+        } else if ((this.MC % 4 == 0 && this.MC % 100 != 0) || this.MC % 400 == 0) {
+            this.aFD = 29;
+        } else {
+            this.aFD = 28;
+        }
+        this.aFE = 1;
+        this.aFF = this.aFD;
+        if (this.aFx != null && this.MC == this.aFz && this.MD == this.aFx.getMonth() + 1) {
+            this.aFE = this.aFx.getDate();
+        }
+        if (this.aFy != null && this.MC == this.aFA && this.MD == this.aFy.getMonth() + 1) {
+            this.aFF = this.aFy.getDate();
+        }
+        ArrayList<String> arrayList = new ArrayList<>((this.aFF - this.aFE) + 1);
+        String string = getContext().getString(a.h.date_picker_day);
+        for (int i = this.aFE; i <= this.aFF; i++) {
+            arrayList.add(String.format(string, Integer.valueOf(i)));
+        }
+        ((a) this.aFv.getAdapter()).setData(arrayList);
         setDay(this.ME);
-        this.aFs.invalidate();
+        this.aFv.invalidate();
     }
 
     public void setOnTimeChangeListener(b bVar) {
-        this.aFt = bVar;
+        this.aFw = bVar;
     }
 
     public void setYear(int i) {
-        if (i < this.aFw) {
-            i = this.aFw;
+        if (i < this.aFz) {
+            i = this.aFz;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The year must be between " + this.aFw + " and " + this.aFx).IM();
+                d.a(AppRuntime.getAppContext(), "The year must be between " + this.aFz + " and " + this.aFA).IK();
             }
-        } else if (i > this.aFx) {
-            i = this.aFx;
+        } else if (i > this.aFA) {
+            i = this.aFA;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The year must be between " + this.aFw + " and " + this.aFx).IK();
+                d.a(AppRuntime.getAppContext(), "The year must be between " + this.aFz + " and " + this.aFA).II();
             }
         }
         this.MC = i;
-        this.aFq.setSelection(this.MC - this.aFw);
+        this.aFt.setSelection(this.MC - this.aFz);
     }
 
     public int getYear() {
@@ -291,19 +291,19 @@ public class BdDatePicker extends LinearLayout {
     }
 
     public void setMonth(int i) {
-        if (i < this.aFy) {
-            i = this.aFy;
+        if (i < this.aFB) {
+            i = this.aFB;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The month must be between " + this.aFy + " and " + this.aFz).IM();
+                d.a(AppRuntime.getAppContext(), "The month must be between " + this.aFB + " and " + this.aFC).IK();
             }
-        } else if (i > this.aFz) {
-            i = this.aFz;
+        } else if (i > this.aFC) {
+            i = this.aFC;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The month must be between " + this.aFy + " and " + this.aFz).IK();
+                d.a(AppRuntime.getAppContext(), "The month must be between " + this.aFB + " and " + this.aFC).II();
             }
         }
         this.MD = i;
-        this.aFr.setSelection(this.MD - this.aFy);
+        this.aFu.setSelection(this.MD - this.aFB);
     }
 
     public int getMonth() {
@@ -311,19 +311,19 @@ public class BdDatePicker extends LinearLayout {
     }
 
     public void setDay(int i) {
-        if (i < this.aFB || i > this.aFC) {
-            i = this.aFB;
+        if (i < this.aFE || i > this.aFF) {
+            i = this.aFE;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The day must be between " + this.aFB + " and " + this.aFC).IK();
+                d.a(AppRuntime.getAppContext(), "The day must be between " + this.aFE + " and " + this.aFF).II();
             }
-        } else if (i > this.aFC) {
-            i = this.aFC;
+        } else if (i > this.aFF) {
+            i = this.aFF;
             if (DEBUG) {
-                d.a(AppRuntime.getAppContext(), "The day must be between " + this.aFB + " and " + this.aFC).IM();
+                d.a(AppRuntime.getAppContext(), "The day must be between " + this.aFE + " and " + this.aFF).IK();
             }
         }
         this.ME = i;
-        this.aFs.setSelection(this.ME - this.aFB);
+        this.aFv.setSelection(this.ME - this.aFE);
     }
 
     public int getDay() {
@@ -331,37 +331,37 @@ public class BdDatePicker extends LinearLayout {
     }
 
     public void setYearAdapter(SpinnerAdapter spinnerAdapter) {
-        this.aFq.setAdapter(spinnerAdapter);
+        this.aFt.setAdapter(spinnerAdapter);
     }
 
     public void setMonthAdapter(SpinnerAdapter spinnerAdapter) {
-        this.aFr.setAdapter(spinnerAdapter);
+        this.aFu.setAdapter(spinnerAdapter);
     }
 
     public void setDayAdapter(SpinnerAdapter spinnerAdapter) {
-        this.aFs.setAdapter(spinnerAdapter);
+        this.aFv.setAdapter(spinnerAdapter);
     }
 
     public void setStartDate(Date date) {
         if (date != null) {
-            this.aFu = date;
-            this.aFw = this.aFu.getYear() + 1900;
+            this.aFx = date;
+            this.aFz = this.aFx.getYear() + 1900;
             return;
         }
-        this.aFw = 1900;
+        this.aFz = 1900;
     }
 
     public void setEndDate(Date date) {
         if (date != null) {
-            this.aFv = date;
-            this.aFx = this.aFv.getYear() + 1900;
+            this.aFy = date;
+            this.aFA = this.aFy.getYear() + 1900;
             return;
         }
-        this.aFx = PushConstants.BROADCAST_MESSAGE_ARRIVE;
+        this.aFA = PushConstants.BROADCAST_MESSAGE_ARRIVE;
     }
 
     public void setFields(String str) {
-        this.aFD = str;
+        this.aFG = str;
         if (!TextUtils.isEmpty(str)) {
             char c = 65535;
             switch (str.hashCode()) {
@@ -380,22 +380,22 @@ public class BdDatePicker extends LinearLayout {
             }
             switch (c) {
                 case 0:
-                    this.aFr.setVisibility(8);
-                    this.aFs.setVisibility(8);
+                    this.aFu.setVisibility(8);
+                    this.aFv.setVisibility(8);
                     return;
                 case 1:
-                    this.aFr.setVisibility(0);
-                    this.aFs.setVisibility(8);
+                    this.aFu.setVisibility(0);
+                    this.aFv.setVisibility(8);
                     return;
                 default:
-                    this.aFr.setVisibility(0);
-                    this.aFs.setVisibility(0);
+                    this.aFu.setVisibility(0);
+                    this.aFv.setVisibility(0);
                     return;
             }
         }
     }
 
-    public boolean fV(String str) {
+    public boolean fW(String str) {
         WheelView wheelView = null;
         char c = 65535;
         switch (str.hashCode()) {
@@ -420,63 +420,63 @@ public class BdDatePicker extends LinearLayout {
         }
         switch (c) {
             case 0:
-                wheelView = this.aFq;
+                wheelView = this.aFt;
                 break;
             case 1:
-                wheelView = this.aFr;
+                wheelView = this.aFu;
                 break;
             case 2:
-                wheelView = this.aFs;
+                wheelView = this.aFv;
                 break;
         }
         return wheelView != null && wheelView.getVisibility() == 0;
     }
 
     public void setDisabled(boolean z) {
-        this.aFE = z;
-        this.aFq.setDisableScrollAnyway(z);
-        this.aFr.setDisableScrollAnyway(z);
-        this.aFs.setDisableScrollAnyway(z);
+        this.aFH = z;
+        this.aFt.setDisableScrollAnyway(z);
+        this.aFu.setDisableScrollAnyway(z);
+        this.aFv.setDisableScrollAnyway(z);
     }
 
     public void setScrollCycle(boolean z) {
-        this.aFr.setScrollCycle(z);
-        this.aFq.setScrollCycle(z);
-        this.aFs.setScrollCycle(z);
+        this.aFu.setScrollCycle(z);
+        this.aFt.setScrollCycle(z);
+        this.aFv.setScrollCycle(z);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends BaseAdapter {
-        private int aFJ;
+        private int aFM;
         private Context mContext;
-        private ArrayList<String> aFI = null;
+        private ArrayList<String> aFL = null;
         private int mWidth = -1;
         private int mHeight = -2;
 
         public a(Context context) {
             this.mContext = null;
-            this.aFJ = ViewCompat.MEASURED_STATE_MASK;
+            this.aFM = ViewCompat.MEASURED_STATE_MASK;
             this.mContext = context;
-            this.aFJ = AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_data_picker_color);
+            this.aFM = AppRuntime.getAppContext().getResources().getColor(a.c.aiapps_data_picker_color);
         }
 
         public void setData(ArrayList<String> arrayList) {
-            this.aFI = arrayList;
+            this.aFL = arrayList;
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.aFI != null) {
-                return this.aFI.size();
+            if (this.aFL != null) {
+                return this.aFL.size();
             }
             return 0;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (this.aFI != null) {
-                return this.aFI.get(i);
+            if (this.aFL != null) {
+                return this.aFL.get(i);
             }
             return null;
         }
@@ -501,13 +501,13 @@ public class BdDatePicker extends LinearLayout {
             TextView textView2 = textView;
             textView2.setGravity(17);
             textView2.setTextSize(1, 20.0f);
-            textView2.setTextColor(this.aFJ);
+            textView2.setTextColor(this.aFM);
             textView.setBackgroundColor(context.getResources().getColor(a.c.aiapps_card_remind_timepicker_wheel_background));
             return textView;
         }
 
         protected void b(int i, View view) {
-            ((TextView) view).setText(this.aFI.get(i));
+            ((TextView) view).setText(this.aFL.get(i));
         }
     }
 }

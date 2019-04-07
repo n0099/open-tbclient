@@ -14,7 +14,7 @@ public interface d extends com.baidu.swan.apps.core.container.a {
 
     void goBack();
 
-    View wb();
+    View wa();
 
     void z(int i, int i2);
 }

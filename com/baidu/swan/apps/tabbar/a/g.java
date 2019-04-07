@@ -20,28 +20,28 @@ public class g extends y {
             Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e Ec = com.baidu.swan.apps.w.e.Ec();
+        com.baidu.swan.apps.w.e Ea = com.baidu.swan.apps.w.e.Ea();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.e uz = Ec.uz();
-        if (uz == null) {
+        com.baidu.swan.apps.core.c.e uy = Ea.uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.d yP = uz.yP();
+        com.baidu.swan.apps.core.c.d yO = uy.yO();
         int optInt = optParamsAsJo.optInt("index");
         String optString = optParamsAsJo.optString("text");
         String optString2 = optParamsAsJo.optString("iconPath");
         String optString3 = optParamsAsJo.optString("selectedIconPath");
-        if (yP == null) {
+        if (yO == null) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yP.yD().b(optInt, optString, optString2, optString3)) {
+        } else if (!yO.yC().b(optInt, optString, optString2, optString3)) {
             com.baidu.swan.apps.console.c.e("setTabBarItem", "set bottom bar time fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

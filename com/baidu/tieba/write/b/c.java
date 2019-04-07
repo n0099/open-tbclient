@@ -11,37 +11,37 @@ import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private int iWg;
-    private b jpi;
-    private a jpj;
+    private int iVU;
+    private b joX;
+    private a joY;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a jpk = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a joZ = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
-        public void lI(int i) {
-            c.this.iWg = i;
-            c.this.aWF();
-            if (c.this.jpj != null) {
-                c.this.jpj.Bo(c.this.iWg);
+        public void lH(int i) {
+            c.this.iVU = i;
+            c.this.aWD();
+            if (c.this.joY != null) {
+                c.this.joY.Bk(c.this.iVU);
             }
         }
     };
-    private View.OnClickListener bQK = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
+    private View.OnClickListener bQM = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.jpi == null) {
-                    c.this.jpi = new b(c.this.mContext);
-                    c.this.jpi.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.jpi.a(c.this.jpk);
-                    c.this.jpi.po(c.this.mStatusBarHeight);
+                if (c.this.joX == null) {
+                    c.this.joX = new b(c.this.mContext);
+                    c.this.joX.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.joX.a(c.this.joZ);
+                    c.this.joX.pj(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_all), 0));
-                c.this.jpi.setData(arrayList, c.this.iWg);
-                c.this.jpi.bg(c.this.mTitle);
+                c.this.joX.setData(arrayList, c.this.iVU);
+                c.this.joX.bg(c.this.mTitle);
                 c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_retract), (Drawable) null);
             }
         }
@@ -59,19 +59,19 @@ public class c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bo(int i);
+        void Bk(int i);
     }
 
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.iWg = i;
+        this.iVU = i;
         this.mStatusBarHeight = i2;
     }
 
-    public void aWF() {
-        if (cpD()) {
-            switch (this.iWg) {
+    public void aWD() {
+        if (cpB()) {
+            switch (this.iVU) {
                 case 0:
                     this.mTitle.setText(d.j.write_zone_all);
                     break;
@@ -79,20 +79,20 @@ public class c {
                     this.mTitle.setText(d.j.write_zone_profession);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bQK);
+            this.mTitle.setOnClickListener(this.bQM);
         }
     }
 
-    public boolean cpD() {
-        return this.iWg == 0 || this.iWg == 1;
+    public boolean cpB() {
+        return this.iVU == 0 || this.iVU == 1;
     }
 
     public void a(a aVar) {
-        this.jpj = aVar;
+        this.joY = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cpD()) {
+        if (cpB()) {
             al.d(this.mTitle, d.C0277d.cp_cont_b, i);
             if (this.mTitle != null) {
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_spread), (Drawable) null);

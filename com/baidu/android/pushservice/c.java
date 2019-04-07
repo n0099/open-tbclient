@@ -87,7 +87,7 @@ public class c {
                             }
                         }
                         build.contentIntent = pendingIntent;
-                        ((NotificationManager) context.getSystemService("notification")).notify(str, 0, build);
+                        ((NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI)).notify(str, 0, build);
                     } catch (MalformedURLException e) {
                     } catch (IOException e2) {
                     }
@@ -115,7 +115,7 @@ public class c {
         }
         if (notification != null) {
             notification.contentIntent = pendingIntent;
-            ((NotificationManager) context.getSystemService("notification")).notify(m.a(str), notification);
+            ((NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI)).notify(m.a(str), notification);
         }
     }
 

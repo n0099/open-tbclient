@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac bJO;
-    private static final BdUniqueId bJP = BdUniqueId.gen();
+    private static ac bJQ;
+    private static final BdUniqueId bJR = BdUniqueId.gen();
 
-    public static synchronized ac acT() {
+    public static synchronized ac acQ() {
         ac acVar;
         synchronized (ac.class) {
-            if (bJO == null) {
-                bJO = new ac();
+            if (bJQ == null) {
+                bJQ = new ac();
             }
-            acVar = bJO;
+            acVar = bJQ;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String bJQ;
-        private final boolean bJR;
-        private final boolean bJS;
+        private final String bJS;
         private final boolean bJT;
+        private final boolean bJU;
+        private final boolean bJV;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.bJQ = str2;
-            this.bJR = z;
-            this.bJS = z2;
-            this.bJT = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bJP));
+            this.bJS = str2;
+            this.bJT = z;
+            this.bJU = z2;
+            this.bJV = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bJR));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.c(this.imageUrl, this.bJQ, this.bJR, this.bJS, this.bJT);
+                ac.this.c(this.imageUrl, this.bJS, this.bJT, this.bJU, this.bJV);
             } finally {
                 return null;
             }
@@ -53,17 +53,17 @@ public class ac {
 
     public void c(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String mK = as.mK(str);
-            ao.adk().bG(str2, mK);
+            String mL = as.mL(str);
+            ao.adh().bG(str2, mL);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int mD = ao.adk().mD(mK);
-                    if (mD > 0) {
+                    int mE = ao.adh().mE(mL);
+                    if (mE > 0) {
                         if (z) {
-                            Bitmap mf = ao.adk().mf(mK);
-                            com.baidu.tbadk.imageManager.c.anp().jM(mD);
-                            if (mf != null) {
-                                a(str, mf, z2, ao.adk().mC(mK), z3, mK);
+                            Bitmap mg = ao.adh().mg(mL);
+                            com.baidu.tbadk.imageManager.c.anm().jL(mE);
+                            if (mg != null) {
+                                a(str, mg, z2, ao.adh().mD(mL), z3, mL);
                             }
                         }
                     }
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.anp().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.anm().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -117,7 +117,7 @@ public class ac {
             bitmap2 = BitmapHelper.getRoundedCornerBitmap(l, (l.getHeight() < 100 || l.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            ao.adk().h(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            ao.adh().h(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -139,7 +139,7 @@ public class ac {
         int i4;
         int i5;
         int i6 = 70;
-        int acE = LocalViewSize.acA().acE();
+        int acB = LocalViewSize.acx().acB();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;
@@ -150,21 +150,21 @@ public class ac {
                 z2 = true;
                 i3 = i2;
             }
-            if (i4 <= i3 && i4 > acE) {
-                i3 = (int) (i3 / (i4 / acE));
-            } else if (i3 > i4 || i3 <= acE) {
-                acE = i4;
+            if (i4 <= i3 && i4 > acB) {
+                i3 = (int) (i3 / (i4 / acB));
+            } else if (i3 > i4 || i3 <= acB) {
+                acB = i4;
             } else {
-                acE = (int) (i4 / (i3 / acE));
-                i3 = acE;
+                acB = (int) (i4 / (i3 / acB));
+                i3 = acB;
             }
-            if (z2 && i <= acE && i2 <= i3) {
-                acE = (int) (acE * 0.9d);
+            if (z2 && i <= acB && i2 <= i3) {
+                acB = (int) (acB * 0.9d);
                 i3 = (int) (i3 * 0.9d);
             }
-            if (acE < 70 || i3 >= 70) {
+            if (acB < 70 || i3 >= 70) {
                 i6 = i3;
-                i5 = acE;
+                i5 = acB;
             } else {
                 i5 = 70;
             }
@@ -177,15 +177,15 @@ public class ac {
         }
         if (i3 > i4) {
         }
-        acE = i4;
+        acB = i4;
         if (z2) {
-            acE = (int) (acE * 0.9d);
+            acB = (int) (acB * 0.9d);
             i3 = (int) (i3 * 0.9d);
         }
-        if (acE < 70) {
+        if (acB < 70) {
         }
         i6 = i3;
-        i5 = acE;
+        i5 = acB;
         return new com.baidu.tbadk.core.util.c.a(i5, i6, z2);
     }
 }

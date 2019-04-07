@@ -5,15 +5,15 @@ public class a {
         return "tieba";
     }
 
-    public static String vD() {
+    public static String vC() {
         return "flFqXclepWs7RdugAszy9eERL7G5dS0I";
     }
 
-    public static String vw() {
+    public static String vv() {
         return "tiebaclient";
     }
 
-    public static String vF() {
+    public static String vE() {
         return "MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB";
     }
 }

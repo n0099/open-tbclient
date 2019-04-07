@@ -27,12 +27,12 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
         this.Zj = new OriginalThreadCardView.a() { // from class: com.baidu.card.ab.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ab.this.Xy != null && ab.this.Xy.WR() != null) {
+                if (ab.this.Xy != null && ab.this.Xy.WO() != null) {
                     if (ab.this.rk() != null) {
                         ab.this.rk().a(ab.this.Zi, ab.this.Xy);
                     }
-                    String id = ab.this.Xy.WR().getId();
-                    com.baidu.tieba.card.n.tA(id);
+                    String id = ab.this.Xy.WO().getId();
+                    com.baidu.tieba.card.n.tz(id);
                     ab.this.cu(id);
                     ab.this.Xq.b(new a.C0039a(1));
                 }
@@ -55,23 +55,23 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.WR() != null) {
+        if (aVar != null && aVar.WO() != null) {
             this.Xy = aVar;
-            au.a(this.mTitle, aVar.WR());
-            au.a(this.XK, this.mTitle, aVar.WR(), XI);
-            this.Zi.b(aVar.WR().bDv);
+            au.a(this.mTitle, aVar.WO());
+            au.a(this.XK, this.mTitle, aVar.WO(), XI);
+            this.Zi.b(aVar.WO().bDy);
         }
     }
 
-    public void bB(int i) {
-        this.Zi.ekl = i;
+    public void bA(int i) {
+        this.Zi.ejX = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cu(String str) {
         com.baidu.tieba.card.n.a(this.mTitle, str, d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
         com.baidu.tieba.card.n.a(this.XK, str, d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
-        this.Zi.setReadState(com.baidu.tieba.card.n.tB(str));
+        this.Zi.setReadState(com.baidu.tieba.card.n.tA(str));
     }
 
     @Override // com.baidu.card.j

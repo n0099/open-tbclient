@@ -31,18 +31,18 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adS() {
+    public boolean adP() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adT() {
+    public boolean adQ() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c na(String str) {
+    public com.baidu.adp.lib.Disk.ops.c nb(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anp().pi(str);
-        if (pi != null) {
-            pi.Of.Oh = "memory";
-            pi.Of.Oi = 0L;
-            pi.Of.Oj = true;
+        com.baidu.adp.widget.ImageView.a pj = com.baidu.tbadk.imageManager.c.anm().pj(str);
+        if (pj != null) {
+            pj.Of.Oh = "memory";
+            pj.Of.Oi = 0L;
+            pj.Of.Oj = true;
         }
-        return pi;
+        return pj;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +97,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int adU() {
+    public int adR() {
         return this.procType;
     }
 }

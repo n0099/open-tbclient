@@ -4,18 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a csS;
-    private com.baidu.tbadk.coreExtra.data.a cab;
+    private static a csU;
+    private com.baidu.tbadk.coreExtra.data.a cad;
 
-    public static a apM() {
-        if (csS == null) {
+    public static a apJ() {
+        if (csU == null) {
             synchronized (a.class) {
-                if (csS == null) {
-                    csS = new a();
+                if (csU == null) {
+                    csU = new a();
                 }
             }
         }
-        return csS;
+        return csU;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,22 +24,22 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.cab == null || aVar.afN() != this.cab.afN()) ? true : true;
-        this.cab = aVar;
+        z = (aVar == null || this.cad == null || aVar.afK() != this.cad.afK()) ? true : true;
+        this.cad = aVar;
         if (z) {
-            pA("zan_or_cai_smallflow");
+            pB("zan_or_cai_smallflow");
         }
     }
 
-    public boolean afN() {
-        if (this.cab == null) {
-            this.cab = new com.baidu.tbadk.coreExtra.data.a();
-            this.cab.afO();
+    public boolean afK() {
+        if (this.cad == null) {
+            this.cad = new com.baidu.tbadk.coreExtra.data.a();
+            this.cad.afL();
         }
-        return this.cab.afN();
+        return this.cad.afK();
     }
 
-    private void pA(String str) {
+    private void pB(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 }

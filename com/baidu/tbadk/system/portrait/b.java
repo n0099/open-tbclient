@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void py(String str) {
+    public void pz(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void kd(int i) {
+    public void kc(int i) {
         this.myItem = i;
     }
 }

@@ -6,9 +6,9 @@ import javax.annotation.Nullable;
 public interface d {
     d C(Uri uri);
 
-    d aS(Object obj);
+    d aO(Object obj);
 
     d b(@Nullable a aVar);
 
-    a cvn();
+    a cvg();
 }

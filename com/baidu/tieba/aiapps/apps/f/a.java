@@ -16,9 +16,9 @@ public class a implements i {
     private long lastResumeTime;
 
     @Override // com.baidu.swan.apps.b.b.i
-    public void vQ() {
+    public void vP() {
         if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + com.baidu.swan.apps.ae.b.IX().id);
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + com.baidu.swan.apps.ae.b.IV().id);
         }
         this.lastResumeTime = System.currentTimeMillis();
     }
@@ -38,7 +38,7 @@ public class a implements i {
     }
 
     @Override // com.baidu.swan.apps.b.b.i
-    public void vR() {
+    public void vQ() {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
@@ -49,13 +49,13 @@ public class a implements i {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d dVar = new d();
             dVar.aS(currentTimeMillis);
-            dVar.pt(getCurrentPageKey());
+            dVar.pu(getCurrentPageKey());
             dVar.setTid(j);
-            dVar.cpL = string;
-            dVar.cpM = string2;
+            dVar.cpN = string;
+            dVar.cpO = string2;
             dVar.ah(getCurrentPageSourceKeyList());
-            e.aoP().fc(true);
-            e.aoP().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            e.aoM().fc(true);
+            e.aoM().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("smart_app_tid", 0L);
         }
     }

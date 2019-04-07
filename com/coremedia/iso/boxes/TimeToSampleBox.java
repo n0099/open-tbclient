@@ -26,9 +26,9 @@ public class TimeToSampleBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TimeToSampleBox.java", TimeToSampleBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.util.List"), 79);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.TimeToSampleBox", "java.util.List", "entries", "", "void"), 83);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.lang.String"), 87);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.util.List"), 79);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setEntries", "com.coremedia.iso.boxes.TimeToSampleBox", "java.util.List", "entries", "", "void"), 83);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.lang.String"), 87);
     }
 
     static {

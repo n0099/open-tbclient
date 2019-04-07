@@ -28,26 +28,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class EnterForumStatic {
-    private static EnterForumModel eAY;
+    private static EnterForumModel eAJ;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumTestActivityConfig.class, ForumTestActivity.class);
+        aVO();
+        aVP();
         aVQ();
         aVR();
-        aVS();
-        aVT();
     }
 
-    private static void aVQ() {
-        c.ceN();
-        if (eAY == null) {
-            eAY = new EnterForumModel(null);
-            eAY.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.EnterForumStatic.1
+    private static void aVO() {
+        c.ceJ();
+        if (eAJ == null) {
+            eAJ = new EnterForumModel(null);
+            eAJ.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.EnterForumStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    e aVZ = aVar.eDW.aVZ();
+                    e aVX = aVar.eDH.aVX();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<d> it = aVZ.aWt().iterator();
+                    Iterator<d> it = aVX.aWr().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -58,12 +58,12 @@ public class EnterForumStatic {
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.EnterForumStatic.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumStatic.eAY.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && EnterForumStatic.eAJ.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        EnterForumStatic.eAY.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        EnterForumStatic.eAJ.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        EnterForumStatic.eAY.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        EnterForumStatic.eAJ.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -74,16 +74,16 @@ public class EnterForumStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        EnterForumStatic.eAY.iA(true);
+                        EnterForumStatic.eAJ.iA(true);
                     } else {
-                        EnterForumStatic.eAY.iz(true);
+                        EnterForumStatic.eAJ.iz(true);
                     }
                 }
             }
         });
     }
 
-    private static void aVR() {
+    private static void aVP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016562, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.EnterForumStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {
@@ -94,12 +94,12 @@ public class EnterForumStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aVS() {
+    private static void aVQ() {
         com.baidu.tieba.tbadkCore.a.a.a(309630, ResponseSocketRecommendMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309630, CmdConfigHttp.CMD_RECOMMEND_FORUM, TbConfig.URL_ENTER_RECOMMEND_FORUM, ResponseHttpRecommendMessage.class, false, false, true, false);
     }
 
-    private static void aVT() {
+    private static void aVR() {
         com.baidu.tieba.tbadkCore.a.a.a(309633, ResponseSocketTestCloseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309633, CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, TbConfig.URL_RECOMMEND_FORUM_TEST_CLOSE, ResponseHttpTestCloseMessage.class, false, false, true, false);
     }

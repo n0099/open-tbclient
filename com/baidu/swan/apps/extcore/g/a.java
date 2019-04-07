@@ -13,12 +13,12 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean BC() {
-        return f.KL().getBoolean("key_is_need_update_preset", false);
+    public static boolean BA() {
+        return f.KJ().getBoolean("key_is_need_update_preset", false);
     }
 
     public static void bb(boolean z) {
-        f.KL().putBoolean("key_is_need_update_preset", z);
+        f.KJ().putBoolean("key_is_need_update_preset", z);
     }
 
     public static void a(File file, List<Long> list) {
@@ -53,16 +53,16 @@ public class a {
         return false;
     }
 
-    public static long eH(@Nullable String str) {
-        String[] eI = eI(str);
-        if (eI == null) {
+    public static long eI(@Nullable String str) {
+        String[] eJ = eJ(str);
+        if (eJ == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < eI.length ? Integer.valueOf(eI[i]).intValue() : 0L);
+                j = (j << 16) | (i < eJ.length ? Integer.valueOf(eJ[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -86,16 +86,16 @@ public class a {
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == eH(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == eI(sb.toString())));
         }
         return sb.toString();
     }
 
-    public static boolean BD() {
-        return DEBUG && com.baidu.swan.apps.ac.a.a.Gf();
+    public static boolean BB() {
+        return DEBUG && com.baidu.swan.apps.ac.a.a.Gd();
     }
 
-    private static String[] eI(@Nullable String str) {
+    private static String[] eJ(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

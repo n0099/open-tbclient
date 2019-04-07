@@ -17,20 +17,20 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a {
     private ViewGroup TG;
-    protected com.baidu.tbadk.widget.timepicker.a.c.a cEq;
-    private Animation cFA;
-    private Animation cFB;
-    protected View cFD;
-    protected ViewGroup cFw;
-    private ViewGroup cFx;
-    private com.baidu.tbadk.widget.timepicker.a.d.c cFy;
-    private boolean cFz;
+    protected com.baidu.tbadk.widget.timepicker.a.c.a cEs;
+    private com.baidu.tbadk.widget.timepicker.a.d.c cFA;
+    private boolean cFB;
+    private Animation cFC;
+    private Animation cFD;
+    protected View cFF;
+    protected ViewGroup cFy;
+    private ViewGroup cFz;
     private Context context;
     private boolean isShowing;
     private Dialog mDialog;
-    protected int cFC = 80;
-    private boolean cFE = true;
-    private View.OnKeyListener cFF = new View.OnKeyListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.4
+    protected int cFE = 80;
+    private boolean cFG = true;
+    private View.OnKeyListener cFH = new View.OnKeyListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getAction() == 0 && a.this.isShowing()) {
@@ -40,7 +40,7 @@ public class a {
             return false;
         }
     };
-    private final View.OnTouchListener cFG = new View.OnTouchListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.5
+    private final View.OnTouchListener cFI = new View.OnTouchListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.5
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
@@ -59,43 +59,43 @@ public class a {
     public void initViews() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
         LayoutInflater from = LayoutInflater.from(this.context);
-        if (atz()) {
-            this.cFx = (ViewGroup) from.inflate(d.h.layout_basepickerview, (ViewGroup) null, false);
-            this.cFx.setBackgroundColor(0);
-            this.cFw = (ViewGroup) this.cFx.findViewById(d.g.content_container);
+        if (atw()) {
+            this.cFz = (ViewGroup) from.inflate(d.h.layout_basepickerview, (ViewGroup) null, false);
+            this.cFz.setBackgroundColor(0);
+            this.cFy = (ViewGroup) this.cFz.findViewById(d.g.content_container);
             layoutParams.leftMargin = 30;
             layoutParams.rightMargin = 30;
-            this.cFw.setLayoutParams(layoutParams);
-            zn();
-            this.cFx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.1
+            this.cFy.setLayoutParams(layoutParams);
+            zm();
+            this.cFz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.dismiss();
                 }
             });
         } else {
-            if (this.cEq.decorView == null) {
-                this.cEq.decorView = (ViewGroup) ((Activity) this.context).getWindow().getDecorView();
+            if (this.cEs.decorView == null) {
+                this.cEs.decorView = (ViewGroup) ((Activity) this.context).getWindow().getDecorView();
             }
-            this.TG = (ViewGroup) from.inflate(d.h.layout_basepickerview, this.cEq.decorView, false);
+            this.TG = (ViewGroup) from.inflate(d.h.layout_basepickerview, this.cEs.decorView, false);
             this.TG.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            if (this.cEq.coe != -1) {
-                this.TG.setBackgroundColor(this.cEq.coe);
+            if (this.cEs.cog != -1) {
+                this.TG.setBackgroundColor(this.cEs.cog);
             }
-            this.cFw = (ViewGroup) this.TG.findViewById(d.g.content_container);
-            this.cFw.setLayoutParams(layoutParams);
+            this.cFy = (ViewGroup) this.TG.findViewById(d.g.content_container);
+            this.cFy.setLayoutParams(layoutParams);
         }
         fw(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initAnim() {
-        this.cFB = getInAnimation();
-        this.cFA = getOutAnimation();
+        this.cFD = getInAnimation();
+        this.cFC = getOutAnimation();
     }
 
     public void show() {
-        if (atz()) {
+        if (atw()) {
             showDialog();
         } else if (!isShowing()) {
             this.isShowing = true;
@@ -105,79 +105,79 @@ public class a {
     }
 
     private void bd(View view) {
-        this.cEq.decorView.addView(view);
-        if (this.cFE) {
-            this.cFw.startAnimation(this.cFB);
+        this.cEs.decorView.addView(view);
+        if (this.cFG) {
+            this.cFy.startAnimation(this.cFD);
         }
     }
 
     public boolean isShowing() {
-        if (atz()) {
+        if (atw()) {
             return false;
         }
         return this.TG.getParent() != null || this.isShowing;
     }
 
     public void dismiss() {
-        if (atz()) {
-            aty();
-        } else if (!this.cFz) {
-            if (this.cFE) {
-                this.cFA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.2
+        if (atw()) {
+            atv();
+        } else if (!this.cFB) {
+            if (this.cFG) {
+                this.cFC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.atw();
+                        a.this.att();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.cFw.startAnimation(this.cFA);
+                this.cFy.startAnimation(this.cFC);
             } else {
-                atw();
+                att();
             }
-            this.cFz = true;
+            this.cFB = true;
         }
     }
 
-    public void atw() {
-        this.cEq.decorView.post(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.3
+    public void att() {
+        this.cEs.decorView.post(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.3
             @Override // java.lang.Runnable
             public void run() {
-                a.this.cEq.decorView.removeView(a.this.TG);
+                a.this.cEs.decorView.removeView(a.this.TG);
                 a.this.isShowing = false;
-                a.this.cFz = false;
-                if (a.this.cFy != null) {
-                    a.this.cFy.ah(a.this);
+                a.this.cFB = false;
+                if (a.this.cFA != null) {
+                    a.this.cFA.af(a.this);
                 }
             }
         });
     }
 
     private Animation getInAnimation() {
-        return AnimationUtils.loadAnimation(this.context, com.baidu.tbadk.widget.timepicker.a.e.c.o(this.cFC, true));
+        return AnimationUtils.loadAnimation(this.context, com.baidu.tbadk.widget.timepicker.a.e.c.o(this.cFE, true));
     }
 
     private Animation getOutAnimation() {
-        return AnimationUtils.loadAnimation(this.context, com.baidu.tbadk.widget.timepicker.a.e.c.o(this.cFC, false));
+        return AnimationUtils.loadAnimation(this.context, com.baidu.tbadk.widget.timepicker.a.e.c.o(this.cFE, false));
     }
 
     public void fw(boolean z) {
         ViewGroup viewGroup;
-        if (atz()) {
-            viewGroup = this.cFx;
+        if (atw()) {
+            viewGroup = this.cFz;
         } else {
             viewGroup = this.TG;
         }
         viewGroup.setFocusable(z);
         viewGroup.setFocusableInTouchMode(z);
         if (z) {
-            viewGroup.setOnKeyListener(this.cFF);
+            viewGroup.setOnKeyListener(this.cFH);
         } else {
             viewGroup.setOnKeyListener(null);
         }
@@ -188,7 +188,7 @@ public class a {
         if (this.TG != null) {
             View findViewById = this.TG.findViewById(d.g.outmost_container);
             if (z) {
-                findViewById.setOnTouchListener(this.cFG);
+                findViewById.setOnTouchListener(this.cFI);
             } else {
                 findViewById.setOnTouchListener(null);
             }
@@ -196,21 +196,21 @@ public class a {
         return this;
     }
 
-    public void atx() {
+    public void atu() {
         if (this.mDialog != null) {
-            this.mDialog.setCancelable(this.cEq.cFi);
+            this.mDialog.setCancelable(this.cEs.cFk);
         }
     }
 
     public View findViewById(int i) {
-        return this.cFw.findViewById(i);
+        return this.cFy.findViewById(i);
     }
 
-    public void zn() {
-        if (this.cFx != null) {
+    public void zm() {
+        if (this.cFz != null) {
             this.mDialog = new Dialog(this.context, d.k.custom_dialog2);
-            this.mDialog.setCancelable(this.cEq.cFi);
-            this.mDialog.setContentView(this.cFx);
+            this.mDialog.setCancelable(this.cEs.cFk);
+            this.mDialog.setContentView(this.cFz);
             Window window = this.mDialog.getWindow();
             if (window != null) {
                 window.setWindowAnimations(d.k.picker_view_scale_anim);
@@ -219,8 +219,8 @@ public class a {
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.6
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    if (a.this.cFy != null) {
-                        a.this.cFy.ah(a.this);
+                    if (a.this.cFA != null) {
+                        a.this.cFA.af(a.this);
                     }
                 }
             });
@@ -233,7 +233,7 @@ public class a {
         }
     }
 
-    private void aty() {
+    private void atv() {
         if (this.mDialog != null) {
             this.mDialog.dismiss();
         }
@@ -243,7 +243,7 @@ public class a {
         return this.mDialog;
     }
 
-    public boolean atz() {
+    public boolean atw() {
         return false;
     }
 }

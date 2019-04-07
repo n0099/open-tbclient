@@ -14,8 +14,8 @@ import java.nio.channels.FileChannel;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean vx() {
-        return com.baidu.swan.apps.u.a.CK().vx();
+    public static boolean vw() {
+        return com.baidu.swan.apps.u.a.CI().vw();
     }
 
     public static void c(File file, File file2) throws IOException {
@@ -58,7 +58,7 @@ public class a {
         }
     }
 
-    public static void dB(String str) {
+    public static void dD(String str) {
         b(str, null, null, true);
     }
 

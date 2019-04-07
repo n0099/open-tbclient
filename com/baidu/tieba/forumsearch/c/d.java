@@ -14,35 +14,35 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
-    private BarImageView eXN;
-    private TextView eXO;
-    private TextView eXP;
-    private TextView eXQ;
-    private com.baidu.tieba.forumsearch.b.b eXR;
-    private View.OnClickListener eXb;
+    private View.OnClickListener eWN;
+    private TextView eXA;
+    private TextView eXB;
+    private TextView eXC;
+    private com.baidu.tieba.forumsearch.b.b eXD;
+    private BarImageView eXz;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eXN = (BarImageView) getView().findViewById(d.g.forum_avatar);
-        this.eXO = (TextView) getView().findViewById(d.g.forum_name);
-        this.eXP = (TextView) getView().findViewById(d.g.forum_attention);
-        this.eXQ = (TextView) getView().findViewById(d.g.forum_thread_count);
+        this.eXz = (BarImageView) getView().findViewById(d.g.forum_avatar);
+        this.eXA = (TextView) getView().findViewById(d.g.forum_name);
+        this.eXB = (TextView) getView().findViewById(d.g.forum_attention);
+        this.eXC = (TextView) getView().findViewById(d.g.forum_thread_count);
         getView().setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void s(View.OnClickListener onClickListener) {
-        this.eXb = onClickListener;
+        this.eWN = onClickListener;
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.j(this.eXO, d.C0277d.cp_cont_b);
-            al.j(this.eXP, d.C0277d.cp_cont_d);
-            al.j(this.eXQ, d.C0277d.cp_cont_d);
+            al.j(this.eXA, d.C0277d.cp_cont_b);
+            al.j(this.eXB, d.C0277d.cp_cont_d);
+            al.j(this.eXC, d.C0277d.cp_cont_d);
             al.k(getView(), d.f.square_search_item_bg);
             this.mSkinType = i;
         }
@@ -57,16 +57,16 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.forumsearch.b.b bVar) {
         if (bVar != null) {
-            this.eXR = bVar;
-            this.eXN.startLoad(bVar.getAvatar(), 10, false);
-            this.eXO.setText(cI(bVar.getForumName(), bVar.bbC()));
-            this.eXP.setText(String.format(this.mTbPageContext.getString(d.j.concern), bVar.bbA()));
-            this.eXQ.setText(String.format(this.mTbPageContext.getString(d.j.search_bar_thread), bVar.bbB()));
+            this.eXD = bVar;
+            this.eXz.startLoad(bVar.getAvatar(), 10, false);
+            this.eXA.setText(cJ(bVar.getForumName(), bVar.bbA()));
+            this.eXB.setText(String.format(this.mTbPageContext.getString(d.j.concern), bVar.bby()));
+            this.eXC.setText(String.format(this.mTbPageContext.getString(d.j.search_bar_thread), bVar.bbz()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public SpannableStringBuilder cI(String str, String str2) {
+    public SpannableStringBuilder cJ(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return null;
         }
@@ -83,12 +83,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eXR != null) {
+        if (this.eXD != null) {
             TiebaStatic.log("c12261");
-            e.uU(this.eXR.bbC());
-            view.setTag(this.eXR);
-            if (this.eXb != null) {
-                this.eXb.onClick(view);
+            e.uT(this.eXD.bbA());
+            view.setTag(this.eXD);
+            if (this.eWN != null) {
+                this.eWN.onClick(view);
             }
         }
     }

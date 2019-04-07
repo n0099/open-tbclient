@@ -29,14 +29,14 @@ public class MLPSpecificBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MLPSpecificBox.java", MLPSpecificBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFormat_info", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 49);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFormat_info", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "format_info", "", "void"), 53);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getPeak_data_rate", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 57);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setPeak_data_rate", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "peak_data_rate", "", "void"), 61);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 65);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "reserved", "", "void"), 69);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getReserved2", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 73);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setReserved2", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "reserved2", "", "void"), 77);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFormat_info", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 49);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setFormat_info", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "format_info", "", "void"), 53);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getPeak_data_rate", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 57);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setPeak_data_rate", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "peak_data_rate", "", "void"), 61);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getReserved", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 65);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setReserved", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "reserved", "", "void"), 69);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getReserved2", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "", "", "", "int"), 73);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setReserved2", "com.googlecode.mp4parser.boxes.MLPSpecificBox", "int", "reserved2", "", "void"), 77);
     }
 
     public MLPSpecificBox() {
@@ -72,7 +72,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setFormat_info(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.format_info = i;
     }
 
@@ -82,7 +82,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setPeak_data_rate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.peak_data_rate = i;
     }
 
@@ -92,7 +92,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.CW(i)));
         this.reserved = i;
     }
 
@@ -102,7 +102,7 @@ public class MLPSpecificBox extends AbstractBox {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.reserved2 = i;
     }
 }

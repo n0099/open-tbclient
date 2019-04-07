@@ -14,58 +14,58 @@ import com.baidu.tieba.f.a;
 import com.baidu.tieba.frs.gamesubpb.view.BlankView;
 /* loaded from: classes4.dex */
 public class c {
-    private BaseActivity cNa;
-    private com.baidu.tieba.f.b dMr;
-    private BlankView fnu;
-    private a fnw;
-    private boolean fnx = false;
-    private View.OnTouchListener fny;
+    private BaseActivity cNc;
+    private com.baidu.tieba.f.b dLI;
+    private BlankView fng;
+    private a fni;
+    private boolean fnj = false;
+    private View.OnTouchListener fnk;
     private NavigationBar mNavigationBar;
-    private static final int fnv = l.h(TbadkCoreApplication.getInst(), d.e.ds160);
+    private static final int fnh = l.h(TbadkCoreApplication.getInst(), d.e.ds160);
     private static final int TOUCH_SLOP = l.h(TbadkCoreApplication.getInst(), d.e.ds20);
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bgB();
+        void bgA();
 
-        void bgC();
+        boolean bgB();
 
-        boolean bgD();
+        void bgz();
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.cNa = baseActivity;
-        this.dMr = new com.baidu.tieba.f.b(this.cNa.getPageContext().getPageActivity());
+        this.cNc = baseActivity;
+        this.dLI = new com.baidu.tieba.f.b(this.cNc.getPageContext().getPageActivity());
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.setStatusBarVisibility(8);
-        this.fny = new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.1
+        this.fnk = new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                c.this.dMr.onTouchEvent(motionEvent);
+                c.this.dLI.onTouchEvent(motionEvent);
                 return true;
             }
         };
         view.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                c.this.dMr.onTouchEvent(motionEvent);
+                c.this.dLI.onTouchEvent(motionEvent);
                 return false;
             }
         });
-        this.dMr.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
+        this.dLI.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
             @Override // com.baidu.tieba.f.a.InterfaceC0284a
             public void aR(int i, int i2) {
-                if (c.this.fnw != null && c.this.fnw.bgD() && Math.abs(i2) > c.TOUCH_SLOP) {
-                    if (c.this.fnu != null) {
-                        c.this.fnu.setBackgroundResource(d.C0277d.transparent);
+                if (c.this.fni != null && c.this.fni.bgB() && Math.abs(i2) > c.TOUCH_SLOP) {
+                    if (c.this.fng != null) {
+                        c.this.fng.setBackgroundResource(d.C0277d.transparent);
                     }
-                    c.this.cNa.finish();
+                    c.this.cNc.finish();
                 }
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0284a
             public void aS(int i, int i2) {
-                c.this.bgE();
+                c.this.bgC();
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0284a
@@ -74,58 +74,58 @@ public class c {
         });
     }
 
-    public void bgE() {
-        if (this.fnx && this.mNavigationBar != null && this.fnu != null && this.fnu.getVisibility() == 0) {
+    public void bgC() {
+        if (this.fnj && this.mNavigationBar != null && this.fng != null && this.fng.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
-            this.cNa.setExcludeHeight(0);
-            if (this.fnw != null) {
-                this.fnw.bgB();
+            this.cNc.setExcludeHeight(0);
+            if (this.fni != null) {
+                this.fni.bgz();
             }
-            this.fnu.bgL();
+            this.fng.bgJ();
         }
     }
 
-    public void bgF() {
+    public void bgD() {
         ViewGroup viewGroup;
-        if (!this.fnx && (viewGroup = (ViewGroup) this.cNa.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.fnu = new BlankView(this.cNa.getPageContext().getPageActivity());
-            this.fnu.setBackgroundResource(d.C0277d.transparent);
-            ((LinearLayout) viewGroup.getParent()).addView(this.fnu, 0, new LinearLayout.LayoutParams(-1, fnv));
-            this.fnu.setVisibility(0);
-            this.fnu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.4
+        if (!this.fnj && (viewGroup = (ViewGroup) this.cNc.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.fng = new BlankView(this.cNc.getPageContext().getPageActivity());
+            this.fng.setBackgroundResource(d.C0277d.transparent);
+            ((LinearLayout) viewGroup.getParent()).addView(this.fng, 0, new LinearLayout.LayoutParams(-1, fnh));
+            this.fng.setVisibility(0);
+            this.fng.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.cNa.finish();
+                    c.this.cNc.finish();
                 }
             });
-            this.fnu.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
+            this.fng.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
                 @Override // com.baidu.tieba.frs.gamesubpb.view.BlankView.a
-                public void bgH() {
-                    if (c.this.fnu != null) {
-                        c.this.fnu.setVisibility(8);
+                public void bgF() {
+                    if (c.this.fng != null) {
+                        c.this.fng.setVisibility(8);
                     }
-                    c.this.fnx = false;
-                    if (c.this.fnw != null) {
-                        c.this.fnw.bgC();
+                    c.this.fnj = false;
+                    if (c.this.fni != null) {
+                        c.this.fni.bgA();
                     }
                 }
             });
-            this.cNa.setExcludeHeight(fnv);
-            this.fnx = true;
+            this.cNc.setExcludeHeight(fnh);
+            this.fnj = true;
         }
     }
 
     public void a(a aVar) {
-        this.fnw = aVar;
+        this.fni = aVar;
     }
 
-    public boolean bgG() {
-        return this.fnx;
+    public boolean bgE() {
+        return this.fnj;
     }
 
-    public void qP(int i) {
-        if (this.fnu != null) {
-            al.k(this.fnu, i);
+    public void qL(int i) {
+        if (this.fng != null) {
+            al.k(this.fng, i);
         }
     }
 }

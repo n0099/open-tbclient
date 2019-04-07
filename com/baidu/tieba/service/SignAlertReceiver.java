@@ -31,7 +31,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(d.j.sign_notification_content);
                 String string2 = context.getString(d.j.app_name);
-                b.ahA().i(b.ahA().iD(12), 12);
+                b.ahx().i(b.ahx().iC(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 am amVar = new am("c13252");
                 amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
@@ -42,7 +42,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tbadk.coreExtra.messageCenter.d.aih().updateSignAlarm();
+                    com.baidu.tbadk.coreExtra.messageCenter.d.aie().updateSignAlarm();
                 }
             }
         }

@@ -10,10 +10,9 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.an.n;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes2.dex */
 public abstract class b extends y {
-    protected String aPL;
+    protected String aPO;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -23,7 +22,7 @@ public abstract class b extends y {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.aPL = null;
+        this.aPO = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y
@@ -37,7 +36,7 @@ public abstract class b extends y {
             }
             return false;
         }
-        this.mCallback = n.dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("cb");
+        this.mCallback = n.dm(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             com.baidu.swan.apps.console.c.e("favorite", "none cb");
             if (DEBUG) {
@@ -56,7 +55,7 @@ public abstract class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         } else {
-            bVar.Jb().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            bVar.IZ().a((Activity) context, "mapp_favorite", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: b */

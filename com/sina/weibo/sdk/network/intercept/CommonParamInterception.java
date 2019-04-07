@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.net.HttpManager;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -73,10 +72,10 @@ public class CommonParamInterception implements IRequestIntercept {
         bundle.putString("oauth_sign", HttpManager.getOauthSign(iRequestParam.getContext(), aidInfo, str, appKey, timestamp));
         LogUtil.e("weiboSdk param", aidInfo + "  " + timestamp + "  " + appKey + "   " + str);
         if (iRequestParam.getMethod() == IRequestParam.RequestType.GET) {
-            iRequestParam.getGetBundle().remove(WBConstants.SSO_APP_KEY);
+            iRequestParam.getGetBundle().remove("appKey");
             return false;
         }
-        iRequestParam.getPostBundle().remove(WBConstants.SSO_APP_KEY);
+        iRequestParam.getPostBundle().remove("appKey");
         return false;
     }
 

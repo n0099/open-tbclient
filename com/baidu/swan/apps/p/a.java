@@ -17,31 +17,31 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e awi;
+    private e awl;
     private SharedPreferences.Editor mEditor;
 
     private a() {
-        this.awi = new e("aiapps_guide_dialog_sp");
-        this.mEditor = this.awi.edit();
+        this.awl = new e("aiapps_guide_dialog_sp");
+        this.mEditor = this.awl.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static final class C0148a {
-        private static final a awl = new a();
+        private static final a awo = new a();
     }
 
-    public static a BZ() {
-        return C0148a.awl;
+    public static a BX() {
+        return C0148a.awo;
     }
 
     private boolean z(@NonNull Activity activity) {
-        boolean Ca = Ca();
+        boolean BY = BY();
         if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "is first in " + Ca);
+            Log.e("SwanAppGuideDialogManager", "is first in " + BY);
         }
-        if (Ca) {
+        if (BY) {
             return true;
         }
         int B = B(activity);
@@ -61,14 +61,14 @@ public class a {
     }
 
     public boolean b(@NonNull WeakReference<Activity> weakReference) {
-        com.baidu.swan.apps.ae.b IX;
+        com.baidu.swan.apps.ae.b IV;
         if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         Activity activity = weakReference.get();
-        if (!TextUtils.equals("0", Cc()) && (IX = com.baidu.swan.apps.ae.b.IX()) != null && !IX.Jh().getBoolean("boolean_var_key_fav_guide_show", false)) {
-            String Cb = Cb();
-            if (z(activity) && !TextUtils.isEmpty(Cb) && d(activity, Cb)) {
+        if (!TextUtils.equals("0", Ca()) && (IV = com.baidu.swan.apps.ae.b.IV()) != null && !IV.Jf().getBoolean("boolean_var_key_fav_guide_show", false)) {
+            String BZ = BZ();
+            if (z(activity) && !TextUtils.isEmpty(BZ) && d(activity, BZ)) {
                 A(activity);
                 return true;
             }
@@ -79,18 +79,18 @@ public class a {
 
     private void A(@NonNull Activity activity) {
         bd(false);
-        cx(bF(activity));
+        cw(bF(activity));
     }
 
     private void bd(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
-    private boolean Ca() {
-        return this.awi.getBoolean("new_first_in", true);
+    private boolean BY() {
+        return this.awl.getBoolean("new_first_in", true);
     }
 
-    private void cx(int i) {
+    private void cw(int i) {
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "versionCode " + i);
         }
@@ -98,15 +98,15 @@ public class a {
     }
 
     private int B(Activity activity) {
-        return this.awi.getInt("up_first_in", bF(activity));
+        return this.awl.getInt("up_first_in", bF(activity));
     }
 
-    public String Cb() {
-        return this.awi.getString("url", "");
+    public String BZ() {
+        return this.awl.getString("url", "");
     }
 
-    public String Cc() {
-        return this.awi.getString("switch", "1");
+    public String Ca() {
+        return this.awl.getString("switch", "1");
     }
 
     private boolean d(@NonNull final Activity activity, String str) {
@@ -117,7 +117,7 @@ public class a {
         com.baidu.swan.apps.an.b.a(activity, bVar);
         bVar.setContentView(a.g.aiapps_entry_guide_layout);
         bVar.findViewById(a.f.root).setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
-        bVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.CT().Ds() ? 0 : 8);
+        bVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.CR().Dq() ? 0 : 8);
         ((SimpleDraweeView) bVar.findViewById(a.f.aiapps_guide_image)).setImageURI(str);
         bVar.findViewById(a.f.aiapps_split_line).setBackgroundColor(activity.getResources().getColor(a.c.aiapps_entry_guide_split_line3));
         TextView textView = (TextView) bVar.findViewById(a.f.aiapps_bottom_button);

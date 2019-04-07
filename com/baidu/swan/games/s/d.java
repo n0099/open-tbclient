@@ -10,24 +10,24 @@ import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class d {
-    private b bfD;
+    private b bfG;
 
     public d(JsObject jsObject) {
-        this.bfD = b.e(com.baidu.swan.games.binding.model.c.b(jsObject));
-        a.Pi().a(this);
+        this.bfG = b.e(com.baidu.swan.games.binding.model.c.b(jsObject));
+        a.Pg().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity DO = e.Ec().DO();
-        if (DO == null) {
+        final SwanAppActivity DM = e.Ea().DM();
+        if (DM == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (DO.uB() == null) {
+        } else if (DM.uA() == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate getLaunchInfo is null");
             return false;
         } else {
-            final String str = DO.uB().axH;
+            final String str = DM.uA().axK;
             if (TextUtils.isEmpty(str)) {
                 com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate launchScheme is empty");
                 return false;
@@ -35,8 +35,8 @@ public class d {
             aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.s.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    DO.uA();
-                    SchemeRouter.invoke(com.baidu.swan.apps.u.a.Cy(), str);
+                    DM.uz();
+                    SchemeRouter.invoke(com.baidu.swan.apps.u.a.Cw(), str);
                 }
             });
             return true;
@@ -52,7 +52,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.bfD != null && JSEvent.isValid(cVar)) {
+        if (this.bfG != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -78,13 +78,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.bfD.b(cVar);
+                    this.bfG.b(cVar);
                     return;
                 case true:
-                    this.bfD.Pk();
+                    this.bfG.Pi();
                     return;
                 case true:
-                    this.bfD.Pl();
+                    this.bfG.Pj();
                     return;
                 default:
                     return;

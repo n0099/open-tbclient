@@ -5,12 +5,12 @@ import android.util.SparseIntArray;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class r {
-    public final int jJC;
-    public final int jJD;
-    public final SparseIntArray jJE;
-    public final int jJF;
-    public final int jJG;
-    public final int jJH;
+    public final int jIW;
+    public final int jIX;
+    public final SparseIntArray jIY;
+    public final int jIZ;
+    public final int jJa;
+    public final int jJb;
 
     public r(int i, int i2, @Nullable SparseIntArray sparseIntArray) {
         this(i, i2, sparseIntArray, 0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, -1);
@@ -18,11 +18,11 @@ public class r {
 
     public r(int i, int i2, @Nullable SparseIntArray sparseIntArray, int i3, int i4, int i5) {
         com.facebook.common.internal.g.checkState(i >= 0 && i2 >= i);
-        this.jJD = i;
-        this.jJC = i2;
-        this.jJE = sparseIntArray;
-        this.jJF = i3;
-        this.jJG = i4;
-        this.jJH = i5;
+        this.jIX = i;
+        this.jIW = i2;
+        this.jIY = sparseIntArray;
+        this.jIZ = i3;
+        this.jJa = i4;
+        this.jJb = i5;
     }
 }

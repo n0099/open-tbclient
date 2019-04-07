@@ -10,42 +10,42 @@ import okio.Okio;
 import okio.Source;
 /* loaded from: classes2.dex */
 public class h extends ResponseBody {
-    private final ResponseBody aCm;
-    private final e aCn;
-    private BufferedSource aCo;
+    private final ResponseBody aCp;
+    private final e aCq;
+    private BufferedSource aCr;
 
     public h(ResponseBody responseBody, e eVar) {
-        this.aCm = responseBody;
-        this.aCn = eVar;
+        this.aCp = responseBody;
+        this.aCq = eVar;
     }
 
     @Override // okhttp3.ResponseBody
     public MediaType contentType() {
-        return this.aCm.contentType();
+        return this.aCp.contentType();
     }
 
     @Override // okhttp3.ResponseBody
     public long contentLength() {
-        return this.aCm.contentLength();
+        return this.aCp.contentLength();
     }
 
     @Override // okhttp3.ResponseBody
     public BufferedSource source() {
-        if (this.aCo == null) {
-            this.aCo = Okio.buffer(source(this.aCm.source()));
+        if (this.aCr == null) {
+            this.aCr = Okio.buffer(source(this.aCp.source()));
         }
-        return this.aCo;
+        return this.aCr;
     }
 
     private Source source(Source source) {
         return new ForwardingSource(source) { // from class: com.baidu.swan.apps.network.h.1
-            long aCp = 0;
+            long aCs = 0;
 
             @Override // okio.ForwardingSource, okio.Source
             public long read(Buffer buffer, long j) throws IOException {
                 long read = super.read(buffer, j);
-                this.aCp = (read != -1 ? read : 0L) + this.aCp;
-                h.this.aCn.a(this.aCp, h.this.aCm.contentLength(), read == -1);
+                this.aCs = (read != -1 ? read : 0L) + this.aCs;
+                h.this.aCq.a(this.aCs, h.this.aCp.contentLength(), read == -1);
                 return read;
             }
         };

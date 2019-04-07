@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String gGE;
-        public String gGF;
-        public ArrayList<String> gGG = new ArrayList<>();
-        public ArrayList<String> gGH = new ArrayList<>();
+        public String gGr;
+        public String gGs;
+        public ArrayList<String> gGt = new ArrayList<>();
+        public ArrayList<String> gGu = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.gGE = jSONObject.optString("charge_click_url");
-                this.gGF = jSONObject.optString("charge_show_url");
+                this.gGr = jSONObject.optString("charge_click_url");
+                this.gGs = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.gGG.add(optString);
+                            this.gGt.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.gGH.add(optString2);
+                            this.gGu.add(optString2);
                         }
                     }
                 }

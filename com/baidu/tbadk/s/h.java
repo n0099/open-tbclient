@@ -1,10 +1,10 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.b.a {
-    public static final String[] css = {"com.baidu.browser"};
+    public static final String[] csu = {"com.baidu.browser"};
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class h extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] iG() {
-        return css;
+        return csu;
     }
 
     @Override // com.baidu.adp.lib.b.a

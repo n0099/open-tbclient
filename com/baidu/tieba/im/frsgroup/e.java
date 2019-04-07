@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes5.dex */
 public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
-    private View.OnClickListener bQK;
+    private View.OnClickListener bQM;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bQK = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.bQM = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -49,7 +49,7 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bq */
     public f onCreateViewHolder(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(d.h.frs_group_item_view, (ViewGroup) null), this.bQK);
+        return new f(LayoutInflater.from(this.mContext).inflate(d.h.frs_group_item_view, (ViewGroup) null), this.bQM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,24 +59,24 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
         super.onFillViewHolder(i, view, viewGroup, groupInfoData, fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.bUK != this.mSkinType) {
+        if (fVar.bUM != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.bUK = this.mSkinType;
+            fVar.bUM = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             al.k(fVar.rootView, d.f.frs_group_item_bg);
-            al.d(fVar.gje, d.C0277d.cp_cont_b, 1);
-            al.d(fVar.gjf, d.C0277d.cp_cont_b, 1);
-            al.k(fVar.gjf, d.f.bg_jinqun_meizi);
-            fVar.gjf.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            al.d(fVar.gjg, d.C0277d.cp_cont_b, 1);
-            al.k(fVar.gji, d.f.icon_grade_small_star);
-            al.k(fVar.gjj, d.f.icon_grade_small_star);
-            al.k(fVar.gjk, d.f.icon_grade_small_star);
-            al.d(fVar.gjh, d.C0277d.cp_cont_c, 1);
+            al.d(fVar.giR, d.C0277d.cp_cont_b, 1);
+            al.d(fVar.giS, d.C0277d.cp_cont_b, 1);
+            al.k(fVar.giS, d.f.bg_jinqun_meizi);
+            fVar.giS.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            al.d(fVar.giT, d.C0277d.cp_cont_b, 1);
+            al.k(fVar.giV, d.f.icon_grade_small_star);
+            al.k(fVar.giW, d.f.icon_grade_small_star);
+            al.k(fVar.giX, d.f.icon_grade_small_star);
+            al.d(fVar.giU, d.C0277d.cp_cont_c, 1);
             al.l(fVar.dividerLine, d.C0277d.cp_bg_line_b);
         }
         return view;

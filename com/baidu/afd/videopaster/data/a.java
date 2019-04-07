@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     public ArrayList<String> Uf = new ArrayList<>();
     public ArrayList<String> Ug = new ArrayList<>();
 
-    public void bl(int i) {
+    public void bk(int i) {
         this.TU = i;
     }
 
@@ -57,8 +57,8 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     public b.a getParallelCharge() {
         if (this.Uh == null) {
             this.Uh = new b.a();
-            this.Uh.gGG = this.Uf;
-            this.Uh.gGH = this.Ug;
+            this.Uh.gGt = this.Uf;
+            this.Uh.gGu = this.Ug;
         }
         return this.Uh;
     }

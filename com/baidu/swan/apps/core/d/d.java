@@ -9,30 +9,30 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.a;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.a {
-    private FrameLayout aqV;
-    private a arK;
+    private FrameLayout aqZ;
+    private a arO;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.arK = aVar;
+        this.arO = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.a
     protected View f(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.aqV = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        zq();
+        this.aqZ = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        zp();
         return inflate;
     }
 
-    private void zq() {
-        if (this.arK == null) {
+    private void zp() {
+        if (this.arO == null) {
             return;
         }
-        this.aqV.addView(this.arK.contentView);
+        this.aqZ.addView(this.arO.contentView);
     }
 
     /* loaded from: classes2.dex */
@@ -50,9 +50,9 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
-        /* renamed from: co */
-        public a cn(int i) {
-            super.cn(i);
+        /* renamed from: cn */
+        public a cm(int i) {
+            super.cm(i);
             return this;
         }
 
@@ -62,8 +62,8 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.a {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.a.b, com.baidu.swan.apps.res.widget.dialog.e.a
-        public com.baidu.swan.apps.res.widget.dialog.e zr() {
-            d dVar = (d) super.zr();
+        public com.baidu.swan.apps.res.widget.dialog.e zq() {
+            d dVar = (d) super.zq();
             dVar.a(this);
             return dVar;
         }

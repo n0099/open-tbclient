@@ -8,8 +8,8 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.b;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
-    private TbPageContext fnr;
-    private InterfaceC0293a fns;
+    private TbPageContext fnd;
+    private InterfaceC0293a fne;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fnr = tbPageContext;
+        this.fnd = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aV */
     public b.a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.fnr);
-        bVar.setClickListener(this.fns);
+        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.fnd);
+        bVar.setClickListener(this.fne);
         return new b.a(bVar);
     }
 
@@ -49,6 +49,6 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     }
 
     public void setClickListener(InterfaceC0293a interfaceC0293a) {
-        this.fns = interfaceC0293a;
+        this.fne = interfaceC0293a;
     }
 }

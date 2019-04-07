@@ -19,8 +19,8 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicModel extends BdBaseModel {
-    private a fOK;
-    private com.baidu.tieba.homepage.topic.topictab.a fQd;
+    private a fOy;
+    private com.baidu.tieba.homepage.topic.topictab.a fPR;
     private boolean mIsLoading;
     private List<m> mListData;
     private a mNetMessageListener;
@@ -28,7 +28,7 @@ public class TopicModel extends BdBaseModel {
 
     public TopicModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fOK = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
+        this.fOy = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topictab.model.TopicModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -50,7 +50,7 @@ public class TopicModel extends BdBaseModel {
                     long longValue = (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) ? ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue() : j;
                     if (longValue != 0) {
                         for (m mVar : TopicModel.this.mListData) {
-                            if ((mVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) mVar).fPP) != null && longValue == bVar.pkId) {
+                            if ((mVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) && (bVar = ((com.baidu.tieba.homepage.topic.topictab.b.a) mVar).fPD) != null && longValue == bVar.pkId) {
                                 bVar.userPkId = j2;
                                 return;
                             }
@@ -64,7 +64,7 @@ public class TopicModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 TopicModel.this.mIsLoading = false;
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.fQd != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicModel.this.fPR != null) {
                     List<m> list = null;
                     if (responsedMessage instanceof ResponseHttpGetTopicListMessage) {
                         list = ((ResponseHttpGetTopicListMessage) responsedMessage).getTopicDataList();
@@ -73,14 +73,14 @@ public class TopicModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicListMessage) responsedMessage).getTopicDataList();
                     }
                     TopicModel.this.mListData = list;
-                    TopicModel.this.fQd.i(responsedMessage.getError(), list);
+                    TopicModel.this.fPR.i(responsedMessage.getError(), list);
                 }
             }
         };
     }
 
     public void setPresenter(com.baidu.tieba.homepage.topic.topictab.a aVar) {
-        this.fQd = aVar;
+        this.fPR = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,13 +88,13 @@ public class TopicModel extends BdBaseModel {
         super.setUniqueId(bdUniqueId);
         this.mNetMessageListener.setTag(bdUniqueId);
         registerListener(this.mNetMessageListener);
-        registerListener(this.fOK);
+        registerListener(this.fOy);
     }
 
-    public void bnq() {
+    public void bnn() {
         if (!j.kM()) {
-            if (this.fQd != null) {
-                this.fQd.i(-1, null);
+            if (this.fPR != null) {
+                this.fPR.i(-1, null);
             }
         } else if (!this.mIsLoading) {
             cancelLoadData();

@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String[] eyk = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] eyl = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] eyn = {"111.206.37.190"};
-    private static final String[] eyo = {"115.239.211.146", "180.97.33.196"};
-    private volatile int eyj;
+    private static final String[] exV = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] exW = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] exX = {"111.206.37.190"};
+    private static final String[] exY = {"115.239.211.146", "180.97.33.196"};
+    private volatile int exU;
     private volatile String imsi;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String aUV() {
-        aUW();
+    public String aUT() {
+        aUU();
         if (j.kZ()) {
-            return eyo[new Random().nextInt(eyo.length)];
+            return exY[new Random().nextInt(exY.length)];
         }
         if (j.la()) {
-            if (this.eyj == 1) {
-                return eyk[new Random().nextInt(eyk.length)];
+            if (this.exU == 1) {
+                return exV[new Random().nextInt(exV.length)];
             }
-            if (this.eyj == 2) {
-                return eyl[new Random().nextInt(eyl.length)];
+            if (this.exU == 2) {
+                return exW[new Random().nextInt(exW.length)];
             }
-            if (this.eyj == 3) {
-                return eyn[new Random().nextInt(eyn.length)];
+            if (this.exU == 3) {
+                return exX[new Random().nextInt(exX.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void aUW() {
+    protected void aUU() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.eyj = 0;
+        this.exU = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.eyj = 1;
+                this.exU = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.eyj = 2;
+                this.exU = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.eyj = 3;
+                this.exU = 3;
             }
         }
     }

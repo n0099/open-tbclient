@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 /* loaded from: classes2.dex */
 public interface v {
-    boolean Dw();
+    boolean Du();
 
     boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
 

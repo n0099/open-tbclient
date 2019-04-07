@@ -21,7 +21,7 @@ import com.baidu.tieba.view.g;
 /* loaded from: classes6.dex */
 public class a implements g {
     protected TbPageContext mPageContext;
-    protected int hSp = 1;
+    protected int hSb = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -33,15 +33,15 @@ public class a implements g {
     public void a(View view, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.eHz != null && (userData = (UserData) aVar.eHz.getSerializable(UserData.TYPE_USER)) != null) {
-                this.hSp = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.eHl != null && (userData = (UserData) aVar.eHl.getSerializable(UserData.TYPE_USER)) != null) {
+                this.hSb = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.hSp == 1;
+                this.isHost = this.hSb == 1;
             }
-            switch (aVar.eHy) {
+            switch (aVar.eHk) {
                 case 2:
                     if (bc.cZ(this.mPageContext.getPageActivity())) {
-                        ba.adD().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                        ba.adA().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
@@ -56,30 +56,30 @@ public class a implements g {
                         if (aVar instanceof com.baidu.tieba.personCenter.c.a) {
                             TiebaStatic.log(new am("c11586"));
                         } else {
-                            TiebaStatic.log(new am("c11597").T("obj_locate", 2).T("obj_type", this.hSp).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                            TiebaStatic.log(new am("c11597").T("obj_locate", 2).T("obj_type", this.hSb).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.o.a.bXW().d(2, false, this.isHost);
+                    com.baidu.tieba.o.a.bXS().d(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").T("obj_locate", 3).T("obj_type", this.hSp).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new am("c11597").T("obj_locate", 3).T("obj_type", this.hSb).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").T("obj_locate", 1).T("obj_type", this.hSp).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new am("c11597").T("obj_locate", 1).T("obj_type", this.hSb).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").T("obj_locate", 4).T("obj_type", this.hSp).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new am("c11597").T("obj_locate", 4).T("obj_type", this.hSb).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class r extends com.baidu.tieba.frs.h<s, t> {
-    private static final int eWq = d.g.private_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.c bVX;
+    private static final int eWc = d.g.private_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.c bVZ;
     private View.OnClickListener mClickListener;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,9 +26,9 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view.getTag(r.eWq);
+                    Object tag = view.getTag(r.eWc);
                     if (tag != null && !tag.toString().equals("")) {
-                        ba.adD().c((TbPageContext) com.baidu.adp.base.i.aK(r.this.mContext), new String[]{tag.toString()});
+                        ba.adA().c((TbPageContext) com.baidu.adp.base.i.aK(r.this.mContext), new String[]{tag.toString()});
                         return;
                     }
                     return;
@@ -59,53 +59,53 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
                 tVar.mRootLayout.setVisibility(8);
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
-                    al.l(tVar.bER, d.C0277d.cp_bg_line_b);
-                    al.d(tVar.eWn, d.C0277d.cp_cont_d, 1);
-                    al.d(tVar.eWl, d.C0277d.cp_cont_b, 1);
-                    al.k(tVar.eWp, d.f.frs_member_manito_bg);
+                    al.l(tVar.bET, d.C0277d.cp_bg_line_b);
+                    al.d(tVar.eVZ, d.C0277d.cp_cont_d, 1);
+                    al.d(tVar.eVX, d.C0277d.cp_cont_b, 1);
+                    al.k(tVar.eWb, d.f.frs_member_manito_bg);
                 }
-                int bbl = sVar.bbl();
+                int bbj = sVar.bbj();
                 String string2 = this.mContext.getResources().getString(d.j.tbtitle_quota_is_full);
-                if (bbl == -1) {
-                    int bbi = sVar.bbi();
-                    String as = ap.as(bbi);
-                    if (bbi > 0) {
+                if (bbj == -1) {
+                    int bbg = sVar.bbg();
+                    String as = ap.as(bbg);
+                    if (bbg > 0) {
                         string = String.format(this.mContext.getResources().getString(d.j.tbtitle_apply_assist_left_num_tip), as);
-                        tVar.eWp.setOnClickListener(this.mClickListener);
-                        tVar.eWn.setText(string);
-                        tVar.eWp.setTag(eWq, sVar.bbk());
-                        tVar.eWp.setEnabled(z);
-                        tVar.eWp.setClickable(z);
-                        tVar.eWn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                        tVar.eWb.setOnClickListener(this.mClickListener);
+                        tVar.eVZ.setText(string);
+                        tVar.eWb.setTag(eWc, sVar.bbi());
+                        tVar.eWb.setEnabled(z);
+                        tVar.eWb.setClickable(z);
+                        tVar.eVZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.eWp.setOnClickListener(this.mClickListener);
-                    tVar.eWn.setText(string);
-                    tVar.eWp.setTag(eWq, sVar.bbk());
-                    tVar.eWp.setEnabled(z);
-                    tVar.eWp.setClickable(z);
-                    tVar.eWn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.eWb.setOnClickListener(this.mClickListener);
+                    tVar.eVZ.setText(string);
+                    tVar.eWb.setTag(eWc, sVar.bbi());
+                    tVar.eWb.setEnabled(z);
+                    tVar.eWb.setClickable(z);
+                    tVar.eVZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (bbl == 0) {
+                    if (bbj == 0) {
                         string = this.mContext.getResources().getString(d.j.tbtitle_is_assist);
-                    } else if (bbl == 1) {
+                    } else if (bbj == 1) {
                         string = this.mContext.getResources().getString(d.j.tbtitle_assist_applying);
                     } else {
-                        if (bbl == 2) {
+                        if (bbj == 2) {
                             string = this.mContext.getResources().getString(d.j.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.eWp.setOnClickListener(this.mClickListener);
-                    tVar.eWn.setText(string);
-                    tVar.eWp.setTag(eWq, sVar.bbk());
-                    tVar.eWp.setEnabled(z);
-                    tVar.eWp.setClickable(z);
-                    tVar.eWn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.eWb.setOnClickListener(this.mClickListener);
+                    tVar.eVZ.setText(string);
+                    tVar.eWb.setTag(eWc, sVar.bbi());
+                    tVar.eWb.setEnabled(z);
+                    tVar.eWb.setClickable(z);
+                    tVar.eVZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }
@@ -122,17 +122,17 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
         } else {
             activity = ((TbPageContext) aK).getPageActivity();
         }
-        if (this.bVX == null) {
-            this.bVX = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.bVZ == null) {
+            this.bVZ = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.bVX.akm();
-        this.bVX.setAccountData(accountData);
-        this.bVX.ja(1);
+        this.bVZ.akj();
+        this.bVZ.setAccountData(accountData);
+        this.bVZ.iZ(1);
     }
 
     public void onDestroy() {
-        if (this.bVX != null) {
-            this.bVX.onDestroy();
+        if (this.bVZ != null) {
+            this.bVZ.onDestroy();
         }
     }
 }

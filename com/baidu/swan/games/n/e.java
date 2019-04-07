@@ -9,45 +9,45 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b aZZ;
+    private com.baidu.swan.games.e.b bac;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(com.baidu.swan.games.e.b bVar) {
-        this.aZZ = bVar;
-        OK();
-        OL();
+        this.bac = bVar;
+        OI();
+        OJ();
     }
 
-    private boolean OK() {
-        return bd(com.baidu.swan.games.i.a.ba(com.baidu.swan.apps.w.e.Ec().DL(), "swan-game-open-data.js"), "swan-game-open-data.js");
+    private boolean OI() {
+        return bd(com.baidu.swan.games.i.a.ba(com.baidu.swan.apps.w.e.Ea().DJ(), "swan-game-open-data.js"), "swan-game-open-data.js");
     }
 
-    private boolean OL() {
-        String DL = com.baidu.swan.apps.w.e.Ec().DL();
-        String OP = f.OM().OP();
+    private boolean OJ() {
+        String DJ = com.baidu.swan.apps.w.e.Ea().DJ();
+        String ON = f.OK().ON();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + DL);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + OP);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + DJ);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + ON);
         }
-        return bd(DL, OP);
+        return bd(DJ, ON);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.aZZ.NU().Of();
+        this.bac.NS().Od();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.aZZ.NW().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.bac.NU().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean bd(String str, String str2) {
-        if (!f.OM().ON() || TextUtils.isEmpty(str)) {
+        if (!f.OK().OL() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.aZZ.NU().aS(str, str2);
+        this.bac.NS().aS(str, str2);
         return true;
     }
 }

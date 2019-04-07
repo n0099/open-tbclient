@@ -32,15 +32,15 @@ public class c extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("navigationTitle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else if (optString == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!uz.yO().dR(optString)) {
+        } else if (!uy.yN().dT(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
             return false;

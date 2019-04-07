@@ -63,9 +63,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(d.j.plugin_xiaoying_install_fail)).abh();
+                BdToast.b(context, context.getString(d.j.plugin_xiaoying_install_fail)).abe();
             } else if (z && !j.kY()) {
-                BdToast.b(context, context.getString(d.j.neterror)).abh();
+                BdToast.b(context, context.getString(d.j.neterror)).abe();
             } else if (z) {
                 if (j.kZ()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
@@ -82,7 +82,7 @@ public class XiaoyingUtil {
         e<?> aK = i.aK(context);
         if (aK != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(aK.getPageActivity());
-            aVar.ly(TbadkCoreApplication.getInst().getString(d.j.play_video_mobile_tip));
+            aVar.lz(TbadkCoreApplication.getInst().getString(d.j.play_video_mobile_tip));
             aVar.a(d.j.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -96,7 +96,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(aK).aaZ();
+            aVar.b(aK).aaW();
         }
     }
 
@@ -109,7 +109,7 @@ public class XiaoyingUtil {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.ly(str);
+            aVar.lz(str);
             aVar.a(str2, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -123,7 +123,7 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).aaZ();
+            aVar.b(tbPageContext).aaW();
         }
     }
 }

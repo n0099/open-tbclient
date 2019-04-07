@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private boolean bUE;
-    private float cvL;
+    private boolean bUG;
+    private float cvN;
     private int mDuration;
     private int mTouchSlop;
 
@@ -58,14 +58,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.bUE = false;
+        this.bUG = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUE = false;
+        this.bUG = false;
         this.mDuration = 600;
         init();
     }
@@ -76,7 +76,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.bUE = z;
+        this.bUG = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -85,7 +85,7 @@ public class TbViewPager extends ViewPager {
         if (v(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.bUE) {
+        if (motionEvent.getPointerCount() > 1 && this.bUG) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -113,15 +113,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 dW(true);
-                this.cvL = motionEvent.getX();
+                this.cvN = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 dW(false);
-                this.cvL = 0.0f;
+                this.cvN = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.cvL;
+                float x = motionEvent.getX() - this.cvN;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         dW(false);

@@ -21,12 +21,12 @@ public class c extends a {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a b = b(unitedSchemeEntity);
-        if (com.baidu.swan.apps.w.e.Ec().eO(b.aBD) != null) {
+        if (com.baidu.swan.apps.w.e.Ea().eP(b.aBG) != null) {
             SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(b, null);
             if (a != null) {
-                a.MK();
+                a.MI();
             }
-            com.baidu.swan.apps.camera.a.wn().dq(b.aBD);
+            com.baidu.swan.apps.camera.a.wm().ds(b.aBG);
             a(unitedSchemeEntity, callbackHandler, true);
             return true;
         }

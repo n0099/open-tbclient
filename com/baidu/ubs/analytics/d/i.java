@@ -3,7 +3,7 @@ package com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes3.dex */
 public final class i {
-    public static SampleResult Fd(String str) {
+    public static SampleResult Fc(String str) {
         if (str == null || str.equals("")) {
             return SampleResult.OTHERE;
         }

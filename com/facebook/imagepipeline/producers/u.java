@@ -62,11 +62,11 @@ public class u extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String czS() {
+    protected String czL() {
         return "LocalAssetFetchProducer";
     }
 
     private static String j(ImageRequest imageRequest) {
-        return imageRequest.cAu().getPath().substring(1);
+        return imageRequest.cAn().getPath().substring(1);
     }
 }

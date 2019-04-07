@@ -46,14 +46,14 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0039a c0039a) {
                 if (c0039a.getActionType() == 1) {
-                    com.baidu.tieba.card.n.a(ac.this.mTitle, ac.this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+                    com.baidu.tieba.card.n.a(ac.this.mTitle, ac.this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
                 } else if (c0039a.getActionType() == 2) {
                     if (ac.this.Zq != null) {
-                        ac.this.Zq.bTZ();
+                        ac.this.Zq.bTV();
                     }
                 } else if (c0039a.getActionType() == 3) {
                     if (ac.this.Zq != null) {
-                        ac.this.Zq.bUa();
+                        ac.this.Zq.bTW();
                     }
                 } else if (c0039a.getActionType() == 6) {
                     if (ac.this.Zq != null) {
@@ -90,7 +90,7 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(d.g.video_seg_title);
             this.Zp = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
             this.Zq = ro();
-            this.Zq.bSZ().setBackgroundResource(d.C0277d.transparent);
+            this.Zq.bSV().setBackgroundResource(d.C0277d.transparent);
             this.Zq.setUniqueId(this.Zr);
             this.Zq.setFrom(this.mFrom);
         }
@@ -103,18 +103,18 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
     public void C(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         this.Xy = aVar;
-        if (this.Xy != null && this.Xy.WR() != null && this.Xy.WR().Zi() != null) {
-            this.Zq.setData(aVar.WR());
+        if (this.Xy != null && this.Xy.WO() != null && this.Xy.WO().Zf() != null) {
+            this.Zq.setData(aVar.WO());
             ViewGroup.LayoutParams layoutParams = this.Zp.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.Xy.WR().Zi().is_vertical.intValue() == 1) {
-                com.baidu.tieba.play.v bTz = this.Zq.bTz();
-                if (bTz != null) {
+            if (this.Xy.WO().Zf().is_vertical.intValue() == 1) {
+                com.baidu.tieba.play.v bTv = this.Zq.bTv();
+                if (bTv != null) {
                     int i3 = (Zn / 9) * 16;
                     int i4 = Zo;
-                    int videoWidth = bTz.getVideoWidth();
-                    int videoHeight = bTz.getVideoHeight();
+                    int videoWidth = bTv.getVideoWidth();
+                    int videoHeight = bTv.getVideoHeight();
                     layoutParams.width = Zn;
                     boolean z2 = i != layoutParams.width;
                     if (videoWidth == 0 || videoHeight == 0) {
@@ -145,7 +145,7 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             if (z) {
                 this.Zp.setLayoutParams(layoutParams);
             }
-            au.a(this.mTitle, this.Xy.WR());
+            au.a(this.mTitle, this.Xy.WO());
             if (rk() != null) {
                 this.Zq.setAfterClickListener(this.mOnClickListener);
             }
@@ -154,8 +154,8 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.Xy != null && this.Xy.WR() != null) {
-            com.baidu.tieba.card.n.a(this.mTitle, this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+        if (this.Xy != null && this.Xy.WO() != null) {
+            com.baidu.tieba.card.n.a(this.mTitle, this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
             this.Zp.onChangeSkinType(i);
             this.Zp.setBackgroundColor(al.getColor(com.baidu.tbadk.util.e.get()));
         }
@@ -208,10 +208,10 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.Xy == null || this.Xy.WR() == null) {
+        if (this.Xy == null || this.Xy.WO() == null) {
             return null;
         }
-        return this.Xy.WR().getVideoUrl();
+        return this.Xy.WO().getVideoUrl();
     }
 
     public void setFrom(String str) {

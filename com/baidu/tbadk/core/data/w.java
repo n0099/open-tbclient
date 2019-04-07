@@ -5,12 +5,12 @@ import tbclient.ForumPresentInfo;
 import tbclient.UserRankPresentInfo;
 /* loaded from: classes.dex */
 public class w {
-    public String byu;
+    public String byx;
     public ArrayList<a> users;
 
     public void a(ForumPresentInfo forumPresentInfo) {
         if (forumPresentInfo != null) {
-            this.byu = forumPresentInfo.content;
+            this.byx = forumPresentInfo.content;
             this.users = new ArrayList<>();
             int i = 0;
             while (true) {
@@ -27,13 +27,13 @@ public class w {
 
     /* loaded from: classes.dex */
     public class a {
-        public Integer byv;
+        public Integer byy;
         public String userName;
         public String userPortrait;
 
         public a(UserRankPresentInfo userRankPresentInfo) {
             if (userRankPresentInfo != null) {
-                this.byv = userRankPresentInfo.user_id;
+                this.byy = userRankPresentInfo.user_id;
                 this.userName = userRankPresentInfo.user_name;
                 this.userPortrait = userRankPresentInfo.portrait;
             }

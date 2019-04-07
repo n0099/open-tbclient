@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a iWE;
-    private b iWF;
-    b.a iWG;
+    private com.baidu.tieba.video.editvideo.data.a iWs;
+    private b iWt;
+    b.a iWu;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.iWE = aVar;
+        this.iWs = aVar;
     }
 
-    public boolean cjt() {
-        return (this.iWE == null || "normal".equalsIgnoreCase(this.iWE.value)) ? false : true;
+    public boolean cjr() {
+        return (this.iWs == null || "normal".equalsIgnoreCase(this.iWs.value)) ? false : true;
     }
 
-    public void DA(String str) {
-        if ((this.iWF == null || !this.iWF.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cjw = cjw();
+    public void Dz(String str) {
+        if ((this.iWt == null || !this.iWt.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cju = cju();
             String str2 = "normal";
-            if (this.iWE != null) {
-                str2 = this.iWE.value;
+            if (this.iWs != null) {
+                str2 = this.iWs.value;
             }
-            this.iWF = new b(this.mContext, str, cjw, str2);
-            if (this.iWG != null) {
-                this.iWF.a(this.iWG);
+            this.iWt = new b(this.mContext, str, cju, str2);
+            if (this.iWu != null) {
+                this.iWt.a(this.iWu);
             }
-            this.iWF.cjx();
+            this.iWt.cjv();
         }
     }
 
-    public boolean cju() {
-        if (this.iWF != null) {
-            return this.iWF.isRunning();
+    public boolean cjs() {
+        if (this.iWt != null) {
+            return this.iWt.isRunning();
         }
         return false;
     }
 
-    public void cjv() {
-        if (this.iWF != null) {
-            this.iWF.cjy();
+    public void cjt() {
+        if (this.iWt != null) {
+            this.iWt.cjw();
         }
     }
 
     public void a(b.a aVar) {
-        this.iWG = aVar;
-        if (this.iWF != null) {
-            this.iWF.a(this.iWG);
+        this.iWu = aVar;
+        if (this.iWt != null) {
+            this.iWt.a(this.iWu);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cjw() {
-        return com.baidu.tieba.video.c.iUB + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cju() {
+        return com.baidu.tieba.video.c.iUp + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

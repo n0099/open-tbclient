@@ -17,7 +17,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Aj(String str) {
+    public void Ai(String str) {
         UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
         uEGReportRequestMessage.setTag(this.mTag);
         uEGReportRequestMessage.setPid(str);
@@ -25,7 +25,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void th(String str) {
+    public void tg(String str) {
         UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
         uEGReportRequestMessage.setTag(this.mTag);
         uEGReportRequestMessage.setTUid(str);

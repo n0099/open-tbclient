@@ -24,8 +24,8 @@ public class f extends y {
         }
         int optInt = optParamsAsJo.optInt("index");
         String optString = optParamsAsJo.optString("text");
-        com.baidu.swan.apps.core.c.e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -33,12 +33,12 @@ public class f extends y {
         if (optString.length() > 3) {
             optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
         }
-        com.baidu.swan.apps.core.c.d yP = uz.yP();
-        if (yP == null) {
+        com.baidu.swan.apps.core.c.d yO = uy.yO();
+        if (yO == null) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yP.yD().r(optInt, optString)) {
+        } else if (!yO.yC().r(optInt, optString)) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "set bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

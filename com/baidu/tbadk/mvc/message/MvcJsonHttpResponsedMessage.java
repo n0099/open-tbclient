@@ -87,15 +87,15 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String anV = eVar.anV();
+                String anS = eVar.anS();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(anV) && bArr != null) {
-                    if (eVar.anW()) {
-                        l<byte[]> bu = a.aaW().bu(anV, currentAccount);
+                if (cacheKey != null && !TextUtils.isEmpty(anS) && bArr != null) {
+                    if (eVar.anT()) {
+                        l<byte[]> bu = a.aaT().bu(anS, currentAccount);
                         if (bu != null) {
                             bu.e(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (bv = a.aaW().bv(anV, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (bv = a.aaT().bv(anS, currentAccount)) != null) {
                         try {
                             bv.e(cacheKey, new String(bArr, HTTP.UTF_8));
                         } catch (UnsupportedEncodingException e) {

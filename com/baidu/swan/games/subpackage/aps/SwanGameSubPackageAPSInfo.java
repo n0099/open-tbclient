@@ -15,19 +15,19 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eJ */
+        /* renamed from: eI */
         public SwanGameSubPackageAPSInfo[] newArray(int i) {
             return new SwanGameSubPackageAPSInfo[i];
         }
     };
     public String appId;
     public String appVersion;
-    public int bfs;
-    public String bft;
-    public String bfu;
-    public String bfv;
+    public String bfA;
+    public int bfv;
     public String bfw;
     public String bfx;
+    public String bfy;
+    public String bfz;
     public String key;
     public int resultCode;
 
@@ -39,12 +39,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         this.appVersion = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.bfs = parcel.readInt();
-        this.bft = parcel.readString();
-        this.bfu = parcel.readString();
-        this.bfv = parcel.readString();
+        this.bfv = parcel.readInt();
         this.bfw = parcel.readString();
         this.bfx = parcel.readString();
+        this.bfy = parcel.readString();
+        this.bfz = parcel.readString();
+        this.bfA = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.appVersion);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.bfs);
-        parcel.writeString(this.bft);
-        parcel.writeString(this.bfu);
-        parcel.writeString(this.bfv);
+        parcel.writeInt(this.bfv);
         parcel.writeString(this.bfw);
         parcel.writeString(this.bfx);
+        parcel.writeString(this.bfy);
+        parcel.writeString(this.bfz);
+        parcel.writeString(this.bfA);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfs + ",appRootPath:" + this.bft + ",subPackageRoot:" + this.bfu + ",zipPath:" + this.bfv + ",callbackKey:" + this.bfw + ",subPackagePath:" + this.bfx;
+        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfv + ",appRootPath:" + this.bfw + ",subPackageRoot:" + this.bfx + ",zipPath:" + this.bfy + ",callbackKey:" + this.bfz + ",subPackagePath:" + this.bfA;
     }
 }

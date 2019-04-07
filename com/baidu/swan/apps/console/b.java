@@ -13,25 +13,25 @@ import com.baidu.ubc.UBC;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.wJ().putBoolean(str, z);
+            a.wI().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0123b.class, k(str, z));
         }
     }
 
     public static void aQ(boolean z) {
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX != null) {
-            putBoolean(dx(IX.getAppKey()), z);
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        if (IV != null) {
+            putBoolean(dz(IV.getAppKey()), z);
         }
     }
 
-    public static boolean dw(String str) {
-        return !TextUtils.isEmpty(str) && a.wJ().getBoolean(dx(str), false);
+    public static boolean dy(String str) {
+        return !TextUtils.isEmpty(str) && a.wI().getBoolean(dz(str), false);
     }
 
-    private static String dx(String str) {
-        String bI = com.baidu.swan.apps.u.a.CD().bI(com.baidu.swan.apps.u.a.Cy());
+    private static String dz(String str) {
+        String bI = com.baidu.swan.apps.u.a.CB().bI(com.baidu.swan.apps.u.a.Cw());
         return "consoleSwitch" + str + (TextUtils.isEmpty(bI) ? "" : t.b(bI.getBytes(), false));
     }
 
@@ -52,11 +52,11 @@ public class b {
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0122a {
-            private static final a amJ = new a();
+            private static final a amN = new a();
         }
 
-        public static a wJ() {
-            return C0122a.amJ;
+        public static a wI() {
+            return C0122a.amN;
         }
     }
 
@@ -69,7 +69,7 @@ public class b {
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.wJ().putBoolean(bundle.getString("key"), bundle.getBoolean(UBC.CONTENT_KEY_VALUE));
+            a.wI().putBoolean(bundle.getString("key"), bundle.getBoolean(UBC.CONTENT_KEY_VALUE));
             return Bundle.EMPTY;
         }
     }

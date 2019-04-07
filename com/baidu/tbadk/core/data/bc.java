@@ -4,9 +4,9 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
     private String avatar;
-    public v bAA;
-    private boolean bAy;
-    private boolean bAz;
+    private boolean bAB;
+    private boolean bAC;
+    public v bAD;
     private String forumId;
     private int forumLevel;
     public String forumName;
@@ -24,11 +24,11 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
     public void dj(boolean z) {
-        this.bAz = z;
+        this.bAC = z;
     }
 
-    public boolean Yg() {
-        return this.bAz;
+    public boolean Yd() {
+        return this.bAC;
     }
 
     public String getAvatar() {
@@ -37,12 +37,12 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.bAy;
+        return this.bAB;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.bAy = z;
+        this.bAB = z;
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
@@ -50,11 +50,11 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.bAy = simpleForum.is_liked.intValue() == 1;
+            this.bAB = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.bAA = new v();
-                this.bAA.a(simpleForum.multi_forum_perm);
+                this.bAD = new v();
+                this.bAD.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
         }

@@ -10,10 +10,10 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private Fragment ajs;
-    private com.baidu.swan.apps.v.b.b ajt;
-    private int aju = 0;
-    private int ajv = 0;
+    private Fragment ajw;
+    private com.baidu.swan.apps.v.b.b ajx;
+    private int ajy = 0;
+    private int ajz = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
@@ -22,8 +22,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_error_activity);
         parseIntent(getIntent());
-        uF();
-        uH();
+        uE();
+        uG();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,43 +33,43 @@ public class SwanAppErrorActivity extends FragmentActivity {
         parseIntent(intent);
     }
 
-    private void uF() {
-        m SD = SA().SD();
-        this.ajs = new com.baidu.swan.apps.core.c.c();
-        SD.a(a.f.ai_apps_error_layout, this.ajs);
-        SD.commit();
+    private void uE() {
+        m SB = Sy().SB();
+        this.ajw = new com.baidu.swan.apps.core.c.c();
+        SB.a(a.f.ai_apps_error_layout, this.ajw);
+        SB.commit();
     }
 
     private void parseIntent(Intent intent) {
         if (intent != null) {
-            this.ajt = com.baidu.swan.apps.v.b.b.G(intent);
+            this.ajx = com.baidu.swan.apps.v.b.b.G(intent);
         }
     }
 
-    public com.baidu.swan.apps.v.b.b uB() {
-        return this.ajt;
+    public com.baidu.swan.apps.v.b.b uA() {
+        return this.ajx;
     }
 
     private void y(int i, int i2) {
-        this.aju = i;
-        this.ajv = i2;
+        this.ajy = i;
+        this.ajz = i2;
     }
 
-    private void uG() {
-        if (this.aju != 0 || this.ajv != 0) {
-            overridePendingTransition(this.aju, this.ajv);
-            this.aju = 0;
-            this.ajv = 0;
+    private void uF() {
+        if (this.ajy != 0 || this.ajz != 0) {
+            overridePendingTransition(this.ajy, this.ajz);
+            this.ajy = 0;
+            this.ajz = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        uG();
+        uF();
     }
 
-    private void uH() {
+    private void uG() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

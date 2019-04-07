@@ -12,8 +12,8 @@ import android.util.Pair;
 import android.webkit.WebView;
 import com.baidu.mobstat.aq;
 import com.baidu.mobstat.ar;
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.coremedia.iso.boxes.MetaBox;
-import com.sina.weibo.sdk.constant.WBConstants;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -368,11 +368,11 @@ public class at {
 
     private String a(Context context) {
         ArrayList<Pair> arrayList = new ArrayList();
-        arrayList.add(new Pair(WBConstants.SSO_APP_KEY, "" + this.v));
+        arrayList.add(new Pair("appKey", "" + this.v));
         arrayList.add(new Pair("appVersion", cc.g(context)));
         arrayList.add(new Pair("appName", cc.h(context)));
         arrayList.add(new Pair("packageName", context.getPackageName()));
-        arrayList.add(new Pair("sdkVersion", StatService.getSdkVersion()));
+        arrayList.add(new Pair(CommandMessage.SDK_VERSION, StatService.getSdkVersion()));
         arrayList.add(new Pair("deviceName", cc.m(context)));
         arrayList.add(new Pair("platform", "Android"));
         arrayList.add(new Pair("model", android.os.Build.MODEL));

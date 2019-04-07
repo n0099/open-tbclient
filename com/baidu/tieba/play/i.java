@@ -13,11 +13,11 @@ public interface i {
 
     void g(Context context, String str, int i);
 
-    String qB(String str);
-
     String qC(String str);
 
-    void qD(String str);
+    String qD(String str);
 
-    String qE(String str);
+    void qE(String str);
+
+    String qF(String str);
 }

@@ -9,13 +9,13 @@ public class b extends com.baidu.swan.games.view.button.base.b {
         aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.userinfo.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.games.view.a.Pn() != null) {
-                    b.this.bfP = new UserInfoButton(com.baidu.swan.games.view.a.Pn(), b.this);
-                    b.this.bfP.setType(b.this.type);
-                    b.this.bfP.setButtonText(b.this.text);
-                    b.this.bfP.setImageUrl(b.this.image);
-                    b.this.bfP.setApiButtonStyle(b.this.style);
-                    b.this.PD();
+                if (com.baidu.swan.games.view.a.Pl() != null) {
+                    b.this.bfS = new UserInfoButton(com.baidu.swan.games.view.a.Pl(), b.this);
+                    b.this.bfS.setType(b.this.type);
+                    b.this.bfS.setButtonText(b.this.text);
+                    b.this.bfS.setImageUrl(b.this.image);
+                    b.this.bfS.setApiButtonStyle(b.this.style);
+                    b.this.PB();
                 }
             }
         });

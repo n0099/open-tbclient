@@ -74,7 +74,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int l;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().Xg(), true) && !this.responseData.getBookInfo().Xg().equals("0") && this.responseData.getBookInfo().Xh() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.getBookInfo().Xg(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().Xd(), true) && !this.responseData.getBookInfo().Xd().equals("0") && this.responseData.getBookInfo().Xe() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.getBookInfo().Xd(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -84,11 +84,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String d = d.cdu().d("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String d = d.cdq().d("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cdu().n(d, bArr);
+                d.cdq().n(d, bArr);
             } else {
-                d.cdu().c(d, bArr, true);
+                d.cdq().c(d, bArr, true);
             }
         }
     }

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import cn.jpush.android.api.TagAliasCallback;
 import cn.jpush.android.service.ServiceInterface;
 import com.baidu.mobstat.Config;
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public final class n {
                     } else if (!a(context, 2, str, j)) {
                         return null;
                     } else {
-                        a2.put("alias", str);
+                        a2.put(CommandMessage.TYPE_ALIAS, str);
                     }
                 }
                 String jSONObject = a2.toString();
@@ -108,13 +109,13 @@ public final class n {
                         for (String str : list) {
                             jSONArray.put(str);
                         }
-                        a2.put("tags", jSONArray);
+                        a2.put(CommandMessage.TYPE_TAGS, jSONArray);
                     } else if (TextUtils.isEmpty(b)) {
                         cn.jpush.android.d.f.d("TagAliasHelper", "stags was empty. Give up action.");
                         a(context, 1, cn.jpush.android.api.b.b, j);
                         return null;
                     } else {
-                        a2.put("tags", b);
+                        a2.put(CommandMessage.TYPE_TAGS, b);
                     }
                 }
                 if (i == 5) {
@@ -151,10 +152,10 @@ public final class n {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("platform", Config.APP_VERSION_CODE);
                         if (str != null) {
-                            jSONObject.put("alias", str);
+                            jSONObject.put(CommandMessage.TYPE_ALIAS, str);
                         }
                         if (hashSet != null) {
-                            jSONObject.put("tags", b);
+                            jSONObject.put(CommandMessage.TYPE_TAGS, b);
                         }
                         String jSONObject2 = jSONObject.toString();
                         if (!TextUtils.isEmpty(jSONObject2)) {
@@ -273,8 +274,8 @@ public final class n {
 
     public static void a(Context context, Bundle bundle) {
         char c;
-        String string = bundle.getString("alias");
-        ArrayList<String> stringArrayList = bundle.getStringArrayList("tags");
+        String string = bundle.getString(CommandMessage.TYPE_ALIAS);
+        ArrayList<String> stringArrayList = bundle.getStringArrayList(CommandMessage.TYPE_TAGS);
         long j = bundle.getLong("seq_id", 0L);
         int i = 0;
         int i2 = 0;

@@ -17,33 +17,33 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class c {
-    public final TextView biO;
-    public final View btY;
-    public final ImageView dpO;
-    private final RelativeLayout eXp;
-    public final EditText eXq;
-    public final ImageView eXr;
+    public final TextView biR;
+    public final View bub;
+    public final ImageView dpR;
+    private final RelativeLayout eXb;
+    public final EditText eXc;
+    public final ImageView eXd;
     public final BdTypeListView mListView;
     private TbPageContext mPageContext;
     private int mSkinType = 3;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.btY = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.forum_search_main, (ViewGroup) null);
-        this.eXp = (RelativeLayout) this.btY.findViewById(d.g.search_area_root);
-        this.dpO = (ImageView) this.btY.findViewById(d.g.search_bar_icon);
-        this.eXq = (EditText) this.btY.findViewById(d.g.home_et_search);
-        this.eXr = (ImageView) this.btY.findViewById(d.g.home_bt_search_del);
-        this.eXq.setHint(d.j.search_bar_you_want_post_to_share);
-        this.biO = (TextView) this.btY.findViewById(d.g.home_bt_search_cancel_s);
-        this.biO.setText(tbPageContext.getString(d.j.cancel));
-        this.mListView = (BdTypeListView) this.btY.findViewById(d.g.search_bar_list);
-        bbw();
+        this.bub = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.forum_search_main, (ViewGroup) null);
+        this.eXb = (RelativeLayout) this.bub.findViewById(d.g.search_area_root);
+        this.dpR = (ImageView) this.bub.findViewById(d.g.search_bar_icon);
+        this.eXc = (EditText) this.bub.findViewById(d.g.home_et_search);
+        this.eXd = (ImageView) this.bub.findViewById(d.g.home_bt_search_del);
+        this.eXc.setHint(d.j.search_bar_you_want_post_to_share);
+        this.biR = (TextView) this.bub.findViewById(d.g.home_bt_search_cancel_s);
+        this.biR.setText(tbPageContext.getString(d.j.cancel));
+        this.mListView = (BdTypeListView) this.bub.findViewById(d.g.search_bar_list);
+        bbu();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bbw() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eXp.getLayoutParams();
+    private void bbu() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eXb.getLayoutParams();
         layoutParams.height = l.h(this.mPageContext.getPageActivity(), d.e.ds88);
         int h = l.h(this.mPageContext.getPageActivity(), d.e.ds8);
         layoutParams.rightMargin = h;
@@ -52,20 +52,20 @@ public class c {
         if (immersiveStickyBarHeight > 0) {
             layoutParams.topMargin = immersiveStickyBarHeight;
         }
-        this.eXp.setLayoutParams(layoutParams);
+        this.eXb.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.a(this.dpO, d.f.icon_search, d.f.icon_search, d.f.icon_search, i);
-            al.d(this.biO, d.C0277d.cp_link_tip_a, 1);
-            al.c(this.eXr, d.f.del_search_btn);
+            al.a(this.dpR, d.f.icon_search, d.f.icon_search, d.f.icon_search, i);
+            al.d(this.biR, d.C0277d.cp_link_tip_a, 1);
+            al.c(this.eXd, d.f.del_search_btn);
             if (i == 2) {
-                this.eXq.setHintTextColor(al.getColor(d.C0277d.s_navbar_title_color));
+                this.eXc.setHintTextColor(al.getColor(d.C0277d.s_navbar_title_color));
             } else {
-                this.eXq.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
+                this.eXc.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
             }
-            al.c(this.eXq, d.C0277d.cp_cont_b, d.C0277d.s_navbar_title_color);
+            al.c(this.eXc, d.C0277d.cp_cont_b, d.C0277d.s_navbar_title_color);
             this.mSkinType = i;
         }
     }

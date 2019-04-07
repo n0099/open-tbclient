@@ -5,20 +5,20 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a extends c {
-    private static a ahd;
+    private static a ahi;
 
     private a() {
     }
 
-    public static a tI() {
-        if (ahd == null) {
+    public static a tH() {
+        if (ahi == null) {
             synchronized (a.class) {
-                if (ahd == null) {
-                    ahd = new a();
+                if (ahi == null) {
+                    ahi = new a();
                 }
             }
         }
-        return ahd;
+        return ahi;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d

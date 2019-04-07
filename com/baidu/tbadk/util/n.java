@@ -26,9 +26,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private a ctp;
-    private String ctq;
-    private File ctr;
+    private a ctr;
+    private String cts;
+    private File ctt;
     private int from = 0;
     private String imagePath;
     private String url;
@@ -36,7 +36,7 @@ public class n extends BdAsyncTask<String, String, b> {
     public n(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.ctp = aVar;
+        this.ctr = aVar;
     }
 
     public void setFrom(int i) {
@@ -51,10 +51,10 @@ public class n extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!aqa()) {
+        if (!apX()) {
             return new b(false, "make file error");
         }
-        if (!aqb()) {
+        if (!apY()) {
             return new b(false, "download error");
         }
         return new b(true, null);
@@ -67,42 +67,42 @@ public class n extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.ctp != null) {
-                this.ctp.onError(-2, "error");
+            if (this.ctr != null) {
+                this.ctr.onError(-2, "error");
             }
         } else if (!bVar.isSuccess()) {
-            if (this.ctp != null) {
-                this.ctp.onError(-1, bVar.getMessage());
+            if (this.ctr != null) {
+                this.ctr.onError(-1, bVar.getMessage());
             }
         } else {
-            aqc();
-            if (this.ctp != null) {
-                this.ctp.onSuccess(this.imagePath);
+            apZ();
+            if (this.ctr != null) {
+                this.ctr.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean aqa() {
+    private boolean apX() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
             if (this.from == 1) {
-                com.baidu.tbadk.core.util.m.lN(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/");
-                com.baidu.tbadk.core.util.m.lN(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/temp/");
-                com.baidu.tbadk.core.util.m.lN(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
+                com.baidu.tbadk.core.util.m.lO(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/");
+                com.baidu.tbadk.core.util.m.lO(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/temp/");
+                com.baidu.tbadk.core.util.m.lO(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
                 externalStoragePublicDirectory = new File(com.baidu.tbadk.core.util.m.FK + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
             } else {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.ctq = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.ctq) && !this.ctq.endsWith("/")) {
-                    this.ctq += "/";
+                this.cts = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.cts) && !this.cts.endsWith("/")) {
+                    this.cts += "/";
                 }
             } else {
-                this.ctq = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.cts = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.ctq);
+            File file = new File(this.cts);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -111,15 +111,15 @@ public class n extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.ctq + lowerCase + pI(this.url);
-            this.ctr = new File(this.imagePath);
-            if (this.ctr.exists()) {
-                this.ctr.delete();
+            this.imagePath = this.cts + lowerCase + pJ(this.url);
+            this.ctt = new File(this.imagePath);
+            if (this.ctt.exists()) {
+                this.ctt.delete();
             }
-            if (this.ctr.exists()) {
+            if (this.ctt.exists()) {
                 return true;
             }
-            this.ctr.createNewFile();
+            this.ctt.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -127,7 +127,7 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aqb() {
+    private boolean apY() {
         return o(this.url, this.imagePath, 3);
     }
 
@@ -159,7 +159,7 @@ public class n extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(pH(str2), true);
+                fileOutputStream = new FileOutputStream(pI(str2), true);
                 try {
                     a2.connect();
                     responseCode = a2.getResponseCode();
@@ -167,21 +167,21 @@ public class n extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField("Location");
                         com.baidu.adp.lib.g.a.f(a2);
                         try {
-                            if (this.ctr != null) {
-                                this.ctr.delete();
+                            if (this.ctt != null) {
+                                this.ctt.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.ctq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pI(headerField2);
-                        this.ctr = new File(this.imagePath);
-                        if (this.ctr.exists()) {
-                            this.ctr.delete();
+                        this.imagePath = this.cts + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pJ(headerField2);
+                        this.ctt = new File(this.imagePath);
+                        if (this.ctt.exists()) {
+                            this.ctt.delete();
                         }
-                        if (!this.ctr.exists()) {
-                            this.ctr.createNewFile();
+                        if (!this.ctt.exists()) {
+                            this.ctt.createNewFile();
                         }
                         com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.ctr, true);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.ctt, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -268,7 +268,7 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File pH(String str) {
+    private File pI(String str) {
         com.baidu.adp.lib.util.f.bo(str);
         return new File(str);
     }
@@ -319,13 +319,13 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void aqc() {
-        if (this.ctr != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.ctr)));
+    private void apZ() {
+        if (this.ctt != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.ctt)));
         }
     }
 
-    private String pI(String str) {
+    private String pJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

@@ -12,7 +12,7 @@ public class e extends a implements org.aspectj.lang.reflect.c {
 
     public Class getReturnType() {
         if (this.returnType == null) {
-            this.returnType = Dj(6);
+            this.returnType = CZ(6);
         }
         return this.returnType;
     }
@@ -20,14 +20,14 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.Dm(getModifiers()));
-        if (hVar.jTI) {
-            stringBuffer.append(hVar.H(getReturnType()));
+        stringBuffer.append(hVar.Dc(getModifiers()));
+        if (hVar.jTa) {
+            stringBuffer.append(hVar.G(getReturnType()));
         }
-        if (hVar.jTI) {
+        if (hVar.jTa) {
             stringBuffer.append(" ");
         }
-        stringBuffer.append(hVar.i(cCT(), cCU()));
+        stringBuffer.append(hVar.i(cCI(), cCJ()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
         hVar.b(stringBuffer, getParameterTypes());

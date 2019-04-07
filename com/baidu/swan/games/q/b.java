@@ -13,68 +13,68 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
-    private File aSS;
-    private SharedPreferences bfh;
+    private File aSV;
+    private SharedPreferences bfk;
 
     public b() {
-        String OX = OX();
-        if (OX != null) {
-            this.bfh = com.baidu.swan.apps.u.a.Cy().getSharedPreferences(OX, 0);
-            this.aSS = new File(Pb(), OX + ".xml");
+        String OV = OV();
+        if (OV != null) {
+            this.bfk = com.baidu.swan.apps.u.a.Cw().getSharedPreferences(OV, 0);
+            this.aSV = new File(OZ(), OV + ".xml");
         }
-        e.aVP.a(new c.a<Long>() { // from class: com.baidu.swan.games.q.b.1
+        e.aVS.a(new c.a<Long>() { // from class: com.baidu.swan.games.q.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
-            /* renamed from: KJ */
-            public Long KK() throws IllegalStateException {
-                return Long.valueOf(b.this.KH());
+            /* renamed from: KH */
+            public Long KI() throws IllegalStateException {
+                return Long.valueOf(b.this.KF());
             }
         });
     }
 
     @Nullable
-    private String OX() {
-        com.baidu.swan.apps.u.b.c CD = com.baidu.swan.apps.u.a.CD();
-        String Ji = com.baidu.swan.apps.ae.b.Ji();
-        String bI = CD != null ? CD.bI(com.baidu.swan.apps.u.a.Cy()) : null;
-        String bJ = CD != null ? CD.bJ(com.baidu.swan.apps.u.a.Cy()) : null;
+    private String OV() {
+        com.baidu.swan.apps.u.b.c CB = com.baidu.swan.apps.u.a.CB();
+        String Jg = com.baidu.swan.apps.ae.b.Jg();
+        String bI = CB != null ? CB.bI(com.baidu.swan.apps.u.a.Cw()) : null;
+        String bJ = CB != null ? CB.bJ(com.baidu.swan.apps.u.a.Cw()) : null;
         if (!TextUtils.isEmpty(bI)) {
             bJ = bI;
         }
         String md5 = TextUtils.isEmpty(bJ) ? null : com.baidu.swan.c.c.toMd5(bJ.getBytes(), false);
-        if (Ji == null || md5 == null) {
+        if (Jg == null || md5 == null) {
             return null;
         }
-        return String.format("aigame_storage_%s_%s", Ji, md5);
+        return String.format("aigame_storage_%s_%s", Jg, md5);
     }
 
-    private boolean OY() {
-        return this.bfh != null;
+    private boolean OW() {
+        return this.bfk != null;
     }
 
-    public long KH() {
-        if (this.aSS != null) {
-            return this.aSS.length();
+    public long KF() {
+        if (this.aSV != null) {
+            return this.aSV.length();
         }
         return 0L;
     }
 
-    public long KI() {
+    public long KG() {
         return Config.FULL_TRACE_LOG_LIMIT;
     }
 
     public String getString(String str, String str2) {
-        if (OY()) {
-            return this.bfh.getString(str, str2);
+        if (OW()) {
+            return this.bfk.getString(str, str2);
         }
         return null;
     }
 
-    public String[] OZ() {
-        if (!OY()) {
+    public String[] OX() {
+        if (!OW()) {
             return new String[0];
         }
-        Set<String> keySet = this.bfh.getAll().keySet();
+        Set<String> keySet = this.bfk.getAll().keySet();
         String[] strArr = new String[keySet.size()];
         keySet.toArray(strArr);
         return strArr;
@@ -82,26 +82,26 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean be(String str, String str2) {
-        return OY() && this.bfh.edit().putString(str, str2).commit();
+        return OW() && this.bfk.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean remove(String str) {
-        return OY() && this.bfh.edit().remove(str).commit();
+        return OW() && this.bfk.edit().remove(str).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public boolean Pa() {
-        return OY() && this.bfh.edit().clear().commit();
+    public boolean OY() {
+        return OW() && this.bfk.edit().clear().commit();
     }
 
     @NonNull
-    public static File Pb() {
+    public static File OZ() {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
-    public static void iV(String str) {
-        File[] listFiles = Pb().listFiles();
+    public static void iW(String str) {
+        File[] listFiles = OZ().listFiles();
         if (listFiles != null && !TextUtils.isEmpty(str)) {
             String format = String.format("aigame_storage_%s_%s", str, "");
             for (File file : listFiles) {

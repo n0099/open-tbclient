@@ -42,24 +42,24 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("GenericMediaHeaderTextAtom.java", GenericMediaHeaderTextAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getUnknown_1", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 60);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setUnknown_1", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_1", "", "void"), 64);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getUnknown_6", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 100);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setUnknown_6", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_6", "", "void"), 104);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "getUnknown_7", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 108);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setUnknown_7", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_7", "", "void"), 112);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "getUnknown_8", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 116);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setUnknown_8", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_8", "", "void"), 120);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getUnknown_9", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 124);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setUnknown_9", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_9", "", "void"), 128);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getUnknown_2", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 68);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setUnknown_2", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_2", "", "void"), 72);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getUnknown_3", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 76);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setUnknown_3", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_3", "", "void"), 80);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getUnknown_4", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 84);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setUnknown_4", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_4", "", "void"), 88);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getUnknown_5", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 92);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setUnknown_5", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_5", "", "void"), 96);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getUnknown_1", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 60);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setUnknown_1", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_1", "", "void"), 64);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getUnknown_6", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 100);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setUnknown_6", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_6", "", "void"), 104);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "getUnknown_7", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 108);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setUnknown_7", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_7", "", "void"), 112);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "getUnknown_8", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 116);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setUnknown_8", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_8", "", "void"), 120);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "getUnknown_9", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 124);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setUnknown_9", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_9", "", "void"), 128);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getUnknown_2", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 68);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setUnknown_2", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_2", "", "void"), 72);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getUnknown_3", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 76);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setUnknown_3", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_3", "", "void"), 80);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getUnknown_4", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 84);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setUnknown_4", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_4", "", "void"), 88);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getUnknown_5", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "", "", "", "int"), 92);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setUnknown_5", "com.googlecode.mp4parser.boxes.apple.GenericMediaHeaderTextAtom", "int", "unknown_5", "", "void"), 96);
     }
 
     public GenericMediaHeaderTextAtom() {
@@ -106,7 +106,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_1 = i;
     }
 
@@ -116,7 +116,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_2 = i;
     }
 
@@ -126,7 +126,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_3(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_3 = i;
     }
 
@@ -136,7 +136,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_4(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_4 = i;
     }
 
@@ -146,7 +146,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_5(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_5 = i;
     }
 
@@ -156,7 +156,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_6(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_6 = i;
     }
 
@@ -166,7 +166,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_7(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_7 = i;
     }
 
@@ -176,7 +176,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_8 = i;
     }
 
@@ -186,7 +186,7 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     }
 
     public void setUnknown_9(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.CW(i)));
         this.unknown_9 = i;
     }
 }

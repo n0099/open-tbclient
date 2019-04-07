@@ -40,7 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public static boolean gcu = l.apW();
+    public static boolean gci = l.apT();
 
     public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
         if (chatMessage != null) {
@@ -89,10 +89,10 @@ public class j {
                         aVar = null;
                     } else {
                         try {
-                            aVar = com.baidu.tbadk.imageManager.c.anp().pi(b);
+                            aVar = com.baidu.tbadk.imageManager.c.anm().pj(b);
                             try {
                                 if (aVar == null) {
-                                    Bitmap l = ac.acT().l(com.baidu.adp.lib.util.d.kG().bi(b));
+                                    Bitmap l = ac.acQ().l(com.baidu.adp.lib.util.d.kG().bi(b));
                                     if (l == null) {
                                         aVar = null;
                                     } else {
@@ -101,7 +101,7 @@ public class j {
                                             chatMessage.setWidth(aVar.getWidth());
                                             chatMessage.setHeight(aVar.getHeight());
                                         }
-                                        com.baidu.tbadk.imageManager.c.anp().c(b, aVar);
+                                        com.baidu.tbadk.imageManager.c.anm().c(b, aVar);
                                     }
                                 } else if (chatMessage.getWidth() < 1) {
                                     chatMessage.setWidth(aVar.getWidth());
@@ -122,9 +122,9 @@ public class j {
                             chatMessage.setHeight(com.baidu.adp.lib.g.b.l(split[1], 0));
                         }
                     }
-                    LocalViewSize.acA();
-                    LocalViewSize.ImageSize a = LocalViewSize.acA().a(LocalViewSize.acA().acC(), chatMessage.getHeight(), chatMessage.getWidth());
-                    com.baidu.tbadk.core.util.c.a d = ac.acT().d(a.width, a.height, true);
+                    LocalViewSize.acx();
+                    LocalViewSize.ImageSize a = LocalViewSize.acx().a(LocalViewSize.acx().acz(), chatMessage.getHeight(), chatMessage.getWidth());
+                    com.baidu.tbadk.core.util.c.a d = ac.acQ().d(a.width, a.height, true);
                     a.height = d.height;
                     a.width = d.width;
                     ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
@@ -134,7 +134,7 @@ public class j {
                     if (aVar != null) {
                         chatImageWithTailView.getImage().reset();
                         if (chatImageWithTailView.getImage() instanceof ChatClipImageItemView) {
-                            chatImageWithTailView.getImage().bqF();
+                            chatImageWithTailView.getImage().bqC();
                         }
                         aVar.a(chatImageWithTailView.getImage());
                     } else {
@@ -238,15 +238,15 @@ public class j {
     public static void a(Context context, View view, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
         if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
             com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
-            int df = aVar.df(chatMessage.getContent(), str);
+            int dg = aVar.dg(chatMessage.getContent(), str);
             if (1 == aVar.getSubType()) {
-                if (aVar.bwv() != null) {
-                    if (df == 0) {
+                if (aVar.bws() != null) {
+                    if (dg == 0) {
                         shareFromPBView.setVisibility(0);
-                        shareFromPBView.setData(aVar.bwv() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) aVar.bwv() : null);
-                    } else if (df == 1) {
+                        shareFromPBView.setData(aVar.bws() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) aVar.bws() : null);
+                    } else if (dg == 1) {
                         shareFromGameCenter.setVisibility(0);
-                        ShareFromGameCenterMsgData shareFromGameCenterMsgData = aVar.bwv() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) aVar.bwv() : null;
+                        ShareFromGameCenterMsgData shareFromGameCenterMsgData = aVar.bws() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) aVar.bws() : null;
                         if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
                             shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
                         } else if (!TextUtils.isEmpty(str) && str.endsWith("MsgrightView")) {
@@ -256,7 +256,7 @@ public class j {
                 }
             } else if (4 == aVar.getSubType()) {
                 shareFromFrsView.setVisibility(0);
-                shareFromFrsView.setData(aVar.bwv() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) aVar.bwv() : null);
+                shareFromFrsView.setData(aVar.bws() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) aVar.bws() : null);
             }
         }
     }

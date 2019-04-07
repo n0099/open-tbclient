@@ -223,7 +223,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             RefresherView.this.invalidate();
         }
 
-        void aR(int i) {
+        void aQ(int i) {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Ox = uptimeMillis;
             this.Oy = uptimeMillis + 16;
@@ -353,7 +353,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r3) {
             RefresherView.this.SM = 0;
-            RefresherView.this.ST.aR(1000);
+            RefresherView.this.ST.aQ(1000);
         }
     }
 
@@ -469,7 +469,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     } else {
                         RefresherView.this.refresh();
                     }
-                    aR(1000);
+                    aQ(1000);
                     return true;
                 case 2:
                     RefresherView.this.mYOffset = Math.max(0, Math.min(y - RefresherView.this.Nq, RefresherView.this.mMaxHeight * 2));
@@ -496,8 +496,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         }
 
         @Override // com.baidu.adp.widget.f
-        public void aR(int i) {
-            RefresherView.this.SO.aR(i);
+        public void aQ(int i) {
+            RefresherView.this.SO.aQ(i);
         }
     }
 
@@ -637,7 +637,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     } else {
                         RefresherView.this.refresh();
                     }
-                    aR(1000);
+                    aQ(1000);
                     return true;
                 case 2:
                     RefresherView.this.mXOffset = Math.max(0, Math.min((x - RefresherView.this.Np) - this.SZ, RefresherView.this.mMaxHeight * 2));
@@ -664,7 +664,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         }
 
         @Override // com.baidu.adp.widget.f
-        public void aR(int i) {
+        public void aQ(int i) {
             switch (i) {
                 case 1000:
                     pL();

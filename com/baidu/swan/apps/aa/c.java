@@ -8,39 +8,38 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.c.g;
 import com.baidu.swan.apps.res.widget.b.d;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
-    public static String aDn;
-    public static String aDo;
-    public static volatile c aDp;
+    public static String aDq;
+    public static String aDr;
+    public static volatile c aDs;
 
     private c() {
     }
 
-    public static c Ft() {
-        if (aDp == null) {
+    public static c Fr() {
+        if (aDs == null) {
             synchronized (c.class) {
-                if (aDp == null) {
-                    aDp = new c();
+                if (aDs == null) {
+                    aDs = new c();
                 }
             }
         }
-        return aDp;
+        return aDs;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        String b = b(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        String b = b(unitedSchemeEntity, "params");
         if (TextUtils.isEmpty(b)) {
             com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.swan.apps.u.a.CO().bK(context)) {
-            d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).IK();
+        } else if (!com.baidu.swan.apps.u.a.CM().bK(context)) {
+            d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).II();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
         } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.ap(b, b))) {

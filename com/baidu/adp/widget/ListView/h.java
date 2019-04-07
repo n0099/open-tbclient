@@ -125,7 +125,7 @@ public class h {
         }
     }
 
-    public void aX(int i) {
+    public void aW(int i) {
         if (this.mRecyclerView != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {

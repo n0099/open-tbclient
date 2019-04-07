@@ -29,10 +29,10 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class j extends UnitedSchemeBaseDispatcher {
     private static final String TAG = j.class.getSimpleName();
-    protected final Map<String, y> aPg = new HashMap();
+    protected final Map<String, y> aPj = new HashMap();
 
     public j() {
-        JH();
+        JF();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -59,7 +59,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                 return false;
             }
-            y yVar = this.aPg.get(str);
+            y yVar = this.aPj.get(str);
             if (yVar != null) {
                 if (unitedSchemeEntity.isOnlyVerify()) {
                     return true;
@@ -77,8 +77,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void JH() {
-        this.aPg.clear();
+    protected void JF() {
+        this.aPj.clear();
         a(new t(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ab(this));
@@ -130,6 +130,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(y yVar) {
-        this.aPg.put(yVar.name, yVar);
+        this.aPj.put(yVar.name, yVar);
     }
 }

@@ -17,31 +17,31 @@ import com.baidu.tieba.im.model.GroupLevelModel;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
-    private GroupLevelModel gjv;
-    private k gjw;
-    private com.baidu.tbadk.core.dialog.a gjx;
-    private a.b gjy = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
+    private GroupLevelModel gji;
+    private k gjj;
+    private com.baidu.tbadk.core.dialog.a gjk;
+    private a.b gjl = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             RequestUpgradeMemberGroupMessage requestUpgradeMemberGroupMessage = new RequestUpgradeMemberGroupMessage();
-            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.gjv.getGroupId());
+            requestUpgradeMemberGroupMessage.setGroupId(GroupLevelActivity.this.gji.getGroupId());
             requestUpgradeMemberGroupMessage.setUpOrDown(true);
             GroupLevelActivity.this.sendMessage(requestUpgradeMemberGroupMessage);
             aVar.dismiss();
         }
     };
-    private a.b gjz = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
+    private a.b gjm = new a.b() { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
         }
     };
-    private com.baidu.adp.framework.listener.c gaF = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
+    private com.baidu.adp.framework.listener.c gat = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.frsgroup.GroupLevelActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             GroupLevelInfo.LevelInfo levelInfo;
-            GroupLevelActivity.this.gjw.lb(false);
+            GroupLevelActivity.this.gjj.lb(false);
             if (socketResponsedMessage == null) {
                 GroupLevelActivity.this.showToast(d.j.neterror);
             } else if (socketResponsedMessage instanceof ResponseGroupLevelMessage) {
@@ -69,22 +69,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
                         int activeDay = groupLevelInfo.getActiveDay();
                         int thresholdDay = levelInfo.getThresholdDay();
                         String intro = levelInfo.getIntro();
-                        GroupLevelActivity.this.gjw.D(grade, groupLevelInfo.isMemGroup());
-                        GroupLevelActivity.this.gjw.bta().setText(intro);
-                        GroupLevelActivity.this.gjw.V(grade, activeDay, thresholdDay);
-                        GroupLevelActivity.this.gjw.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
-                        TextView[] bsY = GroupLevelActivity.this.gjw.bsY();
+                        GroupLevelActivity.this.gjj.D(grade, groupLevelInfo.isMemGroup());
+                        GroupLevelActivity.this.gjj.bsX().setText(intro);
+                        GroupLevelActivity.this.gjj.V(grade, activeDay, thresholdDay);
+                        GroupLevelActivity.this.gjj.a(groupLevelInfo.isMemGroup(), groupLevelInfo.isGroupAuthor(), groupLevelInfo.isCanCreateMember(), groupLevelInfo.getLeftCreateMemGroup());
+                        TextView[] bsV = GroupLevelActivity.this.gjj.bsV();
                         for (int i = 1; i < levelInfos.size(); i++) {
                             int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                            if (i <= bsY.length) {
-                                bsY[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
+                            if (i <= bsV.length) {
+                                bsV[i].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum)));
                             }
                         }
-                        TextView[] bsZ = GroupLevelActivity.this.gjw.bsZ();
+                        TextView[] bsW = GroupLevelActivity.this.gjj.bsW();
                         for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                             int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                            if (i2 <= bsZ.length) {
-                                bsZ[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
+                            if (i2 <= bsW.length) {
+                                bsW[i2].setText(GroupLevelActivity.this.getPageContext().getContext().getString(d.j.grouplevel_level_condition, String.valueOf(maxMemberNum2)));
                             }
                         }
                     }
@@ -115,23 +115,23 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.gjw.lb(true);
-        this.gjv.sendMessage(this.gjv.getGroupId(), getUniqueId());
+        this.gjj.lb(true);
+        this.gji.sendMessage(this.gji.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.gjv.saveInstance(bundle);
+        this.gji.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gjw.bsW()) {
+        if (view == this.gjj.bsT()) {
             closeActivity();
-        } else if (view == this.gjw.bsX()) {
+        } else if (view == this.gjj.bsU()) {
             TiebaStatic.log("im_group_level_upgrade_mem");
-            this.gjx.aaZ();
+            this.gjk.aaW();
         }
     }
 
@@ -139,7 +139,7 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gjw.onChangeSkinType(i);
+        this.gjj.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,22 +149,22 @@ public class GroupLevelActivity extends BaseActivity<GroupLevelActivity> {
     }
 
     public void initData(Bundle bundle) {
-        this.gjv = new GroupLevelModel(this);
+        this.gji = new GroupLevelModel(this);
         if (bundle == null) {
-            this.gjv.initWithIntent(getIntent());
+            this.gji.initWithIntent(getIntent());
         } else {
-            this.gjv.initWithBundle(bundle);
+            this.gji.initWithBundle(bundle);
         }
-        registerListener(103006, this.gaF);
-        registerListener(103105, this.gaF);
+        registerListener(103006, this.gat);
+        registerListener(103105, this.gat);
     }
 
     private void W(Bundle bundle) {
-        this.gjw = new k(this, this.gjv.isMem());
-        this.gjx = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.gjx.gD(d.j.upgrade_mem_group_if_up);
-        this.gjx.a(d.j.confirm, this.gjy);
-        this.gjx.b(d.j.cancel, this.gjz);
-        this.gjx.b(getPageContext());
+        this.gjj = new k(this, this.gji.isMem());
+        this.gjk = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.gjk.gC(d.j.upgrade_mem_group_if_up);
+        this.gjk.a(d.j.confirm, this.gjl);
+        this.gjk.b(d.j.cancel, this.gjm);
+        this.gjk.b(getPageContext());
     }
 }

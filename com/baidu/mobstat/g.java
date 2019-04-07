@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import javax.crypto.Cipher;
-import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -253,7 +252,7 @@ public final class g {
                                 byte[] a2 = com.baidu.mobstat.b.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 a aVar = new a();
-                                aVar.b = jSONObject.getInt(LogFactory.PRIORITY_KEY);
+                                aVar.b = jSONObject.getInt("priority");
                                 aVar.a = resolveInfo.activityInfo.applicationInfo;
                                 if (this.b.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     aVar.d = true;

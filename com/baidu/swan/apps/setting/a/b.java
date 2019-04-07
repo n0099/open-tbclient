@@ -35,11 +35,11 @@ public class b extends y {
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
-        } else if (!bVar.Jc().bk(context)) {
+        } else if (!bVar.Ja().bk(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not login");
             return true;
         } else {
-            com.baidu.swan.apps.ae.e.Jo().aNZ.get().uP().uT().c((Activity) context, appKey).c(new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.ae.e.Jm().aOc.get().uO().uS().c((Activity) context, appKey).c(new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: a */
@@ -52,7 +52,7 @@ public class b extends y {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).Kc();
+            }).Ka();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

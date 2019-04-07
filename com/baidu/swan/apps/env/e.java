@@ -11,44 +11,44 @@ import com.baidu.swan.apps.env.c;
 /* loaded from: classes2.dex */
 public final class e implements c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c auZ;
-    private volatile boolean ava;
+    private c avc;
+    private volatile boolean avd;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        static final e ave = new e();
+        static final e avh = new e();
     }
 
     private e() {
-        this.ava = false;
-        this.auZ = new c(this);
-        com.baidu.swan.apps.extcore.cores.a.Bo().Bp();
+        this.avd = false;
+        this.avc = new c(this);
+        com.baidu.swan.apps.extcore.cores.a.Bm().Bn();
     }
 
-    public static e Bf() {
-        return a.ave;
+    public static e Bd() {
+        return a.avh;
     }
 
     @Override // com.baidu.swan.apps.env.b
     @NonNull
-    public Context AZ() {
+    public Context AX() {
         return AppRuntime.getAppContext();
     }
 
     public void l(Bundle bundle) {
-        if (!this.ava) {
+        if (!this.avd) {
             synchronized (this) {
-                if (!this.ava) {
+                if (!this.avd) {
                     m(bundle);
-                    this.ava = true;
+                    this.avd = true;
                 }
             }
         }
     }
 
-    public c Bg() {
-        return this.auZ;
+    public c Be() {
+        return this.avc;
     }
 
     private void m(Bundle bundle) {
@@ -59,38 +59,38 @@ public final class e implements c.a {
         if (DEBUG) {
             Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
         }
-        com.baidu.swan.apps.b.b.e CU = com.baidu.swan.apps.u.a.CU();
-        if (CU != null) {
-            final int vs = CU.vs();
+        com.baidu.swan.apps.b.b.e CS = com.baidu.swan.apps.u.a.CS();
+        if (CS != null) {
+            final int vr = CS.vr();
             if (DEBUG) {
-                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess switch: " + vs);
+                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess switch: " + vr);
             }
-            if (!CU.vt()) {
+            if (!CS.vs()) {
                 String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
                 if (TextUtils.isEmpty(string)) {
                     string = "0";
                 }
                 final Bundle bundle2 = new Bundle();
                 bundle2.putString("bundle_key_preload_preload_scene", string);
-                if (CU.vu()) {
+                if (CS.vt()) {
                     if (DEBUG) {
-                        Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - start. switch: " + vs);
+                        Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - start. switch: " + vr);
                     }
                     aa.b(new Runnable() { // from class: com.baidu.swan.apps.env.e.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (e.DEBUG) {
-                                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - run. switch: " + vs);
+                                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess delay - run. switch: " + vr);
                             }
-                            com.baidu.swan.apps.process.messaging.service.c.c(e.this.AZ(), bundle2);
+                            com.baidu.swan.apps.process.messaging.service.c.c(e.this.AX(), bundle2);
                         }
-                    }, com.baidu.swan.apps.u.a.CU().vv());
+                    }, com.baidu.swan.apps.u.a.CS().vu());
                     return;
                 }
                 if (DEBUG) {
-                    Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess start. switch: " + vs);
+                    Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess start. switch: " + vr);
                 }
-                com.baidu.swan.apps.process.messaging.service.c.c(AZ(), bundle2);
+                com.baidu.swan.apps.process.messaging.service.c.c(AX(), bundle2);
             }
         }
     }

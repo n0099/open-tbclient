@@ -11,7 +11,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
     }
 
     @Override // com.baidu.tbadk.mvc.f.b
-    public int jT(int i) {
+    public int jS(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;
@@ -46,7 +46,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
                 }
             }
             if (tinfoVar != null) {
-                ad((a) tinfoVar);
+                ab(tinfoVar);
             }
         }
     }

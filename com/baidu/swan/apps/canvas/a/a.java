@@ -6,7 +6,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 abstract class a extends y {
@@ -16,24 +15,24 @@ abstract class a extends y {
     }
 
     public com.baidu.swan.apps.canvas.c.a c(UnitedSchemeEntity unitedSchemeEntity) {
-        return new com.baidu.swan.apps.canvas.c.a(unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS));
+        return new com.baidu.swan.apps.canvas.c.a(unitedSchemeEntity.getParams().get("params"));
     }
 
     public AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        com.baidu.swan.apps.b.c.e ee = com.baidu.swan.apps.w.e.Ec().ee(str);
-        if (ee == null) {
-            unitedSchemeEntity.result = bQ(1001);
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(str);
+        if (eg == null) {
+            unitedSchemeEntity.result = bP(1001);
             return null;
         }
-        com.baidu.swan.apps.b.c.d wc = ee.wc();
-        if (wc == null) {
-            unitedSchemeEntity.result = bQ(1001);
+        com.baidu.swan.apps.b.c.d wb = eg.wb();
+        if (wb == null) {
+            unitedSchemeEntity.result = bP(1001);
             return null;
         }
-        return wc.getCurrentWebView();
+        return wb.getCurrentWebView();
     }
 
-    public JSONObject bQ(int i) {
+    public JSONObject bP(int i) {
         return UnitedSchemeUtility.wrapCallbackParams(i);
     }
 

@@ -56,7 +56,7 @@ public class a extends Drawable implements Animatable {
         this.mParent = view;
         this.mResources = context.getResources();
         this.Sn.setColors(COLORS);
-        bh(1);
+        bg(1);
         setupAnimators();
     }
 
@@ -72,7 +72,7 @@ public class a extends Drawable implements Animatable {
         c0027a.w((int) this.So, (int) this.Sp);
     }
 
-    public void bh(int i) {
+    public void bg(int i) {
         if (i == 0) {
             a(56.0d, 56.0d, 12.5d, 3.0d, 12.0f, 6.0f);
         } else {

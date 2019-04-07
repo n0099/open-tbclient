@@ -6,8 +6,8 @@ import com.baidu.adp.widget.ListView.m;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public class e implements m {
-    public static final BdUniqueId eVg = BdUniqueId.gen();
-    private String eVh;
+    public static final BdUniqueId eUS = BdUniqueId.gen();
+    private String eUT;
     private int fansNum;
     private String intro;
     private String name;
@@ -16,7 +16,7 @@ public class e implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eVg;
+        return eUS;
     }
 
     public String getUserId() {
@@ -27,12 +27,12 @@ public class e implements m {
         this.userId = str;
     }
 
-    public String bbb() {
-        return this.eVh;
+    public String baZ() {
+        return this.eUT;
     }
 
-    public void uN(String str) {
-        this.eVh = str;
+    public void uM(String str) {
+        this.eUT = str;
     }
 
     public String getName() {
@@ -70,7 +70,7 @@ public class e implements m {
     public void a(User user, int i) {
         if (user != null && user.god_data != null) {
             setUserId(user.id + "");
-            uN(user.portrait);
+            uM(user.portrait);
             setName(user.name);
             setNameShow(user.name_show);
             setIntro(user.god_data.intro);

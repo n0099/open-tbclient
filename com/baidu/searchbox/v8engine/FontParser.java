@@ -3,6 +3,7 @@ package com.baidu.searchbox.v8engine;
 import android.util.Xml;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.smallgame.sdk.Log;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -146,7 +147,7 @@ public class FontParser {
                 String name = xmlPullParser.getName();
                 if (name.equals("family")) {
                     config.families.add(readFamily(xmlPullParser));
-                } else if (name.equals("alias")) {
+                } else if (name.equals(CommandMessage.TYPE_ALIAS)) {
                     config.aliases.add(readAlias(xmlPullParser));
                 } else {
                     skip(xmlPullParser);

@@ -11,32 +11,32 @@ import java.util.HashMap;
 public class f {
     public static String SCHEME = "com.baidu.tieba";
     public static String HOST = "unidispatch";
-    public static String brC = "/homepage";
-    public static String brD = "/enterforum";
-    public static String brE = "/frs";
-    public static String brF = "/pb";
-    public static String brG = "/tbwebview";
-    public static String brH = "extdata";
-    public static String brI = "kw";
-    public static String brJ = "tid";
+    public static String brF = "/homepage";
+    public static String brG = "/enterforum";
+    public static String brH = "/frs";
+    public static String brI = "/pb";
+    public static String brJ = "/tbwebview";
+    public static String brK = "extdata";
+    public static String brL = "kw";
+    public static String brM = "tid";
     public static String PARAM_URL = "url";
-    public static String brK = "schemefrom";
-    public static String brL = "maintablocate";
-    public static String brM = "from_h5";
-    public static String brN = "from_tb_token";
+    public static String brN = "schemefrom";
+    public static String brO = "maintablocate";
+    public static String brP = "from_h5";
+    public static String brQ = "from_tb_token";
 
     /* loaded from: classes.dex */
     public interface a {
         void o(HashMap<String, Object> hashMap);
     }
 
-    public static final f Uk() {
-        return b.brO;
+    public static final f Ui() {
+        return b.brR;
     }
 
     /* loaded from: classes.dex */
     private static class b {
-        private static final f brO = new f();
+        private static final f brR = new f();
     }
 
     private f() {
@@ -49,25 +49,25 @@ public class f {
     public void a(Uri uri, a aVar) {
         if (uri != null && m(uri)) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String queryParameter = uri.getQueryParameter(brH);
-            String queryParameter2 = uri.getQueryParameter(brK);
+            String queryParameter = uri.getQueryParameter(brK);
+            String queryParameter2 = uri.getQueryParameter(brN);
             bp(queryParameter, queryParameter2);
             b(uri, queryParameter2);
-            if (brC.equals(uri.getPath())) {
-                hashMap.put(brL, 2);
-            } else if (brD.equals(uri.getPath())) {
-                hashMap.put(brL, 1);
+            if (brF.equals(uri.getPath())) {
+                hashMap.put(brO, 2);
+            } else if (brG.equals(uri.getPath())) {
+                hashMap.put(brO, 1);
             }
             aVar.o(hashMap);
         }
     }
 
     public void b(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brE.equals(uri.getPath())) {
+        if (uri != null && m(uri) && brH.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(brI, uri.getQueryParameter(brI));
-            String queryParameter = uri.getQueryParameter(brH);
-            String queryParameter2 = uri.getQueryParameter(brK);
+            hashMap.put(brL, uri.getQueryParameter(brL));
+            String queryParameter = uri.getQueryParameter(brK);
+            String queryParameter2 = uri.getQueryParameter(brN);
             bp(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
@@ -75,11 +75,11 @@ public class f {
     }
 
     public void c(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brF.equals(uri.getPath())) {
+        if (uri != null && m(uri) && brI.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(brJ, uri.getQueryParameter(brJ));
-            String queryParameter = uri.getQueryParameter(brH);
-            String queryParameter2 = uri.getQueryParameter(brK);
+            hashMap.put(brM, uri.getQueryParameter(brM));
+            String queryParameter = uri.getQueryParameter(brK);
+            String queryParameter2 = uri.getQueryParameter(brN);
             bp(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
@@ -87,11 +87,11 @@ public class f {
     }
 
     public void d(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brG.equals(uri.getPath())) {
+        if (uri != null && m(uri) && brJ.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PARAM_URL, uri.getQueryParameter(PARAM_URL));
-            String queryParameter = uri.getQueryParameter(brH);
-            String queryParameter2 = uri.getQueryParameter(brK);
+            String queryParameter = uri.getQueryParameter(brK);
+            String queryParameter2 = uri.getQueryParameter(brN);
             bp(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
@@ -101,23 +101,23 @@ public class f {
     private void bp(String str, String str2) {
         if (!ap.isEmpty(str)) {
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(str);
-            if (bVar.getActivityId() != 0 && bVar.TM() != 0) {
-                TbSingleton.getInstance().setInvokeSource(bVar.TN());
+            if (bVar.getActivityId() != 0 && bVar.TK() != 0) {
+                TbSingleton.getInstance().setInvokeSource(bVar.TL());
                 am amVar = new am("c13321");
-                amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.TN()).T("obj_type", bVar.getActivityId()).T("obj_param1", bVar.TM());
-                if (ap.equals(str2, brN)) {
+                amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.TL()).T("obj_type", bVar.getActivityId()).T("obj_param1", bVar.TK());
+                if (ap.equals(str2, brQ)) {
                     amVar.T("obj_param2", 2);
                 } else {
                     amVar.T("obj_param2", 1);
                 }
                 TiebaStatic.log(amVar);
-                c.TZ().b(bVar);
+                c.TX().b(bVar);
             }
         }
     }
 
     private void b(Uri uri, String str) {
-        if (uri != null && uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null && uri.getQueryParameter("obj_type") != null && !ap.equals(str, brN)) {
+        if (uri != null && uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null && uri.getQueryParameter("obj_type") != null && !ap.equals(str, brQ)) {
             TiebaStatic.log(new am("c13391").bJ("obj_type", uri.getQueryParameter("obj_type")).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
         }
     }

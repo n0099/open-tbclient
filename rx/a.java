@@ -3,25 +3,25 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class a {
-    public static final d jUP = c.jUV;
-    public static final d jUQ = jUP;
-    public static final d jUR = b.jUU;
-    public static final d jUS = C0477a.jUT;
+    public static final d jUh = c.jUn;
+    public static final d jUi = jUh;
+    public static final d jUj = b.jUm;
+    public static final d jUk = C0477a.jUl;
 
     /* loaded from: classes2.dex */
     public interface d {
-        boolean cDB() throws MissingBackpressureException;
+        boolean cDq() throws MissingBackpressureException;
     }
 
     /* loaded from: classes2.dex */
     static final class b implements d {
-        static final b jUU = new b();
+        static final b jUm = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean cDB() {
+        public boolean cDq() {
             return true;
         }
     }
@@ -29,26 +29,26 @@ public final class a {
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     static final class C0477a implements d {
-        static final C0477a jUT = new C0477a();
+        static final C0477a jUl = new C0477a();
 
         private C0477a() {
         }
 
         @Override // rx.a.d
-        public boolean cDB() {
+        public boolean cDq() {
             return false;
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c implements d {
-        static final c jUV = new c();
+        static final c jUn = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean cDB() throws MissingBackpressureException {
+        public boolean cDq() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

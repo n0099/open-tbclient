@@ -12,42 +12,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bsB;
+    private static b bsE;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> UF = UF();
+        HashMap<String, a> UC = UC();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(UF);
+        this.mSwitchs.putAll(UC);
     }
 
-    public static b UD() {
-        if (bsB == null) {
+    public static b UA() {
+        if (bsE == null) {
             synchronized (b.class) {
-                if (bsB == null) {
-                    bsB = new b();
+                if (bsE == null) {
+                    bsE = new b();
                 }
             }
         }
-        return bsB;
+        return bsE;
     }
 
-    private static String UE() {
+    private static String UB() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(UE(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(UB(), 0);
     }
 
-    public synchronized a kk(String str) {
+    public synchronized a kl(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String bq(String str, String str2) {
-        a kk = kk(str);
-        if (kk != null && !TextUtils.isEmpty(kk.bsA)) {
-            return kk.bsA;
+        a kl = kl(str);
+        if (kl != null && !TextUtils.isEmpty(kl.bsD)) {
+            return kl.bsD;
         }
         return str2;
     }
@@ -93,7 +93,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> UF() {
+    private HashMap<String, a> UC() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean kl(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(UD().bq(str, ""));
+    public static boolean km(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(UA().bq(str, ""));
     }
 }

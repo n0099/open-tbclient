@@ -10,7 +10,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.ab.a;
 import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,25 +27,25 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dp = com.baidu.swan.apps.camera.a.wn().dp(bVar2.aBD);
-        if (dp == null) {
+        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(bVar2.aBG);
+        if (dr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
             return false;
         }
-        final String gX = com.baidu.swan.apps.storage.b.gX(bVar.id);
-        if (TextUtils.isEmpty(gX)) {
+        final String gY = com.baidu.swan.apps.storage.b.gY(bVar.id);
+        if (TextUtils.isEmpty(gY)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera start record cache path is empty");
             return false;
         }
-        bVar.Jb().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.d.1
+        bVar.IZ().a((Activity) context, "mapp_record", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.c.a
             /* renamed from: b */
             public void D(Boolean bool) {
                 if (bool.booleanValue()) {
-                    d.this.a(context, unitedSchemeEntity, callbackHandler, bVar, bVar2, dp, gX);
+                    d.this.a(context, unitedSchemeEntity, callbackHandler, bVar, bVar2, dr, gY);
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200201);
@@ -59,12 +58,12 @@ public class d extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, final com.baidu.swan.apps.camera.d.b bVar2, final CameraPreview cameraPreview, final String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.wn().bt(context) && com.baidu.swan.apps.camera.a.wn().bu(context)) {
+        if (com.baidu.swan.apps.camera.a.wm().bt(context) && com.baidu.swan.apps.camera.a.wm().bu(context)) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, bVar2, str);
             return;
         }
-        com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.d.2
+        com.baidu.swan.apps.w.e.Ea().a(1, new String[]{"android.permission.CAMERA", "android.permission.RECORD_AUDIO"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.d.2
             @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -107,25 +106,25 @@ public class d extends a {
         boolean z2 = false;
         final HashMap<String, String> hashMap = new HashMap<>();
         try {
-            z = cameraPreview.dt(str);
+            z = cameraPreview.dv(str);
         } catch (Exception e) {
             e = e;
         }
         try {
             hashMap.put("tempVideoPath", com.baidu.swan.apps.storage.b.aD(cameraPreview.getVideoPath(), bVar.id));
             hashMap.put("tempThumbPath", com.baidu.swan.apps.storage.b.aD(cameraPreview.getThumbPath(), bVar.id));
-            com.baidu.swan.apps.camera.a.wn().a(31000, new com.baidu.swan.apps.camera.b.b() { // from class: com.baidu.swan.apps.camera.a.d.3
+            com.baidu.swan.apps.camera.a.wm().a(31000, new com.baidu.swan.apps.camera.b.b() { // from class: com.baidu.swan.apps.camera.a.d.3
                 @Override // com.baidu.swan.apps.camera.b.b
-                public void wq() {
-                    cameraPreview.ws();
-                    cameraPreview.wv();
+                public void wp() {
+                    cameraPreview.wr();
+                    cameraPreview.wu();
                     d.this.a(unitedSchemeEntity, callbackHandler, hashMap);
                     com.baidu.swan.apps.console.c.e("SwanAppCamera", "start record timeout");
                 }
 
                 @Override // com.baidu.swan.apps.camera.b.b
                 public void cancel() {
-                    cameraPreview.wv();
+                    cameraPreview.wu();
                     d.this.a(unitedSchemeEntity, callbackHandler, hashMap);
                     com.baidu.swan.apps.console.c.e("SwanAppCamera", "start record cancel");
                 }
@@ -133,7 +132,7 @@ public class d extends a {
         } catch (Exception e2) {
             e = e2;
             z2 = z;
-            com.baidu.swan.apps.camera.a.wn().c(bVar2.aBD, bVar2.akH, false);
+            com.baidu.swan.apps.camera.a.wm().c(bVar2.aBG, bVar2.akL, false);
             if (DEBUG) {
                 e.printStackTrace();
             }
@@ -159,7 +158,7 @@ public class d extends a {
         HashMap<String, String> params;
         String optString;
         if (unitedSchemeEntity != null && callbackHandler != null && hashMap != null && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
-            String str = params.get(LegoListActivityConfig.PARAMS);
+            String str = params.get("params");
             if (str != null) {
                 try {
                     optString = new JSONObject(str).optString("timeoutCallback");

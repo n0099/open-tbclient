@@ -9,16 +9,16 @@ public class p {
             return 1;
         }
         float c = c(imageRequest, dVar);
-        if (dVar.cyQ() == com.facebook.c.b.jEV) {
+        if (dVar.cyJ() == com.facebook.c.b.jEp) {
             bb = bc(c);
         } else {
             bb = bb(c);
         }
         int max = Math.max(dVar.getHeight(), dVar.getWidth());
-        com.facebook.imagepipeline.common.c cAx = imageRequest.cAx();
-        float f = cAx != null ? cAx.jGQ : 2048.0f;
+        com.facebook.imagepipeline.common.c cAq = imageRequest.cAq();
+        float f = cAq != null ? cAq.jGk : 2048.0f;
         while (max / bb > f) {
-            if (dVar.cyQ() == com.facebook.c.b.jEV) {
+            if (dVar.cyJ() == com.facebook.c.b.jEp) {
                 bb *= 2;
             } else {
                 bb++;
@@ -29,18 +29,18 @@ public class p {
 
     static float c(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.f.d.d(dVar));
-        com.facebook.imagepipeline.common.c cAx = imageRequest.cAx();
-        if (cAx == null || cAx.height <= 0 || cAx.width <= 0 || dVar.getWidth() == 0 || dVar.getHeight() == 0) {
+        com.facebook.imagepipeline.common.c cAq = imageRequest.cAq();
+        if (cAq == null || cAq.height <= 0 || cAq.width <= 0 || dVar.getWidth() == 0 || dVar.getHeight() == 0) {
             return 1.0f;
         }
         int d = d(imageRequest, dVar);
         boolean z = d == 90 || d == 270;
         int height = z ? dVar.getHeight() : dVar.getWidth();
         int width = z ? dVar.getWidth() : dVar.getHeight();
-        float f = cAx.width / height;
-        float f2 = cAx.height / width;
+        float f = cAq.width / height;
+        float f2 = cAq.height / width;
         float max = Math.max(f, f2);
-        com.facebook.common.c.a.v("DownsampleUtil", "Downsample - Specified size: %dx%d, image size: %dx%d ratio: %.1f x %.1f, ratio: %.3f for %s", Integer.valueOf(cAx.width), Integer.valueOf(cAx.height), Integer.valueOf(height), Integer.valueOf(width), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(max), imageRequest.cAu().toString());
+        com.facebook.common.c.a.v("DownsampleUtil", "Downsample - Specified size: %dx%d, image size: %dx%d ratio: %.1f x %.1f, ratio: %.3f for %s", Integer.valueOf(cAq.width), Integer.valueOf(cAq.height), Integer.valueOf(height), Integer.valueOf(width), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(max), imageRequest.cAn().toString());
         return max;
     }
 
@@ -68,10 +68,10 @@ public class p {
 
     private static int d(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         boolean z = false;
-        if (imageRequest.cAy().cxb()) {
-            int cyN = dVar.cyN();
-            com.facebook.common.internal.g.checkArgument((cyN == 0 || cyN == 90 || cyN == 180 || cyN == 270) ? true : true);
-            return cyN;
+        if (imageRequest.cAr().cwU()) {
+            int cyG = dVar.cyG();
+            com.facebook.common.internal.g.checkArgument((cyG == 0 || cyG == 90 || cyG == 180 || cyG == 270) ? true : true);
+            return cyG;
         }
         return 0;
     }

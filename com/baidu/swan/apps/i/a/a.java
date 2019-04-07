@@ -114,20 +114,20 @@ public class a extends y {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
+        arrayList.add(aVar.xa());
         arrayList.add(aVar.xb());
         arrayList.add(aVar.xc());
         arrayList.add(aVar.xd());
         arrayList.add(aVar.xe());
         arrayList.add(aVar.xf());
+        arrayList.add(aVar.wY());
         arrayList.add(aVar.xg());
+        arrayList.add(aVar.xi());
         arrayList.add(aVar.wZ());
         arrayList.add(aVar.xh());
         arrayList.add(aVar.xj());
-        arrayList.add(aVar.xa());
-        arrayList.add(aVar.xi());
         arrayList.add(aVar.xk());
         arrayList.add(aVar.xl());
-        arrayList.add(aVar.xm());
         return arrayList;
     }
 }

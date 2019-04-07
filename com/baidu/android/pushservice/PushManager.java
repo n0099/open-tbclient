@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -40,7 +41,7 @@ public class PushManager {
             str = str.substring(0, str.length() - 1);
         }
         a.putExtra("method", "method_del_tags");
-        a.putExtra("tags", str + "]");
+        a.putExtra(CommandMessage.TYPE_TAGS, str + "]");
         com.baidu.android.pushservice.g.a.a(TAG, "a delTags intent send", context.getApplicationContext());
         f.b(context, a);
     }
@@ -312,7 +313,7 @@ public class PushManager {
             str = str.substring(0, str.length() - 1);
         }
         a.putExtra("method", "method_set_tags");
-        a.putExtra("tags", str + "]");
+        a.putExtra(CommandMessage.TYPE_TAGS, str + "]");
         com.baidu.android.pushservice.g.a.a(TAG, "a setTags intent send ", context.getApplicationContext());
         f.b(context, a);
     }

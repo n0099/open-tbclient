@@ -2,7 +2,7 @@ package com.baidu.swan.apps.performance.c;
 /* loaded from: classes2.dex */
 public class b implements e {
     private long mStartTime = -1;
-    private long aEp = -1;
+    private long aEs = -1;
 
     @Override // com.baidu.swan.apps.performance.c.e
     public void B(long j) {
@@ -11,15 +11,15 @@ public class b implements e {
 
     @Override // com.baidu.swan.apps.performance.c.e
     public void C(long j) {
-        this.aEp = j;
+        this.aEs = j;
     }
 
     @Override // com.baidu.swan.apps.performance.c.e
-    public long FY() {
-        if (this.mStartTime < 0 || this.aEp < 0) {
+    public long FW() {
+        if (this.mStartTime < 0 || this.aEs < 0) {
             return -1L;
         }
-        return this.aEp - this.mStartTime;
+        return this.aEs - this.mStartTime;
     }
 
     @Override // com.baidu.swan.apps.performance.c.e

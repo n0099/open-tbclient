@@ -26,12 +26,12 @@ public class b extends f {
         if (list != null && list.size() > 0) {
             for (String str2 : list) {
             }
-            com.baidu.tieba.aiapps.apps.a.a.Dp().storeCookie(str, list);
+            com.baidu.tieba.aiapps.apps.a.a.Dn().storeCookie(str, list);
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return com.baidu.tieba.aiapps.apps.a.a.Dp().getCookie(str);
+        return com.baidu.tieba.aiapps.apps.a.a.Dn().getCookie(str);
     }
 }

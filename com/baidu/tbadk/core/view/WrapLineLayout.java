@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> bUj;
-    private List<Integer> bUk;
+    private List<List<View>> bUl;
+    private List<Integer> bUm;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.bUj = new ArrayList();
-        this.bUk = new ArrayList();
+        this.bUl = new ArrayList();
+        this.bUm = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUj = new ArrayList();
-        this.bUk = new ArrayList();
+        this.bUl = new ArrayList();
+        this.bUm = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.bUj.clear();
-        this.bUk.clear();
+        this.bUl.clear();
+        this.bUm.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.bUk.add(Integer.valueOf(i5));
-                this.bUj.add(arrayList);
+                this.bUm.add(Integer.valueOf(i5));
+                this.bUl.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.bUk.add(Integer.valueOf(i5));
-        this.bUj.add(arrayList);
+        this.bUm.add(Integer.valueOf(i5));
+        this.bUl.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.bUj.size();
+        int size = this.bUl.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.bUj.get(i9);
-            int intValue = this.bUk.get(i9).intValue();
+            List<View> list = this.bUl.get(i9);
+            int intValue = this.bUm.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

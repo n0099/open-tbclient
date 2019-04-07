@@ -10,5 +10,5 @@ public interface o {
 
     boolean a(Context context, String str, com.baidu.swan.apps.aa.a.c cVar);
 
-    boolean vT();
+    boolean vS();
 }

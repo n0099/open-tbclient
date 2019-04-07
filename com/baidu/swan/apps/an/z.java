@@ -8,38 +8,38 @@ import org.json.JSONObject;
 public class z {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int Mi() {
-        JSONObject hK = hK(getAppId());
-        if (hK != null) {
-            return hK.optInt("launch_count", 0);
+    public static int Mg() {
+        JSONObject hL = hL(getAppId());
+        if (hL != null) {
+            return hL.optInt("launch_count", 0);
         }
         return 0;
     }
 
-    public static long Mj() {
+    public static long Mh() {
         long currentTimeMillis = System.currentTimeMillis();
-        JSONObject hK = hK(getAppId());
-        long optLong = hK != null ? hK.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (hK != null) {
-            return hK.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        JSONObject hL = hL(getAppId());
+        long optLong = hL != null ? hL.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (hL != null) {
+            return hL.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
 
+    public static void Mi() {
+        b(getAppId(), "visit_duration", Long.valueOf(Mh()));
+    }
+
+    public static void Mj() {
+        b(getAppId(), "launch_count", Integer.valueOf(Mg() + 1));
+    }
+
     public static void Mk() {
-        b(getAppId(), "visit_duration", Long.valueOf(Mj()));
-    }
-
-    public static void Ml() {
-        b(getAppId(), "launch_count", Integer.valueOf(Mi() + 1));
-    }
-
-    public static void Mm() {
         b(getAppId(), "foreground_aiapp_last_time_local", Long.valueOf(System.currentTimeMillis()));
     }
 
     public static String getCurrentDate() {
-        return e.a(e.LQ(), "yyyy-MM-dd");
+        return e.a(e.LO(), "yyyy-MM-dd");
     }
 
     public static boolean al(JSONObject jSONObject) {
@@ -48,10 +48,10 @@ public class z {
         return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
     }
 
-    public static JSONObject hK(String str) {
+    public static JSONObject hL(String str) {
         JSONObject jSONObject;
         JSONException e;
-        String string = com.baidu.swan.apps.storage.b.f.KL().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.b.f.KJ().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", string);
         }
@@ -64,7 +64,7 @@ public class z {
             if (jSONObject == null) {
                 try {
                     jSONObject2.put(str, new JSONObject());
-                    com.baidu.swan.apps.storage.b.f.KL().putString("dailyInfo", jSONObject2.toString());
+                    com.baidu.swan.apps.storage.b.f.KJ().putString("dailyInfo", jSONObject2.toString());
                 } catch (JSONException e2) {
                     e = e2;
                     if (DEBUG) {
@@ -82,7 +82,7 @@ public class z {
 
     public static void b(String str, String str2, Object obj) {
         JSONObject jSONObject;
-        String string = com.baidu.swan.apps.storage.b.f.KL().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.b.f.KJ().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", string);
         }
@@ -98,7 +98,7 @@ public class z {
             } else {
                 jSONObject.put(str, new JSONObject());
             }
-            com.baidu.swan.apps.storage.b.f.KL().putString("dailyInfo", jSONObject.toString());
+            com.baidu.swan.apps.storage.b.f.KJ().putString("dailyInfo", jSONObject.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
@@ -107,6 +107,6 @@ public class z {
     }
 
     private static String getAppId() {
-        return com.baidu.swan.apps.ae.b.IX() != null ? com.baidu.swan.apps.ae.b.IX().id : "";
+        return com.baidu.swan.apps.ae.b.IV() != null ? com.baidu.swan.apps.ae.b.IV().id : "";
     }
 }

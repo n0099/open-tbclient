@@ -3,7 +3,6 @@ package com.baidu.tieba.pb;
 import android.os.Build;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -42,7 +41,7 @@ public class a {
                 bJ = bJ.bJ("obj_param", str7);
             }
             if (str8 != null) {
-                bJ = bJ.bJ(LegoListActivityConfig.PARAMS, str8);
+                bJ = bJ.bJ("params", str8);
             }
             if (str9 != null) {
                 bJ = bJ.bJ(ImageViewerConfig.FORUM_ID, str9);

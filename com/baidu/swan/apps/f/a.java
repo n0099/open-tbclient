@@ -5,7 +5,8 @@ import com.baidu.swan.apps.v.b.b;
 /* loaded from: classes2.dex */
 public class a {
     @Deprecated
-    public static boolean dm(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public static boolean m14do(String str) {
         return (TextUtils.isEmpty(str) || str.contains("_")) ? false : true;
     }
 
@@ -21,7 +22,7 @@ public class a {
         return bVar != null && bVar.mType == 2;
     }
 
-    public static String dn(String str) {
+    public static String dp(String str) {
         if (!TextUtils.isEmpty(str)) {
             int indexOf = str.indexOf("_dev");
             if (indexOf > 0) {
@@ -36,8 +37,7 @@ public class a {
         return str;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static String m14do(String str) {
+    public static String dq(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

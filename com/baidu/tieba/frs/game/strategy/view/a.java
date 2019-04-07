@@ -6,95 +6,95 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 /* loaded from: classes4.dex */
 public abstract class a extends BaseAdapter {
-    private boolean fkK = true;
-    private f fkP;
+    private f fkB;
+    private boolean fkw = true;
 
-    public abstract int bgf();
+    public abstract int bgd();
 
-    public abstract int bgg();
+    public abstract int bge();
 
     public abstract View c(int i, View view, ViewGroup viewGroup);
 
-    public abstract Object qK(int i);
+    public abstract Object qG(int i);
 
-    public abstract long qL(int i);
+    public abstract long qH(int i);
 
-    public abstract void qM(int i);
+    public abstract void qI(int i);
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (bgk()) {
-            if (this.fkK) {
-                return this.fkP.getArrowIndex() + 1;
+        if (bgi()) {
+            if (this.fkw) {
+                return this.fkB.getArrowIndex() + 1;
             }
-            if (this.fkP != null && this.fkP.bgi()) {
-                return bgg() + 1;
+            if (this.fkB != null && this.fkB.bgg()) {
+                return bge() + 1;
             }
-            return bgg();
+            return bge();
         }
-        return bgg();
+        return bge();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (bgk()) {
-            int qN = qN(i);
-            if (qN >= 0) {
-                return qK(qN);
+        if (bgi()) {
+            int qJ = qJ(i);
+            if (qJ >= 0) {
+                return qG(qJ);
             }
-            return qK(i);
+            return qG(i);
         }
-        return qK(i);
+        return qG(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (bgk()) {
-            int qN = qN(i);
-            if (qN >= 0) {
-                return qL(qN);
+        if (bgi()) {
+            int qJ = qJ(i);
+            if (qJ >= 0) {
+                return qH(qJ);
             }
-            return qL(i);
+            return qH(i);
         }
-        return qL(i);
+        return qH(i);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return getItemViewType(i) == 0 ? c(qN(i), view, viewGroup) : bK(view);
+        return getItemViewType(i) == 0 ? c(qJ(i), view, viewGroup) : bK(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (bgk() && (arrowIndex = this.fkP.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (bgi() && (arrowIndex = this.fkB.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return bgk() ? 2 : 1;
+        return bgi() ? 2 : 1;
     }
 
     public void a(f fVar) {
-        this.fkP = fVar;
+        this.fkB = fVar;
     }
 
     private View bK(View view) {
-        if (this.fkP != null) {
-            if (view == null || view != this.fkP.getArrowView()) {
-                view = this.fkP.getArrowView();
+        if (this.fkB != null) {
+            if (view == null || view != this.fkB.getArrowView()) {
+                view = this.fkB.getArrowView();
                 if (view.getLayoutParams() == null) {
-                    view.setLayoutParams(new AbsListView.LayoutParams(-1, bgf()));
+                    view.setLayoutParams(new AbsListView.LayoutParams(-1, bgd()));
                 }
             }
-            this.fkP.bJ(view);
+            this.fkB.bJ(view);
         }
         return view;
     }
 
-    public int qN(int i) {
+    public int qJ(int i) {
         int arrowIndex;
-        if (this.fkP != null && this.fkP.bgi() && i >= (arrowIndex = this.fkP.getArrowIndex())) {
+        if (this.fkB != null && this.fkB.bgg() && i >= (arrowIndex = this.fkB.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -103,11 +103,11 @@ public abstract class a extends BaseAdapter {
         return i;
     }
 
-    public boolean bgk() {
-        return this.fkP != null && this.fkP.bgi() && bgg() + (-1) > this.fkP.getArrowIndex();
+    public boolean bgi() {
+        return this.fkB != null && this.fkB.bgg() && bge() + (-1) > this.fkB.getArrowIndex();
     }
 
     public void jE(boolean z) {
-        this.fkK = z;
+        this.fkw = z;
     }
 }

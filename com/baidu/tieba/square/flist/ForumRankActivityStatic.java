@@ -23,7 +23,7 @@ public class ForumRankActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.2
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

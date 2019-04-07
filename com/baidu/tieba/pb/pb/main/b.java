@@ -8,22 +8,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double hmt = 0.5d;
+    private static double hmg = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
         ft(true);
         setSupportNoImage();
         setLineSpacing(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
-        kF(0);
-        kG(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
-        kH(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
+        kE(0);
+        kF(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
+        kG(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
         ar(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
         as(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
-        kI(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
-        this.cCn = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds749);
-        this.cCo = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10);
-        this.cCp = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds26);
+        kH(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
+        this.cCp = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds749);
+        this.cCq = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10);
+        this.cCr = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds26);
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -32,10 +32,10 @@ public class b extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anp().pi(com.baidu.adp.lib.f.c.jB().k(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
-                    if (pi != null) {
-                        i2 = pi.getWidth();
-                        i = pi.getHeight();
+                    com.baidu.adp.widget.ImageView.a pj = com.baidu.tbadk.imageManager.c.anm().pj(com.baidu.adp.lib.f.c.jB().k(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
+                    if (pj != null) {
+                        i2 = pj.getWidth();
+                        i = pj.getHeight();
                     } else {
                         i = 0;
                     }
@@ -64,18 +64,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.cCd || cBO <= 1.0f) {
+        if (!this.cCf || cBQ <= 1.0f) {
             i3 = i;
         } else {
-            if (i * cBO <= i3 * hmt) {
-                i3 = (int) (i * cBO);
+            if (i * cBQ <= i3 * hmg) {
+                i3 = (int) (i * cBQ);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.cCb = ImageView.ScaleType.MATRIX;
+                this.cCd = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.cCb = ImageView.ScaleType.CENTER_CROP;
+                this.cCd = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

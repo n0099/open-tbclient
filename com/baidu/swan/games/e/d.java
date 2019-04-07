@@ -6,25 +6,25 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d bbB;
+    private static volatile d bbE;
     private final Lock mLock = new ReentrantLock();
     private ArrayList<i> mListeners = new ArrayList<>();
 
     private d() {
     }
 
-    public static d Ob() {
-        if (bbB == null) {
+    public static d NZ() {
+        if (bbE == null) {
             synchronized (d.class) {
-                if (bbB == null) {
-                    bbB = new d();
+                if (bbE == null) {
+                    bbE = new d();
                 }
             }
         }
-        return bbB;
+        return bbE;
     }
 
-    private Object[] Oc() {
+    private Object[] Oa() {
         Object[] objArr = null;
         try {
             this.mLock.lock();
@@ -39,9 +39,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(a aVar) {
-        Object[] Oc = Oc();
-        if (Oc != null) {
-            for (Object obj : Oc) {
+        Object[] Oa = Oa();
+        if (Oa != null) {
+            for (Object obj : Oa) {
                 ((i) obj).h(aVar);
             }
         }
@@ -49,9 +49,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e(a aVar) {
-        Object[] Oc = Oc();
-        if (Oc != null) {
-            for (Object obj : Oc) {
+        Object[] Oa = Oa();
+        if (Oa != null) {
+            for (Object obj : Oa) {
                 ((i) obj).i(aVar);
             }
         }
@@ -59,9 +59,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(a aVar) {
-        Object[] Oc = Oc();
-        if (Oc != null) {
-            for (Object obj : Oc) {
+        Object[] Oa = Oa();
+        if (Oa != null) {
+            for (Object obj : Oa) {
                 ((i) obj).j(aVar);
             }
         }
@@ -69,9 +69,9 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(a aVar) {
-        Object[] Oc = Oc();
-        if (Oc != null) {
-            for (Object obj : Oc) {
+        Object[] Oa = Oa();
+        if (Oa != null) {
+            for (Object obj : Oa) {
                 ((i) obj).k(aVar);
             }
         }

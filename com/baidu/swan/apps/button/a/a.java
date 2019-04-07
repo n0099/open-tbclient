@@ -16,7 +16,6 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -46,20 +45,20 @@ public class a extends y {
             return false;
         }
         if (DEBUG) {
-            Log.i("SwanAppNativeButton", "handleSubAction params: " + unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+            Log.i("SwanAppNativeButton", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
         }
         com.baidu.swan.apps.button.b.a.a x = x(optParamsAsJo);
         if (x == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout eO = aa.eO(x.aBD);
-        if (eO == null) {
-            c.e("SwanAppNativeButton", "can not find webView by #" + x.aBD);
+        AbsoluteLayout eP = aa.eP(x.aBG);
+        if (eP == null) {
+            c.e("SwanAppNativeButton", "can not find webView by #" + x.aBG);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(str, context, x, eO, unitedSchemeEntity, callbackHandler);
+        return a(str, context, x, eP, unitedSchemeEntity, callbackHandler);
     }
 
     private boolean a(String str, Context context, @NonNull com.baidu.swan.apps.button.b.a.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -101,7 +100,7 @@ public class a extends y {
     }
 
     private boolean a(Context context, @NonNull com.baidu.swan.apps.button.b.a.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
         if (bVar == null || !bVar.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -118,7 +117,7 @@ public class a extends y {
     }
 
     private boolean b(Context context, @NonNull com.baidu.swan.apps.button.b.a.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
         if (bVar == null || !bVar.isValid()) {
             c.e("SwanAppNativeButton", "position not valid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -151,13 +150,13 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        boolean MK = ((SwanAppNativeButtonContainer) a).MK();
-        if (MK) {
+        boolean MI = ((SwanAppNativeButtonContainer) a).MI();
+        if (MI) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return MK;
+            return MI;
         }
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        return MK;
+        return MI;
     }
 
     private com.baidu.swan.apps.button.b.a.a x(@NonNull JSONObject jSONObject) {

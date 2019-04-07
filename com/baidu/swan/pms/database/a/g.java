@@ -32,9 +32,9 @@ public class g extends b<i> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: f */
-    public ContentValues W(i iVar) {
+    public ContentValues U(i iVar) {
         ContentValues e = super.e(iVar);
-        e.put("independent", Integer.valueOf(iVar.bma ? 1 : 0));
+        e.put("independent", Integer.valueOf(iVar.bmd ? 1 : 0));
         e.put("sub_pkg_name", iVar.Jz);
         e.put("app_id", iVar.appId);
         return e;
@@ -47,7 +47,7 @@ public class g extends b<i> {
             int columnIndex3 = cursor.getColumnIndex("app_id");
             i iVar = new i();
             if (a(cursor, iVar)) {
-                iVar.bma = cursor.getInt(columnIndex) == 1;
+                iVar.bmd = cursor.getInt(columnIndex) == 1;
                 iVar.Jz = cursor.getString(columnIndex2);
                 iVar.appId = cursor.getString(columnIndex3);
                 return iVar;

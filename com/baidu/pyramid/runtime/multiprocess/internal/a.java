@@ -30,7 +30,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Cursor a(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         if (i == 1) {
-            return new d(c.a.tU());
+            return new d(c.a.tT());
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
             Log.d("ServiceManagerChannel", "call " + str);
         }
         if ("_get_service_handler".equals(str)) {
-            return c.a.tU();
+            return c.a.tT();
         }
         return null;
     }

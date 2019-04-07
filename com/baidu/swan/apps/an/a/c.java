@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.an.a;
 /* loaded from: classes2.dex */
 public class c extends a {
-    public String aWA = "";
-    public String aWB = "";
+    public String aWD = "";
+    public String aWE = "";
 }

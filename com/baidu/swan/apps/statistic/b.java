@@ -2,9 +2,9 @@ package com.baidu.swan.apps.statistic;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int aSe = 0;
+    private static int aSh = 0;
 
-    public static String dA(int i) {
+    public static String dz(int i) {
         switch (i) {
             case -1:
                 return "";
@@ -17,11 +17,11 @@ public final class b {
         }
     }
 
-    public static int Kr() {
-        return aSe;
+    public static int Kp() {
+        return aSh;
     }
 
-    public static void dB(int i) {
-        aSe = i;
+    public static void dA(int i) {
+        aSh = i;
     }
 }

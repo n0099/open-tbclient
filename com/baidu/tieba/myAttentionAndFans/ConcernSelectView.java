@@ -19,17 +19,17 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class ConcernSelectView extends FrameLayout {
-    private View cKK;
-    public LinearLayout gZA;
-    private Animation gZB;
-    private Animation gZC;
-    private boolean gZD;
-    private a gZE;
-    private LinearLayout gZv;
-    private ImageView gZw;
-    private TextView gZx;
-    private TextView gZy;
-    private TextView gZz;
+    private View cKM;
+    private LinearLayout gZi;
+    private ImageView gZj;
+    private TextView gZk;
+    private TextView gZl;
+    private TextView gZm;
+    public LinearLayout gZn;
+    private Animation gZo;
+    private Animation gZp;
+    private boolean gZq;
+    private a gZr;
     private Context mContext;
     private int mSkinType;
 
@@ -37,7 +37,7 @@ public class ConcernSelectView extends FrameLayout {
     public interface a {
         void mv(boolean z);
 
-        void rl(int i);
+        void rh(int i);
     }
 
     public ConcernSelectView(Context context) {
@@ -63,83 +63,83 @@ public class ConcernSelectView extends FrameLayout {
 
     private void initUI() {
         LayoutInflater.from(this.mContext).inflate(d.h.concern_select_layout, this);
-        this.gZv = (LinearLayout) findViewById(d.g.expandable_area);
-        this.gZw = (ImageView) findViewById(d.g.expandable_btn);
-        this.gZA = (LinearLayout) findViewById(d.g.menu_list);
-        this.gZx = (TextView) findViewById(d.g.menu_title);
-        this.gZy = (TextView) findViewById(d.g.all_concerned_item);
-        this.gZz = (TextView) findViewById(d.g.each_concerned_item);
-        this.cKK = findViewById(d.g.item_divider_line);
-        this.gZv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
+        this.gZi = (LinearLayout) findViewById(d.g.expandable_area);
+        this.gZj = (ImageView) findViewById(d.g.expandable_btn);
+        this.gZn = (LinearLayout) findViewById(d.g.menu_list);
+        this.gZk = (TextView) findViewById(d.g.menu_title);
+        this.gZl = (TextView) findViewById(d.g.all_concerned_item);
+        this.gZm = (TextView) findViewById(d.g.each_concerned_item);
+        this.cKM = findViewById(d.g.item_divider_line);
+        this.gZi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new am("c12774").bJ("obj_locate", "1"));
-                ConcernSelectView.this.C(ConcernSelectView.this.gZA, ConcernSelectView.this.gZA.getVisibility() == 0 ? 1 : 0);
+                ConcernSelectView.this.C(ConcernSelectView.this.gZn, ConcernSelectView.this.gZn.getVisibility() == 0 ? 1 : 0);
             }
         });
-        this.gZy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
+        this.gZl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new am("c12774").bJ("obj_locate", "2"));
-                al.j(ConcernSelectView.this.gZy, d.C0277d.cp_cont_b);
-                al.j(ConcernSelectView.this.gZz, d.C0277d.cp_cont_j);
-                ConcernSelectView.this.gZx.setText(d.j.all_concerned);
-                if (ConcernSelectView.this.gZE != null) {
-                    ConcernSelectView.this.gZE.rl(0);
+                al.j(ConcernSelectView.this.gZl, d.C0277d.cp_cont_b);
+                al.j(ConcernSelectView.this.gZm, d.C0277d.cp_cont_j);
+                ConcernSelectView.this.gZk.setText(d.j.all_concerned);
+                if (ConcernSelectView.this.gZr != null) {
+                    ConcernSelectView.this.gZr.rh(0);
                 }
-                ConcernSelectView.this.C(ConcernSelectView.this.gZA, 1);
+                ConcernSelectView.this.C(ConcernSelectView.this.gZn, 1);
             }
         });
-        this.gZz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
+        this.gZm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new am("c12774").bJ("obj_locate", "3"));
-                al.j(ConcernSelectView.this.gZy, d.C0277d.cp_cont_j);
-                al.j(ConcernSelectView.this.gZz, d.C0277d.cp_cont_b);
-                ConcernSelectView.this.gZx.setText(d.j.each_concerned);
-                if (ConcernSelectView.this.gZE != null) {
-                    ConcernSelectView.this.gZE.rl(1);
+                al.j(ConcernSelectView.this.gZl, d.C0277d.cp_cont_j);
+                al.j(ConcernSelectView.this.gZm, d.C0277d.cp_cont_b);
+                ConcernSelectView.this.gZk.setText(d.j.each_concerned);
+                if (ConcernSelectView.this.gZr != null) {
+                    ConcernSelectView.this.gZr.rh(1);
                 }
-                ConcernSelectView.this.C(ConcernSelectView.this.gZA, 1);
+                ConcernSelectView.this.C(ConcernSelectView.this.gZn, 1);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bEL() {
-        if (!(this.gZA.getVisibility() == 0)) {
-            C(this.gZA, 0);
+    public void bEI() {
+        if (!(this.gZn.getVisibility() == 0)) {
+            C(this.gZn, 0);
         }
     }
 
-    public void bEM() {
-        if (this.gZA.getVisibility() == 0) {
-            C(this.gZA, 1);
+    public void bEJ() {
+        if (this.gZn.getVisibility() == 0) {
+            C(this.gZn, 1);
         }
     }
 
-    public boolean bEN() {
-        return this.gZA.getVisibility() == 0;
+    public boolean bEK() {
+        return this.gZn.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.c(this.gZw, d.f.icon_arrow_gray_down);
-            al.j(this.gZx, d.C0277d.cp_cont_d);
-            al.j(this.gZy, d.C0277d.cp_cont_b);
-            al.j(this.gZz, d.C0277d.cp_cont_j);
-            al.k(this.gZA, d.f.concern_item_bg);
-            al.k(this.gZx, d.C0277d.cp_bg_line_d);
-            al.k(this.gZy, d.f.concern_item_menu_select_bg);
-            al.k(this.gZz, d.f.concern_item_menu_select_bg);
-            al.k(this.cKK, d.C0277d.cp_bg_line_c);
+            al.c(this.gZj, d.f.icon_arrow_gray_down);
+            al.j(this.gZk, d.C0277d.cp_cont_d);
+            al.j(this.gZl, d.C0277d.cp_cont_b);
+            al.j(this.gZm, d.C0277d.cp_cont_j);
+            al.k(this.gZn, d.f.concern_item_bg);
+            al.k(this.gZk, d.C0277d.cp_bg_line_d);
+            al.k(this.gZl, d.f.concern_item_menu_select_bg);
+            al.k(this.gZm, d.f.concern_item_menu_select_bg);
+            al.k(this.cKM, d.C0277d.cp_bg_line_c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(final View view, final int i) {
-        if (view != null && view.getAnimation() == null && this.gZA != null) {
-            int childCount = this.gZA.getChildCount();
+        if (view != null && view.getAnimation() == null && this.gZn != null) {
+            int childCount = this.gZn.getChildCount();
             if (childCount < 0) {
                 childCount = 0;
             }
@@ -173,39 +173,39 @@ public class ConcernSelectView extends FrameLayout {
                             listView.smoothScrollBy(bottom, 260);
                         }
                     }
-                    if (ConcernSelectView.this.gZE != null) {
-                        ConcernSelectView.this.gZE.mv(z);
+                    if (ConcernSelectView.this.gZr != null) {
+                        ConcernSelectView.this.gZr.mv(z);
                     }
                 }
             });
             view.startAnimation(aVar);
-            if (this.gZw != null) {
-                if (this.gZw.getAnimation() == null || this.gZw.getAnimation().hasEnded()) {
+            if (this.gZj != null) {
+                if (this.gZj.getAnimation() == null || this.gZj.getAnimation().hasEnded()) {
                     if (i == 0) {
-                        if (this.gZB == null) {
-                            bEP();
+                        if (this.gZo == null) {
+                            bEM();
                         }
-                        if (this.gZC != null) {
-                            this.gZC.cancel();
+                        if (this.gZp != null) {
+                            this.gZp.cancel();
                         }
-                        this.gZw.startAnimation(this.gZB);
+                        this.gZj.startAnimation(this.gZo);
                         return;
                     }
-                    if (this.gZC == null) {
-                        bEO();
+                    if (this.gZp == null) {
+                        bEL();
                     }
-                    if (this.gZB != null) {
-                        this.gZB.cancel();
+                    if (this.gZo != null) {
+                        this.gZo.cancel();
                     }
-                    this.gZw.startAnimation(this.gZC);
+                    this.gZj.startAnimation(this.gZp);
                 }
             }
         }
     }
 
-    private void bEO() {
-        this.gZC = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
-        this.gZC.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
+    private void bEL() {
+        this.gZp = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
+        this.gZp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -216,21 +216,21 @@ public class ConcernSelectView extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
-                ConcernSelectView.this.gZD = false;
+                ConcernSelectView.this.gZq = false;
             }
         });
     }
 
-    private void bEP() {
-        this.gZB = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
-        this.gZB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
+    private void bEM() {
+        this.gZo = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
+        this.gZo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ConcernSelectView.this.gZD = true;
+                ConcernSelectView.this.gZq = true;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -240,6 +240,6 @@ public class ConcernSelectView extends FrameLayout {
     }
 
     public void setOnExpandListener(a aVar) {
-        this.gZE = aVar;
+        this.gZr = aVar;
     }
 }

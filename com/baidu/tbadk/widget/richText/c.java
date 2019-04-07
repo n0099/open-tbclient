@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String cCZ;
-    private int cDa;
+    private String cDb;
+    private int cDc;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void kL(int i) {
-        this.cDa = i;
+    public void kK(int i) {
+        this.cDc = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void kM(int i) {
+    public void kL(int i) {
         this.urlType = i;
     }
 
-    public void qa(String str) {
-        this.cCZ = str;
+    public void qb(String str) {
+        this.cDb = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.cDa == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.cDc == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = al.getColor(d.C0277d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = al.getColor(d.C0277d.cp_bg_line_z);
             }
-        } else if (this.cDa == 2) {
+        } else if (this.cDc == 2) {
             textPaint.bgColor = al.getColor(d.C0277d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.cCZ));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.cDb));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public final class e {
-    public static String v() {
+    public static String u() {
         FileReader fileReader;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

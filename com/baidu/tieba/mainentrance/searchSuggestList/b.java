@@ -17,34 +17,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private String bic;
-    private List<String> gOo;
+    private String bih;
+    private List<String> gOb;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.gOo = arrayList;
+        this.gOb = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.gOo = list;
-        if (this.gOo != null) {
+        this.gOb = list;
+        if (this.gOb != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void yi(String str) {
+    public void yh(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bic = str.trim();
+            this.bih = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gOo == null) {
+        if (this.gOb == null) {
             return 0;
         }
-        return this.gOo.size();
+        return this.gOb.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.gOo.get(i);
+        return this.gOb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(d.h.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(d.g.rootview);
-            aVar2.gOp = (TextView) view.findViewById(d.g.searchSuggestTitle);
-            aVar2.bjK = view.findViewById(d.g.searchItemSep);
+            aVar2.gOc = (TextView) view.findViewById(d.g.searchSuggestTitle);
+            aVar2.bjN = view.findViewById(d.g.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,13 +78,13 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(aVar.gOp, item);
+            a(aVar.gOc, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
                 al.k(aVar.mRootView, d.f.addresslist_item_bg);
-                al.j(aVar.gOp, d.C0277d.cp_cont_b);
-                al.l(aVar.bjK, d.C0277d.cp_bg_line_c);
+                al.j(aVar.gOc, d.C0277d.cp_cont_b);
+                al.l(aVar.bjN, d.C0277d.cp_bg_line_c);
             }
         }
         return view;
@@ -92,8 +92,8 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class a {
-        View bjK;
-        TextView gOp;
+        View bjN;
+        TextView gOc;
         View mRootView;
         int mSkinType;
 
@@ -103,9 +103,9 @@ public class b extends BaseAdapter {
     }
 
     public void a(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bic)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bih)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.bic.toLowerCase();
+            String lowerCase2 = this.bih.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -113,7 +113,7 @@ public class b extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(al.getColor(d.C0277d.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bic.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bih.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

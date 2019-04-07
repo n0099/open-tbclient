@@ -21,7 +21,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ap */
+        /* renamed from: Al */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -84,34 +84,34 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bg bgVar) {
         if (bgVar != null) {
             this.thread_id = bgVar.getTid();
-            this.post_id = bgVar.YC();
-            if (bgVar.Zi() != null) {
-                this.thumbnail_url = bgVar.Zi().thumbnail_url;
-                this.video_url = bgVar.Zi().video_url;
-                this.video_height = String.valueOf(bgVar.Zi().video_height);
-                this.video_width = String.valueOf(bgVar.Zi().video_width);
-                this.mMd5 = bgVar.Zi().video_md5;
-                this.video_duration = bgVar.Zi().video_duration.intValue();
-                this.play_count = bgVar.Zi().play_count.intValue();
-                this.isVerticalVideo = bgVar.Zi().is_vertical.intValue();
+            this.post_id = bgVar.Yz();
+            if (bgVar.Zf() != null) {
+                this.thumbnail_url = bgVar.Zf().thumbnail_url;
+                this.video_url = bgVar.Zf().video_url;
+                this.video_height = String.valueOf(bgVar.Zf().video_height);
+                this.video_width = String.valueOf(bgVar.Zf().video_width);
+                this.mMd5 = bgVar.Zf().video_md5;
+                this.video_duration = bgVar.Zf().video_duration.intValue();
+                this.play_count = bgVar.Zf().play_count.intValue();
+                this.isVerticalVideo = bgVar.Zf().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bgVar.YI());
-            this.agree_num = String.valueOf(bgVar.aak());
-            this.share_num = String.valueOf(bgVar.aao());
+            this.comment_num = String.valueOf(bgVar.YF());
+            this.agree_num = String.valueOf(bgVar.aah());
+            this.share_num = String.valueOf(bgVar.aal());
             this.title = bgVar.getTitle();
             this.forum_id = String.valueOf(bgVar.getFid());
-            this.forum_name = bgVar.YW();
-            this.is_agreed = String.valueOf(bgVar.aam());
-            if (bgVar.YR() != null) {
+            this.forum_name = bgVar.YT();
+            this.is_agreed = String.valueOf(bgVar.aaj());
+            if (bgVar.YO() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bgVar.YR().getUserName();
-                userItemData.name_show = bgVar.YR().getName_show();
-                userItemData.portrait = bgVar.YR().getPortrait();
-                userItemData.user_id = bgVar.YR().getUserId();
-                userItemData.is_follow = bgVar.YR().hadConcerned() ? "1" : "0";
+                userItemData.user_name = bgVar.YO().getUserName();
+                userItemData.name_show = bgVar.YO().getName_show();
+                userItemData.portrait = bgVar.YO().getPortrait();
+                userItemData.user_id = bgVar.YO().getUserId();
+                userItemData.is_follow = bgVar.YO().hadConcerned() ? "1" : "0";
                 this.author_info = userItemData;
             }
-            this.act_info = bgVar.ZG();
+            this.act_info = bgVar.ZD();
             this.mRecomAbTag = bgVar.mRecomAbTag;
             this.mRecomSource = bgVar.mRecomSource;
             this.mRecomWeight = bgVar.mRecomWeight;

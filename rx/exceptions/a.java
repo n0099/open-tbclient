@@ -71,7 +71,7 @@ public final class a {
         return th;
     }
 
-    public static void eF(List<? extends Throwable> list) {
+    public static void eC(List<? extends Throwable> list) {
         if (list != null && !list.isEmpty()) {
             if (list.size() == 1) {
                 Throwable th = list.get(0);

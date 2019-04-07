@@ -68,6 +68,6 @@ public class e {
     }
 
     private static long e(BaseMenuView baseMenuView) {
-        return baseMenuView.Rb() ? 240L : 200L;
+        return baseMenuView.QZ() ? 240L : 200L;
     }
 }

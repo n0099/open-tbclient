@@ -13,10 +13,10 @@ class a extends PointPageIndicator {
     @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
     /* renamed from: a */
     public a b(Drawable drawable, Drawable drawable2) {
-        this.blj = drawable;
-        this.blk = drawable2;
-        this.bll.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        this.blm.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+        this.blm = drawable;
+        this.bln = drawable2;
+        this.blo.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        this.blp.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         return this;
     }
 }

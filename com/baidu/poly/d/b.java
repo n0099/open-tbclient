@@ -6,28 +6,28 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    private static b agY;
-    private a agj;
+    private static b ahd;
+    private a ago;
 
     private b(a aVar) {
-        this.agj = aVar;
+        this.ago = aVar;
     }
 
     public static void b(a aVar) {
-        agY = new b(aVar);
+        ahd = new b(aVar);
     }
 
-    public static b tH() {
-        return agY;
+    public static b tG() {
+        return ahd;
     }
 
     public void a(Bundle bundle, final String str, final a.c cVar, final com.baidu.poly.a.a<Map<String, String>> aVar) {
-        com.baidu.poly.a.a.a.tw().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.1
+        com.baidu.poly.a.a.a.tv().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                b.this.agj.a(map, str, new a.C0083a() { // from class: com.baidu.poly.d.b.1.1
+                b.this.ago.a(map, str, new a.C0083a() { // from class: com.baidu.poly.d.b.1.1
                     @Override // com.baidu.poly.d.a.C0083a
                     public void onResult(int i, String str2) {
                         cVar.onResult(i, str2);

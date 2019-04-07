@@ -12,14 +12,14 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cSo;
-    public String cSp;
-    public d cSq;
-    public d cSr;
+    public String cSq;
+    public String cSr;
     public d cSs;
-    public String cSt;
-    public String cSu;
-    public boolean cSv;
+    public d cSt;
+    public d cSu;
+    public String cSv;
+    public String cSw;
+    public boolean cSx;
     public String id;
     public String userName;
 
@@ -30,23 +30,23 @@ public class b {
         b bVar = new b();
         bVar.id = jSONObject.optString("id");
         bVar.userName = jSONObject.optString("name");
-        bVar.cSo = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
-        bVar.cSp = jSONObject.optString("phone_cipher");
+        bVar.cSq = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        bVar.cSr = jSONObject.optString("phone_cipher");
         JSONObject optJSONObject = jSONObject.optJSONObject("l1");
         if (optJSONObject != null) {
-            bVar.cSq = d.aU(optJSONObject);
+            bVar.cSs = d.aU(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("l2");
         if (optJSONObject2 != null) {
-            bVar.cSr = d.aU(optJSONObject2);
+            bVar.cSt = d.aU(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("l3");
         if (optJSONObject3 != null) {
-            bVar.cSs = d.aU(optJSONObject3);
+            bVar.cSu = d.aU(optJSONObject3);
         }
-        bVar.cSt = jSONObject.optString("street");
-        bVar.cSu = jSONObject.optString("zipcode");
-        bVar.cSv = TextUtils.equals(jSONObject.optString("default"), "1");
+        bVar.cSv = jSONObject.optString("street");
+        bVar.cSw = jSONObject.optString("zipcode");
+        bVar.cSx = TextUtils.equals(jSONObject.optString("default"), "1");
         return bVar;
     }
 
@@ -62,30 +62,30 @@ public class b {
             bVar.userName = String.valueOf(map.get("name"));
         }
         if (map.containsKey(ISapiAccount.SAPI_ACCOUNT_PHONE)) {
-            bVar.cSo = String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE));
+            bVar.cSq = String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE));
         }
         if (map.containsKey("street")) {
-            bVar.cSt = String.valueOf(map.get("street"));
+            bVar.cSv = String.valueOf(map.get("street"));
         }
         if (map.containsKey("zipcode")) {
-            bVar.cSu = String.valueOf(map.get("zipcode"));
+            bVar.cSw = String.valueOf(map.get("zipcode"));
         }
         if (map.containsKey("l1")) {
             Object obj = map.get("l1");
             if (obj instanceof d) {
-                bVar.cSq = (d) obj;
+                bVar.cSs = (d) obj;
             }
         }
         if (map.containsKey("l2")) {
             Object obj2 = map.get("l2");
             if (obj2 instanceof d) {
-                bVar.cSr = (d) obj2;
+                bVar.cSt = (d) obj2;
             }
         }
         if (map.containsKey("l3")) {
             Object obj3 = map.get("l3");
             if (obj3 instanceof d) {
-                bVar.cSs = (d) obj3;
+                bVar.cSu = (d) obj3;
             }
         }
         return bVar;
@@ -95,9 +95,9 @@ public class b {
         HashMap hashMap = new HashMap(4);
         if (bVar != null) {
             hashMap.put("name", Boolean.valueOf(!TextUtils.isEmpty(bVar.userName)));
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.cSo)));
-            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.ayA())));
-            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.cSt) ? false : true));
+            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.cSq)));
+            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.ayx())));
+            hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.cSv) ? false : true));
         }
         return hashMap;
     }
@@ -114,31 +114,31 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.cSo)) {
-                jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.cSo);
+            if (!TextUtils.isEmpty(bVar.cSq)) {
+                jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.cSq);
             }
-            if (!TextUtils.isEmpty(bVar.cSp)) {
-                jSONObject.put("phone_cipher", bVar.cSp);
+            if (!TextUtils.isEmpty(bVar.cSr)) {
+                jSONObject.put("phone_cipher", bVar.cSr);
             }
-            JSONObject a = d.a(bVar.cSq);
+            JSONObject a = d.a(bVar.cSs);
             if (a != null) {
                 jSONObject.put("l1", a);
             }
-            JSONObject a2 = d.a(bVar.cSr);
+            JSONObject a2 = d.a(bVar.cSt);
             if (a2 != null) {
                 jSONObject.put("l2", a2);
             }
-            JSONObject a3 = d.a(bVar.cSs);
+            JSONObject a3 = d.a(bVar.cSu);
             if (a3 != null) {
                 jSONObject.put("l3", a3);
             }
-            if (!TextUtils.isEmpty(bVar.cSt)) {
-                jSONObject.put("street", bVar.cSt);
+            if (!TextUtils.isEmpty(bVar.cSv)) {
+                jSONObject.put("street", bVar.cSv);
             }
-            if (!TextUtils.isEmpty(bVar.cSu)) {
-                jSONObject.put("zipcode", bVar.cSu);
+            if (!TextUtils.isEmpty(bVar.cSw)) {
+                jSONObject.put("zipcode", bVar.cSw);
             }
-            jSONObject.put("default", bVar.cSv);
+            jSONObject.put("default", bVar.cSx);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -158,26 +158,26 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 jSONObject.put("userName", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.cSu)) {
-                jSONObject.put("postalCode", bVar.cSu);
-            }
-            if (bVar.cSq != null && !TextUtils.isEmpty(bVar.cSq.name)) {
-                jSONObject.put("provinceName", bVar.cSq.name);
-            }
-            if (bVar.cSr != null && !TextUtils.isEmpty(bVar.cSr.name)) {
-                jSONObject.put("cityName", bVar.cSr.name);
+            if (!TextUtils.isEmpty(bVar.cSw)) {
+                jSONObject.put("postalCode", bVar.cSw);
             }
             if (bVar.cSs != null && !TextUtils.isEmpty(bVar.cSs.name)) {
-                jSONObject.put("countyName", bVar.cSs.name);
+                jSONObject.put("provinceName", bVar.cSs.name);
             }
-            if (bVar.cSs != null && !TextUtils.isEmpty(bVar.cSs.code)) {
-                jSONObject.put("nationalCode", bVar.cSs.code);
+            if (bVar.cSt != null && !TextUtils.isEmpty(bVar.cSt.name)) {
+                jSONObject.put("cityName", bVar.cSt.name);
             }
-            if (!TextUtils.isEmpty(bVar.cSt)) {
-                jSONObject.put("detailInfo", bVar.cSt);
+            if (bVar.cSu != null && !TextUtils.isEmpty(bVar.cSu.name)) {
+                jSONObject.put("countyName", bVar.cSu.name);
             }
-            if (!TextUtils.isEmpty(bVar.cSo)) {
-                jSONObject.put("telNumber", bVar.cSo);
+            if (bVar.cSu != null && !TextUtils.isEmpty(bVar.cSu.code)) {
+                jSONObject.put("nationalCode", bVar.cSu.code);
+            }
+            if (!TextUtils.isEmpty(bVar.cSv)) {
+                jSONObject.put("detailInfo", bVar.cSv);
+            }
+            if (!TextUtils.isEmpty(bVar.cSq)) {
+                jSONObject.put("telNumber", bVar.cSq);
                 return jSONObject;
             }
             return jSONObject;
@@ -198,51 +198,51 @@ public class b {
         a aVar = new a("收货人", bVar.userName, "姓名");
         aVar.type = "name";
         arrayList.add(aVar);
-        a aVar2 = new a("联系电话", bVar.cSo, "手机号码或座机");
+        a aVar2 = new a("联系电话", bVar.cSq, "手机号码或座机");
         aVar2.type = ISapiAccount.SAPI_ACCOUNT_PHONE;
-        aVar2.cSn = true;
+        aVar2.cSp = true;
         arrayList.add(aVar2);
-        a aVar3 = new a("所在地区", bVar.ayA(), "地区选择");
+        a aVar3 = new a("所在地区", bVar.ayx(), "地区选择");
         aVar3.type = "region";
         arrayList.add(aVar3);
-        a aVar4 = new a("详细地址", bVar.cSt, "街道门牌信息");
+        a aVar4 = new a("详细地址", bVar.cSv, "街道门牌信息");
         aVar4.type = "street";
         arrayList.add(aVar4);
-        a aVar5 = new a("邮政编码", bVar.cSu, "邮政编码");
+        a aVar5 = new a("邮政编码", bVar.cSw, "邮政编码");
         aVar5.type = "zipcode";
-        aVar5.cSn = true;
+        aVar5.cSp = true;
         arrayList.add(aVar5);
         return arrayList;
     }
 
-    private String ayA() {
+    private String ayx() {
         StringBuilder sb = new StringBuilder();
-        if (this.cSq != null && !TextUtils.isEmpty(this.cSq.name)) {
-            sb.append(this.cSq.name);
-        }
-        if (this.cSr != null && !TextUtils.isEmpty(this.cSr.name)) {
-            sb.append(" " + this.cSr.name);
-        }
         if (this.cSs != null && !TextUtils.isEmpty(this.cSs.name)) {
-            sb.append(" " + this.cSs.name);
+            sb.append(this.cSs.name);
+        }
+        if (this.cSt != null && !TextUtils.isEmpty(this.cSt.name)) {
+            sb.append(" " + this.cSt.name);
+        }
+        if (this.cSu != null && !TextUtils.isEmpty(this.cSu.name)) {
+            sb.append(" " + this.cSu.name);
         }
         return sb.toString();
     }
 
-    public String ayB() {
+    public String ayy() {
         StringBuilder sb = new StringBuilder();
-        sb.append(ayA());
-        sb.append(" " + this.cSt);
+        sb.append(ayx());
+        sb.append(" " + this.cSv);
         return sb.toString();
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cSo) || TextUtils.isEmpty(ayA()) || TextUtils.isEmpty(this.cSt) || this.cSo.length() != 11 || !this.cSo.startsWith("1")) ? false : true;
+        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cSq) || TextUtils.isEmpty(ayx()) || TextUtils.isEmpty(this.cSv) || this.cSq.length() != 11 || !this.cSq.startsWith("1")) ? false : true;
     }
 
-    public static boolean rs(String str) {
+    public static boolean rt(String str) {
         if (!TextUtils.isEmpty(str) && str.length() == 11 && str.startsWith("1")) {
-            return ru(str);
+            return rv(str);
         }
         return false;
     }
@@ -252,41 +252,41 @@ public class b {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 this.userName = bVar.userName;
             }
-            if (!TextUtils.isEmpty(bVar.cSo)) {
-                this.cSo = bVar.cSo;
-            }
-            if (!TextUtils.isEmpty(bVar.cSp)) {
-                this.cSp = bVar.cSp;
-            }
-            if (!TextUtils.isEmpty(bVar.cSt)) {
-                this.cSt = bVar.cSt;
-            }
-            if (!TextUtils.isEmpty(bVar.cSu)) {
-                this.cSu = bVar.cSu;
-            }
-            if (bVar.cSq != null && bVar.cSq.isValid()) {
+            if (!TextUtils.isEmpty(bVar.cSq)) {
                 this.cSq = bVar.cSq;
             }
-            if (bVar.cSr != null && bVar.cSr.isValid()) {
+            if (!TextUtils.isEmpty(bVar.cSr)) {
                 this.cSr = bVar.cSr;
+            }
+            if (!TextUtils.isEmpty(bVar.cSv)) {
+                this.cSv = bVar.cSv;
+            }
+            if (!TextUtils.isEmpty(bVar.cSw)) {
+                this.cSw = bVar.cSw;
             }
             if (bVar.cSs != null && bVar.cSs.isValid()) {
                 this.cSs = bVar.cSs;
             }
+            if (bVar.cSt != null && bVar.cSt.isValid()) {
+                this.cSt = bVar.cSt;
+            }
+            if (bVar.cSu != null && bVar.cSu.isValid()) {
+                this.cSu = bVar.cSu;
+            }
         }
     }
 
-    public static boolean rt(String str) {
-        return str.length() == 6 && ru(str);
+    public static boolean ru(String str) {
+        return str.length() == 6 && rv(str);
     }
 
-    public static boolean ru(String str) {
+    public static boolean rv(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public void ayC() {
-        if (rs(this.cSo)) {
-            this.cSp = this.cSo.substring(0, 3) + "*****" + this.cSo.substring(8);
+    public void ayz() {
+        if (rt(this.cSq)) {
+            this.cSr = this.cSq.substring(0, 3) + "*****" + this.cSq.substring(8);
         }
     }
 }

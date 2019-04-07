@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    public String eXh;
-    private String icF;
-    public ArrayList<String> icO;
-    private PostSearchActivity icn;
-    public int icG = 0;
-    public int icH = 0;
-    public int icI = 1;
-    public int icJ = 1;
-    public int icK = 1;
-    public boolean icL = false;
-    public boolean icM = false;
-    public boolean icN = false;
-    private int icP = 0;
-    private final HttpMessageListener icQ = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
+    public String eWT;
+    private PostSearchActivity ibZ;
+    public ArrayList<String> icA;
+    private String icr;
+    public int ics = 0;
+    public int ict = 0;
+    public int icu = 1;
+    public int icv = 1;
+    public int icw = 1;
+    public boolean icx = false;
+    public boolean icy = false;
+    public boolean icz = false;
+    private int icB = 0;
+    private final HttpMessageListener icC = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,130 +37,130 @@ public class d {
             if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                 HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
                 int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-                d.this.xC(intValue);
-                boolean z = d.this.xB(intValue) > 1;
+                d.this.xy(intValue);
+                boolean z = d.this.xx(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.icn.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                    d.this.xA(intValue);
-                    d.this.bVs();
-                    d.this.bVv();
+                    d.this.ibZ.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.xw(intValue);
+                    d.this.bVo();
+                    d.this.bVr();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.icn.getResources().getString(d.j.neterror);
+                    errorString = d.this.ibZ.getResources().getString(d.j.neterror);
                 }
-                d.this.icn.showToast(errorString);
-                d.this.icn.a(intValue, null, z);
+                d.this.ibZ.showToast(errorString);
+                d.this.ibZ.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener icR = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener icD = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.icO = (ArrayList) data;
-                d.this.icn.bVe();
+                d.this.icA = (ArrayList) data;
+                d.this.ibZ.bVa();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.icn = postSearchActivity;
-        this.icn.registerListener(this.icR);
-        this.icn.registerListener(this.icQ);
+        this.ibZ = postSearchActivity;
+        this.ibZ.registerListener(this.icD);
+        this.ibZ.registerListener(this.icC);
     }
 
     public boolean bk(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.eXh)) {
-            bVu();
+        if (!str.equals(this.eWT)) {
+            bVq();
         }
         switch (i) {
             case 1:
-                return Be(str);
+                return Bd(str);
             case 2:
-                return Bf(str);
+                return Be(str);
             case 3:
-                return Bg(str);
+                return Bf(str);
             default:
                 return false;
         }
     }
 
-    public boolean Be(String str) {
-        if (this.icL) {
+    public boolean Bd(String str) {
+        if (this.icx) {
             return false;
         }
-        this.eXh = str;
-        this.icP = 1;
-        this.icn.sendMessage(xz(this.icP));
-        this.icL = true;
+        this.eWT = str;
+        this.icB = 1;
+        this.ibZ.sendMessage(xv(this.icB));
+        this.icx = true;
+        return true;
+    }
+
+    public boolean Be(String str) {
+        if (this.icy) {
+            return false;
+        }
+        this.eWT = str;
+        this.icB = 2;
+        this.ibZ.sendMessage(xv(this.icB));
+        this.icy = true;
         return true;
     }
 
     public boolean Bf(String str) {
-        if (this.icM) {
+        if (this.icz) {
             return false;
         }
-        this.eXh = str;
-        this.icP = 2;
-        this.icn.sendMessage(xz(this.icP));
-        this.icM = true;
+        this.eWT = str;
+        this.icB = 3;
+        this.ibZ.sendMessage(xv(this.icB));
+        this.icz = true;
         return true;
     }
 
-    public boolean Bg(String str) {
-        if (this.icN) {
-            return false;
-        }
-        this.eXh = str;
-        this.icP = 3;
-        this.icn.sendMessage(xz(this.icP));
-        this.icN = true;
-        return true;
+    public void bVn() {
+        this.ibZ.sendMessage(new CustomMessage(2009001));
     }
 
-    public void bVr() {
-        this.icn.sendMessage(new CustomMessage(2009001));
-    }
-
-    public void bVs() {
-        if (!StringUtils.isNull(this.eXh) && !this.eXh.equals(this.icF)) {
-            this.icn.sendMessage(new CustomMessage(2009003, this.eXh));
-            this.icF = this.eXh;
+    public void bVo() {
+        if (!StringUtils.isNull(this.eWT) && !this.eWT.equals(this.icr)) {
+            this.ibZ.sendMessage(new CustomMessage(2009003, this.eWT));
+            this.icr = this.eWT;
         }
     }
 
-    public void bVt() {
-        if (this.icO != null) {
-            this.icO.clear();
+    public void bVp() {
+        if (this.icA != null) {
+            this.icA.clear();
         }
-        this.icn.sendMessage(new CustomMessage(2009004));
+        this.ibZ.sendMessage(new CustomMessage(2009004));
     }
 
-    public void bVu() {
-        this.icI = 1;
-        this.icJ = 1;
-        this.icK = 1;
+    public void bVq() {
+        this.icu = 1;
+        this.icv = 1;
+        this.icw = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVv() {
-        if (this.icO == null) {
-            this.icO = new ArrayList<>();
+    public void bVr() {
+        if (this.icA == null) {
+            this.icA = new ArrayList<>();
         }
-        this.icO.remove(this.eXh);
-        this.icO.add(0, this.eXh);
-        dP(this.icO);
+        this.icA.remove(this.eWT);
+        this.icA.add(0, this.eWT);
+        dM(this.icA);
     }
 
-    private void dP(List<String> list) {
+    private void dM(List<String> list) {
         int size;
         if (list != null && list.size() - 5 > 0) {
             int size2 = list.size();
@@ -170,43 +170,43 @@ public class d {
         }
     }
 
-    private HttpMessage xz(int i) {
+    private HttpMessage xv(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.eXh);
+        httpMessage.addParam("word", this.eWT);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.icn.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.icP));
+        httpMessage.addParam("kw", this.ibZ.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.icB));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icI);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icu);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icJ);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icv);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icK);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icw);
                 break;
         }
         return httpMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xA(int i) {
+    public void xw(int i) {
         switch (i) {
             case 1:
-                this.icI++;
+                this.icu++;
                 return;
             case 2:
-                this.icJ++;
+                this.icv++;
                 return;
             case 3:
-                this.icK++;
+                this.icw++;
                 return;
             default:
                 return;
@@ -214,30 +214,30 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int xB(int i) {
+    public int xx(int i) {
         switch (i) {
             case 1:
-                return this.icI;
+                return this.icu;
             case 2:
-                return this.icJ;
+                return this.icv;
             case 3:
-                return this.icK;
+                return this.icw;
             default:
                 return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xC(int i) {
+    public void xy(int i) {
         switch (i) {
             case 1:
-                this.icL = false;
+                this.icx = false;
                 return;
             case 2:
-                this.icM = false;
+                this.icy = false;
                 return;
             case 3:
-                this.icN = false;
+                this.icz = false;
                 return;
             default:
                 return;

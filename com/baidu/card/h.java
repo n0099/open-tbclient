@@ -34,7 +34,7 @@ public class h extends f {
         this.XE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.h.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.Xy.WR().getTid(), h.this.Xy.WR().aap().getId() + "", 1, ImageViewerConfig.FROM_OTHER);
+                PbActivityConfig createNormalCfg = new PbActivityConfig(h.this.mContext).createNormalCfg(h.this.Xy.WO().getTid(), h.this.Xy.WO().aam().getId() + "", 1, ImageViewerConfig.FROM_OTHER);
                 createNormalCfg.setStartFrom(h.this.Xq.rt());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                 h.this.Xq.b(new a.C0039a(1));
@@ -55,7 +55,7 @@ public class h extends f {
         a(1, new a.b() { // from class: com.baidu.card.h.3
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0039a c0039a) {
-                com.baidu.tieba.card.n.a(h.this.XE.getGodReplyContent(), h.this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+                com.baidu.tieba.card.n.a(h.this.XE.getGodReplyContent(), h.this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
                 return false;
             }
         });
@@ -83,11 +83,11 @@ public class h extends f {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Xy = aVar;
-        PostData aap = aVar.WR().aap();
-        if (this.XF != null && aap != null && aap.YR() != null && aap.YR().getUserId() != null) {
-            this.XF.bJ("tid", aVar.WR().tid).bJ("post_id", aap.getId()).bJ("uid", aap.YR().getUserId());
-            com.baidu.tieba.card.t.aQF().b(this.XF);
+        PostData aam = aVar.WO().aam();
+        if (this.XF != null && aam != null && aam.YO() != null && aam.YO().getUserId() != null) {
+            this.XF.bJ("tid", aVar.WO().tid).bJ("post_id", aam.getId()).bJ("uid", aam.YO().getUserId());
+            com.baidu.tieba.card.t.aQD().b(this.XF);
         }
-        this.XE.setData(aVar.WR());
+        this.XE.setData(aVar.WO());
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public class c implements com.baidu.swan.apps.b.b.h {
     @Override // com.baidu.swan.apps.b.b.h
     @Nullable
-    public List<ContentValues> uX() {
+    public List<ContentValues> uW() {
         return null;
     }
 }

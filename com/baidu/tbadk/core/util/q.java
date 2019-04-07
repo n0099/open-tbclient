@@ -9,15 +9,15 @@ public interface q {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    ArrayList<BasicNameValuePair> aci();
+    ArrayList<BasicNameValuePair> acf();
+
+    String acg();
+
+    byte[] ach();
+
+    String aci();
 
     String acj();
-
-    byte[] ack();
-
-    String acl();
-
-    String acm();
 
     void d(String str, byte[] bArr);
 

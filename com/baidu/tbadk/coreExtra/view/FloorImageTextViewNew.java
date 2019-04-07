@@ -12,13 +12,14 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
-    private static final int ccX = l.h(TbadkApplication.getInst(), d.e.tbds348);
-    private static final int ccY = l.h(TbadkApplication.getInst(), d.e.tbds308);
-    private TbRichTextView ccQ;
-    private EditorScrollView ccR;
-    private int ccS;
+    private static final int ccZ = l.h(TbadkApplication.getInst(), d.e.tbds348);
+    private static final int cda = l.h(TbadkApplication.getInst(), d.e.tbds308);
+    private TbRichTextView ccS;
+    private EditorScrollView ccT;
+    private int ccU;
 
     public FloorImageTextViewNew(Context context) {
         super(context);
@@ -28,32 +29,32 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.floorimage_textview_layout_new, (ViewGroup) this, true);
         al.l(this, d.C0277d.black_alpha50);
-        this.ccQ = (TbRichTextView) findViewById(d.g.textview);
-        this.ccQ.setVerticalScrollBarEnabled(true);
-        this.ccQ.setTextSize(cbV);
-        this.ccQ.setTextColor(al.getColor(d.C0277d.white_alpha83));
-        this.ccR = (EditorScrollView) findViewById(d.g.scrollview);
-        this.ccR.setPadding(0, TOP, 0, BOTTOM);
-        this.ccR.setOnTouchListener(this.cbY);
+        this.ccS = (TbRichTextView) findViewById(d.g.textview);
+        this.ccS.setVerticalScrollBarEnabled(true);
+        this.ccS.setTextSize(cbX);
+        this.ccS.setTextColor(al.getColor(d.C0277d.white_alpha83));
+        this.ccT = (EditorScrollView) findViewById(d.g.scrollview);
+        this.ccT.setPadding(0, TOP, 0, BOTTOM);
+        this.ccT.setOnTouchListener(this.cca);
         setVisibility(8);
     }
 
     private void d(Pair<Integer, Integer> pair) {
         if (pair != null) {
             if (((Integer) pair.second).intValue() > 5) {
-                if (akf()) {
-                    this.ccS = ccY + TOP + BOTTOM;
+                if (akc()) {
+                    this.ccU = cda + TOP + BOTTOM;
                 } else {
-                    this.ccS = ccX + TOP + BOTTOM;
+                    this.ccU = ccZ + TOP + BOTTOM;
                 }
             } else {
-                this.ccS = -2;
+                this.ccU = -2;
             }
-            iW(this.ccS);
+            iV(this.ccU);
         }
     }
 
-    private boolean akf() {
+    private boolean akc() {
         float aR = l.aR(getContext());
         int aQ = l.aQ(getContext());
         int aO = l.aO(getContext());
@@ -68,13 +69,25 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void a(ImageUrlData imageUrlData) {
-        this.cbW = imageUrlData;
-        if (imageUrlData != null && imageUrlData.richTextArray != null && imageUrlData.richTextArray.length() > 0) {
+        JSONArray jSONArray;
+        this.cbY = imageUrlData;
+        JSONArray jSONArray2 = null;
+        if (imageUrlData == null) {
+            jSONArray = null;
+        } else {
+            try {
+                jSONArray = new JSONArray(imageUrlData.richTextArray);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        jSONArray2 = jSONArray;
+        if (imageUrlData != null && jSONArray2 != null && jSONArray2.length() > 0) {
             setVisibility(0);
-            com.baidu.tieba.view.c.cna().setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0277d.transparent));
-            TbRichText a = TbRichTextView.a(getContext(), imageUrlData.richTextArray, false);
-            d(oe(a.toString()));
-            this.ccQ.setText(a);
+            com.baidu.tieba.view.c.cmY().setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0277d.transparent));
+            TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
+            d(og(a.toString()));
+            this.ccS.setText(a);
             return;
         }
         setVisibility(8);

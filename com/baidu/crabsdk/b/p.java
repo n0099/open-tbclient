@@ -6,8 +6,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
 public final class p {
+    public static int J() {
+        if (new File("/system/bin/su").exists() && b("/system/bin/su")) {
+            return 1;
+        }
+        return (new File("/system/xbin/su").exists() && b("/system/xbin/su")) ? 1 : 0;
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private static boolean c(String str) {
+    private static boolean b(String str) {
         Process process = null;
         try {
             try {
@@ -35,12 +42,5 @@ public final class p {
                 process.destroy();
             }
         }
-    }
-
-    public static int rT() {
-        if (new File("/system/bin/su").exists() && c("/system/bin/su")) {
-            return 1;
-        }
-        return (new File("/system/xbin/su").exists() && c("/system/xbin/su")) ? 1 : 0;
     }
 }

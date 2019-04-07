@@ -29,8 +29,8 @@ public class i extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        bVar.Ja().KF().remove(optString);
-        com.baidu.swan.apps.ak.e.aVP.update();
+        bVar.IY().KD().remove(optString);
+        com.baidu.swan.apps.ak.e.aVS.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

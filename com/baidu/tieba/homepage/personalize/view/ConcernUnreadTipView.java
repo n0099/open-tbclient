@@ -22,11 +22,11 @@ import java.util.List;
 public class ConcernUnreadTipView extends RelativeLayout {
     private BdUniqueId Zr;
     private int ds94;
-    public ImageView fNQ;
-    private LinearLayout fNR;
-    private TextView fNS;
-    private ImageView fNT;
-    private int fNU;
+    public ImageView fNE;
+    private LinearLayout fNF;
+    private TextView fNG;
+    private ImageView fNH;
+    private int fNI;
     private TextView mInfo;
     private TextView mTitle;
 
@@ -47,14 +47,14 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     private void init(Context context) {
         this.ds94 = l.h(getContext(), d.e.tbds94);
-        this.fNU = 0 - l.h(getContext(), d.e.tbds18);
+        this.fNI = 0 - l.h(getContext(), d.e.tbds18);
         LayoutInflater.from(context).inflate(d.h.concern_unread_tip_view_layout, (ViewGroup) this, true);
         this.mTitle = (TextView) findViewById(d.g.concern_unread_tip_title);
-        this.fNQ = (ImageView) findViewById(d.g.concern_unread_tip_close);
-        this.fNR = (LinearLayout) findViewById(d.g.concern_unread_tip_header_box);
+        this.fNE = (ImageView) findViewById(d.g.concern_unread_tip_close);
+        this.fNF = (LinearLayout) findViewById(d.g.concern_unread_tip_header_box);
         this.mInfo = (TextView) findViewById(d.g.concern_unread_tip_info);
-        this.fNS = (TextView) findViewById(d.g.concern_unread_tip_show);
-        this.fNT = (ImageView) findViewById(d.g.concern_unread_tip_show_arrow);
+        this.fNG = (TextView) findViewById(d.g.concern_unread_tip_show);
+        this.fNH = (ImageView) findViewById(d.g.concern_unread_tip_show_arrow);
         setPadding(0, 0, 0, l.h(context, d.e.tbds44));
         onChangeSkinType();
     }
@@ -65,38 +65,38 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     public void setClickListener(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
-        this.fNQ.setOnClickListener(onClickListener);
+        this.fNE.setOnClickListener(onClickListener);
     }
 
     public void setData(e eVar) {
         if (eVar != null) {
-            if (!eVar.bmU()) {
+            if (!eVar.bmR()) {
                 setVisibility(8);
                 return;
             }
-            if (eVar.fNq > 0) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.fNq);
+            if (eVar.fNe > 0) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.fNe);
             }
-            if (this.mInfo != null && !StringUtils.isNull(eVar.fNr)) {
-                this.mInfo.setText(eVar.fNr);
+            if (this.mInfo != null && !StringUtils.isNull(eVar.fNf)) {
+                this.mInfo.setText(eVar.fNf);
             }
-            if (this.fNR != null && eVar.fNp != null) {
-                this.fNR.removeAllViews();
-                List<String> list = eVar.fNp;
+            if (this.fNF != null && eVar.fNd != null) {
+                this.fNF.removeAllViews();
+                List<String> list = eVar.fNd;
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
                     if (!StringUtils.isNull(str)) {
                         FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), d.h.concern_unread_tip_head_group, null);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ds94, this.ds94);
                         if (i > 0) {
-                            layoutParams.leftMargin = this.fNU;
+                            layoutParams.leftMargin = this.fNI;
                         }
                         frameLayout.setLayoutParams(layoutParams);
                         HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(d.g.inner_img);
                         headImageView.setIsRound(true);
                         headImageView.setDrawBorder(false);
                         al.c((ImageView) frameLayout.findViewById(d.g.out_img), d.f.bg_unread_tip_head_border);
-                        this.fNR.addView(frameLayout);
+                        this.fNF.addView(frameLayout);
                         headImageView.setPageId(this.Zr);
                         headImageView.startLoad(str, 12, false);
                     }
@@ -108,9 +108,9 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public void onChangeSkinType() {
         al.l(this, d.C0277d.cp_bg_line_d);
         al.j(this.mTitle, d.C0277d.cp_cont_b);
-        al.c(this.fNQ, d.f.icon_home_card_delete);
+        al.c(this.fNE, d.f.icon_home_card_delete);
         al.j(this.mInfo, d.C0277d.cp_cont_b);
-        al.j(this.fNS, d.C0277d.cp_cont_d);
-        al.c(this.fNT, d.f.icon_arrow_gray_right_n);
+        al.j(this.fNG, d.C0277d.cp_cont_d);
+        al.c(this.fNH, d.f.icon_arrow_gray_right_n);
     }
 }

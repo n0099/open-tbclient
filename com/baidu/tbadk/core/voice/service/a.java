@@ -7,14 +7,14 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int bVo = 8000;
-    public static int bVp = 2;
-    public static int bVq = 2;
-    public static int bVr = 1;
-    private RandomAccessFile bVs;
-    private int bVt;
-    private short bVu;
-    private short bVv;
+    public static int bVq = 8000;
+    public static int bVr = 2;
+    public static int bVs = 2;
+    public static int bVt = 1;
+    private RandomAccessFile bVu;
+    private int bVv;
+    private short bVw;
+    private short bVx;
     private int channelConfiguration;
     private int dataSize;
     private String filePath;
@@ -28,29 +28,29 @@ public class a implements d {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.frequency = i2;
         this.channelConfiguration = i3;
-        this.bVt = i4;
+        this.bVv = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.bVt, this.bufferSize);
-        this.bVu = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.bVv = (short) (this.bVt == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.bVv, this.bufferSize);
+        this.bVw = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.bVx = (short) (this.bVv == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.bVs != null) {
+            if (this.bVu != null) {
                 try {
-                    this.bVs.close();
+                    this.bVu.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.bVs = new RandomAccessFile(this.file, "rw");
+                this.bVu = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -65,12 +65,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean nx(String str) {
-        return a(bVr, bVo, bVp, bVq, str);
+    public boolean ny(String str) {
+        return a(bVt, bVq, bVr, bVs, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afw() {
+    public void aft() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
                 this.VP = true;
@@ -78,14 +78,14 @@ public class a implements d {
                 this.mAudioRecord.startRecording();
                 while (this.VP) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.bVs.write(bArr);
+                    this.bVu.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.bVs.seek(4L);
-                this.bVs.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.bVs.seek(40L);
-                this.bVs.writeInt(Integer.reverseBytes(this.dataSize));
-                this.bVs.close();
+                this.bVu.seek(4L);
+                this.bVu.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.bVu.seek(40L);
+                this.bVu.writeInt(Integer.reverseBytes(this.dataSize));
+                this.bVu.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
                 this.VP = false;
@@ -98,11 +98,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean afx() {
+    public boolean afu() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.afw();
+                a.this.aft();
             }
         });
         thread.setPriority(10);
@@ -112,31 +112,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void afy() {
+    public void afv() {
         this.VP = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean afz() {
+    public boolean afw() {
         return this.VP;
     }
 
     private void writeHeader() {
         try {
-            this.bVs.setLength(0L);
-            this.bVs.writeBytes("RIFF");
-            this.bVs.writeInt(0);
-            this.bVs.writeBytes("WAVE");
-            this.bVs.writeBytes("fmt ");
-            this.bVs.writeInt(Integer.reverseBytes(16));
-            this.bVs.writeShort(Short.reverseBytes((short) 1));
-            this.bVs.writeShort(Short.reverseBytes(this.bVu));
-            this.bVs.writeInt(Integer.reverseBytes(this.frequency));
-            this.bVs.writeInt(Integer.reverseBytes(((this.frequency * this.bVu) * this.bVv) / 8));
-            this.bVs.writeShort(Short.reverseBytes((short) ((this.bVu * this.bVv) / 8)));
-            this.bVs.writeShort(Short.reverseBytes(this.bVv));
-            this.bVs.writeBytes("data");
-            this.bVs.writeInt(0);
+            this.bVu.setLength(0L);
+            this.bVu.writeBytes("RIFF");
+            this.bVu.writeInt(0);
+            this.bVu.writeBytes("WAVE");
+            this.bVu.writeBytes("fmt ");
+            this.bVu.writeInt(Integer.reverseBytes(16));
+            this.bVu.writeShort(Short.reverseBytes((short) 1));
+            this.bVu.writeShort(Short.reverseBytes(this.bVw));
+            this.bVu.writeInt(Integer.reverseBytes(this.frequency));
+            this.bVu.writeInt(Integer.reverseBytes(((this.frequency * this.bVw) * this.bVx) / 8));
+            this.bVu.writeShort(Short.reverseBytes((short) ((this.bVw * this.bVx) / 8)));
+            this.bVu.writeShort(Short.reverseBytes(this.bVx));
+            this.bVu.writeBytes("data");
+            this.bVu.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

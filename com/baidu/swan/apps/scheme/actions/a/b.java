@@ -28,8 +28,8 @@ public class b extends y {
         if (DEBUG) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             c.e("setBackgroundTextStyle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -39,7 +39,7 @@ public class b extends y {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!uz.yP().yG().bO(com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
+        } else if (!uy.yO().yF().bN(com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

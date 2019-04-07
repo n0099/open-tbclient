@@ -20,15 +20,15 @@ public class a implements h {
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
             aVar.a(false, null);
         } else {
-            d.bn("").b(Schedulers.io()).d(new f<String, Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.2
+            d.bj("").b(Schedulers.io()).d(new f<String, Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: rG */
+                /* renamed from: rH */
                 public Object call(String str) {
                     com.baidu.swan.c.b.e(new File(string), new File(string2));
                     return null;
                 }
-            }).a(rx.a.b.a.cDU()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.1
+            }).a(rx.a.b.a.cDJ()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.q.a.1
                 @Override // rx.functions.b
                 public void call(Object obj) {
                     bundle2.putString("path", string2);

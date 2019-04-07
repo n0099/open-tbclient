@@ -22,14 +22,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View bVZ;
-    private ImageView crD;
-    private TextView crE;
-    private View crF;
+    private View bWb;
+    private ImageView crF;
     private TextView crG;
-    private TextView crH;
-    private PluginStatus crI;
-    private ShadowLayout crJ;
+    private View crH;
+    private TextView crI;
+    private TextView crJ;
+    private PluginStatus crK;
+    private ShadowLayout crL;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.crI = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.crK = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.crI = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.crK = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.crI == null) {
+        if (this.crK == null) {
             finish();
             return;
         }
@@ -65,29 +65,29 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
-        this.bVZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.bVZ.setOnClickListener(this);
+        this.bWb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.bWb.setOnClickListener(this);
         this.mNavigationBar.setTitleText(d.j.pluginstatus_tip_title);
-        this.crD = (ImageView) findViewById(d.g.plugin_error_tip_image);
-        this.crE = (TextView) findViewById(d.g.plugin_error_install_fail);
-        this.crG = (TextView) findViewById(d.g.plugin_error_tip_resolve);
-        this.crF = findViewById(d.g.plugin_error_parent);
-        this.crJ = (ShadowLayout) findViewById(d.g.plugin_error_shadow_layout);
-        this.crH = (TextView) findViewById(d.g.plugin_error_btn);
-        this.crH.setOnClickListener(this);
-        this.crG.setText(getString(d.j.plugin_error_tips, new Object[]{this.crI.getErrorMsg(), this.crI.nR()}));
-        if (this.crI.getErrorCode() == 5 || this.crI.getErrorCode() == 1 || this.crI.getErrorCode() == 100) {
-            this.crH.setText(d.j.pluginstatus_btn_restartapp);
-            this.crH.setVisibility(0);
+        this.crF = (ImageView) findViewById(d.g.plugin_error_tip_image);
+        this.crG = (TextView) findViewById(d.g.plugin_error_install_fail);
+        this.crI = (TextView) findViewById(d.g.plugin_error_tip_resolve);
+        this.crH = findViewById(d.g.plugin_error_parent);
+        this.crL = (ShadowLayout) findViewById(d.g.plugin_error_shadow_layout);
+        this.crJ = (TextView) findViewById(d.g.plugin_error_btn);
+        this.crJ.setOnClickListener(this);
+        this.crI.setText(getString(d.j.plugin_error_tips, new Object[]{this.crK.getErrorMsg(), this.crK.nR()}));
+        if (this.crK.getErrorCode() == 5 || this.crK.getErrorCode() == 1 || this.crK.getErrorCode() == 100) {
+            this.crJ.setText(d.j.pluginstatus_btn_restartapp);
+            this.crJ.setVisibility(0);
             return;
         }
-        this.crH.setVisibility(8);
+        this.crJ.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.crI);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.crK);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -95,10 +95,10 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bVZ) {
+        if (view == this.bWb) {
             finish();
-        } else if (view == this.crH) {
-            if (this.crI != null && this.crI.getErrorCode() == 100) {
+        } else if (view == this.crJ) {
+            if (this.crK != null && this.crK.getErrorCode() == 100) {
                 com.baidu.adp.plugin.b.a.mS().ap(true);
             }
             showLoadingDialog(getResources().getString(d.j.waiting));
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.c(this.crD, d.f.new_pic_emotion_05);
-        al.j(this.crE, d.C0277d.cp_cont_c);
-        al.l(this.crF, d.C0277d.cp_bg_line_d);
-        al.j(this.crG, d.C0277d.cp_cont_b);
-        al.j(this.crH, d.C0277d.cp_cont_g);
-        al.k(this.crH, d.f.selector_blue_gradient_button);
-        this.crJ.setShadowColor(d.C0277d.plugin_button_shadow_blue);
+        al.c(this.crF, d.f.new_pic_emotion_05);
+        al.j(this.crG, d.C0277d.cp_cont_c);
+        al.l(this.crH, d.C0277d.cp_bg_line_d);
+        al.j(this.crI, d.C0277d.cp_cont_b);
+        al.j(this.crJ, d.C0277d.cp_cont_g);
+        al.k(this.crJ, d.f.selector_blue_gradient_button);
+        this.crL.setShadowColor(d.C0277d.plugin_button_shadow_blue);
     }
 }

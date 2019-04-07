@@ -7,16 +7,16 @@ import android.util.Printer;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 final class l implements Printer {
-    private final Context aaX;
-    private i abk;
-    private long abi = 0;
+    private final Context aaY;
+    private i abl;
     private long abj = 0;
-    private boolean abl = false;
+    private long abk = 0;
+    private boolean abm = false;
 
     public l(i iVar, Context context) {
-        this.abk = null;
-        this.abk = iVar;
-        this.aaX = context;
+        this.abl = null;
+        this.abl = iVar;
+        this.aaY = context;
     }
 
     @Override // android.util.Printer
@@ -24,24 +24,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.abl) {
-            this.abi = System.currentTimeMillis();
-            this.abj = SystemClock.currentThreadTimeMillis();
-            this.abl = true;
-            if (c.ba(this.aaX).aaV != null) {
-                c.ba(this.aaX).aaV.start();
+        if (!this.abm) {
+            this.abj = System.currentTimeMillis();
+            this.abk = SystemClock.currentThreadTimeMillis();
+            this.abm = true;
+            if (c.ba(this.aaY).aaW != null) {
+                c.ba(this.aaY).aaW.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.abl = false;
-        if (currentTimeMillis - this.abi >= ((long) a.U)) {
-            com.baidu.crabsdk.c.a.cv("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.abi + "=" + (currentTimeMillis - this.abi) + " >= " + a.U);
-            j.rO().post(new m(this, this.abi, currentTimeMillis, this.abj, SystemClock.currentThreadTimeMillis()));
+        this.abm = false;
+        if (currentTimeMillis - this.abj >= ((long) a.U)) {
+            com.baidu.crabsdk.c.a.cv("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.abj + "=" + (currentTimeMillis - this.abj) + " >= " + a.U);
+            j.rO().post(new m(this, this.abj, currentTimeMillis, this.abk, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.ba(this.aaX).aaV != null) {
-            c.ba(this.aaX).aaV.stop();
+        if (c.ba(this.aaY).aaW != null) {
+            c.ba(this.aaY).aaW.stop();
         }
     }
 }

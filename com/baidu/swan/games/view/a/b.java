@@ -5,23 +5,23 @@ import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class b {
-    private static final ReentrantLock bfy = new ReentrantLock();
-    private static ArrayList<a> bfI = new ArrayList<>();
+    private static final ReentrantLock bfB = new ReentrantLock();
+    private static ArrayList<a> bfL = new ArrayList<>();
 
-    public static void Pr() {
-        if (!bfI.isEmpty()) {
-            Iterator<a> it = bfI.iterator();
+    public static void Pp() {
+        if (!bfL.isEmpty()) {
+            Iterator<a> it = bfL.iterator();
             while (it.hasNext()) {
-                it.next().Pp();
+                it.next().Pn();
             }
         }
     }
 
-    public static void Ps() {
-        if (!bfI.isEmpty()) {
-            Iterator<a> it = bfI.iterator();
+    public static void Pq() {
+        if (!bfL.isEmpty()) {
+            Iterator<a> it = bfL.iterator();
             while (it.hasNext()) {
-                it.next().Pq();
+                it.next().Po();
             }
         }
     }

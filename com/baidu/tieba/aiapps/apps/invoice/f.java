@@ -8,7 +8,6 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.swan.apps.an.n;
 import com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity;
-import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes4.dex */
 public class f implements com.baidu.swan.apps.u.b.g {
     @Override // com.baidu.swan.apps.u.b.g
@@ -18,7 +17,7 @@ public class f implements com.baidu.swan.apps.u.b.g {
             Intent intent = new Intent(context, InvoiceListActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("appId", str);
-            bundle.putString(WBConstants.SSO_APP_KEY, str2);
+            bundle.putString("appKey", str2);
             bundle.putInt("bar_position", 0);
             bundle.putString("source", "source_ai_app");
             intent.putExtras(bundle);
@@ -26,11 +25,11 @@ public class f implements com.baidu.swan.apps.u.b.g {
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                 public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                     if (i == -1 && intent2 != null) {
-                        bVar.w(n.dk(intent2.getStringExtra("invoiceInfo")));
+                        bVar.w(n.dm(intent2.getStringExtra("invoiceInfo")));
                     } else if (i == 0) {
-                        bVar.bP(1);
+                        bVar.bO(1);
                     } else {
-                        bVar.bP(0);
+                        bVar.bO(0);
                     }
                     return true;
                 }

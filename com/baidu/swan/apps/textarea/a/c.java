@@ -25,16 +25,16 @@ public class c extends y {
             return false;
         }
         com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction paramsJson: " + optParamsAsJo);
-        com.baidu.swan.apps.textarea.c.b hr = com.baidu.swan.apps.textarea.c.a.Lw().hr(optParamsAsJo.optString("slaveId"));
-        if (hr == null) {
+        com.baidu.swan.apps.textarea.c.b hs = com.baidu.swan.apps.textarea.c.a.Lu().hs(optParamsAsJo.optString("slaveId"));
+        if (hs == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!hr.ak(optParamsAsJo)) {
+        } else if (!hs.ak(optParamsAsJo)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            hr.hu(optParamsAsJo.optString("inputId"));
+            hs.hv(optParamsAsJo.optString("inputId"));
             return true;
         }
     }

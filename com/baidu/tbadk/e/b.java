@@ -9,18 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> btA = null;
-    protected static boolean btC = false;
-    protected String bty = "183322726";
-    protected boolean btB = true;
-    protected transient List<String> btz = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> btD = null;
+    protected static boolean btF = false;
+    protected String btB = "183322726";
+    protected boolean btE = true;
+    protected transient List<String> btC = new ArrayList(5);
 
     /* loaded from: classes6.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void Vh();
+    public abstract void Ve();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void Vj();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void Vk();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void Vl();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void Vm();
@@ -29,19 +38,10 @@ public abstract class b {
     public abstract void Vn();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void Vo();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void Vp();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void Vq();
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void fC(int i);
+    public abstract void fB(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b c(BaseFragmentActivity baseFragmentActivity) {
@@ -54,29 +54,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (btA == null) {
-            btA = new WeakReference<>(tbPageContext);
+        if (btD == null) {
+            btD = new WeakReference<>(tbPageContext);
             return;
         }
-        btA.clear();
-        btA = null;
-        btA = new WeakReference<>(tbPageContext);
+        btD.clear();
+        btD = null;
+        btD = new WeakReference<>(tbPageContext);
     }
 
-    public boolean Vl() {
-        return btC;
+    public boolean Vi() {
+        return btF;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void da(boolean z) {
-        this.btB = z;
+        this.btE = z;
     }
 
-    public void Vi() {
-        if (btA != null) {
-            btA.get();
-            btA.clear();
-            btA = null;
+    public void Vf() {
+        if (btD != null) {
+            btD.get();
+            btD.clear();
+            btD = null;
         }
     }
 }

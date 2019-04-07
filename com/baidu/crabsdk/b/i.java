@@ -14,11 +14,11 @@ public final class i {
         return abQ.getLanguage();
     }
 
-    public static void x() {
+    public static void w() {
         abQ = Locale.getDefault();
     }
 
-    public static String y() {
+    public static String x() {
         return abQ.getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + abQ.getCountry();
     }
 }

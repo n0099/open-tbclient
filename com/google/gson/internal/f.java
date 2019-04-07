@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final Map<Class<?>, Class<?>> jOp;
-    private static final Map<Class<?>, Class<?>> jOq;
+    private static final Map<Class<?>, Class<?>> jNJ;
+    private static final Map<Class<?>, Class<?>> jNK;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -21,8 +21,8 @@ public final class f {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        jOp = Collections.unmodifiableMap(hashMap);
-        jOq = Collections.unmodifiableMap(hashMap2);
+        jNJ = Collections.unmodifiableMap(hashMap);
+        jNK = Collections.unmodifiableMap(hashMap2);
     }
 
     private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -31,11 +31,11 @@ public final class f {
     }
 
     public static boolean k(Type type) {
-        return jOp.containsKey(type);
+        return jNJ.containsKey(type);
     }
 
     public static <T> Class<T> B(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) jOp.get(a.checkNotNull(cls));
+        Class<T> cls2 = (Class<T>) jNJ.get(a.checkNotNull(cls));
         return cls2 == null ? cls : cls2;
     }
 }

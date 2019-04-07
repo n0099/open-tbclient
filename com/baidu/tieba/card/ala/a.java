@@ -10,58 +10,58 @@ import com.baidu.tieba.play.j;
 import com.baidu.tieba.play.n;
 /* loaded from: classes3.dex */
 public class a implements f {
-    private bg bTl;
-    private j dbd;
-    private n dbe;
-    private AlaVideoContainer dqx;
-    private boolean ehQ = false;
-    private j.a eic = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private bg bTn;
+    private j dbg;
+    private n dbh;
+    private AlaVideoContainer dqA;
+    private boolean ehC = false;
+    private j.a ehO = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
         public void qE() {
-            a.this.aQo();
+            a.this.aQm();
         }
     };
-    private AlaInfoData ekP;
-    private String ekQ;
+    private AlaInfoData ekB;
+    private String ekC;
     private String mForumName;
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.dqx = alaVideoContainer;
-        if (this.dqx != null) {
-            this.dbd = new j();
-            this.dbd.setPlayer(this.dqx.getVideoView());
-            this.dbd.a(this.eic);
-            if (this.dqx.getVideoView() != null) {
-                this.dbe = new n(this.dqx.getVideoView().getContext());
-                this.dqx.getVideoView().setBusiness(this.dbe);
+        this.dqA = alaVideoContainer;
+        if (this.dqA != null) {
+            this.dbg = new j();
+            this.dbg.setPlayer(this.dqA.getVideoView());
+            this.dbg.a(this.ehO);
+            if (this.dqA.getVideoView() != null) {
+                this.dbh = new n(this.dqA.getVideoView().getContext());
+                this.dqA.getVideoView().setBusiness(this.dbh);
             }
         }
     }
 
     public void a(bg bgVar, String str, String str2, boolean z) {
-        this.ekQ = str2;
+        this.ekC = str2;
         this.mForumName = str;
         if (bgVar != null) {
-            this.bTl = bgVar;
-            if (this.dqx != null && this.bTl.Zk() != null) {
-                this.ekP = this.bTl.Zk();
-                this.dqx.setVideoThumbnail(this.ekP.cover);
-                if (this.dbe != null && this.dbe.bTz() != null) {
-                    this.dbe.bTz().b(this.ekP);
+            this.bTn = bgVar;
+            if (this.dqA != null && this.bTn.Zh() != null) {
+                this.ekB = this.bTn.Zh();
+                this.dqA.setVideoThumbnail(this.ekB.cover);
+                if (this.dbh != null && this.dbh.bTv() != null) {
+                    this.dbh.bTv().b(this.ekB);
                 }
                 if (z) {
-                    this.dqx.setTitle(this.bTl.getTitle());
+                    this.dqA.setTitle(this.bTn.getTitle());
                 } else {
-                    this.dqx.setTitle("");
+                    this.dqA.setTitle("");
                 }
-                this.dqx.setPlayCount(String.format(this.dqx.getVideoView().getContext().getResources().getString(d.j.ala_audience_count_prefix), ap.az(this.bTl.Zk().audience_count)));
+                this.dqA.setPlayCount(String.format(this.dqA.getVideoView().getContext().getResources().getString(d.j.ala_audience_count_prefix), ap.az(this.bTn.Zh().audience_count)));
             }
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        return this.ehQ;
+        return this.ehC;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -80,49 +80,49 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.dqx != null && this.dqx.getVideoView() != null) {
-            this.dqx.getVideoView().stopPlayback();
-            this.dqx.aBk();
-            if (this.dbd != null) {
-                this.dbd.stop();
+        if (this.dqA != null && this.dqA.getVideoView() != null) {
+            this.dqA.getVideoView().stopPlayback();
+            this.dqA.aBh();
+            if (this.dbg != null) {
+                this.dbg.stop();
             }
         }
-        this.ehQ = false;
+        this.ehC = false;
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.dqx != null) {
-            return this.dqx.getView();
+        if (this.dqA != null) {
+            return this.dqA.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.bTl == null || this.bTl.Zi() == null) {
+        if (this.bTn == null || this.bTn.Zf() == null) {
             return null;
         }
-        return this.bTl.Zi().video_url;
+        return this.bTn.Zf().video_url;
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.dqx == null || this.dqx.getVideoView() == null) {
+        if (this.dqA == null || this.dqA.getVideoView() == null) {
             return 0;
         }
-        return this.dqx.getVideoView().getCurrentPosition();
+        return this.dqA.getVideoView().getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQo() {
-        if (this.bTl == null || this.bTl.Zi() == null) {
+    public void aQm() {
+        if (this.bTn == null || this.bTn.Zf() == null) {
         }
     }
 
     public void startPlayAnimation() {
-        if (this.dqx != null) {
-            this.dqx.startPlayAnimation();
+        if (this.dqA != null) {
+            this.dqA.startPlayAnimation();
         }
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.post;
 /* loaded from: classes5.dex */
 public class e {
-    public final int ibr;
-    public final boolean ibs;
+    public final int ibd;
+    public final boolean ibe;
     public final boolean isSuccess;
     public final String uuid;
 
     public e(boolean z, int i, boolean z2, String str) {
         this.isSuccess = z;
-        this.ibr = i;
-        this.ibs = z2;
+        this.ibd = i;
+        this.ibe = z2;
         this.uuid = str;
     }
 }

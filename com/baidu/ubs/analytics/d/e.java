@@ -4,14 +4,14 @@ import android.content.SharedPreferences;
 /* loaded from: classes3.dex */
 public final class e {
     private static SharedPreferences csN() {
-        return com.baidu.ubs.analytics.d.csq().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+        return com.baidu.ubs.analytics.d.cso().getContext().getSharedPreferences("baidu_ab_general_config", 0);
     }
 
-    public static void EY(String str) {
+    public static void EX(String str) {
         csN().edit().putBoolean(str, true).apply();
     }
 
-    public static boolean EZ(String str) {
+    public static boolean EY(String str) {
         return csN().getBoolean(str, false);
     }
 
@@ -23,7 +23,7 @@ public final class e {
         csN().edit().putLong(str, j).apply();
     }
 
-    public static long Fa(String str) {
+    public static long EZ(String str) {
         return csN().getLong(str, 0L);
     }
 

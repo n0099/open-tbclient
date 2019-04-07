@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.af;
 /* loaded from: classes.dex */
 public class i extends h {
-    protected boolean bRW;
-    private CustomMessageListener bRX;
+    protected boolean bRY;
+    private CustomMessageListener bRZ;
     protected boolean isDone;
     private CustomMessageListener listener;
 
@@ -23,15 +23,15 @@ public class i extends h {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (i.this.isDone) {
-                    i.this.ic(TbadkCoreApplication.getInst().getSkinType());
+                    i.this.ib(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
-        this.bRX = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.i.2
+        this.bRZ = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                i.this.bRE.setBackgroundColor(af.acV().hk(TbadkCoreApplication.getInst().getSkinType()));
+                i.this.bRG.setBackgroundColor(af.acS().hj(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         d(tbPageContext);
@@ -39,7 +39,7 @@ public class i extends h {
 
     @Override // com.baidu.tbadk.core.view.h, com.baidu.adp.widget.ListView.c
     public void ax(boolean z) {
-        this.bRF.setBackgroundDrawable(null);
+        this.bRH.setBackgroundDrawable(null);
         super.ax(z);
         this.isDone = true;
     }
@@ -48,12 +48,12 @@ public class i extends h {
     public void aw(boolean z) {
         super.aw(z);
         this.isDone = false;
-        if (!this.bRW) {
+        if (!this.bRY) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (this.mSkinType != Integer.MIN_VALUE) {
                 skinType = this.mSkinType;
             }
-            ic(skinType);
+            ib(skinType);
         }
     }
 
@@ -64,47 +64,47 @@ public class i extends h {
     }
 
     @Override // com.baidu.tbadk.core.view.h
-    public void ic(int i) {
-        super.ic(i);
-        if (this.bRE != null && this.bRF != null) {
-            this.bRW = false;
-            if (!add()) {
-                this.bRK = af.acV().hi(i);
-                if (this.bRK != null) {
-                    this.bRW = true;
+    public void ib(int i) {
+        super.ib(i);
+        if (this.bRG != null && this.bRH != null) {
+            this.bRY = false;
+            if (!ada()) {
+                this.bRM = af.acS().hh(i);
+                if (this.bRM != null) {
+                    this.bRY = true;
                 } else {
-                    this.bRK = new AnimationDrawable();
+                    this.bRM = new AnimationDrawable();
                 }
-                this.bRE.setBackgroundColor(af.acV().hk(i));
-                if (!this.bRW) {
-                    this.bRK = af.acV().hj(i);
+                this.bRG.setBackgroundColor(af.acS().hj(i));
+                if (!this.bRY) {
+                    this.bRM = af.acS().hi(i);
                 }
-                this.bRK.setOneShot(false);
-                this.bRF.setBackgroundDrawable(this.bRK);
+                this.bRM.setOneShot(false);
+                this.bRH.setBackgroundDrawable(this.bRM);
             }
         }
     }
 
     private void d(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.bRX.setTag(tbPageContext.getUniqueId());
+        this.bRZ.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.bRX);
+        tbPageContext.registerListener(this.bRZ);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.bRX != null) {
-            this.bRX.setTag(bdUniqueId);
+        if (this.bRZ != null) {
+            this.bRZ.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.bRX);
+        MessageManager.getInstance().registerListener(this.bRZ);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.bRX);
+        MessageManager.getInstance().unRegisterListener(this.bRZ);
     }
 }

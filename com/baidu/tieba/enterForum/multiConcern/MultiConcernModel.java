@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MultiConcernModel extends BdBaseModel {
-    private a eDX;
-    com.baidu.adp.framework.listener.a eDY;
+    private a eDI;
+    com.baidu.adp.framework.listener.a eDJ;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void ac(int i, String str);
+        void ae(int i, String str);
     }
 
     public MultiConcernModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eDY = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
+        this.eDJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
-                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.eDX != null) {
-                        MultiConcernModel.this.eDX.ac(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.eDI != null) {
+                        MultiConcernModel.this.eDI.ae(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -32,7 +32,7 @@ public class MultiConcernModel extends BdBaseModel {
         setUniqueId(BdUniqueId.gen());
         com.baidu.tieba.tbadkCore.a.a.a(309470, MultiConcernSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309470, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, "c/f/recommtag/multiConcern", MultiConcernHttpResponseMessage.class, false, false, false, false);
-        registerListener(this.eDY);
+        registerListener(this.eDJ);
     }
 
     public void K(ArrayList<Long> arrayList) {
@@ -45,7 +45,7 @@ public class MultiConcernModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eDX = aVar;
+        this.eDI = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

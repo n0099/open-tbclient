@@ -12,7 +12,6 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
@@ -31,7 +30,7 @@ public class x extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SaveImage", "illegal params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
@@ -69,7 +68,7 @@ public class x extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Jb().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
+                bVar.IZ().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.c.a
                     /* renamed from: b */

@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.e;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.pushservice.PushConstants;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class x extends c {
@@ -27,7 +28,7 @@ public class x extends c {
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
         hashMap.put("method", "settags");
-        hashMap.put("tags", this.d);
+        hashMap.put(CommandMessage.TYPE_TAGS, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

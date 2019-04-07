@@ -5,21 +5,21 @@ import android.text.TextUtils;
 public class a {
     public String appId;
     public String appKey;
-    public String atU;
-    public String atV;
-    public String atW;
-    public String atX;
     public String atY;
     public String atZ;
-    public int aua;
+    public String aua;
     public String aub;
     public String auc;
     public String aud;
-    public long aue;
-    public int auf;
+    public int aue;
+    public String auf;
     public String aug;
-    public long auh = 432000;
-    public boolean aui;
+    public String auh;
+    public long aui;
+    public int auj;
+    public String auk;
+    public long aul = 432000;
+    public boolean aum;
     public int category;
     public long createTime;
     public String description;
@@ -35,11 +35,11 @@ public class a {
     public String version;
 
     public static boolean e(a aVar) {
-        return (aVar == null || aVar.auf == 0) ? false : true;
+        return (aVar == null || aVar.auj == 0) ? false : true;
     }
 
-    public boolean AF() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.auh;
+    public boolean AE() {
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aul;
     }
 
     public boolean isValid() {
@@ -47,6 +47,6 @@ public class a {
     }
 
     public String toShortString() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.atU + "', maxSwanVersion='" + this.atV + "', minSwanVersion='" + this.atW + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.aua + ", targetSwanVersion='" + this.aud + "', mAppZipSize=" + this.aue + ", mPendingApsErrcode=" + this.auf + ", category=" + this.category + ", versionCode='" + this.aug + "', maxAge=" + this.auh + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.aui + '}';
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.atY + "', maxSwanVersion='" + this.atZ + "', minSwanVersion='" + this.aua + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.aue + ", targetSwanVersion='" + this.auh + "', mAppZipSize=" + this.aui + ", mPendingApsErrcode=" + this.auj + ", category=" + this.category + ", versionCode='" + this.auk + "', maxAge=" + this.aul + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.aum + '}';
     }
 }

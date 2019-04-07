@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gjn = BdUniqueId.gen();
+    public static final BdUniqueId gja = BdUniqueId.gen();
     private Object Zw;
-    private NoDataViewFactory.ImgType gjo;
-    private String gjp;
-    private String gjq;
-    private String gjr;
-    private int gjs;
+    private NoDataViewFactory.ImgType gjb;
+    private String gjc;
+    private String gjd;
+    private String gje;
+    private int gjf;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gjn;
+        return gja;
     }
 
-    public String bsR() {
-        return this.gjp;
+    public String bsO() {
+        return this.gjc;
+    }
+
+    public void wZ(String str) {
+        this.gjc = str;
+    }
+
+    public String bsP() {
+        return this.gjd;
     }
 
     public void xa(String str) {
-        this.gjp = str;
+        this.gjd = str;
     }
 
-    public String bsS() {
-        return this.gjq;
+    public String bsQ() {
+        return this.gje;
     }
 
     public void xb(String str) {
-        this.gjq = str;
+        this.gje = str;
     }
 
-    public String bsT() {
-        return this.gjr;
+    public int bsR() {
+        return this.gjf;
     }
 
-    public void xc(String str) {
-        this.gjr = str;
-    }
-
-    public int bsU() {
-        return this.gjs;
-    }
-
-    public void tQ(int i) {
-        this.gjs = i;
+    public void tM(int i) {
+        this.gjf = i;
     }
 
     public Object rD() {
@@ -57,11 +57,11 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.Zw = obj;
     }
 
-    public NoDataViewFactory.ImgType bsV() {
-        return this.gjo;
+    public NoDataViewFactory.ImgType bsS() {
+        return this.gjb;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gjo = imgType;
+        this.gjb = imgType;
     }
 }

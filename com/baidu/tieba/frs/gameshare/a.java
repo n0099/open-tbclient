@@ -22,41 +22,41 @@ import com.baidu.tieba.d;
 import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView bTY;
-    private FrameLayout bfG;
-    private LinearLayout dRK;
-    private TbImageView dZx;
-    private LinearLayout dre;
-    private ImageView fmE;
-    private FrameLayout fmF;
-    private ColumnLayout fmG;
-    private TbImageView fmH;
-    private TextView fmI;
-    private TextView fmJ;
-    private TextView fmK;
-    private RadioButton fmL;
-    private RadioButton fmM;
-    private RadioButton fmN;
-    private RadioButton fmO;
-    private RadioButton fmP;
-    private RadioButton[] fmQ;
+    private TextView bUa;
+    private FrameLayout bfJ;
+    private LinearLayout dRb;
+    private TbImageView dYU;
+    private LinearLayout drh;
+    private RadioButton fmA;
+    private RadioButton fmB;
+    private RadioButton[] fmC;
+    private TextView fmD;
+    private TbImageView fmE;
+    private RadioButton fmF;
+    private RadioButton fmG;
+    private RadioButton fmH;
+    private RadioButton fmI;
+    private RadioButton fmJ;
+    private RadioButton[] fmK;
+    private TextView fmL;
+    private TbImageView fmM;
+    private TextView fmN;
+    private TextView fmO;
+    private TextView fmP;
+    private TextView fmQ;
     private TextView fmR;
-    private TbImageView fmS;
-    private RadioButton fmT;
-    private RadioButton fmU;
-    private RadioButton fmV;
-    private RadioButton fmW;
-    private RadioButton fmX;
-    private RadioButton[] fmY;
-    private TextView fmZ;
-    private TbImageView fna;
-    private TextView fnb;
-    private TextView fnc;
-    private TextView fnd;
-    private TextView fne;
-    private TextView fnf;
-    private InterfaceC0292a fng;
-    private BlurDrawable fnh;
+    private InterfaceC0292a fmS;
+    private BlurDrawable fmT;
+    private ImageView fmq;
+    private FrameLayout fmr;
+    private ColumnLayout fms;
+    private TbImageView fmt;
+    private TextView fmu;
+    private TextView fmv;
+    private TextView fmw;
+    private RadioButton fmx;
+    private RadioButton fmy;
+    private RadioButton fmz;
     private FrameLayout mContentLayout;
 
     /* renamed from: com.baidu.tieba.frs.gameshare.a$a  reason: collision with other inner class name */
@@ -74,23 +74,23 @@ public class a {
     }
 
     public a(Context context, InterfaceC0292a interfaceC0292a) {
-        this.fng = interfaceC0292a;
-        this.bfG = (FrameLayout) LayoutInflater.from(context).inflate(d.h.activity_game_share_layout, (ViewGroup) null);
-        this.mContentLayout = (FrameLayout) this.bfG.findViewById(d.g.game_share_content_layout);
-        this.fmE = (ImageView) this.bfG.findViewById(d.g.game_share_content_bg_view);
-        this.dre = (LinearLayout) this.bfG.findViewById(d.g.game_share_card_layout);
-        this.fmF = (FrameLayout) this.bfG.findViewById(d.g.game_share_header_root);
-        this.fmG = (ColumnLayout) this.bfG.findViewById(d.g.game_share_header_layout);
-        this.dZx = (TbImageView) this.bfG.findViewById(d.g.game_share_header_bg_view);
-        this.dZx.setVisibility(4);
-        this.dZx.setDefaultBg(new ColorDrawable(this.bfG.getResources().getColor(d.C0277d.transparent)));
-        this.dZx.setDrawerType(1);
-        this.dZx.setRadius(context.getResources().getDimensionPixelSize(d.e.ds20));
-        this.dZx.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.gameshare.a.1
+        this.fmS = interfaceC0292a;
+        this.bfJ = (FrameLayout) LayoutInflater.from(context).inflate(d.h.activity_game_share_layout, (ViewGroup) null);
+        this.mContentLayout = (FrameLayout) this.bfJ.findViewById(d.g.game_share_content_layout);
+        this.fmq = (ImageView) this.bfJ.findViewById(d.g.game_share_content_bg_view);
+        this.drh = (LinearLayout) this.bfJ.findViewById(d.g.game_share_card_layout);
+        this.fmr = (FrameLayout) this.bfJ.findViewById(d.g.game_share_header_root);
+        this.fms = (ColumnLayout) this.bfJ.findViewById(d.g.game_share_header_layout);
+        this.dYU = (TbImageView) this.bfJ.findViewById(d.g.game_share_header_bg_view);
+        this.dYU.setVisibility(4);
+        this.dYU.setDefaultBg(new ColorDrawable(this.bfJ.getResources().getColor(d.C0277d.transparent)));
+        this.dYU.setDrawerType(1);
+        this.dYU.setRadius(context.getResources().getDimensionPixelSize(d.e.ds20));
+        this.dYU.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.gameshare.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void L(String str, boolean z) {
                 if (z) {
-                    a.this.dZx.setVisibility(0);
+                    a.this.dYU.setVisibility(0);
                 }
             }
 
@@ -98,85 +98,85 @@ public class a {
             public void onCancel() {
             }
         });
-        this.fmH = (TbImageView) this.bfG.findViewById(d.g.game_share_game_icon);
-        this.fmH.setDrawerType(1);
-        this.fmH.setRadius(context.getResources().getDimensionPixelSize(d.e.ds20));
-        this.fmI = (TextView) this.bfG.findViewById(d.g.game_share_game_name);
-        this.fmJ = (TextView) this.bfG.findViewById(d.g.game_share_game_description);
-        this.fmK = (TextView) this.bfG.findViewById(d.g.game_share_game_score);
-        this.fmL = (RadioButton) this.bfG.findViewById(d.g.game_share_score_grade_1);
-        this.fmM = (RadioButton) this.bfG.findViewById(d.g.game_share_score_grade_2);
-        this.fmN = (RadioButton) this.bfG.findViewById(d.g.game_share_score_grade_3);
-        this.fmO = (RadioButton) this.bfG.findViewById(d.g.game_share_score_grade_4);
-        this.fmP = (RadioButton) this.bfG.findViewById(d.g.game_share_score_grade_5);
-        this.fmQ = new RadioButton[]{this.fmL, this.fmM, this.fmN, this.fmO, this.fmP};
-        this.fmR = (TextView) this.bfG.findViewById(d.g.game_share_comment);
-        this.fmS = (TbImageView) this.bfG.findViewById(d.g.game_share_user_protrait);
-        this.fmS.setDrawerType(1);
-        this.fmS.setIsRound(true);
-        this.bTY = (TextView) this.bfG.findViewById(d.g.game_share_user_name);
-        this.fmT = (RadioButton) this.bfG.findViewById(d.g.game_share_user_score_grade_1);
-        this.fmU = (RadioButton) this.bfG.findViewById(d.g.game_share_user_score_grade_2);
-        this.fmV = (RadioButton) this.bfG.findViewById(d.g.game_share_user_score_grade_3);
-        this.fmW = (RadioButton) this.bfG.findViewById(d.g.game_share_user_score_grade_4);
-        this.fmX = (RadioButton) this.bfG.findViewById(d.g.game_share_user_score_grade_5);
-        this.fmY = new RadioButton[]{this.fmT, this.fmU, this.fmV, this.fmW, this.fmX};
-        this.fmZ = (TextView) this.bfG.findViewById(d.g.game_share_qr_txt);
-        this.fna = (TbImageView) this.bfG.findViewById(d.g.game_share_qr_img);
-        this.dRK = (LinearLayout) this.bfG.findViewById(d.g.game_share_entry_layout);
-        this.fnb = (TextView) this.bfG.findViewById(d.g.game_share_entry_weixin);
-        this.fnb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.2
+        this.fmt = (TbImageView) this.bfJ.findViewById(d.g.game_share_game_icon);
+        this.fmt.setDrawerType(1);
+        this.fmt.setRadius(context.getResources().getDimensionPixelSize(d.e.ds20));
+        this.fmu = (TextView) this.bfJ.findViewById(d.g.game_share_game_name);
+        this.fmv = (TextView) this.bfJ.findViewById(d.g.game_share_game_description);
+        this.fmw = (TextView) this.bfJ.findViewById(d.g.game_share_game_score);
+        this.fmx = (RadioButton) this.bfJ.findViewById(d.g.game_share_score_grade_1);
+        this.fmy = (RadioButton) this.bfJ.findViewById(d.g.game_share_score_grade_2);
+        this.fmz = (RadioButton) this.bfJ.findViewById(d.g.game_share_score_grade_3);
+        this.fmA = (RadioButton) this.bfJ.findViewById(d.g.game_share_score_grade_4);
+        this.fmB = (RadioButton) this.bfJ.findViewById(d.g.game_share_score_grade_5);
+        this.fmC = new RadioButton[]{this.fmx, this.fmy, this.fmz, this.fmA, this.fmB};
+        this.fmD = (TextView) this.bfJ.findViewById(d.g.game_share_comment);
+        this.fmE = (TbImageView) this.bfJ.findViewById(d.g.game_share_user_protrait);
+        this.fmE.setDrawerType(1);
+        this.fmE.setIsRound(true);
+        this.bUa = (TextView) this.bfJ.findViewById(d.g.game_share_user_name);
+        this.fmF = (RadioButton) this.bfJ.findViewById(d.g.game_share_user_score_grade_1);
+        this.fmG = (RadioButton) this.bfJ.findViewById(d.g.game_share_user_score_grade_2);
+        this.fmH = (RadioButton) this.bfJ.findViewById(d.g.game_share_user_score_grade_3);
+        this.fmI = (RadioButton) this.bfJ.findViewById(d.g.game_share_user_score_grade_4);
+        this.fmJ = (RadioButton) this.bfJ.findViewById(d.g.game_share_user_score_grade_5);
+        this.fmK = new RadioButton[]{this.fmF, this.fmG, this.fmH, this.fmI, this.fmJ};
+        this.fmL = (TextView) this.bfJ.findViewById(d.g.game_share_qr_txt);
+        this.fmM = (TbImageView) this.bfJ.findViewById(d.g.game_share_qr_img);
+        this.dRb = (LinearLayout) this.bfJ.findViewById(d.g.game_share_entry_layout);
+        this.fmN = (TextView) this.bfJ.findViewById(d.g.game_share_entry_weixin);
+        this.fmN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bgy = a.this.bgy();
-                if (bgy != null && a.this.fng != null) {
-                    a.this.fng.u(bgy);
+                Bitmap bgw = a.this.bgw();
+                if (bgw != null && a.this.fmS != null) {
+                    a.this.fmS.u(bgw);
                 }
             }
         });
-        this.fnc = (TextView) this.bfG.findViewById(d.g.game_share_entry_wxfriends);
-        this.fnc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.3
+        this.fmO = (TextView) this.bfJ.findViewById(d.g.game_share_entry_wxfriends);
+        this.fmO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bgy = a.this.bgy();
-                if (bgy != null && a.this.fng != null) {
-                    a.this.fng.v(bgy);
+                Bitmap bgw = a.this.bgw();
+                if (bgw != null && a.this.fmS != null) {
+                    a.this.fmS.v(bgw);
                 }
             }
         });
-        this.fnd = (TextView) this.bfG.findViewById(d.g.game_share_entry_qq);
-        this.fnd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.4
+        this.fmP = (TextView) this.bfJ.findViewById(d.g.game_share_entry_qq);
+        this.fmP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bgy = a.this.bgy();
-                if (bgy != null && a.this.fng != null) {
-                    a.this.fng.w(bgy);
+                Bitmap bgw = a.this.bgw();
+                if (bgw != null && a.this.fmS != null) {
+                    a.this.fmS.w(bgw);
                 }
             }
         });
-        this.fne = (TextView) this.bfG.findViewById(d.g.game_share_entry_sina);
-        this.fne.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.5
+        this.fmQ = (TextView) this.bfJ.findViewById(d.g.game_share_entry_sina);
+        this.fmQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bgy = a.this.bgy();
-                if (bgy != null && a.this.fng != null) {
-                    a.this.fng.x(bgy);
+                Bitmap bgw = a.this.bgw();
+                if (bgw != null && a.this.fmS != null) {
+                    a.this.fmS.x(bgw);
                 }
             }
         });
-        this.fnf = (TextView) this.bfG.findViewById(d.g.game_share_cancel);
-        this.fnf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.6
+        this.fmR = (TextView) this.bfJ.findViewById(d.g.game_share_cancel);
+        this.fmR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.fng != null) {
-                    a.this.fng.onCancel();
+                if (a.this.fmS != null) {
+                    a.this.fmS.onCancel();
                 }
             }
         });
     }
 
     public View getRootView() {
-        return this.bfG;
+        return this.bfJ;
     }
 
     public void a(GameShareData gameShareData) {
@@ -184,48 +184,48 @@ public class a {
         c(gameShareData);
         StringBuilder sb = new StringBuilder();
         sb.append("“ ");
-        sb.append(gameShareData.byQ);
+        sb.append(gameShareData.byT);
         sb.append(" ”");
-        this.fmR.setText(sb);
-        if (this.fnh == null) {
-            c.jB().a(gameShareData.byM, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.frs.gameshare.a.7
+        this.fmD.setText(sb);
+        if (this.fmT == null) {
+            c.jB().a(gameShareData.byP, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.frs.gameshare.a.7
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass7) aVar, str, i);
                     if (aVar == null || aVar.oy() == null) {
-                        UtilHelper.showToast(a.this.bfG.getContext(), d.j.share_failed);
-                        if (a.this.fng != null) {
-                            a.this.fng.onCancel();
+                        UtilHelper.showToast(a.this.bfJ.getContext(), d.j.share_failed);
+                        if (a.this.fmS != null) {
+                            a.this.fmS.onCancel();
                         }
                     }
-                    a.this.fnh = new BlurDrawable(a.this.bfG.getContext());
-                    a.this.fnh.init(2, 4, aVar.oy());
-                    a.this.fnh.drawBlur();
-                    a.this.fmE.setImageBitmap(a.this.fnh.getBlurredBitmap());
+                    a.this.fmT = new BlurDrawable(a.this.bfJ.getContext());
+                    a.this.fmT.init(2, 4, aVar.oy());
+                    a.this.fmT.drawBlur();
+                    a.this.fmq.setImageBitmap(a.this.fmT.getBlurredBitmap());
                 }
             }, null);
         }
-        this.dZx.startLoad(gameShareData.byS, 10, false);
-        this.fna.startLoad(gameShareData.byR, 10, false);
+        this.dYU.startLoad(gameShareData.byV, 10, false);
+        this.fmM.startLoad(gameShareData.byU, 10, false);
     }
 
     private void b(GameShareData gameShareData) {
         if (gameShareData != null) {
-            this.fmH.startLoad(gameShareData.byM, 10, false);
-            this.fmI.setText(gameShareData.gameName);
-            this.fmJ.setText(gameShareData.byN);
-            this.fmK.setText(new DecimalFormat(".0").format(gameShareData.byO));
-            a((int) gameShareData.byO, this.fmQ);
+            this.fmt.startLoad(gameShareData.byP, 10, false);
+            this.fmu.setText(gameShareData.gameName);
+            this.fmv.setText(gameShareData.byQ);
+            this.fmw.setText(new DecimalFormat(".0").format(gameShareData.byR));
+            a((int) gameShareData.byR, this.fmC);
         }
     }
 
     private void c(GameShareData gameShareData) {
         if (gameShareData != null) {
-            this.fmS.startLoad(gameShareData.userPortrait, 12, false);
-            this.bTY.setText(gameShareData.userName);
-            a((int) gameShareData.byP, this.fmY);
+            this.fmE.startLoad(gameShareData.userPortrait, 12, false);
+            this.bUa.setText(gameShareData.userName);
+            a((int) gameShareData.byS, this.fmK);
         }
     }
 
@@ -249,19 +249,19 @@ public class a {
         }
     }
 
-    public Bitmap bgy() {
+    public Bitmap bgw() {
         this.mContentLayout.buildDrawingCache();
         return this.mContentLayout.getDrawingCache();
     }
 
-    public int bgz() {
-        return this.dre.getBottom();
+    public int bgx() {
+        return this.drh.getBottom();
     }
 
     public void onDestroy() {
-        if (this.fnh != null) {
-            this.fnh.onDestroy();
-            this.fnh = null;
+        if (this.fmT != null) {
+            this.fmT.onDestroy();
+            this.fmT = null;
         }
     }
 }

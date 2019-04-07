@@ -18,7 +18,7 @@ public class b {
         return this.Ui;
     }
 
-    public void bm(int i) {
+    public void bl(int i) {
         this.Ui = i;
     }
 
@@ -26,7 +26,7 @@ public class b {
         return this.Uj;
     }
 
-    public void bn(int i) {
+    public void bm(int i) {
         this.Uj = i;
     }
 
@@ -34,7 +34,7 @@ public class b {
         return this.Uk;
     }
 
-    public void bo(int i) {
+    public void bn(int i) {
         this.Uk = i;
     }
 }

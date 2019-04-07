@@ -6,37 +6,37 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.NewTopicList.NewTopicList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fPO = BdUniqueId.gen();
-    public String bAm;
-    public long bAn;
-    public String bAo;
-    public String fOr;
-    public b fPP;
-    public PostData fPQ;
+    public static final BdUniqueId fPC = BdUniqueId.gen();
+    public String bAp;
+    public long bAq;
+    public String bAr;
+    public String fOf;
+    public b fPD;
+    public PostData fPE;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fPO;
+        return fPC;
     }
 
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.bAm = newTopicList.topic_name;
-            this.bAo = newTopicList.topic_desc;
-            this.bAn = newTopicList.discuss_num.longValue();
-            this.fOr = newTopicList.topic_image;
+            this.bAp = newTopicList.topic_name;
+            this.bAr = newTopicList.topic_desc;
+            this.bAq = newTopicList.discuss_num.longValue();
+            this.fOf = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.fPP = new b();
-                this.fPP.topicId = this.topicId;
-                this.fPP.from = 1;
-                this.fPP.a(newTopicList.pk_module);
+                this.fPD = new b();
+                this.fPD.topicId = this.topicId;
+                this.fPD.from = 1;
+                this.fPD.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.fPQ = new PostData();
-                this.fPQ.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.fPE = new PostData();
+                this.fPE.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }

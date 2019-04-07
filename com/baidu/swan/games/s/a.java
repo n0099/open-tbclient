@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bfy = new ReentrantLock();
-    private static volatile a bfz;
-    private d baM;
-    private List<c> bbw = new ArrayList(3);
+    private static final ReentrantLock bfB = new ReentrantLock();
+    private static volatile a bfC;
+    private d baP;
+    private List<c> bbz = new ArrayList(3);
 
     private a() {
     }
 
-    public static a Pi() {
-        if (bfz == null) {
+    public static a Pg() {
+        if (bfC == null) {
             synchronized (a.class) {
-                if (bfz == null) {
-                    bfz = new a();
+                if (bfC == null) {
+                    bfC = new a();
                 }
             }
         }
-        return bfz;
+        return bfC;
     }
 
     public void a(d dVar) {
-        this.baM = dVar;
-        Pj();
+        this.baP = dVar;
+        Ph();
     }
 
     public void E(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.baM = null;
-        this.bbw.clear();
+        this.baP = null;
+        this.bbz.clear();
     }
 
     private void a(c cVar) {
-        bfy.lock();
+        bfB.lock();
         try {
-            if (this.baM != null) {
-                this.baM.c(cVar);
+            if (this.baP != null) {
+                this.baP.c(cVar);
             } else {
-                this.bbw.add(cVar);
+                this.bbz.add(cVar);
             }
         } finally {
-            bfy.unlock();
+            bfB.unlock();
         }
     }
 
-    private void Pj() {
-        if (!this.bbw.isEmpty() && this.baM != null) {
-            bfy.lock();
+    private void Ph() {
+        if (!this.bbz.isEmpty() && this.baP != null) {
+            bfB.lock();
             try {
-                for (c cVar : this.bbw) {
-                    this.baM.c(cVar);
+                for (c cVar : this.bbz) {
+                    this.baP.c(cVar);
                 }
-                this.bbw.clear();
+                this.bbz.clear();
             } finally {
-                bfy.unlock();
+                bfB.unlock();
             }
         }
     }

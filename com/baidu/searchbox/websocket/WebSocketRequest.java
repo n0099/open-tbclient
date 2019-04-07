@@ -1,6 +1,5 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.ubc.UBC;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -83,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.cCE();
+            p.cCt();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -110,7 +109,7 @@ public final class WebSocketRequest {
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
         /* JADX WARN: Type inference failed for: r0v15, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            p.k(jSONObject, LegoListActivityConfig.PARAMS);
+            p.k(jSONObject, "params");
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));

@@ -33,17 +33,17 @@ public class TrackExtendsBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackExtendsBox.java", TrackExtendsBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 72);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 76);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 112);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 80);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 84);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 88);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleFlagsStr", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "java.lang.String"), 92);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "trackId", "", "void"), 96);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDescriptionIndex", "", "void"), 100);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDuration", "", "void"), 104);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleSize", "", "void"), 108);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 72);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 76);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 112);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 80);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "long"), 84);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 88);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleFlagsStr", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "", "", "", "java.lang.String"), 92);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "trackId", "", "void"), 96);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDescriptionIndex", "", "void"), 100);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleDuration", "", "void"), 104);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackExtendsBox", "long", "defaultSampleSize", "", "void"), 108);
     }
 
     public TrackExtendsBox() {
@@ -106,22 +106,22 @@ public class TrackExtendsBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.ei(j)));
         this.trackId = j;
     }
 
     public void setDefaultSampleDescriptionIndex(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.ei(j)));
         this.defaultSampleDescriptionIndex = j;
     }
 
     public void setDefaultSampleDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.ei(j)));
         this.defaultSampleDuration = j;
     }
 
     public void setDefaultSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.ei(j)));
         this.defaultSampleSize = j;
     }
 

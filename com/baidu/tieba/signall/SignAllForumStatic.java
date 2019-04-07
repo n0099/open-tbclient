@@ -14,11 +14,11 @@ public class SignAllForumStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        ccz();
+        ccv();
     }
 
-    private static void ccz() {
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.signall.SignAllForumStatic.1
+    private static void ccv() {
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.signall.SignAllForumStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

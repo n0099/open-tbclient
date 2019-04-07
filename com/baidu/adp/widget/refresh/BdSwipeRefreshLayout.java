@@ -325,7 +325,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
     public void setProgressBackgroundColorSchemeColor(@ColorInt int i) {
         if (this.Sv instanceof a) {
-            ((a) this.Sv).bi(i);
+            ((a) this.Sv).bh(i);
         }
     }
 
@@ -936,11 +936,11 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         public void setSize(int i) {
             this.Sy.setImageDrawable(null);
-            this.Sz.bh(i);
+            this.Sz.bg(i);
             this.Sy.setImageDrawable(this.Sz);
         }
 
-        public void bi(@ColorInt int i) {
+        public void bh(@ColorInt int i) {
             this.Sy.setBackgroundColor(i);
             this.Sz.setBackgroundColor(i);
         }

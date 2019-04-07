@@ -22,7 +22,7 @@ public class SquareActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.adD().a("square:", new ba.b() { // from class: com.baidu.tieba.square.square.SquareActivityStatic.2
+        ba.adA().a("square:", new ba.b() { // from class: com.baidu.tieba.square.square.SquareActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

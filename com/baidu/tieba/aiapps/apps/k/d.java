@@ -16,26 +16,25 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
-import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class d {
-    private static com.baidu.poly.a cWa = null;
-    private static volatile d cWb;
+    private static com.baidu.poly.a cWc = null;
+    private static volatile d cWd;
     private Context mContext;
 
     public static synchronized d dI(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (cWb == null) {
+            if (cWd == null) {
                 synchronized (d.class) {
-                    if (cWb == null) {
-                        cWb = new d(context.getApplicationContext());
+                    if (cWd == null) {
+                        cWd = new d(context.getApplicationContext());
                     }
                 }
             }
-            dVar = cWb;
+            dVar = cWd;
         }
         return dVar;
     }
@@ -45,7 +44,7 @@ public final class d {
     }
 
     public void a(Context context, String str, final com.baidu.swan.apps.aa.a.b bVar) {
-        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
+        if (!com.baidu.tbadk.pay.c.aoT().aoU()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             Bundle bundle = new Bundle();
@@ -63,7 +62,7 @@ public final class d {
     }
 
     public void a(Context context, String str, final com.baidu.swan.apps.aa.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
+        if (!com.baidu.tbadk.pay.c.aoT().aoU()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             Bundle bundle = new Bundle();
@@ -85,12 +84,12 @@ public final class d {
         try {
             JSONObject jSONObject2 = new JSONObject(str);
             Bundle bundle = new Bundle();
-            String bJ = com.baidu.swan.apps.u.a.CD().bJ(com.baidu.swan.apps.u.a.Cy());
-            if (com.baidu.swan.apps.u.a.CD().bH(com.baidu.swan.apps.u.a.Cy())) {
-                bundle.putString("bduss", com.baidu.swan.apps.u.a.CD().bI(com.baidu.swan.apps.u.a.Cy()));
+            String bJ = com.baidu.swan.apps.u.a.CB().bJ(com.baidu.swan.apps.u.a.Cw());
+            if (com.baidu.swan.apps.u.a.CB().bH(com.baidu.swan.apps.u.a.Cw())) {
+                bundle.putString("bduss", com.baidu.swan.apps.u.a.CB().bI(com.baidu.swan.apps.u.a.Cw()));
             }
             bundle.putString("cuid", bJ);
-            bundle.putString(WBConstants.SSO_APP_KEY, jSONObject2.optString(WBConstants.SSO_APP_KEY));
+            bundle.putString("appKey", jSONObject2.optString("appKey"));
             bundle.putString("dealId", jSONObject2.optString("dealId"));
             bundle.putString("dealTitle", jSONObject2.optString("dealTitle"));
             bundle.putString("rsaSign", jSONObject2.optString("rsaSign"));
@@ -102,12 +101,12 @@ public final class d {
             } else {
                 jSONObject = new JSONObject(optString);
             }
-            if (bVar.uB() != null) {
-                jSONObject.put("swanFrom", bVar.uB().axG);
+            if (bVar.uA() != null) {
+                jSONObject.put("swanFrom", bVar.uA().axJ);
             }
             jSONObject.put("cuid", bJ);
-            jSONObject.put("appId", com.baidu.swan.apps.ae.b.Ji());
-            bundle.putString("bizInfo", jSONObject2.optString("bizInfo"));
+            jSONObject.put("appId", com.baidu.swan.apps.ae.b.Jg());
+            bundle.putString("bizInfo", jSONObject.toString());
             bundle.putString("platformId", "100003");
             bundle.putString("nativeAppId", "tieba");
             if (!TextUtils.isEmpty(jSONObject2.optString(Headers.LOCATION))) {
@@ -199,15 +198,15 @@ public final class d {
     }
 
     private static com.baidu.poly.a ad(Activity activity) {
-        if (cWa != null) {
-            return cWa;
+        if (cWc != null) {
+            return cWc;
         }
-        cWa = new a.C0078a().a(new com.baidu.poly.d.b.a(activity)).bE(a.b.agl).bf(activity);
-        return cWa;
+        cWc = new a.C0078a().a(new com.baidu.poly.d.b.a(activity)).bD(a.b.agq).bf(activity);
+        return cWc;
     }
 
-    public static com.baidu.poly.a azM() {
-        return cWa;
+    public static com.baidu.poly.a azJ() {
+        return cWc;
     }
 
     public boolean bK(Context context) {

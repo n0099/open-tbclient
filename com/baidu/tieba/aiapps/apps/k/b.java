@@ -11,7 +11,7 @@ public class b implements q {
 
     @Override // com.baidu.swan.apps.u.b.q
     public void a(String str, com.baidu.swan.apps.aa.a.a aVar) {
-        d.dI(com.baidu.swan.apps.w.e.Ec().DO()).a(com.baidu.swan.apps.w.e.Ec().DO(), str, aVar);
+        d.dI(com.baidu.swan.apps.w.e.Ea().DM()).a(com.baidu.swan.apps.w.e.Ea().DM(), str, aVar);
     }
 
     @Override // com.baidu.swan.apps.u.b.q

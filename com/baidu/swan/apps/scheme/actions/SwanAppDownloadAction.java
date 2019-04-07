@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppDownloadAction extends y {
@@ -53,7 +52,7 @@ public class SwanAppDownloadAction extends y {
 
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        final JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        final JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
             com.baidu.swan.apps.console.c.i("SwanAppDownloadAction", "params parse error");
@@ -70,7 +69,7 @@ public class SwanAppDownloadAction extends y {
             return true;
         } else {
             if (bVar != null) {
-                bVar.Jb().a((Activity) context, "mapp_i_app_download", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
+                bVar.IZ().a((Activity) context, "mapp_i_app_download", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.c.a
                     /* renamed from: b */
@@ -96,7 +95,7 @@ public class SwanAppDownloadAction extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean a = com.baidu.swan.apps.u.a.CI().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        boolean a = com.baidu.swan.apps.u.a.CG().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
         if (a) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);

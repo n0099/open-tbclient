@@ -19,12 +19,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String anV() {
+    public String anS() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean anW() {
+    public boolean anT() {
         return false;
     }
 
@@ -39,12 +39,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> anY() {
+    public HashMap<String, Object> anV() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> anZ() {
+    public HashMap<String, String> anW() {
         return null;
     }
 

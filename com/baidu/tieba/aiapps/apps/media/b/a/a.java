@@ -7,21 +7,21 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int cVu;
-    public int cVv;
     public int cVw;
     public int cVx;
+    public int cVy;
+    public int cVz;
     public int mVideoHeight;
     public int mVideoWidth;
 
-    public String EK() {
+    public String EI() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("videoBitrate", this.cVu);
-            jSONObject2.put("audioBitrate", this.cVv);
-            jSONObject2.put("videoFPS", this.cVw);
-            jSONObject2.put("netSpeed", this.cVx);
+            jSONObject2.put("videoBitrate", this.cVw);
+            jSONObject2.put("audioBitrate", this.cVx);
+            jSONObject2.put("videoFPS", this.cVy);
+            jSONObject2.put("netSpeed", this.cVz);
             jSONObject2.put("videoWidth", this.mVideoWidth);
             jSONObject2.put("videoHeight", this.mVideoHeight);
             jSONObject.putOpt("detail", jSONObject2);

@@ -19,34 +19,34 @@ public interface c extends d.b {
 
     SwanAppPropertyWindow D(Activity activity);
 
-    void DF();
+    void DD();
 
-    void DG();
+    void DE();
 
-    SwanCoreVersion DH();
+    SwanCoreVersion DF();
 
     @DebugTrace
-    com.baidu.swan.apps.b.c.a DI();
+    com.baidu.swan.apps.b.c.a DG();
 
-    boolean DJ();
+    boolean DH();
 
-    com.baidu.swan.apps.ae.a.c DK();
+    com.baidu.swan.apps.ae.a.c DI();
+
+    String DJ();
+
+    String DK();
 
     String DL();
 
-    String DM();
+    SwanAppActivity DM();
 
-    String DN();
-
-    SwanAppActivity DO();
-
-    com.baidu.swan.apps.b.c.d DP();
+    com.baidu.swan.apps.b.c.d DN();
 
     @NonNull
-    Pair<Integer, Integer> DQ();
+    Pair<Integer, Integer> DO();
 
     @NonNull
-    Pair<Integer, Integer> DR();
+    Pair<Integer, Integer> DP();
 
     void J(Intent intent);
 
@@ -69,11 +69,11 @@ public interface c extends d.b {
     void doRelease();
 
     @NonNull
-    com.baidu.swan.apps.ae.a.d eN(String str);
+    com.baidu.swan.apps.ae.a.d eO(String str);
 
-    AbsoluteLayout eO(String str);
+    AbsoluteLayout eP(String str);
 
-    com.baidu.swan.apps.b.c.e ee(String str);
+    com.baidu.swan.apps.b.c.e eg(String str);
 
     void exit();
 
@@ -81,19 +81,19 @@ public interface c extends d.b {
 
     void showLoadingView();
 
-    void uC();
+    void uB();
 
-    com.baidu.swan.apps.core.c.e uz();
+    com.baidu.swan.apps.core.c.e uy();
+
+    void vP();
 
     void vQ();
 
-    void vR();
+    String yA();
 
-    String yB();
+    com.baidu.swan.apps.core.c.d yO();
 
-    com.baidu.swan.apps.core.c.d yP();
+    com.baidu.swan.apps.ae.b za();
 
-    com.baidu.swan.apps.ae.b zb();
-
-    com.baidu.swan.games.view.b zk();
+    com.baidu.swan.games.view.b zj();
 }

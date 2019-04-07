@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String bqf;
-    private String jwl;
-    private String jwm;
-    private int jwn;
-    private int jwo;
-    private int jwp;
-    private String jwq;
+    private String bqi;
+    private String jwb;
+    private String jwc;
+    private int jwd;
+    private int jwe;
+    private int jwf;
+    private String jwg;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.jwl = str2;
-        this.jwm = str3;
-        this.jwn = i;
+        this.jwb = str2;
+        this.jwc = str3;
+        this.jwd = i;
         this.mType = str4;
-        this.bqf = str5;
+        this.bqi = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String crZ() {
-        return this.jwl;
+    public String crX() {
+        return this.jwb;
     }
 
-    public String csa() {
-        return this.jwm;
+    public String crY() {
+        return this.jwc;
     }
 
     public int getTimeout() {
-        return this.jwn;
+        return this.jwd;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String csb() {
-        return this.bqf;
+    public String crZ() {
+        return this.bqi;
     }
 
-    public int csc() {
+    public int csa() {
         return this.mRate;
     }
 
-    public void BG(int i) {
+    public void BC(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int csd() {
-        return this.jwo;
+    public int csb() {
+        return this.jwe;
     }
 
-    public void BH(int i) {
-        this.jwo = i;
+    public void BD(int i) {
+        this.jwe = i;
     }
 
-    public int cse() {
-        return this.jwp;
+    public int csc() {
+        return this.jwf;
     }
 
-    public void BI(int i) {
-        this.jwp = i;
+    public void BE(int i) {
+        this.jwf = i;
     }
 
     public String getIdType() {
-        return this.jwq;
+        return this.jwg;
     }
 
-    public void EK(String str) {
-        this.jwq = str;
+    public void EJ(String str) {
+        this.jwg = str;
     }
 }

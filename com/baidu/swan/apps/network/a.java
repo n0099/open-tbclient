@@ -18,13 +18,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    protected static final Set<String> aCf = com.facebook.common.internal.h.K("localhost", "127.0.0.1");
-    public static final Set<String> aCg = com.facebook.common.internal.h.K("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> aCe;
+    protected static final Set<String> aCi = com.facebook.common.internal.h.K("localhost", "127.0.0.1");
+    public static final Set<String> aCj = com.facebook.common.internal.h.K("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> aCh;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.aCe = new ConcurrentHashMap<>();
+        this.aCh = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y
@@ -32,34 +32,34 @@ public class a extends y {
         return false;
     }
 
-    public final long fm(String str) {
+    public final long fn(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.aCe.get(str).longValue();
+            j = this.aCh.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void fn(String str) {
-        if (this.aCe != null && !TextUtils.isEmpty(str)) {
-            this.aCe.remove(str);
+    public final void fo(String str) {
+        if (this.aCh != null && !TextUtils.isEmpty(str)) {
+            this.aCh.remove(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static HttpUrl fo(String str) {
+    public static HttpUrl fp(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if ((com.baidu.swan.apps.ae.b.IX() == null ? null : com.baidu.swan.apps.ae.b.IX().getActivity()) == null) {
+        if ((com.baidu.swan.apps.ae.b.IV() == null ? null : com.baidu.swan.apps.ae.b.IV().getActivity()) == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Gh()) || a(parse)) {
+        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Gf()) || a(parse)) {
             return parse;
         } else {
             return null;
@@ -67,12 +67,12 @@ public class a extends y {
     }
 
     protected static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean JE = com.baidu.swan.apps.af.a.b.JE();
-        if (!com.baidu.swan.apps.u.a.CB().vl()) {
-            JE = false;
+        boolean JC = com.baidu.swan.apps.af.a.b.JC();
+        if (!com.baidu.swan.apps.u.a.Cz().vk()) {
+            JC = false;
         }
         if (httpUrl != null) {
-            return (!JE || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCf.contains(httpUrl.host().toLowerCase());
+            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCi.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -85,7 +85,7 @@ public class a extends y {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !aCg.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !aCj.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -102,18 +102,18 @@ public class a extends y {
             if (J == null) {
                 J = new HashMap<>();
             }
-            J.put("Referer", EY());
+            J.put("Referer", EW());
         }
         return J;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String fp(String str) {
+    public String fq(String str) {
         return str + "_" + System.currentTimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fq(String str) {
+    public JSONObject fr(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -127,9 +127,9 @@ public class a extends y {
         return jSONObject;
     }
 
-    public static String EY() {
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        return IX != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", IX.getAppKey(), IX.Jl()) : "";
+    public static String EW() {
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        return IV != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", IV.getAppKey(), IV.Jj()) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

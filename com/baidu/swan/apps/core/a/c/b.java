@@ -6,41 +6,41 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b apk;
-    private boolean apl = false;
-    private boolean apm = false;
+    private static b apo;
+    private boolean apq = false;
+    private boolean apr = false;
     private boolean mIsCanceled = false;
-    private boolean apn = false;
-    private boolean apo = false;
-    private int apq = 3000;
-    private HashMap<String, Long> apr = new HashMap<>();
     private boolean aps = false;
+    private boolean apt = false;
+    private int apu = 3000;
+    private HashMap<String, Long> apv = new HashMap<>();
+    private boolean apw = false;
 
-    public static b xP() {
-        if (apk == null) {
+    public static b xO() {
+        if (apo == null) {
             synchronized (b.class) {
-                if (apk == null) {
-                    apk = new b();
+                if (apo == null) {
+                    apo = new b();
                 }
             }
         }
-        return apk;
+        return apo;
     }
 
     private b() {
     }
 
-    public boolean dK(String str) {
+    public boolean dM(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.apr == null || !this.apr.containsKey(str) || currentTimeMillis - this.apr.get(str).longValue() > 18000000) {
+        if (this.apv == null || !this.apv.containsKey(str) || currentTimeMillis - this.apv.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.apr == null || !this.apr.containsKey(str)) {
+                if (this.apv == null || !this.apv.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.apr.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.apv.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -52,6 +52,6 @@ public final class b {
     }
 
     public boolean isInProgress() {
-        return this.apm;
+        return this.apr;
     }
 }

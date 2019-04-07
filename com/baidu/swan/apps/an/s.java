@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class s {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aWn;
-    private static String aWo;
+    private static String aWq;
+    private static String aWr;
 
     public static boolean ck(Context context) {
         if (context == null) {
@@ -22,10 +22,10 @@ public class s {
         if (isEmui()) {
             return cl(context);
         }
-        if (Mc()) {
+        if (Ma()) {
             return cm(context);
         }
-        if (Md()) {
+        if (Mb()) {
             return cn(context);
         }
         return false;
@@ -63,59 +63,59 @@ public class s {
         return check(RomTypeUtil.ROM_EMUI);
     }
 
-    public static boolean Mc() {
+    public static boolean Ma() {
         return check(RomTypeUtil.ROM_VIVO);
     }
 
-    public static boolean Md() {
+    public static boolean Mb() {
         return check(RomTypeUtil.ROM_OPPO);
     }
 
     public static boolean check(String str) {
-        if (aWn != null) {
-            return aWn.equals(str);
+        if (aWq != null) {
+            return aWq.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        aWo = prop;
+        aWr = prop;
         if (!TextUtils.isEmpty(prop)) {
-            aWn = RomTypeUtil.ROM_MIUI;
+            aWq = RomTypeUtil.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            aWo = prop2;
+            aWr = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                aWn = RomTypeUtil.ROM_EMUI;
+                aWq = RomTypeUtil.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                aWo = prop3;
+                aWr = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    aWn = RomTypeUtil.ROM_OPPO;
+                    aWq = RomTypeUtil.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    aWo = prop4;
+                    aWr = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        aWn = RomTypeUtil.ROM_VIVO;
+                        aWq = RomTypeUtil.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        aWo = prop5;
+                        aWr = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            aWn = RomTypeUtil.ROM_SMARTISAN;
+                            aWq = RomTypeUtil.ROM_SMARTISAN;
                         } else {
                             String prop6 = getProp("ro.gn.sv.version");
-                            aWo = prop6;
+                            aWr = prop6;
                             if (!TextUtils.isEmpty(prop6)) {
-                                aWn = RomTypeUtil.ROM_SMARTISAN;
+                                aWq = RomTypeUtil.ROM_SMARTISAN;
                             } else {
                                 String prop7 = getProp("ro.build.rom.id");
-                                aWo = prop7;
+                                aWr = prop7;
                                 if (!TextUtils.isEmpty(prop7)) {
-                                    aWn = "NUBIA";
+                                    aWq = "NUBIA";
                                 } else {
-                                    aWo = Build.DISPLAY;
-                                    if (aWo.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
-                                        aWn = RomTypeUtil.ROM_FLYME;
+                                    aWr = Build.DISPLAY;
+                                    if (aWr.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
+                                        aWq = RomTypeUtil.ROM_FLYME;
                                     } else {
-                                        aWo = "unknown";
-                                        aWn = Build.MANUFACTURER.toUpperCase();
+                                        aWr = "unknown";
+                                        aWq = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -124,7 +124,7 @@ public class s {
                 }
             }
         }
-        return aWn.equals(str);
+        return aWq.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */

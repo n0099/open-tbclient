@@ -85,7 +85,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface f {
-        void bc(int i);
+        void bb(int i);
     }
 
     static {
@@ -261,7 +261,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean q(int i, int i2) {
-        return i >= this.Np - this.Nh && i <= this.Np + this.Nh && (i2 < this.Nq - this.Nh || i2 > this.Nq + this.Nh) && this.RD.aM(i2 - this.Nq);
+        return i >= this.Np - this.Nh && i <= this.Np + this.Nh && (i2 < this.Nq - this.Nh || i2 > this.Nq + this.Nh) && this.RD.aL(i2 - this.Nq);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -294,7 +294,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                                 this.RA = true;
                             }
                         }
-                        this.RD.aN(this.Rz - y);
+                        this.RD.aM(this.Rz - y);
                         this.Rz = y;
                         this.RD.NL.addMovement(motionEvent);
                         return true;
@@ -311,7 +311,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 }
                 if (!this.RD.NM) {
                     this.Rz = y;
-                    this.RD.aM(y);
+                    this.RD.aL(y);
                     break;
                 }
                 break;
@@ -329,7 +329,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 return true;
         }
         if (this.RD.NM) {
-            this.RD.aN(this.Rz - y);
+            this.RD.aM(this.Rz - y);
             this.Rz = y;
             this.RD.NL.addMovement(motionEvent);
             return true;
@@ -440,7 +440,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.NP = (int) ((f * 500.0f) + 0.5f);
         }
 
-        boolean aM(int i) {
+        boolean aL(int i) {
             switch (VerticalTranslateLayout.this.Rw) {
                 case top:
                     if (VerticalTranslateLayout.this.Nl != 10004 && VerticalTranslateLayout.this.Nl != 10000) {
@@ -454,7 +454,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     break;
                 case vertical:
                     if (VerticalTranslateLayout.this.RG != null) {
-                        VerticalTranslateLayout.this.RG.bc(i);
+                        VerticalTranslateLayout.this.RG.bb(i);
                         break;
                     }
                     break;
@@ -468,7 +468,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.NM = false;
         }
 
-        void aN(int i) {
+        void aM(int i) {
             if (this.NM) {
                 int i2 = VerticalTranslateLayout.this.Rt - i;
                 switch (VerticalTranslateLayout.this.Rw) {

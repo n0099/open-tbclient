@@ -47,7 +47,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         a(Context context, PublicMsg publicMsg) {
             this.a = null;
             this.a = context;
-            this.g = (NotificationManager) context.getSystemService("notification");
+            this.g = (NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI);
         }
 
         @Override // com.baidu.android.pushservice.richmedia.f
@@ -206,7 +206,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static void a(Context context, String str, String str2, PublicMsg publicMsg) {
         Intent b;
         try {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI);
             if (TextUtils.isEmpty(publicMsg.mPkgContent)) {
                 b = !TextUtils.isEmpty(publicMsg.mUrl) ? a(publicMsg.mUrl) : b(context, publicMsg);
             } else {
@@ -262,12 +262,12 @@ public class PushServiceReceiver extends BroadcastReceiver {
         Notification a2 = d.a(context, 8888, publicMsg.mTitle, "富媒体消息：点击后下载与查看", m.q(context, publicMsg.mPkgName));
         a2.contentIntent = service;
         a2.deleteIntent = service2;
-        ((NotificationManager) context.getSystemService("notification")).notify(publicMsg.mMsgId, 0, a2);
+        ((NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI)).notify(publicMsg.mMsgId, 0, a2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str, String str2, PublicMsg publicMsg, byte[] bArr, byte[] bArr2) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI);
         Intent intent = new Intent();
         intent.setClassName(str, str2);
         intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");

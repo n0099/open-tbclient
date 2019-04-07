@@ -7,7 +7,6 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class w extends y {
@@ -20,7 +19,7 @@ public class w extends y {
         if (DEBUG) {
             Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "none params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
@@ -32,16 +31,16 @@ public class w extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
             return false;
         }
-        com.baidu.swan.apps.b.c.e ee = com.baidu.swan.apps.w.e.Ec().ee(optString);
-        if (!(ee instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(optString);
+        if (!(eg instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
             return false;
         }
         boolean optBoolean = c.optBoolean("prevent", false);
-        PullToRefreshBaseWebView vW = ((com.baidu.swan.apps.b.c.c) ee).vW();
-        if (vW != null) {
-            vW.setIsPreventPullToRefresh(optBoolean);
+        PullToRefreshBaseWebView vV = ((com.baidu.swan.apps.b.c.c) eg).vV();
+        if (vV != null) {
+            vV.setIsPreventPullToRefresh(optBoolean);
         }
         return true;
     }

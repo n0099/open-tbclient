@@ -40,24 +40,24 @@ import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class AgreeView extends LinearLayout implements Animator.AnimatorListener {
-    private ColorFilter aaF;
-    private int bNA;
-    private AgreeData bNB;
-    private com.baidu.tieba.tbadkCore.data.e bNC;
-    private CustomMessageListener bNE;
-    private CustomMessageListener bNF;
-    private TBLottieAnimationView bNH;
-    private int bNI;
-    private int bNJ;
+    private ColorFilter aaG;
+    private TBLottieAnimationView bNA;
+    private TextView bNB;
+    private int bNC;
+    private AgreeData bND;
+    private com.baidu.tieba.tbadkCore.data.e bNE;
+    private CustomMessageListener bNG;
+    private CustomMessageListener bNH;
+    private TBLottieAnimationView bNJ;
     private int bNK;
     private int bNL;
-    private ScaleAnimation bNM;
-    private String bNN;
-    private boolean bNO;
-    private boolean bNP;
-    private com.baidu.tbadk.core.data.d bNQ;
-    private TBLottieAnimationView bNy;
-    private TextView bNz;
+    private int bNM;
+    private int bNN;
+    private ScaleAnimation bNO;
+    private String bNP;
+    private boolean bNQ;
+    private boolean bNR;
+    private com.baidu.tbadk.core.data.d bNS;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
     private int mSkinType;
@@ -65,45 +65,45 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public AgreeView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.bNE = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
+        this.bNG = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bNB.threadId.equals(agreeData.threadId) && AgreeView.this.bNC.uniqueId != eVar.uniqueId) {
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bND.threadId.equals(agreeData.threadId) && AgreeView.this.bNE.uniqueId != eVar.uniqueId) {
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
         };
-        this.bNF = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
+        this.bNH = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bNB.postId.equals(agreeData.postId)) {
-                        if (AgreeView.this.bNO) {
-                            if (AgreeView.this.bNB.indexOfPic == agreeData.indexOfPic) {
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bND.postId.equals(agreeData.postId)) {
+                        if (AgreeView.this.bNQ) {
+                            if (AgreeView.this.bND.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (AgreeView.this.bNC.uniqueId == eVar.uniqueId) {
+                        } else if (AgreeView.this.bNE.uniqueId == eVar.uniqueId) {
                             return;
                         }
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
@@ -120,45 +120,45 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public AgreeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.bNE = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
+        this.bNG = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bNB.threadId.equals(agreeData.threadId) && AgreeView.this.bNC.uniqueId != eVar.uniqueId) {
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bND.threadId.equals(agreeData.threadId) && AgreeView.this.bNE.uniqueId != eVar.uniqueId) {
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
         };
-        this.bNF = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
+        this.bNH = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bNB.postId.equals(agreeData.postId)) {
-                        if (AgreeView.this.bNO) {
-                            if (AgreeView.this.bNB.indexOfPic == agreeData.indexOfPic) {
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bND.postId.equals(agreeData.postId)) {
+                        if (AgreeView.this.bNQ) {
+                            if (AgreeView.this.bND.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (AgreeView.this.bNC.uniqueId == eVar.uniqueId) {
+                        } else if (AgreeView.this.bNE.uniqueId == eVar.uniqueId) {
                             return;
                         }
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
@@ -175,45 +175,45 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public AgreeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.bNE = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
+        this.bNG = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.AgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bNB.threadId.equals(agreeData.threadId) && AgreeView.this.bNC.uniqueId != eVar.uniqueId) {
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && AgreeView.this.bND.threadId.equals(agreeData.threadId) && AgreeView.this.bNE.uniqueId != eVar.uniqueId) {
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
         };
-        this.bNF = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
+        this.bNH = new CustomMessageListener(2016530) { // from class: com.baidu.tbadk.core.view.AgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.e)) {
                     com.baidu.tieba.tbadkCore.data.e eVar = (com.baidu.tieba.tbadkCore.data.e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (AgreeView.this.bNB != null && !TextUtils.isEmpty(AgreeView.this.bNB.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bNB.postId.equals(agreeData.postId)) {
-                        if (AgreeView.this.bNO) {
-                            if (AgreeView.this.bNB.indexOfPic == agreeData.indexOfPic) {
+                    if (AgreeView.this.bND != null && !TextUtils.isEmpty(AgreeView.this.bND.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && AgreeView.this.bND.postId.equals(agreeData.postId)) {
+                        if (AgreeView.this.bNQ) {
+                            if (AgreeView.this.bND.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (AgreeView.this.bNC.uniqueId == eVar.uniqueId) {
+                        } else if (AgreeView.this.bNE.uniqueId == eVar.uniqueId) {
                             return;
                         }
-                        AgreeView.this.bNB.agreeType = agreeData.agreeType;
-                        AgreeView.this.bNB.hasAgree = agreeData.hasAgree;
-                        AgreeView.this.bNB.diffAgreeNum = agreeData.diffAgreeNum;
-                        AgreeView.this.bNB.agreeNum = agreeData.agreeNum;
-                        AgreeView.this.bNB.disAgreeNum = agreeData.disAgreeNum;
-                        AgreeView.this.GR();
+                        AgreeView.this.bND.agreeType = agreeData.agreeType;
+                        AgreeView.this.bND.hasAgree = agreeData.hasAgree;
+                        AgreeView.this.bND.diffAgreeNum = agreeData.diffAgreeNum;
+                        AgreeView.this.bND.agreeNum = agreeData.agreeNum;
+                        AgreeView.this.bND.disAgreeNum = agreeData.disAgreeNum;
+                        AgreeView.this.GP();
                     }
                 }
             }
@@ -230,110 +230,110 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     private void init(Context context) {
         setOrientation(0);
         setGravity(5);
-        this.bNA = com.baidu.adp.lib.util.l.h(context, d.e.tbds136);
-        this.bNI = -com.baidu.adp.lib.util.l.h(context, d.e.tbds17);
-        this.bNJ = com.baidu.adp.lib.util.l.h(context, d.e.tbds7);
-        this.bNK = -com.baidu.adp.lib.util.l.h(context, d.e.tbds3);
-        this.bNL = -com.baidu.adp.lib.util.l.h(context, d.e.tbds13);
-        this.bNy = new TBLottieAnimationView(context);
-        this.bNy.setId(d.g.img_agree);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bNA, this.bNA);
+        this.bNC = com.baidu.adp.lib.util.l.h(context, d.e.tbds136);
+        this.bNK = -com.baidu.adp.lib.util.l.h(context, d.e.tbds17);
+        this.bNL = com.baidu.adp.lib.util.l.h(context, d.e.tbds7);
+        this.bNM = -com.baidu.adp.lib.util.l.h(context, d.e.tbds3);
+        this.bNN = -com.baidu.adp.lib.util.l.h(context, d.e.tbds13);
+        this.bNA = new TBLottieAnimationView(context);
+        this.bNA.setId(d.g.img_agree);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bNC, this.bNC);
         layoutParams.gravity = 16;
-        addView(this.bNy, layoutParams);
-        this.bNy.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.bNy.setOnClickListener(this.mOnClickListener);
-        this.bNz = new TextView(context);
-        this.bNz.setTextSize(0, com.baidu.adp.lib.util.l.h(context, d.e.tbfontsize34));
+        addView(this.bNA, layoutParams);
+        this.bNA.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.bNA.setOnClickListener(this.mOnClickListener);
+        this.bNB = new TextView(context);
+        this.bNB.setTextSize(0, com.baidu.adp.lib.util.l.h(context, d.e.tbfontsize34));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 16;
-        layoutParams2.leftMargin = this.bNI;
-        layoutParams2.rightMargin = this.bNI;
-        addView(this.bNz, layoutParams2);
-        this.bNH = new TBLottieAnimationView(context);
-        this.bNH.setId(d.g.img_disagree);
-        this.bNH.a(this);
-        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(this.bNA, this.bNA);
+        layoutParams2.leftMargin = this.bNK;
+        layoutParams2.rightMargin = this.bNK;
+        addView(this.bNB, layoutParams2);
+        this.bNJ = new TBLottieAnimationView(context);
+        this.bNJ.setId(d.g.img_disagree);
+        this.bNJ.a(this);
+        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(this.bNC, this.bNC);
         layoutParams3.gravity = 16;
-        addView(this.bNH, layoutParams3);
-        this.bNH.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.bNy.a(this);
-        this.bNH.setOnClickListener(this.mOnClickListener);
-        this.bNN = context.getString(d.j.agree_disagree);
-        this.aaF = new com.airbnb.lottie.k(al.getColor(d.C0277d.cp_cont_j));
-        this.bNC = new com.baidu.tieba.tbadkCore.data.e();
-        this.bNC.uniqueId = getPageId();
+        addView(this.bNJ, layoutParams3);
+        this.bNJ.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.bNA.a(this);
+        this.bNJ.setOnClickListener(this.mOnClickListener);
+        this.bNP = context.getString(d.j.agree_disagree);
+        this.aaG = new com.airbnb.lottie.k(al.getColor(d.C0277d.cp_cont_j));
+        this.bNE = new com.baidu.tieba.tbadkCore.data.e();
+        this.bNE.uniqueId = getPageId();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.bNE);
-        MessageManager.getInstance().registerListener(this.bNF);
+        MessageManager.getInstance().registerListener(this.bNG);
+        MessageManager.getInstance().registerListener(this.bNH);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.bNE);
-        MessageManager.getInstance().unRegisterListener(this.bNF);
+        MessageManager.getInstance().unRegisterListener(this.bNG);
+        MessageManager.getInstance().unRegisterListener(this.bNH);
     }
 
     public void setIsFromBigpic(boolean z) {
-        this.bNO = z;
+        this.bNQ = z;
         if (z) {
-            this.aaF = new PorterDuffColorFilter(al.getColor(d.C0277d.white_alpha83), PorterDuff.Mode.SRC_IN);
+            this.aaG = new PorterDuffColorFilter(al.getColor(d.C0277d.white_alpha83), PorterDuff.Mode.SRC_IN);
         }
     }
 
     public void setIsFromMiddlePage(boolean z) {
-        this.bNP = z;
+        this.bNR = z;
     }
 
     public TBLottieAnimationView getImgAgree() {
-        return this.bNy;
+        return this.bNA;
     }
 
     public TBLottieAnimationView getImgDisagree() {
-        return this.bNH;
+        return this.bNJ;
     }
 
     public void setData(AgreeData agreeData) {
         if (agreeData != null) {
-            this.bNB = agreeData;
-            GR();
+            this.bND = agreeData;
+            GP();
         }
     }
 
     public AgreeData getData() {
-        return this.bNB;
+        return this.bND;
     }
 
     public void setAgreeAnimationResource(int i) {
-        this.bNy.setAnimation(i);
+        this.bNA.setAnimation(i);
     }
 
     public void setDisagreeAnimationResource(int i) {
-        this.bNH.setAnimation(i);
+        this.bNJ.setAnimation(i);
     }
 
     public void setLayoutParams(int i, int i2, int i3, int i4, int i5) {
-        this.bNA = i;
-        this.bNI = i2;
-        this.bNJ = i3;
-        this.bNK = i4;
-        this.bNL = i5;
-        ViewGroup.LayoutParams layoutParams = this.bNy.getLayoutParams();
-        layoutParams.width = this.bNA;
-        layoutParams.height = this.bNA;
-        this.bNy.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.bNH.getLayoutParams();
-        layoutParams2.width = this.bNA;
-        layoutParams2.height = this.bNA;
-        this.bNH.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.bNz.getLayoutParams();
-        layoutParams3.leftMargin = this.bNI;
-        layoutParams3.rightMargin = this.bNI;
-        this.bNz.setLayoutParams(layoutParams3);
+        this.bNC = i;
+        this.bNK = i2;
+        this.bNL = i3;
+        this.bNM = i4;
+        this.bNN = i5;
+        ViewGroup.LayoutParams layoutParams = this.bNA.getLayoutParams();
+        layoutParams.width = this.bNC;
+        layoutParams.height = this.bNC;
+        this.bNA.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.bNJ.getLayoutParams();
+        layoutParams2.width = this.bNC;
+        layoutParams2.height = this.bNC;
+        this.bNJ.setLayoutParams(layoutParams2);
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.bNB.getLayoutParams();
+        layoutParams3.leftMargin = this.bNK;
+        layoutParams3.rightMargin = this.bNK;
+        this.bNB.setLayoutParams(layoutParams3);
     }
 
     private String a(AgreeData agreeData) {
@@ -346,196 +346,196 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         return Constants.ACCEPT_TIME_SEPARATOR_SERVER + ap.ay(-agreeData.diffAgreeNum);
     }
 
-    public void GR() {
-        String a = a(this.bNB);
-        nk(a);
-        this.bNz.setText(a);
-        if (this.bNB.hasAgree) {
-            if (this.bNB.agreeType == 2) {
-                this.bNH.setProgress(0.0f);
-                this.bNy.setProgress(1.0f);
-                this.bNz.setTextColor(al.getColor(d.C0277d.cp_cont_h));
+    public void GP() {
+        String a = a(this.bND);
+        nl(a);
+        this.bNB.setText(a);
+        if (this.bND.hasAgree) {
+            if (this.bND.agreeType == 2) {
+                this.bNJ.setProgress(0.0f);
+                this.bNA.setProgress(1.0f);
+                this.bNB.setTextColor(al.getColor(d.C0277d.cp_cont_h));
                 return;
             }
-            this.bNy.setProgress(0.0f);
-            this.bNH.setProgress(1.0f);
-            this.bNz.setTextColor(al.getColor(d.C0277d.cp_link_tip_c));
+            this.bNA.setProgress(0.0f);
+            this.bNJ.setProgress(1.0f);
+            this.bNB.setTextColor(al.getColor(d.C0277d.cp_link_tip_c));
             return;
         }
-        this.bNy.setMinAndMaxProgress(0.0f, 0.0f);
-        this.bNH.setMinAndMaxProgress(0.0f, 0.0f);
-        this.bNy.setProgress(0.0f);
-        this.bNH.setProgress(0.0f);
-        if (this.bNP) {
-            this.bNz.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-        } else if (this.bNO) {
-            this.bNz.setTextColor(al.getColor(d.C0277d.white_alpha83));
+        this.bNA.setMinAndMaxProgress(0.0f, 0.0f);
+        this.bNJ.setMinAndMaxProgress(0.0f, 0.0f);
+        this.bNA.setProgress(0.0f);
+        this.bNJ.setProgress(0.0f);
+        if (this.bNR) {
+            this.bNB.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+        } else if (this.bNQ) {
+            this.bNB.setTextColor(al.getColor(d.C0277d.white_alpha83));
         } else {
-            this.bNz.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+            this.bNB.setTextColor(al.getColor(d.C0277d.cp_cont_j));
         }
     }
 
-    private void nk(String str) {
+    private void nl(String str) {
         if (str != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bNz.getLayoutParams();
-            if (str.equals(this.bNN)) {
-                layoutParams.leftMargin = this.bNI;
-                layoutParams.rightMargin = this.bNI;
-            } else if (str.length() == 1) {
-                layoutParams.leftMargin = this.bNJ;
-                layoutParams.rightMargin = this.bNJ;
-            } else if (str.length() == 2) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bNB.getLayoutParams();
+            if (str.equals(this.bNP)) {
                 layoutParams.leftMargin = this.bNK;
                 layoutParams.rightMargin = this.bNK;
-            } else if (str.length() == 3) {
+            } else if (str.length() == 1) {
                 layoutParams.leftMargin = this.bNL;
                 layoutParams.rightMargin = this.bNL;
+            } else if (str.length() == 2) {
+                layoutParams.leftMargin = this.bNM;
+                layoutParams.rightMargin = this.bNM;
+            } else if (str.length() == 3) {
+                layoutParams.leftMargin = this.bNN;
+                layoutParams.rightMargin = this.bNN;
             } else {
-                layoutParams.leftMargin = this.bNI;
-                layoutParams.rightMargin = this.bNI;
+                layoutParams.leftMargin = this.bNK;
+                layoutParams.rightMargin = this.bNK;
             }
-            this.bNz.setLayoutParams(layoutParams);
+            this.bNB.setLayoutParams(layoutParams);
         }
     }
 
     public void dH(boolean z) {
-        this.bNy.setMinAndMaxProgress(0.0f, 1.0f);
-        this.bNH.setMinAndMaxProgress(0.0f, 1.0f);
-        String a = a(this.bNB);
-        nk(a);
-        this.bNz.setText(a);
-        this.bNy.clearColorFilter();
-        this.bNH.clearColorFilter();
+        this.bNA.setMinAndMaxProgress(0.0f, 1.0f);
+        this.bNJ.setMinAndMaxProgress(0.0f, 1.0f);
+        String a = a(this.bND);
+        nl(a);
+        this.bNB.setText(a);
+        this.bNA.clearColorFilter();
+        this.bNJ.clearColorFilter();
         if (z) {
-            this.bNy.cu();
-            this.bNH.cancelAnimation();
-            this.bNH.setMinAndMaxProgress(0.0f, 0.0f);
+            this.bNA.cu();
+            this.bNJ.cancelAnimation();
+            this.bNJ.setMinAndMaxProgress(0.0f, 0.0f);
         } else {
-            this.bNH.cu();
-            this.bNy.cancelAnimation();
-            this.bNy.setMinAndMaxProgress(0.0f, 0.0f);
+            this.bNJ.cu();
+            this.bNA.cancelAnimation();
+            this.bNA.setMinAndMaxProgress(0.0f, 0.0f);
         }
-        this.bNy.setFrame(0);
-        this.bNH.setFrame(0);
-        if (this.bNB.hasAgree) {
-            if (this.bNB.agreeType == 2) {
-                this.bNz.setTextColor(al.getColor(d.C0277d.cp_cont_h));
+        this.bNA.setFrame(0);
+        this.bNJ.setFrame(0);
+        if (this.bND.hasAgree) {
+            if (this.bND.agreeType == 2) {
+                this.bNB.setTextColor(al.getColor(d.C0277d.cp_cont_h));
                 return;
             } else {
-                this.bNz.setTextColor(al.getColor(d.C0277d.cp_link_tip_c));
+                this.bNB.setTextColor(al.getColor(d.C0277d.cp_link_tip_c));
                 return;
             }
         }
-        this.bNz.setTextColor(al.getColor(d.C0277d.cp_cont_c));
+        this.bNB.setTextColor(al.getColor(d.C0277d.cp_cont_c));
     }
 
-    public void aee() {
-        aE(this.bNy);
+    public void aeb() {
+        aE(this.bNA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aE(View view) {
         int i;
         int i2 = 0;
-        if (this.bNB != null) {
-            if (!this.bNO || com.baidu.tbadk.n.a.cZ(getContext())) {
-                if (this.bNO || bc.cZ(getContext())) {
+        if (this.bND != null) {
+            if (!this.bNQ || com.baidu.tbadk.n.a.cZ(getContext())) {
+                if (this.bNQ || bc.cZ(getContext())) {
                     if (view instanceof TBLottieAnimationView) {
                         ((TBLottieAnimationView) view).cu();
                     }
-                    if (view.getId() == this.bNy.getId()) {
-                        if (this.bNQ != null) {
-                            this.bNQ.type = 1;
+                    if (view.getId() == this.bNA.getId()) {
+                        if (this.bNS != null) {
+                            this.bNS.type = 1;
                         }
-                        if (this.bNB.hasAgree) {
-                            if (this.bNB.agreeType == 2) {
-                                this.bNB.agreeType = 2;
-                                this.bNB.hasAgree = false;
-                                this.bNB.diffAgreeNum--;
-                                this.bNB.agreeNum--;
-                                GR();
-                                if (this.bNQ != null) {
-                                    this.bNQ.bxm = 1;
+                        if (this.bND.hasAgree) {
+                            if (this.bND.agreeType == 2) {
+                                this.bND.agreeType = 2;
+                                this.bND.hasAgree = false;
+                                this.bND.diffAgreeNum--;
+                                this.bND.agreeNum--;
+                                GP();
+                                if (this.bNS != null) {
+                                    this.bNS.bxp = 1;
                                     i = 1;
                                 } else {
                                     i = 1;
                                 }
                             } else {
-                                this.bNB.agreeType = 2;
-                                this.bNB.hasAgree = true;
-                                this.bNB.diffAgreeNum += 2;
-                                this.bNB.agreeNum++;
-                                this.bNB.disAgreeNum--;
+                                this.bND.agreeType = 2;
+                                this.bND.hasAgree = true;
+                                this.bND.diffAgreeNum += 2;
+                                this.bND.agreeNum++;
+                                this.bND.disAgreeNum--;
                                 dH(true);
-                                com.baidu.tieba.n.a.bWr().y(getTbPageContext());
-                                if (this.bNQ != null) {
-                                    this.bNQ.bxm = 0;
+                                com.baidu.tieba.n.a.bWn().x(getTbPageContext());
+                                if (this.bNS != null) {
+                                    this.bNS.bxp = 0;
                                     i = 0;
                                 }
                             }
-                            hD(i);
+                            hC(i);
                         } else {
-                            this.bNB.agreeType = 2;
-                            this.bNB.hasAgree = true;
-                            this.bNB.diffAgreeNum++;
-                            this.bNB.agreeNum++;
+                            this.bND.agreeType = 2;
+                            this.bND.hasAgree = true;
+                            this.bND.diffAgreeNum++;
+                            this.bND.agreeNum++;
                             dH(true);
-                            com.baidu.tieba.n.a.bWr().y(getTbPageContext());
-                            if (this.bNQ != null) {
-                                this.bNQ.bxm = 0;
+                            com.baidu.tieba.n.a.bWn().x(getTbPageContext());
+                            if (this.bNS != null) {
+                                this.bNS.bxp = 0;
                             }
                         }
                         i = 0;
-                        hD(i);
-                    } else if (view.getId() == this.bNH.getId()) {
-                        if (this.bNQ != null) {
-                            this.bNQ.type = 2;
+                        hC(i);
+                    } else if (view.getId() == this.bNJ.getId()) {
+                        if (this.bNS != null) {
+                            this.bNS.type = 2;
                         }
-                        if (this.bNB.hasAgree) {
-                            if (this.bNB.agreeType == 5) {
-                                this.bNB.agreeType = 5;
-                                this.bNB.hasAgree = false;
-                                this.bNB.diffAgreeNum++;
-                                this.bNB.disAgreeNum--;
-                                GR();
-                                if (this.bNQ != null) {
-                                    this.bNQ.bxp = 0;
+                        if (this.bND.hasAgree) {
+                            if (this.bND.agreeType == 5) {
+                                this.bND.agreeType = 5;
+                                this.bND.hasAgree = false;
+                                this.bND.diffAgreeNum++;
+                                this.bND.disAgreeNum--;
+                                GP();
+                                if (this.bNS != null) {
+                                    this.bNS.bxs = 0;
                                     i2 = 1;
                                 } else {
                                     i2 = 1;
                                 }
                             } else {
-                                this.bNB.agreeType = 5;
-                                this.bNB.hasAgree = true;
-                                this.bNB.diffAgreeNum -= 2;
-                                this.bNB.agreeNum--;
-                                this.bNB.disAgreeNum++;
+                                this.bND.agreeType = 5;
+                                this.bND.hasAgree = true;
+                                this.bND.diffAgreeNum -= 2;
+                                this.bND.agreeNum--;
+                                this.bND.disAgreeNum++;
                                 dH(false);
-                                if (this.bNQ != null) {
-                                    this.bNQ.bxp = 1;
+                                if (this.bNS != null) {
+                                    this.bNS.bxs = 1;
                                 }
                             }
                         } else {
-                            this.bNB.agreeType = 5;
-                            this.bNB.hasAgree = true;
-                            this.bNB.diffAgreeNum--;
-                            this.bNB.disAgreeNum++;
+                            this.bND.agreeType = 5;
+                            this.bND.hasAgree = true;
+                            this.bND.diffAgreeNum--;
+                            this.bND.disAgreeNum++;
                             dH(false);
-                            if (this.bNQ != null) {
-                                this.bNQ.bxp = 1;
+                            if (this.bNS != null) {
+                                this.bNS.bxs = 1;
                             }
                         }
-                        hD(i2);
+                        hC(i2);
                     }
-                    this.bNC.agreeData = this.bNB;
-                    if (this.bNB.isInThread) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.bNC));
-                        a(this.bNB, "isInThread");
-                    } else if (this.bNB.isInPost) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, this.bNC));
-                        a(this.bNB, "isInPost");
+                    this.bNE.agreeData = this.bND;
+                    if (this.bND.isInThread) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.bNE));
+                        a(this.bND, "isInThread");
+                    } else if (this.bND.isInPost) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, this.bNE));
+                        a(this.bND, "isInPost");
                     }
-                    aef();
+                    aec();
                 }
             }
         }
@@ -544,25 +544,25 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     private void a(AgreeData agreeData, String str) {
     }
 
-    public void hD(int i) {
-        if (this.bNB != null) {
+    public void hC(int i) {
+        if (this.bND != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("thread_id", this.bNB.threadId);
+            httpMessage.addParam("thread_id", this.bND.threadId);
             httpMessage.addParam("op_type", i);
-            if (this.bNB.objType == 0) {
-                this.bNB.objType = 3;
+            if (this.bND.objType == 0) {
+                this.bND.objType = 3;
             }
-            httpMessage.addParam("obj_type", this.bNB.objType);
-            httpMessage.addParam("agree_type", this.bNB.agreeType);
-            httpMessage.addParam("forum_id", this.bNB.forumId);
-            if (!TextUtils.isEmpty(this.bNB.postId)) {
-                httpMessage.addParam("post_id", this.bNB.postId);
+            httpMessage.addParam("obj_type", this.bND.objType);
+            httpMessage.addParam("agree_type", this.bND.agreeType);
+            httpMessage.addParam("forum_id", this.bND.forumId);
+            if (!TextUtils.isEmpty(this.bND.postId)) {
+                httpMessage.addParam("post_id", this.bND.postId);
             }
             httpMessage.setTag(getPageId());
             httpMessage.setExtra(Integer.valueOf(i));
             httpMessage.addHeader("needSig", "1");
-            if (this.bNO) {
+            if (this.bNQ) {
                 if (!TextUtils.isEmpty(com.baidu.tbadk.n.a.getBduss())) {
                     httpMessage.addParam("BDUSS", com.baidu.tbadk.n.a.getBduss());
                 }
@@ -577,32 +577,32 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         }
     }
 
-    public void aef() {
-        if (this.bNQ != null) {
-            if (this.bNQ.type == 1) {
-                TiebaStatic.log(new am("c12003").T("obj_locate", this.bNQ.bxj).T("obj_param1", this.bNQ.bxk).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.bNQ.bxl).T(VideoPlayActivityConfig.OBJ_ID, this.bNQ.bxm));
-            } else if (this.bNQ.type == 2) {
-                TiebaStatic.log(new am("c13271").T("obj_type", this.bNQ.bxn).T("obj_locate", this.bNQ.bxo).T(VideoPlayActivityConfig.OBJ_ID, this.bNQ.bxp));
+    public void aec() {
+        if (this.bNS != null) {
+            if (this.bNS.type == 1) {
+                TiebaStatic.log(new am("c12003").T("obj_locate", this.bNS.bxm).T("obj_param1", this.bNS.bxn).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.bNS.bxo).T(VideoPlayActivityConfig.OBJ_ID, this.bNS.bxp));
+            } else if (this.bNS.type == 2) {
+                TiebaStatic.log(new am("c13271").T("obj_type", this.bNS.bxq).T("obj_locate", this.bNS.bxr).T(VideoPlayActivityConfig.OBJ_ID, this.bNS.bxs));
             }
         }
     }
 
     public Animation getScaleAnimation() {
-        if (this.bNM == null) {
-            this.bNM = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.bNM.setDuration(200L);
+        if (this.bNO == null) {
+            this.bNO = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.bNO.setDuration(200L);
         }
-        return this.bNM;
+        return this.bNO;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bNB != null && this.mSkinType != i) {
-            if (this.bNO) {
-                this.aaF = new PorterDuffColorFilter(al.getColor(d.C0277d.white_alpha83), PorterDuff.Mode.SRC_IN);
+        if (this.bND != null && this.mSkinType != i) {
+            if (this.bNQ) {
+                this.aaG = new PorterDuffColorFilter(al.getColor(d.C0277d.white_alpha83), PorterDuff.Mode.SRC_IN);
             }
-            al.a(this.bNy, d.i.agree);
-            al.a(this.bNH, d.i.disagree);
-            GR();
+            al.a(this.bNA, d.i.agree);
+            al.a(this.bNJ, d.i.disagree);
+            GP();
             this.mSkinType = i;
         }
     }
@@ -637,7 +637,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        GR();
+        GP();
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -645,6 +645,6 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     }
 
     public void setStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        this.bNQ = dVar;
+        this.bNS = dVar;
     }
 }

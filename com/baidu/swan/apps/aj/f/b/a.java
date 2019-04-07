@@ -11,60 +11,60 @@ import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private Vibrator aUs;
-    private long aUt;
-    private final a.InterfaceC0108a aUu;
+    private Vibrator aUv;
+    private long aUw;
+    private final a.InterfaceC0108a aUx;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.aj.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0114a {
-        public static final a aUw = new a();
+        public static final a aUz = new a();
     }
 
     private a() {
-        this.aUt = 0L;
-        this.aUu = new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.aj.f.b.a.1
+        this.aUw = 0L;
+        this.aUx = new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.aj.f.b.a.1
             @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aUs != null) {
-                    a.this.aUs.vibrate(a.this.aUt);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aUv != null) {
+                    a.this.aUv.vibrate(a.this.aUw);
                 }
             }
         };
         this.mContext = AppRuntime.getAppContext();
-        this.aUs = (Vibrator) this.mContext.getSystemService("vibrator");
+        this.aUv = (Vibrator) this.mContext.getSystemService("vibrator");
     }
 
-    public static a Lq() {
-        return C0114a.aUw;
+    public static a Lo() {
+        return C0114a.aUz;
     }
 
     public void vibrate(long j) {
-        this.aUt = j;
-        if (Lr()) {
-            this.aUs.vibrate(this.aUt);
+        this.aUw = j;
+        if (Lp()) {
+            this.aUv.vibrate(this.aUw);
             return;
         }
         String[] strArr = {"android.permission.VIBRATE"};
-        e Ec = e.Ec();
-        if (Ec != null) {
-            Ec.a(700, strArr, this.aUu);
+        e Ea = e.Ea();
+        if (Ea != null) {
+            Ea.a(700, strArr, this.aUx);
         }
     }
 
-    private boolean Lr() {
-        if (com.baidu.swan.apps.an.a.LN()) {
+    private boolean Lp() {
+        if (com.baidu.swan.apps.an.a.LL()) {
             return this.mContext != null && ActivityCompat.checkSelfPermission(this.mContext, "android.permission.VIBRATE") == 0;
         }
         return true;
     }
 
-    public void Ls() {
+    public void Lq() {
         vibrate(15L);
     }
 
-    public void Lt() {
+    public void Lr() {
         vibrate(400L);
     }
 }

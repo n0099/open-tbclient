@@ -14,76 +14,76 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.SwitchImageView;
 /* loaded from: classes.dex */
 public class VideoGestureView extends RelativeLayout {
-    private int gIx;
-    private SwitchImageView iau;
-    private TextView iav;
-    private SeekBar iaw;
-    private int iax;
-    private float iay;
-    private int iaz;
+    private int gIk;
+    private SwitchImageView iag;
+    private TextView iah;
+    private SeekBar iai;
+    private int iaj;
+    private float iak;
+    private int ial;
     private AudioManager mAudioManager;
     private int mProgress;
     private int mState;
 
     public VideoGestureView(Context context) {
         super(context);
-        this.gIx = 100;
-        this.iay = 1.0f;
+        this.gIk = 100;
+        this.iak = 1.0f;
         this.mState = 0;
         init();
     }
 
     public VideoGestureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gIx = 100;
-        this.iay = 1.0f;
+        this.gIk = 100;
+        this.iak = 1.0f;
         this.mState = 0;
         init();
     }
 
     public VideoGestureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gIx = 100;
-        this.iay = 1.0f;
+        this.gIk = 100;
+        this.iak = 1.0f;
         this.mState = 0;
         init();
     }
 
     private void init() {
         inflate(getContext(), d.h.operable_video_gesture, this);
-        this.iau = (SwitchImageView) findViewById(d.g.gesture_icon);
-        this.iav = (TextView) findViewById(d.g.gesture_txt);
-        this.iaw = (SeekBar) findViewById(d.g.gesture_seekbar);
+        this.iag = (SwitchImageView) findViewById(d.g.gesture_icon);
+        this.iah = (TextView) findViewById(d.g.gesture_txt);
+        this.iai = (SeekBar) findViewById(d.g.gesture_seekbar);
         this.mAudioManager = (AudioManager) getContext().getSystemService("audio");
         if (this.mAudioManager != null) {
-            this.gIx = this.mAudioManager.getStreamMaxVolume(3);
-            this.iax = this.mAudioManager.getStreamVolume(3);
-            this.iay = 100 / this.gIx;
+            this.gIk = this.mAudioManager.getStreamMaxVolume(3);
+            this.iaj = this.mAudioManager.getStreamVolume(3);
+            this.iak = 100 / this.gIk;
         }
     }
 
     public void x(boolean z, String str) {
         if (this.mState != 3) {
-            this.iau.setStateImage(d.f.icon_vedio_fast_forward, d.f.icon_vedio_quick_retreat);
-            ((RelativeLayout.LayoutParams) this.iau.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds52);
-            this.iau.setVisibility(0);
-            this.iav.setVisibility(0);
-            this.iaw.setVisibility(8);
+            this.iag.setStateImage(d.f.icon_vedio_fast_forward, d.f.icon_vedio_quick_retreat);
+            ((RelativeLayout.LayoutParams) this.iag.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds52);
+            this.iag.setVisibility(0);
+            this.iah.setVisibility(0);
+            this.iai.setVisibility(8);
             this.mState = 3;
         }
-        this.iav.setText(str);
-        this.iau.setState(z ? 1 : 0);
+        this.iah.setText(str);
+        this.iag.setState(z ? 1 : 0);
     }
 
     public void m(Context context, boolean z) {
         if (this.mState != 1) {
-            this.iau.setStateImage(d.f.icon_vedio_volume_white, d.f.icon_vedio_mute_white);
-            ((RelativeLayout.LayoutParams) this.iau.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds55);
-            this.iaw.setMax(100);
-            this.iau.setVisibility(0);
-            this.iav.setVisibility(8);
-            this.iaw.setVisibility(0);
-            this.iax = this.mAudioManager.getStreamVolume(3);
+            this.iag.setStateImage(d.f.icon_vedio_volume_white, d.f.icon_vedio_mute_white);
+            ((RelativeLayout.LayoutParams) this.iag.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds55);
+            this.iai.setMax(100);
+            this.iag.setVisibility(0);
+            this.iah.setVisibility(8);
+            this.iai.setVisibility(0);
+            this.iaj = this.mAudioManager.getStreamVolume(3);
             this.mState = 1;
         }
         if (z && this.mProgress < 100) {
@@ -92,49 +92,49 @@ public class VideoGestureView extends RelativeLayout {
         if (!z && this.mProgress > 0) {
             this.mProgress--;
         }
-        if (this.mProgress % this.iay == 0.0f) {
-            if (z && this.iax < this.gIx) {
-                this.iax++;
+        if (this.mProgress % this.iak == 0.0f) {
+            if (z && this.iaj < this.gIk) {
+                this.iaj++;
             }
-            if (!z && this.iax > 0) {
-                this.iax--;
+            if (!z && this.iaj > 0) {
+                this.iaj--;
             }
         }
-        if (this.iax <= 0) {
-            this.iau.setState(1);
+        if (this.iaj <= 0) {
+            this.iag.setState(1);
         } else {
-            this.iau.setState(0);
+            this.iag.setState(0);
         }
-        this.mAudioManager.setStreamVolume(3, this.iax, 0);
-        this.iaw.setProgress(this.mProgress);
+        this.mAudioManager.setStreamVolume(3, this.iaj, 0);
+        this.iai.setProgress(this.mProgress);
     }
 
     public void n(Context context, boolean z) {
         if (this.mState != 2) {
-            this.iau.setStateImage(d.f.icon_video_light_white, d.f.icon_video_light_white);
-            this.iau.setState(0);
-            ((RelativeLayout.LayoutParams) this.iau.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds32);
-            this.iaw.setMax(255);
-            this.iau.setVisibility(0);
-            this.iav.setVisibility(8);
-            this.iaw.setVisibility(0);
-            this.iaz = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
+            this.iag.setStateImage(d.f.icon_video_light_white, d.f.icon_video_light_white);
+            this.iag.setState(0);
+            ((RelativeLayout.LayoutParams) this.iag.getLayoutParams()).topMargin = (int) getResources().getDimension(d.e.tbds32);
+            this.iai.setMax(255);
+            this.iag.setVisibility(0);
+            this.iah.setVisibility(8);
+            this.iai.setVisibility(0);
+            this.ial = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
             this.mState = 2;
         }
         if (z) {
-            this.iaz++;
+            this.ial++;
         } else {
-            this.iaz--;
+            this.ial--;
         }
-        if (this.iaz < 0) {
-            this.iaz = 0;
-        } else if (this.iaz > 255) {
-            this.iaz = 255;
+        if (this.ial < 0) {
+            this.ial = 0;
+        } else if (this.ial > 255) {
+            this.ial = 255;
         }
         Window window = ((Activity) context).getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.screenBrightness = this.iaz / 255.0f;
+        attributes.screenBrightness = this.ial / 255.0f;
         window.setAttributes(attributes);
-        this.iaw.setProgress(this.iaz);
+        this.iai.setProgress(this.ial);
     }
 }

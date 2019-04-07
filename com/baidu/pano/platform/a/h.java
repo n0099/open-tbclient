@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 class h {
-    private static final char[] a = "0123456789ABCDEF".toCharArray();
+    private static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
 
     private static String a(byte[] bArr) {
         char[] cArr = new char[bArr.length * 2];

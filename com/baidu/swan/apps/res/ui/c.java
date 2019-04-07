@@ -112,11 +112,11 @@ public class c extends Drawable {
         }
         if (this.On != scaleType) {
             this.On = scaleType;
-            Ha();
+            GY();
         }
     }
 
-    private void Ha() {
+    private void GY() {
         float min;
         float width;
         float f;
@@ -232,7 +232,7 @@ public class c extends Drawable {
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         this.IS.set(rect);
-        Ha();
+        GY();
     }
 
     @Override // android.graphics.drawable.Drawable

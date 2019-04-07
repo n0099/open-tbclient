@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
@@ -30,7 +31,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             }
             if (this.tags != null && !this.tags.equals("") && this.tags.length() <= 45) {
                 sb.append("&");
-                sb.append("tags");
+                sb.append(CommandMessage.TYPE_TAGS);
                 sb.append("=");
                 try {
                     sb.append(URLEncoder.encode(this.tags, HTTP.UTF_8));

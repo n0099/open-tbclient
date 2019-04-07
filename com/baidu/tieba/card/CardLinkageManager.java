@@ -49,10 +49,10 @@ public enum CardLinkageManager {
             int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
             RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
             if (layoutManager != null) {
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
                 List<com.baidu.adp.widget.ListView.m> data = bdTypeRecyclerView.getData();
-                Object c = com.baidu.tbadk.core.util.v.c(data, i);
+                Object c = com.baidu.tbadk.core.util.v.c(data, i - headerViewsCount);
                 if (c instanceof com.baidu.tieba.card.data.b) {
-                    int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) c;
                     for (int i2 = firstVisiblePosition; i2 <= lastVisiblePosition; i2++) {
                         Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);

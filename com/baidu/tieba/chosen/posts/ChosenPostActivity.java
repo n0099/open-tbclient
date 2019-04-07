@@ -9,70 +9,70 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.chosen.posts.a.d;
 /* loaded from: classes5.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter epZ;
-    private ChosenPostModelController eqa;
-    private b eqb;
+    private ViewEventCenter epL;
+    private ChosenPostModelController epM;
+    private b epN;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        aoJ().addEventDelegate(this);
-        this.eqa = aRN();
-        this.eqb = aRO();
+        aoG().addEventDelegate(this);
+        this.epM = aRL();
+        this.epN = aRM();
         if (getIntent() != null) {
-            this.eqa.J(getIntent().getExtras());
+            this.epM.J(getIntent().getExtras());
         } else if (bundle != null) {
-            this.eqa.J(bundle);
+            this.epM.J(bundle);
         } else {
-            this.eqa.J(null);
+            this.epM.J(null);
         }
-        setContentView(this.eqb.aDv());
-        this.eqb.aRT();
-        this.eqb.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        setContentView(this.epN.aDs());
+        this.epN.aRR();
+        this.epN.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
-    public ChosenPostModelController aRN() {
-        if (this.eqa == null) {
-            this.eqa = new ChosenPostModelController(this);
+    public ChosenPostModelController aRL() {
+        if (this.epM == null) {
+            this.epM = new ChosenPostModelController(this);
         }
-        return this.eqa;
+        return this.epM;
     }
 
-    public b aRO() {
-        if (this.eqb == null) {
-            this.eqb = new b(this);
+    public b aRM() {
+        if (this.epN == null) {
+            this.epN = new b(this);
         }
-        return this.eqb;
+        return this.epN;
     }
 
-    public ViewEventCenter aoJ() {
-        if (this.epZ == null) {
-            this.epZ = new ViewEventCenter();
+    public ViewEventCenter aoG() {
+        if (this.epL == null) {
+            this.epL = new ViewEventCenter();
         }
-        return this.epZ;
+        return this.epL;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean aoa() {
+    public boolean anX() {
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.aob()) {
+        switch (bVar.anY()) {
             case 4096:
                 b(bVar);
                 break;
         }
-        return aRO().a(bVar) || aRN().a(bVar);
+        return aRM().a(bVar) || aRL().a(bVar);
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
-        com.baidu.tbadk.mvc.b.a aoc = bVar.aoc();
-        if (aoc instanceof d) {
-            sendMessage(((d) aoc).dL(getPageContext().getPageActivity()));
+        com.baidu.tbadk.mvc.b.a anZ = bVar.anZ();
+        if (anZ instanceof d) {
+            sendMessage(((d) anZ).dL(getPageContext().getPageActivity()));
         }
     }
 
@@ -87,6 +87,6 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aRO().onChangeSkinType(getPageContext(), i);
+        aRM().onChangeSkinType(getPageContext(), i);
     }
 }

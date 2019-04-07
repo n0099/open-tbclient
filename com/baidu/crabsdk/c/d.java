@@ -1,15 +1,12 @@
 package com.baidu.crabsdk.c;
 
-import android.annotation.SuppressLint;
 import android.util.Base64;
 import com.baidu.crabsdk.b.h;
-import com.baidu.sapi2.utils.SapiEnv;
 import java.security.Key;
 import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-@SuppressLint({"NewApi"})
 /* loaded from: classes3.dex */
 public final class d {
     private static byte[] R(String str, String str2) {
@@ -69,12 +66,12 @@ public final class d {
     }
 
     public static String c(String str, String str2) {
-        return h.b(str + str2);
+        return h.a(str + str2);
     }
 
     private static Key cA(String str) {
         try {
-            return new SecretKeySpec(str.getBytes(), SapiEnv.SHARE_ALGORITHM);
+            return new SecretKeySpec(str.getBytes(), "AES");
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -82,9 +79,8 @@ public final class d {
     }
 
     public static String cB(String str) {
-        byte[] bArr = null;
         try {
-            Key cA = cA(rY());
+            Key cA = cA(rX());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -92,29 +88,28 @@ public final class d {
             if (length % blockSize != 0) {
                 length += blockSize - (length % blockSize);
             }
-            byte[] bArr2 = new byte[length];
-            System.arraycopy(bytes, 0, bArr2, 0, bytes.length);
-            cipher.init(1, cA, new IvParameterSpec(rZ().getBytes()));
-            bArr = cipher.doFinal(bArr2);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return new String(Base64.encodeToString(bArr, 0));
-    }
-
-    public static String cC(String str) {
-        try {
-            Key cA = cA(rY());
-            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, cA, new IvParameterSpec(rZ().getBytes()));
-            return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
+            byte[] bArr = new byte[length];
+            System.arraycopy(bytes, 0, bArr, 0, bytes.length);
+            cipher.init(1, cA, new IvParameterSpec(rY().getBytes()));
+            return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static String rY() {
+    public static String cC(String str) {
+        try {
+            Key cA = cA(rX());
+            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+            cipher.init(2, cA, new IvParameterSpec(rY().getBytes()));
+            return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static String rX() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a("W", false));
@@ -127,7 +122,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    private static String rZ() {
+    private static String rY() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
             sb.append(String.valueOf(i));

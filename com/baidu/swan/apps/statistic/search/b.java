@@ -8,7 +8,7 @@ import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a aSM;
+    public static a aSP;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -17,23 +17,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.aSL) {
+                switch (searchFlowEvent.aSO) {
                     case START:
-                        Kz();
-                        if (aSM != null) {
-                            aSM.a(searchFlowEvent);
+                        Kx();
+                        if (aSP != null) {
+                            aSP.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (aSM != null) {
-                            aSM.a(searchFlowEvent);
+                        if (aSP != null) {
+                            aSP.a(searchFlowEvent);
                         }
-                        KA();
+                        Ky();
                         break;
                     case NORMAL:
-                        if (aSM != null) {
-                            aSM.a(searchFlowEvent);
+                        if (aSP != null) {
+                            aSP.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -48,10 +48,10 @@ public final class b {
     public static synchronized void u(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                d(bVar.axQ, bVar.axG);
-                if (aSM != null) {
-                    aSM.setAppId(bVar.mAppId);
-                    aSM.setSource(bVar.axG);
+                d(bVar.axT, bVar.axJ);
+                if (aSP != null) {
+                    aSP.setAppId(bVar.mAppId);
+                    aSP.setSource(bVar.axJ);
                 }
             }
         }
@@ -60,26 +60,26 @@ public final class b {
     public static synchronized void f(c cVar) {
         synchronized (b.class) {
             if (cVar != null) {
-                d(cVar.DC(), cVar.mFrom);
-                if (aSM != null) {
-                    aSM.setAppId(cVar.mAppId);
-                    aSM.setSource(cVar.mFrom);
+                d(cVar.DA(), cVar.mFrom);
+                if (aSP != null) {
+                    aSP.setAppId(cVar.mAppId);
+                    aSP.setSource(cVar.mFrom);
                 }
             }
         }
     }
 
-    private static void Kz() {
-        if (aSM != null) {
-            aSM.destroy();
-            aSM = null;
+    private static void Kx() {
+        if (aSP != null) {
+            aSP.destroy();
+            aSP = null;
         }
-        aSM = new a("772");
+        aSP = new a("772");
     }
 
-    private static void KA() {
-        if (aSM != null) {
-            aSM.send();
+    private static void Ky() {
+        if (aSP != null) {
+            aSP.send();
         }
     }
 
@@ -94,9 +94,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (aSM != null) {
-                aSM.aB("searchid", string == null ? "" : string);
-                aSM.aB("url", bundle.getString("search_url"));
+            if (aSP != null) {
+                aSP.aB("searchid", string == null ? "" : string);
+                aSP.aB("url", bundle.getString("search_url"));
             }
         }
     }

@@ -14,11 +14,11 @@ import java.util.UUID;
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean Gb() {
+    public static boolean FZ() {
         return getBoolean("aiapps_websafe_debug_key", true);
     }
 
-    public static boolean Gc() {
+    public static boolean Ga() {
         return getBoolean("aiapps_server_domains_debug_key", true);
     }
 
@@ -30,15 +30,15 @@ public final class a {
         setBoolean("aiapps_server_domains_debug_key", z);
     }
 
-    public static boolean Gd() {
+    public static boolean Gb() {
         return getBoolean("aiapps_close_view_disable_debug_key", false);
     }
 
-    public static boolean Ge() {
+    public static boolean Gc() {
         return getBoolean("aiapps_sconsole_scan_mode_debug_key", false);
     }
 
-    public static boolean Gf() {
+    public static boolean Gd() {
         return getBoolean("aiapps_use_extension_debug_key", false);
     }
 
@@ -46,7 +46,7 @@ public final class a {
         setBoolean("aiapps_use_extension_debug_key", z);
     }
 
-    public static boolean Gg() {
+    public static boolean Ge() {
         return getBoolean("aiapps_emit_live_debug_key", false);
     }
 
@@ -54,7 +54,7 @@ public final class a {
         setBoolean("aiapps_emit_live_debug_key", z);
     }
 
-    public static boolean Gh() {
+    public static boolean Gf() {
         return getBoolean("aiapps_emit_https_debug_key", false);
     }
 
@@ -66,39 +66,39 @@ public final class a {
         setBoolean("aiapps_load_cts_debug_key", z);
     }
 
-    public static boolean Gi() {
+    public static boolean Gg() {
         return getBoolean("aiapps_load_cts_debug_key", false);
     }
 
     private static void setBoolean(String str, boolean z) {
-        f.KL().putBoolean(str, z);
+        f.KJ().putBoolean(str, z);
     }
 
     private static boolean getBoolean(String str, boolean z) {
-        return f.KL().getBoolean(str, z);
+        return f.KJ().getBoolean(str, z);
     }
 
     private static boolean b(c cVar) {
-        return (DEBUG && cVar.axS) || fL(cVar.ayc);
+        return (DEBUG && cVar.axV) || fM(cVar.ayf);
     }
 
     public static boolean l(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.axS) || fL(bVar.ayc);
+        return (DEBUG && bVar.axV) || fM(bVar.ayf);
     }
 
-    public static boolean fL(String str) {
-        return !TextUtils.isEmpty(str) || d.wP();
+    public static boolean fM(String str) {
+        return !TextUtils.isEmpty(str) || d.wO();
     }
 
-    public static boolean Gj() {
+    public static boolean Gh() {
         return getBoolean("aiapps_force_authorized_key", false);
     }
 
     public static c.g a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.an.a.b bVar2) {
-        if (DEBUG && bVar.axS) {
+        if (DEBUG && bVar.axV) {
             return c.a.a(bVar, bVar2);
         }
-        if (fL(bVar.ayc)) {
+        if (fM(bVar.ayf)) {
             return c.e.j(bVar);
         }
         return null;
@@ -106,51 +106,51 @@ public final class a {
 
     public static boolean d(Context context, com.baidu.swan.apps.v.b.c cVar) {
         if (b(cVar)) {
-            com.baidu.swan.apps.v.b.b DD = DD();
-            cVar.DC().putLong("aiapp_start_timestamp", System.currentTimeMillis());
-            DD.mAppId = cVar.mAppId;
-            DD.axG = cVar.mFrom;
-            DD.axI = cVar.axI;
-            DD.axS = cVar.axS;
-            DD.axR = cVar.axR;
-            DD.axQ = cVar.DC();
-            DD.axH = cVar.axH;
-            DD.axT = cVar.axT;
-            DD.atq = cVar.atq;
-            DD.atr = cVar.atr;
-            DD.axW = cVar.axW;
-            DD.ayc = cVar.ayc;
-            DD.mVersion = "0";
-            DD.axX = cVar.axX;
-            DD.orientation = cVar.aye;
-            SwanAppLauncherActivity.a(context, DD, UUID.randomUUID().toString());
+            com.baidu.swan.apps.v.b.b DB = DB();
+            cVar.DA().putLong("aiapp_start_timestamp", System.currentTimeMillis());
+            DB.mAppId = cVar.mAppId;
+            DB.axJ = cVar.mFrom;
+            DB.axL = cVar.axL;
+            DB.axV = cVar.axV;
+            DB.axU = cVar.axU;
+            DB.axT = cVar.DA();
+            DB.axK = cVar.axK;
+            DB.axW = cVar.axW;
+            DB.atu = cVar.atu;
+            DB.atv = cVar.atv;
+            DB.axZ = cVar.axZ;
+            DB.ayf = cVar.ayf;
+            DB.mVersion = "0";
+            DB.aya = cVar.aya;
+            DB.orientation = cVar.ayh;
+            SwanAppLauncherActivity.a(context, DB, UUID.randomUUID().toString());
             return true;
         }
         return false;
     }
 
     public static String m(com.baidu.swan.apps.v.b.b bVar) {
-        if (DEBUG && bVar.axS) {
-            return c.a.Cr().getPath();
+        if (DEBUG && bVar.axV) {
+            return c.a.Cp().getPath();
         }
-        if (fL(bVar.ayc)) {
-            return c.e.Cs().getPath();
+        if (fM(bVar.ayf)) {
+            return c.e.Cq().getPath();
         }
         return "";
     }
 
-    public static com.baidu.swan.apps.v.b.b DD() {
+    public static com.baidu.swan.apps.v.b.b DB() {
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
-        bVar.axD = "小程序测试";
+        bVar.axG = "小程序测试";
         bVar.mAppId = "10985873";
-        bVar.axF = Color.parseColor("#FF308EF0");
-        bVar.axG = "1230000000000000";
+        bVar.axI = Color.parseColor("#FF308EF0");
+        bVar.axJ = "1230000000000000";
         bVar.mDescription = "小程序简介";
-        bVar.axN = "测试服务类目";
-        bVar.axO = "测试主体信息";
+        bVar.axQ = "测试服务类目";
+        bVar.axR = "测试主体信息";
         bVar.mAppKey = "CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N";
         bVar.mVersion = "1.0";
-        bVar.axE = "https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg";
+        bVar.axH = "https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg";
         return bVar;
     }
 }

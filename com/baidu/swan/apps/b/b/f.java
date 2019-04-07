@@ -25,9 +25,9 @@ public interface f {
 
     String vA();
 
-    String vB();
+    void vB();
 
-    void vC();
+    String vC();
 
     String vD();
 
@@ -53,11 +53,11 @@ public interface f {
 
     String vO();
 
-    String vP();
+    String vv();
 
-    String vw();
+    boolean vw();
 
-    boolean vx();
+    String vx();
 
     String vy();
 

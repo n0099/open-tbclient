@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer bsm;
-    protected ScalableType iXx;
+    protected MediaPlayer bsp;
+    protected ScalableType iXl;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -31,11 +31,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.iXx = ScalableType.NONE;
+        this.iXl = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(d.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.iXx = ScalableType.values()[i2];
+            this.iXl = ScalableType.values()[i2];
         }
     }
 
@@ -43,8 +43,8 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.bsm != null) {
-                this.bsm.setSurface(surface);
+            if (this.bsp != null) {
+                this.bsp.setSurface(surface);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.bsm != null) {
+        if (this.bsp != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -82,15 +82,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void ay(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.iXx)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.iXl)) != null) {
             setTransform(a);
         }
     }
 
-    private void axI() {
-        if (this.bsm == null) {
-            this.bsm = new MediaPlayer();
-            this.bsm.setOnVideoSizeChangedListener(this);
+    private void axF() {
+        if (this.bsp == null) {
+            this.bsp = new MediaPlayer();
+            this.bsp.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -111,142 +111,142 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        axI();
-        this.bsm.setDataSource(str);
+        axF();
+        this.bsp.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        axI();
-        this.bsm.setDataSource(context, uri, map);
+        axF();
+        this.bsp.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        axI();
-        this.bsm.setDataSource(context, uri);
+        axF();
+        this.bsp.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        axI();
-        this.bsm.setDataSource(fileDescriptor, j, j2);
+        axF();
+        this.bsp.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        axI();
-        this.bsm.setDataSource(fileDescriptor);
+        axF();
+        this.bsp.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.iXx = scalableType;
+        this.iXl = scalableType;
         ay(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.bsm != null) {
-            this.bsm.setOnPreparedListener(onPreparedListener);
-            this.bsm.prepare();
+        if (this.bsp != null) {
+            this.bsp.setOnPreparedListener(onPreparedListener);
+            this.bsp.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.bsm != null) {
-            this.bsm.setOnErrorListener(onErrorListener);
+        if (this.bsp != null) {
+            this.bsp.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.bsm != null) {
-            this.bsm.setOnCompletionListener(onCompletionListener);
+        if (this.bsp != null) {
+            this.bsp.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.bsm != null) {
-            this.bsm.setOnInfoListener(onInfoListener);
+        if (this.bsp != null) {
+            this.bsp.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.bsm == null) {
+        if (this.bsp == null) {
             return 0;
         }
-        return this.bsm.getCurrentPosition();
+        return this.bsp.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.bsm == null) {
+        if (this.bsp == null) {
             return 0;
         }
-        return this.bsm.getDuration();
+        return this.bsp.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.bsm == null) {
+        if (this.bsp == null) {
             return 0;
         }
-        return this.bsm.getVideoHeight();
+        return this.bsp.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.bsm == null) {
+        if (this.bsp == null) {
             return 0;
         }
-        return this.bsm.getVideoWidth();
+        return this.bsp.getVideoWidth();
     }
 
     public boolean isPlaying() {
-        if (this.bsm == null) {
+        if (this.bsp == null) {
             return false;
         }
-        return this.bsm.isPlaying();
+        return this.bsp.isPlaying();
     }
 
     public void pause() {
-        if (this.bsm != null) {
-            this.bsm.pause();
+        if (this.bsp != null) {
+            this.bsp.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.bsm != null) {
-            this.bsm.seekTo(i);
+        if (this.bsp != null) {
+            this.bsp.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.bsm != null) {
-            this.bsm.setLooping(z);
+        if (this.bsp != null) {
+            this.bsp.setLooping(z);
         }
     }
 
     public void setVolume(float f, float f2) {
-        if (this.bsm != null) {
-            this.bsm.setVolume(f, f2);
+        if (this.bsp != null) {
+            this.bsp.setVolume(f, f2);
         }
     }
 
     public void start() {
-        if (this.bsm != null) {
-            this.bsm.start();
+        if (this.bsp != null) {
+            this.bsp.start();
         }
     }
 
     public void stop() {
-        if (this.bsm != null) {
-            this.bsm.stop();
+        if (this.bsp != null) {
+            this.bsp.stop();
         }
     }
 
     public void reset() {
-        if (this.bsm != null) {
-            this.bsm.reset();
+        if (this.bsp != null) {
+            this.bsp.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.bsm != null) {
-            this.bsm.release();
-            this.bsm = null;
+        if (this.bsp != null) {
+            this.bsp.release();
+            this.bsp = null;
         }
     }
 }

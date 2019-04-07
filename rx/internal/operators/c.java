@@ -5,8 +5,8 @@ import rx.d;
 import rx.exceptions.CompositeException;
 /* loaded from: classes2.dex */
 public class c<T> implements d.a<T> {
-    private final rx.d<T> jVF;
-    private final rx.e<? super T> jWl;
+    private final rx.d<T> jUX;
+    private final rx.e<? super T> jVD;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -14,32 +14,32 @@ public class c<T> implements d.a<T> {
     }
 
     public c(rx.d<T> dVar, rx.e<? super T> eVar) {
-        this.jVF = dVar;
-        this.jWl = eVar;
+        this.jUX = dVar;
+        this.jVD = eVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        this.jVF.a((rx.j) new a(jVar, this.jWl));
+        this.jUX.a((rx.j) new a(jVar, this.jVD));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
         private boolean done;
-        private final rx.e<? super T> jWl;
+        private final rx.e<? super T> jVD;
         private final rx.j<? super T> subscriber;
 
         a(rx.j<? super T> jVar, rx.e<? super T> eVar) {
             super(jVar);
             this.subscriber = jVar;
-            this.jWl = eVar;
+            this.jVD = eVar;
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 try {
-                    this.jWl.onCompleted();
+                    this.jVD.onCompleted();
                     this.done = true;
                     this.subscriber.onCompleted();
                 } catch (Throwable th) {
@@ -56,7 +56,7 @@ public class c<T> implements d.a<T> {
             }
             this.done = true;
             try {
-                this.jWl.onError(th);
+                this.jVD.onError(th);
                 this.subscriber.onError(th);
             } catch (Throwable th2) {
                 rx.exceptions.a.L(th2);
@@ -68,7 +68,7 @@ public class c<T> implements d.a<T> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.jWl.onNext(t);
+                    this.jVD.onNext(t);
                     this.subscriber.onNext(t);
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this, t);

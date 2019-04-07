@@ -1,7 +1,7 @@
 package com.xiaomi.channel.commonutils.misc;
 /* loaded from: classes3.dex */
 public class d {
-    static final char[] a = "0123456789ABCDEF".toCharArray();
+    static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
 
     public static String a(byte[] bArr, int i, int i2) {
         StringBuilder sb = new StringBuilder(i2 * 2);

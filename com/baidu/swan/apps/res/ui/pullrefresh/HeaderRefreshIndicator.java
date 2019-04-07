@@ -7,10 +7,10 @@ import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean aIb;
-    private int aIc;
-    private boolean aId;
-    private boolean aIe;
+    public boolean aIe;
+    private int aIf;
+    private boolean aIg;
+    private boolean aIh;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, (AttributeSet) null);
@@ -22,35 +22,35 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIb = false;
-        this.aIc = -1;
         this.aIe = false;
+        this.aIf = -1;
+        this.aIh = false;
     }
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
-        this.aIb = false;
-        this.aIc = -1;
         this.aIe = false;
-        this.aId = z;
+        this.aIf = -1;
+        this.aIh = false;
+        this.aIg = z;
     }
 
-    public void uf() {
-        if (!this.aIb) {
-            this.aIb = true;
-            this.aIe = com.baidu.swan.apps.u.a.CT().Ds();
-            Ho();
+    public void ue() {
+        if (!this.aIe) {
+            this.aIe = true;
+            this.aIh = com.baidu.swan.apps.u.a.CR().Dq();
+            Hm();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(x.dip2px(getContext(), 5.0f));
-            cM(0);
+            cL(0);
         }
     }
 
-    public void Hn() {
-        boolean Ds = com.baidu.swan.apps.u.a.CT().Ds();
-        if (this.aIe != Ds) {
-            Ho();
-            this.aIe = Ds;
+    public void Hl() {
+        boolean Dq = com.baidu.swan.apps.u.a.CR().Dq();
+        if (this.aIh != Dq) {
+            Hm();
+            this.aIh = Dq;
         }
     }
 
@@ -62,10 +62,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Hn();
+        Hl();
     }
 
-    public void Ho() {
+    public void Hm() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, x.dip2px(getContext(), 11.0f), x.dip2px(getContext(), 11.0f));

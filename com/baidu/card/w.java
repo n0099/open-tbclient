@@ -22,7 +22,7 @@ public class w extends c implements i<bg> {
 
     public w(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bx(-1);
+        bw(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.ds180), com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.ds50));
         layoutParams.addRule(11);
         layoutParams.topMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds30);
@@ -40,9 +40,9 @@ public class w extends c implements i<bg> {
     }
 
     public void b(bg bgVar) {
-        MetaData YR;
-        if (bgVar != null && this.Yl != null && (YR = bgVar.YR()) != null) {
-            final ThemeCardInUserData themeCard = YR.getThemeCard();
+        MetaData YO;
+        if (bgVar != null && this.Yl != null && (YO = bgVar.YO()) != null) {
+            final ThemeCardInUserData themeCard = YO.getThemeCard();
             if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
                 this.Yl.setVisibility(8);
                 return;

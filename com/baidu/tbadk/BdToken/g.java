@@ -11,14 +11,14 @@ public class g {
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(d.j.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(d.j.tb_ai_apps_tips);
-    private static final String brP = TbadkCoreApplication.getInst().getString(d.j.cancel);
-    private static final String brQ = TbadkCoreApplication.getInst().getString(d.j.check_immediately);
+    private static final String brS = TbadkCoreApplication.getInst().getString(d.j.cancel);
+    private static final String brT = TbadkCoreApplication.getInst().getString(d.j.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String brR = "";
-    private String brS = "";
+    private String brU = "";
+    private String brV = "";
     public String appId = "";
     public String appName = "";
 
@@ -38,8 +38,8 @@ public class g {
                     e.printStackTrace();
                 }
             }
-            this.brR = StringUtils.isNull(dataRes.btn_sure) ? brQ : dataRes.btn_sure;
-            this.brS = StringUtils.isNull(dataRes.btn_cancel) ? brP : dataRes.btn_cancel;
+            this.brU = StringUtils.isNull(dataRes.btn_sure) ? brT : dataRes.btn_sure;
+            this.brV = StringUtils.isNull(dataRes.btn_cancel) ? brS : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -48,8 +48,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.brR = dataRes.btn_sure;
-            this.brS = dataRes.btn_cancel;
+            this.brU = dataRes.btn_sure;
+            this.brV = dataRes.btn_cancel;
         }
     }
 
@@ -57,7 +57,7 @@ public class g {
         return this.title;
     }
 
-    public String Um() {
+    public String Uk() {
         return this.img;
     }
 
@@ -69,15 +69,15 @@ public class g {
         return this.url;
     }
 
-    public String Un() {
-        return this.brR;
+    public String Ul() {
+        return this.brU;
     }
 
-    public String Uo() {
-        return this.brS;
+    public String Um() {
+        return this.brV;
     }
 
-    public int Up() {
+    public int Un() {
         return this.urlType;
     }
 }

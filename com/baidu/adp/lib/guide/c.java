@@ -11,12 +11,12 @@ import com.baidu.adp.lib.guide.d;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener, View.OnKeyListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private Configuration BK;
-    private MaskView BL;
-    private b[] BM;
-    private boolean BN = true;
-    private boolean BO = false;
-    private d.a BP;
+    private Configuration BJ;
+    private MaskView BK;
+    private b[] BL;
+    private boolean BM = true;
+    private boolean BN = false;
+    private d.a BO;
 
     static {
         $assertionsDisabled = !c.class.desiredAssertionStatus();
@@ -24,17 +24,17 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Configuration configuration) {
-        this.BK = configuration;
+        this.BJ = configuration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b[] bVarArr) {
-        this.BM = bVarArr;
+        this.BL = bVarArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d.a aVar) {
-        this.BP = aVar;
+        this.BO = aVar;
     }
 
     public void n(Activity activity) {
@@ -42,14 +42,14 @@ public class c implements View.OnClickListener, View.OnKeyListener {
     }
 
     private void a(ViewGroup viewGroup, Activity activity) {
-        if (this.BL == null) {
-            this.BL = p(activity);
-            this.BL.aa(this.BO);
+        if (this.BK == null) {
+            this.BK = p(activity);
+            this.BK.aa(this.BN);
         }
-        if (this.BL.getParent() == null) {
-            viewGroup.addView(this.BL);
-            if (this.BK.BI != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.BK.BI);
+        if (this.BK.getParent() == null) {
+            viewGroup.addView(this.BK);
+            if (this.BJ.BH != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.BJ.BH);
                 if (!$assertionsDisabled && loadAnimation == null) {
                     throw new AssertionError();
                 }
@@ -60,8 +60,8 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        if (c.this.BP != null) {
-                            c.this.BP.onShown();
+                        if (c.this.BO != null) {
+                            c.this.BO.onShown();
                         }
                     }
 
@@ -69,9 +69,9 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.BL.startAnimation(loadAnimation);
-            } else if (this.BP != null) {
-                this.BP.onShown();
+                this.BK.startAnimation(loadAnimation);
+            } else if (this.BO != null) {
+                this.BO.onShown();
             }
         }
     }
@@ -81,14 +81,14 @@ public class c implements View.OnClickListener, View.OnKeyListener {
     }
 
     public void dismiss() {
-        if (this.BL != null && (this.BL.getParent() instanceof ViewGroup)) {
-            final ViewGroup viewGroup = (ViewGroup) this.BL.getParent();
-            if (this.BK.BJ != -1) {
-                Context context = this.BL.getContext();
+        if (this.BK != null && (this.BK.getParent() instanceof ViewGroup)) {
+            final ViewGroup viewGroup = (ViewGroup) this.BK.getParent();
+            if (this.BJ.BI != -1) {
+                Context context = this.BK.getContext();
                 if (!$assertionsDisabled && context == null) {
                     throw new AssertionError();
                 }
-                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.BK.BJ);
+                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.BJ.BI);
                 if (!$assertionsDisabled && loadAnimation == null) {
                     throw new AssertionError();
                 }
@@ -99,9 +99,9 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        viewGroup.removeView(c.this.BL);
-                        if (c.this.BP != null) {
-                            c.this.BP.onDismiss();
+                        viewGroup.removeView(c.this.BK);
+                        if (c.this.BO != null) {
+                            c.this.BO.onDismiss();
                         }
                         c.this.onDestroy();
                     }
@@ -110,31 +110,31 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.BL.startAnimation(loadAnimation);
+                this.BK.startAnimation(loadAnimation);
                 return;
             }
-            viewGroup.removeView(this.BL);
-            if (this.BP != null) {
-                this.BP.onDismiss();
+            viewGroup.removeView(this.BK);
+            if (this.BO != null) {
+                this.BO.onDismiss();
             }
             onDestroy();
         }
     }
 
     public void Z(boolean z) {
-        this.BN = z;
+        this.BM = z;
     }
 
     private MaskView p(Activity activity) {
         MaskView maskView = new MaskView(activity);
-        maskView.ai(activity.getResources().getColor(this.BK.BE));
-        maskView.ah(this.BK.mAlpha);
-        maskView.ae(this.BK.BG);
+        maskView.ah(activity.getResources().getColor(this.BJ.BD));
+        maskView.ag(this.BJ.mAlpha);
+        maskView.ae(this.BJ.BF);
         maskView.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
         int i = iArr[1];
-        if (this.BN && i == 0) {
+        if (this.BM && i == 0) {
             try {
                 Class<?> cls = Class.forName("com.android.internal.R$dimen");
                 i = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
@@ -154,24 +154,24 @@ public class c implements View.OnClickListener, View.OnKeyListener {
                 e7.printStackTrace();
             }
         }
-        if (this.BK.mTargetView != null) {
-            maskView.b(a.a(this.BK.mTargetView, 0, i));
+        if (this.BJ.mTargetView != null) {
+            maskView.b(a.a(this.BJ.mTargetView, 0, i));
         } else {
-            View findViewById = activity.findViewById(this.BK.BD);
+            View findViewById = activity.findViewById(this.BJ.BC);
             if (findViewById != null) {
                 maskView.b(a.a(findViewById, 0, i));
             }
         }
-        View findViewById2 = activity.findViewById(this.BK.BC);
+        View findViewById2 = activity.findViewById(this.BJ.BB);
         if (findViewById2 != null) {
             maskView.c(a.a(findViewById2, 0, i));
         }
-        if (this.BK.BB) {
+        if (this.BJ.BA) {
             maskView.setClickable(false);
         } else {
             maskView.setOnClickListener(this);
         }
-        for (b bVar : this.BM) {
+        for (b bVar : this.BL) {
             maskView.addView(a.a(activity.getLayoutInflater(), bVar));
         }
         return maskView;
@@ -179,15 +179,15 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onDestroy() {
-        this.BK = null;
-        this.BM = null;
-        this.BP = null;
+        this.BJ = null;
+        this.BL = null;
+        this.BO = null;
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getAction() == 1) {
-            if (this.BK == null || !this.BK.BF) {
+            if (this.BJ == null || !this.BJ.BE) {
                 return false;
             }
             dismiss();
@@ -198,12 +198,12 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.BK != null && this.BK.BF) {
+        if (this.BJ != null && this.BJ.BE) {
             dismiss();
         }
     }
 
     public void aa(boolean z) {
-        this.BO = z;
+        this.BN = z;
     }
 }

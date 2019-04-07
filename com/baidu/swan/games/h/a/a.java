@@ -10,7 +10,6 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.install.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -22,7 +21,7 @@ public class a extends y {
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
-            JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+            JSONObject c = c(unitedSchemeEntity, "params");
             if (c == null) {
                 Toast.makeText(context, a.h.aiapps_debug_swan_core_params_empty, 1).show();
                 return false;
@@ -34,14 +33,14 @@ public class a extends y {
             }
             com.baidu.swan.games.i.a.c(optString, new c.b() { // from class: com.baidu.swan.games.h.a.a.1
                 @Override // com.baidu.swan.apps.install.c.b
-                public void cv(int i) {
+                public void cu(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.install.c.b
                 public void onSuccess() {
-                    File Bs = b.Bs();
                     File Bq = b.Bq();
-                    if (Bs.exists() && com.baidu.swan.c.b.bl(Bs.getPath(), Bq.getPath())) {
+                    File Bo = b.Bo();
+                    if (Bq.exists() && com.baidu.swan.c.b.bl(Bq.getPath(), Bo.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();

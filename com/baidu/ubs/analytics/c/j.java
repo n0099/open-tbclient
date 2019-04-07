@@ -27,7 +27,7 @@ public final class j {
                     new com.baidu.ubs.analytics.a.b().a(aVar);
                 } catch (Exception e) {
                     if (e.getMessage() != null) {
-                        com.baidu.ubs.analytics.d.b.EX(e.getMessage());
+                        com.baidu.ubs.analytics.d.b.EW(e.getMessage());
                     }
                 }
             }

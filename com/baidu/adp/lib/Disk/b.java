@@ -6,17 +6,17 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String yS = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String yT = this.yS + "/baidu/";
+    private final String yR = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String yS = this.yR + "/baidu/";
+    private String yT;
     private String yU;
-    private String yV;
 
     public b() {
+        this.yT = null;
         this.yU = null;
-        this.yV = null;
         try {
-            this.yU = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.yV = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.yT = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.yU = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -24,7 +24,7 @@ public class b {
 
     public void aq(String str) {
         if (str != null) {
-            this.yT = this.yS + "/" + str + "/";
+            this.yS = this.yR + "/" + str + "/";
         }
     }
 
@@ -39,26 +39,26 @@ public class b {
                 return null;
             }
             if (str != null) {
-                str2 = this.yT + str + "/";
+                str2 = this.yS + str + "/";
             } else {
-                str2 = this.yT;
+                str2 = this.yS;
             }
         } else if (z3) {
-            if (this.yV == null) {
+            if (this.yU == null) {
                 return null;
             }
-            if (str != null) {
-                str2 = this.yV + str + "/";
-            } else {
-                str2 = this.yV;
-            }
-        } else if (this.yU == null) {
-            return null;
-        } else {
             if (str != null) {
                 str2 = this.yU + str + "/";
             } else {
                 str2 = this.yU;
+            }
+        } else if (this.yT == null) {
+            return null;
+        } else {
+            if (str != null) {
+                str2 = this.yT + str + "/";
+            } else {
+                str2 = this.yT;
             }
         }
         File file = new File(str2);

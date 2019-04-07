@@ -12,7 +12,7 @@ public class b {
     public static void a(BaseActivity baseActivity, final h hVar, final int i, final com.baidu.tieba.channel.view.b bVar) {
         String string;
         if (hVar != null) {
-            if (hVar.Zy()) {
+            if (hVar.Zv()) {
                 string = baseActivity.getResources().getString(d.j.channel_cancle_set_top);
             } else {
                 string = baseActivity.getResources().getString(d.j.channel_set_top_and_cancle_another);
@@ -25,7 +25,7 @@ public class b {
                     switch (i2) {
                         case 0:
                             if (com.baidu.tieba.channel.view.b.this != null) {
-                                com.baidu.tieba.channel.view.b.this.a(hVar.Zy() ? 13 : 14, view, hVar, i);
+                                com.baidu.tieba.channel.view.b.this.a(hVar.Zv() ? 13 : 14, view, hVar, i);
                                 break;
                             }
                             break;
@@ -40,14 +40,14 @@ public class b {
                 }
             });
             bVar2.d(baseActivity.getPageContext());
-            bVar2.abc();
+            bVar2.aaZ();
         }
     }
 
     public static void a(final BaseActivity baseActivity, boolean z, final boolean z2, final com.baidu.tieba.channel.view.b bVar) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
         if (z) {
-            aVar.gD(d.j.channel_close_push_message);
+            aVar.gC(d.j.channel_close_push_message);
             aVar.a(d.j.confirm, new a.b() { // from class: com.baidu.tieba.channel.c.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -64,7 +64,7 @@ public class b {
                 }
             });
         } else {
-            aVar.gD(d.j.channel_open_push_message);
+            aVar.gC(d.j.channel_open_push_message);
             aVar.a(d.j.need_channel_push, new a.b() { // from class: com.baidu.tieba.channel.c.b.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -85,6 +85,6 @@ public class b {
             });
         }
         aVar.b(baseActivity.getPageContext());
-        aVar.aaZ();
+        aVar.aaW();
     }
 }

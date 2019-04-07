@@ -26,9 +26,9 @@ public class SubSampleInformationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SubSampleInformationBox.java", SubSampleInformationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "java.util.List", "entries", "", "void"), 55);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.lang.String"), 115);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "java.util.List", "entries", "", "void"), 55);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.lang.String"), 115);
     }
 
     public SubSampleInformationBox() {

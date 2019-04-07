@@ -215,7 +215,7 @@ public class IndicatorView extends View {
         }
 
         @Override // com.baidu.adp.widget.f
-        public void aR(int i) {
+        public void aQ(int i) {
             if (IndicatorView.this.Ou <= IndicatorView.this.mPosition) {
                 if (IndicatorView.this.Ou < IndicatorView.this.mPosition) {
                     this.Oz = -this.Ow;

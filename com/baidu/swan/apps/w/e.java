@@ -19,108 +19,108 @@ import com.baidu.swan.apps.w.d;
 /* loaded from: classes2.dex */
 public final class e implements d.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile e ayy;
-    private c ayz = new a();
+    private static volatile e ayB;
+    private c ayC = new a();
 
     private e() {
     }
 
-    public static e Ec() {
-        if (ayy == null) {
+    public static e Ea() {
+        if (ayB == null) {
             synchronized (e.class) {
-                if (ayy == null) {
-                    ayy = new e();
+                if (ayB == null) {
+                    ayB = new e();
                 }
             }
         }
-        return ayy;
+        return ayB;
     }
 
     public void bL(Context context) {
-        this.ayz.bL(context);
+        this.ayC.bL(context);
     }
 
     public void bM(Context context) {
-        this.ayz.bM(context);
+        this.ayC.bM(context);
+    }
+
+    public void vP() {
+        this.ayC.vP();
     }
 
     public void vQ() {
-        this.ayz.vQ();
-    }
-
-    public void vR() {
-        this.ayz.vR();
+        this.ayC.vQ();
     }
 
     public void exit() {
-        this.ayz.exit();
+        this.ayC.exit();
     }
 
     public void a(int i, @NonNull String[] strArr, a.InterfaceC0108a interfaceC0108a) {
-        this.ayz.a(i, strArr, interfaceC0108a);
+        this.ayC.a(i, strArr, interfaceC0108a);
     }
 
-    public void DF() {
-        this.ayz.DF();
+    public void DD() {
+        this.ayC.DD();
     }
 
-    public void DG() {
-        this.ayz.DG();
+    public void DE() {
+        this.ayC.DE();
     }
 
     public static void release() {
-        if (ayy != null) {
-            if (ayy.ayz != null) {
-                ayy.ayz.doRelease();
+        if (ayB != null) {
+            if (ayB.ayC != null) {
+                ayB.ayC.doRelease();
             }
-            ayy = null;
+            ayB = null;
         }
     }
 
     @Nullable
-    public com.baidu.swan.apps.ae.b zb() {
-        return this.ayz.zb();
+    public com.baidu.swan.apps.ae.b za() {
+        return this.ayC.za();
     }
 
     public void a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.install.b bVar2) {
-        this.ayz.a(bVar, bVar2);
+        this.ayC.a(bVar, bVar2);
     }
 
     public void b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.install.b bVar2) {
-        this.ayz.b(bVar, bVar2);
+        this.ayC.b(bVar, bVar2);
     }
 
     @DebugTrace
-    public com.baidu.swan.apps.b.c.a DI() {
-        return this.ayz.DI();
+    public com.baidu.swan.apps.b.c.a DG() {
+        return this.ayC.DG();
     }
 
     public FullScreenFloatView C(Activity activity) {
-        return this.ayz.C(activity);
+        return this.ayC.C(activity);
     }
 
     public SwanAppPropertyWindow D(Activity activity) {
-        return this.ayz.D(activity);
+        return this.ayC.D(activity);
     }
 
-    public boolean DJ() {
-        return this.ayz.DJ();
+    public boolean DH() {
+        return this.ayC.DH();
     }
 
     public void J(Intent intent) {
-        this.ayz.J(intent);
+        this.ayC.J(intent);
     }
 
-    public void uZ() {
+    public void uY() {
         if (DEBUG) {
             Log.d("SwanAppController", "preloadLibraries start.");
         }
-        com.baidu.swan.apps.u.a.CX().uZ();
+        com.baidu.swan.apps.u.a.CV().uY();
         if (DEBUG) {
             Log.e("SwanAppController", "start preload monitor & executor");
         }
-        j.LU();
-        j.LV();
+        j.LS();
+        j.LT();
         if (DEBUG) {
             Log.d("SwanAppController", "preloadLibraries end.");
         }
@@ -128,107 +128,107 @@ public final class e implements d.b {
 
     public void f(SwanAppActivity swanAppActivity) {
         if (swanAppActivity != null) {
-            if (swanAppActivity.ut() == 1) {
-                this.ayz = new com.baidu.swan.games.l.a();
+            if (swanAppActivity.us() == 1) {
+                this.ayC = new com.baidu.swan.games.l.a();
             } else {
-                this.ayz = new b();
+                this.ayC = new b();
             }
         }
-        if (this.ayz != null) {
-            this.ayz.f(swanAppActivity);
+        if (this.ayC != null) {
+            this.ayC.f(swanAppActivity);
         }
     }
 
-    public SwanCoreVersion DH() {
-        return this.ayz.DH();
+    public SwanCoreVersion DF() {
+        return this.ayC.DF();
     }
 
-    public com.baidu.swan.apps.ae.a.c DK() {
-        return this.ayz.DK();
+    public com.baidu.swan.apps.ae.a.c DI() {
+        return this.ayC.DI();
     }
 
     @NonNull
-    public com.baidu.swan.apps.ae.a.d eN(String str) {
-        return this.ayz.eN(str);
+    public com.baidu.swan.apps.ae.a.d eO(String str) {
+        return this.ayC.eO(str);
+    }
+
+    public String DJ() {
+        return this.ayC.DJ();
+    }
+
+    public String DK() {
+        return this.ayC.DK();
     }
 
     public String DL() {
-        return this.ayz.DL();
+        return this.ayC.DL();
     }
 
-    public String DM() {
-        return this.ayz.DM();
+    public com.baidu.swan.apps.core.c.e uy() {
+        return this.ayC.uy();
     }
 
-    public String DN() {
-        return this.ayz.DN();
+    public SwanAppActivity DM() {
+        return this.ayC.DM();
     }
 
-    public com.baidu.swan.apps.core.c.e uz() {
-        return this.ayz.uz();
+    public com.baidu.swan.games.view.b Eb() {
+        return this.ayC.zj();
     }
 
-    public SwanAppActivity DO() {
-        return this.ayz.DO();
+    public com.baidu.swan.apps.b.c.e eg(String str) {
+        return this.ayC.eg(str);
     }
 
-    public com.baidu.swan.games.view.b Ed() {
-        return this.ayz.zk();
-    }
-
-    public com.baidu.swan.apps.b.c.e ee(String str) {
-        return this.ayz.ee(str);
-    }
-
-    public AbsoluteLayout eO(String str) {
-        return this.ayz.eO(str);
+    public AbsoluteLayout eP(String str) {
+        return this.ayC.eP(str);
     }
 
     public void a(com.baidu.swan.apps.m.a.d dVar, boolean z) {
-        this.ayz.a(dVar, z);
+        this.ayC.a(dVar, z);
     }
 
     public void a(com.baidu.swan.apps.m.a.a aVar) {
-        this.ayz.a(aVar);
+        this.ayC.a(aVar);
     }
 
     public void a(String str, com.baidu.swan.apps.m.a.a aVar) {
-        this.ayz.a(str, aVar);
+        this.ayC.a(str, aVar);
     }
 
-    public com.baidu.swan.apps.core.c.d yP() {
-        return this.ayz.yP();
+    public com.baidu.swan.apps.core.c.d yO() {
+        return this.ayC.yO();
     }
 
-    public String yB() {
-        return this.ayz.yB();
+    public String yA() {
+        return this.ayC.yA();
     }
 
-    public com.baidu.swan.apps.b.c.d DP() {
-        return this.ayz.DP();
-    }
-
-    @NonNull
-    public Pair<Integer, Integer> DQ() {
-        return this.ayz.DQ();
+    public com.baidu.swan.apps.b.c.d DN() {
+        return this.ayC.DN();
     }
 
     @NonNull
-    public Pair<Integer, Integer> DR() {
-        return this.ayz.DR();
+    public Pair<Integer, Integer> DO() {
+        return this.ayC.DO();
+    }
+
+    @NonNull
+    public Pair<Integer, Integer> DP() {
+        return this.ayC.DP();
     }
 
     @Override // com.baidu.swan.apps.w.d.b
-    public void cF(int i) {
-        this.ayz.cF(i);
+    public void cE(int i) {
+        this.ayC.cE(i);
     }
 
     public void showLoadingView() {
-        this.ayz.showLoadingView();
+        this.ayC.showLoadingView();
     }
 
-    public void uC() {
-        this.ayz.uC();
+    public void uB() {
+        this.ayC.uB();
     }
 
     /* loaded from: classes2.dex */

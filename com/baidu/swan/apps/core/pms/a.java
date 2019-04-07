@@ -5,20 +5,20 @@ import android.util.Log;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean vq() {
-        if (DEBUG && zw()) {
+    public static boolean vp() {
+        if (DEBUG && zv()) {
             Log.i("PMSAbTestManager", "Debug 模式-强制命中PMS");
             return true;
         }
-        boolean vq = com.baidu.swan.apps.u.a.CB().vq();
+        boolean vp = com.baidu.swan.apps.u.a.Cz().vp();
         if (DEBUG) {
-            Log.i("PMSAbTestManager", "PMS AB 实验：" + vq);
-            return vq;
+            Log.i("PMSAbTestManager", "PMS AB 实验：" + vp);
+            return vp;
         }
-        return vq;
+        return vp;
     }
 
-    public static boolean zw() {
-        return com.baidu.swan.apps.storage.b.f.KL().getBoolean("key_sp_force_pms_for_debug", false);
+    public static boolean zv() {
+        return com.baidu.swan.apps.storage.b.f.KJ().getBoolean("key_sp_force_pms_for_debug", false);
     }
 }

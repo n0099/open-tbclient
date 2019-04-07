@@ -27,7 +27,7 @@ public class b extends y {
         aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.res.widget.b.d.IQ();
+                com.baidu.swan.apps.res.widget.b.d.IO();
             }
         });
         unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

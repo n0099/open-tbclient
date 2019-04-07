@@ -59,7 +59,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface c {
-        void aL(int i);
+        void aK(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -249,7 +249,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean q(int i, int i2) {
-        return i2 >= this.Nq - this.Nh && i2 <= this.Nq + this.Nh && (i < this.Np - this.Nh || i > this.Np + this.Nh) && this.Nv.aM(i - this.Np);
+        return i2 >= this.Nq - this.Nh && i2 <= this.Nq + this.Nh && (i < this.Np - this.Nh || i > this.Np + this.Nh) && this.Nv.aL(i - this.Np);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -282,7 +282,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                                 this.Ns = true;
                             }
                         }
-                        this.Nv.aN(this.Nr - x);
+                        this.Nv.aM(this.Nr - x);
                         this.Nr = x;
                         this.Nv.NL.addMovement(motionEvent);
                         return true;
@@ -302,7 +302,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 }
                 if (!this.Nv.NM) {
                     this.Nr = x;
-                    this.Nv.aM(x);
+                    this.Nv.aL(x);
                     break;
                 }
                 break;
@@ -320,7 +320,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 return true;
         }
         if (this.Nv.NM) {
-            this.Nv.aN(this.Nr - x);
+            this.Nv.aM(this.Nr - x);
             this.Nr = x;
             this.Nv.NL.addMovement(motionEvent);
             return true;
@@ -424,7 +424,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.NP = (int) ((f * 500.0f) + 0.5f);
         }
 
-        boolean aM(int i) {
+        boolean aL(int i) {
             switch (HorizontalTranslateLayout.this.Nk) {
                 case left:
                     if (HorizontalTranslateLayout.this.Nl != 10004 && HorizontalTranslateLayout.this.Nl != 10000) {
@@ -438,7 +438,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     break;
                 case horizontal:
                     if (HorizontalTranslateLayout.this.Nz != null) {
-                        HorizontalTranslateLayout.this.Nz.aL(i);
+                        HorizontalTranslateLayout.this.Nz.aK(i);
                         break;
                     }
                     break;
@@ -452,7 +452,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.NM = false;
         }
 
-        void aN(int i) {
+        void aM(int i) {
             if (this.NM) {
                 int i2 = HorizontalTranslateLayout.this.Ng - i;
                 switch (HorizontalTranslateLayout.this.Nk) {

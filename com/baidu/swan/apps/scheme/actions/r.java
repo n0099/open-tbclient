@@ -5,7 +5,6 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.ubc.UBC;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -21,7 +20,7 @@ public class r extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             com.baidu.swan.apps.console.c.i("PageScrollToAction", "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
@@ -34,14 +33,14 @@ public class r extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.b.c.d DP = com.baidu.swan.apps.w.e.Ec().DP();
-        if (DP != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(DP.getWebViewScrollY(), com.baidu.swan.apps.an.x.dip2px(context, optInt));
+        final com.baidu.swan.apps.b.c.d DN = com.baidu.swan.apps.w.e.Ea().DN();
+        if (DN != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(DN.getWebViewScrollY(), com.baidu.swan.apps.an.x.dip2px(context, optInt));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.r.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    DP.z(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    DN.z(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();

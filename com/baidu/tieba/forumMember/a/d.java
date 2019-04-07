@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 al.k(fVar.getView(), d.f.frs_member_manito_bg);
-                al.d(fVar.dfk, d.C0277d.cp_cont_f, 1);
-                al.d(fVar.enw, d.C0277d.cp_cont_d, 1);
+                al.d(fVar.dfo, d.C0277d.cp_cont_f, 1);
+                al.d(fVar.enh, d.C0277d.cp_cont_d, 1);
                 al.l(fVar.dividerLine, d.C0277d.cp_bg_line_c);
-                al.d(fVar.eVj, d.C0277d.cp_cont_d, 1);
+                al.d(fVar.eUV, d.C0277d.cp_cont_d, 1);
             }
-            fVar.eVi.startLoad(eVar.bbb(), 12, false);
-            fVar.dfk.setText(ab.ag(eVar.getNameShow(), 16));
+            fVar.eUU.startLoad(eVar.baZ(), 12, false);
+            fVar.dfo.setText(ab.ag(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.enw.setText(d.j.god_intro_default);
+                fVar.enh.setText(d.j.god_intro_default);
             } else {
-                fVar.enw.setText(ab.ag(eVar.getIntro(), 30));
+                fVar.enh.setText(ab.ag(eVar.getIntro(), 30));
             }
             int color = al.getColor(d.C0277d.cp_cont_h);
             String as = ap.as(eVar.getFansNum());
-            fVar.eVj.setText(a(String.format(this.mContext.getResources().getString(d.j.fans_count), as), new String[]{as}, new int[]{color}));
+            fVar.eUV.setText(a(String.format(this.mContext.getResources().getString(d.j.fans_count), as), new String[]{as}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

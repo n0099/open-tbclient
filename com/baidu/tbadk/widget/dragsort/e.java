@@ -10,9 +10,9 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap cye;
-    private ImageView cyf;
-    private int cyg = ViewCompat.MEASURED_STATE_MASK;
+    private Bitmap cyg;
+    private ImageView cyh;
+    private int cyi = ViewCompat.MEASURED_STATE_MASK;
     private ListView mListView;
 
     public e(ListView listView) {
@@ -20,27 +20,27 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.cyg = i;
+        this.cyi = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
-    public View kn(int i) {
+    public View km(int i) {
         View childAt = this.mListView.getChildAt((this.mListView.getHeaderViewsCount() + i) - this.mListView.getFirstVisiblePosition());
         if (childAt == null) {
             return null;
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.cye = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.cyg = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.cyf == null) {
-            this.cyf = new ImageView(this.mListView.getContext());
+        if (this.cyh == null) {
+            this.cyh = new ImageView(this.mListView.getContext());
         }
-        this.cyf.setBackgroundColor(this.cyg);
-        this.cyf.setPadding(0, 0, 0, 0);
-        this.cyf.setImageBitmap(this.cye);
-        this.cyf.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.cyf;
+        this.cyh.setBackgroundColor(this.cyi);
+        this.cyh.setPadding(0, 0, 0, 0);
+        this.cyh.setImageBitmap(this.cyg);
+        this.cyh.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.cyh;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -50,7 +50,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void ba(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.cye.recycle();
-        this.cye = null;
+        this.cyg.recycle();
+        this.cyg = null;
     }
 }

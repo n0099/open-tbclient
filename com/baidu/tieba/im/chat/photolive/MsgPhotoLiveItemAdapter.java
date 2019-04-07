@@ -28,10 +28,10 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgPhotoLiveCardVew bqg = aVar.bqg();
-        bqg.a(this.mPageContext, chatMessage, viewGroup);
-        bqg.a(this.gbu);
-        bqg.setPosition(i);
+        MsgPhotoLiveCardVew bqd = aVar.bqd();
+        bqd.a(this.mPageContext, chatMessage, viewGroup);
+        bqd.a(this.gbi);
+        bqd.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

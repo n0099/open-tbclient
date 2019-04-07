@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c cnp = new c();
-    private final HashMap<String, Class<? extends b>> cnq = new HashMap<>();
+    private static c cnr = new c();
+    private final HashMap<String, Class<? extends b>> cns = new HashMap<>();
 
-    public static c anA() {
-        return cnp;
+    public static c anx() {
+        return cnr;
     }
 
     private c() {
@@ -83,7 +83,7 @@ public class c {
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.pn(imageFileInfo.getFilePath());
+                return a.po(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,32 +103,32 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap pn = dVar != null ? dVar.pn(str) : null;
+        Bitmap po = dVar != null ? dVar.po(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = pn;
+                bitmap = po;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    pn = bitmap;
+                    po = bitmap;
                 } else if (bitmap == null) {
-                    pn = a2.pn(str);
+                    po = a2.po(str);
                 } else {
-                    pn = a2.b(bitmap, true);
+                    po = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = pn;
+            bitmap = po;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
         b q;
-        Class<? extends b> cls = this.cnq.get(imageOperation.actionName);
+        Class<? extends b> cls = this.cns.get(imageOperation.actionName);
         if (cls != null && (q = q(cls)) != null) {
             q.setParams(imageOperation.actionParam);
             return q;
@@ -139,7 +139,7 @@ public class c {
     private void p(Class<? extends b> cls) {
         b q = q(cls);
         if (q != null) {
-            this.cnq.put(q.getActionName(), cls);
+            this.cns.put(q.getActionName(), cls);
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import cn.jpush.android.api.JPushMessage;
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -116,12 +117,12 @@ public final class f {
             try {
                 if (a2.f == 5) {
                     if (a2.e == 1) {
-                        ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tags");
+                        ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra(CommandMessage.TYPE_TAGS);
                         if (stringArrayListExtra != null) {
                             a2.b = new HashSet(stringArrayListExtra);
                         }
                     } else if (a2.e == 2) {
-                        a2.a = intent.getStringExtra("alias");
+                        a2.a = intent.getStringExtra(CommandMessage.TYPE_ALIAS);
                     }
                 } else if (a2.f == 6) {
                     z = intent.getBooleanExtra("validated", false);
@@ -201,12 +202,12 @@ public final class f {
                     try {
                         if (a2.f == 5) {
                             if (a2.e == 1) {
-                                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tags");
+                                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra(CommandMessage.TYPE_TAGS);
                                 if (stringArrayListExtra != null) {
                                     a2.b = new HashSet(stringArrayListExtra);
                                 }
                             } else if (a2.e == 2) {
-                                a2.a = intent.getStringExtra("alias");
+                                a2.a = intent.getStringExtra(CommandMessage.TYPE_ALIAS);
                             }
                         } else if (a2.f == 6) {
                             intent.getBooleanExtra("validated", false);

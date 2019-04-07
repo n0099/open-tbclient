@@ -11,6 +11,7 @@ import cn.jpush.android.a.n;
 import cn.jpush.android.d.f;
 import cn.jpush.android.data.JPushLocalNotification;
 import cn.jpush.android.service.ServiceInterface;
+import com.coloros.mcssdk.PushManager;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -157,7 +158,7 @@ public class JPushInterface {
 
     public static void clearNotificationById(Context context, int i) {
         a(context);
-        ((NotificationManager) context.getSystemService("notification")).cancel(i);
+        ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(i);
     }
 
     public static void deleteAlias(Context context, int i) {

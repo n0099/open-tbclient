@@ -8,6 +8,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import cn.jiguang.d.d.aa;
+import com.coloros.mcssdk.PushManager;
 import java.lang.reflect.InvocationTargetException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -53,7 +54,7 @@ public final class g {
     @TargetApi(24)
     private static boolean a(Context context) {
         try {
-            return ((NotificationManager) context.getSystemService("notification")).areNotificationsEnabled();
+            return ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).areNotificationsEnabled();
         } catch (Throwable th) {
             return true;
         }

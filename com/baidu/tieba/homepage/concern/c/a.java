@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    private final c fHg = new c();
+    private final c fGU = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -37,18 +37,18 @@ public class a {
                     k kVar = new k();
                     kVar.threadData = bgVar;
                     linkedList.add(kVar);
-                } else if (l.W(bgVar)) {
+                } else if (l.V(bgVar)) {
                     l lVar = new l(bgVar);
                     lVar.tid = bgVar.getTid();
-                    lVar.ot(concernData.source.intValue());
+                    lVar.op(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
-                } else if (j.W(bgVar)) {
+                } else if (j.V(bgVar)) {
                     j jVar = new j(bgVar);
                     if (jVar != null) {
                         jVar.tid = bgVar.getTid();
-                        jVar.tD("3");
+                        jVar.tC("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -56,17 +56,17 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bgVar;
-                    kVar2.tD(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.tC(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.ot(concernData.source.intValue());
+                    kVar2.op(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.fHg.cHJ = linkedList;
-        return this.fHg;
+        this.fGU.cHL = linkedList;
+        return this.fGU;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -93,7 +93,7 @@ public class a {
                     }
                 }
             }
-            this.fHg.fNz = v.S(list) - S;
+            this.fGU.fNn = v.S(list) - S;
         }
     }
 

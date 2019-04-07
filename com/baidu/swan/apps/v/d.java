@@ -18,10 +18,10 @@ public class d {
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.pms.model.a aVar, String str) {
         int a = a(cVar, aVar);
         if (a != 0) {
-            com.baidu.swan.apps.ak.a bX = bX(a);
-            e.LG().b(bX);
-            b(context, cVar, bX);
-            b.Dx().Dz();
+            com.baidu.swan.apps.ak.a bW = bW(a);
+            e.LE().b(bW);
+            b(context, cVar, bW);
+            b.Dv().Dx();
             return;
         }
         c(context, a(aVar, cVar), str);
@@ -31,11 +31,11 @@ public class d {
         com.baidu.swan.apps.v.b.b a = a(cVar);
         if (a == null) {
             if (aVar == null) {
-                aVar = new com.baidu.swan.apps.ak.a().L(10L).M(2902L).hw("no aiapps info in database");
-                e.LG().b(aVar);
+                aVar = new com.baidu.swan.apps.ak.a().L(10L).M(2902L).hx("no aiapps info in database");
+                e.LE().b(aVar);
             }
             b(context, cVar, aVar);
-            b.Dx().Dz();
+            b.Dv().Dx();
             return;
         }
         c(context, a, str);
@@ -43,11 +43,11 @@ public class d {
     }
 
     private static com.baidu.swan.apps.v.b.b a(com.baidu.swan.apps.v.b.c cVar) {
-        com.baidu.swan.pms.model.a ji;
-        if (cVar == null || (ji = com.baidu.swan.pms.database.a.RA().ji(cVar.mAppId)) == null || TextUtils.isEmpty(ji.appId)) {
+        com.baidu.swan.pms.model.a jj;
+        if (cVar == null || (jj = com.baidu.swan.pms.database.a.Ry().jj(cVar.mAppId)) == null || TextUtils.isEmpty(jj.appId)) {
             return null;
         }
-        return a(ji, cVar);
+        return a(jj, cVar);
     }
 
     private static void c(Context context, com.baidu.swan.apps.v.b.b bVar, String str) {
@@ -55,7 +55,7 @@ public class d {
             b(context, bVar, str);
             return;
         }
-        b.Dx().Dz();
+        b.Dv().Dx();
         a(context, bVar);
     }
 
@@ -75,20 +75,20 @@ public class d {
         if (aVar == null || TextUtils.isEmpty(aVar.appId)) {
             return 1;
         }
-        if ((cVar.axX == 0 && aVar.appCategory != 0) || (cVar.axX == 1 && aVar.appCategory != 1)) {
+        if ((cVar.aya == 0 && aVar.appCategory != 0) || (cVar.aya == 1 && aVar.appCategory != 1)) {
             return 2;
         }
         return 0;
     }
 
-    private static com.baidu.swan.apps.ak.a bX(int i) {
+    private static com.baidu.swan.apps.ak.a bW(int i) {
         com.baidu.swan.apps.ak.a aVar = new com.baidu.swan.apps.ak.a();
         switch (i) {
             case 1:
-                aVar.L(10L).M(2902L).hw("no aiapps info in database");
+                aVar.L(10L).M(2902L).hx("no aiapps info in database");
                 break;
             case 2:
-                aVar.L(10L).M(27L).hw("category not match");
+                aVar.L(10L).M(27L).hx("category not match");
                 break;
         }
         return aVar;
@@ -102,20 +102,20 @@ public class d {
             }
             return;
         }
-        com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.axX);
+        com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.aya);
         f fVar = new f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axX);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.aya);
         fVar.d(cVar);
         fVar.mType = "launch";
         fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
-        fVar.aB("errcode", String.valueOf(aVar.LC()));
-        fVar.aB("msg", aVar.LB().toString());
+        fVar.aB("errcode", String.valueOf(aVar.LA()));
+        fVar.aB("msg", aVar.Lz().toString());
         com.baidu.swan.apps.statistic.c.onEvent(fVar);
-        if (!aVar.LD()) {
-            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(cVar.axX)).a(aVar).gS(cVar.mAppId).gT(cVar.mFrom));
-            aVar.LE();
+        if (!aVar.LB()) {
+            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gS(com.baidu.swan.apps.statistic.c.dB(cVar.aya)).a(aVar).gT(cVar.mAppId).gU(cVar.mFrom));
+            aVar.LC();
         }
-        com.baidu.swan.apps.storage.b.f.KL().putLong(cVar.mAppId, 0L);
+        com.baidu.swan.apps.storage.b.f.KJ().putLong(cVar.mAppId, 0L);
     }
 
     private static com.baidu.swan.apps.v.b.b a(com.baidu.swan.pms.model.a aVar, com.baidu.swan.apps.v.b.c cVar) {
@@ -123,36 +123,36 @@ public class d {
         if (aVar == null) {
             return null;
         }
-        bVar.axD = aVar.appName;
-        bVar.axE = aVar.iconUrl;
+        bVar.axG = aVar.appName;
+        bVar.axH = aVar.iconUrl;
         bVar.mAppId = cVar.mAppId;
-        bVar.axG = cVar.mFrom;
-        bVar.axI = cVar.axI;
-        bVar.axS = cVar.axS;
+        bVar.axJ = cVar.mFrom;
+        bVar.axL = cVar.axL;
+        bVar.axV = cVar.axV;
         bVar.mAppKey = aVar.appKey;
         bVar.mDescription = aVar.description;
         bVar.mErrorCode = aVar.appStatus;
-        bVar.axJ = aVar.blN;
-        bVar.mErrorMsg = aVar.blO;
-        bVar.axK = aVar.atU;
-        bVar.axN = aVar.atX;
-        bVar.axO = aVar.atY;
-        bVar.axP = new SwanAppBearInfo(aVar.atZ);
+        bVar.axM = aVar.blQ;
+        bVar.mErrorMsg = aVar.blR;
+        bVar.axN = aVar.atY;
+        bVar.axQ = aVar.aub;
+        bVar.axR = aVar.auc;
+        bVar.axS = new SwanAppBearInfo(aVar.aud);
         bVar.mVersion = String.valueOf(aVar.versionCode);
-        bVar.axQ = cVar.DC();
-        bVar.axH = cVar.axH;
+        bVar.axT = cVar.DA();
+        bVar.axK = cVar.axK;
         bVar.mType = aVar.type;
-        bVar.axT = cVar.axT;
-        bVar.atq = cVar.atq;
-        bVar.atr = cVar.atr;
-        bVar.aue = aVar.blP;
-        bVar.aug = aVar.versionName;
-        bVar.axR = cVar.axR;
-        bVar.axZ = cVar.axZ;
+        bVar.axW = cVar.axW;
+        bVar.atu = cVar.atu;
+        bVar.atv = cVar.atv;
+        bVar.aui = aVar.blS;
+        bVar.auk = aVar.versionName;
+        bVar.axU = cVar.axU;
+        bVar.ayc = cVar.ayc;
         if (aVar.appCategory == 1) {
-            bVar.axX = 1;
+            bVar.aya = 1;
         } else {
-            bVar.axX = 0;
+            bVar.aya = 0;
         }
         bVar.orientation = aVar.orientation;
         return bVar;

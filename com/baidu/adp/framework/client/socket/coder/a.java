@@ -3,8 +3,8 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
+    private int command;
     private int xE;
-    private int xF;
     public static byte xw = 4;
     private static byte xx = Byte.MIN_VALUE;
     private static byte xy = 64;
@@ -13,7 +13,7 @@ public class a {
     private boolean xB = false;
     private boolean xC = false;
     private boolean xD = false;
-    private boolean xG = false;
+    private boolean xF = false;
 
     public static int gV() {
         return 9;
@@ -53,10 +53,10 @@ public class a {
             aVar.xD = true;
         }
         if ((b & xA) != 0) {
-            aVar.xG = true;
+            aVar.xF = true;
         }
+        aVar.command = wrap.getInt();
         aVar.xE = wrap.getInt();
-        aVar.xF = wrap.getInt();
         return aVar;
     }
 
@@ -65,7 +65,7 @@ public class a {
     }
 
     public int getCommand() {
-        return this.xE;
+        return this.command;
     }
 
     public boolean gX() {
@@ -73,7 +73,7 @@ public class a {
     }
 
     public int gY() {
-        return this.xF;
+        return this.xE;
     }
 
     public boolean gZ() {
@@ -81,6 +81,6 @@ public class a {
     }
 
     public boolean ha() {
-        return this.xG;
+        return this.xF;
     }
 }

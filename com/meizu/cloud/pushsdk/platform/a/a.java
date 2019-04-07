@@ -1,10 +1,10 @@
 package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.common.util.g;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.networking.c.k;
-import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class a {
@@ -112,7 +112,7 @@ public class a {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("appId", str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
-        linkedHashMap.put("tags", str4);
+        linkedHashMap.put(CommandMessage.TYPE_TAGS, str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.a.a(linkedHashMap, str2));
@@ -124,7 +124,7 @@ public class a {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("appId", str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
-        linkedHashMap.put("tags", str4);
+        linkedHashMap.put(CommandMessage.TYPE_TAGS, str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.a.a(linkedHashMap, str2));
@@ -146,9 +146,9 @@ public class a {
     public void c(String str, String str2, String str3, String str4, k kVar) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("appId", str);
-        linkedHashMap.put(WBConstants.SSO_APP_KEY, str2);
+        linkedHashMap.put("appKey", str2);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
-        linkedHashMap.put("alias", str4);
+        linkedHashMap.put(CommandMessage.TYPE_ALIAS, str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.a.a(linkedHashMap, str2));
@@ -160,7 +160,7 @@ public class a {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("appId", str);
         linkedHashMap.put(PushConstants.KEY_PUSH_ID, str3);
-        linkedHashMap.put("alias", str4);
+        linkedHashMap.put(CommandMessage.TYPE_ALIAS, str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap();
         linkedHashMap2.putAll(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.a.a(linkedHashMap, str2));

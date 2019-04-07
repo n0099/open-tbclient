@@ -9,7 +9,7 @@ public class a {
         b.putBoolean("PREFS_NIGHT_MODE", z);
     }
 
-    public static boolean Ds() {
+    public static boolean Dq() {
         return b.getBoolean("PREFS_NIGHT_MODE", false);
     }
 

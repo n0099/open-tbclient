@@ -14,15 +14,15 @@ public class b {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void QE();
+        void QC();
 
-        void QF();
+        void QD();
 
-        void je(String str);
+        void jf(String str);
     }
 
     public static void a(Activity activity, LatLng latLng, LatLng latLng2, a aVar) {
-        com.baidu.swan.impl.map.a.PN();
+        com.baidu.swan.impl.map.a.PL();
         b(activity, latLng, latLng2, aVar);
     }
 
@@ -30,12 +30,12 @@ public class b {
         final WalkNavigateHelper walkNavigateHelper = WalkNavigateHelper.getInstance();
         if (aVar != null) {
             try {
-                aVar.QE();
+                aVar.QC();
             } catch (Exception e) {
                 c.e("map", "initNaviEngine fail");
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.je(e.getMessage());
+                    aVar.jf(e.getMessage());
                     return;
                 }
                 return;
@@ -51,7 +51,7 @@ public class b {
             public void engineInitFail() {
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.je("engineInitFail");
+                    aVar.jf("engineInitFail");
                 }
             }
         });
@@ -81,7 +81,7 @@ public class b {
                 @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
                 public void onRoutePlanSuccess() {
                     if (a.this != null) {
-                        a.this.QF();
+                        a.this.QD();
                     }
                 }
 
@@ -89,7 +89,7 @@ public class b {
                 public void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError) {
                     walkNavigateHelper.quit();
                     if (a.this != null) {
-                        a.this.je(walkRoutePlanError.toString());
+                        a.this.jf(walkRoutePlanError.toString());
                     }
                 }
             });
@@ -97,7 +97,7 @@ public class b {
             c.e("map", "routePlanWithParams fail");
             walkNavigateHelper.quit();
             if (aVar != null) {
-                aVar.je(e.getMessage());
+                aVar.jf(e.getMessage());
             }
         }
     }

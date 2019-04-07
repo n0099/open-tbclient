@@ -18,7 +18,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public boolean isFirstPost;
     private String mSourceImageRectInScreenStr;
     public String originalUrl;
-    public JSONArray richTextArray;
+    public String richTextArray;
     public int urlType;
     public boolean mIsShowOrigonButton = true;
     public boolean isLongPic = false;

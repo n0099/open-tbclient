@@ -49,14 +49,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String Fc = Fc();
+            String Fa = Fa();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(Fc, "no")) {
-                    Fc = "none";
+                if (TextUtils.equals(Fa, "no")) {
+                    Fa = "none";
                 }
-                jSONObject.put("networkType", Fc);
+                jSONObject.put("networkType", Fa);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -126,7 +126,7 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String Fc() {
+    public static String Fa() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
@@ -140,42 +140,42 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType Fd() {
-        String Fc = Fc();
+    public static NetType Fb() {
+        String Fa = Fa();
         char c = 65535;
-        switch (Fc.hashCode()) {
+        switch (Fa.hashCode()) {
             case -840472412:
-                if (Fc.equals("unknow")) {
+                if (Fa.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (Fc.equals("2g")) {
+                if (Fa.equals("2g")) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (Fc.equals("3g")) {
+                if (Fa.equals("3g")) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (Fc.equals("4g")) {
+                if (Fa.equals("4g")) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (Fc.equals("no")) {
+                if (Fa.equals("no")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (Fc.equals("wifi")) {
+                if (Fa.equals("wifi")) {
                     c = 3;
                     break;
                 }

@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public class a extends y {
-    private static boolean aAJ;
+    private static boolean aAM;
 
     public a(j jVar) {
         super(jVar, "/swan/live");
@@ -32,7 +32,7 @@ public class a extends y {
         if (DEBUG) {
             Log.d("LivePlayerAction", "handleSubAction subAction: " + str);
         }
-        if (!EC()) {
+        if (!EA()) {
             if (a(context, str, unitedSchemeEntity, callbackHandler, bVar)) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
@@ -45,19 +45,19 @@ public class a extends y {
     }
 
     private boolean a(final Context context, final String str, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final b bVar) {
-        b IX = b.IX();
-        if (IX == null) {
+        b IV = b.IV();
+        if (IV == null) {
             return false;
         }
-        if (DEBUG && com.baidu.swan.apps.ac.a.a.Gg()) {
+        if (DEBUG && com.baidu.swan.apps.ac.a.a.Ge()) {
             b(context, str, unitedSchemeEntity, callbackHandler, bVar);
         } else {
-            IX.Jb().a((Activity) context, "mapp_i_live_player", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.media.b.a.a.1
+            IV.IZ().a((Activity) context, "mapp_i_live_player", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.media.b.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
-                    boolean unused = a.aAJ = bool.booleanValue();
+                    boolean unused = a.aAM = bool.booleanValue();
                     if (bool.booleanValue()) {
                         c.i("live", "authorize success");
                         a.this.b(context, str, unitedSchemeEntity, callbackHandler, bVar);
@@ -132,38 +132,38 @@ public class a extends y {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.u.a.CM().c(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().c(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 1:
-                com.baidu.swan.apps.u.a.CM().d(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().d(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 2:
-                com.baidu.swan.apps.u.a.CM().e(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().e(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 3:
-                com.baidu.swan.apps.u.a.CM().f(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().f(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 4:
-                com.baidu.swan.apps.u.a.CM().g(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().g(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 5:
-                com.baidu.swan.apps.u.a.CM().h(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().h(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 6:
-                com.baidu.swan.apps.u.a.CM().i(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().i(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case 7:
-                com.baidu.swan.apps.u.a.CM().j(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().j(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             case '\b':
-                com.baidu.swan.apps.u.a.CM().k(context, unitedSchemeEntity, callbackHandler, bVar);
+                com.baidu.swan.apps.u.a.CK().k(context, unitedSchemeEntity, callbackHandler, bVar);
                 return;
             default:
                 return;
         }
     }
 
-    private boolean EC() {
-        return aAJ;
+    private boolean EA() {
+        return aAM;
     }
 }

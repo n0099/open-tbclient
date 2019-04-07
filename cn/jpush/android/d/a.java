@@ -82,7 +82,7 @@ public final class a {
             }
             StringBuffer stringBuffer = new StringBuffer(digest.length * 2);
             for (byte b : digest) {
-                stringBuffer.append("0123456789ABCDEF".charAt((b >> 4) & 15)).append("0123456789ABCDEF".charAt(b & 15));
+                stringBuffer.append(com.coloros.mcssdk.c.a.f.charAt((b >> 4) & 15)).append(com.coloros.mcssdk.c.a.f.charAt(b & 15));
             }
             return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e) {

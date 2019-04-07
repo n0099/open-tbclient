@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class b {
-    private static String hBv = "tbgametype";
+    private static String hBh = "tbgametype";
 
-    public static String CK(String str) {
+    public static String CJ(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(Config.TRACE_TODAY_VISIT_SPLIT)) == null) {
             return null;

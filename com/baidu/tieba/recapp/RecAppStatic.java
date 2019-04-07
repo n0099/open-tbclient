@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
@@ -22,9 +21,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.igR.set(new t());
+        r.igD.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.awE().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.awB().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -37,7 +36,7 @@ public class RecAppStatic {
                         if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.adQ();
+                                aVar.adN();
                                 aVar.e((Activity) context, "android.permission.CALL_PHONE");
                                 if (aVar.Y((Activity) context)) {
                                     return 0;
@@ -49,7 +48,7 @@ public class RecAppStatic {
                             context.startActivity(intent);
                             return 0;
                         }
-                        String queryParameter2 = parse.getQueryParameter(LegoListActivityConfig.PARAMS);
+                        String queryParameter2 = parse.getQueryParameter("params");
                         if (!TextUtils.isEmpty(queryParameter2)) {
                             Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(queryParameter));
                             intent2.addFlags(268435456);
@@ -73,9 +72,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.aum().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.aum().a(2, new d());
-        bg.bBo.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.auj().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.auj().a(2, new d());
+        bg.bBr.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -88,8 +87,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bWt().bWw();
-        b.bWt().bWu();
+        b.bWp().bWs();
+        b.bWp().bWq();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());

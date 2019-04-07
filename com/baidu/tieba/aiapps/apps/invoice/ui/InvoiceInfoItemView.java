@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView cTZ;
-    private EditText cUa;
-    private View cUb;
-    private String cUc;
-    private boolean cUd;
+    private TextView cUb;
+    private EditText cUc;
+    private View cUd;
+    private String cUe;
+    private boolean cUf;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -40,106 +40,106 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, d.h.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(d.g.item_root_view);
         this.mRootView.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_edit_view_bg));
-        this.cTZ = (TextView) findViewById(d.g.invoice_info_desc);
-        this.cUa = (EditText) findViewById(d.g.invoice_info_content);
-        this.cUb = findViewById(d.g.divider_line);
-        this.cTZ.setTextColor(getResources().getColor(d.C0277d.invoice_info_desc));
-        this.cUa.setTextColor(getResources().getColor(d.C0277d.invoice_info_content));
-        this.cUa.setHintTextColor(getResources().getColor(d.C0277d.invoice_info_content_hint));
-        this.cUb.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_info_item_divider_line));
+        this.cUb = (TextView) findViewById(d.g.invoice_info_desc);
+        this.cUc = (EditText) findViewById(d.g.invoice_info_content);
+        this.cUd = findViewById(d.g.divider_line);
+        this.cUb.setTextColor(getResources().getColor(d.C0277d.invoice_info_desc));
+        this.cUc.setTextColor(getResources().getColor(d.C0277d.invoice_info_content));
+        this.cUc.setHintTextColor(getResources().getColor(d.C0277d.invoice_info_content_hint));
+        this.cUd.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.cUd = aVar.cUd;
-            this.cTZ.setText(aVar.aVF);
-            this.cUa.setHint(aVar.cUf);
-            if (!aVar.cUg) {
-                this.cUa.setSingleLine();
+            this.cUf = aVar.cUf;
+            this.cUb.setText(aVar.aVI);
+            this.cUc.setHint(aVar.cUh);
+            if (!aVar.cUi) {
+                this.cUc.setSingleLine();
             } else {
-                aVar.cUe |= 131072;
+                aVar.cUg |= 131072;
             }
-            this.cUa.setInputType(aVar.cUe);
-            if (!TextUtils.isEmpty(aVar.cUh)) {
-                this.cUa.setKeyListener(DigitsKeyListener.getInstance(aVar.cUh));
+            this.cUc.setInputType(aVar.cUg);
+            if (!TextUtils.isEmpty(aVar.cUj)) {
+                this.cUc.setKeyListener(DigitsKeyListener.getInstance(aVar.cUj));
             }
-            this.cUc = aVar.cUc;
+            this.cUe = aVar.cUe;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.cUa != null) {
-            return this.cUa.getText().toString().trim();
+        if (this.cUc != null) {
+            return this.cUc.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.cUa != null) {
-            this.cUa.setText(charSequence);
+        if (this.cUc != null) {
+            this.cUc.setText(charSequence);
         }
     }
 
-    public boolean azl() {
-        return this.cUd;
+    public boolean azi() {
+        return this.cUf;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.cUa != null && textWatcher != null) {
-            this.cUa.addTextChangedListener(textWatcher);
+        if (this.cUc != null && textWatcher != null) {
+            this.cUc.addTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String aVF;
-        private String cUc;
-        private boolean cUd = false;
-        private int cUe = 1;
-        private String cUf;
-        private boolean cUg;
+        private String aVI;
+        private String cUe;
+        private boolean cUf = false;
+        private int cUg = 1;
         private String cUh;
+        private boolean cUi;
+        private String cUj;
         private String mErrorMessage;
 
         public a fT(boolean z) {
-            this.cUd = z;
-            return this;
-        }
-
-        public a rz(String str) {
-            this.aVF = str;
-            return this;
-        }
-
-        public a lO(int i) {
-            this.cUe = i;
+            this.cUf = z;
             return this;
         }
 
         public a rA(String str) {
-            this.cUf = str;
+            this.aVI = str;
+            return this;
+        }
+
+        public a lN(int i) {
+            this.cUg = i;
             return this;
         }
 
         public a rB(String str) {
-            this.cUc = str;
+            this.cUh = str;
             return this;
         }
 
         public a rC(String str) {
+            this.cUe = str;
+            return this;
+        }
+
+        public a rD(String str) {
             this.mErrorMessage = str;
             return this;
         }
 
         public a fU(boolean z) {
-            this.cUg = z;
+            this.cUi = z;
             return this;
         }
 
-        public a rD(String str) {
-            this.cUh = str;
+        public a rE(String str) {
+            this.cUj = str;
             return this;
         }
     }

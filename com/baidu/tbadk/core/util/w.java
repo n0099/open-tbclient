@@ -6,10 +6,10 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection bJl;
-    private String bJm;
-    private String[] bJn;
-    private a bJo;
+    private MediaScannerConnection bJn;
+    private String bJo;
+    private String[] bJp;
+    private a bJq;
     private boolean completed;
     private int length;
     private Context mContext;
@@ -18,31 +18,31 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* loaded from: classes.dex */
     public interface a {
-        void acF();
+        void acC();
     }
 
     public w(Context context) {
         this.mContext = context;
-        this.bJl = new MediaScannerConnection(this.mContext, this);
-    }
-
-    public void mv(String str) {
-        this.mPath = str;
-        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.bJm = "image/jpeg";
-        if (substring.equals(".gif")) {
-            this.bJm = "image/gif";
-        }
-        this.bJl.connect();
+        this.bJn = new MediaScannerConnection(this.mContext, this);
     }
 
     public void mw(String str) {
         this.mPath = str;
-        this.bJm = fc(str);
-        this.bJl.connect();
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.bJo = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.bJo = "image/gif";
+        }
+        this.bJn.connect();
     }
 
-    private String fc(String str) {
+    public void mx(String str) {
+        this.mPath = str;
+        this.bJo = fd(str);
+        this.bJn.connect();
+    }
+
+    private String fd(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -52,37 +52,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJm)) {
-            this.bJl.scanFile(this.mPath, this.bJm);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJo)) {
+            this.bJn.scanFile(this.mPath, this.bJo);
         }
-        if (this.mPaths != null && this.bJn != null && this.mPaths.length == this.bJn.length) {
+        if (this.mPaths != null && this.bJp != null && this.mPaths.length == this.bJp.length) {
             int length = this.mPaths.length;
             for (int i = 0; i < length; i++) {
-                this.bJl.scanFile(this.mPaths[i], this.bJn[i]);
+                this.bJn.scanFile(this.mPaths[i], this.bJp[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJm) && str.equals(this.mPath)) {
-            this.bJl.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJo) && str.equals(this.mPath)) {
+            this.bJn.disconnect();
             this.mPath = null;
-            this.bJm = null;
+            this.bJo = null;
             this.completed = true;
-        } else if (this.mPaths != null && this.bJn != null && this.mPaths.length == this.bJn.length) {
+        } else if (this.mPaths != null && this.bJp != null && this.mPaths.length == this.bJp.length) {
             this.length--;
             if (this.length == 0) {
-                this.bJl.disconnect();
+                this.bJn.disconnect();
                 this.mPaths = null;
-                this.bJn = null;
+                this.bJp = null;
                 this.completed = true;
             } else {
                 this.completed = false;
             }
         }
-        if (this.completed && this.bJo != null) {
-            this.bJo.acF();
+        if (this.completed && this.bJq != null) {
+            this.bJq.acC();
         }
     }
 }

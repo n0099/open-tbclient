@@ -33,7 +33,7 @@ public class k extends ac {
         this.Zp = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
         this.XJ = (InterviewLiveLayout) this.mRootView.findViewById(d.g.frame_interview_no_video);
         this.Zq = ro();
-        this.Zq.bSZ().setBackgroundResource(d.C0277d.transparent);
+        this.Zq.bSV().setBackgroundResource(d.C0277d.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,9 +57,9 @@ public class k extends ac {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Xy = aVar;
-        if (this.Xy != null && this.Xy.WR() != null) {
-            bg WR = aVar.WR();
-            if (WR.Zi() != null) {
+        if (this.Xy != null && this.Xy.WO() != null) {
+            bg WO = aVar.WO();
+            if (WO.Zf() != null) {
                 this.XJ.setVisibility(8);
                 this.Zp.setVisibility(0);
                 this.XK.setVisibility(8);
@@ -70,8 +70,8 @@ public class k extends ac {
             this.XJ.setVisibility(0);
             this.XK.setVisibility(0);
             this.XJ.C(aVar);
-            au.a(this.mTitle, WR);
-            au.a(this.XK, this.mTitle, WR, XI);
+            au.a(this.mTitle, WO);
+            au.a(this.XK, this.mTitle, WO, XI);
         }
     }
 

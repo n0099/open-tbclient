@@ -4,53 +4,53 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int bWw;
-    private long bWx;
-    private long bWy;
-    private String bWz;
+    private long bWA;
+    private String bWB;
+    private int bWy;
+    private long bWz;
     private String name;
     private String text_color;
     private String text_color_pressed;
     private String url;
-    private int bWt = 1;
-    private int bWv = 0;
-    private int bWA = 0;
-    private int bWB = 1;
+    private int bWv = 1;
+    private int bWx = 0;
     private int bWC = 0;
-    private int bWD = 0;
-    private int bWE = 300;
-    private int bWF = 1;
-    public int bWG = 4;
-    public int bWH = 4;
-    public int bWI = 7;
-    private g bWu = new g();
+    private int bWD = 1;
+    private int bWE = 0;
+    private int bWF = 0;
+    private int bWG = 300;
+    private int bWH = 1;
+    public int bWI = 4;
+    public int bWJ = 4;
+    public int bWK = 7;
+    private g bWw = new g();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.bWt = jSONObject.optInt("als_control", 1);
-            this.bWv = jSONObject.optInt("not_use_lego_patch", 0);
-            this.bWB = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.bWD = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.bWu.parserJson(jSONObject);
+            this.bWv = jSONObject.optInt("als_control", 1);
+            this.bWx = jSONObject.optInt("not_use_lego_patch", 0);
+            this.bWD = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.bWF = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.bWw.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.bWw = optJSONObject.optInt("log_feed_switch", 0);
-                this.bWx = optJSONObject.optLong("start_time", -1L);
-                this.bWy = optJSONObject.optLong("end_time", -1L);
-                this.bWz = optJSONObject.optString("ext_info");
+                this.bWy = optJSONObject.optInt("log_feed_switch", 0);
+                this.bWz = optJSONObject.optLong("start_time", -1L);
+                this.bWA = optJSONObject.optLong("end_time", -1L);
+                this.bWB = optJSONObject.optString("ext_info");
             }
-            this.bWA = jSONObject.optInt("ad_collect_switch", 0);
+            this.bWC = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.bWE = optJSONObject2.optInt("interval", 300);
+                this.bWG = optJSONObject2.optInt("interval", 300);
             }
-            this.bWF = jSONObject.optInt("video_page_style", 1);
-            this.bWC = jSONObject.optInt("ad_download_lib", 0);
+            this.bWH = jSONObject.optInt("video_page_style", 1);
+            this.bWE = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.bWG = optJSONObject3.optInt("first_floor");
-                this.bWH = optJSONObject3.optInt("prefetch_step");
-                this.bWI = optJSONObject3.optInt("step");
+                this.bWI = optJSONObject3.optInt("first_floor");
+                this.bWJ = optJSONObject3.optInt("prefetch_step");
+                this.bWK = optJSONObject3.optInt("step");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
             if (optJSONObject4 != null) {
@@ -62,48 +62,48 @@ public class d {
         }
     }
 
-    public g afY() {
-        return this.bWu;
+    public g afV() {
+        return this.bWw;
     }
 
-    public boolean afZ() {
-        return this.bWt > 0;
+    public boolean afW() {
+        return this.bWv > 0;
     }
 
-    public boolean aga() {
-        if (this.bWw == 1) {
+    public boolean afX() {
+        if (this.bWy == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.bWx < currentTimeMillis && currentTimeMillis < this.bWy;
+            return this.bWz < currentTimeMillis && currentTimeMillis < this.bWA;
         }
         return false;
     }
 
-    public boolean agb() {
-        return this.bWB == 1;
-    }
-
-    public boolean agc() {
+    public boolean afY() {
         return this.bWD == 1;
     }
 
-    public String agd() {
-        return this.bWz;
+    public boolean afZ() {
+        return this.bWF == 1;
+    }
+
+    public String aga() {
+        return this.bWB;
+    }
+
+    public boolean agb() {
+        return this.bWC == 1;
+    }
+
+    public int agc() {
+        return this.bWG;
+    }
+
+    public int agd() {
+        return this.bWH;
     }
 
     public boolean age() {
-        return this.bWA == 1;
-    }
-
-    public int agf() {
-        return this.bWE;
-    }
-
-    public int agg() {
-        return this.bWF;
-    }
-
-    public boolean agh() {
-        return this.bWC == 0;
+        return this.bWE == 0;
     }
 
     public String getUrl() {

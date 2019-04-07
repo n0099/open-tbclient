@@ -8,41 +8,41 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public class a {
-    private final ViewGroup aMA;
-    private int aMB;
-    private final InterfaceC0164a aMz;
+    private final InterfaceC0164a aMC;
+    private final ViewGroup aMD;
+    private int aME;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0164a {
-        a uv();
+        a uu();
     }
 
     public a(@NonNull InterfaceC0164a interfaceC0164a, @NonNull ViewGroup viewGroup, int i) {
-        this.aMz = interfaceC0164a;
-        this.aMA = viewGroup;
-        this.aMB = i;
+        this.aMC = interfaceC0164a;
+        this.aMD = viewGroup;
+        this.aME = i;
     }
 
     public void setMask(boolean z) {
-        Container Iy = Iy();
-        if (Iy != null) {
-            Iy.setClickable(z);
+        Container Iw = Iw();
+        if (Iw != null) {
+            Iw.setClickable(z);
         }
     }
 
     private Context getContext() {
-        return this.aMA.getContext();
+        return this.aMD.getContext();
     }
 
     @Nullable
-    private Container Iy() {
+    private Container Iw() {
         Container container;
-        synchronized (this.aMA) {
+        synchronized (this.aMD) {
             int i = 0;
             while (true) {
-                if (i < this.aMA.getChildCount()) {
-                    View childAt = this.aMA.getChildAt(i);
+                if (i < this.aMD.getChildCount()) {
+                    View childAt = this.aMD.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -59,20 +59,20 @@ public class a {
     }
 
     @NonNull
-    private Container Iz() {
-        Container Iy;
+    private Container Ix() {
+        Container Iw;
         int i;
         int i2;
         int i3 = -1;
-        synchronized (this.aMA) {
-            Iy = Iy();
-            if (Iy == null) {
-                Iy = new Container(getContext());
-                int height = this.aMA.getHeight() - this.aMB;
-                if (this.aMA instanceof LinearLayout) {
+        synchronized (this.aMD) {
+            Iw = Iw();
+            if (Iw == null) {
+                Iw = new Container(getContext());
+                int height = this.aMD.getHeight() - this.aME;
+                if (this.aMD instanceof LinearLayout) {
                     i = -height;
                 } else {
-                    i = this.aMB;
+                    i = this.aME;
                 }
                 if (height <= 0) {
                     i = 0;
@@ -80,16 +80,16 @@ public class a {
                 } else {
                     i2 = height;
                 }
-                if ((this.aMA instanceof LinearLayout) || this.aMB != 0) {
+                if ((this.aMD instanceof LinearLayout) || this.aME != 0) {
                     i3 = i2;
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i3);
                 layoutParams.setMargins(0, i, 0, 0);
-                Iy.setLayoutParams(layoutParams);
-                this.aMA.addView(Iy);
+                Iw.setLayoutParams(layoutParams);
+                this.aMD.addView(Iw);
             }
         }
-        return Iy;
+        return Iw;
     }
 
     public void reset() {
@@ -97,20 +97,20 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.aMA) {
-            Container Iy = Iy();
-            if (!z || Iy == null || Iy.getChildCount() <= 0) {
-                if (Iy != null) {
-                    this.aMA.removeView(Iy);
+        synchronized (this.aMD) {
+            Container Iw = Iw();
+            if (!z || Iw == null || Iw.getChildCount() <= 0) {
+                if (Iw != null) {
+                    this.aMD.removeView(Iw);
                 }
             }
         }
     }
 
     public View getView() {
-        Container Iy = Iy();
-        if (Iy != null && Iy.getChildCount() > 0) {
-            return Iy.getChildAt(0);
+        Container Iw = Iw();
+        if (Iw != null && Iw.getChildCount() > 0) {
+            return Iw.getChildAt(0);
         }
         return null;
     }
@@ -118,7 +118,7 @@ public class a {
     public void ae(@NonNull View view) {
         if (view != getView()) {
             reset();
-            Iz().addView(view);
+            Ix().addView(view);
         }
     }
 }

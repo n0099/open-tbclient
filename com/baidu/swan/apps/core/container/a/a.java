@@ -9,14 +9,14 @@ public class a implements i {
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0131a {
-        public static final a apB = new a();
+        public static final a apF = new a();
     }
 
     private a() {
     }
 
-    public static a xT() {
-        return C0131a.apB;
+    public static a xS() {
+        return C0131a.apF;
     }
 
     @Override // com.baidu.swan.apps.b.c.i
@@ -25,7 +25,7 @@ public class a implements i {
             Log.d("SysWebViewInitHelper", "addInitListener");
         }
         if (bVar != null) {
-            bVar.xU();
+            bVar.xT();
         }
     }
 

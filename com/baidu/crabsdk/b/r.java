@@ -4,7 +4,7 @@ import com.baidu.mobstat.Config;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class r {
-    public static String M() {
+    public static String L() {
         StringBuilder sb = new StringBuilder();
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {

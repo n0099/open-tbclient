@@ -56,12 +56,12 @@ public class c implements e<a> {
             aVar.Dv = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] mW = iVar.mW(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.adN()) {
+        byte[] mX = iVar.mX(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        if (!iVar.adK()) {
             aVar2.error_code = 3;
             aVar2.error_msg = h.getString(d.j.neterror);
             return aVar2;
-        } else if (mW == null || mW.length == 0) {
+        } else if (mX == null || mX.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = h.getString(d.j.voice_cache_error_no_file);
             return aVar2;
@@ -69,13 +69,13 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (mW == null || mW.length == 0) {
+            } else if (mX == null || mX.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.R(false);
-                diskFileOperate.setData(mW);
+                diskFileOperate.setData(mX);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
                     eVar.f(diskFileOperate);
@@ -85,7 +85,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.hN() != null) {
                     str5 = diskFileOperate.hN().getAbsolutePath();
                     i3 = 0;
-                } else if (m.ach() < mW.length) {
+                } else if (m.ace() < mX.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -96,7 +96,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.iu(i3);
+                aVar2.error_msg = a.it(i3);
             }
             return aVar2;
         }

@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class ab {
-    public String huf;
-    public boolean hug;
-    public boolean huh;
-    public boolean htS = false;
-    public boolean htT = false;
+    public String htS;
+    public boolean htT;
+    public boolean htU;
+    public boolean htF = false;
+    public boolean htG = false;
     public boolean qV = false;
-    public boolean htU = false;
-    public boolean htV = false;
-    public boolean htW = false;
-    public boolean htX = false;
-    public boolean htY = false;
-    public boolean htZ = false;
-    public boolean hua = false;
-    public boolean hub = false;
-    public boolean huc = false;
-    public boolean hud = false;
-    public boolean hue = false;
+    public boolean htH = false;
+    public boolean htI = false;
+    public boolean htJ = false;
+    public boolean htK = false;
+    public boolean htL = false;
+    public boolean htM = false;
+    public boolean htN = false;
+    public boolean htO = false;
+    public boolean htP = false;
+    public boolean htQ = false;
+    public boolean htR = false;
     public boolean isHostOnly = false;
 }

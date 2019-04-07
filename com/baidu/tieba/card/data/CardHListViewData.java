@@ -29,7 +29,7 @@ public class CardHListViewData extends b implements Serializable {
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
         if (guessLikeStruct != null && v.S(guessLikeStruct.thread_list) >= 3) {
-            this.title = ap.mJ(guessLikeStruct.title);
+            this.title = ap.mK(guessLikeStruct.title);
             List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
             if (v.S(list) > 9) {
                 list = v.c(list, 0, 9);

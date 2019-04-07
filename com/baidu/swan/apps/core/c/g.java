@@ -9,23 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes2.dex */
 public abstract class g extends b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.b.c.f ara;
-    protected com.baidu.swan.apps.b.c.d arb;
+    protected com.baidu.swan.apps.b.c.f are;
+    protected com.baidu.swan.apps.b.c.d arf;
     protected String mParams;
     private String mUrl;
 
-    protected abstract com.baidu.swan.apps.b.c.f vX();
+    protected abstract com.baidu.swan.apps.b.c.f vW();
 
-    protected abstract com.baidu.swan.apps.core.e.c wl();
+    protected abstract com.baidu.swan.apps.core.e.c wk();
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        yw();
+        yv();
         if (DEBUG) {
             Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
         }
@@ -36,24 +35,24 @@ public abstract class g extends b {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         M(inflate);
-        this.ara = vX();
-        this.ara.a(wl());
-        this.arb = this.ara.wc();
-        this.ara.loadUrl(this.mUrl);
+        this.are = vW();
+        this.are.a(wk());
+        this.arf = this.are.wb();
+        this.are.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.ara.a(frameLayout, this.arb.wb());
+        this.are.a(frameLayout, this.arf.wa());
         a(frameLayout);
-        return a(yj() ? Q(inflate) : inflate, this);
+        return a(yi() ? Q(inflate) : inflate, this);
     }
 
     protected void a(FrameLayout frameLayout) {
     }
 
-    private void yw() {
+    private void yv() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mUrl = arguments.getString("url");
-            this.mParams = arguments.getString(LegoListActivityConfig.PARAMS);
+            this.mParams = arguments.getString("params");
         }
     }
 
@@ -98,77 +97,77 @@ public abstract class g extends b {
         if (bVar != null) {
             Bundle bundle = new Bundle();
             bundle.putString("url", bVar.mBaseUrl);
-            bundle.putString(LegoListActivityConfig.PARAMS, bVar.mParams);
+            bundle.putString("params", bVar.mParams);
             setArguments(bundle);
         }
     }
 
     public static boolean b(@NonNull String str, com.baidu.swan.apps.model.b bVar) {
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page url=" + bVar.mBaseUrl);
-        uz.yS().A(e.aqJ, e.aqL).a(str, bVar).za();
+        uy.yR().A(e.aqN, e.aqP).a(str, bVar).yZ();
         return true;
     }
 
-    public static boolean zf() {
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+    public static boolean ze() {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "close page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "page closed! ");
-        uz.yS().A(e.aqL, e.aqK).yW().commit();
+        uy.yR().A(e.aqP, e.aqO).yV().commit();
         return true;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.ara != null) {
-            this.ara.destroy();
-            this.ara = null;
+        if (this.are != null) {
+            this.are.destroy();
+            this.are = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.c.b
-    protected void xX() {
-        this.ara.vZ();
-        xW();
-        this.apX.a(com.baidu.swan.apps.u.a.CT().Ds(), ys(), yt());
+    protected void xW() {
+        this.are.vY();
+        xV();
+        this.aqb.a(com.baidu.swan.apps.u.a.CR().Dq(), yr(), ys());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.c.b
-    public boolean xY() {
+    public boolean xX() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.c.b
-    public boolean vY() {
-        if (this.arb == null || !this.arb.canGoBack()) {
+    public boolean vX() {
+        if (this.arf == null || !this.arf.canGoBack()) {
             return false;
         }
-        this.arb.goBack();
+        this.arf.goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.c.b
-    protected void xW() {
+    protected void xV() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.c.b
     public void M(View view) {
         super.M(view);
-        cc(-1);
-        cd(ViewCompat.MEASURED_STATE_MASK);
-        this.apW.setTitle("");
-        this.apW.setRightImgZone2Visibility(8);
-        this.apW.setRightMenuVisibility(true);
+        cb(-1);
+        cc(ViewCompat.MEASURED_STATE_MASK);
+        this.aqa.setTitle("");
+        this.aqa.setRightImgZone2Visibility(8);
+        this.aqa.setRightMenuVisibility(true);
         aW(true);
     }
 }

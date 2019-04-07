@@ -22,10 +22,10 @@ public class b<T> {
         this.Dr = i;
         this.Ds = i2;
         this.Dt = new LinkedList<>();
-        ao(this.Ds);
+        an(this.Ds);
     }
 
-    private void an(int i) {
+    private void am(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -37,7 +37,7 @@ public class b<T> {
         }
     }
 
-    private void ao(int i) {
+    private void an(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -54,24 +54,24 @@ public class b<T> {
         }
     }
 
-    public void ap(int i) {
+    public void ao(int i) {
         synchronized (this) {
             int i2 = i < this.Ds ? this.Ds : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
             this.Dr = i2;
-            an(this.Dt.size() - this.Dr);
+            am(this.Dt.size() - this.Dr);
         }
     }
 
-    public void aq(int i) {
+    public void ap(int i) {
         synchronized (this) {
             if (i > this.Dr) {
                 i = this.Dr;
             }
             this.Ds = i;
-            ao(this.Ds - this.Dt.size());
+            an(this.Ds - this.Dt.size());
         }
     }
 
@@ -84,7 +84,7 @@ public class b<T> {
                 } else {
                     t = this.Du.activateObject(this.Du.makeObject());
                 }
-                ao(this.Ds - this.Dt.size());
+                an(this.Ds - this.Dt.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

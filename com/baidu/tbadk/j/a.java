@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long buD = 604800000;
+    private static long buG = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void D(File file) {
@@ -49,13 +49,13 @@ public class a {
                     b.getInstance().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.buD) {
+                if (currentTimeMillis - j > a.buG) {
                     new Thread() { // from class: com.baidu.tbadk.j.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.abZ();
+                                c.abW();
                                 a.D(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.UserBfbInfo;
 /* loaded from: classes6.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
-    com.baidu.adp.framework.listener.a eDY;
-    private a fEZ;
+    com.baidu.adp.framework.listener.a eDJ;
+    private a fEN;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -18,15 +18,15 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
 
     public BfbInfoModel(CreateBarGuideActivity createBarGuideActivity) {
         super(createBarGuideActivity.getPageContext());
-        this.eDY = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366) { // from class: com.baidu.tieba.home.BfbInfoModel.1
+        this.eDJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366) { // from class: com.baidu.tieba.home.BfbInfoModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
                     if ((responsedMessage instanceof BfbInfoHttpResponseMessage) || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                         UserBfbInfo userBfbInfo = null;
                         if (responsedMessage.getError() != 0) {
-                            if (BfbInfoModel.this.fEZ != null) {
-                                BfbInfoModel.this.fEZ.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (BfbInfoModel.this.fEN != null) {
+                                BfbInfoModel.this.fEN.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
@@ -36,24 +36,24 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                         } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                             userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                         }
-                        if (BfbInfoModel.this.fEZ != null) {
-                            BfbInfoModel.this.fEZ.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                        if (BfbInfoModel.this.fEN != null) {
+                            BfbInfoModel.this.fEN.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                         }
                     }
                 }
             }
         };
-        blh();
-        aPQ();
+        ble();
+        aPO();
     }
 
-    private void blh() {
+    private void ble() {
         com.baidu.tieba.tbadkCore.a.a.a(309366, BfbInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void aPQ() {
-        registerListener(this.eDY);
+    private void aPO() {
+        registerListener(this.eDJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -68,11 +68,11 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void a(a aVar) {
-        this.fEZ = aVar;
+        this.fEN = aVar;
     }
 
-    public void bli() {
-        MessageManager.getInstance().unRegisterListener(this.eDY);
+    public void blf() {
+        MessageManager.getInstance().unRegisterListener(this.eDJ);
         MessageManager.getInstance().unRegisterTask(309366);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
     }

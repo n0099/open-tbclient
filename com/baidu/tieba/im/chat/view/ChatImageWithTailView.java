@@ -9,10 +9,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private TbImageView eIv;
-    private ChatClipImageItemView geW;
-    private LinearLayout geX;
-    private TextView geY;
+    private TbImageView eIh;
+    private ChatClipImageItemView geK;
+    private LinearLayout geL;
+    private TextView geM;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -26,49 +26,49 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.chat_image_with_tail_item, this);
-        this.geW = (ChatClipImageItemView) findViewById(d.g.img_msgitem_image_new);
-        this.geW.setContentDescription(getContext().getString(d.j.editor_image));
-        this.geW.setDefaultResource(d.f.pic_image_h_not);
-        this.geX = (LinearLayout) findViewById(d.g.small_tail);
-        this.eIv = (TbImageView) findViewById(d.g.tail_icon);
-        this.eIv.setDefaultResource(d.f.icon);
-        this.eIv.setAutoChangeStyle(false);
-        this.geY = (TextView) findViewById(d.g.tail_game_from);
+        this.geK = (ChatClipImageItemView) findViewById(d.g.img_msgitem_image_new);
+        this.geK.setContentDescription(getContext().getString(d.j.editor_image));
+        this.geK.setDefaultResource(d.f.pic_image_h_not);
+        this.geL = (LinearLayout) findViewById(d.g.small_tail);
+        this.eIh = (TbImageView) findViewById(d.g.tail_icon);
+        this.eIh.setDefaultResource(d.f.icon);
+        this.eIh.setAutoChangeStyle(false);
+        this.geM = (TextView) findViewById(d.g.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.geW;
+        return this.geK;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.geW = chatClipImageItemView;
+        this.geK = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.geX;
+        return this.geL;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.geX = linearLayout;
+        this.geL = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.eIv;
+        return this.eIh;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.eIv = tbImageView;
+        this.eIh = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.geY;
+        return this.geM;
     }
 
     public void setFromSource(TextView textView) {
-        this.geY = textView;
+        this.geM = textView;
     }
 
     public void setIsSupportNight(boolean z) {
-        this.eIv.setAutoChangeStyle(z);
+        this.eIh.setAutoChangeStyle(z);
     }
 }

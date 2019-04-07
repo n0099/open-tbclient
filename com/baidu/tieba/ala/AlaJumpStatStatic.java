@@ -47,7 +47,7 @@ public class AlaJumpStatStatic {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.f("startTime", Long.valueOf(System.currentTimeMillis() - n.apq().app()));
+        statsItem.f("startTime", Long.valueOf(System.currentTimeMillis() - n.apn().apm()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

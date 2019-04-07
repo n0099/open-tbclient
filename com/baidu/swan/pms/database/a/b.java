@@ -8,7 +8,7 @@ import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class b<T> {
-    public abstract ContentValues W(T t);
+    public abstract ContentValues U(T t);
 
     public abstract <T> List<T> j(Cursor cursor) throws SQLException;
 
@@ -35,7 +35,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            fVar.blW = string;
+            fVar.blZ = string;
             fVar.category = cursor.getInt(columnIndex2);
             fVar.versionName = cursor.getString(columnIndex3);
             fVar.versionCode = cursor.getInt(columnIndex4);
@@ -47,7 +47,7 @@ public abstract class b<T> {
             fVar.currentSize = cursor.getLong(columnIndex11);
             fVar.createTime = cursor.getLong(columnIndex12);
             fVar.updateTime = cursor.getLong(columnIndex13);
-            fVar.acH = cursor.getLong(columnIndex9);
+            fVar.acM = cursor.getLong(columnIndex9);
             fVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -56,7 +56,7 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.f fVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", fVar.blW);
+        contentValues.put("bundle_id", fVar.blZ);
         contentValues.put("category", Integer.valueOf(fVar.category));
         contentValues.put("version_name", fVar.versionName);
         contentValues.put("version_code", Integer.valueOf(fVar.versionCode));

@@ -9,7 +9,7 @@ public class b {
         this.mV8Engine.requireJSFileForOpenData(str, str2);
     }
 
-    public void Of() {
+    public void Od() {
         this.mV8Engine.destroyOpenDataContext();
     }
 }

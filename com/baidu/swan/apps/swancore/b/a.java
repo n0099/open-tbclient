@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean hh(String str) {
+    public static boolean hi(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "error url!");
@@ -31,7 +31,7 @@ public class a {
             return false;
         }
         String path = parse.getPath();
-        String str2 = c.Ab().As() != null ? c.Ab().As().aTg + "/abtest/config.js" : "/abtest/config.js";
+        String str2 = c.Aa().Ar() != null ? c.Aa().Ar().aTj + "/abtest/config.js" : "/abtest/config.js";
         if (DEBUG) {
             Log.d("SwanCoreConfigHelper", "path:" + path);
             Log.d("SwanCoreConfigHelper", "configCheckPath:" + str2);
@@ -39,10 +39,10 @@ public class a {
         return TextUtils.isEmpty(parse.getHost()) && TextUtils.equals(str2, path);
     }
 
-    public static InputStream KP() {
+    public static InputStream KN() {
         String str = "";
-        if (com.baidu.swan.apps.u.a.CB() != null) {
-            str = KQ().toString();
+        if (com.baidu.swan.apps.u.a.Cz() != null) {
+            str = KO().toString();
         }
         String str2 = "(function(global){global.extraConfig= {abTestSwitch:" + str + "}})(window)";
         if (DEBUG) {
@@ -51,21 +51,21 @@ public class a {
         return new ByteArrayInputStream(str2.getBytes());
     }
 
-    private static JSONObject KQ() {
-        JSONObject vi = com.baidu.swan.apps.u.a.CB().vi();
-        Iterator<String> keys = vi.keys();
+    private static JSONObject KO() {
+        JSONObject vh = com.baidu.swan.apps.u.a.Cz().vh();
+        Iterator<String> keys = vh.keys();
         while (keys.hasNext()) {
             if (!keys.next().startsWith("swanswitch")) {
                 keys.remove();
             }
         }
-        return vi;
+        return vh;
     }
 
-    public static JSONObject KR() {
+    public static JSONObject KP() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("abTestSwitch", KQ());
+            jSONObject.put("abTestSwitch", KO());
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -27,12 +27,12 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("OmaDrmAccessUnitFormatBox.java", OmaDrmAccessUnitFormatBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "isSelectiveEncryption", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "boolean"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "initVectorLength", "", "void"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "keyIndicatorLength", "", "void"), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setAllBits", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "byte", "allBits", "", "void"), 66);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "isSelectiveEncryption", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "boolean"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "", "", "", "int"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setInitVectorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "initVectorLength", "", "void"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "setKeyIndicatorLength", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "int", "keyIndicatorLength", "", "void"), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setAllBits", "com.coremedia.iso.boxes.OmaDrmAccessUnitFormatBox", "byte", "allBits", "", "void"), 66);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -60,12 +60,12 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     }
 
     public void setInitVectorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.initVectorLength = i;
     }
 
     public void setKeyIndicatorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.CW(i)));
         this.keyIndicatorLength = i;
     }
 

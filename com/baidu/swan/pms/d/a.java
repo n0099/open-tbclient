@@ -14,7 +14,7 @@ public class a {
         return "Android";
     }
 
-    public static int So() {
+    public static int Sm() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
@@ -22,7 +22,7 @@ public class a {
         return 0;
     }
 
-    public static int Sp() {
+    public static int Sn() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;

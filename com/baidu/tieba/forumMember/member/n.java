@@ -13,19 +13,19 @@ import com.baidu.tieba.d;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes5.dex */
 public class n extends v.a {
-    public LinearLayout eVO;
-    public LinearLayout eVP;
-    public LinearLayout eVQ;
-    public LinearLayout eVR;
-    public HeadImageView eVS;
-    public HeadImageView eVT;
-    public HeadImageView eVU;
-    public HeadImageView eVV;
-    public TextView eVW;
-    public TextView eVX;
-    public TextView eVY;
-    public TextView eVZ;
-    public NoPressedLinearLayout eWa;
+    public LinearLayout eVA;
+    public LinearLayout eVB;
+    public LinearLayout eVC;
+    public LinearLayout eVD;
+    public HeadImageView eVE;
+    public HeadImageView eVF;
+    public HeadImageView eVG;
+    public HeadImageView eVH;
+    public TextView eVI;
+    public TextView eVJ;
+    public TextView eVK;
+    public TextView eVL;
+    public NoPressedLinearLayout eVM;
     public TextView mTitleView;
 
     public n(View view, View.OnClickListener onClickListener) {
@@ -34,67 +34,67 @@ public class n extends v.a {
         int color = al.getColor(d.C0277d.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(d.g.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.eVO = (LinearLayout) view.findViewById(d.g.member1);
-        this.eVS = (HeadImageView) view.findViewById(d.g.imageview_user_photo1);
-        this.eVW = (TextView) view.findViewById(d.g.textview_user_name1);
-        this.eVS.setIsRound(true);
-        this.eVS.setBorderColor(color);
-        this.eVS.setBorderWidth(h);
-        this.eVS.setOnClickListener(onClickListener);
-        this.eVP = (LinearLayout) view.findViewById(d.g.member2);
-        this.eVT = (HeadImageView) view.findViewById(d.g.imageview_user_photo2);
-        this.eVX = (TextView) view.findViewById(d.g.textview_user_name2);
-        this.eVT.setIsRound(true);
-        this.eVT.setBorderColor(color);
-        this.eVT.setBorderWidth(h);
-        this.eVT.setOnClickListener(onClickListener);
-        this.eVQ = (LinearLayout) view.findViewById(d.g.member3);
-        this.eVU = (HeadImageView) view.findViewById(d.g.imageview_user_photo3);
-        this.eVY = (TextView) view.findViewById(d.g.textview_user_name3);
-        this.eVU.setIsRound(true);
-        this.eVU.setBorderColor(color);
-        this.eVU.setBorderWidth(h);
-        this.eVU.setOnClickListener(onClickListener);
-        this.eVR = (LinearLayout) view.findViewById(d.g.member4);
-        this.eVV = (HeadImageView) view.findViewById(d.g.imageview_user_photo4);
-        this.eVZ = (TextView) view.findViewById(d.g.textview_user_name4);
-        this.eVV.setIsRound(true);
-        this.eVV.setBorderColor(color);
-        this.eVV.setBorderWidth(h);
-        this.eVV.setOnClickListener(onClickListener);
-        this.eWa = (NoPressedLinearLayout) view.findViewById(d.g.forum_member_team_item_view);
+        this.eVA = (LinearLayout) view.findViewById(d.g.member1);
+        this.eVE = (HeadImageView) view.findViewById(d.g.imageview_user_photo1);
+        this.eVI = (TextView) view.findViewById(d.g.textview_user_name1);
+        this.eVE.setIsRound(true);
+        this.eVE.setBorderColor(color);
+        this.eVE.setBorderWidth(h);
+        this.eVE.setOnClickListener(onClickListener);
+        this.eVB = (LinearLayout) view.findViewById(d.g.member2);
+        this.eVF = (HeadImageView) view.findViewById(d.g.imageview_user_photo2);
+        this.eVJ = (TextView) view.findViewById(d.g.textview_user_name2);
+        this.eVF.setIsRound(true);
+        this.eVF.setBorderColor(color);
+        this.eVF.setBorderWidth(h);
+        this.eVF.setOnClickListener(onClickListener);
+        this.eVC = (LinearLayout) view.findViewById(d.g.member3);
+        this.eVG = (HeadImageView) view.findViewById(d.g.imageview_user_photo3);
+        this.eVK = (TextView) view.findViewById(d.g.textview_user_name3);
+        this.eVG.setIsRound(true);
+        this.eVG.setBorderColor(color);
+        this.eVG.setBorderWidth(h);
+        this.eVG.setOnClickListener(onClickListener);
+        this.eVD = (LinearLayout) view.findViewById(d.g.member4);
+        this.eVH = (HeadImageView) view.findViewById(d.g.imageview_user_photo4);
+        this.eVL = (TextView) view.findViewById(d.g.textview_user_name4);
+        this.eVH.setIsRound(true);
+        this.eVH.setBorderColor(color);
+        this.eVH.setBorderWidth(h);
+        this.eVH.setOnClickListener(onClickListener);
+        this.eVM = (NoPressedLinearLayout) view.findViewById(d.g.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
         if (bawuRoleInfoPub != null && i >= 0 && i <= 3) {
             switch (i) {
                 case 0:
-                    this.eVS.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.eVS.setTag(bawuRoleInfoPub);
-                    this.eVS.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.eVW.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.eVO.setVisibility(0);
+                    this.eVE.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.eVE.setTag(bawuRoleInfoPub);
+                    this.eVE.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.eVI.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.eVA.setVisibility(0);
                     return;
                 case 1:
-                    this.eVT.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.eVT.setTag(bawuRoleInfoPub);
-                    this.eVT.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.eVX.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.eVP.setVisibility(0);
+                    this.eVF.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.eVF.setTag(bawuRoleInfoPub);
+                    this.eVF.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.eVJ.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.eVB.setVisibility(0);
                     return;
                 case 2:
-                    this.eVU.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.eVU.setTag(bawuRoleInfoPub);
-                    this.eVU.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.eVY.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.eVQ.setVisibility(0);
+                    this.eVG.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.eVG.setTag(bawuRoleInfoPub);
+                    this.eVG.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.eVK.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.eVC.setVisibility(0);
                     return;
                 case 3:
-                    this.eVV.startLoad(bawuRoleInfoPub.portrait, 12, false);
-                    this.eVV.setTag(bawuRoleInfoPub);
-                    this.eVV.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.eVZ.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.eVR.setVisibility(0);
+                    this.eVH.startLoad(bawuRoleInfoPub.portrait, 12, false);
+                    this.eVH.setTag(bawuRoleInfoPub);
+                    this.eVH.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.eVL.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.eVD.setVisibility(0);
                     return;
                 default:
                     return;
@@ -103,21 +103,21 @@ public class n extends v.a {
     }
 
     public void iN(boolean z) {
-        if (this.eVS.getVisibility() == 0) {
-            this.eVS.setIsNight(z);
-            this.eVS.refresh();
+        if (this.eVE.getVisibility() == 0) {
+            this.eVE.setIsNight(z);
+            this.eVE.refresh();
         }
-        if (this.eVT.getVisibility() == 0) {
-            this.eVT.setIsNight(z);
-            this.eVT.refresh();
+        if (this.eVF.getVisibility() == 0) {
+            this.eVF.setIsNight(z);
+            this.eVF.refresh();
         }
-        if (this.eVU.getVisibility() == 0) {
-            this.eVU.setIsNight(z);
-            this.eVU.refresh();
+        if (this.eVG.getVisibility() == 0) {
+            this.eVG.setIsNight(z);
+            this.eVG.refresh();
         }
-        if (this.eVV.getVisibility() == 0) {
-            this.eVV.setIsNight(z);
-            this.eVV.refresh();
+        if (this.eVH.getVisibility() == 0) {
+            this.eVH.setIsNight(z);
+            this.eVH.refresh();
         }
     }
 }

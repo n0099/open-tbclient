@@ -8,14 +8,14 @@ public interface e {
 
         void onChange(boolean z);
 
-        void vE(int i);
+        void vA(int i);
     }
 
     void a(a aVar);
 
-    void bEd();
+    void bEa();
 
-    void bEe();
+    void bEb();
 
-    void bEf();
+    void bEc();
 }

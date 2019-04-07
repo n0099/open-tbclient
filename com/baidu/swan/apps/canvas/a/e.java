@@ -11,7 +11,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -27,8 +26,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
-        return super.bQ(i);
+    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
+        return super.bP(i);
     }
 
     public e(j jVar) {
@@ -40,25 +39,25 @@ public class e extends a {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = bQ(201);
+        unitedSchemeEntity.result = bP(201);
         com.baidu.swan.apps.canvas.c.d c = c(unitedSchemeEntity);
         if (c == null) {
             return false;
         }
-        if (c.alJ == null || c.alJ.length() <= 0) {
+        if (c.alN == null || c.alN.length() <= 0) {
             i = 0;
         } else {
-            if (c.alM && c.mItalic) {
+            if (c.alQ && c.mItalic) {
                 i2 = 3;
-            } else if (c.alM) {
+            } else if (c.alQ) {
                 i2 = 1;
             } else {
                 i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.alK, i2));
-            textPaint.setTextSize(c.alL);
-            textPaint.getTextBounds(c.alJ, 0, c.alJ.length(), new Rect());
+            textPaint.setTypeface(Typeface.create(c.alO, i2));
+            textPaint.setTextSize(c.alP);
+            textPaint.getTextBounds(c.alN, 0, c.alN.length(), new Rect());
             i = x.ae(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
@@ -75,7 +74,7 @@ public class e extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     /* renamed from: f */
     public com.baidu.swan.apps.canvas.c.d c(UnitedSchemeEntity unitedSchemeEntity) {
-        String str = unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS);
+        String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             return null;
         }

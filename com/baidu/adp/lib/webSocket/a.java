@@ -38,7 +38,7 @@ public class a extends OutputStream {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void aH(int i) {
+    public synchronized void aG(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
@@ -53,7 +53,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            aH(this.mBuffer.capacity() + 1);
+            aG(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -61,7 +61,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            aH(this.mBuffer.capacity() + i2);
+            aG(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }

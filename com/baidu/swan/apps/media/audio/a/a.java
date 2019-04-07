@@ -10,7 +10,6 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.media.audio.d;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -36,17 +35,17 @@ public class a extends y {
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "handleSubAction subAction: " + str);
         }
-        JSONObject eV = eV(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
-        if (eV == null) {
+        JSONObject eW = eW(unitedSchemeEntity.getParam("params"));
+        if (eW == null) {
             c.e("backgroundAudio", "param is null!");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        d Jg = bVar.Jg();
+        d Je = bVar.Je();
         if (TextUtils.equals(str, "/swan/backgroundAudio/open")) {
-            a = com.baidu.swan.apps.media.audio.a.a(eV, new com.baidu.swan.apps.media.audio.a());
+            a = com.baidu.swan.apps.media.audio.a.a(eW, new com.baidu.swan.apps.media.audio.a());
         } else {
-            a = com.baidu.swan.apps.media.audio.a.a(eV, Jg.Ey());
+            a = com.baidu.swan.apps.media.audio.a.a(eW, Je.Ew());
         }
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
@@ -98,45 +97,45 @@ public class a extends y {
         }
         switch (c) {
             case 0:
-                c.i("backgroundAudio", "open, audioId " + a.azs);
-                Jg.a(a, callbackHandler);
+                c.i("backgroundAudio", "open, audioId " + a.azv);
+                Je.a(a, callbackHandler);
                 jSONObject = null;
                 z = true;
                 break;
             case 1:
-                c.i("backgroundAudio", "update, audioId " + a.azs);
-                Jg.a(a);
+                c.i("backgroundAudio", "update, audioId " + a.azv);
+                Je.a(a);
                 jSONObject = null;
                 z = true;
                 break;
             case 2:
-                c.i("backgroundAudio", "play, audioId " + a.azs);
-                Jg.resume();
+                c.i("backgroundAudio", "play, audioId " + a.azv);
+                Je.resume();
                 jSONObject = null;
                 z = true;
                 break;
             case 3:
-                c.i("backgroundAudio", "pause, audioId " + a.azs);
-                Jg.pause();
+                c.i("backgroundAudio", "pause, audioId " + a.azv);
+                Je.pause();
                 jSONObject = null;
                 z = true;
                 break;
             case 4:
-                c.i("backgroundAudio", "seek, audioId " + a.azs + " position " + a.mPos);
-                Jg.seekTo(a.mPos);
+                c.i("backgroundAudio", "seek, audioId " + a.azv + " position " + a.mPos);
+                Je.seekTo(a.mPos);
                 jSONObject = null;
                 z = true;
                 break;
             case 5:
-                c.i("backgroundAudio", "stop, audioId " + a.azs);
-                Jg.stop();
+                c.i("backgroundAudio", "stop, audioId " + a.azv);
+                Je.stop();
                 jSONObject = null;
                 z = true;
                 break;
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a.azy, Jg.eU(a.azy));
+                    jSONObject2.putOpt(a.azB, Je.eV(a.azB));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {
@@ -160,7 +159,7 @@ public class a extends y {
         return super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
     }
 
-    private JSONObject eV(String str) {
+    private JSONObject eW(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

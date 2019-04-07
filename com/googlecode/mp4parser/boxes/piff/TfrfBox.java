@@ -23,9 +23,9 @@ public class TfrfBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TfrfBox.java", TfrfBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.lang.String"), 100);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.lang.String"), 100);
     }
 
     public TfrfBox() {

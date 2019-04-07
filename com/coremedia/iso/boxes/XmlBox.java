@@ -21,9 +21,9 @@ public class XmlBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("XmlBox.java", XmlBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getXml", "com.coremedia.iso.boxes.XmlBox", "", "", "", "java.lang.String"), 20);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setXml", "com.coremedia.iso.boxes.XmlBox", "java.lang.String", "xml", "", "void"), 24);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.XmlBox", "", "", "", "java.lang.String"), 46);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getXml", "com.coremedia.iso.boxes.XmlBox", "", "", "", "java.lang.String"), 20);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setXml", "com.coremedia.iso.boxes.XmlBox", "java.lang.String", "xml", "", "void"), 24);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.XmlBox", "", "", "", "java.lang.String"), 46);
     }
 
     public XmlBox() {

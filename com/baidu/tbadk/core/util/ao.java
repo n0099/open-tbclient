@@ -7,20 +7,20 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao bKJ;
+    private static ao bKL;
 
-    public static synchronized ao adk() {
+    public static synchronized ao adh() {
         ao aoVar;
         synchronized (ao.class) {
-            if (bKJ == null) {
-                bKJ = new ao();
+            if (bKL == null) {
+                bKL = new ao();
             }
-            aoVar = bKJ;
+            aoVar = bKL;
         }
         return aoVar;
     }
 
-    public String mB(String str) {
+    public String mC(String str) {
         if (str == null) {
             return null;
         }
@@ -31,35 +31,35 @@ public class ao {
         return FileUtils.IMAGE_FILE_START + (j % 20);
     }
 
-    public Bitmap mf(String str) {
+    public Bitmap mg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.bF(mB(str), str);
+        return m.bF(mC(str), str);
     }
 
-    public boolean mC(String str) {
+    public boolean mD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.bE(mB(str), str);
+        return m.bE(mC(str), str);
     }
 
-    public int mD(String str) {
+    public int mE(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.bD(mB(str), str);
+        return (int) m.bD(mC(str), str);
     }
 
     public boolean bG(String str, String str2) {
         String str3 = m.FK + "/" + TbConfig.getTempDirName() + "/";
-        if (!m.lN(str3)) {
-            m.mk(str3);
+        if (!m.lO(str3)) {
+            m.ml(str3);
         }
-        String str4 = str3 + mB(str2);
-        if (!m.lN(str4)) {
-            m.mk(str4);
+        String str4 = str3 + mC(str2);
+        if (!m.lO(str4)) {
+            m.ml(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -70,7 +70,7 @@ public class ao {
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(mB(str), str, bArr);
+            m.c(mC(str), str, bArr);
         }
     }
 
@@ -87,8 +87,8 @@ public class ao {
         }
     }
 
-    public void adl() {
-        L(new File(m.FK + "/" + TbConfig.getTempDirName() + "/" + m.hc(3)));
+    public void adi() {
+        L(new File(m.FK + "/" + TbConfig.getTempDirName() + "/" + m.hb(3)));
     }
 
     private void L(File file) {

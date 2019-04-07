@@ -19,12 +19,12 @@ public class e extends y {
 
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Ja() == null) {
+        if (context == null || callbackHandler == null || bVar == null || bVar.IY() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        ArrayList arrayList = (ArrayList) bVar.Ja().KG();
+        ArrayList arrayList = (ArrayList) bVar.IY().KE();
         JSONArray jSONArray = new JSONArray();
         if (arrayList == null || arrayList.size() == 0) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "file list is null");
@@ -36,8 +36,8 @@ public class e extends y {
             com.baidu.swan.apps.storage.a aVar = (com.baidu.swan.apps.storage.a) it.next();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.aD(aVar.getPath(), com.baidu.swan.apps.ae.b.Ji()));
-                jSONObject.put("createTime", aVar.KB());
+                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.aD(aVar.getPath(), com.baidu.swan.apps.ae.b.Jg()));
+                jSONObject.put("createTime", aVar.Kz());
                 jSONObject.put("size", aVar.getSize());
                 if (DEBUG) {
                     Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get("size") + ")");

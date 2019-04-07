@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 /* loaded from: classes3.dex */
 public final class f {
-    public static String e(Context context) {
+    public static String d(Context context) {
         Field[] fields;
         StringBuilder sb = new StringBuilder();
         try {

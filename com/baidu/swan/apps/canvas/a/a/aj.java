@@ -4,23 +4,23 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class aj extends a {
-    private float amb;
-    private float amc;
-    private float amd;
-    private float ame;
-    private int amf;
-    private int amg;
+    private float amf;
+    private float amg;
+    private float amh;
+    private float ami;
+    private int amj;
+    private int amk;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void g(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 6) {
-                this.amb = (float) jSONArray.optDouble(0);
-                this.amc = (float) jSONArray.optDouble(1);
-                this.amd = (float) jSONArray.optDouble(2);
-                this.ame = (float) jSONArray.optDouble(3);
-                this.amf = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(4));
-                this.amg = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(5));
+                this.amf = (float) jSONArray.optDouble(0);
+                this.amg = (float) jSONArray.optDouble(1);
+                this.amh = (float) jSONArray.optDouble(2);
+                this.ami = (float) jSONArray.optDouble(3);
+                this.amj = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(4));
+                this.amk = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(5));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -31,16 +31,16 @@ public class aj extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.wz() == 0) {
-            bVar.bR(canvas.save());
+        if (bVar.wy() == 0) {
+            bVar.bQ(canvas.save());
         } else {
-            canvas.restoreToCount(bVar.wz());
-            bVar.bR(canvas.save());
+            canvas.restoreToCount(bVar.wy());
+            bVar.bQ(canvas.save());
         }
-        if (this.amb > 0.0f && this.ame > 0.0f) {
-            canvas.scale(this.amb, this.ame);
+        if (this.amf > 0.0f && this.ami > 0.0f) {
+            canvas.scale(this.amf, this.ami);
         }
-        canvas.skew(this.amd, this.amc);
-        canvas.translate(this.amf, this.amg);
+        canvas.skew(this.amh, this.amg);
+        canvas.translate(this.amj, this.amk);
     }
 }

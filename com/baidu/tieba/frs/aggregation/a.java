@@ -3,5 +3,5 @@ package com.baidu.tieba.frs.aggregation;
 public interface a {
     void cancel();
 
-    void qv(int i);
+    void qr(int i);
 }

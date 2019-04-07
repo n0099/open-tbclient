@@ -9,18 +9,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<g> bhZ;
-    private e bia;
-    private boolean bib;
-    private String bic;
+    private List<g> bic;
+    private e bie;
+    private boolean bif;
+    private String bih;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
     public b(Context context, RecyclerView recyclerView, e eVar, boolean z) {
         this.mRecyclerView = recyclerView;
         this.mContext = context;
-        this.bia = eVar;
-        this.bib = z;
+        this.bie = eVar;
+        this.bif = z;
     }
 
     public b(Context context, RecyclerView recyclerView, e eVar) {
@@ -33,7 +33,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 101:
                 return new d(LayoutInflater.from(this.mContext).inflate(d.h.ai_apps_location_footer, viewGroup, false));
             default:
-                return new c(LayoutInflater.from(this.mContext).inflate(d.h.ai_apps_location_item, viewGroup, false), this, this.bia);
+                return new c(LayoutInflater.from(this.mContext).inflate(d.h.ai_apps_location_item, viewGroup, false), this, this.bie);
         }
     }
 
@@ -41,15 +41,15 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         switch (viewHolder.getItemViewType()) {
             case 101:
-                ((d) viewHolder).cI(Qx());
+                ((d) viewHolder).cI(Qv());
                 return;
             default:
-                ((c) viewHolder).a(this.bhZ.get(i), this.bic, Qy());
+                ((c) viewHolder).a(this.bic.get(i), this.bih, Qw());
                 return;
         }
     }
 
-    private boolean Qx() {
+    private boolean Qv() {
         return this.mRecyclerView != null && this.mRecyclerView.computeVerticalScrollOffset() > 0;
     }
 
@@ -59,31 +59,31 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void b(List<g> list, String str) {
         if (list != null) {
-            this.bhZ = list;
-            this.bic = str;
+            this.bic = list;
+            this.bih = str;
             notifyDataSetChanged();
         }
     }
 
-    private boolean Qy() {
-        return !TextUtils.isEmpty(this.bic);
+    private boolean Qw() {
+        return !TextUtils.isEmpty(this.bih);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.bhZ == null) {
+        if (this.bic == null) {
             return 0;
         }
-        return (this.bib ? 1 : 0) + this.bhZ.size();
+        return (this.bif ? 1 : 0) + this.bic.size();
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return (!this.bib || i < getItemCount() + (-1)) ? 100 : 101;
+        return (!this.bif || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
-    public void Qz() {
-        for (g gVar : this.bhZ) {
+    public void Qx() {
+        for (g gVar : this.bic) {
             gVar.isSelected = false;
         }
     }

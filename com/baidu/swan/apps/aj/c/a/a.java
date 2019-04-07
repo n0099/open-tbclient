@@ -11,7 +11,6 @@ import com.baidu.swan.apps.ae.b;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +40,7 @@ public class a extends y {
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (DEBUG) {
-            Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+            Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
         }
         if (!(context instanceof Activity)) {
             activity = null;
@@ -95,7 +94,7 @@ public class a extends y {
                     z = false;
                     break;
                 } else {
-                    com.baidu.swan.apps.aj.c.b.a.Lj().a(activity, f);
+                    com.baidu.swan.apps.aj.c.b.a.Lh().a(activity, f);
                     jSONObject = null;
                     z = true;
                     break;
@@ -104,7 +103,7 @@ public class a extends y {
             case 1:
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(UBC.CONTENT_KEY_VALUE, String.valueOf(com.baidu.swan.apps.aj.c.b.a.Lj().J(activity)));
+                    jSONObject.put(UBC.CONTENT_KEY_VALUE, String.valueOf(com.baidu.swan.apps.aj.c.b.a.Lh().J(activity)));
                     z = true;
                     break;
                 } catch (JSONException e2) {
@@ -119,7 +118,7 @@ public class a extends y {
                     return false;
                 }
                 try {
-                    com.baidu.swan.apps.aj.c.b.a.Lj().e(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                    com.baidu.swan.apps.aj.c.b.a.Lh().e(activity, optParamsAsJo.getBoolean("keepScreenOn"));
                     jSONObject = null;
                     z = true;
                     break;

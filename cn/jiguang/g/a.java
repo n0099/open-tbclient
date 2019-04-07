@@ -46,6 +46,7 @@ import cn.jpush.android.service.PushReceiver;
 import cn.jpush.android.service.PushService;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -334,7 +335,7 @@ public final class a {
             intent.putExtra("toastText", str);
             intent.putExtra("type", -1);
             PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 134217728);
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
             try {
                 i2 = context.getPackageManager().getApplicationInfo(context.getApplicationContext().getPackageName(), 0).icon;
             } catch (Throwable th) {

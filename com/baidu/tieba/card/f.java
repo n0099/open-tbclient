@@ -17,18 +17,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
-    private View egA;
-    private View egB;
-    private a egC;
-    private LinearLayout egr;
-    private TextView egs;
-    private LinearLayout egt;
-    private d egu;
-    private e egv;
-    private e egw;
-    private com.baidu.tieba.e.a egx;
-    private com.baidu.tieba.e.b egy;
-    private com.baidu.tieba.e.b egz;
+    private LinearLayout egd;
+    private TextView ege;
+    private LinearLayout egf;
+    private d egg;
+    private e egh;
+    private e egi;
+    private com.baidu.tieba.e.a egj;
+    private com.baidu.tieba.e.b egk;
+    private com.baidu.tieba.e.b egl;
+    private View egm;
+    private View egn;
+    private a ego;
     private String mForumId;
 
     /* loaded from: classes4.dex */
@@ -43,62 +43,62 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     private void init(View view) {
-        this.egr = (LinearLayout) view.findViewById(d.g.card_frs_game_head_line_layout);
-        this.egs = (TextView) view.findViewById(d.g.frs_game_head_line_title);
-        this.egt = (LinearLayout) view.findViewById(d.g.frs_game_head_line_container);
-        this.egA = view.findViewById(d.g.divider_line_1);
-        this.egB = view.findViewById(d.g.divider_line_2);
+        this.egd = (LinearLayout) view.findViewById(d.g.card_frs_game_head_line_layout);
+        this.ege = (TextView) view.findViewById(d.g.frs_game_head_line_title);
+        this.egf = (LinearLayout) view.findViewById(d.g.frs_game_head_line_container);
+        this.egm = view.findViewById(d.g.divider_line_1);
+        this.egn = view.findViewById(d.g.divider_line_2);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.tbds44);
-        if (this.egu == null) {
-            this.egu = new d(this.mTbPageContext, null, null);
+        if (this.egg == null) {
+            this.egg = new d(this.mTbPageContext, null, null);
         }
-        this.egu.q(0, 0, 0, 0);
-        this.egu.ol(8);
-        this.egu.om(8);
-        if (this.egu.getView().getParent() != null) {
-            ((ViewGroup) this.egu.getView().getParent()).removeView(this.egu.getView());
+        this.egg.q(0, 0, 0, 0);
+        this.egg.oh(8);
+        this.egg.oi(8);
+        if (this.egg.getView().getParent() != null) {
+            ((ViewGroup) this.egg.getView().getParent()).removeView(this.egg.getView());
         }
-        this.egu.getView().setOnClickListener(this);
-        this.egu.getView().setVisibility(8);
-        this.egt.addView(this.egu.getView());
-        if (this.egv == null) {
-            this.egv = new e(this.mTbPageContext);
+        this.egg.getView().setOnClickListener(this);
+        this.egg.getView().setVisibility(8);
+        this.egf.addView(this.egg.getView());
+        if (this.egh == null) {
+            this.egh = new e(this.mTbPageContext);
         }
-        this.egv.om(8);
-        this.egv.r(0, dimensionPixelSize, 0, 0);
-        if (this.egv.getView().getParent() != null) {
-            ((ViewGroup) this.egv.getView().getParent()).removeView(this.egv.getView());
+        this.egh.oi(8);
+        this.egh.r(0, dimensionPixelSize, 0, 0);
+        if (this.egh.getView().getParent() != null) {
+            ((ViewGroup) this.egh.getView().getParent()).removeView(this.egh.getView());
         }
-        this.egv.getView().setOnClickListener(this);
-        this.egv.getView().setVisibility(8);
-        this.egt.addView(this.egv.getView());
-        if (this.egw == null) {
-            this.egw = new e(this.mTbPageContext);
+        this.egh.getView().setOnClickListener(this);
+        this.egh.getView().setVisibility(8);
+        this.egf.addView(this.egh.getView());
+        if (this.egi == null) {
+            this.egi = new e(this.mTbPageContext);
         }
-        this.egw.om(8);
-        this.egw.r(0, dimensionPixelSize, 0, 0);
-        if (this.egw.getView().getParent() != null) {
-            ((ViewGroup) this.egw.getView().getParent()).removeView(this.egw.getView());
+        this.egi.oi(8);
+        this.egi.r(0, dimensionPixelSize, 0, 0);
+        if (this.egi.getView().getParent() != null) {
+            ((ViewGroup) this.egi.getView().getParent()).removeView(this.egi.getView());
         }
-        this.egw.getView().setOnClickListener(this);
-        this.egw.getView().setVisibility(8);
-        this.egt.addView(this.egw.getView());
+        this.egi.getView().setOnClickListener(this);
+        this.egi.getView().setVisibility(8);
+        this.egf.addView(this.egi.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         al.k(getView(), d.C0277d.cp_bg_line_d);
-        al.d(this.egs, d.C0277d.cp_cont_f, 1);
-        al.k(this.egA, d.C0277d.cp_bg_line_e);
-        al.k(this.egB, d.C0277d.cp_bg_line_e);
-        if (this.egu != null) {
-            this.egu.onChangeSkinType(tbPageContext, i);
+        al.d(this.ege, d.C0277d.cp_cont_f, 1);
+        al.k(this.egm, d.C0277d.cp_bg_line_e);
+        al.k(this.egn, d.C0277d.cp_bg_line_e);
+        if (this.egg != null) {
+            this.egg.onChangeSkinType(tbPageContext, i);
         }
-        if (this.egv != null) {
-            this.egv.onChangeSkinType(tbPageContext, i);
+        if (this.egh != null) {
+            this.egh.onChangeSkinType(tbPageContext, i);
         }
-        if (this.egw != null) {
-            this.egw.onChangeSkinType(tbPageContext, i);
+        if (this.egi != null) {
+            this.egi.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -110,30 +110,30 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.aUO() != null) {
-            if (!TextUtils.isEmpty(dVar.aUO().title)) {
-                this.egs.setText(dVar.aUO().title);
+        if (dVar != null && dVar.aUM() != null) {
+            if (!TextUtils.isEmpty(dVar.aUM().title)) {
+                this.ege.setText(dVar.aUM().title);
             }
-            List<bg> list = dVar.aUO().sub_nodes;
+            List<bg> list = dVar.aUM().sub_nodes;
             if (com.baidu.tbadk.core.util.v.S(list) >= 1) {
-                this.egx = new com.baidu.tieba.e.a();
-                this.egx.setData(list.get(0));
-                this.egu.getView().setVisibility(0);
-                this.egu.a(this.egx);
+                this.egj = new com.baidu.tieba.e.a();
+                this.egj.setData(list.get(0));
+                this.egg.getView().setVisibility(0);
+                this.egg.a(this.egj);
             }
             if (com.baidu.tbadk.core.util.v.S(list) >= 2) {
-                this.egy = new com.baidu.tieba.e.b();
-                this.egy.setData(list.get(1));
-                this.egv.getView().setVisibility(0);
-                this.egv.a(this.egy);
-                this.egv.on(8);
+                this.egk = new com.baidu.tieba.e.b();
+                this.egk.setData(list.get(1));
+                this.egh.getView().setVisibility(0);
+                this.egh.a(this.egk);
+                this.egh.oj(8);
             }
             if (com.baidu.tbadk.core.util.v.S(list) >= 3) {
-                this.egz = new com.baidu.tieba.e.b();
-                this.egz.setData(list.get(2));
-                this.egw.getView().setVisibility(0);
-                this.egw.a(this.egz);
-                this.egw.on(8);
+                this.egl = new com.baidu.tieba.e.b();
+                this.egl.setData(list.get(2));
+                this.egi.getView().setVisibility(0);
+                this.egi.a(this.egl);
+                this.egi.oj(8);
             }
         }
     }
@@ -141,38 +141,38 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log(new am("c13047").T("obj_locate", 6).bJ(ImageViewerConfig.FORUM_ID, this.mForumId));
-        if (view == this.egu.getView()) {
-            if (this.egx != null) {
-                if (this.egC != null) {
-                    this.egC.b(view, this.egx);
+        if (view == this.egg.getView()) {
+            if (this.egj != null) {
+                if (this.ego != null) {
+                    this.ego.b(view, this.egj);
                 }
-                R(this.egx.WR());
+                Q(this.egj.WO());
             }
-        } else if (view == this.egv.getView()) {
-            if (this.egy != null) {
-                if (this.egC != null) {
-                    this.egC.b(view, this.egy);
+        } else if (view == this.egh.getView()) {
+            if (this.egk != null) {
+                if (this.ego != null) {
+                    this.ego.b(view, this.egk);
                 }
-                R(this.egy.WR());
+                Q(this.egk.WO());
             }
-        } else if (view == this.egw.getView() && this.egz != null) {
-            if (this.egC != null) {
-                this.egC.b(view, this.egz);
+        } else if (view == this.egi.getView() && this.egl != null) {
+            if (this.ego != null) {
+                this.ego.b(view, this.egl);
             }
-            R(this.egz.WR());
+            Q(this.egl.WO());
         }
     }
 
-    private void R(bg bgVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bgVar, null, n.YE(), 18003, true, false, false);
+    private void Q(bg bgVar) {
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bgVar, null, n.YB(), 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(bgVar.getFid()));
-        createFromThreadCfg.setForumName(bgVar.YW());
+        createFromThreadCfg.setForumName(bgVar.YT());
         createFromThreadCfg.setStartFrom(0);
-        n.tA(bgVar.getTid());
+        n.tz(bgVar.getTid());
         getTbPageContext().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
     public void a(a aVar) {
-        this.egC = aVar;
+        this.ego = aVar;
     }
 }

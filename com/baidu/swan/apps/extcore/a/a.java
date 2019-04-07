@@ -10,7 +10,6 @@ import com.baidu.swan.apps.ae.b;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
@@ -23,7 +22,7 @@ public class a extends y {
         if (DEBUG) {
             Log.d("ExtCore-PublishThread", "handle: publishThread");
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;

@@ -27,14 +27,14 @@ public class TrackLoadSettingsAtom extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackLoadSettingsAtom.java", TrackLoadSettingsAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getPreloadStartTime", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 49);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setPreloadStartTime", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadStartTime", "", "void"), 53);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getPreloadDuration", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 57);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setPreloadDuration", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadDuration", "", "void"), 61);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getPreloadFlags", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 65);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setPreloadFlags", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadFlags", "", "void"), 69);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getDefaultHints", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 73);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setDefaultHints", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "defaultHints", "", "void"), 77);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getPreloadStartTime", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 49);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setPreloadStartTime", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadStartTime", "", "void"), 53);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getPreloadDuration", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 57);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setPreloadDuration", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadDuration", "", "void"), 61);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getPreloadFlags", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 65);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setPreloadFlags", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "preloadFlags", "", "void"), 69);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getDefaultHints", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "", "", "", "int"), 73);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setDefaultHints", "com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom", "int", "defaultHints", "", "void"), 77);
     }
 
     public TrackLoadSettingsAtom() {
@@ -68,7 +68,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.preloadStartTime = i;
     }
 
@@ -78,7 +78,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.preloadDuration = i;
     }
 
@@ -88,7 +88,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setPreloadFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.CW(i)));
         this.preloadFlags = i;
     }
 
@@ -98,7 +98,7 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     }
 
     public void setDefaultHints(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.defaultHints = i;
     }
 }

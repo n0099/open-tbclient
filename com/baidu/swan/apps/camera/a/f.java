@@ -27,25 +27,25 @@ public class f extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dp = com.baidu.swan.apps.camera.a.wn().dp(cVar.aBD);
-        if (dp == null) {
+        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(cVar.aBG);
+        if (dr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
             return false;
         }
-        final String gX = com.baidu.swan.apps.storage.b.gX(bVar.id);
-        if (TextUtils.isEmpty(gX)) {
+        final String gY = com.baidu.swan.apps.storage.b.gY(bVar.id);
+        if (TextUtils.isEmpty(gY)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera take photo cache path is empty");
             return false;
         }
-        bVar.Jb().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.f.1
+        bVar.IZ().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.c.a
             /* renamed from: b */
             public void D(Boolean bool) {
                 if (bool.booleanValue()) {
-                    f.this.a(context, unitedSchemeEntity, callbackHandler, bVar, cVar, dp, gX);
+                    f.this.a(context, unitedSchemeEntity, callbackHandler, bVar, cVar, dr, gY);
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
@@ -58,12 +58,12 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, final com.baidu.swan.apps.camera.d.c cVar, final CameraPreview cameraPreview, final String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.wn().bt(context)) {
+        if (com.baidu.swan.apps.camera.a.wm().bt(context)) {
             a(unitedSchemeEntity, callbackHandler, bVar, cameraPreview, cVar, str);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             return;
         }
-        com.baidu.swan.apps.w.e.Ec().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.f.2
+        com.baidu.swan.apps.w.e.Ea().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.f.2
             @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -97,18 +97,18 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, CameraPreview cameraPreview, final com.baidu.swan.apps.camera.d.c cVar, String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "take photo start");
-        cameraPreview.setQuality(cVar.akI);
-        final String du = cameraPreview.du(str);
+        cameraPreview.setQuality(cVar.akM);
+        final String dw = cameraPreview.dw(str);
         try {
-            cameraPreview.a(du, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
+            cameraPreview.a(dw, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
                 @Override // com.baidu.swan.apps.camera.b.a
                 public void onSuccess(String str2) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aD(du, bVar.id));
+                        jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aD(dw, bVar.id));
                     } catch (JSONException e) {
                         com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture onSuccess but json object occur exception");
-                        com.baidu.swan.apps.camera.a.wn().c(cVar.aBD, cVar.akH, false);
+                        com.baidu.swan.apps.camera.a.wm().c(cVar.aBG, cVar.akL, false);
                         if (f.DEBUG) {
                             e.printStackTrace();
                         }
@@ -124,7 +124,7 @@ public class f extends a {
             });
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture api occur exception");
-            com.baidu.swan.apps.camera.a.wn().c(cVar.aBD, cVar.akH, false);
+            com.baidu.swan.apps.camera.a.wm().c(cVar.aBG, cVar.akL, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

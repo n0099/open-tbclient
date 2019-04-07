@@ -36,7 +36,7 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
     }
 
     @Override // com.baidu.card.b
-    public void bw(int i) {
+    public void bv(int i) {
         this.Xw.setShowFlag(this.Xx);
     }
 
@@ -52,15 +52,15 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
     }
 
     @Override // com.baidu.card.b
-    public void bu(int i) {
+    public void bt(int i) {
         this.Xx |= i;
-        bw(this.Xx);
+        bv(this.Xx);
     }
 
     @Override // com.baidu.card.b
-    public void bv(int i) {
+    public void bu(int i) {
         this.Xx &= i ^ (-1);
-        bw(this.Xx);
+        bv(this.Xx);
     }
 
     @Override // com.baidu.card.b
@@ -77,7 +77,7 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Xy = aVar;
-        this.Xw.setData(aVar.WR());
+        this.Xw.setData(aVar.WO());
     }
 
     public void aD(boolean z) {

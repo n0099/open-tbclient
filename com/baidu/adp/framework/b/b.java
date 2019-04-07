@@ -9,22 +9,22 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a.d, HttpResponsedMessage> {
-    private HttpClient yc;
+    private HttpClient yb;
 
     public b(MessageManager messageManager) {
         super(messageManager);
-        this.yc = null;
-        this.yc = new HttpClient(messageManager);
-        this.yg = com.baidu.adp.framework.c.b.hk();
+        this.yb = null;
+        this.yb = new HttpClient(messageManager);
+        this.yf = com.baidu.adp.framework.c.b.hk();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.yg).hl());
+            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.yf).hl());
         }
-        this.yc.a(httpMessage, httpMessageTask);
+        this.yb.a(httpMessage, httpMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,20 +35,20 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.yc.removeMessage(bdUniqueId);
+        this.yb.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.yc.removeMessage(i, bdUniqueId);
+        this.yb.removeMessage(i, bdUniqueId);
     }
 
     public LinkedList<HttpMessage> a(BdUniqueId bdUniqueId) {
-        return this.yc.a(bdUniqueId);
+        return this.yb.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.yc.findMessage(i, bdUniqueId);
+        return this.yb.findMessage(i, bdUniqueId);
     }
 }

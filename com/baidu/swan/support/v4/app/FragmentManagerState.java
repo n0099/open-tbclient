@@ -15,22 +15,22 @@ public final class FragmentManagerState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fm */
+        /* renamed from: fl */
         public FragmentManagerState[] newArray(int i) {
             return new FragmentManagerState[i];
         }
     };
-    FragmentState[] bnV;
-    BackStackState[] bnW;
+    FragmentState[] bnY;
+    BackStackState[] bnZ;
     int[] mAdded;
 
     public FragmentManagerState() {
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.bnV = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.bnY = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.mAdded = parcel.createIntArray();
-        this.bnW = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.bnZ = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
 
     @Override // android.os.Parcelable
@@ -40,8 +40,8 @@ public final class FragmentManagerState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedArray(this.bnV, i);
+        parcel.writeTypedArray(this.bnY, i);
         parcel.writeIntArray(this.mAdded);
-        parcel.writeTypedArray(this.bnW, i);
+        parcel.writeTypedArray(this.bnZ, i);
     }
 }

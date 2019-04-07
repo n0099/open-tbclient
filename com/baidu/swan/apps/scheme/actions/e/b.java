@@ -7,9 +7,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = b.class.getSimpleName();
-    public final double aPZ;
-    public final double aQa = 0.0d;
-    public final double aQb;
+    public final double aQc;
+    public final double aQd = 0.0d;
+    public final double aQe;
     public final double altitude;
     public final String city;
     public final String cityCode;
@@ -29,9 +29,9 @@ public class b {
         this.longitude = d;
         this.latitude = d2;
         this.speed = f;
-        this.aPZ = d3;
+        this.aQc = d3;
         this.altitude = d4;
-        this.aQb = d3;
+        this.aQe = d3;
         this.country = str2;
         this.countryCode = str3;
         this.city = str4;
@@ -49,10 +49,10 @@ public class b {
             jSONObject.put("longitude", this.longitude);
             jSONObject.put("latitude", this.latitude);
             jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.aPZ);
+            jSONObject.put("accuracy", this.aQc);
             jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.aQa);
-            jSONObject.put("horizontalAccuracy", this.aQb);
+            jSONObject.put("verticalAccuracy", this.aQd);
+            jSONObject.put("horizontalAccuracy", this.aQe);
             jSONObject.put("country", this.country);
             jSONObject.put("countryCode", this.countryCode);
             jSONObject.put("city", this.city);

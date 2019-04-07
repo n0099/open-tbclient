@@ -20,10 +20,10 @@ import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import java.text.MessageFormat;
 /* loaded from: classes5.dex */
 public class a {
-    private PbChosenActivity hiW;
+    private PbChosenActivity hiJ;
 
     public a(PbChosenActivity pbChosenActivity) {
-        this.hiW = pbChosenActivity;
+        this.hiJ = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -31,29 +31,29 @@ public class a {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.hiW.getPageContext().getPageActivity().getResources();
+            Resources resources = this.hiJ.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(d.j.share_content_tpl), str3, str4);
             String string = resources.getString(d.j.chosen_pb_share_content, str3);
             final com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
             dVar.title = str3;
             dVar.content = format;
             dVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            dVar.cbz = string;
-            dVar.cby = str4;
-            dVar.cbx = Long.toString(aVar.getThreadInfo().excid.longValue());
+            dVar.cbB = string;
+            dVar.cbA = str4;
+            dVar.cbz = Long.toString(aVar.getThreadInfo().excid.longValue());
             dVar.tid = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-            dVar.cbh = true;
+            dVar.cbj = true;
             if (!StringUtils.isNull(str)) {
                 dVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.hiW.getPageContext().getPageActivity(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.hiJ.getPageContext().getPageActivity(), dVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(d.j.forum_friend, d.f.icon_share_friends_n, new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hiW.sendMessage(new CustomMessage(2001277));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.hiW.getPageContext().getPageActivity(), 23007)));
-                    TiebaStatic.eventStat(a.this.hiW.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                    a.this.hiJ.sendMessage(new CustomMessage(2001277));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(a.this.hiJ.getPageContext().getPageActivity(), 23007)));
+                    TiebaStatic.eventStat(a.this.hiJ.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
                 }
             });
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.a.2
@@ -61,10 +61,10 @@ public class a {
                 public void onClick(View view) {
                     dVar.linkUrl = e.bQ(dVar.linkUrl, dVar.tid);
                     com.baidu.adp.lib.util.a.bh(dVar.linkUrl);
-                    l.showToast(a.this.hiW.getPageContext().getPageActivity(), view.getResources().getString(d.j.copy_pb_url_success));
+                    l.showToast(a.this.hiJ.getPageContext().getPageActivity(), view.getResources().getString(d.j.copy_pb_url_success));
                 }
             });
-            this.hiW.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.hiJ.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 
@@ -110,7 +110,7 @@ public class a {
                 }
             });
             aVar2.dr(false);
-            aVar2.b(pbChosenActivity.getPageContext()).aaZ();
+            aVar2.b(pbChosenActivity.getPageContext()).aaW();
         }
     }
 
@@ -140,7 +140,7 @@ public class a {
                 }
             });
             aVar2.dr(false);
-            aVar2.b(pbChosenActivity.getPageContext()).aaZ();
+            aVar2.b(pbChosenActivity.getPageContext()).aaW();
         }
     }
 }

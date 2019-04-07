@@ -4,20 +4,20 @@ import android.text.TextUtils;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class e {
-    public static String RN() {
-        return String.format("%s/getpkg", RP());
+    public static String RL() {
+        return String.format("%s/getpkg", RN());
     }
 
-    public static String RO() {
-        return String.format("%s/updatecore", RP());
+    public static String RM() {
+        return String.format("%s/updatecore", RN());
     }
 
-    private static String RP() {
-        return com.baidu.swan.pms.e.Rw().Dg();
+    private static String RN() {
+        return com.baidu.swan.pms.e.Ru().De();
     }
 
     public static String g(String str, Map<String, String> map) {
-        return h(jm(str), map);
+        return h(jn(str), map);
     }
 
     public static String h(String str, Map<String, String> map) {
@@ -31,28 +31,28 @@ public class e {
         return str;
     }
 
-    private static String jm(String str) {
-        String z = z(z(z(z(z(z(z(str, "cuid", com.baidu.swan.pms.e.Rw().Dh()), "ua", RQ()), "host_app", com.baidu.swan.pms.e.Rw().Di()), "host_app_ver", com.baidu.swan.pms.e.Rw().Dj()), "host_os", com.baidu.swan.pms.d.a.getOS()), "host_os_ver", com.baidu.swan.pms.d.a.getOsVersion()), "network", com.baidu.swan.pms.d.a.getNetworkInfo());
-        String Rv = com.baidu.swan.pms.e.Rx().Rv();
-        if (!TextUtils.isEmpty(Rv)) {
-            return z(z, "extension_rule", Rv);
+    private static String jn(String str) {
+        String z = z(z(z(z(z(z(z(str, "cuid", com.baidu.swan.pms.e.Ru().Df()), "ua", RO()), "host_app", com.baidu.swan.pms.e.Ru().Dg()), "host_app_ver", com.baidu.swan.pms.e.Ru().Dh()), "host_os", com.baidu.swan.pms.d.a.getOS()), "host_os_ver", com.baidu.swan.pms.d.a.getOsVersion()), "network", com.baidu.swan.pms.d.a.getNetworkInfo());
+        String Rt = com.baidu.swan.pms.e.Rv().Rt();
+        if (!TextUtils.isEmpty(Rt)) {
+            return z(z, "extension_rule", Rt);
         }
         return z;
     }
 
-    private static String RQ() {
-        int So = com.baidu.swan.pms.d.a.So();
-        int Sp = com.baidu.swan.pms.d.a.Sp();
+    private static String RO() {
+        int Sm = com.baidu.swan.pms.d.a.Sm();
+        int Sn = com.baidu.swan.pms.d.a.Sn();
         int densityDpi = com.baidu.swan.pms.d.a.getDensityDpi();
         String os = com.baidu.swan.pms.d.a.getOS();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(So);
+        stringBuffer.append(Sm);
         stringBuffer.append("_");
-        stringBuffer.append(Sp);
+        stringBuffer.append(Sn);
         stringBuffer.append("_");
         stringBuffer.append(os);
         stringBuffer.append("_");
-        stringBuffer.append(com.baidu.swan.pms.e.Rw().Dj());
+        stringBuffer.append(com.baidu.swan.pms.e.Ru().Dh());
         stringBuffer.append("_");
         stringBuffer.append(densityDpi);
         return stringBuffer.toString();

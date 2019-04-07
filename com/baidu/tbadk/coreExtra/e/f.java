@@ -9,17 +9,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean cgr = false;
-    private int cgs = 0;
+    private boolean cgt = false;
+    private int cgu = 0;
 
-    public void os(String str) {
+    public void ot(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.cgr = false;
-        this.cgs = 0;
+        this.cgt = false;
+        this.cgu = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 5) {
             String str3 = null;
             try {
@@ -50,7 +50,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.cgr = true;
+                                this.cgt = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -81,19 +81,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.cgr && i4 > 0) {
-                    this.cgs = i3 / i4;
+                if (this.cgt && i4 > 0) {
+                    this.cgu = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.cgr;
+        return this.cgt;
     }
 
-    public int ala() {
-        return this.cgs;
+    public int akX() {
+        return this.cgu;
     }
 
     private int getTimeout() {

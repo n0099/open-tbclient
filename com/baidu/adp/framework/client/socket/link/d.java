@@ -12,26 +12,26 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d {
     private boolean isRunning = false;
-    private int xQ = 0;
-    private final Handler xR = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
+    private int xP = 0;
+    private final Handler xQ = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    d.this.xR.removeMessages(1);
-                    BdLog.i("this is reconn time:" + d.this.xQ);
+                    d.this.xQ.removeMessages(1);
+                    BdLog.i("this is reconn time:" + d.this.xP);
                     BdSocketLinkService.startService(true, "time to reconnStragety");
                     d.c(d.this);
                     if (j.kY()) {
-                        if (d.this.xQ >= com.baidu.adp.lib.stats.switchs.a.kq().getMaxAlertCount("alert_im", 3)) {
-                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.xQ) + "_times");
+                        if (d.this.xP >= com.baidu.adp.lib.stats.switchs.a.kq().getMaxAlertCount("alert_im", 3)) {
+                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.xP) + "_times");
                         }
                     }
                     int[] gQ = h.gQ();
-                    if (gQ != null && d.this.xQ < gQ.length) {
-                        BdLog.i("Next will be delay:" + gQ[d.this.xQ]);
-                        d.this.xR.sendMessageDelayed(d.this.xR.obtainMessage(1), gQ[d.this.xQ] * 1000);
+                    if (gQ != null && d.this.xP < gQ.length) {
+                        BdLog.i("Next will be delay:" + gQ[d.this.xP]);
+                        d.this.xQ.sendMessageDelayed(d.this.xQ.obtainMessage(1), gQ[d.this.xP] * 1000);
                         return;
                     }
                     d.this.am("reconnStragety to the end");
@@ -43,8 +43,8 @@ public class d {
     };
 
     static /* synthetic */ int c(d dVar) {
-        int i = dVar.xQ;
-        dVar.xQ = i + 1;
+        int i = dVar.xP;
+        dVar.xP = i + 1;
         return i;
     }
 
@@ -54,7 +54,7 @@ public class d {
             am("online failed 5");
         } else if (!this.isRunning) {
             this.isRunning = true;
-            this.xR.removeMessages(1);
+            this.xQ.removeMessages(1);
             if (com.baidu.adp.lib.webSocket.h.lJ().lM()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 am("in Opened");
@@ -62,12 +62,12 @@ public class d {
             }
             hg();
             BdLog.d("启动重连策略");
-            this.xQ = 0;
+            this.xP = 0;
             int[] gQ = h.gQ();
             if (gQ != null && gQ.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + gQ[0]);
-                i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.xQ));
-                this.xR.sendMessageDelayed(this.xR.obtainMessage(1), gQ[0] * 1000);
+                i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.xP));
+                this.xQ.sendMessageDelayed(this.xQ.obtainMessage(1), gQ[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -85,9 +85,9 @@ public class d {
         if (this.isRunning) {
             i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.isRunning = false;
-            this.xQ = 0;
+            this.xP = 0;
             BdLog.i("stop reconnStrategy");
-            this.xR.removeMessages(1);
+            this.xQ.removeMessages(1);
         }
     }
 }

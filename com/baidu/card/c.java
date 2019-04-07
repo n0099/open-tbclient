@@ -33,7 +33,7 @@ public class c {
         return this.Xt;
     }
 
-    public void bx(int i) {
+    public void bw(int i) {
         this.Xt = i;
     }
 

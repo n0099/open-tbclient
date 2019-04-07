@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface c {
-    void afC();
+    void afA();
 
-    void afD();
+    void afB();
 
-    void afE();
+    boolean afC();
 
-    boolean afF();
+    void afv();
 
-    void afy();
+    void afz();
 
     int getErrorNo();
 
@@ -17,7 +17,7 @@ public interface c {
 
     int lA();
 
-    boolean nA(String str);
+    boolean nB(String str);
 
     void seek(int i);
 }

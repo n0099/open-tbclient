@@ -8,6 +8,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
+import com.coloros.mcssdk.mode.Message;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.push.service.aw;
@@ -240,7 +241,7 @@ public abstract class MiPushClient {
     @Deprecated
     public static void initialize(Context context, String str, String str2, MiPushClientCallback miPushClientCallback) {
         checkNotNull(context, "context");
-        checkNotNull(str, "appID");
+        checkNotNull(str, Message.APP_ID);
         checkNotNull(str2, "appToken");
         try {
             if (aw.a().b()) {

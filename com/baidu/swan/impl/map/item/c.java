@@ -14,13 +14,13 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.swan.apps.x.a.a.d;
 /* loaded from: classes5.dex */
 public class c {
-    public static final Boolean bho = true;
-    public d bhk;
-    public Marker bhl;
-    public Marker bhm;
-    public View bhn;
-    public ViewGroup bhp;
-    public Marker bhq;
+    public static final Boolean bhr = true;
+    public d bhn;
+    public Marker bho;
+    public Marker bhp;
+    public View bhq;
+    public ViewGroup bhs;
+    public Marker bht;
     private ValueAnimator mValueAnimator;
 
     /* loaded from: classes5.dex */
@@ -29,73 +29,73 @@ public class c {
     }
 
     public void b(b bVar, LatLng latLng) {
-        if (this.bhl != null) {
-            this.bhl.setPosition(latLng);
-            this.bhk.ayI.latitude = latLng.latitude;
-            this.bhk.ayI.longitude = latLng.longitude;
-            if (this.bhq != null) {
-                this.bhq.setPosition(latLng);
+        if (this.bho != null) {
+            this.bho.setPosition(latLng);
+            this.bhn.ayL.latitude = latLng.latitude;
+            this.bhn.ayL.longitude = latLng.longitude;
+            if (this.bht != null) {
+                this.bht.setPosition(latLng);
             }
-            if (bho.booleanValue()) {
-                if (this.bhm != null) {
-                    this.bhm.setPosition(latLng);
-                }
+            if (bhr.booleanValue()) {
                 if (this.bhp != null) {
-                    bVar.bhj.removeView(this.bhp);
+                    this.bhp.setPosition(latLng);
+                }
+                if (this.bhs != null) {
+                    bVar.bhm.removeView(this.bhs);
                     MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                     builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                     builder.position(latLng);
-                    bVar.bhj.addView(this.bhp, builder.build());
-                    this.bhp.setAlpha(0.0f);
+                    bVar.bhm.addView(this.bhs, builder.build());
+                    this.bhs.setAlpha(0.0f);
                 }
             }
         }
     }
 
     public void c(b bVar) {
-        if (this.bhk != null && this.bhk.azh != null && this.bhk.azh.isValid() && this.bhk.azj != null && this.bhn == null && !TextUtils.equals(this.bhk.azh.adA, "ALWAYS")) {
-            bVar.bhj.removeView(this.bhp);
-            this.bhp.removeView(this.bhn);
-            View a2 = com.baidu.swan.impl.map.a.b.a.a(bVar, this.bhk);
-            this.bhn = a2;
-            this.bhp.addView(a2, 0);
-            this.bhp.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        if (this.bhn != null && this.bhn.azk != null && this.bhn.azk.isValid() && this.bhn.azm != null && this.bhq == null && !TextUtils.equals(this.bhn.azk.adF, "ALWAYS")) {
+            bVar.bhm.removeView(this.bhs);
+            this.bhs.removeView(this.bhq);
+            View a2 = com.baidu.swan.impl.map.a.b.a.a(bVar, this.bhn);
+            this.bhq = a2;
+            this.bhs.addView(a2, 0);
+            this.bhs.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
             MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
             builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-            builder.position(this.bhl.getPosition());
-            Bitmap bitmap = this.bhl.getIcon().getBitmap();
-            builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.bhk.azj.y)) + 0.0d));
-            bVar.bhj.addView(this.bhp, builder.build());
-            this.bhp.setAlpha(0.0f);
-            if (this.bhq != null) {
-                this.bhq.remove();
+            builder.position(this.bho.getPosition());
+            Bitmap bitmap = this.bho.getIcon().getBitmap();
+            builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.bhn.azm.y)) + 0.0d));
+            bVar.bhm.addView(this.bhs, builder.build());
+            this.bhs.setAlpha(0.0f);
+            if (this.bht != null) {
+                this.bht.remove();
             }
-            BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.bhp);
+            BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.bhs);
             if (fromView != null) {
                 Bitmap bitmap2 = fromView.getBitmap();
                 if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
-                    this.bhq = (Marker) bVar.bhj.getMap().addOverlay(new MarkerOptions().position(new LatLng(this.bhk.ayI.latitude, this.bhk.ayI.longitude)).icon(fromView).zIndex(66).anchor(((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.bhk.azj.x * bitmap.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.bhk.azj.y * bitmap.getHeight()))) / fromView.getBitmap().getHeight()));
+                    this.bht = (Marker) bVar.bhm.getMap().addOverlay(new MarkerOptions().position(new LatLng(this.bhn.ayL.latitude, this.bhn.ayL.longitude)).icon(fromView).zIndex(66).anchor(((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.bhn.azm.x * bitmap.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.bhn.azm.y * bitmap.getHeight()))) / fromView.getBitmap().getHeight()));
                 }
             }
         }
     }
 
     public void a(final b bVar, LatLng latLng, long j, final a aVar) {
-        if ((this.mValueAnimator == null || !this.mValueAnimator.isRunning()) && this.bhl != null) {
+        if ((this.mValueAnimator == null || !this.mValueAnimator.isRunning()) && this.bho != null) {
             if (j < 0) {
                 j = -j;
             }
-            this.mValueAnimator = ValueAnimator.ofObject(new com.baidu.swan.impl.map.a.a.a.a(), this.bhl.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+            this.mValueAnimator = ValueAnimator.ofObject(new com.baidu.swan.impl.map.a.a.a.a(), this.bho.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
             this.mValueAnimator.setDuration(j);
             this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.impl.map.item.c.1
-                boolean bhr = false;
+                boolean bhu = false;
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float animatedFraction = valueAnimator.getAnimatedFraction();
                     c.this.b(bVar, (LatLng) valueAnimator.getAnimatedValue());
-                    if (!this.bhr && animatedFraction > 0.99d) {
-                        this.bhr = true;
+                    if (!this.bhu && animatedFraction > 0.99d) {
+                        this.bhu = true;
                         if (aVar != null) {
                             aVar.onAnimationEnd();
                         }

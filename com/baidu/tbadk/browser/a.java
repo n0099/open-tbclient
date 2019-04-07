@@ -26,7 +26,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String btF;
+    public static String btI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String bs(String str, String str2) {
@@ -42,8 +42,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void ks(String str) {
-        btF = str;
+    public static void kt(String str) {
+        btI = str;
     }
 
     public static void ar(Context context, String str) {
@@ -75,7 +75,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        Vx();
+        Vu();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -90,7 +90,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        Vx();
+        Vu();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -178,7 +178,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.WD().kU(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.WA().kV(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -220,7 +220,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void Vx() {
+    private static void Vu() {
         new ag("open_webview", true).start();
     }
 }

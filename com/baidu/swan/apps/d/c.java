@@ -12,11 +12,11 @@ public class c extends com.baidu.swan.apps.view.c {
 
     public c(Context context) {
         super(context);
-        this.aoa.setDownloadListener(new a());
+        this.aoe.setDownloadListener(new a());
     }
 
     @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
-    public String wd() {
+    public String wc() {
         return "ai_apps_ad_landing";
     }
 
@@ -34,7 +34,7 @@ public class c extends com.baidu.swan.apps.view.c {
             try {
                 jSONObject.put("url", str);
                 jSONObject.put("userAgent", str2);
-                jSONObject.put("contentDisposition", y.hJ(str3));
+                jSONObject.put("contentDisposition", y.hK(str3));
                 jSONObject.put("mimeType", str4);
                 jSONObject.put("contentLength", j);
             } catch (JSONException e) {
@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.apps.view.c {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.apps.u.a.CI().g(c.this.mContext, jSONObject);
+            com.baidu.swan.apps.u.a.CG().g(c.this.mContext, jSONObject);
         }
     }
 }

@@ -18,14 +18,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.as;
 /* loaded from: classes4.dex */
 public class e {
-    private MorePopupWindow buk;
-    private LinearLayout eIH;
-    private b ftC;
-    private a ftD;
-    private as ftO;
-    private View ftP;
-    private SparseArray<com.baidu.tieba.frs.tab.a> ftQ = new SparseArray<>();
-    private com.baidu.tieba.frs.tab.a ftR;
+    private MorePopupWindow bun;
+    private LinearLayout eIt;
+    private as ftA;
+    private View ftB;
+    private SparseArray<com.baidu.tieba.frs.tab.a> ftC = new SparseArray<>();
+    private com.baidu.tieba.frs.tab.a ftD;
+    private b fto;
+    private a ftp;
     private Context mContext;
 
     /* loaded from: classes4.dex */
@@ -35,67 +35,67 @@ public class e {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void ro(int i);
+        void rk(int i);
     }
 
     /* loaded from: classes4.dex */
     public static class c {
-        public TextView dfk;
-        public ImageView ftU;
-        public View ftV;
-        public View ftW;
+        public TextView dfo;
+        public ImageView ftG;
+        public View ftH;
+        public View ftI;
     }
 
     public e(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.ftC = bVar;
-        this.ftD = aVar;
-        this.eIH = new LinearLayout(context);
-        this.eIH.setOrientation(1);
-        this.eIH.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.ftP = new View(context);
-        this.ftP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
+        this.fto = bVar;
+        this.ftp = aVar;
+        this.eIt = new LinearLayout(context);
+        this.eIt.setOrientation(1);
+        this.eIt.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.ftB = new View(context);
+        this.ftB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.adp.lib.g.g.a(e.this.buk);
+                com.baidu.adp.lib.g.g.a(e.this.bun);
             }
         });
     }
 
     private void a(Activity activity, View view, final TabItemView tabItemView) {
-        if (this.buk == null) {
-            this.buk = new MorePopupWindow(activity, this.eIH, view, al.getDrawable(d.f.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
+        if (this.bun == null) {
+            this.bun = new MorePopupWindow(activity, this.eIt, view, al.getDrawable(d.f.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void VX() {
+                public void VU() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void VY() {
-                    if (e.this.buk != null) {
-                        com.baidu.adp.lib.g.g.a(e.this.buk);
+                public void VV() {
+                    if (e.this.bun != null) {
+                        com.baidu.adp.lib.g.g.a(e.this.bun);
                     }
                 }
             });
         }
-        this.buk.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
+        this.bun.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (e.this.ftD != null) {
-                    e.this.ftD.a(tabItemView);
+                if (e.this.ftp != null) {
+                    e.this.ftp.a(tabItemView);
                 }
             }
         });
     }
 
     public void a(Activity activity, View view, TabItemView tabItemView, as asVar) {
-        this.ftO = asVar;
-        this.ftR = this.ftQ.get(this.ftO.fcD);
-        if (this.ftR == null) {
-            this.ftR = h.rs(this.ftO.fcD);
-            this.ftR.a(this.mContext, this);
-            this.ftQ.put(this.ftO.fcD, this.ftR);
+        this.ftA = asVar;
+        this.ftD = this.ftC.get(this.ftA.fcq);
+        if (this.ftD == null) {
+            this.ftD = h.ro(this.ftA.fcq);
+            this.ftD.a(this.mContext, this);
+            this.ftC.put(this.ftA.fcq, this.ftD);
         }
-        this.ftR.setData(asVar.fcE);
+        this.ftD.setData(asVar.fcr);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -103,38 +103,38 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.aP(horizontalTabView.getContext());
                 int aQ = l.aQ(horizontalTabView.getContext());
-                int bio = this.ftR.bio();
+                int bim = this.ftD.bim();
                 int measuredHeight = (aQ - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < bio) {
-                    horizontalTabView.getmShowMenuCallBack().rp(bio - measuredHeight);
+                if (measuredHeight < bim) {
+                    horizontalTabView.getmShowMenuCallBack().rl(bim - measuredHeight);
                 }
             }
         }
-        this.eIH.removeAllViews();
-        this.eIH.addView(this.ftR.getView());
+        this.eIt.removeAllViews();
+        this.eIt.addView(this.ftD.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        al.k(this.ftP, d.C0277d.common_color_10050);
-        this.eIH.addView(this.ftP, layoutParams);
+        al.k(this.ftB, d.C0277d.common_color_10050);
+        this.eIt.addView(this.ftB, layoutParams);
         a(activity, view, tabItemView);
-        if (this.buk != null) {
-            this.buk.refresh();
-            this.buk.setWidthAsWidthOfDeviceScreen(activity);
-            this.buk.setHeight(-1);
-            this.buk.showWindowInCustomPosition(0, 0);
+        if (this.bun != null) {
+            this.bun.refresh();
+            this.bun.setWidthAsWidthOfDeviceScreen(activity);
+            this.bun.setHeight(-1);
+            this.bun.showWindowInCustomPosition(0, 0);
         }
     }
 
-    public void biq() {
-        if (this.buk != null) {
+    public void bio() {
+        if (this.bun != null) {
             try {
-                this.buk.dismiss();
+                this.bun.dismiss();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    public b bir() {
-        return this.ftC;
+    public b bip() {
+        return this.fto;
     }
 }

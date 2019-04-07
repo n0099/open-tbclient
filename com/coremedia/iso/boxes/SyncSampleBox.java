@@ -22,9 +22,9 @@ public class SyncSampleBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SyncSampleBox.java", SyncSampleBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "[J"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "java.lang.String"), 77);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "[J", "sampleNumber", "", "void"), 81);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "[J"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "java.lang.String"), 77);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "setSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "[J", "sampleNumber", "", "void"), 81);
     }
 
     public SyncSampleBox() {

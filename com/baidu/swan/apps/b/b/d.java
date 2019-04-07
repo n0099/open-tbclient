@@ -6,9 +6,9 @@ import okhttp3.OkHttpClient;
 public interface d {
     p a(@NonNull com.baidu.swan.apps.core.i.c cVar);
 
-    b uT();
+    b uS();
 
-    a uU();
+    a uT();
 
-    OkHttpClient uV();
+    OkHttpClient uU();
 }

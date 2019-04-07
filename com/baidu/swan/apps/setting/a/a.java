@@ -43,7 +43,7 @@ public class a extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope");
                 return false;
             }
-            bVar.Jb().b((Activity) context, optString2, new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
+            bVar.IZ().b((Activity) context, optString2, new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: a */
@@ -65,13 +65,13 @@ public class a extends y {
                 jSONObject.put("errMsg", "empty auth result");
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE).toString());
             } else if (!gVar.isOk()) {
-                OAuthException Kk = gVar.Kk();
-                jSONObject.put("errMsg", Kk == null ? "" : Kk.getMessage());
+                OAuthException Ki = gVar.Ki();
+                jSONObject.put("errMsg", Ki == null ? "" : Ki.getMessage());
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode()).toString());
             } else {
                 jSONObject.put("code", gVar.mData.code);
-                jSONObject.put("errMsg", gVar.mData.aRt ? "authorize:ok" : "authorize:fail auth deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aRt ? 0 : 10003).toString());
+                jSONObject.put("errMsg", gVar.mData.aRw ? "authorize:ok" : "authorize:fail auth deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aRw ? 0 : 10003).toString());
             }
         } catch (JSONException e) {
             if (DEBUG) {

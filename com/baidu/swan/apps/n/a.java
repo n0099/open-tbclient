@@ -10,11 +10,10 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    private String avS;
+    private String avV;
 
     public a(j jVar) {
         super(jVar, "/swan/getFormId");
@@ -30,7 +29,7 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "joParams is null");
@@ -39,8 +38,8 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         }
-        this.avS = c.optString("cb");
-        if (TextUtils.isEmpty(this.avS)) {
+        this.avV = c.optString("cb");
+        if (TextUtils.isEmpty(this.avV)) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "mCallBack is null");
             }
@@ -64,10 +63,10 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            com.baidu.swan.apps.u.a.Db().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
+            com.baidu.swan.apps.u.a.CZ().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
                 @Override // com.baidu.swan.apps.ad.a
                 public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.avS, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+                    callbackHandler.handleSchemeDispatchCallback(a.this.avV, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject cWP;
-    private HttpMessageListener cWQ;
-    private BdUniqueId cWR = BdUniqueId.gen();
-    private BdUniqueId cWS = BdUniqueId.gen();
-    private CustomMessageListener cIv = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject cWR;
+    private HttpMessageListener cWS;
+    private BdUniqueId cWT = BdUniqueId.gen();
+    private BdUniqueId cWU = BdUniqueId.gen();
+    private CustomMessageListener cIx = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kM() && a.this.cWP != null) {
-                a.this.a(a.this.cWP, a.this.cWS);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kM() && a.this.cWR != null) {
+                a.this.a(a.this.cWR, a.this.cWU);
             }
         }
     };
-    private CustomMessageListener cWT = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener cWV = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,38 +39,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.cWQ == null) {
-            this.cWQ = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.cWS == null) {
+            this.cWS = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.cWP = null;
+                        a.this.cWR = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.cWQ);
-        MessageManager.getInstance().registerListener(this.cIv);
-        this.cWT.setTag(tbPageContext.getUniqueId());
-        this.cWT.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.cWT);
+        MessageManager.getInstance().registerListener(this.cWS);
+        MessageManager.getInstance().registerListener(this.cIx);
+        this.cWV.setTag(tbPageContext.getUniqueId());
+        this.cWV.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.cWV);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cWQ);
-        MessageManager.getInstance().unRegisterListener(this.cIv);
-        MessageManager.getInstance().unRegisterListener(this.cWT);
-        this.cWP = null;
+        MessageManager.getInstance().unRegisterListener(this.cWS);
+        MessageManager.getInstance().unRegisterListener(this.cIx);
+        MessageManager.getInstance().unRegisterListener(this.cWV);
+        this.cWR = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ba(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.kM()) {
-                a(jSONObject, this.cWR);
+                a(jSONObject, this.cWT);
             } else {
-                this.cWP = jSONObject;
+                this.cWR = jSONObject;
             }
         }
     }

@@ -10,11 +10,11 @@ import com.baidu.swan.apps.setting.oauth.a.f;
 /* loaded from: classes4.dex */
 public class b implements b.c {
     @Override // com.baidu.swan.apps.b.a.b.c
-    public com.baidu.swan.apps.b.b.b uW() {
+    public com.baidu.swan.apps.b.b.b uV() {
         return new a();
     }
 
-    public static void axT() {
+    public static void axQ() {
         com.baidu.swan.apps.b.a.b.a(new b());
     }
 

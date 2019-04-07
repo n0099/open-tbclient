@@ -2,7 +2,6 @@ package com.baidu.swan.apps.scheme.actions.j;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -27,7 +26,7 @@ public final class d extends com.baidu.swan.apps.model.a.a.a {
         if (unitedSchemeEntity == null) {
             return null;
         }
-        String str = unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS);
+        String str = unitedSchemeEntity.getParams().get("params");
         d dVar = new d();
         try {
             dVar.parseFromJson(new JSONObject(str));
@@ -40,6 +39,6 @@ public final class d extends com.baidu.swan.apps.model.a.a.a {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aBD);
+        return !TextUtils.isEmpty(this.aBG);
     }
 }

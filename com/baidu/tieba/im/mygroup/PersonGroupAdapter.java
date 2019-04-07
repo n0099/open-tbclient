@@ -7,49 +7,49 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
-    public static int gqO = 1;
-    private int[] dpp;
-    private ArrayList<PersonalGroupFragment> gqP;
+    public static int gqB = 1;
+    private int[] dps;
+    private ArrayList<PersonalGroupFragment> gqC;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.gqP = new ArrayList<>();
+        this.gqC = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.gqP.add(personalGroupFragment);
+        this.gqC.add(personalGroupFragment);
         if (z) {
-            this.dpp = new int[]{0};
+            this.dps = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.gqP.add(personalGroupFragment2);
-            this.dpp = new int[]{0, 1};
+            this.gqC.add(personalGroupFragment2);
+            this.dps = new int[]{0, 1};
         }
-        gqO = this.dpp.length;
-        Iterator<PersonalGroupFragment> it = this.gqP.iterator();
+        gqB = this.dps.length;
+        Iterator<PersonalGroupFragment> it = this.gqC.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.gqP.size());
+            it.next().getArguments().putInt("page_size", this.gqC.size());
         }
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= gqO || i < 0) {
+        if (i >= gqB || i < 0) {
             return null;
         }
-        return this.gqP.get(i);
+        return this.gqC.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return gqO;
+        return gqB;
     }
 
-    public int un(int i) {
-        return this.dpp[i];
+    public int uj(int i) {
+        return this.dps[i];
     }
 }

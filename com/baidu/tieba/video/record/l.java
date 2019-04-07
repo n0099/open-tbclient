@@ -12,10 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class l {
-    public static final String jdx;
-    private HashMap<String, String> iXe;
-    private String jdA;
-    private com.baidu.tbadk.download.c jdB = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String jdl;
+    private HashMap<String, String> iWS;
+    private List<DownloadData> jdm;
+    private a jdn;
+    private String jdo;
+    private com.baidu.tbadk.download.c jdp = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -24,8 +26,8 @@ public class l {
                     file.delete();
                 }
                 l.this.v(downloadData);
-                if (l.this.jdz != null && l.this.jdA.equals(downloadData.getUrl())) {
-                    l.this.jdz.ciY();
+                if (l.this.jdn != null && l.this.jdo.equals(downloadData.getUrl())) {
+                    l.this.jdn.ciW();
                 }
             }
         }
@@ -42,11 +44,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.jdx)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.jdl)) {
                 l.this.v(downloadData);
-                if (l.this.jdz != null && l.this.jdA.equals(downloadData.getUrl())) {
-                    l.this.iXe.put(downloadData.getPath().substring(l.jdx.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.jdz.ec(l.this.jdA, downloadData.getPath());
+                if (l.this.jdn != null && l.this.jdo.equals(downloadData.getUrl())) {
+                    l.this.iWS.put(downloadData.getPath().substring(l.jdl.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.jdn.ed(l.this.jdo, downloadData.getPath());
                 }
             }
         }
@@ -58,93 +60,91 @@ public class l {
                 file.delete();
             }
             l.this.v(downloadData);
-            if (l.this.jdz != null && l.this.jdA.equals(downloadData.getUrl())) {
-                l.this.jdz.Dt(str);
+            if (l.this.jdn != null && l.this.jdo.equals(downloadData.getUrl())) {
+                l.this.jdn.Ds(str);
             }
         }
     };
-    private List<DownloadData> jdy;
-    private a jdz;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void Dt(String str);
+        void Ds(String str);
 
-        void ciY();
+        void ciW();
 
-        void ec(String str, String str2);
+        void ed(String str, String str2);
     }
 
     static {
-        jdx = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        jdl = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String DQ(String str) {
-        String mK = as.mK(str);
-        if (mK == null) {
+    public String DP(String str) {
+        String mL = as.mL(str);
+        if (mL == null) {
             return null;
         }
-        if (this.iXe == null) {
-            this.iXe = new HashMap<>();
-            clU();
+        if (this.iWS == null) {
+            this.iWS = new HashMap<>();
+            clS();
         }
-        return this.iXe.get(mK);
+        return this.iWS.get(mL);
     }
 
-    public void clU() {
-        if (!StringUtils.isNull(jdx)) {
-            if (this.iXe == null) {
-                this.iXe = new HashMap<>();
+    public void clS() {
+        if (!StringUtils.isNull(jdl)) {
+            if (this.iWS == null) {
+                this.iWS = new HashMap<>();
             } else {
-                this.iXe.clear();
+                this.iWS.clear();
             }
-            File file = new File(jdx);
+            File file = new File(jdl);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.iXe.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.iWS.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
         }
     }
 
-    public void DR(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(jdx)) {
-            if (this.jdz != null) {
-                this.jdz.Dt("");
+    public void DQ(String str) {
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(jdl)) {
+            if (this.jdn != null) {
+                this.jdn.Ds("");
                 return;
             }
             return;
         }
-        String mK = as.mK(str);
-        if (mK != null) {
-            File file = new File(jdx);
+        String mL = as.mL(str);
+        if (mL != null) {
+            File file = new File(jdl);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.jdy == null) {
-                this.jdy = new ArrayList();
+            if (this.jdm == null) {
+                this.jdm = new ArrayList();
             }
-            if (!DS(str)) {
+            if (!DR(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(jdx + "/" + mK + str2);
-                downloadData.setCallback(this.jdB);
-                this.jdy.add(downloadData);
-                com.baidu.tbadk.download.d.alM().f(downloadData);
+                downloadData.setPath(jdl + "/" + mL + str2);
+                downloadData.setCallback(this.jdp);
+                this.jdm.add(downloadData);
+                com.baidu.tbadk.download.d.alJ().f(downloadData);
             }
         }
     }
 
-    private boolean DS(String str) {
-        if (v.T(this.jdy) || str == null) {
+    private boolean DR(String str) {
+        if (v.T(this.jdm) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.jdy) {
+        for (DownloadData downloadData : this.jdm) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void v(DownloadData downloadData) {
         int i;
-        if (!v.T(this.jdy) && downloadData != null) {
+        if (!v.T(this.jdm) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.jdy.size()) {
+                if (i >= this.jdm.size()) {
                     i = -1;
                     break;
-                } else if (this.jdy.get(i) != null && this.jdy.get(i).getUrl() != null && this.jdy.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.jdm.get(i) != null && this.jdm.get(i).getUrl() != null && this.jdm.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.jdy.remove(i);
+            this.jdm.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.jdz = aVar;
+        this.jdn = aVar;
     }
 
-    public void DT(String str) {
+    public void DS(String str) {
         if (str == null) {
-            this.jdA = "";
+            this.jdo = "";
         } else {
-            this.jdA = str;
+            this.jdo = str;
         }
     }
 }

@@ -34,14 +34,14 @@ public class p {
             } else if (TextUtils.equals(lowerCase, "meizu")) {
                 ch(context);
             } else {
-                Map<String, ComponentName> LY = LY();
-                if (LY.containsKey(lowerCase)) {
-                    a(context, LY.get(lowerCase));
+                Map<String, ComponentName> LW = LW();
+                if (LW.containsKey(lowerCase)) {
+                    a(context, LW.get(lowerCase));
                     return;
                 }
-                Map<String, String> LZ = LZ();
-                if (LZ.containsKey(lowerCase)) {
-                    ak(context, LZ.get(lowerCase));
+                Map<String, String> LX = LX();
+                if (LX.containsKey(lowerCase)) {
+                    ak(context, LX.get(lowerCase));
                 } else {
                     ci(context);
                 }
@@ -49,7 +49,7 @@ public class p {
         }
     }
 
-    private static Map<String, ComponentName> LY() {
+    private static Map<String, ComponentName> LW() {
         HashMap hashMap = new HashMap();
         hashMap.put("huawei", new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -58,7 +58,7 @@ public class p {
         return hashMap;
     }
 
-    private static Map<String, String> LZ() {
+    private static Map<String, String> LX() {
         HashMap hashMap = new HashMap();
         hashMap.put("oppo", "com.coloros.safecenter");
         hashMap.put("vivo", "com.bairenkeji.icaller");
@@ -67,17 +67,17 @@ public class p {
     }
 
     private static void cg(Context context) {
-        String Ma = Ma();
+        String LY = LY();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + Ma);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + LY);
         }
         Intent intent = new Intent();
-        if ("V10".equals(Ma) || "V9".equals(Ma) || "V8".equals(Ma)) {
+        if ("V10".equals(LY) || "V9".equals(LY) || "V8".equals(LY)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(Ma) || "V6".equals(Ma)) {
+        } else if ("V7".equals(LY) || "V6".equals(LY)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
@@ -91,7 +91,7 @@ public class p {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Ma() {
+    private static String LY() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;

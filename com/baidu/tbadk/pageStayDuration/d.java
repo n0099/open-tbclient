@@ -4,33 +4,33 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean cpH = false;
-    private List<String> cpI;
-    private String cpJ;
-    private long cpK;
-    public String cpL;
-    public String cpM;
+    public boolean cpJ = false;
+    private List<String> cpK;
+    private String cpL;
+    private long cpM;
     public String cpN;
+    public String cpO;
+    public String cpP;
     private long fid;
     public String objParam1;
     private long pid;
     public String task_id;
     private long tid;
 
-    public List<String> aoM() {
-        return this.cpI;
+    public List<String> aoJ() {
+        return this.cpK;
     }
 
     public void ah(List<String> list) {
-        this.cpI = list;
+        this.cpK = list;
     }
 
     public String getCurrentPageKey() {
-        return this.cpJ;
+        return this.cpL;
     }
 
-    public void pt(String str) {
-        this.cpJ = str;
+    public void pu(String str) {
+        this.cpL = str;
     }
 
     public long getFid() {
@@ -53,12 +53,12 @@ public class d {
         return this.pid;
     }
 
-    public long aoN() {
-        return this.cpK;
+    public long aoK() {
+        return this.cpM;
     }
 
     public void aS(long j) {
-        this.cpK = j;
+        this.cpM = j;
     }
 
     public void setTaskId(String str) {
@@ -69,7 +69,7 @@ public class d {
         return this.task_id;
     }
 
-    public boolean aoO() {
-        return StringUtils.isNull(this.cpJ);
+    public boolean aoL() {
+        return StringUtils.isNull(this.cpL);
     }
 }

@@ -9,19 +9,19 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aVW;
+    private static String aVZ;
 
     private static Context getContext() {
-        return com.baidu.swan.apps.u.a.Cy();
+        return com.baidu.swan.apps.u.a.Cw();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(aVW)) {
-            return aVW;
+        if (!TextUtils.isEmpty(aVZ)) {
+            return aVZ;
         }
         try {
-            aVW = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return aVW;
+            aVZ = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return aVZ;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,27 +40,27 @@ public class b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private String aVX;
-        private String aVY;
-        private String aVZ;
+        private String aWa;
+        private String aWb;
+        private String aWc;
 
         public a aG(@NonNull String str, @NonNull String str2) {
-            this.aVX = String.format("%s/%s", str, str2);
+            this.aWa = String.format("%s/%s", str, str2);
             return this;
         }
 
         public a aH(@NonNull String str, @NonNull String str2) {
-            this.aVY = String.format("%s/%s", str, str2);
+            this.aWb = String.format("%s/%s", str, str2);
             return this;
         }
 
         public a aI(@NonNull String str, @NonNull String str2) {
-            this.aVZ = String.format("(%s; P1 %s)", str, str2);
+            this.aWc = String.format("(%s; P1 %s)", str, str2);
             return this;
         }
 
-        public String LJ() {
-            return String.format("%s %s %s", this.aVX, this.aVY, this.aVZ);
+        public String LH() {
+            return String.format("%s %s %s", this.aWa, this.aWb, this.aWc);
         }
     }
 }

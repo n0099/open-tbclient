@@ -38,7 +38,7 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.ui(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.ue(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());

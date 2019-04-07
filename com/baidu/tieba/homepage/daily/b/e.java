@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fIk = BdUniqueId.gen();
-    public List<a> fIl;
+    public static final BdUniqueId fHY = BdUniqueId.gen();
+    public List<a> fHZ;
 
-    public static e cw(List<DailyTopic> list) {
+    public static e ct(List<DailyTopic> list) {
         if (v.T(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.fIl = arrayList;
+        eVar.fHZ = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fIk;
+        return fHY;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String fIm;
-        private String fIn;
-        private String fIo;
-        private String fIp;
-        private String fIq;
+        private String fIa;
+        private String fIb;
+        private String fIc;
+        private String fId;
+        private String fIe;
 
         public void a(DailyTopic dailyTopic) {
-            this.fIm = dailyTopic.topic_pic;
-            this.fIn = dailyTopic.topic_title;
-            this.fIo = dailyTopic.topic_abstract;
-            this.fIp = dailyTopic.topic_url;
-            this.fIq = dailyTopic.topic_rank_url;
+            this.fIa = dailyTopic.topic_pic;
+            this.fIb = dailyTopic.topic_title;
+            this.fIc = dailyTopic.topic_abstract;
+            this.fId = dailyTopic.topic_url;
+            this.fIe = dailyTopic.topic_rank_url;
         }
 
-        public String blJ() {
-            return this.fIm;
+        public String blG() {
+            return this.fIa;
         }
 
-        public String Ya() {
-            return this.fIn;
+        public String XX() {
+            return this.fIb;
         }
 
-        public String blK() {
-            return this.fIo;
+        public String blH() {
+            return this.fIc;
         }
 
-        public String aaz() {
-            return this.fIp;
+        public String aaw() {
+            return this.fId;
         }
 
-        public String blL() {
-            return this.fIq;
+        public String blI() {
+            return this.fIe;
         }
     }
 }

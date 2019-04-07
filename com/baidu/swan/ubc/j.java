@@ -5,11 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public interface j {
-    String Dl();
+    String Dj();
 
-    String Fp();
+    String Fn();
 
-    boolean Fq();
+    boolean Fo();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -21,7 +21,7 @@ public interface j {
 
     void c(String str, int i, String str2);
 
-    boolean fu(String str);
+    boolean fv(String str);
 
     String getAppId();
 
@@ -33,9 +33,9 @@ public interface j {
 
     SQLiteDatabase getWritableDatabase();
 
-    k uY();
+    k uX();
 
-    int ut();
+    int us();
 
     void y(String str, int i);
 }

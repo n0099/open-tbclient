@@ -5,7 +5,6 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -18,7 +17,7 @@ public class c extends b {
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.eq(this.aPL) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.er(this.aPO) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -27,13 +26,13 @@ public class c extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected boolean k(UnitedSchemeEntity unitedSchemeEntity) {
-        String param = unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS);
+        String param = unitedSchemeEntity.getParam("params");
         if (TextUtils.isEmpty(param)) {
             return false;
         }
         try {
-            this.aPL = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.aPL);
+            this.aPO = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.aPO);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

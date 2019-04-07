@@ -62,17 +62,17 @@ public class a {
                 if (message == null) {
                     return false;
                 }
-                String aK = c.nL().aK(message.getCmd());
-                if (TextUtils.isEmpty(aK) || c.nL().ck(aK)) {
+                String aJ = c.nL().aJ(message.getCmd());
+                if (TextUtils.isEmpty(aJ) || c.nL().ck(aJ)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aK)) {
-                    a.this.a(aK, message);
-                    return PluginCenter.getInstance().launch(aK).Jy;
-                } else if (PluginCenter.getInstance().isLoaded(aK)) {
+                if (!PluginCenter.getInstance().hasInstance(aJ)) {
+                    a.this.a(aJ, message);
+                    return PluginCenter.getInstance().launch(aJ).Jy;
+                } else if (PluginCenter.getInstance().isLoaded(aJ)) {
                     return false;
                 } else {
-                    a.this.a(aK, message);
+                    a.this.a(aJ, message);
                     return true;
                 }
             }

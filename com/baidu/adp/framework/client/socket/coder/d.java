@@ -6,35 +6,35 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d xM = null;
-    private SecretKey xN = null;
-    private byte[] xO = null;
+    private static d xL = null;
+    private SecretKey xM = null;
+    private byte[] xN = null;
 
     public static d hc() {
-        if (xM == null) {
+        if (xL == null) {
             synchronized (d.class) {
-                if (xM == null) {
-                    xM = new d();
+                if (xL == null) {
+                    xL = new d();
                 }
             }
         }
-        return xM;
+        return xL;
     }
 
     public void p(byte[] bArr) {
         try {
             PublicKey v = u.v(bArr);
-            String aB = u.aB(32);
-            byte[] bArr2 = new byte[aB.length()];
-            for (int i = 0; i < aB.length(); i++) {
-                bArr2[i] = (byte) aB.charAt(i);
+            String aA = u.aA(32);
+            byte[] bArr2 = new byte[aA.length()];
+            for (int i = 0; i < aA.length(); i++) {
+                bArr2[i] = (byte) aA.charAt(i);
             }
-            this.xN = u.bD(aB);
-            this.xO = u.b(v, bArr2);
+            this.xM = u.bD(aA);
+            this.xN = u.b(v, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.xN = null;
-            this.xO = new byte[0];
+            this.xM = null;
+            this.xN = new byte[0];
         }
     }
 
@@ -42,10 +42,10 @@ public class d {
     }
 
     public byte[] hd() {
-        return this.xO;
+        return this.xN;
     }
 
     public SecretKey getSecretKey() {
-        return this.xN;
+        return this.xM;
     }
 }

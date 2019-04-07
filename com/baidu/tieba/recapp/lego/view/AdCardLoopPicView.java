@@ -15,8 +15,8 @@ import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
 /* loaded from: classes3.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View ijj;
-    private LoopADView ijk;
+    private View iiV;
+    private LoopADView iiW;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,44 +29,44 @@ public class AdCardLoopPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void cD(View view) {
-        this.ijj = view.findViewById(d.g.advert_loop_ad_container);
-        this.ijk = (LoopADView) view.findViewById(d.g.loop_view);
+        this.iiV = view.findViewById(d.g.advert_loop_ad_container);
+        this.iiW = (LoopADView) view.findViewById(d.g.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean WC = i.Wy().WC();
-        this.ijk.setBussinessType(getBusinessType());
-        if (!WC) {
-            this.ijj.setVisibility(8);
+        boolean Wz = i.Wv().Wz();
+        this.iiW.setBussinessType(getBusinessType());
+        if (!Wz) {
+            this.iiV.setVisibility(8);
             return;
         }
-        this.ijj.setVisibility(0);
-        E(this.ijj, 0);
-        this.ijk.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.iiV.setVisibility(0);
+        E(this.iiV, 0);
+        this.iiW.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String BC(String str) {
-                return AdCardLoopPicView.this.Bz(ap.f(str, 100, "..."));
+            public String BB(String str) {
+                return AdCardLoopPicView.this.By(ap.f(str, 100, "..."));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.ijj != null) {
-                    AdCardLoopPicView.this.ijj.setScrollX(0);
+                if (AdCardLoopPicView.this.iiV != null) {
+                    AdCardLoopPicView.this.iiV.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds92);
         if (!adCard.needResize) {
-            this.ijk.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+            this.iiW.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         } else {
-            this.ijk.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.iiW.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         }
     }
 
@@ -80,8 +80,8 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.ijk != null && this.ijk.getVisibility() == 0) {
-            this.ijk.bxV();
+        if (this.iiW != null && this.iiW.getVisibility() == 0) {
+            this.iiW.bxS();
         }
     }
 

@@ -15,7 +15,6 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -36,7 +35,7 @@ public class b {
             public void handleMessage(Message message) {
                 String string = message.getData().getString("deviceId");
                 String string2 = message.getData().getString("appId");
-                String string3 = message.getData().getString(WBConstants.SSO_APP_KEY);
+                String string3 = message.getData().getString("appKey");
                 switch (message.what) {
                     case 0:
                         b.this.a(string2, string3, string);
@@ -348,7 +347,7 @@ public class b {
                 Bundle bundle = new Bundle();
                 bundle.putString("deviceId", deviceId);
                 bundle.putString("appId", str);
-                bundle.putString(WBConstants.SSO_APP_KEY, str2);
+                bundle.putString("appKey", str2);
                 obtainMessage.setData(bundle);
                 obtainMessage.what = i;
                 com.meizu.cloud.a.a.e("PushPlatformManager", "deviceId " + deviceId);

@@ -18,8 +18,8 @@ import com.baidu.tbadk.util.l;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
-    private TbCdnTachometerModelCallBack gCe;
-    private HttpMessageListener gCf;
+    private TbCdnTachometerModelCallBack gBS;
+    private HttpMessageListener gBT;
     public static final String IPLIST_ADDRESS_PATH = "c/s/checkcdn";
     public static final String IPLIST_ADDRESS = TbConfig.SERVER_ADDRESS + IPLIST_ADDRESS_PATH;
 
@@ -30,8 +30,8 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
 
     public TbCdnTachometerModel(TbPageContext<T> tbPageContext) {
         super(tbPageContext);
-        this.gCe = null;
-        this.gCf = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.gBS = null;
+        this.gBT = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,12 +41,12 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                 boolean z2;
                 if (httpResponsedMessage != null && TbCdnTachometerModel.this.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                     TbCdnIpListData tbCdnIpListData = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
-                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.gBV != 0) {
-                        if (TbCdnTachometerModel.this.gCe != null) {
+                    if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.gBJ != 0) {
+                        if (TbCdnTachometerModel.this.gBS != null) {
                             int error = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
-                                i = tbCdnIpListData.gBV;
+                                i = tbCdnIpListData.gBJ;
                                 z = false;
                                 str = tbCdnIpListData.errorString;
                                 z2 = true;
@@ -62,10 +62,10 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
                         z = true;
                         i = -1;
                     } else {
-                        if (TbCdnTachometerModel.this.gCe != null) {
-                            TbCdnTachometerModel.this.gCe.callBack(tbCdnIpListData);
+                        if (TbCdnTachometerModel.this.gBS != null) {
+                            TbCdnTachometerModel.this.gBS.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.gBX.size() == 0) {
+                        if (tbCdnIpListData.gBL.size() == 0) {
                             str = "noList";
                             z2 = false;
                             z = true;
@@ -83,13 +83,13 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, IPLIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.gCf);
-        MessageManager.getInstance().registerListener(this.gCf);
+        MessageManager.getInstance().unRegisterListener(this.gBT);
+        MessageManager.getInstance().registerListener(this.gBT);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-        MessageManager.getInstance().unRegisterListener(this.gCf);
+        MessageManager.getInstance().unRegisterListener(this.gBT);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -103,7 +103,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
     }
 
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
-        this.gCe = tbCdnTachometerModelCallBack;
+        this.gBS = tbCdnTachometerModelCallBack;
     }
 
     public void getCDNIPList() {
@@ -115,7 +115,7 @@ public class TbCdnTachometerModel<T> extends BdBaseModel<T> {
         boolean z2;
         int i;
         boolean z3 = false;
-        if (str == null || str2 == null || str3 == null || str4 == null || !l.pF(str)) {
+        if (str == null || str2 == null || str3 == null || str4 == null || !l.pG(str)) {
             return false;
         }
         try {

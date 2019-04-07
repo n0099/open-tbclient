@@ -2,7 +2,6 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiEnv;
 import com.xiaomi.xmpush.thrift.ae;
 import com.xiaomi.xmpush.thrift.ag;
 import com.xiaomi.xmpush.thrift.ai;
@@ -58,9 +57,9 @@ public class q {
     }
 
     private static Cipher a(byte[] bArr, int i) {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
         IvParameterSpec ivParameterSpec = new IvParameterSpec(a);
-        Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(i, secretKeySpec, ivParameterSpec);
         return cipher;
     }

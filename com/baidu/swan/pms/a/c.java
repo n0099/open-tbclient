@@ -10,7 +10,7 @@ public abstract class c<T> implements a<T> {
     }
 
     @Override // com.baidu.swan.pms.a.a
-    public void U(T t) {
+    public void S(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.a
@@ -22,6 +22,6 @@ public abstract class c<T> implements a<T> {
     }
 
     @Override // com.baidu.swan.pms.a.a
-    public void V(T t) {
+    public void T(T t) {
     }
 }

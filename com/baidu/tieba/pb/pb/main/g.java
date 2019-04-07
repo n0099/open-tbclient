@@ -3,54 +3,54 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes4.dex */
 public class g {
-    private static g hpE;
-    private com.baidu.adp.lib.cache.l<byte[]> hpF = null;
-    private com.baidu.adp.lib.cache.l<byte[]> hpG = null;
+    private static g hpr;
+    private com.baidu.adp.lib.cache.l<byte[]> hps = null;
+    private com.baidu.adp.lib.cache.l<byte[]> hpt = null;
 
-    public static synchronized g bKB() {
+    public static synchronized g bKy() {
         g gVar;
         synchronized (g.class) {
-            if (hpE == null) {
-                hpE = new g();
+            if (hpr == null) {
+                hpr = new g();
             }
-            gVar = hpE;
+            gVar = hpr;
         }
         return gVar;
     }
 
     private g() {
-        SM();
+        SK();
     }
 
-    private void SM() {
-        if (this.hpF == null) {
-            this.hpF = com.baidu.tbadk.core.c.a.aaW().lu("tb.pb_mark");
+    private void SK() {
+        if (this.hps == null) {
+            this.hps = com.baidu.tbadk.core.c.a.aaT().lv("tb.pb_mark");
         }
-        if (this.hpG == null) {
-            this.hpG = com.baidu.tbadk.core.c.a.aaW().lu("tb.pb_normal");
+        if (this.hpt == null) {
+            this.hpt = com.baidu.tbadk.core.c.a.aaT().lv("tb.pb_normal");
         }
     }
 
     public void am(String str, boolean z) {
         if (z) {
-            if (this.hpF != null && str != null) {
-                this.hpF.b(str, new byte[0], 0L);
+            if (this.hps != null && str != null) {
+                this.hps.b(str, new byte[0], 0L);
             }
-        } else if (this.hpG != null && str != null) {
-            this.hpG.b(str, new byte[0], 0L);
+        } else if (this.hpt != null && str != null) {
+            this.hpt.b(str, new byte[0], 0L);
         }
     }
 
     public byte[] an(String str, boolean z) {
         l.b<byte[]> aF;
         if (z) {
-            if (this.hpF != null && str != null) {
-                aF = this.hpF.aF(str);
+            if (this.hps != null && str != null) {
+                aF = this.hps.aF(str);
             }
             aF = null;
         } else {
-            if (this.hpG != null && str != null) {
-                aF = this.hpG.aF(str);
+            if (this.hpt != null && str != null) {
+                aF = this.hpt.aF(str);
             }
             aF = null;
         }
@@ -62,19 +62,19 @@ public class g {
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            SM();
+            SK();
             if (z) {
-                this.hpF.a(str, bArr, 604800000L);
+                this.hps.a(str, bArr, 604800000L);
             } else {
-                this.hpG.a(str, bArr, 86400000L);
+                this.hpt.a(str, bArr, 86400000L);
             }
         }
     }
 
     public void l(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            SM();
-            this.hpF.a(str, bArr, 2592000000L);
+            SK();
+            this.hps.a(str, bArr, 2592000000L);
         }
     }
 }

@@ -12,17 +12,17 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes2.dex */
 public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.extcore.f.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a avq;
+    private static volatile a avt;
 
-    public static a Bj() {
-        if (avq == null) {
+    public static a Bh() {
+        if (avt == null) {
             synchronized (a.class) {
-                if (avq == null) {
-                    avq = new a();
+                if (avt == null) {
+                    avt = new a();
                 }
             }
         }
-        return avq;
+        return avt;
     }
 
     private a() {
@@ -30,9 +30,9 @@ public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.
     }
 
     @Nullable
-    public ExtensionCore At() {
+    public ExtensionCore As() {
         if (ProcessUtils.isMainProcess()) {
-            return Bn();
+            return Bl();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0140a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -50,17 +50,17 @@ public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", Bk());
+            bundle2.putParcelable("aiapps_extension_core", Bi());
             return bundle2;
         }
 
-        private ExtensionCore Bk() {
-            ExtensionCore Bn = a.Bj().Bn();
-            if (!Bn.isAvailable()) {
-                a.Bj().Bm();
-                return a.Bj().Bn();
+        private ExtensionCore Bi() {
+            ExtensionCore Bl = a.Bh().Bl();
+            if (!Bl.isAvailable()) {
+                a.Bh().Bk();
+                return a.Bh().Bl();
             }
-            return Bn;
+            return Bl;
         }
     }
 }

@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b auu;
+    private volatile b aux;
 
-    private b AQ() {
-        if (this.auu == null) {
+    private b AO() {
+        if (this.aux == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.auu == null) {
-                    this.auu = new b();
+                if (this.aux == null) {
+                    this.aux = new b();
                 }
             }
         }
-        return this.auu;
+        return this.aux;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return AQ().query(uri, strArr, str, strArr2, str2);
+        return AO().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return AQ().getType(uri);
+        return AO().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return AQ().insert(uri, contentValues);
+        return AO().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return AQ().delete(uri, str, strArr);
+        return AO().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return AQ().update(uri, contentValues, str, strArr);
+        return AO().update(uri, contentValues, str, strArr);
     }
 }

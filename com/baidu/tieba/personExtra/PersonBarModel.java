@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String cPD = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, cPD);
-    private int hOb;
+    private static final String cPF = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, cPF);
+    private int hNN;
     private a mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean bvu() {
+    public boolean bvr() {
         return this.mIsHost;
     }
 
     public void setCurrentPageIndex(int i) {
-        this.hOb = i;
+        this.hNN = i;
     }
 
-    public a bRl() {
+    public a bRh() {
         return this.mData;
     }
 
-    public void bRj() {
+    public void bRf() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!bvu()) {
+        if (!bvr()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,17 +81,17 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void AF(String str) {
-        if (this.hOb == 1 && this.mIsHost) {
+    public void AE(String str) {
+        if (this.hNN == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> lv = com.baidu.tbadk.core.c.a.aaW().lv("tb.my_pages");
-                    if (lv != null) {
-                        lv.a(str2, str, 604800000L);
+                    l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.my_pages");
+                    if (lw != null) {
+                        lw.a(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

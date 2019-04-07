@@ -5,114 +5,114 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tieba.VideoPlatformStatic;
 /* loaded from: classes5.dex */
 public class i implements com.baidu.tieba.j.f {
-    private String gYh;
-    private k icd;
+    private String gXU;
+    private k ibP;
 
     public i(String str) {
-        this.gYh = str;
-        this.icd = new k(str);
+        this.gXU = str;
+        this.ibP = new k(str);
     }
 
     @Override // com.baidu.tieba.j.f
     public void k(String str, int i, String str2) {
-        if (Bb(str)) {
-            this.icd.bUU();
-            this.icd.a(new com.baidu.tieba.m.d(i, "record", i, str2));
+        if (Ba(str)) {
+            this.ibP.bUQ();
+            this.ibP.a(new com.baidu.tieba.m.d(i, "record", i, str2));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public void l(String str, int i, String str2) {
-        if (Bb(str)) {
+        if (Ba(str)) {
             if (i == 103 || i == 105 || i == 106 || i == 107 || i == 104) {
-                this.icd.bUU();
-                this.icd.a(new com.baidu.tieba.m.d(i, str2, i, VideoPlatformStatic.ls(i)));
+                this.ibP.bUQ();
+                this.ibP.a(new com.baidu.tieba.m.d(i, str2, i, VideoPlatformStatic.lr(i)));
                 return;
             }
-            this.icd.a(new com.baidu.tieba.m.d(i, str2, -4399, ""));
+            this.ibP.a(new com.baidu.tieba.m.d(i, str2, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public void m(String str, int i, String str2) {
-        if (Bb(str)) {
-            this.icd.bUU();
-            this.icd.a(new com.baidu.tieba.m.d(i, "edit", i, str2));
+        if (Ba(str)) {
+            this.ibP.bUQ();
+            this.ibP.a(new com.baidu.tieba.m.d(i, "edit", i, str2));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public void e(String str, int i, int i2, String str2) {
-        if (Bb(str)) {
-            this.icd.bUU();
-            this.icd.bUS();
-            this.icd.bUW();
-            this.icd.a(new com.baidu.tieba.m.d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+        if (Ba(str)) {
+            this.ibP.bUQ();
+            this.ibP.bUO();
+            this.ibP.bUS();
+            this.ibP.a(new com.baidu.tieba.m.d(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
+        }
+    }
+
+    @Override // com.baidu.tieba.j.f
+    public void yR(String str) {
+        if (Ba(str)) {
+            this.ibP.bUS();
+            this.ibP.a(new com.baidu.tieba.m.d(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public void yS(String str) {
-        if (Bb(str)) {
-            this.icd.bUW();
-            this.icd.a(new com.baidu.tieba.m.d(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
-        }
-    }
-
-    @Override // com.baidu.tieba.j.f
-    public void yT(String str) {
-        if (Bb(str)) {
-            this.icd.bUW();
-            this.icd.bUT();
-            this.icd.a(new com.baidu.tieba.m.d(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
+        if (Ba(str)) {
+            this.ibP.bUS();
+            this.ibP.bUP();
+            this.ibP.a(new com.baidu.tieba.m.d(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
         }
     }
 
     @Override // com.baidu.tieba.j.f
     public void n(String str, int i, String str2) {
-        if (Bb(str)) {
-            this.icd.bUU();
-            this.icd.bUS();
-            this.icd.bUW();
-            this.icd.a(new com.baidu.tieba.m.d(402, AlbumActivityConfig.FROM_WRITE, i, str2));
+        if (Ba(str)) {
+            this.ibP.bUQ();
+            this.ibP.bUO();
+            this.ibP.bUS();
+            this.ibP.a(new com.baidu.tieba.m.d(402, AlbumActivityConfig.FROM_WRITE, i, str2));
         }
     }
 
     @Override // com.baidu.tieba.j.f
-    public void df(String str) {
-        if (Bb(str)) {
-            com.baidu.tieba.s.b.cir().n(this.gYh, com.baidu.tieba.s.b.a(VideoPlatformStatic.awe(), this.icd.bEv(), this.icd.bEx()));
+    public void dh(String str) {
+        if (Ba(str)) {
+            com.baidu.tieba.s.b.cip().n(this.gXU, com.baidu.tieba.s.b.a(VideoPlatformStatic.awb(), this.ibP.bEs(), this.ibP.bEu()));
         }
     }
 
     @Override // com.baidu.tieba.j.f
-    public boolean yU(String str) {
-        if (Bb(str)) {
-            return this.icd.bUV();
+    public boolean yT(String str) {
+        if (Ba(str)) {
+            return this.ibP.bUR();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.j.f
-    public boolean yV(String str) {
-        return this.icd.bUX();
-    }
-
-    @Override // com.baidu.tieba.j.f
-    public void dp(String str, String str2) {
-        if (Bb(str)) {
-            this.icd.a(new com.baidu.tieba.m.d(503, str2, -4399, ""));
-        }
+    public boolean yU(String str) {
+        return this.ibP.bUT();
     }
 
     @Override // com.baidu.tieba.j.f
     public void dq(String str, String str2) {
-        if (Bb(str)) {
-            this.icd.a(new com.baidu.tieba.m.d(501, str2, -4399, ""));
+        if (Ba(str)) {
+            this.ibP.a(new com.baidu.tieba.m.d(503, str2, -4399, ""));
         }
     }
 
-    private boolean Bb(String str) {
-        return (!TextUtils.equals(this.gYh, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.gYh)) ? false : true;
+    @Override // com.baidu.tieba.j.f
+    public void dr(String str, String str2) {
+        if (Ba(str)) {
+            this.ibP.a(new com.baidu.tieba.m.d(501, str2, -4399, ""));
+        }
+    }
+
+    private boolean Ba(String str) {
+        return (!TextUtils.equals(this.gXU, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.gXU)) ? false : true;
     }
 }

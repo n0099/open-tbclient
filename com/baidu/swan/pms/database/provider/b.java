@@ -19,19 +19,19 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 public class b {
     private Context mContext;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri blH = Uri.parse("content://" + AUTHORITY + "/framework");
-    public static final Uri blI = Uri.parse("content://" + AUTHORITY + "/swan_app");
-    public static final Uri blJ = Uri.parse("content://" + AUTHORITY + "/pkg_main");
-    public static final Uri auG = Uri.parse("content://" + AUTHORITY + "/pkg_sub");
-    public static final Uri blK = Uri.parse("content://" + AUTHORITY + "/extension");
-    private static UriMatcher auH = new UriMatcher(-1);
+    public static final Uri blK = Uri.parse("content://" + AUTHORITY + "/framework");
+    public static final Uri blL = Uri.parse("content://" + AUTHORITY + "/swan_app");
+    public static final Uri blM = Uri.parse("content://" + AUTHORITY + "/pkg_main");
+    public static final Uri auJ = Uri.parse("content://" + AUTHORITY + "/pkg_sub");
+    public static final Uri blN = Uri.parse("content://" + AUTHORITY + "/extension");
+    private static UriMatcher auK = new UriMatcher(-1);
 
     static {
-        auH.addURI(AUTHORITY, "framework", 2);
-        auH.addURI(AUTHORITY, "pkg_main", 0);
-        auH.addURI(AUTHORITY, "pkg_sub", 1);
-        auH.addURI(AUTHORITY, "extension", 3);
-        auH.addURI(AUTHORITY, "swan_app", 4);
+        auK.addURI(AUTHORITY, "framework", 2);
+        auK.addURI(AUTHORITY, "pkg_main", 0);
+        auK.addURI(AUTHORITY, "pkg_sub", 1);
+        auK.addURI(AUTHORITY, "extension", 3);
+        auK.addURI(AUTHORITY, "swan_app", 4);
     }
 
     public b(Context context) {
@@ -39,7 +39,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (auH.match(uri)) {
+        switch (auK.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -68,7 +68,7 @@ public class b {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return AA().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
+                return Az().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e2) {
                 if (e.DEBUG) {
                     e2.printStackTrace();
@@ -87,7 +87,7 @@ public class b {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = AA().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
+                long insertWithOnConflict = Az().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -110,7 +110,7 @@ public class b {
                 Log.e("PMSDBProvider", WriteImageActivityConfig.DELET_FLAG);
             }
             try {
-                int delete = AA().getWritableDatabase().delete(e, str, strArr);
+                int delete = Az().getWritableDatabase().delete(e, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -132,7 +132,7 @@ public class b {
                 Log.e("PMSDBProvider", "update");
             }
             try {
-                int update = AA().getWritableDatabase().update(e, contentValues, str, strArr);
+                int update = Az().getWritableDatabase().update(e, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -148,7 +148,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper AA() {
-        return a.RG();
+    public SQLiteOpenHelper Az() {
+        return a.RE();
     }
 }

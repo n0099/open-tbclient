@@ -64,36 +64,36 @@ public class TrackHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackHeaderBox.java", TrackHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCreationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.util.Date"), 60);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.util.Date"), 64);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getContent", "com.coremedia.iso.boxes.TrackHeaderBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 138);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.lang.String"), 166);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "creationTime", "", "void"), 192);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "modificationTime", "", "void"), 199);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "long", "trackId", "", "void"), HttpStatus.SC_MULTI_STATUS);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.TrackHeaderBox", "long", UBC.CONTENT_KEY_DURATION, "", "void"), 211);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "setLayer", "com.coremedia.iso.boxes.TrackHeaderBox", "int", "layer", "", "void"), 218);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setAlternateGroup", "com.coremedia.iso.boxes.TrackHeaderBox", "int", "alternateGroup", "", "void"), 222);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "setVolume", "com.coremedia.iso.boxes.TrackHeaderBox", "float", "volume", "", "void"), 226);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setMatrix", "com.coremedia.iso.boxes.TrackHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "long"), 68);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "setWidth", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "width", "", "void"), 234);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "height", "", "void"), 238);
-        ajc$tjp_22 = bVar.a("method-execution", bVar.b("1", "isEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 243);
-        ajc$tjp_23 = bVar.a("method-execution", bVar.b("1", "isInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 247);
-        ajc$tjp_24 = bVar.a("method-execution", bVar.b("1", "isInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 251);
-        ajc$tjp_25 = bVar.a("method-execution", bVar.b("1", "isInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 255);
-        ajc$tjp_26 = bVar.a("method-execution", bVar.b("1", "setEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "enabled", "", "void"), 259);
-        ajc$tjp_27 = bVar.a("method-execution", bVar.b("1", "setInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inMovie", "", "void"), 267);
-        ajc$tjp_28 = bVar.a("method-execution", bVar.b("1", "setInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPreview", "", "void"), 275);
-        ajc$tjp_29 = bVar.a("method-execution", bVar.b("1", "setInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPoster", "", "void"), 283);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDuration", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "long"), 72);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getLayer", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "int"), 76);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getAlternateGroup", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "int"), 80);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getVolume", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "float"), 84);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getMatrix", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 88);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getWidth", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "double"), 92);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "getHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "double"), 96);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getCreationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.util.Date"), 60);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.util.Date"), 64);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getContent", "com.coremedia.iso.boxes.TrackHeaderBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 138);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "java.lang.String"), 166);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "setCreationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "creationTime", "", "void"), 192);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setModificationTime", "com.coremedia.iso.boxes.TrackHeaderBox", "java.util.Date", "modificationTime", "", "void"), 199);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "setTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "long", "trackId", "", "void"), HttpStatus.SC_MULTI_STATUS);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setDuration", "com.coremedia.iso.boxes.TrackHeaderBox", "long", UBC.CONTENT_KEY_DURATION, "", "void"), 211);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "setLayer", "com.coremedia.iso.boxes.TrackHeaderBox", "int", "layer", "", "void"), 218);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setAlternateGroup", "com.coremedia.iso.boxes.TrackHeaderBox", "int", "alternateGroup", "", "void"), 222);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "setVolume", "com.coremedia.iso.boxes.TrackHeaderBox", "float", "volume", "", "void"), 226);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "setMatrix", "com.coremedia.iso.boxes.TrackHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getTrackId", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "long"), 68);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.c("1", "setWidth", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "width", "", "void"), 234);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.c("1", "setHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "double", "height", "", "void"), 238);
+        ajc$tjp_22 = bVar.a("method-execution", bVar.c("1", "isEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 243);
+        ajc$tjp_23 = bVar.a("method-execution", bVar.c("1", "isInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 247);
+        ajc$tjp_24 = bVar.a("method-execution", bVar.c("1", "isInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 251);
+        ajc$tjp_25 = bVar.a("method-execution", bVar.c("1", "isInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "boolean"), 255);
+        ajc$tjp_26 = bVar.a("method-execution", bVar.c("1", "setEnabled", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "enabled", "", "void"), 259);
+        ajc$tjp_27 = bVar.a("method-execution", bVar.c("1", "setInMovie", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inMovie", "", "void"), 267);
+        ajc$tjp_28 = bVar.a("method-execution", bVar.c("1", "setInPreview", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPreview", "", "void"), 275);
+        ajc$tjp_29 = bVar.a("method-execution", bVar.c("1", "setInPoster", "com.coremedia.iso.boxes.TrackHeaderBox", "boolean", "inPoster", "", "void"), 283);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getDuration", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "long"), 72);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getLayer", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "int"), 76);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getAlternateGroup", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "int"), 80);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getVolume", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "float"), 84);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "getMatrix", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 88);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getWidth", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "double"), 92);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "getHeight", "com.coremedia.iso.boxes.TrackHeaderBox", "", "", "", "double"), 96);
     }
 
     public TrackHeaderBox() {
@@ -255,12 +255,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ei(j)));
         this.trackId = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.ei(j)));
         this.duration = j;
         if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
             setFlags(1);
@@ -268,12 +268,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.CW(i)));
         this.layer = i;
     }
 
     public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.CW(i)));
         this.alternateGroup = i;
     }
 

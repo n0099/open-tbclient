@@ -9,23 +9,23 @@ import java.util.Map;
 public final class a {
     public static int U = 2000;
     public static int V = 1;
-    static a aaR = null;
+    static a aaS = null;
     private long W;
     private long X;
     private long Y;
     private long Z;
-    private StringBuilder aaP = new StringBuilder();
-    public ArrayList<String> aaQ = new ArrayList<>();
+    private StringBuilder aaQ = new StringBuilder();
+    public ArrayList<String> aaR = new ArrayList<>();
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.aaQ.iterator();
+        Iterator<String> it = this.aaR.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            com.baidu.crabsdk.c.a.cx("===== stackEntry ===== \n" + next);
-            this.aaP.append(next);
+            com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
+            this.aaQ.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -44,14 +44,14 @@ public final class a {
     }
 
     public static a rJ() {
-        if (aaR == null) {
+        if (aaS == null) {
             synchronized (a.class) {
-                if (aaR == null) {
-                    aaR = new a();
+                if (aaS == null) {
+                    aaS = new a();
                 }
             }
         }
-        return aaR;
+        return aaS;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.aaP.toString());
+        hashMap.put("errorTrace", this.aaQ.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.aaP.setLength(0);
+        this.aaQ.setLength(0);
         return hashMap;
     }
 }

@@ -60,7 +60,7 @@ public class j {
             this.FW = true;
             this.FX = activeNetworkInfo.getSubtype();
             if (this.FV) {
-                this.FY = aA(this.FX);
+                this.FY = az(this.FX);
             } else {
                 this.FY = 0;
             }
@@ -204,7 +204,7 @@ public class j {
         }
     }
 
-    public static int aA(int i) {
+    public static int az(int i) {
         switch (i) {
             case 1:
             case 2:

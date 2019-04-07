@@ -25,11 +25,11 @@ import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = a.DEBUG;
-    private static String bqj = null;
+    private static String bqm = null;
     public static int INVALID_INDEX = -1;
-    public static int aSU = 1;
+    public static int aSX = 1;
 
-    public static boolean jX(String str) {
+    public static boolean jY(String str) {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
@@ -396,7 +396,7 @@ public final class b {
                     while (entries.hasMoreElements()) {
                         try {
                             ZipEntry nextElement = entries.nextElement();
-                            if (!TextUtils.isEmpty(nextElement.getName()) && !ka(nextElement.getName())) {
+                            if (!TextUtils.isEmpty(nextElement.getName()) && !kb(nextElement.getName())) {
                                 File file = new File(str2 + "/" + nextElement.getName());
                                 if (!nextElement.isDirectory()) {
                                     if (!file.exists()) {
@@ -523,7 +523,7 @@ public final class b {
                         c(inputStream);
                         c(zipInputStream);
                         return true;
-                    } else if (!TextUtils.isEmpty(nextEntry.getName()) && !ka(nextEntry.getName())) {
+                    } else if (!TextUtils.isEmpty(nextEntry.getName()) && !kb(nextEntry.getName())) {
                         File file2 = new File(str2 + File.separator + nextEntry.getName());
                         if (nextEntry.isDirectory()) {
                             if (!file2.exists()) {
@@ -609,25 +609,25 @@ public final class b {
         return str;
     }
 
-    public static String jY(String str) {
+    public static String jZ(String str) {
         if (TextUtils.isEmpty(str) || str.endsWith(File.separator)) {
             return null;
         }
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
         if (lastIndexOf != INVALID_INDEX && length > lastIndexOf) {
-            return str.substring(lastIndexOf + aSU, length);
+            return str.substring(lastIndexOf + aSX, length);
         }
         return str;
     }
 
-    public static String jZ(String str) {
+    public static String ka(String str) {
         int lastIndexOf;
-        String jY = jY(str);
-        if (TextUtils.isEmpty(jY) || (lastIndexOf = jY.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == jY.length() - 1) {
+        String jZ = jZ(str);
+        if (TextUtils.isEmpty(jZ) || (lastIndexOf = jZ.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == jZ.length() - 1) {
             return "";
         }
-        return jY.substring(lastIndexOf + 1);
+        return jZ.substring(lastIndexOf + 1);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1178=4] */
@@ -750,7 +750,7 @@ public final class b {
         }
     }
 
-    public static boolean ka(String str) {
+    public static boolean kb(String str) {
         return str.contains("../");
     }
 }

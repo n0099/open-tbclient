@@ -16,14 +16,14 @@ public class b {
     public static void a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, int i) {
         if (swanGameSubPackageAPSInfo != null) {
             if (b(swanGameSubPackageAPSInfo)) {
-                swanGameSubPackageAPSInfo.bfs = i;
+                swanGameSubPackageAPSInfo.bfv = i;
                 a(swanGameSubPackageAPSInfo);
                 return;
             }
             swanGameSubPackageAPSInfo.resultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfs, 111, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfv, 111, bundle);
         }
     }
 
@@ -33,7 +33,7 @@ public class b {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new com.baidu.swan.games.subpackage.aps.a(appContext, swanGameSubPackageAPSInfo));
         com.baidu.b.a.a.init(appContext, ProcessUtils.isMainProcess());
-        com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.CV().Dt());
+        com.baidu.b.a.c.a.a(appContext, com.baidu.swan.apps.u.a.CT().Dr());
         com.baidu.b.a.c.a.c(arrayList, true);
     }
 
@@ -41,6 +41,6 @@ public class b {
         if (DEBUG && swanGameSubPackageAPSInfo != null) {
             Log.e("GetGamesSubHelper", swanGameSubPackageAPSInfo.toString());
         }
-        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bft) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfu) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfw)) ? false : true;
+        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfw) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfx) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfz)) ? false : true;
     }
 }

@@ -44,7 +44,7 @@ public class c {
         }
     }
 
-    public void q(int i) {
+    public void setResponseCode(int i) {
         this.h = i;
     }
 

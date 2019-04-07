@@ -12,36 +12,36 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class c extends o<Date> {
-    public static final p jOx = new p() { // from class: com.google.gson.internal.a.c.1
+    public static final p jNR = new p() { // from class: com.google.gson.internal.a.c.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cBJ() == Date.class) {
+            if (aVar.cBC() == Date.class) {
                 return new c();
             }
             return null;
         }
     };
-    private final DateFormat jOC = DateFormat.getDateTimeInstance(2, 2, Locale.US);
-    private final DateFormat jOD = DateFormat.getDateTimeInstance(2, 2);
+    private final DateFormat jNW = DateFormat.getDateTimeInstance(2, 2, Locale.US);
+    private final DateFormat jNX = DateFormat.getDateTimeInstance(2, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     /* renamed from: j */
     public Date b(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.cBx() == JsonToken.NULL) {
+        if (aVar.cBq() == JsonToken.NULL) {
             aVar.nextNull();
             return null;
         }
-        return FP(aVar.nextString());
+        return FF(aVar.nextString());
     }
 
-    private synchronized Date FP(String str) {
+    private synchronized Date FF(String str) {
         Date parse;
         try {
-            parse = this.jOD.parse(str);
+            parse = this.jNX.parse(str);
         } catch (ParseException e) {
             try {
-                parse = this.jOC.parse(str);
+                parse = this.jNW.parse(str);
             } catch (ParseException e2) {
                 try {
                     parse = com.google.gson.internal.a.a.a.parse(str, new ParsePosition(0));
@@ -57,9 +57,9 @@ public final class c extends o<Date> {
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.cBI();
+            bVar.cBB();
         } else {
-            bVar.FR(this.jOC.format(date));
+            bVar.FH(this.jNW.format(date));
         }
     }
 }

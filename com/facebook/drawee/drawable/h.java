@@ -7,27 +7,27 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class h extends g {
     private Matrix IR;
-    private int jDi;
-    private int jDj;
+    private int jCC;
+    private int jCD;
     private Matrix mMatrix;
 
     public h(Drawable drawable, Matrix matrix) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jDi = 0;
-        this.jDj = 0;
+        this.jCC = 0;
+        this.jCD = 0;
         this.mMatrix = matrix;
     }
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable k(Drawable drawable) {
         Drawable k = super.k(drawable);
-        cvy();
+        cvr();
         return k;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        cvx();
+        cvq();
         if (this.IR != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,22 +43,22 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cvy();
+        cvr();
     }
 
-    private void cvx() {
-        if (this.jDi != getCurrent().getIntrinsicWidth() || this.jDj != getCurrent().getIntrinsicHeight()) {
-            cvy();
+    private void cvq() {
+        if (this.jCC != getCurrent().getIntrinsicWidth() || this.jCD != getCurrent().getIntrinsicHeight()) {
+            cvr();
         }
     }
 
-    private void cvy() {
+    private void cvr() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.jDi = intrinsicWidth;
+        this.jCC = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.jDj = intrinsicHeight;
+        this.jCD = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.IR = null;

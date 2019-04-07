@@ -2,7 +2,6 @@ package com.sina.weibo.sdk.auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.network.IRequestService;
@@ -56,7 +55,7 @@ public class AccessTokenKeeper {
             RequestParam.Builder builder = new RequestParam.Builder(context);
             builder.setShortUrl("https://api.weibo.com/oauth2/access_token");
             builder.addPostParam("client_id", str);
-            builder.addPostParam(WBConstants.SSO_APP_KEY, str);
+            builder.addPostParam("appKey", str);
             builder.addPostParam("grant_type", "refresh_token");
             builder.addPostParam("refresh_token", readAccessToken.getRefreshToken());
             requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.auth.AccessTokenKeeper.1

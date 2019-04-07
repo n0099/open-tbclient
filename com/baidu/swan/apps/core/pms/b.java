@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.f, Set<InterfaceC0136b>> arV;
+    private HashMap<com.baidu.swan.pms.model.f, Set<InterfaceC0136b>> arZ;
 
     /* renamed from: com.baidu.swan.apps.core.pms.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -18,21 +18,21 @@ public class b {
     }
 
     private b() {
-        this.arV = new HashMap<>();
+        this.arZ = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.f fVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + fVar + " : " + pMSDownloadType);
         }
-        Set<InterfaceC0136b> set = this.arV.get(fVar);
+        Set<InterfaceC0136b> set = this.arZ.get(fVar);
         if (set != null) {
             for (InterfaceC0136b interfaceC0136b : set) {
                 if (interfaceC0136b != null) {
                     interfaceC0136b.a(pMSDownloadType);
                 }
             }
-            this.arV.remove(fVar);
+            this.arZ.remove(fVar);
         }
     }
 
@@ -40,14 +40,14 @@ public class b {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + fVar + " : " + pMSDownloadType);
         }
-        Set<InterfaceC0136b> set = this.arV.get(fVar);
+        Set<InterfaceC0136b> set = this.arZ.get(fVar);
         if (set != null) {
             for (InterfaceC0136b interfaceC0136b : set) {
                 if (interfaceC0136b != null) {
                     interfaceC0136b.a(pMSDownloadType, aVar);
                 }
             }
-            this.arV.remove(fVar);
+            this.arZ.remove(fVar);
         }
     }
 
@@ -56,23 +56,23 @@ public class b {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + fVar);
         }
         if (fVar != null && interfaceC0136b != null) {
-            Set<InterfaceC0136b> set = this.arV.get(fVar);
+            Set<InterfaceC0136b> set = this.arZ.get(fVar);
             if (set != null) {
                 set.add(interfaceC0136b);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(interfaceC0136b);
-                this.arV.put(fVar, hashSet);
+                this.arZ.put(fVar, hashSet);
             }
         }
     }
 
-    public static b zx() {
-        return a.arW;
+    public static b zw() {
+        return a.asa;
     }
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static b arW = new b();
+        private static b asa = new b();
     }
 }

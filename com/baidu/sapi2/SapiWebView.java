@@ -85,7 +85,6 @@ import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
@@ -100,7 +99,6 @@ import com.tencent.connect.UnionInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.tencent.open.SocialConstants;
 import com.tencent.open.SocialOperation;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
@@ -2903,7 +2901,7 @@ public final class SapiWebView extends WebView {
                         if ("ok".equals(optString)) {
                             str2 = jSONObject.getJSONObject("data").optString("userId");
                         } else if ("error".equals(optString)) {
-                            Log.e(jSONObject.optString(SocialConstants.PARAM_COMMENT) + "(" + jSONObject.optString("code") + ")", new Object[0]);
+                            Log.e(jSONObject.optString("description") + "(" + jSONObject.optString("code") + ")", new Object[0]);
                             SapiWebView.this.u();
                             SapiWebView.this.finish();
                             return;
@@ -2923,7 +2921,7 @@ public final class SapiWebView extends WebView {
                         if ("ok".equals(optString2)) {
                             str3 = jSONObject2.getJSONObject("data").optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
                         } else if ("error".equals(optString2)) {
-                            Log.e(jSONObject2.optString(SocialConstants.PARAM_COMMENT) + "(" + jSONObject2.optString("code") + ")", new Object[0]);
+                            Log.e(jSONObject2.optString("description") + "(" + jSONObject2.optString("code") + ")", new Object[0]);
                             SapiWebView.this.u();
                             SapiWebView.this.finish();
                             return;
@@ -3218,7 +3216,7 @@ public final class SapiWebView extends WebView {
                 JSONObject optJSONObject = jSONObject.optJSONObject("action");
                 if (optJSONObject != null) {
                     command.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray(LegoListActivityConfig.PARAMS);
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             command.b.add(optJSONArray.optString(i));

@@ -4,7 +4,7 @@ import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface c<INFO> {
-    void FF(String str);
+    void Fv(String str);
 
     void a(String str, @Nullable INFO info, @Nullable Animatable animatable);
 

@@ -50,7 +50,7 @@ public class h {
     private static int[] xu = com.baidu.adp.framework.c.reconStrategy;
     private static ArrayList<BasicNameValuePair> xv = null;
 
-    public static String Q(int i) {
+    public static String P(int i) {
         int i2 = BASE_ERROR_NO - i;
         Application app = BdBaseApplication.getInst().getApp();
         return (i2 <= -300 || i2 > -200) ? app.getString(R.string.im_error_default) : app.getString(R.string.im_error_codec);

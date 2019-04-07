@@ -11,5 +11,5 @@ public interface b {
 
     void f(boolean z, int i);
 
-    void il(int i);
+    void ik(int i);
 }

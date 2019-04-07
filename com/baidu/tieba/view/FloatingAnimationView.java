@@ -17,16 +17,16 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FloatingAnimationView extends FrameLayout {
-    private FrameAnimationView jhY;
-    private TbImageView jhZ;
-    private ImageView jia;
-    private a jib;
+    private FrameAnimationView jhM;
+    private TbImageView jhN;
+    private ImageView jhO;
+    private a jhP;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aSo();
+        void aSm();
 
-        void aSp();
+        void aSn();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -40,36 +40,36 @@ public class FloatingAnimationView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.jhY = new FrameAnimationView(context);
-        this.jhY.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jhM = new FrameAnimationView(context);
+        this.jhM.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.h(context, d.e.tbds200), l.h(context, d.e.tbds200));
         layoutParams.gravity = 17;
-        addView(this.jhY, layoutParams);
-        this.jhZ = new TbImageView(context);
-        this.jhZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.jhM, layoutParams);
+        this.jhN = new TbImageView(context);
+        this.jhN.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.h(context, d.e.tbds62), l.h(context, d.e.tbds62));
         layoutParams2.gravity = 53;
-        this.jhZ.setAutoChangeStyle(false);
-        addView(this.jhZ, layoutParams2);
-        this.jia = new ImageView(context);
-        this.jia.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jhN.setAutoChangeStyle(false);
+        addView(this.jhN, layoutParams2);
+        this.jhO = new ImageView(context);
+        this.jhO.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.h(context, d.e.tbds14);
-        addView(this.jia, layoutParams3);
-        this.jhY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
+        addView(this.jhO, layoutParams3);
+        this.jhM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.jib != null) {
-                    FloatingAnimationView.this.jib.aSo();
+                if (FloatingAnimationView.this.jhP != null) {
+                    FloatingAnimationView.this.jhP.aSm();
                 }
             }
         });
-        this.jhY.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
+        this.jhM.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (FloatingAnimationView.this.jhY.getBdImage() == null && !ap.isEmpty(FloatingAnimationView.this.jhY.getUrl())) {
-                    FloatingAnimationView.this.jhY.startLoad(FloatingAnimationView.this.jhY.getUrl(), 10, false);
+                if (FloatingAnimationView.this.jhM.getBdImage() == null && !ap.isEmpty(FloatingAnimationView.this.jhM.getUrl())) {
+                    FloatingAnimationView.this.jhM.startLoad(FloatingAnimationView.this.jhM.getUrl(), 10, false);
                 }
             }
 
@@ -77,11 +77,11 @@ public class FloatingAnimationView extends FrameLayout {
             public void b(TbImageView tbImageView, Canvas canvas) {
             }
         });
-        this.jhZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
+        this.jhN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.jib != null) {
-                    FloatingAnimationView.this.jib.aSp();
+                if (FloatingAnimationView.this.jhP != null) {
+                    FloatingAnimationView.this.jhP.aSn();
                 }
             }
         });
@@ -90,56 +90,56 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         if (!ap.isEmpty(str)) {
-            this.jhY.setData(str);
+            this.jhM.setData(str);
         }
     }
 
     public void setData(List<String> list, int i) {
-        if (this.jhY != null) {
-            this.jhY.setData(list, i);
+        if (this.jhM != null) {
+            this.jhM.setData(list, i);
         }
     }
 
     public void cu() {
-        if (this.jhY != null) {
-            this.jhY.setImageResource(d.f.transparent_bg);
-            this.jhY.cu();
+        if (this.jhM != null) {
+            this.jhM.setImageResource(d.f.transparent_bg);
+            this.jhM.cu();
         }
     }
 
     public void stopAnimation() {
-        if (this.jhY != null) {
-            this.jhY.setImageDrawable(null);
-            this.jhY.stopAnimation();
+        if (this.jhM != null) {
+            this.jhM.setImageDrawable(null);
+            this.jhM.stopAnimation();
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.jhY != null) {
-            this.jhY.setPageId(bdUniqueId);
+        if (this.jhM != null) {
+            this.jhM.setPageId(bdUniqueId);
         }
     }
 
     public void release() {
-        if (this.jhY != null) {
-            this.jhY.release();
+        if (this.jhM != null) {
+            this.jhM.release();
         }
     }
 
     public void qP(boolean z) {
         if (z) {
-            this.jia.setVisibility(0);
-            al.c(this.jia, d.f.icon_front_worldcup_new_n);
+            this.jhO.setVisibility(0);
+            al.c(this.jhO, d.f.icon_front_worldcup_new_n);
             return;
         }
-        this.jia.setVisibility(8);
+        this.jhO.setVisibility(8);
     }
 
     public void setCallback(a aVar) {
-        this.jib = aVar;
+        this.jhP = aVar;
     }
 
     public void onChangeSkinType() {
-        al.c(this.jhZ, d.f.icon_live_close_n);
+        al.c(this.jhN, d.f.icon_live_close_n);
     }
 }

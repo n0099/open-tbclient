@@ -1,5 +1,6 @@
 package com.baidu.crabsdk.b;
 
+import android.os.Build;
 import android.os.Process;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.BufferedReader;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
 public final class j {
-    public static String z() {
+    public static String y() {
         int myPid = Process.myPid();
         String str = (!com.baidu.crabsdk.a.i || myPid <= 0) ? null : Integer.toString(myPid) + "):";
         ArrayList arrayList = new ArrayList();
@@ -17,7 +18,7 @@ public final class j {
         ArrayList arrayList2 = new ArrayList();
         arrayList2.addAll(Arrays.asList("-t", String.valueOf(com.baidu.crabsdk.a.h), "-v", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
         int indexOf = arrayList2.indexOf("-t");
-        if (indexOf >= 0 && indexOf < arrayList2.size() && com.baidu.crabsdk.c.c.rW() < 8) {
+        if (indexOf >= 0 && indexOf < arrayList2.size() && Build.VERSION.SDK_INT < 8) {
             arrayList2.remove(indexOf + 1);
             arrayList2.remove(indexOf);
             arrayList2.add("-d");

@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class MusicPlayer {
-    private static MusicPlayer iVE = null;
-    private MediaPlayer iVD;
-    private MusicPlayerState iVF = MusicPlayerState.WAIT;
+    private static MusicPlayer iVs = null;
+    private MediaPlayer iVr;
+    private MusicPlayerState iVt = MusicPlayerState.WAIT;
 
     /* loaded from: classes5.dex */
     public enum MusicPlayerState {
@@ -23,76 +23,76 @@ public class MusicPlayer {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void ciZ();
+        void ciX();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer cjb() {
+    public static synchronized MusicPlayer ciZ() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (iVE == null) {
-                iVE = new MusicPlayer();
+            if (iVs == null) {
+                iVs = new MusicPlayer();
             }
-            musicPlayer = iVE;
+            musicPlayer = iVs;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.iVF != MusicPlayerState.PAUSE) {
-            if (this.iVD == null) {
-                this.iVD = new MediaPlayer();
-                this.iVD.setAudioStreamType(3);
+        if (this.iVt != MusicPlayerState.PAUSE) {
+            if (this.iVr == null) {
+                this.iVr = new MediaPlayer();
+                this.iVr.setAudioStreamType(3);
             }
             try {
-                this.iVD.reset();
-                this.iVD.setDataSource(str);
-                this.iVD.prepare();
-                this.iVF = MusicPlayerState.WAIT;
-                this.iVD.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.iVr.reset();
+                this.iVr.setDataSource(str);
+                this.iVr.prepare();
+                this.iVt = MusicPlayerState.WAIT;
+                this.iVr.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.cje().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.cjc().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.iVD.setLooping(true);
-                        MusicPlayer.this.iVD.start();
-                        MusicPlayer.this.iVF = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.iVr.setLooping(true);
+                        MusicPlayer.this.iVr.start();
+                        MusicPlayer.this.iVt = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.iVF = MusicPlayerState.ERROR;
+                this.iVt = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.ciZ();
+                    aVar.ciX();
                 }
             }
         }
     }
 
-    public void cjc() {
-        if (this.iVD != null && this.iVD.isPlaying()) {
-            this.iVD.pause();
+    public void cja() {
+        if (this.iVr != null && this.iVr.isPlaying()) {
+            this.iVr.pause();
         }
-        this.iVF = MusicPlayerState.PAUSE;
+        this.iVt = MusicPlayerState.PAUSE;
     }
 
-    public void cjd() {
-        if (this.iVD != null) {
-            this.iVD.start();
-            this.iVD.seekTo(0);
+    public void cjb() {
+        if (this.iVr != null) {
+            this.iVr.start();
+            this.iVr.seekTo(0);
         }
-        this.iVF = MusicPlayerState.RESUME;
+        this.iVt = MusicPlayerState.RESUME;
     }
 
-    public void avg() {
-        if (this.iVD != null) {
-            if (this.iVD.isPlaying()) {
-                this.iVD.stop();
+    public void avd() {
+        if (this.iVr != null) {
+            if (this.iVr.isPlaying()) {
+                this.iVr.stop();
             }
-            this.iVD.release();
-            this.iVD = null;
+            this.iVr.release();
+            this.iVr = null;
         }
     }
 }

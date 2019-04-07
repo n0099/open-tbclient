@@ -32,14 +32,14 @@ public class a {
                     jSONObject.put("page", c0174a.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(c0174a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0174a.aSd);
+                boolean isEmpty2 = TextUtils.isEmpty(c0174a.aSg);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", c0174a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", c0174a.aSd);
+                        jSONObject2.put("info", c0174a.aSg);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -60,31 +60,31 @@ public class a {
     /* renamed from: com.baidu.swan.apps.statistic.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0174a {
-        private String aSd;
+        private String aSg;
         private String appId;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a aSc = new a();
+        private a aSf = new a();
         private String from = "swan";
 
         public C0174a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public C0174a gN(String str) {
+        public C0174a gO(String str) {
             this.appId = str;
             return this;
         }
 
-        public C0174a gO(String str) {
-            this.aSd = str;
+        public C0174a gP(String str) {
+            this.aSg = str;
             return this;
         }
 
-        public void Kq() {
-            this.aSc.a(this);
+        public void Ko() {
+            this.aSf.a(this);
         }
     }
 }

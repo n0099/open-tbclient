@@ -8,57 +8,57 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements b {
     private final Bitmap.Config FI;
-    private final com.facebook.imagepipeline.a.a.d jHn;
-    private final com.facebook.imagepipeline.h.e jIc;
-    private final b jIy;
+    private final com.facebook.imagepipeline.a.a.d jGH;
+    private final b jHS;
     @Nullable
-    private final Map<com.facebook.c.c, b> jIz;
+    private final Map<com.facebook.c.c, b> jHT;
+    private final com.facebook.imagepipeline.h.e jHw;
 
     public a(com.facebook.imagepipeline.a.a.d dVar, com.facebook.imagepipeline.h.e eVar, Bitmap.Config config) {
         this(dVar, eVar, config, null);
     }
 
     public a(com.facebook.imagepipeline.a.a.d dVar, com.facebook.imagepipeline.h.e eVar, Bitmap.Config config, @Nullable Map<com.facebook.c.c, b> map) {
-        this.jIy = new b() { // from class: com.facebook.imagepipeline.decoder.a.1
+        this.jHS = new b() { // from class: com.facebook.imagepipeline.decoder.a.1
             @Override // com.facebook.imagepipeline.decoder.b
             public com.facebook.imagepipeline.f.b a(com.facebook.imagepipeline.f.d dVar2, int i, g gVar, com.facebook.imagepipeline.common.a aVar) {
-                com.facebook.c.c cyQ = dVar2.cyQ();
-                if (cyQ == com.facebook.c.b.jEV) {
+                com.facebook.c.c cyJ = dVar2.cyJ();
+                if (cyJ == com.facebook.c.b.jEp) {
                     return a.this.b(dVar2, i, gVar, aVar);
                 }
-                if (cyQ == com.facebook.c.b.jEX) {
+                if (cyJ == com.facebook.c.b.jEr) {
                     return a.this.a(dVar2, aVar);
                 }
-                if (cyQ == com.facebook.c.b.jFd) {
+                if (cyJ == com.facebook.c.b.jEx) {
                     return a.this.c(dVar2, aVar);
                 }
-                if (cyQ == com.facebook.c.c.jFe) {
+                if (cyJ == com.facebook.c.c.jEy) {
                     throw new IllegalArgumentException("unknown image format");
                 }
                 return a.this.b(dVar2, aVar);
             }
         };
-        this.jHn = dVar;
+        this.jGH = dVar;
         this.FI = config;
-        this.jIc = eVar;
-        this.jIz = map;
+        this.jHw = eVar;
+        this.jHT = map;
     }
 
     @Override // com.facebook.imagepipeline.decoder.b
     public com.facebook.imagepipeline.f.b a(com.facebook.imagepipeline.f.d dVar, int i, g gVar, com.facebook.imagepipeline.common.a aVar) {
         b bVar;
-        if (aVar.jGJ != null) {
-            return aVar.jGJ.a(dVar, i, gVar, aVar);
+        if (aVar.jGd != null) {
+            return aVar.jGd.a(dVar, i, gVar, aVar);
         }
-        com.facebook.c.c cyQ = dVar.cyQ();
-        if (cyQ == null || cyQ == com.facebook.c.c.jFe) {
-            cyQ = com.facebook.c.d.u(dVar.getInputStream());
-            dVar.c(cyQ);
+        com.facebook.c.c cyJ = dVar.cyJ();
+        if (cyJ == null || cyJ == com.facebook.c.c.jEy) {
+            cyJ = com.facebook.c.d.u(dVar.getInputStream());
+            dVar.c(cyJ);
         }
-        if (this.jIz != null && (bVar = this.jIz.get(cyQ)) != null) {
+        if (this.jHT != null && (bVar = this.jHT.get(cyJ)) != null) {
             return bVar.a(dVar, i, gVar, aVar);
         }
-        return this.jIy.a(dVar, i, gVar, aVar);
+        return this.jHS.a(dVar, i, gVar, aVar);
     }
 
     public com.facebook.imagepipeline.f.b a(com.facebook.imagepipeline.f.d dVar, com.facebook.imagepipeline.common.a aVar) {
@@ -68,8 +68,8 @@ public class a implements b {
             return null;
         }
         try {
-            if (!aVar.jGH && this.jHn != null) {
-                b = this.jHn.a(dVar, aVar, this.FI);
+            if (!aVar.jGb && this.jGH != null) {
+                b = this.jGH.a(dVar, aVar, this.FI);
             } else {
                 b = b(dVar, aVar);
                 com.facebook.common.internal.b.q(inputStream);
@@ -81,24 +81,24 @@ public class a implements b {
     }
 
     public com.facebook.imagepipeline.f.c b(com.facebook.imagepipeline.f.d dVar, com.facebook.imagepipeline.common.a aVar) {
-        com.facebook.common.references.a<Bitmap> a = this.jIc.a(dVar, aVar.jGI);
+        com.facebook.common.references.a<Bitmap> a = this.jHw.a(dVar, aVar.jGc);
         try {
-            return new com.facebook.imagepipeline.f.c(a, com.facebook.imagepipeline.f.f.jIR, dVar.cyN());
+            return new com.facebook.imagepipeline.f.c(a, com.facebook.imagepipeline.f.f.jIl, dVar.cyG());
         } finally {
             a.close();
         }
     }
 
     public com.facebook.imagepipeline.f.c b(com.facebook.imagepipeline.f.d dVar, int i, g gVar, com.facebook.imagepipeline.common.a aVar) {
-        com.facebook.common.references.a<Bitmap> a = this.jIc.a(dVar, aVar.jGI, i);
+        com.facebook.common.references.a<Bitmap> a = this.jHw.a(dVar, aVar.jGc, i);
         try {
-            return new com.facebook.imagepipeline.f.c(a, gVar, dVar.cyN());
+            return new com.facebook.imagepipeline.f.c(a, gVar, dVar.cyG());
         } finally {
             a.close();
         }
     }
 
     public com.facebook.imagepipeline.f.b c(com.facebook.imagepipeline.f.d dVar, com.facebook.imagepipeline.common.a aVar) {
-        return this.jHn.b(dVar, aVar, this.FI);
+        return this.jGH.b(dVar, aVar, this.FI);
     }
 }

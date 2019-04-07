@@ -32,20 +32,20 @@ public class a {
     }
 
     public void a(int i, d dVar, boolean z) {
-        Location aSz;
+        Location aSx;
         if (dVar != null) {
             if (!j.kY()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
                 return;
             }
-            if (z && (aSz = aSz()) != null) {
-                dVar.cbw = aSz;
+            if (z && (aSx = aSx()) != null) {
+                dVar.cby = aSx;
             }
             e eVar = new e(this.mContext, null);
             if (i == 3) {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(d.j.share_weixin_not_installed_yet)).abh();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(d.j.share_weixin_not_installed_yet)).abe();
                     return;
                 }
                 a(dVar, 4);
@@ -53,11 +53,11 @@ public class a {
             } else if (i == 2) {
                 IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(d.j.share_weixin_not_installed_yet)).abh();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(d.j.share_weixin_not_installed_yet)).abe();
                     return;
                 }
                 a(dVar, 3);
-                if (dVar.cbi) {
+                if (dVar.cbk) {
                     dVar.content = m(dVar);
                 }
                 eVar.c(dVar);
@@ -67,22 +67,22 @@ public class a {
                     eVar.e(dVar);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).abh();
+                BdToast.b(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).abe();
             } else if (i == 5) {
                 a(dVar, 6);
-                if (!dVar.cbh) {
+                if (!dVar.cbj) {
                     dVar.content = m(dVar);
                 }
                 eVar.f(dVar);
             } else if (i == 6) {
                 a(dVar, 7);
-                if (!dVar.cbh) {
+                if (!dVar.cbj) {
                     dVar.content = m(dVar);
                 }
                 eVar.g(dVar);
             } else if (i == 7) {
                 a(dVar, 8);
-                if (!dVar.cbh) {
+                if (!dVar.cbj) {
                     dVar.content = m(dVar);
                 }
                 eVar.h(dVar);
@@ -92,31 +92,31 @@ public class a {
                     eVar.d(dVar);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).abh();
+                BdToast.b(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).abe();
             }
         }
     }
 
     private void a(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.cbi) {
+            if (dVar.cbk) {
                 TiebaStatic.log(new am("c10125").bJ(ImageViewerConfig.FORUM_ID, dVar.extData).T("obj_type", i));
-            } else if (dVar.cbj || dVar.cbm) {
-                TiebaStatic.log(new am("c10125").bJ("tid", dVar.extData).T("obj_type", i).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.cbA).T("obj_param1", dVar.cbB).bJ(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.cbk) {
+            } else if (dVar.cbl || dVar.cbo) {
+                TiebaStatic.log(new am("c10125").bJ("tid", dVar.extData).T("obj_type", i).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.cbC).T("obj_param1", dVar.cbD).bJ(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.cbm) {
                 TiebaStatic.log(new am("c10427").bJ("tid", dVar.extData).T("obj_type", i));
-            } else if (dVar.cbh) {
-                ay(i, dVar.cbx);
-            } else if (dVar.cbl) {
-                TiebaStatic.log(new am("c10125").T("obj_param1", 7).T("obj_type", i).bJ(ImageViewerConfig.FORUM_ID, dVar.extData));
+            } else if (dVar.cbj) {
+                aA(i, dVar.cbz);
             } else if (dVar.cbn) {
+                TiebaStatic.log(new am("c10125").T("obj_param1", 7).T("obj_type", i).bJ(ImageViewerConfig.FORUM_ID, dVar.extData));
+            } else if (dVar.cbp) {
                 am T = new am("c10125").T("obj_type", i);
                 if (!ap.isEmpty(dVar.linkUrl) && dVar.linkUrl.contains("worldcup")) {
                     T.T("obj_param1", 9);
                 }
                 TiebaStatic.log(T);
-            } else if (dVar.cbo) {
-                TiebaStatic.log(new am("c10125").bJ("tid", dVar.extData).bJ(ImageViewerConfig.FORUM_ID, dVar.fid).T("obj_type", i).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.cbA).T("obj_param1", dVar.cbB).T("obj_param2", dVar.cbC).T("obj_param3", dVar.cbD).T("obj_locate", dVar.cbE));
+            } else if (dVar.cbq) {
+                TiebaStatic.log(new am("c10125").bJ("tid", dVar.extData).bJ(ImageViewerConfig.FORUM_ID, dVar.fid).T("obj_type", i).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.cbC).T("obj_param1", dVar.cbD).T("obj_param2", dVar.cbE).T("obj_param3", dVar.cbF).T("obj_locate", dVar.cbG));
             }
         }
     }
@@ -127,11 +127,11 @@ public class a {
         return str;
     }
 
-    private void ay(int i, String str) {
+    private void aA(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location aSz() {
+    private Location aSx() {
         if (ab.cR(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

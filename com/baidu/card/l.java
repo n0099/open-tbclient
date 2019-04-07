@@ -34,21 +34,21 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.WR() == null) {
+        if (aVar == null || aVar.WO() == null) {
             getView().setVisibility(8);
             return;
         }
         this.Xy = aVar;
-        bg WR = aVar.WR();
-        com.baidu.tieba.card.n.b(WR, this.XM);
-        this.XL.setData(WR);
+        bg WO = aVar.WO();
+        com.baidu.tieba.card.n.b(WO, this.XM);
+        this.XL.setData(WO);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         this.XL.onChangeSkinType();
-        if (this.Xy != null && this.Xy.WR() != null) {
-            com.baidu.tieba.card.n.a(this.XM, this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+        if (this.Xy != null && this.Xy.WO() != null) {
+            com.baidu.tieba.card.n.a(this.XM, this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
         }
     }
 

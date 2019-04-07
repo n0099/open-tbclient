@@ -1,47 +1,47 @@
 package com.baidu.swan.apps.ae;
 /* loaded from: classes2.dex */
 public class a<ImplemenT> {
-    private ImplemenT aNH;
-    private com.baidu.swan.apps.an.c.b<ImplemenT> aNI;
+    private ImplemenT aNK;
+    private com.baidu.swan.apps.an.c.b<ImplemenT> aNL;
 
     public a<ImplemenT> a(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
-        this.aNI = bVar;
+        this.aNL = bVar;
         return this;
     }
 
-    protected a<ImplemenT> IU() {
+    protected a<ImplemenT> IS() {
         return b(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a<ImplemenT> b(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
         if (bVar == null) {
-            bVar = this.aNI;
+            bVar = this.aNL;
         }
         if (bVar != null) {
-            ImplemenT uS = bVar.uS();
-            if (uS == null) {
-                uS = this.aNH;
+            ImplemenT uR = bVar.uR();
+            if (uR == null) {
+                uR = this.aNK;
             }
-            this.aNH = uS;
+            this.aNK = uR;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a<ImplemenT> IV() {
-        this.aNH = null;
+    public a<ImplemenT> IT() {
+        this.aNK = null;
         return this;
     }
 
     public ImplemenT get() {
-        if (!IW()) {
-            IU();
+        if (!IU()) {
+            IS();
         }
-        return this.aNH;
+        return this.aNK;
     }
 
-    public boolean IW() {
-        return this.aNH != null;
+    public boolean IU() {
+        return this.aNK != null;
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.d;
 /* loaded from: classes3.dex */
 public class TencentMMSwitchStatic extends a {
-    public static final String[] iTD;
+    public static final String[] iTr;
 
     static {
         d.iQ().i(TencentMMSwitchStatic.class);
-        iTD = new String[]{"com.tencent.mm"};
+        iTr = new String[]{"com.tencent.mm"};
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -22,7 +22,7 @@ public class TencentMMSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] iG() {
-        return iTD;
+        return iTr;
     }
 
     @Override // com.baidu.adp.lib.b.a

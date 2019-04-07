@@ -5,7 +5,7 @@ public interface e {
 
     void C(long j);
 
-    long FY();
+    long FW();
 
     String getType();
 }

@@ -12,7 +12,7 @@ public class a {
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0408a {
-        void Bn(int i);
+        void Bj(int i);
     }
 
     public static void a(final String str, final int i, final InterfaceC0408a interfaceC0408a) {
@@ -25,9 +25,9 @@ public class a {
                     @Override // com.baidu.tbadk.util.z
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> lv = com.baidu.tbadk.core.c.a.aaW().lv("tb.write_privacy_state_space" + currentAccount);
-                        if (lv != null) {
-                            i2 = com.baidu.adp.lib.g.b.l(lv.get(str), i);
+                        l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.write_privacy_state_space" + currentAccount);
+                        if (lw != null) {
+                            i2 = com.baidu.adp.lib.g.b.l(lw.get(str), i);
                         }
                         return Integer.valueOf(i2);
                     }
@@ -37,7 +37,7 @@ public class a {
                     /* renamed from: i */
                     public void onReturnDataInUI(Integer num) {
                         if (InterfaceC0408a.this != null) {
-                            InterfaceC0408a.this.Bn(num.intValue());
+                            InterfaceC0408a.this.Bj(num.intValue());
                         }
                     }
                 });
@@ -46,11 +46,11 @@ public class a {
     }
 
     public static void bx(String str, int i) {
-        l<String> lv;
+        l<String> lw;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (lv = com.baidu.tbadk.core.c.a.aaW().lv("tb.write_privacy_state_space" + currentAccount)) != null) {
-                lv.f(str, String.valueOf(i));
+            if (!StringUtils.isNull(currentAccount) && (lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.write_privacy_state_space" + currentAccount)) != null) {
+                lw.f(str, String.valueOf(i));
             }
         }
     }

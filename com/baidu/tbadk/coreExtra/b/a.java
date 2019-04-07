@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bWg = null;
-    private boolean bWf;
-    private int bWh;
+    private static volatile a bWi = null;
+    private boolean bWh;
+    private int bWj;
 
     private a() {
-        this.bWf = false;
-        this.bWh = 0;
+        this.bWh = false;
+        this.bWj = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.T(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.hA()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.bWh = Integer.parseInt(content);
+                    this.bWj = Integer.parseInt(content);
                 }
-                if (this.bWh == 1 || this.bWh == 2) {
-                    this.bWf = true;
+                if (this.bWj == 1 || this.bWj == 2) {
+                    this.bWh = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a afJ() {
-        if (bWg == null) {
+    public static a afG() {
+        if (bWi == null) {
             synchronized (a.class) {
-                if (bWg == null) {
-                    bWg = new a();
+                if (bWi == null) {
+                    bWi = new a();
                 }
             }
         }
-        return bWg;
+        return bWi;
     }
 
-    public boolean afK() {
-        return this.bWf;
-    }
-
-    public int afL() {
+    public boolean afH() {
         return this.bWh;
     }
 
-    public String afM() {
-        return this.bWf ? "pub_env=" + this.bWh + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public int afI() {
+        return this.bWj;
+    }
+
+    public String afJ() {
+        return this.bWh ? "pub_env=" + this.bWj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

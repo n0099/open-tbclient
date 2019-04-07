@@ -22,18 +22,18 @@ public class b extends y {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        com.baidu.swan.apps.core.c.e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarBadge", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.d yP = uz.yP();
-        if (yP == null) {
+        com.baidu.swan.apps.core.c.d yO = uy.yO();
+        if (yO == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarBadge", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yP.yD().em(optInt)) {
+        } else if (!yO.yC().el(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarBadge", "close bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

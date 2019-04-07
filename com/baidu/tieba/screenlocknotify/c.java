@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> ipM = new ArrayList();
+    private List<d> ipw = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ipM != null) {
-            return this.ipM.size();
+        if (this.ipw != null) {
+            return this.ipw.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ym */
+    /* renamed from: yi */
     public d getItem(int i) {
-        if (this.ipM == null || i >= this.ipM.size()) {
+        if (this.ipw == null || i >= this.ipw.size()) {
             return null;
         }
-        return this.ipM.get(i);
+        return this.ipw.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.ipM.get(i), view, viewGroup);
+        return a(this.ipw.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        cE.ipN.setText(dVar.title);
-        cE.ipO.setText(dVar.content);
-        cE.ipP.setDefaultErrorResource(d.f.screen_notify_default_bg);
-        cE.ipP.setDefaultResource(d.f.screen_notify_default_bg);
-        cE.ipP.startLoad(dVar.pic, 10, 0, 0, false);
+        cE.ipx.setText(dVar.title);
+        cE.ipy.setText(dVar.content);
+        cE.ipz.setDefaultErrorResource(d.f.screen_notify_default_bg);
+        cE.ipz.setDefaultResource(d.f.screen_notify_default_bg);
+        cE.ipz.startLoad(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void dT(List<d> list) {
+    public void dQ(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.ipM.addAll(list);
+            this.ipw.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
-        TextView ipN;
-        TextView ipO;
-        TbImageView ipP;
+        TextView ipx;
+        TextView ipy;
+        TbImageView ipz;
         View mLine;
 
         private a() {
@@ -91,10 +91,10 @@ public class c extends BaseAdapter {
 
     private a cE(View view) {
         a aVar = new a();
-        aVar.ipN = (TextView) view.findViewById(d.g.push_msg_title);
-        aVar.ipO = (TextView) view.findViewById(d.g.push_msg_content);
-        aVar.ipP = (TbImageView) view.findViewById(d.g.push_msg_pic);
-        aVar.ipP.setAutoChangeStyle(false);
+        aVar.ipx = (TextView) view.findViewById(d.g.push_msg_title);
+        aVar.ipy = (TextView) view.findViewById(d.g.push_msg_content);
+        aVar.ipz = (TbImageView) view.findViewById(d.g.push_msg_pic);
+        aVar.ipz.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(d.g.line);
         return aVar;
     }

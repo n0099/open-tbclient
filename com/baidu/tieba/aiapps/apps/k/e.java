@@ -13,7 +13,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.b.b.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.d;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -28,7 +27,7 @@ public class e implements o {
 
     @Override // com.baidu.swan.apps.b.b.o
     public boolean a(final Context context, final String str, final UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, final CallbackHandler callbackHandler, final String str2) {
-        final com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
+        final com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
         JSONArray optJSONArray = jSONObject.optJSONArray("bannedChannels");
         final String[] strArr = null;
         if (optJSONArray != null) {
@@ -37,29 +36,29 @@ public class e implements o {
                 strArr[i] = String.valueOf(optJSONArray.opt(i));
             }
         }
-        if (IX == null) {
+        if (IV == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (IX.getActivity() == null) {
+        } else if (IV.getActivity() == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else if (TextUtils.isEmpty(str)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            if (IX.Jj()) {
-                IX.Jc().a(IX.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.e.1
+            if (IV.Jh()) {
+                IV.Ja().a(IV.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.e.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i2) {
                         if (i2 == 0) {
-                            e.this.a(context, str, unitedSchemeEntity, IX, callbackHandler, strArr, str2);
+                            e.this.a(context, str, unitedSchemeEntity, IV, callbackHandler, strArr, str2);
                         } else {
                             e.this.a(callbackHandler, 5, (String) null, unitedSchemeEntity, (String) null, str2);
                         }
                     }
                 });
             } else {
-                a(context, str, unitedSchemeEntity, IX, callbackHandler, strArr, str2);
+                a(context, str, unitedSchemeEntity, IV, callbackHandler, strArr, str2);
             }
             return true;
         }
@@ -81,9 +80,9 @@ public class e implements o {
     }
 
     @Override // com.baidu.swan.apps.b.b.o
-    public boolean vT() {
-        com.baidu.poly.a azM = d.azM();
-        return azM != null && azM.tu();
+    public boolean vS() {
+        com.baidu.poly.a azJ = d.azJ();
+        return azJ != null && azJ.tt();
     }
 
     @Override // com.baidu.swan.apps.b.b.o
@@ -92,7 +91,7 @@ public class e implements o {
         String str2;
         String str3;
         String str4;
-        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
+        if (!com.baidu.tbadk.pay.c.aoT().aoU()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
             return false;
         } else if (context instanceof Activity) {
@@ -120,7 +119,7 @@ public class e implements o {
             if (!StringUtils.isNull(str3) || StringUtils.isNull(str4)) {
                 return false;
             }
-            aVar.mParams.putSerializable(LegoListActivityConfig.PARAMS, (HashMap) new com.google.gson.d().fromJson(str3, HashMap.class));
+            aVar.mParams.putSerializable("params", (HashMap) new com.google.gson.d().fromJson(str3, HashMap.class));
             aVar.mParams.putString("orderInfo", str4);
             aVar.ac((Activity) context);
             aVar.a(new com.baidu.tieba.aiapps.apps.k.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.e.3
@@ -140,15 +139,15 @@ public class e implements o {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, String str2, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.v.b.b uB = bVar.uB();
-        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uB != null ? uB.axX : 0);
+        com.baidu.swan.apps.v.b.b uA = bVar.uA();
+        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uA != null ? uA.aya : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, int i, String str, UnitedSchemeEntity unitedSchemeEntity, String str2, String str3) {
         String str4;
         com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + i + ", params: " + str);
-        String str5 = unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS);
+        String str5 = unitedSchemeEntity.getParams().get("params");
         if (!TextUtils.isEmpty(str5)) {
             try {
                 str4 = new JSONObject(str5).optString("cb");
@@ -163,21 +162,21 @@ public class e implements o {
                             if (!TextUtils.isEmpty(str)) {
                                 jSONObject.put("payResult", Base64.encodeToString(optString.getBytes(HTTP.UTF_8), 2));
                             }
-                            callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i, cJ(i)).toString());
+                            callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i, cI(i)).toString());
                             return;
                         }
-                        callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, i, cJ(i)).toString());
+                        callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, i, cI(i)).toString());
                         return;
                     }
-                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cJ(i)).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cI(i)).toString());
                 } catch (UnsupportedEncodingException e) {
                     e = e;
                     e.printStackTrace();
-                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cJ(i)).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cI(i)).toString());
                 } catch (JSONException e2) {
                     e = e2;
                     e.printStackTrace();
-                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cJ(i)).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i, cI(i)).toString());
                 }
             } catch (UnsupportedEncodingException e3) {
                 e = e3;
@@ -189,7 +188,7 @@ public class e implements o {
         }
     }
 
-    private static String cJ(int i) {
+    private static String cI(int i) {
         switch (i) {
             case 0:
                 return "支付成功";

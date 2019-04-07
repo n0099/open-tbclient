@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,7 +34,7 @@ public class d extends c {
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.e.b.a(hashMap);
                     hashMap.put("device_type", "3");
-                    hashMap.put(LegoListActivityConfig.PARAMS, d);
+                    hashMap.put("params", d);
                     int i = 0;
                     do {
                         i++;

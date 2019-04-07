@@ -26,30 +26,30 @@ public class b extends c.b {
     public c.C0145c a(Context context, c.C0145c c0145c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         if (DEBUG) {
-            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aAs.uri);
+            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aAv.uri);
         }
         if (c0145c == null) {
             c0145c = new c.C0145c();
         }
-        if (this.aAs.uri == null) {
+        if (this.aAv.uri == null) {
             c0145c.d(true, "uri in pickData is null");
         } else {
-            String path = this.aAs.uri.getPath();
+            String path = this.aAv.uri.getPath();
             if (TextUtils.isEmpty(path)) {
-                c0145c.d(true, this.aAs.uri + " get file path failed");
+                c0145c.d(true, this.aAv.uri + " get file path failed");
             } else {
                 d.c cVar = new d.c();
-                cVar.aAI = path;
+                cVar.aAL = path;
                 try {
                     mediaMetadataRetriever = new MediaMetadataRetriever();
                     try {
                         try {
-                            mediaMetadataRetriever.setDataSource(cVar.aAI);
+                            mediaMetadataRetriever.setDataSource(cVar.aAL);
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
                             String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
                             String extractMetadata3 = mediaMetadataRetriever.extractMetadata(9);
-                            cVar.aAH = Long.parseLong(extractMetadata);
-                            cVar.aAG = Long.parseLong(extractMetadata2);
+                            cVar.aAK = Long.parseLong(extractMetadata);
+                            cVar.aAJ = Long.parseLong(extractMetadata2);
                             cVar.duration = Long.parseLong(extractMetadata3);
                             cVar.size = new File(path).length();
                             if (mediaMetadataRetriever != null) {
@@ -63,8 +63,8 @@ public class b extends c.b {
                             if (mediaMetadataRetriever != null) {
                                 mediaMetadataRetriever.release();
                             }
-                            this.aAs.aAB = cVar;
-                            if (f(this.aAs)) {
+                            this.aAv.aAE = cVar;
+                            if (f(this.aAv)) {
                             }
                             return c0145c;
                         }
@@ -85,12 +85,12 @@ public class b extends c.b {
                     }
                     throw th;
                 }
-                this.aAs.aAB = cVar;
-                if (f(this.aAs)) {
-                    this.aAs.aAB.aAF = com.baidu.swan.apps.storage.b.aD(path, com.baidu.swan.apps.ae.b.Ji());
-                    c0145c.b(0, this.aAs);
+                this.aAv.aAE = cVar;
+                if (f(this.aAv)) {
+                    this.aAv.aAE.aAI = com.baidu.swan.apps.storage.b.aD(path, com.baidu.swan.apps.ae.b.Jg());
+                    c0145c.b(0, this.aAv);
                 } else {
-                    c0145c.b(1, this.aAs);
+                    c0145c.b(1, this.aAv);
                 }
             }
         }

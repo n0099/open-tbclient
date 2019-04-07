@@ -1365,7 +1365,7 @@ public class PluginPackageManager {
         }
     }
 
-    public void aJ(int i) {
+    public void aI(int i) {
         this.Lq = i;
     }
 

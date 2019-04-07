@@ -18,23 +18,23 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
     private BdListView Pj;
-    private AlertDialog bED;
-    private View bER;
-    private j bFg;
+    private View bET;
+    private j bFi;
     private TbPageContext<?> mContext;
+    private AlertDialog mDialog;
     private ArrayList<k> mItems;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private ViewGroup mRootView;
     private String mTitle;
     private TextView mTitleView;
-    private int bET = -1;
-    private int bEq = -1;
-    private boolean bEF = false;
+    private int bEV = -1;
+    private int bEt = -1;
+    private boolean bEH = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int bFa = d.k.dialog_ani_b2t;
-        public static final int bFb = d.k.dialog_ani_t2b;
+        public static final int bFc = d.k.dialog_ani_b2t;
+        public static final int bFd = d.k.dialog_ani_t2b;
         public static final int LEFT_TO_RIGHT = d.k.dialog_ani_l2r;
         public static final int RIGHT_TO_LEFT = d.k.dialog_ani_r2l;
     }
@@ -44,17 +44,17 @@ public class e {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.h.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.dialog_title_list);
         this.Pj = (BdListView) this.mRootView.findViewById(d.g.dialog_content_list);
-        this.bER = this.mRootView.findViewById(d.g.line_bg);
-        this.bFg = new j(this.mContext);
+        this.bET = this.mRootView.findViewById(d.g.line_bg);
+        this.bFi = new j(this.mContext);
     }
 
-    public e lA(String str) {
+    public e lB(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public e gL(int i) {
-        return lA(this.mContext.getResources().getString(i));
+    public e gK(int i) {
+        return lB(this.mContext.getResources().getString(i));
     }
 
     public e a(ArrayList<k> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -68,19 +68,19 @@ public class e {
         return this;
     }
 
-    public e abd() {
-        if (!this.bEF) {
-            this.bEF = true;
+    public e aba() {
+        if (!this.bEH) {
+            this.bEH = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.bER.setVisibility(0);
+                this.bET.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.bER.setVisibility(8);
+                this.bET.setVisibility(8);
             }
-            this.Pj.setAdapter((ListAdapter) this.bFg);
-            this.bFg.setData(this.mItems);
+            this.Pj.setAdapter((ListAdapter) this.bFi);
+            this.bFi.setData(this.mItems);
             c(this.mContext);
         }
         return this;
@@ -94,30 +94,30 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.bFg.setData(this.mItems);
+        this.bFi.setData(this.mItems);
     }
 
-    public e abe() {
-        if (!this.bEF) {
+    public e abb() {
+        if (!this.bEH) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.bED != null) {
-            com.baidu.adp.lib.g.g.a(this.bED, this.mContext);
+        if (this.mDialog != null) {
+            com.baidu.adp.lib.g.g.a(this.mDialog, this.mContext);
         } else {
-            this.bED = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
-            this.bED.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.g.g.a(this.bED, this.mContext.getPageActivity())) {
-                Window window = this.bED.getWindow();
-                if (this.bET == -1) {
-                    this.bET = a.bFa;
+            this.mDialog = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+            this.mDialog.setCanceledOnTouchOutside(true);
+            if (com.baidu.adp.lib.g.g.a(this.mDialog, this.mContext.getPageActivity())) {
+                Window window = this.mDialog.getWindow();
+                if (this.bEV == -1) {
+                    this.bEV = a.bFc;
                 }
-                if (this.bEq == -1) {
-                    this.bEq = 17;
+                if (this.bEt == -1) {
+                    this.bEt = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.bEq);
+                window.setGravity(this.bEt);
                 window.setBackgroundDrawableResource(d.f.transparent_bg);
                 window.setContentView(this.mRootView);
             }
@@ -135,8 +135,8 @@ public class e {
     }
 
     public void dismiss() {
-        if (this.bED != null) {
-            com.baidu.adp.lib.g.g.b(this.bED, this.mContext.getPageActivity());
+        if (this.mDialog != null) {
+            com.baidu.adp.lib.g.g.b(this.mDialog, this.mContext.getPageActivity());
         }
     }
 }

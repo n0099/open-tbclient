@@ -6,8 +6,8 @@ public class c {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static Bundle tU() {
-            return IPCServiceManager.tU();
+        public static Bundle tT() {
+            return IPCServiceManager.tT();
         }
     }
 }

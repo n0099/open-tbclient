@@ -40,7 +40,7 @@ public class d implements j {
                         bgVar.setUserMap(this.userMap);
                         bgVar.a(threadInfo);
                         bgVar.setCurrentPage(3);
-                        bgVar.ZH();
+                        bgVar.ZE();
                         this.threadList.add(bgVar);
                     }
                 }

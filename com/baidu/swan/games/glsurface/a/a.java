@@ -6,15 +6,15 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public final class a {
-    private com.baidu.swan.games.e.a bcI;
+    private com.baidu.swan.games.e.a bcL;
 
     public void setV8Engine(com.baidu.swan.games.e.a aVar) {
-        this.bcI = aVar;
+        this.bcL = aVar;
     }
 
-    public void Ot() {
-        Pair<Integer, Integer> DR = e.Ec().DR();
-        b.K(((Integer) DR.first).intValue(), ((Integer) DR.second).intValue());
+    public void Or() {
+        Pair<Integer, Integer> DP = e.Ea().DP();
+        b.K(((Integer) DP.first).intValue(), ((Integer) DP.second).intValue());
     }
 
     public void J(int i, int i2) {
@@ -22,16 +22,16 @@ public final class a {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bcI != null) {
-            boolean a = b.a(this.bcI.NV());
-            boolean a2 = b.a(this.bcI.NW());
+        if (this.bcL != null) {
+            boolean a = b.a(this.bcL.NT());
+            boolean a2 = b.a(this.bcL.NU());
             JSEvent jSEvent = null;
             if (a || a2) {
                 jSEvent = b.t(motionEvent);
             }
-            r0 = a ? this.bcI.dispatchEvent(jSEvent) : false;
-            if (a2 && this.bcI.isLoaded()) {
-                this.bcI.NW().dispatchEvent(jSEvent);
+            r0 = a ? this.bcL.dispatchEvent(jSEvent) : false;
+            if (a2 && this.bcL.isLoaded()) {
+                this.bcL.NU().dispatchEvent(jSEvent);
             }
             b.cx(true);
         }

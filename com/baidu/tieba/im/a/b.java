@@ -30,23 +30,23 @@ import java.util.Map;
 import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public class b {
-    private static b gqg;
-    private List<GroupUpdateMessage> gqo;
-    private boolean gqu;
-    private int gqh = 900000;
-    private int gqi = 360000;
-    private int gqj = this.gqi;
-    private final int gqk = 0;
-    private final int gql = 1;
-    private final int gqm = 2;
-    private int gqn = 0;
-    private int gqp = 0;
-    private long gqq = 0;
-    private int gqr = 0;
+    private static b gpT;
+    private List<GroupUpdateMessage> gqb;
+    private boolean gqh;
+    private int gpU = 900000;
+    private int gpV = 360000;
+    private int gpW = this.gpV;
+    private final int gpX = 0;
+    private final int gpY = 1;
+    private final int gpZ = 2;
+    private int gqa = 0;
+    private int gqc = 0;
+    private long gqd = 0;
+    private int gqe = 0;
     private final BdUniqueId mTag = BdUniqueId.gen();
     private final Handler mHandler = new a();
-    private LongSparseArray<Long> gqs = null;
-    private LongSparseArray<Long> gqt = null;
+    private LongSparseArray<Long> gqf = null;
+    private LongSparseArray<Long> gqg = null;
     private final com.baidu.adp.framework.client.socket.link.a wC = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tieba.im.a.b.3
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean e(int i, String str) {
@@ -72,21 +72,21 @@ public class b {
         public void aj(String str) {
         }
     };
-    private final com.baidu.adp.framework.listener.c gaF = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
+    private final com.baidu.adp.framework.listener.c gat = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null) {
                 if (socketResponsedMessage.getCmd() == 1003) {
                     if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() == 0) {
-                        b.this.bvm();
+                        b.this.bvj();
                     }
                 } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                     ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
                     if (responseOnlineMessage.getError() == 0) {
-                        b.this.gqo = responseOnlineMessage.getGroupInfos();
-                        if (com.baidu.tieba.im.memorycache.b.buF().buE()) {
-                            b.this.bvf();
+                        b.this.gqb = responseOnlineMessage.getGroupInfos();
+                        if (com.baidu.tieba.im.memorycache.b.buC().buB()) {
+                            b.this.bvc();
                         }
                     }
                 }
@@ -99,25 +99,25 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    b.this.bvl();
+                    b.this.bvi();
                 } else {
-                    b.this.bvk();
+                    b.this.bvh();
                 }
             }
         }
     };
-    private final CustomMessageListener gqv = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.a.b.6
+    private final CustomMessageListener gqi = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.a.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (b.this.gqs != null) {
-                    b.this.gqs.clear();
+                if (b.this.gqf != null) {
+                    b.this.gqf.clear();
                 }
-                if (b.this.gqt != null) {
-                    b.this.gqt.clear();
+                if (b.this.gqg != null) {
+                    b.this.gqg.clear();
                 }
-                b.this.gqo = null;
+                b.this.gqb = null;
             }
         }
     };
@@ -128,8 +128,8 @@ public class b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-                    e.akX().akY();
-                    b.bvi().bvj();
+                    e.akU().akV();
+                    b.bvf().bvg();
                 }
             }
         });
@@ -138,11 +138,11 @@ public class b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002) {
-                    b.bvi().bvf();
+                    b.bvf().bvc();
                 }
             }
         });
-        gqg = null;
+        gpT = null;
     }
 
     /* loaded from: classes.dex */
@@ -155,17 +155,17 @@ public class b {
             super.handleMessage(message);
             switch (message.what) {
                 case 2:
-                    b.bvi().mHandler.removeMessages(2);
-                    b.bvi().bvn();
+                    b.bvf().mHandler.removeMessages(2);
+                    b.bvf().bvk();
                     return;
                 case 3:
-                    b.bvi().mHandler.removeMessages(3);
-                    if (b.bvi().gqr == 3) {
-                        b.bvi().bvo();
+                    b.bvf().mHandler.removeMessages(3);
+                    if (b.bvf().gqe == 3) {
+                        b.bvf().bvl();
                     } else {
-                        b.bvi().bvn();
+                        b.bvf().bvk();
                     }
-                    b.bvi().mHandler.sendMessageDelayed(b.bvi().mHandler.obtainMessage(3), b.bvi().gqj);
+                    b.bvf().mHandler.sendMessageDelayed(b.bvf().mHandler.obtainMessage(3), b.bvf().gpW);
                     return;
                 default:
                     return;
@@ -180,13 +180,13 @@ public class b {
             return;
         }
         boolean a2 = MessageManager.getInstance().getSocketClient().a(202003, this.mTag);
-        int P = MessageManager.getInstance().getSocketClient().P(202003);
-        if (a2 || P > 0) {
+        int O = MessageManager.getInstance().getSocketClient().O(202003);
+        if (a2 || O > 0) {
             j.d(false, false, true);
-            um(i);
+            ui(i);
             return;
         }
-        bvq();
+        bvn();
         LongSparseArray<Long> longSparseArray2 = null;
         if (longSparseArray != null && longSparseArray.size() > 0) {
             LongSparseArray<Long> longSparseArray3 = new LongSparseArray<>();
@@ -198,74 +198,74 @@ public class b {
         }
         MessageSyncMessage b = b(longSparseArray2, i);
         if (i == 3 || i == 2) {
-            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.buF().buR());
+            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.buC().buO());
         }
         MessageManager.getInstance().sendMessage(b);
         j.d(true, false, false);
         if (i == 3 || i == 1 || i == 2) {
-            if (this.gqs != null) {
-                this.gqs.clear();
+            if (this.gqf != null) {
+                this.gqf.clear();
             }
-            if (this.gqt != null) {
-                this.gqt.clear();
+            if (this.gqg != null) {
+                this.gqg.clear();
             }
         }
     }
 
-    public void bvf() {
+    public void bvc() {
         boolean z;
-        if (this.gqo != null) {
-            LongSparseArray<Long> buQ = com.baidu.tieba.im.memorycache.b.buF().buQ();
-            if (buQ == null) {
-                this.gqo = null;
+        if (this.gqb != null) {
+            LongSparseArray<Long> buN = com.baidu.tieba.im.memorycache.b.buC().buN();
+            if (buN == null) {
+                this.gqb = null;
                 return;
             }
-            Iterator<GroupUpdateMessage> it = this.gqo.iterator();
+            Iterator<GroupUpdateMessage> it = this.gqb.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
                 GroupUpdateMessage next = it.next();
-                if (next != null && buQ.get(next.getGroupId()) != null) {
-                    if (buQ.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
+                if (next != null && buN.get(next.getGroupId()) != null) {
+                    if (buN.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
                         z = true;
                         break;
                     }
                 }
             }
-            this.gqr = 3;
+            this.gqe = 3;
             if (z) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
             } else {
-                bvi().mHandler.sendMessageDelayed(bvi().mHandler.obtainMessage(3), bvi().gqj);
+                bvf().mHandler.sendMessageDelayed(bvf().mHandler.obtainMessage(3), bvf().gpW);
             }
-            this.gqo = null;
+            this.gqb = null;
         }
     }
 
-    private void bvg() {
-        if (this.gqn != 0) {
-            if (this.gqn == 1) {
+    private void bvd() {
+        if (this.gqa != 0) {
+            if (this.gqa == 1) {
                 e(0L, 0L, 0L);
             } else {
-                bvn();
+                bvk();
             }
         }
     }
 
-    private void bvh() {
+    private void bve() {
         this.mHandler.removeMessages(3);
         this.mHandler.removeMessages(2);
     }
 
-    public static synchronized b bvi() {
+    public static synchronized b bvf() {
         b bVar;
         synchronized (b.class) {
-            if (gqg == null) {
-                gqg = new b();
+            if (gpT == null) {
+                gpT = new b();
             }
-            bVar = gqg;
+            bVar = gpT;
         }
         return bVar;
     }
@@ -275,62 +275,62 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.mCustomListener);
-        MessageManager.getInstance().registerListener(this.gqv);
-        h.alf().a(this.wC);
-        MessageManager.getInstance().registerListener(1003, this.gaF);
-        MessageManager.getInstance().registerListener(1001, this.gaF);
-        MessageManager.getInstance().registerListener(202101, this.gaF);
-        bvj();
+        MessageManager.getInstance().registerListener(this.gqi);
+        h.alc().a(this.wC);
+        MessageManager.getInstance().registerListener(1003, this.gat);
+        MessageManager.getInstance().registerListener(1001, this.gat);
+        MessageManager.getInstance().registerListener(202101, this.gat);
+        bvg();
     }
 
-    public void bvj() {
+    public void bvg() {
         int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            uj(socketGetMsgStratgy[0] * 1000);
-            uk(socketGetMsgStratgy[1] * 1000);
+            uf(socketGetMsgStratgy[0] * 1000);
+            ug(socketGetMsgStratgy[1] * 1000);
         }
     }
 
     public void start() {
-        bvq();
+        bvn();
     }
 
     public void stop() {
-        bvq();
-        bvh();
+        bvn();
+        bve();
     }
 
-    public void bvk() {
-        this.gqj = this.gqi;
+    public void bvh() {
+        this.gpW = this.gpV;
     }
 
-    public void bvl() {
-        bvi().gqj = bvi().gqh;
+    public void bvi() {
+        bvf().gpW = bvf().gpU;
     }
 
-    public void uj(int i) {
+    public void uf(int i) {
         if (i > 0) {
-            this.gqi = i;
+            this.gpV = i;
         }
     }
 
-    public void uk(int i) {
+    public void ug(int i) {
         if (i > 0) {
-            this.gqh = i;
+            this.gpU = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void bvm() {
-        if (System.currentTimeMillis() - this.gqq >= 180000) {
+    public synchronized void bvj() {
+        if (System.currentTimeMillis() - this.gqd >= 180000) {
             PushCountMessage pushCountMessage = new PushCountMessage();
-            pushCountMessage.setPusherCount(this.gqp);
+            pushCountMessage.setPusherCount(this.gqc);
             pushCountMessage.setUpFlowSize(com.baidu.adp.lib.webSocket.h.lJ().getUpFlowSize());
             pushCountMessage.setDownFlowSize(com.baidu.adp.lib.webSocket.h.lJ().getDownFlowSize());
             pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
             MessageManager.getInstance().sendMessage(pushCountMessage);
-            this.gqq = System.currentTimeMillis();
-            this.gqp = 0;
+            this.gqd = System.currentTimeMillis();
+            this.gqc = 0;
             com.baidu.adp.lib.webSocket.h.lJ().lO();
             com.baidu.adp.lib.webSocket.h.lJ().lN();
             TbadkCoreApplication.getInst().clearEnterForeCount();
@@ -347,18 +347,18 @@ public class b {
                 messageSyncMessage.setNewpushRepire(makeNewpushRepair);
             }
         } else {
-            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.buF().buQ());
+            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.buC().buN());
         }
-        messageSyncMessage.setForTimer(this.gqu);
-        LocalViewSize.ImageSize acD = LocalViewSize.acA().acD();
-        if (acD != null) {
-            messageSyncMessage.setWidth(acD.width);
-            messageSyncMessage.setHeight(acD.height);
+        messageSyncMessage.setForTimer(this.gqh);
+        LocalViewSize.ImageSize acA = LocalViewSize.acx().acA();
+        if (acA != null) {
+            messageSyncMessage.setWidth(acA.width);
+            messageSyncMessage.setHeight(acA.height);
         }
-        LocalViewSize.ImageSize acC = LocalViewSize.acA().acC();
-        if (acC != null) {
-            messageSyncMessage.setSmallHeight(acC.height);
-            messageSyncMessage.setSmallWidth(acC.width);
+        LocalViewSize.ImageSize acz = LocalViewSize.acx().acz();
+        if (acz != null) {
+            messageSyncMessage.setSmallHeight(acz.height);
+            messageSyncMessage.setSmallWidth(acz.width);
         }
         messageSyncMessage.setSyncTypeString(String.valueOf(i));
         return messageSyncMessage;
@@ -370,22 +370,22 @@ public class b {
 
     public synchronized void a(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.gqp++;
-        this.gqu = false;
-        this.gqr = 1;
+        this.gqc++;
+        this.gqh = false;
+        this.gqe = 1;
         this.mHandler.removeMessages(3);
-        bvi().mHandler.sendMessageDelayed(bvi().mHandler.obtainMessage(3), bvi().gqj);
-        if (this.gqs == null) {
-            this.gqs = new LongSparseArray<>();
-            this.gqs.clear();
+        bvf().mHandler.sendMessageDelayed(bvf().mHandler.obtainMessage(3), bvf().gpW);
+        if (this.gqf == null) {
+            this.gqf = new LongSparseArray<>();
+            this.gqf.clear();
         }
-        if (this.gqt == null) {
-            this.gqt = new LongSparseArray<>();
+        if (this.gqg == null) {
+            this.gqg = new LongSparseArray<>();
         }
-        LongSparseArray<Long> buQ = com.baidu.tieba.im.memorycache.b.buF().buQ();
+        LongSparseArray<Long> buN = com.baidu.tieba.im.memorycache.b.buC().buN();
         if (0 != j) {
-            Long l = buQ.get(j);
-            Long l2 = this.gqs.get(j);
+            Long l = buN.get(j);
+            Long l2 = this.gqf.get(j);
             if (l == null) {
                 if (l2 == null) {
                     longValue = j2;
@@ -396,38 +396,38 @@ public class b {
                 longValue = l.longValue();
             }
             if (longValue > 0) {
-                this.gqs.put(j, Long.valueOf(longValue));
+                this.gqf.put(j, Long.valueOf(longValue));
             }
         }
-        if (this.gqs != null && this.gqs.size() > 0) {
-            for (int i = 0; i < this.gqs.size(); i++) {
-                long keyAt = this.gqs.keyAt(i);
-                Long l3 = buQ.get(keyAt);
+        if (this.gqf != null && this.gqf.size() > 0) {
+            for (int i = 0; i < this.gqf.size(); i++) {
+                long keyAt = this.gqf.keyAt(i);
+                Long l3 = buN.get(keyAt);
                 if (l3 != null && l3.longValue() > 0) {
-                    this.gqs.put(keyAt, l3);
+                    this.gqf.put(keyAt, l3);
                 }
             }
         }
         if (!z) {
             if (j > 0 && j2 > 0) {
-                if (this.gqt.get(j) == null) {
-                    this.gqt.put(j, Long.valueOf(j2));
+                if (this.gqg.get(j) == null) {
+                    this.gqg.put(j, Long.valueOf(j2));
                 } else {
-                    long longValue2 = this.gqt.get(j).longValue();
+                    long longValue2 = this.gqg.get(j).longValue();
                     if (longValue2 > j2) {
                         j2 = longValue2;
                     }
-                    this.gqt.put(j, Long.valueOf(j2));
+                    this.gqg.put(j, Long.valueOf(j2));
                 }
             }
-            int size = this.gqs.size();
+            int size = this.gqf.size();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < size; i2++) {
-                long keyAt2 = this.gqs.keyAt(i2);
-                long longValue3 = this.gqs.valueAt(i2).longValue();
+                long keyAt2 = this.gqf.keyAt(i2);
+                long longValue3 = this.gqf.valueAt(i2).longValue();
                 long j4 = 0;
-                if (this.gqt.get(keyAt2) != null) {
-                    j4 = this.gqt.get(keyAt2).longValue();
+                if (this.gqg.get(keyAt2) != null) {
+                    j4 = this.gqg.get(keyAt2).longValue();
                 }
                 if (longValue3 >= j4) {
                     arrayList.add(Long.valueOf(j));
@@ -435,58 +435,58 @@ public class b {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.gqs.remove(((Long) it.next()).longValue());
+                this.gqf.remove(((Long) it.next()).longValue());
             }
         }
-        if (this.gqs.size() == 0) {
-            bvq();
-            this.gqt.clear();
+        if (this.gqf.size() == 0) {
+            bvn();
+            this.gqg.clear();
         } else {
-            a(this.gqs, 1);
+            a(this.gqf, 1);
         }
     }
 
-    public synchronized void bvn() {
-        ul(2);
+    public synchronized void bvk() {
+        uh(2);
     }
 
-    public synchronized void bvo() {
-        ul(3);
+    public synchronized void bvl() {
+        uh(3);
     }
 
-    public void bvp() {
-        bvg();
+    public void bvm() {
+        bvd();
     }
 
     public synchronized void a(LongSparseArray<Long> longSparseArray) {
         if (longSparseArray != null) {
             if (longSparseArray.size() != 0) {
-                this.gqu = false;
-                this.gqr = 4;
+                this.gqh = false;
+                this.gqe = 4;
                 this.mHandler.removeMessages(3);
-                bvi().mHandler.sendMessageDelayed(bvi().mHandler.obtainMessage(3), bvi().gqj);
+                bvf().mHandler.sendMessageDelayed(bvf().mHandler.obtainMessage(3), bvf().gpW);
                 a(longSparseArray, 4);
             }
         }
     }
 
-    private synchronized void ul(int i) {
-        this.gqu = true;
-        this.gqr = i;
+    private synchronized void uh(int i) {
+        this.gqh = true;
+        this.gqe = i;
         a((LongSparseArray<Long>) null, i);
     }
 
-    private void um(int i) {
+    private void ui(int i) {
         if (i == 1) {
-            if (this.gqn != 2) {
-                this.gqn = 1;
+            if (this.gqa != 2) {
+                this.gqa = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.gqn = 2;
+            this.gqa = 2;
         }
     }
 
-    private void bvq() {
-        this.gqn = 0;
+    private void bvn() {
+        this.gqa = 0;
     }
 }

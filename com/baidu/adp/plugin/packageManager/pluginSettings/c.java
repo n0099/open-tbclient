@@ -150,7 +150,7 @@ public class c {
         }
     }
 
-    public String aK(int i) {
+    public String aJ(int i) {
         PluginSetting findPluginSettingByCmd = this.Mb.findPluginSettingByCmd(i);
         if (findPluginSettingByCmd != null) {
             return findPluginSettingByCmd.packageName;

@@ -24,10 +24,10 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aoE();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) aoB();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> bu = com.baidu.tbadk.core.c.a.aaW().bu(this.Av, str);
+                l<byte[]> bu = com.baidu.tbadk.core.c.a.aaT().bu(this.Au, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
@@ -45,7 +45,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> bv = com.baidu.tbadk.core.c.a.aaW().bv(this.Av, str);
+                l<String> bv = com.baidu.tbadk.core.c.a.aaT().bv(this.Au, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String anX = ((f) dVar5).anX();
-                    if (anX != null) {
-                        bv.e(dVar5.getCacheKey(), anX);
+                    String anU = ((f) dVar5).anU();
+                    if (anU != null) {
+                        bv.e(dVar5.getCacheKey(), anU);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

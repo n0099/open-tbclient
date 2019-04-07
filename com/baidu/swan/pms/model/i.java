@@ -5,10 +5,10 @@ import android.text.TextUtils;
 public class i extends f {
     public String Jz;
     public String appId;
-    public boolean bma;
+    public boolean bmd;
 
     @Override // com.baidu.swan.pms.model.f
-    public boolean RK() {
-        return super.RK() && !TextUtils.isEmpty(this.Jz);
+    public boolean RI() {
+        return super.RI() && !TextUtils.isEmpty(this.Jz);
     }
 }

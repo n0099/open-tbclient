@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void dA(List<com.baidu.tieba.pb.b.a.d> list) {
+    public void dx(List<com.baidu.tieba.pb.b.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vW */
+    /* renamed from: vS */
     public com.baidu.tieba.pb.b.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -122,21 +122,21 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.hDK) || "1".equals(eVar.hDK)) {
+            if (StringUtils.isNull(eVar.hDw) || "1".equals(eVar.hDw)) {
                 c0353a.Uz.setVisibility(8);
             } else {
                 c0353a.Uz.setVisibility(0);
                 ViewGroup.LayoutParams layoutParams = c0353a.Uz.getLayoutParams();
                 int i2 = this.maxWidth;
-                int wK = eVar.wK(i2);
+                int wG = eVar.wG(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, wK);
+                    layoutParams = new AbsListView.LayoutParams(i2, wG);
                 } else {
-                    layoutParams.height = wK;
+                    layoutParams.height = wG;
                     layoutParams.width = i2;
                 }
                 c0353a.Uz.setLayoutParams(layoutParams);
-                c0353a.Uz.startLoad(eVar.Nx(), 17, false);
+                c0353a.Uz.startLoad(eVar.Nv(), 17, false);
             }
         }
         return view;
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.bOU());
-            switch (gVar.bOW()) {
+            textView.setText(gVar.bOR());
+            switch (gVar.bOT()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.bOX())) {
-                if (!al.e(textView, gVar.bOX())) {
+            if (!StringUtils.isNull(gVar.bOU())) {
+                if (!al.e(textView, gVar.bOU())) {
                     al.d(textView, d.C0277d.cp_cont_b, 1);
                 }
             } else {

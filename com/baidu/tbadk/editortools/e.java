@@ -6,7 +6,7 @@ import com.baidu.tieba.d;
 public class e extends k {
     public e() {
         super((String) null, 1, 0);
-        this.cji = d.f.btn_pb_import;
+        this.cjk = d.f.btn_pb_import;
         this.name = TbadkCoreApplication.getInst().getString(d.j.switch_to_keyboard);
     }
 }

@@ -8,18 +8,18 @@ import android.hardware.SensorManager;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a aUi;
-    private SensorManager aTw;
-    private SensorEventListener aTx;
-    private Sensor aTy;
-    private SensorEventListener aUj;
-    private Sensor aUk;
-    private InterfaceC0113a aUn;
+    private static volatile a aUl;
+    private SensorEventListener aTA;
+    private Sensor aTB;
+    private SensorManager aTz;
+    private SensorEventListener aUm;
+    private Sensor aUn;
+    private InterfaceC0113a aUq;
     private Context mContext;
-    private float[] aUl = new float[3];
-    private float[] aUm = new float[3];
-    private boolean aTB = false;
-    private long aTC = 0;
+    private float[] aUo = new float[3];
+    private float[] aUp = new float[3];
+    private boolean aTE = false;
+    private long aTF = 0;
 
     /* renamed from: com.baidu.swan.apps.aj.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -30,15 +30,15 @@ public class a {
     private a() {
     }
 
-    public static a Lk() {
-        if (aUi == null) {
+    public static a Li() {
+        if (aUl == null) {
             synchronized (a.class) {
-                if (aUi == null) {
-                    aUi = new a();
+                if (aUl == null) {
+                    aUl = new a();
                 }
             }
         }
-        return aUi;
+        return aUl;
     }
 
     public void init(Context context) {
@@ -46,22 +46,22 @@ public class a {
     }
 
     public void a(InterfaceC0113a interfaceC0113a) {
-        this.aUn = interfaceC0113a;
+        this.aUq = interfaceC0113a;
     }
 
-    public void Ll() {
+    public void Lj() {
         if (this.mContext == null) {
             c.e("compass", "start error, none context");
-        } else if (this.aTB) {
+        } else if (this.aTE) {
             c.w("compass", "has already start");
         } else {
-            this.aTw = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aTw != null) {
-                this.aTy = this.aTw.getDefaultSensor(1);
-                this.aUk = this.aTw.getDefaultSensor(2);
-                this.aTw.registerListener(Le(), this.aTy, 1);
-                this.aTw.registerListener(Ln(), this.aUk, 2);
-                this.aTB = true;
+            this.aTz = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aTz != null) {
+                this.aTB = this.aTz.getDefaultSensor(1);
+                this.aUn = this.aTz.getDefaultSensor(2);
+                this.aTz.registerListener(Lc(), this.aTB, 1);
+                this.aTz.registerListener(Ll(), this.aUn, 2);
+                this.aTE = true;
                 c.i("compass", "start listen");
                 return;
             }
@@ -69,59 +69,59 @@ public class a {
         }
     }
 
-    public void Lm() {
-        if (!this.aTB) {
+    public void Lk() {
+        if (!this.aTE) {
             c.w("compass", "has already stop");
             return;
         }
         c.i("compass", "stop listen");
-        if (this.aTx != null && this.aTw != null) {
-            this.aTw.unregisterListener(this.aTx);
-            this.aTx = null;
+        if (this.aTA != null && this.aTz != null) {
+            this.aTz.unregisterListener(this.aTA);
+            this.aTA = null;
         }
-        if (this.aUj != null && this.aTw != null) {
-            this.aTw.unregisterListener(this.aUj);
-            this.aUj = null;
+        if (this.aUm != null && this.aTz != null) {
+            this.aTz.unregisterListener(this.aUm);
+            this.aUm = null;
         }
-        this.aTw = null;
-        this.aUk = null;
-        this.aTy = null;
-        this.aTB = false;
+        this.aTz = null;
+        this.aUn = null;
+        this.aTB = null;
+        this.aTE = false;
     }
 
     public static void release() {
-        if (aUi != null) {
-            aUi.zP();
+        if (aUl != null) {
+            aUl.zO();
         }
     }
 
-    private void zP() {
+    private void zO() {
         c.i("compass", "release");
-        if (this.aTB) {
-            Lm();
+        if (this.aTE) {
+            Lk();
         }
-        this.aTw = null;
-        this.aUk = null;
-        this.aTy = null;
-        this.aTx = null;
-        this.aUj = null;
+        this.aTz = null;
         this.aUn = null;
+        this.aTB = null;
+        this.aTA = null;
+        this.aUm = null;
+        this.aUq = null;
         this.mContext = null;
-        aUi = null;
+        aUl = null;
     }
 
-    private SensorEventListener Le() {
+    private SensorEventListener Lc() {
         c.i("compass", "get Accelerometer listener");
-        if (this.aTx != null) {
-            return this.aTx;
+        if (this.aTA != null) {
+            return this.aTA;
         }
-        this.aTx = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.1
+        this.aTA = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.aUl = sensorEvent.values;
+                    a.this.aUo = sensorEvent.values;
                     c.i("compass", "accelerometer changed");
-                    a.this.Lp();
+                    a.this.Ln();
                     return;
                 }
                 c.w("compass", "illegal accelerometer event");
@@ -131,21 +131,21 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.aTx;
+        return this.aTA;
     }
 
-    private SensorEventListener Ln() {
+    private SensorEventListener Ll() {
         c.i("compass", "get MagneticFiled listener");
-        if (this.aUj != null) {
-            return this.aUj;
+        if (this.aUm != null) {
+            return this.aUm;
         }
-        this.aUj = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.2
+        this.aUm = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.d.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.aUm = sensorEvent.values;
+                    a.this.aUp = sensorEvent.values;
                     c.i("compass", "magneticFiled changed");
-                    a.this.Lp();
+                    a.this.Ln();
                     return;
                 }
                 c.w("compass", "illegal magnetic filed event");
@@ -155,24 +155,24 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.aUj;
+        return this.aUm;
     }
 
-    private float Lo() {
+    private float Lm() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.aUl, this.aUm);
+        SensorManager.getRotationMatrix(fArr2, null, this.aUo, this.aUp);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lp() {
-        if (this.aUn != null && System.currentTimeMillis() - this.aTC > 200) {
-            float Lo = Lo();
-            c.i("compass", "orientation changed, orientation : " + Lo);
-            this.aUn.ac(Lo);
-            this.aTC = System.currentTimeMillis();
+    public void Ln() {
+        if (this.aUq != null && System.currentTimeMillis() - this.aTF > 200) {
+            float Lm = Lm();
+            c.i("compass", "orientation changed, orientation : " + Lm);
+            this.aUq.ac(Lm);
+            this.aTF = System.currentTimeMillis();
         }
     }
 }

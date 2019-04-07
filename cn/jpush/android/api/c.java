@@ -16,6 +16,7 @@ import cn.jpush.android.d.j;
 import cn.jpush.android.data.g;
 import cn.jpush.android.service.PushReceiver;
 import cn.jpush.android.ui.PopWinActivity;
+import com.coloros.mcssdk.PushManager;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Constructor;
@@ -198,7 +199,7 @@ public final class c {
         if (context == null) {
             context = cn.jpush.android.a.e;
         }
-        ((NotificationManager) context.getSystemService("notification")).cancel(a(bVar, 0));
+        ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(a(bVar, 0));
     }
 
     public static void a(Context context, Map<String, String> map, int i, String str, String str2, cn.jpush.android.data.b bVar) {
@@ -286,7 +287,7 @@ public final class c {
         } else if (cn.jpush.android.a.e.getApplicationInfo().targetSdkVersion < 26) {
             return false;
         } else {
-            NotificationManager notificationManager = (NotificationManager) cn.jpush.android.a.e.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) cn.jpush.android.a.e.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
             if (notificationManager == null) {
                 f.d("NotificationHelper", "NotificationManager is null!");
                 return false;
@@ -363,7 +364,7 @@ public final class c {
         if (context == null) {
             context = cn.jpush.android.a.e;
         }
-        ((NotificationManager) context.getSystemService("notification")).cancel(i);
+        ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(i);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00ab: IGET  (r11v2 int A[REMOVE]) = (r15v0 cn.jpush.android.data.b) cn.jpush.android.data.b.h int)] */
@@ -373,7 +374,7 @@ public final class c {
         Intent intent;
         int a2 = a(bVar, 0);
         if (bVar.i && bVar.f) {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
             if (bVar instanceof g) {
                 Map<String, String> a3 = a(bVar);
                 String packageName = TextUtils.isEmpty(bVar.o) ? context.getPackageName() : bVar.o;

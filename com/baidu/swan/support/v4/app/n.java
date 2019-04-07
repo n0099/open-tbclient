@@ -15,7 +15,7 @@ class n {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public View boh;
+        public View bok;
     }
 
     /* loaded from: classes2.dex */
@@ -68,7 +68,7 @@ class n {
         });
     }
 
-    public static Object Z(Object obj) {
+    public static Object X(Object obj) {
         Transition transition;
         if (obj == null || (transition = (Transition) obj) == null) {
             return null;
@@ -210,14 +210,14 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect bob;
+                private Rect boe;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.bob == null && a.this.boh != null) {
-                        this.bob = n.av(a.this.boh);
+                    if (this.boe == null && a.this.bok != null) {
+                        this.boe = n.av(a.this.bok);
                     }
-                    return this.bob;
+                    return this.boe;
                 }
             });
         }

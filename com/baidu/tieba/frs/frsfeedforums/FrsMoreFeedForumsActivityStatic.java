@@ -13,23 +13,23 @@ import com.baidu.tieba.tbadkCore.i;
 public class FrsMoreFeedForumsActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        bga();
-        bgb();
+        bfY();
+        bfZ();
     }
 
-    private static void bga() {
+    private static void bfY() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, i.iEn, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, i.iDX, true));
                 }
             }
         });
     }
 
-    private static void bgb() {
+    private static void bfZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016468, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

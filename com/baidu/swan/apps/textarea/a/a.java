@@ -24,11 +24,11 @@ public class a extends y {
         String optString = optParamsAsJo.optString("inputId");
         String optString2 = optParamsAsJo.optString("slaveId");
         String optString3 = optParamsAsJo.optString("parentId");
-        com.baidu.swan.apps.textarea.c.b hr = com.baidu.swan.apps.textarea.c.a.Lw().hr(optString2);
-        if (hr == null) {
+        com.baidu.swan.apps.textarea.c.b hs = com.baidu.swan.apps.textarea.c.a.Lu().hs(optString2);
+        if (hs == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!hr.b(false, optString2, optString, optString3)) {
+        } else if (!hs.b(false, optString2, optString, optString3)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

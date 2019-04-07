@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.plugins.MotuPlugin;
 /* loaded from: classes.dex */
 public class a extends b {
-    private String cno = "";
+    private String cnq = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -21,7 +21,7 @@ public class a extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.cno = str;
+            this.cnq = str;
         }
     }
 
@@ -33,15 +33,15 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.anp().jM(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if ("normal".equals(this.cno)) {
+        com.baidu.tbadk.imageManager.c.anm().jL(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if ("normal".equals(this.cnq)) {
             return bitmap;
         }
         MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
         if (bitmap.isMutable()) {
             if (motuPlugin != null) {
                 try {
-                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.cno, bitmap);
+                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.cnq, bitmap);
                 } catch (Throwable th) {
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th.toString(), "");
                     if (BdLog.isDebugMode()) {
@@ -62,7 +62,7 @@ public class a extends b {
                 try {
                     if (motuPlugin != null) {
                         try {
-                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.cno, copy);
+                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.cnq, copy);
                         } catch (IllegalStateException e) {
                             BdLog.e(e.toString());
                             e.printStackTrace();

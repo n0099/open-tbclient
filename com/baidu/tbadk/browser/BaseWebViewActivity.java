@@ -155,15 +155,15 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initWebView();
         this.mView = new f(this);
         initData();
-        this.mView.VS();
+        this.mView.VP();
         this.mView.d(this.mOnRefreshClickListener);
         this.mView.dc(this.mIsLogin);
         this.mView.dc(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.kP(this.mUrlTitle);
+            this.mView.kQ(this.mUrlTitle);
         }
-        if (!this.mView.VQ() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bc.b(this.mView.btY, d.C0277d.cp_link_tip_b, false);
+        if (!this.mView.VN() && UtilHelper.canUseStyleImmersiveSticky()) {
+            bc.b(this.mView.bub, d.C0277d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -191,7 +191,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     private void initData() {
-        Map<String, String> mN;
+        Map<String, String> mO;
         Intent intent = getIntent();
         if (intent != null) {
             String dataString = intent.getDataString();
@@ -201,8 +201,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     if (decode.startsWith("//")) {
                         decode = decode.substring(2);
                     }
-                    if (!StringUtils.isNull(decode) && (mN = ba.mN(decode)) != null) {
-                        this.mUrl = mN.get("url");
+                    if (!StringUtils.isNull(decode) && (mO = ba.mO(decode)) != null) {
+                        this.mUrl = mO.get("url");
                         this.mIsShowNavBar = true;
                         this.mEnableJs = true;
                     } else {
@@ -324,7 +324,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllPopupWindow();
         hideListMenu();
         if (this.mView != null) {
-            this.mView.Qk();
+            this.mView.Qi();
         }
     }
 
@@ -385,12 +385,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> agi = com.baidu.tbadk.coreExtra.data.f.agi();
-        if (v.T(agi)) {
+        List<String> agf = com.baidu.tbadk.coreExtra.data.f.agf();
+        if (v.T(agf)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = agi.iterator();
+        Iterator<String> it = agf.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -474,7 +474,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             dVar.imageUri = Uri.parse(str4);
         }
-        dVar.cbn = true;
+        dVar.cbp = true;
         dVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", dVar.linkUrl);
@@ -511,10 +511,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         dVar.topic = optString5;
                     }
                     if (!ap.isEmpty(optString6)) {
-                        dVar.cbG = optString6;
+                        dVar.cbI = optString6;
                     }
                     if (!ap.isEmpty(optString7)) {
-                        dVar.cbH = optString7;
+                        dVar.cbJ = optString7;
                     }
                     dVar.shareType = jSONObject.optInt("shareimg");
                     String optString8 = jSONObject.optString("extdata");
@@ -526,7 +526,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                dVar.cbI = jSONObject3.toString();
+                                dVar.cbK = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -572,11 +572,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onClick(view);
         int id = view.getId();
         if (id == d.g.webview_more_pop_item_share_friend_layout) {
-            this.mView.Qk();
+            this.mView.Qi();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             this.mShareResultToFe = true;
         } else if (id == d.g.webview_more_pop_item_open_browser_layout) {
-            this.mView.Qk();
+            this.mView.Qi();
             String shareInfoUrl = getShareInfoUrl();
             Activity pageActivity = getPageContext().getPageActivity();
             if (ap.isEmpty(shareInfoUrl)) {
@@ -584,7 +584,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             com.baidu.tbadk.browser.a.at(pageActivity, shareInfoUrl);
         } else if (id == d.g.webview_more_pop_item_copy_link_layout) {
-            this.mView.Qk();
+            this.mView.Qi();
             String shareInfoUrl2 = getShareInfoUrl();
             if (ap.isEmpty(shareInfoUrl2)) {
                 shareInfoUrl2 = this.mUrl;
@@ -715,14 +715,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b kU = com.baidu.tbadk.core.a.a.WD().kU(TbadkCoreApplication.getCurrentBduss());
-        if (kU != null) {
-            if (kU.Ek != null) {
-                str3 = kU.Ek;
+        a.b kV = com.baidu.tbadk.core.a.a.WA().kV(TbadkCoreApplication.getCurrentBduss());
+        if (kV != null) {
+            if (kV.Ek != null) {
+                str3 = kV.Ek;
             }
-            if (kU.bvD != null) {
+            if (kV.bvG != null) {
                 str = str3;
-                str2 = kU.bvD;
+                str2 = kV.bvG;
                 ae.a aVar = new ae.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

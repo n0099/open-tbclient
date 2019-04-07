@@ -8,52 +8,52 @@ import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class a extends d {
-    private com.google.gson.d cTa;
-    private com.baidu.tieba.easterEgg.d ezF;
-    private HashMap<String, String> ezG;
+    private com.google.gson.d cTc;
+    private com.baidu.tieba.easterEgg.d ezq;
+    private HashMap<String, String> ezr;
 
     public a(int i) {
         super(i);
-        this.cTa = new com.google.gson.d();
+        this.cTc = new com.google.gson.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String tU = tU(httpMessageTask.getUrl());
-        if (tU != null && this.ezF != null) {
+        String tT = tT(httpMessageTask.getUrl());
+        if (tT != null && this.ezq != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.cTa.toJson(netMessage.getSocketMessage().getData());
+                    json = this.cTc.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.cTa.toJson(httpMessage.getParams());
+                json = this.cTc.toJson(httpMessage.getParams());
             }
-            this.ezF.S(httpMessageTask.getUrl(), this.cTa.toJson(tU), this.cTa.toJson(json));
+            this.ezq.S(httpMessageTask.getUrl(), this.cTc.toJson(tT), this.cTc.toJson(json));
         }
         return httpMessage;
     }
 
-    public String tU(String str) {
+    public String tT(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.ezG != null) {
-            return this.ezG.get(replace);
+        if (this.ezr != null) {
+            return this.ezr.get(replace);
         }
         return null;
     }
 
     public void r(HashMap<String, String> hashMap) {
-        this.ezG = hashMap;
+        this.ezr = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.ezF = dVar;
+        this.ezq = dVar;
     }
 }

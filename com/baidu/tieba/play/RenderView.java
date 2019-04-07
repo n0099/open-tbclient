@@ -6,7 +6,7 @@ import android.view.TextureView;
 import android.view.View;
 /* loaded from: classes.dex */
 public class RenderView extends TextureView {
-    private int hWN;
+    private int hWz;
     private int mVideoHeight;
     private int mVideoWidth;
 
@@ -14,28 +14,28 @@ public class RenderView extends TextureView {
         super(context);
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
-        this.hWN = 0;
+        this.hWz = 0;
     }
 
     public RenderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
-        this.hWN = 0;
+        this.hWz = 0;
     }
 
     public RenderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
-        this.hWN = 0;
+        this.hWz = 0;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3;
         int i4;
-        if (this.hWN == 90 || this.hWN == 270) {
+        if (this.hWz == 90 || this.hWz == 270) {
             i = i2;
             i2 = i;
         }
@@ -65,7 +65,7 @@ public class RenderView extends TextureView {
         setRotation(i3);
         this.mVideoWidth = i;
         this.mVideoHeight = i2;
-        this.hWN = i3;
+        this.hWz = i3;
         if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
             requestLayout();
         }

@@ -12,42 +12,42 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", aVar.getBundleId());
-        hashMap.put("category", String.valueOf(aVar.Sk()));
-        if (aVar.Sf() == -1) {
-            aVar2 = com.baidu.swan.pms.database.a.RA().ji(aVar.getBundleId());
+        hashMap.put("category", String.valueOf(aVar.Si()));
+        if (aVar.Sd() == -1) {
+            aVar2 = com.baidu.swan.pms.database.a.Ry().jj(aVar.getBundleId());
             if (aVar2 != null) {
-                aVar.fi(aVar2.versionCode);
+                aVar.fh(aVar2.versionCode);
             } else {
-                aVar.fi(0);
+                aVar.fh(0);
             }
         }
-        hashMap.put("pkg_ver", String.valueOf(aVar.Sf()));
-        if (aVar.Sg() == -1) {
+        hashMap.put("pkg_ver", String.valueOf(aVar.Sd()));
+        if (aVar.Se() == -1) {
             if (aVar2 == null) {
-                aVar2 = com.baidu.swan.pms.database.a.RA().ji(aVar.getBundleId());
+                aVar2 = com.baidu.swan.pms.database.a.Ry().jj(aVar.getBundleId());
             }
             if (aVar2 != null) {
-                aVar.U(aVar2.blM);
+                aVar.U(aVar2.blP);
             } else {
                 aVar.U(0L);
             }
         }
-        hashMap.put("app_sign", String.valueOf(aVar.Sg()));
+        hashMap.put("app_sign", String.valueOf(aVar.Se()));
+        if (TextUtils.isEmpty(aVar.Sf())) {
+            aVar.jr(fe(aVar.Si()));
+        }
+        if (!TextUtils.isEmpty(aVar.Sf())) {
+            hashMap.put("framework_ver", aVar.Sf());
+        }
+        if (TextUtils.isEmpty(aVar.Sg())) {
+            aVar.jq(com.baidu.swan.pms.e.Ru().Di());
+        }
+        hashMap.put("sdk_ver", aVar.Sg());
         if (TextUtils.isEmpty(aVar.Sh())) {
-            aVar.jq(ff(aVar.Sk()));
+            aVar.js(ff(aVar.Si()));
         }
         if (!TextUtils.isEmpty(aVar.Sh())) {
-            hashMap.put("framework_ver", aVar.Sh());
-        }
-        if (TextUtils.isEmpty(aVar.Si())) {
-            aVar.jp(com.baidu.swan.pms.e.Rw().Dk());
-        }
-        hashMap.put("sdk_ver", aVar.Si());
-        if (TextUtils.isEmpty(aVar.Sj())) {
-            aVar.jr(fg(aVar.Sk()));
-        }
-        if (!TextUtils.isEmpty(aVar.Sj())) {
-            hashMap.put("extension_ver", aVar.Sj());
+            hashMap.put("extension_ver", aVar.Sh());
         }
         if (!TextUtils.isEmpty(aVar.getPath())) {
             hashMap.put("path", aVar.getPath());
@@ -64,24 +64,24 @@ public class b {
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", bVar.getBundleId());
-        hashMap.put("category", String.valueOf(bVar.Sk()));
-        hashMap.put("pkg_ver", String.valueOf(bVar.Sf()));
-        hashMap.put("sub_id", bVar.Sl());
-        if (TextUtils.isEmpty(bVar.Si())) {
-            bVar.jw(com.baidu.swan.pms.e.Rw().Dk());
+        hashMap.put("category", String.valueOf(bVar.Si()));
+        hashMap.put("pkg_ver", String.valueOf(bVar.Sd()));
+        hashMap.put("sub_id", bVar.Sj());
+        if (TextUtils.isEmpty(bVar.Sg())) {
+            bVar.jx(com.baidu.swan.pms.e.Ru().Di());
         }
-        hashMap.put("sdk_ver", bVar.Si());
+        hashMap.put("sdk_ver", bVar.Sg());
+        if (TextUtils.isEmpty(bVar.Sf())) {
+            bVar.jw(fe(bVar.Si()));
+        }
+        if (!TextUtils.isEmpty(bVar.Sf())) {
+            hashMap.put("framework_ver", bVar.Sf());
+        }
         if (TextUtils.isEmpty(bVar.Sh())) {
-            bVar.jv(ff(bVar.Sk()));
+            bVar.jy(ff(bVar.Si()));
         }
         if (!TextUtils.isEmpty(bVar.Sh())) {
-            hashMap.put("framework_ver", bVar.Sh());
-        }
-        if (TextUtils.isEmpty(bVar.Sj())) {
-            bVar.jx(fg(bVar.Sk()));
-        }
-        if (!TextUtils.isEmpty(bVar.Sj())) {
-            hashMap.put("extension_ver", bVar.Sj());
+            hashMap.put("extension_ver", bVar.Sh());
             return hashMap;
         }
         return hashMap;
@@ -92,43 +92,43 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        if (TextUtils.isEmpty(dVar.Si())) {
-            dVar.jy(com.baidu.swan.pms.e.Rw().Dk());
+        if (TextUtils.isEmpty(dVar.Sg())) {
+            dVar.jz(com.baidu.swan.pms.e.Ru().Di());
         }
-        hashMap.put("sdk_ver", dVar.Si());
-        hashMap.put("category", String.valueOf(dVar.Sk()));
+        hashMap.put("sdk_ver", dVar.Sg());
+        hashMap.put("category", String.valueOf(dVar.Si()));
+        if (TextUtils.isEmpty(dVar.Sf())) {
+            dVar.jA(fe(dVar.Si()));
+        }
+        if (!TextUtils.isEmpty(dVar.Sf())) {
+            hashMap.put("framework_ver", dVar.Sf());
+        }
         if (TextUtils.isEmpty(dVar.Sh())) {
-            dVar.jz(ff(dVar.Sk()));
+            dVar.jB(ff(dVar.Si()));
         }
         if (!TextUtils.isEmpty(dVar.Sh())) {
-            hashMap.put("framework_ver", dVar.Sh());
-        }
-        if (TextUtils.isEmpty(dVar.Sj())) {
-            dVar.jA(fg(dVar.Sk()));
-        }
-        if (!TextUtils.isEmpty(dVar.Sj())) {
-            hashMap.put("extension_ver", dVar.Sj());
+            hashMap.put("extension_ver", dVar.Sh());
             return hashMap;
         }
         return hashMap;
     }
 
-    private static String ff(int i) {
+    private static String fe(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Rw().Dn();
+            return com.baidu.swan.pms.e.Ru().Dl();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Rw().Dl();
+            return com.baidu.swan.pms.e.Ru().Dj();
         }
         return null;
     }
 
-    private static String fg(int i) {
+    private static String ff(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Rw().Do();
+            return com.baidu.swan.pms.e.Ru().Dm();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Rw().Dm();
+            return com.baidu.swan.pms.e.Ru().Dk();
         }
         return null;
     }

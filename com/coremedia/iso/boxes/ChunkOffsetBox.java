@@ -14,7 +14,7 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ChunkOffsetBox.java", ChunkOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", "java.lang.String"), 17);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", "java.lang.String"), 17);
     }
 
     public abstract long[] getChunkOffsets();

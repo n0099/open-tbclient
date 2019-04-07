@@ -47,16 +47,16 @@ public final class aa {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4);
         }
         if (TextUtils.isEmpty(str3)) {
-            return y.hH(str4);
+            return y.hI(str4);
         }
-        Uri hI = y.hI(str4);
-        if (hI == null) {
-            return y.hH(str4);
+        Uri hJ = y.hJ(str4);
+        if (hJ == null) {
+            return y.hI(str4);
         }
         if (DEBUG) {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4 + str3);
         }
-        return hI.buildUpon().query(str3).build().toString();
+        return hJ.buildUpon().query(str3).build().toString();
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar, boolean z) {
@@ -65,20 +65,20 @@ public final class aa {
             return false;
         }
         if (DEBUG) {
-            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axI);
+            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axL);
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
         if (z) {
-            return cVar.gm(bVar.axI) || cVar.gn(bVar.axI);
+            return cVar.gn(bVar.axL) || cVar.go(bVar.axL);
         }
-        if (!cVar.gm(bVar.axI) || cVar.gn(bVar.axI)) {
+        if (!cVar.gn(bVar.axL) || cVar.go(bVar.axL)) {
             z2 = false;
         }
         return z2;
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar) {
-        return cVar != null && cVar.Js() && cVar.gn(bVar.axI);
+        return cVar != null && cVar.Jq() && cVar.go(bVar.axL);
     }
 
     public static void i(Runnable runnable) {
@@ -137,12 +137,12 @@ public final class aa {
         return append.toString();
     }
 
-    public static String Mn() {
-        return ep(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static String Ml() {
+        return eo(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     @Nullable
-    public static String ep(int i) {
+    public static String eo(int i) {
         int i2 = 0;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace == null || stackTrace.length <= 0) {
@@ -162,11 +162,11 @@ public final class aa {
     }
 
     @RequiresApi(api = 23)
-    public static boolean Mo() {
-        return !a.LN() || AppRuntime.getAppContext().checkSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0;
+    public static boolean Mm() {
+        return !a.LL() || AppRuntime.getAppContext().checkSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0;
     }
 
-    public static Uri hL(String str) {
+    public static Uri hM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -179,46 +179,46 @@ public final class aa {
         return null;
     }
 
-    public static AbsoluteLayout eO(String str) {
-        com.baidu.swan.apps.b.c.d wc;
-        com.baidu.swan.apps.b.c.e ee = com.baidu.swan.apps.w.e.Ec().ee(str);
-        if (ee == null || (wc = ee.wc()) == null) {
+    public static AbsoluteLayout eP(String str) {
+        com.baidu.swan.apps.b.c.d wb;
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(str);
+        if (eg == null || (wb = eg.wb()) == null) {
             return null;
         }
-        return wc.getCurrentWebView();
+        return wb.getCurrentWebView();
     }
 
-    public static com.baidu.swan.apps.view.container.a hM(String str) {
-        com.baidu.swan.apps.b.c.e ee = com.baidu.swan.apps.w.e.Ec().ee(str);
-        if (ee instanceof com.baidu.swan.apps.b.c.c) {
-            return ((com.baidu.swan.apps.b.c.c) ee).wa();
+    public static com.baidu.swan.apps.view.container.a hN(String str) {
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(str);
+        if (eg instanceof com.baidu.swan.apps.b.c.c) {
+            return ((com.baidu.swan.apps.b.c.c) eg).vZ();
         }
         return null;
     }
 
-    public static void Mp() {
+    public static void Mn() {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "onPreloadNextEnv()");
         }
-        SwanAppActivity DO = com.baidu.swan.apps.w.e.Ec().DO();
-        if (DO != null) {
+        SwanAppActivity DM = com.baidu.swan.apps.w.e.Ea().DM();
+        if (DM != null) {
             Bundle bundle = new Bundle();
             bundle.putString("bundle_key_preload_preload_scene", "2");
-            DO.k(bundle);
-            com.baidu.swan.apps.core.h.b.e(DO, 600L);
+            DM.k(bundle);
+            com.baidu.swan.apps.core.h.b.e(DM, 600L);
         }
     }
 
-    public static String Mq() {
-        com.baidu.swan.apps.core.c.d yP = com.baidu.swan.apps.w.e.Ec().yP();
-        if (yP != null) {
-            return yP.yB();
+    public static String Mo() {
+        com.baidu.swan.apps.core.c.d yO = com.baidu.swan.apps.w.e.Ea().yO();
+        if (yO != null) {
+            return yO.yA();
         }
         return null;
     }
 
     @Nullable
-    public static String hN(@Nullable String str) {
+    public static String hO(@Nullable String str) {
         if (!TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             int length = str.length();
@@ -256,21 +256,21 @@ public final class aa {
 
     public static String getVersionName() {
         try {
-            Application Cy = com.baidu.swan.apps.u.a.Cy();
-            return Cy.getPackageManager().getPackageInfo(Cy.getPackageName(), 0).versionName;
+            Application Cw = com.baidu.swan.apps.u.a.Cw();
+            return Cw.getPackageManager().getPackageInfo(Cw.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String Mr() {
+    public static String Mp() {
         String str;
-        if (a.LN() && com.baidu.swan.apps.u.a.Cy().checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) {
+        if (a.LL() && com.baidu.swan.apps.u.a.Cw().checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) {
             return "";
         }
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.swan.apps.u.a.Cy().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.swan.apps.u.a.Cw().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             str = telephonyManager != null ? telephonyManager.getDeviceId() : null;
         } catch (Exception e) {
             str = null;
@@ -280,8 +280,8 @@ public final class aa {
 
     public static Bitmap a(com.baidu.swan.apps.v.b.b bVar, String str, boolean z) {
         String str2 = "";
-        if (bVar != null && !TextUtils.isEmpty(bVar.axE)) {
-            str2 = bVar.axE;
+        if (bVar != null && !TextUtils.isEmpty(bVar.axH)) {
+            str2 = bVar.axH;
         }
         return j(str2, str, z);
     }
@@ -291,13 +291,13 @@ public final class aa {
     }
 
     public static Bitmap a(final String str, String str2, boolean z, final l.a aVar) {
-        Uri hL = hL(str);
-        if (l.i(hL)) {
-            return l.b(hL, AppRuntime.getAppContext());
+        Uri hM = hM(str);
+        if (l.i(hM)) {
+            return l.b(hM, AppRuntime.getAppContext());
         }
-        if (hL != null) {
+        if (hM != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.cuF().e(ImageRequestBuilder.O(hL).cAI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.aa.1
+                com.facebook.drawee.a.a.c.cuy().e(ImageRequestBuilder.O(hM).cAB(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.aa.1
                     @Override // com.facebook.imagepipeline.e.b
                     protected void f(Bitmap bitmap) {
                         Bitmap copy;
@@ -328,9 +328,9 @@ public final class aa {
                         super.b(bVar);
                         l.a.this.d(str, null);
                     }
-                }, com.facebook.common.b.f.ctJ());
+                }, com.facebook.common.b.f.ctC());
             } else {
-                l.a(hL, str2);
+                l.a(hM, str2);
             }
         }
         return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), z ? a.e.aiapps_default_icon : a.e.aiapps_default_grey_icon);

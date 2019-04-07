@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static byte[] ed(List<String> list) {
+    public static byte[] ea(List<String> list) {
         if (list == null) {
             return null;
         }

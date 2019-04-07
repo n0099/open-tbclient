@@ -20,10 +20,10 @@ public class AssetInformationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AssetInformationBox.java", AssetInformationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", "java.lang.String"), 62);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "java.lang.String", "apid", "", "void"), 66);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", "java.lang.String"), 70);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "java.lang.String", "profileVersion", "", "void"), 74);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", "java.lang.String"), 62);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setApid", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "java.lang.String", "apid", "", "void"), 66);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "", "", "", "java.lang.String"), 70);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setProfileVersion", "com.googlecode.mp4parser.boxes.ultraviolet.AssetInformationBox", "java.lang.String", "profileVersion", "", "void"), 74);
     }
 
     static {

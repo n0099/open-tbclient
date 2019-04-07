@@ -24,7 +24,7 @@ final class b {
             return null;
         }
         try {
-            return SapiDataEncryptor.byteToHex(new AES(SapiEnv.SHARE_ALGORITHM, SapiEnv.SHARE_AES_MODE).encrypt(str, SapiEnv.SHARE_IV, a(context)));
+            return SapiDataEncryptor.byteToHex(new AES("AES", "AES/CBC/PKCS5Padding").encrypt(str, SapiEnv.SHARE_IV, a(context)));
         } catch (Exception e) {
             Log.e(e);
             return null;
@@ -36,7 +36,7 @@ final class b {
             return null;
         }
         try {
-            return new String(new AES(SapiEnv.SHARE_ALGORITHM, SapiEnv.SHARE_AES_MODE).decrypt(SapiDataEncryptor.hexToByte(str), SapiEnv.SHARE_IV, a(context))).trim();
+            return new String(new AES("AES", "AES/CBC/PKCS5Padding").decrypt(SapiDataEncryptor.hexToByte(str), SapiEnv.SHARE_IV, a(context))).trim();
         } catch (Exception e) {
             Log.e(e);
             return null;

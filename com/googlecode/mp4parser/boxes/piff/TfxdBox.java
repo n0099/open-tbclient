@@ -21,8 +21,8 @@ public class TfxdBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TfxdBox.java", TfxdBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentAbsoluteTime", "com.googlecode.mp4parser.boxes.piff.TfxdBox", "", "", "", "long"), 79);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getFragmentAbsoluteDuration", "com.googlecode.mp4parser.boxes.piff.TfxdBox", "", "", "", "long"), 83);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFragmentAbsoluteTime", "com.googlecode.mp4parser.boxes.piff.TfxdBox", "", "", "", "long"), 79);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getFragmentAbsoluteDuration", "com.googlecode.mp4parser.boxes.piff.TfxdBox", "", "", "", "long"), 83);
     }
 
     public TfxdBox() {

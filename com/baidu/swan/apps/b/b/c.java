@@ -7,7 +7,9 @@ public interface c {
 
     boolean j(String str, boolean z);
 
-    boolean vb();
+    boolean va();
+
+    int vb();
 
     int vc();
 
@@ -15,21 +17,21 @@ public interface c {
 
     int ve();
 
-    int vf();
+    boolean vf();
 
     boolean vg();
 
-    boolean vh();
+    JSONObject vh();
 
-    JSONObject vi();
+    boolean vi();
 
     boolean vj();
 
     boolean vk();
 
-    boolean vl();
+    String vl();
 
-    String vm();
+    boolean vm();
 
     boolean vn();
 
@@ -38,6 +40,4 @@ public interface c {
     boolean vp();
 
     boolean vq();
-
-    boolean vr();
 }

@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
-    private View.OnClickListener bQK;
+    private View.OnClickListener bQM;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bQK = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.bQM = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bp */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(d.h.frs_create_group_item_view, (ViewGroup) null), this.bQK);
+        return new b(LayoutInflater.from(this.mContext).inflate(d.h.frs_create_group_item_view, (ViewGroup) null), this.bQM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         al.k(bVar.rootView, d.f.frs_group_item_bg);
-        al.l(bVar.fZG, d.C0277d.cp_bg_line_c);
-        al.d(bVar.giE, d.C0277d.cp_cont_b, 1);
-        bVar.giE.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.l(bVar.fZu, d.C0277d.cp_bg_line_c);
+        al.d(bVar.gir, d.C0277d.cp_cont_b, 1);
+        bVar.gir.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         al.k(bVar.divider, d.C0277d.cp_bg_line_b);
         return view;
     }

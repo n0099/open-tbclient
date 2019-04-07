@@ -6,29 +6,29 @@ import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
     private int height;
-    private String iFP;
-    private String iFQ;
-    private String iFR;
-    private String iFS;
+    private String iFA;
+    private String iFB;
+    private String iFC;
+    private String iFz;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.iFP = null;
+        this.iFz = null;
         this.urlFlag = 0;
-        this.iFQ = null;
-        this.iFR = null;
-        this.iFS = null;
+        this.iFA = null;
+        this.iFB = null;
+        this.iFC = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.iFP = timgs.img_url;
+            this.iFz = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.iFQ = timgs.url;
-            this.iFR = timgs.big_cdn_url;
-            this.iFS = timgs.des_main;
+            this.iFA = timgs.url;
+            this.iFB = timgs.big_cdn_url;
+            this.iFC = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,19 +51,19 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.iFP;
+        return this.iFz;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String Xi() {
-        return this.iFQ;
+    public String Xf() {
+        return this.iFA;
     }
 
-    public String ceb() {
-        return this.iFP;
+    public String cdX() {
+        return this.iFz;
     }
 
-    public String cec() {
-        return this.iFR;
+    public String cdY() {
+        return this.iFB;
     }
 }

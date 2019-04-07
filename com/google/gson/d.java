@@ -21,91 +21,91 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 /* loaded from: classes2.dex */
 public final class d {
-    private static final com.google.gson.b.a<?> jNb = new com.google.gson.b.a<Object>() { // from class: com.google.gson.d.1
+    private static final com.google.gson.b.a<?> jMv = new com.google.gson.b.a<Object>() { // from class: com.google.gson.d.1
     };
-    private final List<p> gGv;
-    private final ThreadLocal<Map<com.google.gson.b.a<?>, a<?>>> jNc;
-    private final Map<com.google.gson.b.a<?>, o<?>> jNd;
-    private final com.google.gson.internal.b jNe;
-    private final com.google.gson.internal.c jNf;
-    private final c jNg;
-    private final boolean jNh;
-    private final boolean jNi;
-    private final boolean jNj;
-    private final boolean jNk;
-    private final boolean jNl;
-    private final com.google.gson.internal.a.d jNm;
+    private final List<p> gGi;
+    private final c jMA;
+    private final boolean jMB;
+    private final boolean jMC;
+    private final boolean jMD;
+    private final boolean jME;
+    private final boolean jMF;
+    private final com.google.gson.internal.a.d jMG;
+    private final ThreadLocal<Map<com.google.gson.b.a<?>, a<?>>> jMw;
+    private final Map<com.google.gson.b.a<?>, o<?>> jMx;
+    private final com.google.gson.internal.b jMy;
+    private final com.google.gson.internal.c jMz;
 
     public d() {
-        this(com.google.gson.internal.c.jNE, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
+        this(com.google.gson.internal.c.jMY, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
     }
 
     d(com.google.gson.internal.c cVar, c cVar2, Map<Type, e<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, List<p> list) {
-        this.jNc = new ThreadLocal<>();
-        this.jNd = new ConcurrentHashMap();
-        this.jNe = new com.google.gson.internal.b(map);
-        this.jNf = cVar;
-        this.jNg = cVar2;
-        this.jNh = z;
-        this.jNj = z3;
-        this.jNi = z4;
-        this.jNk = z5;
-        this.jNl = z6;
+        this.jMw = new ThreadLocal<>();
+        this.jMx = new ConcurrentHashMap();
+        this.jMy = new com.google.gson.internal.b(map);
+        this.jMz = cVar;
+        this.jMA = cVar2;
+        this.jMB = z;
+        this.jMD = z3;
+        this.jMC = z4;
+        this.jME = z5;
+        this.jMF = z6;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(com.google.gson.internal.a.n.jQm);
-        arrayList.add(com.google.gson.internal.a.h.jOx);
+        arrayList.add(com.google.gson.internal.a.n.jPF);
+        arrayList.add(com.google.gson.internal.a.h.jNR);
         arrayList.add(cVar);
         arrayList.addAll(list);
-        arrayList.add(com.google.gson.internal.a.n.jPR);
-        arrayList.add(com.google.gson.internal.a.n.jPA);
-        arrayList.add(com.google.gson.internal.a.n.jPu);
-        arrayList.add(com.google.gson.internal.a.n.jPw);
-        arrayList.add(com.google.gson.internal.a.n.jPy);
+        arrayList.add(com.google.gson.internal.a.n.jPk);
+        arrayList.add(com.google.gson.internal.a.n.jOT);
+        arrayList.add(com.google.gson.internal.a.n.jON);
+        arrayList.add(com.google.gson.internal.a.n.jOP);
+        arrayList.add(com.google.gson.internal.a.n.jOR);
         o<Number> a2 = a(longSerializationPolicy);
         arrayList.add(com.google.gson.internal.a.n.a(Long.TYPE, Long.class, a2));
         arrayList.add(com.google.gson.internal.a.n.a(Double.TYPE, Double.class, rz(z7)));
         arrayList.add(com.google.gson.internal.a.n.a(Float.TYPE, Float.class, rA(z7)));
-        arrayList.add(com.google.gson.internal.a.n.jPL);
-        arrayList.add(com.google.gson.internal.a.n.jPC);
-        arrayList.add(com.google.gson.internal.a.n.jPE);
+        arrayList.add(com.google.gson.internal.a.n.jPe);
+        arrayList.add(com.google.gson.internal.a.n.jOV);
+        arrayList.add(com.google.gson.internal.a.n.jOX);
         arrayList.add(com.google.gson.internal.a.n.a(AtomicLong.class, a(a2)));
         arrayList.add(com.google.gson.internal.a.n.a(AtomicLongArray.class, b(a2)));
+        arrayList.add(com.google.gson.internal.a.n.jOZ);
+        arrayList.add(com.google.gson.internal.a.n.jPg);
+        arrayList.add(com.google.gson.internal.a.n.jPm);
+        arrayList.add(com.google.gson.internal.a.n.jPo);
+        arrayList.add(com.google.gson.internal.a.n.a(BigDecimal.class, com.google.gson.internal.a.n.jPi));
+        arrayList.add(com.google.gson.internal.a.n.a(BigInteger.class, com.google.gson.internal.a.n.jPj));
+        arrayList.add(com.google.gson.internal.a.n.jPq);
+        arrayList.add(com.google.gson.internal.a.n.jPs);
+        arrayList.add(com.google.gson.internal.a.n.jPw);
+        arrayList.add(com.google.gson.internal.a.n.jPy);
+        arrayList.add(com.google.gson.internal.a.n.jPD);
+        arrayList.add(com.google.gson.internal.a.n.jPu);
+        arrayList.add(com.google.gson.internal.a.n.jOK);
+        arrayList.add(com.google.gson.internal.a.c.jNR);
+        arrayList.add(com.google.gson.internal.a.n.jPB);
+        arrayList.add(com.google.gson.internal.a.k.jNR);
+        arrayList.add(com.google.gson.internal.a.j.jNR);
+        arrayList.add(com.google.gson.internal.a.n.jPz);
+        arrayList.add(com.google.gson.internal.a.a.jNR);
+        arrayList.add(com.google.gson.internal.a.n.jOI);
+        arrayList.add(new com.google.gson.internal.a.b(this.jMy));
+        arrayList.add(new com.google.gson.internal.a.g(this.jMy, z2));
+        this.jMG = new com.google.gson.internal.a.d(this.jMy);
+        arrayList.add(this.jMG);
         arrayList.add(com.google.gson.internal.a.n.jPG);
-        arrayList.add(com.google.gson.internal.a.n.jPN);
-        arrayList.add(com.google.gson.internal.a.n.jPT);
-        arrayList.add(com.google.gson.internal.a.n.jPV);
-        arrayList.add(com.google.gson.internal.a.n.a(BigDecimal.class, com.google.gson.internal.a.n.jPP));
-        arrayList.add(com.google.gson.internal.a.n.a(BigInteger.class, com.google.gson.internal.a.n.jPQ));
-        arrayList.add(com.google.gson.internal.a.n.jPX);
-        arrayList.add(com.google.gson.internal.a.n.jPZ);
-        arrayList.add(com.google.gson.internal.a.n.jQd);
-        arrayList.add(com.google.gson.internal.a.n.jQf);
-        arrayList.add(com.google.gson.internal.a.n.jQk);
-        arrayList.add(com.google.gson.internal.a.n.jQb);
-        arrayList.add(com.google.gson.internal.a.n.jPr);
-        arrayList.add(com.google.gson.internal.a.c.jOx);
-        arrayList.add(com.google.gson.internal.a.n.jQi);
-        arrayList.add(com.google.gson.internal.a.k.jOx);
-        arrayList.add(com.google.gson.internal.a.j.jOx);
-        arrayList.add(com.google.gson.internal.a.n.jQg);
-        arrayList.add(com.google.gson.internal.a.a.jOx);
-        arrayList.add(com.google.gson.internal.a.n.jPp);
-        arrayList.add(new com.google.gson.internal.a.b(this.jNe));
-        arrayList.add(new com.google.gson.internal.a.g(this.jNe, z2));
-        this.jNm = new com.google.gson.internal.a.d(this.jNe);
-        arrayList.add(this.jNm);
-        arrayList.add(com.google.gson.internal.a.n.jQn);
-        arrayList.add(new com.google.gson.internal.a.i(this.jNe, cVar2, cVar, this.jNm));
-        this.gGv = Collections.unmodifiableList(arrayList);
+        arrayList.add(new com.google.gson.internal.a.i(this.jMy, cVar2, cVar, this.jMG));
+        this.gGi = Collections.unmodifiableList(arrayList);
     }
 
     private o<Number> rz(boolean z) {
-        return z ? com.google.gson.internal.a.n.jPJ : new o<Number>() { // from class: com.google.gson.d.2
+        return z ? com.google.gson.internal.a.n.jPc : new o<Number>() { // from class: com.google.gson.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.o
             /* renamed from: a */
             public Double b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.cBx() == JsonToken.NULL) {
+                if (aVar.cBq() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -116,22 +116,22 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.cBI();
+                    bVar.cBB();
                     return;
                 }
                 d.q(number.doubleValue());
-                bVar.b(number);
+                bVar.a(number);
             }
         };
     }
 
     private o<Number> rA(boolean z) {
-        return z ? com.google.gson.internal.a.n.jPI : new o<Number>() { // from class: com.google.gson.d.3
+        return z ? com.google.gson.internal.a.n.jPb : new o<Number>() { // from class: com.google.gson.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.o
             /* renamed from: c */
             public Float b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.cBx() == JsonToken.NULL) {
+                if (aVar.cBq() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -142,11 +142,11 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.cBI();
+                    bVar.cBB();
                     return;
                 }
                 d.q(number.floatValue());
-                bVar.b(number);
+                bVar.a(number);
             }
         };
     }
@@ -158,12 +158,12 @@ public final class d {
     }
 
     private static o<Number> a(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? com.google.gson.internal.a.n.jPH : new o<Number>() { // from class: com.google.gson.d.4
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? com.google.gson.internal.a.n.jPa : new o<Number>() { // from class: com.google.gson.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.o
             /* renamed from: d */
             public Number b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.cBx() == JsonToken.NULL) {
+                if (aVar.cBq() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -174,9 +174,9 @@ public final class d {
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.cBI();
+                    bVar.cBB();
                 } else {
-                    bVar.FR(number.toString());
+                    bVar.FH(number.toString());
                 }
             }
         };
@@ -196,7 +196,7 @@ public final class d {
             public AtomicLong b(com.google.gson.stream.a aVar) throws IOException {
                 return new AtomicLong(((Number) o.this.b(aVar)).longValue());
             }
-        }.cBf();
+        }.cAY();
     }
 
     private static o<AtomicLongArray> b(final o<Number> oVar) {
@@ -204,12 +204,12 @@ public final class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, AtomicLongArray atomicLongArray) throws IOException {
-                bVar.cBE();
+                bVar.cBx();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     o.this.a(bVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                bVar.cBF();
+                bVar.cBy();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -229,18 +229,18 @@ public final class d {
                 }
                 return atomicLongArray;
             }
-        }.cBf();
+        }.cAY();
     }
 
     public <T> o<T> a(com.google.gson.b.a<T> aVar) {
         HashMap hashMap;
-        o<T> oVar = (o<T>) this.jNd.get(aVar == null ? jNb : aVar);
+        o<T> oVar = (o<T>) this.jMx.get(aVar == null ? jMv : aVar);
         if (oVar == null) {
-            Map<com.google.gson.b.a<?>, a<?>> map = this.jNc.get();
+            Map<com.google.gson.b.a<?>, a<?>> map = this.jMw.get();
             boolean z = false;
             if (map == null) {
                 HashMap hashMap2 = new HashMap();
-                this.jNc.set(hashMap2);
+                this.jMw.set(hashMap2);
                 hashMap = hashMap2;
                 z = true;
             } else {
@@ -251,14 +251,14 @@ public final class d {
                 try {
                     a<?> aVar2 = new a<>();
                     hashMap.put(aVar, aVar2);
-                    for (p pVar : this.gGv) {
+                    for (p pVar : this.gGi) {
                         oVar = pVar.a(this, aVar);
                         if (oVar != null) {
                             aVar2.c(oVar);
-                            this.jNd.put(aVar, oVar);
+                            this.jMx.put(aVar, oVar);
                             hashMap.remove(aVar);
                             if (z) {
-                                this.jNc.remove();
+                                this.jMw.remove();
                             }
                         }
                     }
@@ -266,7 +266,7 @@ public final class d {
                 } catch (Throwable th) {
                     hashMap.remove(aVar);
                     if (z) {
-                        this.jNc.remove();
+                        this.jMw.remove();
                     }
                     throw th;
                 }
@@ -276,11 +276,11 @@ public final class d {
     }
 
     public <T> o<T> a(p pVar, com.google.gson.b.a<T> aVar) {
-        if (!this.gGv.contains(pVar)) {
-            pVar = this.jNm;
+        if (!this.gGi.contains(pVar)) {
+            pVar = this.jMG;
         }
         boolean z = false;
-        for (p pVar2 : this.gGv) {
+        for (p pVar2 : this.gGi) {
             if (!z) {
                 if (pVar2 == pVar) {
                     z = true;
@@ -296,11 +296,11 @@ public final class d {
     }
 
     public <T> o<T> w(Class<T> cls) {
-        return a(com.google.gson.b.a.F(cls));
+        return a(com.google.gson.b.a.E(cls));
     }
 
     public String toJson(Object obj) {
-        return obj == null ? a(j.jNr) : b(obj, obj.getClass());
+        return obj == null ? a(j.jML) : b(obj, obj.getClass());
     }
 
     public String b(Object obj, Type type) {
@@ -321,10 +321,10 @@ public final class d {
         o a2 = a(com.google.gson.b.a.l(type));
         boolean isLenient = bVar.isLenient();
         bVar.setLenient(true);
-        boolean cBU = bVar.cBU();
-        bVar.rD(this.jNi);
-        boolean cBV = bVar.cBV();
-        bVar.rE(this.jNh);
+        boolean cBL = bVar.cBL();
+        bVar.rD(this.jMC);
+        boolean cBM = bVar.cBM();
+        bVar.rE(this.jMB);
         try {
             try {
                 a2.a(bVar, obj);
@@ -333,8 +333,8 @@ public final class d {
             }
         } finally {
             bVar.setLenient(isLenient);
-            bVar.rD(cBU);
-            bVar.rE(cBV);
+            bVar.rD(cBL);
+            bVar.rE(cBM);
         }
     }
 
@@ -353,30 +353,30 @@ public final class d {
     }
 
     public com.google.gson.stream.b c(Writer writer) throws IOException {
-        if (this.jNj) {
+        if (this.jMD) {
             writer.write(")]}'\n");
         }
         com.google.gson.stream.b bVar = new com.google.gson.stream.b(writer);
-        if (this.jNk) {
+        if (this.jME) {
             bVar.setIndent("  ");
         }
-        bVar.rE(this.jNh);
+        bVar.rE(this.jMB);
         return bVar;
     }
 
     public com.google.gson.stream.a c(Reader reader) {
         com.google.gson.stream.a aVar = new com.google.gson.stream.a(reader);
-        aVar.setLenient(this.jNl);
+        aVar.setLenient(this.jMF);
         return aVar;
     }
 
     public void a(i iVar, com.google.gson.stream.b bVar) throws JsonIOException {
         boolean isLenient = bVar.isLenient();
         bVar.setLenient(true);
-        boolean cBU = bVar.cBU();
-        bVar.rD(this.jNi);
-        boolean cBV = bVar.cBV();
-        bVar.rE(this.jNh);
+        boolean cBL = bVar.cBL();
+        bVar.rD(this.jMC);
+        boolean cBM = bVar.cBM();
+        bVar.rE(this.jMB);
         try {
             try {
                 com.google.gson.internal.g.b(iVar, bVar);
@@ -385,8 +385,8 @@ public final class d {
             }
         } finally {
             bVar.setLenient(isLenient);
-            bVar.rD(cBU);
-            bVar.rE(cBV);
+            bVar.rD(cBL);
+            bVar.rE(cBM);
         }
     }
 
@@ -411,7 +411,7 @@ public final class d {
     private static void a(Object obj, com.google.gson.stream.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.cBx() != JsonToken.END_DOCUMENT) {
+                if (aVar.cBq() != JsonToken.END_DOCUMENT) {
                     throw new JsonIOException("JSON document was not fully consumed.");
                 }
             } catch (MalformedJsonException e) {
@@ -428,7 +428,7 @@ public final class d {
         aVar.setLenient(true);
         try {
             try {
-                aVar.cBx();
+                aVar.cBq();
                 z = false;
                 T b = a(com.google.gson.b.a.l(type)).b(aVar);
                 aVar.setLenient(isLenient);
@@ -453,36 +453,36 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> extends o<T> {
-        private o<T> jNp;
+        private o<T> jMJ;
 
         a() {
         }
 
         public void c(o<T> oVar) {
-            if (this.jNp != null) {
+            if (this.jMJ != null) {
                 throw new AssertionError();
             }
-            this.jNp = oVar;
+            this.jMJ = oVar;
         }
 
         @Override // com.google.gson.o
         public T b(com.google.gson.stream.a aVar) throws IOException {
-            if (this.jNp == null) {
+            if (this.jMJ == null) {
                 throw new IllegalStateException();
             }
-            return this.jNp.b(aVar);
+            return this.jMJ.b(aVar);
         }
 
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, T t) throws IOException {
-            if (this.jNp == null) {
+            if (this.jMJ == null) {
                 throw new IllegalStateException();
             }
-            this.jNp.a(bVar, t);
+            this.jMJ.a(bVar, t);
         }
     }
 
     public String toString() {
-        return "{serializeNulls:" + this.jNh + "factories:" + this.gGv + ",instanceCreators:" + this.jNe + "}";
+        return "{serializeNulls:" + this.jMB + "factories:" + this.gGi + ",instanceCreators:" + this.jMy + "}";
     }
 }

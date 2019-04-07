@@ -14,14 +14,14 @@ public class b extends a {
 
     public b(@NonNull String str, @Nullable Map<String, String> map) {
         this.mParams = new HashMap();
-        this.avj = str;
+        this.avm = str;
         if (map != null) {
             this.mParams.putAll(map);
         }
     }
 
     @Override // com.baidu.swan.apps.m.a.a
-    public String eB(String str) {
+    public String eC(String str) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
             sb.append(com.baidu.swan.apps.m.a.n(str, entry.getKey(), entry.getValue()));

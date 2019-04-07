@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements com.facebook.drawee.d.d {
-    private static final c<Object> jCl = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+    private static final c<Object> jBF = new b<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void a(String str, @Nullable Object obj, @Nullable Animatable animatable) {
             if (animatable != null) {
@@ -21,30 +21,30 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             }
         }
     };
-    private static final NullPointerException jCm = new NullPointerException("No image request was specified!");
-    private static final AtomicLong jCt = new AtomicLong();
-    private final Set<c> jBF;
-    private boolean jBP;
+    private static final NullPointerException jBG = new NullPointerException("No image request was specified!");
+    private static final AtomicLong jBN = new AtomicLong();
     @Nullable
-    private c<? super INFO> jBW;
+    private i<com.facebook.datasource.b<IMAGE>> jAT;
+    private final Set<c> jAZ;
     @Nullable
-    private d jBX;
+    private REQUEST jBH;
     @Nullable
-    private i<com.facebook.datasource.b<IMAGE>> jBz;
+    private REQUEST jBI;
     @Nullable
-    private Object jCa;
-    private boolean jCe;
-    private String jCf;
+    private REQUEST[] jBJ;
+    private boolean jBK;
+    private boolean jBL;
     @Nullable
-    private REQUEST jCn;
+    private com.facebook.drawee.d.a jBM;
+    private boolean jBj;
     @Nullable
-    private REQUEST jCo;
+    private c<? super INFO> jBq;
     @Nullable
-    private REQUEST[] jCp;
-    private boolean jCq;
-    private boolean jCr;
+    private d jBr;
     @Nullable
-    private com.facebook.drawee.d.a jCs;
+    private Object jBu;
+    private boolean jBy;
+    private String jBz;
     private final Context mContext;
 
     /* loaded from: classes2.dex */
@@ -56,142 +56,142 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     protected abstract com.facebook.datasource.b<IMAGE> a(REQUEST request, Object obj, CacheLevel cacheLevel);
 
-    protected abstract BUILDER cuM();
+    protected abstract BUILDER cuF();
 
     @ReturnsOwnership
-    protected abstract a cuN();
+    protected abstract a cuG();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractDraweeControllerBuilder(Context context, Set<c> set) {
         this.mContext = context;
-        this.jBF = set;
+        this.jAZ = set;
         init();
     }
 
     private void init() {
-        this.jCa = null;
-        this.jCn = null;
-        this.jCo = null;
-        this.jCp = null;
-        this.jCq = true;
-        this.jBW = null;
-        this.jBX = null;
-        this.jBP = false;
-        this.jCr = false;
-        this.jCs = null;
-        this.jCf = null;
+        this.jBu = null;
+        this.jBH = null;
+        this.jBI = null;
+        this.jBJ = null;
+        this.jBK = true;
+        this.jBq = null;
+        this.jBr = null;
+        this.jBj = false;
+        this.jBL = false;
+        this.jBM = null;
+        this.jBz = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: aP */
-    public BUILDER aS(Object obj) {
-        this.jCa = obj;
-        return cuM();
+    /* renamed from: aL */
+    public BUILDER aO(Object obj) {
+        this.jBu = obj;
+        return cuF();
     }
 
     @Nullable
-    public Object cvd() {
-        return this.jCa;
+    public Object cuW() {
+        return this.jBu;
     }
 
-    public BUILDER aQ(REQUEST request) {
-        this.jCn = request;
-        return cuM();
+    public BUILDER aM(REQUEST request) {
+        this.jBH = request;
+        return cuF();
     }
 
     @Nullable
-    public REQUEST cve() {
-        return this.jCn;
+    public REQUEST cuX() {
+        return this.jBH;
     }
 
-    public boolean cvf() {
-        return this.jCe;
+    public boolean cuY() {
+        return this.jBy;
     }
 
     public BUILDER b(c<? super INFO> cVar) {
-        this.jBW = cVar;
-        return cuM();
+        this.jBq = cVar;
+        return cuF();
     }
 
     @Nullable
-    public d cvg() {
-        return this.jBX;
+    public d cuZ() {
+        return this.jBr;
     }
 
     @Nullable
-    public String cvh() {
-        return this.jCf;
+    public String cva() {
+        return this.jBz;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
     /* renamed from: a */
     public BUILDER b(@Nullable com.facebook.drawee.d.a aVar) {
-        this.jCs = aVar;
-        return cuM();
+        this.jBM = aVar;
+        return cuF();
     }
 
     @Nullable
-    public com.facebook.drawee.d.a cvi() {
-        return this.jCs;
+    public com.facebook.drawee.d.a cvb() {
+        return this.jBM;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.d.d
-    /* renamed from: cvj */
-    public a cvn() {
+    /* renamed from: cvc */
+    public a cvg() {
         validate();
-        if (this.jCn == null && this.jCp == null && this.jCo != null) {
-            this.jCn = this.jCo;
-            this.jCo = null;
+        if (this.jBH == null && this.jBJ == null && this.jBI != null) {
+            this.jBH = this.jBI;
+            this.jBI = null;
         }
-        return cvk();
+        return cvd();
     }
 
     protected void validate() {
         boolean z = false;
-        g.c(this.jCp == null || this.jCn == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-        if (this.jBz == null || (this.jCp == null && this.jCn == null && this.jCo == null)) {
+        g.c(this.jBJ == null || this.jBH == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+        if (this.jAT == null || (this.jBJ == null && this.jBH == null && this.jBI == null)) {
             z = true;
         }
         g.c(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
     }
 
-    protected a cvk() {
-        a cuN = cuN();
-        cuN.rr(cvf());
-        cuN.FE(cvh());
-        cuN.a(cvg());
-        c(cuN);
-        b(cuN);
-        return cuN;
+    protected a cvd() {
+        a cuG = cuG();
+        cuG.rr(cuY());
+        cuG.Fu(cva());
+        cuG.a(cuZ());
+        c(cuG);
+        b(cuG);
+        return cuG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String cvl() {
-        return String.valueOf(jCt.getAndIncrement());
+    public static String cve() {
+        return String.valueOf(jBN.getAndIncrement());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public i<com.facebook.datasource.b<IMAGE>> cvm() {
-        if (this.jBz != null) {
-            return this.jBz;
+    public i<com.facebook.datasource.b<IMAGE>> cvf() {
+        if (this.jAT != null) {
+            return this.jAT;
         }
         i<com.facebook.datasource.b<IMAGE>> iVar = null;
-        if (this.jCn != null) {
-            iVar = aR(this.jCn);
-        } else if (this.jCp != null) {
-            iVar = a(this.jCp, this.jCq);
+        if (this.jBH != null) {
+            iVar = aN(this.jBH);
+        } else if (this.jBJ != null) {
+            iVar = a(this.jBJ, this.jBK);
         }
-        if (iVar != null && this.jCo != null) {
+        if (iVar != null && this.jBI != null) {
             ArrayList arrayList = new ArrayList(2);
             arrayList.add(iVar);
-            arrayList.add(aR(this.jCo));
-            iVar = f.ex(arrayList);
+            arrayList.add(aN(this.jBI));
+            iVar = f.eu(arrayList);
         }
         if (iVar == null) {
-            return com.facebook.datasource.c.y(jCm);
+            return com.facebook.datasource.c.y(jBG);
         }
         return iVar;
     }
@@ -204,62 +204,62 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             }
         }
         for (REQUEST request2 : requestArr) {
-            arrayList.add(aR(request2));
+            arrayList.add(aN(request2));
         }
-        return com.facebook.datasource.e.ew(arrayList);
+        return com.facebook.datasource.e.et(arrayList);
     }
 
-    protected i<com.facebook.datasource.b<IMAGE>> aR(REQUEST request) {
+    protected i<com.facebook.datasource.b<IMAGE>> aN(REQUEST request) {
         return a((AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>) request, CacheLevel.FULL_FETCH);
     }
 
     protected i<com.facebook.datasource.b<IMAGE>> a(final REQUEST request, final CacheLevel cacheLevel) {
-        final Object cvd = cvd();
+        final Object cuW = cuW();
         return new i<com.facebook.datasource.b<IMAGE>>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.facebook.common.internal.i
-            /* renamed from: cuu */
+            /* renamed from: cun */
             public com.facebook.datasource.b<IMAGE> get() {
-                return AbstractDraweeControllerBuilder.this.a(request, cvd, cacheLevel);
+                return AbstractDraweeControllerBuilder.this.a(request, cuW, cacheLevel);
             }
 
             public String toString() {
-                return com.facebook.common.internal.f.aE(this).q("request", request.toString()).toString();
+                return com.facebook.common.internal.f.aA(this).q("request", request.toString()).toString();
             }
         };
     }
 
     protected void b(a aVar) {
-        if (this.jBF != null) {
-            for (c cVar : this.jBF) {
+        if (this.jAZ != null) {
+            for (c cVar : this.jAZ) {
                 aVar.a(cVar);
             }
         }
-        if (this.jBW != null) {
-            aVar.a(this.jBW);
+        if (this.jBq != null) {
+            aVar.a(this.jBq);
         }
-        if (this.jCr) {
-            aVar.a(jCl);
+        if (this.jBL) {
+            aVar.a(jBF);
         }
     }
 
     protected void c(a aVar) {
-        if (this.jBP) {
-            com.facebook.drawee.components.b cuV = aVar.cuV();
-            if (cuV == null) {
-                cuV = new com.facebook.drawee.components.b();
-                aVar.a(cuV);
+        if (this.jBj) {
+            com.facebook.drawee.components.b cuO = aVar.cuO();
+            if (cuO == null) {
+                cuO = new com.facebook.drawee.components.b();
+                aVar.a(cuO);
             }
-            cuV.rq(this.jBP);
+            cuO.rq(this.jBj);
             d(aVar);
         }
     }
 
     protected void d(a aVar) {
-        if (aVar.cuW() == null) {
-            aVar.a(com.facebook.drawee.c.a.eK(this.mContext));
+        if (aVar.cuP() == null) {
+            aVar.a(com.facebook.drawee.c.a.eJ(this.mContext));
         }
     }
 }

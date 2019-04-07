@@ -27,35 +27,35 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes4.dex */
 public class TopicFragment extends BaseFragment implements h.c, ae, a {
-    private TopicModel fPL;
-    private TopicListView fPM;
+    private TopicListView fPA;
+    private TopicModel fPz;
 
     public TopicFragment() {
     }
 
     public TopicFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.fPL = new TopicModel(pageContext);
-        this.fPM = new TopicListView(pageContext);
+        this.fPz = new TopicModel(pageContext);
+        this.fPA = new TopicListView(pageContext);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fPL.setPresenter(this);
-        this.fPL.setUniqueId(getUniqueId());
-        this.fPM.setPresenter(this);
-        this.fPM.setListPullRefreshListener(this);
-        this.fPM.setPageUniqueId(getUniqueId());
+        this.fPz.setPresenter(this);
+        this.fPz.setUniqueId(getUniqueId());
+        this.fPA.setPresenter(this);
+        this.fPA.setListPullRefreshListener(this);
+        this.fPA.setPageUniqueId(getUniqueId());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.fPM.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.fPM.getParent()).removeView(this.fPM);
+        if (this.fPA.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.fPA.getParent()).removeView(this.fPA);
         }
-        return this.fPM;
+        return this.fPA;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -68,30 +68,30 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.fPM.cE(false);
-        this.fPL.bnq();
+        this.fPA.cE(false);
+        this.fPz.bnn();
     }
 
-    public void aCt() {
-        this.fPM.aCt();
-    }
-
-    @Override // com.baidu.tieba.frs.ae
-    public void aBu() {
-        this.fPM.reload();
+    public void aCq() {
+        this.fPA.aCq();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBv() {
+    public void aBr() {
+        this.fPA.reload();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBw() {
+    public void aBs() {
+    }
+
+    @Override // com.baidu.tieba.frs.ae
+    public void aBt() {
     }
 
     @Override // com.baidu.tieba.frs.ae
     public void setHeaderViewHeight(int i) {
-        this.fPM.setHeaderViewHeight(i);
+        this.fPA.setHeaderViewHeight(i);
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -103,13 +103,13 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aeK() {
+    public void aeH() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.fPM.onChangeSkinType();
+        this.fPA.onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -118,29 +118,29 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
 
     @Override // com.baidu.tbadk.core.view.h.c
     public void dR(boolean z) {
-        this.fPL.bnq();
+        this.fPz.bnn();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.kY()) {
-            this.fPM.aBt();
-            this.fPM.cE(false);
-            this.fPL.bnq();
+            this.fPA.aBq();
+            this.fPA.cE(false);
+            this.fPz.bnn();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void i(int i, List<m> list) {
-        this.fPM.hideLoadingView();
-        this.fPM.aBM();
+        this.fPA.hideLoadingView();
+        this.fPA.aBJ();
         if (i != 0 || v.T(list)) {
-            this.fPM.iD(false);
+            this.fPA.iD(false);
             return;
         }
-        this.fPM.aBt();
-        this.fPM.aOA();
-        this.fPM.setData(list);
+        this.fPA.aBq();
+        this.fPA.aOs();
+        this.fPA.setData(list);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -165,13 +165,13 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.fPM.destroy();
-        this.fPL.onDestroy();
+        this.fPA.destroy();
+        this.fPz.onDestroy();
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.fPM != null) {
-            this.fPM.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.fPA != null) {
+            this.fPA.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 }

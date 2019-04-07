@@ -12,24 +12,24 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.b
-    public void xu() {
+    public void xt() {
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public String we() {
+    public String wd() {
         return "master";
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        if (com.baidu.swan.apps.console.a.d.wP()) {
-            str = com.baidu.swan.apps.console.a.d.wQ();
+        if (com.baidu.swan.apps.console.a.d.wO()) {
+            str = com.baidu.swan.apps.console.a.d.wP();
         }
         super.loadUrl(str);
     }
 
     @Override // com.baidu.swan.apps.core.f.a
-    public com.baidu.swan.apps.core.container.a zs() {
-        return wc();
+    public com.baidu.swan.apps.core.container.a zr() {
+        return wb();
     }
 }

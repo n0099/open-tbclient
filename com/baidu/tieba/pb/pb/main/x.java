@@ -19,29 +19,29 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class x {
-    public int htm;
+    public int hsZ;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    private void vL(String str) {
+    private void vK(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> mN = ba.mN(str);
-        if (mN != null) {
-            this.htm = 5;
+        Map<String, String> mO = ba.mO(str);
+        if (mO != null) {
+            this.hsZ = 5;
             com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c10320");
-            amVar.bJ("obj_locate", mN.get("obj_locate"));
+            amVar.bJ("obj_locate", mO.get("obj_locate"));
             amVar.T("obj_type", 1);
-            amVar.bJ("tid", mN.get("tid"));
-            amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mN.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            amVar.bJ("obj_param2", mN.get("obj_param2"));
+            amVar.bJ("tid", mO.get("tid"));
+            amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mO.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            amVar.bJ("obj_param2", mO.get("obj_param2"));
             amVar.T("obj_to", 3);
-            amVar.bJ(VideoPlayActivityConfig.OBJ_ID, mN.get("bdid"));
-            if (!com.baidu.tbadk.core.util.ap.isEmpty(mN.get("ext_log"))) {
+            amVar.bJ(VideoPlayActivityConfig.OBJ_ID, mO.get("bdid"));
+            if (!com.baidu.tbadk.core.util.ap.isEmpty(mO.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(mN.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(mO.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
@@ -68,11 +68,11 @@ public class x {
                         if ("mpush".equals(matcher.group(1))) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11895").bJ("tid", matcher.group(2)));
                         } else {
-                            vL(decode);
+                            vK(decode);
                         }
                         str = matcher.group(2);
                     } else {
-                        vL(decode);
+                        vK(decode);
                         int indexOf = decode.indexOf("tid=");
                         if (indexOf >= 0 && (length = indexOf + "tid=".length()) <= decode.length()) {
                             str = decode.substring(length);

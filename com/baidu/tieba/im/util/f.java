@@ -16,7 +16,7 @@ public class f {
         if (editable == null) {
             return 0;
         }
-        return pM(editable.toString());
+        return pN(editable.toString());
     }
 
     public static int d(char c) {
@@ -30,7 +30,7 @@ public class f {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int pM(String str) {
+    public static int pN(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }

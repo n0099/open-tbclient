@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private com.baidu.tieba.setting.im.more.a cMW;
-    private String cMX;
-    private String cMY;
+    private com.baidu.tieba.setting.im.more.a cMY;
     private String cMZ;
-    private boolean csd;
+    private String cNa;
+    private String cNb;
+    private boolean csf;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a awx() {
-        return this.cMW;
+    public com.baidu.tieba.setting.im.more.a awu() {
+        return this.cMY;
     }
 
-    public String awy() {
-        return this.cMX;
+    public String awv() {
+        return this.cMZ;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.csd = false;
+        this.csf = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.csd = false;
+        this.csf = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage awz() {
+    private PrivateInfoNetMessage aww() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean awA() {
-        if (this.csd) {
+    public boolean awx() {
+        if (this.csf) {
             return false;
         }
-        this.csd = true;
+        this.csf = true;
         this.mFinished = false;
-        sendMessage(awz());
+        sendMessage(aww());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.cMW = aVar;
-        awB();
+        this.cMY = aVar;
+        awy();
     }
 
-    private void awB() {
-        SimpleUser awC = awC();
-        if (awC != null) {
-            this.cMY = awC.secureemail;
-            this.cMZ = awC.securemobil;
-            this.cMX = awC.ahead_url;
+    private void awy() {
+        SimpleUser awz = awz();
+        if (awz != null) {
+            this.cNa = awz.secureemail;
+            this.cNb = awz.securemobil;
+            this.cMZ = awz.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser awC() {
-        if (this.cMW == null || this.cMW.awC() == null) {
+    private SimpleUser awz() {
+        if (this.cMY == null || this.cMY.awz() == null) {
             return null;
         }
-        return this.cMW.awC();
+        return this.cMY.awz();
     }
 
     public boolean qz() {
-        return this.csd;
+        return this.csf;
     }
 
     public void setLoading(boolean z) {
-        this.csd = z;
+        this.csf = z;
     }
 }

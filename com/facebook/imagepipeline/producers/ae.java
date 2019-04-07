@@ -8,21 +8,21 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ae implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.a jAf;
-    private final com.facebook.common.memory.g jFp;
-    private final af jHw;
+    private final com.facebook.common.memory.g jEJ;
+    private final af jGQ;
+    private final com.facebook.common.memory.a jzz;
 
     public ae(com.facebook.common.memory.g gVar, com.facebook.common.memory.a aVar, af afVar) {
-        this.jFp = gVar;
-        this.jAf = aVar;
-        this.jHw = afVar;
+        this.jEJ = gVar;
+        this.jzz = aVar;
+        this.jGQ = afVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ajVar.czI().el(ajVar.getId(), "NetworkFetchProducer");
-        final s d = this.jHw.d(jVar, ajVar);
-        this.jHw.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
+        ajVar.czB().em(ajVar.getId(), "NetworkFetchProducer");
+        final s d = this.jGQ.d(jVar, ajVar);
+        this.jGQ.a((af) d, new af.a() { // from class: com.facebook.imagepipeline.producers.ae.1
             @Override // com.facebook.imagepipeline.producers.af.a
             public void f(InputStream inputStream, int i) throws IOException {
                 ae.this.a(d, inputStream, i);
@@ -34,7 +34,7 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
             }
 
             @Override // com.facebook.imagepipeline.producers.af.a
-            public void ctI() {
+            public void ctB() {
                 ae.this.b(d);
             }
         });
@@ -42,30 +42,30 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, InputStream inputStream, int i) throws IOException {
-        com.facebook.common.memory.i ctR;
+        com.facebook.common.memory.i ctK;
         if (i > 0) {
-            ctR = this.jFp.BW(i);
+            ctK = this.jEJ.BM(i);
         } else {
-            ctR = this.jFp.ctR();
+            ctK = this.jEJ.ctK();
         }
-        byte[] bArr = this.jAf.get(16384);
+        byte[] bArr = this.jzz.get(16384);
         while (true) {
             try {
                 int read = inputStream.read(bArr);
                 if (read >= 0) {
                     if (read > 0) {
-                        ctR.write(bArr, 0, read);
-                        a(ctR, sVar);
-                        sVar.czU().aM(cD(ctR.size(), i));
+                        ctK.write(bArr, 0, read);
+                        a(ctK, sVar);
+                        sVar.czN().aM(cD(ctK.size(), i));
                     }
                 } else {
-                    this.jHw.a((af) sVar, ctR.size());
-                    b(ctR, sVar);
+                    this.jGQ.a((af) sVar, ctK.size());
+                    b(ctK, sVar);
                     return;
                 }
             } finally {
-                this.jAf.release(bArr);
-                ctR.close();
+                this.jzz.release(bArr);
+                ctK.close();
             }
         }
     }
@@ -76,25 +76,25 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     private void a(com.facebook.common.memory.i iVar, s sVar) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (c(sVar) && uptimeMillis - sVar.czW() >= 100) {
-            sVar.ef(uptimeMillis);
-            sVar.czI().ae(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
-            a(iVar, false, sVar.czU());
+        if (c(sVar) && uptimeMillis - sVar.czP() >= 100) {
+            sVar.ee(uptimeMillis);
+            sVar.czB().ae(sVar.getId(), "NetworkFetchProducer", "intermediate_result");
+            a(iVar, false, sVar.czN());
         }
     }
 
     private void b(com.facebook.common.memory.i iVar, s sVar) {
-        sVar.czI().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
-        a(iVar, true, sVar.czU());
+        sVar.czB().a(sVar.getId(), "NetworkFetchProducer", b(sVar, iVar.size()));
+        a(iVar, true, sVar.czN());
     }
 
     private void a(com.facebook.common.memory.i iVar, boolean z, j<com.facebook.imagepipeline.f.d> jVar) {
         com.facebook.imagepipeline.f.d dVar;
-        com.facebook.common.references.a d = com.facebook.common.references.a.d(iVar.ctS());
+        com.facebook.common.references.a d = com.facebook.common.references.a.d(iVar.ctL());
         try {
             dVar = new com.facebook.imagepipeline.f.d(d);
             try {
-                dVar.cyS();
+                dVar.cyL();
                 jVar.e(dVar, z);
                 com.facebook.imagepipeline.f.d.e(dVar);
                 com.facebook.common.references.a.c(d);
@@ -112,27 +112,27 @@ public class ae implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(s sVar, Throwable th) {
-        sVar.czI().a(sVar.getId(), "NetworkFetchProducer", th, null);
-        sVar.czU().C(th);
+        sVar.czB().a(sVar.getId(), "NetworkFetchProducer", th, null);
+        sVar.czN().C(th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(s sVar) {
-        sVar.czI().b(sVar.getId(), "NetworkFetchProducer", null);
-        sVar.czU().ctI();
+        sVar.czB().b(sVar.getId(), "NetworkFetchProducer", null);
+        sVar.czN().ctB();
     }
 
     private boolean c(s sVar) {
-        if (sVar.czV().czH().cAA()) {
-            return this.jHw.a(sVar);
+        if (sVar.czO().czA().cAt()) {
+            return this.jGQ.a(sVar);
         }
         return false;
     }
 
     @Nullable
     private Map<String, String> b(s sVar, int i) {
-        if (sVar.czI().FI(sVar.getId())) {
-            return this.jHw.b(sVar, i);
+        if (sVar.czB().Fy(sVar.getId())) {
+            return this.jGQ.b(sVar, i);
         }
         return null;
     }

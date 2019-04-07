@@ -1,9 +1,9 @@
 package com.baidu.tieba.aiapps.apps.invoice;
 /* loaded from: classes4.dex */
 public interface b {
-    void azc();
+    void ayZ();
 
-    void azd();
+    void aza();
 
-    void aze();
+    void azb();
 }

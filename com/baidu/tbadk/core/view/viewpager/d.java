@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int bUX;
-    private List<m> bVe;
-    private List<m> bVf;
-    private boolean bVg;
-    private boolean bVh;
-    private int bVi = 2;
-    private int bVj = 1;
+    private int bUZ;
+    private List<m> bVg;
+    private List<m> bVh;
+    private boolean bVi;
+    private boolean bVj;
+    private int bVk = 2;
+    private int bVl = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.bUX = 2;
-        this.bVe = list;
-        this.bVh = z;
-        this.bUX = i;
+        this.bUZ = 2;
+        this.bVg = list;
+        this.bVj = z;
+        this.bUZ = i;
         W(list);
     }
 
     public void W(List<m> list) {
-        if (list != null && list.size() >= this.bVi && list.size() <= this.bUX) {
-            this.bVg = true;
-        } else if (list.size() > this.bUX && this.bVh) {
-            this.bVg = true;
+        if (list != null && list.size() >= this.bVk && list.size() <= this.bUZ) {
+            this.bVi = true;
+        } else if (list.size() > this.bUZ && this.bVj) {
+            this.bVi = true;
         } else {
-            this.bVg = false;
+            this.bVi = false;
         }
-        this.bVf = afo();
+        this.bVh = afl();
     }
 
-    private List<m> afo() {
+    private List<m> afl() {
         ArrayList arrayList = new ArrayList();
-        if (this.bVe != null) {
-            if (this.bVg) {
-                if (this.bVe.size() > this.bUX && this.bVe.size() >= this.bVj) {
-                    arrayList.addAll(this.bVe.subList(0, this.bUX));
-                    arrayList.addAll(0, this.bVe.subList(this.bUX - this.bVj, this.bUX));
-                    arrayList.addAll(this.bVe.subList(0, this.bVj));
+        if (this.bVg != null) {
+            if (this.bVi) {
+                if (this.bVg.size() > this.bUZ && this.bVg.size() >= this.bVl) {
+                    arrayList.addAll(this.bVg.subList(0, this.bUZ));
+                    arrayList.addAll(0, this.bVg.subList(this.bUZ - this.bVl, this.bUZ));
+                    arrayList.addAll(this.bVg.subList(0, this.bVl));
                 } else {
-                    arrayList.addAll(this.bVe);
-                    arrayList.addAll(0, this.bVe.subList(this.bVe.size() - this.bVj, this.bVe.size()));
-                    arrayList.addAll(this.bVe.subList(0, this.bVj));
+                    arrayList.addAll(this.bVg);
+                    arrayList.addAll(0, this.bVg.subList(this.bVg.size() - this.bVl, this.bVg.size()));
+                    arrayList.addAll(this.bVg.subList(0, this.bVl));
                 }
-            } else if (this.bVe != null && this.bVe.size() > 0 && this.bVe.size() >= this.bVj) {
-                arrayList.addAll(this.bVe.subList(0, this.bVj));
+            } else if (this.bVg != null && this.bVg.size() > 0 && this.bVg.size() >= this.bVl) {
+                arrayList.addAll(this.bVg.subList(0, this.bVl));
             }
         }
         return arrayList;
     }
 
-    public int ip(int i) {
-        if (this.bVg) {
-            int size = this.bVf.size();
+    public int io(int i) {
+        if (this.bVi) {
+            int size = this.bVh.size();
             if (i == 0) {
-                return (size - 1) - this.bVj;
+                return (size - 1) - this.bVl;
             }
-            if (i == size - this.bVj) {
-                return this.bVj;
+            if (i == size - this.bVl) {
+                return this.bVl;
             }
             return i;
         }
         return i;
     }
 
-    public int iq(int i) {
-        if (this.bVg) {
-            return i - this.bVj;
+    public int ip(int i) {
+        if (this.bVi) {
+            return i - this.bVl;
         }
         return i;
     }
 
-    public int afp() {
-        if (this.bVe == null) {
+    public int afm() {
+        if (this.bVg == null) {
             return 0;
         }
-        return this.bVe.size();
+        return this.bVg.size();
     }
 
-    public int afq() {
-        if (this.bVg) {
-            return this.bVj;
+    public int afn() {
+        if (this.bVi) {
+            return this.bVl;
         }
         return 0;
     }
 
+    public void iq(int i) {
+        this.bUZ = i;
+        W(this.bVg);
+    }
+
     public void ir(int i) {
-        this.bUX = i;
-        W(this.bVe);
+        this.bVk = i;
+        W(this.bVg);
+    }
+
+    public List<m> afo() {
+        return this.bVh;
     }
 
     public void is(int i) {
-        this.bVi = i;
-        W(this.bVe);
-    }
-
-    public List<m> afr() {
-        return this.bVf;
-    }
-
-    public void it(int i) {
-        this.bVj = i;
-        W(this.bVe);
+        this.bVl = i;
+        W(this.bVg);
     }
 }

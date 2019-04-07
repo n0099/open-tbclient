@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.extcore.d;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean cu(int i) {
+    public static boolean ct(int i) {
         return i == 1;
     }
 

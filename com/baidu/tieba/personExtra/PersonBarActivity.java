@@ -5,81 +5,81 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private PersonBarAdapter hNM = null;
-    private PersonBarModel hNN = null;
+    private PersonBarAdapter hNy = null;
+    private PersonBarModel hNz = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.hMU && this.gqD != 23011) {
+        if (this.hMG && this.gqq != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.hNN = new PersonBarModel(getPageContext(), bvu());
-        this.hNN.setSex(getSex());
-        this.hNN.setId(getUid());
-        this.hNN.setUniqueId(getUniqueId());
+        this.hNz = new PersonBarModel(getPageContext(), bvr());
+        this.hNz.setSex(getSex());
+        this.hNz.setId(getUid());
+        this.hNz.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.hNM == null) {
-            this.hNM = new PersonBarAdapter(this, bvu());
+        if (this.hNy == null) {
+            this.hNy = new PersonBarAdapter(this, bvr());
         }
-        return this.hNM;
+        return this.hNy;
     }
 
-    public PersonBarModel bQY() {
-        return this.hNN;
+    public PersonBarModel bQU() {
+        return this.hNz;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQG() {
+    public String bQC() {
         return getPageContext().getString(d.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQH() {
+    public String bQD() {
         return getPageContext().getString(d.j.attention_bar);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQI() {
+    public String bQE() {
         return getPageContext().getString(d.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQJ() {
+    public String bQF() {
         return getPageContext().getString(d.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQK() {
+    public String bQG() {
         return getPageContext().getString(d.j.person_bar_common);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String bQO() {
+    public String bQK() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int bQP() {
+    public int bQL() {
         return 2;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        b bRi;
+        b bRe;
         super.onPageSelected(i);
-        if (this.hNM != null && this.hNM.getItem(i) != null && (baseFragment = (BaseFragment) this.hNM.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bRi = ((PersonBarFragment) baseFragment).bRi()) != null) {
-            bRi.fJ(false);
-            bRi.notifyDataSetChanged();
+        if (this.hNy != null && this.hNy.getItem(i) != null && (baseFragment = (BaseFragment) this.hNy.getItem(i)) != null && (baseFragment instanceof PersonBarFragment) && (bRe = ((PersonBarFragment) baseFragment).bRe()) != null) {
+            bRe.fJ(false);
+            bRe.notifyDataSetChanged();
         }
     }
 
     public int getRequestCode() {
-        return this.gqD;
+        return this.gqq;
     }
 }

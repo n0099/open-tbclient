@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, c<T, V>> bUI = new HashMap<>();
+    private HashMap<BdUniqueId, c<T, V>> bUK = new HashMap<>();
     private List<m> mListData = new ArrayList();
-    private List<View> bUJ = new ArrayList();
+    private List<View> bUL = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, c<T, V> cVar) {
         if (cVar != null && cVar.getType() != null) {
-            this.bUI.put(cVar.getType(), cVar);
+            this.bUK.put(cVar.getType(), cVar);
         }
     }
 
@@ -35,8 +35,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     public void onClick(View view) {
         c<T, V> cVar;
         a aS = aS(view);
-        if (aS != null && aS.afj() != null && aS.afj().getType() != null && (cVar = this.bUI.get(aS.afj().getType())) != null && cVar.afn() != null) {
-            cVar.afn().c(aS, aS.afj());
+        if (aS != null && aS.afg() != null && aS.afg().getType() != null && (cVar = this.bUK.get(aS.afg().getType())) != null && cVar.afk() != null) {
+            cVar.afk().c(aS, aS.afg());
         }
     }
 
@@ -44,8 +44,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.bUJ == null) {
-                this.bUJ = new ArrayList();
+            if (this.bUL == null) {
+                this.bUL = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
                     if (mVar != null) {
                         View a2 = a(mVar);
                         a2.setOnClickListener(this);
-                        this.bUJ.add(a2);
+                        this.bUL.add(a2);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     }
 
     private View a(m mVar) {
-        c<T, V> cVar = this.bUI.get(mVar.getType());
+        c<T, V> cVar = this.bUK.get(mVar.getType());
         if (cVar != null) {
             V m = cVar.m(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.bUJ.size() > 0 && i >= 0 && i < this.bUJ.size() && (view = this.bUJ.get(i)) != null) {
+        if (this.bUL.size() > 0 && i >= 0 && i < this.bUL.size() && (view = this.bUL.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View io = io(i);
-        if (io != null && io.getParent() != viewGroup) {
-            viewGroup.addView(io);
-            return io;
+        View in = in(i);
+        if (in != null && in.getParent() != viewGroup) {
+            viewGroup.addView(in);
+            return in;
         }
-        return io;
+        return in;
     }
 
-    public View io(int i) {
-        if (i >= this.bUJ.size() || i >= this.mListData.size()) {
+    public View in(int i) {
+        if (i >= this.bUL.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.bUJ.get(i);
+        View view = this.bUL.get(i);
         a aS = aS(view);
-        if (aS != null && aS.afj() == null) {
+        if (aS != null && aS.afg() == null) {
             a((a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,7 +142,7 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     private void a(a aVar, m mVar) {
         c<T, V> cVar;
-        if (aVar != null && mVar != null && (cVar = this.bUI.get(mVar.getType())) != null) {
+        if (aVar != null && mVar != null && (cVar = this.bUK.get(mVar.getType())) != null) {
             aVar.b(mVar);
             cVar.a(null, aVar, mVar);
         }
@@ -162,15 +162,15 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     public void destory() {
         c<T, V> cVar;
-        if (this.bUJ != null) {
-            for (View view : this.bUJ) {
+        if (this.bUL != null) {
+            for (View view : this.bUL) {
                 a aS = aS(view);
-                if (aS != null && aS.afj() != null && (cVar = this.bUI.get(aS.afj().getType())) != null) {
-                    cVar.b(aS, aS.afj());
+                if (aS != null && aS.afg() != null && (cVar = this.bUK.get(aS.afg().getType())) != null) {
+                    cVar.b(aS, aS.afg());
                 }
             }
-            this.bUJ.clear();
-            this.bUJ = null;
+            this.bUL.clear();
+            this.bUL = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
@@ -179,8 +179,8 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
 
     /* loaded from: classes.dex */
     public static class a {
-        public int bUK = 3;
-        private m bUL = null;
+        public int bUM = 3;
+        private m bUN = null;
         private View view;
 
         public a(View view) {
@@ -196,12 +196,12 @@ public class BdBaseViewPagerAdapter<T extends m, V extends a> extends PagerAdapt
             return this.view;
         }
 
-        public m afj() {
-            return this.bUL;
+        public m afg() {
+            return this.bUN;
         }
 
         public void b(m mVar) {
-            this.bUL = mVar;
+            this.bUN = mVar;
         }
     }
 }

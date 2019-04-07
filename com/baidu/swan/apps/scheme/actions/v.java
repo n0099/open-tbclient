@@ -8,7 +8,6 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class v extends y {
@@ -25,16 +24,16 @@ public class v extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
             return false;
         }
-        com.baidu.swan.apps.core.a.c.aoD = unitedSchemeEntity.getParam(ImageViewerConfig.ABTEST);
-        com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aoD);
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        com.baidu.swan.apps.core.a.c.aoH = unitedSchemeEntity.getParam(ImageViewerConfig.ABTEST);
+        com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aoH);
+        JSONObject c = c(unitedSchemeEntity, "params");
         int optInt = c == null ? 0 : c.optInt("delay", 0);
         if (optInt < 0) {
             optInt = 0;
         }
         if (DEBUG) {
             Log.d("PreloadSwanCoreAction", "delay: " + optInt);
-            Log.d("PreloadSwanCoreAction", "abtest: " + com.baidu.swan.apps.core.a.c.aoD);
+            Log.d("PreloadSwanCoreAction", "abtest: " + com.baidu.swan.apps.core.a.c.aoH);
         }
         com.baidu.swan.apps.an.aa.b(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.v.1
             @Override // java.lang.Runnable

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.aj.e;
 /* loaded from: classes2.dex */
 public class b {
-    private a aUq;
+    private a aUt;
 
     public void a(a aVar) {
-        this.aUq = aVar;
+        this.aUt = aVar;
     }
 
-    public void ef(int i) {
-        if (this.aUq != null) {
-            this.aUq.ee(i);
+    public void ee(int i) {
+        if (this.aUt != null) {
+            this.aUt.ed(i);
         }
     }
 }

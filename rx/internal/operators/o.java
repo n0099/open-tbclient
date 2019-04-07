@@ -5,15 +5,15 @@ import rx.g;
 import rx.h;
 /* loaded from: classes2.dex */
 public final class o<T> implements h.a<T> {
-    final h.a<T> jZe;
-    final long jZf;
+    final h.a<T> jYw;
+    final long jYx;
     final rx.g scheduler;
     final TimeUnit unit;
 
     public o(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.jZe = aVar;
+        this.jYw = aVar;
         this.scheduler = gVar;
-        this.jZf = j;
+        this.jYx = j;
         this.unit = timeUnit;
     }
 
@@ -22,10 +22,10 @@ public final class o<T> implements h.a<T> {
     /* renamed from: b */
     public void call(rx.i<? super T> iVar) {
         g.a createWorker = this.scheduler.createWorker();
-        a aVar = new a(iVar, createWorker, this.jZf, this.unit);
+        a aVar = new a(iVar, createWorker, this.jYx, this.unit);
         iVar.add(createWorker);
         iVar.add(aVar);
-        this.jZe.call(aVar);
+        this.jYw.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,28 +33,28 @@ public final class o<T> implements h.a<T> {
     public static final class a<T> extends rx.i<T> implements rx.functions.a {
         final rx.i<? super T> actual;
         Throwable error;
-        final long jZf;
-        final g.a jZg;
+        final long jYx;
+        final g.a jYy;
         final TimeUnit unit;
         T value;
 
         public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
             this.actual = iVar;
-            this.jZg = aVar;
-            this.jZf = j;
+            this.jYy = aVar;
+            this.jYx = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             this.value = t;
-            this.jZg.a(this, this.jZf, this.unit);
+            this.jYy.a(this, this.jYx, this.unit);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
             this.error = th;
-            this.jZg.a(this, this.jZf, this.unit);
+            this.jYy.a(this, this.jYx, this.unit);
         }
 
         @Override // rx.functions.a
@@ -70,7 +70,7 @@ public final class o<T> implements h.a<T> {
                     this.actual.onSuccess(t);
                 }
             } finally {
-                this.jZg.unsubscribe();
+                this.jYy.unsubscribe();
             }
         }
     }

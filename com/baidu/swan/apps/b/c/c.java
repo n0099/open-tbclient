@@ -24,23 +24,23 @@ public interface c<T extends d> extends l, e<T> {
 
     boolean b(com.baidu.swan.apps.scheme.actions.j.d dVar);
 
-    void bN(int i);
+    void bM(int i);
 
-    boolean bO(int i);
+    boolean bN(int i);
 
     boolean c(com.baidu.swan.apps.scheme.actions.j.d dVar);
 
-    com.baidu.swan.apps.canvas.c.g dj(String str);
+    com.baidu.swan.apps.canvas.c.g dl(String str);
 
-    boolean vV();
+    boolean vU();
 
-    PullToRefreshBaseWebView vW();
+    PullToRefreshBaseWebView vV();
 
-    f vX();
+    f vW();
 
-    boolean vY();
+    boolean vX();
 
-    void vZ();
+    void vY();
 
-    com.baidu.swan.apps.view.d.a wa();
+    com.baidu.swan.apps.view.d.a vZ();
 }
