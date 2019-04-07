@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements ae {
     private String avatar;
-    private int dgZ;
+    private int dhc;
     private String errorMsg;
-    private int eup;
+    private int eua;
     private int forumId;
     private String forumName;
-    private int ixH;
-    private int ixI;
-    private int ixJ;
-    private boolean ixK;
-    private boolean ixL;
-    private boolean ixM;
-    private boolean ixN;
-    private int ixO;
+    private int ixr;
+    private int ixs;
+    private int ixt;
+    private boolean ixu;
+    private boolean ixv;
+    private boolean ixw;
+    private boolean ixx;
+    private int ixy;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
+    public int cbU() {
+        return this.ixr;
+    }
+
+    public int cbV() {
+        return this.dhc;
+    }
+
+    public int cbW() {
+        return this.eua;
+    }
+
+    public int cbX() {
+        return this.ixs;
+    }
+
     public int cbY() {
-        return this.ixH;
+        return this.ixt;
     }
 
-    public int cbZ() {
-        return this.dgZ;
+    public void yW(int i) {
+        this.ixr = i;
     }
 
-    public int cca() {
-        return this.eup;
+    public void yX(int i) {
+        this.dhc = i;
     }
 
-    public int ccb() {
-        return this.ixI;
+    public void yY(int i) {
+        this.eua = i;
     }
 
-    public int ccc() {
-        return this.ixJ;
-    }
-
-    public void za(int i) {
-        this.ixH = i;
-    }
-
-    public void zb(int i) {
-        this.dgZ = i;
-    }
-
-    public void zc(int i) {
-        this.eup = i;
-    }
-
-    public boolean aCj() {
-        return this.ixK;
+    public boolean aCg() {
+        return this.ixu;
     }
 
     public void pJ(boolean z) {
-        this.ixK = z;
-        this.ixH = 1;
+        this.ixu = z;
+        this.ixr = 1;
     }
 
-    public boolean ccd() {
-        return this.ixM;
+    public boolean cbZ() {
+        return this.ixw;
     }
 
     public void pK(boolean z) {
-        this.ixM = z;
-        this.ixH = 0;
+        this.ixw = z;
+        this.ixr = 0;
     }
 
-    public boolean cce() {
-        return this.ixN;
+    public boolean cca() {
+        return this.ixx;
     }
 
     public void pL(boolean z) {
-        this.ixN = z;
+        this.ixx = z;
     }
 
-    public int ccf() {
-        return this.ixO;
+    public int ccb() {
+        return this.ixy;
     }
 
-    public void zd(int i) {
-        this.ixO = i;
+    public void yZ(int i) {
+        this.ixy = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean ccg() {
-        return this.ixL;
+    public boolean ccc() {
+        return this.ixv;
     }
 
     public void pM(boolean z) {
-        this.ixL = z;
+        this.ixv = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.ixH = jSONObject.optInt("is_sign_in");
-            this.dgZ = jSONObject.optInt("cont_sign_num");
-            this.eup = jSONObject.optInt("user_level");
-            this.ixI = jSONObject.optInt("user_exp");
-            this.ixJ = jSONObject.optInt("need_exp");
-            if (this.ixH != 0) {
-                this.ixK = true;
-                this.ixM = false;
+            this.ixr = jSONObject.optInt("is_sign_in");
+            this.dhc = jSONObject.optInt("cont_sign_num");
+            this.eua = jSONObject.optInt("user_level");
+            this.ixs = jSONObject.optInt("user_exp");
+            this.ixt = jSONObject.optInt("need_exp");
+            if (this.ixr != 0) {
+                this.ixu = true;
+                this.ixw = false;
             }
         }
     }

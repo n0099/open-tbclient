@@ -6,6 +6,10 @@ import org.json.JSONObject;
 public interface b {
     boolean D(String str, int i);
 
+    String De();
+
+    String Df();
+
     String Dg();
 
     String Dh();
@@ -20,11 +24,7 @@ public interface b {
 
     String Dm();
 
-    String Dn();
-
-    String Do();
-
-    CookieManager Dp();
+    CookieManager Dn();
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 

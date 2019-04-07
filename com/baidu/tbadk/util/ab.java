@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ab {
-    public static TextView ctK;
+    public static TextView ctM;
 
     public static int d(char c) {
         if (e(c)) {
@@ -22,7 +22,7 @@ public class ab {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int pM(String str) {
+    public static int pN(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -37,7 +37,7 @@ public class ab {
         return i;
     }
 
-    public static int pN(String str) {
+    public static int pO(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -48,13 +48,13 @@ public class ab {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += pM(substring);
+                i += pN(substring);
             }
         }
         return i;
     }
 
-    public static int pO(String str) {
+    public static int pP(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -74,7 +74,7 @@ public class ab {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pO(substring) > i) {
+            if (pP(substring) > i) {
                 break;
             }
             i2++;
@@ -87,7 +87,7 @@ public class ab {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (pM(str) > i) {
+        if (pN(str) > i) {
             return p(str, 0, i - 2) + "...";
         }
         return str;
@@ -159,7 +159,7 @@ public class ab {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pN(substring) > i) {
+            if (pO(substring) > i) {
                 break;
             }
             i2++;
@@ -170,10 +170,10 @@ public class ab {
 
     public static Pair<Integer, Integer> q(String str, int i, int i2) {
         try {
-            if (ctK == null) {
-                ctK = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (ctM == null) {
+                ctM = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = ctK;
+            TextView textView = ctM;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

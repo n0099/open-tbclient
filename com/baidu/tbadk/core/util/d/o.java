@@ -17,7 +17,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(nf(str), com.baidu.tbadk.imageManager.c.anp().pi(nf(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(ng(str), com.baidu.tbadk.imageManager.c.anm().pj(ng(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
@@ -38,9 +38,9 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.aO(i);
-            aVar.aP(i2);
-            com.baidu.tbadk.imageManager.c.anp().c(nf(str), aVar);
+            aVar.aN(i);
+            aVar.aO(i2);
+            com.baidu.tbadk.imageManager.c.anm().c(ng(str), aVar);
         }
     }
 
@@ -72,7 +72,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String nf(String str) {
+    public String ng(String str) {
         return "videoThumb_" + str;
     }
 }

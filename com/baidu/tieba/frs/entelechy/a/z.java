@@ -12,17 +12,17 @@ public interface z {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bg> bfA();
+    void bfA();
 
     int bfB();
 
-    void bfC();
+    int bfC();
 
-    int bfD();
+    void bfD();
 
-    int bfE();
+    HashMap<Integer, bg> bfy();
 
-    void bfF();
+    int bfz();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 

@@ -10,7 +10,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -28,13 +27,13 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mCallback = dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("cb");
+        this.mCallback = dm(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             c.i("ChooseAddress", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Jb().a((Activity) context, "mapp_choose_address", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.c.a.a.1
+        bVar.IZ().a((Activity) context, "mapp_choose_address", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.c.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.c.a
             /* renamed from: b */
@@ -51,7 +50,7 @@ public class a extends y {
         return true;
     }
 
-    private JSONObject dk(String str) {
+    private JSONObject dm(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }
@@ -67,14 +66,14 @@ public class a extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.u.a.CE().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.c.a.a.2
+        com.baidu.swan.apps.u.a.CC().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.c.a.a.2
             @Override // com.baidu.swan.apps.c.a.b
             public void w(JSONObject jSONObject) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), a.this.mCallback);
             }
 
             @Override // com.baidu.swan.apps.c.a.b
-            public void bP(int i) {
+            public void bO(int i) {
                 if (i == 1) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, "用户取消操作").toString(), a.this.mCallback);
                 } else {

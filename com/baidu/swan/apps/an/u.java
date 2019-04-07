@@ -21,23 +21,23 @@ public class u {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.aWA = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.aWD = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
         String c = com.baidu.swan.c.c.c(file, false);
         if (cVar != null) {
-            cVar.aWA = c;
+            cVar.aWD = c;
         }
         try {
-            String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), hC("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
+            String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), hD("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.aWB = str2;
+                cVar.aWE = str2;
             }
             return TextUtils.equals(str2, c);
         } catch (Exception e) {
             if (cVar != null) {
-                cVar.aWB = e.getLocalizedMessage();
+                cVar.aWE = e.getLocalizedMessage();
             }
             return false;
         }
@@ -49,7 +49,7 @@ public class u {
         return cipher.doFinal(bArr);
     }
 
-    private static PublicKey hC(String str) {
+    private static PublicKey hD(String str) {
         try {
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException e) {

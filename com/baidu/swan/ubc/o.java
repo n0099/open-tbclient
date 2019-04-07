@@ -12,7 +12,7 @@ public class o {
     private static final boolean DEBUG = e.DEBUG;
     private static final String TAG = o.class.getSimpleName();
 
-    public static void To() {
+    public static void Tm() {
         IPCServiceManager.addService("open_log", new IRemoteUBCService.Stub() { // from class: com.baidu.swan.ubc.OpenStatisticIPCManager$1
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {

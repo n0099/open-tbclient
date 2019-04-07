@@ -17,7 +17,7 @@ public class l {
     }
 
     public static boolean i(Uri uri) {
-        return uri != null && com.facebook.drawee.a.a.c.cuF().F(uri);
+        return uri != null && com.facebook.drawee.a.a.c.cuy().F(uri);
     }
 
     public static Bitmap b(Uri uri, Context context) {
@@ -28,25 +28,25 @@ public class l {
             if (DEBUG) {
                 Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
             }
-            return c(com.facebook.drawee.a.a.c.cuF().d(ImageRequest.M(uri), context.getApplicationContext()));
+            return c(com.facebook.drawee.a.a.c.cuy().d(ImageRequest.M(uri), context.getApplicationContext()));
         }
         if (DEBUG) {
             Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
         }
-        com.facebook.datasource.b<Boolean> G = com.facebook.drawee.a.a.c.cuF().G(uri);
-        if (G == null || !G.cuo() || G.getResult() == null || !G.getResult().booleanValue()) {
+        com.facebook.datasource.b<Boolean> G = com.facebook.drawee.a.a.c.cuy().G(uri);
+        if (G == null || !G.cuh() || G.getResult() == null || !G.getResult().booleanValue()) {
             return null;
         }
         try {
-            return c(com.facebook.drawee.a.a.c.cuF().e(ImageRequest.M(uri), context));
+            return c(com.facebook.drawee.a.a.c.cuy().e(ImageRequest.M(uri), context));
         } finally {
-            G.zf();
+            G.ze();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [123=4] */
     private static Bitmap c(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
-        Bitmap cyK;
+        Bitmap cyD;
         com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar = null;
         if (bVar == null) {
             return null;
@@ -56,10 +56,10 @@ public class l {
             if (result != null) {
                 try {
                     com.facebook.imagepipeline.f.b bVar2 = result.get();
-                    if (bVar2 != null && (bVar2 instanceof com.facebook.imagepipeline.f.a) && (cyK = ((com.facebook.imagepipeline.f.a) bVar2).cyK()) != null && !cyK.isRecycled()) {
+                    if (bVar2 != null && (bVar2 instanceof com.facebook.imagepipeline.f.a) && (cyD = ((com.facebook.imagepipeline.f.a) bVar2).cyD()) != null && !cyD.isRecycled()) {
                         try {
-                            Bitmap createBitmap = Bitmap.createBitmap(cyK);
-                            bVar.zf();
+                            Bitmap createBitmap = Bitmap.createBitmap(cyD);
+                            bVar.ze();
                             com.facebook.common.references.a.c(result);
                             return createBitmap;
                         } catch (OutOfMemoryError e) {
@@ -69,12 +69,12 @@ public class l {
                 } catch (Throwable th) {
                     aVar = result;
                     th = th;
-                    bVar.zf();
+                    bVar.ze();
                     com.facebook.common.references.a.c(aVar);
                     throw th;
                 }
             }
-            bVar.zf();
+            bVar.ze();
             com.facebook.common.references.a.c(result);
             return null;
         } catch (Throwable th2) {
@@ -107,7 +107,7 @@ public class l {
             if (DEBUG) {
                 Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
             }
-            com.facebook.drawee.a.a.c.cuF().f(ImageRequestBuilder.O(uri).cAI(), str);
+            com.facebook.drawee.a.a.c.cuy().f(ImageRequestBuilder.O(uri).cAB(), str);
         }
     }
 }

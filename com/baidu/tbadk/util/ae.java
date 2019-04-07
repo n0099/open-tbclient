@@ -66,7 +66,7 @@ public class ae {
         return str3;
     }
 
-    public static Bundle pQ(String str) {
+    public static Bundle pR(String str) {
         URL url;
         String query;
         String[] split;
@@ -96,17 +96,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String ctP;
+        public String ctR;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.ctP = "";
+            this.ctR = "";
             this.BDUSS = str;
-            this.ctP = str2;
+            this.ctR = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctP != null ? this.ctP.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctR != null ? this.ctR.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +122,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.ctP == null ? aVar.ctP == null : this.ctP.equals(aVar.ctP);
+                return this.ctR == null ? aVar.ctR == null : this.ctR.equals(aVar.ctR);
             }
             return false;
         }
@@ -146,7 +146,7 @@ public class ae {
         }
     }
 
-    public static String pR(String str) {
+    public static String pS(String str) {
         if (!ap.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {

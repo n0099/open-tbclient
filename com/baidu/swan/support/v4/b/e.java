@@ -8,9 +8,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class e<K, V> {
-    e<K, V>.b bos;
-    e<K, V>.c bot;
-    e<K, V>.C0214e bou;
+    e<K, V>.b bov;
+    e<K, V>.c bow;
+    e<K, V>.C0214e box;
 
     protected abstract void colClear();
 
@@ -546,23 +546,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.bos == null) {
-            this.bos = new b();
+        if (this.bov == null) {
+            this.bov = new b();
         }
-        return this.bos;
+        return this.bov;
     }
 
     public Set<K> getKeySet() {
-        if (this.bot == null) {
-            this.bot = new c();
+        if (this.bow == null) {
+            this.bow = new c();
         }
-        return this.bot;
+        return this.bow;
     }
 
     public Collection<V> getValues() {
-        if (this.bou == null) {
-            this.bou = new C0214e();
+        if (this.box == null) {
+            this.box = new C0214e();
         }
-        return this.bou;
+        return this.box;
     }
 }

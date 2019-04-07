@@ -13,10 +13,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aSf = "";
+    private static String aSi = "";
 
-    public static Flow gP(String str) {
-        return q.jS(str);
+    public static Flow gQ(String str) {
+        return q.jT(str);
     }
 
     public static void a(final Flow flow, final e eVar) {
@@ -53,7 +53,7 @@ public final class c {
             j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.ai(c.Kt());
+                    f.this.ai(c.Kr());
                     q.onEvent(str, f.this.toJSONObject());
                 }
             }, "SwanAppUBCOnEvent");
@@ -61,7 +61,7 @@ public final class c {
     }
 
     public static void f(String str, String str2, int i) {
-        if (!TextUtils.isEmpty(aSf) && TextUtils.equals(aSf, str2)) {
+        if (!TextUtils.isEmpty(aSi) && TextUtils.equals(aSi, str2)) {
             if (DEBUG) {
                 Log.d("SwanAppUBCStatistic", "onLaunchShow: not first start or different source");
                 return;
@@ -69,16 +69,16 @@ public final class c {
             return;
         }
         f fVar = new f();
-        fVar.mFrom = dC(i);
+        fVar.mFrom = dB(i);
         fVar.mAppId = str;
         fVar.mSource = str2;
         fVar.mType = "launchshow";
         onEvent(fVar);
-        aSf = str2;
+        aSi = str2;
     }
 
-    public static void Ks() {
-        aSf = "";
+    public static void Kq() {
+        aSi = "";
     }
 
     public static void f(boolean z, String str) {
@@ -86,7 +86,7 @@ public final class c {
         bVar.mType = "login";
         bVar.mValue = z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL;
         bVar.mAppId = str;
-        bVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axG;
+        bVar.mSource = com.baidu.swan.apps.ae.b.IV().uA().axJ;
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.4
             @Override // java.lang.Runnable
             public void run() {
@@ -100,8 +100,8 @@ public final class c {
         bVar.mType = "pay";
         bVar.mValue = z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL;
         bVar.mSource = str;
-        bVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
-        bVar.mFrom = dC(i);
+        bVar.mAppId = com.baidu.swan.apps.ae.b.Jg();
+        bVar.mFrom = dB(i);
         bVar.aB("money", str2);
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.5
             @Override // java.lang.Runnable
@@ -111,17 +111,17 @@ public final class c {
         }, "SwanAppUBCOnPay");
     }
 
-    public static void gQ(String str) {
+    public static void gR(String str) {
         int i = 0;
-        com.baidu.swan.apps.v.b.b uB = com.baidu.swan.apps.ae.b.IX().uB();
-        if (uB != null) {
-            i = uB.axX;
+        com.baidu.swan.apps.v.b.b uA = com.baidu.swan.apps.ae.b.IV().uA();
+        if (uA != null) {
+            i = uA.aya;
         }
         final com.baidu.swan.apps.statistic.a.b bVar = new com.baidu.swan.apps.statistic.a.b();
         bVar.mType = "pay";
         bVar.mSource = str;
-        bVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
-        bVar.mFrom = dC(i);
+        bVar.mAppId = com.baidu.swan.apps.ae.b.Jg();
+        bVar.mFrom = dB(i);
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.6
             @Override // java.lang.Runnable
             public void run() {
@@ -135,11 +135,11 @@ public final class c {
         fVar.mType = SmsLoginView.StatEvent.LOGIN_SHOW;
         fVar.mSource = str;
         fVar.mValue = z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL;
-        fVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
+        fVar.mAppId = com.baidu.swan.apps.ae.b.Jg();
         j.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.7
             @Override // java.lang.Runnable
             public void run() {
-                f.this.ai(c.Kt());
+                f.this.ai(c.Kr());
                 q.onEvent("778", f.this.toJSONObject());
             }
         }, "SwanAppUBCOnPagesRoute");
@@ -149,11 +149,11 @@ public final class c {
         if (i != 200) {
             final com.baidu.swan.apps.statistic.a.c cVar = new com.baidu.swan.apps.statistic.a.c(i, str, str2);
             cVar.mType = "request";
-            if (com.baidu.swan.apps.ae.b.IX() != null && com.baidu.swan.apps.ae.b.IX().uB() != null) {
-                cVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axG;
+            if (com.baidu.swan.apps.ae.b.IV() != null && com.baidu.swan.apps.ae.b.IV().uA() != null) {
+                cVar.mSource = com.baidu.swan.apps.ae.b.IV().uA().axJ;
             }
-            cVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
-            cVar.mFrom = dC(i2);
+            cVar.mAppId = com.baidu.swan.apps.ae.b.Jg();
+            cVar.mFrom = dB(i2);
             j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.8
                 @Override // java.lang.Runnable
                 public void run() {
@@ -163,7 +163,7 @@ public final class c {
         }
     }
 
-    public static String dC(int i) {
+    public static String dB(int i) {
         switch (i) {
             case 1:
                 return "swangame";
@@ -172,11 +172,11 @@ public final class c {
         }
     }
 
-    public static JSONObject Kt() {
-        com.baidu.swan.apps.v.b.b uB;
+    public static JSONObject Kr() {
+        com.baidu.swan.apps.v.b.b uA;
         JSONObject jSONObject;
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX == null || (uB = IX.uB()) == null || (jSONObject = uB.ayd) == null || !TextUtils.equals(jSONObject.optString("token"), "swanubc")) {
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        if (IV == null || (uA = IV.uA()) == null || (jSONObject = uA.ayg) == null || !TextUtils.equals(jSONObject.optString("token"), "swanubc")) {
             return null;
         }
         return jSONObject;
@@ -185,9 +185,9 @@ public final class c {
     public static void a(com.baidu.swan.apps.v.b.b bVar, String str) {
         if (bVar != null) {
             f fVar = new f();
-            fVar.mFrom = dC(bVar.axX);
+            fVar.mFrom = dB(bVar.aya);
             fVar.mAppId = bVar.mAppId;
-            fVar.mSource = bVar.axG;
+            fVar.mSource = bVar.axJ;
             fVar.mType = str;
             a("859", fVar);
         }
@@ -197,11 +197,11 @@ public final class c {
         final f fVar = new f();
         fVar.mType = str;
         fVar.mValue = str2;
-        fVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
-        if (com.baidu.swan.apps.ae.b.IX() != null && com.baidu.swan.apps.ae.b.IX().uB() != null) {
-            com.baidu.swan.apps.v.b.b uB = com.baidu.swan.apps.ae.b.IX().uB();
-            fVar.mSource = uB.axG;
-            fVar.mFrom = dC(uB.axX);
+        fVar.mAppId = com.baidu.swan.apps.ae.b.Jg();
+        if (com.baidu.swan.apps.ae.b.IV() != null && com.baidu.swan.apps.ae.b.IV().uA() != null) {
+            com.baidu.swan.apps.v.b.b uA = com.baidu.swan.apps.ae.b.IV().uA();
+            fVar.mSource = uA.axJ;
+            fVar.mFrom = dB(uA.aya);
         }
         if (TextUtils.equals("click", str)) {
             fVar.aB("authorize", z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL);

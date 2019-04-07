@@ -5,16 +5,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u extends com.baidu.tbadk.core.data.k {
     private long mStartTime = Long.MAX_VALUE;
-    private long aEp = 0;
-    private String bXv = null;
+    private long aEs = 0;
+    private String bXx = null;
 
     @Override // com.baidu.tbadk.core.data.k
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
-                this.aEp = jSONObject.optLong("end_time", 0L);
-                this.bXv = jSONObject.optString("dest_url", "");
+                this.aEs = jSONObject.optLong("end_time", 0L);
+                this.bXx = jSONObject.optString("dest_url", "");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -26,10 +26,10 @@ public class u extends com.baidu.tbadk.core.data.k {
     }
 
     public long getEndTime() {
-        return this.aEp;
+        return this.aEs;
     }
 
-    public String agz() {
-        return this.bXv;
+    public String agw() {
+        return this.bXx;
     }
 }

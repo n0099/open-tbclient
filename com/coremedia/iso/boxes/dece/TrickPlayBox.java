@@ -23,9 +23,9 @@ public class TrickPlayBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrickPlayBox.java", TrickPlayBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.lang.String"), 103);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "setEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "java.util.List", "entries", "", "void"), 32);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.util.List"), 36);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.dece.TrickPlayBox", "", "", "", "java.lang.String"), 103);
     }
 
     public TrickPlayBox() {

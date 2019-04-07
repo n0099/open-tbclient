@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean acb() {
+    public static boolean abY() {
         boolean z = true;
         if (com.baidu.tbadk.s.ae.jK()) {
             String trim = Build.MODEL.trim();
@@ -25,7 +25,7 @@ public class g {
         return false;
     }
 
-    public static boolean acc() {
+    public static boolean abZ() {
         return ap.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 }

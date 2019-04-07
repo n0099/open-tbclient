@@ -4,18 +4,23 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.swan.apps.b.b.c {
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean vb() {
+    public boolean va() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int vd() {
+    public int vc() {
         return 6;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int vc() {
+    public int vb() {
         return 10;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public int vd() {
+        return 3000;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -24,17 +29,12 @@ public class a implements com.baidu.swan.apps.b.b.c {
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public int vf() {
-        return 3000;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public boolean vg() {
+    public boolean vf() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean vh() {
+    public boolean vg() {
         return false;
     }
 
@@ -49,8 +49,13 @@ public class a implements com.baidu.swan.apps.b.b.c {
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public JSONObject vi() {
+    public JSONObject vh() {
         return new JSONObject();
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vi() {
+        return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -64,13 +69,13 @@ public class a implements com.baidu.swan.apps.b.b.c {
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean vl() {
-        return false;
+    public String vl() {
+        return "";
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public String vm() {
-        return "";
+    public boolean vm() {
+        return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
@@ -85,16 +90,11 @@ public class a implements com.baidu.swan.apps.b.b.c {
 
     @Override // com.baidu.swan.apps.b.b.c
     public boolean vp() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.c
-    public boolean vq() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.b.c
-    public boolean vr() {
+    public boolean vq() {
         return true;
     }
 }

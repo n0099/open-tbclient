@@ -332,7 +332,7 @@ public class g {
             aVar.kg();
             if (!aVar.kn()) {
                 dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                dVar.Y(3);
+                dVar.X(3);
             }
             if (!com.baidu.adp.lib.Disk.d.hz().c(dVar)) {
             }

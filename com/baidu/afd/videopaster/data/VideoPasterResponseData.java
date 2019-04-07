@@ -32,12 +32,12 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 parserJson(jSONObject);
                 return;
             } catch (ParseError e) {
-                this.pasterData.bl(3);
+                this.pasterData.bk(3);
                 e.printStackTrace();
                 return;
             }
         }
-        this.pasterData.bl(3);
+        this.pasterData.bk(3);
     }
 
     private void parserJson(JSONObject jSONObject) throws ParseError {
@@ -83,7 +83,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         }
         if (optJSONObject3.optInt("advisible", 1) == 0) {
             this.type = 2;
-            this.pasterData.bl(this.type);
+            this.pasterData.bk(this.type);
             return;
         }
         JSONArray optJSONArray4 = optJSONObject3.optJSONArray("material");
@@ -112,7 +112,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         String optString = optJSONObject.optString("adType");
         if (!TextUtils.isEmpty(optString) && optString.equals("3")) {
             this.type = 2;
-            this.pasterData.bl(this.type);
+            this.pasterData.bk(this.type);
             return;
         }
         String optString2 = optJSONObject.optString("tplName");
@@ -152,12 +152,12 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             this.pasterData.Uc = true;
             this.pasterData.Ud = 10;
             this.pasterData.Ue = 2;
-            this.pasterData.bl(3);
+            this.pasterData.bk(3);
         } else if (TextUtils.isEmpty(optString5)) {
             this.pasterData.Uc = true;
             this.pasterData.Ud = 10;
             this.pasterData.Ue = 1;
-            this.pasterData.bl(3);
+            this.pasterData.bk(3);
         } else {
             JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
             if (this.type == 0) {
@@ -210,7 +210,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 this.pasterData.Ue = 24;
             }
             this.pasterData.adid = optString3;
-            this.pasterData.bl(this.type);
+            this.pasterData.bk(this.type);
             this.pasterData.tplName = optString2;
             this.pasterData.TX = i2;
             this.pasterData.TW = optString5;

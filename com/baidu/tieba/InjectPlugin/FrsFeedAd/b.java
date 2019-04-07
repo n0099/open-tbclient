@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cHx = new SparseArray<>();
-    private Object cHy;
-    private int cHz;
+    private static SparseArray<BdUniqueId> cHz = new SparseArray<>();
+    private Object cHA;
+    private int cHB;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cHx.get(this.cHz);
+        return cHz.get(this.cHB);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aug() {
-        return this.cHy;
+    public Object aud() {
+        return this.cHA;
     }
 
-    public void aj(Object obj) {
-        this.cHy = obj;
+    public void ah(Object obj) {
+        this.cHA = obj;
     }
 
-    public int auh() {
-        return this.cHz;
+    public int aue() {
+        return this.cHB;
     }
 
-    public void li(int i) {
-        this.cHz = i;
+    public void lh(int i) {
+        this.cHB = i;
     }
 
     public static void ak(List<Integer> list) {
-        if (cHx.size() <= 0 && list != null) {
+        if (cHz.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cHx.put(num.intValue(), BdUniqueId.gen());
+                cHz.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aui() {
+    public static List<BdUniqueId> auf() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cHx.size(); i++) {
-            arrayList.add(cHx.valueAt(i));
+        for (int i = 0; i < cHz.size(); i++) {
+            arrayList.add(cHz.valueAt(i));
         }
         return arrayList;
     }
 
     public static int j(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cHx.size() == 0 || (indexOfValue = cHx.indexOfValue(bdUniqueId)) == -1 || cHx.size() <= indexOfValue) {
+        if (cHz.size() == 0 || (indexOfValue = cHz.indexOfValue(bdUniqueId)) == -1 || cHz.size() <= indexOfValue) {
             return -1;
         }
-        return cHx.keyAt(indexOfValue);
+        return cHz.keyAt(indexOfValue);
     }
 }

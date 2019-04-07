@@ -24,27 +24,27 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         ((Button) findViewById(d.g.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.bHl().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                c.bHi().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void d(boolean z, boolean z2, String str) {
-                        b.bHe().s(z2, str);
+                        b.bHb().s(z2, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void q(boolean z, String str) {
-                        b.bHe().s(z, str);
+                        b.bHb().s(z, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onUnavailable() {
-                        b.bHe().s(false, null);
+                        b.bHb().s(false, null);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onFail() {
-                        b.bHe().s(false, null);
+                        b.bHb().s(false, null);
                     }
                 });
             }
@@ -55,7 +55,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ba.adD().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+                ba.adA().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
             }
         });
     }
@@ -68,7 +68,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finishActivity(boolean z) {
         super.finish();
         if (!z) {
-            b.bHe().a((AuthVerifyData.c) null);
+            b.bHb().a((AuthVerifyData.c) null);
         }
     }
 }

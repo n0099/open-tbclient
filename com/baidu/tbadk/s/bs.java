@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001310));
     }
 

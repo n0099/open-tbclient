@@ -58,9 +58,9 @@ public class a extends y {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.aj.a.a Lb = com.baidu.swan.apps.aj.a.a.Lb();
-            Lb.m(context, C0111a.hj(optParamsAsJo.optString("interval")));
-            Lb.a(new a.InterfaceC0110a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+            com.baidu.swan.apps.aj.a.a KZ = com.baidu.swan.apps.aj.a.a.KZ();
+            KZ.m(context, C0111a.hk(optParamsAsJo.optString("interval")));
+            KZ.a(new a.InterfaceC0110a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
                 @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0110a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
@@ -75,7 +75,7 @@ public class a extends y {
                     }
                 }
             });
-            Lb.Lc();
+            KZ.La();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -98,16 +98,16 @@ public class a extends y {
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0111a {
-        private static ArrayMap<String, Integer> aTG = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> aTJ = new ArrayMap<>(3);
 
         static {
-            aTG.put("ui", 60);
-            aTG.put("game", 20);
-            aTG.put("normal", 200);
+            aTJ.put("ui", 60);
+            aTJ.put("game", 20);
+            aTJ.put("normal", 200);
         }
 
-        public static int hj(String str) {
-            Integer num = aTG.get(str);
+        public static int hk(String str) {
+            Integer num = aTJ.get(str);
             if (num != null) {
                 return num.intValue();
             }

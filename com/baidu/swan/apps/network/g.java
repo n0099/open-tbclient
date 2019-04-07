@@ -32,7 +32,7 @@ public class g extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        bVar.Jd().c(callbackHandler, optString);
+        bVar.Jb().c(callbackHandler, optString);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
         return true;
     }

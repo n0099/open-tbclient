@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b implements m {
-    public static final BdUniqueId fnJ = BdUniqueId.gen();
+    public static final BdUniqueId fnv = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String fnK;
-    public int fnL;
-    public boolean fnM;
+    public String fnw;
+    public int fnx;
+    public boolean fny;
     public String forumId;
     public String id;
     public String portrait;
@@ -26,10 +26,10 @@ public class b implements m {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString("score");
             this.createTime = jSONObject.optString("create_time");
-            this.fnK = jSONObject.optString("time_passed");
+            this.fnw = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.fnL = jSONObject.optInt("zan_num");
-            this.fnM = jSONObject.optInt("is_zan", 0) == 1;
+            this.fnx = jSONObject.optInt("zan_num");
+            this.fny = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
         }
@@ -37,6 +37,6 @@ public class b implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fnJ;
+        return fnv;
     }
 }

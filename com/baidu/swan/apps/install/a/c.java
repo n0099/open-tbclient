@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes2.dex */
 public class c extends HandlerThread {
-    private CountDownLatch axj;
-    private File axk;
+    private CountDownLatch axm;
+    private File axn;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -25,18 +25,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.axk = file;
-        this.axj = countDownLatch;
+        this.axn = file;
+        this.axm = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler Cx() {
+    public Handler Cv() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.install.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.axk + aVar.path);
+                    File file = new File(c.this.axn + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -49,8 +49,8 @@ public class c extends HandlerThread {
                         e.printStackTrace();
                     }
                 } else if (message.what == 200) {
-                    if (c.this.axj != null) {
-                        c.this.axj.countDown();
+                    if (c.this.axm != null) {
+                        c.this.axm.countDown();
                     }
                     c.this.quit();
                 }

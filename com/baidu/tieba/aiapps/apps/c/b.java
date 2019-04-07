@@ -12,8 +12,8 @@ public class b extends com.baidu.swan.apps.u.b.a {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vw() {
-        return a.vw();
+    public String vv() {
+        return a.vv();
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -22,23 +22,23 @@ public class b extends com.baidu.swan.apps.u.b.a {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public boolean vx() {
+    public boolean vw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
+    public String vx() {
+        return d.rx(String.format("%s/ma/reset", d.getHost()));
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
     public String vy() {
-        return d.rw(String.format("%s/ma/reset", d.getHost()));
+        return d.rx(String.format("%s/ma/update", d.getHost()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vz() {
-        return d.rw(String.format("%s/ma/update", d.getHost()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vD() {
-        return a.vD();
+    public String vC() {
+        return a.vC();
     }
 
     private Request j(String str, Map<String, String> map) {
@@ -47,12 +47,12 @@ public class b extends com.baidu.swan.apps.u.b.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azJ().cVT.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azG().cVV.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         Request.Builder builder = new Request.Builder();
-        builder.url(d.rw(build.toString()));
+        builder.url(d.rx(build.toString()));
         builder.post(com.baidu.swan.apps.setting.oauth.c.n(map));
         return builder.build();
     }
@@ -88,17 +88,17 @@ public class b extends com.baidu.swan.apps.u.b.a {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vF() {
-        return a.vF();
+    public String vE() {
+        return a.vE();
     }
 
     @Override // com.baidu.swan.apps.u.b.a, com.baidu.swan.apps.b.b.f
-    public String vO() {
+    public String vN() {
         return String.format("%s/api/subscribe/v1/relation/get", d.getHost());
     }
 
     @Override // com.baidu.swan.apps.u.b.a, com.baidu.swan.apps.b.b.f
-    public String vP() {
+    public String vO() {
         return String.format("%s/api/subscribe/v1/relation/receive", d.getHost());
     }
 }

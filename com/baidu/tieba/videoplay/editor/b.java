@@ -24,46 +24,46 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void a(com.baidu.tbadk.editortools.d dVar) {
         if (dVar != null) {
-            EditorTools alS = dVar.alS();
+            EditorTools alP = dVar.alP();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            alS.ab(arrayList);
-            k jw = alS.jw(5);
-            if (jw != null) {
-                jw.eK(false);
-                jw.cji = 0;
+            alP.ab(arrayList);
+            k jv = alP.jv(5);
+            if (jv != null) {
+                jv.eK(false);
+                jv.cjk = 0;
             }
-            alS.b(new c(alS.getContext()));
-            alS.alT();
-            alS.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            alS.hide();
+            alP.b(new c(alP.getContext()));
+            alP.alQ();
+            alP.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            alP.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.d dVar) {
         if (dVar instanceof a) {
-            EditorTools alS = dVar.alS();
+            EditorTools alP = dVar.alP();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.alS() != null && aVar2 != null) {
+                    if (aVar != null && aVar.alP() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.oS((String) aVar2.data);
+                                aVar.oT((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.agj().showToast(d.j.over_limit_tip);
+                                aVar.agg().showToast(d.j.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cmO();
-                                if (b.this.a(aVar.agj(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
-                                    aVar.amL();
+                                aVar.cmM();
+                                if (b.this.a(aVar.agg(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
+                                    aVar.amI();
                                     return;
                                 }
                                 return;
@@ -71,9 +71,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            alS.setActionListener(4, bVar);
-            alS.setActionListener(7, bVar);
-            alS.setActionListener(8, bVar);
+            alP.setActionListener(4, bVar);
+            alP.setActionListener(7, bVar);
+            alP.setActionListener(8, bVar);
         }
     }
 

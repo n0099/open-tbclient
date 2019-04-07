@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class n {
-    public static boolean bIC = false;
+    public static boolean bIE = false;
 }

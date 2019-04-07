@@ -49,28 +49,28 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackFragmentHeaderBox.java", TrackFragmentHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "hasBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 126);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "hasSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 130);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 166);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "isDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 170);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "isDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 174);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "trackId", "", "void"), 178);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "baseDataOffset", "", "void"), 182);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "sampleDescriptionIndex", "", "void"), 191);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleDuration", "", "void"), 200);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleSize", "", "void"), 205);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 210);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "durationIsEmpty", "", "void"), 215);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "hasDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 134);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "setDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "defaultBaseIsMoof", "", "void"), 220);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "java.lang.String"), 226);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "hasDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 138);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "hasDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 142);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 146);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 154);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 158);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BDLocation.TypeServerDecryptError);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "hasBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 126);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "hasSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 130);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 166);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "isDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 170);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "isDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 174);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "trackId", "", "void"), 178);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "setBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "baseDataOffset", "", "void"), 182);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "sampleDescriptionIndex", "", "void"), 191);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleDuration", "", "void"), 200);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "long", "defaultSampleSize", "", "void"), 205);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "setDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "defaultSampleFlags", "", "void"), 210);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "setDurationIsEmpty", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "durationIsEmpty", "", "void"), 215);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "hasDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 134);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.c("1", "setDefaultBaseIsMoof", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "boolean", "defaultBaseIsMoof", "", "void"), 220);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "java.lang.String"), 226);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "hasDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 138);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "hasDefaultSampleFlags", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "boolean"), 142);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getTrackId", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 146);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getBaseDataOffset", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "getSampleDescriptionIndex", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 154);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleDuration", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), 158);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "getDefaultSampleSize", "com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox", "", "", "", "long"), BDLocation.TypeServerDecryptError);
     }
 
     public TrackFragmentHeaderBox() {
@@ -213,12 +213,12 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.ei(j)));
         this.trackId = j;
     }
 
     public void setBaseDataOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ei(j)));
         if (j == -1) {
             setFlags(getFlags() & 2147483646);
         } else {
@@ -228,7 +228,7 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setSampleDescriptionIndex(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.ei(j)));
         if (j == -1) {
             setFlags(getFlags() & 2147483645);
         } else {
@@ -238,13 +238,13 @@ public class TrackFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setDefaultSampleDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.ei(j)));
         setFlags(getFlags() | 8);
         this.defaultSampleDuration = j;
     }
 
     public void setDefaultSampleSize(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.ei(j)));
         setFlags(getFlags() | 16);
         this.defaultSampleSize = j;
     }

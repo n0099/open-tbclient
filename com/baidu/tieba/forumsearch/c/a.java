@@ -12,23 +12,23 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private final TextView dau;
-    private final ImageView eXG;
+    private final TextView dax;
+    private final ImageView eXs;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eXG = (ImageView) getView().findViewById(d.g.history_delete);
-        this.dau = (TextView) getView().findViewById(d.g.history_title);
-        this.eXG.setOnClickListener(this);
+        this.eXs = (ImageView) getView().findViewById(d.g.history_delete);
+        this.dax = (TextView) getView().findViewById(d.g.history_title);
+        this.eXs.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(this.eXG, d.f.icon_search_history_del);
-            al.j(this.dau, d.C0277d.cp_cont_e);
+            al.k(this.eXs, d.f.icon_search_history_del);
+            al.j(this.dax, d.C0277d.cp_cont_e);
             this.mSkinType = i;
         }
     }
@@ -45,14 +45,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eXG) {
+        if (view == this.eXs) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            aVar.gC(d.j.confirm_delete_all_history);
+            aVar.gB(d.j.confirm_delete_all_history);
             aVar.dr(true);
             aVar.a(d.j.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    e.bby();
+                    e.bbw();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
                     aVar2.dismiss();
                 }
@@ -64,7 +64,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                 }
             });
             aVar.b(this.mTbPageContext);
-            aVar.aaZ();
+            aVar.aaW();
         }
     }
 }

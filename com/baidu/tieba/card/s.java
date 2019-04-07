@@ -16,59 +16,59 @@ import com.baidu.tieba.card.data.o;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class s extends a<o> {
-    private View eiI;
-    private String eiK;
-    private HeadImageView ejJ;
-    private TextView ejK;
-    private TextView ejL;
-    private TbImageView ejM;
-    private TextView ejN;
-    private o ejO;
-    private int ejP;
-    private String ejQ;
-    private String ejR;
+    private View eiu;
+    private String eiw;
+    private o ejA;
+    private int ejB;
+    private String ejC;
+    private String ejD;
+    private HeadImageView ejv;
+    private TextView ejw;
+    private TextView ejx;
+    private TbImageView ejy;
+    private TextView ejz;
     private View mRootView;
 
     public s(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.ejP = tbPageContext.getResources().getDimensionPixelSize(d.e.ds70);
+        this.ejB = tbPageContext.getResources().getDimensionPixelSize(d.e.ds70);
         init(getView());
     }
 
     public void Q(String str, String str2, String str3) {
-        this.eiK = str;
-        this.ejQ = str2;
-        this.ejR = str3;
+        this.eiw = str;
+        this.ejC = str2;
+        this.ejD = str3;
     }
 
     private void init(View view) {
         this.mRootView = view.findViewById(d.g.root_view);
-        this.ejJ = (HeadImageView) view.findViewById(d.g.promotion_head_img);
-        this.ejK = (TextView) view.findViewById(d.g.promotion_name);
-        this.ejL = (TextView) view.findViewById(d.g.promotion_desc);
-        this.ejM = (TbImageView) view.findViewById(d.g.promotion_img);
-        this.ejN = (TextView) view.findViewById(d.g.promotion_icon);
-        this.eiI = view.findViewById(d.g.top_line);
-        this.ejJ.setOnClickListener(this);
-        this.ejK.setOnClickListener(this);
-        this.ejN.setOnClickListener(this);
+        this.ejv = (HeadImageView) view.findViewById(d.g.promotion_head_img);
+        this.ejw = (TextView) view.findViewById(d.g.promotion_name);
+        this.ejx = (TextView) view.findViewById(d.g.promotion_desc);
+        this.ejy = (TbImageView) view.findViewById(d.g.promotion_img);
+        this.ejz = (TextView) view.findViewById(d.g.promotion_icon);
+        this.eiu = view.findViewById(d.g.top_line);
+        this.ejv.setOnClickListener(this);
+        this.ejw.setOnClickListener(this);
+        this.ejz.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.ejJ.setDefaultResource(17170445);
-        this.ejJ.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.ejJ.setRadius(this.ejP);
-        this.ejM.setDrawBorder(true);
-        this.ejM.setBorderWidth(1);
-        this.ejM.setDefaultBgResource(com.baidu.tbadk.util.e.get());
+        this.ejv.setDefaultResource(17170445);
+        this.ejv.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.ejv.setRadius(this.ejB);
+        this.ejy.setDrawBorder(true);
+        this.ejy.setBorderWidth(1);
+        this.ejy.setDefaultBgResource(com.baidu.tbadk.util.e.get());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.ejJ || view == this.ejK || view == this.ejN) && !StringUtils.isNull(this.ejO.ems)) {
-            TiebaStatic.log(new am(this.ejQ).bJ(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.ejO.emq)));
-            ba.adD().c(getTbPageContext(), new String[]{this.ejO.ems});
-        } else if ((view == this.mRootView || view == this.ejL || view == this.ejM) && !StringUtils.isNull(this.ejO.emv)) {
-            TiebaStatic.log(new am(this.ejR).bJ(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.ejO.emq)));
-            ba.adD().c(getTbPageContext(), new String[]{this.ejO.emv});
+        if ((view == this.ejv || view == this.ejw || view == this.ejz) && !StringUtils.isNull(this.ejA.eme)) {
+            TiebaStatic.log(new am(this.ejC).bJ(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.ejA.emc)));
+            ba.adA().c(getTbPageContext(), new String[]{this.ejA.eme});
+        } else if ((view == this.mRootView || view == this.ejx || view == this.ejy) && !StringUtils.isNull(this.ejA.emh)) {
+            TiebaStatic.log(new am(this.ejD).bJ(VideoPlayActivityConfig.OBJ_ID, String.valueOf(this.ejA.emc)));
+            ba.adA().c(getTbPageContext(), new String[]{this.ejA.emh});
         }
     }
 
@@ -76,13 +76,13 @@ public class s extends a<o> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.k(this.mRootView, d.f.addresslist_item_bg);
-            al.k(this.ejN, d.f.label_bg_gray);
-            al.k(this.eiI, d.C0277d.cp_bg_line_b);
-            al.d(this.ejK, d.C0277d.cp_cont_b, 1);
-            al.d(this.ejN, d.C0277d.cp_cont_d, 1);
-            al.d(this.ejL, d.C0277d.cp_cont_b, 1);
-            this.ejJ.setDefaultBgResource(com.baidu.tbadk.util.e.get());
-            this.ejM.setDefaultBgResource(com.baidu.tbadk.util.e.get());
+            al.k(this.ejz, d.f.label_bg_gray);
+            al.k(this.eiu, d.C0277d.cp_bg_line_b);
+            al.d(this.ejw, d.C0277d.cp_cont_b, 1);
+            al.d(this.ejz, d.C0277d.cp_cont_d, 1);
+            al.d(this.ejx, d.C0277d.cp_cont_b, 1);
+            this.ejv.setDefaultBgResource(com.baidu.tbadk.util.e.get());
+            this.ejy.setDefaultBgResource(com.baidu.tbadk.util.e.get());
         }
         this.mSkinType = i;
     }
@@ -102,21 +102,21 @@ public class s extends a<o> {
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        this.ejO = oVar;
-        this.ejJ.startLoad(oVar.emr, 10, false);
-        this.ejK.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
-        if (StringUtils.isNull(oVar.emx)) {
-            this.ejN.setVisibility(8);
+        this.ejA = oVar;
+        this.ejv.startLoad(oVar.emd, 10, false);
+        this.ejw.setText(UtilHelper.getFixedText(oVar.userName, 7, true));
+        if (StringUtils.isNull(oVar.emj)) {
+            this.ejz.setVisibility(8);
         } else {
-            this.ejN.setVisibility(0);
-            this.ejN.setText(oVar.emx);
+            this.ejz.setVisibility(0);
+            this.ejz.setText(oVar.emj);
         }
-        this.ejL.setText(oVar.emt);
-        if (com.baidu.tbadk.core.i.Wy().WC()) {
-            this.ejM.setVisibility(0);
-            this.ejM.startLoad(oVar.emu, 10, false);
+        this.ejx.setText(oVar.emf);
+        if (com.baidu.tbadk.core.i.Wv().Wz()) {
+            this.ejy.setVisibility(0);
+            this.ejy.startLoad(oVar.emg, 10, false);
             return;
         }
-        this.ejM.setVisibility(8);
+        this.ejy.setVisibility(8);
     }
 }

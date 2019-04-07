@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class ShareGridLayout extends ViewGroup {
-    public static final int iTE = l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
-    private int bIj;
-    private int czH;
-    private int iTF;
+    public static final int iTs = l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
+    private int bIl;
+    private int czJ;
+    private int iTt;
     private Context mContext;
     private int mItemHeight;
 
@@ -32,53 +32,53 @@ public class ShareGridLayout extends ViewGroup {
     }
 
     public void setItemParams(int i, int i2) {
-        this.bIj = i;
+        this.bIl = i;
         this.mItemHeight = i2;
         requestLayout();
     }
 
     private void init(Context context) {
         this.mContext = context;
-        cs(0, l.aO(this.mContext) - (iTE * 2));
+        cs(0, l.aO(this.mContext) - (iTs * 2));
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.bIj, Integer.MIN_VALUE);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.bIl, Integer.MIN_VALUE);
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.mItemHeight, Integer.MIN_VALUE);
         int childCount = getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).measure(makeMeasureSpec, makeMeasureSpec2);
         }
-        if (childCount <= this.iTF) {
-            setMeasuredDimension(resolveSize((this.bIj * this.iTF) + (this.czH * 2 * this.iTF), i), resolveSize(this.mItemHeight, i2));
+        if (childCount <= this.iTt) {
+            setMeasuredDimension(resolveSize((this.bIl * this.iTt) + (this.czJ * 2 * this.iTt), i), resolveSize(this.mItemHeight, i2));
             return;
         }
-        int i4 = childCount / this.iTF;
-        if (childCount % this.iTF > 0) {
+        int i4 = childCount / this.iTt;
+        if (childCount % this.iTt > 0) {
             i4++;
         }
-        setMeasuredDimension(resolveSize((this.bIj * this.iTF) + (this.czH * 2 * this.iTF), i), resolveSize(i4 * this.mItemHeight, i2));
+        setMeasuredDimension(resolveSize((this.bIl * this.iTt) + (this.czJ * 2 * this.iTt), i), resolveSize(i4 * this.mItemHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         cs(i, i3);
-        int i5 = this.czH;
+        int i5 = this.czJ;
         int childCount = getChildCount();
         int i6 = 0;
         int i7 = 0;
         int i8 = i5;
         int i9 = 0;
         while (i6 < childCount) {
-            getChildAt(i6).layout(i8, i9, this.bIj + i8, this.mItemHeight + i9);
+            getChildAt(i6).layout(i8, i9, this.bIl + i8, this.mItemHeight + i9);
             i7++;
-            int i10 = this.bIj + i8 + (this.czH * 2);
-            if (i7 >= this.iTF) {
-                i10 = this.czH;
+            int i10 = this.bIl + i8 + (this.czJ * 2);
+            if (i7 >= this.iTt) {
+                i10 = this.czJ;
                 i7 = 0;
             }
-            int i11 = ((i6 + 1) / this.iTF) * this.mItemHeight;
+            int i11 = ((i6 + 1) / this.iTt) * this.mItemHeight;
             i6++;
             i8 = i10;
             i9 = i11;
@@ -87,21 +87,21 @@ public class ShareGridLayout extends ViewGroup {
 
     private void cs(int i, int i2) {
         int i3 = i2 - i;
-        if (l.aO(TbadkCoreApplication.getInst()) > 800 && this.bIj * 5 <= i3) {
-            this.iTF = 5;
+        if (l.aO(TbadkCoreApplication.getInst()) > 800 && this.bIl * 5 <= i3) {
+            this.iTt = 5;
         } else {
-            this.iTF = 4;
+            this.iTt = 4;
         }
-        double d = i3 - (this.bIj * this.iTF);
+        double d = i3 - (this.bIl * this.iTt);
         if (d > 0.0d) {
-            if (this.iTF == 5) {
-                this.czH = (int) Math.floor(d / 10.0d);
+            if (this.iTt == 5) {
+                this.czJ = (int) Math.floor(d / 10.0d);
                 return;
             } else {
-                this.czH = (int) Math.floor(d / 8.0d);
+                this.czJ = (int) Math.floor(d / 8.0d);
                 return;
             }
         }
-        this.czH = 0;
+        this.czJ = 0;
     }
 }

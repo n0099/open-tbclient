@@ -12,8 +12,8 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class EditAddressView extends LinearLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private ListView cSG;
-    private com.baidu.tieba.aiapps.apps.address.a.b cSH;
+    private ListView cSI;
+    private com.baidu.tieba.aiapps.apps.address.a.b cSJ;
 
     public EditAddressView(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         super(context);
@@ -22,40 +22,40 @@ public class EditAddressView extends LinearLayout {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         setBackgroundColor(0);
-        this.cSG = new ListView(context);
-        this.cSG.setDividerHeight(0);
-        fR(com.baidu.swan.apps.u.a.CT().Ds());
-        this.cSH = new com.baidu.tieba.aiapps.apps.address.a.b(context);
+        this.cSI = new ListView(context);
+        this.cSI.setDividerHeight(0);
+        fR(com.baidu.swan.apps.u.a.CR().Dq());
+        this.cSJ = new com.baidu.tieba.aiapps.apps.address.a.b(context);
         g(bVar);
-        this.cSG.setAdapter((ListAdapter) this.cSH);
-        addView(this.cSG, new LinearLayout.LayoutParams(-1, -1));
+        this.cSI.setAdapter((ListAdapter) this.cSJ);
+        addView(this.cSI, new LinearLayout.LayoutParams(-1, -1));
     }
 
     public void fR(boolean z) {
         if (z) {
-            this.cSG.setBackgroundColor(Color.parseColor("#161616"));
+            this.cSI.setBackgroundColor(Color.parseColor("#161616"));
         } else {
-            this.cSG.setBackgroundColor(Color.parseColor("#0D000000"));
+            this.cSI.setBackgroundColor(Color.parseColor("#0D000000"));
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.cSH.getDeliveryEditData();
+        return this.cSJ.getDeliveryEditData();
     }
 
     public com.baidu.tieba.aiapps.apps.address.a.b getEditAdapter() {
-        return this.cSH;
+        return this.cSJ;
     }
 
     public void g(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         if (bVar != null) {
-            this.cSH.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
-            this.cSH.p(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
-            this.cSH.q(new HashMap(4));
+            this.cSJ.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
+            this.cSJ.p(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
+            this.cSJ.q(new HashMap(4));
         }
     }
 
     public void setDeliveryEditChangedListener(b.a aVar) {
-        this.cSH.setDeliveryEditChangedListener(aVar);
+        this.cSJ.setDeliveryEditChangedListener(aVar);
     }
 }

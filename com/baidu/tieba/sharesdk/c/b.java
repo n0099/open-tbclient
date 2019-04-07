@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle ajS = shareEntity.ajS();
-        if (ajS != null) {
-            int i3 = ajS.getInt("obj_param1");
+        Bundle ajP = shareEntity.ajP();
+        if (ajP != null) {
+            int i3 = ajP.getInt("obj_param1");
             if (i3 != 0) {
                 amVar.T("obj_param1", i3);
                 if (i3 == 2) {
-                    amVar.bJ(ImageViewerConfig.FORUM_ID, ajS.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.bJ(ImageViewerConfig.FORUM_ID, ajP.getString(ImageViewerConfig.FORUM_ID));
                 } else if (i3 == 3) {
-                    int i4 = ajS.getInt("obj_type");
+                    int i4 = ajP.getInt("obj_type");
                     if (i4 != 0) {
                         amVar.T("obj_type", i4);
                     }
-                    amVar.bJ("tid", ajS.getString("tid")).bJ(ImageViewerConfig.FORUM_ID, ajS.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.bJ("tid", ajP.getString("tid")).bJ(ImageViewerConfig.FORUM_ID, ajP.getString(ImageViewerConfig.FORUM_ID));
                 }
             }
-            String string = ajS.getString("obj_url");
+            String string = ajP.getString("obj_url");
             if (!ap.isEmpty(string)) {
                 amVar.bJ("obj_url", string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle ajS = shareEntity.ajS();
-        if (ajS != null) {
-            amVar.bJ("tid", ajS.getString("tid"));
-            amVar.bJ("uid", ajS.getString("uid"));
-            amVar.bJ(ImageViewerConfig.FORUM_ID, ajS.getString(ImageViewerConfig.FORUM_ID));
+        Bundle ajP = shareEntity.ajP();
+        if (ajP != null) {
+            amVar.bJ("tid", ajP.getString("tid"));
+            amVar.bJ("uid", ajP.getString("uid"));
+            amVar.bJ(ImageViewerConfig.FORUM_ID, ajP.getString(ImageViewerConfig.FORUM_ID));
         }
         TiebaStatic.log(amVar);
     }

@@ -13,10 +13,8 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.c.e;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.aiapps.apps.n.c;
-import com.sina.weibo.sdk.constant.WBConstants;
 import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,8 +33,8 @@ public class b extends y {
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (ap.equals(optParamsAsJo.optString(WBConstants.SSO_APP_KEY), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && ap.equals(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
-            c.aF(context, unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+        if (ap.equals(optParamsAsJo.optString("appKey"), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && ap.equals(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
+            c.aF(context, unitedSchemeEntity.getParam("params"));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -47,18 +45,18 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        final String Ji = com.baidu.swan.apps.ae.b.Ji();
-        final String optString = optParamsAsJo.optString(WBConstants.SSO_APP_KEY);
+        final String Jg = com.baidu.swan.apps.ae.b.Jg();
+        final String optString = optParamsAsJo.optString("appKey");
         final String optString2 = optParamsAsJo.optString("path");
         final String optString3 = optParamsAsJo.optString("from");
         final String optString4 = optParamsAsJo.optString("extraData");
-        if (TextUtils.isEmpty(Ji.trim()) || TextUtils.isEmpty(optString.trim())) {
+        if (TextUtils.isEmpty(Jg.trim()) || TextUtils.isEmpty(optString.trim())) {
             com.baidu.swan.apps.console.c.i("NavigateToSmartProgram", "mAppId or appId is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         if (DEBUG) {
-            Log.d("NavigateToSmartProgram", "mAppId: " + Ji);
+            Log.d("NavigateToSmartProgram", "mAppId: " + Jg);
             Log.d("NavigateToSmartProgram", "appId: " + optString);
         }
         final String optString5 = optParamsAsJo.optString("cb");
@@ -69,13 +67,13 @@ public class b extends y {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Ji);
+            jSONObject.put("ma_id", Jg);
             jSONObject.put("navigate_to_ma_id", optString);
         } catch (Exception e) {
             e.printStackTrace();
         }
         final boolean[] zArr = new boolean[1];
-        bVar.Jd().a(new Request.Builder().url("http://mbd.baidu.com/ma/game/rest/navigate_to_program").post(FormBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build(), new Callback() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
+        bVar.Jb().a(new Request.Builder().url("http://mbd.baidu.com/ma/game/rest/navigate_to_program").post(FormBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build(), new Callback() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -121,7 +119,7 @@ public class b extends y {
                         callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                         return;
                     }
-                    Uri a = b.this.a(zArr[0], optString, optString2, "", optString3, optString4, Ji);
+                    Uri a = b.this.a(zArr[0], optString, optString2, "", optString3, optString4, Jg);
                     if (a != null) {
                         if (b.DEBUG) {
                             Log.d("NavigateToSmartProgram", "uri:" + a.toString());
@@ -168,7 +166,7 @@ public class b extends y {
             jSONObject.put("ext", "{}");
             jSONObject.put("extraData", str5);
             jSONObject.put("srcAppId", str6);
-            jSONObject.put("srcAppPage", JK());
+            jSONObject.put("srcAppPage", JI());
         } catch (JSONException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);
@@ -182,11 +180,11 @@ public class b extends y {
         return com.baidu.swan.apps.v.c.a.a(i, str, str2, jSONObject2);
     }
 
-    private String JK() {
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null || uz.yP() == null) {
+    private String JI() {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null || uy.yO() == null) {
             return "";
         }
-        return uz.yP().yE() + "?" + uz.yP().yF();
+        return uy.yO().yD() + "?" + uy.yO().yE();
     }
 }

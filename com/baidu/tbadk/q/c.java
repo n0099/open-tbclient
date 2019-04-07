@@ -111,8 +111,8 @@ public class c extends com.baidu.adp.framework.a.d {
         }
         int netType = j.netType();
         httpMessage.addParam("net_type", String.valueOf(netType));
-        if (com.baidu.tbadk.coreExtra.b.a.afJ().afK()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.afJ().afL()));
+        if (com.baidu.tbadk.coreExtra.b.a.afG().afH()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.afG().afI()));
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -159,24 +159,24 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.bC(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && t.jK()) {
-            httpMessage.addParam("sig", StringU.qj(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.qk(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void d(HttpMessage httpMessage) {
-        aa.a acS = aa.acS();
-        if (acS != null) {
-            httpMessage.addParam("stTime", String.valueOf(acS.mTime));
-            httpMessage.addParam("stSize", String.valueOf(acS.aSO));
-            httpMessage.addParam("stTimesNum", String.valueOf(acS.bJK));
-            httpMessage.addParam("stMode", String.valueOf(acS.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(acS.bJJ));
+        aa.a acP = aa.acP();
+        if (acP != null) {
+            httpMessage.addParam("stTime", String.valueOf(acP.mTime));
+            httpMessage.addParam("stSize", String.valueOf(acP.aSR));
+            httpMessage.addParam("stTimesNum", String.valueOf(acP.bJM));
+            httpMessage.addParam("stMode", String.valueOf(acP.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(acP.bJL));
         }
-        int hg = aa.hg(0);
-        if (hg == 0 && acS != null) {
-            hg = acS.bJK;
+        int hf = aa.hf(0);
+        if (hf == 0 && acP != null) {
+            hf = acP.bJM;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(hg));
+        httpMessage.addParam("stErrorNums", String.valueOf(hf));
     }
 }

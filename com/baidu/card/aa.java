@@ -68,14 +68,14 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
     }
 
     @Override // com.baidu.card.b
-    public void bu(int i) {
+    public void bt(int i) {
         this.Zb |= i;
         this.Zd.setShowFlag(this.Zb);
         this.Zc = this.Zb;
     }
 
     @Override // com.baidu.card.b
-    public void bv(int i) {
+    public void bu(int i) {
         this.Zb &= i ^ (-1);
         this.Zd.setShowFlag(this.Zb);
         this.Zc = this.Zb;
@@ -92,7 +92,7 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         this.Ze = aVar;
-        this.Zd.setData(aVar.WR());
+        this.Zd.setData(aVar.WO());
         if ((this.Zb & 4) > 0) {
             this.Zd.post(this.Zg);
         }
@@ -144,8 +144,8 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
         this.Zd.onChangeSkinType();
     }
 
-    public void bA(int i) {
-        this.Zd.bSH = i;
+    public void bz(int i) {
+        this.Zd.bSJ = i;
     }
 
     public void setFrom(int i) {

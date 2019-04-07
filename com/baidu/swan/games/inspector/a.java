@@ -7,26 +7,26 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private String bdc;
-    private String bdd;
-    private boolean bde;
-    private boolean bdf;
-    private boolean bdg;
+    private String bdf;
+    private String bdg;
     private boolean bdh;
+    private boolean bdi;
+    private boolean bdj;
+    private boolean bdk;
 
     /* renamed from: com.baidu.swan.games.inspector.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0193a {
-        private String bdi;
+        private String bdl;
         private boolean mEnabled;
 
         C0193a(boolean z, String str) {
             this.mEnabled = false;
             this.mEnabled = z;
-            this.bdi = str;
+            this.bdl = str;
         }
 
-        public static C0193a Ox() {
+        public static C0193a Ov() {
             return new C0193a(false, "未启用真机调试");
         }
 
@@ -34,49 +34,49 @@ public class a {
             return this.mEnabled;
         }
 
-        public String Oy() {
-            return this.bdi;
+        public String Ow() {
+            return this.bdl;
         }
     }
 
     public a(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        this.bdc = null;
-        this.bdd = null;
-        this.bde = false;
-        this.bdf = false;
-        this.bdg = false;
+        this.bdf = null;
+        this.bdg = null;
         this.bdh = false;
+        this.bdi = false;
+        this.bdj = false;
+        this.bdk = false;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.bdc = optJSONObject.optString("hostname", null);
-            this.bdd = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.bde = optJSONObject.optBoolean("breakOnStart", false);
+            this.bdf = optJSONObject.optString("hostname", null);
+            this.bdg = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.bdh = optJSONObject.optBoolean("breakOnStart", false);
         }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        this.bdh = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        if (this.bdh) {
-            this.bdc = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.bdc);
-            this.bdd = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.bdd);
-            this.bde = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.bde);
-            this.bdf = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.bdf);
+        this.bdk = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
+        if (this.bdk) {
+            this.bdf = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.bdf);
+            this.bdg = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.bdg);
+            this.bdh = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.bdh);
+            this.bdi = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.bdi);
         }
-        if (this.bdc != null && !this.bdc.trim().equals("")) {
-            this.bdg = true;
+        if (this.bdf != null && !this.bdf.trim().equals("")) {
+            this.bdj = true;
         }
     }
 
-    public C0193a Ov() {
-        if (this.bdh || !Ow()) {
-            return new C0193a(this.bdg, !this.bdg ? "未启用真机调试" : this.bdh ? "使用了 debug 面板配置" : "启用了真机调试");
+    public C0193a Ot() {
+        if (this.bdk || !Ou()) {
+            return new C0193a(this.bdj, !this.bdj ? "未启用真机调试" : this.bdk ? "使用了 debug 面板配置" : "启用了真机调试");
         }
         return new C0193a(false, "线上包禁用真机调试");
     }
 
     public static C0193a a(a aVar) {
-        return aVar == null ? C0193a.Ox() : aVar.Ov();
+        return aVar == null ? C0193a.Ov() : aVar.Ot();
     }
 
-    private boolean Ow() {
-        return com.baidu.swan.apps.f.a.dm(com.baidu.swan.apps.ae.b.Ji());
+    private boolean Ou() {
+        return com.baidu.swan.apps.f.a.m14do(com.baidu.swan.apps.ae.b.Jg());
     }
 }

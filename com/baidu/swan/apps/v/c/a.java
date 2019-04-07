@@ -25,15 +25,15 @@ public class a {
                 break;
         }
         builder.scheme(SchemeConfig.getSchemeHead()).authority(str4).path(str);
-        String eM = eM(str2);
-        if (TextUtils.isEmpty(eM)) {
+        String eN = eN(str2);
+        if (TextUtils.isEmpty(eN)) {
             builder.appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
-        } else if (!eM.contains("?")) {
-            builder.appendEncodedPath(eM).appendQueryParameter("_baiduboxapp", str3);
+        } else if (!eN.contains("?")) {
+            builder.appendEncodedPath(eN).appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
         } else {
-            builder.appendEncodedPath(eM);
+            builder.appendEncodedPath(eN);
             Uri.Builder buildUpon = Uri.parse(builder.toString()).buildUpon();
             buildUpon.appendQueryParameter("_baiduboxapp", str3);
             build = buildUpon.build();
@@ -44,7 +44,7 @@ public class a {
         return build;
     }
 
-    public static String eM(String str) {
+    public static String eN(String str) {
         if (!TextUtils.isEmpty(str)) {
             String replaceAll = str.replaceAll("^//*|/*/$", "");
             if (DEBUG && !TextUtils.equals(str, replaceAll)) {

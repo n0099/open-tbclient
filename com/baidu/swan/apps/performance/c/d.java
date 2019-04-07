@@ -4,50 +4,50 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class d {
-    private static volatile d aEr;
-    private HashMap<String, e> aEs;
-    private HashMap<String, e> aEt;
-    private HashMap<String, e> aEu;
+    private static volatile d aEu;
+    private HashMap<String, e> aEv;
+    private HashMap<String, e> aEw;
+    private HashMap<String, e> aEx;
 
     private d() {
-        Ga();
+        FY();
     }
 
-    public static d FZ() {
-        if (aEr == null) {
+    public static d FX() {
+        if (aEu == null) {
             synchronized (d.class) {
-                if (aEr == null) {
-                    aEr = new d();
+                if (aEu == null) {
+                    aEu = new d();
                 }
             }
         }
-        return aEr;
+        return aEu;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (aEr != null) {
-                aEr.release();
-                aEr = null;
+            if (aEu != null) {
+                aEu.release();
+                aEu = null;
             }
         }
     }
 
     private void release() {
-        if (this.aEs != null) {
-            this.aEs.clear();
+        if (this.aEv != null) {
+            this.aEv.clear();
         }
-        if (this.aEt != null) {
-            this.aEt.clear();
+        if (this.aEw != null) {
+            this.aEw.clear();
         }
-        if (this.aEu != null) {
-            this.aEu.clear();
+        if (this.aEx != null) {
+            this.aEx.clear();
         }
     }
 
     public void d(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            Ga();
+            FY();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,15 +104,15 @@ public final class d {
         }
     }
 
-    private void Ga() {
-        if (this.aEs == null) {
-            this.aEs = new HashMap<>();
+    private void FY() {
+        if (this.aEv == null) {
+            this.aEv = new HashMap<>();
         }
-        if (this.aEt == null) {
-            this.aEt = new HashMap<>();
+        if (this.aEw == null) {
+            this.aEw = new HashMap<>();
         }
-        if (this.aEu == null) {
-            this.aEu = new HashMap<>();
+        if (this.aEx == null) {
+            this.aEx = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.aEs.get(str);
+                    eVar = this.aEv.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.aEs.put(str, eVar);
+                        this.aEv.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.aEt.get(str);
+                    eVar = this.aEw.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.aEt.put(str, eVar);
+                        this.aEw.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.aEu.get(str);
+                    eVar = this.aEx.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.aEu.put(str, eVar);
+                        this.aEx.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,18 +198,18 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.aEs.remove(str);
+                    eVar = this.aEv.remove(str);
                     break;
                 case 1:
-                    eVar = this.aEt.remove(str);
+                    eVar = this.aEw.remove(str);
                     break;
                 case 2:
-                    eVar = this.aEu.remove(str);
+                    eVar = this.aEx.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.C(j);
-                j(eVar.getType(), eVar.FY());
+                j(eVar.getType(), eVar.FW());
             }
         }
     }
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.ak.e.aVL.K(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.aVO.K(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.ak.e.aVM.K(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.aVP.K(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.ak.e.aVN.K(Long.valueOf(j));
+                    com.baidu.swan.apps.ak.e.aVQ.K(Long.valueOf(j));
                     return;
                 default:
                     return;

@@ -15,7 +15,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
@@ -35,7 +34,7 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
             return false;
@@ -69,7 +68,7 @@ public class a extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Jb().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
+                bVar.IZ().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.c.a
                     /* renamed from: b */
@@ -98,18 +97,18 @@ public class a extends y {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            d.bn(file).d(new f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
+            d.bj(file).d(new f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: z */
                 public File call(File file2) {
-                    String gX = com.baidu.swan.apps.storage.b.gX(com.baidu.swan.apps.ae.b.Ji());
-                    if (!TextUtils.isEmpty(gX) && file2.getPath().startsWith(gX)) {
+                    String gY = com.baidu.swan.apps.storage.b.gY(com.baidu.swan.apps.ae.b.Jg());
+                    if (!TextUtils.isEmpty(gY) && file2.getPath().startsWith(gY)) {
                         return a.this.e(context, file2);
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cDU()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cDJ()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: y */
@@ -132,11 +131,11 @@ public class a extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(Context context, String str, long j) {
-        if (fd(str)) {
+        if (fe(str)) {
             long x = x(j);
             ContentValues i = i(str, x);
             i.put("datetaken", Long.valueOf(x));
-            i.put("mime_type", fc(str));
+            i.put("mime_type", fd(str));
             context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, i);
         }
     }
@@ -154,7 +153,7 @@ public class a extends y {
         return contentValues;
     }
 
-    private String fc(String str) {
+    private String fd(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -169,7 +168,7 @@ public class a extends y {
         return j;
     }
 
-    private boolean fd(String str) {
+    private boolean fe(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

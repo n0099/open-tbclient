@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements c {
-    private JSONObject zN;
+    private JSONObject zM;
 
     public e(JSONObject jSONObject) {
-        this.zN = jSONObject;
+        this.zM = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        Iterator<String> keys = this.zN.keys();
+        Iterator<String> keys = this.zM.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -31,13 +31,13 @@ public class e implements c {
     }
 
     public Object getObject(String str) {
-        return this.zN.opt(str);
+        return this.zM.opt(str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void d(String str, Object obj) {
         try {
-            this.zN.putOpt(str, obj);
+            this.zM.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }

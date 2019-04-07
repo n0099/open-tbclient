@@ -15,17 +15,17 @@ import java.nio.ByteBuffer;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b xH = null;
+    private static b xG = null;
 
     public static b hb() {
-        if (xH == null) {
+        if (xG == null) {
             synchronized (b.class) {
-                if (xH == null) {
-                    xH = new b();
+                if (xG == null) {
+                    xG = new b();
                 }
             }
         }
-        return xH;
+        return xG;
     }
 
     private b() {
@@ -63,27 +63,27 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.xI == null || cVar.xJ == null) {
+        if (cVar == null || cVar.xH == null || cVar.xI == null) {
             throw new CoderException(h.wJ);
         }
-        a aVar = cVar.xI;
-        if (aVar.gX() && cVar.xL > 0) {
+        a aVar = cVar.xH;
+        if (aVar.gX() && cVar.xK > 0) {
             if (d.hc().getSecretKey() == null) {
                 throw new CoderException(h.wS);
             }
             try {
-                cVar.xJ = u.a(d.hc().getSecretKey(), cVar.xJ, cVar.xK, cVar.xL);
-                cVar.xK = 0;
-                cVar.xL = cVar.xJ.length;
+                cVar.xI = u.a(d.hc().getSecretKey(), cVar.xI, cVar.xJ, cVar.xK);
+                cVar.xJ = 0;
+                cVar.xK = cVar.xI.length;
             } catch (Exception e) {
                 throw new CoderException(h.wU);
             }
         }
-        if (aVar.gW() && cVar.xL > 0) {
+        if (aVar.gW() && cVar.xK > 0) {
             try {
-                cVar.xJ = e(cVar.xJ, cVar.xK, cVar.xL);
-                cVar.xK = 0;
-                cVar.xL = cVar.xJ.length;
+                cVar.xI = e(cVar.xI, cVar.xJ, cVar.xK);
+                cVar.xJ = 0;
+                cVar.xK = cVar.xI.length;
             } catch (Exception e2) {
                 throw new CoderException(h.wR);
             }
@@ -101,10 +101,10 @@ public class b {
             throw new CoderException(h.wJ);
         }
         c cVar = new c();
-        cVar.xI = n;
-        cVar.xJ = bArr;
-        cVar.xK = gV;
-        cVar.xL = bArr.length - gV;
+        cVar.xH = n;
+        cVar.xI = bArr;
+        cVar.xJ = gV;
+        cVar.xK = bArr.length - gV;
         return cVar;
     }
 

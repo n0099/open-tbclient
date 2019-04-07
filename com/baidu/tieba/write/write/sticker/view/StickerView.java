@@ -14,29 +14,29 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.util.f;
 import com.baidu.tieba.d;
-import com.baidu.tieba.write.write.sticker.a;
+import com.baidu.tieba.write.write.sticker.a.a;
 import com.baidu.tieba.write.write.sticker.a.b;
 /* loaded from: classes3.dex */
 public class StickerView extends ImageView {
-    private long cHe;
-    private float fcH;
-    private float fcI;
-    private boolean iTe;
-    private a jvI;
-    private Matrix jvJ;
-    private Matrix jvK;
-    private PointF jvL;
-    private b jvM;
-    private boolean jvN;
-    private com.baidu.tieba.write.write.sticker.a.a jvO;
-    private float jvP;
-    private float jvQ;
+    private long cHg;
+    private float fcu;
+    private float fcv;
+    private boolean iSS;
+    private Matrix jvA;
+    private PointF jvB;
+    private b jvC;
+    private boolean jvD;
+    private a jvE;
+    private float jvF;
+    private float jvG;
+    private com.baidu.tieba.write.write.sticker.a jvy;
+    private Matrix jvz;
     private Context mContext;
     private Paint mPaint;
     private int mode;
 
-    public void setmOnStickerActionListener(com.baidu.tieba.write.write.sticker.a.a aVar) {
-        this.jvO = aVar;
+    public void setmOnStickerActionListener(a aVar) {
+        this.jvE = aVar;
     }
 
     public StickerView(Context context) {
@@ -49,19 +49,19 @@ public class StickerView extends ImageView {
 
     public StickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jvJ = new Matrix();
-        this.jvK = new Matrix();
-        this.jvL = new PointF();
-        this.jvN = true;
-        this.iTe = false;
-        this.cHe = 0L;
+        this.jvz = new Matrix();
+        this.jvA = new Matrix();
+        this.jvB = new PointF();
+        this.jvD = true;
+        this.iSS = false;
+        this.cHg = 0L;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.jvM = new b(context);
+        this.jvC = new b(context);
         this.mPaint = new Paint();
         this.mPaint.setColor(-1);
         this.mPaint.setStrokeWidth(l.h(context, d.e.ds4));
@@ -72,15 +72,15 @@ public class StickerView extends ImageView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.jvI.getMatrix().postTranslate((getWidth() - this.jvI.crO()) / 2, (getHeight() - this.jvI.crP()) / 2);
+            this.jvy.getMatrix().postTranslate((getWidth() - this.jvy.crM()) / 2, (getHeight() - this.jvy.crN()) / 2);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.jvI != null) {
-            this.jvI.draw(canvas);
-            float[] a = f.a(this.jvI.crQ(), this.jvI.getMatrix());
+        if (this.jvy != null) {
+            this.jvy.draw(canvas);
+            float[] a = f.a(this.jvy.crO(), this.jvy.getMatrix());
             float f = a[0];
             float f2 = a[1];
             float f3 = a[2];
@@ -89,7 +89,7 @@ public class StickerView extends ImageView {
             float f6 = a[5];
             float f7 = a[6];
             float f8 = a[7];
-            if (this.iTe) {
+            if (this.iSS) {
                 canvas.drawLine(f, f2, f3, f4, this.mPaint);
                 canvas.drawLine(f3, f4, f7, f8, this.mPaint);
                 canvas.drawLine(f7, f8, f5, f6, this.mPaint);
@@ -98,7 +98,7 @@ public class StickerView extends ImageView {
                 canvas.drawPoint(f3, f4, this.mPaint);
                 canvas.drawPoint(f5, f6, this.mPaint);
                 canvas.drawPoint(f7, f8, this.mPaint);
-                this.jvM.draw(canvas, f3, f4);
+                this.jvC.draw(canvas, f3, f4);
             }
         }
     }
@@ -108,34 +108,34 @@ public class StickerView extends ImageView {
         boolean z = true;
         switch (MotionEventCompat.getActionMasked(motionEvent)) {
             case 0:
-                this.fcH = motionEvent.getX();
-                this.fcI = motionEvent.getY();
-                if (this.jvI == null) {
+                this.fcu = motionEvent.getX();
+                this.fcv = motionEvent.getY();
+                if (this.jvy == null) {
                     return false;
                 }
-                if (this.iTe && this.jvM.R(motionEvent)) {
-                    this.jvN = false;
-                    if (this.jvO != null) {
-                        this.jvO.crR();
+                if (this.iSS && this.jvC.R(motionEvent)) {
+                    this.jvD = false;
+                    if (this.jvE != null) {
+                        this.jvE.crP();
                         break;
                     }
-                } else if (a(this.jvI, motionEvent)) {
-                    this.jvN = true;
-                    if (System.currentTimeMillis() - this.cHe <= 300 && this.jvO != null) {
-                        this.jvO.a(this);
-                        this.jvN = false;
+                } else if (a(this.jvy, motionEvent)) {
+                    this.jvD = true;
+                    if (System.currentTimeMillis() - this.cHg <= 300 && this.jvE != null) {
+                        this.jvE.a(this);
+                        this.jvD = false;
                     }
-                    this.cHe = System.currentTimeMillis();
+                    this.cHg = System.currentTimeMillis();
                     this.mode = 1;
-                    this.jvJ.set(this.jvI.getMatrix());
+                    this.jvz.set(this.jvy.getMatrix());
                     break;
                 } else {
-                    this.jvN = false;
-                    if (this.jvO == null) {
+                    this.jvD = false;
+                    if (this.jvE == null) {
                         z = false;
                         break;
                     } else {
-                        this.jvO.a(this, this.jvN);
+                        this.jvE.a(this, this.jvD);
                         invalidate();
                         z = false;
                         break;
@@ -145,73 +145,73 @@ public class StickerView extends ImageView {
             case 1:
             case 6:
                 this.mode = 0;
-                this.jvL = null;
-                if (this.jvO != null) {
-                    if (this.jvN) {
-                        this.jvO.b(this);
+                this.jvB = null;
+                if (this.jvE != null) {
+                    if (this.jvD) {
+                        this.jvE.b(this);
                     }
-                    if (this.iTe) {
-                        this.jvN = false;
+                    if (this.iSS) {
+                        this.jvD = false;
                     }
-                    this.jvO.a(this, this.jvN);
+                    this.jvE.a(this, this.jvD);
                     invalidate();
                     break;
                 }
                 break;
             case 2:
-                if (!this.jvN || motionEvent.getX() != this.fcH || motionEvent.getY() != this.fcI) {
-                    this.jvN = false;
+                if (!this.jvD || motionEvent.getX() != this.fcu || motionEvent.getY() != this.fcv) {
+                    this.jvD = false;
                 }
                 if (this.mode == 2) {
-                    this.jvK.set(this.jvJ);
-                    float T = com.baidu.tieba.write.write.sticker.b.a.T(motionEvent) / this.jvP;
-                    float U = com.baidu.tieba.write.write.sticker.b.a.U(motionEvent) - this.jvQ;
+                    this.jvA.set(this.jvz);
+                    float T = com.baidu.tieba.write.write.sticker.b.a.T(motionEvent) / this.jvF;
+                    float U = com.baidu.tieba.write.write.sticker.b.a.U(motionEvent) - this.jvG;
                     PointF S = com.baidu.tieba.write.write.sticker.b.a.S(motionEvent);
-                    this.jvK.postScale(T, T, this.jvL.x, this.jvL.y);
-                    this.jvK.postRotate(U, this.jvL.x, this.jvL.y);
-                    this.jvK.postTranslate(S.x - this.jvL.x, S.y - this.jvL.y);
-                    this.jvI.getMatrix().set(this.jvK);
+                    this.jvA.postScale(T, T, this.jvB.x, this.jvB.y);
+                    this.jvA.postRotate(U, this.jvB.x, this.jvB.y);
+                    this.jvA.postTranslate(S.x - this.jvB.x, S.y - this.jvB.y);
+                    this.jvy.getMatrix().set(this.jvA);
                 } else if (this.mode == 1) {
-                    this.jvK.set(this.jvJ);
-                    this.jvK.postTranslate(motionEvent.getX() - this.fcH, motionEvent.getY() - this.fcI);
-                    this.jvI.getMatrix().set(this.jvK);
+                    this.jvA.set(this.jvz);
+                    this.jvA.postTranslate(motionEvent.getX() - this.fcu, motionEvent.getY() - this.fcv);
+                    this.jvy.getMatrix().set(this.jvA);
                 }
-                if (!this.jvN) {
+                if (!this.jvD) {
                     invalidate();
                     break;
                 }
                 break;
             case 5:
                 this.mode = 2;
-                this.jvP = com.baidu.tieba.write.write.sticker.b.a.T(motionEvent);
-                this.jvQ = com.baidu.tieba.write.write.sticker.b.a.U(motionEvent);
-                this.jvL = com.baidu.tieba.write.write.sticker.b.a.S(motionEvent);
-                this.jvJ.set(this.jvI.getMatrix());
+                this.jvF = com.baidu.tieba.write.write.sticker.b.a.T(motionEvent);
+                this.jvG = com.baidu.tieba.write.write.sticker.b.a.U(motionEvent);
+                this.jvB = com.baidu.tieba.write.write.sticker.b.a.S(motionEvent);
+                this.jvz.set(this.jvy.getMatrix());
                 break;
         }
         return z;
     }
 
-    private boolean a(a aVar, MotionEvent motionEvent) {
-        return com.baidu.tieba.write.write.sticker.b.a.a(f.a(aVar.crQ(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
+    private boolean a(com.baidu.tieba.write.write.sticker.a aVar, MotionEvent motionEvent) {
+        return com.baidu.tieba.write.write.sticker.b.a.a(f.a(aVar.crO(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        this.jvI = new a(BitmapHelper.getResBitmap(this.mContext, i));
+        this.jvy = new com.baidu.tieba.write.write.sticker.a(BitmapHelper.getResBitmap(this.mContext, i));
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.jvI = new a(bitmap);
+        this.jvy = new com.baidu.tieba.write.write.sticker.a(bitmap);
     }
 
     public void setEdit(boolean z) {
-        this.iTe = z;
+        this.iSS = z;
         postInvalidate();
     }
 
     public void setRemoveRes(int i) {
-        this.jvM.BD(i);
+        this.jvC.Bz(i);
     }
 }

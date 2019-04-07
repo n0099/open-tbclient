@@ -2,12 +2,12 @@ package com.baidu.swan.games.e.d;
 /* loaded from: classes2.dex */
 public abstract class a implements b {
     @Override // com.baidu.swan.games.e.d.b
-    public String zu() {
+    public String zt() {
         return null;
     }
 
     @Override // com.baidu.swan.games.e.d.b
-    public String zv() {
+    public String zu() {
         return null;
     }
 

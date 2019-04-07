@@ -48,19 +48,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.Tf() != null) {
-                jSONObject.put("content", hVar.Tf().toString());
+            } else if (hVar.Td() != null) {
+                jSONObject.put("content", hVar.Td().toString());
             }
-            if (!TextUtils.isEmpty(hVar.Te())) {
-                jSONObject.put(ImageViewerConfig.ABTEST, hVar.Te());
+            if (!TextUtils.isEmpty(hVar.Tc())) {
+                jSONObject.put(ImageViewerConfig.ABTEST, hVar.Tc());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.Ta()) {
+            if (hVar.SY()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.SW().jN(hVar.getId()));
+            jSONObject.put("idtype", d.SU().jO(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -135,7 +135,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                            tVar.jV("1");
+                            tVar.jW("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -207,7 +207,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                tVar.jV("1");
+                                tVar.jW("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {

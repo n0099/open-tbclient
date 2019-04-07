@@ -10,35 +10,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f {
-    private long aYH;
-    private ArrayList<bd> iCh = new ArrayList<>();
-    private ArrayList<a> iCj = new ArrayList<>();
-    private ArrayList<b> iCz = new ArrayList<>();
-    private ArrayList<d> iCA = new ArrayList<>();
+    private long aYK;
+    private ArrayList<bd> iBR = new ArrayList<>();
+    private ArrayList<a> iBT = new ArrayList<>();
+    private ArrayList<b> iCj = new ArrayList<>();
+    private ArrayList<d> iCk = new ArrayList<>();
     private boolean isSuccess = true;
 
-    public boolean cdg() {
+    public boolean cdc() {
         return true;
     }
 
-    public ArrayList<b> cdh() {
-        return this.iCz;
-    }
-
-    public ArrayList<a> cdi() {
+    public ArrayList<b> cdd() {
         return this.iCj;
     }
 
-    public ArrayList<bd> cdj() {
-        return this.iCh;
+    public ArrayList<a> cde() {
+        return this.iBT;
+    }
+
+    public ArrayList<bd> cdf() {
+        return this.iBR;
     }
 
     public void aA(ArrayList<bd> arrayList) {
-        this.iCh = arrayList;
+        this.iBR = arrayList;
     }
 
     public void dO(long j) {
-        this.aYH = j;
+        this.aYK = j;
     }
 
     public void parserJson(String str) {
@@ -48,7 +48,7 @@ public class f {
         }
         try {
             parserJson(new JSONObject(str));
-            Cm(str);
+            Cl(str);
         } catch (Exception e) {
             this.isSuccess = false;
             BdLog.e(e.toString());
@@ -59,7 +59,7 @@ public class f {
         if (jSONObject != null) {
             try {
                 H(jSONObject.optJSONArray("banner"));
-                this.aYH = jSONObject.optLong("prevtime");
+                this.aYK = jSONObject.optLong("prevtime");
                 JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
                 if (optJSONObject != null) {
                     I(optJSONObject.optJSONArray("new_list"));
@@ -83,10 +83,10 @@ public class f {
                             String optString3 = jSONObject.optString("template_id", "");
                             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                                 bd bdVar = new bd();
-                                bdVar.lf(optString);
+                                bdVar.lg(optString);
                                 bdVar.setLink(optString2);
-                                bdVar.lg(optString3);
-                                this.iCh.add(bdVar);
+                                bdVar.lh(optString3);
+                                this.iBR.add(bdVar);
                             }
                         }
                     }
@@ -112,51 +112,51 @@ public class f {
                                 a aVar = new a();
                                 aVar.title = jSONObject.optString("title", "");
                                 aVar.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
-                                aVar.iCB = jSONObject.optString("pic", "");
-                                aVar.iCC = false;
-                                this.iCj.add(aVar);
+                                aVar.iCl = jSONObject.optString("pic", "");
+                                aVar.iCm = false;
+                                this.iBT.add(aVar);
                             } else if (optInt == 3) {
                                 i++;
                                 a aVar2 = new a();
                                 aVar2.title = jSONObject.optString("title", "");
                                 aVar2.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
-                                aVar2.iCB = jSONObject.optString("pic", "");
-                                aVar2.iCC = true;
-                                this.iCj.add(aVar2);
+                                aVar2.iCl = jSONObject.optString("pic", "");
+                                aVar2.iCm = true;
+                                this.iBT.add(aVar2);
                             } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
                                 b bVar = new b();
-                                bVar.iCD = true;
-                                bVar.iCK = i2 - i;
+                                bVar.iCn = true;
+                                bVar.iCu = i2 - i;
                                 if (optInt == 2) {
-                                    bVar.iCE = true;
+                                    bVar.iCo = true;
                                 } else {
-                                    bVar.iCE = false;
+                                    bVar.iCo = false;
                                 }
                                 bVar.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
                                 bVar.title = jSONObject.optString("title", "");
-                                this.iCz.add(bVar);
+                                this.iCj.add(bVar);
                                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                                     if (jSONObject2 != null) {
                                         b bVar2 = new b();
                                         if (optInt == 2) {
-                                            bVar2.iCE = true;
+                                            bVar2.iCo = true;
                                         } else {
-                                            bVar2.iCE = false;
+                                            bVar2.iCo = false;
                                         }
-                                        bVar2.iCD = false;
-                                        bVar2.iCK = i2 - i;
-                                        bVar2.iCL = i3;
+                                        bVar2.iCn = false;
+                                        bVar2.iCu = i2 - i;
+                                        bVar2.iCv = i3;
                                         bVar2.forumId = jSONObject2.optInt("forum_id", 0);
                                         bVar2.forumName = jSONObject2.optString("forum_name", "");
-                                        bVar2.iCF = jSONObject2.optString("avatar", "");
-                                        bVar2.iCH = jSONObject2.optString("explain", "");
-                                        bVar2.iCI = jSONObject2.optString("desc", "");
-                                        bVar2.iCG = jSONObject2.optString("tag", "");
-                                        bVar2.iCJ = jSONObject2.optLong("member_count", 0L);
+                                        bVar2.iCp = jSONObject2.optString("avatar", "");
+                                        bVar2.iCr = jSONObject2.optString("explain", "");
+                                        bVar2.iCs = jSONObject2.optString("desc", "");
+                                        bVar2.iCq = jSONObject2.optString("tag", "");
+                                        bVar2.iCt = jSONObject2.optLong("member_count", 0L);
                                         bVar2.threadNum = jSONObject2.optLong("thread_num", 0L);
                                         bVar2.link = jSONObject2.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
-                                        this.iCz.add(bVar2);
+                                        this.iCj.add(bVar2);
                                     }
                                 }
                             }
@@ -170,10 +170,10 @@ public class f {
     }
 
     public long getTimeStamp() {
-        return this.aYH;
+        return this.aYK;
     }
 
-    private void Cm(String str) {
+    private void Cl(String str) {
         JSONArray optJSONArray;
         if (str != null) {
             try {
@@ -183,8 +183,8 @@ public class f {
                         JSONObject jSONObject = optJSONArray.getJSONObject(i);
                         if (jSONObject != null) {
                             d dVar = new d();
-                            this.iCA.add(dVar);
-                            dVar.iCP = new ArrayList<>();
+                            this.iCk.add(dVar);
+                            dVar.iCz = new ArrayList<>();
                             dVar.title = jSONObject.optString("title", "");
                             dVar.type = jSONObject.optInt("type", -1);
                             dVar.pic = jSONObject.optString("pic", "");
@@ -198,13 +198,13 @@ public class f {
                                         cVar.forum_id = jSONObject2.optInt("forum_id", 0);
                                         cVar.forum_name = jSONObject2.optString("forum_name", "");
                                         cVar.avatar = jSONObject2.optString("avatar", "");
-                                        cVar.iCO = jSONObject2.optString("explain", "");
+                                        cVar.iCy = jSONObject2.optString("explain", "");
                                         cVar.desc = jSONObject2.optString("desc", "");
                                         cVar.tag = jSONObject2.optString("tag", "");
-                                        cVar.iCM = jSONObject2.optLong("member_count", 0L);
-                                        cVar.iCN = jSONObject2.optLong("thread_num", 0L);
+                                        cVar.iCw = jSONObject2.optLong("member_count", 0L);
+                                        cVar.iCx = jSONObject2.optLong("thread_num", 0L);
                                         cVar.link = jSONObject2.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
-                                        dVar.iCP.add(cVar);
+                                        dVar.iCz.add(cVar);
                                     }
                                 }
                             }
@@ -217,32 +217,32 @@ public class f {
         }
     }
 
-    public String aIQ() {
+    public String aIF() {
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
         try {
-            if (this.iCh != null && this.iCh.size() != 0) {
-                Iterator<bd> it = this.iCh.iterator();
+            if (this.iBR != null && this.iBR.size() != 0) {
+                Iterator<bd> it = this.iBR.iterator();
                 while (it.hasNext()) {
                     bd next = it.next();
                     if (next != null) {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("pic_url_bigger", next.Xn());
+                        jSONObject2.put("pic_url_bigger", next.Xk());
                         jSONObject2.put(SelectForumActivityConfig.KEY_SHARE_LINK, next.getLink());
                         jSONArray2.put(jSONObject2);
                     }
                 }
                 jSONObject.put("banner", jSONArray2);
             }
-            jSONObject.put("prevtime", this.aYH);
+            jSONObject.put("prevtime", this.aYK);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
-        if (this.iCA == null || this.iCA.size() == 0) {
+        if (this.iCk == null || this.iCk.size() == 0) {
             return jSONObject.toString();
         }
-        Iterator<d> it2 = this.iCA.iterator();
+        Iterator<d> it2 = this.iCk.iterator();
         while (it2.hasNext()) {
             d next2 = it2.next();
             if (next2 != null) {
@@ -251,7 +251,7 @@ public class f {
                 jSONObject3.put("type", next2.type);
                 jSONObject3.put("pic", next2.pic);
                 jSONObject3.put(SelectForumActivityConfig.KEY_SHARE_LINK, next2.link);
-                ArrayList<c> arrayList = next2.iCP;
+                ArrayList<c> arrayList = next2.iCz;
                 if (arrayList == null || arrayList.size() == 0) {
                     jSONArray.put(jSONObject3);
                 } else {
@@ -264,11 +264,11 @@ public class f {
                             jSONObject4.put("forum_id", next3.forum_id);
                             jSONObject4.put("forum_name", next3.forum_name);
                             jSONObject4.put("avatar", next3.avatar);
-                            jSONObject4.put("explain", next3.iCO);
+                            jSONObject4.put("explain", next3.iCy);
                             jSONObject4.put("desc", next3.desc);
                             jSONObject4.put("tag", next3.tag);
-                            jSONObject4.put("thread_num", next3.iCN);
-                            jSONObject4.put("member_count", next3.iCM);
+                            jSONObject4.put("thread_num", next3.iCx);
+                            jSONObject4.put("member_count", next3.iCw);
                             jSONObject4.put(SelectForumActivityConfig.KEY_SHARE_LINK, next3.link);
                             jSONArray3.put(jSONObject4);
                         }
@@ -287,7 +287,7 @@ public class f {
     public boolean isEmpty() {
         boolean z = false;
         if (this.isSuccess) {
-            if ((this.iCh == null || this.iCh.size() == 0) && ((this.iCj == null || this.iCj.size() == 0) && (this.iCz == null || this.iCz.size() == 0))) {
+            if ((this.iBR == null || this.iBR.size() == 0) && ((this.iBT == null || this.iBT.size() == 0) && (this.iCj == null || this.iCj.size() == 0))) {
                 z = true;
             }
             return z;
@@ -298,8 +298,8 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a {
-        String iCB;
-        boolean iCC;
+        String iCl;
+        boolean iCm;
         String link;
         String title;
 
@@ -312,15 +312,15 @@ public class f {
     public static class b {
         int forumId;
         String forumName;
-        boolean iCD;
-        boolean iCE;
-        String iCF;
-        String iCG;
-        String iCH;
-        String iCI;
-        long iCJ;
-        int iCK;
-        int iCL;
+        boolean iCn;
+        boolean iCo;
+        String iCp;
+        String iCq;
+        String iCr;
+        String iCs;
+        long iCt;
+        int iCu;
+        int iCv;
         String link;
         long threadNum;
         String title;
@@ -332,7 +332,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class d {
-        ArrayList<c> iCP;
+        ArrayList<c> iCz;
         String link;
         String pic;
         String title;
@@ -349,9 +349,9 @@ public class f {
         String desc;
         int forum_id;
         String forum_name;
-        long iCM;
-        long iCN;
-        String iCO;
+        long iCw;
+        long iCx;
+        String iCy;
         String link;
         String tag;
 

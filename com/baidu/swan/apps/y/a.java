@@ -5,7 +5,7 @@ import android.graphics.Rect;
 /* loaded from: classes2.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    double aBK = 1.0d;
+    double aBN = 1.0d;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -19,13 +19,13 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(double d) {
-        this.aBK = d;
+        this.aBN = d;
     }
 
     /* renamed from: com.baidu.swan.apps.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0187a {
-        public static a fi(String str) {
+        public static a fj(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

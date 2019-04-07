@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bbI;
-    private HashMap<String, c> bac = new HashMap<>();
+    private static volatile b bbL;
+    private HashMap<String, c> baf = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
-    private final Object baf = new Object();
-    private com.baidu.swan.games.network.b bae = com.baidu.swan.games.network.b.OF();
-    private String bad = e.Nn();
+    private final Object bai = new Object();
+    private com.baidu.swan.games.network.b bah = com.baidu.swan.games.network.b.OD();
+    private String bag = e.Nl();
 
-    public static b Og() {
-        if (bbI == null) {
+    public static b Oe() {
+        if (bbL == null) {
             synchronized (b.class) {
-                if (bbI == null) {
-                    bbI = new b();
+                if (bbL == null) {
+                    bbL = new b();
                 }
             }
         }
-        return bbI;
+        return bbL;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,17 +35,17 @@ public class b implements a {
             return;
         }
         try {
-            String hY = hY(str);
-            File file = new File(hY(str));
+            String hZ = hZ(str);
+            File file = new File(hZ(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(hY);
+                    valueCallback.onReceiveValue(hZ);
                     return;
                 }
                 return;
             }
-            synchronized (this.baf) {
-                if (!hX(str)) {
+            synchronized (this.bai) {
+                if (!hY(str)) {
                     download(str);
                 }
                 b(str, valueCallback);
@@ -57,13 +57,13 @@ public class b implements a {
         }
     }
 
-    private boolean hX(String str) {
-        return this.bac.containsKey(str);
+    private boolean hY(String str) {
+        return this.baf.containsKey(str);
     }
 
     private void download(String str) {
-        c cVar = new c(this.bae, this.bad, str, this);
-        this.bac.put(str, cVar);
+        c cVar = new c(this.bah, this.bag, str, this);
+        this.baf.put(str, cVar);
         cVar.load();
     }
 
@@ -80,8 +80,8 @@ public class b implements a {
     @Override // com.baidu.swan.games.e.c.a
     public void aN(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
-        synchronized (this.baf) {
-            if (hX(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+        synchronized (this.bai) {
+            if (hY(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -89,21 +89,21 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.bac.remove(str);
+                this.baf.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.e.c.a
     public void s(int i, String str) {
-        synchronized (this.baf) {
-            if (hX(str) && this.mCallbackMap.get(str) != null) {
-                this.bac.remove(str);
+        synchronized (this.bai) {
+            if (hY(str) && this.mCallbackMap.get(str) != null) {
+                this.baf.remove(str);
             }
         }
     }
 
-    private String hY(String str) throws MalformedURLException {
-        return this.bad + e.hV(str);
+    private String hZ(String str) throws MalformedURLException {
+        return this.bag + e.hW(str);
     }
 }

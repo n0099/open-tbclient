@@ -6,22 +6,22 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class h {
     public static f<com.baidu.swan.pms.model.e> a(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.e eVar2) {
-        if (eVar2 != null && a(eVar, eVar2.zF())) {
-            return new f<>(new e(eVar), eVar, new c(eVar, eVar2.zF()));
+        if (eVar2 != null && a(eVar, eVar2.zE())) {
+            return new f<>(new e(eVar), eVar, new c(eVar, eVar2.zE()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.g> a(com.baidu.swan.pms.model.g gVar, com.baidu.swan.pms.a.e eVar) {
-        if (eVar != null && a(gVar, eVar.zD())) {
-            return new f<>(new e(gVar), gVar, new c(gVar, eVar.zD()));
+        if (eVar != null && a(gVar, eVar.zC())) {
+            return new f<>(new e(gVar), gVar, new c(gVar, eVar.zC()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.c> a(com.baidu.swan.pms.model.c cVar, com.baidu.swan.pms.a.e eVar) {
-        if (eVar != null && a(cVar, eVar.zG())) {
-            return new f<>(new e(cVar), cVar, new c(cVar, eVar.zG()));
+        if (eVar != null && a(cVar, eVar.zF())) {
+            return new f<>(new e(cVar), cVar, new c(cVar, eVar.zF()));
         }
         return null;
     }
@@ -33,8 +33,8 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (com.baidu.swan.pms.model.i iVar : list) {
-                if (a(iVar, eVar.zE())) {
-                    arrayList.add(new f(new e(iVar), iVar, new c(iVar, eVar.zE())));
+                if (a(iVar, eVar.zD())) {
+                    arrayList.add(new f(new e(iVar), iVar, new c(iVar, eVar.zD())));
                 }
             }
         }
@@ -49,7 +49,7 @@ public class h {
             com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) t;
             return a(aVar, t, fVar.md5, fVar.downloadUrl);
         } else if (t instanceof com.baidu.swan.pms.model.h) {
-            com.baidu.swan.pms.model.g gVar = ((com.baidu.swan.pms.model.h) t).blY;
+            com.baidu.swan.pms.model.g gVar = ((com.baidu.swan.pms.model.h) t).bmb;
             return a(aVar, t, gVar.md5, gVar.downloadUrl);
         } else {
             return false;

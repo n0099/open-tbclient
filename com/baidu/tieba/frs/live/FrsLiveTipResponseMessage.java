@@ -4,7 +4,6 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,7 +65,7 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         alaLiveInfoCoreData.sessionID = jSONObject.optString("session_id");
         alaLiveInfoCoreData.liveType = jSONObject.optInt("live_type");
         alaLiveInfoCoreData.screenDirection = jSONObject.optInt("screen_direction");
-        alaLiveInfoCoreData.liveTitle = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+        alaLiveInfoCoreData.liveTitle = jSONObject.optString("description");
         alaLiveInfoCoreData.liveCover = jSONObject.optString("cover");
         JSONObject optJSONObject = jSONObject.optJSONObject("session_info_backup");
         if (optJSONObject != null) {

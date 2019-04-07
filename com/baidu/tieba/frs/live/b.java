@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.card.z;
 /* loaded from: classes4.dex */
 public class b implements CustomMessageTask.CustomRunnable<bg>, z {
-    private int fhd = 3;
-    private com.baidu.tieba.frs.d.b fqx;
+    private int fgP = 3;
+    private com.baidu.tieba.frs.d.b fqj;
     private BdUniqueId mPageId;
 
     public b(com.baidu.tieba.frs.d.b bVar, BdUniqueId bdUniqueId) {
-        this.fqx = null;
-        this.fqx = bVar;
+        this.fqj = null;
+        this.fqj = bVar;
         this.mPageId = bdUniqueId;
     }
 
@@ -24,17 +24,17 @@ public class b implements CustomMessageTask.CustomRunnable<bg>, z {
         if (customMessage != null && (customMessage.getData() instanceof bg)) {
             bg data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqx, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqx);
+                com.baidu.tieba.frs.d.c.bij().a(this.fqj, data, 1);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqj);
             } else if (customMessage.getCmd() == 2921016) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqx, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.fqx);
+                com.baidu.tieba.frs.d.c.bij().a(this.fqj, data, 2);
+                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.fqj);
             } else if (customMessage.getCmd() == 2921019) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqx, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqx);
+                com.baidu.tieba.frs.d.c.bij().a(this.fqj, data, 4);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqj);
             } else if (customMessage.getCmd() == 2921017) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqx, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.fqx);
+                com.baidu.tieba.frs.d.c.bij().a(this.fqj, data);
+                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.fqj);
             }
         }
         return null;
@@ -45,7 +45,7 @@ public class b implements CustomMessageTask.CustomRunnable<bg>, z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void mD(int i) {
-        this.fhd = i;
+    public void mC(int i) {
+        this.fgP = i;
     }
 }

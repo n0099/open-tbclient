@@ -10,10 +10,10 @@ public class f implements CustomMessageTask.CustomRunnable<Object> {
         if (!(customMessage instanceof ForumMemberReadCacheRequestMessage)) {
             return null;
         }
-        byte[] uL = new d().uL(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
+        byte[] uK = new d().uK(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
         ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
         try {
-            forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, uL);
+            forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, uK);
             return forumMemberReadCacheResponseMessage;
         } catch (Exception e) {
             e.printStackTrace();

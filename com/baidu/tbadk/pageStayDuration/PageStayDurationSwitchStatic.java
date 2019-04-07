@@ -6,8 +6,8 @@ public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
-        e.aoP().fd(1 == i);
+    protected void Y(int i) {
+        e.aoM().fd(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

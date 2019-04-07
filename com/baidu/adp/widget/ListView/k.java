@@ -31,7 +31,7 @@ public class k {
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.adp.widget.ListView.k.2
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            k.this.aY(i);
+            k.this.aX(i);
         }
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
@@ -136,21 +136,21 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aY(int i) {
+    public void aX(int i) {
         if (i == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
                 if (this.Qo == null) {
                     this.Qo = new com.baidu.tbadk.o.a.a("anim_switch_slide");
                 }
-                this.Qo.aps();
+                this.Qo.app();
             }
         } else if (i == 0 && this.Qo != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.Qo.apt();
+            this.Qo.apq();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Qk.aX(i);
+            this.Qk.aW(i);
         }
-        this.Qj.aX(i);
+        this.Qj.aW(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

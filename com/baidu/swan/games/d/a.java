@@ -15,10 +15,10 @@ public class a {
             com.baidu.swan.games.utils.a.a(cVar2, false, bVar);
             return;
         }
-        if (com.baidu.swan.games.glsurface.a.b.Ou()) {
-            com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-            if (IX != null) {
-                if (SchemeRouter.invoke(com.baidu.swan.apps.u.a.Cy(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + IX.getAppKey() + "\"}"))) {
+        if (com.baidu.swan.games.glsurface.a.b.Os()) {
+            com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+            if (IV != null) {
+                if (SchemeRouter.invoke(com.baidu.swan.apps.u.a.Cw(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + IV.getAppKey() + "\"}"))) {
                     bVar.errMsg = "openCustomerServiceConversation:ok";
                     z = true;
                 } else {

@@ -71,7 +71,7 @@ public class PhotoUrlData implements Serializable {
 
     public void setToServerPhotoInfo(String str) {
         this.toServerPhotoInfo = str;
-        nH(str);
+        nI(str);
     }
 
     public JSONObject toJson() {
@@ -93,10 +93,10 @@ public class PhotoUrlData implements Serializable {
         this.bigurl = jSONObject.optString("bigurl", "");
         this.picId = jSONObject.optString("picId", "");
         this.toServerPhotoInfo = jSONObject.optString("toServerPhotoInfo", "");
-        nH(this.toServerPhotoInfo);
+        nI(this.toServerPhotoInfo);
     }
 
-    private void nH(String str) {
+    private void nI(String str) {
         if (!StringUtils.isNull(str)) {
             str.replaceAll("#\\(|\\)", "");
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

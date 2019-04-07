@@ -19,10 +19,10 @@ import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String fFn = null;
+    private String fFb = null;
     private TextView mTextView = null;
-    private TextView fFB = null;
-    LinearLayout bRo = null;
+    private TextView fFp = null;
+    LinearLayout bRq = null;
 
     public static void aJ(Context context, String str) {
         if (str != null && str.length() > 0) {
@@ -41,18 +41,18 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(d.h.create_bar_success_activity);
         initData();
-        blo();
+        bll();
     }
 
     private void initData() {
-        this.fFn = getIntent().getStringExtra("barname");
-        if (this.fFn == null) {
-            this.fFn = "";
+        this.fFb = getIntent().getStringExtra("barname");
+        if (this.fFb == null) {
+            this.fFb = "";
         }
     }
 
-    private void blo() {
-        this.bRo = (LinearLayout) findViewById(d.g.container);
+    private void bll() {
+        this.bRq = (LinearLayout) findViewById(d.g.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(d.g.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
@@ -63,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.create_bar));
         this.mTextView = (TextView) findViewById(d.g.text);
-        this.fFB = (TextView) findViewById(d.g.text_more);
+        this.fFp = (TextView) findViewById(d.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,14 +71,14 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.bRo);
+        getLayoutMode().onModeChanged(this.bRq);
         boolean jK = new q().jK();
         String string = jK ? getPageContext().getString(d.j.create_bar_new_tip) : getPageContext().getString(d.j.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(jK ? string + this.fFn + getPageContext().getString(d.j.create_bar_new_tip2) : string + this.fFn + getPageContext().getString(d.j.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.common_color_10252)), length, this.fFn.length() + length, 33);
+        SpannableString spannableString = new SpannableString(jK ? string + this.fFb + getPageContext().getString(d.j.create_bar_new_tip2) : string + this.fFb + getPageContext().getString(d.j.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.common_color_10252)), length, this.fFb.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.fFB.setVisibility(jK ? 0 : 8);
+        this.fFp.setVisibility(jK ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

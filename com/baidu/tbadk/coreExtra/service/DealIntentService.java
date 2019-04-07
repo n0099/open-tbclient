@@ -164,7 +164,7 @@ public class DealIntentService extends BdBaseService {
             bJ.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
             TiebaStatic.log(bJ);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                iV(i2);
+                iU(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -172,7 +172,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.fT().fU() != null) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (com.baidu.adp.base.a.fT().fU().getClass().getName().equalsIgnoreCase(b.abP())) {
+                    if (com.baidu.adp.base.a.fT().fU().getClass().getName().equalsIgnoreCase(b.abM())) {
                         this.intent.putExtra("class", 5);
                     } else {
                         this.intent.putExtra("class", 21);
@@ -186,7 +186,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                iU(i2);
+                iT(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -210,7 +210,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void iU(int i) {
+        private void iT(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -226,7 +226,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void iV(int i) {
+        private void iU(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

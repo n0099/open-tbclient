@@ -12,23 +12,23 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 /* loaded from: classes2.dex */
 public class b {
-    private UriMatcher auw = new UriMatcher(-1);
-    public static final String auv = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + auv);
+    private UriMatcher auz = new UriMatcher(-1);
+    public static final String auy = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + auy);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        this.auw.addURI(auv, "favorite", 0);
-        this.auw.addURI(auv, "favorite_and_aps", 1);
-        this.auw.addURI(auv, "history", 2);
-        this.auw.addURI(auv, "history_with_app", 3);
-        this.auw.addURI(auv, "favorite_with_aps_pms", 4);
-        this.auw.addURI(auv, "history_with_aps_pms", 5);
+        this.auz.addURI(auy, "favorite", 0);
+        this.auz.addURI(auy, "favorite_and_aps", 1);
+        this.auz.addURI(auy, "history", 2);
+        this.auz.addURI(auy, "history_with_app", 3);
+        this.auz.addURI(auy, "favorite_with_aps_pms", 4);
+        this.auz.addURI(auy, "history_with_aps_pms", 5);
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        switch (this.auw.match(uri)) {
+        switch (this.auz.match(uri)) {
             case 0:
                 return SwanAppDbControl.bE(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
             case 1:
@@ -42,9 +42,9 @@ public class b {
                 d.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return d;
             case 4:
-                Cursor AO = a.AO();
-                AO.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return AO;
+                Cursor AM = a.AM();
+                AM.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return AM;
             case 5:
                 int i = -1;
                 try {
@@ -68,7 +68,7 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        switch (this.auw.match(uri)) {
+        switch (this.auz.match(uri)) {
             case 0:
                 long c = SwanAppDbControl.bE(AppRuntime.getAppContext()).c(contentValues);
                 if (c >= 0) {
@@ -81,7 +81,7 @@ public class b {
             case 2:
                 long d = SwanAppDbControl.bE(AppRuntime.getAppContext()).d(contentValues);
                 if (d >= 0) {
-                    AR();
+                    AP();
                     return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), d);
                 }
                 return null;
@@ -89,7 +89,7 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.auw.match(uri)) {
+        switch (this.auz.match(uri)) {
             case 0:
                 return SwanAppDbControl.bE(AppRuntime.getAppContext()).b(str, strArr);
             case 1:
@@ -98,7 +98,7 @@ public class b {
             case 2:
                 int c = SwanAppDbControl.bE(AppRuntime.getAppContext()).c(str, strArr);
                 if (c > 0) {
-                    AR();
+                    AP();
                     return c;
                 }
                 return c;
@@ -106,7 +106,7 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.auw.match(uri)) {
+        switch (this.auz.match(uri)) {
             case 0:
                 return SwanAppDbControl.bE(AppRuntime.getAppContext()).a(contentValues, str, strArr);
             case 1:
@@ -115,7 +115,7 @@ public class b {
             case 2:
                 int b = SwanAppDbControl.bE(AppRuntime.getAppContext()).b(contentValues, str, strArr);
                 if (b > 0) {
-                    AR();
+                    AP();
                     return b;
                 }
                 return b;
@@ -127,8 +127,8 @@ public class b {
         return null;
     }
 
-    private static void AR() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.AS(), (ContentObserver) null, false);
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.AT(), (ContentObserver) null, false);
+    private static void AP() {
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.AQ(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.AR(), (ContentObserver) null, false);
     }
 }

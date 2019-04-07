@@ -66,7 +66,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatLoadLogin;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -600,7 +599,7 @@ public final class PassportSDK {
         try {
             JSONObject jSONObject = new JSONObject(str);
             int optInt = jSONObject.optInt("action");
-            JSONObject optJSONObject = jSONObject.optJSONObject(LegoListActivityConfig.PARAMS);
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
             switch (optInt) {
                 case 1:
                 case 2:

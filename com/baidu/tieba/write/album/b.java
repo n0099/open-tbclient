@@ -18,21 +18,21 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String eMX;
-    private int eMY;
-    private AlbumActivity jmX;
+    private String eMJ;
+    private int eMK;
+    private AlbumActivity jmL;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jmX = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jmX.getPageContext().getPageActivity());
-        this.eMY = l.aO(this.jmX.getPageContext().getPageActivity()) / 2;
+        this.jmL = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jmL.getPageContext().getPageActivity());
+        this.eMK = l.aO(this.jmL.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.eMX = str;
+        this.eMJ = str;
     }
 
     @Override // android.widget.Adapter
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pz */
+    /* renamed from: pv */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.c(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jni = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.eNb = (TextView) view.findViewById(d.g.item_name);
-            aVar.eNc = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.jni.setGifIconSupport(false);
-            aVar.jni.setLongIconSupport(false);
+            aVar.jmW = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.eMN = (TextView) view.findViewById(d.g.item_name);
+            aVar.eMO = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.jmW.setGifIconSupport(false);
+            aVar.jmW.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,24 +73,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.eNb.setText(l.a(aVar.eNb.getPaint(), item.getName(), this.eMY) + "(" + item.getCount() + ")");
+                aVar.eMN.setText(l.a(aVar.eMN.getPaint(), item.getName(), this.eMK) + "(" + item.getCount() + ")");
             } else {
-                aVar.eNb.setText("");
+                aVar.eMN.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.eMX)) {
-                al.c(aVar.eNc, d.f.icon_list_select_ok_n);
-                aVar.eNc.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.eMJ)) {
+                al.c(aVar.eMO, d.f.icon_list_select_ok_n);
+                aVar.eMO.setVisibility(0);
             } else {
-                aVar.eNc.setVisibility(8);
+                aVar.eMO.setVisibility(8);
             }
-            MediaFileInfo UO = item.UO();
-            if (UO instanceof VideoFileInfo) {
-                aVar.jni.startLoad(((VideoFileInfo) UO).videoPath, 37, false);
-            } else if (UO instanceof ImageFileInfo) {
-                aVar.jni.startLoad(((ImageFileInfo) UO).getFilePath(), 35, false);
+            MediaFileInfo UL = item.UL();
+            if (UL instanceof VideoFileInfo) {
+                aVar.jmW.startLoad(((VideoFileInfo) UL).videoPath, 37, false);
+            } else if (UL instanceof ImageFileInfo) {
+                aVar.jmW.startLoad(((ImageFileInfo) UL).getFilePath(), 35, false);
             }
-            al.j(aVar.eNb, d.C0277d.cp_cont_b);
+            al.j(aVar.eMN, d.C0277d.cp_cont_b);
             al.k(view, d.f.addresslist_item_bg);
         }
         return view;
@@ -98,9 +98,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView eNb;
-        ImageView eNc;
-        TbImageView jni;
+        TextView eMN;
+        ImageView eMO;
+        TbImageView jmW;
 
         private a() {
         }

@@ -8,12 +8,12 @@ public abstract class o<T> {
 
     public abstract T b(com.google.gson.stream.a aVar) throws IOException;
 
-    public final o<T> cBf() {
+    public final o<T> cAY() {
         return new o<T>() { // from class: com.google.gson.o.1
             @Override // com.google.gson.o
             public void a(com.google.gson.stream.b bVar, T t) throws IOException {
                 if (t == null) {
-                    bVar.cBI();
+                    bVar.cBB();
                 } else {
                     o.this.a(bVar, t);
                 }
@@ -21,7 +21,7 @@ public abstract class o<T> {
 
             @Override // com.google.gson.o
             public T b(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.cBx() == JsonToken.NULL) {
+                if (aVar.cBq() == JsonToken.NULL) {
                     aVar.nextNull();
                     return null;
                 }
@@ -30,11 +30,11 @@ public abstract class o<T> {
         };
     }
 
-    public final i bg(T t) {
+    public final i bc(T t) {
         try {
             com.google.gson.internal.a.f fVar = new com.google.gson.internal.a.f();
             a(fVar, t);
-            return fVar.cBC();
+            return fVar.cBv();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

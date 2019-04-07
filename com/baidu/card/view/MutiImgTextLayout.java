@@ -26,15 +26,15 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
     public TextView XK;
     private a Xy;
     private ab<a> YB;
-    private boolean ZP;
-    public PlayVoiceBntNew ZY;
-    private boolean aaa;
+    private boolean ZQ;
+    public PlayVoiceBntNew ZZ;
     private boolean aab;
+    private boolean aac;
     private String mFrom;
     public TextView mTitle;
-    private static final int ZV = l.h(TbadkCoreApplication.getInst(), d.e.tbds26);
-    private static final int ZW = l.h(TbadkCoreApplication.getInst(), d.e.tbds20);
-    private static final int ZX = l.h(TbadkCoreApplication.getInst(), d.e.tbds7);
+    private static final int ZW = l.h(TbadkCoreApplication.getInst(), d.e.tbds26);
+    private static final int ZX = l.h(TbadkCoreApplication.getInst(), d.e.tbds20);
+    private static final int ZY = l.h(TbadkCoreApplication.getInst(), d.e.tbds7);
     private static final int XI = l.aO(TbadkCoreApplication.getInst()) - (l.h(TbadkCoreApplication.getInst(), d.e.tbds44) * 2);
 
     public void setFrom(String str) {
@@ -47,10 +47,10 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
 
     public MutiImgTextLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZP = true;
+        this.ZQ = true;
         this.Xy = null;
-        this.aaa = false;
         this.aab = false;
+        this.aac = false;
         initUI();
     }
 
@@ -60,8 +60,8 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.XK = (TextView) findViewById(d.g.thread_card_abstract);
         this.mTitle = (TextView) findViewById(d.g.thread_card_title);
-        this.ZY = (PlayVoiceBntNew) findViewById(d.g.thread_card_voice);
-        this.ZY.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgTextLayout.1
+        this.ZZ = (PlayVoiceBntNew) findViewById(d.g.thread_card_voice);
+        this.ZZ.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.MutiImgTextLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ab<a> subClickListener = MutiImgTextLayout.this.getSubClickListener();
@@ -74,26 +74,26 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
     }
 
     private void setVoiceData(bg bgVar) {
-        ArrayList<VoiceData.VoiceModel> Zf = bgVar.Zf();
-        if (v.T(Zf)) {
-            this.ZY.setVisibility(8);
-            this.aab = false;
+        ArrayList<VoiceData.VoiceModel> Zc = bgVar.Zc();
+        if (v.T(Zc)) {
+            this.ZZ.setVisibility(8);
+            this.aac = false;
             return;
         }
-        this.ZY.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = Zf.get(0);
-        this.ZY.setVoiceModel(voiceModel);
-        this.ZY.setTag(voiceModel);
-        this.ZY.bxV();
+        this.ZZ.setVisibility(0);
+        VoiceData.VoiceModel voiceModel = Zc.get(0);
+        this.ZZ.setVoiceModel(voiceModel);
+        this.ZZ.setTag(voiceModel);
+        this.ZZ.bxS();
         if (voiceModel != null) {
-            this.ZY.uu(voiceModel.voice_status.intValue());
+            this.ZZ.uq(voiceModel.voice_status.intValue());
         }
-        this.ZY.cfD();
-        this.aab = true;
+        this.ZZ.cfz();
+        this.aac = true;
     }
 
     public void setFromCDN(boolean z) {
-        this.ZP = z;
+        this.ZQ = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -104,25 +104,25 @@ public class MutiImgTextLayout extends LinearLayout implements i<a> {
     /* renamed from: a */
     public void C(a aVar) {
         this.Xy = aVar;
-        bg WR = aVar.WR();
-        au.a(this.mTitle, WR);
-        au.a(this.XK, this.mTitle, WR, XI);
-        setVoiceData(WR);
+        bg WO = aVar.WO();
+        au.a(this.mTitle, WO);
+        au.a(this.XK, this.mTitle, WO, XI);
+        setVoiceData(WO);
         rB();
     }
 
     private void rB() {
         if (this.XK.getVisibility() != 0 && this.mTitle.getVisibility() != 0) {
-            if (this.aaa) {
-                setMarginsTop(this.ZY, ZV);
-            } else if (this.aab) {
-                setMarginsTop(this.ZY, ZX);
+            if (this.aab) {
+                setMarginsTop(this.ZZ, ZW);
+            } else if (this.aac) {
+                setMarginsTop(this.ZZ, ZY);
             }
-        } else if (this.ZY != null && this.ZY.getLayoutParams() != null) {
-            if (this.aaa) {
-                setMarginsTop(this.ZY, ZV);
-            } else if (this.aab) {
-                setMarginsTop(this.ZY, ZW);
+        } else if (this.ZZ != null && this.ZZ.getLayoutParams() != null) {
+            if (this.aab) {
+                setMarginsTop(this.ZZ, ZW);
+            } else if (this.aac) {
+                setMarginsTop(this.ZZ, ZX);
             }
         }
     }

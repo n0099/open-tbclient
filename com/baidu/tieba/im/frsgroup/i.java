@@ -12,54 +12,54 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.EmotionButton;
 /* loaded from: classes5.dex */
 public class i extends v.a {
-    public TextView bFJ;
-    private int bQF;
-    public TbImageView gjt;
-    public EmotionButton gju;
+    public TextView bFL;
+    private int bQH;
+    public TbImageView gjg;
+    public EmotionButton gjh;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.gjt = (TbImageView) view.findViewById(d.g.net_refresh_image);
-        this.bFJ = (TextView) view.findViewById(d.g.net_refresh_desc);
+        this.gjg = (TbImageView) view.findViewById(d.g.net_refresh_image);
+        this.bFL = (TextView) view.findViewById(d.g.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(d.g.net_refresh_title);
-        this.gju = (EmotionButton) view.findViewById(d.g.net_refresh_button);
-        this.gju.setOnClickListener(onClickListener);
+        this.gjh = (EmotionButton) view.findViewById(d.g.net_refresh_button);
+        this.gjh.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
-        al.d(this.bFJ, d.C0277d.cp_cont_d, 1);
+        al.d(this.bFL, d.C0277d.cp_cont_d, 1);
         al.d(this.mTitleView, d.C0277d.cp_cont_j, 1);
-        this.bFJ.setText(str);
+        this.bFL.setText(str);
         this.mTitleView.setText(str2);
-        this.gju.setText(str3);
-        jR(0);
-        tR(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds30));
+        this.gjh.setText(str3);
+        jQ(0);
+        tN(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.gjt.setImageBitmap(al.hs(d.f.new_pic_emotion_08));
+            this.gjg.setImageBitmap(al.hr(d.f.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.gjt.setImageBitmap(al.hs(d.f.new_pic_emotion_05));
+            this.gjg.setImageBitmap(al.hr(d.f.new_pic_emotion_05));
         } else {
             d(imgType);
-            this.gjt.setImageBitmap(al.hs(this.bQF));
+            this.gjg.setImageBitmap(al.hr(this.bQH));
         }
     }
 
-    public void jR(int i) {
-        ViewGroup.LayoutParams layoutParams = this.gjt.getLayoutParams();
+    public void jQ(int i) {
+        ViewGroup.LayoutParams layoutParams = this.gjg.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.gjt.setLayoutParams(marginLayoutParams);
+            this.gjg.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void tR(int i) {
-        ViewGroup.LayoutParams layoutParams = this.gju.getLayoutParams();
+    public void tN(int i) {
+        ViewGroup.LayoutParams layoutParams = this.gjh.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.gju.setLayoutParams(marginLayoutParams);
+            this.gjh.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -67,25 +67,25 @@ public class i extends v.a {
         if (imgType != null) {
             switch (imgType) {
                 case CREATE:
-                    this.bQF = d.f.new_pic_emotion_03;
+                    this.bQH = d.f.new_pic_emotion_03;
                     return;
                 case NODATA:
-                    this.bQF = d.f.new_pic_emotion_05;
+                    this.bQH = d.f.new_pic_emotion_05;
                     return;
                 case FINDBAR:
-                    this.bQF = d.f.new_pic_emotion_01;
+                    this.bQH = d.f.new_pic_emotion_01;
                     return;
                 case EMOTION:
-                    this.bQF = d.f.new_pic_emotion_02;
+                    this.bQH = d.f.new_pic_emotion_02;
                     return;
                 case GIFT:
-                    this.bQF = d.f.new_pic_emotion_07;
+                    this.bQH = d.f.new_pic_emotion_07;
                     return;
                 case SINGALL:
-                    this.bQF = d.f.new_pic_emotion_06;
+                    this.bQH = d.f.new_pic_emotion_06;
                     return;
                 case WEBVIEW:
-                    this.bQF = d.f.new_pic_emotion_08;
+                    this.bQH = d.f.new_pic_emotion_08;
                     return;
                 default:
                     return;

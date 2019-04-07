@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean uP(int i) {
+    public static boolean uL(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

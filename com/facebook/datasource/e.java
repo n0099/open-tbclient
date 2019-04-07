@@ -8,26 +8,26 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class e<T> implements i<b<T>> {
-    private final List<i<b<T>>> jBi;
+    private final List<i<b<T>>> jAC;
 
     private e(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.jBi = list;
+        this.jAC = list;
     }
 
-    public static <T> e<T> ew(List<i<b<T>>> list) {
+    public static <T> e<T> et(List<i<b<T>>> list) {
         return new e<>(list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cuu */
+    /* renamed from: cun */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.jBi.hashCode();
+        return this.jAC.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -37,11 +37,11 @@ public class e<T> implements i<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.jBi, ((e) obj).jBi);
+        return com.facebook.common.internal.f.equal(this.jAC, ((e) obj).jAC);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aE(this).q(IntentConfig.LIST, this.jBi).toString();
+        return com.facebook.common.internal.f.aA(this).q(IntentConfig.LIST, this.jAC).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,11 +49,11 @@ public class e<T> implements i<b<T>> {
     /* loaded from: classes2.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> jBj = null;
-        private b<T> jBk = null;
+        private b<T> jAD = null;
+        private b<T> jAE = null;
 
         public a() {
-            if (!cuv()) {
+            if (!cuo()) {
                 u(new RuntimeException("No data source supplier or supplier returned null."));
             }
         }
@@ -61,42 +61,42 @@ public class e<T> implements i<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> cux;
-            cux = cux();
-            return cux != null ? cux.getResult() : null;
+            b<T> cuq;
+            cuq = cuq();
+            return cuq != null ? cuq.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean cuo() {
+        public synchronized boolean cuh() {
             boolean z;
-            b<T> cux = cux();
-            if (cux != null) {
-                z = cux.cuo();
+            b<T> cuq = cuq();
+            if (cuq != null) {
+                z = cuq.cuh();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean zf() {
+        public boolean ze() {
             synchronized (this) {
-                if (!super.zf()) {
+                if (!super.ze()) {
                     return false;
                 }
-                b<T> bVar = this.jBj;
-                this.jBj = null;
-                b<T> bVar2 = this.jBk;
-                this.jBk = null;
+                b<T> bVar = this.jAD;
+                this.jAD = null;
+                b<T> bVar2 = this.jAE;
+                this.jAE = null;
                 l(bVar2);
                 l(bVar);
                 return true;
             }
         }
 
-        private boolean cuv() {
-            i<b<T>> cuw = cuw();
-            b<T> bVar = cuw != null ? cuw.get() : null;
+        private boolean cuo() {
+            i<b<T>> cup = cup();
+            b<T> bVar = cup != null ? cup.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0428a(), com.facebook.common.b.a.ctG());
+                bVar.a(new C0428a(), com.facebook.common.b.a.ctz());
                 return true;
             }
             l(bVar);
@@ -104,12 +104,12 @@ public class e<T> implements i<b<T>> {
         }
 
         @Nullable
-        private synchronized i<b<T>> cuw() {
+        private synchronized i<b<T>> cup() {
             i<b<T>> iVar;
-            if (isClosed() || this.mIndex >= e.this.jBi.size()) {
+            if (isClosed() || this.mIndex >= e.this.jAC.size()) {
                 iVar = null;
             } else {
-                List list = e.this.jBi;
+                List list = e.this.jAC;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 iVar = (i) list.get(i);
@@ -122,7 +122,7 @@ public class e<T> implements i<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.jBj = bVar;
+                this.jAD = bVar;
                 z = true;
             }
             return z;
@@ -130,27 +130,27 @@ public class e<T> implements i<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.jBj) {
+            if (isClosed() || bVar != this.jAD) {
                 z = false;
             } else {
-                this.jBj = null;
+                this.jAD = null;
                 z = true;
             }
             return z;
         }
 
         @Nullable
-        private synchronized b<T> cux() {
-            return this.jBk;
+        private synchronized b<T> cuq() {
+            return this.jAE;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.jBj && bVar != this.jBk) {
-                    if (this.jBk == null || z) {
-                        bVar2 = this.jBk;
-                        this.jBk = bVar;
+                if (bVar == this.jAD && bVar != this.jAE) {
+                    if (this.jAE == null || z) {
+                        bVar2 = this.jAE;
+                        this.jAE = bVar;
                     }
                     l(bVar2);
                 }
@@ -160,11 +160,11 @@ public class e<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void j(b<T> bVar) {
             if (i(bVar)) {
-                if (bVar != cux()) {
+                if (bVar != cuq()) {
                     l(bVar);
                 }
-                if (!cuv()) {
-                    u(bVar.cuq());
+                if (!cuo()) {
+                    u(bVar.cuj());
                 }
             }
         }
@@ -172,14 +172,14 @@ public class e<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void k(b<T> bVar) {
             a((b) bVar, bVar.isFinished());
-            if (bVar == cux()) {
+            if (bVar == cuq()) {
                 a((a) null, bVar.isFinished());
             }
         }
 
         private void l(b<T> bVar) {
             if (bVar != null) {
-                bVar.zf();
+                bVar.ze();
             }
         }
 
@@ -201,7 +201,7 @@ public class e<T> implements i<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.cuo()) {
+                if (bVar.cuh()) {
                     a.this.k(bVar);
                 } else if (bVar.isFinished()) {
                     a.this.j(bVar);

@@ -7,9 +7,9 @@ public interface a<T> {
 
     void G(T t);
 
-    void U(T t);
+    void S(T t);
 
-    void V(T t);
+    void T(T t);
 
     void a(T t, com.baidu.swan.pms.model.b bVar);
 

@@ -12,8 +12,8 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
-        a fM = fM(str);
-        if (fM == null) {
+        a fN = fN(str);
+        if (fN == null) {
             if (DEBUG) {
                 throw new RuntimeException("Messenger创建代理类失败");
             }
@@ -26,14 +26,14 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        fM.aEB = bundle;
-        fM.aEC = i;
-        fM.aED = str2;
-        fM.t(bundle);
+        fN.aEE = bundle;
+        fN.aEF = i;
+        fN.aEG = str2;
+        fN.t(bundle);
     }
 
     public static void a(int i, String str, @Nullable Bundle bundle) {
-        if (!com.baidu.swan.apps.process.b.b.d.a.fN(str)) {
+        if (!com.baidu.swan.apps.process.b.b.d.a.fO(str)) {
             if (DEBUG) {
                 Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
             }
@@ -56,7 +56,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static a fM(@Nullable String str) {
+    private static a fN(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("MDelegate-Delegation", "create delegation with null delegate name");

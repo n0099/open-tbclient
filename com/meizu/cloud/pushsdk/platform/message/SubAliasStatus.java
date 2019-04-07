@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,8 +21,8 @@ public class SubAliasStatus extends BasicPushStatus {
         if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
             setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
         }
-        if (!jSONObject.isNull("alias")) {
-            setAlias(jSONObject.getString("alias"));
+        if (!jSONObject.isNull(CommandMessage.TYPE_ALIAS)) {
+            setAlias(jSONObject.getString(CommandMessage.TYPE_ALIAS));
         }
     }
 

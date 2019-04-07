@@ -12,31 +12,31 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private ArrayList<String> aFI;
-    private final String eYK;
-    private boolean gMT = true;
+    private ArrayList<String> aFL;
+    private final String eYw;
+    private boolean gMG = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.aFI = arrayList;
-        this.eYK = this.mContext.getText(d.j.forum).toString();
+        this.aFL = arrayList;
+        this.eYw = this.mContext.getText(d.j.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.aFI = arrayList;
+        this.aFL = arrayList;
     }
 
     public void mf(boolean z) {
-        this.gMT = z;
+        this.gMG = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aFI == null) {
+        if (this.aFL == null) {
             return 0;
         }
-        return this.aFI.size();
+        return this.aFL.size();
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.aFI.get(i);
+        return this.aFL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(d.h.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.bSY = (TextView) view.findViewById(d.g.home_lv_search_forum);
+            aVar.bTa = (TextView) view.findViewById(d.g.home_lv_search_forum);
             aVar.dividerLine = view.findViewById(d.g.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
@@ -69,12 +69,12 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.gMT) {
-                aVar.bSY.setText(str.concat(this.eYK));
+            if (this.gMG) {
+                aVar.bTa.setText(str.concat(this.eYw));
             } else {
-                aVar.bSY.setText(str);
+                aVar.bTa.setText(str);
             }
-            al.d(aVar.bSY, d.C0277d.cp_cont_b, 1);
+            al.d(aVar.bTa, d.C0277d.cp_cont_b, 1);
             al.l(aVar.dividerLine, d.C0277d.cp_bg_line_b);
             al.k(view, d.f.addresslist_item_bg);
         }
@@ -83,7 +83,7 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class a {
-        TextView bSY;
+        TextView bTa;
         View dividerLine;
 
         private a() {

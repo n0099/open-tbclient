@@ -1,15 +1,15 @@
 package com.baidu.tieba.videoEasterEgg.b;
 /* loaded from: classes4.dex */
 public interface a {
-    void azH();
+    void azE();
+
+    void cmj();
+
+    void cmk();
 
     void cml();
 
     void cmm();
-
-    void cmn();
-
-    void cmo();
 
     void onClose();
 

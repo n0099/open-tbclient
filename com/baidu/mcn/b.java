@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String aeO = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private SharedPreferences aeP;
-    private Set<String> aeQ;
+    private static String aeT = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private SharedPreferences aeU;
+    private Set<String> aeV;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b aeR = new b();
+        public static b aeW = new b();
     }
 
-    public static b sY() {
-        return a.aeR;
+    public static b sX() {
+        return a.aeW;
     }
 
     private b() {
-        this.aeP = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.aeU = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void cQ(String str) {
+    public void cS(String str) {
         if (!StringUtils.isNull(str)) {
-            this.aeQ = this.aeP.getStringSet(aeO, null);
-            if (this.aeQ == null) {
-                this.aeQ = new HashSet();
+            this.aeV = this.aeU.getStringSet(aeT, null);
+            if (this.aeV == null) {
+                this.aeV = new HashSet();
             }
-            this.aeQ.add(str);
-            this.aeP.edit().putStringSet(aeO, this.aeQ).commit();
+            this.aeV.add(str);
+            this.aeU.edit().putStringSet(aeT, this.aeV).commit();
         }
     }
 
-    public boolean cR(String str) {
+    public boolean cT(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.aeQ == null) {
-            this.aeQ = this.aeP.getStringSet(aeO, null);
+        if (this.aeV == null) {
+            this.aeV = this.aeU.getStringSet(aeT, null);
         }
-        if (this.aeQ != null) {
-            return this.aeQ.contains(str);
+        if (this.aeV != null) {
+            return this.aeV.contains(str);
         }
         return false;
     }

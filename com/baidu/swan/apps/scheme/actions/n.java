@@ -8,7 +8,6 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.net.URISyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +25,7 @@ public class n extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             com.baidu.swan.apps.console.c.i("OpenApp", "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
@@ -51,7 +50,7 @@ public class n extends y {
                     JSONObject jSONObject = new JSONObject(optString2);
                     if (!TextUtils.isEmpty(jSONObject.optString("url"))) {
                         com.baidu.swan.apps.console.c.i("OpenApp", "params=" + optString2);
-                        z = com.baidu.swan.apps.u.a.CI().g(context, jSONObject);
+                        z = com.baidu.swan.apps.u.a.CG().g(context, jSONObject);
                     }
                 } catch (JSONException e) {
                     if (DEBUG) {

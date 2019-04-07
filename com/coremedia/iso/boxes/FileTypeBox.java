@@ -32,12 +32,12 @@ public class FileTypeBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("FileTypeBox.java", FileTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMajorBrand", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "java.lang.String"), 85);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMajorBrand", "com.coremedia.iso.boxes.FileTypeBox", "java.lang.String", "majorBrand", "", "void"), 94);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setMinorVersion", "com.coremedia.iso.boxes.FileTypeBox", "int", "minorVersion", "", "void"), 103);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getMinorVersion", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "long"), 113);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getCompatibleBrands", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "java.util.List"), 122);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setCompatibleBrands", "com.coremedia.iso.boxes.FileTypeBox", "java.util.List", "compatibleBrands", "", "void"), 126);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getMajorBrand", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "java.lang.String"), 85);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setMajorBrand", "com.coremedia.iso.boxes.FileTypeBox", "java.lang.String", "majorBrand", "", "void"), 94);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "setMinorVersion", "com.coremedia.iso.boxes.FileTypeBox", "int", "minorVersion", "", "void"), 103);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getMinorVersion", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "long"), 113);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getCompatibleBrands", "com.coremedia.iso.boxes.FileTypeBox", "", "", "", "java.util.List"), 122);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setCompatibleBrands", "com.coremedia.iso.boxes.FileTypeBox", "java.util.List", "compatibleBrands", "", "void"), 126);
     }
 
     public FileTypeBox() {
@@ -89,7 +89,7 @@ public class FileTypeBox extends AbstractBox {
     }
 
     public void setMinorVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_2, this, this, org.aspectj.a.a.a.CW(i)));
         this.minorVersion = i;
     }
 

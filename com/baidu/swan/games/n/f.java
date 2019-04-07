@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class f {
-    private static volatile f beM;
-    private boolean beN;
-    private String beO;
+    private static volatile f beP;
+    private boolean beQ;
+    private String beR;
 
-    public static f OM() {
-        if (beM == null) {
+    public static f OK() {
+        if (beP == null) {
             synchronized (f.class) {
-                if (beM == null) {
-                    beM = new f();
+                if (beP == null) {
+                    beP = new f();
                 }
             }
         }
-        return beM;
+        return beP;
     }
 
     private f() {
     }
 
-    public boolean ON() {
-        return this.beN;
+    public boolean OL() {
+        return this.beQ;
     }
 
     public void cy(boolean z) {
-        this.beN = z;
+        this.beQ = z;
     }
 
-    public String OO() {
-        return this.beO;
+    public String OM() {
+        return this.beR;
     }
 
-    public String OP() {
-        if (TextUtils.isEmpty(OO())) {
+    public String ON() {
+        if (TextUtils.isEmpty(OM())) {
             return "";
         }
-        return new File(OO()).getName() + File.separator + "index.js";
+        return new File(OM()).getName() + File.separator + "index.js";
     }
 
-    public void iT(String str) {
-        this.beO = str;
+    public void iU(String str) {
+        this.beR = str;
     }
 }

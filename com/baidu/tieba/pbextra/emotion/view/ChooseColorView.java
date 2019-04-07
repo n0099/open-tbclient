@@ -11,9 +11,9 @@ import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ChooseColorView extends View {
-    private int hJf;
-    private boolean hJg;
-    private Bitmap hJh;
+    private int hIR;
+    private boolean hIS;
+    private Bitmap hIT;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hJf = ViewCompat.MEASURED_STATE_MASK;
+        this.hIR = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(d.e.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.hJf);
+        this.mPaint.setColor(this.hIR);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.hJh = BitmapFactory.decodeResource(getResources(), d.f.icon_select_n);
+        this.hIT = BitmapFactory.decodeResource(getResources(), d.f.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.hJf = i;
-        this.mPaint.setColor(this.hJf);
+        this.hIR = i;
+        this.mPaint.setColor(this.hIR);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.hJf;
+        return this.hIR;
     }
 
     public void setIsChooseView(boolean z) {
-        this.hJg = z;
+        this.hIS = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.hJg) {
-            canvas.drawBitmap(this.hJh, getWidth() - this.hJh.getWidth(), 0.0f, (Paint) null);
+        if (this.hIS) {
+            canvas.drawBitmap(this.hIT, getWidth() - this.hIT.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

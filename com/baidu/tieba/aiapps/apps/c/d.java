@@ -19,17 +19,17 @@ public class d {
         return "https://mbd.baidu.com";
     }
 
-    public static String rw(String str) {
-        String dz = dz(ayN());
-        String dz2 = dz(getUid());
-        return z(z(z(z(z(z(z(str, "uid", dz2), "ua", dz(RQ())), "ut", dz), "osbranch", ayL()), "pkgname", nQ()), "network", ayK()), "appname", getAppName());
+    public static String rx(String str) {
+        String dB = dB(ayK());
+        String dB2 = dB(getUid());
+        return z(z(z(z(z(z(z(str, "uid", dB2), "ua", dB(RO())), "ut", dB), "osbranch", ayI()), "pkgname", nQ()), "network", ayH()), "appname", getAppName());
     }
 
-    public static String ayK() {
-        return ayZ() + "_" + ayY();
+    public static String ayH() {
+        return ayW() + "_" + ayV();
     }
 
-    public static String ayL() {
+    public static String ayI() {
         return "a0";
     }
 
@@ -37,18 +37,18 @@ public class d {
         return CommonParam.getCUID(TbadkCoreApplication.getInst());
     }
 
-    public static String RQ() {
+    public static String RO() {
         Context appContext = AppRuntime.getAppContext();
         int displayWidth = x.getDisplayWidth(appContext);
         int displayHeight = x.getDisplayHeight(appContext);
         int cr = x.cr(appContext);
-        String ayM = ayM();
+        String ayJ = ayJ();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append("_");
         stringBuffer.append(displayHeight);
         stringBuffer.append("_");
-        stringBuffer.append(ayM);
+        stringBuffer.append(ayJ);
         stringBuffer.append("_");
         stringBuffer.append(TbadkCoreApplication.getInst().getVersionName());
         stringBuffer.append("_");
@@ -56,7 +56,7 @@ public class d {
         return stringBuffer.toString();
     }
 
-    public static String ayM() {
+    public static String ayJ() {
         return "android";
     }
 
@@ -64,14 +64,14 @@ public class d {
         return AppRuntime.getApplication().getPackageName();
     }
 
-    public static String ayN() {
-        String ayQ = ayQ();
-        String ayP = ayP();
+    public static String ayK() {
+        String ayN = ayN();
+        String ayM = ayM();
         int i = Build.VERSION.SDK_INT;
-        return ayQ + "_" + ayP + "_" + i + "_" + ayO();
+        return ayN + "_" + ayM + "_" + i + "_" + ayL();
     }
 
-    public static String ayO() {
+    public static String ayL() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -79,7 +79,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String ayP() {
+    public static String ayM() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -87,7 +87,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String ayQ() {
+    public static String ayN() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -139,7 +139,7 @@ public class d {
         return str;
     }
 
-    public static String dz(String str) {
+    public static String dB(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -148,31 +148,31 @@ public class d {
         }
     }
 
-    public static String ayR() {
+    public static String ayO() {
         return String.format("%s/ma/address", getHost());
     }
 
-    public static String ayS() {
+    public static String ayP() {
         return String.format("%s/ma/invoice/modify", getHost());
     }
 
-    public static String ayT() {
+    public static String ayQ() {
         return String.format("%s/ma/invoice/modify_default", getHost());
     }
 
-    public static String ayU() {
+    public static String ayR() {
         return String.format("%s/ma/invoice/del", getHost());
     }
 
-    public static String ayV() {
+    public static String ayS() {
         return String.format("%s/ma/invoice/list", getHost());
     }
 
-    public static String ayW() {
+    public static String ayT() {
         return String.format("%s/ma/invoice/oa_list", getHost());
     }
 
-    public static String ayX() {
+    public static String ayU() {
         return String.format("%s/ma/invoice/create", getHost());
     }
 
@@ -180,11 +180,11 @@ public class d {
         return "tieba";
     }
 
-    private static int ayY() {
+    private static int ayV() {
         return j.kR();
     }
 
-    private static int ayZ() {
+    private static int ayW() {
         NetworkInfo networkInfo;
         String str = null;
         try {

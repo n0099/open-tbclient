@@ -11,38 +11,38 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class a<E> extends o<Object> {
-    public static final p jOx = new p() { // from class: com.google.gson.internal.a.a.1
+    public static final p jNR = new p() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            Type cBK = aVar.cBK();
-            if (!(cBK instanceof GenericArrayType) && (!(cBK instanceof Class) || !((Class) cBK).isArray())) {
+            Type cBD = aVar.cBD();
+            if (!(cBD instanceof GenericArrayType) && (!(cBD instanceof Class) || !((Class) cBD).isArray())) {
                 return null;
             }
-            Type i = C$Gson$Types.i(cBK);
+            Type i = C$Gson$Types.i(cBD);
             return new a(dVar, dVar.a(com.google.gson.b.a.l(i)), C$Gson$Types.g(i));
         }
     };
-    private final Class<E> jOy;
-    private final o<E> jOz;
+    private final Class<E> jNS;
+    private final o<E> jNT;
 
     public a(com.google.gson.d dVar, o<E> oVar, Class<E> cls) {
-        this.jOz = new m(dVar, oVar, cls);
-        this.jOy = cls;
+        this.jNT = new m(dVar, oVar, cls);
+        this.jNS = cls;
     }
 
     @Override // com.google.gson.o
     public Object b(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.cBx() == JsonToken.NULL) {
+        if (aVar.cBq() == JsonToken.NULL) {
             aVar.nextNull();
             return null;
         }
         ArrayList arrayList = new ArrayList();
         aVar.beginArray();
         while (aVar.hasNext()) {
-            arrayList.add(this.jOz.b(aVar));
+            arrayList.add(this.jNT.b(aVar));
         }
         aVar.endArray();
-        Object newInstance = Array.newInstance((Class<?>) this.jOy, arrayList.size());
+        Object newInstance = Array.newInstance((Class<?>) this.jNS, arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
@@ -54,14 +54,14 @@ public final class a<E> extends o<Object> {
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.cBI();
+            bVar.cBB();
             return;
         }
-        bVar.cBE();
+        bVar.cBx();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.jOz.a(bVar, Array.get(obj, i));
+            this.jNT.a(bVar, Array.get(obj, i));
         }
-        bVar.cBF();
+        bVar.cBy();
     }
 }

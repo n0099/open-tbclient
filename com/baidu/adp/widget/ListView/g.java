@@ -89,18 +89,18 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        v.a aV = aV(i);
-        if (aV == null) {
-            aV = aW(i);
+        v.a aU = aU(i);
+        if (aU == null) {
+            aU = aV(i);
         }
-        if (aV == null && this.Pt != null) {
-            aV = this.Pt.onCreateViewHolder(viewGroup, i);
+        if (aU == null && this.Pt != null) {
+            aU = this.Pt.onCreateViewHolder(viewGroup, i);
         }
-        if (aV == null) {
-            aV = this.Ps.aT(this.mContext);
+        if (aU == null) {
+            aU = this.Ps.aT(this.mContext);
         }
-        a(viewGroup, aV);
-        return aV;
+        a(viewGroup, aU);
+        return aU;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -292,12 +292,12 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
         }
     }
 
-    public RecyclerView.ViewHolder aV(int i) {
-        return this.Ps.aS(i);
+    public RecyclerView.ViewHolder aU(int i) {
+        return this.Ps.aR(i);
     }
 
-    public RecyclerView.ViewHolder aW(int i) {
-        return this.Ps.aT(i);
+    public RecyclerView.ViewHolder aV(int i) {
+        return this.Ps.aS(i);
     }
 
     private void a(final ViewGroup viewGroup, final RecyclerView.ViewHolder viewHolder) {

@@ -13,10 +13,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout bRo;
-    TbRichTextView gcW;
-    TextView gcX;
-    ChatImageWithTailView gcY;
+    LinearLayout bRq;
+    TbRichTextView gcK;
+    TextView gcL;
+    ChatImageWithTailView gcM;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.bRo = (LinearLayout) findViewById(d.g.history_container);
-        this.gcX = (TextView) findViewById(d.g.history_send_time);
-        this.gcW = (TbRichTextView) findViewById(d.g.history_txt);
-        this.gcY = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        al.k(this.bRo, d.f.selector_history_multi_single_bg);
-        al.d(this.gcX, d.C0277d.common_color_10067, 1);
-        this.gcW.setTextColor(al.getColor(d.C0277d.cp_cont_c));
-        this.gcY.setIsSupportNight(true);
+        this.bRq = (LinearLayout) findViewById(d.g.history_container);
+        this.gcL = (TextView) findViewById(d.g.history_send_time);
+        this.gcK = (TbRichTextView) findViewById(d.g.history_txt);
+        this.gcM = (ChatImageWithTailView) findViewById(d.g.history_pic);
+        al.k(this.bRq, d.f.selector_history_multi_single_bg);
+        al.d(this.gcL, d.C0277d.common_color_10067, 1);
+        this.gcK.setTextColor(al.getColor(d.C0277d.cp_cont_c));
+        this.gcM.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gcX.setText(str);
+        this.gcL.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gcW;
+        return this.gcK;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gcY;
+        return this.gcM;
     }
 
     public void bU(View view) {
-        this.bRo.setBackgroundDrawable(null);
-        this.bRo.removeAllViews();
-        this.bRo.addView(view);
+        this.bRq.setBackgroundDrawable(null);
+        this.bRq.removeAllViews();
+        this.bRq.addView(view);
     }
 }

@@ -23,9 +23,9 @@ public interface e<T extends d> extends TypedCallbackHandler {
 
     void v(Activity activity);
 
-    T wc();
+    T wb();
+
+    String wc();
 
     String wd();
-
-    String we();
 }

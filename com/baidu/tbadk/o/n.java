@@ -5,13 +5,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n crA = null;
-    private boolean cqZ = false;
-    private boolean cra = false;
+    private static n crC = null;
     private boolean crb = false;
     private boolean crd = false;
-    private long cre = -1;
-    private long crf = -1;
+    private boolean cre = false;
+    private boolean crf = false;
     private long crg = -1;
     private long crh = -1;
     private long cri = -1;
@@ -32,169 +30,171 @@ public class n extends l {
     private long crx = -1;
     private long cry = -1;
     private long crz = -1;
+    private long crA = -1;
+    private long crB = -1;
 
-    public boolean apo() {
-        return this.cra;
+    public boolean apl() {
+        return this.crd;
     }
 
     public void fg(boolean z) {
-        this.cqZ = z;
+        this.crb = z;
     }
 
     public void aV(long j) {
-        this.cre = j;
-    }
-
-    public long app() {
-        return this.cre;
-    }
-
-    public void fh(boolean z) {
-        this.crd = z;
-    }
-
-    public void aW(long j) {
-        this.crf = j;
-    }
-
-    public void aX(long j) {
         this.crg = j;
     }
 
-    public void aY(long j) {
+    public long apm() {
+        return this.crg;
+    }
+
+    public void fh(boolean z) {
+        this.crf = z;
+    }
+
+    public void aW(long j) {
         this.crh = j;
     }
 
-    public void aZ(long j) {
-        this.crl = j;
-    }
-
-    public void ba(long j) {
-        this.crk = j;
-    }
-
-    public void bb(long j) {
+    public void aX(long j) {
         this.cri = j;
     }
 
-    public void bc(long j) {
+    public void aY(long j) {
         this.crj = j;
     }
 
-    public void bd(long j) {
-        this.crx = j;
-    }
-
-    public void be(long j) {
-        this.cru = j;
-    }
-
-    public void bf(long j) {
-        this.crv = j;
-    }
-
-    public void bg(long j) {
-        this.crw = j;
-    }
-
-    public void bh(long j) {
-        this.cry = j;
-    }
-
-    public void bi(long j) {
-        this.crz = j;
-        this.cra = true;
-    }
-
-    public void bj(long j) {
-        this.crm = j;
-    }
-
-    public void bk(long j) {
+    public void aZ(long j) {
         this.crn = j;
     }
 
-    public void bl(long j) {
-        this.crp = j;
+    public void ba(long j) {
+        this.crm = j;
     }
 
-    public void bm(long j) {
+    public void bb(long j) {
+        this.crk = j;
+    }
+
+    public void bc(long j) {
+        this.crl = j;
+    }
+
+    public void bd(long j) {
+        this.crz = j;
+    }
+
+    public void be(long j) {
+        this.crw = j;
+    }
+
+    public void bf(long j) {
+        this.crx = j;
+    }
+
+    public void bg(long j) {
+        this.cry = j;
+    }
+
+    public void bh(long j) {
+        this.crA = j;
+    }
+
+    public void bi(long j) {
+        this.crB = j;
+        this.crd = true;
+    }
+
+    public void bj(long j) {
         this.cro = j;
     }
 
-    public void bn(long j) {
-        this.crq = j;
+    public void bk(long j) {
+        this.crp = j;
     }
 
-    public void bo(long j) {
+    public void bl(long j) {
         this.crr = j;
     }
 
-    public void bp(long j) {
+    public void bm(long j) {
+        this.crq = j;
+    }
+
+    public void bn(long j) {
         this.crs = j;
     }
 
-    public void bq(long j) {
+    public void bo(long j) {
         this.crt = j;
     }
 
-    public static n apq() {
-        if (crA == null) {
+    public void bp(long j) {
+        this.cru = j;
+    }
+
+    public void bq(long j) {
+        this.crv = j;
+    }
+
+    public static n apn() {
+        if (crC == null) {
             synchronized (n.class) {
-                if (crA == null) {
-                    crA = new n();
+                if (crC == null) {
+                    crC = new n();
                 }
             }
         }
-        return crA;
+        return crC;
     }
 
-    public void apr() {
+    public void apo() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016482, (Class) null);
-        if ((this.crz - this.cre) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.crb && m.apk().apl()) {
-            this.crb = true;
-            long j = this.crf - this.cre;
+        if ((this.crB - this.crg) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.cre && m.apg().aph()) {
+            this.cre = true;
+            long j = this.crh - this.crg;
             long j2 = -1;
-            if (this.crv > 0) {
-                j2 = this.crw - this.crv;
+            if (this.crx > 0) {
+                j2 = this.cry - this.crx;
             }
-            long j3 = this.crz - this.cry;
+            long j3 = this.crB - this.crA;
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("procname", "main");
             jC.append("appc", String.valueOf(j));
-            jC.append("loadclass", String.valueOf(this.crg));
-            jC.append("sapiinit", String.valueOf(this.crh));
-            jC.append("acctinit", String.valueOf(this.cri));
-            jC.append("iminit", String.valueOf(this.crj));
-            jC.append("plugininit", String.valueOf(this.crk));
-            jC.append("patchloaded", String.valueOf(this.crl));
-            jC.append("naslibinit", String.valueOf(this.crm));
-            jC.append("websocketinit", String.valueOf(this.crn));
-            jC.append("settinginit", String.valueOf(this.cro));
-            jC.append("toastinit", String.valueOf(this.crp));
-            jC.append("tiebastaticinit", String.valueOf(this.crq));
-            jC.append("locationinit", String.valueOf(this.crr));
-            jC.append("cdninit", String.valueOf(this.crs));
-            jC.append("messagesetinit", String.valueOf(this.crt));
-            jC.append("logores", String.valueOf(this.crx));
-            if (this.cru > 0 && this.crv > 0 && j2 > 0) {
-                jC.append("adc", String.valueOf(this.cru));
+            jC.append("loadclass", String.valueOf(this.cri));
+            jC.append("sapiinit", String.valueOf(this.crj));
+            jC.append("acctinit", String.valueOf(this.crk));
+            jC.append("iminit", String.valueOf(this.crl));
+            jC.append("plugininit", String.valueOf(this.crm));
+            jC.append("patchloaded", String.valueOf(this.crn));
+            jC.append("naslibinit", String.valueOf(this.cro));
+            jC.append("websocketinit", String.valueOf(this.crp));
+            jC.append("settinginit", String.valueOf(this.crq));
+            jC.append("toastinit", String.valueOf(this.crr));
+            jC.append("tiebastaticinit", String.valueOf(this.crs));
+            jC.append("locationinit", String.valueOf(this.crt));
+            jC.append("cdninit", String.valueOf(this.cru));
+            jC.append("messagesetinit", String.valueOf(this.crv));
+            jC.append("logores", String.valueOf(this.crz));
+            if (this.crw > 0 && this.crx > 0 && j2 > 0) {
+                jC.append("adc", String.valueOf(this.crw));
                 jC.append("adshow", String.valueOf(j2));
                 jC.append("hasad", "1");
             } else {
                 jC.append("hasad", "0");
             }
             jC.append("tabc", String.valueOf(j3));
-            jC.append("costt", String.valueOf(this.crx + j + j3));
-            jC.append("newinst", this.cqZ ? "1" : "0");
-            jC.f("pluginloadsync", Boolean.valueOf(this.crd));
+            jC.append("costt", String.valueOf(this.crz + j + j3));
+            jC.append("newinst", this.crb ? "1" : "0");
+            jC.f("pluginloadsync", Boolean.valueOf(this.crf));
             BdStatisticsManager.getInstance().performance("startt", jC);
-            Vq();
+            Vn();
         }
     }
 
     public void br(long j) {
-        if (m.apk().apl() && j > 0) {
+        if (m.apg().aph() && j > 0) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("procname", "remote");
             jC.append("costt", String.valueOf(j));
@@ -202,30 +202,30 @@ public class n extends l {
         }
     }
 
-    private void Vq() {
-        this.cqZ = false;
-        this.cra = false;
-        this.cre = -1L;
-        this.crf = -1L;
+    private void Vn() {
+        this.crb = false;
+        this.crd = false;
         this.crg = -1L;
         this.crh = -1L;
         this.cri = -1L;
         this.crj = -1L;
         this.crk = -1L;
         this.crl = -1L;
-        this.crx = -1L;
-        this.crv = -1L;
-        this.crw = -1L;
-        this.cru = -1L;
-        this.cry = -1L;
-        this.crz = -1L;
         this.crm = -1L;
         this.crn = -1L;
+        this.crz = -1L;
+        this.crx = -1L;
+        this.cry = -1L;
+        this.crw = -1L;
+        this.crA = -1L;
+        this.crB = -1L;
         this.cro = -1L;
         this.crp = -1L;
         this.crq = -1L;
         this.crr = -1L;
         this.crs = -1L;
         this.crt = -1L;
+        this.cru = -1L;
+        this.crv = -1L;
     }
 }

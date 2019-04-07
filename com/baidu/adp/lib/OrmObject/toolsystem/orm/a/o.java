@@ -7,17 +7,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o implements h {
-    private Set<?> zI;
+    private Set<?> zH;
 
     public o(Set<?> set) {
-        this.zI = set;
+        this.zH = set;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Type[] hX = cVar.hX();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.zI) {
+        for (Object obj : this.zH) {
             if (obj != null) {
                 if (hX != null && hX.length >= 1) {
                     Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
@@ -39,7 +39,7 @@ public class o implements h {
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Type[] hX = cVar.hX();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.zI) {
+        for (Object obj : this.zH) {
             if (obj != null) {
                 if (hX != null && hX.length >= 1) {
                     Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.r(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hX[0]));
@@ -64,7 +64,7 @@ public class o implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.zI;
+        return this.zH;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -84,6 +84,6 @@ public class o implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.zI;
+        return this.zH;
     }
 }

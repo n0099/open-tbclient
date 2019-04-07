@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
-    private BdUniqueId cnX;
-    private final com.baidu.adp.framework.listener.a esf = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId cnZ;
+    private final com.baidu.adp.framework.listener.a erR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView fOG;
+    private TopicDetailView fOu;
 
     public a(TopicDetailView topicDetailView) {
-        this.fOG = topicDetailView;
+        this.fOu = topicDetailView;
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        this.cnX = bdUniqueId;
-        this.esf.setTag(bdUniqueId);
-        this.esf.getHttpMessageListener().setSelfListener(true);
-        this.esf.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.esf);
+        this.cnZ = bdUniqueId;
+        this.erR.setTag(bdUniqueId);
+        this.erR.getHttpMessageListener().setSelfListener(true);
+        this.erR.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.erR);
     }
 
     public RunnableC0304a p(long j, long j2) {
@@ -68,11 +68,11 @@ public class a {
             int aQ = l.aQ(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (ar.adp().adr()) {
+            if (ar.adm().ado()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.cnX);
+            requestGetMyPostNetMessage.setTag(a.this.cnZ);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, aO, aQ, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -90,8 +90,8 @@ public class a {
             bg bgVar = new bg();
             bgVar.a(build);
             bgVar.ad(new Date().getTime());
-            if (k.W(bgVar)) {
-                this.fOG.au(bgVar);
+            if (k.V(bgVar)) {
+                this.fOu.at(bgVar);
             }
         }
     }

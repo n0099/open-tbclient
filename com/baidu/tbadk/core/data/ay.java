@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes3.dex */
 public class ay {
-    private String bAk;
-    private List<a> bAl = new ArrayList();
+    private String bAn;
+    private List<a> bAo = new ArrayList();
 
-    public String Ya() {
-        return StringUtils.isNull(this.bAk) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.bAk;
+    public String XX() {
+        return StringUtils.isNull(this.bAn) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.bAn;
     }
 
-    public com.baidu.tieba.card.data.n Yb() {
+    public com.baidu.tieba.card.data.n XY() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.elV = Ya();
-        if (this.bAl != null) {
+        nVar.elH = XX();
+        if (this.bAo != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.bAl) {
+            for (a aVar : this.bAo) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.Yd());
+                    arrayList2.add(aVar.Ya());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.elW = arrayList;
+        nVar.elI = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.bAk = recomTopicInfo.recom_title;
+            this.bAn = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.S(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.bAl.add(aVar);
+                            this.bAo.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class ay {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.Yc() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.XZ() <= 0;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        private String bAm;
-        private long bAn;
-        private String bAo;
         private String bAp;
+        private long bAq;
+        private String bAr;
+        private String bAs;
         private int tag;
         private long topicId;
         private int type;
 
-        public long Yc() {
+        public long XZ() {
             return this.topicId;
         }
 
         public String getTopicName() {
-            return this.bAm;
+            return this.bAp;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.bAm = recomTopicList.topic_name;
+                this.bAp = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.bAn = recomTopicList.discuss_num.longValue();
+                this.bAq = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.bAo = recomTopicList.topic_desc;
-                this.bAp = recomTopicList.topic_pic;
+                this.bAr = recomTopicList.topic_desc;
+                this.bAs = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m Yd() {
+        public com.baidu.tieba.card.data.m Ya() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.bAo;
+            mVar.desc = this.bAr;
             mVar.topicId = this.topicId;
-            mVar.bAm = this.bAm;
+            mVar.bAp = this.bAp;
             return mVar;
         }
     }

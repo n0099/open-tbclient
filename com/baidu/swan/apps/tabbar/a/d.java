@@ -15,8 +15,8 @@ public class d extends y {
 
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.c.e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("openTabBar", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -28,12 +28,12 @@ public class d extends y {
             return false;
         }
         boolean optBoolean = optParamsAsJo.optBoolean("animation");
-        com.baidu.swan.apps.core.c.d yP = uz.yP();
-        if (yP == null) {
+        com.baidu.swan.apps.core.c.d yO = uy.yO();
+        if (yO == null) {
             com.baidu.swan.apps.console.c.e("openTabBar", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yP.yD().ck(optBoolean)) {
+        } else if (!yO.yC().ck(optBoolean)) {
             com.baidu.swan.apps.console.c.e("openTabBar", "open bottom bar fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

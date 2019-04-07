@@ -30,17 +30,17 @@ public class g extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = bVar.Ja().KF().getString(optString, "");
+        String string = bVar.IY().KD().getString(optString, "");
         try {
-            JSONObject he = he(string);
-            if (he == null) {
-                he = new JSONObject();
+            JSONObject hf = hf(string);
+            if (hf == null) {
+                hf = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                he.put("data", string);
+                hf.put("data", string);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(he, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(hf, 0);
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -51,7 +51,7 @@ public class g extends y {
         }
     }
 
-    private JSONObject he(String str) {
+    private JSONObject hf(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

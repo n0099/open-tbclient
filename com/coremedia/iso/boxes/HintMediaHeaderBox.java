@@ -25,11 +25,11 @@ public class HintMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("HintMediaHeaderBox.java", HintMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMaxPduSize", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "int"), 42);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getAvgPduSize", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "int"), 46);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getMaxBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 50);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 54);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "java.lang.String"), 84);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getMaxPduSize", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "int"), 42);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getAvgPduSize", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "int"), 46);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getMaxBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 50);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getAvgBitrate", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "long"), 54);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.HintMediaHeaderBox", "", "", "", "java.lang.String"), 84);
     }
 
     public HintMediaHeaderBox() {

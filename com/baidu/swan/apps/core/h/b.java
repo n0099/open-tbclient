@@ -11,14 +11,14 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> asC = new LinkedList<>();
-    private static Map<String, com.baidu.swan.apps.b.c.c> asD = new TreeMap();
+    private static LinkedList<a> asG = new LinkedList<>();
+    private static Map<String, com.baidu.swan.apps.b.c.c> asH = new TreeMap();
 
     /* loaded from: classes2.dex */
     public static class a {
-        public com.baidu.swan.apps.b.c.c asF;
-        public boolean asG;
-        public final ArrayList<InterfaceC0134b> asH = new ArrayList<>();
+        public com.baidu.swan.apps.b.c.c asJ;
+        public boolean asK;
+        public final ArrayList<InterfaceC0134b> asL = new ArrayList<>();
     }
 
     /* renamed from: com.baidu.swan.apps.core.h.b$b  reason: collision with other inner class name */
@@ -35,14 +35,14 @@ public final class b {
             }
             return;
         }
-        if (asC.size() < 2) {
+        if (asG.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            asC.add(y(activity));
+            asG.add(y(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + asC.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + asG.size());
         }
     }
 
@@ -68,13 +68,13 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (asC.isEmpty()) {
+        if (asG.isEmpty()) {
             return y(activity);
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + asC.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + asG.getFirst());
         }
-        a removeFirst = asC.removeFirst();
+        a removeFirst = asG.removeFirst();
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
         }
@@ -84,7 +84,7 @@ public final class b {
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
                 }
-                b.w(com.baidu.swan.apps.w.e.Ec().DO());
+                b.w(com.baidu.swan.apps.w.e.Ea().DM());
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
                 }
@@ -99,33 +99,33 @@ public final class b {
 
     public static void a(a aVar, InterfaceC0134b interfaceC0134b) {
         if (interfaceC0134b != null) {
-            if (aVar.asG) {
+            if (aVar.asK) {
                 interfaceC0134b.onReady();
             } else {
-                aVar.asH.add(interfaceC0134b);
+                aVar.asL.add(interfaceC0134b);
             }
         }
     }
 
     private static a y(Activity activity) {
         final a aVar = new a();
-        aVar.asG = false;
-        aVar.asF = com.baidu.swan.apps.core.i.c.Ab().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.h.b.3
+        aVar.asK = false;
+        aVar.asJ = com.baidu.swan.apps.core.i.c.Aa().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.h.b.3
             @Override // com.baidu.swan.apps.core.c
-            public void dD(String str) {
+            public void dF(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.asF.we() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.asJ.wd() + " url: " + str);
                 }
-                a.this.asG = true;
-                if (!a.this.asH.isEmpty()) {
-                    Iterator<InterfaceC0134b> it = a.this.asH.iterator();
+                a.this.asK = true;
+                if (!a.this.asL.isEmpty()) {
+                    Iterator<InterfaceC0134b> it = a.this.asL.iterator();
                     while (it.hasNext()) {
                         InterfaceC0134b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.asH.clear();
+                    a.this.asL.clear();
                 }
             }
         });
@@ -133,19 +133,19 @@ public final class b {
     }
 
     public static void b(String str, com.baidu.swan.apps.b.c.c cVar) {
-        asD.put(str, cVar);
+        asH.put(str, cVar);
     }
 
-    public static com.baidu.swan.apps.b.c.c ed(String str) {
-        com.baidu.swan.apps.b.c.c cVar = asD.get(str);
+    public static com.baidu.swan.apps.b.c.c ef(String str) {
+        com.baidu.swan.apps.b.c.c cVar = asH.get(str);
         if (cVar != null) {
-            asD.remove(str);
+            asH.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        asC.clear();
-        asD.clear();
+        asG.clear();
+        asH.clear();
     }
 }

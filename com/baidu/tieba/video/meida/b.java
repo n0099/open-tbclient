@@ -38,7 +38,7 @@ public class b extends c {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.jaj;
+        String str2 = this.iZX;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
         int i3 = 0;
@@ -62,11 +62,11 @@ public class b extends c {
         }
         BdLog.e("mediaFormat " + mediaFormat);
         c.b bVar = new c.b();
-        bVar.aAO = aVar2.channelCount;
-        bVar.sampleRate = aVar2.aAP;
-        bVar.jam = aVar2.jam;
-        bVar.jal = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.jal);
+        bVar.aAR = aVar2.channelCount;
+        bVar.sampleRate = aVar2.aAS;
+        bVar.jaa = aVar2.jaa;
+        bVar.iZZ = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.iZZ);
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString(IMediaFormat.KEY_MIME));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
@@ -104,11 +104,11 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.ckI()) {
-                                                bArr2 = g.c(aVar2.jam / 8, aVar.jam / 8, bArr);
+                                            if (aVar2.ckG()) {
+                                                bArr2 = g.c(aVar2.jaa / 8, aVar.jaa / 8, bArr);
                                             }
-                                            if (aVar2.ckH()) {
-                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.jam / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.ckF()) {
+                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.jaa / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -117,10 +117,10 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.jak != null) {
-                                            this.jak.a(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.iZY != null) {
+                                            this.iZY.a(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.jaj + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.iZX + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
                                         i2 = i4;
                                     }
@@ -171,8 +171,8 @@ public class b extends c {
             outputBuffers = byteBufferArr;
         }
         bVar.size = i4;
-        if (this.jak != null) {
-            this.jak.a(null, 1.0d);
+        if (this.iZY != null) {
+            this.iZY.a(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

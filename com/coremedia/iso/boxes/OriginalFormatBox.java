@@ -18,9 +18,9 @@ public class OriginalFormatBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("OriginalFormatBox.java", OriginalFormatBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataFormat", "com.coremedia.iso.boxes.OriginalFormatBox", "", "", "", "java.lang.String"), 42);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setDataFormat", "com.coremedia.iso.boxes.OriginalFormatBox", "java.lang.String", "dataFormat", "", "void"), 47);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.OriginalFormatBox", "", "", "", "java.lang.String"), 67);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getDataFormat", "com.coremedia.iso.boxes.OriginalFormatBox", "", "", "", "java.lang.String"), 42);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setDataFormat", "com.coremedia.iso.boxes.OriginalFormatBox", "java.lang.String", "dataFormat", "", "void"), 47);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.OriginalFormatBox", "", "", "", "java.lang.String"), 67);
     }
 
     static {

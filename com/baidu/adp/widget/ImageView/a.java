@@ -309,11 +309,11 @@ public class a {
         return this.Od;
     }
 
-    public void aO(int i) {
+    public void aN(int i) {
         this.NX = i;
     }
 
-    public void aP(int i) {
+    public void aO(int i) {
         this.NY = i;
     }
 }

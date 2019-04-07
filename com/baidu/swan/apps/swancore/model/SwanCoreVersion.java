@@ -17,26 +17,26 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dN */
+        /* renamed from: dM */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }
     };
-    public long aTd;
-    public int aTf;
-    public String aTg;
+    public long aTg;
+    public int aTi;
+    public String aTj;
 
     public SwanCoreVersion() {
     }
 
     private SwanCoreVersion(Parcel parcel) {
-        this.aTf = parcel.readInt();
-        this.aTd = parcel.readLong();
-        this.aTg = parcel.readString();
+        this.aTi = parcel.readInt();
+        this.aTg = parcel.readLong();
+        this.aTj = parcel.readString();
     }
 
     public String toString() {
-        return "SwanCoreVersion{swanCorePath='" + this.aTg + "', swanCoreVersion=" + this.aTd + ", swanCoreType=" + this.aTf + ", isAvailable=" + isAvailable() + '}';
+        return "SwanCoreVersion{swanCorePath='" + this.aTj + "', swanCoreVersion=" + this.aTg + ", swanCoreType=" + this.aTi + ", isAvailable=" + isAvailable() + '}';
     }
 
     @Override // android.os.Parcelable
@@ -46,12 +46,12 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.aTf);
-        parcel.writeLong(this.aTd);
-        parcel.writeString(this.aTg);
+        parcel.writeInt(this.aTi);
+        parcel.writeLong(this.aTg);
+        parcel.writeString(this.aTj);
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.aTg) && new File(this.aTg).exists();
+        return !TextUtils.isEmpty(this.aTj) && new File(this.aTj).exists();
     }
 }

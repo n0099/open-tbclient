@@ -3,7 +3,6 @@ package cn.jiguang.d.h.a;
 import android.support.v4.view.ViewCompat;
 import android.util.Base64;
 import cn.jiguang.d.a.d;
-import com.baidu.sapi2.utils.SapiEnv;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -61,8 +60,8 @@ public final class a {
                 return null;
             }
             byte[] k = k("DFA84B10B7ACDD25", HTTP.ASCII);
-            Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-            cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(k));
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, new SecretKeySpec(k, "AES"), l(k));
             return Base64.encodeToString(cipher.doFinal(str.getBytes()), 2);
         } catch (Exception e) {
             return "";
@@ -76,8 +75,8 @@ public final class a {
         try {
             if (str2.length() == 16) {
                 byte[] k = k(str2, HTTP.ASCII);
-                Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-                cipher.init(2, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(k));
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(2, new SecretKeySpec(k, "AES"), l(k));
                 try {
                     return new String(cipher.doFinal(Base64.decode(str, 2)));
                 } catch (Exception e) {
@@ -95,7 +94,7 @@ public final class a {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(k(str, "utf-8"), SapiEnv.SHARE_ALGORITHM);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(k(str, "utf-8"), "AES");
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding");
         cipher.init(1, secretKeySpec);
         return cipher.doFinal(bArr);
@@ -142,8 +141,8 @@ public final class a {
             return null;
         }
         byte[] k = k(str, "utf-8");
-        Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
-        cipher.init(1, new SecretKeySpec(k, SapiEnv.SHARE_ALGORITHM), l(str2.getBytes("utf-8")));
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(1, new SecretKeySpec(k, "AES"), l(str2.getBytes("utf-8")));
         return cipher.doFinal(bArr);
     }
 
@@ -160,7 +159,7 @@ public final class a {
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(k(str, "utf-8"), SapiEnv.SHARE_ALGORITHM);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(k(str, "utf-8"), "AES");
         Cipher cipher = Cipher.getInstance("AES/ECB/NoPadding");
         cipher.init(2, secretKeySpec);
         return cipher.doFinal(bArr);

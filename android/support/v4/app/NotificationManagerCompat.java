@@ -22,6 +22,7 @@ import android.support.annotation.GuardedBy;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
 import com.baidu.mobstat.Config;
+import com.coloros.mcssdk.PushManager;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -71,7 +72,7 @@ public final class NotificationManagerCompat {
 
     private NotificationManagerCompat(Context context) {
         this.mContext = context;
-        this.mNotificationManager = (NotificationManager) this.mContext.getSystemService("notification");
+        this.mNotificationManager = (NotificationManager) this.mContext.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
     }
 
     public void cancel(int i) {

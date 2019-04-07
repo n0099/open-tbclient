@@ -3,15 +3,15 @@ package com.baidu.tbadk.s;
 public class af extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void iL() {
-        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.Bn, this.Bq);
-        bVar.a(this.Bp, this.Bm, this.Bo);
+        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.Bm, this.Bp);
+        bVar.a(this.Bo, this.Bl, this.Bn);
         bVar.h(iK());
         bVar.Y(true);
         com.baidu.adp.lib.b.d.iQ().a(bVar);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

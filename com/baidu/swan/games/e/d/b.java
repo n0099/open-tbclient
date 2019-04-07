@@ -3,7 +3,7 @@ package com.baidu.swan.games.e.d;
 public interface b {
     void a(com.baidu.swan.games.e.a aVar);
 
-    String zu();
+    String zt();
 
-    String zv();
+    String zu();
 }

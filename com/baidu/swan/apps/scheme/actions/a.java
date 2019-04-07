@@ -5,13 +5,12 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class a extends y {
     @NonNull
-    public abstract String JI();
+    public abstract String JG();
 
     public abstract boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
 
@@ -33,14 +32,14 @@ public abstract class a extends y {
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         boolean e;
-        String gB = gB("insert");
-        String gB2 = gB("update");
-        String gB3 = gB("remove");
-        if (TextUtils.equals(gB, str)) {
+        String gC = gC("insert");
+        String gC2 = gC("update");
+        String gC3 = gC("remove");
+        if (TextUtils.equals(gC, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gB2, str)) {
+        } else if (TextUtils.equals(gC2, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gB3, str)) {
+        } else if (TextUtils.equals(gC3, str)) {
             e = d(context, unitedSchemeEntity, callbackHandler, str, bVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, bVar);
@@ -56,7 +55,7 @@ public abstract class a extends y {
             com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject entity is null");
             return null;
         }
-        String param = unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS);
+        String param = unitedSchemeEntity.getParam("params");
         if (TextUtils.isEmpty(param)) {
             com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
             return null;
@@ -73,7 +72,7 @@ public abstract class a extends y {
         return jSONObject;
     }
 
-    private String gB(String str) {
-        return JI() + "/" + str;
+    private String gC(String str) {
+        return JG() + "/" + str;
     }
 }

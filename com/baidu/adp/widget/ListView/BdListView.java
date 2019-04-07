@@ -69,7 +69,7 @@ public class BdListView extends ListView implements o<BdListView> {
 
     /* loaded from: classes.dex */
     public interface c {
-        void aU(int i);
+        void aT(int i);
     }
 
     /* loaded from: classes.dex */
@@ -925,7 +925,7 @@ public class BdListView extends ListView implements o<BdListView> {
                 this.mLayoutHasInit = true;
                 this.mMaxHeight = i5;
                 if (this.mOnKybdsChangeListener != null) {
-                    this.mOnKybdsChangeListener.aU(-1);
+                    this.mOnKybdsChangeListener.aT(-1);
                 }
             } else {
                 this.mMaxHeight = this.mMaxHeight < i5 ? i5 : this.mMaxHeight;
@@ -933,7 +933,7 @@ public class BdListView extends ListView implements o<BdListView> {
             if (this.mLayoutHasInit && this.mMaxHeight > i5 && i5 != this.mPreHeight) {
                 this.mHasKeybord = true;
                 if (this.mOnKybdsChangeListener != null) {
-                    this.mOnKybdsChangeListener.aU(-3);
+                    this.mOnKybdsChangeListener.aT(-3);
                 }
                 if (this.mKeybordScrollBottom && lastVisiblePosition >= getCount() - 1) {
                     getHandler().postDelayed(this.mSelectRunnable, 1L);
@@ -942,7 +942,7 @@ public class BdListView extends ListView implements o<BdListView> {
             if (this.mLayoutHasInit && this.mHasKeybord && this.mMaxHeight == i5) {
                 this.mHasKeybord = false;
                 if (this.mOnKybdsChangeListener != null) {
-                    this.mOnKybdsChangeListener.aU(-2);
+                    this.mOnKybdsChangeListener.aT(-2);
                 }
             }
             this.mPreHeight = i5;

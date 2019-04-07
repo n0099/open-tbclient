@@ -39,7 +39,7 @@ public class u extends f {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.k(getView(), d.f.addresslist_item_bg);
-            this.Yj.aaH.onChangeSkinType();
+            this.Yj.aaI.onChangeSkinType();
         }
         this.mSkinType = i;
     }

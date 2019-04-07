@@ -53,7 +53,7 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         dVar.T(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            dVar.Y(3);
+            dVar.X(3);
         }
         com.baidu.adp.lib.Disk.d.hz().b(dVar);
         if (dVar.isSuccess()) {

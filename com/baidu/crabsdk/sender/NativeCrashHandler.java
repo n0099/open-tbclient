@@ -6,43 +6,42 @@ import android.text.TextUtils;
 import com.baidu.crabsdk.CrabSDK;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NativeCrashHandler {
-    private static NativeCrashHandler bL = null;
+    private static NativeCrashHandler bQ = null;
     private static Context mContext;
-    private boolean bM = false;
+    private boolean bR = false;
 
     private NativeCrashHandler(Context context) {
         mContext = context;
     }
 
-    public static NativeCrashHandler ae() {
-        return bL;
+    public static NativeCrashHandler ad() {
+        return bQ;
     }
-
-    private native boolean nClearVarParams();
 
     private native boolean nRequiredVarParams(String str);
 
     private native boolean nSetLogcatLineCount(int i);
 
     public static NativeCrashHandler s(Context context) {
-        if (bL == null) {
-            bL = new NativeCrashHandler(context);
+        if (bQ == null) {
+            bQ = new NativeCrashHandler(context);
         }
-        return bL;
+        return bQ;
     }
 
-    public final void af() {
+    public final void ae() {
         try {
-            com.baidu.crabsdk.c.a.cw("加载系统库，调用native接口");
+            com.baidu.crabsdk.c.a.cw("Load native so.");
             if (mContext == null) {
                 com.baidu.crabsdk.c.a.cv("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 String str = mContext.getApplicationInfo().nativeLibraryDir + "/" + System.mapLibraryName("crab_native");
                 if (TextUtils.isEmpty(str) || new File(str).exists()) {
                     System.loadLibrary("crab_native");
-                    this.bM = true;
+                    this.bR = true;
                     CrabSDK.NDK_VERSION = "3.1.2";
                     com.baidu.crabsdk.c.a.cv("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
                 } else {
@@ -50,31 +49,57 @@ public class NativeCrashHandler {
                 }
             }
         } catch (Exception e) {
-            this.bM = false;
+            this.bR = false;
             CrabSDK.NDK_VERSION = LivenessStat.TYPE_STRING_DEFAULT;
-            com.baidu.crabsdk.c.a.f("loadSysLib Error!!", e);
+            com.baidu.crabsdk.c.a.f("loadSysLib Error!", e);
+        } catch (UnsatisfiedLinkError e2) {
+            this.bR = false;
+            CrabSDK.NDK_VERSION = LivenessStat.TYPE_STRING_DEFAULT;
+            com.baidu.crabsdk.c.a.w("UnsatisfiedLinkError! " + e2.getMessage());
         }
-    }
-
-    public final void ag() {
-        if (this.bM) {
-            nClearVarParams();
-        } else {
-            com.baidu.crabsdk.c.a.cy("call after failed! native lib init failed");
+        if (this.bR) {
+            try {
+                Context context = mContext;
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("appVC", com.baidu.crabsdk.b.o.I());
+                    jSONObject.put("batVN", "7.3.7");
+                    jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
+                    jSONObject.put("pkgName", com.baidu.crabsdk.b.o.F());
+                    jSONObject.put("appLabel", com.baidu.crabsdk.b.o.G());
+                    if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
+                        jSONObject.put("appVN", com.baidu.crabsdk.b.o.H());
+                    } else {
+                        jSONObject.put("appVN", com.baidu.crabsdk.a.o);
+                    }
+                    jSONObject.put("soLibs", i.cJ(context.getApplicationInfo().nativeLibraryDir));
+                    jSONObject.put("procName", CrabSDK.CURRENT_PNAME);
+                    if (com.baidu.crabsdk.a.L) {
+                        jSONObject.put("filter", 2);
+                    } else {
+                        jSONObject.put("filter", 1);
+                    }
+                    String cB = com.baidu.crabsdk.c.d.cB(jSONObject.toString());
+                    if (cB != null) {
+                        NativeCrashHandler nativeCrashHandler = bQ;
+                        if (nativeCrashHandler.bR) {
+                            nativeCrashHandler.nRequiredVarParams(cB);
+                        } else {
+                            com.baidu.crabsdk.c.a.w("call before failed! native lib init failed");
+                        }
+                    }
+                } catch (Exception e3) {
+                    com.baidu.crabsdk.c.a.f("call native method nRequiredVarParams error!!", e3);
+                }
+            } catch (Exception e4) {
+                com.baidu.crabsdk.c.a.f("Save some var in .crab error!", e4);
+            }
         }
     }
 
     public final void b(int i) {
-        if (this.bM) {
+        if (this.bR) {
             nSetLogcatLineCount(i);
-        }
-    }
-
-    public final void q(String str) {
-        if (this.bM) {
-            nRequiredVarParams(str);
-        } else {
-            com.baidu.crabsdk.c.a.cy("call before failed! native lib init failed");
         }
     }
 }

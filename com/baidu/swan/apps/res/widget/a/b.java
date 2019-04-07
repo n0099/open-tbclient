@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class b {
-    protected a aMT;
+    protected a aMW;
     protected boolean mChecked;
     protected Context mContext;
     protected boolean mEnabled;
@@ -47,7 +47,7 @@ public class b {
         return null;
     }
 
-    public a IC() {
-        return this.aMT;
+    public a IA() {
+        return this.aMW;
     }
 }

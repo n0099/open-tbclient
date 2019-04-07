@@ -14,45 +14,45 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> bMI = new ArrayList<>();
-    private b bMJ;
-    private InterfaceC0227a bMK;
+    private ArrayList<String> bMK = new ArrayList<>();
+    private b bML;
+    private InterfaceC0227a bMM;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0227a {
-        void adR();
+        void adO();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void mY(String str);
-
         void mZ(String str);
+
+        void na(String str);
     }
 
     public void a(b bVar) {
-        this.bMJ = bVar;
+        this.bML = bVar;
     }
 
-    public void adQ() {
-        if (this.bMI != null) {
-            this.bMI.clear();
+    public void adN() {
+        if (this.bMK != null) {
+            this.bMK.clear();
         }
     }
 
     public void e(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bMI.add(str);
+            this.bMK.add(str);
         }
     }
 
     public boolean Y(Activity activity) {
-        if (!com.baidu.e.a.tt()) {
-            adR();
+        if (!com.baidu.e.a.ts()) {
+            adO();
             return false;
-        } else if (v.T(this.bMI)) {
-            adR();
+        } else if (v.T(this.bMK)) {
+            adO();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -78,8 +78,8 @@ public class a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.dr(false);
-        aVar.gC(d.j.request_permission_default_title);
-        aVar.gD(mX(str));
+        aVar.gB(d.j.request_permission_default_title);
+        aVar.gC(mY(str));
         aVar.a(d.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,34 +89,34 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bMJ != null) {
-                    a.this.bMJ.mZ(str);
+                if (a.this.bML != null) {
+                    a.this.bML.na(str);
                 }
             }
         }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bMJ != null) {
-                    a.this.bMJ.mY(str);
+                if (a.this.bML != null) {
+                    a.this.bML.mZ(str);
                 }
             }
         }).b(i.aK(activity));
-        aVar.aaZ();
+        aVar.aaW();
         return false;
     }
 
     private void Z(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bMI.toArray(new String[this.bMI.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bMK.toArray(new String[this.bMK.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int mX(String str) {
+    private int mY(String str) {
         if (TextUtils.isEmpty(str)) {
             return d.j.request_permission_default_text;
         }
@@ -145,12 +145,12 @@ public class a {
     }
 
     public void a(InterfaceC0227a interfaceC0227a) {
-        this.bMK = interfaceC0227a;
+        this.bMM = interfaceC0227a;
     }
 
-    public void adR() {
-        if (this.bMK != null) {
-            this.bMK.adR();
+    public void adO() {
+        if (this.bMM != null) {
+            this.bMM.adO();
         }
     }
 }

@@ -10,40 +10,40 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean cos;
-    protected float cot;
-    protected float cou;
-    protected int cov;
-    protected int cow;
+    protected boolean cou;
+    protected float cov;
+    protected float cow;
+    protected int cox;
+    protected int coy;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.cos = false;
-        this.cot = 0.0f;
-        this.cou = 0.0f;
-        this.cov = 0;
-        this.cow = 0;
+        this.cou = false;
+        this.cov = 0.0f;
+        this.cow = 0.0f;
+        this.cox = 0;
+        this.coy = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cos = false;
-        this.cot = 0.0f;
-        this.cou = 0.0f;
-        this.cov = 0;
-        this.cow = 0;
+        this.cou = false;
+        this.cov = 0.0f;
+        this.cow = 0.0f;
+        this.cox = 0;
+        this.coy = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cos = false;
-        this.cot = 0.0f;
-        this.cou = 0.0f;
-        this.cov = 0;
-        this.cow = 0;
+        this.cou = false;
+        this.cov = 0.0f;
+        this.cow = 0.0f;
+        this.cox = 0;
+        this.coy = 0;
     }
 
-    public void ij(int i) {
+    public void ii(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
@@ -65,7 +65,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a pq(String str) {
+    public a pr(String str) {
         return null;
     }
 
@@ -102,48 +102,48 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void anL() {
+    public void anI() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.cos = z;
+        this.cou = z;
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cot = f;
+        this.cov = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.cou = f;
+        this.cow = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.cov = i;
+        this.cox = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.cow = i;
+        this.coy = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int Cd;
-        public TbFragmentTabIndicator coA;
-        public int coy;
+        public int Cc;
+        public int coA;
+        public TbFragmentTabIndicator coC;
         public View view;
-        public boolean cox = true;
-        public int coz = d.C0277d.common_color_10225;
+        public boolean coz = true;
+        public int coB = d.C0277d.common_color_10225;
 
-        public void ij(int i) {
-            if (this.coy != 0) {
-                al.k(this.view, this.coy);
+        public void ii(int i) {
+            if (this.coA != 0) {
+                al.k(this.view, this.coA);
             }
             if (this.view instanceof TextView) {
-                if (this.coz != 0) {
-                    al.d(this.view, this.coz, 1);
+                if (this.coB != 0) {
+                    al.d(this.view, this.coB, 1);
                 }
                 int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {

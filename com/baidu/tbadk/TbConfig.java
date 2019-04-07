@@ -713,7 +713,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.anp().jJ(i);
+            c.anm().jI(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

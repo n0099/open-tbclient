@@ -110,7 +110,7 @@ public class h {
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void a(int i, c cVar) {
                 if (cVar != null) {
-                    cVar.O(i);
+                    cVar.N(i);
                 }
             }
 
@@ -189,7 +189,7 @@ public class h {
                 if (this.Hu != null) {
                     z = this.Hu.sendMessage(cVar);
                 } else if (cVar != null) {
-                    cVar.O(1);
+                    cVar.N(1);
                 }
             }
         }

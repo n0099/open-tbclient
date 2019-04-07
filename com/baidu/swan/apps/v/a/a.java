@@ -18,28 +18,28 @@ public class a {
     private static boolean isShowing = false;
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.ak.a aVar, int i) {
-        File LR;
+        File LP;
         if (context != null && !isShowing) {
-            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_msg), aa.getVersionName(), b.a(e.Ec().DH(), i), String.valueOf(aVar.LC()));
-            SwanAppErrorDialog.MG().dk(a.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
+            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_msg), aa.getVersionName(), b.a(e.Ea().DF(), i), String.valueOf(aVar.LA()));
+            SwanAppErrorDialog.ME().dj(a.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     boolean unused = a.isShowing = false;
                 }
-            }).ga(format).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            }).gb(format).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
             isShowing = true;
             com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
-            c.c(new com.baidu.swan.apps.statistic.b.a("error", String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.LC())));
+            c.c(new com.baidu.swan.apps.statistic.b.a("error", String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.LA())));
             if (com.baidu.swan.apps.b.DEBUG) {
-                String Mn = aa.Mn();
-                if (!TextUtils.isEmpty(Mn) && (LR = f.LR()) != null) {
-                    File file = new File(LR.getPath(), "error_dialog_info.txt");
+                String Ml = aa.Ml();
+                if (!TextUtils.isEmpty(Ml) && (LP = f.LP()) != null) {
+                    File file = new File(LP.getPath(), "error_dialog_info.txt");
                     com.baidu.swan.c.b.deleteFile(file);
                     StringBuilder sb = new StringBuilder("");
                     if (!TextUtils.isEmpty(format)) {
                         sb.append(format).append("\n");
                     }
-                    sb.append(Mn).append("\n");
+                    sb.append(Ml).append("\n");
                     com.baidu.swan.c.b.b(sb.toString(), file);
                 }
             }

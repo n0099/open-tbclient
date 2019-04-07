@@ -22,7 +22,7 @@ public class e {
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
                         aVar.ai(false);
                         aVar.aj(false);
-                        aVar.at(0);
+                        aVar.as(0);
                         aVar.m(System.currentTimeMillis());
                         return;
                     }
@@ -46,27 +46,27 @@ public class e {
 
     public e() {
         b bVar = new b();
-        bVar.au(3000);
-        bVar.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar.aw(500);
+        bVar.at(3000);
+        bVar.au(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar.av(500);
         this.Eo.put("net", bVar);
         this.Eo.put(Config.OPERATOR, bVar);
         this.Eo.put("stat", bVar);
         this.Eo.put("crash", bVar);
         this.Eo.put("pfmonitor", bVar);
         b bVar2 = new b();
-        bVar2.au(3000);
-        bVar2.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar2.aw(TbConfig.POST_IMAGE_SMALL);
+        bVar2.at(3000);
+        bVar2.au(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar2.av(TbConfig.POST_IMAGE_SMALL);
         this.Eo.put("file", bVar2);
         this.Eo.put("db", bVar2);
         this.Eo.put(SocialConstants.PARAM_IMG_URL, bVar2);
         this.Eo.put("voice", bVar2);
         this.Eo.put("error", bVar2);
         b bVar3 = new b();
-        bVar3.au(3000);
-        bVar3.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar3.aw(TbConfig.POST_IMAGE_SMALL);
+        bVar3.at(3000);
+        bVar3.au(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar3.av(TbConfig.POST_IMAGE_SMALL);
         this.Eo.put("dbg", bVar3);
     }
 
@@ -93,7 +93,7 @@ public class e {
                 z = true;
             } else {
                 if (aVar.jS()) {
-                    aVar.at(aVar.jQ() + 1);
+                    aVar.as(aVar.jQ() + 1);
                     if (currentTimeMillis - aVar.jP() < bVar.jU()) {
                         if (aVar.jQ() >= bVar.jV()) {
                             aVar.ai(true);
@@ -103,7 +103,7 @@ public class e {
                         }
                     } else {
                         aVar.aj(false);
-                        aVar.at(0);
+                        aVar.as(0);
                         aVar.m(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.jR() < bVar.jT()) {
@@ -161,7 +161,7 @@ public class e {
             return this.mCount;
         }
 
-        public void at(int i) {
+        public void as(int i) {
             this.mCount = i;
         }
 
@@ -196,7 +196,7 @@ public class e {
             return this.Ev;
         }
 
-        public void au(int i) {
+        public void at(int i) {
             this.Ev = i;
         }
 
@@ -204,7 +204,7 @@ public class e {
             return this.Ew;
         }
 
-        public void av(int i) {
+        public void au(int i) {
             this.Ew = i;
         }
 
@@ -212,7 +212,7 @@ public class e {
             return this.Ex;
         }
 
-        public void aw(int i) {
+        public void av(int i) {
             this.Ex = i;
         }
     }

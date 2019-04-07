@@ -111,7 +111,7 @@ public class RecordingAnimView extends View {
     }
 
     private void qY() {
-        this.Wl = bs(TbadkCoreApplication.getInst().getSkinType());
+        this.Wl = br(TbadkCoreApplication.getInst().getSkinType());
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
@@ -121,14 +121,14 @@ public class RecordingAnimView extends View {
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.Wl = bs(i);
+            this.Wl = br(i);
             this.mPaint.setColor(al.getColor(this.Wl));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    public int bs(int i) {
+    public int br(int i) {
         return i == 0 ? d.C0277d.white_alpha100 : d.C0277d.white_alpha70;
     }
 

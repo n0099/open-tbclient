@@ -9,7 +9,7 @@ import rx.k;
 import rx.subscriptions.e;
 /* loaded from: classes2.dex */
 public class TestScheduler extends g {
-    static long kcy;
+    static long kbQ;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
@@ -18,16 +18,16 @@ public class TestScheduler extends g {
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a kcD;
+        final g.a kbV;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.kcy;
-            TestScheduler.kcy = 1 + j2;
+            long j2 = TestScheduler.kbQ;
+            TestScheduler.kbQ = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.kcD = aVar;
+            this.kbV = aVar;
         }
 
         public String toString() {
@@ -67,14 +67,14 @@ public class TestScheduler extends g {
     }
 
     public void advanceTimeTo(long j, TimeUnit timeUnit) {
-        ex(timeUnit.toNanos(j));
+        ew(timeUnit.toNanos(j));
     }
 
     public void triggerActions() {
-        ex(this.time);
+        ew(this.time);
     }
 
-    private void ex(long j) {
+    private void ew(long j) {
         while (!this.queue.isEmpty()) {
             c peek = this.queue.peek();
             if (peek.time > j) {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.kcD.isUnsubscribed()) {
+            if (!peek.kbV.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -96,19 +96,19 @@ public class TestScheduler extends g {
 
     /* loaded from: classes2.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a kcz = new rx.subscriptions.a();
+        private final rx.subscriptions.a kbR = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.kcz.unsubscribe();
+            this.kbR.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.kcz.isUnsubscribed();
+            return this.kbR.isUnsubscribed();
         }
 
         @Override // rx.g.a

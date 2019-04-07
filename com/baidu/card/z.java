@@ -69,8 +69,8 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
         }
         this.YW.getView().setVisibility(0);
         if (this.YX != null && this.YX.Yi != null) {
-            if (!t.isSelf() && t.WT() != null) {
-                this.YX.C(t.WT());
+            if (!t.isSelf() && t.WQ() != null) {
+                this.YX.C(t.WQ());
                 this.YX.Yi.setVisibility(0);
                 z = true;
             } else if (this.YX != null && this.YX.Yi != null) {
@@ -80,10 +80,10 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
         this.YW.b((x<T>) t);
         if (this.Za != null) {
             this.Za.aH(z);
-            this.Za.C(t.WR());
+            this.Za.C(t.WO());
         }
         if (this.YZ != null) {
-            this.YZ.C(t.WR());
+            this.YZ.C(t.WO());
         }
     }
 

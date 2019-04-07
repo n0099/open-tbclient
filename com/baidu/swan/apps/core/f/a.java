@@ -11,5 +11,5 @@ public interface a {
 
     void v(Activity activity);
 
-    com.baidu.swan.apps.core.container.a zs();
+    com.baidu.swan.apps.core.container.a zr();
 }

@@ -17,15 +17,15 @@ import java.io.File;
 public class g {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.agh()) {
+        if (adAdSense != null && !adAdSense.age()) {
             return s.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bwE;
-        if (StringUtils.isNull(str) && advertAppInfo.bwN != null) {
-            str = advertAppInfo.bwN.userName;
+        String str = advertAppInfo.bwH;
+        if (StringUtils.isNull(str) && advertAppInfo.bwQ != null) {
+            str = advertAppInfo.bwQ.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -37,21 +37,21 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.alF().b(advertAppInfo);
-        String str2 = advertAppInfo.bwE;
+        com.baidu.tbadk.distribute.a.alC().b(advertAppInfo);
+        String str2 = advertAppInfo.bwH;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.bWW().a(advertAppInfo.bwH, advertAppInfo.bwG, str2, i, h.Bw(advertAppInfo.bwH).intValue(), null, true, false, true, advertAppInfo.bwN.userPortrait, downloadStaticsData, advertAppInfo.bwN.userName);
+        h.bWS().a(advertAppInfo.bwK, advertAppInfo.bwJ, str2, i, h.Bv(advertAppInfo.bwK).intValue(), null, true, false, true, advertAppInfo.bwQ.userPortrait, downloadStaticsData, advertAppInfo.bwQ.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.agh()) {
+        if (adAdSense != null && !adAdSense.age()) {
             s.f(advertAppInfo);
         } else {
-            h.bWW().u(advertAppInfo.bwG, advertAppInfo.bwH, true);
+            h.bWS().u(advertAppInfo.bwJ, advertAppInfo.bwK, true);
         }
     }
 
@@ -60,11 +60,11 @@ public class g {
             l.showToast(context, d.j.download_error);
             return;
         }
-        File lQ = m.lQ(str.replace(".", "_") + ".apk");
-        if (lQ != null) {
+        File lR = m.lR(str.replace(".", "_") + ".apk");
+        if (lR != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(lQ, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(lR, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }

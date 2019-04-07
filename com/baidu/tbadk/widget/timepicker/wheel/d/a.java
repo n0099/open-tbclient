@@ -4,53 +4,53 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
 /* loaded from: classes3.dex */
 public final class a extends TimerTask {
-    private float cGb = 2.1474836E9f;
-    private final float cGc;
-    private final WheelView cGd;
+    private float cGd = 2.1474836E9f;
+    private final float cGe;
+    private final WheelView cGf;
 
     public a(WheelView wheelView, float f) {
-        this.cGd = wheelView;
-        this.cGc = f;
+        this.cGf = wheelView;
+        this.cGe = f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.cGb == 2.1474836E9f) {
-            if (Math.abs(this.cGc) > 2000.0f) {
-                this.cGb = this.cGc <= 0.0f ? -2000.0f : 2000.0f;
+        if (this.cGd == 2.1474836E9f) {
+            if (Math.abs(this.cGe) > 2000.0f) {
+                this.cGd = this.cGe <= 0.0f ? -2000.0f : 2000.0f;
             } else {
-                this.cGb = this.cGc;
+                this.cGd = this.cGe;
             }
         }
-        if (Math.abs(this.cGb) >= 0.0f && Math.abs(this.cGb) <= 20.0f) {
-            this.cGd.atR();
-            this.cGd.getHandler().sendEmptyMessage(2000);
+        if (Math.abs(this.cGd) >= 0.0f && Math.abs(this.cGd) <= 20.0f) {
+            this.cGf.atO();
+            this.cGf.getHandler().sendEmptyMessage(2000);
             return;
         }
-        int i = (int) (this.cGb / 100.0f);
-        this.cGd.setTotalScrollY(this.cGd.getTotalScrollY() - i);
-        if (!this.cGd.atT()) {
-            float itemHeight = this.cGd.getItemHeight();
-            float f = (-this.cGd.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.cGd.getItemsCount() - 1) - this.cGd.getInitPosition()) * itemHeight;
-            if (this.cGd.getTotalScrollY() - (itemHeight * 0.25d) < f) {
-                f = this.cGd.getTotalScrollY() + i;
-            } else if (this.cGd.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
-                itemsCount = this.cGd.getTotalScrollY() + i;
+        int i = (int) (this.cGd / 100.0f);
+        this.cGf.setTotalScrollY(this.cGf.getTotalScrollY() - i);
+        if (!this.cGf.atQ()) {
+            float itemHeight = this.cGf.getItemHeight();
+            float f = (-this.cGf.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.cGf.getItemsCount() - 1) - this.cGf.getInitPosition()) * itemHeight;
+            if (this.cGf.getTotalScrollY() - (itemHeight * 0.25d) < f) {
+                f = this.cGf.getTotalScrollY() + i;
+            } else if (this.cGf.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
+                itemsCount = this.cGf.getTotalScrollY() + i;
             }
-            if (this.cGd.getTotalScrollY() <= f) {
-                this.cGb = 40.0f;
-                this.cGd.setTotalScrollY((int) f);
-            } else if (this.cGd.getTotalScrollY() >= itemsCount) {
-                this.cGd.setTotalScrollY((int) itemsCount);
-                this.cGb = -40.0f;
+            if (this.cGf.getTotalScrollY() <= f) {
+                this.cGd = 40.0f;
+                this.cGf.setTotalScrollY((int) f);
+            } else if (this.cGf.getTotalScrollY() >= itemsCount) {
+                this.cGf.setTotalScrollY((int) itemsCount);
+                this.cGd = -40.0f;
             }
         }
-        if (this.cGb < 0.0f) {
-            this.cGb += 20.0f;
+        if (this.cGd < 0.0f) {
+            this.cGd += 20.0f;
         } else {
-            this.cGb -= 20.0f;
+            this.cGd -= 20.0f;
         }
-        this.cGd.getHandler().sendEmptyMessage(1000);
+        this.cGf.getHandler().sendEmptyMessage(1000);
     }
 }

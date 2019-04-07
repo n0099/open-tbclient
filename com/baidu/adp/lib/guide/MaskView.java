@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class MaskView extends ViewGroup {
-    private boolean BO;
+    private boolean BN;
+    private final RectF BT;
     private final RectF BU;
     private final RectF BV;
-    private final RectF BW;
-    private final Paint BX;
-    private final Path BY;
-    private boolean BZ;
-    private final Paint Ca;
+    private final Paint BW;
+    private final Path BX;
+    private boolean BY;
+    private final Paint BZ;
     private final Paint mPaint;
 
     public MaskView(Context context) {
@@ -33,22 +33,22 @@ public class MaskView extends ViewGroup {
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        this.BT = new RectF();
         this.BU = new RectF();
         this.BV = new RectF();
-        this.BW = new RectF();
-        this.BX = new Paint();
-        this.BY = new Path();
-        this.BO = false;
-        this.Ca = new Paint();
+        this.BW = new Paint();
+        this.BX = new Path();
+        this.BN = false;
+        this.BZ = new Paint();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.Ca.setColor(SupportMenu.CATEGORY_MASK);
-        this.Ca.setStrokeWidth(10.0f);
+        this.BZ.setColor(SupportMenu.CATEGORY_MASK);
+        this.BZ.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.BY.setFillType(Path.FillType.EVEN_ODD);
+        this.BX.setFillType(Path.FillType.EVEN_ODD);
         iU();
     }
 
@@ -67,8 +67,8 @@ public class MaskView extends ViewGroup {
         int i3 = i & 1073741823;
         int i4 = i2 & 1073741823;
         setMeasuredDimension(i3, i4);
-        if (!this.BZ) {
-            this.BV.set(0.0f, 0.0f, i3, i4);
+        if (!this.BY) {
+            this.BU.set(0.0f, 0.0f, i3, i4);
             iU();
         }
         int childCount = getChildCount();
@@ -92,62 +92,62 @@ public class MaskView extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (aVar = (a) childAt.getLayoutParams()) != null) {
-                switch (aVar.Cb) {
+                switch (aVar.Ca) {
                     case 1:
-                        this.BW.right = this.BU.left;
-                        this.BW.left = this.BW.right - childAt.getMeasuredWidth();
-                        b(childAt, this.BW, aVar.Cc);
+                        this.BV.right = this.BT.left;
+                        this.BV.left = this.BV.right - childAt.getMeasuredWidth();
+                        b(childAt, this.BV, aVar.Cb);
                         break;
                     case 2:
-                        this.BW.bottom = this.BU.top;
-                        this.BW.top = this.BW.bottom - childAt.getMeasuredHeight();
-                        a(childAt, this.BW, aVar.Cc);
+                        this.BV.bottom = this.BT.top;
+                        this.BV.top = this.BV.bottom - childAt.getMeasuredHeight();
+                        a(childAt, this.BV, aVar.Cb);
                         break;
                     case 3:
-                        this.BW.left = this.BU.right;
-                        this.BW.right = this.BW.left + childAt.getMeasuredWidth();
-                        b(childAt, this.BW, aVar.Cc);
+                        this.BV.left = this.BT.right;
+                        this.BV.right = this.BV.left + childAt.getMeasuredWidth();
+                        b(childAt, this.BV, aVar.Cb);
                         break;
                     case 4:
-                        this.BW.top = this.BU.bottom;
-                        this.BW.bottom = this.BW.top + childAt.getMeasuredHeight();
-                        a(childAt, this.BW, aVar.Cc);
+                        this.BV.top = this.BT.bottom;
+                        this.BV.bottom = this.BV.top + childAt.getMeasuredHeight();
+                        a(childAt, this.BV, aVar.Cb);
                         break;
                     case 5:
-                        this.BW.left = (((int) this.BU.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.BW.top = (((int) this.BU.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.BW.right = (((int) this.BU.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.BW.bottom = (((int) this.BU.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.BW.offset(this.BU.left, this.BU.top);
+                        this.BV.left = (((int) this.BT.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.BV.top = (((int) this.BT.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.BV.right = (((int) this.BT.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.BV.bottom = (((int) this.BT.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.BV.offset(this.BT.left, this.BT.top);
                         break;
                 }
-                if (this.BO) {
-                    this.BW.offset(aVar.Cd, aVar.Ce);
+                if (this.BN) {
+                    this.BV.offset(aVar.Cc, aVar.Cd);
                 } else {
-                    this.BW.offset((int) ((aVar.Cd * f) + 0.5f), (int) ((aVar.Ce * f) + 0.5f));
+                    this.BV.offset((int) ((aVar.Cc * f) + 0.5f), (int) ((aVar.Cd * f) + 0.5f));
                 }
-                childAt.layout((int) this.BW.left, (int) this.BW.top, (int) this.BW.right, (int) this.BW.bottom);
+                childAt.layout((int) this.BV.left, (int) this.BV.top, (int) this.BV.right, (int) this.BV.bottom);
             }
         }
     }
 
     public void aa(boolean z) {
-        this.BO = z;
+        this.BN = z;
     }
 
     private void a(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.BU.left;
+                rectF.left = this.BT.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.BU.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.BU.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.BU.left, 0.0f);
+                rectF.left = (this.BT.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.BT.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.BT.left, 0.0f);
                 return;
             case 48:
-                rectF.right = this.BU.right;
+                rectF.right = this.BT.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -158,17 +158,17 @@ public class MaskView extends ViewGroup {
     private void b(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.BU.top;
+                rectF.top = this.BT.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.BU.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.BU.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.BU.top);
+                rectF.top = (this.BT.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.BT.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.BT.top);
                 return;
             case 48:
-                rectF.bottom = this.BU.bottom;
-                rectF.top = this.BU.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.BT.bottom;
+                rectF.top = this.BT.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
@@ -176,31 +176,31 @@ public class MaskView extends ViewGroup {
     }
 
     private void iU() {
-        this.BY.reset();
-        this.BY.addRect(this.BU, Path.Direction.CW);
-        this.BY.addRect(this.BV, Path.Direction.CW);
+        this.BX.reset();
+        this.BX.addRect(this.BT, Path.Direction.CW);
+        this.BX.addRect(this.BU, Path.Direction.CW);
     }
 
     public void b(Rect rect) {
-        this.BU.set(rect);
+        this.BT.set(rect);
         iU();
         invalidate();
     }
 
     public void c(Rect rect) {
-        this.BV.set(rect);
+        this.BU.set(rect);
         iU();
-        this.BZ = true;
+        this.BY = true;
+        invalidate();
+    }
+
+    public void ag(int i) {
+        this.BW.setAlpha(i);
         invalidate();
     }
 
     public void ah(int i) {
-        this.BX.setAlpha(i);
-        invalidate();
-    }
-
-    public void ai(int i) {
-        this.BX.setColor(i);
+        this.BW.setColor(i);
         invalidate();
     }
 
@@ -219,7 +219,7 @@ public class MaskView extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
         canvas.save();
-        canvas.drawRect(this.BV, this.BX);
+        canvas.drawRect(this.BU, this.BW);
         canvas.restore();
         for (int i = 0; i < getChildCount(); i++) {
             try {
@@ -233,17 +233,17 @@ public class MaskView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a extends ViewGroup.LayoutParams {
+        public int Ca;
         public int Cb;
         public int Cc;
         public int Cd;
-        public int Ce;
 
         public a(int i, int i2) {
             super(i, i2);
-            this.Cb = 4;
-            this.Cc = 32;
+            this.Ca = 4;
+            this.Cb = 32;
+            this.Cc = 0;
             this.Cd = 0;
-            this.Ce = 0;
         }
     }
 }

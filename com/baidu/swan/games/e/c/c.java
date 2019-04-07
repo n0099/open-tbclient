@@ -13,32 +13,32 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bad;
-    private com.baidu.swan.games.network.b bae;
-    private a bbJ;
+    private String bag;
+    private com.baidu.swan.games.network.b bah;
+    private a bbM;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.bad = "";
-        this.bae = bVar;
-        this.bad = str;
+        this.bag = "";
+        this.bah = bVar;
+        this.bag = str;
         this.mSrc = str2;
-        this.bbJ = aVar;
+        this.bbM = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.bae.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
+        this.bah.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.bbJ != null) {
-                    c.this.bbJ.s(-1, c.this.mSrc);
+                if (c.this.bbM != null) {
+                    c.this.bbM.s(-1, c.this.mSrc);
                 }
             }
 
@@ -56,13 +56,13 @@ class c {
                 try {
                     inputStream = response.body().byteStream();
                     try {
-                        String hV = e.hV(c.this.mSrc);
-                        String str = c.this.bad + hV.substring(0, hV.lastIndexOf("/"));
+                        String hW = e.hW(c.this.mSrc);
+                        String str = c.this.bag + hW.substring(0, hW.lastIndexOf("/"));
                         File file = new File(str);
                         if (!file.exists() || !file.isDirectory()) {
                             file.mkdirs();
                         }
-                        String substring = hV.substring(hV.lastIndexOf("/") + 1);
+                        String substring = hW.substring(hW.lastIndexOf("/") + 1);
                         int indexOf = substring.indexOf("?v=");
                         if (indexOf > 0) {
                             substring = substring.substring(0, indexOf);
@@ -84,8 +84,8 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load failed", e);
                                     }
-                                    if (c.this.bbJ != null) {
-                                        c.this.bbJ.s(-1, c.this.mSrc);
+                                    if (c.this.bbM != null) {
+                                        c.this.bbM.s(-1, c.this.mSrc);
                                     }
                                     if (inputStream2 != null) {
                                         try {
@@ -144,15 +144,15 @@ class c {
                             if (c.DEBUG) {
                                 Log.e("ImageDownloader", c.this.mSrc + " load success path = " + absolutePath);
                             }
-                            if (c.this.bbJ != null) {
-                                c.this.bbJ.aN(c.this.mSrc, absolutePath);
+                            if (c.this.bbM != null) {
+                                c.this.bbM.aN(c.this.mSrc, absolutePath);
                             }
                         } else {
                             if (c.DEBUG) {
                                 Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                             }
-                            if (c.this.bbJ != null) {
-                                c.this.bbJ.s(-1, absolutePath);
+                            if (c.this.bbM != null) {
+                                c.this.bbM.s(-1, absolutePath);
                             }
                         }
                         if (inputStream != null) {

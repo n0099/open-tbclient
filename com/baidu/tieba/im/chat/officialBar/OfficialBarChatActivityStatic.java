@@ -29,9 +29,9 @@ public class OfficialBarChatActivityStatic {
                     aa.b(new z<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.z
-                        /* renamed from: awV */
+                        /* renamed from: awS */
                         public Void doInBackground() {
-                            return l.bsx().p(linkedList);
+                            return l.bsu().p(linkedList);
                         }
                     }, new k<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class OfficialBarChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

@@ -177,7 +177,7 @@ public class x<T extends com.baidu.tbadk.core.data.a> implements j, com.baidu.ti
         }
     }
 
-    public void by(int i) {
+    public void bx(int i) {
         this.YD = i;
     }
 
@@ -213,7 +213,7 @@ public class x<T extends com.baidu.tbadk.core.data.a> implements j, com.baidu.ti
         layoutParams.topMargin = -this.Yz.YR;
         layoutParams.rightMargin = -this.Yz.YU;
         cVar.a(layoutParams);
-        cVar.bx(-1);
+        cVar.bw(-1);
         this.Yx.add(cVar);
     }
 
@@ -332,7 +332,7 @@ public class x<T extends com.baidu.tbadk.core.data.a> implements j, com.baidu.ti
             this.Yx = new ArrayList<>();
             this.Yz = new y();
             if (!z) {
-                this.Yz.bz(0);
+                this.Yz.by(0);
             }
             this.YI = new ArrayList();
         }

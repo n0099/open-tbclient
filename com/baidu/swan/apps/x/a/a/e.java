@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements com.baidu.swan.apps.model.a {
-    public ArrayList<c> azm;
+    public ArrayList<c> azp;
     public int strokeWidth = 1;
     public int strokeColor = ViewCompat.MEASURED_STATE_MASK;
     public int fillColor = 0;
-    public int azn = 0;
+    public int azq = 0;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -19,29 +19,29 @@ public class e implements com.baidu.swan.apps.model.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.azm = new ArrayList<>(length);
+                this.azp = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.parseFromJson(optJSONObject);
                         if (cVar.isValid()) {
-                            this.azm.add(cVar);
+                            this.azp.add(cVar);
                         }
                     }
                 }
             }
-            if (this.azm != null && this.azm.size() > 0) {
+            if (this.azp != null && this.azp.size() > 0) {
                 this.strokeWidth = (int) Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optInt("strokeWidth", 1)));
                 this.strokeColor = com.baidu.swan.apps.x.a.d.E(jSONObject.optString("strokeColor"), ViewCompat.MEASURED_STATE_MASK);
                 this.fillColor = com.baidu.swan.apps.x.a.d.E(jSONObject.optString("fillColor"), 0);
-                this.azn = jSONObject.optInt("zIndex", 0);
+                this.azq = jSONObject.optInt("zIndex", 0);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.azm == null || this.azm.isEmpty()) ? false : true;
+        return (this.azp == null || this.azp.isEmpty()) ? false : true;
     }
 }

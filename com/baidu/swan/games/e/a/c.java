@@ -9,60 +9,60 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a arN;
-    private String bbF = "";
+    private com.baidu.swan.games.e.a arR;
+    private String bbI = "";
 
     public c(com.baidu.swan.games.e.a aVar) {
-        this.arN = aVar;
+        this.arR = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
     public void onV8ExceptionCallBack(String str, String str2) {
-        Log.e("V8Exception", this.arN.EV() + "msg: " + str + " ,stack: " + str2);
-        this.arN.NX().im(str);
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.bbF.equals(str)) {
-            this.bbF = str;
+        Log.e("V8Exception", this.arR.ET() + "msg: " + str + " ,stack: " + str2);
+        this.arR.NV().in(str);
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.bbI.equals(str)) {
+            this.bbI = str;
             aT(str, str2);
         }
     }
 
     private void aT(String str, String str2) {
-        if (this.arN.NV() != null) {
-            this.arN.NV().dispatchEvent(new a().in(str + "\n" + str2).io("").Oe());
+        if (this.arR.NT() != null) {
+            this.arR.NT().dispatchEvent(new a().io(str + "\n" + str2).ip("").Oc());
         }
     }
 
     /* loaded from: classes2.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String bbF;
-        private JSEvent bbG = new JSEvent("error");
-        private String bbH;
-
-        public a in(String str) {
-            this.bbF = str;
-            return this;
-        }
+        private String bbI;
+        private JSEvent bbJ = new JSEvent("error");
+        private String bbK;
 
         public a io(String str) {
-            this.bbH = str;
+            this.bbI = str;
             return this;
         }
 
-        public JSEvent Oe() {
+        public a ip(String str) {
+            this.bbK = str;
+            return this;
+        }
+
+        public JSEvent Oc() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.bbF);
-                jSONObject.put("stack", this.bbH);
+                jSONObject.put("message", this.bbI);
+                jSONObject.put("stack", this.bbK);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.bbG.data = jSONObject;
+                this.bbJ.data = jSONObject;
             }
-            return this.bbG;
+            return this.bbJ;
         }
     }
 }

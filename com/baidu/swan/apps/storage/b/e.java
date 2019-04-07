@@ -15,7 +15,7 @@ public class e implements SharedPreferences {
         if (TextUtils.isEmpty(str) || "default".equals(str)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
-            this.mSp = com.baidu.swan.apps.u.a.Cy().getSharedPreferences(str, 0);
+            this.mSp = com.baidu.swan.apps.u.a.Cw().getSharedPreferences(str, 0);
         }
     }
 

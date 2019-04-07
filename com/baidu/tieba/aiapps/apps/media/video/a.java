@@ -28,15 +28,15 @@ public class a implements v {
             com.baidu.swan.apps.media.b.a(aVar);
             aV = aVar;
         }
-        c a = c.a(optParamsAsJo, aV.azF());
+        c a = c.a(optParamsAsJo, aV.azC());
         a(context, aV, a);
-        c azF = aV.azF();
+        c azC = aV.azC();
         aV.a(a);
         if (a.isAutoPlay()) {
-            if (!TextUtils.equals(azF.mSrc, a.mSrc)) {
+            if (!TextUtils.equals(azC.mSrc, a.mSrc)) {
                 if (aV.ql()) {
                     aV.stopPlay();
-                    aV.bSE();
+                    aV.bSA();
                 }
             } else if (aV.hasStart()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -64,10 +64,10 @@ public class a implements v {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        c a = c.a(optParamsAsJo, aV.azF());
-        c azF = aV.azF();
+        c a = c.a(optParamsAsJo, aV.azC());
+        c azC = aV.azC();
         aV.a(a);
-        if (!TextUtils.equals(azF.mSrc, a.mSrc)) {
+        if (!TextUtils.equals(azC.mSrc, a.mSrc)) {
             if (aV.ql()) {
                 aV.stopPlay();
             }
@@ -91,9 +91,9 @@ public class a implements v {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        c a = c.a(optParamsAsJo, aV.azF());
-        c azF = aV.azF();
-        if (aV.hasStart() && TextUtils.equals(a.mSrc, azF.mSrc)) {
+        c a = c.a(optParamsAsJo, aV.azC());
+        c azC = aV.azC();
+        if (aV.hasStart() && TextUtils.equals(a.mSrc, azC.mSrc)) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -136,7 +136,7 @@ public class a implements v {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        aV.getVideoView().seekTo(c.a(optParamsAsJo, aV.azF()).mPos);
+        aV.getVideoView().seekTo(c.a(optParamsAsJo, aV.azC()).mPos);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
@@ -165,29 +165,29 @@ public class a implements v {
     }
 
     @Override // com.baidu.swan.apps.u.b.v
-    public boolean Dw() {
+    public boolean Du() {
         return false;
     }
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, c cVar) {
         SwanAppNAViewContainer swanAppNAViewContainer;
-        if (aVar != null && aVar.bSZ() != null) {
-            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar.aBD, cVar.id, aa.hM(cVar.aBD));
-            if (aVar.bSZ().getParent() != null) {
-                ((ViewGroup) aVar.bSZ().getParent()).removeView(aVar.bSZ());
+        if (aVar != null && aVar.bSV() != null) {
+            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar.aBG, cVar.id, aa.hN(cVar.aBG));
+            if (aVar.bSV().getParent() != null) {
+                ((ViewGroup) aVar.bSV().getParent()).removeView(aVar.bSV());
             }
             if (a == null) {
                 swanAppNAViewContainer = new SwanAppNAViewContainer(context);
-                swanAppNAViewContainer.a(aVar.bSZ(), cVar);
+                swanAppNAViewContainer.a(aVar.bSV(), cVar);
             } else {
-                com.baidu.swan.apps.model.a.a.a EM = cVar.EM();
-                a.MK();
-                EM.aBD = a.getSlaveId();
-                EM.aBE = a.getParentId();
-                EM.id = a.getViewId();
-                EM.aBF.setTop(EM.aBF.getTop());
-                EM.aBF.setHeight(EM.aBF.getHeight());
-                a.a(aVar.bSZ(), EM);
+                com.baidu.swan.apps.model.a.a.a EK = cVar.EK();
+                a.MI();
+                EK.aBG = a.getSlaveId();
+                EK.aBH = a.getParentId();
+                EK.id = a.getViewId();
+                EK.aBI.setTop(EK.aBI.getTop());
+                EK.aBI.setHeight(EK.aBI.getHeight());
+                a.a(aVar.bSV(), EK);
                 swanAppNAViewContainer = a;
             }
             aVar.e(swanAppNAViewContainer);
@@ -200,9 +200,9 @@ public class a implements v {
             com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "player id is invalid or context is null");
             return null;
         }
-        com.baidu.swan.apps.media.a eQ = com.baidu.swan.apps.media.b.eQ(optString);
-        if (eQ instanceof com.baidu.tieba.aiapps.apps.media.video.view.a) {
-            return (com.baidu.tieba.aiapps.apps.media.video.view.a) eQ;
+        com.baidu.swan.apps.media.a eR = com.baidu.swan.apps.media.b.eR(optString);
+        if (eR instanceof com.baidu.tieba.aiapps.apps.media.video.view.a) {
+            return (com.baidu.tieba.aiapps.apps.media.video.view.a) eR;
         }
         return null;
     }
@@ -221,17 +221,17 @@ public class a implements v {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        c a = c.a(optParamsAsJo, aV.azF());
+        c a = c.a(optParamsAsJo, aV.azC());
         if (!a.isValid()) {
             com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.view.container.a hR = com.baidu.swan.apps.view.container.c.c.hR(a.aBD);
-        SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(a, hR);
-        if (hR != null && a2 != null) {
-            com.baidu.swan.apps.view.container.c.c.b(a2, hR);
-            com.baidu.swan.apps.view.container.c.c.d(a2, hR);
+        com.baidu.swan.apps.view.container.a hS = com.baidu.swan.apps.view.container.c.c.hS(a.aBG);
+        SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(a, hS);
+        if (hS != null && a2 != null) {
+            com.baidu.swan.apps.view.container.c.c.b(a2, hS);
+            com.baidu.swan.apps.view.container.c.c.d(a2, hS);
         }
         aV.onDestroy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

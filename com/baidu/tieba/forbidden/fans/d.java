@@ -13,19 +13,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes5.dex */
 public class d {
     private BdUniqueId Zr;
-    private HttpMessageListener bKr = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.d.1
+    private HttpMessageListener bKt = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == d.this.Zr;
-                if (d.this.eUo != null) {
-                    d.this.eUo.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+                if (d.this.eUa != null) {
+                    d.this.eUa.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
                 }
             }
         }
     };
-    private a eUo;
+    private a eUa;
     private TbPageContext mPageContext;
 
     /* loaded from: classes5.dex */
@@ -36,8 +36,8 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.Zr = bdUniqueId;
-        this.bKr.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.bKr);
+        this.bKt.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.bKt);
         registerTask();
     }
 
@@ -50,13 +50,13 @@ public class d {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void baS() {
+    public void baQ() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
         httpMessage.setTag(this.Zr);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.eUo = aVar;
+        this.eUa = aVar;
     }
 }

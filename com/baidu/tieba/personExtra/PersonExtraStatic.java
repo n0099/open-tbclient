@@ -30,11 +30,11 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(bVar);
         TbadkCoreApplication.getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditNickNameActivityConfig.class, EditNickNameActivity.class);
-        aAG();
+        aAD();
     }
 
-    private static void aAG() {
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
+    private static void aAD() {
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

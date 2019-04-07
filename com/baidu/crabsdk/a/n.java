@@ -3,30 +3,30 @@ package com.baidu.crabsdk.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public abstract class n {
-    long abt;
-    AtomicBoolean abr = new AtomicBoolean(false);
-    private Runnable abu = new o(this);
+    long abu;
+    AtomicBoolean abt = new AtomicBoolean(false);
+    private Runnable abv = new o(this);
 
     public n(long j) {
-        this.abt = 0 == j ? 300L : j;
+        this.abu = 0 == j ? 300L : j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void n();
 
     public final void start() {
-        if (this.abr.get()) {
+        if (this.abt.get()) {
             return;
         }
-        this.abr.set(true);
-        j.rN().removeCallbacks(this.abu);
-        j.rN().postDelayed(this.abu, a.h());
+        this.abt.set(true);
+        j.rN().removeCallbacks(this.abv);
+        j.rN().postDelayed(this.abv, a.h());
     }
 
     public final void stop() {
-        if (this.abr.get()) {
-            this.abr.set(false);
-            j.rN().removeCallbacks(this.abu);
+        if (this.abt.get()) {
+            this.abt.set(false);
+            j.rN().removeCallbacks(this.abv);
         }
     }
 }

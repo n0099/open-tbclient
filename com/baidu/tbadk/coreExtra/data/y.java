@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String bXA;
-    private long bXB;
-    private long bXC;
+    private String bXC;
     private long bXD;
-    private String bXE;
-    private String bXF;
+    private long bXE;
+    private long bXF;
+    private String bXG;
+    private String bXH;
 
     public void parseJson(String str) {
         if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.bXA = jSONObject.optString("splash_video_url");
-                this.bXB = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.bXC = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.bXD = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.bXE = jSONObject.optString("splash_video_h5_url");
-                this.bXF = jSONObject.optString("splash_video_h5_text");
+                this.bXC = jSONObject.optString("splash_video_url");
+                this.bXD = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.bXE = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.bXF = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.bXG = jSONObject.optString("splash_video_h5_url");
+                this.bXH = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String agG() {
-        return this.bXA;
-    }
-
-    public long agH() {
-        return this.bXB;
-    }
-
-    public long agI() {
+    public String agD() {
         return this.bXC;
     }
 
-    public long agJ() {
+    public long agE() {
         return this.bXD;
     }
 
-    public String agK() {
+    public long agF() {
         return this.bXE;
     }
 
-    public String agL() {
+    public long agG() {
         return this.bXF;
+    }
+
+    public String agH() {
+        return this.bXG;
+    }
+
+    public String agI() {
+        return this.bXH;
     }
 }

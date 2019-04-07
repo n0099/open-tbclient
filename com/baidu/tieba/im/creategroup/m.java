@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes5.dex */
 public class m extends BaseAdapter {
-    private GroupAddressLocateActivity ggB;
-    private String[] ggp;
+    private String[] ggd;
+    private GroupAddressLocateActivity ggp;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
+        this.ggd = null;
         this.ggp = null;
-        this.ggB = null;
-        this.ggB = groupAddressLocateActivity;
-        this.ggp = strArr;
+        this.ggp = groupAddressLocateActivity;
+        this.ggd = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ggp != null) {
-            return this.ggp.length;
+        if (this.ggd != null) {
+            return this.ggd.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.ggp == null || i <= -1 || i >= this.ggp.length) ? "" : this.ggp[i];
+        return (this.ggd == null || i <= -1 || i >= this.ggd.length) ? "" : this.ggd[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,20 +38,20 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.ggB);
-            view = aVar.aOM();
+            aVar = new a(this.ggp);
+            view = aVar.aOH();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.bqG() != null) {
+        if (aVar.bqD() != null) {
             if (i + 1 == getCount()) {
-                aVar.bqG().setVisibility(8);
+                aVar.bqD().setVisibility(8);
             } else {
-                aVar.bqG().setVisibility(0);
+                aVar.bqD().setVisibility(0);
             }
         }
-        aVar.wA(getItem(i).toString());
-        if (this.ggB.getSelectedPosition() == i) {
+        aVar.wz(getItem(i).toString());
+        if (this.ggp.getSelectedPosition() == i) {
             aVar.kP(true);
         } else {
             aVar.kP(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void bP(View view) {
-        this.ggB.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.ggB.getLayoutMode().onModeChanged(view);
+        this.ggp.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.ggp.getLayoutMode().onModeChanged(view);
     }
 }

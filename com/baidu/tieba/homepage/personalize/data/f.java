@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.data.h implements p {
-    private CardGod fNt;
+    private CardGod fNh;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.fNt = cardGod;
-            this.mGroupTitle = this.fNt.card_title;
-            if (!v.T(this.fNt.gods)) {
+            this.fNh = cardGod;
+            this.mGroupTitle = this.fNh.card_title;
+            if (!v.T(this.fNh.gods)) {
                 int i = 0;
-                Iterator<User> it = this.fNt.gods.iterator();
+                Iterator<User> it = this.fNh.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -30,7 +30,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
                                 i = i2;
                             } else {
                                 i iVar = new i();
-                                iVar.bBG = metaData;
+                                iVar.bBJ = metaData;
                                 a(iVar);
                                 i = i2 + 1;
                             }
@@ -45,20 +45,20 @@ public class f extends com.baidu.tieba.card.data.h implements p {
         }
     }
 
-    public boolean axu() {
+    public boolean axr() {
         return v.S(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.fNt == null || this.fNt.position == null) {
+        if (this.fNh == null || this.fNh.position == null) {
             return 0;
         }
-        return this.fNt.position.intValue();
+        return this.fNh.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aQV() {
+    public boolean aQT() {
         return true;
     }
 

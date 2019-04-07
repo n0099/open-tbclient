@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class l extends i {
-    private static final Class<?>[] jNt = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] jMN = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public l(Boolean bool) {
@@ -24,69 +24,69 @@ public final class l extends i {
             this.value = String.valueOf(((Character) obj).charValue());
             return;
         }
-        com.google.gson.internal.a.checkArgument((obj instanceof Number) || bf(obj));
+        com.google.gson.internal.a.checkArgument((obj instanceof Number) || bb(obj));
         this.value = obj;
     }
 
-    public boolean cBc() {
+    public boolean cAV() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.i
-    Boolean cBb() {
+    Boolean cAU() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.i
     public boolean getAsBoolean() {
-        return cBc() ? cBb().booleanValue() : Boolean.parseBoolean(cAT());
+        return cAV() ? cAU().booleanValue() : Boolean.parseBoolean(cAM());
     }
 
-    public boolean cBd() {
+    public boolean cAW() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.i
-    public Number cAS() {
+    public Number cAL() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean cBe() {
+    public boolean cAX() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.i
-    public String cAT() {
-        if (cBd()) {
-            return cAS().toString();
+    public String cAM() {
+        if (cAW()) {
+            return cAL().toString();
         }
-        if (cBc()) {
-            return cBb().toString();
+        if (cAV()) {
+            return cAU().toString();
         }
         return (String) this.value;
     }
 
     @Override // com.google.gson.i
     public double getAsDouble() {
-        return cBd() ? cAS().doubleValue() : Double.parseDouble(cAT());
+        return cAW() ? cAL().doubleValue() : Double.parseDouble(cAM());
     }
 
     @Override // com.google.gson.i
     public long getAsLong() {
-        return cBd() ? cAS().longValue() : Long.parseLong(cAT());
+        return cAW() ? cAL().longValue() : Long.parseLong(cAM());
     }
 
     @Override // com.google.gson.i
     public int getAsInt() {
-        return cBd() ? cAS().intValue() : Integer.parseInt(cAT());
+        return cAW() ? cAL().intValue() : Integer.parseInt(cAM());
     }
 
-    private static boolean bf(Object obj) {
+    private static boolean bb(Object obj) {
         if (obj instanceof String) {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : jNt) {
+        for (Class<?> cls2 : jMN) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -99,10 +99,10 @@ public final class l extends i {
             return 31;
         }
         if (a(this)) {
-            long longValue = cAS().longValue();
+            long longValue = cAL().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(cAS().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(cAL().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -121,10 +121,10 @@ public final class l extends i {
         if (this.value == null) {
             return lVar.value == null;
         } else if (a(this) && a(lVar)) {
-            return cAS().longValue() == lVar.cAS().longValue();
+            return cAL().longValue() == lVar.cAL().longValue();
         } else if ((this.value instanceof Number) && (lVar.value instanceof Number)) {
-            double doubleValue = cAS().doubleValue();
-            double doubleValue2 = lVar.cAS().doubleValue();
+            double doubleValue = cAL().doubleValue();
+            double doubleValue2 = lVar.cAL().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

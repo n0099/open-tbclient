@@ -44,23 +44,23 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TimeCodeBox.java", TimeCodeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataReferenceIndex", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 81);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setDataReferenceIndex", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "dataReferenceIndex", "", "void"), 85);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "setReserved1", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "reserved1", "", "void"), 130);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "getReserved2", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 134);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setReserved2", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "reserved2", "", "void"), 138);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "getFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "long"), 142);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "long", "flags", "", "void"), 146);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "getRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "[B"), BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "setRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "[B", "rest", "", "void"), 154);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "java.lang.String"), 91);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 102);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "timeScale", "", "void"), 106);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getFrameDuration", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 110);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "frameDuration", "", "void"), 114);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getNumberOfFrames", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 118);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "setNumberOfFrames", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "numberOfFrames", "", "void"), 122);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "getReserved1", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 126);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getDataReferenceIndex", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 81);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setDataReferenceIndex", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "dataReferenceIndex", "", "void"), 85);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "setReserved1", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "reserved1", "", "void"), 130);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "getReserved2", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 134);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "setReserved2", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "reserved2", "", "void"), 138);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "getFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "long"), 142);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "setFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "long", "flags", "", "void"), 146);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "getRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "[B"), BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "setRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "[B", "rest", "", "void"), 154);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "java.lang.String"), 91);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 102);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "setTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "timeScale", "", "void"), 106);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getFrameDuration", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 110);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "setFrameDuration", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "frameDuration", "", "void"), 114);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "getNumberOfFrames", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 118);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "setNumberOfFrames", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "numberOfFrames", "", "void"), 122);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "getReserved1", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 126);
     }
 
     public TimeCodeBox() {
@@ -108,7 +108,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public void setDataReferenceIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.dataReferenceIndex = i;
     }
 
@@ -123,7 +123,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setTimeScale(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.CW(i)));
         this.timeScale = i;
     }
 
@@ -133,7 +133,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_6, this, this, org.aspectj.a.a.a.CW(i)));
         this.frameDuration = i;
     }
 
@@ -143,7 +143,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setNumberOfFrames(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.CW(i)));
         this.numberOfFrames = i;
     }
 
@@ -153,7 +153,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved1(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.CW(i)));
         this.reserved1 = i;
     }
 
@@ -163,7 +163,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.CW(i)));
         this.reserved2 = i;
     }
 
@@ -173,7 +173,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFlags(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ej(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ei(j)));
         this.flags = j;
     }
 

@@ -54,6 +54,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String PRIVATE_THREAD = "private_thread";
+    public static final int PROFESSION_ZONE_TYPE_DEFAULT = -1;
     public static final String REFRESH_PIC = "refresh_pic";
     public static final String REPLY_SUB_PB = "reply_sub_pb";
     public static final String SUB_USER_NAME = "sub_user_name";

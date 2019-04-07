@@ -124,7 +124,7 @@ public final class d {
         }
     }
 
-    public static String u() {
+    public static String t() {
         StringBuilder sb = new StringBuilder();
         int size = abF.size();
         for (int i = 0; i < size; i++) {
@@ -134,7 +134,7 @@ public final class d {
             }
             sb.append("STEP" + (i + 1) + "\nTime: " + list.get(0) + "; Activity: " + list.get(4) + "; Component: " + list.get(1) + "; Operation: " + list.get(2) + "; Location: " + list.get(3) + "\n");
         }
-        com.baidu.crabsdk.c.a.cx("Behavior Steps --> " + sb.toString());
+        com.baidu.crabsdk.c.a.v("Behavior Steps --> " + sb.toString());
         return sb.toString();
     }
 }

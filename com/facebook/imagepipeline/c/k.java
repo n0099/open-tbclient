@@ -5,13 +5,13 @@ import android.support.v7.widget.ActivityChooserView;
 public class k implements com.facebook.common.internal.i<u> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cwA */
+    /* renamed from: cwt */
     public u get() {
-        int cwB = cwB();
-        return new u(cwB, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, cwB, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, cwB / 8);
+        int cwu = cwu();
+        return new u(cwu, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, cwu, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, cwu / 8);
     }
 
-    private int cwB() {
+    private int cwu() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 1048576;

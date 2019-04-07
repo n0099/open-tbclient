@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class j extends c {
@@ -16,6 +17,6 @@ public class j extends c {
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
         hashMap.put("method", "deltags");
-        hashMap.put("tags", this.d);
+        hashMap.put(CommandMessage.TYPE_TAGS, this.d);
     }
 }

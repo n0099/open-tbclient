@@ -20,7 +20,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.logging.LogFactory;
 /* loaded from: classes3.dex */
 public class a {
     private ArrayList<C0043a> f;
@@ -66,7 +65,7 @@ public class a {
             this.c.openGps = message.getData().getBoolean("openGPS");
             this.c.scanSpan = message.getData().getInt("scanSpan");
             this.c.timeOut = message.getData().getInt("timeOut");
-            this.c.priority = message.getData().getInt(LogFactory.PRIORITY_KEY);
+            this.c.priority = message.getData().getInt("priority");
             this.c.location_change_notify = message.getData().getBoolean("location_change_notify");
             this.c.mIsNeedDeviceDirect = message.getData().getBoolean("needDirect", false);
             this.c.isNeedAltitude = message.getData().getBoolean("isneedaltitude", false);
@@ -476,7 +475,7 @@ public class a {
             }
             a.c.timeOut = message.getData().getInt("timeOut", a.c.timeOut);
             a.c.location_change_notify = message.getData().getBoolean("location_change_notify", a.c.location_change_notify);
-            a.c.priority = message.getData().getInt(LogFactory.PRIORITY_KEY, a.c.priority);
+            a.c.priority = message.getData().getInt("priority", a.c.priority);
             int i2 = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             if (i2 < com.baidu.location.g.g.af) {
                 com.baidu.location.g.g.af = i2;

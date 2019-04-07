@@ -8,7 +8,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends a {
@@ -23,8 +22,8 @@ public class f extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
-        return super.bQ(i);
+    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
+        return super.bP(i);
     }
 
     public f(j jVar) {
@@ -33,34 +32,34 @@ public class f extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.c.d yP;
+        com.baidu.swan.apps.core.c.d yO;
         final com.baidu.swan.apps.canvas.c.e c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData action parse model is null");
-            unitedSchemeEntity.result = bQ(201);
+            unitedSchemeEntity.result = bP(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aBD) && (yP = com.baidu.swan.apps.w.e.Ec().yP()) != null) {
-            c.aBD = yP.yB();
+        if (TextUtils.isEmpty(c.aBG) && (yO = com.baidu.swan.apps.w.e.Ea().yO()) != null) {
+            c.aBG = yO.yA();
         }
-        if (TextUtils.isEmpty(c.aBD) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aBD + " ; canvas id = " + c.id);
-            unitedSchemeEntity.result = bQ(201);
+        if (TextUtils.isEmpty(c.aBG) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aBG + " ; canvas id = " + c.id);
+            unitedSchemeEntity.result = bP(201);
             return false;
         }
-        final CanvasView b = com.baidu.swan.apps.canvas.a.ww().b(c);
+        final CanvasView b = com.baidu.swan.apps.canvas.a.wv().b(c);
         if (b == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData canvas view is null");
-            unitedSchemeEntity.result = bQ(201);
+            unitedSchemeEntity.result = bP(201);
             return false;
         }
         com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject wrapCallbackParams;
-                if (c.wB()) {
+                if (c.wA()) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    b.d(c.wC(), c.wD());
+                    b.d(c.wB(), c.wC());
                     b.postInvalidate();
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "error draw on canvas");
@@ -79,7 +78,7 @@ public class f extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     /* renamed from: g */
     public com.baidu.swan.apps.canvas.c.e c(UnitedSchemeEntity unitedSchemeEntity) {
-        String str = unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS);
+        String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             return null;
         }

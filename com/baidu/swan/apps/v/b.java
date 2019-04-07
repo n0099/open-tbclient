@@ -4,53 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b axz;
-    private List<a> axA = new ArrayList();
+    private static volatile b axC;
+    private List<a> axD = new ArrayList();
 
     /* loaded from: classes2.dex */
     public interface a {
-        boolean uI();
+        boolean uH();
 
-        boolean uJ();
+        boolean uI();
     }
 
     private b() {
     }
 
-    public static b Dx() {
-        if (axz == null) {
+    public static b Dv() {
+        if (axC == null) {
             synchronized (b.class) {
-                if (axz == null) {
-                    axz = new b();
+                if (axC == null) {
+                    axC = new b();
                 }
             }
         }
-        return axz;
+        return axC;
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.axA.contains(aVar)) {
-            this.axA.add(aVar);
+        if (aVar != null && !this.axD.contains(aVar)) {
+            this.axD.add(aVar);
         }
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.axA.remove(aVar);
+            this.axD.remove(aVar);
         }
     }
 
-    public void Dy() {
-        for (a aVar : this.axA) {
-            if (aVar != null && aVar.uI()) {
+    public void Dw() {
+        for (a aVar : this.axD) {
+            if (aVar != null && aVar.uH()) {
                 return;
             }
         }
     }
 
-    public void Dz() {
-        for (a aVar : this.axA) {
-            if (aVar != null && aVar.uJ()) {
+    public void Dx() {
+        for (a aVar : this.axD) {
+            if (aVar != null && aVar.uI()) {
                 return;
             }
         }

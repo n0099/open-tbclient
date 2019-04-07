@@ -26,11 +26,11 @@ import org.apache.http.HttpHost;
 public class GroupCardActivity extends BaseActivity<GroupCardActivity> implements View.OnClickListener {
     private static String imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
-    private a glW = null;
-    private GroupCardModel glX = null;
+    private a glJ = null;
+    private GroupCardModel glK = null;
     private long groupId = 0;
     private String groupName = "";
-    private String glY = "";
+    private String glL = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -40,12 +40,12 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         initData();
     }
 
-    public boolean bql() {
+    public boolean bqi() {
         Activity pageActivity = getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
         }
-        this.mPermissionJudgement.adQ();
+        this.mPermissionJudgement.adN();
         this.mPermissionJudgement.e(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
         if (this.mPermissionJudgement.Y(pageActivity)) {
             return false;
@@ -53,7 +53,7 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         if (m.hy()) {
             return true;
         }
-        this.glW.ak(0, getPageContext().getString(d.j.voice_error_sdcard));
+        this.glJ.am(0, getPageContext().getString(d.j.voice_error_sdcard));
         return false;
     }
 
@@ -61,39 +61,39 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.glW.onChangeSkinType(i);
+        this.glJ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.glW.btR()) {
-            if (bql()) {
+        if (view == this.glJ.btO()) {
+            if (bqi()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_save", "click", 1, new Object[0]);
-                this.glX.saveImage();
+                this.glK.saveImage();
             }
-        } else if (view == this.glW.btT()) {
+        } else if (view == this.glJ.btQ()) {
             finish();
-        } else if (view == this.glW.btS()) {
+        } else if (view == this.glJ.btP()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_share", "click", 1, new Object[0]);
-            aeX();
+            aeU();
         }
     }
 
-    private void aeX() {
-        sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) getPageContext().getPageActivity(), btN(), true, VV())));
+    private void aeU() {
+        sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) getPageContext().getPageActivity(), btK(), true, VS())));
     }
 
-    private com.baidu.tbadk.coreExtra.c.d btN() {
+    private com.baidu.tbadk.coreExtra.c.d btK() {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         dVar.title = MessageFormat.format(getPageContext().getString(d.j.im_share_title), this.groupName);
         dVar.content = MessageFormat.format(getPageContext().getString(d.j.im_share_content), this.groupName, String.valueOf(this.groupId));
         dVar.linkUrl = TiebaIMConfig.IM_GROUP_SHARE_URL + this.groupId;
         try {
-            if (this.glY == null || this.glY.equals("")) {
+            if (this.glL == null || this.glL.equals("")) {
                 dVar.n(BitmapFactory.decodeResource(getResources(), d.f.icon));
-            } else if (this.glY.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                dVar.imageUri = Uri.parse(this.glY);
+            } else if (this.glL.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                dVar.imageUri = Uri.parse(this.glL);
             } else {
                 dVar.n(m.bF(null, TbConfig.GROUP_HEAD_FILE));
             }
@@ -102,7 +102,7 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         return dVar;
     }
 
-    private SparseArray<String> VV() {
+    private SparseArray<String> VS() {
         SparseArray<String> sparseArray = new SparseArray<>(8);
         sparseArray.put(2, "gc_wx_timeline");
         sparseArray.put(3, "gc_wx_friend");
@@ -114,35 +114,35 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     }
 
     private void initView() {
-        this.glW = new a(this, null);
+        this.glJ = new a(this, null);
     }
 
     private void initData() {
-        this.glW.showProgress();
+        this.glJ.showProgress();
         Intent intent = getIntent();
         this.groupId = intent.getLongExtra("group_id", 0L);
         this.groupName = intent.getStringExtra("group_name");
-        this.glY = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
-        this.glX = new GroupCardModel(this.groupId, this);
-        if (this.glX != null) {
+        this.glL = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
+        this.glK = new GroupCardModel(this.groupId, this);
+        if (this.glK != null) {
             int aO = l.aO(getPageContext().getPageActivity()) - l.dip2px(getPageContext().getPageActivity(), 10.0f);
-            int aQ = (l.aQ(getPageContext().getPageActivity()) - this.glW.btU().getHeight()) - this.glW.btV().getHeight();
+            int aQ = (l.aQ(getPageContext().getPageActivity()) - this.glJ.btR().getHeight()) - this.glJ.btS().getHeight();
             b<com.baidu.adp.widget.ImageView.a> bVar = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.groupCard.GroupCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
-                    GroupCardActivity.this.glW.bip();
+                    GroupCardActivity.this.glJ.bin();
                     if (aVar != null) {
-                        GroupCardActivity.this.glW.g(aVar);
-                        GroupCardActivity.this.glW.btQ();
+                        GroupCardActivity.this.glJ.g(aVar);
+                        GroupCardActivity.this.glJ.btN();
                         return;
                     }
-                    GroupCardActivity.this.glW.ak(0, GroupCardActivity.this.getPageContext().getString(d.j.group_card_error));
+                    GroupCardActivity.this.glJ.am(0, GroupCardActivity.this.getPageContext().getString(d.j.group_card_error));
                 }
             };
-            String bL = this.glX.bL(aO, aQ);
+            String bL = this.glK.bL(aO, aQ);
             if (bL != null) {
                 c.jB().a(bL, 10, bVar, aO, aQ, getUniqueId(), new Object[0]);
             }

@@ -7,17 +7,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes6.dex */
 public class e {
-    private com.baidu.tieba.easterEgg.a.a ezA;
-    private a ezB;
+    private com.baidu.tieba.easterEgg.a.a ezl;
+    private a ezm;
     private HttpMessageListener mNetListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.ezA = rnSyncResponseMessage.getData();
-                if (e.this.ezB != null) {
-                    e.this.ezB.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.ezl = rnSyncResponseMessage.getData();
+                if (e.this.ezm != null) {
+                    e.this.ezm.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
@@ -33,7 +33,7 @@ public class e {
         MessageManager.getInstance().registerListener(this.mNetListener);
     }
 
-    public void arK() {
+    public void arH() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_RN_SYNC));
     }
 
@@ -42,6 +42,6 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.ezB = aVar;
+        this.ezm = aVar;
     }
 }

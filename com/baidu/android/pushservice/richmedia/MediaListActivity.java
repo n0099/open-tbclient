@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.richmedia.c;
+import com.coloros.mcssdk.PushManager;
 import com.tencent.open.SocialConstants;
 import java.io.File;
 import java.util.ArrayList;
@@ -299,7 +300,7 @@ public class MediaListActivity extends Activity {
             this.c.setDividerHeight(0);
             this.c.setOnItemLongClickListener(this.t);
         }
-        this.b = (NotificationManager) getSystemService("notification");
+        this.b = (NotificationManager) getSystemService(PushManager.MESSAGE_TYPE_NOTI);
     }
 
     @Override // android.app.Activity

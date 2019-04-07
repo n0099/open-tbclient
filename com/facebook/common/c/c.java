@@ -7,7 +7,7 @@ public interface c {
 
     void e(String str, String str2, Throwable th);
 
-    void ek(String str, String str2);
+    void el(String str, String str2);
 
     void f(String str, String str2, Throwable th);
 

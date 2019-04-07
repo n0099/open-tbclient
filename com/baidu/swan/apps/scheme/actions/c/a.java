@@ -12,12 +12,11 @@ import com.baidu.swan.apps.an.n;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    public static final String aPN = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    public static final String aPO = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    public static final String aPQ = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String aPR = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -40,7 +39,7 @@ public class a extends y {
             }
             return false;
         }
-        final String optString = n.dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("cb");
+        final String optString = n.dm(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.e("history", "none cb");
             if (DEBUG) {
@@ -56,7 +55,7 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
             return false;
         } else {
-            bVar.Jb().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
+            bVar.IZ().a((Activity) context, "mapp_i_get_history", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: b */

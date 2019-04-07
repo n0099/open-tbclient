@@ -4,12 +4,12 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private int iwY = -1;
+    private int iwI = -1;
     private String errorMsg = null;
     private String userMsg = null;
 
     public int getErrorNumber() {
-        return this.iwY;
+        return this.iwI;
     }
 
     public String getUserMsg() {
@@ -19,7 +19,7 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iwY = jSONObject.optInt("errno");
+                this.iwI = jSONObject.optInt("errno");
                 this.errorMsg = jSONObject.optString("errmsg");
                 this.userMsg = jSONObject.optString("usermsg");
             } catch (Exception e) {

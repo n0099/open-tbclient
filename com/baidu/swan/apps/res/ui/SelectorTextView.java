@@ -7,25 +7,25 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes2.dex */
 public class SelectorTextView extends TextView {
-    private boolean aHj;
+    private boolean aHm;
 
     public SelectorTextView(Context context) {
         super(context);
-        this.aHj = false;
+        this.aHm = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aHj = false;
+        this.aHm = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHj = false;
+        this.aHm = false;
     }
 
     public void setMode(boolean z) {
-        this.aHj = z;
+        this.aHm = z;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -34,7 +34,7 @@ public class SelectorTextView extends TextView {
             switch (motionEvent.getAction()) {
                 case 0:
                     Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (this.aHj) {
+                    if (this.aHm) {
                         setAlpha(0.5f);
                         break;
                     } else {

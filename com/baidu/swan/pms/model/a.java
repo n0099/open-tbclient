@@ -8,20 +8,20 @@ public class a {
     public String appKey;
     public String appName;
     public int appStatus;
-    public String atU;
-    public String atX;
     public String atY;
-    public String atZ;
-    public long auh = 432000;
-    public long blM;
-    public String blN;
-    public String blO;
+    public String aub;
+    public String auc;
+    public String aud;
+    public long aul = 432000;
     public long blP;
-    public int blQ;
+    public String blQ;
     public String blR;
-    public String blS;
-    public String blT;
+    public long blS;
+    public int blT;
     public String blU;
+    public String blV;
+    public String blW;
+    public String blX;
     public long createTime;
     public String description;
     public String iconUrl;
@@ -30,21 +30,21 @@ public class a {
     public int versionCode;
     public String versionName;
 
-    public boolean RI() {
-        return this.blQ != 0;
+    public boolean RG() {
+        return this.blT != 0;
     }
 
-    public boolean AF() {
-        return (System.currentTimeMillis() - this.createTime) / 1000 > this.auh;
+    public boolean AE() {
+        return (System.currentTimeMillis() - this.createTime) / 1000 > this.aul;
     }
 
     public void g(g gVar) {
         if (gVar != null) {
-            this.appId = gVar.blW;
+            this.appId = gVar.blZ;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.blX;
-            this.blP = gVar.size;
+            this.type = gVar.bma;
+            this.blS = gVar.size;
         }
     }
 
@@ -53,20 +53,20 @@ public class a {
             this.versionCode = aVar.versionCode;
             this.versionName = aVar.versionName;
             this.type = aVar.type;
-            this.blP = aVar.blP;
+            this.blS = aVar.blS;
             this.createTime = aVar.createTime;
             this.orientation = aVar.orientation;
         }
     }
 
-    public void RJ() {
-        if (this.auh <= 0) {
-            this.auh = 432000L;
+    public void RH() {
+        if (this.aul <= 0) {
+            this.aul = 432000L;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean RK() {
-        return !TextUtils.isEmpty(this.appKey) && this.blM > 0;
+    public boolean RI() {
+        return !TextUtils.isEmpty(this.appKey) && this.blP > 0;
     }
 }

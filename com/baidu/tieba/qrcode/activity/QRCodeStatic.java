@@ -12,10 +12,10 @@ import com.baidu.tieba.d;
 public class QRCodeStatic {
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        bVT();
+        bVP();
     }
 
-    private static void bVT() {
+    private static void bVP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {

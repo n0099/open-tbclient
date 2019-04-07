@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public abstract class b {
-    protected boolean fgI;
-    protected g fuo;
-    protected a fup;
-    protected boolean fuq;
+    protected boolean fgu;
+    protected g fua;
+    protected a fub;
+    protected boolean fuc;
     protected Intent mIntent;
     protected int mState = 0;
 
@@ -20,29 +20,29 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bis();
+    public abstract void biq();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bit();
+    public abstract void bir();
 
     public b(g gVar, Intent intent) {
-        this.fuq = true;
-        this.fgI = false;
-        this.fuo = gVar;
+        this.fuc = true;
+        this.fgu = false;
+        this.fua = gVar;
         this.mIntent = intent;
-        e vJ = d.biy().vJ(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.fuq = vJ.biA();
-        this.fgI = vJ.biz();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fuo.fuD.getLayoutParams();
+        e vI = d.biw().vI(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.fuc = vI.biy();
+        this.fgu = vI.bix();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fua.fup.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.topMargin = this.fgI ? l.h(TbadkCoreApplication.getInst(), d.e.tbds152) : l.h(TbadkCoreApplication.getInst(), d.e.tbds121);
-            this.fuo.fuD.setLayoutParams(layoutParams);
+            layoutParams.topMargin = this.fgu ? l.h(TbadkCoreApplication.getInst(), d.e.tbds152) : l.h(TbadkCoreApplication.getInst(), d.e.tbds121);
+            this.fua.fup.setLayoutParams(layoutParams);
         }
-        this.fuo.fuC.setVisibility(this.fuq ? 0 : 4);
+        this.fua.fuo.setVisibility(this.fuc ? 0 : 4);
     }
 
     public void a(a aVar) {
-        this.fup = aVar;
+        this.fub = aVar;
     }
 
     public int getState() {

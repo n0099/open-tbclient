@@ -16,8 +16,8 @@ import com.baidu.tieba.d;
 public class ShareSmartAppLayout extends LinearLayout implements i<a> {
     private a Xy;
     private ab<a> YB;
-    private boolean ZP;
-    public AppletsCellView aaH;
+    private boolean ZQ;
+    public AppletsCellView aaI;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,7 +25,7 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZP = true;
+        this.ZQ = true;
         this.Xy = null;
         initUI();
     }
@@ -34,28 +34,28 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
         LayoutInflater.from(getContext()).inflate(d.h.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aaH = (AppletsCellView) findViewById(d.g.card_home_page_normal_thread_share_info);
+        this.aaI = (AppletsCellView) findViewById(d.g.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.ZP = z;
+        this.ZQ = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        if (aVar == null || aVar.WR() == null || aVar.WR().ZD() == null) {
+        if (aVar == null || aVar.WO() == null || aVar.WO().ZA() == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.Xy = aVar;
-        bg WR = aVar.WR();
-        this.aaH.setData(WR.ZD());
-        this.aaH.setForumId(String.valueOf(WR.getFid()));
-        AppletsCellView appletsCellView = this.aaH;
-        AppletsCellView appletsCellView2 = this.aaH;
+        bg WO = aVar.WO();
+        this.aaI.setData(WO.ZA());
+        this.aaI.setForumId(String.valueOf(WO.getFid()));
+        AppletsCellView appletsCellView = this.aaI;
+        AppletsCellView appletsCellView2 = this.aaI;
         appletsCellView.setFrom("frs_card");
     }
 

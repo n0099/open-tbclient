@@ -6,33 +6,33 @@ import com.baidu.tbadk.editortools.k;
 public class b extends k {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.cjm = false;
-        this.cjl = 3;
-        this.ciu = new EditorInfoContainer(context, str);
-        this.cjn = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.cjo = false;
+        this.cjn = 3;
+        this.ciw = new EditorInfoContainer(context, str);
+        this.cjp = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).setFrom(str);
+        if (this.ciw instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciw).setFrom(str);
         }
     }
 
     public void bw(String str, int i) {
-        if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).bw(str, i);
+        if (this.ciw instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciw).bw(str, i);
         }
     }
 
-    public void aWP() {
-        if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).aWP();
+    public void aWN() {
+        if (this.ciw instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciw).aWN();
         }
     }
 
-    public void cpv() {
-        if (this.ciu instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.ciu).cpv();
+    public void cpt() {
+        if (this.ciw instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciw).cpt();
         }
     }
 }

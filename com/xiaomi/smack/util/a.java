@@ -14,7 +14,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.apache.commons.logging.LogFactory;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -266,7 +265,7 @@ public class a {
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals("status")) {
                     fVar.a(xmlPullParser.nextText());
-                } else if (name.equals(LogFactory.PRIORITY_KEY)) {
+                } else if (name.equals("priority")) {
                     try {
                         fVar.a(Integer.parseInt(xmlPullParser.nextText()));
                     } catch (NumberFormatException e2) {

@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b {
-    public abstract void Fl();
+    public abstract void Fj();
 
     public abstract void M(JSONObject jSONObject);
 

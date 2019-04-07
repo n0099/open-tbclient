@@ -2,7 +2,6 @@ package com.baidu.swan.pms.database.a;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -32,35 +31,35 @@ public class a extends b<com.baidu.swan.pms.model.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: g */
-    public ContentValues W(com.baidu.swan.pms.model.a aVar) throws IllegalArgumentException {
+    public ContentValues U(com.baidu.swan.pms.model.a aVar) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (aVar != null) {
             contentValues.put("app_id", aVar.appId);
             contentValues.put("app_key", aVar.appKey);
-            contentValues.put("app_sign", Long.valueOf(aVar.blM));
+            contentValues.put("app_sign", Long.valueOf(aVar.blP));
             contentValues.put("version_code", Integer.valueOf(aVar.versionCode));
             contentValues.put("version_name", aVar.versionName);
-            contentValues.put(SocialConstants.PARAM_COMMENT, aVar.description);
+            contentValues.put("description", aVar.description);
             contentValues.put("app_status", Integer.valueOf(aVar.appStatus));
-            contentValues.put("status_detail", aVar.blN);
-            contentValues.put("status_desc", aVar.blO);
-            contentValues.put("resume_date", aVar.atU);
+            contentValues.put("status_detail", aVar.blQ);
+            contentValues.put("status_desc", aVar.blR);
+            contentValues.put("resume_date", aVar.atY);
             contentValues.put("icon_url", aVar.iconUrl);
             contentValues.put("app_name", aVar.appName);
-            contentValues.put("service_category", aVar.atX);
-            contentValues.put("subject_info", aVar.atY);
+            contentValues.put("service_category", aVar.aub);
+            contentValues.put("subject_info", aVar.auc);
             contentValues.put("type", Integer.valueOf(aVar.type));
-            contentValues.put("pkg_size", Long.valueOf(aVar.blP));
-            contentValues.put("pending_err_code", Integer.valueOf(aVar.blQ));
+            contentValues.put("pkg_size", Long.valueOf(aVar.blS));
+            contentValues.put("pending_err_code", Integer.valueOf(aVar.blT));
             contentValues.put("app_category", Integer.valueOf(aVar.appCategory));
             contentValues.put("orientation", Integer.valueOf(aVar.orientation));
-            contentValues.put("max_age", Long.valueOf(aVar.auh));
+            contentValues.put("max_age", Long.valueOf(aVar.aul));
             contentValues.put("create_time", Long.valueOf(aVar.createTime));
-            contentValues.put("webview_domains", aVar.blR);
-            contentValues.put("web_action", aVar.blS);
-            contentValues.put("domains", aVar.blT);
-            contentValues.put("bear_info", aVar.atZ);
-            contentValues.put("server_ext", aVar.blU);
+            contentValues.put("webview_domains", aVar.blU);
+            contentValues.put("web_action", aVar.blV);
+            contentValues.put("domains", aVar.blW);
+            contentValues.put("bear_info", aVar.aud);
+            contentValues.put("server_ext", aVar.blX);
         }
         return contentValues;
     }
@@ -72,7 +71,7 @@ public class a extends b<com.baidu.swan.pms.model.a> {
             int columnIndex3 = cursor.getColumnIndex("app_sign");
             int columnIndex4 = cursor.getColumnIndex("version_code");
             int columnIndex5 = cursor.getColumnIndex("version_name");
-            int columnIndex6 = cursor.getColumnIndex(SocialConstants.PARAM_COMMENT);
+            int columnIndex6 = cursor.getColumnIndex("description");
             int columnIndex7 = cursor.getColumnIndex("app_status");
             int columnIndex8 = cursor.getColumnIndex("status_detail");
             int columnIndex9 = cursor.getColumnIndex("status_desc");
@@ -96,30 +95,30 @@ public class a extends b<com.baidu.swan.pms.model.a> {
             com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a();
             aVar.appId = cursor.getString(columnIndex);
             aVar.appKey = cursor.getString(columnIndex2);
-            aVar.blM = cursor.getLong(columnIndex3);
+            aVar.blP = cursor.getLong(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
             aVar.versionName = cursor.getString(columnIndex5);
             aVar.description = cursor.getString(columnIndex6);
             aVar.appStatus = cursor.getInt(columnIndex7);
-            aVar.blN = cursor.getString(columnIndex8);
-            aVar.blO = cursor.getString(columnIndex9);
-            aVar.atU = cursor.getString(columnIndex10);
+            aVar.blQ = cursor.getString(columnIndex8);
+            aVar.blR = cursor.getString(columnIndex9);
+            aVar.atY = cursor.getString(columnIndex10);
             aVar.iconUrl = cursor.getString(columnIndex11);
             aVar.appName = cursor.getString(columnIndex12);
-            aVar.atX = cursor.getString(columnIndex13);
-            aVar.atY = cursor.getString(columnIndex14);
+            aVar.aub = cursor.getString(columnIndex13);
+            aVar.auc = cursor.getString(columnIndex14);
             aVar.type = cursor.getInt(columnIndex15);
-            aVar.blP = cursor.getLong(columnIndex16);
-            aVar.blQ = cursor.getInt(columnIndex17);
+            aVar.blS = cursor.getLong(columnIndex16);
+            aVar.blT = cursor.getInt(columnIndex17);
             aVar.appCategory = cursor.getInt(columnIndex18);
             aVar.orientation = cursor.getInt(columnIndex19);
-            aVar.auh = cursor.getLong(columnIndex20);
+            aVar.aul = cursor.getLong(columnIndex20);
             aVar.createTime = cursor.getLong(columnIndex21);
-            aVar.blR = cursor.getString(columnIndex22);
-            aVar.blS = cursor.getString(columnIndex23);
-            aVar.blT = cursor.getString(columnIndex24);
-            aVar.atZ = cursor.getString(columnIndex25);
-            aVar.blU = cursor.getString(columnIndex26);
+            aVar.blU = cursor.getString(columnIndex22);
+            aVar.blV = cursor.getString(columnIndex23);
+            aVar.blW = cursor.getString(columnIndex24);
+            aVar.aud = cursor.getString(columnIndex25);
+            aVar.blX = cursor.getString(columnIndex26);
             return aVar;
         }
         return null;

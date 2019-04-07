@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
     private com.baidu.adp.gif.b Oa;
-    private com.baidu.adp.widget.ImageView.a cvF;
-    private Drawable cvG;
-    private Drawable cvH;
+    private com.baidu.adp.widget.ImageView.a cvH;
     private Drawable cvI;
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cvJ;
+    private Drawable cvJ;
+    private Drawable cvK;
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cvL;
     private Bitmap mBitmap;
     private int mCurrentFrame;
     private TbRichTextView.f mDispatchTouchListener;
@@ -34,9 +34,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context) {
         super(context);
         this.mSupportNoImage = true;
-        this.cvG = al.getDrawable(d.C0277d.common_color_10220);
-        this.cvH = al.getDrawable(d.f.icon_click);
-        this.cvI = al.getDrawable(d.f.img_default_100);
+        this.cvI = al.getDrawable(d.C0277d.common_color_10220);
+        this.cvJ = al.getDrawable(d.f.icon_click);
+        this.cvK = al.getDrawable(d.f.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -47,15 +47,15 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                     if (TbMemeImageView.this.mCurrentFrame >= gif.getFrameCount()) {
                         TbMemeImageView.this.mCurrentFrame = 0;
                     }
-                    gif.V(TbMemeImageView.this.mCurrentFrame);
+                    gif.U(TbMemeImageView.this.mCurrentFrame);
                     gif.a(TbMemeImageView.this.mBitmap, null);
                     TbMemeImageView.this.invalidate();
                     TbMemeImageView.this.mHandler.removeMessages(1);
-                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.W(TbMemeImageView.this.mCurrentFrame));
+                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.V(TbMemeImageView.this.mCurrentFrame));
                 }
             }
         };
-        this.cvJ = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.cvL = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -77,9 +77,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSupportNoImage = true;
-        this.cvG = al.getDrawable(d.C0277d.common_color_10220);
-        this.cvH = al.getDrawable(d.f.icon_click);
-        this.cvI = al.getDrawable(d.f.img_default_100);
+        this.cvI = al.getDrawable(d.C0277d.common_color_10220);
+        this.cvJ = al.getDrawable(d.f.icon_click);
+        this.cvK = al.getDrawable(d.f.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -90,15 +90,15 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                     if (TbMemeImageView.this.mCurrentFrame >= gif.getFrameCount()) {
                         TbMemeImageView.this.mCurrentFrame = 0;
                     }
-                    gif.V(TbMemeImageView.this.mCurrentFrame);
+                    gif.U(TbMemeImageView.this.mCurrentFrame);
                     gif.a(TbMemeImageView.this.mBitmap, null);
                     TbMemeImageView.this.invalidate();
                     TbMemeImageView.this.mHandler.removeMessages(1);
-                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.W(TbMemeImageView.this.mCurrentFrame));
+                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.V(TbMemeImageView.this.mCurrentFrame));
                 }
             }
         };
-        this.cvJ = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.cvL = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -120,9 +120,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSupportNoImage = true;
-        this.cvG = al.getDrawable(d.C0277d.common_color_10220);
-        this.cvH = al.getDrawable(d.f.icon_click);
-        this.cvI = al.getDrawable(d.f.img_default_100);
+        this.cvI = al.getDrawable(d.C0277d.common_color_10220);
+        this.cvJ = al.getDrawable(d.f.icon_click);
+        this.cvK = al.getDrawable(d.f.img_default_100);
         this.srcRect = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
@@ -133,15 +133,15 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
                     if (TbMemeImageView.this.mCurrentFrame >= gif.getFrameCount()) {
                         TbMemeImageView.this.mCurrentFrame = 0;
                     }
-                    gif.V(TbMemeImageView.this.mCurrentFrame);
+                    gif.U(TbMemeImageView.this.mCurrentFrame);
                     gif.a(TbMemeImageView.this.mBitmap, null);
                     TbMemeImageView.this.invalidate();
                     TbMemeImageView.this.mHandler.removeMessages(1);
-                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.W(TbMemeImageView.this.mCurrentFrame));
+                    TbMemeImageView.this.mHandler.sendEmptyMessageDelayed(1, gif.V(TbMemeImageView.this.mCurrentFrame));
                 }
             }
         };
-        this.cvJ = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
+        this.cvL = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.widget.TbMemeImageView.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -161,7 +161,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     private void init() {
-        setBackgroundDrawable(this.cvG);
+        setBackgroundDrawable(this.cvI);
         setOnClickListener(null);
     }
 
@@ -181,9 +181,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void setHasNoImage(boolean z) {
-        if (z && (this.cvG != null || this.cvH != null)) {
-            int intrinsicWidth = this.cvG.getIntrinsicWidth();
-            int intrinsicHeight = this.cvG.getIntrinsicHeight();
+        if (z && (this.cvI != null || this.cvJ != null)) {
+            int intrinsicWidth = this.cvI.getIntrinsicWidth();
+            int intrinsicHeight = this.cvI.getIntrinsicHeight();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             if (intrinsicWidth > measuredWidth) {
@@ -194,23 +194,23 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             }
             int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
             int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
-            this.cvG.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+            this.cvI.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
         }
         invalidate();
     }
 
     public com.baidu.adp.widget.ImageView.a getBdImage() {
-        return this.cvF;
+        return this.cvH;
     }
 
     public void e(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            this.cvF = aVar;
+            this.cvH = aVar;
             if (aVar.isGif() && aVar.oD() != null && aVar.oD().length > 0) {
                 NSGif h = NSGif.h(aVar.oD(), 0, aVar.oD().length);
                 if (h != null) {
                     this.Oa = h;
-                    this.Oa.V(0);
+                    this.Oa.U(0);
                     if (this.mBitmap == null || (this.mBitmap.getWidth() != this.Oa.getWidth() && this.mBitmap.getHeight() != this.Oa.getHeight())) {
                         this.mBitmap = Bitmap.createBitmap(this.Oa.getWidth(), this.Oa.getHeight(), Bitmap.Config.ARGB_4444);
                     }
@@ -230,9 +230,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             if (this.mCurrentFrame != 0) {
                 this.mCurrentFrame = 0;
             }
-            gif.V(0);
+            gif.U(0);
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, gif.W(this.mCurrentFrame));
+            this.mHandler.sendEmptyMessageDelayed(1, gif.V(this.mCurrentFrame));
         }
     }
 
@@ -252,8 +252,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cvF == null && this.mSupportNoImage) {
-            com.baidu.adp.lib.f.c.jB().a(this.mUrl, 33, this.cvJ, 0, 0, false, null, new Object[0]);
+        if (this.cvH == null && this.mSupportNoImage) {
+            com.baidu.adp.lib.f.c.jB().a(this.mUrl, 33, this.cvL, 0, 0, false, null, new Object[0]);
         } else if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this);
         }
@@ -276,8 +276,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             this.Oa.close();
             this.Oa = null;
         }
-        if (this.cvF != null) {
-            this.cvF = null;
+        if (this.cvH != null) {
+            this.cvH = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();
@@ -294,8 +294,8 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
             this.Oa.close();
             this.Oa = null;
         }
-        if (this.cvF != null) {
-            this.cvF = null;
+        if (this.cvH != null) {
+            this.cvH = null;
         }
         if (this.mBitmap != null) {
             this.mBitmap.recycle();

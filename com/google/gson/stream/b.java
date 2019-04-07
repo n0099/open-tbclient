@@ -7,41 +7,41 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] jQL = new String[128];
-    private static final String[] jQM;
-    private boolean jNh;
-    private boolean jNi;
-    private boolean jNl;
-    private String jQN;
-    private String jQO;
+    private static final String[] jQe = new String[128];
+    private static final String[] jQf;
+    private String indent;
+    private boolean jMB;
+    private boolean jMC;
+    private boolean jMF;
+    private String jQg;
     private final Writer out;
     private String separator;
-    private int[] jQK = new int[32];
-    private int jOH = 0;
+    private int[] jQd = new int[32];
+    private int jOb = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            jQL[i] = String.format("\\u%04x", Integer.valueOf(i));
+            jQe[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        jQL[34] = "\\\"";
-        jQL[92] = "\\\\";
-        jQL[9] = "\\t";
-        jQL[8] = "\\b";
-        jQL[10] = "\\n";
-        jQL[13] = "\\r";
-        jQL[12] = "\\f";
-        jQM = (String[]) jQL.clone();
-        jQM[60] = "\\u003c";
-        jQM[62] = "\\u003e";
-        jQM[38] = "\\u0026";
-        jQM[61] = "\\u003d";
-        jQM[39] = "\\u0027";
+        jQe[34] = "\\\"";
+        jQe[92] = "\\\\";
+        jQe[9] = "\\t";
+        jQe[8] = "\\b";
+        jQe[10] = "\\n";
+        jQe[13] = "\\r";
+        jQe[12] = "\\f";
+        jQf = (String[]) jQe.clone();
+        jQf[60] = "\\u003c";
+        jQf[62] = "\\u003e";
+        jQf[38] = "\\u0026";
+        jQf[61] = "\\u003d";
+        jQf[39] = "\\u0027";
     }
 
     public b(Writer writer) {
-        CW(6);
+        CM(6);
         this.separator = Config.TRACE_TODAY_VISIT_SPLIT;
-        this.jNh = true;
+        this.jMB = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
@@ -50,188 +50,188 @@ public class b implements Closeable, Flushable {
 
     public final void setIndent(String str) {
         if (str.length() == 0) {
-            this.jQN = null;
+            this.indent = null;
             this.separator = Config.TRACE_TODAY_VISIT_SPLIT;
             return;
         }
-        this.jQN = str;
+        this.indent = str;
         this.separator = ": ";
     }
 
     public final void setLenient(boolean z) {
-        this.jNl = z;
+        this.jMF = z;
     }
 
     public boolean isLenient() {
-        return this.jNl;
+        return this.jMF;
     }
 
     public final void rD(boolean z) {
-        this.jNi = z;
+        this.jMC = z;
     }
 
-    public final boolean cBU() {
-        return this.jNi;
+    public final boolean cBL() {
+        return this.jMC;
     }
 
     public final void rE(boolean z) {
-        this.jNh = z;
+        this.jMB = z;
     }
 
-    public final boolean cBV() {
-        return this.jNh;
+    public final boolean cBM() {
+        return this.jMB;
     }
 
-    public b cBE() throws IOException {
-        cBX();
-        return aJ(1, "[");
+    public b cBx() throws IOException {
+        cBO();
+        return aK(1, "[");
     }
 
-    public b cBF() throws IOException {
+    public b cBy() throws IOException {
         return l(1, 2, "]");
     }
 
-    public b cBG() throws IOException {
-        cBX();
-        return aJ(3, "{");
+    public b cBz() throws IOException {
+        cBO();
+        return aK(3, "{");
     }
 
-    public b cBH() throws IOException {
+    public b cBA() throws IOException {
         return l(3, 5, "}");
     }
 
-    private b aJ(int i, String str) throws IOException {
-        cCa();
-        CW(i);
+    private b aK(int i, String str) throws IOException {
+        beforeValue();
+        CM(i);
         this.out.write(str);
         return this;
     }
 
     private b l(int i, int i2, String str) throws IOException {
-        int cBW = cBW();
-        if (cBW != i2 && cBW != i) {
+        int cBN = cBN();
+        if (cBN != i2 && cBN != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.jQO != null) {
-            throw new IllegalStateException("Dangling name: " + this.jQO);
+        if (this.jQg != null) {
+            throw new IllegalStateException("Dangling name: " + this.jQg);
         }
-        this.jOH--;
-        if (cBW == i2) {
-            cBY();
+        this.jOb--;
+        if (cBN == i2) {
+            newline();
         }
         this.out.write(str);
         return this;
     }
 
-    private void CW(int i) {
-        if (this.jOH == this.jQK.length) {
-            int[] iArr = new int[this.jOH * 2];
-            System.arraycopy(this.jQK, 0, iArr, 0, this.jOH);
-            this.jQK = iArr;
+    private void CM(int i) {
+        if (this.jOb == this.jQd.length) {
+            int[] iArr = new int[this.jOb * 2];
+            System.arraycopy(this.jQd, 0, iArr, 0, this.jOb);
+            this.jQd = iArr;
         }
-        int[] iArr2 = this.jQK;
-        int i2 = this.jOH;
-        this.jOH = i2 + 1;
+        int[] iArr2 = this.jQd;
+        int i2 = this.jOb;
+        this.jOb = i2 + 1;
         iArr2[i2] = i;
     }
 
-    private int cBW() {
-        if (this.jOH == 0) {
+    private int cBN() {
+        if (this.jOb == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.jQK[this.jOH - 1];
+        return this.jQd[this.jOb - 1];
     }
 
-    private void CY(int i) {
-        this.jQK[this.jOH - 1] = i;
+    private void CO(int i) {
+        this.jQd[this.jOb - 1] = i;
     }
 
-    public b FQ(String str) throws IOException {
+    public b FG(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.jQO != null) {
+        if (this.jQg != null) {
             throw new IllegalStateException();
         }
-        if (this.jOH == 0) {
+        if (this.jOb == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.jQO = str;
+        this.jQg = str;
         return this;
     }
 
-    private void cBX() throws IOException {
-        if (this.jQO != null) {
-            cBZ();
-            FU(this.jQO);
-            this.jQO = null;
+    private void cBO() throws IOException {
+        if (this.jQg != null) {
+            cBP();
+            string(this.jQg);
+            this.jQg = null;
         }
     }
 
-    public b FR(String str) throws IOException {
+    public b FH(String str) throws IOException {
         if (str == null) {
-            return cBI();
+            return cBB();
         }
-        cBX();
-        cCa();
-        FU(str);
+        cBO();
+        beforeValue();
+        string(str);
         return this;
     }
 
-    public b cBI() throws IOException {
-        if (this.jQO != null) {
-            if (this.jNh) {
-                cBX();
+    public b cBB() throws IOException {
+        if (this.jQg != null) {
+            if (this.jMB) {
+                cBO();
             } else {
-                this.jQO = null;
+                this.jQg = null;
                 return this;
             }
         }
-        cCa();
+        beforeValue();
         this.out.write("null");
         return this;
     }
 
     public b rB(boolean z) throws IOException {
-        cBX();
-        cCa();
+        cBO();
+        beforeValue();
         this.out.write(z ? "true" : "false");
         return this;
     }
 
     public b m(Boolean bool) throws IOException {
         if (bool == null) {
-            return cBI();
+            return cBB();
         }
-        cBX();
-        cCa();
+        cBO();
+        beforeValue();
         this.out.write(bool.booleanValue() ? "true" : "false");
         return this;
     }
 
-    public b eh(long j) throws IOException {
-        cBX();
-        cCa();
+    public b eg(long j) throws IOException {
+        cBO();
+        beforeValue();
         this.out.write(Long.toString(j));
         return this;
     }
 
-    public b b(Number number) throws IOException {
+    public b a(Number number) throws IOException {
         if (number == null) {
-            return cBI();
+            return cBB();
         }
-        cBX();
+        cBO();
         String obj = number.toString();
-        if (!this.jNl && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.jMF && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
-        cCa();
+        beforeValue();
         this.out.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.jOH == 0) {
+        if (this.jOb == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
         this.out.flush();
@@ -240,22 +240,22 @@ public class b implements Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         this.out.close();
-        int i = this.jOH;
-        if (i > 1 || (i == 1 && this.jQK[i - 1] != 7)) {
+        int i = this.jOb;
+        if (i > 1 || (i == 1 && this.jQd[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.jOH = 0;
+        this.jOb = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void FU(String str) throws IOException {
+    private void string(String str) throws IOException {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.jNi ? jQM : jQL;
+        String[] strArr = this.jMC ? jQf : jQe;
         this.out.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
@@ -286,37 +286,37 @@ public class b implements Closeable, Flushable {
         this.out.write("\"");
     }
 
-    private void cBY() throws IOException {
-        if (this.jQN != null) {
+    private void newline() throws IOException {
+        if (this.indent != null) {
             this.out.write("\n");
-            int i = this.jOH;
+            int i = this.jOb;
             for (int i2 = 1; i2 < i; i2++) {
-                this.out.write(this.jQN);
+                this.out.write(this.indent);
             }
         }
     }
 
-    private void cBZ() throws IOException {
-        int cBW = cBW();
-        if (cBW == 5) {
+    private void cBP() throws IOException {
+        int cBN = cBN();
+        if (cBN == 5) {
             this.out.write(44);
-        } else if (cBW != 3) {
+        } else if (cBN != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
-        cBY();
-        CY(4);
+        newline();
+        CO(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void cCa() throws IOException {
-        switch (cBW()) {
+    private void beforeValue() throws IOException {
+        switch (cBN()) {
             case 1:
-                CY(2);
-                cBY();
+                CO(2);
+                newline();
                 return;
             case 2:
                 this.out.append(',');
-                cBY();
+                newline();
                 return;
             case 3:
             case 5:
@@ -324,16 +324,16 @@ public class b implements Closeable, Flushable {
                 throw new IllegalStateException("Nesting problem.");
             case 4:
                 this.out.append((CharSequence) this.separator);
-                CY(5);
+                CO(5);
                 return;
             case 6:
                 break;
             case 7:
-                if (!this.jNl) {
+                if (!this.jMF) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;
         }
-        CY(7);
+        CO(7);
     }
 }

@@ -18,13 +18,13 @@ import com.baidu.tbadk.plugin.PluginErrorTipView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c {
-    private NoNetworkView dbm;
-    private PluginErrorTipView eCu;
-    private com.baidu.tieba.view.d hMA;
-    private View hMB;
-    private FrameLayout hMC;
-    private a hMD;
-    private com.baidu.tieba.personCenter.b.c hMz;
+    private NoNetworkView dbq;
+    private PluginErrorTipView eCf;
+    private com.baidu.tieba.personCenter.b.c hMl;
+    private com.baidu.tieba.view.d hMm;
+    private View hMn;
+    private FrameLayout hMo;
+    private a hMp;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
@@ -40,40 +40,40 @@ public class c {
     public c(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         if (view != null) {
             this.mPageContext = tbPageContext;
-            this.dbm = (NoNetworkView) view.findViewById(d.g.person_center_no_network_view);
+            this.dbq = (NoNetworkView) view.findViewById(d.g.person_center_no_network_view);
             this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_center_navigation_bar);
-            this.eCu = (PluginErrorTipView) view.findViewById(d.g.person_center_plugin_error_tip_view);
-            this.hMC = (FrameLayout) view.findViewById(d.g.layout_container);
+            this.eCf = (PluginErrorTipView) view.findViewById(d.g.person_center_plugin_error_tip_view);
+            this.hMo = (FrameLayout) view.findViewById(d.g.layout_container);
             this.mListView = (BdTypeListView) view.findViewById(d.g.person_center_listview);
             AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(d.e.ds200));
-            this.hMB = new View(tbPageContext.getPageActivity());
-            this.hMB.setLayoutParams(layoutParams);
-            this.mListView.addFooterView(this.hMB);
-            this.hMz = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
-            this.hMA = new com.baidu.tieba.view.d(1);
+            this.hMn = new View(tbPageContext.getPageActivity());
+            this.hMn.setLayoutParams(layoutParams);
+            this.mListView.addFooterView(this.hMn);
+            this.hMl = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
+            this.hMm = new com.baidu.tieba.view.d(1);
         }
     }
 
     public void b(com.baidu.tieba.personCenter.data.e eVar) {
         if (eVar != null) {
-            this.hMz.b(eVar);
+            this.hMl.b(eVar);
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("clicked_blue_tip", false) || eVar.getUserData() == null || eVar.getUserData().getPersonPrivate() == null) {
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.hMz.notifyDataSetChanged();
+        this.hMl.notifyDataSetChanged();
     }
 
-    public void Q(int i, String str) {
+    public void S(int i, String str) {
         this.mPageContext.showToast(str);
     }
 
     public void initView() {
         FrameLayout.LayoutParams layoutParams;
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.mine));
-        this.hMA.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
+        this.hMm.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
         View bottomLine = this.mNavigationBar.getBottomLine();
         if (bottomLine != null) {
             if (bottomLine.getLayoutParams() instanceof FrameLayout.LayoutParams) {
@@ -84,12 +84,12 @@ public class c {
             }
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.hMA.bRC();
-        this.hMA.setOnViewResponseListener(null);
+        this.hMm.bRy();
+        this.hMm.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean aXr() {
+    public boolean aXp() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -97,35 +97,35 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.hMD = aVar;
+        this.hMp = aVar;
     }
 
-    public void aBs() {
-        if (!aXr()) {
+    public void aBp() {
+        if (!aXp()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.kM()) {
-                            c.this.aBt();
-                            if (c.this.hMD != null) {
-                                c.this.hMD.cy(view);
+                            c.this.aBq();
+                            if (c.this.hMp != null) {
+                                c.this.hMp.cy(view);
                             }
                         }
                     }
                 });
             }
-            this.refreshView.jR(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
-            this.refreshView.po(this.mPageContext.getString(d.j.neterror));
-            this.refreshView.attachView(this.hMC, false);
-            this.refreshView.anB();
+            this.refreshView.jQ(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
+            this.refreshView.pp(this.mPageContext.getString(d.j.neterror));
+            this.refreshView.attachView(this.hMo, false);
+            this.refreshView.any();
             this.refreshView.onChangeSkinType();
         }
     }
 
-    public void aBt() {
+    public void aBq() {
         if (this.refreshView != null) {
-            this.refreshView.dettachView(this.hMC);
+            this.refreshView.dettachView(this.hMo);
             this.refreshView = null;
         }
     }
@@ -133,14 +133,14 @@ public class c {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             al.j(this.mTitle, d.C0277d.cp_cont_b);
-            al.l(this.hMB, d.C0277d.cp_bg_line_d);
+            al.l(this.hMn, d.C0277d.cp_bg_line_d);
             al.l(this.mListView, d.C0277d.cp_bg_line_d);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             al.f(this.mNavigationBar.getBarBgView(), d.C0277d.cp_bg_line_d, i);
-            this.hMz.onChangeSkinType();
-            this.dbm.onChangeSkinType(this.mPageContext, i);
-            this.eCu.onChangeSkinType(this.mPageContext, i);
-            this.hMA.onChangeSkinType(i);
+            this.hMl.onChangeSkinType();
+            this.dbq.onChangeSkinType(this.mPageContext, i);
+            this.eCf.onChangeSkinType(this.mPageContext, i);
+            this.hMm.onChangeSkinType(i);
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
             }
@@ -149,24 +149,24 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.hMz != null) {
-            this.hMz.bQu();
+        if (this.hMl != null) {
+            this.hMl.bQq();
         }
     }
 
     public void I(int i, boolean z) {
-        this.hMA.I(i, z);
+        this.hMm.I(i, z);
     }
 
-    public void bQt() {
-        if (this.hMz != null) {
-            this.hMz.bQt();
+    public void bQp() {
+        if (this.hMl != null) {
+            this.hMl.bQp();
         }
     }
 
-    public void bQu() {
-        if (this.hMz != null) {
-            this.hMz.bQu();
+    public void bQq() {
+        if (this.hMl != null) {
+            this.hMl.bQq();
         }
     }
 }

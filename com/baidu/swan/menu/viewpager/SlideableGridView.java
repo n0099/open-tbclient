@@ -11,69 +11,69 @@ import android.widget.LinearLayout;
 import com.baidu.swan.menu.g;
 /* loaded from: classes2.dex */
 public class SlideableGridView extends LinearLayout {
-    private a ble;
-    b blr;
-    private int bls;
-    private int blt;
-    private int blu;
+    protected int[] blA;
+    private a blh;
+    b blu;
     private int blv;
-    protected PointPageIndicator blw;
-    protected int[] blx;
+    private int blw;
+    private int blx;
+    private int bly;
+    protected PointPageIndicator blz;
     private ViewPager mViewPager;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
-        private SlideableGridView bly;
+        private SlideableGridView blB;
 
         public abstract View a(int i, int i2, View view, ViewGroup viewGroup);
 
         public abstract void a(int i, int i2, View view);
 
-        public abstract int eX(int i);
+        public abstract int eW(int i);
 
         public abstract int getPageCount();
 
         void f(SlideableGridView slideableGridView) {
-            this.bly = slideableGridView;
+            this.blB = slideableGridView;
         }
 
-        public int fd(int i) {
+        public int fc(int i) {
             int i2 = 0;
             for (int i3 = 0; i3 < getPageCount(); i3++) {
-                i2 += eX(i3);
+                i2 += eW(i3);
             }
             if (i2 < 5) {
             }
             return 5;
         }
 
-        public void Ru() {
-            if (this.bly != null && this.bly.blr != null) {
-                this.bly.blr.notifyDataSetChanged();
-                this.bly.Rt();
+        public void Rs() {
+            if (this.blB != null && this.blB.blu != null) {
+                this.blB.blu.notifyDataSetChanged();
+                this.blB.Rr();
             }
         }
     }
 
     public a getGridItemAdapter() {
-        return this.ble;
+        return this.blh;
     }
 
     public void setGridItemAdapter(a aVar) {
-        this.ble = aVar;
+        this.blh = aVar;
         if (aVar != null) {
             aVar.f(this);
-            if (this.blr == null) {
-                this.blr = new b(getContext());
-                this.mViewPager.setAdapter(this.blr);
+            if (this.blu == null) {
+                this.blu = new b(getContext());
+                this.mViewPager.setAdapter(this.blu);
             } else {
-                this.blr.notifyDataSetChanged();
+                this.blu.notifyDataSetChanged();
             }
-            this.blw.fa(aVar.getPageCount());
-        } else if (this.blr != null) {
-            this.blr.notifyDataSetChanged();
+            this.blz.eZ(aVar.getPageCount());
+        } else if (this.blu != null) {
+            this.blu.notifyDataSetChanged();
         }
-        Rt();
+        Rr();
     }
 
     public SlideableGridView(Context context) {
@@ -89,8 +89,8 @@ public class SlideableGridView extends LinearLayout {
     public SlideableGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mViewPager = null;
-        this.blw = null;
-        this.blx = new int[2];
+        this.blz = null;
+        this.blA = new int[2];
         init(context);
     }
 
@@ -105,10 +105,10 @@ public class SlideableGridView extends LinearLayout {
     }
 
     protected void cA(Context context) {
-        this.blw = new PointPageIndicator(context).N(g.c.aiapp_menu_slide_indicator_normal, g.c.aiapp_menu_slide_indicator_selected).fb((int) getResources().getDimension(g.b.common_grid_indicator_margin));
-        this.blx[0] = (int) getResources().getDimension(g.b.common_grid_indicator_height);
-        this.blx[1] = (int) getResources().getDimension(g.b.common_grid_indicator_height2);
-        addView(this.blw, Rs());
+        this.blz = new PointPageIndicator(context).N(g.c.aiapp_menu_slide_indicator_normal, g.c.aiapp_menu_slide_indicator_selected).fa((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.blA[0] = (int) getResources().getDimension(g.b.common_grid_indicator_height);
+        this.blA[1] = (int) getResources().getDimension(g.b.common_grid_indicator_height2);
+        addView(this.blz, Rq());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -117,51 +117,51 @@ public class SlideableGridView extends LinearLayout {
         this.mViewPager.setOffscreenPageLimit(0);
         this.mViewPager.setOnPageChangeListener(new c());
         this.mViewPager.setOverScrollMode(2);
-        addView(this.mViewPager, Rp());
+        addView(this.mViewPager, Rn());
     }
 
     public PointPageIndicator getPageindicator() {
-        return this.blw;
+        return this.blz;
     }
 
-    protected int Rn() {
+    protected int Rl() {
         return -2;
+    }
+
+    protected int Rm() {
+        return -1;
+    }
+
+    protected LinearLayout.LayoutParams Rn() {
+        return new LinearLayout.LayoutParams(Rm(), Rl());
     }
 
     protected int Ro() {
         return -1;
     }
 
-    protected LinearLayout.LayoutParams Rp() {
-        return new LinearLayout.LayoutParams(Ro(), Rn());
-    }
-
-    protected int Rq() {
-        return -1;
-    }
-
-    protected int Rr() {
+    protected int Rp() {
         return (int) getResources().getDimension(g.b.common_grid_indicator_height);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public LinearLayout.LayoutParams Rs() {
-        return new LinearLayout.LayoutParams(Rq(), Rr());
+    public LinearLayout.LayoutParams Rq() {
+        return new LinearLayout.LayoutParams(Ro(), Rp());
     }
 
     public void setPageIndicatorHeight(int i, int i2) {
-        this.blx[0] = i;
-        this.blx[1] = i2;
+        this.blA[0] = i;
+        this.blA[1] = i2;
         requestLayout();
     }
 
-    protected void Rt() {
-        int pageCount = this.ble == null ? 0 : this.ble.getPageCount();
+    protected void Rr() {
+        int pageCount = this.blh == null ? 0 : this.blh.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.blx[0] : this.blx[1];
-        this.blw.fa(pageCount);
-        this.blw.setVisibility(z ? 0 : 4);
-        this.blw.getLayoutParams().height = i;
+        int i = !z ? this.blA[0] : this.blA[1];
+        this.blz.eZ(pageCount);
+        this.blz.setVisibility(z ? 0 : 4);
+        this.blz.getLayoutParams().height = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -172,7 +172,7 @@ public class SlideableGridView extends LinearLayout {
 
         @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            SlideableGridView.this.blw.fc(i);
+            SlideableGridView.this.blz.fb(i);
         }
     }
 
@@ -186,8 +186,8 @@ public class SlideableGridView extends LinearLayout {
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl, android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (SlideableGridView.this.ble != null) {
-                return SlideableGridView.this.ble.getPageCount();
+            if (SlideableGridView.this.blh != null) {
+                return SlideableGridView.this.blh.getPageCount();
             }
             return 0;
         }
@@ -195,14 +195,14 @@ public class SlideableGridView extends LinearLayout {
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
         protected View b(ViewGroup viewGroup, int i) {
             GridPageView gridPageView = new GridPageView(this.mContext);
-            gridPageView.setGridItemAdapter(SlideableGridView.this.ble);
-            gridPageView.setPadding(SlideableGridView.this.bls, SlideableGridView.this.blu, SlideableGridView.this.blt, SlideableGridView.this.blv);
+            gridPageView.setGridItemAdapter(SlideableGridView.this.blh);
+            gridPageView.setPadding(SlideableGridView.this.blv, SlideableGridView.this.blx, SlideableGridView.this.blw, SlideableGridView.this.bly);
             return gridPageView;
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
         protected void f(View view, int i) {
-            ((GridPageView) view).M(SlideableGridView.this.ble.fd(i), i);
+            ((GridPageView) view).M(SlideableGridView.this.blh.fc(i), i);
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -212,22 +212,22 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void setIndicatorColor(int i, int i2) {
-        if (this.blw != null) {
-            this.blw.N(i, i2);
+        if (this.blz != null) {
+            this.blz.N(i, i2);
         }
     }
 
     public void setCurrentPage(int i) {
-        if (this.mViewPager != null && this.blw != null) {
+        if (this.mViewPager != null && this.blz != null) {
             this.mViewPager.setCurrentItem(i);
-            this.blw.fc(i);
+            this.blz.fb(i);
         }
     }
 
     public void setGridViewPading(int i, int i2, int i3, int i4) {
-        this.bls = i;
-        this.blt = i3;
-        this.blu = i2;
-        this.blv = i4;
+        this.blv = i;
+        this.blw = i3;
+        this.blx = i2;
+        this.bly = i4;
     }
 }

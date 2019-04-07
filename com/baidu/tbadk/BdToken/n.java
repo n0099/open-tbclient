@@ -16,54 +16,54 @@ import android.support.annotation.Nullable;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class n implements SensorEventListener {
-    private SensorManager aTw;
-    private Sensor aTy;
-    private Vibrator aUs;
-    private final double bsc = 9.8d;
-    private final int bsd = 400;
-    private final int bse = 255;
-    private final int bsf = 1;
-    private final int bsg = 2000;
-    private a bsh;
-    private SoundPool bsi;
-    private int bsj;
-    private int bsk;
-    private long bsl;
-    private MediaPlayer bsm;
+    private Sensor aTB;
+    private SensorManager aTz;
+    private Vibrator aUv;
+    private final double bsf = 9.8d;
+    private final int bsg = 400;
+    private final int bsh = 255;
+    private final int bsi = 1;
+    private final int bsj = 2000;
+    private a bsk;
+    private SoundPool bsl;
+    private int bsm;
+    private int bsn;
+    private long bso;
+    private MediaPlayer bsp;
     private Context context;
     private boolean isOpen;
 
     /* loaded from: classes.dex */
     public interface a {
-        void UA();
+        void Ux();
     }
 
     public n(@NonNull Context context, @Nullable a aVar) {
         if (context != null) {
             this.context = context;
-            this.bsh = aVar;
-            this.aTw = (SensorManager) context.getSystemService("sensor");
-            if (this.aTw != null) {
-                this.aTy = this.aTw.getDefaultSensor(1);
+            this.bsk = aVar;
+            this.aTz = (SensorManager) context.getSystemService("sensor");
+            if (this.aTz != null) {
+                this.aTB = this.aTz.getDefaultSensor(1);
             }
-            this.aUs = (Vibrator) context.getSystemService("vibrator");
-            this.bsi = new SoundPool(1, 3, 0);
-            if (this.bsi != null) {
-                this.bsj = this.bsi.load(context, d.i.shake_tone, 1);
+            this.aUv = (Vibrator) context.getSystemService("vibrator");
+            this.bsl = new SoundPool(1, 3, 0);
+            if (this.bsl != null) {
+                this.bsm = this.bsl.load(context, d.i.shake_tone, 1);
             }
         }
     }
 
     public void open() {
-        if (this.aTy != null) {
-            this.aTw.registerListener(this, this.aTy, 2);
+        if (this.aTB != null) {
+            this.aTz.registerListener(this, this.aTB, 2);
             this.isOpen = true;
         }
     }
 
     public void close() {
-        if (this.aTw != null) {
-            this.aTw.unregisterListener(this);
+        if (this.aTz != null) {
+            this.aTz.unregisterListener(this);
             this.isOpen = false;
         }
     }
@@ -74,8 +74,8 @@ public class n implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && this.bsh != null) {
-            this.bsh.UA();
+        if (sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && this.bsk != null) {
+            this.bsk.Ux();
         }
     }
 
@@ -89,25 +89,25 @@ public class n implements SensorEventListener {
         float abs3 = Math.abs(fArr[2]);
         double sqrt = Math.sqrt(Math.pow(abs2 / 9.8d, 2.0d) + Math.pow(abs / 9.8d, 2.0d) + Math.pow(abs3 / 9.8d, 2.0d));
         if (Build.VERSION.SDK_INT <= 23) {
-            if (sqrt >= 2.5d && Uy()) {
+            if (sqrt >= 2.5d && Uv()) {
                 return true;
             }
-        } else if (sqrt >= 4.2d && Uy()) {
+        } else if (sqrt >= 4.2d && Uv()) {
             return true;
         }
         return false;
     }
 
-    private boolean Uy() {
+    private boolean Uv() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.bsl > 2000) {
-            this.bsl = currentTimeMillis;
+        if (currentTimeMillis - this.bso > 2000) {
+            this.bso = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    public boolean Uz() {
+    public boolean Uw() {
         int i;
         if (this.context == null) {
             return false;
@@ -118,30 +118,30 @@ public class n implements SensorEventListener {
         } else {
             i = audioManager.getRingerMode();
         }
-        if (this.aUs == null || !this.aUs.hasVibrator() || i <= 0) {
+        if (this.aUv == null || !this.aUv.hasVibrator() || i <= 0) {
             return false;
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            this.aUs.vibrate(VibrationEffect.createOneShot(400L, 255));
+            this.aUv.vibrate(VibrationEffect.createOneShot(400L, 255));
         } else {
-            this.aUs.vibrate(400L);
+            this.aUv.vibrate(400L);
         }
         return true;
     }
 
-    public void kj(String str) {
-        if (this.bsm == null) {
-            this.bsm = new MediaPlayer();
+    public void kk(String str) {
+        if (this.bsp == null) {
+            this.bsp = new MediaPlayer();
         }
         try {
-            this.bsm.reset();
-            this.bsm.setLooping(false);
-            this.bsm.setDataSource(str);
-            this.bsm.prepareAsync();
-            this.bsm.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tbadk.BdToken.n.1
+            this.bsp.reset();
+            this.bsp.setLooping(false);
+            this.bsp.setDataSource(str);
+            this.bsp.prepareAsync();
+            this.bsp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tbadk.BdToken.n.1
                 @Override // android.media.MediaPlayer.OnPreparedListener
                 public void onPrepared(MediaPlayer mediaPlayer) {
-                    n.this.bsm.start();
+                    n.this.bsp.start();
                 }
             });
         } catch (Exception e) {
@@ -150,12 +150,12 @@ public class n implements SensorEventListener {
     }
 
     public void cY(boolean z) {
-        if (z || this.bsk == 0) {
-            if (this.bsi != null) {
-                this.bsi.play(this.bsj, 1.0f, 1.0f, 0, 0, 1.0f);
+        if (z || this.bsn == 0) {
+            if (this.bsl != null) {
+                this.bsl.play(this.bsm, 1.0f, 1.0f, 0, 0, 1.0f);
             }
-        } else if (this.bsi != null) {
-            this.bsi.play(this.bsk, 1.0f, 1.0f, 0, 0, 1.0f);
+        } else if (this.bsl != null) {
+            this.bsl.play(this.bsn, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 }

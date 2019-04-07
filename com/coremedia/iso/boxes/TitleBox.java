@@ -26,11 +26,11 @@ public class TitleBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TitleBox.java", TitleBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getTitle", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", "title", "", "void"), 63);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 86);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getLanguage", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getTitle", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "setLanguage", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 59);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setTitle", "com.coremedia.iso.boxes.TitleBox", "java.lang.String", "title", "", "void"), 63);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.TitleBox", "", "", "", "java.lang.String"), 86);
     }
 
     public TitleBox() {

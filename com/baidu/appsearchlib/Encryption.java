@@ -1,7 +1,6 @@
 package com.baidu.appsearchlib;
 
 import android.util.Base64;
-import com.baidu.sapi2.utils.SapiEnv;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -27,7 +26,7 @@ public class Encryption {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+        return new SecretKeySpec(bArr, "AES");
     }
 
     public static String desEncrypt(String str) throws Exception {

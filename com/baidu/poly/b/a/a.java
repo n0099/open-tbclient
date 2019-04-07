@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.poly.b.a.a.a agK;
+    private com.baidu.poly.b.a.a.a agP;
 
     public a(Context context) {
         File ac = ac(context, "bitmap");
@@ -20,19 +20,19 @@ public class a {
             ac.mkdirs();
         }
         try {
-            this.agK = com.baidu.poly.b.a.a.a.a(ac, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+            this.agP = com.baidu.poly.b.a.a.a.a(ac, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Bitmap k(String str, int i, int i2) throws IOException {
-        if (this.agK == null) {
+        if (this.agP == null) {
             return null;
         }
-        a.c db = this.agK.db(com.baidu.poly.b.b.b.dd(str));
-        if (db != null) {
-            FileInputStream fileInputStream = (FileInputStream) db.bI(0);
+        a.c dd = this.agP.dd(com.baidu.poly.b.b.b.df(str));
+        if (dd != null) {
+            FileInputStream fileInputStream = (FileInputStream) dd.bH(0);
             if (i <= 0 || i2 <= 0) {
                 return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
             }
@@ -41,17 +41,17 @@ public class a {
         return null;
     }
 
-    public void cY(String str) {
-        if (this.agK != null) {
+    public void da(String str) {
+        if (this.agP != null) {
             try {
-                a.C0080a dc = this.agK.dc(com.baidu.poly.b.b.b.dd(str));
-                if (dc != null) {
-                    if (d.a(str, dc.bF(0))) {
-                        dc.commit();
+                a.C0080a de = this.agP.de(com.baidu.poly.b.b.b.df(str));
+                if (de != null) {
+                    if (d.a(str, de.bE(0))) {
+                        de.commit();
                     } else {
-                        dc.abort();
+                        de.abort();
                     }
-                    this.agK.flush();
+                    this.agP.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

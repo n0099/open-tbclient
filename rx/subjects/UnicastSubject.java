@@ -15,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> kcZ;
+    final State<T> kcr;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,22 +23,22 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.kcZ = state;
+        this.kcr = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.kcZ.onNext(t);
+        this.kcr.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.kcZ.onError(th);
+        this.kcr.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.kcZ.onCompleted();
+        this.kcr.onCompleted();
     }
 
     /* loaded from: classes2.dex */
@@ -62,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.cEU() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.cEJ() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.cEU() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.cEJ() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -76,7 +76,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     boolean z = false;
                     synchronized (this) {
                         if (!this.caughtUp) {
-                            this.queue.offer(NotificationLite.bq(t));
+                            this.queue.offer(NotificationLite.bm(t));
                             z = true;
                         }
                     }
@@ -203,7 +203,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                                     if (z3) {
                                         break;
                                     }
-                                    Object obj = (Object) NotificationLite.bt(poll);
+                                    Object obj = (Object) NotificationLite.bp(poll);
                                     try {
                                         jVar.onNext(obj);
                                         j4--;

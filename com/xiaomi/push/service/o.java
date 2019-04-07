@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import com.coremedia.iso.boxes.UserBox;
-import com.tencent.open.SocialConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
 import org.json.JSONObject;
@@ -96,7 +95,7 @@ public class o {
                     a(context, nVar);
                     a = nVar;
                 } else {
-                    r.a(context, jSONObject.getInt("code"), jSONObject.optString(SocialConstants.PARAM_COMMENT));
+                    r.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
                     com.xiaomi.channel.commonutils.logger.b.a(a4);
                 }
             }

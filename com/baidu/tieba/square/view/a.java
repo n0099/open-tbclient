@@ -25,18 +25,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private CoverFlowView<g> iDg;
+    private CoverFlowView<g> iCQ;
     private TbPageContext<?> mContext;
-    private HashSet<String> iDf = new HashSet<>();
+    private HashSet<String> iCP = new HashSet<>();
     private ArrayList<g> datas = new ArrayList<>();
-    private d<g> bGd = new d<g>() { // from class: com.baidu.tieba.square.view.a.1
+    private d<g> bGf = new d<g>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
         public void y(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
             g gVar = (g) v.c(a.this.datas, i);
-            String cdk = gVar != null ? gVar.cdk() : null;
-            if (ba.adD().c(a.this.mContext, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(cdk)) {
-                TiebaStatic.eventStat(a.this.mContext.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", "task", "tbanner", VideoPlayActivityConfig.OBJ_ID, String.valueOf(cdk), "obj_name", String.valueOf(cdk), "obj_cpid", 0, "obj_url", str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+            String cdg = gVar != null ? gVar.cdg() : null;
+            if (ba.adA().c(a.this.mContext, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(cdg)) {
+                TiebaStatic.eventStat(a.this.mContext.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", "task", "tbanner", VideoPlayActivityConfig.OBJ_ID, String.valueOf(cdg), "obj_name", String.valueOf(cdg), "obj_cpid", 0, "obj_url", str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
             }
             TiebaStatic.eventStat(a.this.mContext.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
         }
@@ -45,38 +45,38 @@ public class a extends BaseAdapter {
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, g gVar) {
             if (gVar != null) {
-                String cdk = gVar.cdk();
-                if (i == 2 && !TextUtils.isEmpty(cdk) && a.this.iDf.add(cdk)) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", "task", "tbanner", VideoPlayActivityConfig.OBJ_ID, String.valueOf(cdk), "obj_name", String.valueOf(cdk), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
+                String cdg = gVar.cdg();
+                if (i == 2 && !TextUtils.isEmpty(cdg) && a.this.iCP.add(cdg)) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", "task", "tbanner", VideoPlayActivityConfig.OBJ_ID, String.valueOf(cdg), "obj_name", String.valueOf(cdg), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
         }
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.iDg = null;
+        this.iCQ = null;
         this.mContext = tbPageContext;
-        this.iDg = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.iDg.setCoverFlowFactory(new b() { // from class: com.baidu.tieba.square.view.a.2
+        this.iCQ = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.iCQ.setCoverFlowFactory(new b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public e abn() {
+            public e abk() {
                 e eVar = new e();
                 eVar.setHeight(tbPageContext.getPageActivity().getResources().getDimensionPixelSize(d.e.ds330));
                 return eVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public c abm() {
-                c abm = super.abm();
-                if (abm != null) {
-                    abm.setGravity(85);
-                    abm.gW(d.e.ds20);
-                    abm.gX(d.e.ds30);
+            public c abj() {
+                c abj = super.abj();
+                if (abj != null) {
+                    abj.setGravity(85);
+                    abj.gV(d.e.ds20);
+                    abj.gW(d.e.ds30);
                 }
-                return abm;
+                return abj;
             }
         });
-        this.iDg.setCallback(this.bGd);
+        this.iCQ.setCallback(this.bGf);
     }
 
     public void setData(ArrayList<bd> arrayList) {
@@ -89,7 +89,7 @@ public class a extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.iDg.setData(arrayList2);
+        this.iCQ.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -110,16 +110,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.iDg;
+        return this.iCQ;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iDg != null) {
-            this.iDg.onChangeSkinType();
+        if (this.iCQ != null) {
+            this.iCQ.onChangeSkinType();
         }
     }
 
-    public CoverFlowView<g> cdr() {
-        return this.iDg;
+    public CoverFlowView<g> cdn() {
+        return this.iCQ;
     }
 }

@@ -61,7 +61,7 @@ public class am {
         }
     }
 
-    public am adj() {
+    public am adg() {
         am amVar = new am(getKey());
         amVar.U(getParams());
         return amVar;

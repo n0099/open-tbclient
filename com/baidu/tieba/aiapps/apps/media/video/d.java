@@ -32,6 +32,6 @@ public class d {
         if (DEBUG) {
             Log.d("VideoStatusEventHelper", "Video dispatch Params : " + hashMap.toString());
         }
-        e.Ec().a(new com.baidu.swan.apps.m.a.b("video", hashMap));
+        e.Ea().a(new com.baidu.swan.apps.m.a.b("video", hashMap));
     }
 }

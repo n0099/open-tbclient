@@ -16,11 +16,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static final boolean DEBUG = h.DEBUG;
-    private static volatile int ahL = 0;
+    private static volatile int ahQ = 0;
     private static volatile String sProcessName;
 
-    public static int tQ() {
-        int i = ahL;
+    public static int tP() {
+        int i = ahQ;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = f.getAppContext().getPackageName();
@@ -29,13 +29,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            ahL = i;
+            ahQ = i;
         }
         return i;
     }
 
-    public static boolean tR() {
-        return (tQ() & 2) != 0;
+    public static boolean tQ() {
+        return (tP() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -45,7 +45,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = f.getAppContext();
-                    str = tT();
+                    str = tS();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -56,7 +56,7 @@ public class a {
         return str;
     }
 
-    public static int tS() {
+    public static int tR() {
         Context appContext = f.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -90,7 +90,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String tT() {
+    private static String tS() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

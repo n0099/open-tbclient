@@ -15,7 +15,7 @@ public class c {
     }
 
     public static void a(@NonNull com.baidu.swan.apps.ae.b bVar, @NonNull final Context context, @NonNull final a aVar) {
-        com.baidu.swan.apps.u.a.CD().a(bVar.getAppKey(), new c.a() { // from class: com.baidu.swan.apps.core.b.c.1
+        com.baidu.swan.apps.u.a.CB().a(bVar.getAppKey(), new c.a() { // from class: com.baidu.swan.apps.core.b.c.1
             @Override // com.baidu.swan.apps.u.b.c.a
             public void k(Exception exc) {
                 com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
@@ -37,6 +37,6 @@ public class c {
     }
 
     public static void af(Context context, String str) {
-        new e.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).gd(str).a(new com.baidu.swan.apps.view.b.a()).b(a.h.aiapps_confirm, null).Iu();
+        new e.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).ge(str).a(new com.baidu.swan.apps.view.b.a()).b(a.h.aiapps_confirm, null).Is();
     }
 }

@@ -47,7 +47,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
     public final Object invoke(kotlin.coroutines.experimental.f<? super List<? extends T>> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
         kotlin.jvm.internal.p.k(fVar, "$receiver");
         kotlin.jvm.internal.p.k(bVar, "continuation");
-        return ((SlidingWindowKt$windowedIterator$1) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.jRZ, null);
+        return ((SlidingWindowKt$windowedIterator$1) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.jRr, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [37=11] */
@@ -86,7 +86,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
         kotlin.coroutines.experimental.f fVar6;
         int i6;
         int i7;
-        Object cCB = kotlin.coroutines.experimental.a.a.cCB();
+        Object cCq = kotlin.coroutines.experimental.a.a.cCq();
         switch (this.label) {
             case 0:
                 if (th != null) {
@@ -115,8 +115,8 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                 this.L$2 = next;
                                 this.L$3 = it2;
                                 this.label = 1;
-                                if (fVar3.a(arrayList, this) == cCB) {
-                                    return cCB;
+                                if (fVar3.a(arrayList, this) == cCq) {
+                                    return cCq;
                                 }
                                 if (this.$reuseBuffer) {
                                     arrayList = new ArrayList(this.$size);
@@ -142,11 +142,11 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                 this.L$0 = arrayList;
                                 this.I$1 = i7;
                                 this.label = 2;
-                                if (fVar3.a(arrayList, this) == cCB) {
-                                    return cCB;
+                                if (fVar3.a(arrayList, this) == cCq) {
+                                    return cCq;
                                 }
                             }
-                            return kotlin.e.jRZ;
+                            return kotlin.e.jRr;
                         }
                     }
                 } else {
@@ -165,13 +165,13 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                             this.L$2 = next2;
                             this.L$3 = it3;
                             this.label = 3;
-                            if (fVar5.a(arrayList2, this) == cCB) {
-                                return cCB;
+                            if (fVar5.a(arrayList2, this) == cCq) {
+                                return cCq;
                             }
                             it = it3;
                             i2 = i5;
                             fVar2 = fVar5;
-                            afVar2.Db(this.$step);
+                            afVar2.CR(this.$step);
                             i5 = i2;
                             fVar5 = fVar2;
                             it3 = it;
@@ -194,13 +194,13 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                         this.I$0 = i4;
                                         this.L$1 = afVar2;
                                         this.label = 4;
-                                        if (fVar4.a(arrayList3, this) == cCB) {
-                                            return cCB;
+                                        if (fVar4.a(arrayList3, this) == cCq) {
+                                            return cCq;
                                         }
                                         afVar = afVar2;
                                         fVar = fVar4;
                                         i = i4;
-                                        afVar.Db(this.$step);
+                                        afVar.CR(this.$step);
                                         i4 = i;
                                         fVar4 = fVar;
                                         afVar2 = afVar;
@@ -209,14 +209,14 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                                                 this.I$0 = i4;
                                                 this.L$0 = afVar2;
                                                 this.label = 5;
-                                                if (fVar4.a(afVar2, this) == cCB) {
-                                                    return cCB;
+                                                if (fVar4.a(afVar2, this) == cCq) {
+                                                    return cCq;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                return kotlin.e.jRZ;
+                                return kotlin.e.jRr;
                             }
                         }
                     }
@@ -252,7 +252,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 if (th != null) {
                     throw th;
                 }
-                return kotlin.e.jRZ;
+                return kotlin.e.jRr;
             case 3:
                 it = (Iterator) this.L$3;
                 Object obj3 = this.L$2;
@@ -264,7 +264,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 }
                 fVar2 = fVar8;
                 i2 = i15;
-                afVar2.Db(this.$step);
+                afVar2.CR(this.$step);
                 i5 = i2;
                 fVar5 = fVar2;
                 it3 = it;
@@ -280,7 +280,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 }
                 fVar = fVar9;
                 i = i16;
-                afVar.Db(this.$step);
+                afVar.CR(this.$step);
                 i4 = i;
                 fVar4 = fVar;
                 afVar2 = afVar;
@@ -293,7 +293,7 @@ final class SlidingWindowKt$windowedIterator$1 extends CoroutineImpl implements 
                 if (th != null) {
                     throw th;
                 }
-                return kotlin.e.jRZ;
+                return kotlin.e.jRr;
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }

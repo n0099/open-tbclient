@@ -26,9 +26,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bwE;
-        if (StringUtils.isNull(str) && advertAppInfo.bwN != null) {
-            str = advertAppInfo.bwN.userName;
+        String str = advertAppInfo.bwH;
+        if (StringUtils.isNull(str) && advertAppInfo.bwQ != null) {
+            str = advertAppInfo.bwQ.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -44,17 +44,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.alF().b(advertAppInfo);
-        String str2 = advertAppInfo.bwE;
+        com.baidu.tbadk.distribute.a.alC().b(advertAppInfo);
+        String str2 = advertAppInfo.bwH;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bWQ().a(advertAppInfo.bwH, advertAppInfo.bwG, str2, i, com.baidu.tieba.recapp.download.d.Bw(advertAppInfo.bwH).intValue(), null, true, false, true, advertAppInfo.bwN.userPortrait, downloadStaticsData, advertAppInfo.bwN.userName);
+        com.baidu.tieba.recapp.download.d.bWM().a(advertAppInfo.bwK, advertAppInfo.bwJ, str2, i, com.baidu.tieba.recapp.download.d.Bv(advertAppInfo.bwK).intValue(), null, true, false, true, advertAppInfo.bwQ.userPortrait, downloadStaticsData, advertAppInfo.bwQ.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bWQ().u(advertAppInfo.bwG, advertAppInfo.bwH, true);
+        com.baidu.tieba.recapp.download.d.bWM().u(advertAppInfo.bwJ, advertAppInfo.bwK, true);
     }
 
     public static final void aR(Context context, String str) {
@@ -62,11 +62,11 @@ public class s {
             com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
         }
-        File lQ = com.baidu.tbadk.core.util.m.lQ(str.replace(".", "_") + ".apk");
-        if (lQ != null) {
+        File lR = com.baidu.tbadk.core.util.m.lR(str.replace(".", "_") + ".apk");
+        if (lR != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(lQ, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(lR, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -166,11 +166,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bWJ().sendFRS(z, str, str2, str3, list, str4);
+        r.bWF().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bWJ().a(z, str, str2, str3, str4, list, str5);
+        r.bWF().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -189,15 +189,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bWG = r.bWJ().bWG();
-        if (bWG == null) {
+        h bWC = r.bWF().bWC();
+        if (bWC == null) {
             return false;
         }
-        if (bWG.qP(str)) {
-            bWG.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bWC.qQ(str)) {
+            bWC.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bWG.d(tbPageContext.getPageActivity(), strArr);
+        return bWC.d(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aS(Context context, String str) {
@@ -216,14 +216,14 @@ public class s {
 
     private static boolean aT(Context context, String str) {
         String[] strArr = {str};
-        h bWG = r.bWJ().bWG();
-        if (bWG == null) {
+        h bWC = r.bWF().bWC();
+        if (bWC == null) {
             return false;
         }
-        if (bWG.qP(str)) {
-            bWG.a(context, strArr, true);
+        if (bWC.qQ(str)) {
+            bWC.a(context, strArr, true);
             return true;
         }
-        return bWG.d(context, strArr);
+        return bWC.d(context, strArr);
     }
 }

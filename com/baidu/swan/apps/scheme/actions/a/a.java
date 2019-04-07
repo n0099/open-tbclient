@@ -28,15 +28,15 @@ public class a extends y {
         if (DEBUG) {
             Log.d("backgroundColor", optParamsAsJo.toString());
         }
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             c.e("backgroundColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = optParamsAsJo.optString("backgroundColor");
-        d yP = uz.yP();
-        if (!yP.a(yP.yy(), com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
+        d yO = uy.yO();
+        if (!yO.a(yO.yx(), com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
             c.e("backgroundColor", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

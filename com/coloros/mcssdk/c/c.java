@@ -1,26 +1,29 @@
 package com.coloros.mcssdk.c;
 
-import android.util.Log;
+import android.util.Base64;
+import java.nio.charset.Charset;
+import java.security.Key;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
-public final class c {
-    private static String b = "MCS";
-    private static boolean c = false;
-    private static boolean d = false;
-    private static boolean e = true;
-    private static boolean f = true;
-    private static boolean g = true;
-    private static String h = "-->";
-    private static boolean i = true;
-
-    public static void a(String str) {
-        if (e && i) {
-            Log.d("com.coloros.mcssdk---", b + h + str);
-        }
+public abstract class c {
+    public static String a(String str, String str2) {
+        SecureRandom secureRandom = new SecureRandom();
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(1, a(str2), secureRandom);
+        return new String(Base64.encode(cipher.doFinal(str.getBytes(HTTP.UTF_8)), 0), Charset.defaultCharset()).trim();
     }
 
-    public static void b(String str) {
-        if (g && i) {
-            Log.e("com.coloros.mcssdk---", b + h + str);
-        }
+    private static Key a(String str) {
+        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(Base64.decode(str, 0)));
+    }
+
+    public static String b(String str, String str2) {
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(2, a(str2));
+        return new String(cipher.doFinal(Base64.decode(str, 0)), Charset.defaultCharset()).trim();
     }
 }

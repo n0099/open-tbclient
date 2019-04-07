@@ -7,48 +7,48 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int iIW = 6144000;
-    private static int iIX = 524288;
-    private h iHn;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b iIY;
+    private static int iIH = 6144000;
+    private static int iII = 524288;
+    private h iGX;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b iIJ;
 
     public a(h hVar) {
-        this.iHn = hVar;
+        this.iGX = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.iQ().aO("is_video_batch") == 1) {
-                this.iIY = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, iIX, this.iHn);
+                this.iIJ = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, iII, this.iGX);
             } else {
-                this.iIY = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, iIW, this.iHn);
+                this.iIJ = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, iIH, this.iGX);
             }
-            this.iIY.a(eVar);
-            return this.iIY.bs(str2, i);
+            this.iIJ.a(eVar);
+            return this.iIJ.bs(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.iHn != null) {
-                this.iHn.g(306, -4399, com.baidu.tieba.j.a.p(e));
+            if (this.iGX != null) {
+                this.iGX.g(306, -4399, com.baidu.tieba.j.a.p(e));
             }
             return null;
         }
     }
 
-    public void cfx() {
-        if (this.iIY != null) {
-            this.iIY.cancel();
+    public void cft() {
+        if (this.iIJ != null) {
+            this.iIJ.cancel();
         }
     }
 
-    public static void zE(int i) {
+    public static void zA(int i) {
         if (i <= 0) {
-            iIX = 524288;
+            iII = 524288;
         } else {
-            iIX = i;
+            iII = i;
         }
     }
 
-    public static void zF(int i) {
+    public static void zB(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -56,11 +56,11 @@ public class a {
         }
     }
 
-    public static void zG(int i) {
+    public static void zC(int i) {
         if (i <= 0) {
-            iIW = 6144000;
+            iIH = 6144000;
         } else {
-            iIW = i;
+            iIH = i;
         }
     }
 }

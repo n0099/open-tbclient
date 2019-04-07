@@ -6,21 +6,21 @@ import android.preference.PreferenceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public final class r {
-    private static SharedPreferences aeP = null;
+    private static SharedPreferences aeU = null;
 
-    private static SharedPreferences Mb() {
-        if (aeP == null) {
-            aeP = PreferenceManager.getDefaultSharedPreferences(getAppContext());
+    private static SharedPreferences LZ() {
+        if (aeU == null) {
+            aeU = PreferenceManager.getDefaultSharedPreferences(getAppContext());
         }
-        return aeP;
+        return aeU;
     }
 
     public static boolean getBoolean(String str, boolean z) {
-        return Mb().getBoolean(str, z);
+        return LZ().getBoolean(str, z);
     }
 
     public static void setBoolean(String str, boolean z) {
-        SharedPreferences.Editor edit = Mb().edit();
+        SharedPreferences.Editor edit = LZ().edit();
         edit.putBoolean(str, z);
         edit.apply();
     }

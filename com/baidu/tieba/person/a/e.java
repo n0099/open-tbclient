@@ -9,43 +9,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private HTypeListView cNY;
-    private c hKt;
-    private b hKu;
-    private a hKv;
+    private HTypeListView cOa;
+    private c hKf;
+    private b hKg;
+    private a hKh;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.cNY = hTypeListView;
+        this.cOa = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.hKt = new c(this.mTbPageContext, m.Zr);
-        this.hKu = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.hKD);
-        this.hKv = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.hKd);
-        this.mAdapters.add(this.hKt);
-        this.mAdapters.add(this.hKu);
-        this.mAdapters.add(this.hKv);
-        this.cNY.addAdapters(this.mAdapters);
+        this.hKf = new c(this.mTbPageContext, m.Zr);
+        this.hKg = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.hKp);
+        this.hKh = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.hJP);
+        this.mAdapters.add(this.hKf);
+        this.mAdapters.add(this.hKg);
+        this.mAdapters.add(this.hKh);
+        this.cOa.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<com.baidu.adp.widget.ListView.m> list) {
-        if (this.cNY != null) {
-            this.cNY.setData(list);
+        if (this.cOa != null) {
+            this.cOa.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.cNY != null && (this.cNY.getAdapter() instanceof v)) {
-            ((v) this.cNY.getAdapter()).notifyDataSetChanged();
+        if (this.cOa != null && (this.cOa.getAdapter() instanceof v)) {
+            ((v) this.cOa.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.hKt.x(onClickListener);
-        this.hKu.x(onClickListener);
+        this.hKf.x(onClickListener);
+        this.hKg.x(onClickListener);
     }
 }

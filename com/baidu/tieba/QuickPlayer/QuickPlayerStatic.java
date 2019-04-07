@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickPlayerStatic {
-    private static CustomMessageListener cJS = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
+    private static CustomMessageListener cJU = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -19,22 +19,22 @@ public class QuickPlayerStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.avc();
+                        d.auZ();
                     }
                 }).start();
             }
         }
     };
-    private static final CustomMessageListener cJT = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
+    private static final CustomMessageListener cJV = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                QuickPlayerStatic.avo();
+                QuickPlayerStatic.avl();
             }
         }
     };
-    private static final CustomMessageListener cJU = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
+    private static final CustomMessageListener cJW = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,16 +56,16 @@ public class QuickPlayerStatic {
         new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.5
             @Override // java.lang.Runnable
             public void run() {
-                d.avc();
+                d.auZ();
             }
         }).start();
-        avn();
-        MessageManager.getInstance().registerListener(cJT);
-        MessageManager.getInstance().registerListener(cJS);
+        avk();
+        MessageManager.getInstance().registerListener(cJV);
         MessageManager.getInstance().registerListener(cJU);
+        MessageManager.getInstance().registerListener(cJW);
     }
 
-    private static void avn() {
+    private static void avk() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016490, new CustomMessageTask.CustomRunnable<com.baidu.tieba.play.h>() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -78,7 +78,7 @@ public class QuickPlayerStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void avo() {
+    public static void avl() {
         Intent intent = new Intent(TbadkCoreApplication.getInst(), QuickMediaPlayerService.class);
         intent.putExtra(QuickMediaPlayerService.KEY_RELEASE_ALL_PLAYERS, true);
         TbadkCoreApplication.getInst().startService(intent);

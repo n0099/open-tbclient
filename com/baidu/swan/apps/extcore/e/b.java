@@ -9,27 +9,27 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b avR;
-    public String avM;
+    private static b avU;
+    public String avP;
 
     @NonNull
-    public static b eD(@NonNull String str) {
-        if (avR == null) {
-            avR = A(eE(str));
+    public static b eE(@NonNull String str) {
+        if (avU == null) {
+            avU = A(eF(str));
         }
-        return avR;
+        return avU;
     }
 
     @NonNull
     private static b A(JSONObject jSONObject) {
         b bVar = new b();
         if (jSONObject != null) {
-            bVar.avM = jSONObject.optString("extension-core-version");
+            bVar.avP = jSONObject.optString("extension-core-version");
         }
         return bVar;
     }
 
-    private static JSONObject eE(@NonNull String str) {
+    private static JSONObject eF(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }

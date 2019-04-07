@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes4.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0348a hHC;
-    private String hHE;
-    private int hHF;
+    private a.InterfaceC0348a hHo;
+    private String hHq;
+    private int hHr;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ap.isEmpty(this.hHE)) {
-            com.baidu.tbadk.browser.a.ar(this.mContext, this.hHE);
-            if (this.hHC != null) {
-                switch (this.hHF) {
+        if (!ap.isEmpty(this.hHq)) {
+            com.baidu.tbadk.browser.a.ar(this.mContext, this.hHq);
+            if (this.hHo != null) {
+                switch (this.hHr) {
                     case 0:
-                        this.hHC.d(this.hHE, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.hHo.d(this.hHq, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.hHC.d(this.hHE, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.hHo.d(this.hHq, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.hHC.d(this.hHE, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.hHo.d(this.hHq, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.hHC.d(this.hHE, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.hHo.d(this.hHq, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.hHE = str;
-        this.hHF = i;
+        this.hHq = str;
+        this.hHr = i;
     }
 }

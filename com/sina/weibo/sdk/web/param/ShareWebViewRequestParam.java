@@ -9,7 +9,6 @@ import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.net.WeiboParameters;
 import com.sina.weibo.sdk.network.IRequestService;
 import com.sina.weibo.sdk.network.impl.RequestParam;
@@ -69,7 +68,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         RequestParam.Builder builder = new RequestParam.Builder(this.context);
         builder.setShortUrl(UPLOAD_PIC_URL);
         builder.addPostParam(SocialConstants.PARAM_IMG_URL, str);
-        builder.addPostParam(WBConstants.SSO_APP_KEY, getBaseData().getAuthInfo().getAppKey());
+        builder.addPostParam("appKey", getBaseData().getAuthInfo().getAppKey());
         requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
             @Override // com.sina.weibo.sdk.network.target.SimpleTarget
             public void onSuccess(String str2) {

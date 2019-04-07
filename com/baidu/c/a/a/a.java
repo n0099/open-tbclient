@@ -1,14 +1,14 @@
 package com.baidu.c.a.a;
 /* loaded from: classes3.dex */
 public class a {
-    public String acN;
-    public float acO;
-    public float acP;
-    public float acQ;
-    public float acR;
-    public float acS;
-    public int acT;
+    public String acS;
+    public float acT;
     public float acU;
+    public float acV;
+    public float acW;
+    public float acX;
+    public int acY;
+    public float acZ;
     public int color;
     public int height;
     public String src;

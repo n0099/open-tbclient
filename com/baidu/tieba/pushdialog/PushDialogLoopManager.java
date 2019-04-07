@@ -38,19 +38,19 @@ import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class PushDialogLoopManager {
-    private static PushDialogLoopManager ido;
-    private AlarmManager gEa;
-    private String idp;
-    private boolean idr;
-    private boolean dbJ = false;
-    private boolean idq = false;
+    private static PushDialogLoopManager icZ;
+    private AlarmManager gDO;
+    private String ida;
+    private boolean idc;
+    private boolean dbN = false;
+    private boolean idb = false;
     private Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.baidu.tieba.pushdialog.PushDialogLoopManager.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    PushDialogLoopManager.this.bVB();
-                    PushDialogLoopManager.bVA().bVC();
+                    PushDialogLoopManager.this.bVx();
+                    PushDialogLoopManager.bVw().bVy();
                     return true;
                 default:
                     return false;
@@ -59,8 +59,8 @@ public class PushDialogLoopManager {
     });
 
     private PushDialogLoopManager() {
-        this.idp = "";
-        this.idr = false;
+        this.ida = "";
+        this.idc = false;
         this.handler.sendEmptyMessage(1);
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618) { // from class: com.baidu.tieba.pushdialog.PushDialogLoopManager.2
             @Override // com.baidu.adp.framework.listener.a
@@ -71,12 +71,12 @@ public class PushDialogLoopManager {
                 } else if (responsedMessage instanceof PullTidSocketResponseMessage) {
                     str = ((PullTidSocketResponseMessage) responsedMessage).getTid();
                 }
-                if (!StringUtils.isNull(str) && responsedMessage.getError() == 0 && !PushDialogLoopManager.this.idp.equals(str) && !"0".equals(str)) {
-                    PushDialogLoopManager.this.idp = str;
-                    if (com.baidu.tieba.screenlocknotify.a.bYi().ipC.isScreenOn()) {
-                        PushDialogLoopManager.this.dbJ = true;
+                if (!StringUtils.isNull(str) && responsedMessage.getError() == 0 && !PushDialogLoopManager.this.ida.equals(str) && !"0".equals(str)) {
+                    PushDialogLoopManager.this.ida = str;
+                    if (com.baidu.tieba.screenlocknotify.a.bYe().ipm.isScreenOn()) {
+                        PushDialogLoopManager.this.dbN = true;
                     } else {
-                        PushDialogLoopManager.this.Bh(str);
+                        PushDialogLoopManager.this.Bg(str);
                     }
                 }
             }
@@ -85,51 +85,51 @@ public class PushDialogLoopManager {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                PushDialogLoopManager.this.bVB();
+                PushDialogLoopManager.this.bVx();
             }
         });
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001371) { // from class: com.baidu.tieba.pushdialog.PushDialogLoopManager.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                PushDialogLoopManager.this.bVD();
+                PushDialogLoopManager.this.bVz();
             }
         });
-        this.idp = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_push_dialog_last_show_tid", "0");
+        this.ida = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new a(), new IntentFilter("android.intent.action.SCREEN_OFF"));
-        this.gEa = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.gDO = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 TbadkCoreApplication.getInst().startService(new Intent().setClass(TbadkCoreApplication.getInst(), PushDialogJobService.class));
-                this.idr = true;
+                this.idc = true;
             }
         } catch (Throwable th) {
             BdLog.e(th);
-            this.idr = false;
+            this.idc = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PushDialogLoopManager bVA() {
-        if (ido == null) {
+    public static PushDialogLoopManager bVw() {
+        if (icZ == null) {
             synchronized (PushDialogLoopManager.class) {
-                if (ido == null) {
-                    ido = new PushDialogLoopManager();
+                if (icZ == null) {
+                    icZ = new PushDialogLoopManager();
                 }
             }
         }
-        return ido;
+        return icZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVB() {
+    public void bVx() {
         if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
             MessageManager.getInstance().sendMessage(new PullTidReqNetMessage(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVC() {
+    public void bVy() {
         if (this.handler.hasMessages(1)) {
             this.handler.removeMessages(1);
         }
@@ -137,26 +137,26 @@ public class PushDialogLoopManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bKa() {
-        this.idq = false;
-        Bh(this.idp);
+    public void bJX() {
+        this.idb = false;
+        Bg(this.ida);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bh(String str) {
-        if (!com.baidu.tieba.screenlocknotify.a.bYi().ipC.isScreenOn() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
+    public void Bg(String str) {
+        if (!com.baidu.tieba.screenlocknotify.a.bYe().ipm.isScreenOn() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
             Activity fU = com.baidu.adp.base.a.fT().fU();
             if (fU != null && fU.getClass() != null && fU.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                 fU.finish();
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_push_dialog_last_show_tid", str);
-            this.dbJ = false;
+            this.dbN = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVD() {
+    public void bVz() {
         this.handler.removeMessages(1);
         if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbSingleton.getInstance().getPushDialogLoopTime() > 0) {
             this.handler.sendEmptyMessageDelayed(1, TbSingleton.getInstance().getPushDialogLoopTime());
@@ -164,32 +164,32 @@ public class PushDialogLoopManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVE() {
-        if (this.dbJ && com.baidu.tieba.screenlocknotify.a.bYi().bYm() && !this.idq) {
-            if (Build.VERSION.SDK_INT >= 21 && this.idr) {
+    public void bVA() {
+        if (this.dbN && com.baidu.tieba.screenlocknotify.a.bYe().bYi() && !this.idb) {
+            if (Build.VERSION.SDK_INT >= 21 && this.idc) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
                 } catch (Throwable th) {
                     BdLog.e(th);
-                    bVF();
+                    bVB();
                 }
             } else {
-                bVF();
+                bVB();
             }
-            this.idq = true;
-            TiebaStatic.log(new am("c13196").T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2).bJ("tid", this.idp));
+            this.idb = true;
+            TiebaStatic.log(new am("c13196").T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2).bJ("tid", this.ida));
         }
     }
 
-    private void bVF() {
-        this.gEa.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
+    private void bVB() {
+        this.gDO.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
     }
 
     /* loaded from: classes3.dex */
     public static class PushAlarmReceiver extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            PushDialogLoopManager.bVA().bKa();
+            PushDialogLoopManager.bVw().bJX();
         }
     }
 
@@ -201,7 +201,7 @@ public class PushDialogLoopManager {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null && "android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                PushDialogLoopManager.bVA().bVE();
+                PushDialogLoopManager.bVw().bVA();
             }
         }
     }

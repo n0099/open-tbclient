@@ -12,47 +12,47 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class GodHeadImageView extends FrameLayout {
-    private a eWS;
-    private ImageView eWT;
-    private int eWU;
-    private int eWV;
-    private int eWW;
-    private int eWX;
-    private int eWZ;
+    private a eWE;
+    private ImageView eWF;
+    private int eWG;
+    private int eWH;
+    private int eWI;
+    private int eWJ;
+    private int eWL;
     private int mRadius;
     private static final int DS6 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds6);
-    private static final int eWY = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds1);
+    private static final int eWK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds1);
     private static int DEFAULT_RADIUS = 7;
 
     public GodHeadImageView(Context context) {
         super(context);
-        this.eWU = 0;
-        this.eWV = this.eWU;
-        this.eWW = 1;
-        this.eWX = this.eWW;
-        this.eWZ = DS6;
+        this.eWG = 0;
+        this.eWH = this.eWG;
+        this.eWI = 1;
+        this.eWJ = this.eWI;
+        this.eWL = DS6;
         this.mRadius = 7;
         init(null);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eWU = 0;
-        this.eWV = this.eWU;
-        this.eWW = 1;
-        this.eWX = this.eWW;
-        this.eWZ = DS6;
+        this.eWG = 0;
+        this.eWH = this.eWG;
+        this.eWI = 1;
+        this.eWJ = this.eWI;
+        this.eWL = DS6;
         this.mRadius = 7;
         init(attributeSet);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eWU = 0;
-        this.eWV = this.eWU;
-        this.eWW = 1;
-        this.eWX = this.eWW;
-        this.eWZ = DS6;
+        this.eWG = 0;
+        this.eWH = this.eWG;
+        this.eWI = 1;
+        this.eWJ = this.eWI;
+        this.eWL = DS6;
         this.mRadius = 7;
         init(attributeSet);
     }
@@ -60,67 +60,67 @@ public class GodHeadImageView extends FrameLayout {
     private void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.l.GodHeadImageView);
-            this.eWZ = obtainStyledAttributes.getDimensionPixelSize(d.l.GodHeadImageView_extra_padding, DS6);
-            this.eWX = obtainStyledAttributes.getInteger(d.l.GodHeadImageView_shape_type, this.eWW);
-            this.eWV = obtainStyledAttributes.getInteger(d.l.GodHeadImageView_show_type, this.eWU);
+            this.eWL = obtainStyledAttributes.getDimensionPixelSize(d.l.GodHeadImageView_extra_padding, DS6);
+            this.eWJ = obtainStyledAttributes.getInteger(d.l.GodHeadImageView_shape_type, this.eWI);
+            this.eWH = obtainStyledAttributes.getInteger(d.l.GodHeadImageView_show_type, this.eWG);
             this.mRadius = obtainStyledAttributes.getInteger(d.l.GodHeadImageView_extra_radius, DEFAULT_RADIUS);
             obtainStyledAttributes.recycle();
         }
-        this.eWS = new a(getContext());
-        this.eWT = new ImageView(getContext());
+        this.eWE = new a(getContext());
+        this.eWF = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.eWS.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.eWS, layoutParams);
-        addView(this.eWT, new FrameLayout.LayoutParams(-1, -1));
+        this.eWE.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.eWE, layoutParams);
+        addView(this.eWF, new FrameLayout.LayoutParams(-1, -1));
         refreshUI();
     }
 
     public void setShowType(int i) {
-        this.eWV = i;
+        this.eWH = i;
         refreshUI();
     }
 
     public void setShapeType(int i) {
-        this.eWX = i;
+        this.eWJ = i;
         refreshUI();
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.eWS.startLoad(str, i, z);
+        this.eWE.startLoad(str, i, z);
     }
 
     private void refreshUI() {
-        switch (this.eWV) {
+        switch (this.eWH) {
             case 0:
-                this.eWS.setPadding(0, 0, 0, 0);
+                this.eWE.setPadding(0, 0, 0, 0);
                 break;
             case 1:
-                this.eWS.setPadding(eWY, eWY, 0, 0);
+                this.eWE.setPadding(eWK, eWK, 0, 0);
                 break;
         }
-        switch (this.eWX) {
+        switch (this.eWJ) {
             case 1:
-                this.eWS.setIsRound(true);
-                if (this.eWV == 0) {
-                    al.c(this.eWT, d.f.pic_shen_avatar_big);
+                this.eWE.setIsRound(true);
+                if (this.eWH == 0) {
+                    al.c(this.eWF, d.f.pic_shen_avatar_big);
                     return;
                 } else {
-                    al.c(this.eWT, d.f.pic_shen_avatar);
+                    al.c(this.eWF, d.f.pic_shen_avatar);
                     return;
                 }
             case 2:
-                this.eWS.setIsRound(false);
-                this.eWS.setRadius(this.mRadius);
-                al.c(this.eWT, d.f.pic_frs_shen_avatar);
+                this.eWE.setIsRound(false);
+                this.eWE.setRadius(this.mRadius);
+                al.c(this.eWF, d.f.pic_frs_shen_avatar);
                 return;
             case 3:
-                this.eWS.setIsRound(true);
-                al.c(this.eWT, d.f.browser_null_drawable);
+                this.eWE.setIsRound(true);
+                al.c(this.eWF, d.f.browser_null_drawable);
                 return;
             default:
-                this.eWS.setIsRound(false);
-                this.eWS.setRadius(this.mRadius);
-                al.c(this.eWT, d.f.pic_shen_avatar_square);
+                this.eWE.setIsRound(false);
+                this.eWE.setRadius(this.mRadius);
+                al.c(this.eWF, d.f.pic_shen_avatar_square);
                 return;
         }
     }
@@ -131,9 +131,9 @@ public class GodHeadImageView extends FrameLayout {
     }
 
     public void setExtraPadding(int i) {
-        if (this.eWZ != i) {
-            this.eWZ = i;
-            this.eWS.invalidate();
+        if (this.eWL != i) {
+            this.eWL = i;
+            this.eWE.invalidate();
         }
     }
 
@@ -147,11 +147,11 @@ public class GodHeadImageView extends FrameLayout {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
         public void onMeasure(int i, int i2) {
-            if (GodHeadImageView.this.eWV == 1) {
+            if (GodHeadImageView.this.eWH == 1) {
                 int size = View.MeasureSpec.getSize(i);
                 int size2 = View.MeasureSpec.getSize(i2);
-                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.eWZ, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.eWZ, 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.eWL, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.eWL, 1073741824);
             }
             super.onMeasure(i, i2);
         }

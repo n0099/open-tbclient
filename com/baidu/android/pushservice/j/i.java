@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import com.coloros.mcssdk.PushManager;
 /* loaded from: classes3.dex */
 public class i {
     @SuppressLint({"NewApi"})
@@ -27,7 +28,7 @@ public class i {
         NotificationChannel notificationChannel = new NotificationChannel(str, str2, 3);
         notificationChannel.setShowBadge(true);
         notificationChannel.setLockscreenVisibility(1);
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
         if (notificationManager != null) {
             notificationManager.createNotificationChannel(notificationChannel);
         }

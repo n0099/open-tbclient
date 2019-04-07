@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 /* loaded from: classes2.dex */
 public class c {
-    private Bitmap aBL;
+    private Bitmap aBO;
     private Rect mRect;
     private String mToken;
     private String mUrl;
@@ -17,8 +17,8 @@ public class c {
         return this.mUrl;
     }
 
-    public Bitmap EP() {
-        return this.aBL;
+    public Bitmap EN() {
+        return this.aBO;
     }
 
     public Rect getRect() {
@@ -27,30 +27,30 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private c aBM = new c();
+        private c aBP = new c();
 
-        public a fj(String str) {
-            this.aBM.mUrl = str;
+        public a fk(String str) {
+            this.aBP.mUrl = str;
             return this;
         }
 
         public a h(Bitmap bitmap) {
-            this.aBM.aBL = bitmap;
+            this.aBP.aBO = bitmap;
             return this;
         }
 
         public a e(Rect rect) {
-            this.aBM.mRect = rect;
+            this.aBP.mRect = rect;
             return this;
         }
 
-        public a fk(String str) {
-            this.aBM.mToken = str;
+        public a fl(String str) {
+            this.aBP.mToken = str;
             return this;
         }
 
-        public c EQ() {
-            return this.aBM;
+        public c EO() {
+            return this.aBP;
         }
     }
 }

@@ -2,33 +2,36 @@ package com.coloros.mcssdk.a;
 
 import android.content.Context;
 import android.content.Intent;
-import com.tencent.open.SocialConstants;
+import com.coloros.mcssdk.PushManager;
+import com.coloros.mcssdk.mode.Message;
+import com.coloros.mcssdk.mode.SptDataMessage;
 /* loaded from: classes3.dex */
 public final class e extends c {
     @Override // com.coloros.mcssdk.a.d
-    public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
+    public final Message a(Context context, int i, Intent intent) {
         if (4103 == i) {
-            com.coloros.mcssdk.e.c aF = aF(intent);
-            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.d) aF, "push_transmit");
-            return aF;
+            Message a = a(intent);
+            PushManager.statisticMessage(context, (SptDataMessage) a, PushManager.EVENT_ID_PUSH_TRANSMIT);
+            return a;
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c aF(Intent intent) {
+    @Override // com.coloros.mcssdk.a.c
+    public final Message a(Intent intent) {
         try {
-            com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
-            dVar.BS(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.Fo(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
-            dVar.Fp(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
-            dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra(SocialConstants.PARAM_COMMENT)));
-            dVar.ei(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.Fq(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
-            com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
-            return dVar;
+            SptDataMessage sptDataMessage = new SptDataMessage();
+            sptDataMessage.setMessageID(Integer.parseInt(com.coloros.mcssdk.c.b.a(intent.getStringExtra("messageID"))));
+            sptDataMessage.setTaskID(com.coloros.mcssdk.c.b.a(intent.getStringExtra("taskID")));
+            sptDataMessage.setAppPackage(com.coloros.mcssdk.c.b.a(intent.getStringExtra("appPackage")));
+            sptDataMessage.setContent(com.coloros.mcssdk.c.b.a(intent.getStringExtra("content")));
+            sptDataMessage.setDescription(com.coloros.mcssdk.c.b.a(intent.getStringExtra("description")));
+            sptDataMessage.setAppID(com.coloros.mcssdk.c.b.a(intent.getStringExtra(Message.APP_ID)));
+            sptDataMessage.setGlobalID(com.coloros.mcssdk.c.b.a(intent.getStringExtra(Message.GLOBAL_ID)));
+            com.coloros.mcssdk.c.d.a("OnHandleIntent-message:" + sptDataMessage.toString());
+            return sptDataMessage;
         } catch (Exception e) {
-            com.coloros.mcssdk.c.c.a("OnHandleIntent--" + e.getMessage());
+            com.coloros.mcssdk.c.d.a("OnHandleIntent--" + e.getMessage());
             return null;
         }
     }

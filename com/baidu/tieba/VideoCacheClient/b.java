@@ -12,25 +12,25 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b cMb;
+    private static b cMd;
     private int mPort = 0;
 
     private b() {
-        a.avU();
+        a.avR();
     }
 
-    public static b avW() {
-        if (cMb == null) {
+    public static b avT() {
+        if (cMd == null) {
             synchronized (b.class) {
-                if (cMb == null) {
-                    cMb = new b();
+                if (cMd == null) {
+                    cMd = new b();
                 }
             }
         }
-        return cMb;
+        return cMd;
     }
 
-    private static long avS() {
+    private static long avP() {
         try {
             File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
             if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
@@ -44,60 +44,60 @@ public class b implements i {
         }
     }
 
-    private boolean avX() {
-        d.as(TAG, "sdcard avalible size " + ((avS() / 1024) / 1024) + "M");
-        return avS() > 314572800 && getPort() > 0;
+    private boolean avU() {
+        d.as(TAG, "sdcard avalible size " + ((avP() / 1024) / 1024) + "M");
+        return avP() > 314572800 && getPort() > 0;
     }
 
     public void dp(Context context) {
         if (context != null) {
-            e.dq(context).avd();
+            e.dq(context).ava();
         }
     }
 
     @Override // com.baidu.tieba.play.i
-    public String qB(String str) {
-        if (avX()) {
-            String qC = qC(str);
-            if (qC == null) {
-                String qz = qz(str);
-                if (qz != null && new File(c.cLO + qz + "/header_downloaded").exists()) {
+    public String qC(String str) {
+        if (avU()) {
+            String qD = qD(str);
+            if (qD == null) {
+                String qA = qA(str);
+                if (qA != null && new File(c.cLQ + qA + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return qC;
+            return qD;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
     public String R(String str, boolean z) {
-        if (avX()) {
-            String qC = qC(str);
-            if (qC == null) {
-                String qz = qz(str);
-                if (qz != null) {
+        if (avU()) {
+            String qD = qD(str);
+            if (qD == null) {
+                String qA = qA(str);
+                if (qA != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.cLO + qz + "/header_downloaded").exists()) {
+                    if (new File(c.cLQ + qA + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return qC;
+            return qD;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String qC(String str) {
-        String qz;
+    public String qD(String str) {
+        String qA;
         File file;
-        if (str == null || !str.contains("/") || (qz = qz(str)) == null || (file = new File(c.cLO + qz + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (qA = qA(str)) == null || (file = new File(c.cLQ + qA + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -110,17 +110,17 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void aD(Context context, String str) {
-        e.dq(context).qF(str);
-    }
-
-    @Override // com.baidu.tieba.play.i
-    public void aE(Context context, String str) {
         e.dq(context).qG(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void qD(String str) {
-        a.avU().qA(str);
+    public void aE(Context context, String str) {
+        e.dq(context).qH(str);
+    }
+
+    @Override // com.baidu.tieba.play.i
+    public void qE(String str) {
+        a.avR().qB(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -128,7 +128,7 @@ public class b implements i {
         e.dq(context).clearCache();
     }
 
-    public static String qz(String str) {
+    public static String qA(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -151,7 +151,7 @@ public class b implements i {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.cLP);
+            File file = new File(c.cLR);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -244,12 +244,12 @@ public class b implements i {
         return this.mPort;
     }
 
-    public void avY() {
+    public void avV() {
         this.mPort = 0;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String qE(String str) {
-        return com.baidu.tieba.VideoCache.i.cLO + qz(str);
+    public String qF(String str) {
+        return com.baidu.tieba.VideoCache.i.cLQ + qA(str);
     }
 }

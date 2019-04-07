@@ -6,7 +6,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 public class d implements V8FileSystemDelegatePolicy {
     @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
     public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
-        b.Og().a(str, valueCallback);
+        b.Oe().a(str, valueCallback);
     }
 
     @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy

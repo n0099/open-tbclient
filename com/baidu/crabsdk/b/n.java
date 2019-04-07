@@ -12,7 +12,7 @@ public final class n {
     private static ConnectivityManager abX;
     private static Context mContext;
 
-    public static String E() {
+    public static String D() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
@@ -41,7 +41,7 @@ public final class n {
         return sb.toString();
     }
 
-    public static String F() {
+    public static String E() {
         try {
             if (abX == null) {
                 abX = (ConnectivityManager) mContext.getSystemService("connectivity");
@@ -53,7 +53,7 @@ public final class n {
         }
     }
 
-    public static void d(Context context) {
+    public static void e(Context context) {
         mContext = context;
     }
 }

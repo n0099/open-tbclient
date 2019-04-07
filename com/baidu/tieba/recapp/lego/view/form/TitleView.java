@@ -10,74 +10,74 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes3.dex */
 public class TitleView extends FormItemBaseView {
-    private TextView btZ;
-    private ImageView ilF;
-    private ImageView ilG;
-    private ImageView ilH;
-    private ImageView ilI;
+    private TextView buc;
+    private ImageView ilr;
+    private ImageView ils;
+    private ImageView ilt;
+    private ImageView ilu;
 
     public TitleView(Context context) {
         super(context);
-        this.btZ = null;
-        this.ilF = null;
-        this.ilG = null;
-        this.ilH = null;
-        this.ilI = null;
+        this.buc = null;
+        this.ilr = null;
+        this.ils = null;
+        this.ilt = null;
+        this.ilu = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.btZ = null;
-        this.ilF = null;
-        this.ilG = null;
-        this.ilH = null;
-        this.ilI = null;
+        this.buc = null;
+        this.ilr = null;
+        this.ils = null;
+        this.ilt = null;
+        this.ilu = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.btZ = null;
-        this.ilF = null;
-        this.ilG = null;
-        this.ilH = null;
-        this.ilI = null;
+        this.buc = null;
+        this.ilr = null;
+        this.ils = null;
+        this.ilt = null;
+        this.ilu = null;
         init();
     }
 
     private void init() {
-        this.btZ = new TextView(this.mContext);
-        this.ilF = new ImageView(this.mContext);
-        this.ilG = new ImageView(this.mContext);
-        this.ilH = new ImageView(this.mContext);
-        this.ilI = new ImageView(this.mContext);
-        bXw();
-        a(this.ilH, true, 2);
-        a(this.ilI, false, 3);
-        a(this.ilF, true);
-        a(this.ilG, false);
+        this.buc = new TextView(this.mContext);
+        this.ilr = new ImageView(this.mContext);
+        this.ils = new ImageView(this.mContext);
+        this.ilt = new ImageView(this.mContext);
+        this.ilu = new ImageView(this.mContext);
+        bXs();
+        a(this.ilt, true, 2);
+        a(this.ilu, false, 3);
+        a(this.ilr, true);
+        a(this.ils, false);
     }
 
-    private void bXw() {
-        this.btZ.setTextSize(0, this.ilu);
-        this.btZ.setTextColor(-1);
-        this.btZ.setId(1);
+    private void bXs() {
+        this.buc.setTextSize(0, this.ilg);
+        this.buc.setTextColor(-1);
+        this.buc.setId(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        addView(this.btZ, layoutParams);
+        addView(this.buc, layoutParams);
     }
 
     private void a(ImageView imageView, boolean z) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.mResources.getDimension(d.e.ds1));
         layoutParams.addRule(15);
         if (z) {
-            layoutParams.addRule(0, this.ilH.getId());
+            layoutParams.addRule(0, this.ilt.getId());
         } else {
-            layoutParams.addRule(1, this.ilI.getId());
+            layoutParams.addRule(1, this.ilu.getId());
         }
         addView(imageView, layoutParams);
-        imageView.setBackgroundColor(this.ily);
+        imageView.setBackgroundColor(this.ilk);
     }
 
     private void a(ImageView imageView, boolean z, int i) {
@@ -86,34 +86,34 @@ public class TitleView extends FormItemBaseView {
         layoutParams.addRule(15);
         if (z) {
             imageView.setImageResource(d.f.form_title_icon_left);
-            layoutParams.addRule(0, this.btZ.getId());
+            layoutParams.addRule(0, this.buc.getId());
         } else {
             imageView.setImageResource(d.f.form_title_icon_right);
-            layoutParams.addRule(1, this.btZ.getId());
+            layoutParams.addRule(1, this.buc.getId());
         }
-        layoutParams.leftMargin = this.ill;
-        layoutParams.rightMargin = this.ill;
+        layoutParams.leftMargin = this.ikX;
+        layoutParams.rightMargin = this.ikX;
         addView(imageView, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
-            this.btZ.setTextSize(0, this.ilu);
-            this.btZ.setText(bVar.content);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.ilH.getLayoutParams();
-            marginLayoutParams.leftMargin = this.ill;
-            marginLayoutParams.rightMargin = this.ill;
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.ilI.getLayoutParams();
-            marginLayoutParams2.leftMargin = this.ill;
-            marginLayoutParams2.rightMargin = this.ill;
+            this.buc.setTextSize(0, this.ilg);
+            this.buc.setText(bVar.content);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.ilt.getLayoutParams();
+            marginLayoutParams.leftMargin = this.ikX;
+            marginLayoutParams.rightMargin = this.ikX;
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.ilu.getLayoutParams();
+            marginLayoutParams2.leftMargin = this.ikX;
+            marginLayoutParams2.rightMargin = this.ikX;
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean bXk() {
+    public boolean bXg() {
         return true;
     }
 

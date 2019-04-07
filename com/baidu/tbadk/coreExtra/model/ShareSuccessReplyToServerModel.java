@@ -15,7 +15,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener bZO = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener bZQ = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -24,7 +24,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData() != null) {
                     aVar.a(((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData());
                 } else {
-                    aVar.aiK();
+                    aVar.aiH();
                 }
             }
         }
@@ -34,15 +34,15 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void aiK();
+        void aiH();
     }
 
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.bZO.setTag(getUniqueId());
-        this.bZO.setSelfListener(true);
-        registerListener(this.bZO);
+        this.bZQ.setTag(getUniqueId());
+        this.bZQ.setSelfListener(true);
+        registerListener(this.bZQ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -110,7 +110,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.bZO);
+        MessageManager.getInstance().unRegisterListener(this.bZQ);
         return false;
     }
 }

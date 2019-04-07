@@ -12,9 +12,9 @@ public class c implements com.baidu.tieba.easterEgg.c {
     public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         if (getMethodName().equals(str)) {
             try {
-                com.baidu.tieba.easterEgg.b.aVq().cy(str2, str3);
+                com.baidu.tieba.easterEgg.b.aVo().cz(str2, str3);
             } catch (Throwable th) {
-                com.baidu.tieba.easterEgg.b.aVq().aVr();
+                com.baidu.tieba.easterEgg.b.aVo().aVp();
             }
         }
     }

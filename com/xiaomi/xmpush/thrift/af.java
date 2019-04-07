@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -43,7 +44,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("token", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("deviceId", (byte) 11, 8);
     private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("aliasName", (byte) 11, 9);
-    private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("sdkVersion", (byte) 11, 10);
+    private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b(CommandMessage.SDK_VERSION, (byte) 11, 10);
     private static final org.apache.thrift.protocol.b J = new org.apache.thrift.protocol.b("regId", (byte) 11, 11);
     private static final org.apache.thrift.protocol.b K = new org.apache.thrift.protocol.b("pushSdkVersionName", (byte) 11, 12);
     private static final org.apache.thrift.protocol.b L = new org.apache.thrift.protocol.b("pushSdkVersionCode", (byte) 8, 13);
@@ -71,7 +72,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
         TOKEN(7, "token"),
         DEVICE_ID(8, "deviceId"),
         ALIAS_NAME(9, "aliasName"),
-        SDK_VERSION(10, "sdkVersion"),
+        SDK_VERSION(10, CommandMessage.SDK_VERSION),
         REG_ID(11, "regId"),
         PUSH_SDK_VERSION_NAME(12, "pushSdkVersionName"),
         PUSH_SDK_VERSION_CODE(13, "pushSdkVersionCode"),
@@ -119,7 +120,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
         enumMap.put((EnumMap) a.TOKEN, (a) new org.apache.thrift.meta_data.b("token", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.DEVICE_ID, (a) new org.apache.thrift.meta_data.b("deviceId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.ALIAS_NAME, (a) new org.apache.thrift.meta_data.b("aliasName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.SDK_VERSION, (a) new org.apache.thrift.meta_data.b("sdkVersion", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.SDK_VERSION, (a) new org.apache.thrift.meta_data.b(CommandMessage.SDK_VERSION, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.REG_ID, (a) new org.apache.thrift.meta_data.b("regId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PUSH_SDK_VERSION_NAME, (a) new org.apache.thrift.meta_data.b("pushSdkVersionName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PUSH_SDK_VERSION_CODE, (a) new org.apache.thrift.meta_data.b("pushSdkVersionCode", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));

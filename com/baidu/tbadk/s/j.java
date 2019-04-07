@@ -5,7 +5,7 @@ public abstract class j extends com.baidu.adp.lib.b.a {
     protected abstract String getName();
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

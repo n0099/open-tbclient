@@ -3,19 +3,19 @@ package com.baidu.adp.lib.b;
 import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected String[] Bm;
-    protected int Bn = 0;
-    protected int Bo = 1;
-    protected int Bp = 10;
-    protected b.a Bq = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] Bl;
+    protected int Bm = 0;
+    protected int Bn = 1;
+    protected int Bo = 10;
+    protected b.a Bp = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
-            a.this.Z(i);
+            a.this.Y(i);
         }
     };
     protected String mName;
 
-    protected abstract void Z(int i);
+    protected abstract void Y(int i);
 
     protected abstract String getName();
 
@@ -33,8 +33,8 @@ public abstract class a {
     }
 
     protected void iL() {
-        b bVar = new b(this.mName, this.Bn, this.Bq);
-        bVar.a(this.Bp, this.Bm, this.Bo);
+        b bVar = new b(this.mName, this.Bm, this.Bp);
+        bVar.a(this.Bo, this.Bl, this.Bn);
         bVar.h(iK());
         d.iQ().a(bVar);
     }
@@ -46,9 +46,9 @@ public abstract class a {
 
     protected void initData() {
         this.mName = getName();
-        this.Bm = iG();
-        this.Bn = iH();
-        this.Bo = iI();
-        this.Bp = iJ();
+        this.Bl = iG();
+        this.Bm = iH();
+        this.Bn = iI();
+        this.Bo = iJ();
     }
 }

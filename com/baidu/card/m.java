@@ -45,7 +45,7 @@ public class m extends c implements i<bg>, j {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof bg) && ((bg) customResponsedMessage.getData()) == m.this.XS && m.this.XU) {
-                m.this.XO.setVisibility(m.this.XS.aaA() ? 0 : 4);
+                m.this.XO.setVisibility(m.this.XS.aax() ? 0 : 4);
                 m.this.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -66,31 +66,31 @@ public class m extends c implements i<bg>, j {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.m.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.XQ != null && m.this.XS != null && m.this.XR != null && !m.this.XS.aaB()) {
-                    if (!m.this.XS.aaA()) {
-                        if (com.baidu.tieba.frs.a.bbF().aa(m.this.XS)) {
+                if (m.this.XQ != null && m.this.XS != null && m.this.XR != null && !m.this.XS.aay()) {
+                    if (!m.this.XS.aax()) {
+                        if (com.baidu.tieba.frs.a.bbD().Z(m.this.XS)) {
                             m.this.XS.dn(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bbF().ab(m.this.XS);
+                        com.baidu.tieba.frs.a.bbD().aa(m.this.XS);
                         m.this.XS.dn(false);
                     }
-                    m.this.XO.setVisibility(m.this.XS.aaA() ? 0 : 4);
-                    m.this.XP.setVisibility(m.this.XS.aaA() ? 0 : 4);
+                    m.this.XO.setVisibility(m.this.XS.aax() ? 0 : 4);
+                    m.this.XP.setVisibility(m.this.XS.aax() ? 0 : 4);
                     m.this.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, m.this.XS));
                 }
             }
         });
-        bx(-1);
+        bw(-1);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         al.l(this.XO, d.C0277d.cp_bg_line_d);
         al.l(this.XP, d.C0277d.cp_bg_line_d);
-        this.XQ.setImageDrawable(al.getDrawable(this.XS.aaA() ? d.f.icon_frs_select_h : d.f.btn_forum_select));
-        al.j(this.XR, this.XS.aaA() ? d.C0277d.cp_link_tip_a : d.f.selector_comment_and_prise_item_text_color);
+        this.XQ.setImageDrawable(al.getDrawable(this.XS.aax() ? d.f.icon_frs_select_h : d.f.btn_forum_select));
+        al.j(this.XR, this.XS.aax() ? d.C0277d.cp_link_tip_a : d.f.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -116,11 +116,11 @@ public class m extends c implements i<bg>, j {
     public void C(bg bgVar) {
         int i = 4;
         this.XS = bgVar;
-        if (com.baidu.tieba.frs.a.bbF().bbG()) {
+        if (com.baidu.tieba.frs.a.bbD().bbE()) {
             this.mRootView.setVisibility(0);
             this.Xv.b(new a.C0039a(4, false));
             View view = this.XO;
-            if (this.XS.aaA() || this.XS.aaB()) {
+            if (this.XS.aax() || this.XS.aay()) {
                 i = 0;
             }
             view.setVisibility(i);
@@ -128,8 +128,8 @@ public class m extends c implements i<bg>, j {
                 this.XP.setVisibility(0);
                 this.XQ.setVisibility(0);
                 this.XR.setVisibility(0);
-                this.XQ.setImageDrawable(al.getDrawable(this.XS.aaA() ? d.f.icon_frs_select_h : d.f.btn_forum_select));
-                al.j(this.XR, this.XS.aaA() ? d.C0277d.cp_link_tip_a : d.f.selector_comment_and_prise_item_text_color);
+                this.XQ.setImageDrawable(al.getDrawable(this.XS.aax() ? d.f.icon_frs_select_h : d.f.btn_forum_select));
+                al.j(this.XR, this.XS.aax() ? d.C0277d.cp_link_tip_a : d.f.selector_comment_and_prise_item_text_color);
                 return;
             }
             this.XQ.setVisibility(8);

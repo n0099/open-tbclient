@@ -21,19 +21,19 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ai extends v.a {
-    View.OnClickListener bQK;
+    View.OnClickListener bQM;
     public View devider;
-    private a huJ;
-    public TextView huL;
-    public TextView huM;
-    public TbImageView huN;
-    public TextView huO;
-    public TextView huP;
-    public TextView huQ;
-    public TextView huR;
-    public TbImageView huS;
-    public LinearLayout huT;
-    private com.baidu.tbadk.core.data.aq huU;
+    public TbImageView huA;
+    public TextView huB;
+    public TextView huC;
+    public TextView huD;
+    public TextView huE;
+    public TbImageView huF;
+    public LinearLayout huG;
+    private com.baidu.tbadk.core.data.aq huH;
+    private a huw;
+    public TextView huy;
+    public TextView huz;
     private TbPageContext mContext;
 
     /* loaded from: classes4.dex */
@@ -43,93 +43,93 @@ public class ai extends v.a {
 
     public ai(TbPageContext tbPageContext, View view, a aVar) {
         super(view);
-        this.bQK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.1
+        this.bQM = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (bc.cZ(ai.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.lo() && ai.this.huU != null && !StringUtils.isNull(ai.this.huU.bxV)) {
+                if (bc.cZ(ai.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.lo() && ai.this.huH != null && !StringUtils.isNull(ai.this.huH.bxY)) {
                     if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                         com.baidu.adp.lib.util.l.showToast(ai.this.mContext.getPageActivity(), d.j.book_plugin_not_install_tip);
                         return;
                     }
-                    if (ai.this.huJ != null) {
-                        ai.this.huJ.a(ai.this.huU);
+                    if (ai.this.huw != null) {
+                        ai.this.huw.a(ai.this.huH);
                     }
-                    if (view2 == ai.this.huR) {
-                        String str = ai.this.huU.bxV;
+                    if (view2 == ai.this.huE) {
+                        String str = ai.this.huH.bxY;
                         com.baidu.tbadk.core.data.am amVar = new com.baidu.tbadk.core.data.am();
                         amVar.pageContext = (TbPageContext) com.baidu.adp.base.i.aK(ai.this.mContext.getPageActivity());
-                        amVar.bxV = str;
+                        amVar.bxY = str;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, amVar));
                         TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11387").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 6).bJ("obj_locate", "0").bJ("obj_param1", str));
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huU.bxV).bJ("obj_locate", "3"));
-                    } else if (view2 == ai.this.huT) {
-                        ai.this.mContext.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(ai.this.mContext.getPageActivity(), ai.this.huU.bxV)));
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huU.bxV).bJ("obj_locate", "1"));
-                    } else if (view2 == ai.this.huM && !StringUtils.isNull(ai.this.huU.bzL)) {
-                        ba.adD().c((TbPageContext) com.baidu.adp.base.i.aK(ai.this.mContext.getPageActivity()), new String[]{ai.this.huU.bzL});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huU.bxV).bJ("obj_locate", "2"));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huH.bxY).bJ("obj_locate", "3"));
+                    } else if (view2 == ai.this.huG) {
+                        ai.this.mContext.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(ai.this.mContext.getPageActivity(), ai.this.huH.bxY)));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huH.bxY).bJ("obj_locate", "1"));
+                    } else if (view2 == ai.this.huz && !StringUtils.isNull(ai.this.huH.bzO)) {
+                        ba.adA().c((TbPageContext) com.baidu.adp.base.i.aK(ai.this.mContext.getPageActivity()), new String[]{ai.this.huH.bzO});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11442").bJ(VideoPlayActivityConfig.OBJ_ID, ai.this.huH.bxY).bJ("obj_locate", "2"));
                     }
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.huJ = aVar;
-        this.huL = (TextView) view.findViewById(d.g.textview_recommend_title);
-        this.huM = (TextView) view.findViewById(d.g.textview_recommend_option_btn);
-        this.huN = (TbImageView) view.findViewById(d.g.novel_cover);
-        this.huO = (TextView) view.findViewById(d.g.novel_title);
-        this.huP = (TextView) view.findViewById(d.g.novel_author);
-        this.huQ = (TextView) view.findViewById(d.g.novel_read_number);
-        this.huR = (TextView) view.findViewById(d.g.novel_read_btn);
-        this.huT = (LinearLayout) view.findViewById(d.g.novel_recommend_item_layout);
-        this.huS = (TbImageView) view.findViewById(d.g.novel_subscription);
-        this.huS.setDefaultResource(d.f.transparent_bg);
-        this.huS.setDefaultBgResource(d.f.transparent_bg);
-        this.huS.setDefaultErrorResource(d.f.transparent_bg);
+        this.huw = aVar;
+        this.huy = (TextView) view.findViewById(d.g.textview_recommend_title);
+        this.huz = (TextView) view.findViewById(d.g.textview_recommend_option_btn);
+        this.huA = (TbImageView) view.findViewById(d.g.novel_cover);
+        this.huB = (TextView) view.findViewById(d.g.novel_title);
+        this.huC = (TextView) view.findViewById(d.g.novel_author);
+        this.huD = (TextView) view.findViewById(d.g.novel_read_number);
+        this.huE = (TextView) view.findViewById(d.g.novel_read_btn);
+        this.huG = (LinearLayout) view.findViewById(d.g.novel_recommend_item_layout);
+        this.huF = (TbImageView) view.findViewById(d.g.novel_subscription);
+        this.huF.setDefaultResource(d.f.transparent_bg);
+        this.huF.setDefaultBgResource(d.f.transparent_bg);
+        this.huF.setDefaultErrorResource(d.f.transparent_bg);
         this.devider = view.findViewById(d.g.recommend_devider);
-        this.huR.setOnClickListener(this.bQK);
-        this.huT.setOnClickListener(this.bQK);
-        this.huM.setOnClickListener(this.bQK);
+        this.huE.setOnClickListener(this.bQM);
+        this.huG.setOnClickListener(this.bQM);
+        this.huz.setOnClickListener(this.bQM);
     }
 
     public void b(com.baidu.tbadk.core.data.aq aqVar) {
         if (aqVar != null) {
-            this.huU = aqVar;
-            this.huL.setText(aqVar.bzJ);
-            this.huM.setText(aqVar.bzK);
-            this.huS.startLoad(aqVar.bzO, 10, false);
-            this.huN.startLoad(aqVar.bxX, 10, false);
-            this.huR.setText(aqVar.bzN);
-            this.huO.setText(aqVar.bxW);
-            List<String> list = aqVar.bzM;
+            this.huH = aqVar;
+            this.huy.setText(aqVar.bzM);
+            this.huz.setText(aqVar.bzN);
+            this.huF.startLoad(aqVar.bzR, 10, false);
+            this.huA.startLoad(aqVar.bya, 10, false);
+            this.huE.setText(aqVar.bzQ);
+            this.huB.setText(aqVar.bxZ);
+            List<String> list = aqVar.bzP;
             if (list != null) {
                 switch (list.size()) {
                     case 1:
                         if (list.get(0) != null) {
-                            this.huP.setText(list.get(0));
+                            this.huC.setText(list.get(0));
                             break;
                         }
                         break;
                     case 2:
                         if (list.get(0) != null) {
-                            this.huP.setText(list.get(0));
+                            this.huC.setText(list.get(0));
                         }
                         if (list.get(1) != null) {
-                            this.huQ.setText(list.get(1));
+                            this.huD.setText(list.get(1));
                             break;
                         }
                         break;
                 }
             }
-            com.baidu.tbadk.core.util.al.d(this.huL, d.C0277d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.al.d(this.huM, d.C0277d.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.al.d(this.huO, d.C0277d.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.al.d(this.huP, d.C0277d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.al.d(this.huQ, d.C0277d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.al.d(this.huR, d.C0277d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.al.d(this.huy, d.C0277d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.al.d(this.huz, d.C0277d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.al.d(this.huB, d.C0277d.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.al.d(this.huC, d.C0277d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.al.d(this.huD, d.C0277d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.al.d(this.huE, d.C0277d.cp_link_tip_a, 1);
             com.baidu.tbadk.core.util.al.l(this.devider, d.C0277d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.al.k(this.huR, d.f.btn_pb_novel_recommend_read);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11441").bJ(VideoPlayActivityConfig.OBJ_ID, this.huU.bxV));
+            com.baidu.tbadk.core.util.al.k(this.huE, d.f.btn_pb_novel_recommend_read);
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11441").bJ(VideoPlayActivityConfig.OBJ_ID, this.huH.bxY));
         }
     }
 }

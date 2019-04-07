@@ -39,18 +39,18 @@ public class ItemLocationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ItemLocationBox.java", ItemLocationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 119);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "offsetSize", "", "void"), 123);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "createItem", "com.coremedia.iso.boxes.ItemLocationBox", "int:int:int:long:java.util.List", "itemId:constructionMethod:dataReferenceIndex:baseOffset:extents", "", "com.coremedia.iso.boxes.ItemLocationBox$Item"), 160);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "createExtent", "com.coremedia.iso.boxes.ItemLocationBox", "long:long:long", "extentOffset:extentLength:extentIndex", "", "com.coremedia.iso.boxes.ItemLocationBox$Extent"), 285);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 127);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "lengthSize", "", "void"), 131);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 135);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "baseOffsetSize", "", "void"), 139);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 143);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "indexSize", "", "void"), 147);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getItems", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "java.util.List"), 151);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", "items", "", "void"), 155);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 119);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "offsetSize", "", "void"), 123);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "createItem", "com.coremedia.iso.boxes.ItemLocationBox", "int:int:int:long:java.util.List", "itemId:constructionMethod:dataReferenceIndex:baseOffset:extents", "", "com.coremedia.iso.boxes.ItemLocationBox$Item"), 160);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "createExtent", "com.coremedia.iso.boxes.ItemLocationBox", "long:long:long", "extentOffset:extentLength:extentIndex", "", "com.coremedia.iso.boxes.ItemLocationBox$Extent"), 285);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 127);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "lengthSize", "", "void"), 131);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 135);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setBaseOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "baseOffsetSize", "", "void"), 139);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 143);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setIndexSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "indexSize", "", "void"), 147);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getItems", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "java.util.List"), 151);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setItems", "com.coremedia.iso.boxes.ItemLocationBox", "java.util.List", "items", "", "void"), 155);
     }
 
     public ItemLocationBox() {
@@ -114,7 +114,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.offsetSize = i;
     }
 
@@ -124,7 +124,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setLengthSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.lengthSize = i;
     }
 
@@ -134,7 +134,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setBaseOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.CW(i)));
         this.baseOffsetSize = i;
     }
 
@@ -144,7 +144,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setIndexSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.indexSize = i;
     }
 
@@ -159,7 +159,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.Dg(i), org.aspectj.a.a.a.Dg(i2), org.aspectj.a.a.a.Dg(i3), org.aspectj.a.a.a.ej(j), list}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.CW(i), org.aspectj.a.a.a.CW(i2), org.aspectj.a.a.a.CW(i3), org.aspectj.a.a.a.ei(j), list}));
         return new Item(i, i2, i3, j, list);
     }
 
@@ -269,7 +269,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Extent createExtent(long j, long j2, long j3) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.ej(j), org.aspectj.a.a.a.ej(j2), org.aspectj.a.a.a.ej(j3)}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.ei(j), org.aspectj.a.a.a.ei(j2), org.aspectj.a.a.a.ei(j3)}));
         return new Extent(j, j2, j3);
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public class bd {
-    public static void apI() {
+    public static void apF() {
         com.baidu.adp.lib.b.d.iQ().i(y.class);
         com.baidu.adp.lib.b.d.iQ().i(a.class);
         com.baidu.adp.lib.b.d.iQ().i(b.class);
@@ -71,5 +71,6 @@ public class bd {
         com.baidu.adp.lib.b.d.iQ().i(k.class);
         com.baidu.adp.lib.b.d.iQ().i(av.class);
         com.baidu.adp.lib.b.d.iQ().i(bc.class);
+        com.baidu.adp.lib.b.d.iQ().i(bt.class);
     }
 }

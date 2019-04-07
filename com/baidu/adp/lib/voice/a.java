@@ -27,7 +27,7 @@ public class a {
                     break;
                 case 6:
                     if (a.GO != null) {
-                        a.GO.aE(message.arg1);
+                        a.GO.aD(message.arg1);
                     }
                     return true;
                 default:
@@ -48,7 +48,7 @@ public class a {
             if (GN == null) {
                 GN = new b(mHandler, i);
             } else {
-                GN.aD(i);
+                GN.aC(i);
             }
             mFileName = str;
             GO = cVar;

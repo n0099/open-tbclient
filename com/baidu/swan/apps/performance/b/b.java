@@ -8,6 +8,6 @@ public class b implements com.baidu.swan.apps.an.c.a<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.an.c.a
     /* renamed from: a */
     public void D(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.fB("670").aq("preload_scene", "1").i("from", "swan").a(HybridUbcFlow.ExtensionType.COMPONENT_REPORTER, new d()).a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, new c());
+        hybridUbcFlow.fC("670").aq("preload_scene", "1").i("from", "swan").a(HybridUbcFlow.ExtensionType.COMPONENT_REPORTER, new d()).a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, new c());
     }
 }

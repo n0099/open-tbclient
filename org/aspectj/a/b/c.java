@@ -5,58 +5,58 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object jTu;
-    Object jTv;
-    a.InterfaceC0474a jTw;
+    Object jSM;
+    Object jSN;
+    a.InterfaceC0474a jSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a implements a.InterfaceC0474a {
-        String jTx;
-        org.aspectj.lang.c jTy;
-        org.aspectj.lang.reflect.d jTz;
+        String jSP;
+        org.aspectj.lang.c jSQ;
+        org.aspectj.lang.reflect.d jSR;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.jTx = str;
-            this.jTy = cVar;
-            this.jTz = dVar;
+            this.jSP = str;
+            this.jSQ = cVar;
+            this.jSR = dVar;
         }
 
-        public String cCR() {
-            return this.jTx;
+        public String cCG() {
+            return this.jSP;
         }
 
-        public org.aspectj.lang.c cCS() {
-            return this.jTy;
+        public org.aspectj.lang.c cCH() {
+            return this.jSQ;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.Gc(cCR()));
+            stringBuffer.append(hVar.FR(cCG()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) cCS()).a(hVar));
+            stringBuffer.append(((f) cCH()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.jTR);
+            return a(h.jTj);
         }
     }
 
     public c(a.InterfaceC0474a interfaceC0474a, Object obj, Object obj2, Object[] objArr) {
-        this.jTw = interfaceC0474a;
-        this.jTu = obj;
-        this.jTv = obj2;
+        this.jSO = interfaceC0474a;
+        this.jSM = obj;
+        this.jSN = obj2;
         this.args = objArr;
     }
 
     @Override // org.aspectj.lang.a
     public Object getTarget() {
-        return this.jTv;
+        return this.jSN;
     }
 
     public final String toString() {
-        return this.jTw.toString();
+        return this.jSO.toString();
     }
 }

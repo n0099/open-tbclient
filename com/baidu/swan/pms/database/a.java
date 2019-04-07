@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class a {
-    private static volatile a blB;
+    private static volatile a blE;
 
     public abstract boolean N(String str, int i);
 
-    public abstract Map<String, com.baidu.swan.pms.model.a> RB();
+    public abstract Map<String, com.baidu.swan.pms.model.a> Rz();
 
     public abstract boolean a(g gVar, List<i> list, e eVar, c cVar, com.baidu.swan.pms.model.a aVar);
 
@@ -23,18 +23,18 @@ public abstract class a {
 
     public abstract boolean f(com.baidu.swan.pms.model.a aVar);
 
-    public abstract com.baidu.swan.pms.model.a ji(String str);
+    public abstract com.baidu.swan.pms.model.a jj(String str);
 
-    public abstract boolean jj(String str);
+    public abstract boolean jk(String str);
 
-    public static a RA() {
-        if (blB == null) {
+    public static a Ry() {
+        if (blE == null) {
             synchronized (a.class) {
-                if (blB == null) {
-                    blB = new b();
+                if (blE == null) {
+                    blE = new b();
                 }
             }
         }
-        return blB;
+        return blE;
     }
 }

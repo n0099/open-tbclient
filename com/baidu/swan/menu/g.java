@@ -388,8 +388,8 @@ public final class g {
         public static final int notification_bg_normal = 2130841319;
         public static final int notification_bg_normal_pressed = 2130841320;
         public static final int notification_icon_background = 2130841321;
-        public static final int notification_template_icon_bg = 2130842115;
-        public static final int notification_template_icon_low_bg = 2130842116;
+        public static final int notification_template_icon_bg = 2130842117;
+        public static final int notification_template_icon_low_bg = 2130842118;
         public static final int notification_tile_bg = 2130841322;
         public static final int notify_panel_notification_icon_bg = 2130841324;
         public static final int tooltip_frame_dark = 2130841968;

@@ -18,18 +18,18 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c anJ() {
+    public com.baidu.tbadk.mainTab.c anG() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.cod = ThreadFragment.bFn();
+        cVar.cof = ThreadFragment.bFk();
         cVar.type = 1;
-        cVar.bOe = d.j.collect_thread;
+        cVar.bOg = d.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator di(Context context) {
-        this.cnP = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        return this.cnP;
+        this.cnR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        return this.cnR;
     }
 
     static {
@@ -37,13 +37,13 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c anK;
+                com.baidu.tbadk.mainTab.c anH;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.collectTab.a)) {
                     com.baidu.tbadk.collectTab.a aVar = (com.baidu.tbadk.collectTab.a) customResponsedMessage.getData();
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (anK = threadDelegateStatic.anK()) != null) {
-                        anK.cod.setArguments(new Bundle());
+                    if (aVar.getContext() != null && (anH = threadDelegateStatic.anH()) != null) {
+                        anH.cof.setArguments(new Bundle());
                     }
                 }
             }

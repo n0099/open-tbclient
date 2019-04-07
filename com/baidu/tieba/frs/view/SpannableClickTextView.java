@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes4.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean fos;
+    private boolean foe;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.fos) {
+        if (this.foe) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.fos = false;
+        this.foe = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.bkk());
+        setMovementMethod(a.bki());
     }
 
     /* loaded from: classes4.dex */
     private static class a extends LinkMovementMethod {
-        private static a fAo;
+        private static a fAc;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).fos = true;
+                        ((SpannableClickTextView) textView).foe = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a bkk() {
-            if (fAo == null) {
-                fAo = new a();
+        public static a bki() {
+            if (fAc == null) {
+                fAc = new a();
             }
-            return fAo;
+            return fAc;
         }
     }
 }

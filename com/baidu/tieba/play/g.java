@@ -68,11 +68,11 @@ public interface g {
 
     void a(i iVar);
 
-    void aqk();
+    void aqh();
 
-    int avk();
+    int avh();
 
-    boolean avl();
+    boolean avi();
 
     void c(SurfaceTexture surfaceTexture);
 

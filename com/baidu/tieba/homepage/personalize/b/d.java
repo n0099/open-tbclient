@@ -12,17 +12,17 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class d {
-    public static long fNO;
-    private String fNN;
+    public static long fNC;
+    private String fNB;
 
-    public void cD(List<m> list) {
+    public void cA(List<m> list) {
         com.baidu.tieba.card.data.c cVar;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.fNN == null) {
-                this.fNN = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.fNB == null) {
+                this.fNB = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.fNN)) {
-                String[] split = this.fNN.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.fNB)) {
+                String[] split = this.fNB.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long d = com.baidu.adp.lib.g.b.d(split[1], 0L);
@@ -34,8 +34,8 @@ public class d {
                                     z = true;
                                 } else if (!StringUtils.isNull(cVar.tid) && !cVar.tid.equals(str) && z) {
                                     c cVar2 = new c();
-                                    cVar2.aYH = d;
-                                    cVar2.fNM = false;
+                                    cVar2.aYK = d;
+                                    cVar2.fNA = false;
                                     list.add(i, cVar2);
                                     return;
                                 }
@@ -51,23 +51,23 @@ public class d {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !v.T(list) && i == v.S(list2) - 1 && z && (threadInfo = (ThreadInfo) v.c(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.fNN = null;
-            fNO = threadInfo.tid.longValue();
+            this.fNB = null;
+            fNC = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public void ay(List<ThreadInfo> list) {
         ThreadInfo threadInfo;
-        if (h.fNv && !v.T(list) && (threadInfo = (ThreadInfo) v.c(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.fNN = null;
-            fNO = threadInfo.tid.longValue();
+        if (h.fNj && !v.T(list) && (threadInfo = (ThreadInfo) v.c(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+            this.fNB = null;
+            fNC = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<m> list2) {
-        if (j == fNO && !v.T(list) && !v.T(list2)) {
+        if (j == fNC && !v.T(list) && !v.T(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -86,7 +86,7 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    fNO = threadInfo.tid.longValue();
+                    fNC = threadInfo.tid.longValue();
                     aa.a(new z<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.z
                         public Object doInBackground() {

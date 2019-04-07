@@ -7,7 +7,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends a {
@@ -22,8 +21,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
-        return super.bQ(i);
+    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
+        return super.bP(i);
     }
 
     public b(j jVar) {
@@ -35,7 +34,7 @@ public class b extends a {
         com.baidu.swan.apps.canvas.c.b c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "draw model is null");
-            unitedSchemeEntity.result = bQ(201);
+            unitedSchemeEntity.result = bP(201);
             return false;
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -44,9 +43,9 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        boolean a = com.baidu.swan.apps.canvas.a.ww().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
+        boolean a = com.baidu.swan.apps.canvas.a.wv().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void wy() {
+            public void wx() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }
@@ -60,6 +59,6 @@ public class b extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     /* renamed from: d */
     public com.baidu.swan.apps.canvas.c.b c(UnitedSchemeEntity unitedSchemeEntity) {
-        return new com.baidu.swan.apps.canvas.c.b(unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS));
+        return new com.baidu.swan.apps.canvas.c.b(unitedSchemeEntity.getParams().get("params"));
     }
 }

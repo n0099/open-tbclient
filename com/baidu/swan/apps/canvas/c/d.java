@@ -4,24 +4,24 @@ import com.baidu.swan.apps.an.x;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends a {
-    public String alJ;
-    public String alK;
-    public float alL;
-    public boolean alM;
-    public boolean alN;
+    public String alN;
+    public String alO;
+    public float alP;
+    public boolean alQ;
+    public boolean alR;
     public boolean mItalic;
 
     public d(String str) {
         super(str);
         String[] split;
-        this.alK = "sans-serif";
-        this.alL = x.ad(10.0f);
-        this.alM = false;
+        this.alO = "sans-serif";
+        this.alP = x.ad(10.0f);
+        this.alQ = false;
         this.mItalic = false;
-        this.alN = true;
+        this.alR = true;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.alJ = jSONObject.optString("text");
+            this.alN = jSONObject.optString("text");
             String optString = jSONObject.optString("font");
             if (optString != null && optString.length() > 0) {
                 for (String str2 : optString.split(" ")) {
@@ -30,9 +30,9 @@ public class d extends a {
                     } else if (str2.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str2.contains("bold")) {
-                        this.alM = true;
+                        this.alQ = true;
                     } else if (str2.contains("normal")) {
-                        this.alN = true;
+                        this.alR = true;
                     } else if (Character.isDigit(str2.charAt(0))) {
                         int length = str2.length();
                         int i = 0;
@@ -46,9 +46,9 @@ public class d extends a {
                                 i++;
                             }
                         }
-                        this.alL = x.ad(Float.parseFloat(str2.substring(0, i)));
+                        this.alP = x.ad(Float.parseFloat(str2.substring(0, i)));
                     } else {
-                        this.alK = str2;
+                        this.alO = str2;
                     }
                 }
             }

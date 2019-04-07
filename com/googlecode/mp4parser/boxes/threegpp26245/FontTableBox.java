@@ -24,8 +24,8 @@ public class FontTableBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("FontTableBox.java", FontTableBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "", "", "", "java.util.List"), 52);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "java.util.List", "entries", "", "void"), 56);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "", "", "", "java.util.List"), 52);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "java.util.List", "entries", "", "void"), 56);
     }
 
     public FontTableBox() {

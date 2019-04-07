@@ -11,11 +11,11 @@ public final class o {
     private static String aca;
     private static Context mContext;
 
-    public static String G() {
+    public static String F() {
         return mContext.getPackageName();
     }
 
-    public static String H() {
+    public static String G() {
         if (aca == null) {
             if (abZ == null) {
                 return Apn.APN_UNKNOWN;
@@ -25,18 +25,18 @@ public final class o {
         return aca;
     }
 
-    public static String I() {
+    public static String H() {
         return abZ == null ? Apn.APN_UNKNOWN : abZ.versionName;
     }
 
-    public static int J() {
+    public static int I() {
         if (abZ == null) {
             return 0;
         }
         return abZ.versionCode;
     }
 
-    public static void d(Context context) {
+    public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
             abY = context.getPackageManager();

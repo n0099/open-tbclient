@@ -238,15 +238,15 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     try {
                         newInstance.decodeInBackGround(this.vW.getCmd(), this.vY.js().Df);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        newInstance.performanceData.ym = j7;
-                        newInstance.performanceData.yx = j32;
-                        newInstance.performanceData.yw = jq2;
-                        newInstance.performanceData.yn = j22;
-                        newInstance.performanceData.yo = j42;
-                        newInstance.performanceData.yp = j52;
-                        newInstance.performanceData.yq = j62;
-                        newInstance.performanceData.yr = j8;
-                        newInstance.performanceData.ys = currentTimeMillis2 - jp2;
+                        newInstance.performanceData.yl = j7;
+                        newInstance.performanceData.yw = j32;
+                        newInstance.performanceData.yv = jq2;
+                        newInstance.performanceData.ym = j22;
+                        newInstance.performanceData.yn = j42;
+                        newInstance.performanceData.yo = j52;
+                        newInstance.performanceData.yp = j62;
+                        newInstance.performanceData.yq = j8;
+                        newInstance.performanceData.yr = currentTimeMillis2 - jp2;
                         newInstance.setCostTime(currentTimeMillis2 - currentTimeMillis);
                         newInstance.beforeDispatchInBackGround(this.vW.getCmd(), this.vY.js().Df);
                     } catch (Exception e6) {
@@ -257,8 +257,8 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                 }
                 if (this.vW.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) this.vW.getExtra();
-                    newInstance.performanceData.yu = netMessage.getSocketErrNo();
-                    newInstance.performanceData.yv = netMessage.getSocketCostTime();
+                    newInstance.performanceData.yt = netMessage.getSocketErrNo();
+                    newInstance.performanceData.yu = netMessage.getSocketCostTime();
                 }
             }
             newInstance.logStatInBackground(this.vW.getCmd(), this.vY);

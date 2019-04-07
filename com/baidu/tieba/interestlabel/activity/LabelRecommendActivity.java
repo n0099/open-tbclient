@@ -15,33 +15,33 @@ import com.baidu.tieba.interestlabel.view.b;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
-    private LabelSettingModel gDf;
-    private b gDg;
-    private a gDh = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
+    private LabelSettingModel gCT;
+    private b gCU;
+    private a gCV = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void byR() {
+        public void byO() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void dc(List<Integer> list) {
+        public void cZ(List<Integer> list) {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
         public void a(LabelRequestEnum labelRequestEnum, com.baidu.tieba.interestlabel.b.b bVar, int i) {
-            switch (AnonymousClass2.gDj[labelRequestEnum.ordinal()]) {
+            switch (AnonymousClass2.gCX[labelRequestEnum.ordinal()]) {
                 case 1:
-                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.gDg.getRootView());
-                    if (bVar == null || v.T(bVar.byU()) || v.T(bVar.byV())) {
-                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.gDg.getRootView(), TbadkCoreApplication.getInst().getString(d.j.neterror), true);
+                    LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.gCU.getRootView());
+                    if (bVar == null || v.T(bVar.byR()) || v.T(bVar.byS())) {
+                        LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.gCU.getRootView(), TbadkCoreApplication.getInst().getString(d.j.neterror), true);
                         return;
                     }
-                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.gDg.getRootView());
-                    LabelRecommendActivity.this.gDg.setData(bVar);
+                    LabelRecommendActivity.this.hideNetRefreshView(LabelRecommendActivity.this.gCU.getRootView());
+                    LabelRecommendActivity.this.gCU.setData(bVar);
                     return;
                 case 2:
                     if (i == 0) {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("set_recommend_label", true);
-                        LabelRecommendActivity.this.byQ();
+                        LabelRecommendActivity.this.byN();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -56,15 +56,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     /* renamed from: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] gDj = new int[LabelRequestEnum.values().length];
+        static final /* synthetic */ int[] gCX = new int[LabelRequestEnum.values().length];
 
         static {
             try {
-                gDj[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
+                gCX[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                gDj[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                gCX[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
         }
@@ -74,10 +74,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gDg = new b(this);
-        this.gDg.setOnClickListener(this);
-        this.gDf = new LabelSettingModel(getPageContext());
-        this.gDf.a(this.gDh);
+        this.gCU = new b(this);
+        this.gCU.setOnClickListener(this);
+        this.gCT = new LabelSettingModel(getPageContext());
+        this.gCT.a(this.gCV);
         if (getIntent() != null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
         }
@@ -87,37 +87,37 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     private void loadData() {
-        this.gDf.byX();
-        showLoadingView(this.gDg.getRootView(), true);
+        this.gCT.byU();
+        showLoadingView(this.gCU.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gDg.bzd()) {
+        if (view == this.gCU.bza()) {
             TiebaStatic.log(new am("c12245").T("obj_type", this.mFrom));
             finish();
-        } else if (view == this.gDg.bze()) {
-            this.gDf.dd(this.gDg.bzg());
+        } else if (view == this.gCU.bzb()) {
+            this.gCT.da(this.gCU.bzd());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.gDg.getRootView());
+        hideNetRefreshView(this.gCU.getRootView());
         loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byQ() {
-        List<Integer> bzg = this.gDg.bzg();
-        if (!v.T(bzg)) {
+    public void byN() {
+        List<Integer> bzd = this.gCU.bzd();
+        if (!v.T(bzd)) {
             StringBuilder sb = new StringBuilder();
-            int size = bzg.size();
+            int size = bzd.size();
             for (int i = 0; i < size; i++) {
-                if (bzg.get(i) != null) {
-                    sb.append(bzg.get(i));
+                if (bzd.get(i) != null) {
+                    sb.append(bzd.get(i));
                     if (i < size - 1) {
                         sb.append("_");
                     }

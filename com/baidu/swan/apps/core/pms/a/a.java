@@ -11,18 +11,18 @@ import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class a extends d {
     private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0127a api;
+    private a.InterfaceC0127a apm;
 
     public a(String str, a.InterfaceC0127a interfaceC0127a) {
         super(str);
-        this.api = interfaceC0127a;
+        this.apm = interfaceC0127a;
     }
 
     @Override // com.baidu.swan.pms.a.e
-    public void zz() {
-        super.zz();
-        if (this.asg != null) {
-            zJ();
+    public void zy() {
+        super.zy();
+        if (this.ask != null) {
+            zI();
         }
     }
 
@@ -32,39 +32,39 @@ public class a extends d {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + bVar.toString());
         }
-        if (this.api != null) {
-            this.api.ca(0);
+        if (this.apm != null) {
+            this.apm.bZ(0);
         }
-        cp(bVar.errorNo);
+        co(bVar.errorNo);
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected void zA() {
-        this.aoP.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ak.a zI = zI();
-        this.aoP.add(new UbcFlowEvent("na_end_update_db"));
-        if (zI == null) {
-            if (this.api != null) {
-                this.api.xO();
+    protected void zz() {
+        this.aoT.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ak.a zH = zH();
+        this.aoT.add(new UbcFlowEvent("na_end_update_db"));
+        if (zH == null) {
+            if (this.apm != null) {
+                this.apm.xN();
             }
-        } else if (this.api != null) {
-            this.api.ca(5);
+        } else if (this.apm != null) {
+            this.apm.bZ(5);
         }
-        ae("main_pre_download", this.ape);
+        ae("main_pre_download", this.api);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.Bf().Bg().f(hashSet);
+        e.Bd().Be().f(hashSet);
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
     protected void k(Throwable th) {
-        if (this.api != null) {
-            this.api.ca(0);
+        if (this.apm != null) {
+            this.apm.bZ(0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected PMSDownloadType zB() {
+    protected PMSDownloadType zA() {
         return PMSDownloadType.PRE;
     }
 }

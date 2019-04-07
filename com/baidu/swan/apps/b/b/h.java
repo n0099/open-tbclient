@@ -6,5 +6,5 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public interface h {
     @Nullable
-    List<ContentValues> uX();
+    List<ContentValues> uW();
 }

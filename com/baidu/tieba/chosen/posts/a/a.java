@@ -18,41 +18,41 @@ import com.baidu.tieba.d;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView dfi;
-    private TextView eqs;
-    private TextView eqt;
-    private TextView equ;
-    private View eqv;
+    private TbImageView dfm;
+    private TextView eqe;
+    private TextView eqf;
+    private TextView eqg;
+    private View eqh;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.dfi = (TbImageView) view.findViewById(d.g.chosen_image_text_img);
+        this.dfm = (TbImageView) view.findViewById(d.g.chosen_image_text_img);
         this.title = (TextView) view.findViewById(d.g.chosen_image_text_title);
-        this.eqv = view.findViewById(d.g.chosen_image_text_divider);
-        this.eqs = (TextView) view.findViewById(d.g.chosen_image_text_forum);
-        this.eqt = (TextView) view.findViewById(d.g.chosen_image_text_praise);
-        this.equ = (TextView) view.findViewById(d.g.chosen_image_text_comment);
+        this.eqh = view.findViewById(d.g.chosen_image_text_divider);
+        this.eqe = (TextView) view.findViewById(d.g.chosen_image_text_forum);
+        this.eqf = (TextView) view.findViewById(d.g.chosen_image_text_praise);
+        this.eqg = (TextView) view.findViewById(d.g.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void af(final tinfo tinfoVar) {
-        super.af(tinfoVar);
+    public void ad(final tinfo tinfoVar) {
+        super.ad(tinfoVar);
         if (tinfoVar != null) {
             String str = null;
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.dfi.startLoad(str, 10, false);
+            this.dfm.startLoad(str, 10, false);
             this.title.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.eqs.setVisibility(8);
+                this.eqe.setVisibility(8);
             } else {
-                this.eqs.setVisibility(0);
-                this.eqs.setText(UtilHelper.getFixedText(getContext().getString(d.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.eqs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
+                this.eqe.setVisibility(0);
+                this.eqe.setText(UtilHelper.getFixedText(getContext().getString(d.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.eqe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str2 = tinfoVar.forum_name;
@@ -64,14 +64,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (tinfoVar.zan_num != null) {
-                this.eqt.setText(String.valueOf(tinfoVar.zan_num));
+                this.eqf.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.equ.setText(String.valueOf(tinfoVar.reply_num));
+                this.eqg.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.eqv.setVisibility(0);
+            this.eqh.setVisibility(0);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.CN(String.valueOf(tinfoVar.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.CM(String.valueOf(tinfoVar.forum_id))) {
                 al.d(this.title, d.C0277d.cp_cont_d, 1);
             } else {
                 al.d(this.title, d.C0277d.cp_cont_b, 1);

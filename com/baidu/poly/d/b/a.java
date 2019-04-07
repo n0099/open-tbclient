@@ -11,7 +11,6 @@ import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import java.util.Map;
 import org.json.JSONException;
@@ -19,8 +18,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
     private Activity activity;
-    int ahh = 0;
-    int ahi = 1;
+    int ahm = 0;
+    int ahn = 1;
 
     public a(Activity activity) {
         this.activity = activity;
@@ -31,9 +30,9 @@ public class a implements com.baidu.poly.d.a {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.ahh) {
+            if (optInt == this.ahm) {
                 b(map, str, c0083a);
-            } else if (optInt == this.ahi) {
+            } else if (optInt == this.ahn) {
                 a(l(map), str, c0083a);
             }
         } catch (Throwable th) {
@@ -43,7 +42,7 @@ public class a implements com.baidu.poly.d.a {
 
     public void a(Bundle bundle, final String str, final a.C0083a c0083a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.a.a.tw().b(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
+        com.baidu.poly.a.a.a.tv().b(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
@@ -64,7 +63,7 @@ public class a implements com.baidu.poly.d.a {
     public void b(Map<String, String> map, String str, final a.C0083a c0083a) {
         JSONObject b = b(map, str);
         Bundle bundle = new Bundle();
-        bundle.putString(LegoListActivityConfig.PARAMS, b.toString());
+        bundle.putString("params", b.toString());
         bundle.putString(LogBuilder.KEY_CHANNEL, str);
         bundle.putBoolean(PluginDelegateActivity.ENABLE_FALLBACK_FINISH_KEY, false);
         DelegateUtils.callOnMainWithActivity(this.activity, PluginDelegateActivity.class, b.class, bundle, new DelegateListener() { // from class: com.baidu.poly.d.b.a.2
@@ -77,9 +76,9 @@ public class a implements com.baidu.poly.d.a {
     }
 
     public void c(final Map<String, String> map, String str, final a.C0083a c0083a) {
-        d de = de(str);
-        if (de != null) {
-            de.a(this.activity, map, new a.C0083a() { // from class: com.baidu.poly.d.b.a.3
+        d dg = dg(str);
+        if (dg != null) {
+            dg.a(this.activity, map, new a.C0083a() { // from class: com.baidu.poly.d.b.a.3
                 @Override // com.baidu.poly.d.a.C0083a
                 public void onResult(int i, String str2) {
                     c0083a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
@@ -88,15 +87,15 @@ public class a implements com.baidu.poly.d.a {
         }
     }
 
-    public d de(String str) {
+    public d dg(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.a.tI();
+            return com.baidu.poly.d.a.a.tH();
         }
         if (PayChannel.WECHAT.equalsIgnoreCase(str)) {
-            return e.tK();
+            return e.tJ();
         }
         if (PayChannel.BAIFUBAO.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.b.tJ();
+            return com.baidu.poly.d.a.b.tI();
         }
         return null;
     }

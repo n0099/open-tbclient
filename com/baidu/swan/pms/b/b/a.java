@@ -10,26 +10,26 @@ public class a extends d<com.baidu.swan.pms.b.c.a> {
 
     @Override // com.baidu.swan.pms.b.d
     protected com.baidu.swan.pms.model.b a(com.baidu.swan.pms.b.c cVar) {
-        com.baidu.swan.pms.b.c.a aA = com.baidu.swan.pms.d.d.aA(cVar.RL());
+        com.baidu.swan.pms.b.c.a aA = com.baidu.swan.pms.d.d.aA(cVar.RJ());
         if (aA == null) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2102, "response data empty");
-            this.bmf.a(bVar);
+            this.bmi.a(bVar);
             return bVar;
         } else if (!a(aA)) {
-            com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RL().toString());
-            this.bmf.a(bVar2);
+            com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RJ().toString());
+            this.bmi.a(bVar2);
             return bVar2;
         } else {
-            this.bmf.zC();
-            com.baidu.swan.pms.c.a.V(aA.auh);
+            this.bmi.zB();
+            com.baidu.swan.pms.c.a.V(aA.aul);
             com.baidu.swan.pms.d.e eVar = new com.baidu.swan.pms.d.e();
-            a(aA.bmL, eVar);
-            a(aA.bmM, eVar);
-            if (eVar.Sq() == 0) {
-                this.bmf.zz();
+            a(aA.bmO, eVar);
+            a(aA.bmP, eVar);
+            if (eVar.So() == 0) {
+                this.bmi.zy();
             } else {
-                this.bmf.a(eVar);
-                com.baidu.swan.pms.b.a.a.a(aA, this.bmf);
+                this.bmi.a(eVar);
+                com.baidu.swan.pms.b.a.a.a(aA, this.bmi);
             }
             return null;
         }
@@ -39,14 +39,14 @@ public class a extends d<com.baidu.swan.pms.b.c.a> {
         if (aVar == null) {
             return false;
         }
-        if (aVar.bmL == null || aVar.bmL.RK()) {
-            return aVar.bmM == null || aVar.bmM.RK();
+        if (aVar.bmO == null || aVar.bmO.RI()) {
+            return aVar.bmP == null || aVar.bmP.RI();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String RM() {
+    protected String RK() {
         return "updatecore";
     }
 }

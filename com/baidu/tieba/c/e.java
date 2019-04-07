@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0273a {
-    private static e erR = null;
-    private a erS;
-    private a erT;
-    private ArrayList<TransmitForumData> erU;
-    private ArrayList<TransmitForumData> erW;
+    private static e erD = null;
+    private a erE;
+    private a erF;
+    private ArrayList<TransmitForumData> erG;
+    private ArrayList<TransmitForumData> erI;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean erV = false;
-    private boolean erX = false;
+    private boolean erH = false;
+    private boolean erJ = false;
     private boolean isLoading = false;
 
-    public static e aSt() {
-        if (erR == null) {
+    public static e aSr() {
+        if (erD == null) {
             synchronized (e.class) {
-                if (erR == null) {
-                    erR = new e();
+                if (erD == null) {
+                    erD = new e();
                 }
             }
         }
-        return erR;
+        return erD;
     }
 
     private e() {
@@ -46,38 +46,38 @@ public class e implements a.InterfaceC0273a {
     }
 
     private void init() {
-        aSv();
-        aSu();
+        aSt();
+        aSs();
         this.isLoading = false;
     }
 
-    private void aSu() {
+    private void aSs() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.erT = (a) runTask.getData();
+            this.erF = (a) runTask.getData();
         }
-        if (this.erT != null) {
-            this.erT.a(this);
+        if (this.erF != null) {
+            this.erF.a(this);
         }
     }
 
-    private void aSv() {
+    private void aSt() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.erS = (a) runTask.getData();
+            this.erE = (a) runTask.getData();
         }
-        if (this.erS != null) {
-            this.erS.a(this);
+        if (this.erE != null) {
+            this.erE.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !i.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.cbw = aSz();
+                shareDialogConfig.shareItem.cby = aSx();
             }
             if (l.lo() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
-                aSw();
+                aSu();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,13 +86,13 @@ public class e implements a.InterfaceC0273a {
         }
     }
 
-    public void aSw() {
+    public void aSu() {
         this.isLoading = true;
-        if (this.erS != null) {
-            this.erS.aSi();
+        if (this.erE != null) {
+            this.erE.aSg();
         }
-        if (this.erT != null) {
-            this.erT.aSi();
+        if (this.erF != null) {
+            this.erF.aSg();
         }
     }
 
@@ -100,28 +100,28 @@ public class e implements a.InterfaceC0273a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.erW = arrayList;
+                this.erI = arrayList;
             }
-            this.erX = true;
+            this.erJ = true;
         } else if (i == 2) {
             if (z) {
-                this.erU = arrayList;
+                this.erG = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.erV = true;
+            this.erH = true;
         }
-        aSx();
+        aSv();
     }
 
-    private void aSx() {
-        if (this.erS == null || this.erV) {
-            if (this.erT == null || this.erX) {
-                this.erV = false;
-                this.erX = false;
+    private void aSv() {
+        if (this.erE == null || this.erH) {
+            if (this.erF == null || this.erJ) {
+                this.erH = false;
+                this.erJ = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.T(this.erU)) {
-                    Iterator<TransmitForumData> it = this.erU.iterator();
+                if (!v.T(this.erG)) {
+                    Iterator<TransmitForumData> it = this.erG.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!ci(next.forumId)) {
@@ -129,8 +129,8 @@ public class e implements a.InterfaceC0273a {
                         }
                     }
                 }
-                if (!v.T(this.erW)) {
-                    Iterator<TransmitForumData> it2 = this.erW.iterator();
+                if (!v.T(this.erI)) {
+                    Iterator<TransmitForumData> it2 = this.erI.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!ci(next2.forumId)) {
@@ -138,14 +138,14 @@ public class e implements a.InterfaceC0273a {
                         }
                     }
                 }
-                this.erU = null;
-                this.erW = null;
-                aSy();
+                this.erG = null;
+                this.erI = null;
+                aSw();
             }
         }
     }
 
-    private void aSy() {
+    private void aSw() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
@@ -163,7 +163,7 @@ public class e implements a.InterfaceC0273a {
         return false;
     }
 
-    private Location aSz() {
+    private Location aSx() {
         if (ab.cR(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

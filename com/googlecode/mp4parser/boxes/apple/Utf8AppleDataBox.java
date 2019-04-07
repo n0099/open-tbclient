@@ -22,8 +22,8 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("Utf8AppleDataBox.java", Utf8AppleDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "", "", "", "java.lang.String"), 21);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "java.lang.String", UBC.CONTENT_KEY_VALUE, "", "void"), 25);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "", "", "", "java.lang.String"), 21);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setValue", "com.googlecode.mp4parser.boxes.apple.Utf8AppleDataBox", "java.lang.String", UBC.CONTENT_KEY_VALUE, "", "void"), 25);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

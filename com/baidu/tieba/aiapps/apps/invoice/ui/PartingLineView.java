@@ -16,19 +16,19 @@ import android.view.ViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class PartingLineView extends ViewGroup {
-    private int cUD;
-    private int cUE;
-    private Paint cUF;
+    private View cUA;
+    private int cUF;
     private int cUG;
-    private int cUH;
-    private Path cUI;
-    private Path cUJ;
-    private int cUK;
-    private RectF cUL;
-    private RectF cUM;
-    private View cUy;
-    private Paint cil;
-    private int cim;
+    private Paint cUH;
+    private int cUI;
+    private int cUJ;
+    private Path cUK;
+    private Path cUL;
+    private int cUM;
+    private RectF cUN;
+    private RectF cUO;
+    private Paint cin;
+    private int cio;
     private int mBorderColor;
     private Paint mBorderPaint;
     private int mBorderWidth;
@@ -52,63 +52,63 @@ public class PartingLineView extends ViewGroup {
     private void c(Context context, AttributeSet attributeSet, int i) {
         this.mContext = context;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.PartingLineView);
-        this.cUD = obtainStyledAttributes.getColor(d.l.PartingLineView_bgNormalColor, SupportMenu.CATEGORY_MASK);
-        this.cUE = obtainStyledAttributes.getColor(d.l.PartingLineView_bgPressedColor, SupportMenu.CATEGORY_MASK);
+        this.cUF = obtainStyledAttributes.getColor(d.l.PartingLineView_bgNormalColor, SupportMenu.CATEGORY_MASK);
+        this.cUG = obtainStyledAttributes.getColor(d.l.PartingLineView_bgPressedColor, SupportMenu.CATEGORY_MASK);
         this.mBorderColor = obtainStyledAttributes.getColor(d.l.PartingLineView_bgBorderColor, ViewCompat.MEASURED_STATE_MASK);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(d.l.PartingLineView_bgBorderWidth, 1);
-        this.cUG = obtainStyledAttributes.getColor(d.l.PartingLineView_dividerLineColor, ViewCompat.MEASURED_STATE_MASK);
-        this.cUH = obtainStyledAttributes.getDimensionPixelOffset(d.l.PartingLineView_dividerLineHeight, 1);
-        this.cUK = obtainStyledAttributes.getDimensionPixelOffset(d.l.PartingLineView_dividerArcRadius, 30);
+        this.cUI = obtainStyledAttributes.getColor(d.l.PartingLineView_dividerLineColor, ViewCompat.MEASURED_STATE_MASK);
+        this.cUJ = obtainStyledAttributes.getDimensionPixelOffset(d.l.PartingLineView_dividerLineHeight, 1);
+        this.cUM = obtainStyledAttributes.getDimensionPixelOffset(d.l.PartingLineView_dividerArcRadius, 30);
         obtainStyledAttributes.recycle();
         dH(context);
     }
 
     private void dH(Context context) {
         setWillNotDraw(false);
-        this.cim = this.cUD;
-        this.cil = new Paint();
-        this.cil.setStyle(Paint.Style.FILL);
-        this.cil.setAntiAlias(true);
-        this.cil.setColor(this.cim);
+        this.cio = this.cUF;
+        this.cin = new Paint();
+        this.cin.setStyle(Paint.Style.FILL);
+        this.cin.setAntiAlias(true);
+        this.cin.setColor(this.cio);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.cUF = new Paint();
-        this.cUF.setStyle(Paint.Style.STROKE);
-        this.cUF.setAntiAlias(true);
-        this.cUF.setColor(this.cUG);
-        this.cUF.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
-        this.cUF.setStrokeWidth(this.cUH);
-        this.cUI = new Path();
-        this.cUJ = new Path();
+        this.cUH = new Paint();
+        this.cUH.setStyle(Paint.Style.STROKE);
+        this.cUH.setAntiAlias(true);
+        this.cUH.setColor(this.cUI);
+        this.cUH.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
+        this.cUH.setStrokeWidth(this.cUJ);
+        this.cUK = new Path();
+        this.cUL = new Path();
         this.mRoundPath = new Path();
-        this.cUL = new RectF();
-        this.cUM = new RectF();
+        this.cUN = new RectF();
+        this.cUO = new RectF();
     }
 
     public void setContentView(View view, View view2) {
         if (view != null && view2 != null) {
             this.mTopView = view;
-            this.cUy = view2;
+            this.cUA = view2;
             bi(this.mTopView);
-            bi(this.cUy);
+            bi(this.cUA);
             invalidate();
         }
     }
 
     public void setBgNormalColor(int i) {
-        if (this.mContext != null && this.cil != null) {
-            this.cUD = this.mContext.getResources().getColor(i);
-            this.cim = this.cUD;
-            this.cil.setColor(this.cim);
+        if (this.mContext != null && this.cin != null) {
+            this.cUF = this.mContext.getResources().getColor(i);
+            this.cio = this.cUF;
+            this.cin.setColor(this.cio);
         }
     }
 
     public void setBgPressedColor(int i) {
         if (this.mContext != null) {
-            this.cUE = this.mContext.getResources().getColor(i);
+            this.cUG = this.mContext.getResources().getColor(i);
         }
     }
 
@@ -120,9 +120,9 @@ public class PartingLineView extends ViewGroup {
     }
 
     public void setDividerLineColor(int i) {
-        if (this.mContext != null && this.cUF != null) {
-            this.cUG = this.mContext.getResources().getColor(i);
-            this.cUF.setColor(this.cUG);
+        if (this.mContext != null && this.cUH != null) {
+            this.cUI = this.mContext.getResources().getColor(i);
+            this.cUH.setColor(this.cUI);
         }
     }
 
@@ -136,9 +136,9 @@ public class PartingLineView extends ViewGroup {
     }
 
     public void fX(boolean z) {
-        if (this.cil != null) {
-            this.cim = z ? this.cUE : this.cUD;
-            this.cil.setColor(this.cim);
+        if (this.cin != null) {
+            this.cio = z ? this.cUG : this.cUF;
+            this.cin.setColor(this.cio);
             invalidate();
         }
     }
@@ -158,7 +158,7 @@ public class PartingLineView extends ViewGroup {
             setMeasuredDimension(0, 0);
         }
         if (mode != 1073741824) {
-            setMeasuredDimension(size, (this.mTopView != null ? this.mTopView.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.cUH + (this.cUy != null ? this.cUy.getMeasuredHeight() : 0) + getPaddingBottom());
+            setMeasuredDimension(size, (this.mTopView != null ? this.mTopView.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.cUJ + (this.cUA != null ? this.cUA.getMeasuredHeight() : 0) + getPaddingBottom());
         }
     }
 
@@ -175,50 +175,50 @@ public class PartingLineView extends ViewGroup {
         } else {
             i5 = 0;
         }
-        if (this.cUy != null) {
-            this.cUy.layout(paddingLeft + 0, this.cUH + i5, 0 + paddingRight + this.cUy.getMeasuredWidth(), i5 + this.cUy.getMeasuredHeight());
+        if (this.cUA != null) {
+            this.cUA.layout(paddingLeft + 0, this.cUJ + i5, 0 + paddingRight + this.cUA.getMeasuredWidth(), i5 + this.cUA.getMeasuredHeight());
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.mTopView != null && this.cUy != null) {
+        if (this.mTopView != null && this.cUA != null) {
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
             int width = (getWidth() - paddingLeft) - paddingRight;
             int height = (getHeight() - paddingTop) - paddingBottom;
-            this.cUJ.reset();
-            this.cUJ.moveTo(paddingLeft, paddingTop);
-            this.cUJ.lineTo(paddingLeft + width, paddingTop);
-            this.cUJ.lineTo(paddingLeft + width, (this.mTopView.getHeight() + paddingTop) - this.cUK);
-            this.cUL.set((paddingLeft + width) - this.cUK, (this.mTopView.getHeight() + paddingTop) - this.cUK, paddingLeft + width + this.cUK, this.mTopView.getHeight() + paddingTop + this.cUK);
-            this.cUJ.arcTo(this.cUL, 270.0f, -180.0f);
-            this.cUJ.lineTo(paddingLeft + width, paddingTop + height);
-            this.cUJ.lineTo(paddingLeft, paddingTop + height);
-            this.cUJ.lineTo(paddingLeft, this.mTopView.getHeight() + paddingTop + this.cUK);
-            this.cUL.set(paddingLeft - this.cUK, (this.mTopView.getHeight() + paddingTop) - this.cUK, this.cUK + paddingLeft, this.mTopView.getHeight() + paddingTop + this.cUK);
-            this.cUJ.arcTo(this.cUL, 90.0f, -180.0f);
-            this.cUJ.lineTo(paddingLeft, paddingTop);
-            this.cUJ.close();
+            this.cUL.reset();
+            this.cUL.moveTo(paddingLeft, paddingTop);
+            this.cUL.lineTo(paddingLeft + width, paddingTop);
+            this.cUL.lineTo(paddingLeft + width, (this.mTopView.getHeight() + paddingTop) - this.cUM);
+            this.cUN.set((paddingLeft + width) - this.cUM, (this.mTopView.getHeight() + paddingTop) - this.cUM, paddingLeft + width + this.cUM, this.mTopView.getHeight() + paddingTop + this.cUM);
+            this.cUL.arcTo(this.cUN, 270.0f, -180.0f);
+            this.cUL.lineTo(paddingLeft + width, paddingTop + height);
+            this.cUL.lineTo(paddingLeft, paddingTop + height);
+            this.cUL.lineTo(paddingLeft, this.mTopView.getHeight() + paddingTop + this.cUM);
+            this.cUN.set(paddingLeft - this.cUM, (this.mTopView.getHeight() + paddingTop) - this.cUM, this.cUM + paddingLeft, this.mTopView.getHeight() + paddingTop + this.cUM);
+            this.cUL.arcTo(this.cUN, 90.0f, -180.0f);
+            this.cUL.lineTo(paddingLeft, paddingTop);
+            this.cUL.close();
             int i = this.mBorderWidth / 2;
-            this.cUM.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
+            this.cUO.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
             this.mRoundPath.reset();
-            this.mRoundPath.addRoundRect(this.cUM, 10.0f, 10.0f, Path.Direction.CCW);
-            if (this.cil != null) {
-                canvas.drawPath(this.cUJ, this.cil);
+            this.mRoundPath.addRoundRect(this.cUO, 10.0f, 10.0f, Path.Direction.CCW);
+            if (this.cin != null) {
+                canvas.drawPath(this.cUL, this.cin);
             }
             if (this.mBorderPaint != null) {
-                canvas.drawPath(this.cUJ, this.mBorderPaint);
+                canvas.drawPath(this.cUL, this.mBorderPaint);
             }
-            if (this.cUF != null && this.mTopView != null && this.cUy != null) {
+            if (this.cUH != null && this.mTopView != null && this.cUA != null) {
                 float height2 = paddingTop + this.mTopView.getHeight();
-                this.cUI.reset();
-                this.cUI.moveTo(paddingLeft + this.cUK + 9, height2);
-                this.cUI.lineTo(((getWidth() - paddingRight) - this.cUK) - 9, height2);
-                canvas.drawPath(this.cUI, this.cUF);
+                this.cUK.reset();
+                this.cUK.moveTo(paddingLeft + this.cUM + 9, height2);
+                this.cUK.lineTo(((getWidth() - paddingRight) - this.cUM) - 9, height2);
+                canvas.drawPath(this.cUK, this.cUH);
             }
         }
     }

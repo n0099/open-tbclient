@@ -11,35 +11,35 @@ public class c extends d<com.baidu.swan.pms.b.c.c> {
 
     @Override // com.baidu.swan.pms.b.d
     protected com.baidu.swan.pms.model.b a(com.baidu.swan.pms.b.c cVar) {
-        com.baidu.swan.pms.b.c.c az = com.baidu.swan.pms.d.d.az(cVar.RL());
+        com.baidu.swan.pms.b.c.c az = com.baidu.swan.pms.d.d.az(cVar.RJ());
         if (az == null) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2102, "response data empty");
-            this.bmf.a(bVar);
+            this.bmi.a(bVar);
             return bVar;
         } else if (!a(az)) {
-            com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RL().toString());
-            this.bmf.a(bVar2);
+            com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RJ().toString());
+            this.bmi.a(bVar2);
             return bVar2;
         } else {
-            this.bmf.zC();
+            this.bmi.zB();
             com.baidu.swan.pms.d.e eVar = new com.baidu.swan.pms.d.e();
-            a(az.bmN, eVar);
-            if (eVar.Sq() == 0) {
-                this.bmf.zz();
+            a(az.bmQ, eVar);
+            if (eVar.So() == 0) {
+                this.bmi.zy();
             } else {
-                this.bmf.a(eVar);
-                com.baidu.swan.pms.b.a.a.a(az, this.bmf);
+                this.bmi.a(eVar);
+                com.baidu.swan.pms.b.a.a.a(az, this.bmi);
             }
             return null;
         }
     }
 
     protected boolean a(com.baidu.swan.pms.b.c.c cVar) {
-        if (cVar == null || cVar.bmN == null) {
+        if (cVar == null || cVar.bmQ == null) {
             return false;
         }
-        for (i iVar : cVar.bmN) {
-            if (!iVar.RK()) {
+        for (i iVar : cVar.bmQ) {
+            if (!iVar.RI()) {
                 return false;
             }
         }
@@ -47,7 +47,7 @@ public class c extends d<com.baidu.swan.pms.b.c.c> {
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String RM() {
+    protected String RK() {
         return "getpkg";
     }
 }

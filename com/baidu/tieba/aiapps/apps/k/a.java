@@ -8,14 +8,13 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
-    private com.baidu.tieba.aiapps.apps.k.a.a cVV;
-    private Activity cVW;
+    private com.baidu.tieba.aiapps.apps.k.a.a cVX;
+    private Activity cVY;
     private BdUniqueId mPageId = BdUniqueId.gen();
-    private CustomMessageListener cVX = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.k.a.1
+    private CustomMessageListener cVZ = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.k.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,7 +25,7 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
                     if (getTag() == dVar.tag) {
                         a.this.mResult.putInt("result_code", dVar.type);
                         a.this.mResult.putString("result_msg", dVar.message);
-                        a.this.cVV.H(a.this.mResult);
+                        a.this.cVX.H(a.this.mResult);
                         a.this.finish();
                     }
                 }
@@ -35,24 +34,24 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     };
 
     public void a(com.baidu.tieba.aiapps.apps.k.a.a aVar) {
-        this.cVV = aVar;
+        this.cVX = aVar;
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
-        this.cVX.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.cVX);
+        this.cVZ.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.cVZ);
         int i = this.mParams.getInt("type");
         String string = this.mParams.getString("orderInfo");
         com.baidu.tbadk.pay.d dVar = new com.baidu.tbadk.pay.d();
         dVar.tag = this.mPageId;
         dVar.type = i;
         dVar.message = string;
-        dVar.params = (Map) this.mParams.getSerializable(LegoListActivityConfig.PARAMS);
+        dVar.params = (Map) this.mParams.getSerializable("params");
         if (getAgent() != null) {
             dVar.context = getAgent();
-        } else if (this.cVW != null) {
-            dVar.context = this.cVW;
+        } else if (this.cVY != null) {
+            dVar.context = this.cVY;
         } else {
             dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
         }
@@ -67,8 +66,8 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void finish() {
-        this.cVV = null;
-        MessageManager.getInstance().unRegisterListener(this.cVX);
+        this.cVX = null;
+        MessageManager.getInstance().unRegisterListener(this.cVZ);
         super.finish();
     }
 
@@ -80,6 +79,6 @@ public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     }
 
     public void ac(Activity activity) {
-        this.cVW = activity;
+        this.cVY = activity;
     }
 }

@@ -16,36 +16,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> iDz;
+    private Map<BdUniqueId, ArrayList<am>> iDj;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.iDz == null) {
-            this.iDz = new LinkedHashMap();
+        if (this.iDj == null) {
+            this.iDj = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void s(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDz.put(bdUniqueId, null);
+            this.iDj.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void t(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDz.remove(bdUniqueId);
+            this.iDj.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDz.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iDj.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.iDz.put(bdUniqueId, arrayList);
+                this.iDj.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
@@ -53,13 +53,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean u(BdUniqueId bdUniqueId) {
-        return this.iDz.containsKey(bdUniqueId);
+        return this.iDj.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cds() {
-        if (this.iDz.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDz.entrySet()) {
+    public void cdo() {
+        if (this.iDj.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDj.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,7 +71,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDz.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iDj.get(bdUniqueId);
             if (v.S(arrayList) != 0) {
                 aB(arrayList);
                 arrayList.clear();
@@ -115,6 +115,7 @@ public class b {
                         StringBuilder sb6 = new StringBuilder();
                         StringBuilder sb7 = new StringBuilder();
                         StringBuilder sb8 = new StringBuilder();
+                        StringBuilder sb9 = new StringBuilder();
                         int i3 = 0;
                         while (i3 < list.size()) {
                             List<Object> params = ((am) list.get(i3)).getParams();
@@ -136,6 +137,8 @@ public class b {
                             boolean z2 = !StringUtils.isNull(m) ? true : z;
                             sb8.append(m);
                             sb8.append("|");
+                            sb9.append(m(params, "obj_isofficial"));
+                            sb9.append("|");
                             i3++;
                             z = z2;
                         }
@@ -163,6 +166,9 @@ public class b {
                         if (sb8.length() > 0) {
                             sb8.deleteCharAt(sb8.length() - 1);
                         }
+                        if (sb9.length() > 0) {
+                            sb9.deleteCharAt(sb9.length() - 1);
+                        }
                         amVar2.delete("obj_floor");
                         amVar2.delete("obj_isad");
                         amVar2.delete(VideoPlayActivityConfig.OBJ_ID);
@@ -171,6 +177,7 @@ public class b {
                         amVar2.delete("thread_type");
                         amVar2.delete(ImageViewerConfig.FORUM_ID);
                         amVar2.delete("post_type");
+                        amVar2.delete("obj_isofficial");
                         amVar2.bJ("obj_floors", sb.toString());
                         amVar2.bJ("obj_isads", sb2.toString());
                         amVar2.bJ("obj_ids", sb3.toString());
@@ -178,6 +185,7 @@ public class b {
                         amVar2.bJ("pids", sb5.toString());
                         amVar2.bJ("thread_types", sb6.toString());
                         amVar2.bJ("fids", sb7.toString());
+                        amVar2.bJ("obj_isofficials", sb9.toString());
                         if (z) {
                             amVar2.bJ("post_types", sb8.toString());
                         }

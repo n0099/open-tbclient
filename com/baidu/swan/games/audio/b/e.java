@@ -4,7 +4,7 @@ import android.media.MediaPlayer;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public interface e extends com.baidu.swan.games.audio.a {
-    boolean Nr();
+    boolean Np();
 
     void ct(boolean z);
 

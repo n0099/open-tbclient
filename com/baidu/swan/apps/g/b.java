@@ -9,7 +9,6 @@ import com.baidu.swan.apps.an.n;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes2.dex */
 public class b extends y {
     private String mCallback;
@@ -25,13 +24,13 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mCallback = n.dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("cb");
+        this.mCallback = n.dm(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             c.i("scanCode", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.u.a.CG().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
+        com.baidu.swan.apps.u.a.CE().a(bVar.getActivity(), new a() { // from class: com.baidu.swan.apps.g.b.1
         });
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;

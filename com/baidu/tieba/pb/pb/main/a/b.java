@@ -10,15 +10,15 @@ import com.baidu.tieba.pb.interactionpopupwindow.c;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes4.dex */
 public class b {
-    private final PbActivity hoW;
-    private final HttpMessageListener hyP = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true) { // from class: com.baidu.tieba.pb.pb.main.a.b.1
+    private final PbActivity hoJ;
+    private final HttpMessageListener hyB = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true) { // from class: com.baidu.tieba.pb.pb.main.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             b.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         }
     };
-    private final HttpMessageListener hyQ = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.a.b.2
+    private final HttpMessageListener hyC = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,24 +30,24 @@ public class b {
         if (pbActivity == null) {
             throw new NullPointerException("PbActivity is NullPointerException");
         }
-        this.hoW = pbActivity;
-        bNH();
+        this.hoJ = pbActivity;
+        bNE();
     }
 
     public void onDestroy() {
-        bNG();
+        bND();
     }
 
-    private boolean bNG() {
-        MessageManager.getInstance().unRegisterListener(this.hyP);
-        MessageManager.getInstance().unRegisterListener(this.hyQ);
+    private boolean bND() {
+        MessageManager.getInstance().unRegisterListener(this.hyB);
+        MessageManager.getInstance().unRegisterListener(this.hyC);
         return true;
     }
 
-    public boolean bNH() {
-        if (this.hoW != null) {
-            this.hoW.registerListener(this.hyP);
-            this.hoW.registerListener(this.hyQ);
+    public boolean bNE() {
+        if (this.hoJ != null) {
+            this.hoJ.registerListener(this.hyB);
+            this.hoJ.registerListener(this.hyC);
             return true;
         }
         return true;
@@ -56,10 +56,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpResponsedMessage httpResponsedMessage, int i) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.hoW != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.hoJ != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
             CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
             activityDialogData.type = 0;
-            c.a(this.hoW.getPageContext(), activityDialogData).show();
+            c.a(this.hoJ.getPageContext(), activityDialogData).show();
         }
     }
 }

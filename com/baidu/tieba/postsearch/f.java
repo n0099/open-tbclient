@@ -13,16 +13,16 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class f {
-    private PostSearchActivity icn;
-    private PostSearchListFragment ida;
-    private PostSearchListFragment idb;
-    private PostSearchListFragment idc;
+    private PostSearchActivity ibZ;
+    private PostSearchListFragment icM;
+    private PostSearchListFragment icN;
+    private PostSearchListFragment icO;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
     private View mRootView;
     private FragmentTabHost mTabHost;
 
     public f(PostSearchActivity postSearchActivity, View view) {
-        this.icn = postSearchActivity;
+        this.ibZ = postSearchActivity;
         this.mRootView = view;
     }
 
@@ -30,16 +30,16 @@ public class f {
         return this.mTabHost.getCurrentTabType();
     }
 
-    public void xE(int i) {
+    public void xA(int i) {
         if (this.mTabHost == null) {
-            xF(1);
+            xB(1);
             return;
         }
-        bVx();
+        bVt();
         if (this.mTabHost.getCurrentTabType() == i) {
-            PostSearchListFragment xH = xH(i);
-            if (xH != null) {
-                xH.pj(true);
+            PostSearchListFragment xD = xD(i);
+            if (xD != null) {
+                xD.pj(true);
                 return;
             }
             return;
@@ -59,9 +59,9 @@ public class f {
 
     public void a(int i, b bVar, boolean z) {
         cI(true);
-        PostSearchListFragment xH = xH(i);
-        if (xH != null) {
-            xH.a(bVar, z);
+        PostSearchListFragment xD = xD(i);
+        if (xD != null) {
+            xD.a(bVar, z);
         }
     }
 
@@ -74,15 +74,15 @@ public class f {
         }
     }
 
-    private void xF(int i) {
+    private void xB(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(d.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.mTabHost = (FragmentTabHost) inflate.findViewById(d.g.post_search_tab_host);
-        this.mTabHost.setup(this.icn.getSupportFragmentManager());
-        this.mTabHost.setTabWidgetViewHeight((int) this.icn.getResources().getDimension(d.e.ds80));
+        this.mTabHost.setup(this.ibZ.getSupportFragmentManager());
+        this.mTabHost.setTabWidgetViewHeight((int) this.ibZ.getResources().getDimension(d.e.ds80));
         this.mTabHost.setShouldDrawIndicatorLine(true);
-        bVw();
-        this.mTabHost.gY(3);
+        bVs();
+        this.mTabHost.gX(3);
         this.mTabHost.setCurrentTabByType(i);
         this.mTabHost.setNeedShowThemeStyle(false);
         this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(0);
@@ -98,54 +98,54 @@ public class f {
         }
     }
 
-    private void bVw() {
+    private void bVs() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.ida = new PostSearchListFragment(1);
-        bVar.bHW = this.ida;
-        bVar.bHV = xG(d.j.searching_time_tab);
+        this.icM = new PostSearchListFragment(1);
+        bVar.bHY = this.icM;
+        bVar.bHX = xC(d.j.searching_time_tab);
         bVar.mType = 1;
         this.mTabHost.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.idb = new PostSearchListFragment(2);
-        bVar2.bHW = this.idb;
-        bVar2.bHV = xG(d.j.searching_relative_tab);
+        this.icN = new PostSearchListFragment(2);
+        bVar2.bHY = this.icN;
+        bVar2.bHX = xC(d.j.searching_relative_tab);
         bVar2.mType = 2;
         this.mTabHost.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.idc = new PostSearchListFragment(3);
-        bVar3.bHW = this.idc;
-        bVar3.bHV = xG(d.j.searching_only_thread_tab);
+        this.icO = new PostSearchListFragment(3);
+        bVar3.bHY = this.icO;
+        bVar3.bHX = xC(d.j.searching_only_thread_tab);
         bVar3.mType = 3;
         this.mTabHost.a(bVar3);
     }
 
-    private FragmentTabIndicator xG(int i) {
-        int aO = (l.aO(this.icn.getPageContext().getContext()) - (this.icn.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.icn.getPageContext().getPageActivity()).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator xC(int i) {
+        int aO = (l.aO(this.ibZ.getPageContext().getContext()) - (this.ibZ.getResources().getDimensionPixelSize(d.e.ds34) * 2)) / 3;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.ibZ.getPageContext().getPageActivity()).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.icn.getResources().getDimensionPixelSize(d.e.ds32));
-        fragmentTabIndicator.cnR = d.C0277d.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.icn.getResources().getDimensionPixelSize(d.e.ds4));
+        fragmentTabIndicator.setTextSize(0, this.ibZ.getResources().getDimensionPixelSize(d.e.ds32));
+        fragmentTabIndicator.cnT = d.C0277d.s_actionbar_text_color;
+        fragmentTabIndicator.setContentTvTopMargin(this.ibZ.getResources().getDimensionPixelSize(d.e.ds4));
         fragmentTabIndicator.setWidth(aO);
         return fragmentTabIndicator;
     }
 
-    private PostSearchListFragment xH(int i) {
+    private PostSearchListFragment xD(int i) {
         switch (i) {
             case 1:
-                return this.ida;
+                return this.icM;
             case 2:
-                return this.idb;
+                return this.icN;
             case 3:
-                return this.idc;
+                return this.icO;
             default:
                 return null;
         }
     }
 
-    private void bVx() {
-        this.ida.bVo();
-        this.idb.bVo();
-        this.idc.bVo();
+    private void bVt() {
+        this.icM.bVk();
+        this.icN.bVk();
+        this.icO.bVk();
     }
 }

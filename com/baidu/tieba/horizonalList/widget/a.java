@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> fRZ = new ArrayList<>(5);
-    public int fSd;
-    public int fSe;
-    int fSf;
+    private static ArrayList<a> fRN = new ArrayList<>(5);
+    public int fRR;
+    public int fRS;
+    int fRT;
     public int type;
 
-    private void auY() {
-        this.fSd = 0;
-        this.fSe = 0;
-        this.fSf = 0;
+    private void auV() {
+        this.fRR = 0;
+        this.fRS = 0;
+        this.fRT = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long bnH() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.fSd, this.fSe) : ExpandableListView.getPackedPositionForGroup(this.fSd);
+    public long bnE() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.fRR, this.fRS) : ExpandableListView.getPackedPositionForGroup(this.fRR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a sS(int i) {
+    public static a sO(int i) {
         return w(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a w(int i, int i2, int i3, int i4) {
-        a bnI = bnI();
-        bnI.type = i;
-        bnI.fSd = i2;
-        bnI.fSe = i3;
-        bnI.fSf = i4;
-        return bnI;
+        a bnF = bnF();
+        bnF.type = i;
+        bnF.fRR = i2;
+        bnF.fRS = i3;
+        bnF.fRT = i4;
+        return bnF;
     }
 
-    private static a bnI() {
+    private static a bnF() {
         a aVar;
-        synchronized (fRZ) {
-            if (fRZ.size() > 0) {
-                aVar = fRZ.remove(0);
-                aVar.auY();
+        synchronized (fRN) {
+            if (fRN.size() > 0) {
+                aVar = fRN.remove(0);
+                aVar.auV();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (fRZ) {
-            if (fRZ.size() < 5) {
-                fRZ.add(this);
+        synchronized (fRN) {
+            if (fRN.size() < 5) {
+                fRN.add(this);
             }
         }
     }

@@ -8,6 +8,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SmsService;
 import com.baidu.sapi2.base.debug.Log;
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -90,7 +91,7 @@ public class SapiCoreUtil {
                 } else if (parseExecutePer.substring(2, 3).equals("0")) {
                     str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
                 }
-                Log.e(TAG, "chmodFile", "command", str, "originPer", parseExecutePer);
+                Log.e(TAG, "chmodFile", CommandMessage.COMMAND, str, "originPer", parseExecutePer);
                 if (str != 0) {
                     process = runtime.exec(str);
                     if (TextUtils.isEmpty(SapiContext.getInstance(context).getPackageDirExecutePer())) {

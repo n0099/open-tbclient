@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap bgS;
-    private List<OverlayOptions> bjn;
-    List<Overlay> bjo;
+    BaiduMap bgV;
+    private List<OverlayOptions> bjq;
+    List<Overlay> bjr;
 
-    public abstract List<OverlayOptions> QM();
+    public abstract List<OverlayOptions> QK();
 
     public c(BaiduMap baiduMap) {
-        this.bgS = null;
-        this.bjn = null;
-        this.bjo = null;
-        this.bgS = baiduMap;
-        if (this.bjn == null) {
-            this.bjn = new ArrayList();
+        this.bgV = null;
+        this.bjq = null;
+        this.bjr = null;
+        this.bgV = baiduMap;
+        if (this.bjq == null) {
+            this.bjq = new ArrayList();
         }
-        if (this.bjo == null) {
-            this.bjo = new ArrayList();
-        }
-    }
-
-    public final void QO() {
-        if (this.bgS != null) {
-            QP();
-            if (QM() != null) {
-                this.bjn.addAll(QM());
-            }
-            for (OverlayOptions overlayOptions : this.bjn) {
-                this.bjo.add(this.bgS.addOverlay(overlayOptions));
-            }
+        if (this.bjr == null) {
+            this.bjr = new ArrayList();
         }
     }
 
-    public final void QP() {
-        if (this.bgS != null) {
-            for (Overlay overlay : this.bjo) {
+    public final void QM() {
+        if (this.bgV != null) {
+            QN();
+            if (QK() != null) {
+                this.bjq.addAll(QK());
+            }
+            for (OverlayOptions overlayOptions : this.bjq) {
+                this.bjr.add(this.bgV.addOverlay(overlayOptions));
+            }
+        }
+    }
+
+    public final void QN() {
+        if (this.bgV != null) {
+            for (Overlay overlay : this.bjr) {
                 overlay.remove();
             }
-            this.bjn.clear();
-            this.bjo.clear();
+            this.bjq.clear();
+            this.bjr.clear();
         }
     }
 
-    public void QQ() {
-        if (this.bgS != null && this.bjo.size() > 0) {
+    public void QO() {
+        if (this.bgV != null && this.bjr.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.bjo) {
+            for (Overlay overlay : this.bjr) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.bgS.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.bgV.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

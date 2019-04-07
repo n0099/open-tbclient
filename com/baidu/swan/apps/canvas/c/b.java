@@ -41,55 +41,55 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private static Map<String, Class<? extends com.baidu.swan.apps.canvas.a.a.a>> amp = new HashMap();
-    private List<com.baidu.swan.apps.canvas.a.a.a> amn;
-    private boolean amo;
+    private static Map<String, Class<? extends com.baidu.swan.apps.canvas.a.a.a>> amt = new HashMap();
+    private List<com.baidu.swan.apps.canvas.a.a.a> amr;
+    private boolean ams;
 
     static {
-        amp.put("setFillStyle", x.class);
-        amp.put("fillRect", m.class);
-        amp.put("setStrokeStyle", ag.class);
-        amp.put("strokeStyle", an.class);
-        amp.put("setLineCap", aa.class);
-        amp.put("setLineJoin", ac.class);
-        amp.put("setLineWidth", ad.class);
-        amp.put("setLineDash", ab.class);
-        amp.put("setMiterLimit", ae.class);
-        amp.put("strokeRect", am.class);
-        amp.put("moveTo", q.class);
-        amp.put("lineTo", p.class);
-        amp.put("stroke", al.class);
-        amp.put("fill", l.class);
-        amp.put("beginPath", com.baidu.swan.apps.canvas.a.a.d.class);
-        amp.put("rect", s.class);
-        amp.put("clearRect", com.baidu.swan.apps.canvas.a.a.f.class);
-        amp.put("closePath", h.class);
-        amp.put("arc", com.baidu.swan.apps.canvas.a.a.c.class);
-        amp.put("bezierCurveTo", com.baidu.swan.apps.canvas.a.a.e.class);
-        amp.put("quadraticCurveTo", r.class);
-        amp.put("scale", w.class);
-        amp.put("rotate", u.class);
-        amp.put("translate", aq.class);
-        amp.put("transform", ap.class);
-        amp.put("setTransform", aj.class);
-        amp.put("font", o.class);
-        amp.put("setFontSize", y.class);
-        amp.put("setTextAlign", ah.class);
-        amp.put("setTextBaseline", ai.class);
-        amp.put("fillText", n.class);
-        amp.put("strokeText", ao.class);
-        amp.put("clip", com.baidu.swan.apps.canvas.a.a.g.class);
-        amp.put("drawImage", k.class);
-        amp.put("save", v.class);
-        amp.put("restore", t.class);
-        amp.put("setShadow", af.class);
-        amp.put("setGlobalAlpha", z.class);
+        amt.put("setFillStyle", x.class);
+        amt.put("fillRect", m.class);
+        amt.put("setStrokeStyle", ag.class);
+        amt.put("strokeStyle", an.class);
+        amt.put("setLineCap", aa.class);
+        amt.put("setLineJoin", ac.class);
+        amt.put("setLineWidth", ad.class);
+        amt.put("setLineDash", ab.class);
+        amt.put("setMiterLimit", ae.class);
+        amt.put("strokeRect", am.class);
+        amt.put("moveTo", q.class);
+        amt.put("lineTo", p.class);
+        amt.put("stroke", al.class);
+        amt.put("fill", l.class);
+        amt.put("beginPath", com.baidu.swan.apps.canvas.a.a.d.class);
+        amt.put("rect", s.class);
+        amt.put("clearRect", com.baidu.swan.apps.canvas.a.a.f.class);
+        amt.put("closePath", h.class);
+        amt.put("arc", com.baidu.swan.apps.canvas.a.a.c.class);
+        amt.put("bezierCurveTo", com.baidu.swan.apps.canvas.a.a.e.class);
+        amt.put("quadraticCurveTo", r.class);
+        amt.put("scale", w.class);
+        amt.put("rotate", u.class);
+        amt.put("translate", aq.class);
+        amt.put("transform", ap.class);
+        amt.put("setTransform", aj.class);
+        amt.put("font", o.class);
+        amt.put("setFontSize", y.class);
+        amt.put("setTextAlign", ah.class);
+        amt.put("setTextBaseline", ai.class);
+        amt.put("fillText", n.class);
+        amt.put("strokeText", ao.class);
+        amt.put("clip", com.baidu.swan.apps.canvas.a.a.g.class);
+        amt.put("drawImage", k.class);
+        amt.put("save", v.class);
+        amt.put("restore", t.class);
+        amt.put("setShadow", af.class);
+        amt.put("setGlobalAlpha", z.class);
     }
 
     public b(String str) {
         super(str);
-        this.amn = new ArrayList();
-        this.amo = false;
+        this.amr = new ArrayList();
+        this.ams = false;
         try {
             JSONObject jSONObject = new JSONObject(str);
             JSONArray jSONArray = new JSONArray(jSONObject.optString("actions"));
@@ -98,14 +98,14 @@ public class b extends a {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 String optString = optJSONObject.optString("method");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-                Class<? extends com.baidu.swan.apps.canvas.a.a.a> cls = amp.get(optString);
+                Class<? extends com.baidu.swan.apps.canvas.a.a.a> cls = amt.get(optString);
                 if (cls != null) {
                     com.baidu.swan.apps.canvas.a.a.a newInstance = cls.newInstance();
                     newInstance.g(optJSONArray);
-                    this.amn.add(newInstance);
+                    this.amr.add(newInstance);
                 }
             }
-            this.amo = jSONObject.optInt("reserve") != 0;
+            this.ams = jSONObject.optInt("reserve") != 0;
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -113,12 +113,12 @@ public class b extends a {
         }
     }
 
-    public List<com.baidu.swan.apps.canvas.a.a.a> wC() {
-        return this.amn;
+    public List<com.baidu.swan.apps.canvas.a.a.a> wB() {
+        return this.amr;
     }
 
-    public boolean wD() {
-        return this.amo;
+    public boolean wC() {
+        return this.ams;
     }
 
     @Override // com.baidu.swan.apps.canvas.c.a, com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a

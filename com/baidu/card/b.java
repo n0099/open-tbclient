@@ -23,10 +23,10 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, 
         this.Xq = xVar;
     }
 
-    public void bu(int i) {
+    public void bt(int i) {
     }
 
-    public void bv(int i) {
+    public void bu(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, 
         this.Xq.a(i, bVar);
     }
 
-    public void bw(int i) {
+    public void bv(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

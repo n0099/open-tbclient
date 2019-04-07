@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.m;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i {
-    BaseActivity cNa;
+    BaseActivity cNc;
     String mUrl;
 
     public i(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.cNa = baseActivity;
+        this.cNc = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.cNa.getPageContext().getString(d.j.save_fail));
+                showToast(this.cNc.getPageContext().getString(d.j.save_fail));
             }
             com.baidu.adp.lib.f.c.jB().a(this.mUrl, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -28,30 +28,30 @@ public class i {
                     if (aVar != null) {
                         i.this.showToast(i.this.k(i.this.mUrl, aVar.oB()));
                     } else {
-                        i.this.showToast(i.this.cNa.getPageContext().getString(d.j.save_fail));
+                        i.this.showToast(i.this.cNc.getPageContext().getString(d.j.save_fail));
                     }
                 }
-            }, this.cNa.getUniqueId());
+            }, this.cNc.getUniqueId());
         } catch (Exception e) {
-            showToast(this.cNa.getPageContext().getString(d.j.save_fail));
+            showToast(this.cNc.getPageContext().getString(d.j.save_fail));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String k(String str, byte[] bArr) {
-        switch (m.a(str, bArr, this.cNa.getPageContext().getPageActivity())) {
+        switch (m.a(str, bArr, this.cNc.getPageContext().getPageActivity())) {
             case -2:
-                return m.ace();
+                return m.acb();
             case -1:
             default:
-                return this.cNa.getPageContext().getString(d.j.save_fail);
+                return this.cNc.getPageContext().getString(d.j.save_fail);
             case 0:
-                return this.cNa.getPageContext().getString(d.j.save_image_to_album);
+                return this.cNc.getPageContext().getString(d.j.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.cNa.showToast(str);
+        this.cNc.showToast(str);
     }
 }

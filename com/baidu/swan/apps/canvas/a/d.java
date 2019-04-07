@@ -19,8 +19,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject bQ(int i) {
-        return super.bQ(i);
+    public /* bridge */ /* synthetic */ JSONObject bP(int i) {
+        return super.bP(i);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
@@ -37,11 +37,11 @@ public class d extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.c.a c = c(unitedSchemeEntity);
         if (c == null) {
-            unitedSchemeEntity.result = bQ(201);
+            unitedSchemeEntity.result = bP(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aBD);
-            if (a != null && com.baidu.swan.apps.canvas.a.ww().a(context, a, c)) {
+            AbsoluteLayout a = a(unitedSchemeEntity, c.aBG);
+            if (a != null && com.baidu.swan.apps.canvas.a.wv().a(context, a, c)) {
                 z = true;
             }
             a(unitedSchemeEntity, callbackHandler, z);

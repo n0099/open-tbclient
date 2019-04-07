@@ -8,29 +8,29 @@ import android.view.ViewConfiguration;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 public class b extends e implements GestureDetector.OnGestureListener, View.OnTouchListener {
-    private int cxC;
-    private boolean cxD;
     private int cxE;
     private boolean cxF;
-    private boolean cxG;
-    private GestureDetector cxH;
-    private GestureDetector cxI;
-    private int cxJ;
-    private int cxK;
+    private int cxG;
+    private boolean cxH;
+    private boolean cxI;
+    private GestureDetector cxJ;
+    private GestureDetector cxK;
     private int cxL;
     private int cxM;
     private int cxN;
     private int cxO;
     private int cxP;
-    private boolean cxQ;
-    private float cxR;
-    private int cxS;
-    private int cxT;
+    private int cxQ;
+    private int cxR;
+    private boolean cxS;
+    private float cxT;
     private int cxU;
-    private boolean cxV;
-    private a cxW;
-    private int cxX;
-    private GestureDetector.OnGestureListener cxY;
+    private int cxV;
+    private int cxW;
+    private boolean cxX;
+    private a cxY;
+    private int cxZ;
+    private GestureDetector.OnGestureListener cya;
     private GestureDetector mDetector;
     private ListView mListView;
     private int[] mTempLoc;
@@ -46,45 +46,45 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
 
     public b(a aVar, ListView listView, int i, int i2, int i3, int i4, int i5) {
         super(listView);
-        this.cxC = 0;
-        this.cxD = true;
-        this.cxF = false;
-        this.cxG = false;
-        this.cxJ = -1;
-        this.cxK = -1;
+        this.cxE = 0;
+        this.cxF = true;
+        this.cxH = false;
+        this.cxI = false;
         this.cxL = -1;
+        this.cxM = -1;
+        this.cxN = -1;
         this.mTempLoc = new int[2];
-        this.cxQ = false;
-        this.cxR = 500.0f;
-        this.cxY = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tbadk.widget.dragsort.b.2
+        this.cxS = false;
+        this.cxT = 500.0f;
+        this.cya = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tbadk.widget.dragsort.b.2
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (b.this.cxF && b.this.cxG) {
+                if (b.this.cxH && b.this.cxI) {
                     int width = b.this.mListView.getWidth() / 5;
-                    if (f > b.this.cxR) {
-                        if (b.this.cxX > (-width)) {
-                            b.this.cxW.stopDragWithVelocity(true, f);
+                    if (f > b.this.cxT) {
+                        if (b.this.cxZ > (-width)) {
+                            b.this.cxY.stopDragWithVelocity(true, f);
                         }
-                    } else if (f < (-b.this.cxR) && b.this.cxX < width) {
-                        b.this.cxW.stopDragWithVelocity(true, f);
+                    } else if (f < (-b.this.cxT) && b.this.cxZ < width) {
+                        b.this.cxY.stopDragWithVelocity(true, f);
                     }
-                    b.this.cxG = false;
+                    b.this.cxI = false;
                 }
                 return false;
             }
         };
-        this.cxW = aVar;
+        this.cxY = aVar;
         this.mListView = listView;
         this.mDetector = new GestureDetector(listView.getContext(), this);
-        this.cxH = new GestureDetector(listView.getContext(), new GestureDetector.OnGestureListener() { // from class: com.baidu.tbadk.widget.dragsort.b.1
+        this.cxJ = new GestureDetector(listView.getContext(), new GestureDetector.OnGestureListener() { // from class: com.baidu.tbadk.widget.dragsort.b.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                if (!b.this.cxW.isDragEnabled() || b.this.cxW.listViewIntercepted()) {
+                if (!b.this.cxY.isDragEnabled() || b.this.cxY.listViewIntercepted()) {
                     return false;
                 }
                 b.this.onDown(motionEvent);
-                b.this.cxO = (int) motionEvent.getX();
-                b.this.cxP = (int) motionEvent.getY();
+                b.this.cxQ = (int) motionEvent.getX();
+                b.this.cxR = (int) motionEvent.getY();
                 return true;
             }
 
@@ -112,73 +112,73 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
                 return false;
             }
         });
-        this.cxI = new GestureDetector(listView.getContext(), this.cxY);
-        this.cxI.setIsLongpressEnabled(false);
+        this.cxK = new GestureDetector(listView.getContext(), this.cya);
+        this.cxK.setIsLongpressEnabled(false);
         this.mTouchSlop = ViewConfiguration.get(listView.getContext()).getScaledTouchSlop();
-        this.cxS = i;
-        this.cxT = i4;
-        this.cxU = i5;
-        kp(i3);
-        ko(i2);
+        this.cxU = i;
+        this.cxV = i4;
+        this.cxW = i5;
+        ko(i3);
+        kn(i2);
     }
 
-    public GestureDetector ars() {
-        return this.cxH;
+    public GestureDetector arp() {
+        return this.cxJ;
     }
 
-    public void ko(int i) {
-        this.cxC = i;
-    }
-
-    public void fo(boolean z) {
-        this.cxD = z;
-    }
-
-    public void kp(int i) {
+    public void kn(int i) {
         this.cxE = i;
     }
 
-    public void fp(boolean z) {
+    public void fo(boolean z) {
         this.cxF = z;
+    }
+
+    public void ko(int i) {
+        this.cxG = i;
+    }
+
+    public void fp(boolean z) {
+        this.cxH = z;
     }
 
     public boolean s(int i, int i2, int i3) {
         int i4 = 0;
-        if (this.cxD && !this.cxG) {
+        if (this.cxF && !this.cxI) {
             i4 = 12;
         }
-        if (this.cxF && this.cxG) {
+        if (this.cxH && this.cxI) {
             i4 = i4 | 1 | 2;
         }
-        this.cxQ = this.cxW.startDrag(i - this.mListView.getHeaderViewsCount(), i4, i2, i3);
-        return this.cxQ;
+        this.cxS = this.cxY.startDrag(i - this.mListView.getHeaderViewsCount(), i4, i2, i3);
+        return this.cxS;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.cxW.isDragEnabled() && !this.cxW.listViewIntercepted()) {
+        if (this.cxY.isDragEnabled() && !this.cxY.listViewIntercepted()) {
             this.mDetector.onTouchEvent(motionEvent);
-            if (this.cxF && this.cxQ && this.cxE == 1) {
-                this.cxI.onTouchEvent(motionEvent);
+            if (this.cxH && this.cxS && this.cxG == 1) {
+                this.cxK.onTouchEvent(motionEvent);
             }
             switch (motionEvent.getAction() & 255) {
                 case 0:
-                    this.cxO = (int) motionEvent.getX();
-                    this.cxP = (int) motionEvent.getY();
+                    this.cxQ = (int) motionEvent.getX();
+                    this.cxR = (int) motionEvent.getY();
                     break;
                 case 1:
-                    if (this.cxF && this.cxG) {
-                        if ((this.cxX >= 0 ? this.cxX : -this.cxX) > this.mListView.getWidth() / 2) {
-                            this.cxW.stopDragWithVelocity(true, 0.0f);
+                    if (this.cxH && this.cxI) {
+                        if ((this.cxZ >= 0 ? this.cxZ : -this.cxZ) > this.mListView.getWidth() / 2) {
+                            this.cxY.stopDragWithVelocity(true, 0.0f);
                         }
                     }
-                    this.cxG = false;
-                    this.cxQ = false;
+                    this.cxI = false;
+                    this.cxS = false;
                     break;
                 case 3:
-                    this.cxG = false;
-                    this.cxQ = false;
+                    this.cxI = false;
+                    this.cxS = false;
                     break;
             }
         }
@@ -187,8 +187,8 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // com.baidu.tbadk.widget.dragsort.e, com.baidu.tbadk.widget.dragsort.a.h
     public void b(View view, Point point, Point point2) {
-        if (this.cxF && this.cxG) {
-            this.cxX = point.x;
+        if (this.cxH && this.cxI) {
+            this.cxZ = point.x;
         }
     }
 
@@ -197,18 +197,18 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
     }
 
     public int A(MotionEvent motionEvent) {
-        if (this.cxE == 1) {
+        if (this.cxG == 1) {
             return C(motionEvent);
         }
         return -1;
     }
 
     public int B(MotionEvent motionEvent) {
-        return c(motionEvent, this.cxS);
+        return c(motionEvent, this.cxU);
     }
 
     public int C(MotionEvent motionEvent) {
-        return c(motionEvent, this.cxU);
+        return c(motionEvent, this.cxW);
     }
 
     public int c(MotionEvent motionEvent, int i) {
@@ -225,8 +225,8 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
                 findViewById.getLocationOnScreen(this.mTempLoc);
                 if (rawX > this.mTempLoc[0] && rawY > this.mTempLoc[1] && rawX < this.mTempLoc[0] + findViewById.getWidth()) {
                     if (rawY < findViewById.getHeight() + this.mTempLoc[1]) {
-                        this.cxM = childAt.getLeft();
-                        this.cxN = childAt.getTop();
+                        this.cxO = childAt.getLeft();
+                        this.cxP = childAt.getTop();
                         return pointToPosition;
                     }
                 }
@@ -237,17 +237,17 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        if (this.cxF && this.cxE == 0) {
-            this.cxL = c(motionEvent, this.cxT);
+        if (this.cxH && this.cxG == 0) {
+            this.cxN = c(motionEvent, this.cxV);
         }
-        this.cxJ = z(motionEvent);
-        if (this.cxJ != -1 && this.cxC == 0) {
-            s(this.cxJ, ((int) motionEvent.getX()) - this.cxM, ((int) motionEvent.getY()) - this.cxN);
+        this.cxL = z(motionEvent);
+        if (this.cxL != -1 && this.cxE == 0) {
+            s(this.cxL, ((int) motionEvent.getX()) - this.cxO, ((int) motionEvent.getY()) - this.cxP);
         }
-        this.cxG = false;
-        this.cxV = true;
-        this.cxX = 0;
-        this.cxK = A(motionEvent);
+        this.cxI = false;
+        this.cxX = true;
+        this.cxZ = 0;
+        this.cxM = A(motionEvent);
         return true;
     }
 
@@ -258,22 +258,22 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
             int y = (int) motionEvent.getY();
             int x2 = (int) motionEvent2.getX();
             int y2 = (int) motionEvent2.getY();
-            int i = x2 - this.cxM;
-            int i2 = y2 - this.cxN;
-            if (this.cxV && !this.cxQ && (this.cxJ != -1 || this.cxK != -1)) {
-                if (this.cxJ != -1) {
-                    if (this.cxC == 1 && Math.abs(y2 - y) > this.mTouchSlop && this.cxD) {
-                        s(this.cxJ, i, i2);
-                    } else if (this.cxC != 0 && Math.abs(x2 - x) > this.mTouchSlop && this.cxF) {
-                        this.cxG = true;
-                        s(this.cxK, i, i2);
+            int i = x2 - this.cxO;
+            int i2 = y2 - this.cxP;
+            if (this.cxX && !this.cxS && (this.cxL != -1 || this.cxM != -1)) {
+                if (this.cxL != -1) {
+                    if (this.cxE == 1 && Math.abs(y2 - y) > this.mTouchSlop && this.cxF) {
+                        s(this.cxL, i, i2);
+                    } else if (this.cxE != 0 && Math.abs(x2 - x) > this.mTouchSlop && this.cxH) {
+                        this.cxI = true;
+                        s(this.cxM, i, i2);
                     }
-                } else if (this.cxK != -1) {
-                    if (Math.abs(x2 - x) > this.mTouchSlop && this.cxF) {
-                        this.cxG = true;
-                        s(this.cxK, i, i2);
+                } else if (this.cxM != -1) {
+                    if (Math.abs(x2 - x) > this.mTouchSlop && this.cxH) {
+                        this.cxI = true;
+                        s(this.cxM, i, i2);
                     } else if (Math.abs(y2 - y) > this.mTouchSlop) {
-                        this.cxV = false;
+                        this.cxX = false;
                     }
                 }
             }
@@ -283,9 +283,9 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
-        if (this.cxJ != -1 && this.cxC == 2) {
+        if (this.cxL != -1 && this.cxE == 2) {
             this.mListView.performHapticFeedback(0);
-            s(this.cxJ, this.cxO - this.cxM, this.cxP - this.cxN);
+            s(this.cxL, this.cxQ - this.cxO, this.cxR - this.cxP);
         }
     }
 
@@ -296,8 +296,8 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
-        if (this.cxF && this.cxE == 0 && this.cxL != -1) {
-            this.cxW.removeItem(this.cxL - this.mListView.getHeaderViewsCount());
+        if (this.cxH && this.cxG == 0 && this.cxN != -1) {
+            this.cxY.removeItem(this.cxN - this.mListView.getHeaderViewsCount());
             return true;
         }
         return true;

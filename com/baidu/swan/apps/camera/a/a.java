@@ -6,7 +6,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ abstract class a extends y {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(UnitedSchemeEntity unitedSchemeEntity) {
-        return unitedSchemeEntity.getParams().get(LegoListActivityConfig.PARAMS);
+        return unitedSchemeEntity.getParams().get("params");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

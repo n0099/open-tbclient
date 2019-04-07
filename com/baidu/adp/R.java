@@ -793,13 +793,13 @@ public final class R {
         public static final int abc_textfield_search_material = 0x7f020051;
         public static final int abc_vector_test = 0x7f020052;
         public static final int avd_hide_password = 0x7f020143;
-        public static final int avd_hide_password_1 = 0x7f02120b;
-        public static final int avd_hide_password_2 = 0x7f02120c;
-        public static final int avd_hide_password_3 = 0x7f02120d;
+        public static final int avd_hide_password_1 = 0x7f02120d;
+        public static final int avd_hide_password_2 = 0x7f02120e;
+        public static final int avd_hide_password_3 = 0x7f02120f;
         public static final int avd_show_password = 0x7f020144;
-        public static final int avd_show_password_1 = 0x7f02120e;
-        public static final int avd_show_password_2 = 0x7f02120f;
-        public static final int avd_show_password_3 = 0x7f021210;
+        public static final int avd_show_password_1 = 0x7f021210;
+        public static final int avd_show_password_2 = 0x7f021211;
+        public static final int avd_show_password_3 = 0x7f021212;
         public static final int bg_switch_close = 0x7f02027a;
         public static final int bg_switch_open = 0x7f02027b;
         public static final int btn_handle = 0x7f0203c8;
@@ -820,8 +820,8 @@ public final class R {
         public static final int notification_bg_normal = 0x7f020ee7;
         public static final int notification_bg_normal_pressed = 0x7f020ee8;
         public static final int notification_icon_background = 0x7f020ee9;
-        public static final int notification_template_icon_bg = 0x7f021203;
-        public static final int notification_template_icon_low_bg = 0x7f021204;
+        public static final int notification_template_icon_bg = 0x7f021205;
+        public static final int notification_template_icon_low_bg = 0x7f021206;
         public static final int notification_tile_bg = 0x7f020eea;
         public static final int notify_panel_notification_icon_bg = 0x7f020eec;
         public static final int tooltip_frame_dark = 0x7f021170;
@@ -1175,16 +1175,16 @@ public final class R {
         public static final int send_error = 0x7f080ac0;
         public static final int share_to = 0x7f080b06;
         public static final int status_bar_notification_info_overflow = 0x7f080014;
-        public static final int voice_err_create_file_fail = 0x7f080cea;
-        public static final int voice_err_file_fail = 0x7f080ceb;
-        public static final int voice_err_init_fail = 0x7f080cec;
-        public static final int voice_err_load_lib_fail = 0x7f080cef;
-        public static final int voice_err_no_file = 0x7f080cf0;
-        public static final int voice_err_other = 0x7f080cf1;
-        public static final int voice_err_play = 0x7f080cf2;
-        public static final int voice_err_sdcard_nospace = 0x7f080cf3;
-        public static final int voice_record_short_tip = 0x7f080cf9;
-        public static final int voice_record_timeout_tip = 0x7f080cfa;
+        public static final int voice_err_create_file_fail = 0x7f080ceb;
+        public static final int voice_err_file_fail = 0x7f080cec;
+        public static final int voice_err_init_fail = 0x7f080ced;
+        public static final int voice_err_load_lib_fail = 0x7f080cf0;
+        public static final int voice_err_no_file = 0x7f080cf1;
+        public static final int voice_err_other = 0x7f080cf2;
+        public static final int voice_err_play = 0x7f080cf3;
+        public static final int voice_err_sdcard_nospace = 0x7f080cf4;
+        public static final int voice_record_short_tip = 0x7f080cfa;
+        public static final int voice_record_timeout_tip = 0x7f080cfb;
     }
 
     /* loaded from: classes.dex */

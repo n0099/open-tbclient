@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface d {
-    boolean afx();
+    boolean afu();
 
-    void afy();
+    void afv();
 
-    boolean afz();
+    boolean afw();
 
-    boolean nx(String str);
+    boolean ny(String str);
 }

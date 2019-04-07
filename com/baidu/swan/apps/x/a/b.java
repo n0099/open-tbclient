@@ -8,8 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends c {
-    public ArrayList<com.baidu.swan.apps.x.a.a.c> ayG;
-    public int[] ayH = {0, 0, 0, 0};
+    public ArrayList<com.baidu.swan.apps.x.a.a.c> ayJ;
+    public int[] ayK = {0, 0, 0, 0};
 
     @Override // com.baidu.swan.apps.x.a.c, com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -19,14 +19,14 @@ public class b extends c {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
                 int length = jSONArray2.length();
-                this.ayG = new ArrayList<>(length);
+                this.ayJ = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
                     if (jSONObject2 != null) {
                         com.baidu.swan.apps.x.a.a.c cVar = new com.baidu.swan.apps.x.a.a.c();
                         cVar.parseFromJson(jSONObject2);
                         if (cVar.isValid()) {
-                            this.ayG.add(cVar);
+                            this.ayJ.add(cVar);
                         }
                     }
                 }
@@ -34,7 +34,7 @@ public class b extends c {
             if (jSONObject.has("padding") && (jSONArray = jSONObject.getJSONArray("padding")) != null && jSONArray.length() > 0) {
                 int min = Math.min(jSONArray.length(), 4);
                 for (int i2 = 0; i2 < min; i2++) {
-                    this.ayH[i2] = x.ad(jSONArray.optInt(i2));
+                    this.ayK[i2] = x.ad(jSONArray.optInt(i2));
                 }
             }
         }
@@ -42,6 +42,6 @@ public class b extends c {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.aBD) || TextUtils.isEmpty(this.id) || this.ayG == null || this.ayG.size() <= 0) ? false : true;
+        return (TextUtils.isEmpty(this.aBG) || TextUtils.isEmpty(this.id) || this.ayJ == null || this.ayJ.size() <= 0) ? false : true;
     }
 }

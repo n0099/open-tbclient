@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a cjs;
-    private com.baidu.adp.widget.ImageView.a cjt;
+    private com.baidu.adp.widget.ImageView.a cju;
+    private com.baidu.adp.widget.ImageView.a cjv;
     private int cols;
     private int rows;
 
-    public abstract boolean amh();
+    public abstract boolean ame();
 
-    public abstract EmotionGroupType ami();
+    public abstract EmotionGroupType amf();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String jz(int i);
+    public abstract String jy(int i);
 
-    public abstract boolean oJ(String str);
-
-    public abstract com.baidu.adp.widget.ImageView.a oK(String str);
+    public abstract boolean oK(String str);
 
     public abstract com.baidu.adp.widget.ImageView.a oL(String str);
 
-    public com.baidu.adp.widget.ImageView.a amj() {
-        return this.cjs;
+    public abstract com.baidu.adp.widget.ImageView.a oM(String str);
+
+    public com.baidu.adp.widget.ImageView.a amg() {
+        return this.cju;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.oy();
         }
-        this.cjs = aVar;
+        this.cju = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a amk() {
-        return this.cjt;
+    public com.baidu.adp.widget.ImageView.a amh() {
+        return this.cjv;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.oy();
         }
-        this.cjt = aVar;
+        this.cjv = aVar;
     }
 
-    public int aml() {
+    public int ami() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jA(int i) {
+    public void jz(int i) {
         this.cols = i;
     }
 
-    public int amm() {
+    public int amj() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jB(int i) {
+    public void jA(int i) {
         this.rows = i;
     }
 }

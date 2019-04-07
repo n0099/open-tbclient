@@ -15,29 +15,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b coC = null;
-    private a coD;
+    private static b coE = null;
+    private a coF;
 
-    public static b anU() {
-        if (coC == null) {
+    public static b anR() {
+        if (coE == null) {
             synchronized (b.class) {
-                if (coC == null) {
-                    coC = new b();
+                if (coE == null) {
+                    coE = new b();
                 }
             }
         }
-        return coC;
+        return coE;
     }
 
     public void c(Application application) {
         if (application != null) {
             try {
-                if (this.coD == null) {
-                    this.coD = new a();
+                if (this.coF == null) {
+                    this.coF = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.coD, intentFilter);
+                    application.registerReceiver(this.coF, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -69,7 +69,7 @@ public class b {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.tA((String) serializableExtra);
+                n.tz((String) serializableExtra);
             }
         }
     }

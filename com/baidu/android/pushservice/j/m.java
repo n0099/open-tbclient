@@ -37,7 +37,8 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.meizu.cloud.pushsdk.PushManager;
+import com.coloros.mcssdk.PushManager;
+import com.coloros.mcssdk.callback.PushCallback;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.io.BufferedReader;
@@ -771,14 +772,14 @@ public final class m {
         }
     }
 
-    public static void a(Context context, String str, String str2, com.coloros.mcssdk.d.b bVar) {
+    public static void a(Context context, String str, String str2, PushCallback pushCallback) {
         if (context == null) {
             return;
         }
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.csU().b(applicationContext, str, str2, bVar);
+            PushManager.getInstance().register(applicationContext, str, str2, pushCallback);
         } catch (Exception e) {
         }
     }
@@ -1764,7 +1765,7 @@ public final class m {
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 7, "");
-            PushManager.register(applicationContext, str, str2);
+            com.meizu.cloud.pushsdk.PushManager.register(applicationContext, str, str2);
         } catch (Exception e) {
         }
     }

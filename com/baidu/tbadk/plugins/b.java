@@ -24,12 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String csi = "#";
-    public static String csj = "＃";
-    private static final Pattern brv = Pattern.compile("#([^#(]+)#", 2);
+    public static String csk = "#";
+    public static String csl = "＃";
+    private static final Pattern bry = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean pu(String str) {
-        return csi.equals(str);
+    public static boolean pv(String str) {
+        return csk.equals(str);
     }
 
     public static boolean fi(boolean z) {
@@ -45,7 +45,7 @@ public class b {
         return false;
     }
 
-    public static boolean apB() {
+    public static boolean apy() {
         return PluginPackageManager.ni().bZ("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -65,7 +65,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (apB()) {
+        } else if (apy()) {
             String string4 = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(d.j.setup);
             if (z) {
@@ -86,7 +86,7 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.ly(str);
+            aVar.lz(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(d.j.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -109,20 +109,20 @@ public class b {
                     }
                 });
             }
-            aVar.b(tbPageContext).aaZ();
+            aVar.b(tbPageContext).aaW();
         }
     }
 
-    public static SpannableString pv(String str) {
+    public static SpannableString pw(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = brv.matcher(str);
+        Matcher matcher = bry.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!px(str.substring(start, end))) {
+            if (!py(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -134,11 +134,11 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = brv.matcher(obj);
+                Matcher matcher = bry.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!px(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!py(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -146,21 +146,21 @@ public class b {
         }
     }
 
-    public static String pw(String str) {
+    public static String px(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(csi).append(str).append(csi);
+            sb.append(csk).append(str).append(csk);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean px(String str) {
+    public static boolean py(String str) {
         String substring;
-        return str != null && str.startsWith(csi) && str.endsWith(csi) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(csk) && str.endsWith(csk) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

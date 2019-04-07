@@ -17,7 +17,7 @@ public class y {
     int YU = YK;
     int YV = 0;
 
-    public void bz(int i) {
+    public void by(int i) {
         this.YR = i;
     }
 

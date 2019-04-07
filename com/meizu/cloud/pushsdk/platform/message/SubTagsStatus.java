@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import com.coloros.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.a.a;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.Serializable;
@@ -54,8 +55,8 @@ public class SubTagsStatus extends BasicPushStatus {
         if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
             setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
         }
-        if (!jSONObject.isNull("tags")) {
-            JSONArray jSONArray = jSONObject.getJSONArray("tags");
+        if (!jSONObject.isNull(CommandMessage.TYPE_TAGS)) {
+            JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i);

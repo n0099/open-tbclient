@@ -5,41 +5,41 @@ import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class k extends l {
     public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
-        if (m.apk().apl()) {
+        if (m.apg().aph()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "dlStat");
             jC.append("c_dnum", String.valueOf(rVar.num));
-            jC.append("c_dfnum", String.valueOf(rVar.bIE));
-            jC.append("c_spnum", String.valueOf(rVar.bIF));
+            jC.append("c_dfnum", String.valueOf(rVar.bIG));
+            jC.append("c_spnum", String.valueOf(rVar.bIH));
             jC.append("c_costt", String.valueOf(rVar.time));
             jC.append("c_dlsize", String.valueOf(rVar.CF));
             jC.append("p_dnum", String.valueOf(rVar2.num));
-            jC.append("p_dfnum", String.valueOf(rVar2.bIE));
-            jC.append("p_spnum", String.valueOf(rVar2.bIF));
+            jC.append("p_dfnum", String.valueOf(rVar2.bIG));
+            jC.append("p_spnum", String.valueOf(rVar2.bIH));
             jC.append("p_costt", String.valueOf(rVar2.time));
             jC.append("p_dlsize", String.valueOf(rVar2.CF));
             jC.append("t_dnum", String.valueOf(rVar3.num));
-            jC.append("t_dfnum", String.valueOf(rVar3.bIE));
-            jC.append("t_spnum", String.valueOf(rVar3.bIF));
+            jC.append("t_dfnum", String.valueOf(rVar3.bIG));
+            jC.append("t_spnum", String.valueOf(rVar3.bIH));
             jC.append("t_costt", String.valueOf(rVar3.time));
             jC.append("t_dlsize", String.valueOf(rVar3.CF));
             jC.append("d_dnum", String.valueOf(rVar4.num));
-            jC.append("d_dfnum", String.valueOf(rVar4.bIE));
-            jC.append("d_spnum", String.valueOf(rVar4.bIF));
+            jC.append("d_dfnum", String.valueOf(rVar4.bIG));
+            jC.append("d_spnum", String.valueOf(rVar4.bIH));
             jC.append("d_costt", String.valueOf(rVar4.time));
             jC.append("d_dlsize", String.valueOf(rVar4.CF));
             jC.append("op_dnum", String.valueOf(rVar5.num));
-            jC.append("op_dfnum", String.valueOf(rVar5.bIE));
-            jC.append("op_spnum", String.valueOf(rVar5.bIF));
+            jC.append("op_dfnum", String.valueOf(rVar5.bIG));
+            jC.append("op_spnum", String.valueOf(rVar5.bIH));
             jC.append("op_costt", String.valueOf(rVar5.time));
             jC.append("op_dlsize", String.valueOf(rVar5.CF));
-            jC.append("nettype", m.jZ(i));
+            jC.append("nettype", m.jY(i));
             BdStatisticsManager.getInstance().performance("image", jC);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (m.apk().apl()) {
+        if (m.apg().aph()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "dcStat");
             jC.append("dcnum", String.valueOf(i));

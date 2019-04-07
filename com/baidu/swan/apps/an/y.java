@@ -30,7 +30,7 @@ public final class y {
         return sb.toString();
     }
 
-    public static String hF(String str) {
+    public static String hG(String str) {
         int indexOf;
         if (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) {
             return str.substring(0, indexOf);
@@ -38,7 +38,7 @@ public final class y {
         return str;
     }
 
-    public static String hG(String str) {
+    public static String hH(String str) {
         if (!TextUtils.isEmpty(str)) {
             String str2 = null;
             int indexOf = str.indexOf("?");
@@ -50,21 +50,21 @@ public final class y {
         return str;
     }
 
-    public static String hH(String str) {
+    public static String hI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.fromFile(new File(str)).toString();
     }
 
-    public static Uri hI(String str) {
+    public static Uri hJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.fromFile(new File(str));
     }
 
-    public static String hJ(String str) {
+    public static String hK(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), HTTP.UTF_8);

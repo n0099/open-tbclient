@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a cPW;
+    private a cPY;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.cPW = a.awS();
+        this.cPY = a.awP();
     }
 
     public void a(a.InterfaceC0256a interfaceC0256a) {
-        this.cPW.a(interfaceC0256a);
+        this.cPY.a(interfaceC0256a);
     }
 
     public void b(a.InterfaceC0256a interfaceC0256a) {
-        this.cPW.b(interfaceC0256a);
+        this.cPY.b(interfaceC0256a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> axj() {
-        return this.cPW.awT();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> axg() {
+        return this.cPY.awQ();
     }
 
-    public void axk() {
+    public void axh() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void axf() {
+    public void axc() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void aw(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cPW.at(list);
+        this.cPY.at(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.cPW.a(aVar);
+        this.cPY.a(aVar);
     }
 
     public void bz(long j) {
-        this.cPW.bz(j);
+        this.cPY.bz(j);
     }
 
-    public int rg(String str) {
+    public int rh(String str) {
         int i;
-        if (c.ob(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> awT = this.cPW.awT();
-            if (awT != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : awT) {
-                    if (str.equals(aVar.ajP())) {
-                        i = awT.indexOf(aVar);
+        if (c.oc(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPY.awQ();
+            if (awQ != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : awQ) {
+                    if (str.equals(aVar.ajM())) {
+                        i = awQ.indexOf(aVar);
                         break;
                     }
                 }

@@ -34,7 +34,7 @@ public class GuidPageView extends ImageView {
         });
     }
 
-    public void aek() {
+    public void aeh() {
         if (getBackground() != null) {
             Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
             setBackgroundDrawable(null);

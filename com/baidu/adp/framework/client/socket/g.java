@@ -70,10 +70,10 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             e eVar = new e(socketMessage, socketMessageTask, this);
             if (BdSocketLinkService.hasAbsoluteClose()) {
                 i.a("queue", socketMessage, 0, "sendMessage", h.xo, "user manual close socket");
-                eVar.O(h.xo);
+                eVar.N(h.xo);
             } else if (!BdSocketLinkService.isAvailable()) {
                 i.a("queue", socketMessage, 0, "sendMessage", h.xe, "isManualBlock message be removed");
-                eVar.O(h.xe);
+                eVar.N(h.xe);
             } else {
                 i.a("queue", socketMessage, 0, "sendMessage", 0, "socketclient: send message");
                 c.a(eVar, this.wA);
@@ -144,9 +144,9 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         } else {
             i2 = h.xa;
         }
-        String Q = h.Q(i2);
+        String P = h.P(i2);
         e(eVar);
-        a(eVar, i2, Q);
+        a(eVar, i2, P);
     }
 
     public void c(e eVar) {
@@ -186,7 +186,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             if (socketResponsedMessage != null) {
                 socketResponsedMessage.setError(i);
                 if (str == null) {
-                    socketResponsedMessage.setErrorString(h.Q(i));
+                    socketResponsedMessage.setErrorString(h.P(i));
                 } else {
                     socketResponsedMessage.setErrorString(str);
                 }
@@ -292,8 +292,8 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             try {
                 com.baidu.adp.framework.client.socket.coder.c o = com.baidu.adp.framework.client.socket.coder.b.hb().o(bArr);
                 this.wG = 0;
-                int command = o.xI.getCommand();
-                int gY = o.xI.gY();
+                int command = o.xH.getCommand();
+                int gY = o.xH.gY();
                 i.a("queue", command, gY, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
                 e p = p(command, gY);
                 if (p != null) {
@@ -301,7 +301,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
                     p.wv = aVar.wv;
                 }
                 if (this.wE != null) {
-                    if (o.xI.getCommand() == this.wE.getCmd() && c.a(this.wA, this.wB)) {
+                    if (o.xH.getCommand() == this.wE.getCmd() && c.a(this.wA, this.wB)) {
                         gK();
                     }
                     this.wE.gn();
@@ -412,7 +412,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         return BdAsyncTask.getTaskNum(d.go());
     }
 
-    public int P(int i) {
+    public int O(int i) {
         return BdAsyncTask.getTaskNum(String.valueOf(i), d.go());
     }
 

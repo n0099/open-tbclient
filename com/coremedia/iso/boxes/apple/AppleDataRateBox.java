@@ -19,7 +19,7 @@ public class AppleDataRateBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleDataRateBox.java", AppleDataRateBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataRate", "com.coremedia.iso.boxes.apple.AppleDataRateBox", "", "", "", "long"), 53);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getDataRate", "com.coremedia.iso.boxes.apple.AppleDataRateBox", "", "", "", "long"), 53);
     }
 
     public AppleDataRateBox() {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class e {
-    public static void xu(int i) {
+    public static void xq(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new am("c12493").T("obj_type", i2));
     }
 
-    public static void xv(int i) {
+    public static void xr(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -42,11 +42,11 @@ public class e {
         TiebaStatic.log(new am("c12029").T("obj_type", i2).T("obj_param1", j.kZ() ? 0 : 1).T("obj_param2", i3));
     }
 
-    public static void AY(String str) {
+    public static void AX(String str) {
         TiebaStatic.log(new am("c12026").bJ("tid", str));
     }
 
-    public static void xw(int i) {
+    public static void xs(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;

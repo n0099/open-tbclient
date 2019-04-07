@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
-    private TextView dUm;
-    private LinearLayout ejg;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.e fPI;
+    private TextView dTF;
+    private LinearLayout eiS;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.e fPw;
     private int mHeight;
     private int mSkinType;
     private TextView mTitleView;
@@ -50,8 +50,8 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(d.h.card_topic_timeline_cell_view, (ViewGroup) this, true);
-        this.ejg = (LinearLayout) findViewById(d.g.card_topic_timeline_cell_date);
-        this.dUm = (TextView) findViewById(d.g.card_topic_timeline_cell_time);
+        this.eiS = (LinearLayout) findViewById(d.g.card_topic_timeline_cell_date);
+        this.dTF = (TextView) findViewById(d.g.card_topic_timeline_cell_time);
         this.mTitleView = (TextView) findViewById(d.g.card_topic_timeline_cell_title);
         this.mWidth = l.h(context, d.e.tbds340);
         this.mHeight = l.h(context, d.e.tbds230);
@@ -71,41 +71,41 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             return;
         }
         setVisibility(0);
-        this.fPI = eVar;
-        this.dUm.setText(eVar.fOD);
+        this.fPw = eVar;
+        this.dTF.setText(eVar.fOr);
         this.mTitleView.setText(eVar.title);
-        if (StringUtils.isNull(eVar.aZB)) {
+        if (StringUtils.isNull(eVar.aZE)) {
             if (eVar.index == 0) {
-                al.k(this.ejg, d.f.topic_timeline_bg_one);
+                al.k(this.eiS, d.f.topic_timeline_bg_one);
                 return;
             } else if (eVar.index == 1) {
-                al.k(this.ejg, d.f.topic_timeline_bg_two);
+                al.k(this.eiS, d.f.topic_timeline_bg_two);
                 return;
             } else {
-                al.k(this.ejg, d.f.topic_timeline_bg_three);
+                al.k(this.eiS, d.f.topic_timeline_bg_three);
                 return;
             }
         }
         try {
             GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(d.f.topic_timeline_bg);
-            gradientDrawable.setColor(Color.parseColor(eVar.aZB));
-            this.ejg.setBackgroundDrawable(gradientDrawable);
+            gradientDrawable.setColor(Color.parseColor(eVar.aZE));
+            this.eiS.setBackgroundDrawable(gradientDrawable);
         } catch (Exception e) {
             if (eVar.index == 0) {
-                al.k(this.ejg, d.f.topic_timeline_bg_one);
+                al.k(this.eiS, d.f.topic_timeline_bg_one);
             } else if (eVar.index == 1) {
-                al.k(this.ejg, d.f.topic_timeline_bg_two);
+                al.k(this.eiS, d.f.topic_timeline_bg_two);
             } else {
-                al.k(this.ejg, d.f.topic_timeline_bg_three);
+                al.k(this.eiS, d.f.topic_timeline_bg_three);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fPI != null) {
-            TiebaStatic.log(new am("c13353").k("tid", this.fPI.tid).k("topic_id", this.fPI.topicId).T("obj_locate", this.fPI.index + 1));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.fPI.tid), "", "")));
+        if (this.fPw != null) {
+            TiebaStatic.log(new am("c13353").k("tid", this.fPw.tid).k("topic_id", this.fPw.topicId).T("obj_locate", this.fPw.index + 1));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.fPw.tid), "", "")));
         }
     }
 
@@ -113,7 +113,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.j(this.dUm, d.C0277d.cp_cont_m);
+            al.j(this.dTF, d.C0277d.cp_cont_m);
             al.k(this.mTitleView, d.f.topic_timeline_shade_bg);
             al.j(this.mTitleView, d.C0277d.cp_cont_f);
         }

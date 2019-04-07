@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] csl = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] csn = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -28,7 +28,7 @@ public class Static {
                 }
             }
         });
-        apC();
+        apz();
         MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,7 +38,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.csl;
+                    String[] strArr = Static.csn;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -81,7 +81,7 @@ public class Static {
         });
     }
 
-    private static void apC() {
+    private static void apz() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.f

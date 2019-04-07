@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ubc.UBC;
-import com.tencent.open.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,6 +10,8 @@ import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
 /* loaded from: classes.dex */
 public class AlaInfoData implements Serializable {
+    public static final int FRS_STAGE_TYPE_AD = 0;
+    public static final int FRS_STAGE_TYPE_COMMON = 1;
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;
     public String appId;
@@ -20,6 +21,7 @@ public class AlaInfoData implements Serializable {
     public SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
+    public int frsLiveStageType;
     public long group_id;
     public String hls_url;
     public e label;
@@ -60,7 +62,7 @@ public class AlaInfoData implements Serializable {
                 this.media_pic = jSONObject.optString("media_pic");
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
-                this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+                this.description = jSONObject.optString("description");
                 this.user_info = new AlaUserInfoData();
                 this.user_info.parserJson(jSONObject.optJSONObject("user_info"));
                 this.share_info = new AlaShareInfoData();
@@ -96,6 +98,7 @@ public class AlaInfoData implements Serializable {
                     this.mChallengeInfoData = new AlaChallengeInfoData();
                     this.mChallengeInfoData.parserJson(optJSONObject2);
                 }
+                this.frsLiveStageType = jSONObject.optInt("frs_toplive_type");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -143,6 +146,7 @@ public class AlaInfoData implements Serializable {
                 }
                 this.mChallengeInfoData = new AlaChallengeInfoData();
                 this.mChallengeInfoData.parserProtobuf(alaLiveInfo.challenge_info);
+                this.frsLiveStageType = alaLiveInfo.frs_toplive_type.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

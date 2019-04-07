@@ -12,44 +12,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a fsV;
-    private boolean fsT = false;
-    private final HashMap<String, ArrayList<d>> fsU = new HashMap<>();
+    private static volatile a fsH;
+    private boolean fsF = false;
+    private final HashMap<String, ArrayList<d>> fsG = new HashMap<>();
 
     private a() {
     }
 
-    public static a bic() {
-        if (fsV == null) {
+    public static a bia() {
+        if (fsH == null) {
             synchronized (a.class) {
-                if (fsV == null) {
-                    fsV = new a();
+                if (fsH == null) {
+                    fsH = new a();
                 }
             }
         }
-        return fsV;
+        return fsH;
     }
 
-    public String bid() {
+    public String bib() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long vF(String str) {
-        d vG;
-        vG = vG(str);
-        return vG != null ? vG.lastTime : 0L;
+    public synchronized long vE(String str) {
+        d vF;
+        vF = vF(str);
+        return vF != null ? vF.lastTime : 0L;
     }
 
     public synchronized void r(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String bid = bid();
-            ArrayList<d> arrayList = this.fsU.get(bid);
+            String bib = bib();
+            ArrayList<d> arrayList = this.fsG.get(bib);
             ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            d vG = vG(str);
+            d vF = vF(str);
             boolean z = false;
-            if (vG != null) {
-                if (vG.lastTime != j) {
-                    vG.lastTime = j;
+            if (vF != null) {
+                if (vF.lastTime != j) {
+                    vF.lastTime = j;
                     z = true;
                 }
             } else {
@@ -60,13 +60,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(bid, arrayList2);
+                d(bib, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<d> arrayList) {
-        JSONObject bik;
+        JSONObject bii;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -74,26 +74,26 @@ public class a {
             ArrayList<d> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 d dVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(dVar.forumName) && (bik = dVar.bik()) != null) {
-                    jSONArray.put(bik);
+                if (!TextUtils.isEmpty(dVar.forumName) && (bii = dVar.bii()) != null) {
+                    jSONArray.put(bii);
                     arrayList2.add(dVar);
                 }
             }
             if (!v.T(arrayList2)) {
-                this.fsU.put(str, arrayList2);
-                if (!this.fsT) {
-                    bie();
+                this.fsG.put(str, arrayList2);
+                if (!this.fsF) {
+                    bic();
                 } else {
-                    vH(jSONArray.toString());
+                    vG(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized d vG(String str) {
+    private synchronized d vF(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.fsU.get(bid());
+            ArrayList<d> arrayList = this.fsG.get(bib());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -117,15 +117,15 @@ public class a {
         return dVar;
     }
 
-    private void vH(final String str) {
+    private void vG(final String str) {
         aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: big */
+            /* renamed from: bie */
             public l<String> doInBackground() {
-                l bif = a.this.bif();
-                if (bif != null) {
-                    bif.e("frs_smart_sort_last_time", str);
+                l bid = a.this.bid();
+                if (bid != null) {
+                    bid.e("frs_smart_sort_last_time", str);
                     return null;
                 }
                 return null;
@@ -133,20 +133,20 @@ public class a {
         }, null);
     }
 
-    public void bie() {
+    public void bic() {
         aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: big */
+            /* renamed from: bie */
             public l<String> doInBackground() {
-                l bif = a.this.bif();
-                if (bif != null) {
-                    String str = (String) bif.get("frs_smart_sort_last_time");
+                l bid = a.this.bid();
+                if (bid != null) {
+                    String str = (String) bid.get("frs_smart_sort_last_time");
                     if (str != null) {
-                        ArrayList vI = a.this.vI(str);
-                        a.this.fsU.put(a.this.bid(), vI);
+                        ArrayList vH = a.this.vH(str);
+                        a.this.fsG.put(a.this.bib(), vH);
                     }
-                    a.this.fsT = true;
+                    a.this.fsF = true;
                     return null;
                 }
                 return null;
@@ -155,12 +155,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> bif() {
-        return com.baidu.tbadk.core.c.a.aaW().bv("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
+    public l<String> bid() {
+        return com.baidu.tbadk.core.c.a.aaT().bv("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<d> vI(String str) {
+    public ArrayList<d> vH(String str) {
         ArrayList<d> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

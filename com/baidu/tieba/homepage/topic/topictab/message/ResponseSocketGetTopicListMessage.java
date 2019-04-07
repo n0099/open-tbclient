@@ -42,12 +42,12 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.eER = d.e.tbds16;
+                        cVar.eEC = d.e.tbds16;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eER = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eEC = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
             }
         }
     }

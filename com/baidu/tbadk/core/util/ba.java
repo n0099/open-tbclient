@@ -16,12 +16,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private final ConcurrentHashMap<String, b> bLy;
-    private c bLz;
+    private final ConcurrentHashMap<String, b> bLA;
+    private c bLB;
     private final List<a> mListeners;
-    private static ba bLx = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba bLz = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
-    private static final Pattern bLA = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static final Pattern bLC = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -44,13 +44,13 @@ public class ba {
 
     private ba() {
         this.mListeners = new LinkedList();
-        this.bLy = new ConcurrentHashMap<>();
-        this.bLz = null;
+        this.bLA = new ConcurrentHashMap<>();
+        this.bLB = null;
     }
 
     public static SpannableString av(Context context, String str) {
         int start;
-        Matcher matcher = bLA.matcher(str);
+        Matcher matcher = bLC.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -64,8 +64,8 @@ public class ba {
         return spannableString;
     }
 
-    public static ba adD() {
-        return bLx;
+    public static ba adA() {
+        return bLz;
     }
 
     public void a(final a aVar) {
@@ -89,7 +89,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.bLz = cVar;
+        this.bLB = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -102,9 +102,9 @@ public class ba {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bLy.get(mR(str));
+        b bVar = this.bLA.get(mS(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, mQ(mP(str)));
+            bVar.a(tbPageContext, mR(mQ(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
@@ -122,9 +122,9 @@ public class ba {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bLy.get(mR(str2));
+        b bVar = this.bLA.get(mS(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, mQ(mP(str2)));
+            bVar.a(tbPageContext, mR(mQ(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -139,7 +139,7 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.bLz != null) {
+        if (!z3 && this.bLB != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -150,7 +150,7 @@ public class ba {
         return z4;
     }
 
-    public static Map<String, String> mN(String str) {
+    public static Map<String, String> mO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -168,7 +168,7 @@ public class ba {
         return null;
     }
 
-    public static String mO(String str) {
+    public static String mP(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -176,7 +176,7 @@ public class ba {
         return split[1];
     }
 
-    public static String mP(String str) {
+    public static String mQ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -194,7 +194,7 @@ public class ba {
         }
     }
 
-    private Map<String, String> mQ(String str) {
+    private Map<String, String> mR(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -218,7 +218,7 @@ public class ba {
         return hashMap;
     }
 
-    private String mR(String str) {
+    private String mS(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -244,21 +244,21 @@ public class ba {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bLA.matcher(str2).find()) {
-            this.bLz.a(tbPageContext, str, str2, z, dVar, z2);
+        if (bLC.matcher(str2).find()) {
+            this.bLB.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String mR = mR(str);
-            if (!StringUtils.isNull(mR)) {
-                this.bLy.put(mR, bVar);
+            String mS = mS(str);
+            if (!StringUtils.isNull(mS)) {
+                this.bLA.put(mS, bVar);
             }
         }
     }
 
-    public boolean mS(String str) {
-        return bLA.matcher(str).find();
+    public boolean mT(String str) {
+        return bLC.matcher(str).find();
     }
 }

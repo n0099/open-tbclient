@@ -16,19 +16,19 @@ public interface e {
 
     void aC(Context context, String str);
 
-    int atd();
+    int ata();
 
-    com.baidu.adp.lib.e.b<ImageView> ate();
+    com.baidu.adp.lib.e.b<ImageView> atb();
 
-    com.baidu.adp.lib.e.b<TextView> atf();
+    com.baidu.adp.lib.e.b<TextView> atc();
 
-    com.baidu.adp.lib.e.b<GifView> atg();
+    com.baidu.adp.lib.e.b<GifView> atd();
 
-    com.baidu.adp.lib.e.b<View> ath();
+    com.baidu.adp.lib.e.b<View> ate();
 
-    com.baidu.adp.lib.e.b<LinearLayout> ati();
+    com.baidu.adp.lib.e.b<LinearLayout> atf();
 
-    com.baidu.adp.lib.e.b<RelativeLayout> atj();
+    com.baidu.adp.lib.e.b<RelativeLayout> atg();
 
     void ay(Context context, String str);
 

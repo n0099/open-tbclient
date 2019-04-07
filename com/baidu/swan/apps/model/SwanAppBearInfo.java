@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
-    public String aBs;
-    public String aBt;
-    public String aBu;
+    public String aBA;
     public String aBv;
     public String aBw;
     public String aBx;
+    public String aBy;
+    public String aBz;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,52 +25,52 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cI */
+        /* renamed from: cH */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }
     };
 
     public SwanAppBearInfo() {
-        this.aBs = "";
-        this.aBt = "";
-        this.aBu = "";
         this.aBv = "";
         this.aBw = "";
         this.aBx = "";
+        this.aBy = "";
+        this.aBz = "";
+        this.aBA = "";
     }
 
     private SwanAppBearInfo(Parcel parcel) {
-        this.aBs = "";
-        this.aBt = "";
-        this.aBu = "";
         this.aBv = "";
         this.aBw = "";
         this.aBx = "";
-        this.aBs = parcel.readString();
-        this.aBt = parcel.readString();
-        this.aBu = parcel.readString();
+        this.aBy = "";
+        this.aBz = "";
+        this.aBA = "";
         this.aBv = parcel.readString();
         this.aBw = parcel.readString();
         this.aBx = parcel.readString();
+        this.aBy = parcel.readString();
+        this.aBz = parcel.readString();
+        this.aBA = parcel.readString();
     }
 
     public SwanAppBearInfo(String str) {
-        this.aBs = "";
-        this.aBt = "";
-        this.aBu = "";
         this.aBv = "";
         this.aBw = "";
         this.aBx = "";
+        this.aBy = "";
+        this.aBz = "";
+        this.aBA = "";
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aBs = jSONObject.optString("office_id");
-                this.aBw = jSONObject.optString("sign");
-                this.aBv = jSONObject.optString("url");
-                this.aBu = jSONObject.optString("avatar");
-                this.aBt = jSONObject.optString("name");
-                this.aBx = jSONObject.optString("v_type");
+                this.aBv = jSONObject.optString("office_id");
+                this.aBz = jSONObject.optString("sign");
+                this.aBy = jSONObject.optString("url");
+                this.aBx = jSONObject.optString("avatar");
+                this.aBw = jSONObject.optString("name");
+                this.aBA = jSONObject.optString("v_type");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -80,7 +80,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aBs);
+        return !TextUtils.isEmpty(this.aBv);
     }
 
     @Override // android.os.Parcelable
@@ -90,11 +90,11 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.aBs);
-        parcel.writeString(this.aBt);
-        parcel.writeString(this.aBu);
         parcel.writeString(this.aBv);
         parcel.writeString(this.aBw);
         parcel.writeString(this.aBx);
+        parcel.writeString(this.aBy);
+        parcel.writeString(this.aBz);
+        parcel.writeString(this.aBA);
     }
 }

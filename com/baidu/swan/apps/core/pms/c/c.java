@@ -16,16 +16,16 @@ public class c {
     }
 
     public static void a(String str, final a aVar) {
-        Uri hL = aa.hL(str);
-        if (hL == null) {
-            e.LG().b(new com.baidu.swan.apps.ak.a().L(4L).M(10L).hw("download icon fail: icon url is null"));
+        Uri hM = aa.hM(str);
+        if (hM == null) {
+            e.LE().b(new com.baidu.swan.apps.ak.a().L(4L).M(10L).hx("download icon fail: icon url is null"));
             if (aVar != null) {
                 aVar.g(null);
                 return;
             }
             return;
         }
-        com.facebook.drawee.a.a.c.cuF().e(ImageRequestBuilder.O(hL).cAI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
+        com.facebook.drawee.a.a.c.cuy().e(ImageRequestBuilder.O(hM).cAB(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
@@ -63,6 +63,6 @@ public class c {
                     a.this.g(null);
                 }
             }
-        }, f.ctJ());
+        }, f.ctC());
     }
 }

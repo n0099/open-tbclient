@@ -28,12 +28,12 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     public x onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
         x xVar = new x(inflate);
-        al.j(xVar.dio, d.C0277d.cp_cont_b);
-        al.j(xVar.fhZ, d.C0277d.cp_cont_h);
-        al.c(xVar.fhY, d.f.icon_news_list_prompt);
-        al.c(xVar.fia, d.f.icon_index_category_arrow_r);
-        al.l(xVar.fib, d.C0277d.cp_bg_line_b);
-        al.l(xVar.fic, d.C0277d.cp_bg_line_b);
+        al.j(xVar.dir, d.C0277d.cp_cont_b);
+        al.j(xVar.fhL, d.C0277d.cp_cont_h);
+        al.c(xVar.fhK, d.f.icon_news_list_prompt);
+        al.c(xVar.fhM, d.f.icon_index_category_arrow_r);
+        al.l(xVar.fhN, d.C0277d.cp_bg_line_b);
+        al.l(xVar.fhO, d.C0277d.cp_bg_line_b);
         al.k(inflate, d.f.home_thread_card_item_bg);
         return xVar;
     }
@@ -56,11 +56,11 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         });
-        xVar.dio.setText(lVar != null ? lVar.text : "");
+        xVar.dir.setText(lVar != null ? lVar.text : "");
         if (cG(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            xVar.fhY.setVisibility(0);
+            xVar.fhK.setVisibility(0);
         } else {
-            xVar.fhY.setVisibility(8);
+            xVar.fhK.setVisibility(8);
         }
         return xVar.getView();
     }

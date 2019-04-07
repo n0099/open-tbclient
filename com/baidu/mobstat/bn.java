@@ -5,7 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bz;
-import com.sina.weibo.sdk.constant.WBConstants;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
@@ -190,8 +190,8 @@ public class bn {
 
     private static String a(Context context, String str) {
         ArrayList<Pair> arrayList = new ArrayList();
-        arrayList.add(new Pair("sdkVersion", StatService.getSdkVersion()));
-        arrayList.add(new Pair(WBConstants.SSO_APP_KEY, "" + str));
+        arrayList.add(new Pair(CommandMessage.SDK_VERSION, StatService.getSdkVersion()));
+        arrayList.add(new Pair("appKey", "" + str));
         arrayList.add(new Pair("packageName", context.getPackageName()));
         arrayList.add(new Pair("appVersion", cc.g(context)));
         arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));

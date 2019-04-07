@@ -17,35 +17,35 @@ public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public synchronized void i(@Nullable Set<String> set) {
-        List<String> AB;
+        List<String> AA;
         if (!ProcessUtils.isMainProcess()) {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (Bh()) {
+        } else if (Bf()) {
             if (DEBUG) {
                 Log.d("SwanAppDiskCleaner", "配置无用包个数上限： 50");
             }
-            com.baidu.swan.apps.storage.b.f.KL().putLong("clean_disk_check_time", System.currentTimeMillis());
-            if (com.baidu.swan.apps.core.pms.a.vq()) {
-                AB = Bi();
+            com.baidu.swan.apps.storage.b.f.KJ().putLong("clean_disk_check_time", System.currentTimeMillis());
+            if (com.baidu.swan.apps.core.pms.a.vp()) {
+                AA = Bg();
                 if (DEBUG) {
                     Log.d("SwanAppDiskCleaner", "从pms查询小程序");
                 }
             } else {
-                AB = SwanAppDbControl.bE(AppRuntime.getAppContext()).AB();
+                AA = SwanAppDbControl.bE(AppRuntime.getAppContext()).AA();
                 if (DEBUG) {
                     Log.d("SwanAppDiskCleaner", "从aps查询小程序");
                 }
             }
-            if (AB == null || AB.size() == 0) {
+            if (AA == null || AA.size() == 0) {
                 if (DEBUG) {
                     Log.d("SwanAppDiskCleaner", "未查询到小程序");
                 }
             } else {
                 if (DEBUG) {
-                    Log.d("SwanAppDiskCleaner", "查询到" + AB.size() + "个小程序：");
-                    Iterator<String> it = AB.iterator();
+                    Log.d("SwanAppDiskCleaner", "查询到" + AA.size() + "个小程序：");
+                    Iterator<String> it = AA.iterator();
                     while (it.hasNext()) {
                         Log.d("SwanAppDiskCleaner", "id: " + it.next());
                     }
@@ -56,26 +56,26 @@ public class f {
                 arrayList.add(new c());
                 arrayList.add(new b(50));
                 for (com.baidu.swan.apps.env.a.a aVar : arrayList) {
-                    AB = aVar.s(AB);
+                    AA = aVar.s(AA);
                 }
                 if (DEBUG) {
-                    if (AB == null || AB.size() == 0) {
+                    if (AA == null || AA.size() == 0) {
                         Log.d("SwanAppDiskCleaner", "无需清理小程序");
                     } else {
-                        Log.d("SwanAppDiskCleaner", "过滤后需清理" + AB.size() + "个小程序：");
-                        Iterator<String> it2 = AB.iterator();
+                        Log.d("SwanAppDiskCleaner", "过滤后需清理" + AA.size() + "个小程序：");
+                        Iterator<String> it2 = AA.iterator();
                         while (it2.hasNext()) {
                             Log.d("SwanAppDiskCleaner", "id: " + it2.next());
                         }
                     }
                 }
-                com.baidu.swan.apps.env.e.Bf().Bg().e(AB, false);
+                com.baidu.swan.apps.env.e.Bd().Be().e(AA, false);
             }
         }
     }
 
-    private boolean Bh() {
-        boolean z = System.currentTimeMillis() - com.baidu.swan.apps.storage.b.f.KL().getLong("clean_disk_check_time", 0L) >= 172800000;
+    private boolean Bf() {
+        boolean z = System.currentTimeMillis() - com.baidu.swan.apps.storage.b.f.KJ().getLong("clean_disk_check_time", 0L) >= 172800000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率，不清理");
         }
@@ -83,12 +83,12 @@ public class f {
     }
 
     @Nullable
-    private List<String> Bi() {
-        Map<String, com.baidu.swan.pms.model.a> RB = com.baidu.swan.pms.database.a.RA().RB();
-        if (RB == null || RB.size() == 0) {
+    private List<String> Bg() {
+        Map<String, com.baidu.swan.pms.model.a> Rz = com.baidu.swan.pms.database.a.Ry().Rz();
+        if (Rz == null || Rz.size() == 0) {
             return null;
         }
-        ArrayList<com.baidu.swan.pms.model.a> arrayList = new ArrayList(RB.values());
+        ArrayList<com.baidu.swan.pms.model.a> arrayList = new ArrayList(Rz.values());
         Collections.sort(arrayList, new a());
         ArrayList arrayList2 = new ArrayList();
         for (com.baidu.swan.pms.model.a aVar : arrayList) {

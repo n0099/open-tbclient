@@ -18,8 +18,8 @@ public class r implements CustomMessageTask.CustomRunnable<Object> {
         responseSearchGroupLocalMessage.setError(0);
         responseSearchGroupLocalMessage.setGid(groupId);
         String str = groupId + "";
-        com.baidu.adp.lib.cache.l<String> lv = com.baidu.tbadk.core.c.a.aaW().lv("tb.im_group_search_history");
-        lv.e(str, lv.get(str));
+        com.baidu.adp.lib.cache.l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.im_group_search_history");
+        lw.e(str, lw.get(str));
         return responseSearchGroupLocalMessage;
     }
 }

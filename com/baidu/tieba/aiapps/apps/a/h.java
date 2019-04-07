@@ -15,9 +15,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class h implements com.baidu.swan.apps.u.b.c {
-    private static String cRl = " swan/1.6";
-    private final List<com.baidu.swan.apps.a.c> cRm = new LinkedList();
-    private String cRn = null;
+    private static String cRn = " swan/1.6";
+    private final List<com.baidu.swan.apps.a.c> cRo = new LinkedList();
+    private String cRp = null;
 
     public h() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.aiapps.apps.a.h.1
@@ -25,8 +25,8 @@ public class h implements com.baidu.swan.apps.u.b.c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 boolean isNULL = StringUtils.isNULL(h.this.bl(TbadkCoreApplication.getInst()));
-                synchronized (h.this.cRm) {
-                    for (com.baidu.swan.apps.a.c cVar : h.this.cRm) {
+                synchronized (h.this.cRo) {
+                    for (com.baidu.swan.apps.a.c cVar : h.this.cRo) {
                         cVar.aL(isNULL);
                     }
                 }
@@ -65,9 +65,9 @@ public class h implements com.baidu.swan.apps.u.b.c {
     @Override // com.baidu.swan.apps.u.b.c
     public void a(com.baidu.swan.apps.a.c cVar) {
         if (cVar != null) {
-            synchronized (this.cRm) {
-                if (!this.cRm.contains(cVar)) {
-                    this.cRm.add(cVar);
+            synchronized (this.cRo) {
+                if (!this.cRo.contains(cVar)) {
+                    this.cRo.add(cVar);
                 }
             }
         }

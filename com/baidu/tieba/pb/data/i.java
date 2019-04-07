@@ -6,40 +6,40 @@ import com.baidu.tbadk.core.data.bg;
 import tbclient.PbPage.DataRes;
 /* loaded from: classes4.dex */
 public class i implements m {
-    public static final BdUniqueId hkM = BdUniqueId.gen();
-    public bg bTl;
-    private boolean hkN = false;
-    private boolean hkO = false;
-    private int hkP = 1;
+    public static final BdUniqueId hkz = BdUniqueId.gen();
+    public bg bTn;
+    private boolean hkA = false;
+    private boolean hkB = false;
+    private int hkC = 1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hkM;
+        return hkz;
     }
 
     public void b(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null && dataRes.thread != null) {
-            this.hkN = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+            this.hkA = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
         }
     }
 
-    public int aan() {
-        if (this.bTl != null) {
-            return this.bTl.aan();
+    public int aak() {
+        if (this.bTn != null) {
+            return this.bTn.aak();
         }
         return 0;
     }
 
-    public boolean bIA() {
-        return this.bTl != null && this.bTl.aam() == 1;
+    public boolean bIx() {
+        return this.bTn != null && this.bTn.aaj() == 1;
     }
 
     public void na(boolean z) {
-        this.hkO = z;
+        this.hkB = z;
     }
 
-    public boolean bIB() {
-        return this.hkO;
+    public boolean bIy() {
+        return this.hkB;
     }
 }

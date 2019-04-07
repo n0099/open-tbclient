@@ -13,8 +13,8 @@ import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes5.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
     private float Qm;
-    private h bhQ;
-    private boolean bhY;
+    private h bhT;
+    private boolean bib;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.bhQ = hVar;
+        this.bhT = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bhY || this.bhQ == null) {
+        if (this.bib || this.bhT == null) {
             this.Qm = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.Qm;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.bhQ.QA() && aj(rawY)) {
-                    this.bhQ.cJ(true);
+                if (z && !this.bhT.Qy() && aj(rawY)) {
+                    this.bhT.cJ(true);
                     return true;
-                } else if (!z && Qw() && this.bhQ.QA() && aj(rawY)) {
-                    this.bhQ.cJ(false);
+                } else if (!z && Qu() && this.bhT.Qy() && aj(rawY)) {
+                    this.bhT.cJ(false);
                     return true;
                 }
                 break;
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean Qw() {
+    private boolean Qu() {
         if (getChildCount() <= 0) {
             return true;
         }
@@ -75,11 +75,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void cG(boolean z) {
-        this.bhY = false;
+        this.bib = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void cH(boolean z) {
-        this.bhY = true;
+        this.bib = true;
     }
 }

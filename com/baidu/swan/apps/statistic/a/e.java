@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject aSq;
-    public String axI;
+    protected JSONObject aSt;
+    public String axL;
     public String mAppId;
     public String mFrom = "swan";
     public String mSource;
@@ -33,16 +33,16 @@ public class e {
                 this.mSource = "NA";
             }
             jSONObject.put("source", this.mSource);
-            if (!TextUtils.isEmpty(this.axI)) {
-                jSONObject.put("page", this.axI);
+            if (!TextUtils.isEmpty(this.axL)) {
+                jSONObject.put("page", this.axL);
             }
-            if (this.aSq == null) {
-                this.aSq = new JSONObject();
+            if (this.aSt == null) {
+                this.aSt = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.aSq.put("appid", this.mAppId);
+                this.aSt.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.aSq);
+            jSONObject.put("ext", this.aSt);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -54,14 +54,14 @@ public class e {
 
     public void ai(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aSq == null) {
-                this.aSq = new JSONObject();
+            if (this.aSt == null) {
+                this.aSt = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.aSq.put(next, jSONObject.opt(next));
+                    this.aSt.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,11 +72,11 @@ public class e {
     }
 
     public void aB(@NonNull String str, String str2) {
-        if (this.aSq == null) {
-            this.aSq = new JSONObject();
+        if (this.aSt == null) {
+            this.aSt = new JSONObject();
         }
         try {
-            this.aSq.put(str, str2);
+            this.aSt.put(str, str2);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

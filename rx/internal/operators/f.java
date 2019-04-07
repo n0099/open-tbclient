@@ -4,8 +4,8 @@ import rx.d;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
 public final class f<T, R> implements d.a<R> {
-    final rx.d<T> jVF;
-    final rx.functions.f<? super T, ? extends R> jWI;
+    final rx.d<T> jUX;
+    final rx.functions.f<? super T, ? extends R> jWa;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,14 +13,14 @@ public final class f<T, R> implements d.a<R> {
     }
 
     public f(rx.d<T> dVar, rx.functions.f<? super T, ? extends R> fVar) {
-        this.jVF = dVar;
-        this.jWI = fVar;
+        this.jUX = dVar;
+        this.jWa = fVar;
     }
 
     public void call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.jWI);
+        a aVar = new a(jVar, this.jWa);
         jVar.add(aVar);
-        this.jVF.a((rx.j) aVar);
+        this.jUX.a((rx.j) aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,17 +28,17 @@ public final class f<T, R> implements d.a<R> {
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         boolean done;
-        final rx.functions.f<? super T, ? extends R> jWb;
+        final rx.functions.f<? super T, ? extends R> jVt;
 
         public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
             this.actual = jVar;
-            this.jWb = fVar;
+            this.jVt = fVar;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.jWb.call(t));
+                this.actual.onNext(this.jVt.call(t));
             } catch (Throwable th) {
                 rx.exceptions.a.L(th);
                 unsubscribe();

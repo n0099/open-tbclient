@@ -30,11 +30,11 @@ import java.util.LinkedList;
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> {
     private a Xy;
     private ab<a> YB;
-    private boolean ZP;
-    private boolean aaa;
-    private LinkedList<MediaData> aae;
-    public TbImageView aau;
-    public ImageView aav;
+    private boolean ZQ;
+    private boolean aab;
+    private LinkedList<MediaData> aaf;
+    public TbImageView aav;
+    public ImageView aaw;
     public TextView mTitle;
     private static final int Zl = l.h(TbadkCoreApplication.getInst(), d.e.tbds88);
     private static final int SCREEN_WIDTH = l.aO(TbadkCoreApplication.getInst());
@@ -47,9 +47,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZP = true;
+        this.ZQ = true;
         this.Xy = null;
-        this.aaa = false;
+        this.aab = false;
         initUI();
     }
 
@@ -58,43 +58,43 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, Zn));
         this.mTitle = (TextView) findViewById(d.g.thread_card_title);
-        this.aau = (TbImageView) findViewById(d.g.thread_card_img_singal);
-        this.aav = (ImageView) findViewById(d.g.play_btn);
+        this.aav = (TbImageView) findViewById(d.g.thread_card_img_singal);
+        this.aaw = (ImageView) findViewById(d.g.play_btn);
     }
 
     private void setImageData(bg bgVar) {
-        ArrayList<MediaData> Zb = bgVar.Zb();
-        if (com.baidu.tbadk.core.i.Wy().WC() && v.S(Zb) != 0) {
+        ArrayList<MediaData> YY = bgVar.YY();
+        if (com.baidu.tbadk.core.i.Wv().Wz() && v.S(YY) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < Zb.size(); i++) {
-                MediaData mediaData = (MediaData) v.c(Zb, i);
+            for (int i = 0; i < YY.size(); i++) {
+                MediaData mediaData = (MediaData) v.c(YY, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.aae = linkedList;
-            this.aaa = true;
-            this.aau.setVisibility(8);
+            this.aaf = linkedList;
+            this.aab = true;
             this.aav.setVisibility(8);
+            this.aaw.setVisibility(8);
             if (v.S(linkedList) > 0) {
-                this.aau.setVisibility(0);
                 this.aav.setVisibility(0);
-                this.aau.setConrers(15);
-                a((MediaData) v.c(Zb, 0), this.aau, true, false, true, 0);
+                this.aaw.setVisibility(0);
+                this.aav.setConrers(15);
+                a((MediaData) v.c(YY, 0), this.aav, true, false, true, 0);
                 return;
             }
-            this.aau.setVisibility(8);
             this.aav.setVisibility(8);
-            this.aaa = false;
+            this.aaw.setVisibility(8);
+            this.aab = false;
             return;
         }
-        this.aau.setVisibility(8);
         this.aav.setVisibility(8);
-        this.aaa = false;
+        this.aaw.setVisibility(8);
+        this.aab = false;
     }
 
     public void setFromCDN(boolean z) {
-        this.ZP = z;
+        this.ZQ = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -105,9 +105,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     /* renamed from: a */
     public void C(a aVar) {
         this.Xy = aVar;
-        bg WR = aVar.WR();
-        au.a(this.mTitle, WR);
-        setImageData(WR);
+        bg WO = aVar.WO();
+        au.a(this.mTitle, WO);
+        setImageData(WO);
     }
 
     public void setMarginsTop(View view, int i) {
@@ -135,7 +135,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
 
     private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
         String a = a(mediaData);
-        int i2 = this.ZP ? 13 : 14;
+        int i2 = this.ZQ ? 13 : 14;
         if (!ap.equals(a, tbImageView.getUrl())) {
             tbImageView.reset();
         }

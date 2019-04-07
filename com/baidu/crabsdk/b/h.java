@@ -15,7 +15,7 @@ import org.apache.http.protocol.HTTP;
 public final class h {
     private static String abP = null;
 
-    public static String b(String str) {
+    public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
             return Apn.APN_UNKNOWN;
         }
@@ -56,9 +56,9 @@ public final class h {
                 return abP;
             }
             try {
-                abP = b(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                abP = a(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cx("getCUID fail," + e);
+                com.baidu.crabsdk.c.a.v("getCUID fail," + e);
                 abP = Apn.APN_UNKNOWN;
             }
             return abP;

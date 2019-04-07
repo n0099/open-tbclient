@@ -22,6 +22,7 @@ import android.util.Pair;
 import android.widget.RemoteViews;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
+import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.android.b;
 import com.xiaomi.push.service.ag;
@@ -242,7 +243,7 @@ public class ac {
             com.xiaomi.channel.commonutils.logger.b.a("Do not notify because user block " + ay.a(abVar) + "‘s notification");
             return bVar;
         } else {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
             com.xiaomi.xmpush.thrift.r m = abVar.m();
             RemoteViews b2 = b(context, abVar, bArr);
             PendingIntent a2 = a(context, abVar, m, bArr);
@@ -342,7 +343,7 @@ public class ac {
     }
 
     public static void a(Context context, String str, int i) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
         int hashCode = ((str.hashCode() / 10) * 10) + i;
         LinkedList linkedList = new LinkedList();
         if (i >= 0) {
@@ -376,7 +377,7 @@ public class ac {
         if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
             return;
         }
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
         LinkedList linkedList = new LinkedList();
         synchronized (b) {
             Iterator<Pair<Integer, com.xiaomi.xmpush.thrift.ab>> it = b.iterator();

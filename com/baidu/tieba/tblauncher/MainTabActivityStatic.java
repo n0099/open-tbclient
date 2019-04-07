@@ -32,15 +32,15 @@ import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class MainTabActivityStatic {
-    private static int iMp = 0;
-    private static boolean iMq = false;
+    private static int iMd = 0;
+    private static boolean iMe = false;
 
     static {
-        bbS();
-        cgE();
+        bbQ();
+        cgC();
+        cgB();
         cgD();
-        cgF();
-        cgG();
+        cgE();
         MessageManager.getInstance().registerListener(new CustomMessageListener(2002004) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -51,7 +51,7 @@ public class MainTabActivityStatic {
                 }
             }
         });
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -80,10 +80,10 @@ public class MainTabActivityStatic {
             }
         });
         MessageManager.getInstance().registerStickyMode(2001626);
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Map<String, String> mN;
+                Map<String, String> mO;
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -92,12 +92,12 @@ public class MainTabActivityStatic {
                     String str = "";
                     String str2 = "";
                     String str3 = "";
-                    String mO = ba.mO(lowerCase);
-                    if (!StringUtils.isNull(mO) && (mN = ba.mN(mO)) != null) {
-                        String str4 = mN.get("title");
+                    String mP = ba.mP(lowerCase);
+                    if (!StringUtils.isNull(mP) && (mO = ba.mO(mP)) != null) {
+                        String str4 = mO.get("title");
                         str = !StringUtils.isNull(str4) ? URLDecoder.decode(str4) : str4;
-                        str2 = mN.get(ImageViewerConfig.FORUM_ID);
-                        str3 = mN.get(ImageViewerConfig.FORUM_NAME);
+                        str2 = mO.get(ImageViewerConfig.FORUM_ID);
+                        str3 = mO.get(ImageViewerConfig.FORUM_NAME);
                         if (!StringUtils.isNull(str3)) {
                             str3 = URLDecoder.decode(str3);
                         }
@@ -128,9 +128,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != iMp || b != iMq) {
-                iMp = a;
-                iMq = b;
+            if (a != iMd || b != iMe) {
+                iMd = a;
+                iMe = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }
@@ -150,7 +150,7 @@ public class MainTabActivityStatic {
         return newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
     }
 
-    private static void bbS() {
+    private static void bbQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015002, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -164,7 +164,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgD() {
+    private static void cgB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -179,7 +179,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgE() {
+    private static void cgC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -193,8 +193,8 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgF() {
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
+    private static void cgD() {
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -210,7 +210,7 @@ public class MainTabActivityStatic {
         });
     }
 
-    private static void cgG() {
+    private static void cgE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SCHEMA_UPLOAD, TbConfig.SERVER_ADDRESS + "c/s/schemastat");
         tbHttpMessageTask.setResponsedClass(HttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

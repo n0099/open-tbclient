@@ -4,28 +4,28 @@ import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b yz = null;
-    private e yA;
+    private static b yy = null;
+    private e yz;
 
     public static b hk() {
-        if (yz == null) {
+        if (yy == null) {
             synchronized (b.class) {
-                if (yz == null) {
-                    yz = new b();
+                if (yy == null) {
+                    yy = new b();
                 }
             }
         }
-        return yz;
+        return yy;
     }
 
     private b() {
-        this.yA = null;
-        this.yC = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.yA = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
+        this.yz = null;
+        this.yB = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.yz = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
         this.mRetryCount = 3;
     }
 
     public e hl() {
-        return this.yA;
+        return this.yz;
     }
 }

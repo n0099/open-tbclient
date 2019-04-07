@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.hybrid;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.coloros.mcssdk.PushManager;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -9,12 +10,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private static final AtomicLong bGQ = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> bGR;
-    final Map<String, Object> bGS;
-    final String bGT;
-    final long bGU;
-    final long bGV;
+    private static final AtomicLong bGS = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> bGT;
+    final Map<String, Object> bGU;
+    final String bGV;
+    final long bGW;
+    final long bGX;
     final String cmd;
     final String method;
     final int type;
@@ -22,21 +23,21 @@ public class m {
     private m(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.bGR = map;
-        this.bGS = map2;
+        this.bGT = map;
+        this.bGU = map2;
         this.type = i;
-        this.bGT = str3;
-        this.bGU = j;
-        this.bGV = System.currentTimeMillis();
+        this.bGV = str3;
+        this.bGW = j;
+        this.bGX = System.currentTimeMillis();
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new m(i, str, str2, map, null, z ? abI() : null, j);
+        return new m(i, str, str2, map, null, z ? abF() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(Map<String, Object> map, long j, k kVar) {
-        return new a(1, null, null, map, null, abI(), kVar, j);
+        return new a(1, null, null, map, null, abF(), kVar, j);
     }
 
     public static m a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -47,7 +48,7 @@ public class m {
         return new m(3, null, null, null, map, str, -1L);
     }
 
-    private String abG() {
+    private String abD() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -60,7 +61,7 @@ public class m {
         }
     }
 
-    public String abH() throws JSONException {
+    public String abE() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -68,19 +69,19 @@ public class m {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.bGR != null && !this.bGR.isEmpty()) {
+        if (this.bGT != null && !this.bGT.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.bGR, jSONObject2);
+            b(this.bGT, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.bGS != null && !this.bGS.isEmpty()) {
+        if (this.bGU != null && !this.bGU.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.bGS, jSONObject3);
+            b(this.bGU, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", abG());
-        if (!TextUtils.isEmpty(this.bGT)) {
-            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.bGT);
+        jSONObject.put(PushManager.MESSAGE_TYPE, abD());
+        if (!TextUtils.isEmpty(this.bGV)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.bGV);
         }
         return encode(jSONObject.toString());
     }
@@ -89,8 +90,8 @@ public class m {
     public void aK(JSONObject jSONObject) {
     }
 
-    private static String abI() {
-        return "TBCWebViewJsBridge_callback_ID_" + bGQ.getAndIncrement();
+    private static String abF() {
+        return "TBCWebViewJsBridge_callback_ID_" + bGS.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -109,21 +110,21 @@ public class m {
 
     /* loaded from: classes.dex */
     private static final class a extends m {
-        private final k bGW;
+        private final k bGY;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, k kVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.bGW = kVar;
+            this.bGY = kVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         protected void aK(JSONObject jSONObject) {
-            this.bGW.a(this, jSONObject);
+            this.bGY.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         void b(int i, Throwable th) {
-            this.bGW.b(i, th);
+            this.bGY.b(i, th);
         }
     }
 }

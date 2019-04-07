@@ -3,22 +3,22 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
-    private a aVB = null;
-    private long aVC = 0;
-    private long aVD = 0;
-    private long aVE = 2;
-    private String aVF = "";
-    private final StringBuilder aVG = new StringBuilder();
-    private boolean aVH = false;
+    private a aVE = null;
+    private long aVF = 0;
+    private long aVG = 0;
+    private long aVH = 2;
+    private String aVI = "";
+    private final StringBuilder aVJ = new StringBuilder();
+    private boolean aVK = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(LC()), Long.valueOf(Lx()), Long.valueOf(Ly()), Long.valueOf(Lz()), LA()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(LA()), Long.valueOf(Lv()), Long.valueOf(Lw()), Long.valueOf(Lx()), Ly()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(Lx()), Long.valueOf(Ly()), Long.valueOf(Lz())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(Lv()), Long.valueOf(Lw()), Long.valueOf(Lx())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", LB()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", Lz()));
         }
         return sb.toString();
     }
@@ -28,55 +28,55 @@ public final class a {
     }
 
     public a K(long j) {
-        this.aVE = a(j, 9L, "platform");
+        this.aVH = a(j, 9L, "platform");
+        return this;
+    }
+
+    public long Lv() {
+        return this.aVH;
+    }
+
+    public a L(long j) {
+        this.aVF = a(j, 999L, "feature");
+        return this;
+    }
+
+    public long Lw() {
+        return this.aVF;
+    }
+
+    public a M(long j) {
+        this.aVG = a(j, 9999L, "error");
         return this;
     }
 
     public long Lx() {
-        return this.aVE;
-    }
-
-    public a L(long j) {
-        this.aVC = a(j, 999L, "feature");
-        return this;
-    }
-
-    public long Ly() {
-        return this.aVC;
-    }
-
-    public a M(long j) {
-        this.aVD = a(j, 9999L, "error");
-        return this;
-    }
-
-    public long Lz() {
-        return this.aVD;
-    }
-
-    public a hv(String str) {
-        if (str == null) {
-            str = "";
-        }
-        this.aVF = str;
-        return this;
-    }
-
-    public String LA() {
-        return this.aVF;
-    }
-
-    public a hw(String str) {
-        this.aVG.append(str).append("\n");
-        return this;
-    }
-
-    public StringBuilder LB() {
         return this.aVG;
     }
 
-    public long LC() {
-        return (Lx() * 10000000) + (Ly() * 10000) + (Lz() * 1);
+    public a hw(String str) {
+        if (str == null) {
+            str = "";
+        }
+        this.aVI = str;
+        return this;
+    }
+
+    public String Ly() {
+        return this.aVI;
+    }
+
+    public a hx(String str) {
+        this.aVJ.append(str).append("\n");
+        return this;
+    }
+
+    public StringBuilder Lz() {
+        return this.aVJ;
+    }
+
+    public long LA() {
+        return (Lv() * 10000000) + (Lw() * 10000) + (Lx() * 1);
     }
 
     public a N(long j) {
@@ -87,18 +87,18 @@ public final class a {
         return this;
     }
 
-    public boolean LD() {
-        return this.aVH;
+    public boolean LB() {
+        return this.aVK;
     }
 
-    public void LE() {
-        this.aVH = true;
+    public void LC() {
+        this.aVK = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            hw("illegalFallback " + str + "::" + String.valueOf(j));
+            hx("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

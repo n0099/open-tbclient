@@ -5,6 +5,7 @@ import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -60,8 +61,8 @@ public class CloudPoiInfo {
             }
         }
         jSONObject.remove(Headers.LOCATION);
-        this.tags = jSONObject.optString("tags");
-        jSONObject.remove("tags");
+        this.tags = jSONObject.optString(CommandMessage.TYPE_TAGS);
+        jSONObject.remove(CommandMessage.TYPE_TAGS);
         this.distance = jSONObject.optInt("distance");
         jSONObject.remove("distance");
         this.weight = jSONObject.optInt("weight");

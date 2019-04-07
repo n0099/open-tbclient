@@ -23,7 +23,7 @@ import java.net.URLDecoder;
 public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
     private int procType;
 
-    public int adU() {
+    public int adR() {
         return this.procType;
     }
 
@@ -87,7 +87,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             return null;
         }
         boolean booleanValue = (str == null || !str.startsWith("width=")) ? Boolean.valueOf(String.valueOf(objArr[2])).booleanValue() : false;
-        String str4 = booleanValue ? str : TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + ar.adp().adu());
+        String str4 = booleanValue ? str : TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + ar.adm().adr());
         if (!(TbadkCoreApplication.getInst().getCapabilityOfWebp() && com.baidu.adp.lib.b.d.iQ().aO("webp_enable") == 1) || str4.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str4.lastIndexOf(".jpg")) <= 0) {
             z = false;
             str3 = str4;
@@ -100,11 +100,11 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             aVar.Dv = iVar;
         }
         byte[] K = iVar.K(str3, !booleanValue);
-        if (iVar.adN() && iVar.errorCode == -11) {
+        if (iVar.adK() && iVar.errorCode == -11) {
             BdLog.e("BIGIMAGE imagesize too big");
             com.baidu.tbadk.core.d.a.a("gifplay", -1L, -1, "BigImageLoaderProc.getFromRemote", iVar.errorCode, "image size too large", "url", str3);
         }
-        if (iVar.responseCode == 302 && (17 == adU() || 18 == adU() || 13 == adU() || 14 == adU())) {
+        if (iVar.responseCode == 302 && (17 == adR() || 18 == adR() || 13 == adR() || 14 == adR())) {
             try {
                 InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(d.f.img_default_delete_big2, new TypedValue());
                 bArr = com.baidu.adp.lib.network.a.b.h(openRawResource);
@@ -116,7 +116,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         } else {
             bArr = K;
         }
-        if (!iVar.adN() && iVar.responseCode != 302) {
+        if (!iVar.adK() && iVar.responseCode != 302) {
             bitmap = null;
         } else {
             Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(bArr);
@@ -124,13 +124,13 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str3);
                 TbadkCoreApplication.getInst().incWebpFailureCount();
                 bArr = iVar.K(str4, !booleanValue);
-                if (bArr != null && iVar.adN()) {
+                if (bArr != null && iVar.adK()) {
                     bitmap = BitmapHelper.Bytes2Bitmap(bArr);
                 }
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.bMF) {
+        if (!iVar.bMH) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.ImageView.a(bitmap, com.baidu.adp.lib.util.l.s(bArr), str, bArr);
@@ -165,11 +165,11 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static void a(String str, byte[] bArr, boolean z, com.baidu.adp.lib.f.a aVar) {
-        String nc = nc(str);
-        com.baidu.adp.lib.Disk.ops.c a = a(mK(str), DiskFileOperate.Action.WRITE_FORCE);
+        String nd = nd(str);
+        com.baidu.adp.lib.Disk.ops.c a = a(mL(str), DiskFileOperate.Action.WRITE_FORCE);
         a.W(z);
-        if (nc != null) {
-            a.X(nd(str));
+        if (nd != null) {
+            a.X(ne(str));
         } else {
             a.X(true);
         }
@@ -183,9 +183,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static byte[] a(String str, com.baidu.adp.lib.f.a aVar) {
-        String nc = nc(str);
+        String nd = nd(str);
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c a = a(mK(str), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c a = a(mL(str), DiskFileOperate.Action.READ);
         a.q((Object) bArr);
         if (aVar != null) {
             e eVar = new e();
@@ -205,7 +205,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 }
             }
             if (a.isSuccess()) {
-                if (nc == null || a.hV() || !nd(str)) {
+                if (nd == null || a.hV() || !ne(str)) {
                     return a.hW();
                 }
                 return null;
@@ -215,28 +215,28 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public static String mK(String str) {
-        String nc = nc(str);
-        if (nc != null) {
-            str = nc;
+    public static String mL(String str) {
+        String nd = nd(str);
+        if (nd != null) {
+            str = nd;
         }
-        return as.mK(str);
+        return as.mL(str);
     }
 
-    public static boolean nb(String str) {
-        String mK = mK(str);
-        if (TextUtils.isEmpty(mK)) {
+    public static boolean nc(String str) {
+        String mL = mL(str);
+        if (TextUtils.isEmpty(mL)) {
             return false;
         }
-        return a(mK, DiskFileOperate.Action.INFO).hA();
+        return a(mL, DiskFileOperate.Action.INFO).hA();
     }
 
-    private static String nc(String str) {
+    private static String nd(String str) {
         int i;
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.l.pF(str)) {
+        if (com.baidu.tbadk.util.l.pG(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -259,9 +259,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    private static boolean nd(String str) {
+    private static boolean ne(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.l.pF(str)) {
+        if (str != null && com.baidu.tbadk.util.l.pG(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

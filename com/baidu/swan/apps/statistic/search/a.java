@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aSG;
-    private HashMap<String, String> aSI;
-    private int aSJ;
+    private String aSJ;
+    private HashMap<String, String> aSL;
+    private int aSM;
     private String mAppId;
     private String mSource;
     private String mType;
     private String mValue;
-    private HashMap<String, SearchFlowEvent> aSH = new HashMap<>();
+    private HashMap<String, SearchFlowEvent> aSK = new HashMap<>();
     private Timer mTimer = new Timer();
 
     public a(String str) {
-        this.aSJ = 0;
-        this.aSG = str;
-        this.aSJ = 0;
+        this.aSM = 0;
+        this.aSJ = str;
+        this.aSM = 0;
         if (DEBUG) {
             Log.d("SearchFlow", "-----New SearchFlow-----");
         }
@@ -40,20 +40,20 @@ public class a {
             if (DEBUG) {
                 Log.d("SearchFlow", "SearchFlowEvent is invalid");
             }
-        } else if (TextUtils.isEmpty(this.aSG) || this.aSH == null) {
+        } else if (TextUtils.isEmpty(this.aSJ) || this.aSK == null) {
             if (DEBUG) {
                 Log.d("SearchFlow", "ubc flow status is invalid");
             }
         } else {
-            if (this.aSH.get(searchFlowEvent.id) != null) {
-                this.aSH.remove(searchFlowEvent.id);
+            if (this.aSK.get(searchFlowEvent.id) != null) {
+                this.aSK.remove(searchFlowEvent.id);
                 if (DEBUG) {
                     Log.d("SearchFlow", "SearchFlowEvent removed: " + searchFlowEvent.id);
                 }
-            } else if (searchFlowEvent.aSL == SearchFlowEvent.EventType.END) {
-                this.aSJ++;
+            } else if (searchFlowEvent.aSO == SearchFlowEvent.EventType.END) {
+                this.aSM++;
             }
-            this.aSH.put(searchFlowEvent.id, searchFlowEvent);
+            this.aSK.put(searchFlowEvent.id, searchFlowEvent);
             if (DEBUG) {
                 Log.d("SearchFlow", "SearchFlowEvent added: " + searchFlowEvent.id);
             }
@@ -97,10 +97,10 @@ public class a {
 
     public void aB(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            if (this.aSI == null) {
-                this.aSI = new HashMap<>();
+            if (this.aSL == null) {
+                this.aSL = new HashMap<>();
             }
-            this.aSI.put(str, str2);
+            this.aSL.put(str, str2);
         }
     }
 
@@ -116,12 +116,12 @@ public class a {
         if (DEBUG) {
             Log.d("SearchFlow", "try to send ubc: ");
         }
-        if (this.aSJ >= 2) {
+        if (this.aSM >= 2) {
             if (DEBUG) {
                 Log.d("SearchFlow", "two+ ends, cancel timer task, and send ubc instantly");
             }
-            wo();
-            Kx();
+            wn();
+            Kv();
         } else if (this.mTimer == null) {
             if (DEBUG) {
                 Log.w("SearchFlow", "send delay timer is null");
@@ -133,7 +133,7 @@ public class a {
                     if (a.DEBUG) {
                         Log.d("SearchFlow", "timer: send ubc...");
                     }
-                    a.this.Kx();
+                    a.this.Kv();
                 }
             };
             if (DEBUG) {
@@ -144,22 +144,22 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kx() {
-        j.LU().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.search.a.2
+    public void Kv() {
+        j.LS().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.search.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.Ky();
+                a.this.Kw();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Ky() {
+    public synchronized void Kw() {
         if (TextUtils.equals(this.mSource, "1250000000000000")) {
             if (DEBUG) {
                 Log.w("SearchFlow", "source=" + this.mSource + ", ignore this case");
             }
-        } else if (this.aSH == null) {
+        } else if (this.aSK == null) {
             if (DEBUG) {
                 Log.d("SearchFlow", "event pool is empty");
             }
@@ -167,14 +167,14 @@ public class a {
             if (DEBUG) {
                 Log.d("SearchFlow", "ubc: begin flow");
             }
-            Flow jS = q.jS(this.aSG);
-            if (jS == null) {
+            Flow jT = q.jT(this.aSJ);
+            if (jT == null) {
                 if (DEBUG) {
                     Log.w("SearchFlow", "UBC Flow create failed");
                 }
             } else {
-                for (SearchFlowEvent searchFlowEvent : this.aSH.values()) {
-                    jS.addEvent(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
+                for (SearchFlowEvent searchFlowEvent : this.aSK.values()) {
+                    jT.addEvent(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -184,9 +184,9 @@ public class a {
                     jSONObject.put(UBC.CONTENT_KEY_VALUE, this.mValue);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("appid", this.mAppId);
-                    if (this.aSI != null) {
-                        for (String str : this.aSI.keySet()) {
-                            jSONObject2.put(str, this.aSI.get(str));
+                    if (this.aSL != null) {
+                        for (String str : this.aSL.keySet()) {
+                            jSONObject2.put(str, this.aSL.get(str));
                         }
                     }
                     jSONObject.put("ext", jSONObject2);
@@ -195,8 +195,8 @@ public class a {
                         Log.w("SearchFlow", Log.getStackTraceString(e));
                     }
                 }
-                jS.setValueWithDuration(jSONObject.toString());
-                jS.end();
+                jT.setValueWithDuration(jSONObject.toString());
+                jT.end();
                 if (DEBUG) {
                     Log.d("SearchFlow", "ubc: end flow");
                 }
@@ -209,20 +209,20 @@ public class a {
     }
 
     public void destroy() {
-        wo();
-        if (this.aSH != null) {
-            this.aSH.clear();
+        wn();
+        if (this.aSK != null) {
+            this.aSK.clear();
         }
-        if (this.aSI != null) {
-            this.aSI.clear();
+        if (this.aSL != null) {
+            this.aSL.clear();
         }
         this.mAppId = null;
         this.mType = null;
         this.mSource = null;
         this.mValue = null;
-        this.aSH = null;
-        this.aSI = null;
-        this.aSJ = 0;
+        this.aSK = null;
+        this.aSL = null;
+        this.aSM = 0;
         if (DEBUG) {
             Log.d("SearchFlow", "-----Destroy SearchFlow-----");
         }
@@ -232,7 +232,7 @@ public class a {
         return (searchFlowEvent == null || TextUtils.isEmpty(searchFlowEvent.id) || searchFlowEvent.timestamp <= 0) ? false : true;
     }
 
-    private synchronized void wo() {
+    private synchronized void wn() {
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer.purge();

@@ -7,7 +7,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Calendar;
 /* loaded from: classes6.dex */
 public class c {
-    private static int eoL = -1;
+    private static int eox = -1;
 
     public static final String ce(long j) {
         long j2 = 1000 * j;
@@ -21,10 +21,10 @@ public class c {
     }
 
     private static final int getCurrentYear() {
-        if (eoL == -1) {
-            eoL = cf(System.currentTimeMillis());
+        if (eox == -1) {
+            eox = cf(System.currentTimeMillis());
         }
-        return eoL;
+        return eox;
     }
 
     public static void a(int i, String str, Class cls) {

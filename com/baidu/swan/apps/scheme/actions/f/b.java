@@ -22,8 +22,8 @@ public class b extends y {
             Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        e uz = com.baidu.swan.apps.w.e.Ec().uz();
-        if (uz == null) {
+        e uy = com.baidu.swan.apps.w.e.Ea().uy();
+        if (uy == null) {
             com.baidu.swan.apps.console.c.e("navigationColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -35,18 +35,18 @@ public class b extends y {
             String optString = optParamsAsJo.optString("frontColor");
             String optString2 = optParamsAsJo.optString("backgroundColor");
             JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-            com.baidu.swan.apps.core.c.b yO = uz.yO();
-            if (!yO.dS(optString)) {
+            com.baidu.swan.apps.core.c.b yN = uy.yN();
+            if (!yN.dU(optString)) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "set title color fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!yO.cc(com.baidu.swan.apps.ae.a.c.parseColor(optString2))) {
+            } else if (!yN.cb(com.baidu.swan.apps.ae.a.c.parseColor(optString2))) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "set title background fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
                 if (optJSONObject != null) {
-                    yO.i(optJSONObject.optInt(UBC.CONTENT_KEY_DURATION), optJSONObject.optString("timingFunc"));
+                    yN.i(optJSONObject.optInt(UBC.CONTENT_KEY_DURATION), optJSONObject.optString("timingFunc"));
                     com.baidu.swan.apps.console.c.i("navigationColor", "set action bar animator");
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

@@ -26,11 +26,11 @@ public class CopyrightBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("CopyrightBox.java", CopyrightBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getCopyright", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.CopyrightBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setCopyright", "com.coremedia.iso.boxes.CopyrightBox", "java.lang.String", "copyright", "", "void"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 81);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getLanguage", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getCopyright", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "setLanguage", "com.coremedia.iso.boxes.CopyrightBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setCopyright", "com.coremedia.iso.boxes.CopyrightBox", "java.lang.String", "copyright", "", "void"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.CopyrightBox", "", "", "", "java.lang.String"), 81);
     }
 
     public CopyrightBox() {

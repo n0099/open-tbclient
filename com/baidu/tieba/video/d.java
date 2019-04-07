@@ -1,9 +1,9 @@
 package com.baidu.tieba.video;
 /* loaded from: classes.dex */
 public interface d {
-    void An(int i);
+    void Aj(int i);
 
-    void ciK();
+    void ciI();
 
     void onConvertAborted();
 

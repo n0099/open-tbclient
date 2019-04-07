@@ -4,12 +4,12 @@ import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 /* loaded from: classes2.dex */
 public final class ae {
-    public static final Unsafe kbJ;
-    private static final boolean kbK;
+    public static final Unsafe kbb;
+    private static final boolean kbc;
 
     static {
         Unsafe unsafe;
-        kbK = System.getProperty("rx.unsafe-disable") != null;
+        kbc = System.getProperty("rx.unsafe-disable") != null;
         try {
             Field declaredField = Unsafe.class.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
@@ -17,16 +17,16 @@ public final class ae {
         } catch (Throwable th) {
             unsafe = null;
         }
-        kbJ = unsafe;
+        kbb = unsafe;
     }
 
-    public static boolean cEU() {
-        return (kbJ == null || kbK) ? false : true;
+    public static boolean cEJ() {
+        return (kbb == null || kbc) ? false : true;
     }
 
     public static long j(Class<?> cls, String str) {
         try {
-            return kbJ.objectFieldOffset(cls.getDeclaredField(str));
+            return kbb.objectFieldOffset(cls.getDeclaredField(str));
         } catch (NoSuchFieldException e) {
             InternalError internalError = new InternalError();
             internalError.initCause(e);

@@ -7,53 +7,53 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class w {
-    private View ctD;
-    private int ctE;
-    private boolean ctF;
+    private View ctF;
+    private int ctG;
+    private boolean ctH;
     private final Handler mHandler;
 
-    public void aqi() {
+    public void aqf() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aqj() {
+    public void aqg() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void aqk() {
+    public void aqh() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     public void fk(boolean z) {
-        if (this.ctD != null) {
-            if (z || this.ctD.getVisibility() != 8) {
-                aqj();
+        if (this.ctF != null) {
+            if (z || this.ctF.getVisibility() != 8) {
+                aqg();
             }
         }
     }
 
     public void fl(boolean z) {
-        if (this.ctD != null) {
-            if (z || this.ctD.getVisibility() != 0) {
-                aqi();
+        if (this.ctF != null) {
+            if (z || this.ctF.getVisibility() != 0) {
+                aqf();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.ctD != null) {
-            if (i != 0 && i2 > i && this.ctD.getVisibility() != 8) {
+        if (this.ctF != null) {
+            if (i != 0 && i2 > i && this.ctF.getVisibility() != 8) {
                 fk(false);
-            } else if ((i == 0 || i2 < i) && this.ctD.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.ctF.getVisibility() != 0) {
                 fl(false);
             }
-            this.ctE = i;
+            this.ctG = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class w {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.ctE) {
+            if (firstVisiblePosition > this.ctG) {
                 fk(true);
-            } else if (firstVisiblePosition < this.ctE) {
+            } else if (firstVisiblePosition < this.ctG) {
                 fl(true);
-            } else if (firstVisiblePosition == this.ctE) {
-                if (firstVisiblePosition == 0 || !this.ctF) {
+            } else if (firstVisiblePosition == this.ctG) {
+                if (firstVisiblePosition == 0 || !this.ctH) {
                     fl(true);
                 } else {
                     fk(true);

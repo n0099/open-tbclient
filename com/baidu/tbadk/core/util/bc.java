@@ -16,10 +16,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bc {
-    private static int bLG = -1;
-    private static int bLH = -1;
-    private static boolean bLI = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bLJ = new com.baidu.adp.lib.e.a<>(500);
+    private static int bLI = -1;
+    private static int bLJ = -1;
+    private static boolean bLK = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> bLL = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,27 +29,27 @@ public class bc {
 
     public static void cW(Context context) {
         mAppContext = context;
-        bLI = true;
+        bLK = true;
     }
 
-    private static void adE() {
+    private static void adB() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bLH = mAppContext.getResources().getColor(d.C0277d.common_color_10097);
-            bLG = mAppContext.getResources().getColor(d.C0277d.common_color_10004);
+            bLJ = mAppContext.getResources().getColor(d.C0277d.common_color_10097);
+            bLI = mAppContext.getResources().getColor(d.C0277d.common_color_10004);
         }
     }
 
-    private static int hC(int i) {
+    private static int hB(int i) {
         return dF(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int dF(boolean z) {
-        if (bLI) {
-            bLI = false;
-            adE();
+        if (bLK) {
+            bLK = false;
+            adB();
         }
-        return z ? bLG : bLH;
+        return z ? bLI : bLJ;
     }
 
     public static void aC(View view) {
@@ -60,16 +60,16 @@ public class bc {
 
     public static void aD(View view) {
         if (view != null) {
-            bLJ.remove(Integer.valueOf(System.identityHashCode(view)));
+            bLL.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void c(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bLJ.get(Integer.valueOf(identityHashCode));
+        Integer num = bLL.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             d(viewGroup, i);
-            bLJ.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            bLL.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -226,13 +226,13 @@ public class bc {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(hC(i));
+            textView.setTextColor(hB(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(hC(i));
+            checkBox.setTextColor(hB(i));
         }
     }
 

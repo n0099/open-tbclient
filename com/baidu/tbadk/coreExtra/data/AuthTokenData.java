@@ -23,7 +23,7 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.nB(str);
+        authTokenData.nC(str);
         return authTokenData;
     }
 
@@ -37,7 +37,7 @@ public class AuthTokenData implements Serializable {
         }
     }
 
-    private void nB(String str) {
+    private void nC(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

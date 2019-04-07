@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends RecyclerView.Adapter<C0269a> {
-    private List<InvoiceInfo> cTr = new ArrayList();
-    private b cUu;
+    private List<InvoiceInfo> cTt = new ArrayList();
+    private b cUw;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,26 +30,26 @@ public class a extends RecyclerView.Adapter<C0269a> {
     }
 
     public void ay(List<InvoiceInfo> list) {
-        int azq;
+        int azn;
         if (list != null && list.size() > 0) {
-            this.cTr.clear();
-            this.cTr.addAll(list);
-            if (this.cTr.get(0).mIsDefault != 1 && (azq = azq()) >= 0) {
-                a(this.cTr.get(azq), false);
+            this.cTt.clear();
+            this.cTt.addAll(list);
+            if (this.cTt.get(0).mIsDefault != 1 && (azn = azn()) >= 0) {
+                a(this.cTt.get(azn), false);
             }
             notifyDataSetChanged();
         }
     }
 
     public void bH(long j) {
-        if (this.cTr != null && this.cTr.size() > 0) {
-            for (int i = 0; i < this.cTr.size(); i++) {
-                InvoiceInfo invoiceInfo = this.cTr.get(i);
+        if (this.cTt != null && this.cTt.size() > 0) {
+            for (int i = 0; i < this.cTt.size(); i++) {
+                InvoiceInfo invoiceInfo = this.cTt.get(i);
                 if (invoiceInfo != null && invoiceInfo.mId == j) {
-                    this.cTr.remove(i);
+                    this.cTt.remove(i);
                     notifyItemRemoved(i);
-                    if (i != this.cTr.size()) {
-                        notifyItemRangeChanged(0, this.cTr.size());
+                    if (i != this.cTt.size()) {
+                        notifyItemRangeChanged(0, this.cTt.size());
                         return;
                     }
                     return;
@@ -59,41 +59,41 @@ public class a extends RecyclerView.Adapter<C0269a> {
     }
 
     public void m(InvoiceInfo invoiceInfo) {
-        if (this.cTr != null && invoiceInfo != null) {
-            this.cTr.add(0, invoiceInfo);
+        if (this.cTt != null && invoiceInfo != null) {
+            this.cTt.add(0, invoiceInfo);
             notifyItemInserted(0);
         }
     }
 
     public void bI(long j) {
         int bJ;
-        if (this.cTr != null && (bJ = bJ(j)) >= 0) {
-            int azq = azq();
-            if (azq >= 0) {
-                this.cTr.get(azq).mIsDefault = 0;
-                notifyItemChanged(azq);
+        if (this.cTt != null && (bJ = bJ(j)) >= 0) {
+            int azn = azn();
+            if (azn >= 0) {
+                this.cTt.get(azn).mIsDefault = 0;
+                notifyItemChanged(azn);
             }
-            this.cTr.get(bJ).mIsDefault = 1;
+            this.cTt.get(bJ).mIsDefault = 1;
             notifyItemChanged(bJ);
         }
     }
 
     public void n(InvoiceInfo invoiceInfo) {
         int bJ;
-        if (this.cTr != null && (bJ = bJ(invoiceInfo.mId)) >= 0) {
-            this.cTr.set(bJ, invoiceInfo);
+        if (this.cTt != null && (bJ = bJ(invoiceInfo.mId)) >= 0) {
+            this.cTt.set(bJ, invoiceInfo);
             notifyItemChanged(bJ);
             a(invoiceInfo, true);
         }
     }
 
     public void a(InvoiceInfo invoiceInfo, boolean z) {
-        if (this.cTr != null && this.cTr.size() > 1 && invoiceInfo != null) {
-            for (int i = 0; i < this.cTr.size(); i++) {
-                InvoiceInfo invoiceInfo2 = this.cTr.get(i);
+        if (this.cTt != null && this.cTt.size() > 1 && invoiceInfo != null) {
+            for (int i = 0; i < this.cTt.size(); i++) {
+                InvoiceInfo invoiceInfo2 = this.cTt.get(i);
                 if (invoiceInfo2 != null && invoiceInfo2.equals(invoiceInfo)) {
-                    this.cTr.remove(i);
-                    this.cTr.add(0, invoiceInfo2);
+                    this.cTt.remove(i);
+                    this.cTt.add(0, invoiceInfo2);
                     if (z) {
                         notifyItemMoved(i, 0);
                         return;
@@ -104,17 +104,17 @@ public class a extends RecyclerView.Adapter<C0269a> {
         }
     }
 
-    private int azq() {
-        if (this.cTr == null) {
+    private int azn() {
+        if (this.cTt == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.cTr.size()) {
+            if (i2 >= this.cTt.size()) {
                 return -1;
             }
-            InvoiceInfo invoiceInfo = this.cTr.get(i2);
+            InvoiceInfo invoiceInfo = this.cTt.get(i2);
             if (invoiceInfo == null || invoiceInfo.mIsDefault != 1) {
                 i = i2 + 1;
             } else {
@@ -124,16 +124,16 @@ public class a extends RecyclerView.Adapter<C0269a> {
     }
 
     private int bJ(long j) {
-        if (this.cTr == null) {
+        if (this.cTt == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.cTr.size()) {
+            if (i2 >= this.cTt.size()) {
                 return -1;
             }
-            InvoiceInfo invoiceInfo = this.cTr.get(i2);
+            InvoiceInfo invoiceInfo = this.cTt.get(i2);
             if (invoiceInfo == null || invoiceInfo.mId != j) {
                 i = i2 + 1;
             } else {
@@ -143,7 +143,7 @@ public class a extends RecyclerView.Adapter<C0269a> {
     }
 
     public void a(b bVar) {
-        this.cUu = bVar;
+        this.cUw = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -152,9 +152,9 @@ public class a extends RecyclerView.Adapter<C0269a> {
     public C0269a onCreateViewHolder(ViewGroup viewGroup, int i) {
         C0269a c0269a = new C0269a(LayoutInflater.from(this.mContext).inflate(d.h.invoice_list_item_view, viewGroup, false));
         if (i == 0) {
-            c0269a.cUw.azr();
+            c0269a.cUy.azo();
         } else if (i == 1) {
-            c0269a.cUw.azs();
+            c0269a.cUy.azp();
         }
         return c0269a;
     }
@@ -163,39 +163,39 @@ public class a extends RecyclerView.Adapter<C0269a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(C0269a c0269a, int i) {
-        final InvoiceInfo invoiceInfo = this.cTr.get(i);
+        final InvoiceInfo invoiceInfo = this.cTt.get(i);
         if (invoiceInfo != null) {
             if (c0269a.getItemViewType() == 0) {
-                c0269a.cUw.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.cTs);
+                c0269a.cUy.setCompanyInfo(invoiceInfo.mTitle, invoiceInfo.cTu);
             } else if (c0269a.getItemViewType() == 1) {
-                c0269a.cUw.setPersonageInfo(invoiceInfo.mTitle);
+                c0269a.cUy.setPersonageInfo(invoiceInfo.mTitle);
             }
             if (invoiceInfo.mIsDefault == 1) {
-                c0269a.cUw.fV(true);
+                c0269a.cUy.fV(true);
             } else {
-                c0269a.cUw.fV(false);
+                c0269a.cUy.fV(false);
             }
-            c0269a.cUw.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
+            c0269a.cUy.setEditClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.cUu != null) {
-                        a.this.cUu.b(view, invoiceInfo);
+                    if (a.this.cUw != null) {
+                        a.this.cUw.b(view, invoiceInfo);
                     }
                 }
             });
-            c0269a.cUw.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
+            c0269a.cUy.setItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.cUu != null) {
-                        a.this.cUu.a(view, invoiceInfo);
+                    if (a.this.cUw != null) {
+                        a.this.cUw.a(view, invoiceInfo);
                     }
                 }
             });
-            c0269a.cUw.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
+            c0269a.cUy.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.a.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    if (a.this.cUu != null) {
-                        a.this.cUu.c(view, invoiceInfo);
+                    if (a.this.cUw != null) {
+                        a.this.cUw.c(view, invoiceInfo);
                         return true;
                     }
                     return true;
@@ -206,16 +206,16 @@ public class a extends RecyclerView.Adapter<C0269a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cTr != null) {
-            return this.cTr.size();
+        if (this.cTt != null) {
+            return this.cTt.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.cTr != null) {
-            InvoiceInfo invoiceInfo = this.cTr.get(i);
+        if (this.cTt != null) {
+            InvoiceInfo invoiceInfo = this.cTt.get(i);
             if (invoiceInfo != null && invoiceInfo.mType == 0) {
                 return 0;
             }
@@ -230,11 +230,11 @@ public class a extends RecyclerView.Adapter<C0269a> {
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0269a extends RecyclerView.ViewHolder {
-        InvoiceListItemView cUw;
+        InvoiceListItemView cUy;
 
         public C0269a(View view) {
             super(view);
-            this.cUw = (InvoiceListItemView) view.findViewById(d.g.invoice_list_item);
+            this.cUy = (InvoiceListItemView) view.findViewById(d.g.invoice_list_item);
         }
     }
 }

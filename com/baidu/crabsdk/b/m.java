@@ -9,7 +9,7 @@ public final class m {
     private static SharedPreferences.Editor abU;
     private static long abV = StatisticConfig.MIN_UPLOAD_INTERVAL;
 
-    public static void C() {
+    public static void B() {
         abU.putInt("used_count", rS() + 1);
         com.baidu.crabsdk.c.c.a(abU, false);
     }
@@ -21,7 +21,7 @@ public final class m {
         }
     }
 
-    public static void d(Context context) {
+    public static void e(Context context) {
         if (abT == null) {
             abT = context.getSharedPreferences("crab_app_life", 0);
         }
@@ -31,7 +31,7 @@ public final class m {
     }
 
     public static void onPause(Context context) {
-        d(context);
+        e(context);
         if (abT == null || abU == null) {
             return;
         }
@@ -40,18 +40,18 @@ public final class m {
     }
 
     public static void onResume(Context context) {
-        d(context);
+        e(context);
         if (com.baidu.crabsdk.a.M) {
             return;
         }
         if (abT == null || abU == null) {
-            com.baidu.crabsdk.c.a.cy("MobclickAgent init error!! applife upload failed!");
+            com.baidu.crabsdk.c.a.w("MobclickAgent init error!! applife upload failed!");
             return;
         }
         com.baidu.crabsdk.c.a.cv("MobclickAgent init success!");
         if (System.currentTimeMillis() - abT.getLong("used_last_time", 0L) > abV) {
-            C();
-            com.baidu.crabsdk.sender.h.n(context);
+            B();
+            com.baidu.crabsdk.sender.k.n(context);
         }
     }
 

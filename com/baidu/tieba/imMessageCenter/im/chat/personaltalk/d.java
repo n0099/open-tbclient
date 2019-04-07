@@ -4,6 +4,6 @@ import com.baidu.tieba.im.db.m;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.im.c.a.c {
     public d() {
-        super(m.bsz(), 2001146);
+        super(m.bsw(), 2001146);
     }
 }

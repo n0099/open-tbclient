@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private c hLh;
-    private List<m> hLi;
-    private PersonMoreData hLj;
+    private c hKT;
+    private List<m> hKU;
+    private PersonMoreData hKV;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ab<f> abVar) {
         this.mPageContext = tbPageContext;
-        this.hLh = new c(tbPageContext);
-        this.hLh.d(abVar);
+        this.hKT = new c(tbPageContext);
+        this.hKT.d(abVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.hLj = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.hKV = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(d.h.person_center_more_layout);
-        this.hLh.O(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
-        bQr();
-        this.hLh.setData(this.hLi);
+        this.hKT.O(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
+        bQn();
+        this.hKT.setData(this.hKU);
     }
 
     public void onChangeSkinType() {
-        if (this.hLh != null) {
-            this.hLh.onChangeSkinType();
+        if (this.hKT != null) {
+            this.hKT.onChangeSkinType();
         }
     }
 
-    private void bQr() {
-        this.hLi = new ArrayList();
-        if (this.hLj != null && !v.T(this.hLj.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.hLj.mUrlMaps) {
+    private void bQn() {
+        this.hKU = new ArrayList();
+        if (this.hKV != null && !v.T(this.hKV.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.hKV.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     f fVar = new f();
                     fVar.title = personMoreItemData.mName;
                     fVar.type = 36;
-                    fVar.bvI = personMoreItemData.mUrl;
+                    fVar.bvL = personMoreItemData.mUrl;
                     fVar.itemId = personMoreItemData.mId;
-                    this.hLi.add(fVar);
+                    this.hKU.add(fVar);
                 }
             }
         }

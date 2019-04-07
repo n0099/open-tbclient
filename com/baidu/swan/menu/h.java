@@ -14,17 +14,17 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class h implements View.OnKeyListener, f {
     private static final boolean DEBUG = com.baidu.swan.menu.a.DEBUG;
-    private p bkA;
-    private List<k> bkB;
-    private f bkC;
-    private View.OnKeyListener bkD;
-    private f bkE;
-    private n bkF;
-    private String bkG;
-    private String bkH;
-    private a bkI;
-    private SwanAppMenuMode bkJ;
-    private d bkK;
+    private p bkD;
+    private List<k> bkE;
+    private f bkF;
+    private View.OnKeyListener bkG;
+    private f bkH;
+    private n bkI;
+    private String bkJ;
+    private String bkK;
+    private a bkL;
+    private SwanAppMenuMode bkM;
+    private d bkN;
     private Context mContext;
     private int mStyle;
 
@@ -38,9 +38,9 @@ public class h implements View.OnKeyListener, f {
     }
 
     public h(Context context, View view, int i, String str, @Nullable c cVar) {
-        this.bkB = new ArrayList();
-        this.bkH = "searchbox";
-        this.bkJ = null;
+        this.bkE = new ArrayList();
+        this.bkK = "searchbox";
+        this.bkM = null;
         if (i < 0) {
             if (DEBUG) {
                 Log.e("SwanAppMenu", "menu style < 0");
@@ -50,40 +50,40 @@ public class h implements View.OnKeyListener, f {
         }
         this.mContext = context;
         this.mStyle = i;
-        this.bkH = str;
-        this.bkB = o.eY(this.mStyle);
-        if (i.bkM != null) {
-            this.bkE = i.bkM.Rj();
-            this.bkF = i.bkM.Rk();
+        this.bkK = str;
+        this.bkE = o.eX(this.mStyle);
+        if (i.bkP != null) {
+            this.bkH = i.bkP.Rh();
+            this.bkI = i.bkP.Ri();
         }
-        this.bkA = new p(this.mContext, view, this.mStyle, cVar);
-        this.bkA.c(this);
-        this.bkA.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
+        this.bkD = new p(this.mContext, view, this.mStyle, cVar);
+        this.bkD.c(this);
+        this.bkD.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
             @Override // com.baidu.swan.menu.PopupWindow.a
             public void onDismiss() {
-                if (h.this.bkI != null) {
-                    h.this.bkI.a(h.this, false);
+                if (h.this.bkL != null) {
+                    h.this.bkL.a(h.this, false);
                 }
             }
         });
     }
 
     public void setStatisticSource(String str) {
-        this.bkG = str;
-        this.bkA.setStatisticSource(this.bkG);
+        this.bkJ = str;
+        this.bkD.setStatisticSource(this.bkJ);
     }
 
     public void setMenuSource(String str) {
-        this.bkH = str;
-        this.bkA.setMenuSource(str);
+        this.bkK = str;
+        this.bkD.setMenuSource(str);
     }
 
     public void a(d dVar) {
-        this.bkK = dVar;
+        this.bkN = dVar;
     }
 
     public void a(f fVar) {
-        this.bkC = fVar;
+        this.bkF = fVar;
     }
 
     @Override // com.baidu.swan.menu.f
@@ -93,11 +93,11 @@ public class h implements View.OnKeyListener, f {
                 cM(true);
             }
             boolean z = false;
-            if (this.bkC != null) {
-                z = this.bkC.a(view, kVar);
+            if (this.bkF != null) {
+                z = this.bkF.a(view, kVar);
             }
-            if (!z && this.bkE != null) {
-                return this.bkE.a(view, kVar);
+            if (!z && this.bkH != null) {
+                return this.bkH.a(view, kVar);
             }
             return z;
         }
@@ -106,8 +106,8 @@ public class h implements View.OnKeyListener, f {
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.bkD != null) {
-            return this.bkD.onKey(view, i, keyEvent);
+        if (this.bkG != null) {
+            return this.bkG.onKey(view, i, keyEvent);
         }
         return false;
     }
@@ -121,34 +121,34 @@ public class h implements View.OnKeyListener, f {
             cM(true);
             return;
         }
-        if (this.bkK != null) {
-            this.bkK.d(this.mStyle, this.bkB);
+        if (this.bkN != null) {
+            this.bkN.d(this.mStyle, this.bkE);
         }
-        Rg();
+        Re();
         c(z, i, z2);
-        this.bkA.F(this.bkB);
-        this.bkA.showView();
-        if (this.bkI != null) {
-            this.bkI.a(this, true);
+        this.bkD.F(this.bkE);
+        this.bkD.showView();
+        if (this.bkL != null) {
+            this.bkL.a(this, true);
         }
     }
 
     public void cM(boolean z) {
-        this.bkA.cO(z);
-        if (this.bkI != null) {
-            this.bkI.a(this, false);
+        this.bkD.cO(z);
+        if (this.bkL != null) {
+            this.bkL.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.bkA != null && this.bkA.isShowing();
+        return this.bkD != null && this.bkD.isShowing();
     }
 
     public void L(int i, int i2) {
         boolean z;
         int i3 = 0;
         boolean z2 = false;
-        for (k kVar : this.bkB) {
+        for (k kVar : this.bkE) {
             if (kVar.getItemId() == i) {
                 z = true;
                 if (DEBUG) {
@@ -160,30 +160,30 @@ public class h implements View.OnKeyListener, f {
             z2 = z;
         }
         if (!z2) {
-            k eZ = o.eZ(i);
-            if (eZ == null) {
+            k eY = o.eY(i);
+            if (eY == null) {
                 if (DEBUG) {
                     Log.d("SwanAppMenu", "No such Menu: id=" + i);
                     return;
                 }
                 return;
             }
-            int size = this.bkB.size();
+            int size = this.bkE.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.bkB.add(i3, eZ);
+            this.bkE.add(i3, eY);
             if (DEBUG) {
                 Log.d("SwanAppMenu", "Add Menu: id=" + i + ", insert pos=" + i3);
             }
         }
     }
 
-    public void eV(int i) {
-        if (this.bkB != null) {
+    public void eU(int i) {
+        if (this.bkE != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.bkB.size(); i3++) {
-                if (this.bkB.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.bkE.size(); i3++) {
+                if (this.bkE.get(i3).getItemId() == i) {
                     if (DEBUG) {
                         Log.d("SwanAppMenu", "Hide Menu: id=" + i);
                     }
@@ -191,13 +191,13 @@ public class h implements View.OnKeyListener, f {
                 }
             }
             if (i2 > -1) {
-                this.bkB.remove(i2);
+                this.bkE.remove(i2);
             }
         }
     }
 
-    public void eW(int i) {
-        this.bkA.eW(i);
+    public void eV(int i) {
+        this.bkD.eV(i);
     }
 
     private boolean c(k kVar) {
@@ -205,9 +205,9 @@ public class h implements View.OnKeyListener, f {
     }
 
     private void b(boolean z, int i, boolean z2) {
-        this.bkJ = SwanAppMenuMode.NORMAL;
-        this.bkA.setMode(this.bkJ);
-        Iterator<k> it = this.bkB.iterator();
+        this.bkM = SwanAppMenuMode.NORMAL;
+        this.bkD.setMode(this.bkM);
+        Iterator<k> it = this.bkE.iterator();
         while (it.hasNext()) {
             k next = it.next();
             int itemId = next.getItemId();
@@ -240,18 +240,18 @@ public class h implements View.OnKeyListener, f {
     }
 
     private void c(boolean z, int i, boolean z2) {
-        if (this.bkB != null) {
+        if (this.bkE != null) {
             b(z, i, z2);
         }
     }
 
-    private void Rg() {
+    private void Re() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("from", this.bkG);
-        hashMap.put("source", this.bkH);
+        hashMap.put("from", this.bkJ);
+        hashMap.put("source", this.bkK);
         hashMap.put("type", "menu_clk");
-        if (this.bkF != null) {
-            this.bkF.c("260", hashMap);
+        if (this.bkI != null) {
+            this.bkI.c("260", hashMap);
         }
     }
 }

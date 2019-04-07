@@ -13,18 +13,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Set<String> aCg = h.K("REFERER", "USER-AGENT");
-    protected static final Set<String> aCf = h.K("localhost", "127.0.0.1");
+    public static final Set<String> aCj = h.K("REFERER", "USER-AGENT");
+    protected static final Set<String> aCi = h.K("localhost", "127.0.0.1");
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public HttpUrl fo(String str) {
+    public HttpUrl fp(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if ((com.baidu.swan.apps.ae.b.IX() == null ? null : com.baidu.swan.apps.ae.b.IX().getActivity()) == null) {
+        if ((com.baidu.swan.apps.ae.b.IV() == null ? null : com.baidu.swan.apps.ae.b.IV().getActivity()) == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Gh()) || a(parse)) {
+        } else if ((DEBUG && com.baidu.swan.apps.ac.a.a.Gf()) || a(parse)) {
             return parse;
         } else {
             return null;
@@ -32,25 +32,25 @@ public class a {
     }
 
     protected boolean a(@Nullable HttpUrl httpUrl) {
-        boolean JE = com.baidu.swan.apps.af.a.b.JE();
-        if (!com.baidu.swan.apps.u.a.CB().vl()) {
-            JE = false;
+        boolean JC = com.baidu.swan.apps.af.a.b.JC();
+        if (!com.baidu.swan.apps.u.a.Cz().vk()) {
+            JC = false;
         }
         if (httpUrl != null) {
-            return (!JE || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCf.contains(httpUrl.host().toLowerCase());
+            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCi.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String OE() {
-        String Ji = com.baidu.swan.apps.ae.b.Ji();
-        return TextUtils.isEmpty(Ji) ? "" : Ji + "_" + System.currentTimeMillis();
+    public String OC() {
+        String Jg = com.baidu.swan.apps.ae.b.Jg();
+        return TextUtils.isEmpty(Jg) ? "" : Jg + "_" + System.currentTimeMillis();
     }
 
-    public String EY() {
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        return IX != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", IX.getAppKey(), IX.Jl()) : "";
+    public String EW() {
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        return IV != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", IV.getAppKey(), IV.Jj()) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -4,25 +4,25 @@ import com.facebook.imagepipeline.b.f;
 import com.facebook.imagepipeline.d.e;
 /* loaded from: classes2.dex */
 public class c {
-    private static boolean jFk;
-    private static b jFl = null;
+    private static boolean jEE;
+    private static b jEF = null;
 
     public static b a(f fVar, e eVar) {
-        if (!jFk) {
+        if (!jEE) {
             try {
-                jFl = (b) Class.forName("com.facebook.imagepipeline.animated.factory.AnimatedFactoryImplSupport").getConstructor(f.class, e.class).newInstance(fVar, eVar);
+                jEF = (b) Class.forName("com.facebook.imagepipeline.animated.factory.AnimatedFactoryImplSupport").getConstructor(f.class, e.class).newInstance(fVar, eVar);
             } catch (Throwable th) {
             }
-            if (jFl != null) {
-                jFk = true;
-                return jFl;
+            if (jEF != null) {
+                jEE = true;
+                return jEF;
             }
             try {
-                jFl = (b) Class.forName("com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl").getConstructor(f.class, e.class).newInstance(fVar, eVar);
+                jEF = (b) Class.forName("com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl").getConstructor(f.class, e.class).newInstance(fVar, eVar);
             } catch (Throwable th2) {
             }
-            jFk = true;
+            jEE = true;
         }
-        return jFl;
+        return jEF;
     }
 }

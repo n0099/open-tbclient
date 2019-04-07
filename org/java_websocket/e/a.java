@@ -26,7 +26,7 @@ public class a {
         Fy = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
-    private static final byte[] ax(int i) {
+    private static final byte[] aw(int i) {
         if ((i & 16) == 16) {
             return Fv;
         }
@@ -37,7 +37,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final byte[] ay(int i) {
+    public static final byte[] ax(int i) {
         if ((i & 16) == 16) {
             return Fw;
         }
@@ -57,26 +57,26 @@ public class a {
     }
 
     private static byte[] c(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
-        byte[] ax = ax(i4);
+        byte[] aw = aw(i4);
         int i5 = (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0);
         switch (i2) {
             case 1:
-                bArr2[i3] = ax[i5 >>> 18];
-                bArr2[i3 + 1] = ax[(i5 >>> 12) & 63];
+                bArr2[i3] = aw[i5 >>> 18];
+                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = 61;
                 bArr2[i3 + 3] = 61;
                 break;
             case 2:
-                bArr2[i3] = ax[i5 >>> 18];
-                bArr2[i3 + 1] = ax[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = ax[(i5 >>> 6) & 63];
+                bArr2[i3] = aw[i5 >>> 18];
+                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = aw[(i5 >>> 6) & 63];
                 bArr2[i3 + 3] = 61;
                 break;
             case 3:
-                bArr2[i3] = ax[i5 >>> 18];
-                bArr2[i3 + 1] = ax[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = ax[(i5 >>> 6) & 63];
-                bArr2[i3 + 3] = ax[i5 & 63];
+                bArr2[i3] = aw[i5 >>> 18];
+                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = aw[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = aw[i5 & 63];
                 break;
         }
         return bArr2;
@@ -251,17 +251,17 @@ public class a {
         if (i2 < 0 || i2 + 2 >= bArr2.length) {
             throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
         }
-        byte[] ay = ay(i3);
+        byte[] ax = ax(i3);
         if (bArr[i + 2] == 61) {
-            bArr2[i2] = (byte) ((((ay[bArr[i]] & 255) << 18) | ((ay[bArr[i + 1]] & 255) << 12)) >>> 16);
+            bArr2[i2] = (byte) ((((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12)) >>> 16);
             return 1;
         } else if (bArr[i + 3] == 61) {
-            int i4 = ((ay[bArr[i]] & 255) << 18) | ((ay[bArr[i + 1]] & 255) << 12) | ((ay[bArr[i + 2]] & 255) << 6);
+            int i4 = ((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12) | ((ax[bArr[i + 2]] & 255) << 6);
             bArr2[i2] = (byte) (i4 >>> 16);
             bArr2[i2 + 1] = (byte) (i4 >>> 8);
             return 2;
         } else {
-            int i5 = ((ay[bArr[i]] & 255) << 18) | ((ay[bArr[i + 1]] & 255) << 12) | ((ay[bArr[i + 2]] & 255) << 6) | (ay[bArr[i + 3]] & 255);
+            int i5 = ((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12) | ((ax[bArr[i + 2]] & 255) << 6) | (ax[bArr[i + 3]] & 255);
             bArr2[i2] = (byte) (i5 >> 16);
             bArr2[i2 + 1] = (byte) (i5 >> 8);
             bArr2[i2 + 2] = (byte) i5;
@@ -294,7 +294,7 @@ public class a {
             this.FE = false;
             this.FD = new byte[4];
             this.FF = i;
-            this.FG = a.ay(i);
+            this.FG = a.ax(i);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream

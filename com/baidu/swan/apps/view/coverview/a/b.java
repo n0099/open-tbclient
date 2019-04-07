@@ -20,7 +20,6 @@ import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
 import com.baidu.swan.apps.view.coverview.subview.CoverViewHelper;
 import com.baidu.swan.apps.view.coverview.subview.ImageCoverView;
 import com.baidu.swan.apps.view.coverview.subview.TextCoverView;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -55,25 +54,25 @@ public class b extends y {
             return false;
         }
         if (DEBUG) {
-            Log.i("CoverView", "handleSubAction params: " + unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+            Log.i("CoverView", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
         }
         com.baidu.swan.apps.view.coverview.b.a am = am(optParamsAsJo);
         if (am == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout eO = aa.eO(am.aBD);
-        if (eO == null) {
-            c.e("CoverView", "can not find webView by #" + am.aBD);
+        AbsoluteLayout eP = aa.eP(am.aBG);
+        if (eP == null) {
+            c.e("CoverView", "can not find webView by #" + am.aBG);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(str, context, am, eO, unitedSchemeEntity, callbackHandler);
+        return a(str, context, am, eP, unitedSchemeEntity, callbackHandler);
     }
 
     protected com.baidu.swan.apps.view.coverview.b.a am(JSONObject jSONObject) {
         com.baidu.swan.apps.view.coverview.b.c cVar = new com.baidu.swan.apps.view.coverview.b.c();
-        cVar.aZe = CoverViewHelper.Type.TEXT;
+        cVar.aZh = CoverViewHelper.Type.TEXT;
         try {
             cVar.parseFromJson(jSONObject);
         } catch (JSONException e) {
@@ -121,12 +120,12 @@ public class b extends y {
     }
 
     public boolean a(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
         if (bVar == null || !bVar.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.aZe);
+        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.aZh);
         boolean a2 = new SwanAppNAViewContainer(context).a((View) a, aVar);
         a.a(aVar);
         a.setAlpha(aVar);
@@ -141,7 +140,7 @@ public class b extends y {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("type", "loadState");
-                                jSONObject.put("parentId", model.aBE);
+                                jSONObject.put("parentId", model.aBH);
                                 jSONObject.put("viewId", model.id);
                                 jSONObject.put("loadState", i == 1 ? "finish" : "error");
                             } catch (JSONException e) {
@@ -157,7 +156,7 @@ public class b extends y {
                             JSONObject jSONObject2 = new JSONObject();
                             try {
                                 jSONObject2.put("type", "click");
-                                jSONObject2.put("parentId", model.aBE);
+                                jSONObject2.put("parentId", model.aBH);
                                 jSONObject2.put("viewId", model.id);
                                 jSONObject2.put(Config.EVENT_HEAT_X, x.ae(clickPosition.x));
                                 jSONObject2.put("y", x.ae(clickPosition.y));
@@ -182,7 +181,7 @@ public class b extends y {
     }
 
     public boolean b(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
         if (bVar == null || !bVar.isValid()) {
             c.e("CoverView", "position not valid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -209,13 +208,13 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        boolean MK = a.MK();
-        if (MK) {
+        boolean MI = a.MI();
+        if (MI) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         }
-        return MK;
+        return MI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

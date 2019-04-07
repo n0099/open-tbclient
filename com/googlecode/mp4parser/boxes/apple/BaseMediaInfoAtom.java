@@ -36,19 +36,19 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("BaseMediaInfoAtom.java", BaseMediaInfoAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 54);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "reserved", "", "void"), 98);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "java.lang.String"), 103);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 70);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorG", "", "void"), 74);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 78);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorB", "", "void"), 82);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 86);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "balance", "", "void"), 90);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 54);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "reserved", "", "void"), 98);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "java.lang.String"), 103);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 70);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setOpColorG", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorG", "", "void"), 74);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 78);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setOpColorB", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorB", "", "void"), 82);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 86);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setBalance", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "balance", "", "void"), 90);
     }
 
     public BaseMediaInfoAtom() {
@@ -102,7 +102,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.CW(i)));
         this.opColorR = i;
     }
 
@@ -112,7 +112,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.CW(i)));
         this.opColorG = i;
     }
 
@@ -122,7 +122,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.CW(i)));
         this.opColorB = i;
     }
 

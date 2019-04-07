@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i {
     private long Vn;
-    private long aEp;
-    private int bpn;
-    private JSONObject bpo;
-    private String bpp;
-    private boolean bpq = false;
-    private JSONArray bps;
+    private long aEs;
+    private int bpq;
+    private JSONObject bpr;
+    private String bps;
+    private boolean bpt = false;
+    private JSONArray bpv;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -25,7 +25,7 @@ public class i {
 
     public i(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.bpn = i;
+        this.bpq = i;
         this.mContent = str2;
         this.mOption = i2;
     }
@@ -34,24 +34,24 @@ public class i {
         return this.mId;
     }
 
-    public int Td() {
-        return this.bpn;
+    public int Tb() {
+        return this.bpq;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject Tf() {
-        return this.bpo;
+    public JSONObject Td() {
+        return this.bpr;
     }
 
-    public long Ti() {
+    public long Tg() {
         return this.Vn;
     }
 
     public long getEndTime() {
-        return this.aEp;
+        return this.aEs;
     }
 
     public String getState() {
@@ -62,16 +62,16 @@ public class i {
         return this.mOption;
     }
 
-    public String Te() {
-        return this.bpp;
+    public String Tc() {
+        return this.bps;
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void fq(int i) {
-        this.bpn = i;
+    public void fp(int i) {
+        this.bpq = i;
     }
 
     public void setContent(String str) {
@@ -83,20 +83,20 @@ public class i {
     }
 
     public void setEndTime(long j) {
-        this.aEp = j;
-    }
-
-    public void jO(String str) {
-        this.mState = str;
+        this.aEs = j;
     }
 
     public void jP(String str) {
-        this.bpp = str;
+        this.mState = str;
     }
 
-    public void Th() {
-        if (d.SW().jI(this.mId)) {
-            this.bpp = q.Ts().Fp();
+    public void jQ(String str) {
+        this.bps = str;
+    }
+
+    public void Tf() {
+        if (d.SU().jJ(this.mId)) {
+            this.bps = q.Tq().Fn();
         }
     }
 
@@ -109,24 +109,24 @@ public class i {
     }
 
     public void cV(boolean z) {
-        this.bpq = z;
+        this.bpt = z;
     }
 
-    public boolean Ta() {
-        return this.bpq;
+    public boolean SY() {
+        return this.bpt;
     }
 
-    public void jQ(String str) {
+    public void jR(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.bps = new JSONArray(str);
+                this.bpv = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray Tj() {
-        return this.bps;
+    public JSONArray Th() {
+        return this.bpv;
     }
 }

@@ -11,59 +11,59 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean bxK;
-    private int bxL;
-    private int bxM;
-    private int bxN = 25;
-    private int bxO = 25;
-    private int bxP = 10;
+    private boolean bxN;
+    private int bxO;
+    private int bxP;
+    private int bxQ = 25;
+    private int bxR = 25;
+    private int bxS = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.bxN;
+        return this.bxQ;
     }
 
     public void setSuccRank(int i) {
-        this.bxN = i;
+        this.bxQ = i;
     }
 
     public int getErrRank() {
-        return this.bxO;
+        return this.bxR;
     }
 
     public void setErrRank(int i) {
-        this.bxO = i;
+        this.bxR = i;
     }
 
     public int getSlowRank() {
-        return this.bxP;
+        return this.bxS;
     }
 
     public void setSlowRank(int i) {
-        this.bxP = i;
+        this.bxS = i;
     }
 
     public boolean ismSwitch() {
-        return this.bxK;
+        return this.bxN;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.bxK != z) {
+        if (this.bxN != z) {
             a jC = s.jC();
             jC.append(SocialConstants.PARAM_ACT, "fallback");
             jC.append("result", z ? "1" : "0");
             jC.append("type", "switch");
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, jC);
         }
-        this.bxK = z;
+        this.bxN = z;
     }
 
     public int getSlowNumber() {
-        return this.bxL;
+        return this.bxO;
     }
 
     public void setSlowNumber(int i) {
-        this.bxL = i;
+        this.bxO = i;
     }
 
     public int getTime() {
@@ -75,11 +75,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.bxM;
+        return this.bxP;
     }
 
     public void setErrNumber(int i) {
-        this.bxM = i;
+        this.bxP = i;
     }
 
     public void parseJson(String str) {
@@ -88,7 +88,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.bxK = false;
+            this.bxN = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -97,30 +97,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.bxK = true;
+                    this.bxN = true;
                 } else {
-                    this.bxK = false;
+                    this.bxN = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.bxM = optJSONObject.optInt("num");
+                    this.bxP = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.bxL = optJSONObject2.optInt("num");
+                    this.bxO = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.bxN = optJSONObject3.optInt("succ");
-                    this.bxO = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.bxP = optJSONObject3.optInt("slow");
+                    this.bxQ = optJSONObject3.optInt("succ");
+                    this.bxR = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.bxS = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.bxL <= 0 || this.bxM <= 0) {
-                    this.bxK = false;
+                if (this.time <= 0 || this.bxO <= 0 || this.bxP <= 0) {
+                    this.bxN = false;
                 }
             } catch (Exception e) {
-                this.bxK = false;
+                this.bxN = false;
                 BdLog.e(e.getMessage());
             }
         }

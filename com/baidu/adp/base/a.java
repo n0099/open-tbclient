@@ -46,11 +46,11 @@ public final class a {
     public void l(Activity activity) {
         if (activity != null) {
             ve.add(new SoftReference<>(activity));
-            H(this.vh);
+            G(this.vh);
         }
     }
 
-    public Activity G(int i) {
+    public Activity F(int i) {
         int size = ve.size();
         if (size == 0) {
             return null;
@@ -109,7 +109,7 @@ public final class a {
     }
 
     public void fV() {
-        H(3);
+        G(3);
     }
 
     public void fW() {
@@ -131,14 +131,14 @@ public final class a {
         return this.vh;
     }
 
-    private void H(int i) {
+    private void G(int i) {
         if (i != 0) {
             int size = fT().getSize();
             while (size > i) {
                 size--;
-                Activity G = fT().G(1);
-                if (G != null) {
-                    G.finish();
+                Activity F = fT().F(1);
+                if (F != null) {
+                    F.finish();
                 }
             }
         }

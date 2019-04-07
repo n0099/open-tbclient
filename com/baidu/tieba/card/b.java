@@ -15,17 +15,17 @@ import com.baidu.tieba.card.data.a;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
-    private View efA;
-    public ImageView efB;
-    public LinearLayout efC;
-    public View efD;
-    public View efE;
-    protected RelativeLayout efu;
-    protected TextView efv;
-    public TextView efw;
-    public TextView efx;
-    private View efy;
-    private View efz;
+    protected RelativeLayout efg;
+    protected TextView efh;
+    public TextView efi;
+    public TextView efj;
+    private View efk;
+    private View efl;
+    private View efm;
+    public ImageView efn;
+    public LinearLayout efo;
+    public View efp;
+    public View efq;
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.card.b<T extends com.baidu.tieba.card.data.a> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -36,54 +36,54 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.efu = null;
-        this.efv = null;
-        this.efw = null;
-        this.efx = null;
-        this.efy = null;
-        this.efz = null;
-        this.efA = null;
-        this.efC = null;
+        this.efg = null;
+        this.efh = null;
+        this.efi = null;
+        this.efj = null;
+        this.efk = null;
+        this.efl = null;
+        this.efm = null;
+        this.efo = null;
         O(getView());
     }
 
     private void O(View view) {
-        this.efu = (RelativeLayout) view.findViewById(d.g.item_layout_group_title);
-        this.efv = (TextView) view.findViewById(d.g.item_group_title);
-        this.efw = (TextView) view.findViewById(d.g.item_right_tv);
-        this.efx = (TextView) view.findViewById(d.g.item_bottom_more_tv);
-        this.efy = view.findViewById(d.g.divider_line_top);
-        this.efz = view.findViewById(d.g.divider_line_middle);
-        this.efA = view.findViewById(d.g.divider_line_bottom);
-        this.efC = (LinearLayout) view.findViewById(d.g.card_container);
-        this.efD = view.findViewById(d.g.divider_card);
-        this.efE = view.findViewById(d.g.divider_card_top);
-        this.efB = (ImageView) view.findViewById(d.g.item_right_arrow);
+        this.efg = (RelativeLayout) view.findViewById(d.g.item_layout_group_title);
+        this.efh = (TextView) view.findViewById(d.g.item_group_title);
+        this.efi = (TextView) view.findViewById(d.g.item_right_tv);
+        this.efj = (TextView) view.findViewById(d.g.item_bottom_more_tv);
+        this.efk = view.findViewById(d.g.divider_line_top);
+        this.efl = view.findViewById(d.g.divider_line_middle);
+        this.efm = view.findViewById(d.g.divider_line_bottom);
+        this.efo = (LinearLayout) view.findViewById(d.g.card_container);
+        this.efp = view.findViewById(d.g.divider_card);
+        this.efq = view.findViewById(d.g.divider_card_top);
+        this.efn = (ImageView) view.findViewById(d.g.item_right_arrow);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void aQi() {
+    private void aQg() {
         if (getFrom() != null && getFrom().equals("home")) {
-            al.d(this.efv, d.C0277d.cp_cont_d, 1);
-            this.efB.setVisibility(8);
+            al.d(this.efh, d.C0277d.cp_cont_d, 1);
+            this.efn.setVisibility(8);
         } else {
-            al.d(this.efv, d.C0277d.cp_cont_f, 1);
-            al.c(this.efB, d.f.icon_arrow_tab);
+            al.d(this.efh, d.C0277d.cp_cont_f, 1);
+            al.c(this.efn, d.f.icon_arrow_tab);
         }
-        al.d(this.efw, d.C0277d.cp_link_tip_c, 1);
-        al.d(this.efx, d.C0277d.cp_cont_d, 1);
+        al.d(this.efi, d.C0277d.cp_link_tip_c, 1);
+        al.d(this.efj, d.C0277d.cp_cont_d, 1);
         al.l(getView(), d.C0277d.cp_bg_line_d);
-        al.l(this.efy, d.C0277d.cp_bg_line_c);
-        al.l(this.efz, d.C0277d.cp_bg_line_c);
-        al.l(this.efA, d.C0277d.cp_bg_line_c);
-        al.l(this.efD, d.C0277d.cp_bg_line_c);
-        al.l(this.efE, d.C0277d.cp_bg_line_c);
+        al.l(this.efk, d.C0277d.cp_bg_line_c);
+        al.l(this.efl, d.C0277d.cp_bg_line_c);
+        al.l(this.efm, d.C0277d.cp_bg_line_c);
+        al.l(this.efp, d.C0277d.cp_bg_line_c);
+        al.l(this.efq, d.C0277d.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aQi();
+            aQg();
         }
         this.mSkinType = i;
     }
@@ -93,44 +93,44 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
             getView().setVisibility(8);
             return;
         }
-        this.efv.setText(t.mGroupTitle);
+        this.efh.setText(t.mGroupTitle);
         if (t.mRightIconResId > 0) {
-            this.efw.setBackgroundResource(t.mRightIconResId);
+            this.efi.setBackgroundResource(t.mRightIconResId);
         }
         if (t.showTopDivider) {
-            this.efE.setVisibility(0);
+            this.efq.setVisibility(0);
         } else {
-            this.efE.setVisibility(8);
+            this.efq.setVisibility(8);
         }
         if (t.showBottomDivider) {
-            this.efD.setVisibility(0);
+            this.efp.setVisibility(0);
         } else {
-            this.efD.setVisibility(8);
+            this.efp.setVisibility(8);
         }
         if (!StringUtils.isNull(t.mBottomText)) {
-            this.efx.setVisibility(0);
-            this.efA.setVisibility(0);
-            this.efz.setVisibility(0);
-            this.efx.setText(t.mBottomText);
+            this.efj.setVisibility(0);
+            this.efm.setVisibility(0);
+            this.efl.setVisibility(0);
+            this.efj.setText(t.mBottomText);
             String str = t.mBottomLink;
             if (!StringUtils.isNull(str)) {
-                this.efx.setTag(str);
-                this.efx.setOnClickListener(this);
+                this.efj.setTag(str);
+                this.efj.setOnClickListener(this);
                 return;
             }
             return;
         }
-        this.efx.setVisibility(8);
-        this.efA.setVisibility(8);
-        this.efz.setVisibility(8);
+        this.efj.setVisibility(8);
+        this.efm.setVisibility(8);
+        this.efl.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.efx == view && view != null && (view.getTag() instanceof String)) {
+        if (this.efj == view && view != null && (view.getTag() instanceof String)) {
             String str = (String) view.getTag();
             if (!StringUtils.isNull(str)) {
-                ba.adD().c(getTbPageContext(), new String[]{str});
+                ba.adA().c(getTbPageContext(), new String[]{str});
             }
         }
     }
@@ -140,27 +140,27 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
         return d.h.card_group;
     }
 
-    public void ok(int i) {
-        if (this.efy != null && this.efy.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.efy.getLayoutParams();
+    public void og(int i) {
+        if (this.efk != null && this.efk.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.efk.getLayoutParams();
             layoutParams.height = i;
-            this.efy.setLayoutParams(layoutParams);
+            this.efk.setLayoutParams(layoutParams);
         }
-        if (this.efz != null && this.efz.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams2 = this.efz.getLayoutParams();
+        if (this.efl != null && this.efl.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams2 = this.efl.getLayoutParams();
             layoutParams2.height = i;
-            this.efz.setLayoutParams(layoutParams2);
+            this.efl.setLayoutParams(layoutParams2);
         }
-        if (this.efA != null && this.efA.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams3 = this.efA.getLayoutParams();
+        if (this.efm != null && this.efm.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams3 = this.efm.getLayoutParams();
             layoutParams3.height = i;
-            this.efA.setLayoutParams(layoutParams3);
+            this.efm.setLayoutParams(layoutParams3);
         }
     }
 
     public void hJ(boolean z) {
-        if (this.efD != null) {
-            this.efD.setVisibility(z ? 0 : 8);
+        if (this.efp != null) {
+            this.efp.setVisibility(z ? 0 : 8);
         }
     }
 }

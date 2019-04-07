@@ -154,7 +154,7 @@ public class SapiDataEncryptor {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b : bArr) {
-            sb.append(a.charAt((b >> 4) & 15)).append(a.charAt(b & 15));
+            sb.append("0123456789ABCDEF".charAt((b >> 4) & 15)).append("0123456789ABCDEF".charAt(b & 15));
         }
         return sb.toString();
     }

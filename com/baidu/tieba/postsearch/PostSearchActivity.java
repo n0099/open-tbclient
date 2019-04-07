@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes6.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String eXh;
-    private g icq;
-    private d icr;
+    public String eWT;
+    private g icc;
+    private d icd;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.xy(i);
+            PostSearchActivity.this.xu(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.icq = new g(this);
-        this.icq.initView();
-        this.icq.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.icr = new d(this);
+        this.icc = new g(this);
+        this.icc.initView();
+        this.icc.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.icd = new d(this);
         initData();
     }
 
-    public void jf(String str) {
-        this.eXh = str;
-        this.icq.xE(1);
-        this.icr.bVu();
-        this.icq.showLoadingView();
+    public void jg(String str) {
+        this.eWT = str;
+        this.icc.xA(1);
+        this.icd.bVq();
+        this.icc.showLoadingView();
     }
 
-    public void Bd(String str) {
-        this.icq.Bd(str);
-    }
-
-    public void bVe() {
-        this.icq.ax(this.icr.icO);
-    }
-
-    public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.bvO())) {
-            this.icq.hideLoadingView();
-            this.icq.bVy();
-            return;
-        }
-        this.icq.hideLoadingView();
-        this.icq.bVm();
-        this.icq.a(i, bVar, z);
-    }
-
-    public boolean bVf() {
-        return this.icq.bVf();
+    public void Bc(String str) {
+        this.icc.Bc(str);
     }
 
     public void bVa() {
-        this.icq.bVa();
+        this.icc.ax(this.icd.icA);
     }
 
-    public d bVg() {
-        return this.icr;
+    public void a(int i, b bVar, boolean z) {
+        if (i == 1 && (bVar == null || !bVar.bvL())) {
+            this.icc.hideLoadingView();
+            this.icc.bVu();
+            return;
+        }
+        this.icc.hideLoadingView();
+        this.icc.bVi();
+        this.icc.a(i, bVar, z);
     }
 
-    public g bVh() {
-        return this.icq;
+    public boolean bVb() {
+        return this.icc.bVb();
+    }
+
+    public void bUW() {
+        this.icc.bUW();
+    }
+
+    public d bVc() {
+        return this.icd;
+    }
+
+    public g bVd() {
+        return this.icc;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.icq.onChangeSkinType(i);
+        this.icc.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.icr.bVr();
+        this.icd.bVn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.icq != null) {
-            this.icq.onDestroy();
+        if (this.icc != null) {
+            this.icc.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xy(int i) {
+    public void xu(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

@@ -19,25 +19,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsActivity> {
-    private View faK;
-    private List<FeedForumData> fjF;
-    private e fjP;
-    private ListView fjQ;
+    private View fax;
+    private e fjB;
+    private ListView fjC;
+    private List<FeedForumData> fjr;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == FrsMoreFeedForumsActivity.this.faK.getId()) {
+            if (view.getId() == FrsMoreFeedForumsActivity.this.fax.getId()) {
                 FrsMoreFeedForumsActivity.this.finish();
             }
         }
     };
-    private CustomMessageListener eVu = new CustomMessageListener(2001266) { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivity.2
+    private CustomMessageListener eVg = new CustomMessageListener(2001266) { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof r)) {
-                FrsMoreFeedForumsActivity.this.fjP.a(FrsMoreFeedForumsActivity.this.fjF, (r) customResponsedMessage.getData());
+                FrsMoreFeedForumsActivity.this.fjB.a(FrsMoreFeedForumsActivity.this.fjr, (r) customResponsedMessage.getData());
             }
         }
     };
@@ -49,19 +49,19 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         setContentView(d.h.frs_more_feed_forums_activity);
         Intent intent = getIntent();
         if (intent != null) {
-            this.fjF = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
+            this.fjr = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
         }
         this.mNavigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(d.g.view_navigation_bar);
-        this.faK = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.faK.setOnClickListener(this.mOnClickListener);
+        this.fax = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.fax.setOnClickListener(this.mOnClickListener);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.group_fourm_content_extend_title));
-        this.fjQ = (ListView) getPageContext().getPageActivity().findViewById(d.g.listView_feed_forum);
-        registerListener(this.eVu);
-        this.fjP = new e(getPageContext());
-        this.fjP.setData(this.fjF);
-        this.fjQ.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.h.frs_more_feed_forums_header, (ViewGroup) null));
-        this.fjQ.setAdapter((ListAdapter) this.fjP);
-        this.fjP.notifyDataSetChanged();
+        this.fjC = (ListView) getPageContext().getPageActivity().findViewById(d.g.listView_feed_forum);
+        registerListener(this.eVg);
+        this.fjB = new e(getPageContext());
+        this.fjB.setData(this.fjr);
+        this.fjC.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.h.frs_more_feed_forums_header, (ViewGroup) null));
+        this.fjC.setAdapter((ListAdapter) this.fjB);
+        this.fjB.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,6 +69,6 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.fjP.notifyDataSetChanged();
+        this.fjB.notifyDataSetChanged();
     }
 }

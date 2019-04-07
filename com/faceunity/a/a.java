@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
-    private c jMi;
-    private int jMj;
-    private boolean jMk;
+    private c jLC;
+    private int jLD;
+    private boolean jLE;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -27,9 +27,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.jMj = -1;
-        this.jMk = false;
-        this.jMi = cVar;
+        this.jLD = -1;
+        this.jLE = false;
+        this.jLC = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void cAN() throws Exception {
+    public void cAG() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -72,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.jMk) {
+                    if (this.jLE) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.jMj = this.jMi.addTrack(outputFormat);
-                    if (!this.jMi.start()) {
-                        synchronized (this.jMi) {
-                            while (!this.jMi.isStarted()) {
+                    this.jLD = this.jLC.addTrack(outputFormat);
+                    if (!this.jLC.start()) {
+                        synchronized (this.jLC) {
+                            while (!this.jLC.isStarted()) {
                                 try {
-                                    this.jMi.wait(100L);
+                                    this.jLC.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.jMk = true;
+                    this.jLE = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.jMk) {
+                        if (!this.jLE) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.jMi.writeSampleData(this.jMj, byteBuffer, this.mBufferInfo);
+                        this.jLC.writeSampleData(this.jLD, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.jMi != null) {
-                this.jMi.stop();
-                this.jMi = null;
+            if (this.jLC != null) {
+                this.jLC.stop();
+                this.jLC = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

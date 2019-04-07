@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean bWi = false;
+    private boolean bWk = false;
 
-    public boolean afN() {
-        return this.bWi;
+    public boolean afK() {
+        return this.bWk;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -24,11 +24,11 @@ public class a {
 
     private void aL(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bWi = true;
+            this.bWk = true;
         }
     }
 
-    public void afO() {
+    public void afL() {
         try {
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("praise_abtest_switch_json", null);
             if (!TextUtils.isEmpty(string)) {

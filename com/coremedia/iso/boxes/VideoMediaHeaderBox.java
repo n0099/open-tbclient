@@ -23,11 +23,11 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("VideoMediaHeaderBox.java", VideoMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGraphicsmode", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "int"), 39);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getOpcolor", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "[I"), 43);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "java.lang.String"), 71);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setOpcolor", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "[I", "opcolor", "", "void"), 75);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setGraphicsmode", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "int", "graphicsmode", "", "void"), 79);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getGraphicsmode", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "int"), 39);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getOpcolor", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "[I"), 43);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "", "", "", "java.lang.String"), 71);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setOpcolor", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "[I", "opcolor", "", "void"), 75);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "setGraphicsmode", "com.coremedia.iso.boxes.VideoMediaHeaderBox", "int", "graphicsmode", "", "void"), 79);
     }
 
     public VideoMediaHeaderBox() {
@@ -82,7 +82,7 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     }
 
     public void setGraphicsmode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.CW(i)));
         this.graphicsmode = i;
     }
 }

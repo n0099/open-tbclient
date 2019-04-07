@@ -13,19 +13,19 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class a {
-    private static final int gYR = S(new byte[]{102, 114, 101, 101});
-    private static final int gYS = S(new byte[]{106, 117, 110, 107});
-    private static final int gYT = S(new byte[]{109, 100, 97, 116});
-    private static final int gYU = S(new byte[]{109, 111, 111, 118});
-    private static final int gYV = S(new byte[]{112, 110, 111, 116});
-    private static final int gYW = S(new byte[]{115, 107, 105, 112});
-    private static final int gYX = S(new byte[]{119, 105, 100, 101});
-    private static final int gYY = S(new byte[]{80, 73, 67, 84});
-    private static final int gYZ = S(new byte[]{102, 116, 121, 112});
-    private static final int gZa = S(new byte[]{117, 117, 105, 100});
-    private static final int gZb = S(new byte[]{99, 109, 111, 118});
-    private static final int gZc = S(new byte[]{115, 116, 99, 111});
-    private static final int gZd = S(new byte[]{99, 111, 54, 52});
+    private static final int gYE = S(new byte[]{102, 114, 101, 101});
+    private static final int gYF = S(new byte[]{106, 117, 110, 107});
+    private static final int gYG = S(new byte[]{109, 100, 97, 116});
+    private static final int gYH = S(new byte[]{109, 111, 111, 118});
+    private static final int gYI = S(new byte[]{112, 110, 111, 116});
+    private static final int gYJ = S(new byte[]{115, 107, 105, 112});
+    private static final int gYK = S(new byte[]{119, 105, 100, 101});
+    private static final int gYL = S(new byte[]{80, 73, 67, 84});
+    private static final int gYM = S(new byte[]{102, 116, 121, 112});
+    private static final int gYN = S(new byte[]{117, 117, 105, 100});
+    private static final int gYO = S(new byte[]{99, 109, 111, 118});
+    private static final int gYP = S(new byte[]{115, 116, 99, 111});
+    private static final int gYQ = S(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -35,10 +35,10 @@ public class a {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void vI(int i);
+        void vE(int i);
     }
 
-    static long vH(int i) {
+    static long vD(int i) {
         return i & 4294967295L;
     }
 
@@ -77,7 +77,7 @@ public class a {
     public static void a(String str, final b bVar) {
         if (bVar != null) {
             if (StringUtils.isNull(str)) {
-                bVar.vI(2);
+                bVar.vE(2);
             }
             new BdAsyncTask<String, Void, Integer>() { // from class: com.baidu.tieba.k.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.zg(strArr[0]));
+                    return Integer.valueOf(a.zf(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -97,14 +97,14 @@ public class a {
                 public void onPostExecute(Integer num) {
                     super.onPostExecute((AnonymousClass1) num);
                     if (b.this != null) {
-                        b.this.vI(num.intValue());
+                        b.this.vE(num.intValue());
                     }
                 }
             }.execute(str);
         }
     }
 
-    public static int zg(String str) {
+    public static int zf(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -138,16 +138,16 @@ public class a {
                 i = i2;
                 break;
             }
-            long vH = vH(order.getInt());
+            long vD = vD(order.getInt());
             i = order.getInt();
-            if (i == gYZ) {
-                int dv = dv(vH);
+            if (i == gYM) {
+                int dv = dv(vD);
                 ByteBuffer order2 = ByteBuffer.allocate(dv).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= dv - 8) {
                     order2.flip();
-                    if ((i == gYR && i != gYS && i != gYT && i != gYU && i != gYV && i != gYW && i != gYX && i != gYY && i != gZa && i != gYZ) || vH < 8) {
+                    if ((i == gYE && i != gYF && i != gYG && i != gYH && i != gYI && i != gYJ && i != gYK && i != gYL && i != gYN && i != gYM) || vD < 8) {
                         break;
                     }
                     i2 = i;
@@ -155,22 +155,22 @@ public class a {
                     break;
                 }
             } else {
-                if (vH == 1) {
+                if (vD == 1) {
                     order.clear();
                     if (!a(fileChannel, order)) {
                         break;
                     }
-                    vH = dw(order.getLong());
-                    fileChannel.position((fileChannel.position() + vH) - 16);
+                    vD = dw(order.getLong());
+                    fileChannel.position((fileChannel.position() + vD) - 16);
                 } else {
-                    fileChannel.position((fileChannel.position() + vH) - 8);
+                    fileChannel.position((fileChannel.position() + vD) - 8);
                 }
-                if (i == gYR) {
+                if (i == gYE) {
                 }
                 i2 = i;
             }
         }
-        return i != gYU ? 0 : 1;
+        return i != gYH ? 0 : 1;
     }
 
     public static void a(String str, String str2, final InterfaceC0329a interfaceC0329a) {
@@ -186,7 +186,7 @@ public class a {
                         if (strArr == null || strArr.length != 2) {
                             return false;
                         }
-                        return Boolean.valueOf(a.dr(strArr[0], strArr[1]));
+                        return Boolean.valueOf(a.ds(strArr[0], strArr[1]));
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -204,7 +204,7 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
-    public static boolean dr(String str, String str2) {
+    public static boolean ds(String str, String str2) {
         FileInputStream fileInputStream;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -265,9 +265,9 @@ public class a {
                 j = j4;
                 break;
             }
-            j2 = vH(order.getInt());
+            j2 = vD(order.getInt());
             i2 = order.getInt();
-            if (i2 == gYZ) {
+            if (i2 == gYM) {
                 int dv = dv(j2);
                 byteBuffer2 = ByteBuffer.allocate(dv).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -281,7 +281,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == gYR && i2 != gYS && i2 != gYT && i2 != gYU && i2 != gYV && i2 != gYW && i2 != gYX && i2 != gYY && i2 != gZa && i2 != gYZ) {
+                if (i2 == gYE && i2 != gYF && i2 != gYG && i2 != gYH && i2 != gYI && i2 != gYJ && i2 != gYK && i2 != gYL && i2 != gYN && i2 != gYM) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -309,13 +309,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == gYR) {
+                if (i2 == gYE) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != gYU) {
+        if (i != gYH) {
             return false;
         }
         int dv2 = dv(j2);
@@ -324,15 +324,15 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == gZb) {
+        if (order2.getInt(12) == gYO) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != gZc && i3 != gZd) {
+            if (i3 != gYP && i3 != gYQ) {
                 order2.position(order2.position() + 1);
-            } else if (vH(order2.getInt(position)) > order2.remaining()) {
+            } else if (vD(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
             } else {
                 order2.position(position + 12);
@@ -340,7 +340,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int dv3 = dv(order2.getInt());
-                if (i3 == gZc) {
+                if (i3 == gYP) {
                     if (order2.remaining() < dv3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -353,7 +353,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != gZd) {
+                } else if (i3 != gYQ) {
                     continue;
                 } else if (order2.remaining() < dv3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

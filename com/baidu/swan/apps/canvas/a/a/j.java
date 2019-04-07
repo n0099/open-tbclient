@@ -12,27 +12,27 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int alA;
-    private int alB;
-    private String alz;
+    private String alD;
+    private int alE;
+    private int alF;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
     private int mWidth;
 
     public j(String str) {
-        this.alz = str;
+        this.alD = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void g(JSONArray jSONArray) {
     }
 
-    public boolean wB() {
+    public boolean wA() {
         try {
-            JSONObject jSONObject = new JSONObject(this.alz);
-            this.alA = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.alB = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.alD);
+            this.alE = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.alF = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("y"));
             this.mWidth = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("width"));
             this.mHeight = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("height"));
             String optString = jSONObject.optString("data");
@@ -41,8 +41,8 @@ public class j extends a {
                 this.mBitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
                 int width = this.mBitmap.getWidth();
                 int height = this.mBitmap.getHeight();
-                this.alA = this.alA < 0 ? 0 : this.alA;
-                this.alB = this.alB < 0 ? 0 : this.alB;
+                this.alE = this.alE < 0 ? 0 : this.alE;
+                this.alF = this.alF < 0 ? 0 : this.alF;
                 if (this.mWidth > 0) {
                     width = this.mWidth;
                 }
@@ -53,7 +53,7 @@ public class j extends a {
                 this.mHeight = height;
                 this.mMatrix = new Matrix();
                 this.mMatrix.postScale(this.mWidth / this.mBitmap.getWidth(), this.mHeight / this.mBitmap.getHeight());
-                this.mMatrix.postTranslate(this.alA, this.alB);
+                this.mMatrix.postTranslate(this.alE, this.alF);
             }
             return true;
         } catch (Exception e) {

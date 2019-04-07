@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiEnv;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -18,7 +17,7 @@ public final class bt {
             if (i2 < 0 || bx.a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bx.a[i2].getBytes(), SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bx.a[i2].getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(1, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -29,7 +28,7 @@ public final class bt {
             if (i2 < 0 || bx.a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bx.a[i2].getBytes(), SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bx.a[i2].getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(2, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -53,15 +52,15 @@ public final class bt {
     public static class a {
         @SuppressLint({"TrulyRandom"})
         public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
-            Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr3);
         }
 
         public static byte[] a() throws Exception {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(SapiEnv.SHARE_ALGORITHM);
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128, new SecureRandom());
             return keyGenerator.generateKey().getEncoded();
         }

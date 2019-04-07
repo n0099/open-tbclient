@@ -5,11 +5,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j {
     private String Vi;
-    private String aDu;
-    private int bpn;
-    private JSONObject bpo;
-    private String bpp;
-    private boolean bpq;
+    private String aDx;
+    private int bpq;
+    private JSONObject bpr;
+    private String bps;
+    private boolean bpt;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -18,11 +18,11 @@ public class j {
 
     public j(String str, String str2, int i) {
         this.mContent = "";
-        this.bpq = false;
+        this.bpt = false;
         this.Vi = "";
         this.mId = str;
-        this.aDu = str;
-        this.bpn = -1;
+        this.aDx = str;
+        this.bpq = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
@@ -32,12 +32,12 @@ public class j {
 
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.bpq = false;
+        this.bpt = false;
         this.Vi = "";
         this.mId = str;
-        this.aDu = str;
-        this.bpn = -1;
-        this.bpo = jSONObject;
+        this.aDx = str;
+        this.bpq = -1;
+        this.bpr = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -46,11 +46,11 @@ public class j {
 
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.bpq = false;
+        this.bpt = false;
         this.Vi = "";
         this.mId = str2;
-        this.aDu = str;
-        this.bpn = i;
+        this.aDx = str;
+        this.bpq = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -60,11 +60,11 @@ public class j {
 
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.bpq = false;
+        this.bpt = false;
         this.Vi = "";
         this.mId = str2;
-        this.aDu = str;
-        this.bpn = i;
+        this.aDx = str;
+        this.bpq = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -80,12 +80,12 @@ public class j {
         return this.mId;
     }
 
-    public String Tc() {
-        return this.aDu;
+    public String Ta() {
+        return this.aDx;
     }
 
-    public int Td() {
-        return this.bpn;
+    public int Tb() {
+        return this.bpq;
     }
 
     public String getContent() {
@@ -100,8 +100,8 @@ public class j {
         return this.mOption;
     }
 
-    public String Te() {
-        return this.bpp;
+    public String Tc() {
+        return this.bps;
     }
 
     public String getCategory() {
@@ -112,29 +112,29 @@ public class j {
         this.mCategory = str;
     }
 
-    public JSONObject Tf() {
-        return this.bpo;
+    public JSONObject Td() {
+        return this.bpr;
     }
 
     public String getFileName() {
         return this.Vi;
     }
 
-    public void qn(String str) {
+    public void qo(String str) {
         this.Vi = str;
     }
 
-    public boolean Ta() {
-        return this.bpq;
+    public boolean SY() {
+        return this.bpt;
     }
 
     public void cV(boolean z) {
-        this.bpq = z;
+        this.bpt = z;
     }
 
-    public void Th() {
-        if (this.mId != null && this.mId.equals(this.aDu) && e.crY().jI(this.mId)) {
-            this.bpp = UBC.getUBCContext().Fp();
+    public void Tf() {
+        if (this.mId != null && this.mId.equals(this.aDx) && e.crW().jJ(this.mId)) {
+            this.bps = UBC.getUBCContext().Fn();
         }
     }
 }

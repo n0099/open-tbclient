@@ -14,20 +14,20 @@ public final class d {
     private String h;
     private String i;
     private boolean j;
-    private JSONArray jwE;
+    private JSONArray jwu;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        public static final d jwF = new d((byte) 0);
+        public static final d jwv = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> csp() {
+    public final Map<String, g> csn() {
         return this.k;
     }
 
@@ -39,8 +39,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d csq() {
-        return a.jwF;
+    public static d cso() {
+        return a.jwv;
     }
 
     public final void a(Context context) {
@@ -86,20 +86,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult EQ(String str) {
-        if (this.jwE == null) {
+    public final SampleResult EP(String str) {
+        if (this.jwu == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.Fd(this.k.get(str).getGroup());
+                return i.Fc(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.jwE.length(); i++) {
-            JSONObject optJSONObject = this.jwE.optJSONObject(i);
+        for (int i = 0; i < this.jwu.length(); i++) {
+            JSONObject optJSONObject = this.jwu.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.Fd(optJSONObject.optString("group"));
+                return i.Fc(optJSONObject.optString("group"));
             }
         }
         return SampleResult.OTHERE;

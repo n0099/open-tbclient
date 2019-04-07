@@ -9,17 +9,17 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
+    public String vz() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
     public String vA() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vB() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public void vC() {
+    public void vB() {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -28,13 +28,18 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vE() {
+    public String vD() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vG() {
+    public String vF() {
         return "https://mbd.baidu.com/pms";
+    }
+
+    @Override // com.baidu.swan.apps.b.b.f
+    public String vG() {
+        return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -74,11 +79,6 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
 
     @Override // com.baidu.swan.apps.b.b.f
     public String vO() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vP() {
         return null;
     }
 }

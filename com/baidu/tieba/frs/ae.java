@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes3.dex */
 public interface ae {
-    void aBu();
+    void aBr();
 
-    void aBv();
+    void aBs();
 
-    void aBw();
+    void aBt();
 
-    void aeK();
+    void aeH();
 
     void setHeaderViewHeight(int i);
 

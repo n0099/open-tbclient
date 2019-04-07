@@ -12,18 +12,18 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a asz;
-    private Map<String, c> asA;
+    private static volatile a asD;
+    private Map<String, c> asE;
 
-    public static a zO() {
-        if (asz == null) {
+    public static a zN() {
+        if (asD == null) {
             synchronized (a.class) {
-                if (asz == null) {
-                    asz = new a();
+                if (asD == null) {
+                    asD = new a();
                 }
             }
         }
-        return asz;
+        return asD;
     }
 
     public void af(String str, String str2) {
@@ -34,33 +34,33 @@ public class a {
                 if (DEBUG && !TextUtils.isEmpty(B)) {
                     Log.i("SwanAppPreHandleHelper", "pre handle configData : " + B);
                 }
-                com.baidu.swan.apps.ae.a.c gk = com.baidu.swan.apps.ae.a.c.gk(B);
-                if (this.asA == null) {
-                    this.asA = new HashMap();
+                com.baidu.swan.apps.ae.a.c gl = com.baidu.swan.apps.ae.a.c.gl(B);
+                if (this.asE == null) {
+                    this.asE = new HashMap();
                 }
-                if (gk != null) {
-                    this.asA.put(str, gk);
+                if (gl != null) {
+                    this.asE.put(str, gl);
                 }
             }
         }
     }
 
     @Nullable
-    public com.baidu.swan.apps.ae.a.c eb(String str) {
-        if (this.asA == null || TextUtils.isEmpty(str)) {
+    public com.baidu.swan.apps.ae.a.c ed(String str) {
+        if (this.asE == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.asA.get(str);
+        return this.asE.get(str);
     }
 
-    private void zP() {
-        this.asA = null;
-        asz = null;
+    private void zO() {
+        this.asE = null;
+        asD = null;
     }
 
     public static void release() {
-        if (asz != null) {
-            asz.zP();
+        if (asD != null) {
+            asD.zO();
         }
     }
 }

@@ -46,8 +46,8 @@ public class a {
     public static am a(boolean z, bg bgVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5) {
         am amVar = new am(str2);
         amVar.bJ("page_type", str).T("obj_floor", i2).T("obj_isad", z2 ? 1 : 0).bJ(VideoPlayActivityConfig.OBJ_ID, a(z2, str3, z3, str5, bgVar.getId())).bJ("tid", bgVar.getTid()).T("thread_type", z2 ? -1 : bgVar.getThreadType());
-        if (!ap.isEmpty(bgVar.aai())) {
-            amVar.bJ("list_strategy", bgVar.aai());
+        if (!ap.isEmpty(bgVar.aaf())) {
+            amVar.bJ("list_strategy", bgVar.aaf());
         }
         if (!ap.isEmpty(bgVar.mRecomAbTag)) {
             amVar.bJ("ab_tag", bgVar.mRecomAbTag);
@@ -59,14 +59,14 @@ public class a {
             amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
         }
         if (z) {
-            if (!StringUtils.isNull(bgVar.YW())) {
-                amVar.bJ(ImageViewerConfig.FORUM_NAME, bgVar.YW());
+            if (!StringUtils.isNull(bgVar.YT())) {
+                amVar.bJ(ImageViewerConfig.FORUM_NAME, bgVar.YT());
             }
-            if (!StringUtils.isNull(bgVar.aax())) {
-                amVar.bJ("first_dir", bgVar.aax());
+            if (!StringUtils.isNull(bgVar.aau())) {
+                amVar.bJ("first_dir", bgVar.aau());
             }
-            if (!StringUtils.isNull(bgVar.aay())) {
-                amVar.bJ("second_dir", bgVar.aay());
+            if (!StringUtils.isNull(bgVar.aav())) {
+                amVar.bJ("second_dir", bgVar.aav());
             }
         }
         if (!StringUtils.isNull(str4)) {

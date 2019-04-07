@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import cn.jiguang.api.i;
 import cn.jpush.android.api.DefaultPushNotificationBuilder;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONException;
@@ -51,8 +52,8 @@ public class ServiceInterface {
     public static void a(Context context, String str, Set<String> set, long j, cn.jpush.android.api.a aVar) {
         Bundle bundle = new Bundle();
         e.a(context, bundle, "intent.ALIAS_TAGS");
-        bundle.putString("alias", str);
-        bundle.putStringArrayList("tags", set != null ? new ArrayList<>(set) : null);
+        bundle.putString(CommandMessage.TYPE_ALIAS, str);
+        bundle.putStringArrayList(CommandMessage.TYPE_TAGS, set != null ? new ArrayList<>(set) : null);
         bundle.putLong("seq_id", j);
         bundle.putString("proto_type", new StringBuilder().append(aVar != null ? aVar.e : 0).toString());
         bundle.putString("protoaction_type", new StringBuilder().append(aVar != null ? aVar.f : 0).toString());

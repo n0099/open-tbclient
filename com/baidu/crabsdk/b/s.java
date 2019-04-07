@@ -5,21 +5,19 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.sapi2.base.network.Apn;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class s {
     private static SharedPreferences abT;
+    private static HashMap<String, String> acb = null;
     private static Context mContext;
 
-    public static String N() {
+    public static String M() {
         if (!TextUtils.isEmpty(com.baidu.crabsdk.a.c)) {
             com.baidu.crabsdk.c.a.cv("uid is which user setted " + com.baidu.crabsdk.a.c);
             return com.baidu.crabsdk.a.c;
         } else if (mContext == null) {
-            com.baidu.crabsdk.c.a.cy("get SharedPreferences error because context is null for unknown reasons!!!");
+            com.baidu.crabsdk.c.a.w("get SharedPreferences error because context is null for unknown reasons!!!");
             return Apn.APN_UNKNOWN;
         } else {
             if (abT == null) {
@@ -35,33 +33,19 @@ public final class s {
         }
     }
 
-    public static String P() {
-        return abT != null ? abT.getString("users_custom", "") : "";
+    public static String O() {
+        return acb != null ? com.baidu.crabsdk.sender.i.c(acb) : "";
     }
 
     public static void a(HashMap<String, String> hashMap) {
-        if (abT == null || hashMap == null) {
-            if (abT == null || hashMap != null) {
-                return;
-            }
-            com.baidu.crabsdk.c.c.a(abT.edit().putString("users_custom", ""), false);
-            return;
-        }
-        try {
-            com.baidu.crabsdk.c.c.a(abT.edit().putString("users_custom", com.baidu.crabsdk.sender.f.c(hashMap)), false);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (acb == null) {
+            acb = hashMap;
+        } else if (hashMap != null) {
+            acb.putAll(hashMap);
         }
     }
 
-    public static void d(Context context) {
-        if (mContext == null) {
-            mContext = context;
-            abT = context.getSharedPreferences("crab_user_info", 0);
-        }
-    }
-
-    public static void d(String str) {
+    public static void c(String str) {
         com.baidu.crabsdk.a.c = str;
         if (abT == null && mContext != null) {
             abT = mContext.getSharedPreferences("crab_user_info", 0);
@@ -72,28 +56,22 @@ public final class s {
         com.baidu.crabsdk.c.c.a(abT.edit().putString("userId", str), false);
     }
 
+    public static void e(Context context) {
+        if (mContext == null) {
+            mContext = context;
+            abT = context.getSharedPreferences("crab_user_info", 0);
+        }
+    }
+
     public static String getUserName() {
         return abT != null ? abT.getString("userName", "") : "";
     }
 
     public static HashMap<String, String> rU() {
-        HashMap<String, String> hashMap = new HashMap<>();
-        if (abT != null) {
-            String string = abT.getString("users_custom", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(string);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        hashMap.put(next, jSONObject.getString(next));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (acb == null) {
+            acb = new HashMap<>();
         }
-        return hashMap;
+        return acb;
     }
 
     public static void setUserName(String str) {

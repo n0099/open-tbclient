@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.e;
 public interface b {
     void bL(String str, String str2);
 
-    void ng(String str);
+    void nh(String str);
 
     void onSuccess(String str);
 }

@@ -1,7 +1,6 @@
 package com.baidu.swan.apps.setting.oauth;
 
 import android.text.TextUtils;
-import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -13,25 +12,25 @@ public class e {
     public final String id;
     public String grade = "";
     public String name = "";
-    public String aRn = "";
+    public String aRq = "";
     public String description = "";
-    public final List<String> aRo = new ArrayList();
-    public int aRp = -1;
+    public final List<String> aRr = new ArrayList();
+    public int aRs = -1;
     private String type = "";
 
     private e(String str) {
         this.id = str;
     }
 
+    public boolean Kf() {
+        return this.aRs > 0;
+    }
+
+    public boolean Kg() {
+        return this.aRs != 0;
+    }
+
     public boolean Kh() {
-        return this.aRp > 0;
-    }
-
-    public boolean Ki() {
-        return this.aRp != 0;
-    }
-
-    public boolean Kj() {
         return "1".equals(this.type);
     }
 
@@ -52,20 +51,20 @@ public class e {
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.aRn = jSONObject.optString("short_name", "");
-        eVar.description = jSONObject.optString(SocialConstants.PARAM_COMMENT, "");
-        eVar.aRp = jSONObject.optInt("tip_status", -1);
+        eVar.aRq = jSONObject.optString("short_name", "");
+        eVar.description = jSONObject.optString("description", "");
+        eVar.aRs = jSONObject.optInt("tip_status", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.aRo.add(optJSONArray.optString(i));
+                eVar.aRr.add(optJSONArray.optString(i));
             }
         }
         return eVar;
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aRp));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aRs));
     }
 }

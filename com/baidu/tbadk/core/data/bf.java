@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bf extends a implements com.baidu.adp.widget.ListView.m {
-    public boolean bAF = false;
-    public boolean bAG = false;
-    public boolean bAH = false;
     public boolean bAI = false;
     public boolean bAJ = false;
     public boolean bAK = false;
     public boolean bAL = false;
     public boolean bAM = false;
-    public int bAN = 0;
-    public int bAO = 0;
+    public boolean bAN = false;
+    public boolean bAO = false;
+    public boolean bAP = false;
+    public int bAQ = 0;
+    public int bAR = 0;
     public bg threadData;
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -20,69 +20,60 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
         if (this.threadData == null) {
             return null;
         }
-        if (this.threadData.aaF()) {
-            if (this.threadData.Zi() != null) {
-                return bg.bBd;
+        if (this.threadData.aaC()) {
+            if (this.threadData.Zf() != null) {
+                return bg.bBg;
             }
-            return bg.bAQ;
+            return bg.bAT;
         }
-        int YM = this.threadData.YM();
-        if (this.threadData.Zi() != null && this.threadData.aaw()) {
-            return bg.bBr;
+        int YJ = this.threadData.YJ();
+        if (this.threadData.Zf() != null && this.threadData.aat()) {
+            return bg.bBu;
         }
         if (this.threadData.threadType == 63) {
             bg bgVar = this.threadData;
-            return bg.bBl;
+            return bg.bBo;
         } else if (this.threadData.threadType == 64) {
             bg bgVar2 = this.threadData;
-            return bg.bBm;
-        } else if (this.threadData.Zk() != null && this.threadData.threadType == 60) {
-            return bg.bBg;
+            return bg.bBp;
+        } else if (this.threadData.Zh() != null && this.threadData.threadType == 60) {
+            return bg.bBj;
         } else {
-            if (this.threadData.Zk() != null && this.threadData.threadType == 49) {
-                return bg.bBe;
-            }
-            if (this.threadData.threadType == 51) {
-                return bg.bBf;
-            }
-            if (YM == 2 || YM == 1) {
-                return bg.bAP;
-            }
-            if (this.threadData.Zi() != null && this.threadData.ZX() && !this.threadData.ZO()) {
-                return bg.bBq;
-            }
-            if (this.threadData.YU() && this.threadData.Zi() != null && !this.threadData.ZO()) {
-                return bg.bBi;
-            }
-            if (this.threadData.isShareThread) {
+            if (this.threadData.Zh() != null && this.threadData.threadType == 49) {
                 return bg.bBh;
             }
-            if (this.threadData.ZQ()) {
+            if (this.threadData.threadType == 51) {
+                return bg.bBi;
+            }
+            if (YJ == 2 || YJ == 1) {
+                return bg.bAS;
+            }
+            if (this.threadData.Zf() != null && this.threadData.ZU() && !this.threadData.ZL()) {
+                return bg.bBt;
+            }
+            if (this.threadData.YR() && this.threadData.Zf() != null && !this.threadData.ZL()) {
+                return bg.bBl;
+            }
+            if (this.threadData.isShareThread) {
+                return bg.bBk;
+            }
+            if (this.threadData.ZN()) {
                 bg bgVar3 = this.threadData;
-                return bg.bBn.get() ? bg.bCA : bg.bAQ;
-            } else if (this.threadData.ZC() && this.threadData.ZB() == 1) {
+                return bg.bBq.get() ? bg.bCD : bg.bAT;
+            } else if (this.threadData.Zz() && this.threadData.Zy() == 1) {
                 bg bgVar4 = this.threadData;
-                return bg.bBn.get() ? bg.bCI : bg.bAQ;
+                return bg.bBq.get() ? bg.bCL : bg.bAT;
             } else if (this.threadData.isLinkThread()) {
-                return bg.bBb;
+                return bg.bBe;
             } else {
-                if (this.threadData.YU()) {
-                    return bg.bBc;
+                if (this.threadData.YR()) {
+                    return bg.bBf;
                 }
-                if (this.threadData.aav()) {
-                    return this.threadData.YA() != null ? bg.bBk : bg.bBj;
-                } else if (this.bAF) {
-                    return bg.bAU;
+                if (this.threadData.aas()) {
+                    return this.threadData.Yx() != null ? bg.bBn : bg.bBm;
+                } else if (this.bAI) {
+                    return bg.bAX;
                 } else {
-                    if (this.bAG) {
-                        return bg.bAV;
-                    }
-                    if (this.bAH) {
-                        return bg.bAW;
-                    }
-                    if (this.bAI) {
-                        return bg.bAX;
-                    }
                     if (this.bAJ) {
                         return bg.bAY;
                     }
@@ -93,33 +84,42 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
                         return bg.bBa;
                     }
                     if (this.bAM) {
+                        return bg.bBb;
+                    }
+                    if (this.bAN) {
+                        return bg.bBc;
+                    }
+                    if (this.bAO) {
                         return bg.bBd;
                     }
-                    return bg.bAQ;
+                    if (this.bAP) {
+                        return bg.bBg;
+                    }
+                    return bg.bAT;
                 }
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bg WR() {
+    public bg WO() {
         return this.threadData;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public aj WT() {
-        if (this.threadData.bzu == null || this.threadData.bzu.size() <= 0) {
+    public aj WQ() {
+        if (this.threadData.bzx == null || this.threadData.bzx.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
-        ajVar.setTid(WR().getTid());
-        ajVar.setFid(WR().getFid());
-        ajVar.b(this.threadData.bzu);
+        ajVar.setTid(WO().getTid());
+        ajVar.setFid(WO().getFid());
+        ajVar.b(this.threadData.bzx);
         return ajVar;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String WS() {
-        return this.threadData.bCZ;
+    public String WP() {
+        return this.threadData.bDc;
     }
 }

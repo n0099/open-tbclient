@@ -1,10 +1,10 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public class s extends j {
-    private static s cst = new s();
+    private static s csv = new s();
 
-    public static boolean apG() {
-        return cst.jK();
+    public static boolean apD() {
+        return csv.jK();
     }
 
     @Override // com.baidu.tbadk.s.j, com.baidu.adp.lib.b.a

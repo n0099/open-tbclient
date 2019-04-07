@@ -7,17 +7,17 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 /* loaded from: classes2.dex */
 public class c extends d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.v.b.c ajx;
+    private com.baidu.swan.apps.v.b.c ajB;
 
     public c(com.baidu.swan.apps.v.b.c cVar) {
         super(cVar.mAppId);
-        this.ajx = cVar;
+        this.ajB = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.e
     public void a(com.baidu.swan.pms.d.e eVar) {
         super.a(eVar);
-        if (eVar != null && eVar.Sr()) {
+        if (eVar != null && eVar.Sp()) {
             l("checkForUpdate", true);
         }
     }
@@ -29,24 +29,24 @@ public class c extends d {
             Log.e("SwanAppPkgAsyncDownloadCallback", "onFetchError: " + bVar.toString());
         }
         l("checkForUpdate", false);
-        cp(bVar.errorNo);
+        co(bVar.errorNo);
     }
 
     @Override // com.baidu.swan.pms.a.e
-    public void zz() {
-        super.zz();
-        if (this.asg != null) {
-            zJ();
+    public void zy() {
+        super.zy();
+        if (this.ask != null) {
+            zI();
             l("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected void zA() {
-        this.aoP.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ak.a zI = zI();
-        this.aoP.add(new UbcFlowEvent("na_end_update_db"));
-        if (zI == null) {
+    protected void zz() {
+        this.aoT.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ak.a zH = zH();
+        this.aoT.add(new UbcFlowEvent("na_end_update_db"));
+        if (zH == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "异步更新-> DB 存储成功");
             }
@@ -71,12 +71,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.core.pms.d
-    protected PMSDownloadType zB() {
+    protected PMSDownloadType zA() {
         return PMSDownloadType.ASYNC;
     }
 
     private void l(String str, boolean z) {
-        String str2 = this.ajx != null ? this.ajx.mAppId : null;
+        String str2 = this.ajB != null ? this.ajB.mAppId : null;
         if (!TextUtils.isEmpty(str2)) {
             i.d(str, str2, z);
         }

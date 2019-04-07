@@ -44,7 +44,7 @@ public class a {
                     break;
                 case 4:
                     if (a.Vj != null) {
-                        a.Vj.aF(message.arg1);
+                        a.Vj.aE(message.arg1);
                         break;
                     }
                     break;
@@ -78,7 +78,7 @@ public class a {
                     break;
                 case 9:
                     if (a.Vj != null) {
-                        a.Vj.aG(message.arg1);
+                        a.Vj.aF(message.arg1);
                         break;
                     }
                     break;

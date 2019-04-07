@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private RelativeLayout inH;
-    private AfterAdjustChildWidthListener inI;
+    private AfterAdjustChildWidthListener inr;
 
     /* loaded from: classes3.dex */
     public interface AfterAdjustChildWidthListener {
@@ -19,21 +17,15 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     public AdThreadUserInfoLayout(Context context) {
         super(context);
-        init();
     }
 
     public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init();
-    }
-
-    private void init() {
-        this.inH = (RelativeLayout) findViewById(d.g.suffix_container);
     }
 
     public void addAdTagView(View view) {
         if (view != null) {
-            this.inH.removeAllViews();
+            this.ZE.removeAllViews();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -41,7 +33,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             view.setLayoutParams(layoutParams);
-            this.inH.addView(view);
+            this.ZE.addView(view);
         }
     }
 
@@ -53,12 +45,12 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     @Override // com.baidu.card.view.CardUserInfoLayout
     public void rH() {
         super.rH();
-        if (this.inI != null) {
-            this.inI.afterChildWidth();
+        if (this.inr != null) {
+            this.inr.afterChildWidth();
         }
     }
 
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.inI = afterAdjustChildWidthListener;
+        this.inr = afterAdjustChildWidthListener;
     }
 }

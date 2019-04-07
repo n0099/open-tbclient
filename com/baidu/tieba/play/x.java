@@ -7,64 +7,64 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class x {
-    private ViewGroup hYl;
-    private ImageView hYm;
-    private VideoLoadingProgressView hYn;
-    ObjectAnimator hYo;
-    ObjectAnimator hYp;
-    ObjectAnimator hYq;
+    private ViewGroup hXX;
+    private ImageView hXY;
+    private VideoLoadingProgressView hXZ;
+    ObjectAnimator hYa;
+    ObjectAnimator hYb;
+    ObjectAnimator hYc;
 
     public x(ViewGroup viewGroup) {
-        this.hYl = viewGroup;
-        this.hYm = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
-        this.hYn = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
+        this.hXX = viewGroup;
+        this.hXY = (ImageView) viewGroup.findViewById(d.g.auto_video_loading_image);
+        this.hXZ = (VideoLoadingProgressView) viewGroup.findViewById(d.g.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.hYo = ObjectAnimator.ofFloat(this.hYm, "alpha", 1.0f, 0.5f);
-        this.hYp = ObjectAnimator.ofFloat(this.hYm, "alpha", 0.5f, 0.0f);
-        this.hYq = ObjectAnimator.ofFloat(this.hYn, "alpha", 1.0f, 0.0f);
-        this.hYo.setDuration(50L);
-        this.hYp.setDuration(50L);
-        this.hYq.setDuration(50L);
+        this.hYa = ObjectAnimator.ofFloat(this.hXY, "alpha", 1.0f, 0.5f);
+        this.hYb = ObjectAnimator.ofFloat(this.hXY, "alpha", 0.5f, 0.0f);
+        this.hYc = ObjectAnimator.ofFloat(this.hXZ, "alpha", 1.0f, 0.0f);
+        this.hYa.setDuration(50L);
+        this.hYb.setDuration(50L);
+        this.hYc.setDuration(50L);
     }
 
     public void startLoading() {
-        bTS();
-        this.hYm.setAlpha(1.0f);
-        this.hYn.setAlpha(1.0f);
-        this.hYl.setVisibility(0);
-        this.hYn.startLoading();
-        this.hYo.start();
+        bTO();
+        this.hXY.setAlpha(1.0f);
+        this.hXZ.setAlpha(1.0f);
+        this.hXX.setVisibility(0);
+        this.hXZ.startLoading();
+        this.hYa.start();
     }
 
-    public void bTP() {
-        bTS();
-        this.hYn.bTP();
+    public void bTL() {
+        bTO();
+        this.hXZ.bTL();
     }
 
-    public void bTQ() {
-        bTS();
-        this.hYp.start();
-        this.hYq.start();
+    public void bTM() {
+        bTO();
+        this.hYb.start();
+        this.hYc.start();
     }
 
-    public void bTR() {
-        bTS();
-        this.hYl.setVisibility(8);
-        this.hYn.bTR();
+    public void bTN() {
+        bTO();
+        this.hXX.setVisibility(8);
+        this.hXZ.bTN();
     }
 
-    private void bTS() {
-        this.hYo.cancel();
-        this.hYp.cancel();
-        this.hYq.cancel();
+    private void bTO() {
+        this.hYa.cancel();
+        this.hYb.cancel();
+        this.hYc.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.hYn != null) {
-            this.hYn.setLoadingAnimationListener(aVar);
+        if (this.hXZ != null) {
+            this.hXZ.setLoadingAnimationListener(aVar);
         }
     }
 }

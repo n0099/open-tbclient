@@ -13,38 +13,38 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class b {
-    private f bmk;
-    private AtomicBoolean bml = new AtomicBoolean(false);
-    private com.baidu.swan.pms.b.a.c.b bmm = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
+    private f bmn;
+    private AtomicBoolean bmo = new AtomicBoolean(false);
+    private com.baidu.swan.pms.b.a.c.b bmq = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void d(f<T> fVar) {
-            b.this.bmk = fVar;
+            b.this.bmn = fVar;
         }
 
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void e(f<T> fVar) {
-            if (b.this.bmk == fVar) {
-                b.this.bmk = null;
+            if (b.this.bmn == fVar) {
+                b.this.bmn = null;
             }
         }
     };
-    private l bmn = new l(this.bmm);
-    private com.baidu.swan.pms.b.a.c.a bmo = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
+    private l bmr = new l(this.bmq);
+    private com.baidu.swan.pms.b.a.c.a bms = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
         @Override // com.baidu.swan.pms.b.a.c.a
         public Runnable cR(boolean z) {
             return b.this.cQ(z);
         }
     };
-    private a<f> bmh = new a<>();
-    private BlockingQueue<Runnable> bmi = new LinkedBlockingQueue();
-    private ThreadPoolExecutor bmj = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bmi);
+    private a<f> bmk = new a<>();
+    private BlockingQueue<Runnable> bml = new LinkedBlockingQueue();
+    private ThreadPoolExecutor bmm = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bml);
 
     public void a(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bmn.e(bVar);
+        this.bmr.e(bVar);
     }
 
     public void b(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bmn.f(bVar);
+        this.bmr.f(bVar);
     }
 
     public synchronized <T> void b(f<T> fVar) {
@@ -53,27 +53,27 @@ public class b {
     }
 
     public synchronized <T> void c(f<T> fVar) {
-        this.bmh.X(fVar);
+        this.bmk.V(fVar);
         if (e.DEBUG) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.bmh);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bmi);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.bmk);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bml);
         }
     }
 
     public synchronized void start() {
-        if (this.bmi.size() < 1) {
-            this.bmj.execute(new g(this.bml, this.bmn, this.bmo));
+        if (this.bml.size() < 1) {
+            this.bmm.execute(new g(this.bmo, this.bmr, this.bms));
         }
     }
 
     public synchronized Runnable cQ(boolean z) {
         f fVar;
-        if (this.bmh != null) {
+        if (this.bmk != null) {
             if (z) {
-                fVar = this.bmh.RS();
+                fVar = this.bmk.RQ();
             } else {
-                fVar = this.bmh.get();
+                fVar = this.bmk.get();
             }
         } else {
             fVar = null;
@@ -83,16 +83,16 @@ public class b {
 
     public synchronized boolean a(f fVar, c cVar) {
         boolean z;
-        if (this.bmk != null && this.bmk.h(fVar)) {
-            this.bmk.a(cVar);
+        if (this.bmn != null && this.bmn.h(fVar)) {
+            this.bmn.a(cVar);
             z = true;
         } else {
-            f Y = this.bmh.Y(fVar);
-            if (Y != null) {
+            f W = this.bmk.W(fVar);
+            if (W != null) {
                 if (e.DEBUG) {
                     Log.w("PMSThreadQueue", "found duplicated task in mWaitingQueue:" + fVar.toString());
                 }
-                Y.a(cVar);
+                W.a(cVar);
                 z = true;
             } else {
                 z = false;

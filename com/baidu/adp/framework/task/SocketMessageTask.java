@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
+    private boolean yE;
     private boolean yF;
     private boolean yG;
-    private boolean yH;
-    private DupLicateMode yI;
+    private DupLicateMode yH;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
+        this.yE = false;
         this.yF = false;
-        this.yG = false;
-        this.yH = true;
-        this.yI = DupLicateMode.NONE;
+        this.yG = true;
+        this.yH = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.L(this.mCmd);
+        return FrameHelper.K(this.mCmd);
     }
 
     public void L(boolean z) {
-        this.yF = z;
+        this.yE = z;
     }
 
     public boolean hr() {
-        return this.yF;
+        return this.yE;
     }
 
     public boolean hs() {
-        return this.yG;
+        return this.yF;
     }
 
     public void M(boolean z) {
-        this.yG = z;
+        this.yF = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -56,18 +56,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean ht() {
-        return this.yH;
+        return this.yG;
     }
 
     public void N(boolean z) {
-        this.yH = z;
+        this.yG = z;
     }
 
     public DupLicateMode hu() {
-        return this.yI;
+        return this.yH;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.yI = dupLicateMode;
+        this.yH = dupLicateMode;
     }
 }

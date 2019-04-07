@@ -5,44 +5,44 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class j implements f {
-    private static j jGg = null;
+    private static j jFA = null;
 
     protected j() {
     }
 
-    public static synchronized j cwC() {
+    public static synchronized j cwv() {
         j jVar;
         synchronized (j.class) {
-            if (jGg == null) {
-                jGg = new j();
+            if (jFA == null) {
+                jFA = new j();
             }
-            jVar = jGg;
+            jVar = jFA;
         }
         return jVar;
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj) {
-        return new c(D(imageRequest.cAu()).toString(), imageRequest.cAx(), imageRequest.cAy(), imageRequest.cAz(), null, null, obj);
+        return new c(D(imageRequest.cAn()).toString(), imageRequest.cAq(), imageRequest.cAr(), imageRequest.cAs(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj) {
         com.facebook.cache.common.b bVar;
         String str = null;
-        com.facebook.imagepipeline.request.b cAE = imageRequest.cAE();
-        if (cAE != null) {
-            bVar = cAE.cAM();
-            str = cAE.getClass().getName();
+        com.facebook.imagepipeline.request.b cAx = imageRequest.cAx();
+        if (cAx != null) {
+            bVar = cAx.cAF();
+            str = cAx.getClass().getName();
         } else {
             bVar = null;
         }
-        return new c(D(imageRequest.cAu()).toString(), imageRequest.cAx(), imageRequest.cAy(), imageRequest.cAz(), bVar, str, obj);
+        return new c(D(imageRequest.cAn()).toString(), imageRequest.cAq(), imageRequest.cAr(), imageRequest.cAs(), bVar, str, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj) {
-        return a(imageRequest, imageRequest.cAu(), obj);
+        return a(imageRequest, imageRequest.cAn(), obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f

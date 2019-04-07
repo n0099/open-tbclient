@@ -5,18 +5,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class b<T> implements j<T> {
-    private boolean jJR = false;
+    private boolean jJl = false;
 
     protected abstract void B(Throwable th);
 
-    protected abstract void cyC();
+    protected abstract void cyv();
 
     protected abstract void d(T t, boolean z);
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void e(@Nullable T t, boolean z) {
-        if (!this.jJR) {
-            this.jJR = z;
+        if (!this.jJl) {
+            this.jJl = z;
             try {
                 d(t, z);
             } catch (Exception e) {
@@ -27,8 +27,8 @@ public abstract class b<T> implements j<T> {
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void C(Throwable th) {
-        if (!this.jJR) {
-            this.jJR = true;
+        if (!this.jJl) {
+            this.jJl = true;
             try {
                 B(th);
             } catch (Exception e) {
@@ -38,11 +38,11 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void ctI() {
-        if (!this.jJR) {
-            this.jJR = true;
+    public synchronized void ctB() {
+        if (!this.jJl) {
+            this.jJl = true;
             try {
-                cyC();
+                cyv();
             } catch (Exception e) {
                 n(e);
             }
@@ -51,7 +51,7 @@ public abstract class b<T> implements j<T> {
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void aM(float f) {
-        if (!this.jJR) {
+        if (!this.jJl) {
             try {
                 ba(f);
             } catch (Exception e) {

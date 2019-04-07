@@ -10,19 +10,19 @@ public final class c {
         return "2.1.0";
     }
 
-    public static String uM() {
+    public static String uL() {
         StringBuilder sb = new StringBuilder();
-        String hostName = com.baidu.swan.apps.u.a.CK().getHostName();
-        sb.append("swan").append("/").append("2.1.0").append(" ").append("swan").append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(hostName).append("/").append(aa.getVersionName()).append(" ").append(uN());
-        return di(sb.toString());
+        String hostName = com.baidu.swan.apps.u.a.CI().getHostName();
+        sb.append("swan").append("/").append("2.1.0").append(" ").append("swan").append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(hostName).append("/").append(aa.getVersionName()).append(" ").append(uM());
+        return dk(sb.toString());
     }
 
-    private static String uN() {
+    private static String uM() {
         return String.format("(%s; P1 %s)", "Baidu", com.baidu.swan.apps.al.b.getOSVersion());
     }
 
-    private static String di(String str) {
-        if (TextUtils.equals(com.baidu.swan.apps.u.a.CK().getHostName(), SchemeConfig.DEFAULT_SCHEME_HEAD)) {
+    private static String dk(String str) {
+        if (TextUtils.equals(com.baidu.swan.apps.u.a.CI().getHostName(), SchemeConfig.DEFAULT_SCHEME_HEAD)) {
             return str + " " + String.format("%s/%s", SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName());
         }
         return str;

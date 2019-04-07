@@ -161,7 +161,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                     b playView2 = VoiceManager.this.getPlayView();
                     if (playView2 != null) {
-                        playView2.bt(intExtra);
+                        playView2.bs(intExtra);
                     }
                     if (VoiceManager.this.mCurPlayModel != null) {
                         VoiceManager.this.mCurPlayModel.elapse = intExtra;
@@ -236,7 +236,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public interface b {
         void b(VoiceData.VoiceModel voiceModel);
 
-        void bt(int i);
+        void bs(int i);
 
         b getRealView();
 
@@ -451,7 +451,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.adQ();
+            this.mPermissionJudgePolicy.adN();
             this.mPermissionJudgePolicy.e(this.context.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.e(this.context.getPageActivity(), "android.permission.RECORD_AUDIO");
             if (!this.mPermissionJudgePolicy.Y(this.context.getPageActivity())) {
@@ -547,14 +547,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
 
         @Override // com.baidu.adp.lib.voice.e
-        public void aF(int i) {
+        public void aE(int i) {
         }
 
         @Override // com.baidu.adp.lib.voice.c
-        public void aE(int i) {
+        public void aD(int i) {
             b playView = VoiceManager.this.getPlayView();
             if (playView != null) {
-                playView.bt(i);
+                playView.bs(i);
             }
             if (VoiceManager.this.mCurPlayModel != null) {
                 VoiceManager.this.mCurPlayModel.elapse = i;

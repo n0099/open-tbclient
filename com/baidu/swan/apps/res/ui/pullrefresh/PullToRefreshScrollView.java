@@ -23,12 +23,12 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        return ((ScrollView) this.aJb).getScrollY() == 0;
+        return ((ScrollView) this.aJe).getScrollY() == 0;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullUp() {
-        View childAt = ((ScrollView) this.aJb).getChildAt(0);
-        return childAt != null && ((ScrollView) this.aJb).getScrollY() >= childAt.getHeight() - getHeight();
+        View childAt = ((ScrollView) this.aJe).getChildAt(0);
+        return childAt != null && ((ScrollView) this.aJe).getScrollY() >= childAt.getHeight() - getHeight();
     }
 }

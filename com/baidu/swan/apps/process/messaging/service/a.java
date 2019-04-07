@@ -20,79 +20,79 @@ import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LinkedHashMap<SwanAppProcessInfo, b> aEY;
+    private final LinkedHashMap<SwanAppProcessInfo, b> aFb;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.service.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0155a {
-        private static a aEZ = new a();
+        private static a aFc = new a();
     }
 
-    public static a Gw() {
-        return C0155a.aEZ;
+    public static a Gu() {
+        return C0155a.aFc;
     }
 
     private a() {
         SwanAppProcessInfo[] indexById;
-        this.aEY = new LinkedHashMap<>();
+        this.aFb = new LinkedHashMap<>();
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indexById()) {
             if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
-                this.aEY.put(swanAppProcessInfo, new b(swanAppProcessInfo));
+                this.aFb.put(swanAppProcessInfo, new b(swanAppProcessInfo));
             }
         }
     }
 
-    public synchronized b cL(int i) {
+    public synchronized b cK(int i) {
         return a(SwanAppProcessInfo.getById(i));
     }
 
     public synchronized b a(SwanAppProcessInfo swanAppProcessInfo) {
-        return this.aEY.get(swanAppProcessInfo);
+        return this.aFb.get(swanAppProcessInfo);
     }
 
-    public synchronized LinkedHashSet<b> Gx() {
-        return new LinkedHashSet<>(this.aEY.values());
+    public synchronized LinkedHashSet<b> Gv() {
+        return new LinkedHashSet<>(this.aFb.values());
     }
 
-    public synchronized b fO(@Nullable String str) {
-        b fQ;
-        fQ = fQ(str);
-        if (fQ == null) {
-            fQ = Gy();
+    public synchronized b fP(@Nullable String str) {
+        b fR;
+        fR = fR(str);
+        if (fR == null) {
+            fR = Gw();
         }
-        return fQ;
+        return fR;
     }
 
     @NonNull
-    public synchronized b fP(@Nullable String str) {
-        b fO;
-        fO = fO(str);
-        b(fO.aFa);
-        return fO;
+    public synchronized b fQ(@Nullable String str) {
+        b fP;
+        fP = fP(str);
+        b(fP.aFd);
+        return fP;
     }
 
-    public synchronized b Gy() {
+    public synchronized b Gw() {
         b a;
         b bVar;
         b bVar2 = null;
         synchronized (this) {
-            fS("b4 computNextAvailableProcess");
+            fT("b4 computNextAvailableProcess");
             int i = 0;
             b bVar3 = null;
             while (true) {
                 if (i <= 5) {
-                    a = this.aEY.get(SwanAppProcessInfo.getById(i));
-                    if (a != null && a.aFa.isSwanAppProcess()) {
-                        if (a.GI()) {
+                    a = this.aFb.get(SwanAppProcessInfo.getById(i));
+                    if (a != null && a.aFd.isSwanAppProcess()) {
+                        if (a.GG()) {
                             a = bVar2;
                             bVar = bVar3;
-                        } else if (a.GH()) {
+                        } else if (a.GF()) {
                             if (DEBUG) {
                                 Log.i("SwanAppClientObjManager", "computNextAvailableProcess: firstPreloadedClient=" + a);
                             }
                         } else {
-                            if (bVar3 == null && a.aFe) {
+                            if (bVar3 == null && a.aFh) {
                                 bVar3 = a;
                             }
                             if (bVar2 == null) {
@@ -119,7 +119,7 @@ public final class a {
                     }
                     a = bVar2;
                 } else {
-                    Iterator<b> it = this.aEY.values().iterator();
+                    Iterator<b> it = this.aFb.values().iterator();
                     while (true) {
                         if (it.hasNext()) {
                             a = it.next();
@@ -142,18 +142,18 @@ public final class a {
     }
 
     @Nullable
-    public synchronized b Gz() {
+    public synchronized b Gx() {
         b bVar;
-        fS("b4 computNextPreloadProcess");
+        fT("b4 computNextPreloadProcess");
         int i = 0;
         bVar = null;
         while (true) {
             if (i <= 5) {
-                b bVar2 = this.aEY.get(SwanAppProcessInfo.getById(i));
-                if (bVar2 != null && bVar2.aFa.isSwanAppProcess()) {
-                    if (bVar2.GI()) {
+                b bVar2 = this.aFb.get(SwanAppProcessInfo.getById(i));
+                if (bVar2 != null && bVar2.aFd.isSwanAppProcess()) {
+                    if (bVar2.GG()) {
                         bVar2 = bVar;
-                    } else if (bVar2.GH()) {
+                    } else if (bVar2.GF()) {
                         if (DEBUG) {
                             Log.i("SwanAppClientObjManager", "computNextPreloadProcess: return null by found empty process=" + bVar2);
                         }
@@ -174,18 +174,18 @@ public final class a {
     }
 
     @Nullable
-    public synchronized b fQ(@Nullable String str) {
-        List<b> fR;
-        fR = fR(str);
-        return fR.isEmpty() ? null : fR.get(fR.size() - 1);
+    public synchronized b fR(@Nullable String str) {
+        List<b> fS;
+        fS = fS(str);
+        return fS.isEmpty() ? null : fS.get(fS.size() - 1);
     }
 
     @NonNull
-    public synchronized List<b> fR(@Nullable String str) {
+    public synchronized List<b> fS(@Nullable String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
-            for (b bVar : this.aEY.values()) {
+            for (b bVar : this.aFb.values()) {
                 if (TextUtils.equals(bVar.mAppId, str)) {
                     arrayList.add(bVar);
                 }
@@ -195,26 +195,26 @@ public final class a {
     }
 
     public synchronized void b(SwanAppProcessInfo swanAppProcessInfo) {
-        b remove = this.aEY.remove(swanAppProcessInfo);
+        b remove = this.aFb.remove(swanAppProcessInfo);
         if (remove != null) {
-            this.aEY.put(swanAppProcessInfo, remove);
+            this.aFb.put(swanAppProcessInfo, remove);
         }
-        fS("lru -> " + swanAppProcessInfo);
+        fT("lru -> " + swanAppProcessInfo);
     }
 
     public void a(String str, b bVar) {
         if (!TextUtils.isEmpty(str)) {
-            List<b> fR = Gw().fR(str);
-            if (!fR.isEmpty()) {
-                for (b bVar2 : fR) {
-                    if (bVar2 != bVar && bVar2 != null && bVar2.GI()) {
+            List<b> fS = Gu().fS(str);
+            if (!fS.isEmpty()) {
+                for (b bVar2 : fS) {
+                    if (bVar2 != bVar && bVar2 != null && bVar2.GG()) {
                         if (DEBUG) {
                             Log.i("SwanAppClientObjManager", "deduplicateClients: protectedClient=" + bVar);
                             Log.i("SwanAppClientObjManager", "deduplicateClients: exClient=" + bVar2);
                         }
-                        bVar2.GD().GC();
-                        if (bVar2.aFe) {
-                            com.baidu.swan.apps.process.messaging.service.b.GK().a(bVar2.aFa, 110, new Bundle());
+                        bVar2.GB().GA();
+                        if (bVar2.aFh) {
+                            com.baidu.swan.apps.process.messaging.service.b.GI().a(bVar2.aFd, 110, new Bundle());
                         }
                     }
                 }
@@ -224,52 +224,52 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static final class b {
-        public final SwanAppProcessInfo aFa;
-        public SwanAppCores aFb;
-        private long aFc;
-        private boolean aFd;
-        public boolean aFe;
+        public final SwanAppProcessInfo aFd;
+        public SwanAppCores aFe;
+        private long aFf;
+        private boolean aFg;
+        public boolean aFh;
         private String mAppId;
         public Messenger mMessenger;
 
         private b(SwanAppProcessInfo swanAppProcessInfo) {
             this.mAppId = "";
             this.mMessenger = null;
-            this.aFc = 0L;
-            this.aFd = false;
-            this.aFe = false;
-            this.aFa = swanAppProcessInfo;
+            this.aFf = 0L;
+            this.aFg = false;
+            this.aFh = false;
+            this.aFd = swanAppProcessInfo;
         }
 
-        public b GB() {
-            GC();
+        public b Gz() {
+            GA();
             this.mMessenger = null;
-            this.aFe = false;
-            this.aFb = null;
-            GD();
+            this.aFh = false;
+            this.aFe = null;
+            GB();
             return this;
         }
 
-        public b GC() {
+        public b GA() {
             this.mAppId = "";
             return this;
         }
 
-        public b GD() {
-            this.aFd = false;
-            this.aFc = 0L;
+        public b GB() {
+            this.aFg = false;
+            this.aFf = 0L;
             return this;
         }
 
-        public String GE() {
+        public String GC() {
             return this.mAppId;
         }
 
-        public b fT(String str) {
-            return TextUtils.isEmpty(str) ? this : fU(str);
+        public b fU(String str) {
+            return TextUtils.isEmpty(str) ? this : fV(str);
         }
 
-        public b fU(String str) {
+        public b fV(String str) {
             if (TextUtils.isEmpty(str)) {
                 str = "ai_app_id_unknown";
             }
@@ -277,43 +277,43 @@ public final class a {
             return this;
         }
 
-        public b GF() {
-            this.aFc = System.currentTimeMillis();
+        public b GD() {
+            this.aFf = System.currentTimeMillis();
             return this;
         }
 
-        public b GG() {
-            this.aFd = true;
-            this.aFc = 0L;
+        public b GE() {
+            this.aFg = true;
+            this.aFf = 0L;
             return this;
         }
 
-        public boolean GH() {
-            return this.aFd;
+        public boolean GF() {
+            return this.aFg;
         }
 
-        public boolean GI() {
+        public boolean GG() {
             return !TextUtils.isEmpty(this.mAppId);
         }
 
-        public b GJ() {
-            this.aFd = false;
+        public b GH() {
+            this.aFg = false;
             return this;
         }
 
         public String toString() {
             Locale locale = Locale.getDefault();
             Object[] objArr = new Object[5];
-            objArr[0] = this.aFa.toString();
-            objArr[1] = Integer.valueOf(this.aFe ? 1 : 0);
-            objArr[2] = Integer.valueOf(this.aFd ? 1 : 0);
-            objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.aFc));
+            objArr[0] = this.aFd.toString();
+            objArr[1] = Integer.valueOf(this.aFh ? 1 : 0);
+            objArr[2] = Integer.valueOf(this.aFg ? 1 : 0);
+            objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.aFf));
             objArr[4] = this.mAppId;
             return String.format(locale, "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", objArr);
         }
     }
 
-    public void fS(String str) {
+    public void fT(String str) {
         if (DEBUG) {
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -323,9 +323,9 @@ public final class a {
     }
 
     public String toString() {
-        LinkedHashSet<b> Gx = Gx();
+        LinkedHashSet<b> Gv = Gv();
         StringBuilder append = new StringBuilder().append(super.toString()).append(Config.TRACE_TODAY_VISIT_SPLIT).append("\n-> clients: ");
-        for (b bVar : Gx) {
+        for (b bVar : Gv) {
             append.append("\n--> ").append(bVar.toString());
         }
         return append.toString();

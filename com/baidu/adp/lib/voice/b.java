@@ -83,7 +83,7 @@ public class b implements Runnable {
         }
     }
 
-    public void aD(int i) {
+    public void aC(int i) {
         this.GW = i;
     }
 

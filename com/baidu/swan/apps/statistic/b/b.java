@@ -17,15 +17,15 @@ import org.json.JSONObject;
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public String aSC;
-    public String aSs;
-    public String aSz;
+    public String aSF;
+    public String aSv;
     public String mAppId;
     public String mAppVersion;
     public String mSource;
-    public int aSy = -1;
-    private HashMap<String, a> aSD = new HashMap<>();
-    public int aSA = 0;
-    public String aSB = "";
+    public int aSB = -1;
+    private HashMap<String, a> aSG = new HashMap<>();
+    public int aSD = 0;
+    public String aSE = "";
 
     public synchronized void a(a aVar) {
         if (b(aVar)) {
@@ -33,84 +33,84 @@ public class b {
                 Log.d("FunnelFlow", "event is invalid");
             }
         } else {
-            if (this.aSD.containsKey(aVar.id)) {
-                this.aSD.remove(aVar.id);
+            if (this.aSG.containsKey(aVar.id)) {
+                this.aSG.remove(aVar.id);
             }
-            this.aSD.put(aVar.id, aVar);
+            this.aSG.put(aVar.id, aVar);
             if (DEBUG) {
                 Log.d("FunnelFlow", "add event: " + aVar.toString());
             }
         }
     }
 
-    public void Ku() {
+    public void Ks() {
         if (DEBUG) {
             Log.d("FunnelFlow", "sendUBC: start new thread");
         }
-        j.LU().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.b.1
+        j.LS().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.Kv();
+                b.this.Kt();
             }
         });
     }
 
     public synchronized void clearAll() {
-        if (this.aSD != null) {
-            this.aSD.clear();
+        if (this.aSG != null) {
+            this.aSG.clear();
         }
-        this.aSD = null;
+        this.aSG = null;
         this.mAppId = null;
         this.mAppVersion = null;
-        this.aSs = null;
-        this.aSz = null;
+        this.aSv = null;
+        this.aSC = null;
         this.mSource = null;
-        this.aSA = 0;
-        this.aSB = "";
+        this.aSD = 0;
+        this.aSE = "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Kv() {
+    public synchronized void Kt() {
         if (DEBUG) {
             Log.d("FunnelFlow", "ubc: begin flow");
         }
-        Flow jS = q.jS("820");
-        if (jS == null || this.aSD == null) {
+        Flow jT = q.jT("820");
+        if (jT == null || this.aSG == null) {
             if (DEBUG) {
                 Log.w("FunnelFlow", "UBC Flow create failed, or events is null");
             }
         } else {
-            for (a aVar : this.aSD.values()) {
+            for (a aVar : this.aSG.values()) {
                 if (aVar.timestamp > 0) {
-                    jS.addEvent(aVar.id, aVar.value, aVar.timestamp);
+                    jT.addEvent(aVar.id, aVar.value, aVar.timestamp);
                     if (DEBUG) {
                         Log.d("FunnelFlow", "ubc: add event=" + aVar.toString());
                     }
                 }
             }
-            Kw();
+            Ku();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("from", com.baidu.swan.apps.statistic.b.dA(this.aSy));
-                jSONObject.put("type", String.valueOf(this.aSA));
+                jSONObject.put("from", com.baidu.swan.apps.statistic.b.dz(this.aSB));
+                jSONObject.put("type", String.valueOf(this.aSD));
                 jSONObject.put("source", this.mSource);
                 jSONObject.put(UBC.CONTENT_KEY_VALUE, "");
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("appid", this.mAppId);
-                jSONObject2.put("swan", this.aSz);
+                jSONObject2.put("swan", this.aSC);
                 jSONObject2.put("appversion", this.mAppVersion);
-                jSONObject2.put("thirdversion", this.aSs);
-                jSONObject2.put("net", SwanAppNetworkUtils.Fd().type);
-                jSONObject2.put("needdown", this.aSB);
-                jSONObject2.put("pkgdown", this.aSC);
+                jSONObject2.put("thirdversion", this.aSv);
+                jSONObject2.put("net", SwanAppNetworkUtils.Fb().type);
+                jSONObject2.put("needdown", this.aSE);
+                jSONObject2.put("pkgdown", this.aSF);
                 jSONObject.put("ext", jSONObject2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.w("FunnelFlow", Log.getStackTraceString(e));
                 }
             }
-            jS.setValueWithDuration(jSONObject.toString());
-            jS.end();
+            jT.setValueWithDuration(jSONObject.toString());
+            jT.end();
             if (DEBUG) {
                 Log.d("FunnelFlow", "ubc: end flow");
             }
@@ -121,33 +121,33 @@ public class b {
         return aVar != null && TextUtils.isEmpty(aVar.id);
     }
 
-    private void Kw() {
+    private void Ku() {
         boolean isMainProcess = ProcessUtils.isMainProcess();
         if (DEBUG) {
             Log.d("FunnelFlow", "genInfo: isMainProcess=" + isMainProcess);
         }
         if (isMainProcess) {
-            this.aSz = com.baidu.swan.apps.swancore.b.J(com.baidu.swan.apps.swancore.b.dK(this.aSy).aTd);
+            this.aSC = com.baidu.swan.apps.swancore.b.J(com.baidu.swan.apps.swancore.b.dJ(this.aSB).aTg);
             return;
         }
-        com.baidu.swan.apps.ae.b zb = e.Ec().zb();
+        com.baidu.swan.apps.ae.b za = e.Ea().za();
         com.baidu.swan.apps.v.b.b bVar = null;
-        if (zb != null) {
-            this.mAppVersion = zb.getVersion();
-            bVar = zb.uB();
+        if (za != null) {
+            this.mAppVersion = za.getVersion();
+            bVar = za.uA();
         }
         if (bVar != null) {
-            this.aSy = bVar.axX;
+            this.aSB = bVar.aya;
             this.mAppId = bVar.mAppId;
-            this.mSource = bVar.axG;
-            this.aSs = bVar.aug;
-            Bundle bundle = bVar.axQ;
+            this.mSource = bVar.axJ;
+            this.aSv = bVar.auk;
+            Bundle bundle = bVar.axT;
             if (bundle != null) {
-                this.aSB = bundle.getString("aiapp_extra_need_download", "");
-                this.aSC = bundle.getString("aiapp_extra_pkg_download", "0");
+                this.aSE = bundle.getString("aiapp_extra_need_download", "");
+                this.aSF = bundle.getString("aiapp_extra_pkg_download", "0");
             }
-            this.aSz = com.baidu.swan.apps.swancore.b.dI(bVar.axX);
+            this.aSC = com.baidu.swan.apps.swancore.b.dH(bVar.aya);
         }
-        this.aSA = com.baidu.swan.apps.statistic.b.Kr();
+        this.aSD = com.baidu.swan.apps.statistic.b.Kp();
     }
 }

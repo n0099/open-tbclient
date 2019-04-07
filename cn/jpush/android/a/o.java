@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
+import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,7 +33,7 @@ public final class o {
         }
         if (TextUtils.equals(jSONObject.optString(Config.OPERATOR), "get")) {
             if (pVar.a != 1) {
-                String optString = jSONObject.optString("alias");
+                String optString = jSONObject.optString(CommandMessage.TYPE_ALIAS);
                 if (optString != null) {
                     pVar.e = optString;
                     return pVar;
@@ -40,7 +41,7 @@ public final class o {
                 return pVar;
             }
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("tags");
+                JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
                 if (optJSONArray == null || optJSONArray.length() == 0) {
                     return pVar;
                 }
@@ -161,14 +162,14 @@ public final class o {
                         return intent;
                     } else if (pVar.a == 1) {
                         if (pVar.d.size() > 0) {
-                            intent.putStringArrayListExtra("tags", pVar.d);
+                            intent.putStringArrayListExtra(CommandMessage.TYPE_TAGS, pVar.d);
                             return intent;
                         }
                         return intent;
                     } else if (pVar.a != 2 || pVar.e == null) {
                         return intent;
                     } else {
-                        intent.putExtra("alias", pVar.e);
+                        intent.putExtra(CommandMessage.TYPE_ALIAS, pVar.e);
                         return intent;
                     }
                 }

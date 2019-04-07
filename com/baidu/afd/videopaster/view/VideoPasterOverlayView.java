@@ -214,7 +214,7 @@ public class VideoPasterOverlayView extends FrameLayout {
     public void stop() {
     }
 
-    public void bk(int i) {
+    public void bj(int i) {
     }
 
     public void b(int i, int i2, String str) {
@@ -223,7 +223,10 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.UY = i2;
         this.mFrom = str;
         if (this.UT) {
-            this.mRootView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            this.mRootView.setLayoutParams(layoutParams);
             return;
         }
         c(i, i2, str);
@@ -244,11 +247,12 @@ public class VideoPasterOverlayView extends FrameLayout {
                 i3 = (int) (0.5625f * aO);
             }
             if (i3 != 0) {
-                if (i / i2 > aO / i3) {
-                    i3 = (i2 * aO) / i;
-                }
-                if (i3 > 0) {
-                    this.mRootView.setLayoutParams(new FrameLayout.LayoutParams(-1, i3));
+                int i4 = ((float) i) / ((float) i2) > ((float) aO) / ((float) i3) ? (i2 * aO) / i : i3;
+                if (i4 > 0) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
+                    layoutParams.width = -1;
+                    layoutParams.height = i4;
+                    this.mRootView.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -265,6 +269,9 @@ public class VideoPasterOverlayView extends FrameLayout {
     public void qj() {
         this.UT = true;
         a(this.Va, this.UT, this.TO);
+        if (this.UW) {
+            b(this.UX, this.UY, this.mFrom);
+        }
     }
 
     public void qk() {

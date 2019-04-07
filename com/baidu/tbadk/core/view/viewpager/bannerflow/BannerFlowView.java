@@ -15,10 +15,10 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BannerFlowView extends FrameLayout {
-    private com.baidu.tbadk.core.view.viewpager.b bUN;
-    private IndicatorView bUQ;
-    private ViewPager bVl;
-    private b bVm;
+    private com.baidu.tbadk.core.view.viewpager.b bUP;
+    private IndicatorView bUS;
+    private ViewPager bVn;
+    private b bVo;
     private View mBottomLine;
 
     public BannerFlowView(Context context) {
@@ -32,19 +32,19 @@ public class BannerFlowView extends FrameLayout {
     }
 
     private void initView(Context context) {
-        this.bVl = new ViewPager(context);
-        this.bUQ = new IndicatorView(context);
-        this.bUQ.setSpacing(0);
-        aft();
-        this.bUN = new com.baidu.tbadk.core.view.viewpager.b(context, this.bVl, this.bUQ, null);
-        this.bVm = new b(context, a.bVk);
-        this.bUN.setAutoScrollIntervalTime(5000L);
-        this.bUN.a(context, this.bVm);
-        addView(this.bVl, new FrameLayout.LayoutParams(-1, -1));
+        this.bVn = new ViewPager(context);
+        this.bUS = new IndicatorView(context);
+        this.bUS.setSpacing(0);
+        afq();
+        this.bUP = new com.baidu.tbadk.core.view.viewpager.b(context, this.bVn, this.bUS, null);
+        this.bVo = new b(context, a.bVm);
+        this.bUP.setAutoScrollIntervalTime(5000L);
+        this.bUP.a(context, this.bVo);
+        addView(this.bVn, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
         layoutParams.setMargins(0, 0, l.h(context, d.e.ds20), l.h(context, d.e.ds16));
-        addView(this.bUQ, layoutParams);
+        addView(this.bUS, layoutParams);
         this.mBottomLine = new View(context);
         this.mBottomLine.setBackgroundColor(al.getColor(d.C0277d.common_color_10043));
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.h(context, d.e.ds1));
@@ -53,22 +53,22 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.bUN.setMaxScrollCountLimit(i);
+        this.bUP.setMaxScrollCountLimit(i);
     }
 
     public void setData(List<m> list) {
-        this.bVl.removeAllViews();
-        this.bUN.setDatas(list);
+        this.bVn.removeAllViews();
+        this.bUP.setDatas(list);
     }
 
-    private void aft() {
-        this.bUQ.setSelector(al.getDrawable(d.f.icon_diandian_white_s));
-        this.bUQ.setDrawable(al.getDrawable(d.f.icon_diandian_white_n));
+    private void afq() {
+        this.bUS.setSelector(al.getDrawable(d.f.icon_diandian_white_s));
+        this.bUS.setDrawable(al.getDrawable(d.f.icon_diandian_white_n));
     }
 
     public void setOnItemClickListener(c.a<a, b.a> aVar) {
-        if (this.bVm != null) {
-            this.bVm.setOnItemClickListener(aVar);
+        if (this.bVo != null) {
+            this.bVo.setOnItemClickListener(aVar);
         }
     }
 }

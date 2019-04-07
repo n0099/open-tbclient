@@ -5,8 +5,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
 public class b<D> {
-    InterfaceC0212b<D> boo;
-    a<D> bop;
+    InterfaceC0212b<D> bor;
+    a<D> bos;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -24,38 +24,38 @@ public class b<D> {
     }
 
     public void a(int i, InterfaceC0212b<D> interfaceC0212b) {
-        if (this.boo != null) {
+        if (this.bor != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.boo = interfaceC0212b;
+        this.bor = interfaceC0212b;
         this.mId = i;
     }
 
     public void a(InterfaceC0212b<D> interfaceC0212b) {
-        if (this.boo == null) {
+        if (this.bor == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.boo != interfaceC0212b) {
+        if (this.bor != interfaceC0212b) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.boo = null;
+        this.bor = null;
     }
 
     public void a(a<D> aVar) {
-        if (this.bop != null) {
+        if (this.bos != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.bop = aVar;
+        this.bos = aVar;
     }
 
     public void b(a<D> aVar) {
-        if (this.bop == null) {
+        if (this.bos == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.bop != aVar) {
+        if (this.bos != aVar) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
-        this.bop = null;
+        this.bos = null;
     }
 
     public final void startLoading() {
@@ -109,7 +109,7 @@ public class b<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.boo);
+        printWriter.println(this.bor);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

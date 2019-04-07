@@ -20,8 +20,8 @@ public class RecordingYearBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("RecordingYearBox.java", RecordingYearBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "", "", "", "int"), 42);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "int", "recordingYear", "", "void"), 46);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "", "", "", "int"), 42);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setRecordingYear", "com.coremedia.iso.boxes.RecordingYearBox", "int", "recordingYear", "", "void"), 46);
     }
 
     public RecordingYearBox() {
@@ -39,7 +39,7 @@ public class RecordingYearBox extends AbstractFullBox {
     }
 
     public void setRecordingYear(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.recordingYear = i;
     }
 

@@ -12,15 +12,15 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class e {
-    private PopupWindow eDD;
+    private PopupWindow eDo;
     private TbPageContext<?> mPageContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private Runnable eDE = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
+    private Runnable eDp = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.eDD != null) {
-                g.a(e.this.eDD);
+            if (e.this.eDo != null) {
+                g.a(e.this.eDo);
             }
         }
     };
@@ -51,7 +51,7 @@ public class e {
         int size = linkedList.size();
         for (int i = 0; i < 3 && i < size; i++) {
             VisitedForumData visitedForumData = linkedList.get(i);
-            if (visitedForumData != null && visitedForumData.alA()) {
+            if (visitedForumData != null && visitedForumData.alx()) {
                 return i;
             }
         }
@@ -61,28 +61,28 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void be(int i, int i2) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
-        if (this.eDD == null || !this.eDD.isShowing()) {
+        if (this.eDo == null || !this.eDo.isShowing()) {
             if (this.mRootView == null) {
                 this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.aWP();
+                        e.this.aWN();
                     }
                 });
             }
-            if (this.eDD == null) {
-                this.eDD = new PopupWindow(this.mRootView, -2, -2);
-                this.eDD.setOutsideTouchable(true);
+            if (this.eDo == null) {
+                this.eDo = new PopupWindow(this.mRootView, -2, -2);
+                this.eDo.setOutsideTouchable(true);
             }
-            g.showPopupWindowAtLocation(this.eDD, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds220) * i2), i);
-            this.mHandler.postDelayed(this.eDE, 5000L);
+            g.showPopupWindowAtLocation(this.eDo, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(d.e.tbds220) * i2), i);
+            this.mHandler.postDelayed(this.eDp, 5000L);
         }
     }
 
-    public void aWP() {
-        if (this.eDD != null) {
-            g.a(this.eDD);
+    public void aWN() {
+        if (this.eDo != null) {
+            g.a(this.eDo);
         }
     }
 

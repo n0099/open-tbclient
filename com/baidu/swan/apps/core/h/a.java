@@ -14,11 +14,11 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> asB = h.K("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
+    private static final Set<String> asF = h.K("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
 
     @Override // com.baidu.swan.apps.b.c.g
     public boolean ad(@NonNull Context context, String str) {
-        return !ec(str) && ag(context, str);
+        return !ee(str) && ag(context, str);
     }
 
     private static boolean ag(Context context, String str) {
@@ -47,11 +47,11 @@ public class a implements g {
         }
     }
 
-    private static boolean ec(String str) {
+    private static boolean ee(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : asB) {
+        for (String str2 : asF) {
             if (str.startsWith(str2)) {
                 return true;
             }

@@ -276,7 +276,7 @@ public class b extends Drawable {
         return this;
     }
 
-    public b aQ(int i) {
+    public b aP(int i) {
         this.mBorderWidth = i;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;

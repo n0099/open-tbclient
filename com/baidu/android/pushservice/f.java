@@ -16,6 +16,8 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.coloros.mcssdk.callback.PushCallback;
+import com.coloros.mcssdk.mode.SubscribeResult;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -293,28 +295,28 @@ public class f {
             i = com.baidu.android.pushservice.j.j.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
         }
         if (!TextUtils.isEmpty(h) && !TextUtils.isEmpty(i)) {
-            m.a(applicationContext, h, i, new com.coloros.mcssdk.d.b() { // from class: com.baidu.android.pushservice.f.2
-                @Override // com.coloros.mcssdk.d.b
-                public void onGetAliases(int i2, List<com.coloros.mcssdk.e.e> list) {
+            m.a(applicationContext, h, i, new PushCallback() { // from class: com.baidu.android.pushservice.f.2
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetAliases(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
+                @Override // com.coloros.mcssdk.callback.PushCallback
                 public void onGetNotificationStatus(int i2, int i3) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
+                @Override // com.coloros.mcssdk.callback.PushCallback
                 public void onGetPushStatus(int i2, int i3) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onGetTags(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetTags(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onGetUserAccounts(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetUserAccounts(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
+                @Override // com.coloros.mcssdk.callback.PushCallback
                 public void onRegister(int i2, String str) {
                     if (z) {
                         if (i2 != 0) {
@@ -329,36 +331,36 @@ public class f {
                     }
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onSetAliases(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetAliases(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
+                @Override // com.coloros.mcssdk.callback.PushCallback
                 public void onSetPushTime(int i2, String str) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onSetTags(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetTags(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onSetUserAccounts(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetUserAccounts(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
+                @Override // com.coloros.mcssdk.callback.PushCallback
                 public void onUnRegister(int i2) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onUnsetAliases(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetAliases(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onUnsetTags(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetTags(int i2, List<SubscribeResult> list) {
                 }
 
-                @Override // com.coloros.mcssdk.d.b
-                public void onUnsetUserAccounts(int i2, List<com.coloros.mcssdk.e.e> list) {
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetUserAccounts(int i2, List<SubscribeResult> list) {
                 }
             });
         } else if (z) {

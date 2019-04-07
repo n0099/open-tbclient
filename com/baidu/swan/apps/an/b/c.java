@@ -5,54 +5,54 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private final Queue<a> aWD = new ArrayDeque();
-    private a aWE;
+    private final Queue<a> aWG = new ArrayDeque();
+    private a aWH;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.aWD) {
-                this.aWD.offer(aVar.a(this));
+            synchronized (this.aWG) {
+                this.aWG.offer(aVar.a(this));
             }
         }
-        Ms();
+        Mq();
     }
 
     @Override // com.baidu.swan.apps.an.b.b
     public void a(a aVar) {
-        synchronized (this.aWD) {
-            if (aVar == this.aWE) {
-                Mt();
+        synchronized (this.aWG) {
+            if (aVar == this.aWH) {
+                Mr();
             }
         }
     }
 
-    private void Ms() {
-        synchronized (this.aWD) {
-            if (this.aWE == null) {
-                Mt();
+    private void Mq() {
+        synchronized (this.aWG) {
+            if (this.aWH == null) {
+                Mr();
             }
         }
     }
 
-    private void Mt() {
-        synchronized (this.aWD) {
-            this.aWE = null;
-            if (!this.aWD.isEmpty()) {
-                this.aWE = this.aWD.poll();
-                if (this.aWE == null) {
-                    Mt();
+    private void Mr() {
+        synchronized (this.aWG) {
+            this.aWH = null;
+            if (!this.aWG.isEmpty()) {
+                this.aWH = this.aWG.poll();
+                if (this.aWH == null) {
+                    Mr();
                 } else {
-                    aa.j(this.aWE);
+                    aa.j(this.aWH);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.aWE != null) {
-            this.aWE.finish();
-            this.aWE = null;
+        if (this.aWH != null) {
+            this.aWH.finish();
+            this.aWH = null;
         }
-        this.aWD.clear();
+        this.aWG.clear();
     }
 }

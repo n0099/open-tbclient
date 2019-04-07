@@ -14,13 +14,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class f {
     @SuppressLint({"NewApi"})
     public static void a(Context context, PublicMsg publicMsg, String str) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
         Intent intent = new Intent(context, PushService.class);
         intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
         intent.setData(Uri.parse("content://" + str));

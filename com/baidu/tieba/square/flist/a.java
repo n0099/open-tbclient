@@ -12,17 +12,17 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.square.square.d;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private d izx;
-    private int izy = 0;
-    C0385a izz;
+    private d izh;
+    private int izi = 0;
+    C0385a izj;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public class C0385a {
-        ImageView izA;
-        TextView izB;
+        ImageView izk;
+        TextView izl;
 
         C0385a() {
         }
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.izx == null || this.izx.iBS == null) {
+        if (this.izh == null || this.izh.iBC == null) {
             return 0;
         }
-        return this.izx.iBS.size();
+        return this.izh.iBC.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.izx == null || this.izx.iBS == null) {
+        if (this.izh == null || this.izh.iBC == null) {
             return null;
         }
-        return this.izx.iBS.get(i);
+        return this.izh.iBC.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = ccL();
+            view = ccH();
         }
-        if (this.izx != null) {
-            d dVar = this.izx.iBS.get(i);
-            this.izz = (C0385a) view.getTag();
+        if (this.izh != null) {
+            d dVar = this.izh.iBC.get(i);
+            this.izj = (C0385a) view.getTag();
             if (dVar != null) {
-                a(this.izz, dVar, view, i);
+                a(this.izj, dVar, view, i);
             }
         }
         return view;
     }
 
-    public void zf(int i) {
-        this.izy = i;
+    public void zb(int i) {
+        this.izi = i;
         notifyDataSetChanged();
     }
 
     public void a(d dVar) {
-        this.izx = dVar;
+        this.izh = dVar;
     }
 
-    public d ccK() {
-        return this.izx;
+    public d ccG() {
+        return this.izh;
     }
 
-    private View ccL() {
+    private View ccH() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.forum_list_dir_menu_item, (ViewGroup) null);
-        this.izz = new C0385a();
-        this.izz.izA = (ImageView) inflate.findViewById(d.g.menu_choose);
-        this.izz.izB = (TextView) inflate.findViewById(d.g.menu_name);
-        inflate.setTag(this.izz);
+        this.izj = new C0385a();
+        this.izj.izk = (ImageView) inflate.findViewById(d.g.menu_choose);
+        this.izj.izl = (TextView) inflate.findViewById(d.g.menu_name);
+        inflate.setTag(this.izj);
         return inflate;
     }
 
     private void a(C0385a c0385a, com.baidu.tieba.square.square.d dVar, View view, int i) {
         if (c0385a != null && dVar != null) {
-            c0385a.izB.setText("");
+            c0385a.izl.setText("");
             if (i == 0) {
-                c0385a.izB.setText(this.mActivity.getString(d.j.all) + dVar.izF);
+                c0385a.izl.setText(this.mActivity.getString(d.j.all) + dVar.izp);
             } else {
-                c0385a.izB.setText(dVar.izF);
+                c0385a.izl.setText(dVar.izp);
             }
-            if (i != this.izy) {
-                c0385a.izA.setVisibility(4);
-                al.d(c0385a.izB, d.C0277d.common_color_10200, 1);
+            if (i != this.izi) {
+                c0385a.izk.setVisibility(4);
+                al.d(c0385a.izl, d.C0277d.common_color_10200, 1);
                 return;
             }
-            c0385a.izA.setVisibility(0);
-            al.d(c0385a.izB, d.C0277d.common_color_10013, 1);
+            c0385a.izk.setVisibility(0);
+            al.d(c0385a.izl, d.C0277d.common_color_10013, 1);
         }
     }
 }

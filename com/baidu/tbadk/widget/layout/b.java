@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b implements c {
     @Override // com.baidu.tbadk.widget.layout.c
-    public int kt(int i) {
+    public int ks(int i) {
         if (i < 4) {
             return 1;
         }

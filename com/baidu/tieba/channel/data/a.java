@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     private boolean hasMore = true;
-    private List<b> aMG = new ArrayList();
+    private List<b> aMJ = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -20,7 +20,7 @@ public class a {
                         b bVar = new b();
                         bVar.parserJson(optJSONArray.getJSONObject(i));
                         bVar.hV(false);
-                        this.aMG.add(bVar);
+                        this.aMJ.add(bVar);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
@@ -46,6 +46,6 @@ public class a {
     }
 
     public List<b> getItems() {
-        return this.aMG;
+        return this.aMJ;
     }
 }

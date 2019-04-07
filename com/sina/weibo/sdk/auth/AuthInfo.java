@@ -65,7 +65,7 @@ public class AuthInfo implements Parcelable, Serializable {
 
     public Bundle getAuthBundle() {
         Bundle bundle = new Bundle();
-        bundle.putString(WBConstants.SSO_APP_KEY, this.mAppKey);
+        bundle.putString("appKey", this.mAppKey);
         bundle.putString(WBConstants.SSO_REDIRECT_URL, this.mRedirectUrl);
         bundle.putString("scope", this.mScope);
         bundle.putString("packagename", this.mPackageName);
@@ -74,7 +74,7 @@ public class AuthInfo implements Parcelable, Serializable {
     }
 
     public static AuthInfo parseBundleData(Context context, Bundle bundle) {
-        return new AuthInfo(context, bundle.getString(WBConstants.SSO_APP_KEY), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope"));
+        return new AuthInfo(context, bundle.getString("appKey"), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope"));
     }
 
     @Override // android.os.Parcelable

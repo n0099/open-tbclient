@@ -20,8 +20,8 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AbstractFullBox.java", AbstractFullBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.CW(i)));
         this.version = i;
     }
 
@@ -60,7 +60,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dg(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.CW(i)));
         this.flags = i;
     }
 

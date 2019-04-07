@@ -16,7 +16,7 @@ public class DataEntryUrlBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("DataEntryUrlBox.java", DataEntryUrlBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.DataEntryUrlBox", "", "", "", "java.lang.String"), 51);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.DataEntryUrlBox", "", "", "", "java.lang.String"), 51);
     }
 
     public DataEntryUrlBox() {

@@ -10,11 +10,11 @@ import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0239a<T>> cmI = null;
-    private c cmJ = null;
-    private a<T>.b cmK = null;
-    public T cmL;
-    private final f cmM;
+    private WeakReference<InterfaceC0239a<T>> cmK = null;
+    private c cmL = null;
+    private a<T>.b cmM = null;
+    public T cmN;
+    private final f cmO;
     private String mPath;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
@@ -31,31 +31,31 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.cmM = new f(str2);
+        this.cmO = new f(str2);
     }
 
     public void l(int i, int i2, int i3, int i4) {
-        this.cmM.l(i, i2, i3, i4);
+        this.cmO.l(i, i2, i3, i4);
     }
 
     public void eR(boolean z) {
-        if (this.cmK == null) {
-            this.cmK = new b();
-            this.cmK.eS(z);
-            this.cmK.execute(new String[0]);
+        if (this.cmM == null) {
+            this.cmM = new b();
+            this.cmM.eS(z);
+            this.cmM.execute(new String[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
-        private boolean cmN;
+        private boolean cmP;
 
         private b() {
-            this.cmN = false;
+            this.cmP = false;
         }
 
         protected void eS(boolean z) {
-            this.cmN = z;
+            this.cmP = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,12 +63,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return anx();
+            return anu();
         }
 
-        private ImageUploadResult anx() {
-            a.this.cmM.a(this, null);
-            ImageUploadResult P = a.this.cmM.P(a.this.mPath, this.cmN);
+        private ImageUploadResult anu() {
+            a.this.cmO.a(this, null);
+            ImageUploadResult P = a.this.cmO.P(a.this.mPath, this.cmP);
             publishProgress(100);
             return P;
         }
@@ -92,8 +92,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.cmI != null && a.this.cmI.get() != null) {
-                ((InterfaceC0239a) a.this.cmI.get()).d(numArr[0].intValue(), a.this.cmL);
+            if (numArr != null && numArr.length != 0 && a.this.cmK != null && a.this.cmK.get() != null) {
+                ((InterfaceC0239a) a.this.cmK.get()).d(numArr[0].intValue(), a.this.cmN);
             }
         }
 
@@ -101,19 +101,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.cmJ != null) {
+            if (a.this.cmL != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.send_error);
-                a.this.cmJ.a(a.this.mPath, imageUploadResult);
+                a.this.cmL.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.cmK = null;
-            a.this.cmM.cancel();
+            a.this.cmM = null;
+            a.this.cmO.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,42 +122,42 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.cmK = null;
-            if (a.this.cmJ != null) {
+            a.this.cmM = null;
+            if (a.this.cmL != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.cmJ.a(a.this.mPath, imageUploadResult);
+                a.this.cmL.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
     public void a(InterfaceC0239a<T> interfaceC0239a) {
-        this.cmI = new WeakReference<>(interfaceC0239a);
+        this.cmK = new WeakReference<>(interfaceC0239a);
     }
 
     public void a(c cVar) {
-        this.cmJ = cVar;
+        this.cmL = cVar;
     }
 
     public void setGroupId(String str) {
-        this.cmM.setGroupId(str);
+        this.cmO.setGroupId(str);
     }
 
-    public T anv() {
-        return this.cmL;
+    public T ans() {
+        return this.cmN;
     }
 
-    public void ac(T t) {
-        this.cmL = t;
+    public void aa(T t) {
+        this.cmN = t;
     }
 
-    public void anw() {
-        LocalViewSize.ImageSize acC = LocalViewSize.acA().acC();
-        LocalViewSize.ImageSize acD = LocalViewSize.acA().acD();
-        l(acD.width, acD.height, acC.width, acC.height);
+    public void ant() {
+        LocalViewSize.ImageSize acz = LocalViewSize.acx().acz();
+        LocalViewSize.ImageSize acA = LocalViewSize.acx().acA();
+        l(acA.width, acA.height, acz.width, acz.height);
     }
 }

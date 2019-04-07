@@ -5,10 +5,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class b implements f {
-    private c jHa;
+    private c jGu;
 
     public b(c cVar) {
-        this.jHa = cVar;
+        this.jGu = cVar;
     }
 
     public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar) {
@@ -16,11 +16,11 @@ public class b implements f {
     }
 
     public static com.facebook.cache.disk.d a(com.facebook.cache.disk.b bVar, com.facebook.cache.disk.c cVar, Executor executor) {
-        return new com.facebook.cache.disk.d(cVar, bVar.ctp(), new d.b(bVar.cto(), bVar.ctn(), bVar.ctm()), bVar.ctr(), bVar.ctq(), bVar.cts(), bVar.getContext(), executor, bVar.ctt());
+        return new com.facebook.cache.disk.d(cVar, bVar.cti(), new d.b(bVar.cth(), bVar.ctg(), bVar.ctf()), bVar.ctk(), bVar.ctj(), bVar.ctl(), bVar.getContext(), executor, bVar.ctm());
     }
 
     @Override // com.facebook.imagepipeline.d.f
     public com.facebook.cache.disk.h a(com.facebook.cache.disk.b bVar) {
-        return a(bVar, this.jHa.b(bVar));
+        return a(bVar, this.jGu.b(bVar));
     }
 }

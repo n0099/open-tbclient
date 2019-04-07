@@ -257,10 +257,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.Ae.finish(aVar.mData[0]);
+                    aVar.Ac.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.Ae.onProgressUpdate(aVar.mData);
+                    aVar.Ac.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -280,11 +280,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
-        final BdAsyncTask Ae;
+        final BdAsyncTask Ac;
         final Data[] mData;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.Ae = bdAsyncTask;
+            this.Ac = bdAsyncTask;
             this.mData = dataArr;
         }
     }

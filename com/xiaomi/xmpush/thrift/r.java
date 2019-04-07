@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.tencent.open.SocialConstants;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -17,7 +16,7 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("messageTs", (byte) 10, 2);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("topic", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("title", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b(SocialConstants.PARAM_COMMENT, (byte) 11, 5);
+    private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("description", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("notifyType", (byte) 8, 6);
     private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("url", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("passThrough", (byte) 8, 8);
@@ -45,7 +44,7 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
         MESSAGE_TS(2, "messageTs"),
         TOPIC(3, "topic"),
         TITLE(4, "title"),
-        DESCRIPTION(5, SocialConstants.PARAM_COMMENT),
+        DESCRIPTION(5, "description"),
         NOTIFY_TYPE(6, "notifyType"),
         URL(7, "url"),
         PASS_THROUGH(8, "passThrough"),
@@ -82,7 +81,7 @@ public class r implements Serializable, Cloneable, org.apache.thrift.a<r, a> {
         enumMap.put((EnumMap) a.MESSAGE_TS, (a) new org.apache.thrift.meta_data.b("messageTs", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TITLE, (a) new org.apache.thrift.meta_data.b("title", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.DESCRIPTION, (a) new org.apache.thrift.meta_data.b(SocialConstants.PARAM_COMMENT, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.DESCRIPTION, (a) new org.apache.thrift.meta_data.b("description", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.NOTIFY_TYPE, (a) new org.apache.thrift.meta_data.b("notifyType", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
         enumMap.put((EnumMap) a.URL, (a) new org.apache.thrift.meta_data.b("url", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PASS_THROUGH, (a) new org.apache.thrift.meta_data.b("passThrough", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));

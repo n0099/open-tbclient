@@ -35,30 +35,30 @@ import java.util.LinkedHashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
-    private FrameLayout gam;
-    private String gau;
-    private boolean gaz;
+    private FrameLayout gaa;
+    private String gai;
+    private boolean gan;
     private int mCount;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
-    private LinkedHashMap<String, String> gak = null;
+    private LinkedHashMap<String, String> fZY = null;
     private int mIndex = 0;
-    private a gal = null;
-    private View bVZ = null;
+    private a fZZ = null;
+    private View bWb = null;
     private TextView mTextView = null;
-    private NavigationBar gan = null;
-    private MultiImageView gao = null;
+    private NavigationBar gab = null;
+    private MultiImageView gac = null;
     private View.OnClickListener mOnClickListener = null;
-    private BaseViewPager.a gap = null;
+    private BaseViewPager.a gad = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
-    private AlphaAnimation gaq = null;
-    private boolean gar = true;
-    private boolean gas = false;
-    private String gat = "";
+    private AlphaAnimation gae = null;
+    private boolean gaf = true;
+    private boolean gag = false;
+    private String gah = "";
     private String id = "";
-    private String gav = "";
-    private long gaw = 0;
-    private HashMap<String, Boolean> gax = null;
-    private int gay = 0;
+    private String gaj = "";
+    private long gak = 0;
+    private HashMap<String, Boolean> gal = null;
+    private int gam = 0;
 
     protected abstract void a(String str, com.baidu.tieba.im.sendmessage.c cVar);
 
@@ -71,7 +71,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(d.h.image_activity_2);
         initData(bundle);
         initUI();
-        bpx();
+        bpu();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -88,7 +88,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        bpx();
+        bpu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -96,30 +96,30 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.l(this.gao, d.C0277d.black_alpha100);
-        al.l(this.gan, d.C0277d.common_color_10222);
-        getLayoutMode().onModeChanged(this.bVZ);
+        al.l(this.gac, d.C0277d.black_alpha100);
+        al.l(this.gab, d.C0277d.common_color_10222);
+        getLayoutMode().onModeChanged(this.bWb);
         getLayoutMode().onModeChanged(this.mTextView);
-        getLayoutMode().onModeChanged(this.gam);
+        getLayoutMode().onModeChanged(this.gaa);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.gao.onPause();
+        this.gac.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gao.onResume();
+        this.gac.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.gao.onDestroy();
+        this.gac.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,10 +127,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public void onStop() {
         super.onStop();
         bI(this.mIndex, this.mIndex);
-        this.gao.onDestroy();
-        if (this.gal != null) {
-            this.gal.cancel();
-            this.gal = null;
+        this.gac.onDestroy();
+        if (this.fZZ != null) {
+            this.fZZ.cancel();
+            this.fZZ = null;
         }
     }
 
@@ -157,29 +157,29 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == AbsMsgImageActivity.this.bVZ) {
-                    if (AbsMsgImageActivity.this.gan.getVisibility() != 8) {
+                if (view == AbsMsgImageActivity.this.bWb) {
+                    if (AbsMsgImageActivity.this.gab.getVisibility() != 8) {
                         Intent intent = new Intent();
                         intent.putExtra("index", AbsMsgImageActivity.this.mIndex);
                         AbsMsgImageActivity.this.setResult(-1, intent);
                         AbsMsgImageActivity.this.finish();
                     }
-                } else if (view == AbsMsgImageActivity.this.gam) {
-                    if (AbsMsgImageActivity.this.gan.getVisibility() != 8) {
+                } else if (view == AbsMsgImageActivity.this.gaa) {
+                    if (AbsMsgImageActivity.this.gab.getVisibility() != 8) {
                         Activity pageActivity = AbsMsgImageActivity.this.getPageContext().getPageActivity();
                         if (AbsMsgImageActivity.this.mPermissionJudgement == null) {
                             AbsMsgImageActivity.this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
                         }
-                        AbsMsgImageActivity.this.mPermissionJudgement.adQ();
+                        AbsMsgImageActivity.this.mPermissionJudgement.adN();
                         AbsMsgImageActivity.this.mPermissionJudgement.e(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                         if (!AbsMsgImageActivity.this.mPermissionJudgement.Y(pageActivity)) {
                             try {
-                                byte[] currentImageData = AbsMsgImageActivity.this.gao.getCurrentImageData();
+                                byte[] currentImageData = AbsMsgImageActivity.this.gac.getCurrentImageData();
                                 if (currentImageData != null) {
-                                    String currentImageUrl = AbsMsgImageActivity.this.gao.getCurrentImageUrl();
-                                    AbsMsgImageActivity.this.gal = new a(currentImageUrl, currentImageData);
-                                    AbsMsgImageActivity.this.gal.execute(new String[0]);
-                                    AbsMsgImageActivity.this.gam.setClickable(false);
+                                    String currentImageUrl = AbsMsgImageActivity.this.gac.getCurrentImageUrl();
+                                    AbsMsgImageActivity.this.fZZ = new a(currentImageUrl, currentImageData);
+                                    AbsMsgImageActivity.this.fZZ.execute(new String[0]);
+                                    AbsMsgImageActivity.this.gaa.setClickable(false);
                                 } else {
                                     AbsMsgImageActivity.this.showToast(AbsMsgImageActivity.this.getPageContext().getString(d.j.no_data));
                                 }
@@ -187,25 +187,25 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                             }
                         }
                     }
-                } else if (AbsMsgImageActivity.this.gar) {
-                    if (AbsMsgImageActivity.this.gan.getVisibility() != 0) {
-                        AbsMsgImageActivity.this.gan.setVisibility(0);
-                        AbsMsgImageActivity.this.gao.akn();
-                        AbsMsgImageActivity.this.gaq = new AlphaAnimation(0.0f, 1.0f);
+                } else if (AbsMsgImageActivity.this.gaf) {
+                    if (AbsMsgImageActivity.this.gab.getVisibility() != 0) {
+                        AbsMsgImageActivity.this.gab.setVisibility(0);
+                        AbsMsgImageActivity.this.gac.akk();
+                        AbsMsgImageActivity.this.gae = new AlphaAnimation(0.0f, 1.0f);
                     } else {
-                        AbsMsgImageActivity.this.gaq = new AlphaAnimation(1.0f, 0.0f);
-                        AbsMsgImageActivity.this.gas = true;
-                        AbsMsgImageActivity.this.gao.akp();
+                        AbsMsgImageActivity.this.gae = new AlphaAnimation(1.0f, 0.0f);
+                        AbsMsgImageActivity.this.gag = true;
+                        AbsMsgImageActivity.this.gac.akm();
                     }
-                    AbsMsgImageActivity.this.gaq.setDuration(300L);
-                    AbsMsgImageActivity.this.gaq.setFillAfter(true);
-                    AbsMsgImageActivity.this.gaq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.1.1
+                    AbsMsgImageActivity.this.gae.setDuration(300L);
+                    AbsMsgImageActivity.this.gae.setFillAfter(true);
+                    AbsMsgImageActivity.this.gae.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.1.1
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            AbsMsgImageActivity.this.gar = true;
-                            if (AbsMsgImageActivity.this.gas) {
-                                AbsMsgImageActivity.this.gas = false;
-                                AbsMsgImageActivity.this.gan.setVisibility(8);
+                            AbsMsgImageActivity.this.gaf = true;
+                            if (AbsMsgImageActivity.this.gag) {
+                                AbsMsgImageActivity.this.gag = false;
+                                AbsMsgImageActivity.this.gab.setVisibility(8);
                             }
                         }
 
@@ -217,8 +217,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                         public void onAnimationStart(Animation animation) {
                         }
                     });
-                    AbsMsgImageActivity.this.gar = false;
-                    AbsMsgImageActivity.this.gan.startAnimation(AbsMsgImageActivity.this.gaq);
+                    AbsMsgImageActivity.this.gaf = false;
+                    AbsMsgImageActivity.this.gab.startAnimation(AbsMsgImageActivity.this.gae);
                 }
             }
         };
@@ -227,7 +227,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             public void onPageSelected(int i) {
                 AbsMsgImageActivity.this.bI(AbsMsgImageActivity.this.mIndex, i);
                 AbsMsgImageActivity.this.mIndex = i;
-                AbsMsgImageActivity.this.bgP();
+                AbsMsgImageActivity.this.bgN();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -236,14 +236,14 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (i == 1 && System.nanoTime() - AbsMsgImageActivity.this.gaw > 300000000 && AbsMsgImageActivity.this.gak != null && AbsMsgImageActivity.this.mIndex < AbsMsgImageActivity.this.gak.size()) {
-                    AbsMsgImageActivity.this.gax.put(AbsMsgImageActivity.this.gak.get("" + AbsMsgImageActivity.this.mIndex), true);
+                if (i == 1 && System.nanoTime() - AbsMsgImageActivity.this.gak > 300000000 && AbsMsgImageActivity.this.fZY != null && AbsMsgImageActivity.this.mIndex < AbsMsgImageActivity.this.fZY.size()) {
+                    AbsMsgImageActivity.this.gal.put(AbsMsgImageActivity.this.fZY.get("" + AbsMsgImageActivity.this.mIndex), true);
                 }
             }
         };
-        this.gap = new BaseViewPager.a() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.3
+        this.gad = new BaseViewPager.a() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.3
             @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-            public void hF(int i) {
+            public void hE(int i) {
                 if (i == 0) {
                 }
             }
@@ -259,15 +259,15 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                                 if (AbsMsgImageActivity.this.mPermissionJudgement == null) {
                                     AbsMsgImageActivity.this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
                                 }
-                                AbsMsgImageActivity.this.mPermissionJudgement.adQ();
+                                AbsMsgImageActivity.this.mPermissionJudgement.adN();
                                 AbsMsgImageActivity.this.mPermissionJudgement.e(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
                                 if (!AbsMsgImageActivity.this.mPermissionJudgement.Y(pageActivity)) {
-                                    byte[] currentImageData = AbsMsgImageActivity.this.gao.getCurrentImageData();
+                                    byte[] currentImageData = AbsMsgImageActivity.this.gac.getCurrentImageData();
                                     if (currentImageData != null) {
-                                        String currentImageUrl = AbsMsgImageActivity.this.gao.getCurrentImageUrl();
-                                        AbsMsgImageActivity.this.gal = new a(currentImageUrl, currentImageData);
-                                        AbsMsgImageActivity.this.gal.execute(new String[0]);
-                                        AbsMsgImageActivity.this.gam.setClickable(false);
+                                        String currentImageUrl = AbsMsgImageActivity.this.gac.getCurrentImageUrl();
+                                        AbsMsgImageActivity.this.fZZ = new a(currentImageUrl, currentImageData);
+                                        AbsMsgImageActivity.this.fZZ.execute(new String[0]);
+                                        AbsMsgImageActivity.this.gaa.setClickable(false);
                                         break;
                                     } else {
                                         AbsMsgImageActivity.this.showToast(AbsMsgImageActivity.this.getPageContext().getString(d.j.no_data));
@@ -292,50 +292,50 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 return false;
             }
         };
-        this.gan = (NavigationBar) findViewById(d.g.navigation_bar);
-        this.gam = (FrameLayout) this.gan.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.image_activity_save_button, this.mOnClickListener);
-        if (this.gaz) {
-            this.gam.setVisibility(8);
+        this.gab = (NavigationBar) findViewById(d.g.navigation_bar);
+        this.gaa = (FrameLayout) this.gab.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.image_activity_save_button, this.mOnClickListener);
+        if (this.gan) {
+            this.gaa.setVisibility(8);
         }
-        this.bVZ = this.gan.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
-        al.c(this.gan.getBackImageView(), d.f.icon_return_bg);
-        this.mTextView = this.gan.setTitleText("");
-        this.gao = (MultiImageView) findViewById(d.g.viewpager);
-        this.gao.setPageMargin(l.dip2px(getPageContext().getContext(), 8.0f));
-        this.gao.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.gao.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gao.setItemOnclickListener(this.mOnClickListener);
-        this.gao.setCurrentItem(bpw(), false);
-        this.gao.setOnScrollOutListener(this.gap);
-        this.gao.setItemOnLongClickListener(onLongClickListener);
-        this.gao.setHasNext(false);
-        this.gao.setNextTitle("mNextTitle");
-        this.gao.setIsFromCDN(true);
-        this.gao.setAllowLocalUrl(true);
+        this.bWb = this.gab.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
+        al.c(this.gab.getBackImageView(), d.f.icon_return_bg);
+        this.mTextView = this.gab.setTitleText("");
+        this.gac = (MultiImageView) findViewById(d.g.viewpager);
+        this.gac.setPageMargin(l.dip2px(getPageContext().getContext(), 8.0f));
+        this.gac.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.gac.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gac.setItemOnclickListener(this.mOnClickListener);
+        this.gac.setCurrentItem(bpt(), false);
+        this.gac.setOnScrollOutListener(this.gad);
+        this.gac.setItemOnLongClickListener(onLongClickListener);
+        this.gac.setHasNext(false);
+        this.gac.setNextTitle("mNextTitle");
+        this.gac.setIsFromCDN(true);
+        this.gac.setAllowLocalUrl(true);
         bI(this.mIndex, this.mIndex);
         this.mTextView.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgP() {
-        if (this.gak != null) {
+    public void bgN() {
+        if (this.fZY != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
                 valueOf = (valueOf + "/") + this.mCount;
             }
-            if (this.gao.getHasNext() && this.mIndex == this.gao.getItemNum() - 1) {
+            if (this.gac.getHasNext() && this.mIndex == this.gac.getItemNum() - 1) {
                 this.mTextView.setText(getPageContext().getString(d.j.image_recommend));
-                this.gam.setClickable(false);
+                this.gaa.setClickable(false);
                 return;
             }
             this.mTextView.setText(valueOf);
-            this.gam.setClickable(true);
+            this.gaa.setClickable(true);
         }
     }
 
-    private int bpw() {
-        if (this.gak != null && this.gak.size() > 0) {
-            int size = this.gak.size();
+    private int bpt() {
+        if (this.fZY != null && this.fZY.size() > 0) {
+            int size = this.fZY.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -351,42 +351,42 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     private void initData(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.gat = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
-            this.gau = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
+            this.gah = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
+            this.gai = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
             this.id = intent.getStringExtra("id");
-            this.gav = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
-            this.gaz = intent.getBooleanExtra("isSingle", false);
-            if (this.gav == null) {
-                this.gav = "";
+            this.gaj = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
+            this.gan = intent.getBooleanExtra("isSingle", false);
+            if (this.gaj == null) {
+                this.gaj = "";
             }
             if (this.id == null) {
                 this.id = "";
             }
-            if (this.gat == null) {
-                this.gat = "";
+            if (this.gah == null) {
+                this.gah = "";
             }
-            this.gak = new LinkedHashMap<>();
-            this.gak.put(this.gav, this.gat);
-            this.gay = intent.getIntExtra("chat_mode", 0);
+            this.fZY = new LinkedHashMap<>();
+            this.fZY.put(this.gaj, this.gah);
+            this.gam = intent.getIntExtra("chat_mode", 0);
             this.mIndex = 0;
         } else if (bundle != null) {
-            this.gak = (LinkedHashMap) bundle.getSerializable("url");
+            this.fZY = (LinkedHashMap) bundle.getSerializable("url");
             this.mIndex = bundle.getInt("index", -1);
             this.id = bundle.getString("id");
-            this.gav = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
-            this.gay = bundle.getInt("chat_mode", 0);
-            this.gaz = bundle.getBoolean("isSingle", false);
-            if (this.gav == null) {
-                this.gav = "";
+            this.gaj = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
+            this.gam = bundle.getInt("chat_mode", 0);
+            this.gan = bundle.getBoolean("isSingle", false);
+            if (this.gaj == null) {
+                this.gaj = "";
             }
             if (this.id == null) {
                 this.id = "";
             }
         }
-        this.gax = new HashMap<>();
+        this.gal = new HashMap<>();
     }
 
-    private void bpx() {
+    private void bpu() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -394,21 +394,21 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             @Override // com.baidu.tieba.im.sendmessage.c
             public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
                 boolean z;
-                if (linkedHashMap == null || AbsMsgImageActivity.this.gaz) {
+                if (linkedHashMap == null || AbsMsgImageActivity.this.gan) {
                     linkedHashMap = new LinkedHashMap<>();
                 }
-                if (linkedHashMap.isEmpty() && !TextUtils.isEmpty(AbsMsgImageActivity.this.gat)) {
-                    linkedHashMap.put(AbsMsgImageActivity.this.gav, AbsMsgImageActivity.this.gat);
+                if (linkedHashMap.isEmpty() && !TextUtils.isEmpty(AbsMsgImageActivity.this.gah)) {
+                    linkedHashMap.put(AbsMsgImageActivity.this.gaj, AbsMsgImageActivity.this.gah);
                     if (hashMap == null) {
                         hashMap = new HashMap<>();
                     }
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = AbsMsgImageActivity.this.gau;
+                    imageUrlData.imageUrl = AbsMsgImageActivity.this.gai;
                     imageUrlData.urlType = 10;
-                    hashMap.put(AbsMsgImageActivity.this.gat, imageUrlData);
+                    hashMap.put(AbsMsgImageActivity.this.gah, imageUrlData);
                 }
                 if (linkedHashMap.size() != 0) {
-                    String str = AbsMsgImageActivity.this.gav;
+                    String str = AbsMsgImageActivity.this.gaj;
                     Iterator<String> it = linkedHashMap.keySet().iterator();
                     int i = 0;
                     while (true) {
@@ -429,12 +429,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                         AbsMsgImageActivity.this.mIndex = AbsMsgImageActivity.this.mCount - 1;
                     }
                     AbsMsgImageActivity.this.mTextView.setVisibility(0);
-                    AbsMsgImageActivity.this.bgP();
-                    AbsMsgImageActivity.this.gao.setIsFromCDN(true);
-                    AbsMsgImageActivity.this.gao.setAllowLocalUrl(true);
-                    AbsMsgImageActivity.this.gao.setAssistUrls(hashMap);
-                    AbsMsgImageActivity.this.gao.setUrlData(new ArrayList<>(linkedHashMap.values()));
-                    AbsMsgImageActivity.this.gao.setCurrentItem(AbsMsgImageActivity.this.mIndex, false);
+                    AbsMsgImageActivity.this.bgN();
+                    AbsMsgImageActivity.this.gac.setIsFromCDN(true);
+                    AbsMsgImageActivity.this.gac.setAllowLocalUrl(true);
+                    AbsMsgImageActivity.this.gac.setAssistUrls(hashMap);
+                    AbsMsgImageActivity.this.gac.setUrlData(new ArrayList<>(linkedHashMap.values()));
+                    AbsMsgImageActivity.this.gac.setCurrentItem(AbsMsgImageActivity.this.mIndex, false);
                     return;
                 }
                 AbsMsgImageActivity.this.finish();
@@ -445,18 +445,18 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("url", this.gak);
+        bundle.putSerializable("url", this.fZY);
         bundle.putInt("index", this.mIndex);
         bundle.putString("id", this.id);
-        bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.gav);
-        bundle.putInt("chat_mode", this.gay);
-        bundle.putBoolean("isSingle", this.gaz);
+        bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.gaj);
+        bundle.putInt("chat_mode", this.gam);
+        bundle.putBoolean("isSingle", this.gan);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.gao.setCurrentItem(this.mIndex, true);
+        this.gac.setCurrentItem(this.mIndex, true);
     }
 
     /* loaded from: classes3.dex */
@@ -477,7 +477,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public String doInBackground(String... strArr) {
             switch (m.a(this.mUrl, this.mData, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return m.ace();
+                    return m.acb();
                 case -1:
                 default:
                     return AbsMsgImageActivity.this.getPageContext().getString(d.j.save_fail);
@@ -491,8 +491,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            AbsMsgImageActivity.this.gal = null;
-            AbsMsgImageActivity.this.gam.setClickable(true);
+            AbsMsgImageActivity.this.fZZ = null;
+            AbsMsgImageActivity.this.gaa.setClickable(true);
             AbsMsgImageActivity.this.showToast(str);
         }
 
@@ -504,19 +504,19 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AbsMsgImageActivity.this.gal = null;
-            AbsMsgImageActivity.this.gam.setClickable(true);
+            AbsMsgImageActivity.this.fZZ = null;
+            AbsMsgImageActivity.this.gaa.setClickable(true);
             super.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bI(int i, int i2) {
-        synchronized (this.gax) {
-            if (System.nanoTime() - this.gaw > 300000000 && this.gak != null && i < this.gak.size()) {
-                this.gax.put(this.gak.get("" + i), true);
+        synchronized (this.gal) {
+            if (System.nanoTime() - this.gak > 300000000 && this.fZY != null && i < this.fZY.size()) {
+                this.gal.put(this.fZY.get("" + i), true);
             }
-            this.gaw = System.nanoTime();
+            this.gak = System.nanoTime();
         }
     }
 }

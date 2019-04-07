@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class u extends com.baidu.tbadk.editortools.c {
-    private com.baidu.tbadk.editortools.b hrE;
-    private boolean hrF = false;
+    private com.baidu.tbadk.editortools.b hrr;
+    private boolean hrs = false;
     private PbEditorData.ThreadData mThreadData;
 
     @Override // com.baidu.tbadk.editortools.c
@@ -26,7 +26,7 @@ public class u extends com.baidu.tbadk.editortools.c {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setIsFromPb(true);
         editorTools.setBarMaxLauCount(5);
-        if (this.hrF) {
+        if (this.hrs) {
             editorTools.setBarLauncherType(2);
         } else {
             editorTools.setBarLauncherType(3);
@@ -42,14 +42,14 @@ public class u extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.d dVar) {
         if (dVar instanceof t) {
-            EditorTools alS = dVar.alS();
+            EditorTools alP = dVar.alP();
             final t tVar = (t) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.pb.pb.main.u.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
-                    if (tVar != null && tVar.alS() != null && aVar != null) {
-                        if (u.this.hrE != null) {
-                            u.this.hrE.a(aVar);
+                    if (tVar != null && tVar.alP() != null && aVar != null) {
+                        if (u.this.hrr != null) {
+                            u.this.hrr.a(aVar);
                         }
                         switch (aVar.code) {
                             case 16:
@@ -60,30 +60,30 @@ public class u extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 18:
                                 if (aVar.data != null) {
-                                    tVar.amy();
+                                    tVar.amv();
                                     return;
                                 }
-                                switch (tVar.amC()) {
+                                switch (tVar.amz()) {
                                     case 0:
-                                        tVar.amv();
+                                        tVar.ams();
                                         return;
                                     case 1:
                                     default:
                                         return;
                                     case 2:
-                                        tVar.amu();
+                                        tVar.amr();
                                         return;
                                 }
                             case 20:
-                                com.baidu.tieba.tbadkCore.location.c.ceZ().qa(true);
+                                com.baidu.tieba.tbadkCore.location.c.ceV().qa(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 32:
-                                tVar.alS().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                                tVar.alP().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                                 return;
                             case 36:
                                 if (u.this.a(tVar.getContext().getPageContext(), 11040)) {
-                                    tVar.amt();
+                                    tVar.amq();
                                     return;
                                 }
                                 return;
@@ -103,19 +103,19 @@ public class u extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            alS.setActionListener(16, bVar);
-            alS.setActionListener(14, bVar);
-            alS.setActionListener(15, bVar);
-            alS.setActionListener(24, bVar);
-            alS.setActionListener(3, bVar);
-            alS.setActionListener(18, bVar);
-            alS.setActionListener(20, bVar);
-            alS.setActionListener(10, bVar);
-            alS.setActionListener(11, bVar);
-            alS.setActionListener(36, bVar);
-            alS.setActionListener(32, bVar);
-            alS.setActionListener(43, bVar);
-            alS.setActionListener(45, bVar);
+            alP.setActionListener(16, bVar);
+            alP.setActionListener(14, bVar);
+            alP.setActionListener(15, bVar);
+            alP.setActionListener(24, bVar);
+            alP.setActionListener(3, bVar);
+            alP.setActionListener(18, bVar);
+            alP.setActionListener(20, bVar);
+            alP.setActionListener(10, bVar);
+            alP.setActionListener(11, bVar);
+            alP.setActionListener(36, bVar);
+            alP.setActionListener(32, bVar);
+            alP.setActionListener(43, bVar);
+            alP.setActionListener(45, bVar);
         }
     }
 
@@ -124,70 +124,70 @@ public class u extends com.baidu.tbadk.editortools.c {
         com.baidu.tbadk.editortools.k kVar;
         CustomResponsedMessage runTask;
         com.baidu.tbadk.editortools.k kVar2;
-        EditorTools alS = dVar.alS();
+        EditorTools alP = dVar.alP();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        if (!this.hrF) {
+        if (!this.hrs) {
             arrayList.add(10);
         }
         arrayList.add(6);
         arrayList.add(9);
-        if (!this.hrF) {
-            com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alS.getContext(), 3);
-            dVar2.cji = d.f.new_pbeditor_image_button;
-            alS.b(dVar2);
+        if (!this.hrs) {
+            com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alP.getContext(), 3);
+            dVar2.cjk = d.f.new_pbeditor_image_button;
+            alP.b(dVar2);
         }
         String str = "";
         if (this.mThreadData != null) {
             str = this.mThreadData.getForumName();
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.cfE() && com.baidu.tieba.tbadkCore.p.b(str, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alS.getContext()), com.baidu.tbadk.editortools.k.class)) != null && (kVar2 = (com.baidu.tbadk.editortools.k) runTask.getData()) != null) {
-            kVar2.cji = d.f.new_pbeditor_voice_button;
-            kVar2.cjk = 4;
-            alS.b(kVar2);
+        if (com.baidu.tieba.tbadkCore.voice.c.cfA() && com.baidu.tieba.tbadkCore.p.b(str, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alP.getContext()), com.baidu.tbadk.editortools.k.class)) != null && (kVar2 = (com.baidu.tbadk.editortools.k) runTask.getData()) != null) {
+            kVar2.cjk = d.f.new_pbeditor_voice_button;
+            kVar2.cjm = 4;
+            alP.b(kVar2);
         }
-        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(alS.getContext(), 5);
-        aVar.cji = d.f.new_pbeditor_at_button;
-        alS.b(aVar);
-        if (!this.hrF) {
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, alS.getContext()), com.baidu.tbadk.editortools.k.class);
+        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(alP.getContext(), 5);
+        aVar.cjk = d.f.new_pbeditor_at_button;
+        alP.b(aVar);
+        if (!this.hrs) {
+            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, alP.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 com.baidu.tbadk.editortools.k kVar3 = (com.baidu.tbadk.editortools.k) runTask2.getData();
-                kVar3.cjk = 9;
-                kVar3.cji = d.f.icon_post_more_bubble_n;
-                alS.b(kVar3);
+                kVar3.cjm = 9;
+                kVar3.cjk = d.f.icon_post_more_bubble_n;
+                alP.b(kVar3);
             }
-            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, alS.getContext()), com.baidu.tbadk.editortools.k.class);
+            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, alP.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask3 != null && runTask3.getData() != null) {
                 com.baidu.tbadk.editortools.k kVar4 = (com.baidu.tbadk.editortools.k) runTask3.getData();
-                kVar4.cjk = 10;
-                kVar4.cji = d.f.icon_post_more_tail_n;
-                alS.b(kVar4);
+                kVar4.cjm = 10;
+                kVar4.cjk = d.f.icon_post_more_tail_n;
+                alP.b(kVar4);
             }
         }
-        if (!"PbChosenActivity".equals(alS.getContext().getClass().getSimpleName()) && !this.hrF) {
-            com.baidu.tbadk.editortools.b.a aVar2 = new com.baidu.tbadk.editortools.b.a(alS.getContext(), 5);
-            aVar2.cji = d.f.new_pbeditor_gift_button;
-            alS.b(aVar2);
+        if (!"PbChosenActivity".equals(alP.getContext().getClass().getSimpleName()) && !this.hrs) {
+            com.baidu.tbadk.editortools.b.a aVar2 = new com.baidu.tbadk.editortools.b.a(alP.getContext(), 5);
+            aVar2.cjk = d.f.new_pbeditor_gift_button;
+            alP.b(aVar2);
         }
-        if (!this.hrF) {
-            CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2016556, alS.getContext()), com.baidu.tbadk.editortools.k.class);
+        if (!this.hrs) {
+            CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2016556, alP.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask4 != null && (kVar = (com.baidu.tbadk.editortools.k) runTask4.getData()) != null) {
-                kVar.cjk = 6;
-                kVar.cji = d.f.icon_post_more_location;
-                alS.b(kVar);
+                kVar.cjm = 6;
+                kVar.cjk = d.f.icon_post_more_location;
+                alP.b(kVar);
             }
             arrayList.add(8);
         }
-        alS.ab(arrayList);
-        com.baidu.tbadk.editortools.k jw = alS.jw(5);
-        if (jw != null) {
-            jw.cjk = 1;
-            jw.cji = d.f.new_pbeditor_face_button;
+        alP.ab(arrayList);
+        com.baidu.tbadk.editortools.k jv = alP.jv(5);
+        if (jv != null) {
+            jv.cjm = 1;
+            jv.cjk = d.f.new_pbeditor_face_button;
         }
-        alS.alT();
-        if (this.hrF) {
-            alS.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        alP.alQ();
+        if (this.hrs) {
+            alP.b(new com.baidu.tbadk.editortools.a(35, 5, false));
         }
     }
 
@@ -202,7 +202,7 @@ public class u extends com.baidu.tbadk.editortools.c {
     }
 
     public void b(com.baidu.tbadk.editortools.b bVar) {
-        this.hrE = bVar;
+        this.hrr = bVar;
     }
 
     public void setThreadData(PbEditorData.ThreadData threadData) {
@@ -210,6 +210,6 @@ public class u extends com.baidu.tbadk.editortools.c {
     }
 
     public void nx(boolean z) {
-        this.hrF = z;
+        this.hrs = z;
     }
 }

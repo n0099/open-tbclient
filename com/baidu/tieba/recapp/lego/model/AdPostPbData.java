@@ -48,41 +48,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.adr = optJSONObject.optString("als_stat");
-            this.buttonClick.ads = optJSONObject.optString("url_stat");
+            this.buttonClick.adw = optJSONObject.optString("als_stat");
+            this.buttonClick.adx = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.iir = new PostAdBaseData.a.C0379a();
-                this.extraData.iir.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.iir.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.iid = new PostAdBaseData.a.C0379a();
+                this.extraData.iid.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.iid.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iir == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iid == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.iir == null) {
+        if (this.extraData == null || this.extraData.iid == null) {
             return null;
         }
-        return this.extraData.iir.downloadUrl;
+        return this.extraData.iid.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.iir == null) {
+        if (this.extraData == null || this.extraData.iid == null) {
             return null;
         }
-        return this.extraData.iir.packageName;
+        return this.extraData.iid.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.iir == null) {
+        if (this.extraData == null || this.extraData.iid == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -95,21 +95,21 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             if ("apk_download".equals(this.style)) {
                 advertAppInfo.Ux = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.bwD)) {
-                advertAppInfo.bwD = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.bwG)) {
+                advertAppInfo.bwG = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
-            advertAppInfo.bwG = apkDownloadUrl();
+            advertAppInfo.bwJ = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.bwH = apkDownloadPackage();
-            advertAppInfo.bwE = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.bwN == null) {
-                advertAppInfo.bwN = new AdvertAppInfo.a();
+            advertAppInfo.bwK = apkDownloadPackage();
+            advertAppInfo.bwH = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.bwQ == null) {
+                advertAppInfo.bwQ = new AdvertAppInfo.a();
             }
-            advertAppInfo.bwN.userPortrait = this.portrait;
-            advertAppInfo.bwN.userName = this.title;
+            advertAppInfo.bwQ.userPortrait = this.portrait;
+            advertAppInfo.bwQ.userName = this.title;
         }
     }
 

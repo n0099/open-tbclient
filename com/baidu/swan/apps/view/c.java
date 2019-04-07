@@ -11,23 +11,23 @@ public class c extends d {
         super(context);
         a(new b());
         a(new a());
-        this.aoa.setOnWebViewHookHandler(this);
+        this.aoe.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.h.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        this.asT = MI();
+        this.asX = MG();
         super.loadUrl(str);
     }
 
-    protected boolean MI() {
+    protected boolean MG() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.core.container.c
-    public void xw() {
-        if (this.asP != null) {
-            this.asP.goBack();
+    public void xv() {
+        if (this.asT != null) {
+            this.asT.goBack();
         }
     }
 
@@ -39,7 +39,7 @@ public class c extends d {
 
         @Override // com.baidu.swan.apps.core.h.d.C0135d, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return (c.this.asP != null && c.this.asP.ea(str)) || e.ad(webView.getContext(), str);
+            return (c.this.asT != null && c.this.asT.ec(str)) || e.ad(webView.getContext(), str);
         }
     }
 
@@ -51,8 +51,8 @@ public class c extends d {
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
-            if (c.this.asP != null) {
-                c.this.asP.dl(str);
+            if (c.this.asT != null) {
+                c.this.asT.dn(str);
             }
         }
     }

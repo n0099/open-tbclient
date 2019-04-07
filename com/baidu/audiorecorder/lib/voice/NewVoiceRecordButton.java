@@ -80,7 +80,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     public void qS() {
         if (this.VQ == null) {
             this.VQ = new com.baidu.tbadk.core.dialog.a(i.aK(getContext()).getPageActivity());
-            this.VQ.ly(getContext().getString(d.j.voice_restart_tip)).a(getContext().getString(d.j.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+            this.VQ.lz(getContext().getString(d.j.voice_restart_tip)).a(getContext().getString(d.j.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -93,7 +93,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(i.aK(getContext()));
         }
-        this.VQ.aaZ();
+        this.VQ.aaW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,7 +102,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.adQ();
+            this.mPermissionJudgePolicy.adN();
             this.mPermissionJudgePolicy.e((Activity) getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.e((Activity) getContext(), "android.permission.RECORD_AUDIO");
             if (this.mPermissionJudgePolicy.Y((Activity) getContext())) {

@@ -14,18 +14,18 @@ import org.json.JSONObject;
 public class e {
     public static com.baidu.swan.apps.media.audio.b a(f fVar) {
         com.baidu.swan.apps.media.audio.b bVar = new com.baidu.swan.apps.media.audio.b();
-        bVar.azs = fVar.azs;
-        bVar.azC = fVar.autoplay;
+        bVar.azv = fVar.azv;
+        bVar.azF = fVar.autoplay;
         bVar.mLoop = fVar.loop;
         bVar.mUrl = fVar.src;
-        bVar.azx = fVar.startTime;
-        bVar.azD = fVar.obeyMuteSwitch;
-        bVar.azE = fVar.volume;
-        bVar.azz = Nm().toString();
+        bVar.azA = fVar.startTime;
+        bVar.azG = fVar.obeyMuteSwitch;
+        bVar.azH = fVar.volume;
+        bVar.azC = Nk().toString();
         return bVar;
     }
 
-    public static JSONObject Nm() {
+    public static JSONObject Nk() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -51,19 +51,19 @@ public class e {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String hV(String str) throws MalformedURLException {
-        return "/" + com.baidu.swan.apps.ae.b.Ji() + new URL(str).getPath();
+    public static String hW(String str) throws MalformedURLException {
+        return "/" + com.baidu.swan.apps.ae.b.Jg() + new URL(str).getPath();
     }
 
-    public static String Nn() {
-        String No = No();
-        if (!Np() || TextUtils.isEmpty(No)) {
+    public static String Nl() {
+        String Nm = Nm();
+        if (!Nn() || TextUtils.isEmpty(Nm)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return No;
+        return Nm;
     }
 
-    private static String No() {
+    private static String Nm() {
         String str = g.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -73,7 +73,7 @@ public class e {
         return str;
     }
 
-    private static boolean Np() {
+    private static boolean Nn() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

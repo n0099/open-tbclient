@@ -9,89 +9,89 @@ import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class e {
-    private com.baidu.tieba.person.e bus;
-    private ai eUq;
-    private d eUr;
-    private com.baidu.tieba.view.a eUs;
-    private a eUt;
+    private com.baidu.tieba.person.e buv;
+    private ai eUc;
+    private d eUd;
+    private com.baidu.tieba.view.a eUe;
+    private a eUf;
     private TbPageContext mContext;
 
     /* loaded from: classes5.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void baO();
+        void baM();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mContext = tbPageContext;
-        this.eUr = new d(tbPageContext, bdUniqueId);
-        this.eUr.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
+        this.eUd = new d(tbPageContext, bdUniqueId);
+        this.eUd.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
             @Override // com.baidu.tieba.forbidden.fans.d.a
             public void g(int i, String str, boolean z) {
-                if (e.this.eUt != null) {
-                    e.this.eUt.a(i, str, z, 0, 0L);
+                if (e.this.eUf != null) {
+                    e.this.eUf.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.eUq = new ai(tbPageContext, bdUniqueId);
-        this.eUq.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
+        this.eUc = new ai(tbPageContext, bdUniqueId);
+        this.eUc.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
             @Override // com.baidu.tbadk.core.util.ai.a
             public void a(int i, String str, long j, boolean z) {
-                if (e.this.eUt != null) {
-                    e.this.eUt.a(i, str, z, 1, j);
+                if (e.this.eUf != null) {
+                    e.this.eUf.a(i, str, z, 1, j);
                 }
             }
         });
     }
 
     public void removeAll() {
-        VU();
+        VR();
     }
 
     public void cB(long j) {
-        this.eUq.ai(j);
+        this.eUc.ai(j);
     }
 
-    private void VU() {
-        if (this.bus == null) {
-            this.eUs = new com.baidu.tieba.view.a(this.mContext.getContext());
-            this.eUs.setTitleText(this.mContext.getString(d.j.confirm_remove_all_forbidden_fans));
+    private void VR() {
+        if (this.buv == null) {
+            this.eUe = new com.baidu.tieba.view.a(this.mContext.getContext());
+            this.eUe.setTitleText(this.mContext.getString(d.j.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0407a c0407a = new a.C0407a(this.mContext.getString(d.j.confirm), this.eUs);
+            a.C0407a c0407a = new a.C0407a(this.mContext.getString(d.j.confirm), this.eUe);
             c0407a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.bus.dismiss();
-                    if (e.this.eUt != null) {
-                        e.this.eUt.baO();
+                    e.this.buv.dismiss();
+                    if (e.this.eUf != null) {
+                        e.this.eUf.baM();
                     }
-                    e.this.eUr.baS();
+                    e.this.eUd.baQ();
                 }
             });
             arrayList.add(c0407a);
-            this.eUs.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
+            this.eUe.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.bus != null) {
-                        e.this.bus.dismiss();
+                    if (e.this.buv != null) {
+                        e.this.buv.dismiss();
                     }
                 }
             });
-            this.eUs.P(arrayList);
-            this.bus = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.eUs.abk());
-            this.bus.al(0.7f);
+            this.eUe.P(arrayList);
+            this.buv = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.eUe.abh());
+            this.buv.al(0.7f);
         }
-        this.bus.show();
+        this.buv.show();
     }
 
     public void onChangeSkinType() {
-        if (this.eUs != null) {
-            this.eUs.onChangeSkinType();
+        if (this.eUe != null) {
+            this.eUe.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.eUt = aVar;
+        this.eUf = aVar;
     }
 }

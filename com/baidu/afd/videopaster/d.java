@@ -132,7 +132,7 @@ public class d {
                 }
                 if (d.this.TK != null) {
                     if (i == 0 || i == 1) {
-                        d.this.bj(i);
+                        d.this.bi(i);
                     } else {
                         z = false;
                     }
@@ -140,7 +140,7 @@ public class d {
                         if (d.this.TS) {
                             d.this.TS = false;
                         } else if (!z) {
-                            d.this.bj(i);
+                            d.this.bi(i);
                         }
                     }
                 }
@@ -151,7 +151,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bj(int i) {
+    public void bi(int i) {
         this.TL.b(qi(), i);
         if (TextUtils.equals(this.mFrom, "VIDEO_LIST") && i == 2) {
             this.TL.f(qi());
@@ -323,9 +323,9 @@ public class d {
         return aVar;
     }
 
-    public void bk(int i) {
+    public void bj(int i) {
         if (this.TH != null) {
-            this.TH.bk(i);
+            this.TH.bj(i);
         }
     }
 

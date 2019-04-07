@@ -12,7 +12,7 @@ public class s extends c implements i<aj>, j {
     NEGFeedBackView Yi;
 
     public s(TbPageContext tbPageContext) {
-        bx(-1);
+        bw(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Yh, Yh);
         layoutParams.addRule(11);
         layoutParams.topMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds32);

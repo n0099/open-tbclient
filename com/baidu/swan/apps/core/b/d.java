@@ -18,12 +18,12 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public d(Context context) {
         super(context);
         this.mContext = context;
-        xR();
+        xQ();
     }
 
-    protected void xR() {
-        wc().setVisibility(8);
-        wc().setBackgroundColor(0);
+    protected void xQ() {
+        wb().setVisibility(8);
+        wb().setBackgroundColor(0);
         loadUrl("file:///android_asset/aiapps/sConsole.html");
     }
 
@@ -40,24 +40,24 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
         HashMap hashMap = new HashMap();
         hashMap.put("logType", str);
         hashMap.put("logs", jSONArray.toString());
-        e.Ec().a("console", new com.baidu.swan.apps.m.a.b("searchboxSConsole", hashMap));
+        e.Ea().a("console", new com.baidu.swan.apps.m.a.b("searchboxSConsole", hashMap));
     }
 
     @Override // com.baidu.swan.apps.b.c.a
     public void e(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            a(viewGroup, wc());
+            a(viewGroup, wb());
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.a
     public void aM(boolean z) {
-        wc().setVisibility(z ? 0 : 8);
+        wb().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.b.c.a
-    public void vU() {
-        aM(wc().getVisibility() != 0);
+    public void vT() {
+        aM(wb().getVisibility() != 0);
     }
 
     private void a(ViewGroup viewGroup, View view) {
@@ -77,17 +77,17 @@ public class d extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public String we() {
+    public String wd() {
         return "console";
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void destroy() {
-        vZ();
+        vY();
         super.destroy();
     }
 
-    private void vZ() {
+    private void vY() {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             o.a(this.mContext, ((Activity) this.mContext).getWindow().getDecorView().getWindowToken());
         }

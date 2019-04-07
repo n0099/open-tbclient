@@ -12,13 +12,13 @@ public class b {
     public static void a(String str, int i, List<i> list) {
         if (!TextUtils.isEmpty(str) && list != null && !list.isEmpty()) {
             for (i iVar : list) {
-                if (iVar != null && iVar.RK()) {
+                if (iVar != null && iVar.RI()) {
                     SubPackageAPSInfo subPackageAPSInfo = new SubPackageAPSInfo();
-                    subPackageAPSInfo.mKey = iVar.blW;
+                    subPackageAPSInfo.mKey = iVar.blZ;
                     subPackageAPSInfo.mAppId = str;
                     subPackageAPSInfo.mAppVersion = String.valueOf(i);
-                    subPackageAPSInfo.axo = iVar.Jz;
-                    subPackageAPSInfo.axn = c.d.ah(str, String.valueOf(i)).getPath();
+                    subPackageAPSInfo.axr = iVar.Jz;
+                    subPackageAPSInfo.axq = c.d.ah(str, String.valueOf(i)).getPath();
                     com.baidu.swan.apps.core.a.d.a.a(subPackageAPSInfo, iVar.sign, iVar.filePath, false);
                 }
             }

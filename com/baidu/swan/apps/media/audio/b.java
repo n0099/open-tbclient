@@ -5,39 +5,39 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String azz;
-    public String azs = "";
-    public String azt = "";
+    public String azC;
+    public String azv = "";
+    public String azw = "";
     public String mUrl = "";
-    public int azx = 0;
-    public boolean azC = false;
+    public int azA = 0;
+    public boolean azF = false;
     public boolean mLoop = false;
-    public boolean azD = true;
+    public boolean azG = true;
     public int mPos = 0;
-    public float azE = 1.0f;
+    public float azH = 1.0f;
 
     public static b a(JSONObject jSONObject, b bVar) {
         b bVar2 = new b();
         if (jSONObject != null) {
-            bVar2.azs = jSONObject.optString("audioId", bVar.azs);
-            bVar2.azt = jSONObject.optString("slaveId", bVar.azt);
-            bVar2.azC = jSONObject.optBoolean("autoplay", bVar.azC);
+            bVar2.azv = jSONObject.optString("audioId", bVar.azv);
+            bVar2.azw = jSONObject.optString("slaveId", bVar.azw);
+            bVar2.azF = jSONObject.optBoolean("autoplay", bVar.azF);
             bVar2.mLoop = jSONObject.optBoolean("loop", bVar.mLoop);
             bVar2.mUrl = jSONObject.optString("src", bVar.mUrl);
-            bVar2.azx = jSONObject.optInt("startTime", bVar.azx);
-            bVar2.azD = jSONObject.optBoolean("obeyMuteSwitch", bVar.azD);
+            bVar2.azA = jSONObject.optInt("startTime", bVar.azA);
+            bVar2.azG = jSONObject.optBoolean("obeyMuteSwitch", bVar.azG);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
-            bVar2.azE = (float) jSONObject.optDouble("volume", bVar.azE);
-            bVar2.azz = jSONObject.optString("cb", bVar.azz);
+            bVar2.azH = (float) jSONObject.optDouble("volume", bVar.azH);
+            bVar2.azC = jSONObject.optString("cb", bVar.azC);
         }
         return bVar2;
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.azs);
+        return !TextUtils.isEmpty(this.azv);
     }
 
     public String toString() {
-        return "playerId : " + this.azs + "; slaveId : " + this.azt + "; url : " + this.mUrl + "; AutoPlay : " + this.azC + "; Loop : " + this.mLoop + "; startTime : " + this.azx + "; ObeyMute : " + this.azD + "; pos : " + this.mPos;
+        return "playerId : " + this.azv + "; slaveId : " + this.azw + "; url : " + this.mUrl + "; AutoPlay : " + this.azF + "; Loop : " + this.mLoop + "; startTime : " + this.azA + "; ObeyMute : " + this.azG + "; pos : " + this.mPos;
     }
 }

@@ -19,40 +19,40 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b implements SensorEventListener {
-    private SensorManager aTw;
-    private LocationClient bgA;
-    private BDLocation bgC;
-    private double bgz;
-    private boolean bgB = false;
-    private boolean bgD = false;
-    private List<com.baidu.swan.impl.map.item.b> bgy = new ArrayList(1);
+    private SensorManager aTz;
+    private double bgC;
+    private LocationClient bgD;
+    private BDLocation bgF;
+    private boolean bgE = false;
+    private boolean bgG = false;
+    private List<com.baidu.swan.impl.map.item.b> bgB = new ArrayList(1);
 
     public b() {
-        PP();
+        PN();
     }
 
     public boolean a(com.baidu.swan.impl.map.item.b bVar) {
         if (bVar == null) {
             return false;
         }
-        this.bgy.add(bVar);
+        this.bgB.add(bVar);
         return true;
     }
 
     public boolean remove(String str) {
-        com.baidu.swan.impl.map.item.b jc = jc(str);
-        if (jc != null) {
-            this.bgy.remove(jc);
+        com.baidu.swan.impl.map.item.b jd = jd(str);
+        if (jd != null) {
+            this.bgB.remove(jd);
             return true;
         }
         return false;
     }
 
-    public com.baidu.swan.impl.map.item.b jc(String str) {
+    public com.baidu.swan.impl.map.item.b jd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgy) {
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
             if (bVar != null && TextUtils.equals(bVar.id, str)) {
                 return bVar;
             }
@@ -61,43 +61,43 @@ public class b implements SensorEventListener {
     }
 
     public void resume() {
-        PP();
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgy) {
-            bVar.bhj.onResume();
+        PN();
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
+            bVar.bhm.onResume();
         }
     }
 
     public void pause() {
         ja();
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgy) {
-            bVar.bhj.onPause();
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
+            bVar.bhm.onPause();
         }
     }
 
     public void release() {
         ja();
-        this.bgD = false;
+        this.bgG = false;
         if (Build.VERSION.SDK_INT > 19) {
-            for (com.baidu.swan.impl.map.item.b bVar : this.bgy) {
-                bVar.bhj.onDestroy();
+            for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
+                bVar.bhm.onDestroy();
             }
         }
-        this.bgy.clear();
+        this.bgB.clear();
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         double d = sensorEvent.values[0];
-        if (Math.abs(d - this.bgz) > 1.0d) {
-            for (com.baidu.swan.impl.map.item.b bVar : this.bgy) {
-                MyLocationData locationData = bVar.bhj.getMap().getLocationData();
+        if (Math.abs(d - this.bgC) > 1.0d) {
+            for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
+                MyLocationData locationData = bVar.bhm.getMap().getLocationData();
                 if (locationData != null && bVar.isShowLocation) {
-                    bVar.bhj.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).accuracy(locationData.accuracy).satellitesNum(locationData.satellitesNum).build());
-                    PO();
+                    bVar.bhm.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).accuracy(locationData.accuracy).satellitesNum(locationData.satellitesNum).build());
+                    PM();
                 }
             }
         }
-        this.bgz = d;
+        this.bgC = d;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -111,15 +111,15 @@ public class b implements SensorEventListener {
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            if (bDLocation == null || b.this.bgy.size() <= 0) {
+            if (bDLocation == null || b.this.bgB.size() <= 0) {
                 b.this.ja();
                 return;
             }
-            b.this.bgC = bDLocation;
-            for (com.baidu.swan.impl.map.item.b bVar : b.this.bgy) {
+            b.this.bgF = bDLocation;
+            for (com.baidu.swan.impl.map.item.b bVar : b.this.bgB) {
                 if (bVar.isShowLocation) {
                     MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build();
-                    BaiduMap map = bVar.bhj.getMap();
+                    BaiduMap map = bVar.bhm.getMap();
                     map.setMyLocationEnabled(true);
                     map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                     map.setMyLocationData(build);
@@ -128,70 +128,70 @@ public class b implements SensorEventListener {
         }
     }
 
-    private void PO() {
-        if (this.bgA == null) {
-            this.bgA = new LocationClient(AppRuntime.getAppContext());
-            this.bgA.registerLocationListener(new a());
+    private void PM() {
+        if (this.bgD == null) {
+            this.bgD = new LocationClient(AppRuntime.getAppContext());
+            this.bgD.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.bgA.setLocOption(locationClientOption);
+            this.bgD.setLocOption(locationClientOption);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ja() {
-        if (this.bgD && this.bgA != null && this.bgA.isStarted()) {
-            this.bgA.stop();
-            PR();
+        if (this.bgG && this.bgD != null && this.bgD.isStarted()) {
+            this.bgD.stop();
+            PP();
             com.baidu.swan.apps.console.c.w("map", "stop location");
         }
     }
 
-    private void PP() {
-        if (this.bgD) {
-            PO();
-            if (this.bgA != null && !this.bgA.isStarted()) {
-                this.bgA.start();
-                PQ();
+    private void PN() {
+        if (this.bgG) {
+            PM();
+            if (this.bgD != null && !this.bgD.isStarted()) {
+                this.bgD.start();
+                PO();
                 com.baidu.swan.apps.console.c.w("map", "start location");
             }
         }
     }
 
-    private void PQ() {
-        if (!this.bgB) {
-            this.aTw = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
-            if (this.aTw != null) {
-                this.aTw.registerListener(this, this.aTw.getDefaultSensor(3), 2);
-                this.bgB = true;
+    private void PO() {
+        if (!this.bgE) {
+            this.aTz = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
+            if (this.aTz != null) {
+                this.aTz.registerListener(this, this.aTz.getDefaultSensor(3), 2);
+                this.bgE = true;
             }
         }
     }
 
-    private void PR() {
-        if (this.aTw != null && this.bgB) {
-            this.aTw.unregisterListener(this);
-            this.bgB = false;
+    private void PP() {
+        if (this.aTz != null && this.bgE) {
+            this.aTz.unregisterListener(this);
+            this.bgE = false;
         }
     }
 
-    public boolean PS() {
-        return this.bgA != null && this.bgA.isStarted();
+    public boolean PQ() {
+        return this.bgD != null && this.bgD.isStarted();
     }
 
-    public BDLocation PT() {
-        return this.bgC;
+    public BDLocation PR() {
+        return this.bgF;
     }
 
     public void cC(boolean z) {
         if (z) {
-            this.bgD = true;
-            PP();
+            this.bgG = true;
+            PN();
             return;
         }
         ja();
-        this.bgD = false;
+        this.bgG = false;
     }
 }

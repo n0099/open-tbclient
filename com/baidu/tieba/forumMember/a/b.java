@@ -5,25 +5,25 @@ import com.baidu.adp.widget.ListView.m;
 import tbclient.GetMemberInfo.MemberGodInfo;
 /* loaded from: classes5.dex */
 public class b implements m {
-    public static final BdUniqueId eVd = BdUniqueId.gen();
-    private int eVe;
+    public static final BdUniqueId eUP = BdUniqueId.gen();
+    private int eUQ;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eVd;
+        return eUP;
     }
 
-    public int bba() {
-        return this.eVe;
+    public int baY() {
+        return this.eUQ;
     }
 
-    public void pH(int i) {
-        this.eVe = i;
+    public void pD(int i) {
+        this.eUQ = i;
     }
 
     public void a(MemberGodInfo memberGodInfo) {
         if (memberGodInfo != null && memberGodInfo.forum_god_list != null && memberGodInfo.forum_god_list.size() > 0) {
-            pH(memberGodInfo.forum_god_num.intValue());
+            pD(memberGodInfo.forum_god_num.intValue());
         }
     }
 }

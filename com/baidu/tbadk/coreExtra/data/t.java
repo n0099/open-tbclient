@@ -7,7 +7,7 @@ public class t {
     private String link_url;
     private long start_time;
 
-    public String agy() {
+    public String agv() {
         return this.link_url;
     }
 

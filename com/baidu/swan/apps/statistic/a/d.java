@@ -8,52 +8,52 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int aEh = 35;
-    private boolean aEj = false;
-    private JSONObject aSp;
+    private static int aEk = 35;
+    private boolean aEm = false;
+    private JSONObject aSs;
 
     public d() {
         this.mSource = "NA";
     }
 
     public d a(@NonNull com.baidu.swan.apps.ak.a aVar) {
-        this.mType = String.valueOf(aVar.LC());
-        aA("detail", aVar.LB().toString());
+        this.mType = String.valueOf(aVar.LA());
+        aA("detail", aVar.Lz().toString());
         return this;
     }
 
     public d cg(boolean z) {
-        this.aEj = z;
-        return this;
-    }
-
-    public d gR(String str) {
-        this.mFrom = str;
+        this.aEm = z;
         return this;
     }
 
     public d gS(String str) {
-        this.mAppId = str;
+        this.mFrom = str;
         return this;
     }
 
     public d gT(String str) {
-        this.mSource = str;
+        this.mAppId = str;
         return this;
     }
 
     public d gU(String str) {
-        this.axI = str;
+        this.mSource = str;
+        return this;
+    }
+
+    public d gV(String str) {
+        this.axL = str;
         return this;
     }
 
     public d aA(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.aSp == null) {
-                this.aSp = new JSONObject();
+            if (this.aSs == null) {
+                this.aSs = new JSONObject();
             }
             try {
-                this.aSp.put(str, str2);
+                this.aSs.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -63,17 +63,17 @@ public class d extends f {
 
     public d r(com.baidu.swan.apps.v.b.b bVar) {
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.axG)) {
-                this.mSource = bVar.axG;
+            if (!TextUtils.isEmpty(bVar.axJ)) {
+                this.mSource = bVar.axJ;
             }
             if (!TextUtils.isEmpty(bVar.mAppId)) {
                 this.mAppId = bVar.mAppId;
             }
-            if (!TextUtils.isEmpty(bVar.axH)) {
-                this.aSv = bVar.axH;
+            if (!TextUtils.isEmpty(bVar.axK)) {
+                this.aSy = bVar.axK;
             }
-            if (!TextUtils.isEmpty(bVar.axI)) {
-                this.aSx = bVar.axI;
+            if (!TextUtils.isEmpty(bVar.axL)) {
+                this.aSA = bVar.axL;
             }
         }
         return this;
@@ -87,11 +87,11 @@ public class d extends f {
             if (!TextUtils.isEmpty(cVar.mAppId)) {
                 this.mAppId = cVar.mAppId;
             }
-            if (!TextUtils.isEmpty(cVar.axH)) {
-                this.aSv = cVar.axH;
+            if (!TextUtils.isEmpty(cVar.axK)) {
+                this.aSy = cVar.axK;
             }
-            if (!TextUtils.isEmpty(cVar.axI)) {
-                this.aSx = cVar.axI;
+            if (!TextUtils.isEmpty(cVar.axL)) {
+                this.aSA = cVar.axL;
             }
         }
         return this;
@@ -99,18 +99,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.aSq == null) {
-            this.aSq = new JSONObject();
+        if (this.aSt == null) {
+            this.aSt = new JSONObject();
         }
         try {
-            if (this.aSp != null) {
-                if (this.aEj) {
-                    String ep = aa.ep(aEh);
-                    if (!TextUtils.isEmpty(ep)) {
-                        this.aSp.put("stacktrace", ep);
+            if (this.aSs != null) {
+                if (this.aEm) {
+                    String eo = aa.eo(aEk);
+                    if (!TextUtils.isEmpty(eo)) {
+                        this.aSs.put("stacktrace", eo);
                     }
                 }
-                this.aSq.put("info", this.aSp);
+                this.aSt.put("info", this.aSs);
             }
         } catch (JSONException e) {
             if (DEBUG) {

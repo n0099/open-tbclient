@@ -16,32 +16,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
-    public int bUK;
-    public TextView btZ;
-    public View hKS;
-    public HTypeListView hKT;
-    public e hKU;
+    public int bUM;
+    public TextView buc;
+    public View hKE;
+    public HTypeListView hKF;
+    public e hKG;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.bUK = 3;
+        this.bUM = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.hKS = view.findViewById(d.g.divider_view_under_photo_album);
-        this.btZ = (TextView) view.findViewById(d.g.text_view_photo_album);
-        this.hKT = (HTypeListView) view.findViewById(d.g.listview_photo_album);
-        this.hKU = new e(this.mPageContext, this.hKT);
+        this.hKE = view.findViewById(d.g.divider_view_under_photo_album);
+        this.buc = (TextView) view.findViewById(d.g.text_view_photo_album);
+        this.hKF = (HTypeListView) view.findViewById(d.g.listview_photo_album);
+        this.hKG = new e(this.mPageContext, this.hKF);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.hKU.setDatas(dH(fVar.getPhotoAlbum()));
+            this.hKG.setDatas(dE(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<m> dH(List<m> list) {
+    private List<m> dE(List<m> list) {
         if (com.baidu.tbadk.core.util.v.S(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.h(this.mPageContext.getPageActivity(), d.e.ds32), l.h(this.mPageContext.getPageActivity(), d.e.ds120));
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void ann() {
-        if (this.bUK != TbadkCoreApplication.getInst().getSkinType()) {
-            this.bUK = TbadkCoreApplication.getInst().getSkinType();
+    public void ank() {
+        if (this.bUM != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bUM = TbadkCoreApplication.getInst().getSkinType();
             al.l(this.rootView, d.C0277d.cp_bg_line_d);
-            al.l(this.hKS, d.C0277d.cp_bg_line_c);
-            al.d(this.btZ, d.C0277d.cp_cont_d, 1);
-            this.hKU.notifyDataSetChanged();
+            al.l(this.hKE, d.C0277d.cp_bg_line_c);
+            al.d(this.buc, d.C0277d.cp_cont_d, 1);
+            this.hKG.notifyDataSetChanged();
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.azV().putBoolean(str, z);
+            a.azS().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.d(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.azV().getBoolean(str, z);
+            return a.azS().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.d(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -33,25 +33,25 @@ public class b {
         /* renamed from: com.baidu.tieba.aiapps.apps.o.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
         public static final class C0271a {
-            private static final a cWB = new a();
+            private static final a cWD = new a();
         }
 
-        public static a azV() {
-            return C0271a.cWB;
+        public static a azS() {
+            return C0271a.cWD;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class e {
-        final int aSX;
-        final String aSY;
-        final String aSZ;
+        final int aTa;
+        final String aTb;
+        final String aTc;
 
         e(int i, String str, String str2) {
-            this.aSX = i;
-            this.aSY = str;
-            this.aSZ = str2;
+            this.aTa = i;
+            this.aTb = str;
+            this.aTc = str2;
         }
 
         static e I(Bundle bundle) {
@@ -70,7 +70,7 @@ public class b {
         }
 
         public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aSX + ", mPrefName='" + this.aSY + "', mDataValue='" + this.aSZ + "'}";
+            return "SpMethodInfo{mDataType=" + this.aTa + ", mPrefName='" + this.aTb + "', mDataValue='" + this.aTc + "'}";
         }
     }
 
@@ -100,9 +100,9 @@ public class b {
 
         @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
-            switch (eVar.aSX) {
+            switch (eVar.aTa) {
                 case 1:
-                    a.azV().putBoolean(eVar.aSY, Boolean.parseBoolean(eVar.aSZ));
+                    a.azS().putBoolean(eVar.aTb, Boolean.parseBoolean(eVar.aTc));
                     break;
             }
             return Bundle.EMPTY;
@@ -119,9 +119,9 @@ public class b {
         @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
-            switch (eVar.aSX) {
+            switch (eVar.aTa) {
                 case 1:
-                    bundle.putBoolean("result_value", a.azV().getBoolean(eVar.aSY, Boolean.parseBoolean(eVar.aSZ)));
+                    bundle.putBoolean("result_value", a.azS().getBoolean(eVar.aTb, Boolean.parseBoolean(eVar.aTc)));
                     break;
             }
             return bundle;

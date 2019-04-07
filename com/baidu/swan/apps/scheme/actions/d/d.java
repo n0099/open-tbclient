@@ -16,7 +16,6 @@ import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,7 +37,7 @@ public class d extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String str = params.get(LegoListActivityConfig.PARAMS);
+        String str = params.get("params");
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.e("ShowToastAction", "the key params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -123,28 +122,28 @@ public class d extends y {
     }
 
     private int ac(JSONObject jSONObject) {
-        int gA = gA(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
-        if (gA <= 0) {
+        int gB = gB(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
+        if (gB <= 0) {
             return 2;
         }
-        return gA;
+        return gB;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).dw(i).bY(z).ds(2).IK();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).dv(i).bY(z).dr(2).II();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).e(drawable).dw(i).bY(z).IN();
+        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).e(drawable).dv(i).bY(z).IL();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).dw(i).bY(z).IO();
+        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).dv(i).bY(z).IM();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
@@ -183,7 +182,7 @@ public class d extends y {
         return stringBuffer.toString();
     }
 
-    private int gA(String str) {
+    private int gB(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -202,16 +201,16 @@ public class d extends y {
         if (DEBUG) {
             Log.e("ShowToastAction", "imagePath = " + str);
         }
-        ExifInterface gE = gE(str);
-        if (gE == null) {
+        ExifInterface gF = gF(str);
+        if (gF == null) {
             if (DEBUG) {
                 Log.e("ShowToastAction", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(gE.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(gE.getAttribute("ImageLength")).intValue();
+        int intValue = Integer.valueOf(gF.getAttribute("ImageWidth")).intValue();
+        int intValue2 = Integer.valueOf(gF.getAttribute("ImageLength")).intValue();
         if (DEBUG) {
             Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
         }
@@ -235,7 +234,7 @@ public class d extends y {
         return bitmapDrawable;
     }
 
-    private ExifInterface gE(String str) {
+    private ExifInterface gF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

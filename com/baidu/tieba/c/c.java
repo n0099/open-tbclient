@@ -11,31 +11,31 @@ import com.baidu.tieba.tbadkCore.data.n;
 import com.baidu.tieba.view.FloatingAnimationView;
 /* loaded from: classes3.dex */
 public class c {
-    private FloatingAnimationView ers;
-    private n ert;
-    private Runnable eru = new Runnable() { // from class: com.baidu.tieba.c.c.1
+    private FloatingAnimationView erd;
+    private n ere;
+    private Runnable erf = new Runnable() { // from class: com.baidu.tieba.c.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.ers != null && c.this.ert != null) {
-                c.this.ers.setData(c.this.ert.ceI(), 100);
-                c.this.ers.cu();
+            if (c.this.erd != null && c.this.ere != null) {
+                c.this.erd.setData(c.this.ere.ceE(), 100);
+                c.this.erd.cu();
             }
         }
     };
-    private Runnable erv = new Runnable() { // from class: com.baidu.tieba.c.c.2
+    private Runnable erg = new Runnable() { // from class: com.baidu.tieba.c.c.2
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.ers != null && c.this.ert != null) {
-                c.this.ers.stopAnimation();
-                c.this.ers.setData(c.this.ert.ceH());
+            if (c.this.erd != null && c.this.ere != null) {
+                c.this.erd.stopAnimation();
+                c.this.erd.setData(c.this.ere.ceD());
             }
         }
     };
-    private Runnable erw = new Runnable() { // from class: com.baidu.tieba.c.c.3
+    private Runnable erh = new Runnable() { // from class: com.baidu.tieba.c.c.3
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.ers != null && c.this.ert != null) {
-                c.this.ers.qP(true);
+            if (c.this.erd != null && c.this.ere != null) {
+                c.this.erd.qP(true);
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_collection_tag_state", 0);
             }
         }
@@ -44,89 +44,89 @@ public class c {
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, FloatingAnimationView floatingAnimationView, int i) {
-        this.ers = floatingAnimationView;
+        this.erd = floatingAnimationView;
         this.mPageContext = tbPageContext;
         this.mFrom = i;
-        this.ers.setCallback(new FloatingAnimationView.a() { // from class: com.baidu.tieba.c.c.4
+        this.erd.setCallback(new FloatingAnimationView.a() { // from class: com.baidu.tieba.c.c.4
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void aSo() {
-                if (c.this.ert != null && !ap.isEmpty(c.this.ert.awy())) {
+            public void aSm() {
+                if (c.this.ere != null && !ap.isEmpty(c.this.ere.awv())) {
                     TiebaStatic.log(new am("c12913").T("obj_locate", 2).T("obj_type", c.this.mFrom));
-                    if (c.this.ert.getType() == 2) {
-                        c.this.ers.qP(false);
+                    if (c.this.ere.getType() == 2) {
+                        c.this.erd.qP(false);
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_collection_tag_state", 1);
                     }
-                    ba.adD().c(c.this.mPageContext, new String[]{c.this.ert.awy()});
+                    ba.adA().c(c.this.mPageContext, new String[]{c.this.ere.awv()});
                 }
             }
 
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void aSp() {
-                c.this.aSn();
+            public void aSn() {
+                c.this.aSl();
                 c.this.onDestroy();
-                c.this.ers.setVisibility(8);
+                c.this.erd.setVisibility(8);
                 TiebaStatic.log(new am("c12913").T("obj_locate", 3).T("obj_type", c.this.mFrom));
             }
         });
     }
 
     public void a(n nVar) {
-        if (this.ers != null) {
+        if (this.erd != null) {
             if (nVar == null || nVar.getType() == 0) {
-                this.ers.setVisibility(8);
+                this.erd.setVisibility(8);
                 return;
             }
-            this.ert = nVar;
-            if (this.ert.getType() == 1) {
-                aSk();
-            } else if (this.ert.getType() == 2) {
-                aSl();
+            this.ere = nVar;
+            if (this.ere.getType() == 1) {
+                aSi();
+            } else if (this.ere.getType() == 2) {
+                aSj();
             }
-            aSm();
+            aSk();
         }
     }
 
-    private void aSk() {
+    private void aSi() {
         String lastId = getLastId();
-        if (this.ert == null || lastId.equals(this.ert.ceJ()) || ap.isEmpty(this.ert.awy()) || ap.isEmpty(this.ert.ceH())) {
-            this.ers.setVisibility(8);
+        if (this.ere == null || lastId.equals(this.ere.ceF()) || ap.isEmpty(this.ere.awv()) || ap.isEmpty(this.ere.ceD())) {
+            this.erd.setVisibility(8);
             return;
         }
-        if (this.ers.getVisibility() != 0) {
+        if (this.erd.getVisibility() != 0) {
             TiebaStatic.log(new am("c12912").T("obj_locate", this.mFrom));
         }
-        this.ers.setVisibility(0);
-        this.ers.setData(this.ert.ceH());
-        if (this.ert.getStartTime() > 0 && this.ert.getEndTime() > 0 && this.ert.getEndTime() > this.ert.getStartTime() && !v.T(this.ert.ceI())) {
-            com.baidu.adp.lib.g.e.jH().removeCallbacks(this.eru);
-            com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erv);
-            com.baidu.adp.lib.g.e.jH().postDelayed(this.eru, this.ert.getStartTime() - System.currentTimeMillis());
-            com.baidu.adp.lib.g.e.jH().postDelayed(this.erv, this.ert.getEndTime() - System.currentTimeMillis());
+        this.erd.setVisibility(0);
+        this.erd.setData(this.ere.ceD());
+        if (this.ere.getStartTime() > 0 && this.ere.getEndTime() > 0 && this.ere.getEndTime() > this.ere.getStartTime() && !v.T(this.ere.ceE())) {
+            com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erf);
+            com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erg);
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.erf, this.ere.getStartTime() - System.currentTimeMillis());
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.erg, this.ere.getEndTime() - System.currentTimeMillis());
         }
     }
 
-    private void aSl() {
+    private void aSj() {
         String lastId = getLastId();
-        if (this.ert == null || lastId.equals(this.ert.ceJ()) || ap.isEmpty(this.ert.awy()) || ap.isEmpty(this.ert.ceH())) {
-            this.ers.setVisibility(8);
+        if (this.ere == null || lastId.equals(this.ere.ceF()) || ap.isEmpty(this.ere.awv()) || ap.isEmpty(this.ere.ceD())) {
+            this.erd.setVisibility(8);
             return;
         }
-        this.ers.setVisibility(0);
-        this.ers.setData(this.ert.ceH());
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erw);
-        com.baidu.adp.lib.g.e.jH().postDelayed(this.erw, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
+        this.erd.setVisibility(0);
+        this.erd.setData(this.ere.ceD());
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erh);
+        com.baidu.adp.lib.g.e.jH().postDelayed(this.erh, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
 
-    public void aSm() {
-        if (this.ers != null && this.ert != null) {
-            if (getLastId().equals(this.ert.ceJ())) {
-                this.ers.setVisibility(8);
+    public void aSk() {
+        if (this.erd != null && this.ere != null) {
+            if (getLastId().equals(this.ere.ceF())) {
+                this.erd.setVisibility(8);
             }
-            if (this.ert.getType() == 2) {
+            if (this.ere.getType() == 2) {
                 if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_collection_tag_state", 0) == 1) {
-                    this.ers.qP(false);
+                    this.erd.qP(false);
                 } else {
-                    this.ers.qP(true);
+                    this.erd.qP(true);
                 }
             }
         }
@@ -134,10 +134,10 @@ public class c {
 
     private String getLastId() {
         String str;
-        if (this.ert == null) {
+        if (this.ere == null) {
             return "";
         }
-        int type = this.ert.getType();
+        int type = this.ere.getType();
         if (this.mFrom == 1) {
             str = "key_redpacket_float_maintab_last_id_" + type;
         } else {
@@ -147,25 +147,25 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSn() {
+    public void aSl() {
         String str;
-        if (this.ert != null) {
-            int type = this.ert.getType();
+        if (this.ere != null) {
+            int type = this.ere.getType();
             if (this.mFrom == 1) {
                 str = "key_redpacket_float_maintab_last_id_" + type;
             } else {
                 str = "key_redpacket_float_frs_last_id_" + type;
             }
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.ert.ceJ());
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.ere.ceF());
         }
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.eru);
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erv);
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erw);
-        if (this.ers != null) {
-            this.ers.release();
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erf);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erg);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erh);
+        if (this.erd != null) {
+            this.erd.release();
         }
     }
 }

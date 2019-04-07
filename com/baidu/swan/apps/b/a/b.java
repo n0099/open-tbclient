@@ -10,15 +10,15 @@ import okhttp3.OkHttpClient;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.swan.apps.b.b.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c ajJ;
+    private static c ajN;
 
     /* loaded from: classes2.dex */
     public interface c {
-        com.baidu.swan.apps.b.b.b uW();
+        com.baidu.swan.apps.b.b.b uV();
     }
 
     public static void a(c cVar) {
-        ajJ = cVar;
+        ajN = cVar;
     }
 
     @Override // com.baidu.swan.apps.b.b.d
@@ -27,17 +27,17 @@ public class b implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b uT() {
-        return ajJ != null ? ajJ.uW() : new a();
+    public com.baidu.swan.apps.b.b.b uS() {
+        return ajN != null ? ajN.uV() : new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a uU() {
+    public com.baidu.swan.apps.b.b.a uT() {
         return new com.baidu.swan.apps.b.a.a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient uV() {
+    public OkHttpClient uU() {
         return new OkHttpClient.Builder().build();
     }
 

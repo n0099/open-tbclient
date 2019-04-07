@@ -21,8 +21,8 @@ import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class c extends AsyncTask<d.a, String, C0145c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private UnitedSchemeEntity aAo;
-    private CallbackHandler aAp;
+    private UnitedSchemeEntity aAr;
+    private CallbackHandler aAs;
     private WeakReference<Context> mContextRef;
 
     /* loaded from: classes2.dex */
@@ -33,8 +33,8 @@ public class c extends AsyncTask<d.a, String, C0145c> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         this.mContextRef = new WeakReference<>(context);
-        this.aAo = unitedSchemeEntity;
-        this.aAp = callbackHandler;
+        this.aAr = unitedSchemeEntity;
+        this.aAs = callbackHandler;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class c extends AsyncTask<d.a, String, C0145c> {
             Log.i("PickVideoTask", "Pick task onPostExecute.");
         }
         super.onPostExecute(c0145c);
-        if (c0145c.EA() || c0145c.isFinished()) {
+        if (c0145c.Ey() || c0145c.isFinished()) {
             if (DEBUG) {
                 Log.w("PickVideoTask", "Pick task has Error:" + c0145c.extra);
             }
@@ -81,7 +81,7 @@ public class c extends AsyncTask<d.a, String, C0145c> {
             }
             return;
         }
-        switch (c0145c.aAv) {
+        switch (c0145c.aAy) {
             case 1:
                 if (c0145c.object instanceof d.a) {
                     if (DEBUG) {
@@ -111,17 +111,17 @@ public class c extends AsyncTask<d.a, String, C0145c> {
             if (DEBUG) {
                 Log.w("PickVideoTask", "VideoCompress:Context=" + context);
             }
-        } else if (aVar.aAB == null) {
+        } else if (aVar.aAE == null) {
             if (DEBUG) {
                 Log.w("PickVideoTask", "VideoCompress:data.result is Null");
             }
         } else {
             Bundle bundle = new Bundle();
-            bundle.putString("path", aVar.aAB.aAI);
-            bundle.putLong("height", aVar.aAB.aAG);
-            bundle.putLong("width", aVar.aAB.aAH);
-            bundle.putString("outputPath", an(com.baidu.swan.apps.ae.b.Ji(), aVar.aAB.aAI));
-            com.baidu.swan.apps.u.a.CP().a(context, bundle, new a() { // from class: com.baidu.swan.apps.media.a.b.c.1
+            bundle.putString("path", aVar.aAE.aAL);
+            bundle.putLong("height", aVar.aAE.aAJ);
+            bundle.putLong("width", aVar.aAE.aAK);
+            bundle.putString("outputPath", an(com.baidu.swan.apps.ae.b.Jg(), aVar.aAE.aAL));
+            com.baidu.swan.apps.u.a.CN().a(context, bundle, new a() { // from class: com.baidu.swan.apps.media.a.b.c.1
                 @Override // com.baidu.swan.apps.media.a.b.c.a
                 public void a(boolean z, Bundle bundle2) {
                     if (!z) {
@@ -132,8 +132,8 @@ public class c extends AsyncTask<d.a, String, C0145c> {
                         String string = bundle2.getString("path");
                         if (!TextUtils.isEmpty(string)) {
                             File file = new File(string);
-                            aVar.aAB.size = file.length();
-                            aVar.aAB.aAF = com.baidu.swan.apps.storage.b.aD(string, com.baidu.swan.apps.ae.b.Ji());
+                            aVar.aAE.size = file.length();
+                            aVar.aAE.aAI = com.baidu.swan.apps.storage.b.aD(string, com.baidu.swan.apps.ae.b.Jg());
                         }
                         if (c.DEBUG) {
                             Log.i("PickVideoTask", "VideoCompress:success");
@@ -151,19 +151,19 @@ public class c extends AsyncTask<d.a, String, C0145c> {
     }
 
     private void b(@NonNull final d.a aVar) {
-        rx.d.bn(aVar).d(new f<d.a, String>() { // from class: com.baidu.swan.apps.media.a.b.c.3
+        rx.d.bj(aVar).d(new f<d.a, String>() { // from class: com.baidu.swan.apps.media.a.b.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
             public String call(d.a aVar2) {
-                if (aVar2.aAB == null) {
+                if (aVar2.aAE == null) {
                     return null;
                 }
-                String str = aVar2.aAB.aAI;
+                String str = aVar2.aAE.aAL;
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                String ao = c.this.ao(com.baidu.swan.apps.ae.b.Ji(), str);
+                String ao = c.this.ao(com.baidu.swan.apps.ae.b.Jg(), str);
                 if (TextUtils.isEmpty(ao)) {
                     return null;
                 }
@@ -172,12 +172,12 @@ public class c extends AsyncTask<d.a, String, C0145c> {
                 }
                 return ao;
             }
-        }).b(Schedulers.io()).a(rx.a.b.a.cDU()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
+        }).b(Schedulers.io()).a(rx.a.b.a.cDJ()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {
-                if (!TextUtils.isEmpty(str) && aVar.aAB != null) {
-                    aVar.aAB.aAF = com.baidu.swan.apps.storage.b.aD(str, com.baidu.swan.apps.ae.b.Ji());
+                if (!TextUtils.isEmpty(str) && aVar.aAE != null) {
+                    aVar.aAE.aAI = com.baidu.swan.apps.storage.b.aD(str, com.baidu.swan.apps.ae.b.Jg());
                 }
                 c.this.c(aVar);
             }
@@ -205,24 +205,24 @@ public class c extends AsyncTask<d.a, String, C0145c> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(@NonNull d.a aVar) {
-        if (this.aAo == null || this.aAp == null) {
+        if (this.aAr == null || this.aAs == null) {
             if (DEBUG) {
                 Log.e("PickVideoTask", "WeakRef return null");
             }
-        } else if (aVar.aAB == null || aVar.aAA == null) {
+        } else if (aVar.aAE == null || aVar.aAD == null) {
             if (DEBUG) {
                 Log.e("PickVideoTask", "PickData not completed");
             }
-        } else if (TextUtils.isEmpty(aVar.aAA.callback)) {
+        } else if (TextUtils.isEmpty(aVar.aAD.callback)) {
             if (DEBUG) {
                 Log.e("PickVideoTask", "PickData without callback");
             }
         } else {
-            CallbackHandler callbackHandler = this.aAp;
-            String str = aVar.aAA.callback;
-            d.c cVar = aVar.aAB;
+            CallbackHandler callbackHandler = this.aAs;
+            String str = aVar.aAD.callback;
+            d.c cVar = aVar.aAE;
             JSONObject jSONObject = new JSONObject();
-            if (TextUtils.isEmpty(cVar.aAF)) {
+            if (TextUtils.isEmpty(cVar.aAI)) {
                 try {
                     jSONObject.put("info", aVar.info);
                 } catch (JSONException e) {
@@ -234,10 +234,10 @@ public class c extends AsyncTask<d.a, String, C0145c> {
                 return;
             }
             try {
-                jSONObject.put("tempFilePath", cVar.aAF);
+                jSONObject.put("tempFilePath", cVar.aAI);
                 jSONObject.put(UBC.CONTENT_KEY_DURATION, cVar.duration / 1000);
-                jSONObject.put("height", cVar.aAG);
-                jSONObject.put("width", cVar.aAH);
+                jSONObject.put("height", cVar.aAJ);
+                jSONObject.put("width", cVar.aAK);
                 jSONObject.put("size", cVar.size);
             } catch (JSONException e2) {
                 if (DEBUG) {
@@ -250,38 +250,38 @@ public class c extends AsyncTask<d.a, String, C0145c> {
 
     /* loaded from: classes2.dex */
     public static abstract class b {
-        private static final b aAt = new b(null) { // from class: com.baidu.swan.apps.media.a.b.c.b.1
+        private static final b aAw = new b(null) { // from class: com.baidu.swan.apps.media.a.b.c.b.1
             @Override // com.baidu.swan.apps.media.a.b.c.b
             public C0145c a(Context context, C0145c c0145c) {
                 return c0145c;
             }
         };
-        protected d.a aAs;
+        protected d.a aAv;
 
         public abstract C0145c a(Context context, C0145c c0145c);
 
         public b(@NonNull d.a aVar) {
-            this.aAs = aVar;
+            this.aAv = aVar;
         }
 
         public static b e(d.a aVar) {
-            if (aVar == null || aVar.aAA == null) {
-                return aAt;
+            if (aVar == null || aVar.aAD == null) {
+                return aAw;
             }
-            switch (aVar.aAA.sourceType) {
+            switch (aVar.aAD.sourceType) {
                 case 1:
                 case 3:
                     return new com.baidu.swan.apps.media.a.b.a(aVar);
                 case 2:
                     return new com.baidu.swan.apps.media.a.b.b(aVar);
                 default:
-                    return aAt;
+                    return aAw;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public boolean f(@NonNull d.a aVar) {
-            return (aVar.aAA == null || !aVar.aAA.aAC || aVar.aAB.aAG == 0 || aVar.aAB.aAH == 0) ? false : true;
+            return (aVar.aAD == null || !aVar.aAD.aAF || aVar.aAE.aAJ == 0 || aVar.aAE.aAK == 0) ? false : true;
         }
     }
 
@@ -289,31 +289,31 @@ public class c extends AsyncTask<d.a, String, C0145c> {
     /* renamed from: com.baidu.swan.apps.media.a.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0145c {
-        private boolean aAu = false;
-        int aAv = 0;
+        private boolean aAx = false;
+        int aAy = 0;
         public String extra;
         public Object object;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0145c b(int i, Object obj) {
-            this.aAv = i;
+            this.aAy = i;
             this.object = obj;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0145c d(boolean z, String str) {
-            this.aAu = z;
+            this.aAx = z;
             this.extra = str;
             return this;
         }
 
-        public boolean EA() {
-            return this.aAu;
+        public boolean Ey() {
+            return this.aAx;
         }
 
         public boolean isFinished() {
-            return this.aAv == 0;
+            return this.aAy == 0;
         }
     }
 }

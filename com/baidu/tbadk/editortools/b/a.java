@@ -8,7 +8,7 @@ import com.baidu.tieba.d;
 public class a extends k {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(d.j.editor_gift_tab), 22, i);
-        this.cji = d.f.btn_pb_add_gift;
-        this.cjn = new int[]{36};
+        this.cjk = d.f.btn_pb_add_gift;
+        this.cjp = new int[]{36};
     }
 }

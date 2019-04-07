@@ -7,7 +7,7 @@ public interface e {
 
     e bb(String str, int i);
 
-    e di(String str, String str2);
+    e dj(String str, String str2);
 
     e z(String str, long j);
 }

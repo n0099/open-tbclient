@@ -12,64 +12,64 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes6.dex */
 public class a {
-    private static a hbO;
-    private long gyn = 0;
+    private static a hbB;
+    private long gya = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.runing.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.gyn = System.currentTimeMillis();
+                a.this.gya = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
         }
     };
-    private final c gaF = new c(303005) { // from class: com.baidu.tieba.myCollection.runing.a.2
+    private final c gat = new c(303005) { // from class: com.baidu.tieba.myCollection.runing.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                b.ahA().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+                b.ahx().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
             }
         }
     };
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        hbO = null;
+        hbB = null;
     }
 
-    public static synchronized a bFC() {
+    public static synchronized a bFz() {
         a aVar;
         synchronized (a.class) {
-            if (hbO == null) {
-                hbO = new a();
+            if (hbB == null) {
+                hbB = new a();
             }
-            aVar = hbO;
+            aVar = hbB;
         }
         return aVar;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.gaF);
+        MessageManager.getInstance().registerListener(this.gat);
     }
 
     public void restart() {
-        this.gyn = 0L;
+        this.gya = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.gyn;
+        long currentTimeMillis = System.currentTimeMillis() - this.gya;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.gyn = System.currentTimeMillis();
+        this.gya = System.currentTimeMillis();
     }
 
     public void destroy() {

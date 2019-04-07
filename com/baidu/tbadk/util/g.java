@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class g {
-    private long csY;
-    private long csZ;
     private long cta;
     private long ctb;
     private long ctc;
-    private a cte;
+    private long ctd;
+    private long cte;
+    private a ctg;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean ctd = false;
-    private Runnable ctf = new Runnable() { // from class: com.baidu.tbadk.util.g.1
+    private boolean ctf = false;
+    private Runnable cth = new Runnable() { // from class: com.baidu.tbadk.util.g.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.ctc > g.this.ctb) {
-                g.this.ctb = currentTimeMillis - g.this.cta;
-                g.this.ctc = g.this.ctb;
+            if (g.this.cte > g.this.ctd) {
+                g.this.ctd = currentTimeMillis - g.this.ctc;
+                g.this.cte = g.this.ctd;
             }
-            long j = currentTimeMillis - g.this.ctb;
-            g.this.csZ += g.this.cta;
-            if (g.this.csZ < g.this.csY) {
-                g.this.handler.postDelayed(g.this.ctf, (2 * g.this.cta) - j);
-                if (g.this.cte != null) {
-                    g.this.cte.b(g.this.csY, g.this.csY - g.this.csZ);
+            long j = currentTimeMillis - g.this.ctd;
+            g.this.ctb += g.this.ctc;
+            if (g.this.ctb < g.this.cta) {
+                g.this.handler.postDelayed(g.this.cth, (2 * g.this.ctc) - j);
+                if (g.this.ctg != null) {
+                    g.this.ctg.b(g.this.cta, g.this.cta - g.this.ctb);
                 }
             } else {
-                g.this.csZ = g.this.csY;
+                g.this.ctb = g.this.cta;
                 g.this.finish();
             }
-            g.this.ctb = currentTimeMillis;
+            g.this.ctd = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class g {
     }
 
     public g(long j, long j2) {
-        this.csY = j;
-        this.cta = j2;
+        this.cta = j;
+        this.ctc = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.ctb = this.startTime;
-        if (this.cte != null) {
-            this.cte.b(this.csY, this.csY - this.csZ);
+        this.ctd = this.startTime;
+        if (this.ctg != null) {
+            this.ctg.b(this.cta, this.cta - this.ctb);
         }
-        this.handler.postDelayed(this.ctf, this.cta);
+        this.handler.postDelayed(this.cth, this.ctc);
     }
 
     public void pause() {
-        if (!this.ctd) {
-            this.ctd = true;
-            this.ctc = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.ctf);
+        if (!this.ctf) {
+            this.ctf = true;
+            this.cte = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.cth);
         }
     }
 
     public void resume() {
-        if (this.ctd) {
-            this.ctd = false;
-            this.handler.postDelayed(this.ctf, this.cta - (this.ctc - this.ctb));
+        if (this.ctf) {
+            this.ctf = false;
+            this.handler.postDelayed(this.cth, this.ctc - (this.cte - this.ctd));
         }
     }
 
     public void stop() {
-        this.ctd = false;
-        this.ctb = this.startTime;
-        this.ctc = this.ctb;
-        this.handler.removeCallbacks(this.ctf);
+        this.ctf = false;
+        this.ctd = this.startTime;
+        this.cte = this.ctd;
+        this.handler.removeCallbacks(this.cth);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.cte != null) {
-            this.cte.s(this.csY);
+        if (this.ctg != null) {
+            this.ctg.s(this.cta);
         }
     }
 
     public void a(a aVar) {
-        this.cte = aVar;
+        this.ctg = aVar;
     }
 
-    public long apT() {
-        return this.csZ;
+    public long apQ() {
+        return this.ctb;
     }
 }

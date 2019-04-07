@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class e {
-    private a bry;
+    private a brB;
     private boolean isLoading = false;
     private com.baidu.adp.framework.listener.a mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
         @Override // com.baidu.adp.framework.listener.a
@@ -46,8 +46,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, q qVar) {
-        if (this.bry != null) {
-            this.bry.a(z, qVar);
+        if (this.brB != null) {
+            this.brB.a(z, qVar);
         }
     }
 
@@ -61,6 +61,6 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.bry = aVar;
+        this.brB = aVar;
     }
 }

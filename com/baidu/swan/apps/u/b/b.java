@@ -3,7 +3,7 @@ package com.baidu.swan.apps.u.b;
 import android.content.res.Resources;
 /* loaded from: classes2.dex */
 public abstract class b {
-    public abstract boolean Ds();
+    public abstract boolean Dq();
 
     public abstract void be(boolean z);
 
@@ -15,7 +15,7 @@ public abstract class b {
     public void H(Object obj) {
     }
 
-    public Resources Dr() {
+    public Resources Dp() {
         return null;
     }
 

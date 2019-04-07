@@ -68,9 +68,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         if ((this.isCdnTachometerProcess != null && this.isCdnTachometerProcess.booleanValue()) || this.isPluginInstallProcess) {
             b.I("TbadkApplication_onCreate", "cdn_process");
         } else {
-            boolean aqd = q.aqd();
+            boolean aqa = q.aqa();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = aqd && isXiaomiPushSdkShouldOpen;
+            boolean z = aqa && isXiaomiPushSdkShouldOpen;
             b.I("TbadkApplication_onCreate", z ? "plugin_load_delay" : "plugin_load_now");
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
@@ -82,13 +82,13 @@ public class TbadkApplication extends TbadkCoreApplication {
             b.I("TbadkApplication_onCreate", "load_all_plugins");
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
             System.currentTimeMillis();
-            PluginPackageManager.ni().a(a.apy(), new com.baidu.tbadk.p.b(), aqd && isXiaomiPushSdkShouldOpen);
+            PluginPackageManager.ni().a(a.apv(), new com.baidu.tbadk.p.b(), aqa && isXiaomiPushSdkShouldOpen);
             PluginSettings nI = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI();
             if (nI != null) {
                 String containerVersion = nI.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    n.apq().fh(z);
-                    n.apq().ba(System.currentTimeMillis() - currentTimeMillis);
+                    n.apn().fh(z);
+                    n.apn().ba(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -105,14 +105,14 @@ public class TbadkApplication extends TbadkCoreApplication {
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    ba.adD().c(null, new String[]{str3});
+                    ba.adA().c(null, new String[]{str3});
                 }
             });
-            n.apq().bj(System.currentTimeMillis() - currentTimeMillis2);
+            n.apn().bj(System.currentTimeMillis() - currentTimeMillis2);
         }
-        j.acd();
+        j.aca();
         if (this.isRemoteProcess) {
-            n.apq().br(System.currentTimeMillis() - this.processCreateTime);
+            n.apn().br(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -258,11 +258,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         super.loadPatchs();
         PluginPackageManager.ni().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.ni().aJ(i);
+        PluginPackageManager.ni().aI(i);
         if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mQ() && i == 0 && PluginPackageManager.ni().nm()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.ni().nn();
-            n.apq().aZ(System.currentTimeMillis() - currentTimeMillis);
+            n.apn().aZ(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

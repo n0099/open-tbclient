@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static String hbU = "native_crash_log.log";
-    private static List<String> hbV = new ArrayList();
+    private static String hbH = "native_crash_log.log";
+    private static List<String> hbI = new ArrayList();
     private static BroadcastReceiver Ke = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -28,18 +28,18 @@ public class a {
             }
         }
     };
-    private static BdNativeCrash.a hbW = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a hbJ = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void bFE() {
-        if (BdNativeCrash.hbT) {
-            BdNativeCrash.bFD().du(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.bFD().a(hbW);
-            bFF();
+    public static void bFB() {
+        if (BdNativeCrash.hbG) {
+            BdNativeCrash.bFA().dv(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.bFA().a(hbJ);
+            bFC();
         }
     }
 
-    private static void bFF() {
+    private static void bFC() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

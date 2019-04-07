@@ -1,30 +1,30 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class al {
-    private long bzy;
-    private String bzz;
+    private long bzB;
+    private String bzC;
     private String content;
     private String link;
     private String stat;
     private long taskId;
 
     public al() {
-        this.bzy = -1L;
+        this.bzB = -1L;
         this.link = null;
         this.content = null;
-        this.bzz = null;
+        this.bzC = null;
         this.stat = "";
         this.taskId = -1L;
     }
 
     public al(long j, long j2, String str, String str2, String str3) {
-        this.bzy = -1L;
+        this.bzB = -1L;
         this.link = null;
         this.content = null;
-        this.bzz = null;
+        this.bzC = null;
         this.stat = "";
         this.taskId = -1L;
-        this.bzy = j;
+        this.bzB = j;
         this.taskId = j2;
         this.link = str;
         this.content = str2;
@@ -35,8 +35,8 @@ public class al {
         return this.stat;
     }
 
-    public long XD() {
-        return this.bzy;
+    public long XA() {
+        return this.bzB;
     }
 
     public long getTaskId() {

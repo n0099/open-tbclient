@@ -21,10 +21,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes.dex */
 public class o {
-    private NavigationBarCoverTip bso;
-    private TextView bsp;
-    private TextView bsq;
-    private int bsr = 3000;
+    private NavigationBarCoverTip bsr;
+    private TextView bss;
+    private TextView bst;
+    private int bsu = 3000;
     private View mContentView;
     private com.baidu.tbadk.BdToken.completeTask.a mData;
 
@@ -34,49 +34,49 @@ public class o {
 
     public void show() {
         if (this.mData != null) {
-            if (this.mData.showType == com.baidu.tbadk.BdToken.completeTask.a.bsu) {
-                IK();
+            if (this.mData.showType == com.baidu.tbadk.BdToken.completeTask.a.bsx) {
+                II();
             } else {
-                if (this.mData.showType == com.baidu.tbadk.BdToken.completeTask.a.bsv) {
+                if (this.mData.showType == com.baidu.tbadk.BdToken.completeTask.a.bsy) {
                 }
             }
         }
     }
 
     public void clearData() {
-        if (this.bso != null) {
-            this.bso.onDestroy();
+        if (this.bsr != null) {
+            this.bsr.onDestroy();
         }
     }
 
-    private void IK() {
+    private void II() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null && this.mData != null) {
-            this.bso = new NavigationBarCoverTip(currentActivity);
-            this.bso.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            ((FrameLayout) currentActivity.findViewById(16908290)).addView(this.bso);
+            this.bsr = new NavigationBarCoverTip(currentActivity);
+            this.bsr.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            ((FrameLayout) currentActivity.findViewById(16908290)).addView(this.bsr);
             this.mContentView = LayoutInflater.from(currentActivity).inflate(d.h.task_completed_toast_layout, (ViewGroup) null);
-            this.bsp = (TextView) this.mContentView.findViewById(d.g.task_completed_tip);
-            this.bsq = (TextView) this.mContentView.findViewById(d.g.task_completed_button);
-            al.j(this.bsp, d.C0277d.cp_cont_i);
-            al.j(this.bsq, d.C0277d.cp_cont_i);
-            al.k(this.bsq, d.f.share_now_bg);
-            al.l(this.bso, d.C0277d.cp_link_tip_a_alpha95);
-            if (this.bsp != null && !ap.isEmpty(this.mData.message)) {
-                this.bsp.setText(this.mData.message);
+            this.bss = (TextView) this.mContentView.findViewById(d.g.task_completed_tip);
+            this.bst = (TextView) this.mContentView.findViewById(d.g.task_completed_button);
+            al.j(this.bss, d.C0277d.cp_cont_i);
+            al.j(this.bst, d.C0277d.cp_cont_i);
+            al.k(this.bst, d.f.share_now_bg);
+            al.l(this.bsr, d.C0277d.cp_link_tip_a_alpha95);
+            if (this.bss != null && !ap.isEmpty(this.mData.message)) {
+                this.bss.setText(this.mData.message);
             }
-            if (this.bsq != null && !ap.isEmpty(this.mData.btnText)) {
-                this.bsq.setText(this.mData.btnText);
-                this.bsq.setVisibility(0);
-                this.bsq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.o.1
+            if (this.bst != null && !ap.isEmpty(this.mData.btnText)) {
+                this.bst.setText(this.mData.btnText);
+                this.bst.setVisibility(0);
+                this.bst.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.o.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        o.this.UB();
-                        if (o.this.bso != null) {
-                            o.this.bso.hideTip();
+                        o.this.Uy();
+                        if (o.this.bsr != null) {
+                            o.this.bsr.hideTip();
                         }
                         if (o.this.mData != null) {
-                            TiebaStatic.log(new am("c13318").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, o.this.mData.activityId).T("obj_type", o.this.mData.bsy));
+                            TiebaStatic.log(new am("c13318").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, o.this.mData.activityId).T("obj_type", o.this.mData.bsB));
                         }
                     }
                 });
@@ -85,28 +85,28 @@ public class o {
                 com.baidu.adp.lib.util.a.bh(this.mData.token);
             }
             if (this.mData.duration == 0) {
-                this.bsr = 3000;
+                this.bsu = 3000;
             } else {
-                this.bsr = this.mData.duration * 1000;
+                this.bsu = this.mData.duration * 1000;
             }
-            if (this.bso != null && currentActivity != null && this.mContentView != null) {
-                TiebaStatic.log(new am("c13317").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mData.activityId).T("obj_type", this.mData.bsy));
-                this.bso.a(currentActivity, this.mContentView, this.bsr);
+            if (this.bsr != null && currentActivity != null && this.mContentView != null) {
+                TiebaStatic.log(new am("c13317").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mData.activityId).T("obj_type", this.mData.bsB));
+                this.bsr.a(currentActivity, this.mContentView, this.bsu);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UB() {
+    public void Uy() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         TbPageContext<?> T = T(currentActivity);
         if (currentActivity != null && T != null && this.mData != null) {
-            if (this.mData.bsz == com.baidu.tbadk.BdToken.completeTask.a.bsw) {
+            if (this.mData.bsC == com.baidu.tbadk.BdToken.completeTask.a.bsz) {
                 if (!UtilHelper.dealOneScheme(currentActivity, this.mData.schema) && !ap.isEmpty(this.mData.url)) {
-                    ba.adD().c(T, new String[]{this.mData.url});
+                    ba.adA().c(T, new String[]{this.mData.url});
                 }
-            } else if (this.mData.bsz == com.baidu.tbadk.BdToken.completeTask.a.bsx && T != null && !ap.isEmpty(this.mData.url)) {
-                ba.adD().c(T, new String[]{this.mData.url});
+            } else if (this.mData.bsC == com.baidu.tbadk.BdToken.completeTask.a.bsA && T != null && !ap.isEmpty(this.mData.url)) {
+                ba.adA().c(T, new String[]{this.mData.url});
             }
         }
     }

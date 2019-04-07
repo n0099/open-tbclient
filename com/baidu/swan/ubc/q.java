@@ -11,10 +11,10 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes2.dex */
 public class q {
-    private static volatile IRemoteUBCService bpZ;
+    private static volatile IRemoteUBCService bqc;
 
-    public static final j Ts() {
-        return com.baidu.swan.apps.z.b.Fr();
+    public static final j Tq() {
+        return com.baidu.swan.apps.z.b.Fp();
     }
 
     public static final void onEvent(String str) {
@@ -34,47 +34,47 @@ public class q {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        j Ts = Ts();
-        if (com.baidu.swan.b.c.TE()) {
-            n.Tl().onEvent(str, map, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tR() && Ts != null) {
-                Ts.b(str, map, i);
+        j Tq = Tq();
+        if (com.baidu.swan.b.c.TC()) {
+            n.Tj().onEvent(str, map, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
+                Tq.b(str, map, i);
             }
-        } else if (Ts != null) {
-            Ts.b(str, map, i);
+        } else if (Tq != null) {
+            Tq.b(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        j Ts = Ts();
-        if (com.baidu.swan.b.c.TE()) {
-            n.Tl().onEvent(str, str2, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tR() && Ts != null) {
-                Ts.b(str, str2, i);
+        j Tq = Tq();
+        if (com.baidu.swan.b.c.TC()) {
+            n.Tj().onEvent(str, str2, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
+                Tq.b(str, str2, i);
             }
-        } else if (Ts != null) {
-            Ts.b(str, str2, i);
+        } else if (Tq != null) {
+            Tq.b(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        j Ts = Ts();
-        if (com.baidu.swan.b.c.TE()) {
-            n.Tl().onEvent(str, jSONObject, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tR() && Ts != null) {
-                Ts.b(str, jSONObject, i);
+        j Tq = Tq();
+        if (com.baidu.swan.b.c.TC()) {
+            n.Tj().onEvent(str, jSONObject, i);
+            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
+                Tq.b(str, jSONObject, i);
             }
-        } else if (Ts != null) {
-            Ts.b(str, jSONObject, i);
+        } else if (Tq != null) {
+            Tq.b(str, jSONObject, i);
         }
     }
 
-    public static final Flow jS(String str) {
+    public static final Flow jT(String str) {
         return i(str, "", 0);
     }
 
     public static Flow i(String str, String str2, int i) {
-        return n.Tl().i(str, str2, i);
+        return n.Tj().i(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,20 +83,20 @@ public class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService Tm() throws RemoteException {
-        if (bpZ == null) {
+    public static IRemoteUBCService Tk() throws RemoteException {
+        if (bqc == null) {
             synchronized (q.class) {
-                if (bpZ == null) {
+                if (bqc == null) {
                     IBinder i = IPCServiceManager.i("open_log", true);
                     if (i == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
                     if (i != null) {
-                        bpZ = IRemoteUBCService.Stub.asInterface(i);
+                        bqc = IRemoteUBCService.Stub.asInterface(i);
                     }
                 }
             }
         }
-        return bpZ;
+        return bqc;
     }
 }

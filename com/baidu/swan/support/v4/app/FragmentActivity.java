@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
-    boolean bnG;
+    boolean bnJ;
     boolean mCreated;
     boolean mReallyStopped;
     boolean mRequestedPermissionsFromFragment;
@@ -49,7 +49,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
                     return;
                 case 2:
                     FragmentActivity.this.onResumeFragments();
-                    FragmentActivity.this.bnF.execPendingActions();
+                    FragmentActivity.this.bnI.execPendingActions();
                     return;
                 default:
                     super.handleMessage(message);
@@ -57,7 +57,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
             }
         }
     };
-    final i bnF = i.a(new a());
+    final i bnI = i.a(new a());
 
     @Override // com.baidu.swan.support.v4.app.g, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
@@ -72,8 +72,8 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        List<Fragment> bnI;
-        com.baidu.swan.support.v4.b.f<String, o> bnJ;
+        List<Fragment> bnL;
+        com.baidu.swan.support.v4.b.f<String, o> bnM;
         Object custom;
 
         b() {
@@ -83,16 +83,16 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        this.bnF.noteStateNotSaved();
+        this.bnI.noteStateNotSaved();
         int i3 = i >> 16;
         if (i3 != 0) {
             int i4 = i3 - 1;
-            int activeFragmentsCount = this.bnF.getActiveFragmentsCount();
+            int activeFragmentsCount = this.bnI.getActiveFragmentsCount();
             if (activeFragmentsCount == 0 || i4 < 0 || i4 >= activeFragmentsCount) {
                 Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = this.bnF.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i4);
+            Fragment fragment = this.bnI.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i4);
             if (fragment == null) {
                 Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                 return;
@@ -106,7 +106,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (!this.bnF.SA().popBackStackImmediate()) {
+        if (!this.bnI.Sy().popBackStackImmediate()) {
             supportFinishAfterTransition();
         }
     }
@@ -118,28 +118,28 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.bnF.dispatchConfigurationChanged(configuration);
+        this.bnI.dispatchConfigurationChanged(configuration);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        this.bnF.f(null);
+        this.bnI.f(null);
         super.onCreate(bundle);
         b bVar = (b) getLastNonConfigurationInstance();
         if (bVar != null) {
-            this.bnF.a(bVar.bnJ);
+            this.bnI.a(bVar.bnM);
         }
         if (bundle != null) {
-            this.bnF.restoreAllState(bundle.getParcelable("android:support:fragments"), bVar != null ? bVar.bnI : null);
+            this.bnI.restoreAllState(bundle.getParcelable("android:support:fragments"), bVar != null ? bVar.bnL : null);
         }
-        this.bnF.dispatchCreate();
+        this.bnI.dispatchCreate();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
         if (i == 0) {
-            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.bnF.dispatchCreateOptionsMenu(menu, getMenuInflater());
+            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.bnI.dispatchCreateOptionsMenu(menu, getMenuInflater());
             if (Build.VERSION.SDK_INT < 11) {
                 return true;
             }
@@ -151,7 +151,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.support.v4.app.f
     public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.bnF.onCreateView(view, str, context, attributeSet);
+        return this.bnI.onCreateView(view, str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -159,8 +159,8 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     public void onDestroy() {
         super.onDestroy();
         doReallyStop(false);
-        this.bnF.dispatchDestroy();
-        this.bnF.doLoaderDestroy();
+        this.bnI.dispatchDestroy();
+        this.bnI.doLoaderDestroy();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -175,7 +175,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        this.bnF.dispatchLowMemory();
+        this.bnI.dispatchLowMemory();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -185,9 +185,9 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         }
         switch (i) {
             case 0:
-                return this.bnF.dispatchOptionsItemSelected(menuItem);
+                return this.bnI.dispatchOptionsItemSelected(menuItem);
             case 6:
-                return this.bnF.dispatchContextItemSelected(menuItem);
+                return this.bnI.dispatchContextItemSelected(menuItem);
             default:
                 return false;
         }
@@ -197,7 +197,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     public void onPanelClosed(int i, Menu menu) {
         switch (i) {
             case 0:
-                this.bnF.dispatchOptionsMenuClosed(menu);
+                this.bnI.dispatchOptionsMenuClosed(menu);
                 break;
         }
         super.onPanelClosed(i, menu);
@@ -212,19 +212,19 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
             this.mHandler.removeMessages(2);
             onResumeFragments();
         }
-        this.bnF.dispatchPause();
+        this.bnI.dispatchPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        this.bnF.noteStateNotSaved();
+        this.bnI.noteStateNotSaved();
     }
 
     @Override // android.app.Activity
     public void onStateNotSaved() {
-        this.bnF.noteStateNotSaved();
+        this.bnI.noteStateNotSaved();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -233,7 +233,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         super.onResume();
         this.mHandler.sendEmptyMessage(2);
         this.mResumed = true;
-        this.bnF.execPendingActions();
+        this.bnI.execPendingActions();
     }
 
     @Override // android.app.Activity
@@ -241,11 +241,11 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         super.onPostResume();
         this.mHandler.removeMessages(2);
         onResumeFragments();
-        this.bnF.execPendingActions();
+        this.bnI.execPendingActions();
     }
 
     protected void onResumeFragments() {
-        this.bnF.dispatchResume();
+        this.bnI.dispatchResume();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -253,12 +253,12 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         if (i != 0 || menu == null) {
             return super.onPreparePanel(i, view, menu);
         }
-        if (this.bnG) {
-            this.bnG = false;
+        if (this.bnJ) {
+            this.bnJ = false;
             menu.clear();
             onCreatePanelMenu(i, menu);
         }
-        return onPrepareOptionsPanel(view, menu) | this.bnF.dispatchPrepareOptionsMenu(menu);
+        return onPrepareOptionsPanel(view, menu) | this.bnI.dispatchPrepareOptionsMenu(menu);
     }
 
     protected boolean onPrepareOptionsPanel(View view, Menu menu) {
@@ -271,15 +271,15 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
             doReallyStop(true);
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-        List<Fragment> retainNonConfig = this.bnF.retainNonConfig();
-        com.baidu.swan.support.v4.b.f<String, o> SB = this.bnF.SB();
-        if (retainNonConfig == null && SB == null && onRetainCustomNonConfigurationInstance == null) {
+        List<Fragment> retainNonConfig = this.bnI.retainNonConfig();
+        com.baidu.swan.support.v4.b.f<String, o> Sz = this.bnI.Sz();
+        if (retainNonConfig == null && Sz == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         b bVar = new b();
         bVar.custom = onRetainCustomNonConfigurationInstance;
-        bVar.bnI = retainNonConfig;
-        bVar.bnJ = SB;
+        bVar.bnL = retainNonConfig;
+        bVar.bnM = Sz;
         return bVar;
     }
 
@@ -287,7 +287,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        Parcelable saveAllState = this.bnF.saveAllState();
+        Parcelable saveAllState = this.bnI.saveAllState();
         if (saveAllState != null) {
             bundle.putParcelable("android:support:fragments", saveAllState);
         }
@@ -302,13 +302,13 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         this.mHandler.removeMessages(1);
         if (!this.mCreated) {
             this.mCreated = true;
-            this.bnF.dispatchActivityCreated();
+            this.bnI.dispatchActivityCreated();
         }
-        this.bnF.noteStateNotSaved();
-        this.bnF.execPendingActions();
-        this.bnF.doLoaderStart();
-        this.bnF.dispatchStart();
-        this.bnF.reportLoaderStart();
+        this.bnI.noteStateNotSaved();
+        this.bnI.execPendingActions();
+        this.bnI.doLoaderStart();
+        this.bnI.dispatchStart();
+        this.bnI.reportLoaderStart();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -317,7 +317,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         super.onStop();
         this.mStopped = true;
         this.mHandler.sendEmptyMessage(1);
-        this.bnF.dispatchStop();
+        this.bnI.dispatchStop();
     }
 
     public Object onRetainCustomNonConfigurationInstance() {
@@ -328,7 +328,7 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         if (Build.VERSION.SDK_INT >= 11) {
             d.S(this);
         } else {
-            this.bnG = true;
+            this.bnJ = true;
         }
     }
 
@@ -350,8 +350,8 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         printWriter.print(this.mStopped);
         printWriter.print(" mReallyStopped=");
         printWriter.println(this.mReallyStopped);
-        this.bnF.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
-        this.bnF.SA().dump(str, fileDescriptor, printWriter, strArr);
+        this.bnI.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
+        this.bnI.Sy().dump(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.println("View Hierarchy:");
         a(str + "  ", printWriter, getWindow().getDecorView());
@@ -475,15 +475,15 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
     }
 
     void onReallyStop() {
-        this.bnF.doLoaderStop(this.mRetaining);
-        this.bnF.dispatchReallyStop();
+        this.bnI.doLoaderStop(this.mRetaining);
+        this.bnI.dispatchReallyStop();
     }
 
     public void d(Fragment fragment) {
     }
 
-    public k SA() {
-        return this.bnF.SA();
+    public k Sy() {
+        return this.bnI.Sy();
     }
 
     @Override // android.app.Activity
@@ -508,12 +508,12 @@ public class FragmentActivity extends g implements a.InterfaceC0213a, c.a {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {
             int i3 = i2 - 1;
-            int activeFragmentsCount = this.bnF.getActiveFragmentsCount();
+            int activeFragmentsCount = this.bnI.getActiveFragmentsCount();
             if (activeFragmentsCount == 0 || i3 < 0 || i3 >= activeFragmentsCount) {
                 Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = this.bnF.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i3);
+            Fragment fragment = this.bnI.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i3);
             if (fragment == null) {
                 Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
             } else {

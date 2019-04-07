@@ -6,101 +6,101 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Drawable[] jCN;
-    int jCZ;
-    int jDa;
-    long jDb;
-    int[] jDc;
-    int[] jDd;
-    boolean[] jDe;
-    int jDf;
+    private final Drawable[] jCh;
+    int jCt;
+    int jCu;
+    long jCv;
+    int[] jCw;
+    int[] jCx;
+    boolean[] jCy;
+    int jCz;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.jCN = drawableArr;
-        this.jDc = new int[drawableArr.length];
-        this.jDd = new int[drawableArr.length];
+        this.jCh = drawableArr;
+        this.jCw = new int[drawableArr.length];
+        this.jCx = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.jDe = new boolean[drawableArr.length];
-        this.jDf = 0;
+        this.jCy = new boolean[drawableArr.length];
+        this.jCz = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.jDf == 0) {
+        if (this.jCz == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void cvs() {
-        this.jDf++;
+    public void cvl() {
+        this.jCz++;
     }
 
-    public void cvt() {
-        this.jDf--;
+    public void cvm() {
+        this.jCz--;
         invalidateSelf();
     }
 
-    public void Ce(int i) {
-        this.jDa = i;
-        if (this.jCZ == 1) {
-            this.jCZ = 0;
+    public void BU(int i) {
+        this.jCu = i;
+        if (this.jCt == 1) {
+            this.jCt = 0;
         }
     }
 
     private void resetInternal() {
-        this.jCZ = 2;
-        Arrays.fill(this.jDc, 0);
-        this.jDc[0] = 255;
-        Arrays.fill(this.jDd, 0);
-        this.jDd[0] = 255;
-        Arrays.fill(this.jDe, false);
-        this.jDe[0] = true;
+        this.jCt = 2;
+        Arrays.fill(this.jCw, 0);
+        this.jCw[0] = 255;
+        Arrays.fill(this.jCx, 0);
+        this.jCx[0] = 255;
+        Arrays.fill(this.jCy, false);
+        this.jCy[0] = true;
     }
 
-    public void Cf(int i) {
-        this.jCZ = 0;
-        this.jDe[i] = true;
+    public void BV(int i) {
+        this.jCt = 0;
+        this.jCy[i] = true;
         invalidateSelf();
     }
 
-    public void Cg(int i) {
-        this.jCZ = 0;
-        this.jDe[i] = false;
+    public void BW(int i) {
+        this.jCt = 0;
+        this.jCy[i] = false;
         invalidateSelf();
     }
 
-    public void cvu() {
-        this.jCZ = 0;
-        Arrays.fill(this.jDe, true);
+    public void cvn() {
+        this.jCt = 0;
+        Arrays.fill(this.jCy, true);
         invalidateSelf();
     }
 
-    public void cvv() {
-        this.jCZ = 2;
-        for (int i = 0; i < this.jCN.length; i++) {
-            this.jDd[i] = this.jDe[i] ? 255 : 0;
+    public void cvo() {
+        this.jCt = 2;
+        for (int i = 0; i < this.jCh.length; i++) {
+            this.jCx[i] = this.jCy[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aU(float f) {
         boolean z = true;
-        for (int i = 0; i < this.jCN.length; i++) {
-            this.jDd[i] = (int) (((this.jDe[i] ? 1 : -1) * 255 * f) + this.jDc[i]);
-            if (this.jDd[i] < 0) {
-                this.jDd[i] = 0;
+        for (int i = 0; i < this.jCh.length; i++) {
+            this.jCx[i] = (int) (((this.jCy[i] ? 1 : -1) * 255 * f) + this.jCw[i]);
+            if (this.jCx[i] < 0) {
+                this.jCx[i] = 0;
             }
-            if (this.jDd[i] > 255) {
-                this.jDd[i] = 255;
+            if (this.jCx[i] > 255) {
+                this.jCx[i] = 255;
             }
-            if (this.jDe[i] && this.jDd[i] < 255) {
+            if (this.jCy[i] && this.jCx[i] < 255) {
                 z = false;
             }
-            if (!this.jDe[i] && this.jDd[i] > 0) {
+            if (!this.jCy[i] && this.jCx[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.jCZ) {
+        switch (this.jCt) {
             case 0:
-                System.arraycopy(this.jDd, 0, this.jDc, 0, this.jCN.length);
-                this.jDb = cvw();
-                boolean aU = aU(this.jDa == 0 ? 1.0f : 0.0f);
-                this.jCZ = aU ? 2 : 1;
+                System.arraycopy(this.jCx, 0, this.jCw, 0, this.jCh.length);
+                this.jCv = cvp();
+                boolean aU = aU(this.jCu == 0 ? 1.0f : 0.0f);
+                this.jCt = aU ? 2 : 1;
                 z = aU;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.jDa > 0);
-                boolean aU2 = aU(((float) (cvw() - this.jDb)) / this.jDa);
-                this.jCZ = aU2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.jCu > 0);
+                boolean aU2 = aU(((float) (cvp() - this.jCv)) / this.jCu);
+                this.jCt = aU2 ? 2 : 1;
                 z = aU2;
                 break;
         }
-        for (int i = 0; i < this.jCN.length; i++) {
-            a(canvas, this.jCN[i], (this.jDd[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.jCh.length; i++) {
+            a(canvas, this.jCh[i], (this.jCx[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.jDf++;
+            this.jCz++;
             drawable.mutate().setAlpha(i);
-            this.jDf--;
+            this.jCz--;
             drawable.draw(canvas);
         }
     }
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long cvw() {
+    protected long cvp() {
         return SystemClock.uptimeMillis();
     }
 }

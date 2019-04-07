@@ -13,8 +13,8 @@ import com.baidu.swan.apps.res.ui.SelectorTextView;
 import com.baidu.swan.apps.res.widget.dialog.a;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.a {
-    private SelectorTextView arD;
-    private a arE;
+    private SelectorTextView arH;
+    private a arI;
     private TextView mContentView;
     private View mView;
 
@@ -23,7 +23,7 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
     }
 
     public void a(a aVar) {
-        this.arE = aVar;
+        this.arI = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.a
@@ -31,55 +31,55 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
         this.mContentView = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
         this.mContentView.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.arD = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.arD.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        zq();
+        this.arH = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.arH.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        zp();
         return this.mView;
     }
 
-    private void zq() {
-        if (this.arE == null) {
+    private void zp() {
+        if (this.arI == null) {
             return;
         }
-        this.mContentView.setText(this.mContext.getText(this.arE.aiU));
+        this.mContentView.setText(this.mContext.getText(this.arI.aiY));
         this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.arE.arJ != null) {
-                    c.this.arE.arJ.U(view);
+                if (c.this.arI.arN != null) {
+                    c.this.arI.arN.U(view);
                 }
             }
         });
-        if (this.arE.arG > 0) {
-            this.arD.setVisibility(0);
-            this.arD.setText(this.mContext.getText(this.arE.arG));
-            this.arD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.2
+        if (this.arI.arK > 0) {
+            this.arH.setVisibility(0);
+            this.arH.setText(this.mContext.getText(this.arI.arK));
+            this.arH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.arE.arI != null) {
-                        c.this.arE.arI.U(view);
+                    if (c.this.arI.arM != null) {
+                        c.this.arI.arM.U(view);
                     }
                 }
             });
         } else {
-            this.arD.setVisibility(8);
+            this.arH.setVisibility(8);
         }
-        if (this.arE.arH <= 0) {
+        if (this.arI.arL <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.arE.arH);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.arI.arL);
         q.a(getContext(), drawable);
         drawable.setBounds(0, 0, x.dip2px(this.mContext, 12.0f), x.dip2px(this.mContext, 12.0f));
-        this.arD.setCompoundDrawables(drawable, null, null, null);
+        this.arH.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends a.b {
-        private int aiU;
-        private int arG;
-        private int arH;
-        public a.c arI;
-        public a.c arJ;
+        private int aiY;
+        private int arK;
+        private int arL;
+        public a.c arM;
+        public a.c arN;
 
         public a(Context context) {
             super(context);
@@ -92,29 +92,29 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
-        /* renamed from: ck */
-        public a cn(int i) {
-            super.cn(i);
+        /* renamed from: cj */
+        public a cm(int i) {
+            super.cm(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
-        /* renamed from: cl */
-        public a cm(int i) {
-            this.aiU = i;
+        /* renamed from: ck */
+        public a cl(int i) {
+            this.aiY = i;
             return this;
         }
 
         public a a(int i, a.c cVar) {
-            this.aiU = i;
-            this.arJ = cVar;
+            this.aiY = i;
+            this.arN = cVar;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.a.b, com.baidu.swan.apps.res.widget.dialog.e.a
-        public com.baidu.swan.apps.res.widget.dialog.e zr() {
-            c cVar = (c) super.zr();
+        public com.baidu.swan.apps.res.widget.dialog.e zq() {
+            c cVar = (c) super.zq();
             cVar.a(this);
             return cVar;
         }

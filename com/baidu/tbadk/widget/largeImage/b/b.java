@@ -1,25 +1,25 @@
 package com.baidu.tbadk.widget.largeImage.b;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImage.a.a> {
-    private int cyJ;
+    private int cyL;
 
     public b(int i) {
-        this.cyJ = i;
+        this.cyL = i;
     }
 
     public int getBlockSize() {
-        return this.cyJ;
+        return this.cyL;
     }
 
-    public void ks(int i) {
-        this.cyJ = i;
+    public void kr(int i) {
+        this.cyL = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: arV */
+    /* renamed from: arS */
     public com.baidu.tbadk.widget.largeImage.a.a makeObject() {
-        return new com.baidu.tbadk.widget.largeImage.a.a(this.cyJ);
+        return new com.baidu.tbadk.widget.largeImage.a.a(this.cyL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

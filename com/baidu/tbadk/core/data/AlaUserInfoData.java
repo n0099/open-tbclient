@@ -5,7 +5,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
 /* loaded from: classes.dex */
@@ -41,7 +40,7 @@ public class AlaUserInfoData extends OrmObject {
                 this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.enter_live = jSONObject.optLong("enter_live");
                 this.anchor_live = jSONObject.optLong("anchor_live");
-                this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+                this.description = jSONObject.optString("description");
                 this.sex = jSONObject.optString(MyGiftListActivityConfig.USER_SEX);
                 this.live_status = jSONObject.optInt("live_status");
                 this.live_id = jSONObject.optLong("live_id");

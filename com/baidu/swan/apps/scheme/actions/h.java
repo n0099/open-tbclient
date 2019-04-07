@@ -28,29 +28,29 @@ public class h extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b uB = bVar.uB();
-        if (uB == null || !uB.isValid()) {
+        com.baidu.swan.apps.v.b.b uA = bVar.uA();
+        if (uA == null || !uA.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", uB.mAppId);
-            jSONObject.put("appname", uB.axD);
-            if (!TextUtils.isEmpty(uB.axE)) {
-                jSONObject.put("iconUrl", uB.axE);
+            jSONObject.put("appid", uA.mAppId);
+            jSONObject.put("appname", uA.axG);
+            if (!TextUtils.isEmpty(uA.axH)) {
+                jSONObject.put("iconUrl", uA.axH);
             }
-            if (!TextUtils.isEmpty(uB.axH)) {
-                jSONObject.put("appLaunchScheme", uB.axH);
+            if (!TextUtils.isEmpty(uA.axK)) {
+                jSONObject.put("appLaunchScheme", uA.axK);
             }
-            String bJ = com.baidu.swan.apps.u.a.CD().bJ(context);
+            String bJ = com.baidu.swan.apps.u.a.CB().bJ(context);
             jSONObject.put("cuid", bJ);
             jSONObject.put("mtjCuid", bJ);
-            jSONObject.put("clkid", uB.axR);
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, uB.axG);
-            jSONObject.put("appId", uB.mAppId);
-            Bundle bundle = uB.axQ;
+            jSONObject.put("clkid", uA.axU);
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, uA.axJ);
+            jSONObject.put("appId", uA.mAppId);
+            Bundle bundle = uA.axT;
             if (bundle != null) {
                 String string = bundle.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
@@ -63,9 +63,9 @@ public class h extends y {
                     jSONObject.put("srcAppPage", bundle.getString("srcAppPage"));
                 }
                 String str = NotificationCompat.CATEGORY_SYSTEM;
-                SwanAppActivity DO = com.baidu.swan.apps.w.e.Ec().DO();
-                if (DO != null) {
-                    str = DO.uy();
+                SwanAppActivity DM = com.baidu.swan.apps.w.e.Ea().DM();
+                if (DM != null) {
+                    str = DM.ux();
                 }
                 if (TextUtils.isEmpty(str)) {
                     str = NotificationCompat.CATEGORY_SYSTEM;

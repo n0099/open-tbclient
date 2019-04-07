@@ -6,7 +6,7 @@ public class SideBarViewShareEntranceSwitchStatic extends com.baidu.adp.lib.b.a 
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void Z(int i) {
+    protected void Y(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

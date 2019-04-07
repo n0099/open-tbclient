@@ -20,35 +20,40 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c {
-    private long fOO;
-    private TextView fWu;
-    private PopupWindow fwJ;
-    private Runnable fwL = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
+    private long fOC;
+    private TextView fWi;
+    private PopupWindow fww;
+    private MainTabActivity iMg;
+    private View iMh;
+    private TextView iMi;
+    private FragmentTabHost mTabHost;
+    private String mTopicName;
+    private Runnable fwy = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.mTabHost != null && c.this.fwJ != null && c.this.fwJ.getContentView() != null) {
+            if (c.this.mTabHost != null && c.this.fww != null && c.this.fww.getContentView() != null) {
                 FragmentTabWidget fragmentTabWidget = c.this.mTabHost.getFragmentTabWidget();
-                int aO = l.aO(c.this.iMs.getActivity());
-                int h = l.h(c.this.iMs.getActivity(), d.e.ds278);
-                c.this.fwJ.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(c.this.fwJ, fragmentTabWidget, (aO - l.h(c.this.iMs.getActivity(), d.e.ds430)) / 2, -h);
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("home_tip", c.this.fOO);
-                e.jH().postDelayed(c.this.fwM, 5000L);
+                int aO = l.aO(c.this.iMg.getActivity());
+                int h = l.h(c.this.iMg.getActivity(), d.e.ds278);
+                c.this.fww.getContentView().measure(0, 0);
+                g.showPopupWindowAsDropDown(c.this.fww, fragmentTabWidget, (aO - l.h(c.this.iMg.getActivity(), d.e.ds430)) / 2, -h);
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("home_tip", c.this.fOC);
+                e.jH().postDelayed(c.this.fwz, 5000L);
                 TiebaStatic.log(new am("c13016").T("obj_locate", 1));
             }
         }
     };
-    private Runnable fwM = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
+    private Runnable fwz = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bjC();
+            c.this.bjA();
         }
     };
-    private View.OnClickListener fwN = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
+    private View.OnClickListener fwA = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bjB();
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.iMs, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
+            c.this.bjz();
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.iMg, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
             }
@@ -56,50 +61,45 @@ public class c {
             TiebaStatic.log(new am("c13017").T("obj_locate", 1));
         }
     };
-    private MainTabActivity iMs;
-    private View iMt;
-    private TextView iMu;
-    private FragmentTabHost mTabHost;
-    private String mTopicName;
 
     public c(MainTabActivity mainTabActivity) {
-        this.iMs = mainTabActivity;
-        this.mTabHost = (FragmentTabHost) this.iMs.findViewById(d.g.tab_host);
+        this.iMg = mainTabActivity;
+        this.mTabHost = (FragmentTabHost) this.iMg.findViewById(d.g.tab_host);
     }
 
     public void i(String str, String str2, long j) {
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             this.mTopicName = str2;
-            this.fOO = j;
-            if (this.iMt == null) {
-                this.iMt = LayoutInflater.from(this.iMs.getActivity()).inflate(d.h.tips_blue_twice_line_down, (ViewGroup) null);
-                this.fWu = (TextView) this.iMt.findViewById(d.g.tips);
-                this.iMu = (TextView) this.iMt.findViewById(d.g.tips_content);
-                this.iMt.setOnClickListener(this.fwN);
+            this.fOC = j;
+            if (this.iMh == null) {
+                this.iMh = LayoutInflater.from(this.iMg.getActivity()).inflate(d.h.tips_blue_twice_line_down, (ViewGroup) null);
+                this.fWi = (TextView) this.iMh.findViewById(d.g.tips);
+                this.iMi = (TextView) this.iMh.findViewById(d.g.tips_content);
+                this.iMh.setOnClickListener(this.fwA);
             }
-            this.fWu.setText(ap.i(str, 24, "..."));
-            this.iMu.setText(d.j.topic_join);
-            if (this.fwJ == null) {
-                this.fwJ = new PopupWindow(this.iMt, -2, -2);
+            this.fWi.setText(ap.i(str, 24, "..."));
+            this.iMi.setText(d.j.topic_join);
+            if (this.fww == null) {
+                this.fww = new PopupWindow(this.iMh, -2, -2);
             } else {
-                bjB();
+                bjz();
             }
-            e.jH().removeCallbacks(this.fwL);
-            e.jH().postDelayed(this.fwL, 100L);
+            e.jH().removeCallbacks(this.fwy);
+            e.jH().postDelayed(this.fwy, 100L);
         }
     }
 
-    public void bjB() {
-        e.jH().removeCallbacks(this.fwL);
-        e.jH().removeCallbacks(this.fwM);
-        bjC();
+    public void bjz() {
+        e.jH().removeCallbacks(this.fwy);
+        e.jH().removeCallbacks(this.fwz);
+        bjA();
     }
 
-    public void bjC() {
-        g.a(this.fwJ);
+    public void bjA() {
+        g.a(this.fww);
     }
 
     public void onDestroy() {
-        bjB();
+        bjz();
     }
 }

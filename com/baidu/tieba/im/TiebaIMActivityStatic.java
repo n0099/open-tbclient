@@ -30,11 +30,11 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(OfficialHistoryImageActivityConfig.class, OfficialHistoryImageActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonGroupActivityConfig.class, PersonGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
-        bpv();
+        bps();
     }
 
-    private static void bpv() {
-        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
+    private static void bps() {
+        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

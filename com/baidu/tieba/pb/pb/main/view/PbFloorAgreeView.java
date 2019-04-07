@@ -13,63 +13,63 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView bOk;
-    private ScaleAnimation fez;
-    private TextView hAH;
-    private TextView hAI;
-    private boolean hAJ;
+    private ImageView bOm;
+    private ScaleAnimation fem;
+    private TextView hAt;
+    private TextView hAu;
+    private boolean hAv;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.hAJ = false;
+        this.hAv = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hAJ = false;
+        this.hAv = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hAJ = false;
+        this.hAv = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.hAH = new TextView(getContext());
+        this.hAt = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.h(context, d.e.tbds48));
         layoutParams.leftMargin = l.h(context, d.e.tbds9);
         layoutParams.topMargin = l.h(context, d.e.tbds18);
-        this.hAH.setLayoutParams(layoutParams);
-        this.hAH.setTextSize(0, l.h(context, d.e.tbfontsize30));
-        this.hAH.setGravity(17);
-        al.j(this.hAH, d.C0277d.cp_cont_j);
-        this.bOk = new ImageView(context);
-        al.c(this.bOk, d.f.icon_floor_like_n);
+        this.hAt.setLayoutParams(layoutParams);
+        this.hAt.setTextSize(0, l.h(context, d.e.tbfontsize30));
+        this.hAt.setGravity(17);
+        al.j(this.hAt, d.C0277d.cp_cont_j);
+        this.bOm = new ImageView(context);
+        al.c(this.bOm, d.f.icon_floor_like_n);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.h(context, d.e.tbds48), l.h(context, d.e.tbds48));
         layoutParams2.leftMargin = l.h(context, d.e.tbds9);
         layoutParams2.topMargin = l.h(context, d.e.tbds18);
-        this.bOk.setLayoutParams(layoutParams2);
-        linearLayout.addView(this.bOk);
-        linearLayout.addView(this.hAH);
+        this.bOm.setLayoutParams(layoutParams2);
+        linearLayout.addView(this.bOm);
+        linearLayout.addView(this.hAt);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.hAI = new TextView(getContext());
-        this.hAI.setTextSize(0, l.h(getContext(), d.e.fontsize24));
-        addView(this.hAI);
-        this.hAI.setVisibility(8);
+        this.hAu = new TextView(getContext());
+        this.hAu.setTextSize(0, l.h(getContext(), d.e.fontsize24));
+        addView(this.hAu);
+        this.hAu.setVisibility(8);
     }
 
     private Animation getScaleAnimation() {
-        if (this.fez == null) {
-            this.fez = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.fez.setDuration(200L);
+        if (this.fem == null) {
+            this.fem = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.fem.setDuration(200L);
         }
-        return this.fez;
+        return this.fem;
     }
 }

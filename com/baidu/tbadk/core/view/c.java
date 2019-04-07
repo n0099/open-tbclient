@@ -9,56 +9,56 @@ import android.text.style.ReplacementSpan;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class c extends ReplacementSpan {
-    private int aLe;
-    private int bOA;
+    private int aLh;
     private int bOB;
-    private int bOv;
-    private int bOw;
+    private int bOC;
+    private int bOD;
     private int bOx;
+    private int bOy;
     private int bOz;
     private int mTextSize;
-    private RectF bOy = new RectF();
-    private Paint bOC = new Paint();
+    private RectF bOA = new RectF();
+    private Paint bOE = new Paint();
 
     public c(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.bOv = i;
-        this.bOw = i2;
-        this.bOx = i3;
+        this.bOx = i;
+        this.bOy = i2;
+        this.bOz = i3;
         this.mTextSize = i4;
-        this.aLe = i5;
-        this.bOz = i6;
-        this.bOB = i7;
-        this.bOC.setAntiAlias(true);
-        this.bOC.setStyle(Paint.Style.STROKE);
-        this.bOC.setTextSize(this.mTextSize);
+        this.aLh = i5;
+        this.bOB = i6;
+        this.bOD = i7;
+        this.bOE.setAntiAlias(true);
+        this.bOE.setStyle(Paint.Style.STROKE);
+        this.bOE.setTextSize(this.mTextSize);
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.bOA = ((int) this.bOC.measureText(charSequence, i, i2)) + (this.bOz * 2);
-        return this.bOA;
+        this.bOC = ((int) this.bOE.measureText(charSequence, i, i2)) + (this.bOB * 2);
+        return this.bOC;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        this.bOC.setColor(al.getColor(this.bOx));
-        int i6 = ((i5 - this.bOB) / 2) + i3;
-        this.bOy.left = f;
-        this.bOy.top = i6;
-        this.bOy.right = this.bOA + f;
-        this.bOy.bottom = i6 + this.bOB;
-        canvas.drawRoundRect(this.bOy, this.bOw, this.bOw, this.bOC);
-        Paint.FontMetricsInt fontMetricsInt = this.bOC.getFontMetricsInt();
-        this.bOC.setColor(al.getColor(this.aLe));
-        canvas.drawText(charSequence, i, i2, f + this.bOz, (int) ((this.bOy.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.bOC);
+        this.bOE.setColor(al.getColor(this.bOz));
+        int i6 = ((i5 - this.bOD) / 2) + i3;
+        this.bOA.left = f;
+        this.bOA.top = i6;
+        this.bOA.right = this.bOC + f;
+        this.bOA.bottom = i6 + this.bOD;
+        canvas.drawRoundRect(this.bOA, this.bOy, this.bOy, this.bOE);
+        Paint.FontMetricsInt fontMetricsInt = this.bOE.getFontMetricsInt();
+        this.bOE.setColor(al.getColor(this.aLh));
+        canvas.drawText(charSequence, i, i2, f + this.bOB, (int) ((this.bOA.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.bOE);
     }
 
     public void dL(boolean z) {
-        if (this.bOC != null) {
+        if (this.bOE != null) {
             if (z) {
-                this.bOC.setStyle(Paint.Style.FILL);
+                this.bOE.setStyle(Paint.Style.FILL);
             } else {
-                this.bOC.setStyle(Paint.Style.STROKE);
+                this.bOE.setStyle(Paint.Style.STROKE);
             }
         }
     }

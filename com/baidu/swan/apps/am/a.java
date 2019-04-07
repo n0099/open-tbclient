@@ -9,7 +9,7 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void G(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.Bo().B(i, i2);
+        com.baidu.swan.apps.extcore.cores.a.Bm().B(i, i2);
         if (i != i2) {
             cm(true);
         }
@@ -22,7 +22,7 @@ public class a {
         j.c(new Runnable() { // from class: com.baidu.swan.apps.am.a.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean f = SwanAppDbControl.bE(com.baidu.swan.apps.u.a.Cy()).f(true, true);
+                boolean f = SwanAppDbControl.bE(com.baidu.swan.apps.u.a.Cw()).f(true, true);
                 if (a.DEBUG) {
                     Log.d("SwanAppUpgradeManager", "updateLocalSwanApp firstStartFlag result: " + f);
                 }

@@ -10,20 +10,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String aAS;
-    public static String aAT;
-    public static String aAU;
     public static String aAV;
-    private UnitedSchemeEntity ayE;
-    private CallbackHandler ayF;
+    public static String aAW;
+    public static String aAX;
+    public static String aAY;
+    private UnitedSchemeEntity ayH;
+    private CallbackHandler ayI;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4) {
-        this.ayF = callbackHandler;
-        this.ayE = unitedSchemeEntity;
-        aAS = str;
-        aAU = str4;
-        aAT = str2;
-        aAV = str3;
+        this.ayI = callbackHandler;
+        this.ayH = unitedSchemeEntity;
+        aAV = str;
+        aAX = str4;
+        aAW = str2;
+        aAY = str3;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -46,14 +46,14 @@ public class b {
         return bVar;
     }
 
-    public void eY(String str) {
+    public void eZ(String str) {
         f(str, null);
     }
 
     public void f(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.ayF, this.ayE, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.ayI, this.ayH, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -69,7 +69,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            f(aAV, jSONObject);
+            f(aAY, jSONObject);
         }
     }
 }

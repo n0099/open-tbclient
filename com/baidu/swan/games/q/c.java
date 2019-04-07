@@ -7,78 +7,78 @@ import com.baidu.swan.apps.ak.e;
 import com.baidu.swan.games.q.a.d;
 /* loaded from: classes2.dex */
 public class c {
-    protected com.baidu.swan.games.e.b aZZ;
-    protected b bfj = new b();
+    protected com.baidu.swan.games.e.b bac;
+    protected b bfm = new b();
 
     public c(com.baidu.swan.games.e.b bVar) {
-        this.aZZ = bVar;
+        this.bac = bVar;
     }
 
     @NonNull
-    public d iW(String str) {
+    public d iX(String str) {
         Object obj = null;
         if (str == null) {
-            return d.iZ("parameter error: the key cannot be null.");
+            return d.ja("parameter error: the key cannot be null.");
         }
-        String string = this.bfj.getString(str, null);
+        String string = this.bfm.getString(str, null);
         if (string != null) {
-            obj = this.aZZ.c(Base64.decode(string, 2), true);
+            obj = this.bac.c(Base64.decode(string, 2), true);
         }
         if (obj == null) {
-            obj = d.Pe();
+            obj = d.Pc();
         }
-        return d.S(obj);
+        return d.Q(obj);
     }
 
     @NonNull
     public d a(String str, JsSerializeValue jsSerializeValue) {
         if (str == null) {
-            return d.iZ("parameter error: the key cannot be null.");
+            return d.ja("parameter error: the key cannot be null.");
         }
         if (jsSerializeValue == null) {
-            return d.S(null);
+            return d.Q(null);
         }
-        byte[] a = this.aZZ.a(jsSerializeValue, true);
+        byte[] a = this.bac.a(jsSerializeValue, true);
         jsSerializeValue.release();
         if (a == null) {
-            return d.iZ("parameter error: the data parse failed.");
+            return d.ja("parameter error: the data parse failed.");
         }
         String encodeToString = Base64.encodeToString(a, 2);
-        String string = this.bfj.getString(str, null);
+        String string = this.bfm.getString(str, null);
         int length = str.getBytes().length;
-        if (this.bfj.KI() - this.bfj.KH() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
-            return d.iZ("storage error: the storage space insufficient.");
+        if (this.bfm.KG() - this.bfm.KF() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
+            return d.ja("storage error: the storage space insufficient.");
         }
-        boolean be = this.bfj.be(str, encodeToString);
-        e.aVP.update();
-        return be ? d.S(null) : d.iZ("storage error: the storage is invalid.");
+        boolean be = this.bfm.be(str, encodeToString);
+        e.aVS.update();
+        return be ? d.Q(null) : d.ja("storage error: the storage is invalid.");
     }
 
     @NonNull
-    public d iX(String str) {
+    public d iY(String str) {
         if (str == null) {
-            return d.iZ("parameter error: the key cannot be null.");
+            return d.ja("parameter error: the key cannot be null.");
         }
-        this.bfj.remove(str);
-        e.aVP.update();
-        return d.S(null);
+        this.bfm.remove(str);
+        e.aVS.update();
+        return d.Q(null);
     }
 
     @NonNull
-    public d Pc() {
-        this.bfj.Pa();
-        e.aVP.update();
-        return d.S(null);
+    public d Pa() {
+        this.bfm.OY();
+        e.aVS.update();
+        return d.Q(null);
     }
 
     @NonNull
     public com.baidu.swan.games.q.a.c getStorageInfoSync() {
-        String[] OZ = this.bfj.OZ();
+        String[] OX = this.bfm.OX();
         com.baidu.swan.games.q.a.c cVar = new com.baidu.swan.games.q.a.c();
-        cVar.keys = OZ;
-        cVar.currentSize = this.bfj.KH() / 1024;
-        cVar.limitSize = this.bfj.KI() / 1024;
-        cVar.errMsg = com.baidu.swan.games.q.a.a.iY("getStorageInfoSync");
+        cVar.keys = OX;
+        cVar.currentSize = this.bfm.KF() / 1024;
+        cVar.limitSize = this.bfm.KG() / 1024;
+        cVar.errMsg = com.baidu.swan.games.q.a.a.iZ("getStorageInfoSync");
         return cVar;
     }
 }

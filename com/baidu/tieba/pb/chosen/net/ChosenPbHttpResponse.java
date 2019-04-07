@@ -53,9 +53,9 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            l<byte[]> lu = com.baidu.tbadk.core.c.a.aaW().lu("tb.pb_normal");
-            lu.remove("chosen_pb_page_cache");
-            lu.e("chosen_pb_page_cache", bArr);
+            l<byte[]> lv = com.baidu.tbadk.core.c.a.aaT().lv("tb.pb_normal");
+            lv.remove("chosen_pb_page_cache");
+            lv.e("chosen_pb_page_cache", bArr);
         }
     }
 

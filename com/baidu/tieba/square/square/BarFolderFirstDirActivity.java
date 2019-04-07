@@ -29,18 +29,18 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFirstDirActivity> {
-    public static String iBI = "st_type";
-    private ProgressBar iBE;
-    private com.baidu.tieba.square.square.a iBF;
-    private a iBG;
-    protected ViewGroup iBH;
+    public static String iBs = "st_type";
+    private ProgressBar iBo;
+    private com.baidu.tieba.square.square.a iBp;
+    private a iBq;
+    protected ViewGroup iBr;
     private NavigationBar mNavigationBar;
     protected ListView mList = null;
     private String stType = null;
 
     public static void h(Activity activity, String str) {
         Intent intent = new Intent(activity, BarFolderFirstDirActivity.class);
-        intent.putExtra(iBI, str);
+        intent.putExtra(iBs, str);
         activity.startActivity(intent);
     }
 
@@ -51,7 +51,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         setContentView(d.h.bar_folder_dir_activity);
         initUI();
         ag(bundle);
-        cdb();
+        ccX();
         TiebaStatic.eventStat(getPageContext().getContext(), "category_1", RGState.METHOD_NAME_ENTER);
     }
 
@@ -59,7 +59,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        this.iBF.notifyDataSetChanged();
+        this.iBp.notifyDataSetChanged();
     }
 
     protected void initUI() {
@@ -67,34 +67,34 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         this.mNavigationBar.setTitleText(getResources().getString(d.j.bar_first_dir_name));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mList = (ListView) findViewById(d.g.list);
-        this.iBF = new com.baidu.tieba.square.square.a(getPageContext().getPageActivity(), new b(), true);
+        this.iBp = new com.baidu.tieba.square.square.a(getPageContext().getPageActivity(), new b(), true);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.h(getActivity(), d.e.ds76)));
         this.mList.addHeaderView(textView);
-        this.mList.setAdapter((ListAdapter) this.iBF);
-        this.iBE = (ProgressBar) findViewById(d.g.progress);
-        this.iBH = (ViewGroup) findViewById(d.g.body_container);
-        bc.aD(this.iBH);
+        this.mList.setAdapter((ListAdapter) this.iBp);
+        this.iBo = (ProgressBar) findViewById(d.g.progress);
+        this.iBr = (ViewGroup) findViewById(d.g.body_container);
+        bc.aD(this.iBr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iBG != null) {
-            this.iBG.cancel();
+        if (this.iBq != null) {
+            this.iBq.cancel();
         }
         a(null, true);
     }
 
-    protected void cdb() {
+    protected void ccX() {
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.square.square.BarFolderFirstDirActivity.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 d dVar;
-                ArrayList<d> cdc = BarFolderFirstDirActivity.this.iBF.cdc();
-                if (cdc != null && i < cdc.size() && (dVar = cdc.get(i)) != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.izF, dVar.izG, dVar.izH)));
+                ArrayList<d> ccY = BarFolderFirstDirActivity.this.iBp.ccY();
+                if (ccY != null && i < ccY.size() && (dVar = ccY.get(i)) != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.izp, dVar.izq, dVar.izr)));
                 }
             }
         });
@@ -102,32 +102,32 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
 
     protected void ag(Bundle bundle) {
         if (bundle != null) {
-            this.stType = bundle.getString(iBI);
+            this.stType = bundle.getString(iBs);
         } else {
-            this.stType = getIntent().getStringExtra(iBI);
+            this.stType = getIntent().getStringExtra(iBs);
         }
-        this.iBE.setVisibility(0);
+        this.iBo.setVisibility(0);
         this.mList.setEnabled(false);
-        if (this.iBG != null) {
-            this.iBG.cancel();
+        if (this.iBq != null) {
+            this.iBq.cancel();
         }
-        this.iBG = new a();
-        this.iBG.setPriority(3);
-        this.iBG.execute("");
+        this.iBq = new a();
+        this.iBq.setPriority(3);
+        this.iBq.execute("");
     }
 
     protected void a(b bVar, boolean z) {
-        this.iBE.setVisibility(8);
+        this.iBo.setVisibility(8);
         this.mList.setEnabled(true);
-        this.iBG = null;
+        this.iBq = null;
         if (!z) {
             if (bVar.isFailed()) {
                 showToast(bVar.getErrorMsg());
                 return;
             }
-            this.iBF.az(bVar.cdc());
+            this.iBp.az(bVar.ccY());
             this.mList.setVisibility(4);
-            this.iBF.notifyDataSetChanged();
+            this.iBp.notifyDataSetChanged();
             this.mList.setVisibility(0);
         }
     }
@@ -140,8 +140,8 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         if (this.mList != null) {
             this.mList.invalidateViews();
         }
-        if (this.iBH != null) {
-            bc.c(this.iBH, i);
+        if (this.iBr != null) {
+            bc.c(this.iBr, i);
         }
         al.h(findViewById(d.g.root_view), i);
     }
@@ -186,8 +186,8 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
             boolean z = true;
             boolean z2 = false;
             b bVar = new b();
-            com.baidu.adp.lib.cache.l<String> lv = com.baidu.tbadk.core.c.a.aaW().lv("tb.first_dir");
-            String str = lv.get("first_dir_cache_key");
+            com.baidu.adp.lib.cache.l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.first_dir");
+            String str = lw.get("first_dir_cache_key");
             if (str != null) {
                 if (!str.equals("")) {
                     bVar.parserJson(str);
@@ -195,17 +195,17 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
                     z2 = z;
                     this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
                     if (BarFolderFirstDirActivity.this.stType != null) {
-                        this.mNetwork.x(BarFolderFirstDirActivity.iBI, BarFolderFirstDirActivity.this.stType);
+                        this.mNetwork.x(BarFolderFirstDirActivity.iBs, BarFolderFirstDirActivity.this.stType);
                     }
-                    String acj = this.mNetwork.acj();
-                    if (!this.mNetwork.acH().adG().isRequestSuccess()) {
-                        bVar.parserJson(acj);
-                        if ((acj + "").trim().equals((str + "").trim())) {
+                    String acg = this.mNetwork.acg();
+                    if (!this.mNetwork.acE().adD().isRequestSuccess()) {
+                        bVar.parserJson(acg);
+                        if ((acg + "").trim().equals((str + "").trim())) {
                             if (z2) {
                                 return null;
                             }
                         } else {
-                            lv.a("first_dir_cache_key", acj, 86400000L);
+                            lw.a("first_dir_cache_key", acg, 86400000L);
                         }
                     } else {
                         bVar.setErrorMsg(this.mNetwork.getErrorString());
@@ -218,8 +218,8 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
             this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
             if (BarFolderFirstDirActivity.this.stType != null) {
             }
-            String acj2 = this.mNetwork.acj();
-            if (!this.mNetwork.acH().adG().isRequestSuccess()) {
+            String acg2 = this.mNetwork.acg();
+            if (!this.mNetwork.acE().adD().isRequestSuccess()) {
             }
             return bVar;
         }

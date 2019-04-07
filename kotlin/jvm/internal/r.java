@@ -1,30 +1,30 @@
 package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class r implements l {
-    private final String fUM;
-    private final Class<?> jSF;
+    private final String fUA;
+    private final Class<?> jRX;
 
     public r(Class<?> cls, String str) {
         p.k(cls, "jClass");
         p.k(str, "moduleName");
-        this.jSF = cls;
-        this.fUM = str;
+        this.jRX = cls;
+        this.fUA = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> cCC() {
-        return this.jSF;
+    public Class<?> cCr() {
+        return this.jRX;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.h(cCC(), ((r) obj).cCC());
+        return (obj instanceof r) && p.h(cCr(), ((r) obj).cCr());
     }
 
     public int hashCode() {
-        return cCC().hashCode();
+        return cCr().hashCode();
     }
 
     public String toString() {
-        return cCC().toString() + " (Kotlin reflection is not available)";
+        return cCr().toString() + " (Kotlin reflection is not available)";
     }
 }

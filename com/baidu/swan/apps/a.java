@@ -1046,7 +1046,7 @@ public final class a {
         public static final int aiapps_action_bar_back_white_normal = 2130837653;
         public static final int aiapps_action_bar_back_white_pressed = 2130837654;
         public static final int aiapps_action_bar_back_white_selector = 2130837655;
-        public static final int aiapps_action_bar_bg = 2130842098;
+        public static final int aiapps_action_bar_bg = 2130842100;
         public static final int aiapps_action_bar_black_menu_normal = 2130837656;
         public static final int aiapps_action_bar_black_menu_normal_pressed = 2130837657;
         public static final int aiapps_action_bar_black_menu_normal_selector = 2130837658;
@@ -1109,10 +1109,10 @@ public final class a {
         public static final int aiapps_dialog_btn_bg_day_all = 2130837715;
         public static final int aiapps_dialog_btn_bg_day_left = 2130837716;
         public static final int aiapps_dialog_btn_bg_day_right = 2130837717;
-        public static final int aiapps_dialog_btn_bg_pressed_day = 2130842099;
-        public static final int aiapps_dialog_btn_bg_pressed_night = 2130842100;
-        public static final int aiapps_dialog_night_drawable_bg = 2130842101;
-        public static final int aiapps_dialog_night_drawable_bg_pressed = 2130842102;
+        public static final int aiapps_dialog_btn_bg_pressed_day = 2130842101;
+        public static final int aiapps_dialog_btn_bg_pressed_night = 2130842102;
+        public static final int aiapps_dialog_night_drawable_bg = 2130842103;
+        public static final int aiapps_dialog_night_drawable_bg_pressed = 2130842104;
         public static final int aiapps_discovery_feedback_menu_bg = 2130837718;
         public static final int aiapps_discovery_home_menu_item_selector = 2130837719;
         public static final int aiapps_empty_icon_error = 2130837720;
@@ -1160,7 +1160,7 @@ public final class a {
         public static final int aiapps_night_mode_toast_icon = 2130837776;
         public static final int aiapps_no_recommend = 2130837777;
         public static final int aiapps_normal_toast_view_bg = 2130837778;
-        public static final int aiapps_null_drawable = 2130842103;
+        public static final int aiapps_null_drawable = 2130842105;
         public static final int aiapps_open_app_buttion_selector = 2130837779;
         public static final int aiapps_open_app_button_normal = 2130837780;
         public static final int aiapps_open_app_button_pressed = 2130837781;
@@ -1168,7 +1168,7 @@ public final class a {
         public static final int aiapps_person_center_dot = 2130837784;
         public static final int aiapps_person_header_new_dot = 2130837785;
         public static final int aiapps_personal_swan_label_bg = 2130837786;
-        public static final int aiapps_pop_transparent_bg = 2130842104;
+        public static final int aiapps_pop_transparent_bg = 2130842106;
         public static final int aiapps_progress_thumb = 2130837787;
         public static final int aiapps_property_window_bg = 2130837788;
         public static final int aiapps_pull_refresh_arrow_down = 2130837789;
@@ -1181,7 +1181,7 @@ public final class a {
         public static final int aiapps_scroll_bar_thumb_vertical = 2130837796;
         public static final int aiapps_textarea_comfirm_bar = 2130837797;
         public static final int aiapps_toast_button_view_bg = 2130837798;
-        public static final int aiapps_transparent_drawable = 2130842105;
+        public static final int aiapps_transparent_drawable = 2130842107;
         public static final int aiapps_universal_toast_ok_icon = 2130837799;
         public static final int aiapps_wheel_val = 2130837800;
         public static final int aiapps_white_shimmer_loading = 2130837801;
@@ -1201,8 +1201,8 @@ public final class a {
         public static final int notification_bg_normal = 2130841319;
         public static final int notification_bg_normal_pressed = 2130841320;
         public static final int notification_icon_background = 2130841321;
-        public static final int notification_template_icon_bg = 2130842115;
-        public static final int notification_template_icon_low_bg = 2130842116;
+        public static final int notification_template_icon_bg = 2130842117;
+        public static final int notification_template_icon_low_bg = 2130842118;
         public static final int notification_tile_bg = 2130841322;
         public static final int notify_panel_notification_icon_bg = 2130841324;
         public static final int personal_swan_label_bg_game = 2130841419;
@@ -2001,15 +2001,15 @@ public final class a {
         public static final int swan_webview_show_file_chooser_failed = 2131233656;
         public static final int swanapp_copy = 2131233657;
         public static final int swanapp_search = 2131233658;
-        public static final int united_scheme_err_message_action_acl_check_fail = 2131233893;
-        public static final int united_scheme_err_message_action_allow_close = 2131233894;
-        public static final int united_scheme_err_message_action_notfound = 2131233895;
-        public static final int united_scheme_err_message_action_sec_check_fail = 2131233896;
-        public static final int united_scheme_err_message_module_notfound = 2131233897;
-        public static final int united_scheme_err_message_not_support = 2131233898;
-        public static final int united_scheme_err_message_ok = 2131233899;
-        public static final int united_scheme_err_message_params_parse_fail = 2131233900;
-        public static final int united_scheme_err_message_parse_fail = 2131233901;
+        public static final int united_scheme_err_message_action_acl_check_fail = 2131233894;
+        public static final int united_scheme_err_message_action_allow_close = 2131233895;
+        public static final int united_scheme_err_message_action_notfound = 2131233896;
+        public static final int united_scheme_err_message_action_sec_check_fail = 2131233897;
+        public static final int united_scheme_err_message_module_notfound = 2131233898;
+        public static final int united_scheme_err_message_not_support = 2131233899;
+        public static final int united_scheme_err_message_ok = 2131233900;
+        public static final int united_scheme_err_message_params_parse_fail = 2131233901;
+        public static final int united_scheme_err_message_parse_fail = 2131233902;
     }
 
     /* loaded from: classes.dex */

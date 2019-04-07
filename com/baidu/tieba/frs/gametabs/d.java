@@ -24,24 +24,24 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class d {
-    private ImageView dpq;
-    private ImageView dwB;
-    private com.baidu.tieba.c.b faM;
-    private SpecialFrsWebFragment fpo;
-    private ImageView fpp;
-    private ImageView fpq;
+    private ImageView dpt;
+    private ImageView dwG;
+    private com.baidu.tieba.c.b faz;
+    private SpecialFrsWebFragment fpa;
+    private ImageView fpb;
+    private ImageView fpc;
     private NavigationBar mNavigationBar;
     private com.baidu.adp.base.e mPageContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == d.this.dwB) {
-                d.this.bhe();
-            } else if (view != d.this.fpp) {
-                if (d.this.faM == null || view != d.this.faM.getView()) {
-                    if (view != d.this.dpq) {
-                        if (view == d.this.fpq) {
-                            d.this.a(d.this.fpo.q(null, null, null, null));
+            if (view == d.this.dwG) {
+                d.this.bhc();
+            } else if (view != d.this.fpb) {
+                if (d.this.faz == null || view != d.this.faz.getView()) {
+                    if (view != d.this.dpt) {
+                        if (view == d.this.fpc) {
+                            d.this.a(d.this.fpa.q(null, null, null, null));
                         }
                     } else if (!StringUtils.isNull(d.this.getForumId())) {
                         d.this.mPageContext.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(d.this.mPageContext.getPageActivity(), d.this.getForumId(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
@@ -58,7 +58,7 @@ public class d {
             }
         }
     };
-    private CustomMessageListener fag = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.gametabs.d.2
+    private CustomMessageListener eZS = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.gametabs.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -66,8 +66,8 @@ public class d {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewsRemindMessage) && customResponsedMessage.getCmd() == 2001626 && (newsRemindMessage = (NewsRemindMessage) customResponsedMessage) != null) {
                 int notificationCount = newsRemindMessage.getNotificationCount() + newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount();
                 boolean z = newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
-                if (d.this.faM != null) {
-                    d.this.faM.l(z, notificationCount);
+                if (d.this.faz != null) {
+                    d.this.faz.l(z, notificationCount);
                 }
             }
         }
@@ -75,57 +75,57 @@ public class d {
 
     public d(com.baidu.adp.base.e eVar) {
         this.mPageContext = eVar;
-        this.faM = new com.baidu.tieba.c.b(this.mPageContext.getPageActivity());
-        this.faM.getView().setOnClickListener(this.mOnClickListener);
-        this.mPageContext.registerListener(this.fag);
+        this.faz = new com.baidu.tieba.c.b(this.mPageContext.getPageActivity());
+        this.faz.getView().setOnClickListener(this.mOnClickListener);
+        this.mPageContext.registerListener(this.eZS);
     }
 
     public String getForumId() {
-        return this.fpo != null ? this.fpo.getForumId() : "";
+        return this.fpa != null ? this.fpa.getForumId() : "";
     }
 
     public String getForumName() {
-        return this.fpo != null ? this.fpo.getForumName() : "";
+        return this.fpa != null ? this.fpa.getForumName() : "";
     }
 
-    public NavigationBar aDp() {
+    public NavigationBar aDm() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fpo != null && this.mNavigationBar != null) {
+        if (this.fpa != null && this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             al.d(this.mNavigationBar.mTextTitle, d.C0277d.cp_cont_b, 1);
             al.d(this.mNavigationBar.mCenterText, d.C0277d.cp_cont_b, 1);
             al.l(this.mNavigationBar.getBottomLine(), d.C0277d.cp_bg_line_b);
             int i2 = d.C0277d.select_topbar_icon_color_tint;
-            aq.ado().d(this.dwB, d.f.icon_topbar_return_n_svg, i2);
-            aq.ado().d(this.fpp, d.f.icon_topbar_search_n_svg, i2);
-            if (this.faM != null) {
-                this.faM.oH(i2);
-                this.faM.onChangeSkinType(i);
+            aq.adl().d(this.dwG, d.f.icon_topbar_return_n_svg, i2);
+            aq.adl().d(this.fpb, d.f.icon_topbar_search_n_svg, i2);
+            if (this.faz != null) {
+                this.faz.oD(i2);
+                this.faz.onChangeSkinType(i);
             }
-            al.a(this.dpq, d.f.btn_more_selector_s, d.f.btn_more_selector);
-            al.a(this.fpq, d.f.icon_nav_share_selector, d.f.icon_nav_share_selector);
+            al.a(this.dpt, d.f.btn_more_selector_s, d.f.btn_more_selector);
+            al.a(this.fpc, d.f.icon_nav_share_selector, d.f.icon_nav_share_selector);
         }
     }
 
     public void a(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
         this.mNavigationBar = navigationBar;
-        this.fpo = specialFrsWebFragment;
+        this.fpa = specialFrsWebFragment;
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         this.mNavigationBar.setCenterTextTitle(getForumName());
-        this.dwB = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(d.g.widget_navi_back_button);
-        this.dwB.setOnClickListener(this.mOnClickListener);
+        this.dwG = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(d.g.widget_navi_back_button);
+        this.dwG.setOnClickListener(this.mOnClickListener);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.h(this.mPageContext.getPageActivity(), d.e.ds24), 0);
-        this.fpq = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.special_frs_web_navigation_share, (View.OnClickListener) null);
-        this.fpq.setLayoutParams(layoutParams);
-        this.fpq.setOnClickListener(this.mOnClickListener);
-        this.dpq = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.dpq.setLayoutParams(layoutParams);
-        this.dpq.setOnClickListener(this.mOnClickListener);
+        this.fpc = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.special_frs_web_navigation_share, (View.OnClickListener) null);
+        this.fpc.setLayoutParams(layoutParams);
+        this.fpc.setOnClickListener(this.mOnClickListener);
+        this.dpt = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.dpt.setLayoutParams(layoutParams);
+        this.dpt.setOnClickListener(this.mOnClickListener);
         setNavBarVisibility(specialFrsWebFragment.isNeedShowNavigationBar());
         db(specialFrsWebFragment.isNeedShowShareItem());
         jI(specialFrsWebFragment.isNeedShowMenuItem());
@@ -133,15 +133,15 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhe() {
+    public void bhc() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
         customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.mPageContext.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar) {
-        if (this.fpo != null) {
-            this.fpo.a(dVar);
+        if (this.fpa != null) {
+            this.fpa.a(dVar);
         }
     }
 
@@ -152,14 +152,14 @@ public class d {
     }
 
     public void db(boolean z) {
-        if (this.fpq != null) {
-            this.fpq.setVisibility(z ? 0 : 8);
+        if (this.fpc != null) {
+            this.fpc.setVisibility(z ? 0 : 8);
         }
     }
 
     public void jI(boolean z) {
-        if (this.dpq != null) {
-            this.dpq.setVisibility(z ? 0 : 8);
+        if (this.dpt != null) {
+            this.dpt.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -167,6 +167,6 @@ public class d {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.fag);
+        MessageManager.getInstance().unRegisterListener(this.eZS);
     }
 }

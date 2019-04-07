@@ -3,46 +3,46 @@ package com.baidu.swan.apps.swancore.e;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public boolean aTs;
-    public boolean aTt;
+    public boolean aTv;
+    public boolean aTw;
     @Nullable
-    public com.baidu.swan.apps.v.b.c aTu;
+    public com.baidu.swan.apps.v.b.c aTx;
 
     private c() {
-        this.aTs = false;
-        this.aTt = false;
-        this.aTu = null;
+        this.aTv = false;
+        this.aTw = false;
+        this.aTx = null;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean aTs = false;
-        private boolean aTt = false;
+        private boolean aTv = false;
+        private boolean aTw = false;
         @Nullable
-        private com.baidu.swan.apps.v.b.c aTu = null;
+        private com.baidu.swan.apps.v.b.c aTx = null;
 
-        public static a KY() {
+        public static a KW() {
             return new a();
         }
 
         public a ci(boolean z) {
-            this.aTs = z;
+            this.aTv = z;
             return this;
         }
 
-        public c KZ() {
+        public c KX() {
             c cVar = new c();
-            cVar.aTs = this.aTs;
-            cVar.aTt = this.aTt;
-            cVar.aTu = this.aTu;
+            cVar.aTv = this.aTv;
+            cVar.aTw = this.aTw;
+            cVar.aTx = this.aTx;
             return cVar;
         }
 
-        public c La() {
-            this.aTs = false;
-            this.aTt = false;
-            this.aTu = null;
-            return KZ();
+        public c KY() {
+            this.aTv = false;
+            this.aTw = false;
+            this.aTx = null;
+            return KX();
         }
     }
 }

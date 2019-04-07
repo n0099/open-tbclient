@@ -1,6 +1,5 @@
 package com.baidu.sofire.b;
 
-import com.baidu.sapi2.utils.SapiEnv;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -8,7 +7,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -29,7 +28,7 @@ public final class a {
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -45,8 +44,8 @@ public final class a {
 
     public static byte[] a(String str, String str2, byte[] bArr) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), SapiEnv.SHARE_ALGORITHM);
-            Cipher cipher = Cipher.getInstance(SapiEnv.SHARE_AES_MODE);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
@@ -57,7 +56,7 @@ public final class a {
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, SapiEnv.SHARE_ALGORITHM);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {

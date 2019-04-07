@@ -3,7 +3,7 @@ package com.baidu.swan.apps.view.container.c;
 public class a {
     private int mFlag = 0;
 
-    public void ex(int i) {
+    public void ew(int i) {
         this.mFlag |= i;
     }
 

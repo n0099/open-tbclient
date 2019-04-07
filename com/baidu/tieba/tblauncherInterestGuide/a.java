@@ -14,7 +14,7 @@ public interface a {
 
     void show();
 
-    void zM(int i);
+    void zI(int i);
 
-    void zN(int i);
+    void zJ(int i);
 }

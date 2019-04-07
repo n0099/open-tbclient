@@ -17,28 +17,28 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
-    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> bGd;
-    private com.baidu.tbadk.h.a cck;
-    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> eNu;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fIx;
+    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> bGf;
+    private com.baidu.tbadk.h.a ccm;
+    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> eNg;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fIl;
     private List<com.baidu.tieba.homepage.daily.b.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.bGd = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
+        this.bGf = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void y(int i, String str) {
-                if (AutoBannerView.this.fIx != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fIx.y(i, str);
+                if (AutoBannerView.this.fIl != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fIl.y(i, str);
                 }
-                AutoBannerView.this.wh(str);
+                AutoBannerView.this.wg(str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.homepage.daily.b.a aVar) {
-                if (AutoBannerView.this.fIx != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fIx.a(i, aVar);
+                if (AutoBannerView.this.fIl != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fIl.a(i, aVar);
                 }
                 if (aVar == null) {
                 }
@@ -48,22 +48,22 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.eNu = new CoverFlowView<>(getContext());
+        this.eNg = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public e abn() {
+            public e abk() {
                 e eVar = new e();
                 eVar.setHeight((int) (l.aO(AutoBannerView.this.getContext()) / 2.5f));
                 return eVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.c abm() {
+            public com.baidu.tbadk.core.flow.a.c abj() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.gU(d.f.icon_banner_gray_n);
-                cVar.gV(d.f.icon_banner_s);
+                cVar.gT(d.f.icon_banner_gray_n);
+                cVar.gU(d.f.icon_banner_s);
                 cVar.setGravity(81);
-                cVar.gW(d.e.tbds26);
+                cVar.gV(d.e.tbds26);
                 cVar.setSpacing(d.e.tbds10);
                 return cVar;
             }
@@ -79,15 +79,15 @@ public class AutoBannerView extends RelativeLayout {
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public View abo() {
+            public View abl() {
                 return null;
             }
         };
-        this.eNu.setIndicatorNoOffet(true);
-        this.eNu.setDisableParentEvent(false);
-        this.eNu.setCoverFlowFactory(bVar);
-        this.eNu.setCallback(this.bGd);
-        addView(this.eNu);
+        this.eNg.setIndicatorNoOffet(true);
+        this.eNg.setDisableParentEvent(false);
+        this.eNg.setCoverFlowFactory(bVar);
+        this.eNg.setCallback(this.bGf);
+        addView(this.eNg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,48 +96,48 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wh(String str) {
+    public void wg(String str) {
         if (!TextUtils.isEmpty(str)) {
-            ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{str});
+            ba.adA().c((TbPageContext) i.aK(getContext()), new String[]{str});
         }
     }
 
-    public void afm() {
-        if (this.eNu != null) {
-            this.eNu.abq();
+    public void afj() {
+        if (this.eNg != null) {
+            this.eNg.abn();
         }
     }
 
-    public void afl() {
-        if (this.eNu != null) {
-            this.eNu.abp();
+    public void afi() {
+        if (this.eNg != null) {
+            this.eNg.abm();
         }
     }
 
-    public void cx(List<com.baidu.tieba.homepage.daily.b.a> list) {
+    public void cu(List<com.baidu.tieba.homepage.daily.b.a> list) {
         this.mData = list;
-        this.eNu.setData(list);
+        this.eNg.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
-        this.cck = aVar;
+        this.ccm = aVar;
     }
 
     public void setOutOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dVar) {
-        this.fIx = dVar;
+        this.fIl = dVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eNu != null) {
-            this.eNu.onChangeSkinType();
+        if (this.eNg != null) {
+            this.eNg.onChangeSkinType();
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.cck != null) {
-            this.cck.a(this, i == 0, null);
+        if (this.ccm != null) {
+            this.ccm.a(this, i == 0, null);
         }
     }
 }

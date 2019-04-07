@@ -4,23 +4,23 @@ import java.util.List;
 import tbclient.UnreadTip.DataRes;
 /* loaded from: classes4.dex */
 public class e {
-    public int fNo;
-    public List<String> fNp;
-    public long fNq;
-    public String fNr;
-    public int fNs;
+    public int fNc;
+    public List<String> fNd;
+    public long fNe;
+    public String fNf;
+    public int fNg;
 
-    public boolean bmU() {
-        return this.fNo > 0;
+    public boolean bmR() {
+        return this.fNc > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.fNo = dataRes.user_count.intValue();
-            this.fNp = dataRes.portrait_list;
-            this.fNq = dataRes.hide_unix.longValue() * 1000;
-            this.fNr = dataRes.show_tip;
-            this.fNs = dataRes.thread_count.intValue();
+            this.fNc = dataRes.user_count.intValue();
+            this.fNd = dataRes.portrait_list;
+            this.fNe = dataRes.hide_unix.longValue() * 1000;
+            this.fNf = dataRes.show_tip;
+            this.fNg = dataRes.thread_count.intValue();
         }
     }
 }

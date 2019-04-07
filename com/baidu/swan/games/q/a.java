@@ -13,15 +13,15 @@ public class a extends c {
     public void getStorage(JsObject jsObject) {
         String a = a(jsObject, "getStorage");
         if (a != null) {
-            d iW = iW(a);
-            if (iW.isSuccess()) {
+            d iX = iX(a);
+            if (iX.isSuccess()) {
                 com.baidu.swan.games.q.a.b bVar = new com.baidu.swan.games.q.a.b();
-                bVar.errMsg = com.baidu.swan.games.q.a.a.iY("getStorage");
-                bVar.data = iW.getData();
+                bVar.errMsg = com.baidu.swan.games.q.a.a.iZ("getStorage");
+                bVar.data = iX.getData();
                 com.baidu.swan.games.utils.a.a(h(jsObject), true, bVar);
                 return;
             }
-            a(jsObject, "getStorage", iW);
+            a(jsObject, "getStorage", iX);
         }
     }
 
@@ -35,18 +35,18 @@ public class a extends c {
     public void removeStorage(JsObject jsObject) {
         String a = a(jsObject, "removeStorage");
         if (a != null) {
-            a(jsObject, "removeStorage", iX(a));
+            a(jsObject, "removeStorage", iY(a));
         }
     }
 
     public void clearStorage(JsObject jsObject) {
-        a(jsObject, "clearStorage", Pc());
+        a(jsObject, "clearStorage", Pa());
     }
 
     public void getStorageInfo(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c h = h(jsObject);
         com.baidu.swan.games.q.a.c storageInfoSync = getStorageInfoSync();
-        storageInfoSync.errMsg = com.baidu.swan.games.q.a.a.iY("getStorageInfo");
+        storageInfoSync.errMsg = com.baidu.swan.games.q.a.a.iZ("getStorageInfo");
         com.baidu.swan.games.utils.a.a(h, true, storageInfoSync);
     }
 
@@ -70,12 +70,12 @@ public class a extends c {
             if ("key".equals(jsObject.getPropertyName(i))) {
                 int propertyType = jsObject.getPropertyType(i);
                 if (propertyType == 7) {
-                    return d.S(jsObject.toString(i));
+                    return d.Q(jsObject.toString(i));
                 }
-                return d.iZ(String.format("parameter error: the key must be string instead of %s.", d.eI(propertyType)));
+                return d.ja(String.format("parameter error: the key must be string instead of %s.", d.eH(propertyType)));
             }
         }
-        return d.iZ("parameter error: the parameter key is necessary.");
+        return d.ja("parameter error: the parameter key is necessary.");
     }
 
     private JsSerializeValue j(JsObject jsObject) {
@@ -91,7 +91,7 @@ public class a extends c {
         com.baidu.swan.games.binding.model.c h = h(jsObject);
         com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
         boolean isSuccess = dVar.isSuccess();
-        bVar.errMsg = dVar.ij(str);
+        bVar.errMsg = dVar.ik(str);
         com.baidu.swan.games.utils.a.a(h, isSuccess, bVar);
     }
 }

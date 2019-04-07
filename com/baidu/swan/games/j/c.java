@@ -5,19 +5,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes2.dex */
 public class c {
-    public int bdU;
-    public String bdV;
-    public String bdR = "";
+    public int bdX;
+    public String bdY;
+    public String bdU = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean bdS = false;
-    public boolean bdT = false;
+    public boolean bdV = false;
+    public boolean bdW = false;
 
     public boolean c(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.bdR = cVar.optString("defaultValue");
+            this.bdU = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.bdS = cVar.optBoolean("multiple");
-            this.bdT = cVar.optBoolean("confirmHold");
+            this.bdV = cVar.optBoolean("multiple");
+            this.bdW = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -54,28 +54,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.bdU = 6;
-                    this.bdV = "done";
+                    this.bdX = 6;
+                    this.bdY = "done";
                     return true;
                 case 1:
-                    this.bdU = 5;
-                    this.bdV = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.bdX = 5;
+                    this.bdY = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.bdU = 3;
-                    this.bdV = "search";
+                    this.bdX = 3;
+                    this.bdY = "search";
                     return true;
                 case 3:
-                    this.bdU = 2;
-                    this.bdV = "go";
+                    this.bdX = 2;
+                    this.bdY = "go";
                     return true;
                 case 4:
-                    this.bdU = 4;
-                    this.bdV = "send";
+                    this.bdX = 4;
+                    this.bdY = "send";
                     return true;
                 default:
-                    this.bdU = 6;
-                    this.bdV = "done";
+                    this.bdX = 6;
+                    this.bdY = "done";
                     return true;
             }
         } catch (Exception e) {

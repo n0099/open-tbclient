@@ -118,33 +118,33 @@ public class SwanAppLocalService extends Service {
             if (TextUtils.isEmpty(stringExtra)) {
                 stringExtra = "0";
             }
-            HybridUbcFlow aq = f.fy("preload").f(new UbcFlowEvent("na_pre_load_launch").A(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").A(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").A(currentTimeMillis)).aq("with_preload", "1");
+            HybridUbcFlow aq = f.fz("preload").f(new UbcFlowEvent("na_pre_load_launch").A(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").A(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").A(currentTimeMillis)).aq("with_preload", "1");
             if (!TextUtils.isEmpty(stringExtra)) {
                 aq.aq("preload_scene", stringExtra);
             }
-            if (com.baidu.swan.apps.u.a.CB() != null && com.baidu.swan.apps.u.a.CB().vg()) {
+            if (com.baidu.swan.apps.u.a.Cz() != null && com.baidu.swan.apps.u.a.Cz().vf()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put("cost", currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", c.atE);
-                    jSONObject.put("is_preload_ready", c.Ab().Ag());
+                    jSONObject.put("is_preload_started", c.atI);
+                    jSONObject.put("is_preload_ready", c.Aa().Af());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                f.a fJ = new f.a("812").fH("swan").fI("receive").fJ(intent.getStringExtra("bundle_key_preload_src"));
-                fJ.ai(jSONObject);
-                f.onEvent(fJ);
+                f.a fK = new f.a("812").fI("swan").fJ("receive").fK(intent.getStringExtra("bundle_key_preload_src"));
+                fK.ai(jSONObject);
+                f.onEvent(fK);
             }
             c.b.E(intent);
-            e.Ec().J(intent);
+            e.Ea().J(intent);
             aa.j(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.Ec().uZ();
+                    e.Ea().uY();
                 }
             });
         }
@@ -154,14 +154,14 @@ public class SwanAppLocalService extends Service {
         if (DEBUG) {
             Log.i(TAG, "tryBindRemoteMsgService");
         }
-        if (!getRemoteMsgClient().Gr()) {
-            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aES, 1);
+        if (!getRemoteMsgClient().Gp()) {
+            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aEV, 1);
         }
     }
 
     public void unbindRemoteMsgService() {
         try {
-            unbindService(getRemoteMsgClient().aES);
+            unbindService(getRemoteMsgClient().aEV);
         } catch (IllegalArgumentException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -170,7 +170,7 @@ public class SwanAppLocalService extends Service {
     }
 
     private com.baidu.swan.apps.process.messaging.client.a getRemoteMsgClient() {
-        return com.baidu.swan.apps.process.messaging.client.a.Gq();
+        return com.baidu.swan.apps.process.messaging.client.a.Go();
     }
 
     protected SwanAppProcessInfo getProcessInfo() {
@@ -182,7 +182,7 @@ public class SwanAppLocalService extends Service {
         public a() {
         }
 
-        public SwanAppLocalService Gp() {
+        public SwanAppLocalService Gn() {
             return SwanAppLocalService.this;
         }
     }

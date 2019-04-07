@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f implements d {
-    private final b jIJ;
+    private final b jId;
 
     /* loaded from: classes2.dex */
     public interface b {
-        List<Integer> cyI();
+        List<Integer> cyB();
 
-        int cyJ();
+        int cyC();
     }
 
     /* loaded from: classes2.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> cyI() {
+        public List<Integer> cyB() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int cyJ() {
+        public int cyC() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.jIJ = (b) g.checkNotNull(bVar);
+        this.jId = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int Cn(int i) {
-        List<Integer> cyI = this.jIJ.cyI();
-        if (cyI == null || cyI.isEmpty()) {
+    public int Cd(int i) {
+        List<Integer> cyB = this.jId.cyB();
+        if (cyB == null || cyB.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < cyI.size()) {
-                if (cyI.get(i3).intValue() <= i) {
+            if (i3 < cyB.size()) {
+                if (cyB.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return cyI.get(i3).intValue();
+                    return cyB.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -61,7 +61,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public com.facebook.imagepipeline.f.g Co(int i) {
-        return com.facebook.imagepipeline.f.f.f(i, i >= this.jIJ.cyJ(), false);
+    public com.facebook.imagepipeline.f.g Ce(int i) {
+        return com.facebook.imagepipeline.f.f.f(i, i >= this.jId.cyC(), false);
     }
 }

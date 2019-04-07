@@ -100,7 +100,7 @@ public class d {
         return false;
     }
 
-    public v.a aS(int i) {
+    public v.a aR(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -116,7 +116,7 @@ public class d {
         }
     }
 
-    public v.a aT(int i) {
+    public v.a aS(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;

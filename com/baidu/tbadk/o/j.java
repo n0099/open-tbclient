@@ -3,104 +3,104 @@ package com.baidu.tbadk.o;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int cqH = 100;
-    public static int cqI = 10;
+    public static int cqJ = 100;
+    public static int cqK = 10;
 
-    public static void aph() {
-        if (m.apk().apl()) {
-            if (b.cqM > cqI) {
-                b.apd();
+    public static void ape() {
+        if (m.apg().aph()) {
+            if (b.cqO > cqK) {
+                b.apa();
             }
-            if (a.cqJ > cqI) {
-                a.apd();
+            if (a.cqL > cqK) {
+                a.apa();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.cqJ++;
+        a.cqL++;
         if (z2) {
-            a.cqK++;
+            a.cqM++;
         } else if (z3) {
-            a.cqL++;
+            a.cqN++;
         }
-        if (a.cqJ > cqH) {
-            a.apd();
+        if (a.cqL > cqJ) {
+            a.apa();
         }
     }
 
     public void c(f fVar) {
-        if (m.apk().apl()) {
-            if (b.cqM < cqH) {
-                b.cqN += fVar.Cw;
-                b.cqO += fVar.cqf;
-                b.cqP += fVar.cqg;
+        if (m.apg().aph()) {
+            if (b.cqO < cqJ) {
+                b.cqP += fVar.Cv;
                 b.cqQ += fVar.cqh;
-                b.cqS += fVar.Oi;
                 b.cqR += fVar.cqi;
-                b.cqM++;
+                b.cqS += fVar.cqj;
+                b.cqU += fVar.Oi;
+                b.cqT += fVar.cqk;
+                b.cqO++;
                 return;
             }
-            b.apd();
+            b.apa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int cqJ;
-        public static int cqK;
         public static int cqL;
+        public static int cqM;
+        public static int cqN;
 
-        public static void apd() {
+        public static void apa() {
             com.baidu.adp.lib.stats.a jC = l.jC();
             jC.append("action", "imbusy");
-            jC.append("totalNum", String.valueOf(cqJ));
-            jC.append("tfailNum", String.valueOf(cqK));
-            jC.append("qfailNum", String.valueOf(cqL));
+            jC.append("totalNum", String.valueOf(cqL));
+            jC.append("tfailNum", String.valueOf(cqM));
+            jC.append("qfailNum", String.valueOf(cqN));
             BdStatisticsManager.getInstance().performance("im", jC);
             resetData();
         }
 
         public static void resetData() {
-            cqJ = 0;
-            cqK = 0;
             cqL = 0;
+            cqM = 0;
+            cqN = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int cqM;
-        public static long cqN;
-        public static long cqO;
+        public static int cqO;
         public static long cqP;
-        public static int cqQ;
-        public static int cqR;
-        public static long cqS;
+        public static long cqQ;
+        public static long cqR;
+        public static int cqS;
+        public static int cqT;
+        public static long cqU;
 
-        public static void apd() {
+        public static void apa() {
             com.baidu.adp.lib.stats.a jC = l.jC();
             jC.append("action", "imcost");
-            jC.append("dect", String.valueOf(cqN));
-            jC.append("dlsize", String.valueOf(cqO));
-            jC.append("dbt", String.valueOf(cqP));
-            jC.append("pnum", String.valueOf(cqQ));
-            jC.append("reqcost", String.valueOf(cqS));
-            jC.append("cpu", String.valueOf(cqR));
-            jC.append("totalNum", String.valueOf(cqM));
+            jC.append("dect", String.valueOf(cqP));
+            jC.append("dlsize", String.valueOf(cqQ));
+            jC.append("dbt", String.valueOf(cqR));
+            jC.append("pnum", String.valueOf(cqS));
+            jC.append("reqcost", String.valueOf(cqU));
+            jC.append("cpu", String.valueOf(cqT));
+            jC.append("totalNum", String.valueOf(cqO));
             BdStatisticsManager.getInstance().performance("im", jC);
-            apj();
+            apf();
         }
 
-        public static void apj() {
-            cqM = 0;
-            cqN = 0L;
-            cqO = 0L;
+        public static void apf() {
+            cqO = 0;
             cqP = 0L;
-            cqQ = 0;
-            cqR = 0;
+            cqQ = 0L;
+            cqR = 0L;
+            cqS = 0;
+            cqT = 0;
         }
     }
 }

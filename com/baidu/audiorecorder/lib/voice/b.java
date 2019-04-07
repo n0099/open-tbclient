@@ -25,13 +25,13 @@ public class b implements Runnable {
     private final Runnable mRecordTimeThread = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.b.1
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bq((int) (System.currentTimeMillis() - b.this.Vn));
+            b.this.bp((int) (System.currentTimeMillis() - b.this.Vn));
             b.this.GV.postDelayed(b.this.mRecordTimeThread, 200L);
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bq(int i) {
+    public void bp(int i) {
         Message obtainMessage = this.mHandler.obtainMessage(9);
         obtainMessage.arg1 = i;
         this.mHandler.sendMessage(obtainMessage);
@@ -280,7 +280,7 @@ public class b implements Runnable {
                     }
                     this.Vg = 4;
                     this.Vo = System.currentTimeMillis() - this.Vn;
-                    bq((int) this.Vo);
+                    bp((int) this.Vo);
                     if (this.GV != null) {
                         this.GV.removeCallbacks(this.mRecordTimeThread);
                     }

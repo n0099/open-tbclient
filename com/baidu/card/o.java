@@ -50,7 +50,7 @@ public class o extends b<com.baidu.tbadk.core.data.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.k(getView(), d.f.addresslist_item_bg);
-            this.Ya.ZZ.onChangeSkinType();
+            this.Ya.aaa.onChangeSkinType();
         }
         this.mSkinType = i;
     }
@@ -61,10 +61,10 @@ public class o extends b<com.baidu.tbadk.core.data.a> {
         a(1, new a.b() { // from class: com.baidu.card.o.1
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0039a c0039a) {
-                if (o.this.Xy != null && o.this.Xy.WR() != null) {
-                    com.baidu.tieba.card.n.tA(o.this.Xy.WR().getId());
-                    com.baidu.tieba.card.n.a(o.this.Ya.mTitle, o.this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
-                    com.baidu.tieba.card.n.a(o.this.Ya.XK, o.this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+                if (o.this.Xy != null && o.this.Xy.WO() != null) {
+                    com.baidu.tieba.card.n.tz(o.this.Xy.WO().getId());
+                    com.baidu.tieba.card.n.a(o.this.Ya.mTitle, o.this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+                    com.baidu.tieba.card.n.a(o.this.Ya.XK, o.this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
                 }
                 return false;
             }

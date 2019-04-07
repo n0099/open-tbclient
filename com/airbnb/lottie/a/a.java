@@ -103,7 +103,7 @@ public class a<T> {
         }
 
         @Nullable
-        private static WeakReference<Interpolator> s(int i) {
+        private static WeakReference<Interpolator> r(int i) {
             WeakReference<Interpolator> weakReference;
             synchronized (C0005a.class) {
                 weakReference = db().get(i);
@@ -156,9 +156,9 @@ public class a<T> {
                     pointF.x = com.airbnb.lottie.c.e.clamp(pointF.x, -f, f);
                     pointF.y = com.airbnb.lottie.c.e.clamp(pointF.y, -100.0f, 100.0f);
                     int c = f.c(pointF2.x, pointF2.y, pointF.x, pointF.y);
-                    WeakReference<Interpolator> s = s(c);
-                    interpolator2 = s != null ? s.get() : null;
-                    if (s == null || interpolator2 == null) {
+                    WeakReference<Interpolator> r = r(c);
+                    interpolator2 = r != null ? r.get() : null;
+                    if (r == null || interpolator2 == null) {
                         interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF.x / f, pointF.y / f);
                         try {
                             a(c, new WeakReference(interpolator2));

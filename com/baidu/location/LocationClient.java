@@ -20,7 +20,6 @@ import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class LocationClient implements c.a, d.b {
@@ -572,7 +571,7 @@ public final class LocationClient implements c.a, d.b {
         bundle.putInt("scanSpan", this.c.scanSpan);
         bundle.putBoolean("enableSimulateGps", this.c.enableSimulateGps);
         bundle.putInt("timeOut", this.c.timeOut);
-        bundle.putInt(LogFactory.PRIORITY_KEY, this.c.priority);
+        bundle.putInt("priority", this.c.priority);
         bundle.putBoolean("map", this.y.booleanValue());
         bundle.putBoolean(ShareDirectionType.IMPORT, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);

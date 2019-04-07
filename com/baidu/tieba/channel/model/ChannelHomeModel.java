@@ -17,11 +17,11 @@ import com.baidu.tieba.channel.message.ChannelVideoUnSetTopHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes6.dex */
 public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
-    private boolean eoD;
+    private boolean eop;
 
     public ChannelHomeModel(ChannelHomeActivity channelHomeActivity) {
         super(channelHomeActivity.getPageContext());
-        this.eoD = false;
+        this.eop = false;
         registerTask();
     }
 
@@ -44,16 +44,16 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
     }
 
     public void a(long j, int i, int i2) {
-        this.eoD = true;
+        this.eop = true;
         sendMessage(new ChannelInfoGetMessage(j, i, i2));
     }
 
     public void hX(boolean z) {
-        this.eoD = z;
+        this.eop = z;
     }
 
-    public boolean aRD() {
-        return this.eoD;
+    public boolean aRB() {
+        return this.eop;
     }
 
     public void a(long j, h hVar) {
@@ -67,7 +67,7 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
     }
 
     public void b(long j, h hVar) {
-        if (hVar != null && hVar.Zy()) {
+        if (hVar != null && hVar.Zv()) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANNEL_VIDEO_UNSET_TOP);
             httpMessage.addParam("channel_id", j);
             httpMessage.addParam("thread_id", hVar.getThreadId());

@@ -7,12 +7,12 @@ import java.util.List;
 public class a<T> {
     private final List<T> mQueue = new ArrayList();
 
-    public synchronized void X(T t) {
+    public synchronized void V(T t) {
         this.mQueue.add(t);
         notifyAll();
     }
 
-    public synchronized T RS() {
+    public synchronized T RQ() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;
@@ -33,7 +33,7 @@ public class a<T> {
         return t;
     }
 
-    public T Y(T t) {
+    public T W(T t) {
         if (t != null) {
             for (int size = this.mQueue.size() - 1; size >= 0; size--) {
                 if (t.equals(this.mQueue.get(size))) {

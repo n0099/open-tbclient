@@ -14,31 +14,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b extends k {
-    private d cTa;
-    private com.baidu.tieba.easterEgg.d ezF;
-    private HashMap<String, String> ezG;
-    private SparseArray<String> ezH;
+    private d cTc;
+    private com.baidu.tieba.easterEgg.d ezq;
+    private HashMap<String, String> ezr;
+    private SparseArray<String> ezs;
 
     public b(int i) {
         super(i);
-        this.cTa = new d();
-        aVx();
+        this.cTc = new d();
+        aVv();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.ezH.get(socketMessage.getCmd());
-        if (str != null && this.ezG != null && this.ezG.get(str) != null && this.ezF != null) {
-            this.ezF.S(str, this.cTa.toJson(this.ezG.get(str)), this.cTa.toJson(this.cTa.toJson(socketMessage.getData())));
+        String str = this.ezs.get(socketMessage.getCmd());
+        if (str != null && this.ezr != null && this.ezr.get(str) != null && this.ezq != null) {
+            this.ezq.S(str, this.cTc.toJson(this.ezr.get(str)), this.cTc.toJson(this.cTc.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void aVx() {
+    private void aVv() {
         int l;
-        this.ezH = new SparseArray<>();
+        this.ezs = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.T(findHttpTasks)) {
             for (int i = 0; i < findHttpTasks.size(); i++) {
@@ -48,7 +48,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!ap.isEmpty(str) && str.contains("=") && (l = com.baidu.adp.lib.g.b.l(str.split("[=]")[1], 0)) != 0) {
-                        this.ezH.put(l, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.ezs.put(l, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -56,10 +56,10 @@ public class b extends k {
     }
 
     public void r(HashMap<String, String> hashMap) {
-        this.ezG = hashMap;
+        this.ezr = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.ezF = dVar;
+        this.ezq = dVar;
     }
 }

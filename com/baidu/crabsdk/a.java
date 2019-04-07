@@ -42,7 +42,7 @@ public final class a {
     public static boolean F = true;
     public static boolean G = true;
     public static boolean H = true;
-    public static boolean I = true;
+    public static int I = 1;
     public static boolean J = false;
     public static boolean K = true;
     public static boolean L = false;
@@ -59,10 +59,10 @@ public final class a {
     }
 
     public static String c() {
-        return E ? "https://crab.baidu.com/api/newsync2" : "http://cq01-tdw-bfe02.cq01.baidu.com:8090/batsdk/api/newsync2";
+        return E ? "https://crab.baidu.com/api/newsync2" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/newsync2";
     }
 
     public static String d() {
-        return E ? "https://crab.baidu.com/api/add_crab" : "http://cq01-tdw-bfe02.cq01.baidu.com:8123/api/add_crab";
+        return E ? "https://crab.baidu.com/api/add_crab" : "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
     }
 }

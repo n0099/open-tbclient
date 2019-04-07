@@ -27,9 +27,9 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class a {
-    private static WeakReference<b> aMV;
-    private static Toast aMW;
-    private static boolean aMU = com.baidu.swan.apps.b.DEBUG;
+    private static WeakReference<b> aMY;
+    private static Toast aMZ;
+    private static boolean aMX = com.baidu.swan.apps.b.DEBUG;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,12 +58,12 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMW = new Toast(applicationContext);
-                    a.aMW.setView(relativeLayout);
-                    a.aMW.setGravity(17, 0, 0);
-                    c.a(a.aMW, a.i.toast_animation);
-                    a.aMW.show();
-                    if (a.aMU) {
+                    Toast unused = a.aMZ = new Toast(applicationContext);
+                    a.aMZ.setView(relativeLayout);
+                    a.aMZ.setGravity(17, 0, 0);
+                    c.a(a.aMZ, a.i.toast_animation);
+                    a.aMZ.show();
+                    if (a.aMX) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in show");
                     }
                 }
@@ -76,7 +76,7 @@ public final class a {
         bVar.setMask(z2);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(a.i.toast_animation);
+        bVar.dp(a.i.toast_animation);
         bVar.show();
     }
 
@@ -95,12 +95,12 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMW = new Toast(applicationContext);
-                    a.aMW.setView(relativeLayout);
-                    a.aMW.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMW, a.i.toast_animation);
-                    a.aMW.show();
-                    if (a.aMU) {
+                    Toast unused = a.aMZ = new Toast(applicationContext);
+                    a.aMZ.setView(relativeLayout);
+                    a.aMZ.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aMZ, a.i.toast_animation);
+                    a.aMZ.show();
+                    if (a.aMX) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in showToastBottom");
                     }
                 }
@@ -112,7 +112,7 @@ public final class a {
         bVar.setView(relativeLayout);
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i);
-        bVar.dq(a.i.toast_animation);
+        bVar.dp(a.i.toast_animation);
         bVar.show();
     }
 
@@ -140,11 +140,11 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMW = new Toast(context);
-                    a.aMW.setView(linearLayout);
-                    a.aMW.setGravity(17, 0, 0);
-                    c.a(a.aMW, a.i.highlight_toast_animation);
-                    a.aMW.show();
+                    Toast unused = a.aMZ = new Toast(context);
+                    a.aMZ.setView(linearLayout);
+                    a.aMZ.setGravity(17, 0, 0);
+                    c.a(a.aMZ, a.i.highlight_toast_animation);
+                    a.aMZ.show();
                 }
             });
             return;
@@ -155,7 +155,7 @@ public final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(a.i.highlight_toast_animation);
+        bVar.dp(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -174,11 +174,11 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMW = new Toast(context);
-                    a.aMW.setView(linearLayout);
-                    a.aMW.setGravity(17, 0, 0);
-                    c.a(a.aMW, a.i.highlight_toast_animation);
-                    a.aMW.show();
+                    Toast unused = a.aMZ = new Toast(context);
+                    a.aMZ.setView(linearLayout);
+                    a.aMZ.setGravity(17, 0, 0);
+                    c.a(a.aMZ, a.i.highlight_toast_animation);
+                    a.aMZ.show();
                 }
             });
             return;
@@ -189,7 +189,7 @@ public final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(a.i.highlight_toast_animation);
+        bVar.dp(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -260,7 +260,7 @@ public final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.u.a.CT().Ds() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.u.a.CR().Dq() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -279,20 +279,20 @@ public final class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     findViewById.setVisibility(8);
-                    Toast unused = a.aMW = new Toast(applicationContext);
-                    a.aMW.setView(linearLayout);
-                    a.aMW.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMW, a.i.toast_animation);
-                    a.aMW.show();
+                    Toast unused = a.aMZ = new Toast(applicationContext);
+                    a.aMZ.setView(linearLayout);
+                    a.aMZ.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aMZ, a.i.toast_animation);
+                    a.aMZ.show();
                 }
             });
             return;
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.IH()) {
-            bVar.dr(2003);
-            if (aMU) {
+        if (c.IF()) {
+            bVar.dq(2003);
+            if (aMX) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
         }
@@ -300,25 +300,25 @@ public final class a {
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i3);
         bVar.a(aVar);
-        bVar.dq(a.i.toast_animation);
+        bVar.dp(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void cancel() {
         b bVar;
-        if (aMV != null && (bVar = aMV.get()) != null) {
+        if (aMY != null && (bVar = aMY.get()) != null) {
             bVar.cancel();
         }
-        if (aMW != null) {
-            aMW.cancel();
+        if (aMZ != null) {
+            aMZ.cancel();
         }
     }
 
     private static void a(b bVar) {
-        if (aMV != null) {
-            aMV.clear();
+        if (aMY != null) {
+            aMY.clear();
         }
-        aMV = new WeakReference<>(bVar);
+        aMY = new WeakReference<>(bVar);
     }
 }

@@ -13,11 +13,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static final n bpE = new n();
+        private static final n bpH = new n();
     }
 
-    public static n Tl() {
-        return a.bpE;
+    public static n Tj() {
+        return a.bpH;
     }
 
     public final void onEvent(String str) {
@@ -36,53 +36,53 @@ public class n {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
-            if (q.Ts() != null || !TextUtils.isEmpty(str)) {
-                l.Tk().h(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+            if (q.Tq() != null || !TextUtils.isEmpty(str)) {
+                l.Ti().h(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            Tm().ubcOnEvent(str, p.jR(str2), i);
+            Tk().ubcOnEvent(str, p.jS(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
-            if (q.Ts() != null || !TextUtils.isEmpty(str)) {
-                l.Tk().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+            if (q.Tq() != null || !TextUtils.isEmpty(str)) {
+                l.Ti().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            Tm().ubcOnEvent(str, p.aH(jSONObject), i);
+            Tk().ubcOnEvent(str, p.aH(jSONObject), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow i(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return l.Tk().i(str, str2, i);
+            return l.Ti().i(str, str2, i);
         }
-        return j(str, p.jR(str2), i);
+        return j(str, p.jS(str2), i);
     }
 
-    private IRemoteUBCService Tm() throws RemoteException {
-        return q.Tm();
+    private IRemoteUBCService Tk() throws RemoteException {
+        return q.Tk();
     }
 
     private Flow j(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = Tm().ubcBeginFlow(str, str2, i);
+            flow = Tk().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

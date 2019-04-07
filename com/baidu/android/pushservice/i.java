@@ -19,6 +19,7 @@ import com.baidu.android.pushservice.e.z;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.coloros.mcssdk.mode.CommandMessage;
 /* loaded from: classes3.dex */
 public class i {
     private static i c;
@@ -173,14 +174,14 @@ public class i {
 
     private void l(Intent intent) {
         l lVar = new l(intent);
-        String stringExtra = intent.getStringExtra("tags");
+        String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
         com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
         a(new x(lVar, this.a, stringExtra));
     }
 
     private void m(Intent intent) {
         l lVar = new l(intent);
-        String stringExtra = intent.getStringExtra("tags");
+        String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
         com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
         a(new com.baidu.android.pushservice.e.j(lVar, this.a, stringExtra));
     }

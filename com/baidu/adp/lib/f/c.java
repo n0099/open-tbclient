@@ -102,7 +102,7 @@ public class c {
         }
     }
 
-    public boolean ar(int i) {
+    public boolean aq(int i) {
         e<?> eVar = this.Dx.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
@@ -417,7 +417,7 @@ public class c {
         return str + i;
     }
 
-    public e as(int i) {
+    public e ar(int i) {
         if (this.Dx == null) {
             return null;
         }

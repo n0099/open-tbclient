@@ -20,29 +20,29 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class ImagePagerAdapter extends PagerAdapter {
-    private Map<String, ImageUrlData> cdb;
-    private DragImageView.e cdg;
-    private b cdh;
-    private UrlDragImageView.b cdi;
-    private DragImageView.d cdj;
-    private boolean cds;
-    private boolean cdt;
+    private Map<String, ImageUrlData> cdd;
+    private DragImageView.e cdi;
+    private b cdj;
+    private UrlDragImageView.b cdk;
+    private DragImageView.d cdl;
     private boolean cdu;
+    private boolean cdv;
+    private boolean cdw;
     private Context mContext;
-    private ArrayList<String> cdc = null;
+    private ArrayList<String> cde = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener cdd = null;
-    private View.OnTouchListener cde = null;
-    private DragImageView.g cdf = null;
-    private int cdl = 0;
-    private boolean cdm = false;
-    private String cdn = null;
-    private int cdo = 0;
-    private int cdp = 0;
-    private boolean cdq = false;
-    private boolean cdr = false;
+    private View.OnLongClickListener cdf = null;
+    private View.OnTouchListener cdg = null;
+    private DragImageView.g cdh = null;
+    private int cdn = 0;
+    private boolean cdo = false;
+    private String cdp = null;
+    private int cdq = 0;
+    private int cdr = 0;
+    private boolean cds = false;
+    private boolean cdt = false;
     private int mPosition = -1;
-    private List<a> cdk = new ArrayList();
+    private List<a> cdm = new ArrayList();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -56,59 +56,59 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     public ImagePagerAdapter(Context context, DragImageView.e eVar) {
         this.mContext = context;
-        this.cdg = eVar;
+        this.cdi = eVar;
     }
 
     public void setData(ArrayList<String> arrayList) {
         if (arrayList == null) {
-            this.cdc = new ArrayList<>();
+            this.cde = new ArrayList<>();
         } else {
-            this.cdc = new ArrayList<>(arrayList);
+            this.cde = new ArrayList<>(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void setAssistUrls(Map<String, ImageUrlData> map) {
-        this.cdb = map;
+        this.cdd = map;
         notifyDataSetChanged();
     }
 
     public void setNextTitle(String str) {
-        this.cdn = str;
+        this.cdp = str;
     }
 
     public void setHasNext(boolean z) {
-        this.cdm = z;
+        this.cdo = z;
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.cdk.add(aVar);
+        this.cdm.add(aVar);
     }
 
     public boolean getHasNext() {
-        return this.cdm;
+        return this.cdo;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         int i = 0;
-        if (this.cdc != null) {
-            i = this.cdc.size();
-            if (this.cdm) {
+        if (this.cde != null) {
+            i = this.cde.size();
+            if (this.cdo) {
                 i++;
             }
         }
-        return i + this.cdo + this.cdp;
+        return i + this.cdq + this.cdr;
     }
 
     public void setTempSize(int i) {
-        this.cdo = i;
+        this.cdq = i;
         notifyDataSetChanged();
     }
 
     public void setAddSize(int i) {
-        this.cdp = i;
+        this.cdr = i;
         notifyDataSetChanged();
     }
 
@@ -117,23 +117,23 @@ public class ImagePagerAdapter extends PagerAdapter {
     }
 
     public void a(View.OnTouchListener onTouchListener) {
-        this.cde = onTouchListener;
+        this.cdg = onTouchListener;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.cdd = onLongClickListener;
+        this.cdf = onLongClickListener;
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.cdl = i;
+        this.cdn = i;
     }
 
     public void setOnSizeChangedListener(DragImageView.g gVar) {
-        this.cdf = gVar;
+        this.cdh = gVar;
     }
 
     public void a(b bVar) {
-        this.cdh = bVar;
+        this.cdj = bVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -152,8 +152,8 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View e = e(viewGroup, i);
-        if (e == null && this.cdk != null && this.cdk.size() != 0) {
-            Iterator<a> it = this.cdk.iterator();
+        if (e == null && this.cdm != null && this.cdm.size() != 0) {
+            Iterator<a> it = this.cdm.iterator();
             while (it.hasNext() && (e = it.next().g(viewGroup, i)) == null) {
             }
         }
@@ -168,16 +168,16 @@ public class ImagePagerAdapter extends PagerAdapter {
         UrlDragImageView urlDragImageView;
         ImageUrlData imageUrlData;
         if ((obj instanceof UrlDragImageView) && (imageUrlData = (urlDragImageView = (UrlDragImageView) obj).getmAssistUrlData()) != null && !StringUtils.isNull(imageUrlData.imageUrl)) {
-            urlDragImageView.setAssistUrl(og(imageUrlData.imageUrl));
+            urlDragImageView.setAssistUrl(oh(imageUrlData.imageUrl));
         }
         return super.getItemPosition(obj);
     }
 
-    private ImageUrlData og(String str) {
-        if (TextUtils.isEmpty(str) || this.cdb == null) {
+    private ImageUrlData oh(String str) {
+        if (TextUtils.isEmpty(str) || this.cdd == null) {
             return null;
         }
-        for (ImageUrlData imageUrlData : this.cdb.values()) {
+        for (ImageUrlData imageUrlData : this.cdd.values()) {
             if (imageUrlData.imageUrl != null && imageUrlData.imageUrl.equals(str)) {
                 return imageUrlData;
             }
@@ -186,48 +186,48 @@ public class ImagePagerAdapter extends PagerAdapter {
     }
 
     public void setIsCanDrag(boolean z) {
-        this.cds = z;
+        this.cdu = z;
     }
 
     public void setIsHotSort(boolean z) {
-        this.cdt = z;
+        this.cdv = z;
     }
 
     private UrlDragImageView e(ViewGroup viewGroup, int i) {
-        String str = i < this.cdc.size() ? this.cdc.get(i) : null;
+        String str = i < this.cde.size() ? this.cde.get(i) : null;
         if (StringUtils.isNull(str)) {
             return null;
         }
         UrlDragImageView urlDragImageView = new UrlDragImageView(this.mContext);
-        urlDragImageView.setOriImgSelectedCallback(this.cdi);
+        urlDragImageView.setOriImgSelectedCallback(this.cdk);
         urlDragImageView.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         urlDragImageView.setImageOnClickListener(this.mOnClickListener);
-        urlDragImageView.setImageOnLongClickListener(this.cdd);
-        urlDragImageView.setOuterOnTouchListener(this.cde);
-        urlDragImageView.setIsCanDrag(this.cds);
-        urlDragImageView.setIsHotSort(this.cdt);
-        urlDragImageView.setIsCdn(this.cdq);
-        urlDragImageView.setOnSizeChangedListener(this.cdf);
+        urlDragImageView.setImageOnLongClickListener(this.cdf);
+        urlDragImageView.setOuterOnTouchListener(this.cdg);
+        urlDragImageView.setIsCanDrag(this.cdu);
+        urlDragImageView.setIsHotSort(this.cdv);
+        urlDragImageView.setIsCdn(this.cds);
+        urlDragImageView.setOnSizeChangedListener(this.cdh);
         viewGroup.addView(urlDragImageView, 0);
-        urlDragImageView.setAssistUrl(oh(str));
-        urlDragImageView.setUrl(str, this.cdr);
-        urlDragImageView.setGifMaxUseableMem(this.cdl);
+        urlDragImageView.setAssistUrl(oi(str));
+        urlDragImageView.setUrl(str, this.cdt);
+        urlDragImageView.setGifMaxUseableMem(this.cdn);
         urlDragImageView.setTag(String.valueOf(i));
-        urlDragImageView.setGifSetListener(this.cdg);
-        urlDragImageView.setHeadImage(this.cdu);
-        urlDragImageView.setDragToExitListener(this.cdj);
+        urlDragImageView.setGifSetListener(this.cdi);
+        urlDragImageView.setHeadImage(this.cdw);
+        urlDragImageView.setDragToExitListener(this.cdl);
         return urlDragImageView;
     }
 
     public void a(DragImageView.d dVar) {
-        this.cdj = dVar;
+        this.cdl = dVar;
     }
 
     private View f(ViewGroup viewGroup, int i) {
-        if (this.cdm && i == getCount() - 1 && i != 0) {
+        if (this.cdo && i == getCount() - 1 && i != 0) {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.h.big_image_next, (ViewGroup) null);
             ((ImageView) inflate.findViewById(d.g.image)).setImageDrawable(al.getDrawable(d.f.big_image_next_default));
-            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.cdn);
+            ((TextView) inflate.findViewById(d.g.thread_name)).setText(this.cdp);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.mOnClickListener);
             return inflate;
@@ -239,33 +239,33 @@ public class ImagePagerAdapter extends PagerAdapter {
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.mPosition != i && obj != null) {
-            if (this.cdh != null) {
-                this.cdh.c(i, obj);
+            if (this.cdj != null) {
+                this.cdj.c(i, obj);
             }
             this.mPosition = i;
         }
     }
 
-    private ImageUrlData oh(String str) {
-        if (TextUtils.isEmpty(str) || this.cdb == null) {
+    private ImageUrlData oi(String str) {
+        if (TextUtils.isEmpty(str) || this.cdd == null) {
             return null;
         }
-        return this.cdb.get(str);
+        return this.cdd.get(str);
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.cdr = z;
+        this.cdt = z;
     }
 
     public void setIsCdn(boolean z) {
-        this.cdq = z;
+        this.cds = z;
     }
 
     public void setHeadImage(boolean z) {
-        this.cdu = z;
+        this.cdw = z;
     }
 
     public void setOriImgSelectedCallback(UrlDragImageView.b bVar) {
-        this.cdi = bVar;
+        this.cdk = bVar;
     }
 }

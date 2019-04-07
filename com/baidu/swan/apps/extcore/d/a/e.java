@@ -7,7 +7,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends y {
@@ -21,7 +20,7 @@ public class e extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, LegoListActivityConfig.PARAMS);
+        JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
             com.baidu.swan.apps.console.c.e("ExtCore-SetConfig", "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -32,11 +31,11 @@ public class e extends y {
             return false;
         } else {
             int optInt = c.optInt("useExtension");
-            if (!com.baidu.swan.apps.extcore.d.b.Bq().exists()) {
+            if (!com.baidu.swan.apps.extcore.d.b.Bo().exists()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                 return false;
             }
-            com.baidu.swan.apps.ac.a.a.bw(com.baidu.swan.apps.extcore.d.a.cu(optInt));
+            com.baidu.swan.apps.ac.a.a.bw(com.baidu.swan.apps.extcore.d.a.ct(optInt));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

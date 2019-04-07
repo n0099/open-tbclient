@@ -13,15 +13,15 @@ public abstract class a {
         void c(boolean z, boolean z2, String str);
     }
 
-    public abstract String Va();
+    public abstract String UX();
 
-    public abstract boolean Vb();
+    public abstract boolean UY();
 
-    public abstract void Vc();
+    public abstract void UZ();
 
-    public abstract void Vd();
+    public abstract void Va();
 
-    public abstract MarkData Ve();
+    public abstract MarkData Vb();
 
     public abstract void a(MarkData markData);
 

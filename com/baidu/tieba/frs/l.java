@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class l extends h<m, n> {
-    private final int fbI;
+    private final int fbv;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.fbI = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.fbv = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class l extends h<m, n> {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.fbI;
+        generateLayoutParamsByParent.height = this.fbv;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new n(inflate, viewGroup);
     }
@@ -35,13 +35,13 @@ public class l extends h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.bdV() == 6) {
-            nVar.fbM.setText(d.j.attention_no_post_tip);
+        if (mVar.bdT() == 6) {
+            nVar.fbz.setText(d.j.attention_no_post_tip);
         } else {
-            nVar.fbM.setText(d.j.no_data_text);
+            nVar.fbz.setText(d.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.al.d(nVar.fbM, d.C0277d.cp_cont_d, 1);
-        com.baidu.tbadk.core.util.al.c(nVar.fbN, d.f.new_pic_emotion_gray_06);
+        com.baidu.tbadk.core.util.al.d(nVar.fbz, d.C0277d.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.al.c(nVar.fbA, d.f.new_pic_emotion_gray_06);
         return view;
     }
 }

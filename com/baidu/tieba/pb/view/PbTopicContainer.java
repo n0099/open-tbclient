@@ -20,7 +20,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int hGl;
+    private int hFX;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hGl = 3;
+        this.hFX = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.hGl) {
+        if (childCount > this.hFX) {
             while (true) {
                 childCount--;
-                if (childCount <= this.hGl) {
+                if (childCount <= this.hFX) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -94,7 +94,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int h = l.h(context, d.e.tbds22);
             layoutParams.rightMargin = h;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.pw(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.px(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.h(context, d.e.tbds33));
             textView.setGravity(17);
@@ -110,7 +110,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.hGl = i;
+        this.hFX = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -119,10 +119,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new am("c11455").bJ("obj_locate", "pb_bottom"));
             ay.a aVar = (ay.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.Yc() + "", aVar.getTopicName(), "2")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.XZ() + "", aVar.getTopicName(), "2")));
                 return;
             }
-            com.baidu.tbadk.browser.a.ar(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.Yc() + "&topic_name=" + aVar.getTopicName());
+            com.baidu.tbadk.browser.a.ar(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.XZ() + "&topic_name=" + aVar.getTopicName());
         }
     }
 }

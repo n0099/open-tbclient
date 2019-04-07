@@ -14,7 +14,6 @@ import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -38,7 +37,7 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mName = n.dk(unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS)).optString("name");
+        this.mName = n.dm(unitedSchemeEntity.getParam("params")).optString("name");
         if (TextUtils.isEmpty(this.mName)) {
             c.e("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -52,14 +51,14 @@ public class a extends y {
         aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.i.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap Mf = x.Mf();
-                if (Mf == null) {
+                final Bitmap Md = x.Md();
+                if (Md == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.i.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(Mf, unitedSchemeEntity, callbackHandler, bVar);
+                            a.this.a(Md, unitedSchemeEntity, callbackHandler, bVar);
                         }
                     }, "savescreenshot");
                 }
@@ -90,9 +89,9 @@ public class a extends y {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull b bVar) {
         FileOutputStream fileOutputStream;
-        String gX = com.baidu.swan.apps.storage.b.gX(bVar.id);
-        if (gX != null) {
-            String str = gX + File.separator + "screenshot";
+        String gY = com.baidu.swan.apps.storage.b.gY(bVar.id);
+        if (gY != null) {
+            String str = gY + File.separator + "screenshot";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();

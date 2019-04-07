@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int bNi;
-    protected volatile HashMap<Long, Integer> iIM = new HashMap<>();
+    protected volatile int bNk;
+    protected volatile HashMap<Long, Integer> iIx = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.bNi = i;
+        this.bNk = i;
     }
 
-    public void CM(String str) {
+    public void CL(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.iIM.size() >= this.bNi) {
-                    cfq();
+                if (this.iIx.size() >= this.bNk) {
+                    cfm();
                 }
                 this.mWeight++;
-                this.iIM.put(valueOf, Integer.valueOf(this.mWeight));
+                this.iIx.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void cfq() {
+    public void cfm() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.iIM.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.iIx.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.iIM.remove(l2);
+                this.iIx.remove(l2);
             } else {
-                this.iIM.clear();
+                this.iIx.clear();
             }
         }
     }
 
-    public boolean CN(String str) {
+    public boolean CM(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.iIM.get(valueOf) != null;
+                z = this.iIx.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean CO(String str) {
+    public boolean CN(String str) {
         try {
-            return this.iIM.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.iIx.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void cfp() {
+    public void cfl() {
         synchronized (this) {
-            this.iIM.clear();
+            this.iIx.clear();
         }
     }
 }

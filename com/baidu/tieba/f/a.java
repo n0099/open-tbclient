@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0284a dMs;
-    private float ezj;
-    private float ezk;
-    private float ezl;
-    private float ezm;
+    private InterfaceC0284a dLJ;
+    private float eyU;
+    private float eyV;
+    private float eyW;
+    private float eyX;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.dMs.aR(i, i2);
+                    a.this.dLJ.aR(i, i2);
                     return true;
                 case 1:
-                    a.this.dMs.aS(i, i2);
+                    a.this.dLJ.aS(i, i2);
                     return true;
                 case 2:
-                    a.this.dMs.aT(i, i2);
+                    a.this.dLJ.aT(i, i2);
                     return true;
                 default:
                     return false;
@@ -43,42 +43,42 @@ public class a {
     }
 
     public void a(InterfaceC0284a interfaceC0284a) {
-        this.dMs = interfaceC0284a;
+        this.dLJ = interfaceC0284a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ezl = motionEvent.getRawX();
-                this.ezm = motionEvent.getRawY();
-                this.ezj = this.ezl;
-                this.ezk = this.ezm;
+                this.eyW = motionEvent.getRawX();
+                this.eyX = motionEvent.getRawY();
+                this.eyU = this.eyW;
+                this.eyV = this.eyX;
                 return true;
             case 1:
             case 3:
-                if (this.dMs != null) {
-                    int i = (int) (this.ezj - this.ezl);
-                    if (Math.abs(i) >= Math.abs((int) (this.ezk - this.ezm))) {
-                        bd(i, (int) this.ezl);
+                if (this.dLJ != null) {
+                    int i = (int) (this.eyU - this.eyW);
+                    if (Math.abs(i) >= Math.abs((int) (this.eyV - this.eyX))) {
+                        bd(i, (int) this.eyW);
                     }
                 }
-                this.ezl = 0.0f;
-                this.ezm = 0.0f;
+                this.eyW = 0.0f;
+                this.eyX = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.ezj);
-                int i3 = (int) (rawY - this.ezk);
-                if (this.dMs != null) {
+                int i2 = (int) (rawX - this.eyU);
+                int i3 = (int) (rawY - this.eyV);
+                if (this.dLJ != null) {
                     if (i3 > 0) {
                         bb(i2, i3);
                     } else {
                         bc(i2, i3);
                     }
                 }
-                this.ezj = rawX;
-                this.ezk = rawY;
+                this.eyU = rawX;
+                this.eyV = rawY;
                 return true;
             default:
                 return true;

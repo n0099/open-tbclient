@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -29,7 +30,7 @@ public abstract class a implements e {
         this.b = pushNotificationBuilder;
         this.a = context;
         this.c = new Handler(context.getMainLooper());
-        this.d = (NotificationManager) context.getSystemService("notification");
+        this.d = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
     }
 
     protected void a(Notification.Builder builder, MessageV3 messageV3) {

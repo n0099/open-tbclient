@@ -9,7 +9,7 @@ import com.baidu.tbadk.data.m;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener erL;
+    private View.OnClickListener erx;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -33,12 +33,12 @@ public class c extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.person
         if (cVar == null || mVar == null) {
             return null;
         }
-        cVar.x(this.erL);
+        cVar.x(this.erx);
         cVar.i(mVar);
         return cVar.getView();
     }
 
     public void x(View.OnClickListener onClickListener) {
-        this.erL = onClickListener;
+        this.erx = onClickListener;
     }
 }

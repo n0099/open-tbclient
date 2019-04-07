@@ -8,58 +8,58 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextImageInfo extends OrmObject {
-    private String cCP;
-    private String cCQ;
-    private boolean cCR;
-    private boolean cCS;
-    private String cCT;
-    private long cCU;
-    private boolean cCV;
-    private boolean cCW;
-    private String cCX;
-    private String cCY;
+    private String cCR;
+    private String cCS;
+    private boolean cCT;
+    private boolean cCU;
+    private String cCV;
+    private long cCW;
+    private boolean cCX;
+    private boolean cCY;
+    private String cCZ;
+    private String cDa;
     private int mHeight;
     private String mSrc;
     private int mWidth;
 
     public TbRichTextImageInfo() {
         this.mSrc = null;
-        this.cCP = null;
-        this.cCQ = null;
+        this.cCR = null;
+        this.cCS = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.cCR = false;
-        this.cCS = false;
-        this.cCT = null;
-        this.cCU = 0L;
-        this.cCV = false;
-        this.cCW = false;
-        this.cCY = null;
+        this.cCT = false;
+        this.cCU = false;
+        this.cCV = null;
+        this.cCW = 0L;
+        this.cCX = false;
+        this.cCY = false;
+        this.cDa = null;
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
         this.mSrc = null;
-        this.cCP = null;
-        this.cCQ = null;
+        this.cCR = null;
+        this.cCS = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.cCR = false;
-        this.cCS = false;
-        this.cCT = null;
-        this.cCU = 0L;
-        this.cCV = false;
-        this.cCW = false;
-        this.cCY = null;
+        this.cCT = false;
+        this.cCU = false;
+        this.cCV = null;
+        this.cCW = 0L;
+        this.cCX = false;
+        this.cCY = false;
+        this.cDa = null;
         if (pbContent != null) {
             this.mSrc = pbContent.src;
-            this.cCP = pbContent.cdn_src;
-            if (this.cCP == null || this.cCP.length() == 0) {
-                this.cCP = this.mSrc;
+            this.cCR = pbContent.cdn_src;
+            if (this.cCR == null || this.cCR.length() == 0) {
+                this.cCR = this.mSrc;
             }
-            this.cCQ = pbContent.big_cdn_src;
-            this.cCY = pbContent.big_src;
-            if (StringUtils.isNull(this.cCQ)) {
-                this.cCQ = this.cCY;
+            this.cCS = pbContent.big_cdn_src;
+            this.cDa = pbContent.big_src;
+            if (StringUtils.isNull(this.cCS)) {
+                this.cCS = this.cDa;
             }
             String str = pbContent.bsize;
             if (str != null) {
@@ -77,37 +77,37 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.cCP != null && this.cCP.indexOf(".baidu.com") != -1) {
-                this.cCR = true;
+            if (this.cCR != null && this.cCR.indexOf(".baidu.com") != -1) {
+                this.cCT = true;
             }
-            this.cCT = pbContent.origin_src;
-            this.cCU = pbContent.origin_size.intValue();
-            this.cCV = pbContent.show_original_btn.intValue() == 1;
-            this.cCW = pbContent.is_long_pic.intValue() == 1;
-            this.cCX = pbContent.cdn_src_active;
+            this.cCV = pbContent.origin_src;
+            this.cCW = pbContent.origin_size.intValue();
+            this.cCX = pbContent.show_original_btn.intValue() == 1;
+            this.cCY = pbContent.is_long_pic.intValue() == 1;
+            this.cCZ = pbContent.cdn_src_active;
         }
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
         this.mSrc = null;
-        this.cCP = null;
-        this.cCQ = null;
+        this.cCR = null;
+        this.cCS = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.cCR = false;
-        this.cCS = false;
-        this.cCT = null;
-        this.cCU = 0L;
-        this.cCV = false;
-        this.cCW = false;
-        this.cCY = null;
+        this.cCT = false;
+        this.cCU = false;
+        this.cCV = null;
+        this.cCW = 0L;
+        this.cCX = false;
+        this.cCY = false;
+        this.cDa = null;
         if (jSONObject != null) {
             this.mSrc = jSONObject.optString("src");
-            this.cCP = jSONObject.optString("cdn_src", "");
-            if (this.cCP == null || this.cCP.length() == 0) {
-                this.cCP = this.mSrc;
+            this.cCR = jSONObject.optString("cdn_src", "");
+            if (this.cCR == null || this.cCR.length() == 0) {
+                this.cCR = this.mSrc;
             }
-            this.cCQ = jSONObject.optString("big_cdn_src", null);
+            this.cCS = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -121,14 +121,14 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.cCP != null && this.cCP.indexOf(".baidu.com") != -1) {
-                this.cCR = true;
+            if (this.cCR != null && this.cCR.indexOf(".baidu.com") != -1) {
+                this.cCT = true;
             }
         }
     }
 
-    public String asO() {
-        return this.cCQ;
+    public String asL() {
+        return this.cCS;
     }
 
     public int getHeight() {
@@ -139,43 +139,43 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mWidth;
     }
 
-    public boolean asP() {
-        return this.cCR;
+    public boolean asM() {
+        return this.cCT;
     }
 
-    public String Nx() {
+    public String Nv() {
         return this.mSrc;
     }
 
-    public String asQ() {
-        return this.cCY;
+    public String asN() {
+        return this.cDa;
+    }
+
+    public String asO() {
+        return this.cCR;
+    }
+
+    public String asP() {
+        return this.cCZ;
+    }
+
+    public boolean asQ() {
+        return this.cCU;
     }
 
     public String asR() {
-        return this.cCP;
+        return this.cCV;
     }
 
-    public String asS() {
+    public long getOriginalSize() {
+        return this.cCW;
+    }
+
+    public boolean asS() {
         return this.cCX;
     }
 
     public boolean asT() {
-        return this.cCS;
-    }
-
-    public String asU() {
-        return this.cCT;
-    }
-
-    public long getOriginalSize() {
-        return this.cCU;
-    }
-
-    public boolean asV() {
-        return this.cCV;
-    }
-
-    public boolean asW() {
-        return this.cCW;
+        return this.cCY;
     }
 }

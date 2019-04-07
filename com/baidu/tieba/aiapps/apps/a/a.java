@@ -48,9 +48,9 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
-    private static CookieManager cRd;
+    private static CookieManager cRf;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static Object cRe = new Object();
+    private static Object cRg = new Object();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -66,8 +66,8 @@ public final class a {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String cRi;
-        public Map<String, String> cRj;
+        public String cRk;
+        public Map<String, String> cRl;
         public int mErrCode;
         public String mErrMsg;
     }
@@ -82,11 +82,11 @@ public final class a {
     }
 
     public static String dD(Context context) {
-        return !ayb() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !axY() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
     public static String dE(Context context) {
-        if (com.baidu.swan.apps.ae.b.IX() == null) {
+        if (com.baidu.swan.apps.ae.b.IV() == null) {
             return "";
         }
         TreeSet treeSet = new TreeSet();
@@ -95,12 +95,12 @@ public final class a {
     }
 
     public static String bl(Context context) {
-        return !ayb() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !axY() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String l(Context context, String str, String str2) {
-        return !ayb() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !axY() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     public static Map<String, String> a(Context context, @NonNull Set<String> set) {
@@ -150,19 +150,19 @@ public final class a {
             aVar.D(null);
             return;
         }
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX == null) {
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        if (IV == null) {
             aVar.D(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a BR = IX.BR();
-        if (BR == null) {
+        com.baidu.swan.apps.process.messaging.client.a BP = IV.BP();
+        if (BP == null) {
             aVar.D(null);
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putStringArray("key_param_tpl_list", strArr);
-        BR.a(bundle, d.class, new com.baidu.swan.apps.process.b.b.c.b() { // from class: com.baidu.tieba.aiapps.apps.a.a.1
+        BP.a(bundle, d.class, new com.baidu.swan.apps.process.b.b.c.b() { // from class: com.baidu.tieba.aiapps.apps.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.b.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.b.b.a.b bVar) {
@@ -189,17 +189,17 @@ public final class a {
     }
 
     public static void a(Context context, final com.baidu.swan.apps.an.c.a<Bundle> aVar, @Nullable String... strArr) {
-        if (!ayb()) {
+        if (!axY()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         a(new InterfaceC0260a() { // from class: com.baidu.tieba.aiapps.apps.a.a.3
             @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.cRj == null) {
+                if (bVar.mErrCode != 0 || bVar.cRl == null) {
                     com.baidu.swan.apps.an.c.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.cRj.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.cRl.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -231,11 +231,11 @@ public final class a {
                 if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRj = getTplStokenResult.tplStokenMap;
+                        bVar.cRl = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRi = getTplStokenResult.failureType.name();
+                            bVar.cRk = getTplStokenResult.failureType.name();
                         }
                     }
                     InterfaceC0260a.this.a(bVar);
@@ -248,11 +248,11 @@ public final class a {
                 if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRj = getTplStokenResult.tplStokenMap;
+                        bVar.cRl = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRi = getTplStokenResult.failureType.name();
+                            bVar.cRk = getTplStokenResult.failureType.name();
                         }
                     }
                     InterfaceC0260a.this.b(bVar);
@@ -281,7 +281,7 @@ public final class a {
     }
 
     public static boolean bk(Context context) {
-        if (ayb()) {
+        if (axY()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -313,14 +313,14 @@ public final class a {
                     }
                     int i = delegateResult.mResult.getInt("result_code", -1);
                     com.baidu.swan.apps.a.a.this.onResult(i);
-                    a.lG(i);
+                    a.lF(i);
                 }
             }
         });
     }
 
     public static void b(Activity activity, String str, final com.baidu.swan.apps.a.a aVar) {
-        if (!ayb()) {
+        if (!axY()) {
             aVar.onResult(-1);
             return;
         }
@@ -340,22 +340,22 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void lG(int i) {
+    public static void lF(int i) {
         boolean z = i == 0;
         String str = "";
-        com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX != null) {
-            str = IX.getAppKey();
+        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
+        if (IV != null) {
+            str = IV.getAppKey();
         }
         com.baidu.swan.apps.statistic.c.f(z, str);
     }
 
-    private static boolean ayb() {
+    private static boolean axY() {
         return ProcessUtils.isMainProcess();
     }
 
     public static void a(String str, final c.a aVar) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.u.a.CV().Dt()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.tieba.aiapps.apps.a.a.7
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.u.a.CT().Dr()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.tieba.aiapps.apps.a.a.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -390,11 +390,11 @@ public final class a {
         });
     }
 
-    public static CookieManager Dp() {
-        if (cRd == null) {
-            synchronized (cRe) {
-                if (cRd == null) {
-                    cRd = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
+    public static CookieManager Dn() {
+        if (cRf == null) {
+            synchronized (cRg) {
+                if (cRf == null) {
+                    cRf = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
                         @Override // com.baidu.searchbox.http.cookie.CookieManager
                         public boolean shouldAcceptCookie(String str, String str2) {
                             return true;
@@ -446,7 +446,7 @@ public final class a {
                 }
             }
         }
-        return cRd;
+        return cRf;
     }
 
     public static void a(final Activity activity, JSONObject jSONObject) {
@@ -471,12 +471,12 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(final Activity activity, String str, String str2) {
-        new e.a(activity).d(str).gd(str2).a(new com.baidu.swan.apps.view.b.a()).bR(true).c(activity.getString(d.j.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.a.2
+        new e.a(activity).d(str).ge(str2).a(new com.baidu.swan.apps.view.b.a()).bR(true).c(activity.getString(d.j.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.c(activity, "key_login_source", (com.baidu.swan.apps.a.a) null);
             }
-        }).d(activity.getString(d.j.aiapps_login_refuse), null).Iu();
+        }).d(activity.getString(d.j.aiapps_login_refuse), null).Is();
     }
 
     public static void c(Activity activity, String str, com.baidu.swan.apps.a.a aVar) {
