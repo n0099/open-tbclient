@@ -52,7 +52,7 @@ public class d extends y {
         if (DEBUG) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
-        uy.ea("navigateBack").A(com.baidu.swan.apps.core.c.e.aqP, com.baidu.swan.apps.core.c.e.aqO).ch(optInt).commit();
+        uy.ea("navigateBack").A(com.baidu.swan.apps.core.c.e.aqQ, com.baidu.swan.apps.core.c.e.aqP).ch(optInt).commit();
         if (!(uy.yN() instanceof com.baidu.swan.apps.core.c.d)) {
             com.baidu.swan.apps.console.c.e("navigateBack", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);

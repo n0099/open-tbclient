@@ -49,7 +49,7 @@ public class h {
             com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) t;
             return a(aVar, t, fVar.md5, fVar.downloadUrl);
         } else if (t instanceof com.baidu.swan.pms.model.h) {
-            com.baidu.swan.pms.model.g gVar = ((com.baidu.swan.pms.model.h) t).bmb;
+            com.baidu.swan.pms.model.g gVar = ((com.baidu.swan.pms.model.h) t).bmc;
             return a(aVar, t, gVar.md5, gVar.downloadUrl);
         } else {
             return false;

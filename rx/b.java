@@ -1,7 +1,7 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b jUp = new b(new a() { // from class: rx.b.1
+    static final b jUq = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
@@ -10,7 +10,7 @@ public class b {
             cVar.onCompleted();
         }
     }, false);
-    static final b jUq = new b(new a() { // from class: rx.b.2
+    static final b jUr = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
@@ -18,7 +18,7 @@ public class b {
             cVar.onSubscribe(rx.subscriptions.e.cFv());
         }
     }, false);
-    private final a jUo;
+    private final a jUp;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -55,11 +55,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.jUo = rx.c.c.b(aVar);
+        this.jUp = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.jUo = z ? rx.c.c.b(aVar) : aVar;
+        this.jUp = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final k cDr() {
@@ -93,7 +93,7 @@ public class b {
     public final void a(c cVar) {
         requireNonNull(cVar);
         try {
-            rx.c.c.b(this, this.jUo).call(cVar);
+            rx.c.c.b(this, this.jUp).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

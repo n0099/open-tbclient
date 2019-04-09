@@ -14,8 +14,8 @@ import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> bFj;
-    private static HashMap<DefaultIcon, Integer> bFk = new HashMap<>(2);
+    private static SoftReference<Toast> bFk;
+    private static HashMap<DefaultIcon, Integer> bFl = new HashMap<>(2);
     private Toast Gu;
     private final Context mContext;
     private final ImageView mIconView;
@@ -37,9 +37,9 @@ public class BdToast {
     }
 
     static {
-        bFk.put(DefaultIcon.SUCCESS, Integer.valueOf(d.f.icon_unite_pass));
-        bFk.put(DefaultIcon.FAILURE, Integer.valueOf(d.f.icon_unite_lose));
-        bFk.put(DefaultIcon.NOT, 0);
+        bFl.put(DefaultIcon.SUCCESS, Integer.valueOf(d.f.icon_unite_pass));
+        bFl.put(DefaultIcon.FAILURE, Integer.valueOf(d.f.icon_unite_lose));
+        bFl.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
@@ -119,10 +119,10 @@ public class BdToast {
     }
 
     private void abd() {
-        if (bFj != null && bFj.get() != null) {
-            bFj.get().cancel();
+        if (bFk != null && bFk.get() != null) {
+            bFk.get().cancel();
         }
-        bFj = new SoftReference<>(this.Gu);
+        bFk = new SoftReference<>(this.Gu);
     }
 
     private void gQ(int i) {
@@ -160,10 +160,10 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).h(charSequence).gM(bFk.get(defaultIcon).intValue()).abc();
+        return new BdToast(context).h(charSequence).gM(bFl.get(defaultIcon).intValue()).abc();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).h(charSequence).gM(bFk.get(defaultIcon).intValue()).gO(i).abc();
+        return new BdToast(context).h(charSequence).gM(bFl.get(defaultIcon).intValue()).gO(i).abc();
     }
 }

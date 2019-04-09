@@ -26,9 +26,9 @@ public class AppleDataReferenceBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleDataReferenceBox.java", AppleDataReferenceBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 67);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 71);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 67);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 71);
     }
 
     public AppleDataReferenceBox() {

@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SubPackageProviderProxy extends ContentProvider {
-    private volatile b auM;
+    private volatile b auN;
 
     private b AU() {
-        if (this.auM == null) {
+        if (this.auN == null) {
             synchronized (b.class) {
-                if (this.auM == null) {
-                    this.auM = new b(getContext());
+                if (this.auN == null) {
+                    this.auN = new b(getContext());
                 }
             }
         }
-        return this.auM;
+        return this.auN;
     }
 
     @Override // android.content.ContentProvider

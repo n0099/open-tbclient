@@ -26,29 +26,29 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a bQN;
         final a bQO;
-        final int bQP;
+        final a bQP;
+        final int bQQ;
 
         private b(a aVar) {
-            this.bQN = aVar.bQN;
             this.bQO = aVar.bQO;
             this.bQP = aVar.bQP;
+            this.bQQ = aVar.bQQ;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a bQN = null;
             private a bQO = null;
-            private int bQP = -1;
+            private a bQP = null;
+            private int bQQ = -1;
 
             public a b(a aVar) {
-                this.bQN = aVar;
+                this.bQO = aVar;
                 return this;
             }
 
             public a hO(int i) {
-                this.bQP = i;
+                this.bQQ = i;
                 return this;
             }
 
@@ -73,51 +73,51 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class a {
-        String alN;
-        View.OnClickListener bQM;
+        String alO;
+        View.OnClickListener bQN;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.alN = str;
-            this.bQM = onClickListener;
+            this.alO = str;
+            this.bQN = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int aME;
-        final int bQK;
-        final ImgType bQQ;
+        final int aMF;
+        final int bQL;
+        final ImgType bQR;
         final int mHeight;
         final int mWidth;
 
         private c(a aVar) {
-            this.bQQ = aVar.bQQ;
-            this.aME = aVar.aME;
-            this.bQK = aVar.bQK;
+            this.bQR = aVar.bQR;
+            this.aMF = aVar.aMF;
+            this.bQL = aVar.bQL;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType bQQ = ImgType.NONE;
-            private int aME = -1;
-            private int bQK = -1;
+            private ImgType bQR = ImgType.NONE;
+            private int aMF = -1;
+            private int bQL = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.bQQ = imgType;
+                this.bQR = imgType;
                 return this;
             }
 
             public a hP(int i) {
-                this.aME = i;
+                this.aMF = i;
                 return this;
             }
 
             public a hQ(int i) {
-                this.bQK = i;
+                this.bQL = i;
                 return this;
             }
 
@@ -162,27 +162,27 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class d {
-        final String bQR;
-        final int bQS;
+        final String bQS;
         final int bQT;
-        final String byn;
+        final int bQU;
+        final String byo;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.byn = aVar.byn;
-            this.bQR = aVar.bQR;
-            this.bQS = aVar.bQU;
-            this.bQT = aVar.bQT;
+            this.byo = aVar.byo;
+            this.bQS = aVar.bQS;
+            this.bQT = aVar.bQV;
+            this.bQU = aVar.bQU;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String byn = null;
-            private String bQR = null;
-            private int bQU = -1;
-            private int bQT = 0;
+            private String byo = null;
+            private String bQS = null;
+            private int bQV = -1;
+            private int bQU = 0;
 
             public a nq(String str) {
                 this.mTitle = str;
@@ -190,12 +190,12 @@ public class NoDataViewFactory {
             }
 
             public a nr(String str) {
-                this.byn = str;
+                this.byo = str;
                 return this;
             }
 
             public a hU(int i) {
-                this.bQU = i;
+                this.bQV = i;
                 return this;
             }
 

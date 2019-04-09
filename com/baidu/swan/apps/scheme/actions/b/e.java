@@ -11,8 +11,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends b {
-    private static final String aPQ = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String aPR = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String aPR = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String aPS = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swan/getFavor");
@@ -46,9 +46,9 @@ public class e extends b {
             jSONObject.put("title", aVar.name);
             jSONObject.put("frameType", aVar.category);
             if (aVar.category == 1) {
-                str = String.format(aPR, aVar.appId);
+                str = String.format(aPS, aVar.appId);
             } else {
-                str = aPQ + aVar.appId + "\"}";
+                str = aPR + aVar.appId + "\"}";
             }
             jSONObject.put("scheme", str);
         } catch (JSONException e) {

@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cHz = new SparseArray<>();
-    private Object cHA;
-    private int cHB;
+    private static SparseArray<BdUniqueId> cHA = new SparseArray<>();
+    private Object cHB;
+    private int cHC;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cHz.get(this.cHB);
+        return cHA.get(this.cHC);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
     public Object aud() {
-        return this.cHA;
-    }
-
-    public void ah(Object obj) {
-        this.cHA = obj;
-    }
-
-    public int aue() {
         return this.cHB;
     }
 
+    public void ah(Object obj) {
+        this.cHB = obj;
+    }
+
+    public int aue() {
+        return this.cHC;
+    }
+
     public void lh(int i) {
-        this.cHB = i;
+        this.cHC = i;
     }
 
     public static void ak(List<Integer> list) {
-        if (cHz.size() <= 0 && list != null) {
+        if (cHA.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cHz.put(num.intValue(), BdUniqueId.gen());
+                cHA.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
     public static List<BdUniqueId> auf() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cHz.size(); i++) {
-            arrayList.add(cHz.valueAt(i));
+        for (int i = 0; i < cHA.size(); i++) {
+            arrayList.add(cHA.valueAt(i));
         }
         return arrayList;
     }
 
     public static int j(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cHz.size() == 0 || (indexOfValue = cHz.indexOfValue(bdUniqueId)) == -1 || cHz.size() <= indexOfValue) {
+        if (cHA.size() == 0 || (indexOfValue = cHA.indexOfValue(bdUniqueId)) == -1 || cHA.size() <= indexOfValue) {
             return -1;
         }
-        return cHz.keyAt(indexOfValue);
+        return cHA.keyAt(indexOfValue);
     }
 }

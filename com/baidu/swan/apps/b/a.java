@@ -6,14 +6,14 @@ import com.baidu.swan.apps.b.b.d;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private d ajM;
+    private d ajN;
 
     @NonNull
     public d uO() {
-        if (this.ajM == null) {
-            this.ajM = uP();
+        if (this.ajN == null) {
+            this.ajN = uP();
         }
-        return this.ajM;
+        return this.ajN;
     }
 
     public d uP() {

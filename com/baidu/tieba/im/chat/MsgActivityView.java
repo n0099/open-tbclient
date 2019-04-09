@@ -25,7 +25,7 @@ public class MsgActivityView extends g {
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, d.h.msg_msgactivity_view);
-        this.eKM = (TextView) findViewById(d.g.tex_msgitem_time);
+        this.eKN = (TextView) findViewById(d.g.tex_msgitem_time);
         this.gbf = (TextView) findViewById(d.g.msg_msgactivity_title);
         this.gbg = (TextView) findViewById(d.g.msg_msgactivity_time);
         this.gbh = (TextView) findViewById(d.g.msg_msgactivity_address);

@@ -25,9 +25,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.view.NoSwipeableViewPager;
 /* loaded from: classes5.dex */
 public class j extends com.baidu.adp.base.c {
-    private boolean aps;
+    private boolean apt;
     private String business;
-    private View csD;
+    private View csE;
     CreateGroupStepActivity geP;
     private int geT;
     CreateGroupStepAdapter gfC;
@@ -78,7 +78,7 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public View brg() {
-        return this.csD;
+        return this.csE;
     }
 
     public int brh() {
@@ -234,7 +234,7 @@ public class j extends com.baidu.adp.base.c {
 
     public j(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3, int i4) {
         super(createGroupStepActivity.getPageContext());
-        this.aps = true;
+        this.apt = true;
         this.mIsLoading = false;
         this.geP = null;
         this.gfC = null;
@@ -242,7 +242,7 @@ public class j extends com.baidu.adp.base.c {
         this.gfD = 1;
         this.mNavigationBar = null;
         this.mParent = null;
-        this.csD = null;
+        this.csE = null;
         this.gfE = null;
         this.gfF = null;
         this.gfG = 4;
@@ -284,7 +284,7 @@ public class j extends com.baidu.adp.base.c {
     }
 
     private void initListener() {
-        this.csD.setOnClickListener(this.geP);
+        this.csE.setOnClickListener(this.geP);
         this.gfE.setOnClickListener(this.geP);
         this.gfJ.bqW().setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
         this.gfJ.bqW().addTextChangedListener(this.geP);
@@ -316,7 +316,7 @@ public class j extends com.baidu.adp.base.c {
         this.gfN.setAdapter(this.gfC);
         this.mNavigationBar = (NavigationBar) createGroupStepActivity.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setSystemClickable(false);
-        this.csD = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.csE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         brF();
         this.gfE = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, createGroupStepActivity.getResources().getString(d.j.next_step));
         ((LinearLayout.LayoutParams) this.gfE.getLayoutParams()).rightMargin = com.baidu.adp.lib.util.l.h(getPageContext().getPageActivity(), d.e.ds16);
@@ -378,16 +378,16 @@ public class j extends com.baidu.adp.base.c {
     }
 
     private void kS(boolean z) {
-        this.aps = z;
+        this.apt = z;
         brA();
     }
 
     public boolean brz() {
-        return this.aps;
+        return this.apt;
     }
 
     private void brA() {
-        this.gfE.setEnabled(this.aps);
+        this.gfE.setEnabled(this.apt);
         al.k(this.gfE, d.f.s_navbar_button_bg);
     }
 

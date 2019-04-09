@@ -6,11 +6,11 @@ public class r extends com.baidu.f.d {
     }
 
     public static r csh() {
-        return a.jwl;
+        return a.jwm;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final r jwl = new r();
+        private static final r jwm = new r();
     }
 }

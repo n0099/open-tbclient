@@ -13,9 +13,9 @@ import com.baidu.swan.apps.view.container.c.c;
 /* loaded from: classes2.dex */
 public class SwanAppNAViewContainer extends FrameLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.model.a.a.a aYE;
-    private View aYF;
-    private ScrollView aYG;
+    private com.baidu.swan.apps.model.a.a.a aYF;
+    private View aYG;
+    private ScrollView aYH;
 
     public SwanAppNAViewContainer(@NonNull Context context) {
         super(context);
@@ -37,46 +37,46 @@ public class SwanAppNAViewContainer extends FrameLayout {
     public boolean MI() {
         a hN;
         boolean z = false;
-        if (this.aYE != null && (hN = aa.hN(this.aYE.aBG)) != null && (z = c.b(this, hN))) {
+        if (this.aYF != null && (hN = aa.hN(this.aYF.aBH)) != null && (z = c.b(this, hN))) {
             c.d(this, hN);
-            this.aYF = null;
+            this.aYG = null;
         }
         return z;
     }
 
     public View getNAView() {
-        return this.aYF;
+        return this.aYG;
     }
 
     public void b(com.baidu.swan.apps.model.a.a.a aVar) {
         if (aVar == null) {
-            this.aYE = null;
+            this.aYF = null;
             return;
         }
-        this.aYE = aVar.EK();
-        setHidden(this.aYE.hidden);
-        setGesture(this.aYE.aBJ);
+        this.aYF = aVar.EK();
+        setHidden(this.aYF.hidden);
+        setGesture(this.aYF.aBK);
     }
 
     public com.baidu.swan.apps.model.a.a.a getModel() {
-        return this.aYE;
+        return this.aYF;
     }
 
     public void setHidden(boolean z) {
-        (this.aYG == null ? this : this.aYG).setVisibility(z ? 8 : 0);
-        if (this.aYE != null) {
-            this.aYE.hidden = z;
+        (this.aYH == null ? this : this.aYH).setVisibility(z ? 8 : 0);
+        if (this.aYF != null) {
+            this.aYF.hidden = z;
         }
     }
 
     public void setGesture(boolean z) {
-        if (this.aYE != null) {
-            this.aYE.aBJ = z;
+        if (this.aYF != null) {
+            this.aYF.aBK = z;
             if (z) {
-                setOnTouchListener(new com.baidu.swan.apps.view.container.b.b(this.aYE.aBG, this.aYE.id, this.aYE.aBF) { // from class: com.baidu.swan.apps.view.container.SwanAppNAViewContainer.1
+                setOnTouchListener(new com.baidu.swan.apps.view.container.b.b(this.aYF.aBH, this.aYF.id, this.aYF.aBG) { // from class: com.baidu.swan.apps.view.container.SwanAppNAViewContainer.1
                     @Override // com.baidu.swan.apps.view.container.b.b, android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
-                        return SwanAppNAViewContainer.this.aYE != null && SwanAppNAViewContainer.this.aYE.aBJ && super.onTouch(view, motionEvent);
+                        return SwanAppNAViewContainer.this.aYF != null && SwanAppNAViewContainer.this.aYF.aBK && super.onTouch(view, motionEvent);
                     }
                 });
             }
@@ -84,21 +84,21 @@ public class SwanAppNAViewContainer extends FrameLayout {
     }
 
     public String getSlaveId() {
-        return this.aYE != null ? this.aYE.aBG : "No_Id";
+        return this.aYF != null ? this.aYF.aBH : "No_Id";
     }
 
     public String getViewId() {
-        return this.aYE != null ? this.aYE.id : "No_Id";
+        return this.aYF != null ? this.aYF.id : "No_Id";
     }
 
     public String getParentId() {
-        return this.aYE != null ? this.aYE.aBH : "No_Id";
+        return this.aYF != null ? this.aYF.aBI : "No_Id";
     }
 
     public void a(ViewGroup.MarginLayoutParams marginLayoutParams) {
-        if (marginLayoutParams != null && this.aYE != null && this.aYE.aBI != null) {
-            this.aYE.aBI.setLeft(marginLayoutParams.leftMargin);
-            this.aYE.aBI.setTop(marginLayoutParams.topMargin);
+        if (marginLayoutParams != null && this.aYF != null && this.aYF.aBJ != null) {
+            this.aYF.aBJ.setLeft(marginLayoutParams.leftMargin);
+            this.aYF.aBJ.setTop(marginLayoutParams.topMargin);
             setLayoutParams(marginLayoutParams);
         }
     }
@@ -106,7 +106,7 @@ public class SwanAppNAViewContainer extends FrameLayout {
     public boolean MJ() {
         a hN;
         boolean z = false;
-        if (this.aYE != null && (hN = aa.hN(this.aYE.aBG)) != null && (z = c.a(this, hN))) {
+        if (this.aYF != null && (hN = aa.hN(this.aYF.aBH)) != null && (z = c.a(this, hN))) {
             c.c(this, hN);
         }
         return z;
@@ -115,25 +115,25 @@ public class SwanAppNAViewContainer extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        this.aYF = view;
+        this.aYG = view;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        this.aYF = view;
+        this.aYG = view;
     }
 
     private void aj(View view) {
         addView(view, generateDefaultLayoutParams());
-        this.aYF = view;
+        this.aYG = view;
     }
 
     public ScrollView getScrollView() {
-        return this.aYG;
+        return this.aYH;
     }
 
     public void setScrollView(ScrollView scrollView) {
-        this.aYG = scrollView;
+        this.aYH = scrollView;
     }
 }

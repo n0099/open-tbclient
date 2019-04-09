@@ -35,7 +35,7 @@ import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class AdStatic {
-    public static boolean btN = true;
+    public static boolean btO = true;
 
     static {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.ad.browser.AdStatic.1
@@ -208,7 +208,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
         String qR = qR(str);
-        if (!qS(qR) && awC() && ji("com.baidu.searchbox") && qT(qR) && btN) {
+        if (!qS(qR) && awC() && ji("com.baidu.searchbox") && qT(qR) && btO) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;

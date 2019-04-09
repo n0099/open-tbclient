@@ -16,11 +16,11 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsPrivateCommonDialogView extends LinearLayout {
-    private LinearLayout bFy;
-    private TbImageView bNW;
+    private LinearLayout bFz;
+    private TbImageView bNX;
     private Context context;
-    private TextView eAV;
-    private TextView eKf;
+    private TextView eAW;
+    private TextView eKg;
     private TextView fbG;
     private RelativeLayout fbH;
     private TextView fbI;
@@ -50,26 +50,26 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.fbG.setVisibility(0);
         }
         if (privateForumPopInfoData.XR().equals("create_success")) {
-            this.eKf.setVisibility(0);
-            this.eKf.setText(d.j.frs_private_create_title);
+            this.eKg.setVisibility(0);
+            this.eKg.setText(d.j.frs_private_create_title);
             this.fbG.setText(d.j.frs_private_create_button);
-            com.baidu.tbadk.core.util.al.c(this.bNW, d.f.pic_frs_private_create_success);
+            com.baidu.tbadk.core.util.al.c(this.bNX, d.f.pic_frs_private_create_success);
         } else if (privateForumPopInfoData.XR().equals("left_time")) {
-            this.eKf.setVisibility(8);
+            this.eKg.setVisibility(8);
             this.fbG.setText(d.j.frs_private_create_button);
-            com.baidu.tbadk.core.util.al.c(this.bNW, d.f.pic_frs_private_target_remind);
+            com.baidu.tbadk.core.util.al.c(this.bNX, d.f.pic_frs_private_target_remind);
         } else if (privateForumPopInfoData.XR().equals("clear_forum")) {
-            this.eKf.setVisibility(8);
+            this.eKg.setVisibility(8);
             this.fbG.setText(d.j.frs_private_fail_button);
-            com.baidu.tbadk.core.util.al.c(this.bNW, d.f.pic_frs_private_target_fail);
+            com.baidu.tbadk.core.util.al.c(this.bNX, d.f.pic_frs_private_target_fail);
         } else if (!privateForumPopInfoData.XR().equals("task_complete")) {
             return false;
         } else {
-            this.eKf.setVisibility(0);
-            this.eKf.setText(d.j.frs_private_success_title);
-            com.baidu.tbadk.core.util.al.c(this.bNW, d.f.pic_frs_private_target_success);
+            this.eKg.setVisibility(0);
+            this.eKg.setText(d.j.frs_private_success_title);
+            com.baidu.tbadk.core.util.al.c(this.bNX, d.f.pic_frs_private_target_success);
         }
-        this.eAV.setText(privateForumPopInfoData.XS());
+        this.eAW.setText(privateForumPopInfoData.XS());
         return true;
     }
 
@@ -81,20 +81,20 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
 
     private void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_private_common_dialog, this);
-        this.bFy = (LinearLayout) findViewById(d.g.frs_private_common);
-        this.bNW = (TbImageView) this.bFy.findViewById(d.g.frs_private_common_image);
-        this.eKf = (TextView) this.bFy.findViewById(d.g.frs_private_common_title);
-        this.eAV = (TextView) this.bFy.findViewById(d.g.frs_private_common_hint);
-        this.fbG = (TextView) this.bFy.findViewById(d.g.frs_private_common_button);
-        this.fbH = (RelativeLayout) this.bFy.findViewById(d.g.frs_private_common_tips);
-        this.fbI = (TextView) this.bFy.findViewById(d.g.frs_private_center_tip);
-        this.fbJ = (TextView) this.bFy.findViewById(d.g.frs_private_left_tip);
-        this.fbK = (TextView) this.bFy.findViewById(d.g.frs_private_right_tip);
-        setImageAttribute(this.bNW);
+        this.bFz = (LinearLayout) findViewById(d.g.frs_private_common);
+        this.bNX = (TbImageView) this.bFz.findViewById(d.g.frs_private_common_image);
+        this.eKg = (TextView) this.bFz.findViewById(d.g.frs_private_common_title);
+        this.eAW = (TextView) this.bFz.findViewById(d.g.frs_private_common_hint);
+        this.fbG = (TextView) this.bFz.findViewById(d.g.frs_private_common_button);
+        this.fbH = (RelativeLayout) this.bFz.findViewById(d.g.frs_private_common_tips);
+        this.fbI = (TextView) this.bFz.findViewById(d.g.frs_private_center_tip);
+        this.fbJ = (TextView) this.bFz.findViewById(d.g.frs_private_left_tip);
+        this.fbK = (TextView) this.bFz.findViewById(d.g.frs_private_right_tip);
+        setImageAttribute(this.bNX);
         setTextAttribute(Arrays.asList(this.fbI, this.fbJ, this.fbK));
-        com.baidu.tbadk.core.util.al.k(this.bFy, d.f.bg_frs_private_dialog);
-        com.baidu.tbadk.core.util.al.j(this.eKf, d.C0277d.cp_cont_b);
-        com.baidu.tbadk.core.util.al.j(this.eAV, d.C0277d.cp_cont_j);
+        com.baidu.tbadk.core.util.al.k(this.bFz, d.f.bg_frs_private_dialog);
+        com.baidu.tbadk.core.util.al.j(this.eKg, d.C0277d.cp_cont_b);
+        com.baidu.tbadk.core.util.al.j(this.eAW, d.C0277d.cp_cont_j);
         com.baidu.tbadk.core.util.al.g(this.fbG, d.f.btn_frs_private_n, d.f.btn_frs_private_s);
         com.baidu.tbadk.core.util.al.j(this.fbG, d.C0277d.cp_btn_a);
     }
@@ -117,7 +117,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         } else {
             aO = com.baidu.adp.lib.util.l.aO(this.context) - (h * 2);
         }
-        ViewGroup.LayoutParams layoutParams = this.bNW.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bNX.getLayoutParams();
         layoutParams.width = aO;
         layoutParams.height = (aO * 21) / 38;
         tbImageView.setLayoutParams(layoutParams);

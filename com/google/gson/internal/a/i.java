@@ -15,20 +15,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class i implements p {
-    private final d jMG;
-    private final com.google.gson.internal.b jMy;
-    private final com.google.gson.internal.c jMz;
-    private final com.google.gson.c jOn;
+    private final com.google.gson.internal.c jMA;
+    private final d jMH;
+    private final com.google.gson.internal.b jMz;
+    private final com.google.gson.c jOo;
 
     public i(com.google.gson.internal.b bVar, com.google.gson.c cVar, com.google.gson.internal.c cVar2, d dVar) {
-        this.jMy = bVar;
-        this.jOn = cVar;
-        this.jMz = cVar2;
-        this.jMG = dVar;
+        this.jMz = bVar;
+        this.jOo = cVar;
+        this.jMA = cVar2;
+        this.jMH = dVar;
     }
 
     public boolean a(Field field, boolean z) {
-        return a(field, z, this.jMz);
+        return a(field, z, this.jMA);
     }
 
     static boolean a(Field field, boolean z, com.google.gson.internal.c cVar) {
@@ -38,7 +38,7 @@ public final class i implements p {
     private List<String> a(Field field) {
         com.google.gson.a.c cVar = (com.google.gson.a.c) field.getAnnotation(com.google.gson.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.jOn.translateName(field));
+            return Collections.singletonList(this.jOo.translateName(field));
         }
         String value = cVar.value();
         String[] cBc = cVar.cBc();
@@ -59,7 +59,7 @@ public final class i implements p {
         if (!Object.class.isAssignableFrom(cBC)) {
             return null;
         }
-        return new a(this.jMy.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) cBC));
+        return new a(this.jMz.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) cBC));
     }
 
     private b a(final com.google.gson.d dVar, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
@@ -67,7 +67,7 @@ public final class i implements p {
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final o<?> oVar = null;
         if (bVar != null) {
-            oVar = this.jMG.a(this.jMy, dVar, aVar, bVar);
+            oVar = this.jMH.a(this.jMz, dVar, aVar, bVar);
         }
         final boolean z3 = oVar != null;
         if (oVar == null) {
@@ -89,7 +89,7 @@ public final class i implements p {
 
             @Override // com.google.gson.internal.a.i.b
             public boolean be(Object obj) throws IOException, IllegalAccessException {
-                return this.jOw && field.get(obj) != obj;
+                return this.jOx && field.get(obj) != obj;
             }
         };
     }
@@ -137,8 +137,8 @@ public final class i implements p {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class b {
-        final boolean jOw;
         final boolean jOx;
+        final boolean jOy;
         final String name;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
@@ -149,19 +149,19 @@ public final class i implements p {
 
         protected b(String str, boolean z, boolean z2) {
             this.name = str;
-            this.jOw = z;
-            this.jOx = z2;
+            this.jOx = z;
+            this.jOy = z2;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends o<T> {
-        private final com.google.gson.internal.e<T> jNV;
-        private final Map<String, b> jOv;
+        private final com.google.gson.internal.e<T> jNW;
+        private final Map<String, b> jOw;
 
         a(com.google.gson.internal.e<T> eVar, Map<String, b> map) {
-            this.jNV = eVar;
-            this.jOv = map;
+            this.jNW = eVar;
+            this.jOw = map;
         }
 
         @Override // com.google.gson.o
@@ -170,12 +170,12 @@ public final class i implements p {
                 aVar.nextNull();
                 return null;
             }
-            T cBe = this.jNV.cBe();
+            T cBe = this.jNW.cBe();
             try {
                 aVar.beginObject();
                 while (aVar.hasNext()) {
-                    b bVar = this.jOv.get(aVar.nextName());
-                    if (bVar == null || !bVar.jOx) {
+                    b bVar = this.jOw.get(aVar.nextName());
+                    if (bVar == null || !bVar.jOy) {
                         aVar.skipValue();
                     } else {
                         bVar.a(aVar, cBe);
@@ -198,7 +198,7 @@ public final class i implements p {
             }
             bVar.cBz();
             try {
-                for (b bVar2 : this.jOv.values()) {
+                for (b bVar2 : this.jOw.values()) {
                     if (bVar2.be(t)) {
                         bVar.FG(bVar2.name);
                         bVar2.a(bVar, t);

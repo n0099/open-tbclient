@@ -37,11 +37,11 @@ import tbclient.FrsTabInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
 public class FrsTabHostFragment extends BaseFragment {
-    private FrameLayout bfJ;
-    private BaseFragmentActivity cYJ;
-    private com.baidu.tieba.ueg.c eCr;
-    private FrsTabController eXM;
-    private OvalActionButton eYF;
+    private FrameLayout bfK;
+    private BaseFragmentActivity cYK;
+    private com.baidu.tieba.ueg.c eCs;
+    private FrsTabController eXN;
+    private OvalActionButton eYG;
     private ab fcb;
     private FrsFragment fcc;
     private com.baidu.tieba.tbadkCore.j fcd;
@@ -91,7 +91,7 @@ public class FrsTabHostFragment extends BaseFragment {
     };
 
     public FrsTabHostFragment(FrsTabController frsTabController) {
-        this.eXM = frsTabController;
+        this.eXN = frsTabController;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -102,28 +102,28 @@ public class FrsTabHostFragment extends BaseFragment {
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.cYJ = (BaseFragmentActivity) getActivity();
+        this.cYK = (BaseFragmentActivity) getActivity();
         bdX();
         if (this.mTabHost == null) {
-            this.mTabHost = new FragmentTabHost(this.cYJ);
+            this.mTabHost = new FragmentTabHost(this.cYK);
             this.mTabHost.setClipChildren(false);
             this.mTabHost.setClipToPadding(false);
             this.mTabHost.setup(getChildFragmentManager());
             this.mTabHost.getFragmentTabWidget().setAbsoluteWeight(true);
             this.mTabHost.setTabContainerShadowShow(true);
-            this.bfJ = new FrameLayout(this.cYJ.getActivity());
-            this.bfJ.setClipChildren(false);
-            this.bfJ.setClipToPadding(false);
-            this.bfJ.addView(this.mTabHost);
+            this.bfK = new FrameLayout(this.cYK.getActivity());
+            this.bfK.setClipChildren(false);
+            this.bfK.setClipToPadding(false);
+            this.bfK.addView(this.mTabHost);
             this.mTabHost.setOnTabSelectionListener(bdY());
         }
-        return this.bfJ;
+        return this.bfK;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
-        this.eCr = new com.baidu.tieba.ueg.c(this.cYJ.getPageContext());
-        this.fci = new com.baidu.tieba.frs.profession.permission.c(this.cYJ.getPageContext());
+        this.eCs = new com.baidu.tieba.ueg.c(this.cYK.getPageContext());
+        this.fci = new com.baidu.tieba.frs.profession.permission.c(this.cYK.getPageContext());
         this.fci.a(this.fcj);
         super.onActivityCreated(bundle);
     }
@@ -152,12 +152,12 @@ public class FrsTabHostFragment extends BaseFragment {
                         com.baidu.tbadk.mainTab.b bVar = bca.get(i);
                         if (bVar != null) {
                             FrsTabInfo frsTabInfo = beo.get(i);
-                            a(bVar, bVar.anH(), bVar.di(this.cYJ.getActivity()), frsTabInfo != null ? frsTabInfo.tab_name : "");
+                            a(bVar, bVar.anH(), bVar.di(this.cYK.getActivity()), frsTabInfo != null ? frsTabInfo.tab_name : "");
                         }
                     }
                 } else {
                     for (com.baidu.tbadk.mainTab.b bVar2 : bca) {
-                        a(bVar2, bVar2.anH(), bVar2.di(this.cYJ.getActivity()), null);
+                        a(bVar2, bVar2.anH(), bVar2.di(this.cYK.getActivity()), null);
                     }
                 }
                 this.mTabHost.gX(2);
@@ -174,15 +174,15 @@ public class FrsTabHostFragment extends BaseFragment {
                 }
                 this.fce = qf;
                 this.fcf = qf;
-                this.eXM.qk(this.fce);
-                this.eXM.qO(this.fcf);
+                this.eXN.qk(this.fce);
+                this.eXN.qO(this.fcf);
                 this.mTabHost.setCurrentTab(qf);
                 int qh = qh(qf);
                 if (qh != 1 && this.fcc != null) {
                     this.fcc.iX(false);
                     if (qh != 4) {
                         this.fcc.iW(false);
-                        this.eYF.setVisibility(8);
+                        this.eYG.setVisibility(8);
                         this.fcc.bcN();
                     }
                 }
@@ -205,30 +205,30 @@ public class FrsTabHostFragment extends BaseFragment {
             ForumData forum = this.fcd.getForum();
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             bVar2.mType = cVar.type;
-            bVar2.bHY = cVar.cof;
-            if (bVar2.bHY.getArguments() == null) {
+            bVar2.bHZ = cVar.cog;
+            if (bVar2.bHZ.getArguments() == null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("name", forum.getName());
                 bundle.putString("from", forum.getSpecialForumType());
                 bundle.putString(ImageViewerConfig.FORUM_ID, forum.getId());
                 bundle.putString(ImageViewerConfig.FORUM_NAME, forum.getName());
                 bundle.putBoolean(FrsActivityConfig.FRS_CREATE_WITH_GAME, true);
-                bVar2.bHY.setArguments(bundle);
+                bVar2.bHZ.setArguments(bundle);
             } else {
-                bVar2.bHY.getArguments().putString(ImageViewerConfig.FORUM_ID, forum.getId());
-                bVar2.bHY.getArguments().putString(ImageViewerConfig.FORUM_NAME, forum.getName());
-                bVar2.bHY.getArguments().putBoolean(FrsActivityConfig.FRS_CREATE_WITH_GAME, true);
+                bVar2.bHZ.getArguments().putString(ImageViewerConfig.FORUM_ID, forum.getId());
+                bVar2.bHZ.getArguments().putString(ImageViewerConfig.FORUM_NAME, forum.getName());
+                bVar2.bHZ.getArguments().putBoolean(FrsActivityConfig.FRS_CREATE_WITH_GAME, true);
             }
-            tbFragmentTabIndicator.setContentTvTopMargin(com.baidu.adp.lib.util.l.h(this.cYJ, d.e.tbds2));
-            tbFragmentTabIndicator.setIconResourceId(cVar.bOh);
-            tbFragmentTabIndicator.setTextSize(0, com.baidu.adp.lib.util.l.h(this.cYJ.getActivity(), d.e.tbds40));
-            if (cVar.col == com.baidu.tbadk.mainTab.c.coh && cVar.type == 99) {
-                tbFragmentTabIndicator.setIconViewWithoutText(com.baidu.adp.lib.util.l.h(this.cYJ, d.e.ds96), com.baidu.adp.lib.util.l.h(this.cYJ.getActivity(), d.e.tbds12));
+            tbFragmentTabIndicator.setContentTvTopMargin(com.baidu.adp.lib.util.l.h(this.cYK, d.e.tbds2));
+            tbFragmentTabIndicator.setIconResourceId(cVar.bOi);
+            tbFragmentTabIndicator.setTextSize(0, com.baidu.adp.lib.util.l.h(this.cYK.getActivity(), d.e.tbds40));
+            if (cVar.f5com == com.baidu.tbadk.mainTab.c.coi && cVar.type == 99) {
+                tbFragmentTabIndicator.setIconViewWithoutText(com.baidu.adp.lib.util.l.h(this.cYK, d.e.ds96), com.baidu.adp.lib.util.l.h(this.cYK.getActivity(), d.e.tbds12));
             }
             if (!TextUtils.isEmpty(str)) {
                 tbFragmentTabIndicator.setText(str);
             } else {
-                tbFragmentTabIndicator.setText(cVar.bOg);
+                tbFragmentTabIndicator.setText(cVar.bOh);
             }
             tbFragmentTabIndicator.ii(TbadkCoreApplication.getInst().getSkinType());
             tbFragmentTabIndicator.setTipPosType(1);
@@ -237,14 +237,14 @@ public class FrsTabHostFragment extends BaseFragment {
             tbFragmentTabIndicator.setContentDefaultTextSize(getResources().getDimension(d.e.tbds40));
             tbFragmentTabIndicator.setContentSelectTextColor(com.baidu.tbadk.core.util.al.getColor(d.C0277d.cp_cont_b));
             tbFragmentTabIndicator.setContentDefaultTextColor(com.baidu.tbadk.core.util.al.getColor(d.C0277d.cp_cont_j));
-            if (cVar.col != com.baidu.tbadk.mainTab.c.coh || cVar.type != 99) {
+            if (cVar.f5com != com.baidu.tbadk.mainTab.c.coi || cVar.type != 99) {
                 z = false;
             }
             if (!z && (tbFragmentTabIndicator instanceof FragmentTabIndicator)) {
                 tbFragmentTabIndicator.a(String.valueOf(bVar2.mType), c((FragmentTabIndicator) tbFragmentTabIndicator));
             }
-            bVar2.bHX = tbFragmentTabIndicator;
-            bVar2.bHZ = bVar;
+            bVar2.bHY = tbFragmentTabIndicator;
+            bVar2.bIa = bVar;
             this.mTabHost.a(bVar2);
         }
     }
@@ -264,14 +264,14 @@ public class FrsTabHostFragment extends BaseFragment {
                     if (FrsTabHostFragment.this.fcc != null) {
                         FrsTabHostFragment.this.fcc.iW(true);
                     }
-                    FrsTabHostFragment.this.eYF.setVisibility(0);
+                    FrsTabHostFragment.this.eYG.setVisibility(0);
                     return;
                 }
                 if (qh != 4) {
                     if (FrsTabHostFragment.this.fcc != null) {
                         FrsTabHostFragment.this.fcc.iW(false);
                     }
-                    FrsTabHostFragment.this.eYF.setVisibility(8);
+                    FrsTabHostFragment.this.eYG.setVisibility(8);
                     FrsTabHostFragment.this.beg();
                 }
                 if (FrsTabHostFragment.this.fcc != null) {
@@ -290,41 +290,41 @@ public class FrsTabHostFragment extends BaseFragment {
                     }
                     FrsTabHostFragment.this.a(gZ, str);
                     if (gZ.mType == 5 && !TbadkCoreApplication.isLogin()) {
-                        bc.cY(FrsTabHostFragment.this.cYJ.getPageContext().getPageActivity());
+                        bc.cY(FrsTabHostFragment.this.cYK.getPageContext().getPageActivity());
                         return false;
                     }
-                    if (gZ.bHX != null) {
-                        gZ.bHX.anI();
+                    if (gZ.bHY != null) {
+                        gZ.bHY.anI();
                     }
-                    if (gZ.bHX.pr(String.valueOf(gZ.mType)) != null) {
-                        if (!(gZ.bHX.pr(String.valueOf(gZ.mType)).view.getVisibility() == 0)) {
+                    if (gZ.bHY.pr(String.valueOf(gZ.mType)) != null) {
+                        if (!(gZ.bHY.pr(String.valueOf(gZ.mType)).view.getVisibility() == 0)) {
                             if (FrsTabHostFragment.this.fcf == i) {
                                 FrsTabHostFragment.this.b(gZ);
                             }
                         } else {
-                            gZ.bHX.pr(String.valueOf(gZ.mType)).view.setVisibility(8);
+                            gZ.bHY.pr(String.valueOf(gZ.mType)).view.setVisibility(8);
                             FrsTabHostFragment.this.b(gZ);
                         }
                     }
                     FrsTabHostFragment.this.fcf = i;
                     return true;
                 }
-                ba.adA().a((TbPageContext<?>) FrsTabHostFragment.this.cYJ.getPageContext(), new String[]{qg.tab_url}, true);
+                ba.adA().a((TbPageContext<?>) FrsTabHostFragment.this.cYK.getPageContext(), new String[]{qg.tab_url}, true);
                 return false;
             }
         };
     }
 
     private TbFragmentTabIndicator.a c(FragmentTabIndicator fragmentTabIndicator) {
-        int dimensionPixelSize = this.cYJ.getResources().getDimensionPixelSize(d.e.ds12);
-        ImageView imageView = new ImageView(this.cYJ);
+        int dimensionPixelSize = this.cYK.getResources().getDimensionPixelSize(d.e.ds12);
+        ImageView imageView = new ImageView(this.cYK);
         imageView.setLayoutParams(new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
         imageView.setImageResource(d.f.icon_frs_tab_new_notify_red_point);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         fragmentTabIndicator.setTipPosType(1);
-        fragmentTabIndicator.setTipTopMargin(this.cYJ.getResources().getDimensionPixelSize(d.e.ds12));
-        aVar.coC = fragmentTabIndicator;
-        aVar.Cc = this.cYJ.getResources().getDimensionPixelSize(d.e.ds12);
+        fragmentTabIndicator.setTipTopMargin(this.cYK.getResources().getDimensionPixelSize(d.e.ds12));
+        aVar.coD = fragmentTabIndicator;
+        aVar.Cc = this.cYK.getResources().getDimensionPixelSize(d.e.ds12);
         aVar.view = imageView;
         aVar.view.setVisibility(8);
         return aVar;
@@ -371,7 +371,7 @@ public class FrsTabHostFragment extends BaseFragment {
         NavigationBar aDm;
         if ((fragment instanceof ah) && this.fcd != null && this.fcd.getForum() != null && (aDm = ((ah) fragment).aDm()) != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.fcd.getForum().getName(), 5, true, true) + this.cYJ.getActivity().getString(d.j.forum));
+            sb.append(UtilHelper.getFixedBarText(this.fcd.getForum().getName(), 5, true, true) + this.cYK.getActivity().getString(d.j.forum));
             aDm.setCenterTextTitle(sb.toString());
         }
     }
@@ -448,11 +448,11 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public int bea() {
-        return TbadkCoreApplication.getInst().getSkinType() == 1 ? this.cYJ.getResources().getColor(d.C0277d.cp_bg_line_d_1) : this.cYJ.getResources().getColor(d.C0277d.cp_bg_line_d);
+        return TbadkCoreApplication.getInst().getSkinType() == 1 ? this.cYK.getResources().getColor(d.C0277d.cp_bg_line_d_1) : this.cYK.getResources().getColor(d.C0277d.cp_bg_line_d);
     }
 
     public void beb() {
-        if (bc.cZ(this.cYJ) && !this.eCr.cio() && !bee()) {
+        if (bc.cZ(this.cYK) && !this.eCs.cio() && !bee()) {
             if (this.fcc.bcq().rz(502) != null) {
                 this.fci.az(this.fcc.getForumId(), this.fcc.bcq().bjs().tabId);
             } else {
@@ -465,7 +465,7 @@ public class FrsTabHostFragment extends BaseFragment {
     public void qj(int i) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921032));
         if (this.fcg == null) {
-            this.fcg = new com.baidu.tieba.write.e(this.cYJ.getPageContext(), this.bfJ, "frs");
+            this.fcg = new com.baidu.tieba.write.e(this.cYK.getPageContext(), this.bfK, "frs");
             this.fcg.Ek("2");
         }
         ForumWriteData bcS = this.fcc.bcS();
@@ -473,8 +473,8 @@ public class FrsTabHostFragment extends BaseFragment {
         this.fcg.AW(i == 1 ? d.f.btn_frs_professional_edit_n : 0);
         this.fcg.a(bcS);
         this.fcg.AV(bea());
-        UtilHelper.setNavigationBarBackground(this.cYJ, bea());
-        this.fcg.a(false, null, this.eYF);
+        UtilHelper.setNavigationBarBackground(this.cYK, bea());
+        this.fcg.a(false, null, this.eYG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -603,7 +603,7 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public void b(OvalActionButton ovalActionButton) {
-        this.eYF = ovalActionButton;
+        this.eYG = ovalActionButton;
         ovalActionButton.setOnClickListener(this.mOnClickListener);
     }
 

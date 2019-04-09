@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class e {
     public static com.baidu.swan.apps.media.audio.b a(f fVar) {
         com.baidu.swan.apps.media.audio.b bVar = new com.baidu.swan.apps.media.audio.b();
-        bVar.azv = fVar.azv;
-        bVar.azF = fVar.autoplay;
+        bVar.azw = fVar.azw;
+        bVar.azG = fVar.autoplay;
         bVar.mLoop = fVar.loop;
         bVar.mUrl = fVar.src;
-        bVar.azA = fVar.startTime;
-        bVar.azG = fVar.obeyMuteSwitch;
-        bVar.azH = fVar.volume;
-        bVar.azC = Nk().toString();
+        bVar.azB = fVar.startTime;
+        bVar.azH = fVar.obeyMuteSwitch;
+        bVar.azI = fVar.volume;
+        bVar.azD = Nk().toString();
         return bVar;
     }
 

@@ -23,7 +23,7 @@ public final class FragmentState implements Parcelable {
             return new FragmentState[i];
         }
     };
-    Fragment boa;
+    Fragment bob;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.boa != null) {
-            return this.boa;
+        if (this.bob != null) {
+            return this.bob;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.boa = Fragment.f(context, this.mClassName, this.mArguments);
+        this.bob = Fragment.f(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.boa.mSavedFragmentState = this.mSavedFragmentState;
+            this.bob.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.boa.b(this.mIndex, fragment);
-        this.boa.mFromLayout = this.mFromLayout;
-        this.boa.mRestored = true;
-        this.boa.mFragmentId = this.mFragmentId;
-        this.boa.mContainerId = this.mContainerId;
-        this.boa.mTag = this.mTag;
-        this.boa.mRetainInstance = this.mRetainInstance;
-        this.boa.mDetached = this.mDetached;
-        this.boa.bnA = jVar.bnA;
+        this.bob.b(this.mIndex, fragment);
+        this.bob.mFromLayout = this.mFromLayout;
+        this.bob.mRestored = true;
+        this.bob.mFragmentId = this.mFragmentId;
+        this.bob.mContainerId = this.mContainerId;
+        this.bob.mTag = this.mTag;
+        this.bob.mRetainInstance = this.mRetainInstance;
+        this.bob.mDetached = this.mDetached;
+        this.bob.bnB = jVar.bnB;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.boa);
+            Log.v("FragmentManager", "Instantiated fragment " + this.bob);
         }
-        return this.boa;
+        return this.bob;
     }
 
     @Override // android.os.Parcelable

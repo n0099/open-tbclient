@@ -20,16 +20,16 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c anG() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.cof = ThreadFragment.bFk();
+        cVar.cog = ThreadFragment.bFk();
         cVar.type = 1;
-        cVar.bOg = d.j.collect_thread;
+        cVar.bOh = d.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator di(Context context) {
-        this.cnR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        return this.cnR;
+        this.cnS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        return this.cnS;
     }
 
     static {
@@ -43,7 +43,7 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
                     if (aVar.getContext() != null && (anH = threadDelegateStatic.anH()) != null) {
-                        anH.cof.setArguments(new Bundle());
+                        anH.cog.setArguments(new Bundle());
                     }
                 }
             }

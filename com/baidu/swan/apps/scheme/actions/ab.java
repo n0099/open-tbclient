@@ -160,7 +160,7 @@ public class ab extends com.baidu.swan.apps.network.a implements com.baidu.swan.
             return null;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-        this.aCh.put(str3, 0L);
+        this.aCi.put(str3, 0L);
         com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, "multipart/form-data", new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.apps.scheme.actions.ab.2
             @Override // com.baidu.swan.apps.network.b.a
             public void z(long j) {
@@ -191,7 +191,7 @@ public class ab extends com.baidu.swan.apps.network.a implements com.baidu.swan.
                         }
                     }
                 }
-                this.aCh.put(str2, Long.valueOf(System.currentTimeMillis()));
+                this.aCi.put(str2, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }

@@ -74,7 +74,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             a aVar = this.mPlayerList.get(uri);
             if (aVar != null) {
                 aVar.count--;
-                IMediaPlayer iMediaPlayer = aVar.cJF;
+                IMediaPlayer iMediaPlayer = aVar.cJG;
                 if (iMediaPlayer != null) {
                     if (iMediaPlayer.isPlaying()) {
                         iMediaPlayer.pause();
@@ -91,9 +91,9 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     @Override // com.baidu.tieba.QuickPlayer.a
     public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).cJF != null) {
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).cJG != null) {
                 this.mPlayerList.get(uri).count++;
-                return this.mPlayerList.get(uri).cJF;
+                return this.mPlayerList.get(uri).cJG;
             }
             return null;
         }
@@ -117,8 +117,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
             for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
-                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().cJF != null) {
-                    arrayList.add(entry.getValue().cJF.generateMediaID());
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().cJG != null) {
+                    arrayList.add(entry.getValue().cJG.generateMediaID());
                 }
             }
         }
@@ -147,24 +147,24 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
 
     /* loaded from: classes3.dex */
     class a {
-        public IMediaPlayer cJF;
+        public IMediaPlayer cJG;
         public int count = 1;
 
         public a(IMediaPlayer iMediaPlayer) {
-            this.cJF = iMediaPlayer;
+            this.cJG = iMediaPlayer;
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof a) && this.cJF == ((a) obj).cJF;
+            return (obj instanceof a) && this.cJG == ((a) obj).cJG;
         }
 
         public void avd() {
-            if (this.cJF != null) {
+            if (this.cJG != null) {
                 try {
-                    this.cJF.reset();
+                    this.cJG.reset();
                 } catch (Throwable th) {
                 }
-                this.cJF.release();
+                this.cJG.release();
             }
         }
     }

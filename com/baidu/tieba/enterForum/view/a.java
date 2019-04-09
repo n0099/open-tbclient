@@ -22,12 +22,12 @@ import com.baidu.tieba.enterForum.data.i;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private View.OnClickListener cPW;
-    private ViewGroup eGn;
-    private InterfaceC0283a eGo;
-    private View eGp;
-    private TextView eGq;
+    private View.OnClickListener cPX;
+    private ViewGroup eGo;
+    private InterfaceC0283a eGp;
+    private View eGq;
     private TextView eGr;
+    private TextView eGs;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -41,15 +41,15 @@ public class a extends PopupWindow {
 
     public a(Context context) {
         super(context);
-        this.cPW = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.cPX = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.eGq) {
-                    if (a.this.eGo != null) {
-                        a.this.eGo.lH(1);
+                if (view == a.this.eGr) {
+                    if (a.this.eGp != null) {
+                        a.this.eGp.lH(1);
                     }
-                } else if (view == a.this.eGr && a.this.eGo != null) {
-                    a.this.eGo.lH(2);
+                } else if (view == a.this.eGs && a.this.eGp != null) {
+                    a.this.eGp.lH(2);
                 }
                 a.this.aXr();
             }
@@ -74,22 +74,22 @@ public class a extends PopupWindow {
         createContentView();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.eGn = frameLayout2;
+        this.eGo = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.eGp);
-        this.eGn.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.eGq);
+        this.eGo.setOnClickListener(this.mOnClickListener);
         al.l(this.mLine, d.C0277d.cp_bg_line_a);
-        al.k(this.eGp, d.f.enter_forum_sort_select_bg);
+        al.k(this.eGq, d.f.enter_forum_sort_select_bg);
         return frameLayout;
     }
 
     private void createContentView() {
-        this.eGp = LayoutInflater.from(this.mContext).inflate(d.h.layout_sort_select, (ViewGroup) null);
-        this.eGq = (TextView) this.eGp.findViewById(d.g.sort_type_level_text);
-        this.mLine = this.eGp.findViewById(d.g.sort_select_line);
-        this.eGr = (TextView) this.eGp.findViewById(d.g.sort_type_update_text);
-        this.eGq.setOnClickListener(this.cPW);
-        this.eGr.setOnClickListener(this.cPW);
+        this.eGq = LayoutInflater.from(this.mContext).inflate(d.h.layout_sort_select, (ViewGroup) null);
+        this.eGr = (TextView) this.eGq.findViewById(d.g.sort_type_level_text);
+        this.mLine = this.eGq.findViewById(d.g.sort_select_line);
+        this.eGs = (TextView) this.eGq.findViewById(d.g.sort_type_update_text);
+        this.eGr.setOnClickListener(this.cPX);
+        this.eGs.setOnClickListener(this.cPX);
     }
 
     public void setData(List<i> list, int i) {
@@ -97,16 +97,16 @@ public class a extends PopupWindow {
             View aXq = aXq();
             for (i iVar : list) {
                 if (iVar.sortType == 1) {
-                    this.eGq.setText(iVar.eBK);
+                    this.eGr.setText(iVar.eBL);
                 } else {
-                    this.eGr.setText(iVar.eBK);
+                    this.eGs.setText(iVar.eBL);
                 }
                 if (i == 1) {
-                    al.j(this.eGq, d.C0277d.cp_link_tip_a);
-                    al.j(this.eGr, d.C0277d.cp_cont_j);
-                } else {
                     al.j(this.eGr, d.C0277d.cp_link_tip_a);
-                    al.j(this.eGq, d.C0277d.cp_cont_j);
+                    al.j(this.eGs, d.C0277d.cp_cont_j);
+                } else {
+                    al.j(this.eGs, d.C0277d.cp_link_tip_a);
+                    al.j(this.eGr, d.C0277d.cp_cont_j);
                 }
             }
             setContentView(aXq);
@@ -114,7 +114,7 @@ public class a extends PopupWindow {
     }
 
     public void a(InterfaceC0283a interfaceC0283a) {
-        this.eGo = interfaceC0283a;
+        this.eGp = interfaceC0283a;
     }
 
     public void bg(View view) {
@@ -159,8 +159,8 @@ public class a extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.eGp.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.eGq.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 
     private void aXu() {
@@ -185,7 +185,7 @@ public class a extends PopupWindow {
                 a.this.aXs();
             }
         });
-        this.eGp.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.eGq.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 }

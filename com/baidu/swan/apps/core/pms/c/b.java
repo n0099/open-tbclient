@@ -14,11 +14,11 @@ public class b {
             for (i iVar : list) {
                 if (iVar != null && iVar.RI()) {
                     SubPackageAPSInfo subPackageAPSInfo = new SubPackageAPSInfo();
-                    subPackageAPSInfo.mKey = iVar.blZ;
+                    subPackageAPSInfo.mKey = iVar.bma;
                     subPackageAPSInfo.mAppId = str;
                     subPackageAPSInfo.mAppVersion = String.valueOf(i);
-                    subPackageAPSInfo.axr = iVar.Jz;
-                    subPackageAPSInfo.axq = c.d.ah(str, String.valueOf(i)).getPath();
+                    subPackageAPSInfo.axs = iVar.Jz;
+                    subPackageAPSInfo.axr = c.d.ah(str, String.valueOf(i)).getPath();
                     com.baidu.swan.apps.core.a.d.a.a(subPackageAPSInfo, iVar.sign, iVar.filePath, false);
                 }
             }

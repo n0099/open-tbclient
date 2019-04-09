@@ -28,32 +28,32 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class b {
     private BdTypeRecyclerView Qr;
-    private PbListView dbr;
-    private BdSwipeRefreshLayout dcE;
+    private PbListView dbs;
+    private BdSwipeRefreshLayout dcF;
     private m faX;
     private FrsCommonTabFragment ffL;
     private a fgd;
     private d fge;
     private boolean hasMore;
     private i mPullView;
-    private BdListView.e dlj = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.1
+    private BdListView.e dlk = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (b.this.Qr != null) {
                 b.this.Qr.stopScroll();
             }
-            if (b.this.dbr != null && b.this.ffL != null) {
+            if (b.this.dbs != null && b.this.ffL != null) {
                 if (j.kY()) {
-                    b.this.Qr.setNextPage(b.this.dbr);
-                    b.this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    b.this.dbr.setOnClickListener(null);
+                    b.this.Qr.setNextPage(b.this.dbs);
+                    b.this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    b.this.dbs.setOnClickListener(null);
                     if (b.this.hasMore) {
-                        b.this.dbr.showLoading();
+                        b.this.dbs.showLoading();
                         b.this.ffL.bfb();
                         return;
                     }
-                    b.this.dbr.setText(b.this.ffL.getResources().getString(d.j.list_has_no_more));
-                    b.this.dbr.aeA();
+                    b.this.dbs.setText(b.this.ffL.getResources().getString(d.j.list_has_no_more));
+                    b.this.dbs.aeA();
                     return;
                 }
                 b.this.Qr.setNextPage(null);
@@ -91,7 +91,7 @@ public class b {
             this.Qr.setLayoutManager(new LinearLayoutManager(this.ffL.getContext()));
             this.Qr.setFadingEdgeLength(0);
             this.Qr.setOverScrollMode(2);
-            this.Qr.setOnSrollToBottomListener(this.dlj);
+            this.Qr.setOnSrollToBottomListener(this.dlk);
             this.Qr.addOnScrollListener(this.fgf);
             this.mPullView = new i(this.ffL.getPageContext());
             this.mPullView.setListPullRefreshListener(this.ffL);
@@ -117,19 +117,19 @@ public class b {
                     }
                 }
             });
-            this.dbr = new PbListView(this.ffL.getPageContext().getPageActivity());
-            this.dbr.getView();
-            this.dbr.ia(d.C0277d.cp_bg_line_e);
-            this.dbr.setHeight(l.h(this.ffL.getActivity(), d.e.tbds182));
-            this.dbr.aew();
-            this.dbr.setTextSize(d.e.tbfontsize33);
-            this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-            this.dbr.hZ(d.C0277d.cp_cont_e);
-            this.dbr.aeD();
-            if (this.dcE == null) {
-                this.dcE = (BdSwipeRefreshLayout) view.findViewById(d.g.frs_common_tab_pull_refresh_layout);
-                this.dcE.setProgressView(this.mPullView);
-                al.l(this.dcE, d.C0277d.cp_bg_line_e);
+            this.dbs = new PbListView(this.ffL.getPageContext().getPageActivity());
+            this.dbs.getView();
+            this.dbs.ia(d.C0277d.cp_bg_line_e);
+            this.dbs.setHeight(l.h(this.ffL.getActivity(), d.e.tbds182));
+            this.dbs.aew();
+            this.dbs.setTextSize(d.e.tbfontsize33);
+            this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+            this.dbs.hZ(d.C0277d.cp_cont_e);
+            this.dbs.aeD();
+            if (this.dcF == null) {
+                this.dcF = (BdSwipeRefreshLayout) view.findViewById(d.g.frs_common_tab_pull_refresh_layout);
+                this.dcF.setProgressView(this.mPullView);
+                al.l(this.dcF, d.C0277d.cp_bg_line_e);
             }
             this.fgd = new a(this.ffL, this.Qr, frsViewData);
             fB(false);
@@ -141,8 +141,8 @@ public class b {
     }
 
     public void fB(boolean z) {
-        if (this.dcE != null) {
-            this.dcE.setRefreshing(z);
+        if (this.dcF != null) {
+            this.dcF.setRefreshing(z);
         }
     }
 
@@ -153,11 +153,11 @@ public class b {
         if (this.fgd != null) {
             this.fgd.notifyDataSetChanged();
         }
-        if (this.dbr != null) {
-            this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-            this.dbr.ib(i);
+        if (this.dbs != null) {
+            this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+            this.dbs.ib(i);
         }
-        al.l(this.dcE, d.C0277d.cp_bg_line_e);
+        al.l(this.dcF, d.C0277d.cp_bg_line_e);
     }
 
     public void a(d dVar) {
@@ -170,14 +170,14 @@ public class b {
                 dVar.hasMore = false;
             }
             this.fge = dVar;
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             if (this.hasMore) {
-                this.Qr.setNextPage(this.dbr);
-                this.dbr.aeC();
+                this.Qr.setNextPage(this.dbs);
+                this.dbs.aeC();
             } else {
                 this.Qr.setNextPage(null);
-                this.dbr.setText(this.ffL.getResources().getString(d.j.list_has_no_more));
-                this.dbr.aeA();
+                this.dbs.setText(this.ffL.getResources().getString(d.j.list_has_no_more));
+                this.dbs.aeA();
             }
             this.fgd.setData(dVar.threadList);
             this.fgd.notifyDataSetChanged();
@@ -215,8 +215,8 @@ public class b {
     }
 
     public void jB(boolean z) {
-        if (this.dcE != null) {
-            this.dcE.setVisibility(z ? 0 : 8);
+        if (this.dcF != null) {
+            this.dcF.setVisibility(z ? 0 : 8);
         }
     }
 

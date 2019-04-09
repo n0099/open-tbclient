@@ -19,8 +19,8 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class c extends BaseAdapter {
-    public int iWp;
-    public String iWq;
+    public int iWq;
+    public String iWr;
     private List<MusicData> mList;
     private e mPageContext;
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            Dy(this.iWq);
+            Dy(this.iWr);
             notifyDataSetChanged();
         }
     }
@@ -63,17 +63,17 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.iVy = (TbImageView) view.findViewById(d.g.music_image);
-            aVar.iVB = (TextView) view.findViewById(d.g.music_title);
-            aVar.iVA = view.findViewById(d.g.music_loading);
-            aVar.iVy.setDrawerType(1);
-            aVar.iVy.setIsRound(true);
-            aVar.iVy.setDefaultBgResource(d.C0277d.transparent);
-            aVar.iVy.setDefaultErrorResource(d.f.bg_video_cloudmusic);
-            aVar.iVy.setDefaultResource(d.f.bg_video_cloudmusic);
-            aVar.iVy.setBorderWidth(l.h(this.mPageContext.getPageActivity(), d.e.ds4));
-            aVar.iVy.setBorderColor(al.getColor(d.C0277d.cp_link_tip_a));
-            aVar.iVy.setConrers(15);
+            aVar.iVz = (TbImageView) view.findViewById(d.g.music_image);
+            aVar.iVC = (TextView) view.findViewById(d.g.music_title);
+            aVar.iVB = view.findViewById(d.g.music_loading);
+            aVar.iVz.setDrawerType(1);
+            aVar.iVz.setIsRound(true);
+            aVar.iVz.setDefaultBgResource(d.C0277d.transparent);
+            aVar.iVz.setDefaultErrorResource(d.f.bg_video_cloudmusic);
+            aVar.iVz.setDefaultResource(d.f.bg_video_cloudmusic);
+            aVar.iVz.setBorderWidth(l.h(this.mPageContext.getPageActivity(), d.e.ds4));
+            aVar.iVz.setBorderColor(al.getColor(d.C0277d.cp_link_tip_a));
+            aVar.iVz.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -82,23 +82,23 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.iVy.startLoad(String.valueOf(d.f.icon_video_mute), 24, false);
+                    aVar.iVz.startLoad(String.valueOf(d.f.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.iVy.startLoad(String.valueOf(d.f.icon_video_cloudmusic), 24, false);
+                    aVar.iVz.startLoad(String.valueOf(d.f.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.iVy.startLoad(musicData.img, 10, false);
+                    aVar.iVz.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.iVA.setVisibility(4);
-            aVar.iVB.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-            aVar.iVB.setText(musicData.name);
-            b(aVar.iVB, l.h(this.mPageContext.getPageActivity(), d.e.ds120), musicData.name);
-            if (i == this.iWp) {
-                aVar.iVy.setDrawBorder(true);
+            aVar.iVB.setVisibility(4);
+            aVar.iVC.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+            aVar.iVC.setText(musicData.name);
+            b(aVar.iVC, l.h(this.mPageContext.getPageActivity(), d.e.ds120), musicData.name);
+            if (i == this.iWq) {
+                aVar.iVz.setDrawBorder(true);
             } else {
-                aVar.iVy.setDrawBorder(false);
+                aVar.iVz.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.h(this.mPageContext.getPageActivity(), d.e.ds34), l.h(this.mPageContext.getPageActivity(), d.e.ds44), 0, 0);
@@ -119,12 +119,12 @@ public class c extends BaseAdapter {
     }
 
     public void Ar(int i) {
-        this.iWp = i;
+        this.iWq = i;
         notifyDataSetChanged();
     }
 
     public void Dy(String str) {
-        this.iWq = str;
+        this.iWr = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -135,12 +135,12 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.iWp = i;
+            this.iWq = i;
         }
     }
 
     public int cjq() {
-        return this.iWp;
+        return this.iWq;
     }
 
     public void b(TextView textView, int i, String str) {
@@ -158,9 +158,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes5.dex */
     public class a {
-        public View iVA;
-        public TextView iVB;
-        public TbImageView iVy;
+        public View iVB;
+        public TextView iVC;
+        public TbImageView iVz;
 
         public a() {
         }

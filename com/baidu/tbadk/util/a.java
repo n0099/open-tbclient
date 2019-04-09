@@ -4,18 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a csU;
-    private com.baidu.tbadk.coreExtra.data.a cad;
+    private static a csV;
+    private com.baidu.tbadk.coreExtra.data.a cae;
 
     public static a apJ() {
-        if (csU == null) {
+        if (csV == null) {
             synchronized (a.class) {
-                if (csU == null) {
-                    csU = new a();
+                if (csV == null) {
+                    csV = new a();
                 }
             }
         }
-        return csU;
+        return csV;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,19 +24,19 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.cad == null || aVar.afK() != this.cad.afK()) ? true : true;
-        this.cad = aVar;
+        z = (aVar == null || this.cae == null || aVar.afK() != this.cae.afK()) ? true : true;
+        this.cae = aVar;
         if (z) {
             pB("zan_or_cai_smallflow");
         }
     }
 
     public boolean afK() {
-        if (this.cad == null) {
-            this.cad = new com.baidu.tbadk.coreExtra.data.a();
-            this.cad.afL();
+        if (this.cae == null) {
+            this.cae = new com.baidu.tbadk.coreExtra.data.a();
+            this.cae.afL();
         }
-        return this.cad.afK();
+        return this.cae.afK();
     }
 
     private void pB(String str) {

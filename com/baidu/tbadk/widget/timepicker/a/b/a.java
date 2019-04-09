@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a cEs = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a cEt = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.cEs.context = context;
-        this.cEs.cEt = eVar;
+        this.cEt.context = context;
+        this.cEt.cEu = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.cEs.cEA = zArr;
+        this.cEt.cEB = zArr;
         return this;
     }
 
     public a kP(int i) {
-        this.cEs.cFa = i;
+        this.cEt.cFb = i;
         return this;
     }
 
     public a kQ(int i) {
-        this.cEs.cFe = i;
+        this.cEt.cFf = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.cEs.cEB = calendar;
+        this.cEt.cEC = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.cEs.cES = i;
-        this.cEs.cEv = aVar;
+        this.cEt.cET = i;
+        this.cEt.cEw = aVar;
         return this;
     }
 
     public a at(float f) {
-        this.cEs.cFi = f;
+        this.cEt.cFj = f;
         return this;
     }
 
     public a kR(int i) {
-        this.cEs.cFh = i;
+        this.cEt.cFi = i;
         return this;
     }
 
     public a kS(int i) {
-        this.cEs.cog = i;
+        this.cEt.coh = i;
         return this;
     }
 
     public a kT(int i) {
-        this.cEs.cFg = i;
+        this.cEt.cFh = i;
         return this;
     }
 
     public a kU(int i) {
-        this.cEs.cFf = i;
+        this.cEt.cFg = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.cEs.cEG = str;
-        this.cEs.cEH = str2;
-        this.cEs.cEI = str3;
-        this.cEs.cEJ = str4;
-        this.cEs.cEK = str5;
-        this.cEs.cEL = str6;
+        this.cEt.cEH = str;
+        this.cEt.cEI = str2;
+        this.cEt.cEJ = str3;
+        this.cEt.cEK = str4;
+        this.cEt.cEL = str5;
+        this.cEt.cEM = str6;
         return this;
     }
 
     public a e(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.cEs.cEM = i;
-        this.cEs.cEN = i2;
-        this.cEs.cEO = i3;
-        this.cEs.cEP = i4;
-        this.cEs.cEQ = i5;
-        this.cEs.cER = i6;
+        this.cEt.cEN = i;
+        this.cEt.cEO = i2;
+        this.cEt.cEP = i3;
+        this.cEt.cEQ = i4;
+        this.cEt.cER = i5;
+        this.cEt.cES = i6;
         return this;
     }
 
     public a fv(boolean z) {
-        this.cEs.cFl = z;
+        this.cEt.cFm = z;
         return this;
     }
 
     public b atr() {
-        return new b(this.cEs);
+        return new b(this.cEt);
     }
 }

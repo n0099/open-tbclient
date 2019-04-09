@@ -5,7 +5,7 @@ import rx.g;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class e extends rx.g {
-    public static final e jZw = new e();
+    public static final e jZx = new e();
 
     private e() {
     }
@@ -17,7 +17,7 @@ public final class e extends rx.g {
 
     /* loaded from: classes2.dex */
     final class a extends g.a implements k {
-        final rx.subscriptions.a jZx = new rx.subscriptions.a();
+        final rx.subscriptions.a jZy = new rx.subscriptions.a();
 
         a() {
         }
@@ -35,12 +35,12 @@ public final class e extends rx.g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.jZx.unsubscribe();
+            this.jZy.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.jZx.isUnsubscribed();
+            return this.jZy.isUnsubscribed();
         }
     }
 }

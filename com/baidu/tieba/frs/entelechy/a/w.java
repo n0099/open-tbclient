@@ -28,7 +28,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     public x onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
         x xVar = new x(inflate);
-        al.j(xVar.dir, d.C0277d.cp_cont_b);
+        al.j(xVar.dis, d.C0277d.cp_cont_b);
         al.j(xVar.fhL, d.C0277d.cp_cont_h);
         al.c(xVar.fhK, d.f.icon_news_list_prompt);
         al.c(xVar.fhM, d.f.icon_index_category_arrow_r);
@@ -56,7 +56,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         });
-        xVar.dir.setText(lVar != null ? lVar.text : "");
+        xVar.dis.setText(lVar != null ? lVar.text : "");
         if (cG(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
             xVar.fhK.setVisibility(0);
         } else {

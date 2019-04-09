@@ -22,16 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends g {
-    private final i ejZ;
-    private final List<f> ekc;
-    private final i.c ekh;
+    private final i eka;
+    private final List<f> ekd;
+    private final i.c eki;
     private FrsViewData fvY;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ekh = new i.c() { // from class: com.baidu.tieba.frs.view.c.1
+        this.eki = new i.c() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // com.baidu.tbadk.core.dialog.i.c
             public void a(i iVar, int i, View view) {
                 c.this.dismiss();
@@ -56,24 +56,24 @@ public class c extends g {
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.ekc = new ArrayList();
-        this.ejZ = new i(this.mContext);
-        this.ejZ.a(this.ekh);
-        setContentView(this.ejZ.abh());
+        this.ekd = new ArrayList();
+        this.eka = new i(this.mContext);
+        this.eka.a(this.eki);
+        setContentView(this.eka.abh());
     }
 
     public void onChangeSkinType() {
-        if (this.ejZ != null) {
-            this.ejZ.onChangeSkinType();
+        if (this.eka != null) {
+            this.eka.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.ekc != null && this.ejZ != null) {
-            this.ekc.clear();
-            this.ekc.add(new f(1, getString(d.j.share, new Object[0]), this.ejZ));
-            this.ekc.add(new f(2, getString(d.j.search, new Object[0]), this.ejZ));
-            this.ejZ.P(this.ekc);
+        if (this.ekd != null && this.eka != null) {
+            this.ekd.clear();
+            this.ekd.add(new f(1, getString(d.j.share, new Object[0]), this.eka));
+            this.ekd.add(new f(2, getString(d.j.search, new Object[0]), this.eka));
+            this.eka.P(this.ekd);
         }
     }
 

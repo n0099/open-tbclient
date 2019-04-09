@@ -8,36 +8,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class d implements aj {
-    private final Object jBu;
-    private final ImageRequest jJm;
-    private final al jJn;
-    private final ImageRequest.RequestLevel jJo;
+    private final Object jBv;
+    private final ImageRequest jJn;
+    private final al jJo;
+    private final ImageRequest.RequestLevel jJp;
     @GuardedBy("this")
-    private boolean jJp;
+    private boolean jJq;
     @GuardedBy("this")
-    private Priority jJq;
+    private Priority jJr;
     @GuardedBy("this")
-    private boolean jJr;
+    private boolean jJs;
     private final String mId;
     @GuardedBy("this")
-    private boolean bVF = false;
+    private boolean bVG = false;
     @GuardedBy("this")
     private final List<ak> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.jJm = imageRequest;
+        this.jJn = imageRequest;
         this.mId = str;
-        this.jJn = alVar;
-        this.jBu = obj;
-        this.jJo = requestLevel;
-        this.jJp = z;
-        this.jJq = priority;
-        this.jJr = z2;
+        this.jJo = alVar;
+        this.jBv = obj;
+        this.jJp = requestLevel;
+        this.jJq = z;
+        this.jJr = priority;
+        this.jJs = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public ImageRequest czA() {
-        return this.jJm;
+        return this.jJn;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -47,32 +47,32 @@ public class d implements aj {
 
     @Override // com.facebook.imagepipeline.producers.aj
     public al czB() {
-        return this.jJn;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public Object cuW() {
-        return this.jBu;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel czC() {
         return this.jJo;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean czD() {
+    public Object cuW() {
+        return this.jBv;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public ImageRequest.RequestLevel czC() {
         return this.jJp;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority czE() {
+    public synchronized boolean czD() {
         return this.jJq;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean czF() {
+    public synchronized Priority czE() {
         return this.jJr;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.aj
+    public synchronized boolean czF() {
+        return this.jJs;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -80,7 +80,7 @@ public class d implements aj {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(akVar);
-            if (this.bVF) {
+            if (this.bVG) {
                 z = true;
             }
         }
@@ -96,10 +96,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> rv(boolean z) {
         ArrayList arrayList;
-        if (z == this.jJp) {
+        if (z == this.jJq) {
             arrayList = null;
         } else {
-            this.jJp = z;
+            this.jJq = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,10 +108,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.jJq) {
+        if (priority == this.jJr) {
             arrayList = null;
         } else {
-            this.jJq = priority;
+            this.jJr = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -120,10 +120,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> rw(boolean z) {
         ArrayList arrayList;
-        if (z == this.jJr) {
+        if (z == this.jJs) {
             arrayList = null;
         } else {
-            this.jJr = z;
+            this.jJs = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -132,10 +132,10 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> czG() {
         ArrayList arrayList;
-        if (this.bVF) {
+        if (this.bVG) {
             arrayList = null;
         } else {
-            this.bVF = true;
+            this.bVG = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;

@@ -7,10 +7,10 @@ import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean aIe;
-    private int aIf;
-    private boolean aIg;
+    public boolean aIf;
+    private int aIg;
     private boolean aIh;
+    private boolean aIi;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, (AttributeSet) null);
@@ -22,23 +22,23 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIe = false;
-        this.aIf = -1;
-        this.aIh = false;
+        this.aIf = false;
+        this.aIg = -1;
+        this.aIi = false;
     }
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
-        this.aIe = false;
-        this.aIf = -1;
-        this.aIh = false;
-        this.aIg = z;
+        this.aIf = false;
+        this.aIg = -1;
+        this.aIi = false;
+        this.aIh = z;
     }
 
     public void ue() {
-        if (!this.aIe) {
-            this.aIe = true;
-            this.aIh = com.baidu.swan.apps.u.a.CR().Dq();
+        if (!this.aIf) {
+            this.aIf = true;
+            this.aIi = com.baidu.swan.apps.u.a.CR().Dq();
             Hm();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(x.dip2px(getContext(), 5.0f));
@@ -48,9 +48,9 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public void Hl() {
         boolean Dq = com.baidu.swan.apps.u.a.CR().Dq();
-        if (this.aIh != Dq) {
+        if (this.aIi != Dq) {
             Hm();
-            this.aIh = Dq;
+            this.aIi = Dq;
         }
     }
 

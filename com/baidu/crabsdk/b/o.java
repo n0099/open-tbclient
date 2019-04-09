@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes3.dex */
 public final class o {
-    private static PackageManager abY;
-    private static PackageInfo abZ;
-    private static String aca;
+    private static PackageManager abZ;
+    private static PackageInfo aca;
+    private static String acb;
     private static Context mContext;
 
     public static String F() {
@@ -16,32 +16,32 @@ public final class o {
     }
 
     public static String G() {
-        if (aca == null) {
-            if (abZ == null) {
+        if (acb == null) {
+            if (aca == null) {
                 return Apn.APN_UNKNOWN;
             }
-            aca = abZ.applicationInfo.loadLabel(abY).toString();
+            acb = aca.applicationInfo.loadLabel(abZ).toString();
         }
-        return aca;
+        return acb;
     }
 
     public static String H() {
-        return abZ == null ? Apn.APN_UNKNOWN : abZ.versionName;
+        return aca == null ? Apn.APN_UNKNOWN : aca.versionName;
     }
 
     public static int I() {
-        if (abZ == null) {
+        if (aca == null) {
             return 0;
         }
-        return abZ.versionCode;
+        return aca.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            abY = context.getPackageManager();
+            abZ = context.getPackageManager();
             try {
-                abZ = abY.getPackageInfo(mContext.getPackageName(), 0);
+                aca = abZ.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }

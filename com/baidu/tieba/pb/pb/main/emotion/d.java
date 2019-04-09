@@ -19,20 +19,20 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private com.baidu.tieba.pb.pb.main.emotion.a hnA;
-    private List<String> hyS;
+    private com.baidu.tieba.pb.pb.main.emotion.a hnB;
+    private List<String> hyT;
     private List<EmotionImageData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> heh = new HashSet();
-    private int bIl = l.h(this.mContext, d.e.ds116);
-    private int gvz = (int) (((l.aO(this.mContext) - l.h(this.mContext, d.e.ds88)) - (this.bIl * 4)) * 0.333d);
+    private Set<String> hei = new HashSet();
+    private int bIm = l.h(this.mContext, d.e.ds116);
+    private int gvA = (int) (((l.aO(this.mContext) - l.h(this.mContext, d.e.ds88)) - (this.bIm * 4)) * 0.333d);
 
     public d(List<EmotionImageData> list) {
         this.mList = list;
     }
 
     public void a(com.baidu.tieba.pb.pb.main.emotion.a aVar) {
-        this.hnA = aVar;
+        this.hnB = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -56,14 +56,14 @@ public class d extends BaseAdapter {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_search_emotion_item, (ViewGroup) null);
-            aVar.hyW = (EmotionView) view.findViewById(d.g.emotion_view1);
-            aVar.hyX = (EmotionView) view.findViewById(d.g.emotion_view2);
-            aVar.hyY = (EmotionView) view.findViewById(d.g.emotion_view3);
-            aVar.hyZ = (EmotionView) view.findViewById(d.g.emotion_view4);
+            aVar.hyX = (EmotionView) view.findViewById(d.g.emotion_view1);
+            aVar.hyY = (EmotionView) view.findViewById(d.g.emotion_view2);
+            aVar.hyZ = (EmotionView) view.findViewById(d.g.emotion_view3);
+            aVar.hza = (EmotionView) view.findViewById(d.g.emotion_view4);
             aVar.initView();
-            D(aVar.hyX, this.gvz);
-            D(aVar.hyY, this.gvz);
-            D(aVar.hyZ, this.gvz);
+            D(aVar.hyY, this.gvA);
+            D(aVar.hyZ, this.gvA);
+            D(aVar.hza, this.gvA);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -75,16 +75,16 @@ public class d extends BaseAdapter {
                 EmotionImageData emotionImageData = this.mList.get(i3);
                 switch (i3 - i2) {
                     case 0:
-                        a(aVar.hyW, emotionImageData);
-                        continue;
-                    case 1:
                         a(aVar.hyX, emotionImageData);
                         continue;
-                    case 2:
+                    case 1:
                         a(aVar.hyY, emotionImageData);
                         continue;
-                    case 3:
+                    case 2:
                         a(aVar.hyZ, emotionImageData);
+                        continue;
+                    case 3:
+                        a(aVar.hza, emotionImageData);
                         continue;
                 }
             }
@@ -93,7 +93,7 @@ public class d extends BaseAdapter {
     }
 
     public void removeListener() {
-        this.hnA = null;
+        this.hnB = null;
     }
 
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
@@ -101,9 +101,9 @@ public class d extends BaseAdapter {
             emotionView.setTag(emotionView.getId(), emotionImageData);
             emotionView.aXI();
             emotionView.a(emotionImageData);
-            if (this.heh != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                if (v.T(this.hyS) || !this.hyS.contains(emotionImageData.getThumbUrl())) {
-                    this.heh.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
+            if (this.hei != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                if (v.T(this.hyT) || !this.hyT.contains(emotionImageData.getThumbUrl())) {
+                    this.hei.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
                 }
             }
         }
@@ -117,8 +117,8 @@ public class d extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (d.this.hnA != null && (view instanceof EmotionView)) {
-                            d.this.hnA.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                        if (d.this.hnB != null && (view instanceof EmotionView)) {
+                            d.this.hnB.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12180");
                     }
@@ -133,8 +133,8 @@ public class d extends BaseAdapter {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (d.this.heh != null) {
-                    for (String str : d.this.heh) {
+                if (d.this.hei != null) {
+                    for (String str : d.this.hei) {
                         if (!TextUtils.isEmpty(str)) {
                             com.baidu.tbadk.imageManager.c.anm().ph(str);
                         }
@@ -155,24 +155,24 @@ public class d extends BaseAdapter {
     }
 
     public void dB(List<String> list) {
-        this.hyS = list;
+        this.hyT = list;
     }
 
     /* loaded from: classes4.dex */
     class a {
-        public EmotionView hyW;
         public EmotionView hyX;
         public EmotionView hyY;
         public EmotionView hyZ;
+        public EmotionView hza;
 
         a() {
         }
 
         public void initView() {
-            d.this.l(this.hyW);
             d.this.l(this.hyX);
             d.this.l(this.hyY);
             d.this.l(this.hyZ);
+            d.this.l(this.hza);
         }
     }
 }

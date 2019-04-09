@@ -13,8 +13,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Set<String> aCj = h.K("REFERER", "USER-AGENT");
-    protected static final Set<String> aCi = h.K("localhost", "127.0.0.1");
+    public static final Set<String> aCk = h.K("REFERER", "USER-AGENT");
+    protected static final Set<String> aCj = h.K("localhost", "127.0.0.1");
 
     /* JADX INFO: Access modifiers changed from: protected */
     public HttpUrl fp(String str) {
@@ -37,7 +37,7 @@ public class a {
             JC = false;
         }
         if (httpUrl != null) {
-            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCi.contains(httpUrl.host().toLowerCase());
+            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCj.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }

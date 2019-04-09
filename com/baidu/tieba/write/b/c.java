@@ -11,37 +11,37 @@ import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private int iVU;
-    private b joX;
-    private a joY;
+    private int iVV;
+    private b joY;
+    private a joZ;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a joZ = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a jpa = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
         public void lH(int i) {
-            c.this.iVU = i;
+            c.this.iVV = i;
             c.this.aWD();
-            if (c.this.joY != null) {
-                c.this.joY.Bk(c.this.iVU);
+            if (c.this.joZ != null) {
+                c.this.joZ.Bk(c.this.iVV);
             }
         }
     };
-    private View.OnClickListener bQM = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
+    private View.OnClickListener bQN = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.joX == null) {
-                    c.this.joX = new b(c.this.mContext);
-                    c.this.joX.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.joX.a(c.this.joZ);
-                    c.this.joX.pj(c.this.mStatusBarHeight);
+                if (c.this.joY == null) {
+                    c.this.joY = new b(c.this.mContext);
+                    c.this.joY.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.joY.a(c.this.jpa);
+                    c.this.joY.pj(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_all), 0));
-                c.this.joX.setData(arrayList, c.this.iVU);
-                c.this.joX.bg(c.this.mTitle);
+                c.this.joY.setData(arrayList, c.this.iVV);
+                c.this.joY.bg(c.this.mTitle);
                 c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_retract), (Drawable) null);
             }
         }
@@ -65,13 +65,13 @@ public class c {
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.iVU = i;
+        this.iVV = i;
         this.mStatusBarHeight = i2;
     }
 
     public void aWD() {
         if (cpB()) {
-            switch (this.iVU) {
+            switch (this.iVV) {
                 case 0:
                     this.mTitle.setText(d.j.write_zone_all);
                     break;
@@ -79,16 +79,16 @@ public class c {
                     this.mTitle.setText(d.j.write_zone_profession);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bQM);
+            this.mTitle.setOnClickListener(this.bQN);
         }
     }
 
     public boolean cpB() {
-        return this.iVU == 0 || this.iVU == 1;
+        return this.iVV == 0 || this.iVV == 1;
     }
 
     public void a(a aVar) {
-        this.joY = aVar;
+        this.joZ = aVar;
     }
 
     public void onChangeSkinType(int i) {

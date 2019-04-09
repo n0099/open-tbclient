@@ -6,10 +6,10 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class w implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection bJn;
-    private String bJo;
-    private String[] bJp;
-    private a bJq;
+    private MediaScannerConnection bJo;
+    private String bJp;
+    private String[] bJq;
+    private a bJr;
     private boolean completed;
     private int length;
     private Context mContext;
@@ -23,23 +23,23 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     public w(Context context) {
         this.mContext = context;
-        this.bJn = new MediaScannerConnection(this.mContext, this);
+        this.bJo = new MediaScannerConnection(this.mContext, this);
     }
 
     public void mw(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.bJo = "image/jpeg";
+        this.bJp = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.bJo = "image/gif";
+            this.bJp = "image/gif";
         }
-        this.bJn.connect();
+        this.bJo.connect();
     }
 
     public void mx(String str) {
         this.mPath = str;
-        this.bJo = fd(str);
-        this.bJn.connect();
+        this.bJp = fd(str);
+        this.bJo.connect();
     }
 
     private String fd(String str) {
@@ -52,37 +52,37 @@ public class w implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJo)) {
-            this.bJn.scanFile(this.mPath, this.bJo);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJp)) {
+            this.bJo.scanFile(this.mPath, this.bJp);
         }
-        if (this.mPaths != null && this.bJp != null && this.mPaths.length == this.bJp.length) {
+        if (this.mPaths != null && this.bJq != null && this.mPaths.length == this.bJq.length) {
             int length = this.mPaths.length;
             for (int i = 0; i < length; i++) {
-                this.bJn.scanFile(this.mPaths[i], this.bJp[i]);
+                this.bJo.scanFile(this.mPaths[i], this.bJq[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJo) && str.equals(this.mPath)) {
-            this.bJn.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.bJp) && str.equals(this.mPath)) {
+            this.bJo.disconnect();
             this.mPath = null;
-            this.bJo = null;
+            this.bJp = null;
             this.completed = true;
-        } else if (this.mPaths != null && this.bJp != null && this.mPaths.length == this.bJp.length) {
+        } else if (this.mPaths != null && this.bJq != null && this.mPaths.length == this.bJq.length) {
             this.length--;
             if (this.length == 0) {
-                this.bJn.disconnect();
+                this.bJo.disconnect();
                 this.mPaths = null;
-                this.bJp = null;
+                this.bJq = null;
                 this.completed = true;
             } else {
                 this.completed = false;
             }
         }
-        if (this.completed && this.bJq != null) {
-            this.bJq.acC();
+        if (this.completed && this.bJr != null) {
+            this.bJr.acC();
         }
     }
 }

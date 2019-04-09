@@ -19,8 +19,8 @@ import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private NoNetworkView dbq;
-    private ImageView dpt;
+    private NoNetworkView dbr;
+    private ImageView dpu;
     private FrsGameStrategyMainFragment fkL;
     private ScrollLabelTabHost fkM;
     private String mFrom;
@@ -39,9 +39,9 @@ public class e {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.view_navigation_bar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.h(this.fkL.getPageContext().getPageActivity(), d.e.ds24), 0);
-        this.dpt = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_game_forum_info_item, (View.OnClickListener) null);
-        this.dpt.setLayoutParams(layoutParams);
-        this.dpt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
+        this.dpu = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_game_forum_info_item, (View.OnClickListener) null);
+        this.dpu.setLayoutParams(layoutParams);
+        this.dpu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!StringUtils.isNull(e.this.fkL.getFid())) {
@@ -61,7 +61,7 @@ public class e {
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         });
-        this.dbq = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
+        this.dbr = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
         this.fkM = (ScrollLabelTabHost) this.mRootView.findViewById(d.g.frs_game_tabview);
         this.fkM.setPageId(this.fkL.getBaseFragmentActivity().getUniqueId());
     }
@@ -80,10 +80,10 @@ public class e {
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.fkL.getPageContext(), i);
-        this.dbq.onChangeSkinType(this.fkL.getPageContext(), i);
+        this.dbr.onChangeSkinType(this.fkL.getPageContext(), i);
         this.fkM.onChangeSkinType(i);
-        if (this.dpt != null) {
-            al.a(this.dpt, d.f.btn_more_selector_s, d.f.btn_more_selector);
+        if (this.dpu != null) {
+            al.a(this.dpu, d.f.btn_more_selector_s, d.f.btn_more_selector);
         }
     }
 

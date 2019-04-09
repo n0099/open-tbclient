@@ -9,15 +9,15 @@ import org.json.JSONObject;
 import tbclient.ChannelVideoInfo;
 /* loaded from: classes6.dex */
 public class h implements m {
-    private int cDh;
+    private int cDi;
     private long createTime;
-    private int eoa;
-    private long eob;
-    private int eoc;
+    private int eob;
+    private long eoc;
     private int eod;
     private int eoe;
-    private String eog;
-    private int eoh;
+    private int eog;
+    private String eoh;
+    private int eoi;
     private int forumId;
     private String forumName;
     private BdUniqueId mType;
@@ -58,11 +58,11 @@ public class h implements m {
     }
 
     public int aRw() {
-        return this.cDh;
+        return this.cDi;
     }
 
     public void ow(int i) {
-        this.cDh = i;
+        this.cDi = i;
     }
 
     public void setVideoUrl(String str) {
@@ -86,11 +86,11 @@ public class h implements m {
     }
 
     public void ox(int i) {
-        this.eoa = i;
+        this.eob = i;
     }
 
     public void cd(long j) {
-        this.eob = j;
+        this.eoc = j;
     }
 
     public String getThumbnailUrl() {
@@ -102,19 +102,19 @@ public class h implements m {
     }
 
     public void oy(int i) {
-        this.eoc = i;
-    }
-
-    public void oz(int i) {
         this.eod = i;
     }
 
+    public void oz(int i) {
+        this.eoe = i;
+    }
+
     public boolean Zv() {
-        return this.eoe == 1;
+        return this.eog == 1;
     }
 
     public void oA(int i) {
-        this.eoe = i;
+        this.eog = i;
     }
 
     public long getCreateTime() {
@@ -126,7 +126,7 @@ public class h implements m {
     }
 
     public int aRx() {
-        return this.eoh;
+        return this.eoi;
     }
 
     public void setType(BdUniqueId bdUniqueId) {
@@ -135,7 +135,7 @@ public class h implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0276a.enN : this.mType;
+        return this.mType == null ? a.C0276a.enO : this.mType;
     }
 
     public static ChannelHomeVideoList<h> bp(List<ChannelVideoInfo> list) {
@@ -182,17 +182,17 @@ public class h implements m {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
-        this.eog = jSONObject.optString("play_time");
-        this.cDh = jSONObject.optInt("play_count");
+        this.eoh = jSONObject.optString("play_time");
+        this.cDi = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.eoa = jSONObject.optInt("video_length");
-        this.eob = jSONObject.optInt("video_type");
+        this.eob = jSONObject.optInt("video_length");
+        this.eoc = jSONObject.optInt("video_type");
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.eoc = jSONObject.optInt("thumbnail_width");
-        this.eod = jSONObject.optInt("thumbnail_height");
-        this.eoh = jSONObject.optInt("already_add");
+        this.eod = jSONObject.optInt("thumbnail_width");
+        this.eoe = jSONObject.optInt("thumbnail_height");
+        this.eoi = jSONObject.optInt("already_add");
     }
 }

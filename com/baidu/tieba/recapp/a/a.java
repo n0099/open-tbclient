@@ -40,17 +40,17 @@ public class a extends com.baidu.tbadk.b.a {
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class C0375a extends BdAsyncTask<Object, Integer, h> {
-        private String bsL;
-        private d dZT;
-        private HashMap<String, String> gFh;
+        private String bsM;
+        private d dZU;
+        private HashMap<String, String> gFi;
         private volatile x mNetwork = null;
         private String postUrl;
 
         public C0375a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.bsL = str;
+            this.bsM = str;
             this.postUrl = str2;
-            this.gFh = hashMap;
-            this.dZT = dVar;
+            this.gFi = hashMap;
+            this.dZU = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.gFh.keySet();
+                Set<String> keySet = this.gFi.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.x(str, this.gFh.get(str));
+                            this.mNetwork.x(str, this.gFi.get(str));
                         }
                     }
                 }
@@ -85,7 +85,7 @@ public class a extends com.baidu.tbadk.b.a {
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
                             hVar.result = true;
-                            hVar.bsL = this.bsL;
+                            hVar.bsM = this.bsM;
                             return hVar;
                         }
                         String str2 = "";
@@ -93,7 +93,7 @@ public class a extends com.baidu.tbadk.b.a {
                             str2 = jSONObject.optString("msg", "");
                         }
                         hVar.result = false;
-                        hVar.bsL = this.bsL;
+                        hVar.bsM = this.bsM;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -102,7 +102,7 @@ public class a extends com.baidu.tbadk.b.a {
                 BdLog.e(e.getMessage());
             }
             hVar.result = false;
-            hVar.bsL = this.bsL;
+            hVar.bsM = this.bsM;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.dZT != null) {
-                this.dZT.m(hVar);
+            if (this.dZU != null) {
+                this.dZU.m(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.dZT != null) {
-                this.dZT.m(null);
+            if (this.dZU != null) {
+                this.dZU.m(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.dZT != null) {
-                this.dZT.m(null);
+            if (this.dZU != null) {
+                this.dZU.m(null);
             }
         }
     }

@@ -10,10 +10,10 @@ import com.baidu.swan.support.v4.app.m;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private Fragment ajw;
-    private com.baidu.swan.apps.v.b.b ajx;
-    private int ajy = 0;
+    private Fragment ajx;
+    private com.baidu.swan.apps.v.b.b ajy;
     private int ajz = 0;
+    private int ajA = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
@@ -35,31 +35,31 @@ public class SwanAppErrorActivity extends FragmentActivity {
 
     private void uE() {
         m SB = Sy().SB();
-        this.ajw = new com.baidu.swan.apps.core.c.c();
-        SB.a(a.f.ai_apps_error_layout, this.ajw);
+        this.ajx = new com.baidu.swan.apps.core.c.c();
+        SB.a(a.f.ai_apps_error_layout, this.ajx);
         SB.commit();
     }
 
     private void parseIntent(Intent intent) {
         if (intent != null) {
-            this.ajx = com.baidu.swan.apps.v.b.b.G(intent);
+            this.ajy = com.baidu.swan.apps.v.b.b.G(intent);
         }
     }
 
     public com.baidu.swan.apps.v.b.b uA() {
-        return this.ajx;
+        return this.ajy;
     }
 
     private void y(int i, int i2) {
-        this.ajy = i;
-        this.ajz = i2;
+        this.ajz = i;
+        this.ajA = i2;
     }
 
     private void uF() {
-        if (this.ajy != 0 || this.ajz != 0) {
-            overridePendingTransition(this.ajy, this.ajz);
-            this.ajy = 0;
+        if (this.ajz != 0 || this.ajA != 0) {
+            overridePendingTransition(this.ajz, this.ajA);
             this.ajz = 0;
+            this.ajA = 0;
         }
     }
 

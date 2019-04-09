@@ -8,43 +8,43 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
 /* loaded from: classes2.dex */
 public final class d<T> implements Queue<T> {
-    static final int kaH = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object kaN = new Object();
+    static final int kaI = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object kaO = new Object();
     final AtomicLong consumerIndex;
-    long kaF;
-    int kaI;
+    long kaG;
     int kaJ;
-    AtomicReferenceArray<Object> kaK;
-    int kaL;
-    AtomicReferenceArray<Object> kaM;
+    int kaK;
+    AtomicReferenceArray<Object> kaL;
+    int kaM;
+    AtomicReferenceArray<Object> kaN;
     final AtomicLong producerIndex;
 
     public d(int i) {
         int Dk = h.Dk(i);
         int i2 = Dk - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(Dk + 1);
-        this.kaK = atomicReferenceArray;
-        this.kaJ = i2;
+        this.kaL = atomicReferenceArray;
+        this.kaK = i2;
         Di(Dk);
-        this.kaM = atomicReferenceArray;
-        this.kaL = i2;
-        this.kaF = i2 - 1;
+        this.kaN = atomicReferenceArray;
+        this.kaM = i2;
+        this.kaG = i2 - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
     }
 
     @Override // java.util.Queue
     public boolean offer(T t) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kaK;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kaL;
         long cEG = cEG();
-        int i = this.kaJ;
+        int i = this.kaK;
         int z = z(cEG, i);
-        if (cEG < this.kaF) {
+        if (cEG < this.kaG) {
             return a(atomicReferenceArray, t, cEG, z);
         }
-        int i2 = this.kaI;
+        int i2 = this.kaJ;
         if (a(atomicReferenceArray, z(i2 + cEG, i)) == null) {
-            this.kaF = (i2 + cEG) - 1;
+            this.kaG = (i2 + cEG) - 1;
             return a(atomicReferenceArray, t, cEG, z);
         } else if (a(atomicReferenceArray, z(1 + cEG, i)) == null) {
             return a(atomicReferenceArray, t, cEG, z);
@@ -62,11 +62,11 @@ public final class d<T> implements Queue<T> {
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.kaK = atomicReferenceArray2;
-        this.kaF = (j + j2) - 1;
+        this.kaL = atomicReferenceArray2;
+        this.kaG = (j + j2) - 1;
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, kaN);
+        a(atomicReferenceArray, i, kaO);
         ep(j + 1);
     }
 
@@ -80,12 +80,12 @@ public final class d<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kaM;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kaN;
         long cEH = cEH();
-        int i = this.kaL;
+        int i = this.kaM;
         int z = z(cEH, i);
         T t = (T) a(atomicReferenceArray, z);
-        boolean z2 = t == kaN;
+        boolean z2 = t == kaO;
         if (t != null && !z2) {
             a(atomicReferenceArray, z, (Object) null);
             eq(1 + cEH);
@@ -98,7 +98,7 @@ public final class d<T> implements Queue<T> {
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.kaM = atomicReferenceArray;
+        this.kaN = atomicReferenceArray;
         int z = z(j, i);
         T t = (T) a(atomicReferenceArray, z);
         if (t == null) {
@@ -111,11 +111,11 @@ public final class d<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kaM;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kaN;
         long cEH = cEH();
-        int i = this.kaL;
+        int i = this.kaM;
         T t = (T) a(atomicReferenceArray, z(cEH, i));
-        if (t == kaN) {
+        if (t == kaO) {
             return b(a(atomicReferenceArray), cEH, i);
         }
         return t;
@@ -131,7 +131,7 @@ public final class d<T> implements Queue<T> {
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.kaM = atomicReferenceArray;
+        this.kaN = atomicReferenceArray;
         return (T) a(atomicReferenceArray, z(j, i));
     }
 
@@ -154,7 +154,7 @@ public final class d<T> implements Queue<T> {
     }
 
     private void Di(int i) {
-        this.kaI = Math.min(i / 4, kaH);
+        this.kaJ = Math.min(i / 4, kaI);
     }
 
     private long cEF() {
@@ -258,9 +258,9 @@ public final class d<T> implements Queue<T> {
     }
 
     public boolean l(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kaK;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kaL;
         long cEF = cEF();
-        int i = this.kaJ;
+        int i = this.kaK;
         if (a(atomicReferenceArray, z(cEF + 2, i)) == null) {
             int z = z(cEF, i);
             a(atomicReferenceArray, z + 1, t2);
@@ -269,12 +269,12 @@ public final class d<T> implements Queue<T> {
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.kaK = atomicReferenceArray2;
+        this.kaL = atomicReferenceArray2;
         int z2 = z(cEF, i);
         a(atomicReferenceArray2, z2 + 1, t2);
         a(atomicReferenceArray2, z2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, z2, kaN);
+        a(atomicReferenceArray, z2, kaO);
         ep(cEF + 2);
         return true;
     }

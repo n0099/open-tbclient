@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes2.dex */
 public class n implements s {
-    private static n jIK = null;
+    private static n jIL = null;
 
     private n() {
     }
@@ -9,10 +9,10 @@ public class n implements s {
     public static synchronized n czf() {
         n nVar;
         synchronized (n.class) {
-            if (jIK == null) {
-                jIK = new n();
+            if (jIL == null) {
+                jIL = new n();
             }
-            nVar = jIK;
+            nVar = jIL;
         }
         return nVar;
     }

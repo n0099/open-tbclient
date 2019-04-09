@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
-    private LinearLayout bFy;
-    private NoNetworkView eUC;
+    private LinearLayout bFz;
+    private NoNetworkView eUD;
     private NoDataView fFj;
     private NavigationBar mNavigationBar;
     private String mForumName = null;
@@ -54,13 +54,13 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     }
 
     private void bll() {
-        this.bFy = (LinearLayout) findViewById(d.g.root_view);
+        this.bFz = (LinearLayout) findViewById(d.g.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.j.create_bar);
-        this.eUC = (NoNetworkView) this.bFy.findViewById(d.g.view_no_network);
+        this.eUD = (NoNetworkView) this.bFz.findViewById(d.g.view_no_network);
         int h = l.h(getActivity(), d.e.ds100);
-        this.fFj = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.bFy.findViewById(d.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, h), null, null);
+        this.fFj = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.bFz.findViewById(d.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, h), null, null);
         this.fFj.setVisibility(0);
         this.mTextView = (TextView) findViewById(d.g.text_suc_tip);
         this.mTextView.setText(getActivity().getString(d.j.noforum_create_suc_tip1) + this.mForumName + getActivity().getString(d.j.noforum_create_suc_tip2));
@@ -81,10 +81,10 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public void changeSkinType(int i) {
         super.changeSkinType(i);
         super.changeSkinType(i);
-        getLayoutMode().onModeChanged(this.bFy);
-        com.baidu.tbadk.r.a.a(getPageContext(), this.bFy);
-        if (this.eUC != null && this.eUC.getVisibility() == 0) {
-            this.eUC.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        getLayoutMode().onModeChanged(this.bFz);
+        com.baidu.tbadk.r.a.a(getPageContext(), this.bFz);
+        if (this.eUD != null && this.eUD.getVisibility() == 0) {
+            this.eUD.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.fFj != null) {
             this.fFj.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

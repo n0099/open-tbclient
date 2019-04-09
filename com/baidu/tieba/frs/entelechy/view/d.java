@@ -51,11 +51,11 @@ public class d extends c {
                 bgVar.p(arrayList);
             }
             super.a(bgVar);
-            this.ehZ.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            this.eia.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.widget.layout.d
                 public void a(View view, int i, boolean z) {
-                    if (d.this.XS != null && d.this.aEY()) {
-                        ba.adA().c(d.this.mTbPageContext, new String[]{d.this.XS.getActUrl()});
+                    if (d.this.XT != null && d.this.aEY()) {
+                        ba.adA().c(d.this.mTbPageContext, new String[]{d.this.XT.getActUrl()});
                     }
                 }
             });
@@ -65,15 +65,15 @@ public class d extends c {
                 this.fiS.setText(StringUtils.string(getContext().getResources().getString(d.j.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.WT()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.WU())))));
                 this.fiT.setText(String.format(getContext().getResources().getString(d.j.lottery_join_num), String.valueOf(bVar.WV())));
                 this.fiU.setText(d.j.lottery_btn_text);
-                this.dqy.setCommentNumEnable(false);
+                this.dqz.setCommentNumEnable(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void hL(boolean z) {
-        if (this.XS != null && aEY()) {
-            ba.adA().c(this.mTbPageContext, new String[]{this.XS.getActUrl()});
+        if (this.XT != null && aEY()) {
+            ba.adA().c(this.mTbPageContext, new String[]{this.XT.getActUrl()});
         }
     }
 

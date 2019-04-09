@@ -14,17 +14,17 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class aj {
-    public static int bKv = 0;
-    public static int bKw = 1;
-    public static int bKx = 2;
-    public static int bKy = 2;
-    public static int bKz = 3;
-    private com.baidu.tbadk.core.dialog.a VQ;
-    private com.baidu.tbadk.coreExtra.model.a bKA;
-    private AttentionHostData bKB;
-    private int bKC;
-    private a bKD;
+    private com.baidu.tbadk.core.dialog.a VR;
+    private com.baidu.tbadk.coreExtra.model.a bKB;
+    private AttentionHostData bKC;
+    private int bKD;
+    private a bKE;
     private TbPageContext mContext;
+    public static int bKw = 0;
+    public static int bKx = 1;
+    public static int bKy = 2;
+    public static int bKz = 2;
+    public static int bKA = 3;
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.aj.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -32,22 +32,22 @@ public class aj {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (aj.this.bKB != null && !StringUtils.isNull(aj.this.bKB.uid) && data != null && aj.this.bKB.uid.equals(data.toUid)) {
+                if (aj.this.bKC != null && !StringUtils.isNull(aj.this.bKC.uid) && data != null && aj.this.bKC.uid.equals(data.toUid)) {
                     boolean z = false;
                     if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
                         z = true;
                         if (updateAttentionMessage.getError() == 3250013) {
                             BdToast.b(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), d.f.icon_toast_game_error, 3000).abe();
                         } else {
-                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.bYB);
+                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.bYC);
                         }
                     }
                     if (data.Jy) {
-                        aj.this.bKB.likeStatus = data.status;
-                        aj.this.bKB.isAttention = data.isAttention;
+                        aj.this.bKC.likeStatus = data.status;
+                        aj.this.bKC.isAttention = data.isAttention;
                     }
-                    if (z && aj.this.bKD != null) {
-                        aj.this.bKD.e(data.Jy, aj.this.bKC);
+                    if (z && aj.this.bKE != null) {
+                        aj.this.bKE.e(data.Jy, aj.this.bKD);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class aj {
     }
 
     public boolean hl(int i) {
-        if (i == bKz) {
+        if (i == bKA) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.j.reason_cannot_reply_thread);
             return false;
         }
@@ -75,14 +75,14 @@ public class aj {
     }
 
     public boolean S(int i, int i2) {
-        this.bKC = i2;
-        if (i == bKy) {
-            if (this.bKB == null || this.bKB.isAttention) {
+        this.bKD = i2;
+        if (i == bKz) {
+            if (this.bKC == null || this.bKC.isAttention) {
                 return true;
             }
             ade();
             return false;
-        } else if (i == bKz) {
+        } else if (i == bKA) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), d.j.reason_cannot_reply_thread);
             return false;
         } else {
@@ -91,44 +91,44 @@ public class aj {
     }
 
     public void a(AttentionHostData attentionHostData) {
-        this.bKB = attentionHostData;
+        this.bKC = attentionHostData;
     }
 
     private void ade() {
-        if (this.VQ == null) {
-            this.VQ = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            this.VQ.gC(d.j.message_privacy_fans_can_reply);
-            this.VQ.a(d.j.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
+        if (this.VR == null) {
+            this.VR = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            this.VR.gC(d.j.message_privacy_fans_can_reply);
+            this.VR.a(d.j.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aj.this.adf();
-                    aj.this.VQ.dismiss();
+                    aj.this.VR.dismiss();
                 }
             });
-            this.VQ.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
+            this.VR.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    aj.this.VQ.dismiss();
+                    aj.this.VR.dismiss();
                 }
             });
-            this.VQ.setAutoNight(true);
-            this.VQ.b(this.mContext);
+            this.VR.setAutoNight(true);
+            this.VR.b(this.mContext);
         }
-        this.VQ.aaW();
+        this.VR.aaW();
     }
 
     public void a(com.baidu.tbadk.core.data.ba baVar) {
-        if (baVar != null && !StringUtils.isNull(baVar.title) && !StringUtils.isNull(baVar.bAt) && !StringUtils.isNull(baVar.bAu)) {
+        if (baVar != null && !StringUtils.isNull(baVar.title) && !StringUtils.isNull(baVar.bAu) && !StringUtils.isNull(baVar.bAv)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
             aVar.lz(baVar.title);
-            aVar.a(baVar.bAu, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
+            aVar.a(baVar.bAv, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aj.this.adf();
                     aVar2.dismiss();
                 }
             });
-            aVar.b(baVar.bAt, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
+            aVar.b(baVar.bAu, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
@@ -146,25 +146,25 @@ public class aj {
     public void adf() {
         if (!com.baidu.adp.lib.util.j.kM()) {
             this.mContext.showToast(d.j.network_ungeilivable);
-        } else if (this.bKB != null && bc.cZ(this.mContext.getPageActivity())) {
-            if (this.bKA == null) {
-                this.bKA = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
+        } else if (this.bKC != null && bc.cZ(this.mContext.getPageActivity())) {
+            if (this.bKB == null) {
+                this.bKB = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
             }
-            this.bKA.a(true, this.bKB.portrait, this.bKB.uid, this.bKB.isGod, "0", this.mId, null, "0");
+            this.bKB.a(true, this.bKC.portrait, this.bKC.uid, this.bKC.isGod, "0", this.mId, null, "0");
         }
     }
 
     public void a(a aVar) {
-        this.bKD = aVar;
+        this.bKE = aVar;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
-        if (this.VQ != null) {
-            this.VQ.dismiss();
+        if (this.VR != null) {
+            this.VR.dismiss();
         }
-        if (this.bKA != null) {
-            this.bKA.cancel();
+        if (this.bKB != null) {
+            this.bKB.cancel();
         }
     }
 }

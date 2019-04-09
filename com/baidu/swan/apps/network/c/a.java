@@ -25,21 +25,21 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a aCY;
-    private List<com.baidu.swan.apps.network.c.b.b> aCZ;
-    private long aDa;
-    private AtomicInteger aDb;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> aDc;
+    private static volatile a aCZ;
+    private List<com.baidu.swan.apps.network.c.b.b> aDa;
+    private long aDb;
+    private AtomicInteger aDc;
+    private CopyOnWriteArrayList<com.baidu.swan.apps.network.c.a.a> aDd;
 
     public static a Fd() {
-        if (aCY == null) {
+        if (aCZ == null) {
             synchronized (a.class) {
-                if (aCY == null) {
-                    aCY = new a();
+                if (aCZ == null) {
+                    aCZ = new a();
                 }
             }
         }
-        return aCY;
+        return aCZ;
     }
 
     private a() {
@@ -48,14 +48,14 @@ public final class a {
 
     private void init() {
         Fe();
-        this.aDa = 0L;
-        this.aDb = new AtomicInteger(0);
-        this.aDc = new CopyOnWriteArrayList<>();
+        this.aDb = 0L;
+        this.aDc = new AtomicInteger(0);
+        this.aDd = new CopyOnWriteArrayList<>();
     }
 
     private void Fe() {
-        this.aCZ = new ArrayList();
-        this.aCZ.add(new com.baidu.swan.apps.network.c.b.a());
+        this.aDa = new ArrayList();
+        this.aDa.add(new com.baidu.swan.apps.network.c.b.a());
     }
 
     public void Ff() {
@@ -76,9 +76,9 @@ public final class a {
 
     public void b(@Nullable com.baidu.swan.apps.network.c.a.a aVar) {
         if (aVar != null) {
-            this.aDc.add(aVar);
+            this.aDd.add(aVar);
         }
-        t(this.aCZ);
+        t(this.aDa);
     }
 
     public void a(com.baidu.swan.apps.network.c.b.b bVar) {
@@ -101,9 +101,9 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "release: ");
         }
-        if (aCY != null) {
-            this.aDc.clear();
-            aCY = null;
+        if (aCZ != null) {
+            this.aDd.clear();
+            aCZ = null;
         }
     }
 
@@ -116,12 +116,12 @@ public final class a {
                 Log.d("SwanAppUpdateManager", "update finish: nodes is empty");
             }
             Fh();
-        } else if (this.aDb.incrementAndGet() > 1) {
+        } else if (this.aDc.incrementAndGet() > 1) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "pending request");
             }
         } else {
-            ArrayMap<String, String> w = w(this.aCZ);
+            ArrayMap<String, String> w = w(this.aDa);
             JSONObject a = a(list, w);
             if (a == null) {
                 if (DEBUG) {
@@ -226,7 +226,7 @@ public final class a {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "doRequestSuccess: ");
         }
-        this.aDa = SystemClock.elapsedRealtime();
+        this.aDb = SystemClock.elapsedRealtime();
         boolean z2 = false;
         for (com.baidu.swan.apps.network.c.b.b bVar : list) {
             JSONObject optJSONObject = jSONObject.optJSONObject(bVar.getNodeName());
@@ -273,8 +273,8 @@ public final class a {
     }
 
     private void Fg() {
-        if (this.aDb.decrementAndGet() > 0) {
-            this.aDb.set(0);
+        if (this.aDc.decrementAndGet() > 0) {
+            this.aDc.set(0);
             update();
             return;
         }
@@ -282,8 +282,8 @@ public final class a {
     }
 
     private void Fh() {
-        this.aDb.set(0);
-        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.aDc.iterator();
+        this.aDc.set(0);
+        Iterator<com.baidu.swan.apps.network.c.a.a> it = this.aDd.iterator();
         while (it.hasNext()) {
             final com.baidu.swan.apps.network.c.a.a next = it.next();
             c.g(new Runnable() { // from class: com.baidu.swan.apps.network.c.a.2
@@ -293,7 +293,7 @@ public final class a {
                 }
             });
         }
-        this.aDc.clear();
+        this.aDd.clear();
     }
 
     private void v(@NonNull List<com.baidu.swan.apps.network.c.b.b> list) {
@@ -367,6 +367,6 @@ public final class a {
     }
 
     private boolean Fi() {
-        return this.aDa <= 0 || SystemClock.elapsedRealtime() - this.aDa > 18000000;
+        return this.aDb <= 0 || SystemClock.elapsedRealtime() - this.aDb > 18000000;
     }
 }

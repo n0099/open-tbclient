@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class UserRecommendItemView extends LinearLayout {
-    private TextView Zy;
+    private TextView Zz;
     private ClickableHeaderImageView fAm;
     private CardUserLikeButton fAn;
     private TextView fAo;
@@ -46,7 +46,7 @@ public class UserRecommendItemView extends LinearLayout {
         this.fAm.setScaleType(ImageView.ScaleType.FIT_XY);
         this.fAn = (CardUserLikeButton) findViewById(d.g.user_recommend_like_btn);
         this.fAn.setGravity(17);
-        this.Zy = (TextView) findViewById(d.g.user_recommend_username);
+        this.Zz = (TextView) findViewById(d.g.user_recommend_username);
         this.fAo = (TextView) findViewById(d.g.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
@@ -64,9 +64,9 @@ public class UserRecommendItemView extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.Zy.setTextColor(al.getColor(this.mSkinType, d.C0277d.cp_cont_r));
+                this.Zz.setTextColor(al.getColor(this.mSkinType, d.C0277d.cp_cont_r));
             } else {
-                this.Zy.setTextColor(al.getColor(this.mSkinType, d.C0277d.cp_cont_b));
+                this.Zz.setTextColor(al.getColor(this.mSkinType, d.C0277d.cp_cont_b));
             }
         }
     }
@@ -76,9 +76,9 @@ public class UserRecommendItemView extends LinearLayout {
             this.mSkinType = i;
             this.fAo.setTextColor(al.getColor(i, d.C0277d.cp_cont_d));
             if (this.isGod) {
-                this.Zy.setTextColor(al.getColor(i, d.C0277d.cp_cont_r));
+                this.Zz.setTextColor(al.getColor(i, d.C0277d.cp_cont_r));
             } else {
-                this.Zy.setTextColor(al.getColor(i, d.C0277d.cp_cont_b));
+                this.Zz.setTextColor(al.getColor(i, d.C0277d.cp_cont_b));
             }
             setBackgroundColor(al.getColor(i, d.C0277d.cp_bg_line_d));
             this.fAn.onChangeSkinType(i);
@@ -95,7 +95,7 @@ public class UserRecommendItemView extends LinearLayout {
     }
 
     public TextView getUsername() {
-        return this.Zy;
+        return this.Zz;
     }
 
     public TextView getFansNum() {

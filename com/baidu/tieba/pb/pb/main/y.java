@@ -10,8 +10,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes4.dex */
 public class y extends com.baidu.tbadk.core.dialog.g {
-    private View.OnClickListener eWo;
-    private TextView hta;
+    private View.OnClickListener eWp;
     private TextView htb;
     private TextView htc;
     private TextView htd;
@@ -19,47 +18,48 @@ public class y extends com.baidu.tbadk.core.dialog.g {
     private TextView htf;
     private TextView htg;
     private TextView hth;
-    private boolean hti;
+    private TextView hti;
+    private boolean htj;
     private TbPageContext<?> mContext;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.hti = false;
+        this.htj = false;
         this.mContext = tbPageContext;
-        this.eWo = onClickListener;
+        this.eWp = onClickListener;
         zm();
     }
 
     public TextView bLE() {
-        return this.hta;
-    }
-
-    public TextView bLF() {
         return this.htb;
     }
 
-    public TextView bLG() {
+    public TextView bLF() {
         return this.htc;
     }
 
-    public TextView bLH() {
+    public TextView bLG() {
         return this.htd;
     }
 
-    public TextView bLI() {
+    public TextView bLH() {
         return this.hte;
     }
 
-    public TextView bLJ() {
-        return this.hth;
-    }
-
-    public TextView bLK() {
+    public TextView bLI() {
         return this.htf;
     }
 
-    public TextView bLL() {
+    public TextView bLJ() {
+        return this.hti;
+    }
+
+    public TextView bLK() {
         return this.htg;
+    }
+
+    public TextView bLL() {
+        return this.hth;
     }
 
     private void zm() {
@@ -67,17 +67,17 @@ public class y extends com.baidu.tbadk.core.dialog.g {
             @Override // com.baidu.tbadk.core.dialog.i.c
             public void a(com.baidu.tbadk.core.dialog.i iVar, int i, View view) {
                 y.this.dismiss();
-                y.this.eWo.onClick(view);
+                y.this.eWp.onClick(view);
             }
         });
-        this.hth = cr(gJ(0));
-        this.hta = cr(gJ(4));
-        this.htb = cr(gJ(7));
-        this.htc = cr(gJ(5));
-        this.htd = cr(gJ(6));
-        this.hte = cr(gJ(3));
-        this.htf = cr(gJ(1));
-        this.htg = cr(gJ(2));
+        this.hti = cr(gJ(0));
+        this.htb = cr(gJ(4));
+        this.htc = cr(gJ(7));
+        this.htd = cr(gJ(5));
+        this.hte = cr(gJ(6));
+        this.htf = cr(gJ(3));
+        this.htg = cr(gJ(1));
+        this.hth = cr(gJ(2));
     }
 
     private TextView cr(View view) {
@@ -85,7 +85,7 @@ public class y extends com.baidu.tbadk.core.dialog.g {
     }
 
     public void nC(boolean z) {
-        this.htc.setVisibility(z ? 0 : 8);
+        this.htd.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {

@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements m {
-    protected String cVj = "";
+    protected String cVk = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -41,8 +41,8 @@ public class d implements m {
             return null;
         }
         com.baidu.swan.apps.media.a p = com.baidu.swan.apps.media.b.p(str, str2, str3);
-        if (p == null && ap.equals("/swan/live/open", this.cVj)) {
-            this.cVj = "";
+        if (p == null && ap.equals("/swan/live/open", this.cVk)) {
+            this.cVk = "";
             return new f(context, str3);
         } else if (p == null || !(p.Ei() instanceof f)) {
             return null;
@@ -104,7 +104,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.3
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                com.baidu.swan.apps.view.container.a hS = com.baidu.swan.apps.view.container.c.c.hS(aVar.aBG);
+                com.baidu.swan.apps.view.container.a hS = com.baidu.swan.apps.view.container.c.c.hS(aVar.aBH);
                 SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, hS);
                 if (hS != null && a2 != null) {
                     com.baidu.swan.apps.view.container.c.c.b(a2, hS);
@@ -121,7 +121,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.4
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.j(aVar.cVh, aVar.mDirection);
+                fVar.j(aVar.cVi, aVar.mDirection);
                 return true;
             }
         });
@@ -131,7 +131,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.fY(aVar.cVb);
+                fVar.fY(aVar.cVc);
                 return true;
             }
         });
@@ -183,7 +183,7 @@ public class d implements m {
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        this.cVj = "/swan/live/open";
+        this.cVk = "/swan/live/open";
         return y(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 

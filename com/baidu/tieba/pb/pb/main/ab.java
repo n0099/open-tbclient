@@ -1,13 +1,12 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class ab {
-    public String htS;
-    public boolean htT;
+    public String htT;
     public boolean htU;
-    public boolean htF = false;
+    public boolean htV;
     public boolean htG = false;
-    public boolean qV = false;
     public boolean htH = false;
+    public boolean qV = false;
     public boolean htI = false;
     public boolean htJ = false;
     public boolean htK = false;
@@ -18,5 +17,6 @@ public class ab {
     public boolean htP = false;
     public boolean htQ = false;
     public boolean htR = false;
+    public boolean htS = false;
     public boolean isHostOnly = false;
 }

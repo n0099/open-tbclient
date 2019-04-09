@@ -4,7 +4,7 @@ import android.graphics.Color;
 import com.baidu.mapapi.map.BaiduMap;
 /* loaded from: classes5.dex */
 public class b extends a {
-    private static final int bjp = Color.parseColor("#26c56c");
+    private static final int bjq = Color.parseColor("#26c56c");
 
     public b(BaiduMap baiduMap) {
         super(baiduMap);
@@ -12,6 +12,6 @@ public class b extends a {
 
     @Override // com.baidu.swan.impl.map.d.a
     public int QL() {
-        return bjp;
+        return bjq;
     }
 }

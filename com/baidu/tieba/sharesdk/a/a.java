@@ -146,10 +146,10 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     public com.baidu.adp.widget.ImageView.a a(ShareEntity shareEntity) {
-        if (shareEntity == null || shareEntity.cbx == null) {
+        if (shareEntity == null || shareEntity.cby == null) {
             return null;
         }
-        Bundle bundle = shareEntity.cbx;
+        Bundle bundle = shareEntity.cby;
         String string = bundle.getString("path");
         String string2 = bundle.getString("name");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {

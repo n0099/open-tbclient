@@ -11,8 +11,8 @@ import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a aEz;
-    private SwanAppMessengerService aEA;
+    private static volatile a aEA;
+    private SwanAppMessengerService aEB;
 
     /* renamed from: com.baidu.swan.apps.process.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -24,14 +24,14 @@ public final class a {
     }
 
     public static a Gi() {
-        if (aEz == null) {
+        if (aEA == null) {
             synchronized (a.class) {
-                if (aEz == null) {
-                    aEz = new a();
+                if (aEA == null) {
+                    aEA = new a();
                 }
             }
         }
-        return aEz;
+        return aEA;
     }
 
     private void a(final InterfaceC0151a interfaceC0151a) {
@@ -39,7 +39,7 @@ public final class a {
         appContext.bindService(new Intent(appContext, SwanAppMessengerService.class), new ServiceConnection() { // from class: com.baidu.swan.apps.process.a.1
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.aEA = SwanAppMessengerService.getServiceObject();
+                a.this.aEB = SwanAppMessengerService.getServiceObject();
                 if (interfaceC0151a != null) {
                     interfaceC0151a.onReady();
                 }
@@ -47,14 +47,14 @@ public final class a {
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.aEA = null;
+                a.this.aEB = null;
             }
         }, 1);
     }
 
     public void b(InterfaceC0151a interfaceC0151a) {
         if (interfaceC0151a != null) {
-            if (this.aEA == null) {
+            if (this.aEB == null) {
                 a(interfaceC0151a);
             } else {
                 interfaceC0151a.onReady();

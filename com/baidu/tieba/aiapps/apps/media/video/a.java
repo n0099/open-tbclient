@@ -172,7 +172,7 @@ public class a implements v {
     private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, c cVar) {
         SwanAppNAViewContainer swanAppNAViewContainer;
         if (aVar != null && aVar.bSV() != null) {
-            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar.aBG, cVar.id, aa.hN(cVar.aBG));
+            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar.aBH, cVar.id, aa.hN(cVar.aBH));
             if (aVar.bSV().getParent() != null) {
                 ((ViewGroup) aVar.bSV().getParent()).removeView(aVar.bSV());
             }
@@ -182,11 +182,11 @@ public class a implements v {
             } else {
                 com.baidu.swan.apps.model.a.a.a EK = cVar.EK();
                 a.MI();
-                EK.aBG = a.getSlaveId();
-                EK.aBH = a.getParentId();
+                EK.aBH = a.getSlaveId();
+                EK.aBI = a.getParentId();
                 EK.id = a.getViewId();
-                EK.aBI.setTop(EK.aBI.getTop());
-                EK.aBI.setHeight(EK.aBI.getHeight());
+                EK.aBJ.setTop(EK.aBJ.getTop());
+                EK.aBJ.setHeight(EK.aBJ.getHeight());
                 a.a(aVar.bSV(), EK);
                 swanAppNAViewContainer = a;
             }
@@ -227,7 +227,7 @@ public class a implements v {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.view.container.a hS = com.baidu.swan.apps.view.container.c.c.hS(a.aBG);
+        com.baidu.swan.apps.view.container.a hS = com.baidu.swan.apps.view.container.c.c.hS(a.aBH);
         SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(a, hS);
         if (hS != null && a2 != null) {
             com.baidu.swan.apps.view.container.c.c.b(a2, hS);

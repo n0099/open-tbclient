@@ -30,7 +30,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
                                 i = i2;
                             } else {
                                 i iVar = new i();
-                                iVar.bBJ = metaData;
+                                iVar.bBK = metaData;
                                 a(iVar);
                                 i = i2 + 1;
                             }

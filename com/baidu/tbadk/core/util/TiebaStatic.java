@@ -77,10 +77,10 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.adE().bLW.CI <= 180000) {
+        if (aVar != null && aVar.adE().bLX.CI <= 180000) {
             try {
-                if (aVar.adE().bLW.CI >= 0 && aVar.adE().bLW.connectTime >= 0 && aVar.adE().bLW.CG >= 0) {
-                    int i = aVar.adD().bLU;
+                if (aVar.adE().bLX.CI >= 0 && aVar.adE().bLX.connectTime >= 0 && aVar.adE().bLX.CG >= 0) {
+                    int i = aVar.adD().bLV;
                     if (!aVar.adD().acH()) {
                         i = aVar.adD().Dd;
                     }
@@ -89,10 +89,10 @@ public class TiebaStatic {
                     if (i != 0) {
                         str = aVar.adD().mErrorString;
                     }
-                    if (aVar.adC().bLT) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.adC().adG(), ady, aVar.adE().bLW.CF, aVar.adE().bLW.CE, aVar.adE().bLW.CI, aVar.adE().bLW.connectTime, aVar.adE().bLW.CG, aVar.adE().bLW.CH, i, str, new Object[0]);
+                    if (aVar.adC().bLU) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.adC().adG(), ady, aVar.adE().bLX.CF, aVar.adE().bLX.CE, aVar.adE().bLX.CI, aVar.adE().bLX.connectTime, aVar.adE().bLX.CG, aVar.adE().bLX.CH, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.adC().adG(), ady, aVar.adE().bLW.CF, aVar.adE().bLW.CE, aVar.adE().bLW.CI, aVar.adE().bLW.connectTime, aVar.adE().bLW.CG, aVar.adE().bLW.CH, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.adC().adG(), ady, aVar.adE().bLX.CF, aVar.adE().bLX.CE, aVar.adE().bLX.CI, aVar.adE().bLX.connectTime, aVar.adE().bLX.CG, aVar.adE().bLX.CH, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {

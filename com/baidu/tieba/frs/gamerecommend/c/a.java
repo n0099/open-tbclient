@@ -22,7 +22,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private PbListView dbr;
+    private PbListView dbs;
     private com.baidu.tieba.frs.gamerecommend.a.a fmj;
     private FrameLayout fmk;
     private String mForumId;
@@ -58,8 +58,8 @@ public class a {
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.dbr = new PbListView(this.mPageContext.getPageActivity());
-        this.dbr.oM();
+        this.dbs = new PbListView(this.mPageContext.getPageActivity());
+        this.dbs.oM();
         this.fmj = new com.baidu.tieba.frs.gamerecommend.a.a(this.mPageContext, this.mListView, this.mForumId, this.mForumName);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -74,22 +74,22 @@ public class a {
     }
 
     private void aBm() {
-        if (this.dbr != null) {
-            if (this.dbr.getView().getParent() == null) {
-                this.mListView.setNextPage(this.dbr);
+        if (this.dbs != null) {
+            if (this.dbs.getView().getParent() == null) {
+                this.mListView.setNextPage(this.dbs);
             }
-            this.dbr.setText(this.mPageContext.getPageActivity().getResources().getString(d.j.list_no_more));
-            this.dbr.aeA();
+            this.dbs.setText(this.mPageContext.getPageActivity().getResources().getString(d.j.list_no_more));
+            this.dbs.aeA();
         }
     }
 
     private void aBn() {
-        if (this.dbr != null) {
-            if (this.dbr.getView().getParent() == null) {
-                this.mListView.setNextPage(this.dbr);
+        if (this.dbs != null) {
+            if (this.dbs.getView().getParent() == null) {
+                this.mListView.setNextPage(this.dbs);
             }
-            this.dbr.aeF();
-            this.dbr.aez();
+            this.dbs.aeF();
+            this.dbs.aez();
         }
     }
 

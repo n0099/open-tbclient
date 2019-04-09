@@ -10,9 +10,9 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class b implements e {
-    private boolean gYT = false;
     private boolean gYU = false;
-    private e.a gYV;
+    private boolean gYV = false;
+    private e.a gYW;
     private String mLocalPath;
 
     public b(String str) {
@@ -21,15 +21,15 @@ public class b implements e {
 
     @Override // com.baidu.tieba.j.e
     public void a(e.a aVar) {
-        this.gYV = aVar;
+        this.gYW = aVar;
     }
 
     @Override // com.baidu.tieba.j.e
     public void bEa() {
         if (f.ajx()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.od(this.mLocalPath)) {
-                if (this.gYV != null) {
-                    this.gYV.vA(2);
+                if (this.gYW != null) {
+                    this.gYW.vA(2);
                     return;
                 }
                 return;
@@ -38,11 +38,11 @@ public class b implements e {
                 @Override // com.baidu.tieba.k.a.b
                 public void vE(int i) {
                     if (i == 1) {
-                        b.this.gYT = true;
+                        b.this.gYU = true;
                         b.this.bEF();
                     }
-                    if (b.this.gYV != null) {
-                        b.this.gYV.vA(i);
+                    if (b.this.gYW != null) {
+                        b.this.gYW.vA(i);
                     }
                 }
             });
@@ -53,8 +53,8 @@ public class b implements e {
     public void bEF() {
         if (f.ajx()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.od(this.mLocalPath)) {
-                if (this.gYV != null) {
-                    this.gYV.onChange(false);
+                if (this.gYW != null) {
+                    this.gYW.onChange(false);
                     return;
                 }
                 return;
@@ -62,11 +62,11 @@ public class b implements e {
             a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0329a() { // from class: com.baidu.tieba.k.b.2
                 @Override // com.baidu.tieba.k.a.InterfaceC0329a
                 public void mu(boolean z) {
-                    if (b.this.gYT && z) {
-                        b.this.gYU = true;
+                    if (b.this.gYU && z) {
+                        b.this.gYV = true;
                     }
-                    if (b.this.gYV != null) {
-                        b.this.gYV.onChange(z);
+                    if (b.this.gYW != null) {
+                        b.this.gYW.onChange(z);
                     }
                 }
             });
@@ -76,9 +76,9 @@ public class b implements e {
     @Override // com.baidu.tieba.j.e
     public void bEb() {
         if (f.ajx()) {
-            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.gYT || !this.gYU) {
-                if (this.gYV != null) {
-                    this.gYV.ms(false);
+            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.gYU || !this.gYV) {
+                if (this.gYW != null) {
+                    this.gYW.ms(false);
                     return;
                 }
                 return;
@@ -99,8 +99,8 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.gYV != null) {
-                        b.this.gYV.ms(bool.booleanValue());
+                    if (b.this.gYW != null) {
+                        b.this.gYW.ms(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -110,8 +110,8 @@ public class b implements e {
     @Override // com.baidu.tieba.j.e
     public void bEc() {
         if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.od(this.mLocalPath)) {
-            if (this.gYV != null) {
-                this.gYV.vA(2);
+            if (this.gYW != null) {
+                this.gYW.vA(2);
                 return;
             }
             return;
@@ -150,15 +150,15 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.gYV != null) {
-                            b.this.gYV.vA(cVar.value);
+                        if (b.this.gYW != null) {
+                            b.this.gYW.vA(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.gYV != null) {
-                            b.this.gYV.onChange(cVar.value == 1);
+                        if (b.this.gYW != null) {
+                            b.this.gYW.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.gYV != null) {
-                        b.this.gYV.ms(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.gYW != null) {
+                        b.this.gYW.ms(cVar.value == 1);
                     }
                 }
             }

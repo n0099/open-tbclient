@@ -14,12 +14,12 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<MetaData> aFL;
-    private TbCheckBox.a gvO;
-    private AtListActivity jrK;
-    private boolean jrM;
+    private ArrayList<MetaData> aFM;
+    private TbCheckBox.a gvP;
+    private AtListActivity jrL;
+    private boolean jrN;
     private final Context mContext;
-    private b jrL = null;
+    private b jrM = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,40 +29,40 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.jrL = bVar;
+        this.jrM = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.jrM = true;
-        this.jrK = atListActivity;
-        this.mContext = this.jrK.getPageContext().getContext();
-        this.jrM = z;
+        this.jrN = true;
+        this.jrL = atListActivity;
+        this.mContext = this.jrL.getPageContext().getContext();
+        this.jrN = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(ArrayList<MetaData> arrayList) {
-        this.aFL = arrayList;
+        this.aFM = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.gvO = aVar;
+        this.gvP = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aFL == null) {
+        if (this.aFM == null) {
             return 0;
         }
-        return this.aFL.size();
+        return this.aFM.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: Bs */
     public MetaData getItem(int i) {
-        if (this.aFL != null && i < this.aFL.size()) {
-            return this.aFL.get(i);
+        if (this.aFM != null && i < this.aFM.size()) {
+            return this.aFM.get(i);
         }
         return null;
     }
@@ -98,33 +98,33 @@ public class a extends BaseAdapter {
         } else {
             c0417a = (C0417a) obj;
         }
-        if (this.jrL != null) {
-            this.jrL.a(c0417a.rootView, metaData);
+        if (this.jrM != null) {
+            this.jrM.a(c0417a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0417a.eeA.setText(metaData.getName_show());
-        c0417a.gvR.setTagData(metaData);
-        c0417a.gvw.setTag(portrait);
-        if (this.jrM) {
-            c0417a.gvR.setVisibility(0);
+        c0417a.eeB.setText(metaData.getName_show());
+        c0417a.gvS.setTagData(metaData);
+        c0417a.gvx.setTag(portrait);
+        if (this.jrN) {
+            c0417a.gvS.setVisibility(0);
         } else {
-            c0417a.gvR.setVisibility(8);
+            c0417a.gvS.setVisibility(8);
         }
-        c0417a.gvw.startLoad(portrait, 12, false);
-        this.jrK.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.jrK.getPageContext().getLayoutMode().onModeChanged(c0417a.rootView);
+        c0417a.gvx.startLoad(portrait, 12, false);
+        this.jrL.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.jrL.getPageContext().getLayoutMode().onModeChanged(c0417a.rootView);
         return c0417a;
     }
 
     private C0417a cqi() {
         C0417a c0417a = new C0417a();
         c0417a.rootView = LayoutInflater.from(this.mContext).inflate(d.h.invite_friend_list_item, (ViewGroup) null);
-        c0417a.gvw = (HeadImageView) c0417a.rootView.findViewById(d.g.photo);
-        c0417a.gvw.setIsRound(false);
-        c0417a.eeA = (TextView) c0417a.rootView.findViewById(d.g.txt_user_name);
-        c0417a.gvR = (TbCheckBox) c0417a.rootView.findViewById(d.g.ckb_select);
-        if (this.gvO != null) {
-            c0417a.gvR.setStatedChangedListener(this.gvO);
+        c0417a.gvx = (HeadImageView) c0417a.rootView.findViewById(d.g.photo);
+        c0417a.gvx.setIsRound(false);
+        c0417a.eeB = (TextView) c0417a.rootView.findViewById(d.g.txt_user_name);
+        c0417a.gvS = (TbCheckBox) c0417a.rootView.findViewById(d.g.ckb_select);
+        if (this.gvP != null) {
+            c0417a.gvS.setStatedChangedListener(this.gvP);
         }
         c0417a.rootView.setTag(c0417a);
         return c0417a;
@@ -134,9 +134,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0417a {
-        public TextView eeA;
-        public TbCheckBox gvR;
-        public HeadImageView gvw;
+        public TextView eeB;
+        public TbCheckBox gvS;
+        public HeadImageView gvx;
         public View rootView;
 
         private C0417a() {

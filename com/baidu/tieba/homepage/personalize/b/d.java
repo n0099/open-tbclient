@@ -34,7 +34,7 @@ public class d {
                                     z = true;
                                 } else if (!StringUtils.isNull(cVar.tid) && !cVar.tid.equals(str) && z) {
                                     c cVar2 = new c();
-                                    cVar2.aYK = d;
+                                    cVar2.aYL = d;
                                     cVar2.fNA = false;
                                     list.add(i, cVar2);
                                     return;

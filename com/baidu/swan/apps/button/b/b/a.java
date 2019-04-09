@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<M extends a> extends com.baidu.swan.apps.button.b.a<M> {
-    public String akm;
     public String akn;
+    public String ako;
     public String fontWeight;
     public double qm;
     public String text;
@@ -29,13 +29,13 @@ public class a<M extends a> extends com.baidu.swan.apps.button.b.a<M> {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.text = jSONObject.optString("text");
-        if (this.akk != null) {
-            this.akm = this.akk.optString("color");
-            this.textSize = this.akk.optInt("fontSize");
-            this.qm = this.akk.optDouble("lineHeight", 0.0d);
-            this.textAlign = this.akk.optString("textAlign");
-            this.fontWeight = this.akk.optString("fontWeight");
-            this.akn = this.akk.optString("whiteSpace");
+        if (this.akl != null) {
+            this.akn = this.akl.optString("color");
+            this.textSize = this.akl.optInt("fontSize");
+            this.qm = this.akl.optDouble("lineHeight", 0.0d);
+            this.textAlign = this.akl.optString("textAlign");
+            this.fontWeight = this.akl.optString("fontWeight");
+            this.ako = this.akl.optString("whiteSpace");
         }
     }
 

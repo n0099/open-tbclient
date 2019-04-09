@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b implements SensorEventListener {
-    private SensorManager aTz;
-    private double bgC;
-    private LocationClient bgD;
-    private BDLocation bgF;
-    private boolean bgE = false;
-    private boolean bgG = false;
-    private List<com.baidu.swan.impl.map.item.b> bgB = new ArrayList(1);
+    private SensorManager aTA;
+    private double bgD;
+    private LocationClient bgE;
+    private BDLocation bgG;
+    private boolean bgF = false;
+    private boolean bgH = false;
+    private List<com.baidu.swan.impl.map.item.b> bgC = new ArrayList(1);
 
     public b() {
         PN();
@@ -35,14 +35,14 @@ public class b implements SensorEventListener {
         if (bVar == null) {
             return false;
         }
-        this.bgB.add(bVar);
+        this.bgC.add(bVar);
         return true;
     }
 
     public boolean remove(String str) {
         com.baidu.swan.impl.map.item.b jd = jd(str);
         if (jd != null) {
-            this.bgB.remove(jd);
+            this.bgC.remove(jd);
             return true;
         }
         return false;
@@ -52,7 +52,7 @@ public class b implements SensorEventListener {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgC) {
             if (bVar != null && TextUtils.equals(bVar.id, str)) {
                 return bVar;
             }
@@ -62,42 +62,42 @@ public class b implements SensorEventListener {
 
     public void resume() {
         PN();
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
-            bVar.bhm.onResume();
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgC) {
+            bVar.bhn.onResume();
         }
     }
 
     public void pause() {
         ja();
-        for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
-            bVar.bhm.onPause();
+        for (com.baidu.swan.impl.map.item.b bVar : this.bgC) {
+            bVar.bhn.onPause();
         }
     }
 
     public void release() {
         ja();
-        this.bgG = false;
+        this.bgH = false;
         if (Build.VERSION.SDK_INT > 19) {
-            for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
-                bVar.bhm.onDestroy();
+            for (com.baidu.swan.impl.map.item.b bVar : this.bgC) {
+                bVar.bhn.onDestroy();
             }
         }
-        this.bgB.clear();
+        this.bgC.clear();
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         double d = sensorEvent.values[0];
-        if (Math.abs(d - this.bgC) > 1.0d) {
-            for (com.baidu.swan.impl.map.item.b bVar : this.bgB) {
-                MyLocationData locationData = bVar.bhm.getMap().getLocationData();
+        if (Math.abs(d - this.bgD) > 1.0d) {
+            for (com.baidu.swan.impl.map.item.b bVar : this.bgC) {
+                MyLocationData locationData = bVar.bhn.getMap().getLocationData();
                 if (locationData != null && bVar.isShowLocation) {
-                    bVar.bhm.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).accuracy(locationData.accuracy).satellitesNum(locationData.satellitesNum).build());
+                    bVar.bhn.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).accuracy(locationData.accuracy).satellitesNum(locationData.satellitesNum).build());
                     PM();
                 }
             }
         }
-        this.bgC = d;
+        this.bgD = d;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -111,15 +111,15 @@ public class b implements SensorEventListener {
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            if (bDLocation == null || b.this.bgB.size() <= 0) {
+            if (bDLocation == null || b.this.bgC.size() <= 0) {
                 b.this.ja();
                 return;
             }
-            b.this.bgF = bDLocation;
-            for (com.baidu.swan.impl.map.item.b bVar : b.this.bgB) {
+            b.this.bgG = bDLocation;
+            for (com.baidu.swan.impl.map.item.b bVar : b.this.bgC) {
                 if (bVar.isShowLocation) {
                     MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build();
-                    BaiduMap map = bVar.bhm.getMap();
+                    BaiduMap map = bVar.bhn.getMap();
                     map.setMyLocationEnabled(true);
                     map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                     map.setMyLocationData(build);
@@ -129,31 +129,31 @@ public class b implements SensorEventListener {
     }
 
     private void PM() {
-        if (this.bgD == null) {
-            this.bgD = new LocationClient(AppRuntime.getAppContext());
-            this.bgD.registerLocationListener(new a());
+        if (this.bgE == null) {
+            this.bgE = new LocationClient(AppRuntime.getAppContext());
+            this.bgE.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.bgD.setLocOption(locationClientOption);
+            this.bgE.setLocOption(locationClientOption);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ja() {
-        if (this.bgG && this.bgD != null && this.bgD.isStarted()) {
-            this.bgD.stop();
+        if (this.bgH && this.bgE != null && this.bgE.isStarted()) {
+            this.bgE.stop();
             PP();
             com.baidu.swan.apps.console.c.w("map", "stop location");
         }
     }
 
     private void PN() {
-        if (this.bgG) {
+        if (this.bgH) {
             PM();
-            if (this.bgD != null && !this.bgD.isStarted()) {
-                this.bgD.start();
+            if (this.bgE != null && !this.bgE.isStarted()) {
+                this.bgE.start();
                 PO();
                 com.baidu.swan.apps.console.c.w("map", "start location");
             }
@@ -161,37 +161,37 @@ public class b implements SensorEventListener {
     }
 
     private void PO() {
-        if (!this.bgE) {
-            this.aTz = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
-            if (this.aTz != null) {
-                this.aTz.registerListener(this, this.aTz.getDefaultSensor(3), 2);
-                this.bgE = true;
+        if (!this.bgF) {
+            this.aTA = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
+            if (this.aTA != null) {
+                this.aTA.registerListener(this, this.aTA.getDefaultSensor(3), 2);
+                this.bgF = true;
             }
         }
     }
 
     private void PP() {
-        if (this.aTz != null && this.bgE) {
-            this.aTz.unregisterListener(this);
-            this.bgE = false;
+        if (this.aTA != null && this.bgF) {
+            this.aTA.unregisterListener(this);
+            this.bgF = false;
         }
     }
 
     public boolean PQ() {
-        return this.bgD != null && this.bgD.isStarted();
+        return this.bgE != null && this.bgE.isStarted();
     }
 
     public BDLocation PR() {
-        return this.bgF;
+        return this.bgG;
     }
 
     public void cC(boolean z) {
         if (z) {
-            this.bgG = true;
+            this.bgH = true;
             PN();
             return;
         }
         ja();
-        this.bgG = false;
+        this.bgH = false;
     }
 }

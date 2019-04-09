@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static String hbH = "native_crash_log.log";
-    private static List<String> hbI = new ArrayList();
+    private static String hbI = "native_crash_log.log";
+    private static List<String> hbJ = new ArrayList();
     private static BroadcastReceiver Ke = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -28,13 +28,13 @@ public class a {
             }
         }
     };
-    private static BdNativeCrash.a hbJ = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a hbK = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
     public static void bFB() {
-        if (BdNativeCrash.hbG) {
+        if (BdNativeCrash.hbH) {
             BdNativeCrash.bFA().dv(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.bFA().a(hbJ);
+            BdNativeCrash.bFA().a(hbK);
             bFC();
         }
     }

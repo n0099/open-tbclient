@@ -29,7 +29,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.fEc.hideLoadingView();
             if (v.T(list)) {
                 GodSquareActivity.this.fEc.bkV();
-                if (v.T(GodSquareActivity.this.fEd.eVa)) {
+                if (v.T(GodSquareActivity.this.fEd.eVb)) {
                     GodSquareActivity.this.fEc.uQ(str);
                     return;
                 }
@@ -42,10 +42,10 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             }
             GodSquareActivity.this.fEc.aBq();
             if (z) {
-                GodSquareActivity.this.fEd.eVa = list;
-                GodSquareActivity.this.fEc.cp(GodSquareActivity.this.fEd.eVa);
+                GodSquareActivity.this.fEd.eVb = list;
+                GodSquareActivity.this.fEc.cp(GodSquareActivity.this.fEd.eVb);
             } else {
-                GodSquareActivity.this.fEd.eVa.addAll(list);
+                GodSquareActivity.this.fEd.eVb.addAll(list);
                 GodSquareActivity.this.fEc.notifyDataSetChanged();
             }
             if (z2) {
@@ -69,11 +69,11 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             }
         }
     };
-    private NoNetworkView.a emy = new NoNetworkView.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.3
+    private NoNetworkView.a emz = new NoNetworkView.a() { // from class: com.baidu.tieba.godSquare.GodSquareActivity.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void dP(boolean z) {
             if (z) {
-                if (v.T(GodSquareActivity.this.fEd.eVa)) {
+                if (v.T(GodSquareActivity.this.fEd.eVb)) {
                     GodSquareActivity.this.bkT();
                 } else {
                     GodSquareActivity.this.fEc.startPullRefresh();
@@ -87,7 +87,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.fEc = new a(this);
-        this.fEc.g(this.emy);
+        this.fEc.g(this.emz);
         this.fEd = new b(this.fEf, this);
         registerListener(this.mAttentionListener);
         bkT();

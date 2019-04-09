@@ -40,12 +40,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    private LinearLayout bFy;
-    NavigationBar cPM;
-    BdListView epX;
-    a gwq;
-    private CustomMessageListener gwr;
+    private LinearLayout bFz;
+    NavigationBar cPN;
+    BdListView epY;
+    a gwr;
     private CustomMessageListener gws;
+    private CustomMessageListener gwt;
     private NoDataView mNoDataView;
     private HttpMessageListener httpListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_FRIEND_LIST) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,16 +58,16 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                 }
                 if (friendList.size() > 0) {
                     SelectFriendActivity.this.mNoDataView.setVisibility(8);
-                    SelectFriendActivity.this.gwq.setContacts(friendList);
-                    SelectFriendActivity.this.gwq.notifyDataSetChanged();
+                    SelectFriendActivity.this.gwr.setContacts(friendList);
+                    SelectFriendActivity.this.gwr.notifyDataSetChanged();
                     return;
                 }
                 SelectFriendActivity.this.mNoDataView.setVisibility(0);
             }
         }
     };
-    private int gwp = -1;
-    private CustomMessageListener gwt = new CustomMessageListener(2001184) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.2
+    private int gwq = -1;
+    private CustomMessageListener gwu = new CustomMessageListener(2001184) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -78,26 +78,26 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                 }
                 if (contacts.size() > 0) {
                     SelectFriendActivity.this.mNoDataView.setVisibility(8);
-                    SelectFriendActivity.this.gwq.setContacts(contacts);
-                    SelectFriendActivity.this.gwq.notifyDataSetChanged();
+                    SelectFriendActivity.this.gwr.setContacts(contacts);
+                    SelectFriendActivity.this.gwr.notifyDataSetChanged();
                     return;
                 }
                 SelectFriendActivity.this.mNoDataView.setVisibility(0);
             }
         }
     };
-    private AdapterView.OnItemClickListener gwu = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4
+    private AdapterView.OnItemClickListener gwv = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            com.baidu.tbadk.coreExtra.relationship.a item = SelectFriendActivity.this.gwq.getItem(i);
+            com.baidu.tbadk.coreExtra.relationship.a item = SelectFriendActivity.this.gwr.getItem(i);
             if (item != null) {
                 final long userId = item.getUserId();
                 final String userName = item.getUserName();
                 final String ajL = item.ajL();
                 final String ajN = item.ajN();
-                if (SelectFriendActivity.this.gwp == 0) {
-                    if (SelectFriendActivity.this.gwr == null) {
-                        SelectFriendActivity.this.gwr = new CustomMessageListener(2001261) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4.1
+                if (SelectFriendActivity.this.gwq == 0) {
+                    if (SelectFriendActivity.this.gws == null) {
+                        SelectFriendActivity.this.gws = new CustomMessageListener(2001261) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.adp.framework.listener.MessageListener
                             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,12 +106,12 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                                 }
                             }
                         };
-                        SelectFriendActivity.this.registerListener(SelectFriendActivity.this.gwr);
+                        SelectFriendActivity.this.registerListener(SelectFriendActivity.this.gws);
                     }
                     SelectFriendActivity.this.sendMessage(new CustomMessage(2001261));
-                } else if (SelectFriendActivity.this.gwp == 1) {
-                    if (SelectFriendActivity.this.gws == null) {
-                        SelectFriendActivity.this.gws = new CustomMessageListener(2921015) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4.2
+                } else if (SelectFriendActivity.this.gwq == 1) {
+                    if (SelectFriendActivity.this.gwt == null) {
+                        SelectFriendActivity.this.gwt = new CustomMessageListener(2921015) { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.4.2
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.adp.framework.listener.MessageListener
                             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -120,7 +120,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                                 }
                             }
                         };
-                        SelectFriendActivity.this.registerListener(SelectFriendActivity.this.gws);
+                        SelectFriendActivity.this.registerListener(SelectFriendActivity.this.gwt);
                     }
                     SelectFriendActivity.this.sendMessage(new CustomMessage(2921015));
                 } else {
@@ -141,20 +141,20 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.select_friend_main);
-        this.bFy = (LinearLayout) findViewById(d.g.select_friend_root_view);
-        this.cPM = (NavigationBar) findViewById(d.g.select_friend_nevigation_bar);
-        this.cPM.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.3
+        this.bFz = (LinearLayout) findViewById(d.g.select_friend_root_view);
+        this.cPN = (NavigationBar) findViewById(d.g.select_friend_nevigation_bar);
+        this.cPN.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SelectFriendActivity.this.onBackPressed();
             }
         });
-        this.cPM.setTitleText(d.j.select_friend_title);
-        this.epX = (BdListView) findViewById(d.g.select_friend_listview);
-        this.gwq = new a(getPageContext().getPageActivity());
-        this.epX.setAdapter((ListAdapter) this.gwq);
-        this.epX.setOnItemClickListener(this.gwu);
-        registerListener(this.gwt);
+        this.cPN.setTitleText(d.j.select_friend_title);
+        this.epY = (BdListView) findViewById(d.g.select_friend_listview);
+        this.gwr = new a(getPageContext().getPageActivity());
+        this.epY.setAdapter((ListAdapter) this.gwr);
+        this.epY.setOnItemClickListener(this.gwv);
+        registerListener(this.gwu);
         registerListener(this.httpListener);
         if (TbadkCoreApplication.getInst().getIntentClass(AddressListActivityConfig.class) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_LIST));
@@ -162,11 +162,11 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
         }
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(getActivity(), d.e.ds220)), NoDataViewFactory.d.hT(d.j.select_friend_no_data_tip), null);
-        this.bFy.addView(this.mNoDataView, 1);
+        this.bFz.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.gwp = bundle.getInt("key_from_where");
+            this.gwq = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.gwp = getIntent().getIntExtra("key_from_where", -1);
+            this.gwq = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
@@ -174,20 +174,20 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gwr != null) {
-            MessageManager.getInstance().unRegisterListener(this.gwr);
-            this.gwr = null;
-        }
         if (this.gws != null) {
             MessageManager.getInstance().unRegisterListener(this.gws);
             this.gws = null;
+        }
+        if (this.gwt != null) {
+            MessageManager.getInstance().unRegisterListener(this.gwt);
+            this.gwt = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.cPM.onChangeSkinType(getPageContext(), i);
+        this.cPN.onChangeSkinType(getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }

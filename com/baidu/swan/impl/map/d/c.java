@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap bgV;
-    private List<OverlayOptions> bjq;
-    List<Overlay> bjr;
+    BaiduMap bgW;
+    private List<OverlayOptions> bjr;
+    List<Overlay> bjs;
 
     public abstract List<OverlayOptions> QK();
 
     public c(BaiduMap baiduMap) {
-        this.bgV = null;
-        this.bjq = null;
+        this.bgW = null;
         this.bjr = null;
-        this.bgV = baiduMap;
-        if (this.bjq == null) {
-            this.bjq = new ArrayList();
-        }
+        this.bjs = null;
+        this.bgW = baiduMap;
         if (this.bjr == null) {
             this.bjr = new ArrayList();
+        }
+        if (this.bjs == null) {
+            this.bjs = new ArrayList();
         }
     }
 
     public final void QM() {
-        if (this.bgV != null) {
+        if (this.bgW != null) {
             QN();
             if (QK() != null) {
-                this.bjq.addAll(QK());
+                this.bjr.addAll(QK());
             }
-            for (OverlayOptions overlayOptions : this.bjq) {
-                this.bjr.add(this.bgV.addOverlay(overlayOptions));
+            for (OverlayOptions overlayOptions : this.bjr) {
+                this.bjs.add(this.bgW.addOverlay(overlayOptions));
             }
         }
     }
 
     public final void QN() {
-        if (this.bgV != null) {
-            for (Overlay overlay : this.bjr) {
+        if (this.bgW != null) {
+            for (Overlay overlay : this.bjs) {
                 overlay.remove();
             }
-            this.bjq.clear();
             this.bjr.clear();
+            this.bjs.clear();
         }
     }
 
     public void QO() {
-        if (this.bgV != null && this.bjr.size() > 0) {
+        if (this.bgW != null && this.bjs.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.bjr) {
+            for (Overlay overlay : this.bjs) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.bgV.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.bgW.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

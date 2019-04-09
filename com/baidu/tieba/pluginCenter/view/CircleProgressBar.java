@@ -8,66 +8,66 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class CircleProgressBar extends View {
-    private float azf;
-    private Paint ccF;
+    private float azg;
     private Paint ccG;
-    private RectF ccH;
+    private Paint ccH;
+    private RectF ccI;
     private int currentProgress;
 
     public CircleProgressBar(Context context) {
         super(context);
-        this.azf = 5.0f;
+        this.azg = 5.0f;
         aka();
     }
 
     public CircleProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azf = 5.0f;
+        this.azg = 5.0f;
         aka();
     }
 
     private void aka() {
-        this.ccH = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
-        this.ccF = new Paint();
-        this.ccF.setAntiAlias(true);
-        this.ccF.setDither(true);
-        this.ccF.setStyle(Paint.Style.STROKE);
-        this.ccF.setStrokeCap(Paint.Cap.ROUND);
-        this.ccF.setStrokeWidth(this.azf);
+        this.ccI = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
         this.ccG = new Paint();
         this.ccG.setAntiAlias(true);
         this.ccG.setDither(true);
         this.ccG.setStyle(Paint.Style.STROKE);
         this.ccG.setStrokeCap(Paint.Cap.ROUND);
-        this.ccG.setStrokeWidth(this.azf);
+        this.ccG.setStrokeWidth(this.azg);
+        this.ccH = new Paint();
+        this.ccH.setAntiAlias(true);
+        this.ccH.setDither(true);
+        this.ccH.setStyle(Paint.Style.STROKE);
+        this.ccH.setStrokeCap(Paint.Cap.ROUND);
+        this.ccH.setStrokeWidth(this.azg);
     }
 
     public void setCircleBackgroundColor(int i) {
-        this.ccG.setColor(i);
+        this.ccH.setColor(i);
         postInvalidate();
     }
 
     public void setCircleForegroundColor(int i) {
-        this.ccF.setColor(i);
+        this.ccG.setColor(i);
         postInvalidate();
     }
 
     public void setWidth(int i) {
-        this.azf = i;
+        this.azg = i;
+        this.ccH.setStrokeWidth(i);
         this.ccG.setStrokeWidth(i);
-        this.ccF.setStrokeWidth(i);
         postInvalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         if (this.currentProgress >= 0) {
-            this.ccH.left = this.azf;
-            this.ccH.top = this.azf;
-            this.ccH.right = getWidth() - this.azf;
-            this.ccH.bottom = getHeight() - this.azf;
-            canvas.drawArc(this.ccH, 0.0f, 360.0f, false, this.ccG);
-            canvas.drawArc(this.ccH, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ccF);
+            this.ccI.left = this.azg;
+            this.ccI.top = this.azg;
+            this.ccI.right = getWidth() - this.azg;
+            this.ccI.bottom = getHeight() - this.azg;
+            canvas.drawArc(this.ccI, 0.0f, 360.0f, false, this.ccH);
+            canvas.drawArc(this.ccI, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ccG);
         }
     }
 

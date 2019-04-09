@@ -22,9 +22,9 @@ import com.baidu.tieba.frs.v;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends PopupWindow {
-    private View.OnClickListener cPW;
-    private LinearLayout djq;
-    private ViewGroup eGn;
+    private View.OnClickListener cPX;
+    private LinearLayout djr;
+    private ViewGroup eGo;
     private List<v> fie;
     private a fif;
     private Context mContext;
@@ -37,7 +37,7 @@ public class c extends PopupWindow {
 
     public c(Context context) {
         super(context);
-        this.cPW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
+        this.cPX = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (c.this.fie != null) {
@@ -69,11 +69,11 @@ public class c extends PopupWindow {
         createContentView();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.eGn = frameLayout2;
+        this.eGo = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.djq);
-        this.eGn.setOnClickListener(this.mOnClickListener);
-        al.k(this.djq, d.f.frs_tab_sort_select_bg);
+        frameLayout.addView(this.djr);
+        this.eGo.setOnClickListener(this.mOnClickListener);
+        al.k(this.djr, d.f.frs_tab_sort_select_bg);
         return frameLayout;
     }
 
@@ -82,23 +82,23 @@ public class c extends PopupWindow {
 
     public void j(List<v> list, int i) {
         if (!com.baidu.tbadk.core.util.v.T(list)) {
-            this.djq = new LinearLayout(this.mContext);
-            this.djq.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.djq.setClipChildren(true);
-            this.djq.setOrientation(1);
+            this.djr = new LinearLayout(this.mContext);
+            this.djr.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.djr.setClipChildren(true);
+            this.djr.setOrientation(1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mContext.getResources().getDimensionPixelOffset(d.e.tbds280), this.mContext.getResources().getDimensionPixelOffset(d.e.tbds88));
             for (int i2 = 0; i2 < list.size(); i2++) {
                 v vVar = list.get(i2);
                 if (i == vVar.fcn) {
-                    this.djq.addView(d(vVar.name, i2, true), layoutParams);
+                    this.djr.addView(d(vVar.name, i2, true), layoutParams);
                 } else {
-                    this.djq.addView(d(vVar.name, i2, false), layoutParams);
+                    this.djr.addView(d(vVar.name, i2, false), layoutParams);
                 }
                 if (i2 != list.size() - 1) {
                     View view = new View(this.mContext);
                     view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(d.e.ds1)));
                     al.k(view, d.C0277d.common_color_10312);
-                    this.djq.addView(view);
+                    this.djr.addView(view);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class c extends PopupWindow {
         } else {
             al.j(textView, d.C0277d.cp_cont_j);
         }
-        textView.setOnClickListener(this.cPW);
+        textView.setOnClickListener(this.cPX);
         return textView;
     }
 
@@ -173,8 +173,8 @@ public class c extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.djq.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.djr.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 
     private void aXu() {
@@ -199,7 +199,7 @@ public class c extends PopupWindow {
                 c.this.aXs();
             }
         });
-        this.djq.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.djr.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 }

@@ -8,11 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern eHm = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern eHn = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern eHn = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern eHo = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
     public static String uc(String str) {
-        String replaceAll = str.replaceAll(d.cmJ, "meme,");
+        String replaceAll = str.replaceAll(d.cmK, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -46,7 +46,7 @@ public class a {
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = eHm.matcher(str);
+        Matcher matcher = eHn.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

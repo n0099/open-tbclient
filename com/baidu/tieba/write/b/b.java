@@ -21,12 +21,12 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends PopupWindow {
-    private View.OnClickListener cPW;
-    private ViewGroup eGn;
-    private View eGp;
-    private a joT;
-    private TextView joU;
+    private View.OnClickListener cPX;
+    private ViewGroup eGo;
+    private View eGq;
+    private a joU;
     private TextView joV;
+    private TextView joW;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -39,15 +39,15 @@ public class b extends PopupWindow {
 
     public b(Context context) {
         super(context);
-        this.cPW = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
+        this.cPX = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.joU) {
-                    if (b.this.joT != null) {
-                        b.this.joT.lH(1);
+                if (view == b.this.joV) {
+                    if (b.this.joU != null) {
+                        b.this.joU.lH(1);
                     }
-                } else if (view == b.this.joV && b.this.joT != null) {
-                    b.this.joT.lH(0);
+                } else if (view == b.this.joW && b.this.joU != null) {
+                    b.this.joU.lH(0);
                 }
                 b.this.aXr();
             }
@@ -72,39 +72,39 @@ public class b extends PopupWindow {
         createContentView();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.eGn = frameLayout2;
+        this.eGo = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.eGp);
-        this.eGn.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.eGq);
+        this.eGo.setOnClickListener(this.mOnClickListener);
         al.l(this.mLine, d.C0277d.cp_bg_line_c);
-        al.k(this.eGp, d.f.window_bg_profession_select);
+        al.k(this.eGq, d.f.window_bg_profession_select);
         return frameLayout;
     }
 
     private void createContentView() {
-        this.eGp = LayoutInflater.from(this.mContext).inflate(d.h.layout_profession_select, (ViewGroup) null);
-        this.joU = (TextView) this.eGp.findViewById(d.g.profession_select_title_profession);
-        this.mLine = this.eGp.findViewById(d.g.profession_select_line);
-        this.joV = (TextView) this.eGp.findViewById(d.g.profession_select_title_all);
-        this.joU.setOnClickListener(this.cPW);
-        this.joV.setOnClickListener(this.cPW);
+        this.eGq = LayoutInflater.from(this.mContext).inflate(d.h.layout_profession_select, (ViewGroup) null);
+        this.joV = (TextView) this.eGq.findViewById(d.g.profession_select_title_profession);
+        this.mLine = this.eGq.findViewById(d.g.profession_select_line);
+        this.joW = (TextView) this.eGq.findViewById(d.g.profession_select_title_all);
+        this.joV.setOnClickListener(this.cPX);
+        this.joW.setOnClickListener(this.cPX);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
             View aXq = aXq();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.joS == 1) {
-                    this.joU.setText(aVar.joR);
+                if (aVar.joT == 1) {
+                    this.joV.setText(aVar.joS);
                 } else {
-                    this.joV.setText(aVar.joR);
+                    this.joW.setText(aVar.joS);
                 }
                 if (i == 1) {
-                    al.j(this.joU, d.C0277d.common_color_10140);
-                    al.j(this.joV, d.C0277d.cp_cont_j);
-                } else {
                     al.j(this.joV, d.C0277d.common_color_10140);
-                    al.j(this.joU, d.C0277d.cp_cont_j);
+                    al.j(this.joW, d.C0277d.cp_cont_j);
+                } else {
+                    al.j(this.joW, d.C0277d.common_color_10140);
+                    al.j(this.joV, d.C0277d.cp_cont_j);
                 }
             }
             setContentView(aXq);
@@ -112,7 +112,7 @@ public class b extends PopupWindow {
     }
 
     public void a(a aVar) {
-        this.joT = aVar;
+        this.joU = aVar;
     }
 
     public void bg(View view) {
@@ -160,8 +160,8 @@ public class b extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.eGp.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.eGq.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 
     private void aXu() {
@@ -186,7 +186,7 @@ public class b extends PopupWindow {
                 b.this.aXs();
             }
         });
-        this.eGp.startAnimation(translateAnimation);
-        this.eGn.startAnimation(alphaAnimation);
+        this.eGq.startAnimation(translateAnimation);
+        this.eGo.startAnimation(alphaAnimation);
     }
 }

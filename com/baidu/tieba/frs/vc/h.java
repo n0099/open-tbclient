@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes4.dex */
 public class h extends com.baidu.tieba.frs.mc.j {
-    private h.c bRI;
-    private h.b bRJ;
-    private h.d bRK;
-    private com.baidu.tieba.frs.smartsort.b eYZ;
+    private h.c bRJ;
+    private h.b bRK;
+    private h.d bRL;
+    private com.baidu.tieba.frs.smartsort.b eZa;
     private boolean fvK;
     private final CustomMessageListener fvL;
 
@@ -27,16 +27,16 @@ public class h extends com.baidu.tieba.frs.mc.j {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && h.this.eYE != null) {
-                    h.this.eYE.startPullRefresh();
+                if (customResponsedMessage != null && h.this.eYF != null) {
+                    h.this.eYF.startPullRefresh();
                 }
             }
         };
-        this.bRI = new h.c() { // from class: com.baidu.tieba.frs.vc.h.2
+        this.bRJ = new h.c() { // from class: com.baidu.tieba.frs.vc.h.2
             @Override // com.baidu.tbadk.core.view.h.c
             public void dR(boolean z) {
-                if (h.this.fqE != null && h.this.fqE.isAdded() && h.this.eYE != null) {
-                    h.this.eYE.fB(true);
+                if (h.this.fqE != null && h.this.fqE.isAdded() && h.this.eYF != null) {
+                    h.this.eYF.fB(true);
                     if (com.baidu.adp.lib.util.j.kY()) {
                         h.this.fqE.refresh();
                         h.this.fqE.iV(true);
@@ -47,19 +47,19 @@ public class h extends com.baidu.tieba.frs.mc.j {
                 }
             }
         };
-        this.bRK = new h.d() { // from class: com.baidu.tieba.frs.vc.h.3
+        this.bRL = new h.d() { // from class: com.baidu.tieba.frs.vc.h.3
             @Override // com.baidu.tbadk.core.view.h.d
             public void dS(boolean z) {
                 h.this.fvK = true;
-                if (h.this.eYE != null && h.this.frP != null && h.this.eYW != null && h.this.fqE != null && h.this.fqE.isAdded()) {
-                    if (h.this.eYE != null && h.this.eYE.bdm() != null) {
-                        h.this.eYE.bdm().bol();
+                if (h.this.eYF != null && h.this.frP != null && h.this.eYX != null && h.this.fqE != null && h.this.fqE.isAdded()) {
+                    if (h.this.eYF != null && h.this.eYF.bdm() != null) {
+                        h.this.eYF.bdm().bol();
                     }
                     h.this.fqE.iV(false);
                     com.baidu.adp.lib.g.e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.h.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (h.this.eYE.bdc() != null && h.this.frP != null && h.this.eYE.bdc().getVisibility() != 0) {
+                            if (h.this.eYF.bdc() != null && h.this.frP != null && h.this.eYF.bdc().getVisibility() != 0) {
                                 h.this.frP.aqf();
                             }
                         }
@@ -67,7 +67,7 @@ public class h extends com.baidu.tieba.frs.mc.j {
                 }
             }
         };
-        this.bRJ = new h.b() { // from class: com.baidu.tieba.frs.vc.h.4
+        this.bRK = new h.b() { // from class: com.baidu.tieba.frs.vc.h.4
             @Override // com.baidu.tbadk.core.view.h.b
             public void f(View view, boolean z) {
                 if (h.this.fqE != null && h.this.fqE.isAdded()) {
@@ -75,11 +75,11 @@ public class h extends com.baidu.tieba.frs.mc.j {
                         h.this.fqE.bcq().bjt();
                         h.this.fvK = false;
                     }
-                    if (h.this.eYZ != null && h.this.fqE.bcs() != null && h.this.fqE.bcs().bdo() != null && !h.this.fqE.bcs().bdo().biT()) {
-                        h.this.eYZ.bih();
+                    if (h.this.eZa != null && h.this.fqE.bcs() != null && h.this.fqE.bcs().bdo() != null && !h.this.fqE.bcs().bdo().biT()) {
+                        h.this.eZa.bih();
                     }
-                    if (h.this.eYE != null && h.this.frP != null && h.this.eYW != null && h.this.eYZ != null) {
-                        h.this.eYE.bdm().c(0, 0, true, true);
+                    if (h.this.eYF != null && h.this.frP != null && h.this.eYX != null && h.this.eZa != null) {
+                        h.this.eYF.bdm().c(0, 0, true, true);
                         h.this.fqE.bcC();
                         h.this.fqE.iV(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
@@ -92,15 +92,15 @@ public class h extends com.baidu.tieba.frs.mc.j {
                 }
             }
         };
-        this.eYZ = frsFragment.bcm();
+        this.eZa = frsFragment.bcm();
         frsFragment.registerListener(this.fvL);
     }
 
     public void bjl() {
-        if (this.eYE != null) {
-            this.eYE.setListPullRefreshListener(this.bRI);
-            this.eYE.a(this.bRK);
-            this.eYE.a(this.bRJ);
+        if (this.eYF != null) {
+            this.eYF.setListPullRefreshListener(this.bRJ);
+            this.eYF.a(this.bRL);
+            this.eYF.a(this.bRK);
         }
     }
 }

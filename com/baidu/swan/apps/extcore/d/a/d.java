@@ -19,19 +19,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends y {
-    private static final String avE = c.class.getSimpleName();
-    private static final String avF = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.dH(0));
-    private static final String avG = "http://sut.baidu-int.com/yts/sut/preload" + avF + "&type=1";
-    private static final String avH = "http://sut.baidu-int.com/yts/sut/preload" + avF + "&type=2";
-    private boolean avI;
+    private static final String avF = c.class.getSimpleName();
+    private static final String avG = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.dH(0));
+    private static final String avH = "http://sut.baidu-int.com/yts/sut/preload" + avG + "&type=1";
+    private static final String avI = "http://sut.baidu-int.com/yts/sut/preload" + avG + "&type=2";
     private boolean avJ;
     private boolean avK;
+    private boolean avL;
 
     public d(j jVar) {
         super(jVar, "/swan/debug/setCtsConfig");
-        this.avI = false;
         this.avJ = false;
         this.avK = false;
+        this.avL = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y
@@ -42,23 +42,23 @@ public class d extends y {
         }
         JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
-            com.baidu.swan.apps.console.c.e(avE, "params is null");
+            com.baidu.swan.apps.console.c.e(avF, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = c.optString("cb");
         if (!c.has("loadCts")) {
-            com.baidu.swan.apps.console.c.e(avE, "loadCts is null");
+            com.baidu.swan.apps.console.c.e(avF, "loadCts is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         if (c.optInt("loadCts") == 1) {
             JSONObject jSONObject = new JSONObject();
-            a(bVar, avG, callbackHandler, optString, jSONObject);
             a(bVar, avH, callbackHandler, optString, jSONObject);
-            this.avK = true;
+            a(bVar, avI, callbackHandler, optString, jSONObject);
+            this.avL = true;
         } else {
-            this.avK = false;
+            this.avL = false;
             com.baidu.swan.apps.ac.a.a.bz(false);
             callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
@@ -83,15 +83,15 @@ public class d extends y {
                         JSONObject jSONObject2 = new JSONObject(response.body().string());
                         if (jSONObject2.has("code") && jSONObject2.optInt("code") == 0) {
                             JSONArray optJSONArray = jSONObject2.optJSONArray("data");
-                            if (!TextUtils.equals(d.avG, str)) {
-                                if (TextUtils.equals(d.avH, str)) {
+                            if (!TextUtils.equals(d.avH, str)) {
+                                if (TextUtils.equals(d.avI, str)) {
                                     jSONObject.put("slave", optJSONArray);
-                                    d.this.avJ = true;
+                                    d.this.avK = true;
                                     d.this.a(jSONObject, callbackHandler, str2);
                                 }
                             } else {
                                 jSONObject.put("master", optJSONArray);
-                                d.this.avI = true;
+                                d.this.avJ = true;
                                 d.this.a(jSONObject, callbackHandler, str2);
                             }
                         } else {
@@ -111,12 +111,12 @@ public class d extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-        if (this.avI && this.avJ && this.avK) {
+        if (this.avJ && this.avK && this.avL) {
             com.baidu.swan.apps.ac.a.a.bz(true);
             f.KJ().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.avK = false;
             this.avJ = false;
-            this.avI = false;
         }
     }
 }

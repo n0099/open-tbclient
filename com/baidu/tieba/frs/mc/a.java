@@ -34,17 +34,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends j {
-    private d eZg;
+    private d eZh;
     private com.baidu.tieba.c.f fqv;
 
     public a(FrsFragment frsFragment) {
         super(frsFragment);
-        this.eZg = this.fqE.bcl();
+        this.eZh = this.fqE.bcl();
     }
 
     private void bhA() {
-        if (this.eZg == null) {
-            this.eZg = this.fqE.bcl();
+        if (this.eZh == null) {
+            this.eZh = this.fqE.bcl();
         }
     }
 
@@ -74,19 +74,19 @@ public class a extends j {
                 this.fqE.pS(0);
                 return;
             case 11002:
-                this.eYW.jQ(true);
+                this.eYX.jQ(true);
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_REG /* 11011 */:
-                com.baidu.tieba.frs.f.i.a(this.fqE, this.fqE.getThreadId(), this.fqE.bTn, this.fqE.bcu());
+                com.baidu.tieba.frs.f.i.a(this.fqE, this.fqE.getThreadId(), this.fqE.bTo, this.fqE.bcu());
                 return;
             case IEventCenterService.EventId.EventMode.SAPIWEBVIEW_FAST_REG /* 11012 */:
-                com.baidu.tieba.frs.f.i.b(this.fqE, this.fqE.getThreadId(), this.fqE.bTn, this.fqE.bcu());
+                com.baidu.tieba.frs.f.i.b(this.fqE, this.fqE.getThreadId(), this.fqE.bTo, this.fqE.bcu());
                 return;
             case 11014:
-                this.eYW.bji();
+                this.eYX.bji();
                 return;
             case 11016:
-                this.eYE.bdx();
+                this.eYF.bdx();
                 return;
             case 11033:
             case 23013:
@@ -94,7 +94,7 @@ public class a extends j {
             default:
                 return;
             case 11036:
-                this.eYW.bjh();
+                this.eYX.bjh();
                 return;
             case 13003:
                 if (intent != null) {
@@ -103,8 +103,8 @@ public class a extends j {
                     } catch (Exception e) {
                         postWriteCallBackData = null;
                     }
-                    if (this.eZg != null) {
-                        this.eZg.e(postWriteCallBackData);
+                    if (this.eZh != null) {
+                        this.eZh.e(postWriteCallBackData);
                     }
                     if (!d(postWriteCallBackData)) {
                         b(postWriteCallBackData);
@@ -114,9 +114,9 @@ public class a extends j {
                 }
                 return;
             case 18003:
-                this.eYE.bdI().notifyDataSetChanged();
-                if (this.eYW != null) {
-                    this.eYW.bfq();
+                this.eYF.bdI().notifyDataSetChanged();
+                if (this.eYX != null) {
+                    this.eYX.bfq();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
@@ -155,7 +155,7 @@ public class a extends j {
                     int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                     int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
                     if (intExtra2 == com.baidu.adp.lib.g.b.l(this.fqE.getForumId(), 0)) {
-                        this.eYW.I(intExtra3, intExtra4, intExtra5);
+                        this.eYX.I(intExtra3, intExtra4, intExtra5);
                         return;
                     }
                     return;
@@ -172,16 +172,16 @@ public class a extends j {
 
     private void a(FrsViewData frsViewData, Intent intent, String str) {
         ArrayList<m> dataList;
-        if (frsViewData != null && intent != null && !TextUtils.isEmpty(str) && this.eYV != null) {
+        if (frsViewData != null && intent != null && !TextUtils.isEmpty(str) && this.eYW != null) {
             int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-            if (this.eYV.bhR()) {
+            if (this.eYW.bhR()) {
                 Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
                 if ((serializableExtra instanceof CardHListViewData) && (dataList = this.frQ.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
                     cardHListViewData.threadId = str;
                     if (com.baidu.tieba.frs.smartsort.c.a(dataList, str, cardHListViewData, intExtra)) {
                         frsViewData.setThreadList(dataList);
-                        this.eYE.a(dataList, frsViewData);
+                        this.eYF.a(dataList, frsViewData);
                         cL(str, this.fqE.getForumId());
                     }
                 }
@@ -207,9 +207,9 @@ public class a extends j {
         String uri = shareItem.imageUri == null ? "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg" : shareItem.imageUri.toString();
         ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
         shareFromPBMsgData.setTitle(shareItem.title);
-        shareFromPBMsgData.setContent(shareItem.cbA);
+        shareFromPBMsgData.setContent(shareItem.cbB);
         shareFromPBMsgData.setImageUrl(uri);
-        shareFromPBMsgData.setForumName(shareItem.cbu);
+        shareFromPBMsgData.setForumName(shareItem.cbv);
         shareFromPBMsgData.setThreadId(shareItem.tid);
         return shareFromPBMsgData;
     }

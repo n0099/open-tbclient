@@ -7,14 +7,14 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.e;
 /* loaded from: classes2.dex */
 public class c {
-    private static boolean amO = false;
+    private static boolean amP = false;
 
     public static void aR(boolean z) {
-        amO = z;
+        amP = z;
     }
 
     public static boolean wK() {
-        return amO;
+        return amP;
     }
 
     public static void d(String str, String str2) {
@@ -53,7 +53,7 @@ public class c {
     }
 
     private static void j(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && amO) {
+        if (!TextUtils.isEmpty(str3) && amP) {
             StringBuilder sb = new StringBuilder();
             String a = e.a(e.LO(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();

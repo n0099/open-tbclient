@@ -6,89 +6,89 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g {
-    private PostSearchActivity ibZ;
-    private a icP;
-    private c icQ;
-    private f icR;
+    private a icQ;
+    private c icR;
+    private f icS;
+    private PostSearchActivity ica;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.ibZ = postSearchActivity;
+        this.ica = postSearchActivity;
     }
 
     public void initView() {
-        this.ibZ.setContentView(d.h.post_search_activity);
-        this.mRootView = this.ibZ.findViewById(d.g.search_rootview);
-        this.icP = new a(this.ibZ, this.mRootView);
-        this.icQ = new c(this.ibZ, this.mRootView);
-        this.icR = new f(this.ibZ, this.mRootView);
+        this.ica.setContentView(d.h.post_search_activity);
+        this.mRootView = this.ica.findViewById(d.g.search_rootview);
+        this.icQ = new a(this.ica, this.mRootView);
+        this.icR = new c(this.ica, this.mRootView);
+        this.icS = new f(this.ica, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.icR != null) {
-            this.icR.setOnPageChangeListener(onPageChangeListener);
+        if (this.icS != null) {
+            this.icS.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void ax(ArrayList<String> arrayList) {
-        this.icR.cI(false);
-        this.icQ.ax(arrayList);
+        this.icS.cI(false);
+        this.icR.ax(arrayList);
     }
 
     public void xA(int i) {
-        this.icP.bkf();
+        this.icQ.bkf();
         bUW();
-        this.icP.bUX();
-        this.icR.cI(true);
-        this.icR.xA(i);
+        this.icQ.bUX();
+        this.icS.cI(true);
+        this.icS.xA(i);
     }
 
     public void Bc(String str) {
-        this.icP.Bc(str);
+        this.icQ.Bc(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.icR.a(i, bVar, z);
+        this.icS.a(i, bVar, z);
     }
 
     public boolean bVb() {
-        return this.icQ.bVj();
+        return this.icR.bVj();
     }
 
     public void showLoadingView() {
-        this.icQ.showLoadingView();
+        this.icR.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.icQ.hideLoadingView();
+        this.icR.hideLoadingView();
     }
 
     public void bVi() {
-        this.icQ.bVi();
+        this.icR.bVi();
     }
 
     public void bUW() {
-        this.icP.bUW();
+        this.icQ.bUW();
     }
 
     public void bVu() {
-        this.icQ.bVh();
+        this.icR.bVh();
     }
 
     public int getCurrentTabType() {
-        return this.icR.getCurrentTabType();
+        return this.icS.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.icP.onChangeSkinType(i);
         this.icQ.onChangeSkinType(i);
         this.icR.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.ibZ.getPageContext(), this.mRootView);
+        this.icS.onChangeSkinType(i);
+        com.baidu.tbadk.r.a.a(this.ica.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.icP != null) {
-            this.icP.onDestroy();
+        if (this.icQ != null) {
+            this.icQ.onDestroy();
         }
     }
 }

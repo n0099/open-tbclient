@@ -42,19 +42,19 @@ public class i extends y {
             return false;
         }
         com.baidu.swan.apps.core.c.d yP = uy.yP();
-        if (yP == null || TextUtils.isEmpty(yP.dX(ap.axL))) {
+        if (yP == null || TextUtils.isEmpty(yP.dX(ap.axM))) {
             final b.a x = com.baidu.swan.apps.core.h.b.x(Ea.DM());
-            wd = x.asJ.wd();
+            wd = x.asK.wd();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.gH(wd), 0));
             com.baidu.swan.apps.core.h.b.a(x, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.h.i.1
                 @Override // com.baidu.swan.apps.core.h.b.InterfaceC0134b
                 public void onReady() {
-                    a.a(x.asJ, ap);
+                    a.a(x.asK, ap);
                     i.this.d(uy, ap);
                 }
             });
         } else {
-            wd = yP.dX(ap.axL);
+            wd = yP.dX(ap.axM);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.gH(wd), 0));
             d(uy, ap);
         }

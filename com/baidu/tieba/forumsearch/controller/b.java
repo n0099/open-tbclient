@@ -27,12 +27,12 @@ import com.baidu.tieba.forumsearch.controller.d;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b implements View.OnClickListener {
-    private final c eWQ;
-    private final d eWR;
-    private final a eWS;
-    private String eWT;
-    private OriginalThreadInfo eWU;
-    private View.OnClickListener eWV = new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.controller.b.1
+    private final c eWR;
+    private final d eWS;
+    private final a eWT;
+    private String eWU;
+    private OriginalThreadInfo eWV;
+    private View.OnClickListener eWW = new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.controller.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() instanceof com.baidu.tieba.forumsearch.b.b) {
@@ -52,25 +52,25 @@ public class b implements View.OnClickListener {
             }
         }
     };
-    private Runnable eWW = new Runnable() { // from class: com.baidu.tieba.forumsearch.controller.b.2
+    private Runnable eWX = new Runnable() { // from class: com.baidu.tieba.forumsearch.controller.b.2
         @Override // java.lang.Runnable
         public void run() {
-            l.c(b.this.mPageContext.getPageActivity(), b.this.eWQ.eXc);
+            l.c(b.this.mPageContext.getPageActivity(), b.this.eWR.eXd);
         }
     };
-    private CustomMessageListener eWX = new CustomMessageListener(2921021) { // from class: com.baidu.tieba.forumsearch.controller.b.3
+    private CustomMessageListener eWY = new CustomMessageListener(2921021) { // from class: com.baidu.tieba.forumsearch.controller.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                b.this.eWQ.eXc.setText(str);
-                b.this.eWQ.eXc.setSelection(str.length());
+                b.this.eWR.eXd.setText(str);
+                b.this.eWR.eXd.setSelection(str.length());
                 b.this.bbs();
             }
         }
     };
-    private CustomMessageListener eWY = new CustomMessageListener(2921020) { // from class: com.baidu.tieba.forumsearch.controller.b.4
+    private CustomMessageListener eWZ = new CustomMessageListener(2921020) { // from class: com.baidu.tieba.forumsearch.controller.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -79,11 +79,11 @@ public class b implements View.OnClickListener {
             }
         }
     };
-    private d.a eWZ = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
+    private d.a eXa = new d.a() { // from class: com.baidu.tieba.forumsearch.controller.b.5
         @Override // com.baidu.tieba.forumsearch.controller.d.a
         public void a(boolean z, com.baidu.tieba.forumsearch.b.c cVar) {
             if (!z || cVar == null || v.T(cVar.bbB())) {
-                if (StringUtils.isNull(b.this.eWT)) {
+                if (StringUtils.isNull(b.this.eWU)) {
                     b.this.bbt();
                     return;
                 } else {
@@ -91,28 +91,28 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            b.this.ezS = cVar.bbB();
-            b.this.setDatas(b.this.ezS);
+            b.this.ezT = cVar.bbB();
+            b.this.setDatas(b.this.ezT);
         }
     };
-    private ArrayList<m> ezS;
+    private ArrayList<m> ezT;
     private int mFrom;
     private long mLiveId;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.eWQ = new c(tbPageContext);
+        this.eWR = new c(tbPageContext);
         bbr();
-        this.eWR = new d(tbPageContext, tbPageContext.getUniqueId());
-        this.eWR.a(this.eWZ);
-        this.ezS = new ArrayList<>();
-        this.eWS = new a(tbPageContext, this.eWQ.mListView);
-        this.eWS.s(this.eWV);
+        this.eWS = new d(tbPageContext, tbPageContext.getUniqueId());
+        this.eWS.a(this.eXa);
+        this.ezT = new ArrayList<>();
+        this.eWT = new a(tbPageContext, this.eWR.mListView);
+        this.eWT.s(this.eWW);
         bbt();
+        tbPageContext.registerListener(this.eWZ);
         tbPageContext.registerListener(this.eWY);
-        tbPageContext.registerListener(this.eWX);
-        com.baidu.adp.lib.g.e.jH().postDelayed(this.eWW, 500L);
+        com.baidu.adp.lib.g.e.jH().postDelayed(this.eWX, 500L);
     }
 
     public void setFrom(int i) {
@@ -124,7 +124,7 @@ public class b implements View.OnClickListener {
     }
 
     public void setOriginalThread(OriginalThreadInfo originalThreadInfo) {
-        this.eWU = originalThreadInfo;
+        this.eWV = originalThreadInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,33 +138,33 @@ public class b implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cI(String str, String str2) {
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.mPageContext.getPageActivity(), 9, str, str2, null, null, 13011, null, null, null, this.eWU);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.mPageContext.getPageActivity(), 9, str, str2, null, null, 13011, null, null, null, this.eWV);
         transmitPostEditActivityConfig.setCallFrom("2");
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
         this.mPageContext.getPageActivity().finish();
     }
 
     public c bbp() {
-        return this.eWQ;
+        return this.eWR;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bbq() {
-        this.ezS.clear();
+        this.ezT.clear();
         com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
-        aVar.setType(com.baidu.tieba.forumsearch.b.a.eXi);
-        this.ezS.add(aVar);
-        setDatas(this.ezS);
+        aVar.setType(com.baidu.tieba.forumsearch.b.a.eXj);
+        this.ezT.add(aVar);
+        setDatas(this.ezT);
     }
 
     public void setDatas(ArrayList<m> arrayList) {
-        this.ezS = arrayList;
-        this.eWQ.mListView.setData(arrayList);
+        this.ezT = arrayList;
+        this.eWR.mListView.setData(arrayList);
     }
 
     private void bbr() {
-        this.eWQ.bub.setOnClickListener(this);
-        this.eWQ.eXc.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
+        this.eWR.buc.setOnClickListener(this);
+        this.eWR.eXd.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.forumsearch.controller.b.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
@@ -174,7 +174,7 @@ public class b implements View.OnClickListener {
                 return false;
             }
         });
-        this.eWQ.eXc.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.forumsearch.controller.b.7
+        this.eWR.eXd.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.forumsearch.controller.b.7
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -188,7 +188,7 @@ public class b implements View.OnClickListener {
                 b.this.bbs();
             }
         });
-        this.eWQ.eXc.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
+        this.eWR.eXd.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.forumsearch.controller.b.8
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -198,63 +198,63 @@ public class b implements View.OnClickListener {
                 }
             }
         });
-        this.eWQ.eXc.setOnClickListener(this);
-        this.eWQ.eXd.setOnClickListener(this);
-        this.eWQ.biR.setOnClickListener(this);
+        this.eWR.eXd.setOnClickListener(this);
+        this.eWR.eXe.setOnClickListener(this);
+        this.eWR.biS.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bbs() {
-        if (this.eWQ.eXc.getText() == null || StringUtils.isNull(this.eWQ.eXc.getText().toString())) {
-            this.eWQ.eXd.setVisibility(8);
-            this.eWT = null;
+        if (this.eWR.eXd.getText() == null || StringUtils.isNull(this.eWR.eXd.getText().toString())) {
+            this.eWR.eXe.setVisibility(8);
+            this.eWU = null;
             bbt();
             return;
         }
-        m mVar = (m) v.c(this.ezS, 0);
-        if (mVar != null && mVar.getType() == com.baidu.tieba.forumsearch.b.a.eXh) {
-            this.ezS.clear();
-            setDatas(this.ezS);
+        m mVar = (m) v.c(this.ezT, 0);
+        if (mVar != null && mVar.getType() == com.baidu.tieba.forumsearch.b.a.eXi) {
+            this.ezT.clear();
+            setDatas(this.ezT);
         }
-        this.eWQ.eXd.setVisibility(0);
-        this.eWT = this.eWQ.eXc.getText().toString();
-        this.eWR.uS(this.eWT);
+        this.eWR.eXe.setVisibility(0);
+        this.eWU = this.eWR.eXd.getText().toString();
+        this.eWS.uS(this.eWU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bbt() {
-        this.eWR.cancelMessage();
-        this.ezS.clear();
+        this.eWS.cancelMessage();
+        this.ezT.clear();
         ArrayList<String> bbv = e.bbv();
         if (!v.T(bbv)) {
             com.baidu.tieba.forumsearch.b.a aVar = new com.baidu.tieba.forumsearch.b.a();
-            aVar.setType(com.baidu.tieba.forumsearch.b.a.eXh);
-            this.ezS.add(aVar);
-            this.ezS.add(new com.baidu.tieba.forumsearch.b.a(bbv));
-            setDatas(this.ezS);
+            aVar.setType(com.baidu.tieba.forumsearch.b.a.eXi);
+            this.ezT.add(aVar);
+            this.ezT.add(new com.baidu.tieba.forumsearch.b.a(bbv));
+            setDatas(this.ezT);
             return;
         }
-        this.ezS.clear();
-        setDatas(this.ezS);
+        this.ezT.clear();
+        setDatas(this.ezT);
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.eWW);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.eWX);
+        MessageManager.getInstance().unRegisterListener(this.eWZ);
         MessageManager.getInstance().unRegisterListener(this.eWY);
-        MessageManager.getInstance().unRegisterListener(this.eWX);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eWQ.eXc) {
+        if (view == this.eWR.eXd) {
             bbs();
-        } else if (view == this.eWQ.biR) {
-            l.b(this.mPageContext.getPageActivity(), this.eWQ.eXc);
+        } else if (view == this.eWR.biS) {
+            l.b(this.mPageContext.getPageActivity(), this.eWR.eXd);
             this.mPageContext.getPageActivity().finish();
-        } else if (view == this.eWQ.eXd) {
-            this.eWQ.eXc.setText("");
-        } else if (view == this.eWQ.bub) {
-            setDatas(this.ezS);
+        } else if (view == this.eWR.eXe) {
+            this.eWR.eXd.setText("");
+        } else if (view == this.eWR.buc) {
+            setDatas(this.ezT);
         }
     }
 }

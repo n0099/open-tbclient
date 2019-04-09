@@ -13,18 +13,18 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, Bundle> aDP = new HashMap();
-    private final c aDQ = new c();
+    private final Map<String, Bundle> aDQ = new HashMap();
+    private final c aDR = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.performance.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0150b {
-        private static b aEc = new b();
+        private static b aEd = new b();
     }
 
     public static b FH() {
-        return C0150b.aEc;
+        return C0150b.aEd;
     }
 
     public Bundle fE(String str) {
@@ -40,7 +40,7 @@ public final class b {
 
     public void a(final String str, final SwanAppProcessInfo swanAppProcessInfo) {
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aDQ.size());
+            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aDR.size());
         }
         j.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1
             @Override // java.lang.Runnable
@@ -117,39 +117,39 @@ public final class b {
     }
 
     private b a(a aVar) {
-        this.aDQ.f(aVar);
+        this.aDR.f(aVar);
         return this;
     }
 
     public synchronized Bundle fF(String str) {
         Bundle bundle;
-        synchronized (this.aDP) {
+        synchronized (this.aDQ) {
             bundle = getBundle(str);
             if (bundle == null) {
                 bundle = new Bundle();
-                this.aDP.put(str, bundle);
+                this.aDQ.put(str, bundle);
             }
         }
         return bundle;
     }
 
     public b FI() {
-        this.aDQ.FN();
+        this.aDR.FN();
         return this;
     }
 
     public Bundle fG(String str) {
         Bundle remove;
-        synchronized (this.aDP) {
-            remove = this.aDP.remove(str);
+        synchronized (this.aDQ) {
+            remove = this.aDQ.remove(str);
         }
         return remove;
     }
 
     public Bundle getBundle(String str) {
         Bundle bundle;
-        synchronized (this.aDP) {
-            bundle = this.aDP.get(str);
+        synchronized (this.aDQ) {
+            bundle = this.aDQ.get(str);
         }
         return bundle;
     }
@@ -157,18 +157,18 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class a implements com.baidu.swan.apps.an.c.a<Bundle>, Runnable {
-        final String aEa;
-        final List<Object<Bundle, Boolean>> aEb = new ArrayList();
+        final String aEb;
+        final List<Object<Bundle, Boolean>> aEc = new ArrayList();
 
         public a(String str) {
-            this.aEa = str;
+            this.aEb = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.aEa)) {
-                synchronized (b.this.aDP) {
-                    D(b.this.fF(this.aEa));
+            if (!TextUtils.isEmpty(this.aEb)) {
+                synchronized (b.this.aDQ) {
+                    D(b.this.fF(this.aEb));
                 }
             }
         }

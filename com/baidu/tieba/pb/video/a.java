@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes4.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener cPW;
+    public View.OnClickListener cPX;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -31,14 +31,14 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.eii != null) {
-            if (this.cPW != null) {
-                cVar.eii.setOnClickListener(this.cPW);
+        if (cVar != null && cVar.eij != null) {
+            if (this.cPX != null) {
+                cVar.eij.setOnClickListener(this.cPX);
             }
-            if (cVar.bUM != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.bUM = TbadkCoreApplication.getInst().getSkinType();
-                al.j(cVar.eii, d.C0277d.cp_cont_f);
-                al.k(cVar.eii, d.f.more_all);
+            if (cVar.bUN != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.bUN = TbadkCoreApplication.getInst().getSkinType();
+                al.j(cVar.eij, d.C0277d.cp_cont_f);
+                al.k(cVar.eij, d.f.more_all);
                 al.k(cVar.dividerLine, d.C0277d.cp_bg_line_c);
             }
         }
@@ -46,6 +46,6 @@ public class a extends k<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cPW = onClickListener;
+        this.cPX = onClickListener;
     }
 }

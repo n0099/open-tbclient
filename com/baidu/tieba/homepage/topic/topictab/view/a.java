@@ -19,8 +19,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topictab.b.a> {
-    private TextView bFL;
-    private TbImageView eEH;
+    private TextView bFM;
+    private TbImageView eEI;
     private LinearLayout fOI;
     private TextView fPT;
     private TextView fPU;
@@ -41,18 +41,18 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         this.fPT = (TextView) view.findViewById(d.g.cell_topic_index);
         this.mTitleView = (TextView) view.findViewById(d.g.cell_topic_title);
         this.fPU = (TextView) view.findViewById(d.g.cell_topic_partake);
-        this.bFL = (TextView) view.findViewById(d.g.cell_topic_des);
+        this.bFM = (TextView) view.findViewById(d.g.cell_topic_des);
         this.fOI = (LinearLayout) view.findViewById(d.g.cell_topic_img_layout);
-        this.eEH = (TbImageView) view.findViewById(d.g.cell_topic_img);
+        this.eEI = (TbImageView) view.findViewById(d.g.cell_topic_img);
         this.fPV = view.findViewById(d.g.cell_topic_img_placeholder);
         this.fPW = (TopicPkView) view.findViewById(d.g.cell_topic_pk);
         this.fPX = (ThreadGodReplyLayout) view.findViewById(d.g.cell_topic_god_reply);
         this.fPY = view.findViewById(d.g.cell_topic_bottom_placeholder);
-        ViewGroup.LayoutParams layoutParams = this.eEH.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.eEI.getLayoutParams();
         layoutParams.height = ((l.aO(getContext()) - l.h(getContext(), d.e.tbds88)) * 9) / 16;
-        this.eEH.setLayoutParams(layoutParams);
-        this.eEH.setRadius(l.h(this.mContext, d.e.tbds22));
-        this.eEH.setConrers(15);
+        this.eEI.setLayoutParams(layoutParams);
+        this.eEI.setRadius(l.h(this.mContext, d.e.tbds22));
+        this.eEI.setConrers(15);
         this.fPs.setTopicOnClickListener(this);
     }
 
@@ -65,8 +65,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
             al.j(this.fPT, d.C0277d.cp_cont_m);
             al.j(this.mTitleView, d.C0277d.cp_cont_b);
             al.j(this.fPU, d.C0277d.cp_cont_d);
-            al.j(this.bFL, d.C0277d.cp_cont_f);
-            this.eEH.setIsNight(this.mSkinType == 1);
+            al.j(this.bFM, d.C0277d.cp_cont_f);
+            this.eEI.setIsNight(this.mSkinType == 1);
         }
     }
 
@@ -90,23 +90,23 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
             } else {
                 al.k(this.fPT, d.f.topic_rank_other_bg);
             }
-            String str = aVar.bAp;
+            String str = aVar.bAq;
             if (str.length() > 14) {
                 str = str.substring(0, 13) + "...";
             }
             this.mTitleView.setText(String.format(this.mTbPageContext.getString(d.j.daily_topic_name), str));
-            if (aVar.bAq == 0) {
+            if (aVar.bAr == 0) {
                 this.fPU.setText("NEW");
             } else {
-                this.fPU.setText(String.format(this.mTbPageContext.getString(d.j.topic_partake_default), ap.as(aVar.bAq)));
+                this.fPU.setText(String.format(this.mTbPageContext.getString(d.j.topic_partake_default), ap.as(aVar.bAr)));
             }
-            this.bFL.setText(aVar.bAr);
+            this.bFM.setText(aVar.bAs);
             if (StringUtils.isNull(aVar.fOf)) {
                 this.fOI.setVisibility(8);
                 this.fPW.setUserColor(d.C0277d.cp_cont_d);
             } else {
                 this.fOI.setVisibility(0);
-                this.eEH.startLoad(aVar.fOf, 10, false);
+                this.eEI.startLoad(aVar.fOf, 10, false);
                 this.fPW.setUserColor(d.C0277d.cp_btn_a);
             }
             if (aVar.fPD == null) {

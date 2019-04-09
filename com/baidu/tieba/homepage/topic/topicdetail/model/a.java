@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
-    private BdUniqueId cnZ;
-    private final com.baidu.adp.framework.listener.a erR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId coa;
+    private final com.baidu.adp.framework.listener.a erS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -40,11 +40,11 @@ public class a {
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        this.cnZ = bdUniqueId;
-        this.erR.setTag(bdUniqueId);
-        this.erR.getHttpMessageListener().setSelfListener(true);
-        this.erR.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.erR);
+        this.coa = bdUniqueId;
+        this.erS.setTag(bdUniqueId);
+        this.erS.getHttpMessageListener().setSelfListener(true);
+        this.erS.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.erS);
     }
 
     public RunnableC0304a p(long j, long j2) {
@@ -72,7 +72,7 @@ public class a {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.cnZ);
+            requestGetMyPostNetMessage.setTag(a.this.coa);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, aO, aQ, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }

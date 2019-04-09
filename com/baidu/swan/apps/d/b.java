@@ -9,8 +9,8 @@ import com.baidu.swan.apps.core.c.g;
 public class b extends g {
     /* JADX INFO: Access modifiers changed from: private */
     public void aN(boolean z) {
-        this.aqa.setLeftSecondViewVisibility(z ? 0 : 8);
-        this.aqa.setLeftSecondViewText("");
+        this.aqb.setLeftSecondViewVisibility(z ? 0 : 8);
+        this.aqb.setLeftSecondViewText("");
     }
 
     @Override // com.baidu.swan.apps.core.c.g
@@ -23,16 +23,16 @@ public class b extends g {
         return new com.baidu.swan.apps.core.e.a() { // from class: com.baidu.swan.apps.d.b.1
             @Override // com.baidu.swan.apps.core.e.a, com.baidu.swan.apps.core.e.c
             public void goBack() {
-                b.this.aN(b.this.arf.canGoBack());
+                b.this.aN(b.this.arg.canGoBack());
             }
 
             @Override // com.baidu.swan.apps.core.e.a, com.baidu.swan.apps.core.e.c
             public void dn(final String str) {
-                b.this.aN(b.this.arf.canGoBack());
-                b.this.aqa.post(new Runnable() { // from class: com.baidu.swan.apps.d.b.1.1
+                b.this.aN(b.this.arg.canGoBack());
+                b.this.aqb.post(new Runnable() { // from class: com.baidu.swan.apps.d.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.aqa.setTitle(TextUtils.isEmpty(str) ? "" : str);
+                        b.this.aqb.setTitle(TextUtils.isEmpty(str) ? "" : str);
                     }
                 });
             }
@@ -43,19 +43,19 @@ public class b extends g {
     @Override // com.baidu.swan.apps.core.c.g, com.baidu.swan.apps.core.c.b
     public void M(View view) {
         super.M(view);
-        this.aqa.setRightMenuVisibility(false);
-        this.aqa.setLeftSecondViewImageSrc(a.e.aiapps_action_bar_close_black_selector);
-        this.aqa.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.2
+        this.aqb.setRightMenuVisibility(false);
+        this.aqb.setLeftSecondViewImageSrc(a.e.aiapps_action_bar_close_black_selector);
+        this.aqb.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.arf.canGoBack()) {
-                    b.this.arf.goBack();
+                if (b.this.arg.canGoBack()) {
+                    b.this.arg.goBack();
                 } else {
                     b.this.yd();
                 }
             }
         });
-        this.aqa.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.3
+        this.aqb.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 g.ze();

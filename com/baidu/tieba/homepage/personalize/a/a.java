@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.i>> {
-    private BdUniqueId cnZ;
+    private BdUniqueId coa;
     private com.baidu.tieba.card.i fLz;
     private TbPageContext<?> mPageContext;
 
@@ -20,9 +20,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cnZ = bdUniqueId;
+        this.coa = bdUniqueId;
         if (this.fLz != null) {
-            this.fLz.i(this.cnZ);
+            this.fLz.i(this.coa);
         }
     }
 
@@ -46,7 +46,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         if (this.fLz == null) {
             this.fLz = new com.baidu.tieba.card.i(this.mPageContext);
-            this.fLz.i(this.cnZ);
+            this.fLz.i(this.coa);
             this.fLz.o("c10714", "c10739", "c10712", "c10738");
         }
         return new com.baidu.tieba.card.a.a(this.fLz);

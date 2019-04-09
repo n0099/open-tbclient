@@ -17,16 +17,16 @@ import com.baidu.tieba.setting.model.AboutModel;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private com.baidu.tieba.setting.more.a irb;
-    private AboutModel irc;
-    private a ird = null;
-    private String ire = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private com.baidu.tieba.setting.more.a irc;
+    private AboutModel ird;
+    private a ire = null;
+    private String irf = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.irb = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
+        this.irc = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
             @Override // com.baidu.tieba.setting.more.d
             public void yu(int i) {
                 if (i == 0) {
@@ -36,14 +36,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(SettingTextFunctionIntroView.itU, true);
-                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(d.j.function_intro), AboutActivity.this.ire, true, false, false);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(SettingTextFunctionIntroView.itV, true);
+                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(d.j.function_intro), AboutActivity.this.irf, true, false, false);
                 } else if (i == 4) {
                     m.bG(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE, m.lQ(TbConfig.FATAL_ERROR_FILE));
                 }
             }
         });
-        this.irb.bYN();
+        this.irc.bYN();
         bpz();
     }
 
@@ -51,8 +51,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.irb != null) {
-            this.irb.bYN();
+        if (this.irc != null) {
+            this.irc.bYN();
         }
     }
 
@@ -61,11 +61,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onDestroy() {
         super.onDestroy();
         bpA();
-        if (this.irc != null) {
-            this.irc.cancelLoadData();
+        if (this.ird != null) {
+            this.ird.cancelLoadData();
         }
-        if (this.irb != null) {
-            this.irb.bin();
+        if (this.irc != null) {
+            this.irc.bin();
         }
     }
 
@@ -73,33 +73,33 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.irb != null) {
-            this.irb.jf(i);
+        if (this.irc != null) {
+            this.irc.jf(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.irc == null) {
-            this.irc = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
+        if (this.ird == null) {
+            this.ird = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
                 @Override // com.baidu.adp.base.d
                 public void m(Object obj) {
                     AboutActivity.this.av(obj);
                 }
             });
         } else {
-            this.irc.cancelLoadData();
+            this.ird.cancelLoadData();
         }
-        this.irc.bYF();
-        if (this.irb != null) {
-            this.irb.bYM();
+        this.ird.bYF();
+        if (this.irc != null) {
+            this.irc.bYM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void av(Object obj) {
-        if (this.irb != null) {
-            this.irb.bin();
+        if (this.irc != null) {
+            this.irc.bin();
         }
         com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
         if (dVar != null) {
@@ -117,8 +117,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             } else {
                 showToast(getResources().getString(d.j.neednot_update));
             }
-            if (this.irb != null) {
-                this.irb.bYN();
+            if (this.irc != null) {
+                this.irc.bYN();
                 return;
             }
             return;
@@ -134,22 +134,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.irb != null) {
-                AboutActivity.this.irb.bYN();
+            if (AboutActivity.this.irc != null) {
+                AboutActivity.this.irc.bYN();
             }
         }
     }
 
     private void bpz() {
-        this.ird = new a();
+        this.ire = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.ird, intentFilter);
+        registerReceiver(this.ire, intentFilter);
     }
 
     private void bpA() {
-        if (this.ird != null) {
-            unregisterReceiver(this.ird);
+        if (this.ire != null) {
+            unregisterReceiver(this.ire);
         }
     }
 }

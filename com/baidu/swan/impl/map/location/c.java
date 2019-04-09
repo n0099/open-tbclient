@@ -8,48 +8,48 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private TextView aGj;
-    private b bhS;
-    private TextView bii;
-    private View bij;
-    private g bik;
-    private e bil;
+    private TextView aGk;
+    private b bhT;
+    private TextView bij;
+    private View bik;
+    private g bil;
+    private e bim;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.bhS = bVar;
-        this.bil = eVar;
+        this.bhT = bVar;
+        this.bim = eVar;
     }
 
     private void init(View view) {
-        this.bii = (TextView) view.findViewById(d.g.main_title);
-        this.aGj = (TextView) view.findViewById(d.g.sub_title);
-        this.bij = view.findViewById(d.g.select);
-        this.bij.setVisibility(8);
+        this.bij = (TextView) view.findViewById(d.g.main_title);
+        this.aGk = (TextView) view.findViewById(d.g.sub_title);
+        this.bik = view.findViewById(d.g.select);
+        this.bik.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bhS.Qx();
-        this.bik.isSelected = true;
-        this.bhS.notifyDataSetChanged();
-        if (this.bil != null) {
-            this.bil.a(this.bik);
+        this.bhT.Qx();
+        this.bil.isSelected = true;
+        this.bhT.notifyDataSetChanged();
+        if (this.bim != null) {
+            this.bim.a(this.bil);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.bik = gVar;
-            this.bii.setText(z ? bh(gVar.bip.name, str) : gVar.bip.name);
-            this.aGj.setVisibility(0);
-            this.aGj.setText(gVar.bip.address);
-            if (gVar.biq || TextUtils.isEmpty(gVar.bip.address)) {
-                this.aGj.setVisibility(8);
+            this.bil = gVar;
+            this.bij.setText(z ? bh(gVar.biq.name, str) : gVar.biq.name);
+            this.aGk.setVisibility(0);
+            this.aGk.setText(gVar.biq.address);
+            if (gVar.bir || TextUtils.isEmpty(gVar.biq.address)) {
+                this.aGk.setVisibility(8);
             }
-            this.bij.setVisibility(gVar.isSelected ? 0 : 8);
+            this.bik.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 

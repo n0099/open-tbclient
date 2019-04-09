@@ -8,18 +8,18 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes5.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int bqT;
-    private RequestGetGroupActivityMessage gll;
-    private RequestGetGroupActivityLocalMessage glm;
-    private RequestDelGroupActivityMessage gln;
-    private GroupActivityActivity glo;
-    private GroupActivityData glp;
+    private int bqU;
+    private RequestGetGroupActivityMessage glm;
+    private RequestGetGroupActivityLocalMessage gln;
+    private RequestDelGroupActivityMessage glo;
+    private GroupActivityActivity glp;
+    private GroupActivityData glq;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.glo = groupActivityActivity;
+        this.glp = groupActivityActivity;
     }
 
     public int btB() {
@@ -31,11 +31,11 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public int btC() {
-        return this.bqT;
+        return this.bqU;
     }
 
     public void tS(int i) {
-        this.bqT = i;
+        this.bqU = i;
     }
 
     public long btD() {
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.gll = tT(i);
-        this.glo.sendMessage(this.gll);
+        this.glm = tT(i);
+        this.glp.sendMessage(this.glm);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void tV(int i) {
-        this.glm = tU(i);
-        this.glo.sendMessage(this.glm);
+        this.gln = tU(i);
+        this.glp.sendMessage(this.gln);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.glm;
-    }
-
-    public Message<?> getSendMsg() {
-        return this.gll;
-    }
-
-    public Message<?> btE() {
         return this.gln;
     }
 
+    public Message<?> getSendMsg() {
+        return this.glm;
+    }
+
+    public Message<?> btE() {
+        return this.glo;
+    }
+
     public void r(long j, int i) {
-        this.gln = new RequestDelGroupActivityMessage();
-        this.gln.setActivityId(i);
-        this.gln.setGroupId(j);
-        this.glo.sendMessage(this.gln);
+        this.glo = new RequestDelGroupActivityMessage();
+        this.glo.setActivityId(i);
+        this.glo.setGroupId(j);
+        this.glp.sendMessage(this.glo);
     }
 
     public GroupActivityData btF() {
-        return this.glp;
+        return this.glq;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.glp = groupActivityData;
+            this.glq = groupActivityData;
         }
     }
 }

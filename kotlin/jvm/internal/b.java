@@ -4,22 +4,22 @@ import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 final class b extends kotlin.collections.l {
     private int index;
-    private final byte[] jRO;
+    private final byte[] jRP;
 
     public b(byte[] bArr) {
         p.k(bArr, "array");
-        this.jRO = bArr;
+        this.jRP = bArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.jRO.length;
+        return this.index < this.jRP.length;
     }
 
     @Override // kotlin.collections.l
     public byte nextByte() {
         try {
-            byte[] bArr = this.jRO;
+            byte[] bArr = this.jRP;
             int i = this.index;
             this.index = i + 1;
             return bArr[i];

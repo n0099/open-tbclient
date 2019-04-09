@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c iNM;
-    private a iNN = chn();
+    private static c iNN;
+    private a iNO = chn();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,31 +35,31 @@ public class c {
     }
 
     public static c cho() {
-        if (iNM == null) {
+        if (iNN == null) {
             synchronized (c.class) {
-                if (iNM == null) {
-                    iNM = new c();
+                if (iNN == null) {
+                    iNN = new c();
                 }
             }
         }
-        return iNM;
+        return iNN;
     }
 
     public void autoTrace(Context context) {
-        if (this.iNN != null) {
-            this.iNN.autoTrace(context);
+        if (this.iNO != null) {
+            this.iNO.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (this.iNN != null) {
-            this.iNN.setAppChannel(context, str, z);
+        if (this.iNO != null) {
+            this.iNO.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (this.iNN != null) {
-            this.iNN.trackWebView(context, webView, webChromeClient);
+        if (this.iNO != null) {
+            this.iNO.trackWebView(context, webView, webChromeClient);
         }
     }
 }

@@ -14,23 +14,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a {
-    private static a gsG = new a();
-    private HashSet<String> gsH = new HashSet<>();
-    private StringBuilder gsI = new StringBuilder();
+    private static a gsH = new a();
+    private HashSet<String> gsI = new HashSet<>();
+    private StringBuilder gsJ = new StringBuilder();
 
     private a() {
     }
 
     public static a bwc() {
-        return gsG;
+        return gsH;
     }
 
     public void bwd() {
         String str;
         String str2 = null;
-        if (this.gsH != null) {
+        if (this.gsI != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.gsH.iterator();
+            Iterator<String> it = this.gsI.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -41,28 +41,28 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.gsI != null && this.gsI.length() > 0) {
-                        this.gsI.deleteCharAt(this.gsI.length() - 1);
-                        str2 = this.gsI.toString();
+                    if (this.gsJ != null && this.gsJ.length() > 0) {
+                        this.gsJ.deleteCharAt(this.gsJ.length() - 1);
+                        str2 = this.gsJ.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.gsI != null) {
-            this.gsI.deleteCharAt(this.gsI.length() - 1);
-            str2 = this.gsI.toString();
+        if (this.gsJ != null) {
+            this.gsJ.deleteCharAt(this.gsJ.length() - 1);
+            str2 = this.gsJ.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
     public void bwe() {
-        if (this.gsI != null && this.gsI.length() > 0) {
-            this.gsI.delete(0, this.gsI.length());
+        if (this.gsJ != null && this.gsJ.length() > 0) {
+            this.gsJ.delete(0, this.gsJ.length());
         }
-        if (this.gsH != null) {
-            this.gsH.clear();
+        if (this.gsI != null) {
+            this.gsI.clear();
         }
     }
 
@@ -70,7 +70,7 @@ public class a {
         UserData userInfo;
         d xy;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (xy = e.xy(chatMessage.getContent())) != null && !TextUtils.isEmpty(xy.taskId) && this.gsH.add(xy.taskId)) {
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (xy = e.xy(chatMessage.getContent())) != null && !TextUtils.isEmpty(xy.taskId) && this.gsI.add(xy.taskId)) {
                 TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", xy.ggL, "task_id", xy.taskId);
             }
         }
@@ -78,7 +78,7 @@ public class a {
 
     public void xt(String str) {
         if (str != null && str.length() > 0) {
-            this.gsI.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.gsJ.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 }

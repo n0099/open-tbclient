@@ -27,14 +27,14 @@ import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     private String gah;
-    private HashMap<String, ImageUrlData> gmi;
+    private HashMap<String, ImageUrlData> gmj;
     private Context mContext;
     private ProgressBar mProgress = null;
-    private a hPq = null;
+    private a hPr = null;
     private MultiImageView gac = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener cdf = null;
-    private b.InterfaceC0225b hPr = null;
+    private View.OnLongClickListener cdg = null;
+    private b.InterfaceC0225b hPs = null;
     private BaseViewPager.a gad = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         arrayList.add(this.gah);
         this.gac.setIsFromCDN(true);
         this.gac.setAllowLocalUrl(true);
-        this.gac.setAssistUrls(this.gmi);
+        this.gac.setAssistUrls(this.gmj);
         this.gac.setUrlData(arrayList);
         this.gac.setCurrentItem(0, false);
     }
@@ -101,9 +101,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onDestroy() {
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         this.gac.onDestroy();
-        if (this.hPq != null) {
-            this.hPq.cancel();
-            this.hPq = null;
+        if (this.hPr != null) {
+            this.hPr.cancel();
+            this.hPr = null;
         }
         if (this.mProgress != null) {
             this.mProgress.setVisibility(8);
@@ -127,15 +127,15 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                 PersonImageActivity.this.finish();
             }
         };
-        this.cdf = new View.OnLongClickListener() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.2
+        this.cdg = new View.OnLongClickListener() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(d.j.save)}, PersonImageActivity.this.hPr);
+                PersonImageActivity.this.createListMenu(new String[]{PersonImageActivity.this.getPageContext().getString(d.j.save)}, PersonImageActivity.this.hPs);
                 PersonImageActivity.this.showListMenu();
                 return false;
             }
         };
-        this.hPr = new b.InterfaceC0225b() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
+        this.hPs = new b.InterfaceC0225b() { // from class: com.baidu.tieba.personExtra.PersonImageActivity.3
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0225b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar == PersonImageActivity.this.getListMenu()) {
@@ -144,8 +144,8 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                             byte[] currentImageData = PersonImageActivity.this.gac.getCurrentImageData();
                             if (currentImageData != null) {
                                 String currentImageUrl = PersonImageActivity.this.gac.getCurrentImageUrl();
-                                PersonImageActivity.this.hPq = new a(currentImageUrl, currentImageData);
-                                PersonImageActivity.this.hPq.execute(new String[0]);
+                                PersonImageActivity.this.hPr = new a(currentImageUrl, currentImageData);
+                                PersonImageActivity.this.hPr.execute(new String[0]);
                                 PersonImageActivity.this.mProgress.setVisibility(0);
                             } else {
                                 PersonImageActivity.this.showToast(PersonImageActivity.this.getPageContext().getString(d.j.no_data));
@@ -170,7 +170,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         this.gac.setPageMargin(l.dip2px(getPageContext().getPageActivity(), 8.0f));
         this.gac.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.gac.setItemOnclickListener(this.mOnClickListener);
-        this.gac.setItemOnLongClickListener(this.cdf);
+        this.gac.setItemOnLongClickListener(this.cdg);
         this.gac.setCurrentItem(0, false);
         this.gac.setOnScrollOutListener(this.gad);
         this.gac.setHasNext(false);
@@ -181,13 +181,13 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     private void initData(Bundle bundle) {
         if (bundle != null) {
             this.gah = bundle.getString("curImgUrl");
-            this.gmi = (HashMap) bundle.getSerializable("assistUrls");
+            this.gmj = (HashMap) bundle.getSerializable("assistUrls");
             return;
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.gah = intent.getStringExtra("curImgUrl");
-            this.gmi = (HashMap) intent.getSerializableExtra("assistUrls");
+            this.gmj = (HashMap) intent.getSerializableExtra("assistUrls");
         }
     }
 
@@ -236,7 +236,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             PersonImageActivity.this.showToast(str);
-            PersonImageActivity.this.hPq = null;
+            PersonImageActivity.this.hPr = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
         }
 
@@ -248,7 +248,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            PersonImageActivity.this.hPq = null;
+            PersonImageActivity.this.hPr = null;
             PersonImageActivity.this.mProgress.setVisibility(8);
             super.cancel(true);
         }

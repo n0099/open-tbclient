@@ -22,9 +22,9 @@ public class DataEntryUrnBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("DataEntryUrnBox.java", DataEntryUrnBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getName", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getLocation", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 67);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getName", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 40);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getLocation", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 44);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.DataEntryUrnBox", "", "", "", "java.lang.String"), 67);
     }
 
     public DataEntryUrnBox() {

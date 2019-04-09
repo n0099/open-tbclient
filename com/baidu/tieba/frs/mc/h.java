@@ -77,7 +77,7 @@ public class h extends j {
     public void qT(int i) {
         ArrayList<m> threadList;
         FrsViewData bcP = this.fqE.bcP();
-        if (bcP != null && this.eYE != null && (threadList = bcP.getThreadList()) != null) {
+        if (bcP != null && this.eYF != null && (threadList = bcP.getThreadList()) != null) {
             Iterator<m> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -97,8 +97,8 @@ public class h extends j {
                     }
                 }
             }
-            this.eYE.bdI().b(threadList, bcP);
-            this.eYE.bdI().notifyDataSetChanged();
+            this.eYF.bdI().b(threadList, bcP);
+            this.eYF.bdI().notifyDataSetChanged();
         }
     }
 

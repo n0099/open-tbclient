@@ -20,19 +20,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> aEq;
+    public static List<Pair<String, Pair<String, String>>> aEr;
 
     static {
         if (DEBUG) {
-            aEq = new ArrayList();
-            aEq.add(new Pair<>("总时长", new Pair("na_aps_start_req", "na_end_update_db")));
-            aEq.add(new Pair<>("APS信息获取时长", new Pair("na_aps_start_req", "na_aps_end_req")));
-            aEq.add(new Pair<>("包下载时长", new Pair("na_aps_start_download", "na_aps_end_download")));
-            aEq.add(new Pair<>("Icon下载时长", new Pair("na_aps_start_icon", "na_aps_end_icon")));
-            aEq.add(new Pair<>("签名校验时长", new Pair("na_aps_start_check_sign", "na_aps_end_check_sign")));
-            aEq.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            aEq.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            aEq.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            aEr = new ArrayList();
+            aEr.add(new Pair<>("总时长", new Pair("na_aps_start_req", "na_end_update_db")));
+            aEr.add(new Pair<>("APS信息获取时长", new Pair("na_aps_start_req", "na_aps_end_req")));
+            aEr.add(new Pair<>("包下载时长", new Pair("na_aps_start_download", "na_aps_end_download")));
+            aEr.add(new Pair<>("Icon下载时长", new Pair("na_aps_start_icon", "na_aps_end_icon")));
+            aEr.add(new Pair<>("签名校验时长", new Pair("na_aps_start_check_sign", "na_aps_end_check_sign")));
+            aEr.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            aEr.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            aEr.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
@@ -62,7 +62,7 @@ public final class a {
             }
             jT.setValueWithDuration(jSONObject.toString());
             jT.end();
-            a(str, list, aEq);
+            a(str, list, aEr);
         }
     }
 

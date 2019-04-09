@@ -20,8 +20,8 @@ public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MovieFragmentRandomAccessOffsetBox.java", MovieFragmentRandomAccessOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "", "", "", "long"), 56);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "long", "mfraSize", "", "void"), 60);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "", "", "", "long"), 56);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMfraSize", "com.coremedia.iso.boxes.fragment.MovieFragmentRandomAccessOffsetBox", "long", "mfraSize", "", "void"), 60);
     }
 
     public MovieFragmentRandomAccessOffsetBox() {

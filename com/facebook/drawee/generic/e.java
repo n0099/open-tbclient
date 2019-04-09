@@ -19,7 +19,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e {
-    private static final Drawable jDQ = new ColorDrawable(0);
+    private static final Drawable jDR = new ColorDrawable(0);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
@@ -48,7 +48,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(com.facebook.drawee.drawable.c cVar, n.b bVar) {
-        Drawable b = b(cVar.i(jDQ), bVar);
+        Drawable b = b(cVar.i(jDR), bVar);
         cVar.i(b);
         g.checkNotNull(b, "Parent has no child drawable!");
         return (m) b;
@@ -64,10 +64,10 @@ public class e {
                 roundedCornersDrawable.setOverlayColor(roundingParams.cvU());
                 return;
             }
-            cVar.i(a(cVar.i(jDQ), roundingParams));
+            cVar.i(a(cVar.i(jDR), roundingParams));
         } else if (drawable instanceof RoundedCornersDrawable) {
-            cVar.i(((RoundedCornersDrawable) drawable).k(jDQ));
-            jDQ.setCallback(null);
+            cVar.i(((RoundedCornersDrawable) drawable).k(jDR));
+            jDR.setCallback(null);
         }
     }
 
@@ -79,7 +79,7 @@ public class e {
             if (drawable instanceof j) {
                 a((j) drawable, roundingParams);
             } else if (drawable != null) {
-                a.i(jDQ);
+                a.i(jDR);
                 a.i(b(drawable, roundingParams, resources));
             }
         } else if (drawable instanceof j) {
@@ -103,7 +103,7 @@ public class e {
         if (drawable != null && roundingParams != null && roundingParams.cvT() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
             if (drawable instanceof com.facebook.drawee.drawable.g) {
                 com.facebook.drawee.drawable.c a = a((com.facebook.drawee.drawable.g) drawable);
-                a.i(b(a.i(jDQ), roundingParams, resources));
+                a.i(b(a.i(jDR), roundingParams, resources));
                 return drawable;
             }
             return b(drawable, roundingParams, resources);

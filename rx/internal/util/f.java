@@ -4,19 +4,19 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final int kan = cEu();
-    private static final boolean kao;
+    private static final int kao = cEu();
+    private static final boolean kap;
 
     static {
-        kao = kan != 0;
+        kap = kao != 0;
     }
 
     public static boolean cEs() {
-        return kao;
+        return kap;
     }
 
     public static int cEt() {
-        return kan;
+        return kao;
     }
 
     private static int cEu() {

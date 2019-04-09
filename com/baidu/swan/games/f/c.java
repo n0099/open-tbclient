@@ -3,8 +3,8 @@ package com.baidu.swan.games.f;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    public List<String> bbR;
-    public byte[] bbS;
+    public List<String> bbS;
+    public byte[] bbT;
     public String digest;
     public int errCode;
     public String errMsg;

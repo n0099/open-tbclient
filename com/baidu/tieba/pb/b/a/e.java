@@ -9,20 +9,20 @@ import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class e implements ae, d {
-    private ArrayList<PreLoadImageInfo> hDv;
-    public String hDw;
+    private ArrayList<PreLoadImageInfo> hDw;
+    public String hDx;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.hDv = new ArrayList<>(1);
+            this.hDw = new ArrayList<>(1);
             this.src = excContent.src;
-            this.hDw = excContent.bsize;
-            if (this.hDw != null) {
+            this.hDx = excContent.bsize;
+            if (this.hDx != null) {
                 try {
-                    String[] split = this.hDw.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.hDx.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.g.b.l(split[0], 0);
                     this.height = com.baidu.adp.lib.g.b.l(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.hDv.add(preLoadImageInfo);
+            this.hDw.add(preLoadImageInfo);
         }
     }
 
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.hDv;
+        return this.hDw;
     }
 }

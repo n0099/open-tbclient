@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MsgleftView extends g {
     private static final String TAG = MsgleftView.class.getName();
-    private UserIconBox ZB;
+    private UserIconBox ZC;
     private HeadImageView fbF;
     private ViewGroup gbR;
     private ImageView gbS;
@@ -45,7 +45,7 @@ public class MsgleftView extends g {
         this.fbF.setAutoChangeStyle(false);
         this.fbF.setDrawerType(1);
         this.fbF.setRadius(l.dip2px(this.mContext.getContext(), 4.0f));
-        this.ZB = (UserIconBox) findViewById(d.g.user_tshow_icon_box);
+        this.ZC = (UserIconBox) findViewById(d.g.user_tshow_icon_box);
         this.fbF.setLongClickable(true);
         this.fbF.setOnLongClickListener(this.gbU);
         this.fbF.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.1
@@ -78,11 +78,11 @@ public class MsgleftView extends g {
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
         bqe();
-        if (this.ZB != null && this.gbO) {
-            this.ZB.setVisibility(0);
-            this.ZB.setAutoChangedStyle(false);
+        if (this.ZC != null && this.gbO) {
+            this.ZC.setVisibility(0);
+            this.ZC.setAutoChangedStyle(false);
             Resources resources = this.mContext.getResources();
-            this.ZB.a(tShowInfoNew, 2, resources.getDimensionPixelSize(d.e.ds32), resources.getDimensionPixelSize(d.e.ds32), resources.getDimensionPixelSize(d.e.ds8), true);
+            this.ZC.a(tShowInfoNew, 2, resources.getDimensionPixelSize(d.e.ds32), resources.getDimensionPixelSize(d.e.ds32), resources.getDimensionPixelSize(d.e.ds8), true);
         }
         if (chatMessage == null) {
             this.mName.setText((CharSequence) null);
@@ -193,13 +193,13 @@ public class MsgleftView extends g {
     public void bqe() {
         if (this.gbO) {
             this.mName.setVisibility(0);
-            this.ZB.setVisibility(0);
+            this.ZC.setVisibility(0);
             return;
         }
         this.mName.setVisibility(8);
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gbR.getLayoutParams();
         marginLayoutParams.topMargin = 0;
         this.gbR.setLayoutParams(marginLayoutParams);
-        this.ZB.setVisibility(8);
+        this.ZC.setVisibility(8);
     }
 }

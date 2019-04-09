@@ -26,11 +26,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0175a {
-        private static final a aTe = new a();
+        private static final a aTf = new a();
     }
 
     public static a KK() {
-        return C0175a.aTe;
+        return C0175a.aTf;
     }
 
     public static String dC(int i) {
@@ -50,7 +50,7 @@ public class a {
                 break;
             }
             b next = it.next();
-            if (next != null && next.aTg == j) {
+            if (next != null && next.aTh == j) {
                 z = true;
                 break;
             }
@@ -79,7 +79,7 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.aTf).compareTo(String.valueOf(bVar2.aTf));
+                return String.valueOf(bVar.aTg).compareTo(String.valueOf(bVar2.aTg));
             }
         });
     }
@@ -111,9 +111,9 @@ public class a {
         } else {
             SwanCoreVersion DF = e.Ea().DF();
             b bVar2 = dE.get(size - 1);
-            if (bVar2 != null && DF != null && DF.aTg > bVar2.aTg) {
+            if (bVar2 != null && DF != null && DF.aTh > bVar2.aTh) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), DF.aTg).toString());
+                sb.append(new b(System.currentTimeMillis(), DF.aTh).toString());
             }
         }
         return sb.toString();
@@ -154,12 +154,12 @@ public class a {
 
     /* loaded from: classes2.dex */
     public class b {
-        long aTf;
         long aTg;
+        long aTh;
 
         b(long j, long j2) {
-            this.aTf = j;
-            this.aTg = j2;
+            this.aTg = j;
+            this.aTh = j2;
         }
 
         public String toString() {
@@ -167,13 +167,13 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.aTf));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.aTg));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
             }
             try {
-                str2 = com.baidu.swan.apps.swancore.b.J(this.aTg);
+                str2 = com.baidu.swan.apps.swancore.b.J(this.aTh);
             } catch (Exception e3) {
                 e = e3;
                 if (com.baidu.swan.apps.b.DEBUG) {
@@ -187,8 +187,8 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.aTf);
-                jSONObject.put("version", this.aTg);
+                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.aTg);
+                jSONObject.put("version", this.aTh);
                 return jSONObject.toString();
             } catch (JSONException e) {
                 if (!com.baidu.swan.apps.b.DEBUG) {

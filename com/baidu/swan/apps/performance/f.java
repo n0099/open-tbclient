@@ -24,16 +24,16 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static boolean aEf = false;
+    public static boolean aEg = false;
     @Deprecated
-    private static com.baidu.swan.apps.performance.a aEg;
+    private static com.baidu.swan.apps.performance.a aEh;
 
     private static com.baidu.swan.apps.performance.a FO() {
-        if (aEg == null) {
-            aEg = new com.baidu.swan.apps.performance.a();
-            a(aEg);
+        if (aEh == null) {
+            aEh = new com.baidu.swan.apps.performance.a();
+            a(aEh);
         }
-        return aEg;
+        return aEh;
     }
 
     private static void a(com.baidu.swan.apps.performance.a aVar) {
@@ -121,8 +121,8 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup: info=" + bVar);
         }
-        if (bVar != null && (bundle = bVar.axT) != null) {
-            final String str = bVar.axL;
+        if (bVar != null && (bundle = bVar.axU) != null) {
+            final String str = bVar.axM;
             final boolean z = bundle.getBoolean("aiapp_launch_ext_ab", false);
             if (DEBUG) {
                 Log.i("SwanAppPerformanceUBC", "xpass -> recordFromLaunchInfoForStartup: extAbSwitch=" + z);
@@ -131,26 +131,26 @@ public final class f {
                 @Override // java.lang.Runnable
                 public void run() {
                     HybridUbcFlow fz = f.fz("startup");
-                    if (!f.aEf) {
+                    if (!f.aEg) {
                         f.q(bundle);
                         f.a(fz, bundle, "aiapp_launch_activity_timestamp", "na_launch_activity");
                     }
                     if (!z) {
                         f.p(bundle);
                     }
-                    String str2 = TextUtils.isEmpty(bVar.axJ) ? "NA" : bVar.axJ;
-                    if (bVar.aya == 1) {
+                    String str2 = TextUtils.isEmpty(bVar.axK) ? "NA" : bVar.axK;
+                    if (bVar.ayb == 1) {
                         fz.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
                     fz.i("from", "swan");
                     fz.i("source", str2);
                     fz.aq("appid", bVar.mAppId);
-                    fz.aq("swan", com.baidu.swan.apps.swancore.b.a(bVar.atu, bVar.aya));
+                    fz.aq("swan", com.baidu.swan.apps.swancore.b.a(bVar.atv, bVar.ayb));
                     fz.aq("mobile", g.LQ());
                     fz.aq("net", SwanAppNetworkUtils.Fb().type);
                     fz.aq("appversion", bVar.mVersion);
-                    fz.aq("thirdversion", bVar.auk);
-                    fz.i("from", bVar.aya == 1 ? "swangame" : "swan");
+                    fz.aq("thirdversion", bVar.aul);
+                    fz.i("from", bVar.ayb == 1 ? "swangame" : "swan");
                     String hG = y.hG(str);
                     if (!TextUtils.isEmpty(hG) && hG.startsWith(File.separator)) {
                         hG = hG.substring(1);
@@ -159,7 +159,7 @@ public final class f {
                         hG = "";
                     }
                     fz.aq("path", hG);
-                    if (bVar.aya == 0) {
+                    if (bVar.ayb == 0) {
                         fz.Ft();
                     }
                 }
@@ -172,7 +172,7 @@ public final class f {
         boolean a2;
         if (bundle != null && !bundle.isEmpty()) {
             HybridUbcFlow fz = fz("startup");
-            if (aEf) {
+            if (aEg) {
                 a2 = false;
             } else {
                 a(fz, bundle, "aiapp_aps_check_start_timestamp", "aps_start_req");
@@ -223,7 +223,7 @@ public final class f {
         }
         fH("startup");
         HybridUbcFlow fz = fz("startup");
-        if (aEf) {
+        if (aEg) {
             fz.f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).A(j));
             fz.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).A(j));
         }
@@ -232,11 +232,11 @@ public final class f {
 
     public static void a(boolean z, Intent intent) {
         boolean K = K(intent);
-        aEf = K || z;
+        aEg = K || z;
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: isIntentNeedDiscard=" + K);
             Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: hasSaved=" + z);
-            Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: sNeedDiscard=" + aEf);
+            Log.i("SwanAppPerformanceUBC", "updateFlagNeedDiscard: sNeedDiscard=" + aEg);
         }
     }
 
@@ -254,9 +254,9 @@ public final class f {
 
     /* loaded from: classes2.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int aEk = 35;
-        public JSONObject aEl;
-        private boolean aEm = true;
+        private static int aEl = 35;
+        public JSONObject aEm;
+        private boolean aEn = true;
         final String eventId;
 
         public a(String str) {
@@ -281,18 +281,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.aSt == null) {
-                this.aSt = new JSONObject();
+            if (this.aSu == null) {
+                this.aSu = new JSONObject();
             }
             try {
-                if (this.aEl != null) {
-                    if (this.aEm) {
-                        String eo = aa.eo(aEk);
+                if (this.aEm != null) {
+                    if (this.aEn) {
+                        String eo = aa.eo(aEl);
                         if (!TextUtils.isEmpty(eo)) {
-                            this.aEl.put("stacktrace", eo);
+                            this.aEm.put("stacktrace", eo);
                         }
                     }
-                    this.aSt.put("info", this.aEl);
+                    this.aSu.put("info", this.aEm);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

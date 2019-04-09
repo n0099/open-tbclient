@@ -15,7 +15,7 @@ public class SubtitleMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SubtitleMediaHeaderBox.java", SubtitleMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.SubtitleMediaHeaderBox", "", "", "", "java.lang.String"), 30);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubtitleMediaHeaderBox", "", "", "", "java.lang.String"), 30);
     }
 
     public SubtitleMediaHeaderBox() {

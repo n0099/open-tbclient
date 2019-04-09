@@ -24,7 +24,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
-    private NavigationBar ecO;
+    private NavigationBar ecP;
     private TextView fkS;
     private RadioButton fkT;
     private RadioButton fkU;
@@ -122,11 +122,11 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
 
     private void initView() {
         setContentView(d.h.frs_game_comment_layout);
-        this.ecO = (NavigationBar) findViewById(d.g.frs_game_comment_navigation_bar);
-        this.ecO.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mTitle = this.ecO.setCenterTextTitle(getPageContext().getPageActivity().getString(d.j.frs_game_comment_title));
-        this.ecO.showBottomLine(true);
-        this.fkS = this.ecO.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.1
+        this.ecP = (NavigationBar) findViewById(d.g.frs_game_comment_navigation_bar);
+        this.ecP.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mTitle = this.ecP.setCenterTextTitle(getPageContext().getPageActivity().getString(d.j.frs_game_comment_title));
+        this.ecP.showBottomLine(true);
+        this.fkS = this.ecP.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamecomment.FrsGameCommentActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!j.kY()) {

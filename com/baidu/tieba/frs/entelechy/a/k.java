@@ -24,11 +24,11 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
-    private String YA;
-    private boolean ZQ;
-    private boolean bSP;
-    private NEGFeedBackView.a dqL;
-    private ab<bg> dqj;
+    private String YB;
+    private boolean ZR;
+    private boolean bSQ;
+    private NEGFeedBackView.a dqM;
+    private ab<bg> dqk;
     private int fgP;
     private com.baidu.tieba.frs.d.b fgQ;
     private String mForumName;
@@ -36,11 +36,11 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.bSP = false;
-        this.ZQ = true;
+        this.bSQ = false;
+        this.ZR = true;
         this.fgP = 3;
         this.fgQ = new com.baidu.tieba.frs.d.b();
-        this.dqj = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.k.1
+        this.dqk = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
@@ -59,7 +59,7 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
                 }
             }
         };
-        this.dqL = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.entelechy.a.k.2
+        this.dqM = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.entelechy.a.k.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void b(aj ajVar) {
                 TiebaStatic.log(new am("c11973").bJ(ImageViewerConfig.FORUM_ID, ajVar.getFid()).bJ("tid", ajVar.getTid()).bJ("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -113,13 +113,13 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
         aVar.c(dVar);
         aVar.b(new com.baidu.card.l(this.mPageContext.getPageActivity()));
         com.baidu.card.h hVar = new com.baidu.card.h(this.mPageContext.getPageActivity());
-        hVar.setFromCDN(this.ZQ);
+        hVar.setFromCDN(this.ZR);
         hVar.setForm("frs");
         aVar.a((com.baidu.card.f) hVar);
         aa aaVar = new aa(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar2 = new com.baidu.tbadk.core.data.d();
-        dVar2.bxm = 2;
-        dVar2.bxr = 2;
+        dVar2.bxn = 2;
+        dVar2.bxs = 2;
         aaVar.setAgreeStatisticData(dVar2);
         aaVar.setFrom(2);
         aaVar.setShareReportFrom(this.fgP);
@@ -138,8 +138,8 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
                     com.baidu.card.z zVar2 = (com.baidu.card.z) view.getTag();
                     bg bgVar = ((bf) mVar).threadData;
                     bgVar.objType = 1;
-                    if (k.this.dqj != null) {
-                        k.this.dqj.a(zVar2.getView(), bgVar);
+                    if (k.this.dqk != null) {
+                        k.this.dqk.a(zVar2.getView(), bgVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) bgVar, view.getContext(), k.this.fgP, false);
                     zVar2.rx().b(new a.C0039a(1));
@@ -160,21 +160,21 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
         }
         super.onFillViewHolder(i, view, viewGroup, bfVar, zVar);
         if (zVar.rx() instanceof com.baidu.tieba.a.e) {
-            zVar.rx().setPage(this.YA);
+            zVar.rx().setPage(this.YB);
         }
-        com.baidu.tieba.frs.g.a(zVar.rx().rr(), this.eYh);
+        com.baidu.tieba.frs.g.a(zVar.rx().rr(), this.eYi);
         boolean z = (bfVar.threadData.YO() == null || bfVar.threadData.YO().getUserId() == null || !bfVar.threadData.YO().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
         if (bfVar.threadData.ZX() && bfVar.threadData.Xx() != null && !z) {
             com.baidu.card.s ry = zVar.ry();
-            ry.a(this.dqL);
+            ry.a(this.dqM);
             ry.C(bfVar.threadData.WQ());
         }
         zVar.rA();
         zVar.a(bfVar.threadData);
-        zVar.c(this.dqj);
+        zVar.c(this.dqk);
         zVar.rx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         if (this.fgQ != null) {
-            bfVar.threadData.bDU = (bfVar.position + 1) - (this.eYh != null ? this.eYh.getTopThreadSize() : 0);
+            bfVar.threadData.bDV = (bfVar.position + 1) - (this.eYi != null ? this.eYi.getTopThreadSize() : 0);
         }
         com.baidu.tieba.frs.d.c.bij().a(this.fgQ, bfVar.threadData);
         com.baidu.tieba.frs.d.a.a(bfVar.threadData, this.mPageId, this.fgQ);
@@ -196,11 +196,11 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
 
     @Override // com.baidu.tieba.a.f
     public void qM(String str) {
-        this.YA = str;
+        this.YB = str;
     }
 
     public void setInFrsAllThread(boolean z) {
-        this.bSP = z;
+        this.bSQ = z;
     }
 
     @Override // com.baidu.tieba.frs.d.d
@@ -210,6 +210,6 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
 
     @Override // com.baidu.tieba.frs.h
     public void setFromCDN(boolean z) {
-        this.ZQ = z;
+        this.ZR = z;
     }
 }

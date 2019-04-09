@@ -3,7 +3,7 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public final class c {
-    private static Thread abE = null;
+    private static Thread abF = null;
 
     public static void a(Context context, int i) {
         com.baidu.crabsdk.c.a.cv("===Anr init!===");
@@ -11,7 +11,7 @@ public final class c {
             com.baidu.crabsdk.c.a.cv("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.d dVar = new com.baidu.crabsdk.sender.d(context, i, (byte) 0);
-                abE = dVar;
+                abF = dVar;
                 dVar.start();
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.w("Anr watchThread start failed !!");
@@ -20,6 +20,6 @@ public final class c {
     }
 
     public static Thread rR() {
-        return abE;
+        return abF;
     }
 }

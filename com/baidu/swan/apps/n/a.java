@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    private String avV;
+    private String avW;
 
     public a(j jVar) {
         super(jVar, "/swan/getFormId");
@@ -38,8 +38,8 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         }
-        this.avV = c.optString("cb");
-        if (TextUtils.isEmpty(this.avV)) {
+        this.avW = c.optString("cb");
+        if (TextUtils.isEmpty(this.avW)) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "mCallBack is null");
             }
@@ -66,7 +66,7 @@ public class a extends y {
             com.baidu.swan.apps.u.a.CZ().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
                 @Override // com.baidu.swan.apps.ad.a
                 public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.avV, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+                    callbackHandler.handleSchemeDispatchCallback(a.this.avW, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

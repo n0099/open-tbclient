@@ -40,7 +40,7 @@ public class c {
     public HashMap<String, String> bzL() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-            cookie = com.baidu.tbadk.browser.a.btI;
+            cookie = com.baidu.tbadk.browser.a.btJ;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Cookie", cookie);
@@ -55,8 +55,8 @@ public class c {
 
     public static void a(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            xY(bVar.getParallelCharge().gGr);
-            Iterator<String> it = bVar.getParallelCharge().gGu.iterator();
+            xY(bVar.getParallelCharge().gGs);
+            Iterator<String> it = bVar.getParallelCharge().gGv.iterator();
             while (it.hasNext()) {
                 xY(it.next());
             }
@@ -65,8 +65,8 @@ public class c {
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            xY(bVar.getParallelCharge().gGs);
-            Iterator<String> it = bVar.getParallelCharge().gGt.iterator();
+            xY(bVar.getParallelCharge().gGt);
+            Iterator<String> it = bVar.getParallelCharge().gGu.iterator();
             while (it.hasNext()) {
                 xY(it.next());
             }

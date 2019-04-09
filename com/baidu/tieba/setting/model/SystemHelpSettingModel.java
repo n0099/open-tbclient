@@ -18,24 +18,24 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a iqV;
-    private b iqW;
-    private BaseActivity.LoadDataCallBack iqX;
+    private a iqW;
+    private b iqX;
+    private BaseActivity.LoadDataCallBack iqY;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.iqV = null;
         this.iqW = null;
-        this.mContext = null;
         this.iqX = null;
+        this.mContext = null;
+        this.iqY = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void bYJ() {
-        if (this.iqV == null) {
-            this.iqV = new a();
-            this.iqV.execute(new String[0]);
+        if (this.iqW == null) {
+            this.iqW = new a();
+            this.iqW.execute(new String[0]);
         }
     }
 
@@ -47,9 +47,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void bYL() {
-        if (this.iqW == null) {
-            this.iqW = new b();
-            this.iqW.execute(new String[0]);
+        if (this.iqX == null) {
+            this.iqX = new b();
+            this.iqX.execute(new String[0]);
         }
     }
 
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.iqV = null;
-            if (SystemHelpSettingModel.this.iqX != null) {
-                SystemHelpSettingModel.this.iqX.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.iqW = null;
+            if (SystemHelpSettingModel.this.iqY != null) {
+                SystemHelpSettingModel.this.iqY.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -119,9 +119,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.iqW = null;
-            if (SystemHelpSettingModel.this.iqX != null) {
-                SystemHelpSettingModel.this.iqX.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.iqX = null;
+            if (SystemHelpSettingModel.this.iqY != null) {
+                SystemHelpSettingModel.this.iqY.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -137,6 +137,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iqX = loadDataCallBack;
+        this.iqY = loadDataCallBack;
     }
 }

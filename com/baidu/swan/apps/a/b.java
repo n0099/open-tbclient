@@ -7,13 +7,13 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.swan.apps.ae.c {
-    private final com.baidu.swan.apps.an.b.c ajH;
-    private String ajI;
+    private final com.baidu.swan.apps.an.b.c ajI;
+    private String ajJ;
 
     public b(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
         com.baidu.swan.apps.v.b.b uA;
-        this.ajH = new com.baidu.swan.apps.an.b.c();
+        this.ajI = new com.baidu.swan.apps.an.b.c();
         String str = "";
         if (bVar != null && (uA = bVar.uA()) != null) {
             str = uA.DA().getString("extra_data_uid_key", "");
@@ -22,7 +22,7 @@ public class b extends com.baidu.swan.apps.ae.c {
     }
 
     private void a(a aVar) {
-        this.ajH.b(aVar);
+        this.ajI.b(aVar);
     }
 
     public void a(final Activity activity, final Bundle bundle, com.baidu.swan.apps.a.a aVar) {
@@ -46,26 +46,26 @@ public class b extends com.baidu.swan.apps.ae.c {
 
     @NonNull
     public String uN() {
-        return TextUtils.isEmpty(this.ajI) ? "" : this.ajI;
+        return TextUtils.isEmpty(this.ajJ) ? "" : this.ajJ;
     }
 
     public void setUid(String str) {
-        this.ajI = str;
+        this.ajJ = str;
     }
 
     public synchronized void clear() {
-        this.ajH.clear();
+        this.ajI.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class a extends com.baidu.swan.apps.an.b.a implements com.baidu.swan.apps.a.a {
-        private final com.baidu.swan.apps.a.a ajL;
+        private final com.baidu.swan.apps.a.a ajM;
 
         protected abstract void a(com.baidu.swan.apps.a.a aVar);
 
         private a(com.baidu.swan.apps.a.a aVar) {
-            this.ajL = aVar;
+            this.ajM = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -75,8 +75,8 @@ public class b extends com.baidu.swan.apps.ae.c {
 
         @Override // com.baidu.swan.apps.a.a
         public void onResult(int i) {
-            if (this.ajL != null) {
-                this.ajL.onResult(i);
+            if (this.ajM != null) {
+                this.ajM.onResult(i);
             }
             finish();
         }

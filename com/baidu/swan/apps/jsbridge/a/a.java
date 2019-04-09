@@ -20,8 +20,8 @@ public class a {
             jSONObject.put("scheme", SchemeConfig.getSchemeHead());
             ExtensionCore As = c.Aa().As();
             String str = "";
-            if (As != null && !TextUtils.isEmpty(As.avQ)) {
-                str = As.avQ;
+            if (As != null && !TextUtils.isEmpty(As.avR)) {
+                str = As.avR;
             }
             jSONObject.put("sdkExtension", str);
             jSONObject.put("isDebugSdk", DEBUG);

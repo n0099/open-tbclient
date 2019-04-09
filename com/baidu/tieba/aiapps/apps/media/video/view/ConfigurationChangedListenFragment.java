@@ -4,7 +4,7 @@ import android.app.Fragment;
 import android.content.res.Configuration;
 /* loaded from: classes4.dex */
 public class ConfigurationChangedListenFragment extends Fragment {
-    a cVM = null;
+    a cVN = null;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -12,14 +12,14 @@ public class ConfigurationChangedListenFragment extends Fragment {
     }
 
     public void a(a aVar) {
-        this.cVM = aVar;
+        this.cVN = aVar;
     }
 
     @Override // android.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.cVM != null) {
-            this.cVM.onConfigurationChanged(configuration);
+        if (this.cVN != null) {
+            this.cVN.onConfigurationChanged(configuration);
         }
     }
 }

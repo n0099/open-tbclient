@@ -6,24 +6,24 @@ import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class as<T> implements ai<T> {
-    private final ai<T> jJk;
-    private final int jLa;
+    private final ai<T> jJl;
+    private final int jLb;
     private final Executor mExecutor;
     @GuardedBy("this")
-    private final ConcurrentLinkedQueue<Pair<j<T>, aj>> jLc = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Pair<j<T>, aj>> jLd = new ConcurrentLinkedQueue<>();
     @GuardedBy("this")
-    private int jLb = 0;
+    private int jLc = 0;
 
     static /* synthetic */ int b(as asVar) {
-        int i = asVar.jLb;
-        asVar.jLb = i - 1;
+        int i = asVar.jLc;
+        asVar.jLc = i - 1;
         return i;
     }
 
     public as(int i, Executor executor, ai<T> aiVar) {
-        this.jLa = i;
+        this.jLb = i;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.jJk = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.jJl = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -31,11 +31,11 @@ public class as<T> implements ai<T> {
         boolean z;
         ajVar.czB().em(ajVar.getId(), "ThrottlingProducer");
         synchronized (this) {
-            if (this.jLb >= this.jLa) {
-                this.jLc.add(Pair.create(jVar, ajVar));
+            if (this.jLc >= this.jLb) {
+                this.jLd.add(Pair.create(jVar, ajVar));
                 z = true;
             } else {
-                this.jLb++;
+                this.jLc++;
                 z = false;
             }
         }
@@ -46,7 +46,7 @@ public class as<T> implements ai<T> {
 
     void g(j<T> jVar, aj ajVar) {
         ajVar.czB().a(ajVar.getId(), "ThrottlingProducer", null);
-        this.jJk.a(new a(jVar), ajVar);
+        this.jJl.a(new a(jVar), ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +79,7 @@ public class as<T> implements ai<T> {
         private void cAl() {
             final Pair pair;
             synchronized (as.this) {
-                pair = (Pair) as.this.jLc.poll();
+                pair = (Pair) as.this.jLd.poll();
                 if (pair == null) {
                     as.b(as.this);
                 }

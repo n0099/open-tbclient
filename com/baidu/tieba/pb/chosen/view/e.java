@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes5.dex */
 public class e {
     private Context context;
-    private View hjj;
-    private TextView hjk;
-    private ImageView hjl;
-    private TextView hjm;
+    private View hjk;
+    private TextView hjl;
+    private ImageView hjm;
     private TextView hjn;
-    private a hjo;
-    public boolean hjp;
-    private Animation hjr;
-    private long hjq = 0;
-    private boolean hjs = false;
+    private TextView hjo;
+    private a hjp;
+    public boolean hjq;
+    private Animation hjs;
+    private long hjr = 0;
+    private boolean hjt = false;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.hjj = LayoutInflater.from(context).inflate(d.h.chosen_pb_post_info, (ViewGroup) null);
-        this.hjk = (TextView) this.hjj.findViewById(d.g.chosen_post_info_copyright);
-        this.hjl = (ImageView) this.hjj.findViewById(d.g.chosen_post_info_praise_icon);
-        this.hjm = (TextView) this.hjj.findViewById(d.g.chosen_post_info_praise_num);
-        this.hjn = (TextView) this.hjj.findViewById(d.g.chosen_post_info_original_post);
+        this.hjk = LayoutInflater.from(context).inflate(d.h.chosen_pb_post_info, (ViewGroup) null);
+        this.hjl = (TextView) this.hjk.findViewById(d.g.chosen_post_info_copyright);
+        this.hjm = (ImageView) this.hjk.findViewById(d.g.chosen_post_info_praise_icon);
+        this.hjn = (TextView) this.hjk.findViewById(d.g.chosen_post_info_praise_num);
+        this.hjo = (TextView) this.hjk.findViewById(d.g.chosen_post_info_original_post);
     }
 
     public View bHN() {
-        return this.hjj;
+        return this.hjk;
     }
 
     public void a(a aVar) {
-        this.hjo = aVar;
+        this.hjp = aVar;
     }
 
     public void vT(int i) {
-        if (this.hjk != null) {
-            this.hjk.setText(i);
+        if (this.hjl != null) {
+            this.hjl.setText(i);
         }
     }
 
     public void G(View.OnClickListener onClickListener) {
-        if (this.hjn != null) {
-            this.hjn.setOnClickListener(onClickListener);
+        if (this.hjo != null) {
+            this.hjo.setOnClickListener(onClickListener);
         }
     }
 
     public void dC(long j) {
         if (j >= 0) {
-            this.hjq = j;
-            if (this.hjm != null) {
-                this.hjm.setVisibility(0);
-                this.hjm.setText(this.context.getString(d.j.chosen_pb_praise_num, ap.ax(j)));
+            this.hjr = j;
+            if (this.hjn != null) {
+                this.hjn.setVisibility(0);
+                this.hjn.setText(this.context.getString(d.j.chosen_pb_praise_num, ap.ax(j)));
             }
-            if (this.hjm != null && this.hjm.getVisibility() == 8) {
-                this.hjm.setVisibility(0);
+            if (this.hjn != null && this.hjn.getVisibility() == 8) {
+                this.hjn.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             vT(d.j.chosen_pb_copyright);
             dC(excellentPbThreadInfo.zan.zansum.longValue());
             mY(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.hjl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.hjm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.hjs && bc.cZ(e.this.context)) {
-                        e.this.hjs = true;
-                        e.this.hjl.startAnimation(e.this.bHP());
-                        if (e.this.hjo != null) {
-                            e.this.hjo.mU(e.this.hjp);
+                    if (!e.this.hjt && bc.cZ(e.this.context)) {
+                        e.this.hjt = true;
+                        e.this.hjm.startAnimation(e.this.bHP());
+                        if (e.this.hjp != null) {
+                            e.this.hjp.mU(e.this.hjq);
                         }
                     }
                 }
@@ -96,8 +96,8 @@ public class e {
             G(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.hjo != null) {
-                        e.this.hjo.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.hjp != null) {
+                        e.this.hjp.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
@@ -105,34 +105,34 @@ public class e {
     }
 
     public void bHO() {
-        this.hjs = false;
+        this.hjt = false;
     }
 
     public void mX(boolean z) {
         mY(z);
         if (z) {
-            this.hjq++;
+            this.hjr++;
         } else {
-            this.hjq--;
+            this.hjr--;
         }
-        dC(this.hjq);
+        dC(this.hjr);
     }
 
     private void mY(boolean z) {
-        this.hjp = z;
+        this.hjq = z;
         if (z) {
-            al.c(this.hjl, d.f.btn_zambia_big_s);
+            al.c(this.hjm, d.f.btn_zambia_big_s);
         } else {
-            al.c(this.hjl, d.f.btn_zambia_big_n);
+            al.c(this.hjm, d.f.btn_zambia_big_n);
         }
-        this.hjl.setVisibility(0);
+        this.hjm.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation bHP() {
-        if (this.hjr == null) {
-            this.hjr = AnimationUtils.loadAnimation(this.context, d.a.praise_animation_scale3);
+        if (this.hjs == null) {
+            this.hjs = AnimationUtils.loadAnimation(this.context, d.a.praise_animation_scale3);
         }
-        return this.hjr;
+        return this.hjs;
     }
 }

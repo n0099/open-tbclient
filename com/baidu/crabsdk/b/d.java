@@ -11,15 +11,15 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> abF = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float abG = 0.0f;
+    private static com.baidu.crabsdk.c.b<List> abG = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
     private static float abH = 0.0f;
     private static float abI = 0.0f;
     private static float abJ = 0.0f;
-    private static String abK = "";
-    private static long abL = 0;
+    private static float abK = 0.0f;
+    private static String abL = "";
     private static long abM = 0;
-    private static Rect abN = null;
+    private static long abN = 0;
+    private static Rect abO = null;
 
     private static List<View> J(View view) {
         ArrayList arrayList = new ArrayList();
@@ -28,19 +28,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) abG;
-                    int i3 = (int) abH;
-                    if (abN == null) {
-                        abN = new Rect();
+                    int i2 = (int) abH;
+                    int i3 = (int) abI;
+                    if (abO == null) {
+                        abO = new Rect();
                     }
-                    childAt.getDrawingRect(abN);
+                    childAt.getDrawingRect(abO);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    abN.left = iArr[0];
-                    abN.top = iArr[1];
-                    abN.right += iArr[0];
-                    abN.bottom = iArr[1] + abN.bottom;
-                    if (abN.contains(i2, i3)) {
+                    abO.left = iArr[0];
+                    abO.top = iArr[1];
+                    abO.right += iArr[0];
+                    abO.bottom = iArr[1] + abO.bottom;
+                    if (abO.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(J(childAt));
                     }
@@ -67,51 +67,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + abG + ", " + abH + ")");
+                arrayList.add("(" + abH + ", " + abI + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + abG + ", " + abH + ")");
+                arrayList.add("(" + abH + ", " + abI + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + abG + ", " + abH + ")");
+                arrayList.add("(" + abH + ", " + abI + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + abG + ", " + abH + ") to:(" + abI + ", " + abJ + ")");
+                arrayList.add("from:(" + abH + ", " + abI + ") to:(" + abJ + ", " + abK + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + abG + ", " + abH + ") to:(" + abI + ", " + abJ + ")");
+                arrayList.add("from:(" + abH + ", " + abI + ") to:(" + abJ + ", " + abK + ")");
                 break;
         }
-        arrayList.add(abK);
-        abF.add(arrayList);
+        arrayList.add(abL);
+        abG.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        abK = activity.getClass().getName();
+        abL = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                abG = motionEvent.getX();
-                abH = motionEvent.getY();
-                abL = System.currentTimeMillis();
+                abH = motionEvent.getX();
+                abI = motionEvent.getY();
+                abM = System.currentTimeMillis();
                 return;
             case 1:
-                abI = motionEvent.getX();
-                abJ = motionEvent.getY();
-                abM = System.currentTimeMillis();
-                if (Math.abs(abJ - abH) > 30.0f) {
+                abJ = motionEvent.getX();
+                abK = motionEvent.getY();
+                abN = System.currentTimeMillis();
+                if (Math.abs(abK - abI) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(abI - abG) > 30.0f && Math.abs(abJ - abH) < 30.0f) {
+                } else if (Math.abs(abJ - abH) > 30.0f && Math.abs(abK - abI) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (abM - abL > 300) {
+                } else if (abN - abM > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String t() {
         StringBuilder sb = new StringBuilder();
-        int size = abF.size();
+        int size = abG.size();
         for (int i = 0; i < size; i++) {
-            List list = abF.get(i);
+            List list = abG.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

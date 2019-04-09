@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a {
-    private EditText cPS;
-    private TextView cPT;
-    private ImageView cPU;
-    private InterfaceC0259a cPV;
-    private View.OnClickListener cPW = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText cPT;
+    private TextView cPU;
+    private ImageView cPV;
+    private InterfaceC0259a cPW;
+    private View.OnClickListener cPX = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.cPT) {
-                String a = k.a(a.this.cPS.getText(), null);
+            if (view == a.this.cPU) {
+                String a = k.a(a.this.cPT.getText(), null);
                 if (!StringUtils.isNULL(a)) {
                     if (a.trim().length() != 0) {
                         a.this.rg(a.trim());
-                        a.this.cPT.setClickable(false);
+                        a.this.cPU.setClickable(false);
                     } else if (a.length() > 0) {
                         a.this.mPageContext.showToast(d.j.input_content);
                     }
                 }
-            } else if (view == a.this.cPU) {
+            } else if (view == a.this.cPV) {
                 a.this.rf("");
             }
         }
@@ -50,21 +50,21 @@ public class a {
     }
 
     public void fL(boolean z) {
-        this.cPT.setClickable(z);
+        this.cPU.setClickable(z);
     }
 
     public void rf(String str) {
-        this.cPS.setText(str);
+        this.cPT.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.cPS = (EditText) view.findViewById(d.g.new_search_friend_input);
-        this.cPT = (TextView) view.findViewById(d.g.new_search_friend_search);
-        this.cPU = (ImageView) view.findViewById(d.g.new_search_friend_del);
-        this.cPT.setOnClickListener(this.cPW);
-        this.cPU.setOnClickListener(this.cPW);
+        this.cPT = (EditText) view.findViewById(d.g.new_search_friend_input);
+        this.cPU = (TextView) view.findViewById(d.g.new_search_friend_search);
+        this.cPV = (ImageView) view.findViewById(d.g.new_search_friend_del);
+        this.cPU.setOnClickListener(this.cPX);
+        this.cPV.setOnClickListener(this.cPX);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.cPU.setVisibility(8);
+                    a.this.cPV.setVisibility(8);
                 } else {
-                    a.this.cPU.setVisibility(0);
+                    a.this.cPV.setVisibility(0);
                 }
             }
         };
-        this.cPS.addTextChangedListener(this.mTextWatcher);
+        this.cPT.addTextChangedListener(this.mTextWatcher);
         ib(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void axe() {
-        this.cPS.removeTextChangedListener(this.mTextWatcher);
+        this.cPT.removeTextChangedListener(this.mTextWatcher);
     }
 
     public void axf() {
-        l.b(this.context, this.cPS);
+        l.b(this.context, this.cPT);
     }
 
     public void a(InterfaceC0259a interfaceC0259a) {
-        this.cPV = interfaceC0259a;
+        this.cPW = interfaceC0259a;
     }
 
     public void ib(int i) {
-        al.d(this.cPT, d.C0277d.cp_cont_g, 1);
-        this.cPS.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
-        al.c(this.cPU, d.f.icon_search_close);
+        al.d(this.cPU, d.C0277d.cp_cont_g, 1);
+        this.cPT.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
+        al.c(this.cPV, d.f.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rg(String str) {
-        if (this.cPV != null) {
-            this.cPV.re(str);
+        if (this.cPW != null) {
+            this.cPW.re(str);
         }
     }
 }

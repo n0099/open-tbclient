@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b grl = null;
-    private String grn;
-    private ArrayList<CustomMessageListener> grm = new ArrayList<>();
+    private static b grm = null;
+    private String gro;
+    private ArrayList<CustomMessageListener> grn = new ArrayList<>();
     private c gat = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -39,7 +39,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener gro = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener grp = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,10 +56,10 @@ public class b {
     public static synchronized b bvF() {
         b bVar;
         synchronized (b.class) {
-            if (grl == null) {
-                grl = new b();
+            if (grm == null) {
+                grm = new b();
             }
-            bVar = grl;
+            bVar = grm;
         }
         return bVar;
     }
@@ -73,7 +73,7 @@ public class b {
 
     private void bvG() {
         MessageManager.getInstance().registerListener(this.gat);
-        MessageManager.getInstance().registerListener(2016014, this.gro);
+        MessageManager.getInstance().registerListener(2016014, this.grp);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,10 +116,10 @@ public class b {
     }
 
     public String bvH() {
-        return this.grn;
+        return this.gro;
     }
 
     public void xp(String str) {
-        this.grn = str;
+        this.gro = str;
     }
 }

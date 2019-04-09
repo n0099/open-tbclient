@@ -5,14 +5,14 @@ import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class r implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jAS;
-    private final com.facebook.imagepipeline.c.f jFR;
-    private final ai<com.facebook.imagepipeline.f.d> jJk;
+    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jAT;
+    private final com.facebook.imagepipeline.c.f jFS;
+    private final ai<com.facebook.imagepipeline.f.d> jJl;
 
     public r(com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.imagepipeline.c.f fVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.jAS = tVar;
-        this.jFR = fVar;
-        this.jJk = aiVar;
+        this.jAT = tVar;
+        this.jFS = fVar;
+        this.jJl = aiVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
@@ -21,8 +21,8 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
         String id = ajVar.getId();
         al czB = ajVar.czB();
         czB.em(id, "EncodedMemoryCacheProducer");
-        com.facebook.cache.common.b c = this.jFR.c(ajVar.czA(), ajVar.cuW());
-        com.facebook.common.references.a<PooledByteBuffer> aT = this.jAS.aT(c);
+        com.facebook.cache.common.b c = this.jFS.c(ajVar.czA(), ajVar.cuW());
+        com.facebook.common.references.a<PooledByteBuffer> aT = this.jAT.aT(c);
         try {
             if (aT != null) {
                 com.facebook.imagepipeline.f.d dVar = new com.facebook.imagepipeline.f.d(aT);
@@ -35,9 +35,9 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
                 czB.a(id, "EncodedMemoryCacheProducer", czB.Fy(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 jVar.e(null, true);
             } else {
-                a aVar = new a(jVar, this.jAS, c);
+                a aVar = new a(jVar, this.jAT, c);
                 czB.a(id, "EncodedMemoryCacheProducer", czB.Fy(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-                this.jJk.a(aVar, ajVar);
+                this.jJl.a(aVar, ajVar);
             }
         } finally {
             com.facebook.common.references.a.c(aT);
@@ -46,13 +46,13 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
 
     /* loaded from: classes2.dex */
     private static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jAS;
-        private final com.facebook.cache.common.b jJM;
+        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jAT;
+        private final com.facebook.cache.common.b jJN;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.cache.common.b bVar) {
             super(jVar);
-            this.jAS = tVar;
-            this.jJM = bVar;
+            this.jAT = tVar;
+            this.jJN = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
             com.facebook.common.references.a<PooledByteBuffer> cyI = dVar.cyI();
             if (cyI != null) {
                 try {
-                    com.facebook.common.references.a<PooledByteBuffer> a = this.jAS.a(dVar.cyK() != null ? dVar.cyK() : this.jJM, cyI);
+                    com.facebook.common.references.a<PooledByteBuffer> a = this.jAT.a(dVar.cyK() != null ? dVar.cyK() : this.jJN, cyI);
                     if (a != null) {
                         try {
                             com.facebook.imagepipeline.f.d dVar2 = new com.facebook.imagepipeline.f.d(a);

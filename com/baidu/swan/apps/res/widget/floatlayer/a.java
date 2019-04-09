@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public class a {
-    private final InterfaceC0164a aMC;
-    private final ViewGroup aMD;
-    private int aME;
+    private final InterfaceC0164a aMD;
+    private final ViewGroup aME;
+    private int aMF;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -19,9 +19,9 @@ public class a {
     }
 
     public a(@NonNull InterfaceC0164a interfaceC0164a, @NonNull ViewGroup viewGroup, int i) {
-        this.aMC = interfaceC0164a;
-        this.aMD = viewGroup;
-        this.aME = i;
+        this.aMD = interfaceC0164a;
+        this.aME = viewGroup;
+        this.aMF = i;
     }
 
     public void setMask(boolean z) {
@@ -32,17 +32,17 @@ public class a {
     }
 
     private Context getContext() {
-        return this.aMD.getContext();
+        return this.aME.getContext();
     }
 
     @Nullable
     private Container Iw() {
         Container container;
-        synchronized (this.aMD) {
+        synchronized (this.aME) {
             int i = 0;
             while (true) {
-                if (i < this.aMD.getChildCount()) {
-                    View childAt = this.aMD.getChildAt(i);
+                if (i < this.aME.getChildCount()) {
+                    View childAt = this.aME.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -64,15 +64,15 @@ public class a {
         int i;
         int i2;
         int i3 = -1;
-        synchronized (this.aMD) {
+        synchronized (this.aME) {
             Iw = Iw();
             if (Iw == null) {
                 Iw = new Container(getContext());
-                int height = this.aMD.getHeight() - this.aME;
-                if (this.aMD instanceof LinearLayout) {
+                int height = this.aME.getHeight() - this.aMF;
+                if (this.aME instanceof LinearLayout) {
                     i = -height;
                 } else {
-                    i = this.aME;
+                    i = this.aMF;
                 }
                 if (height <= 0) {
                     i = 0;
@@ -80,13 +80,13 @@ public class a {
                 } else {
                     i2 = height;
                 }
-                if ((this.aMD instanceof LinearLayout) || this.aME != 0) {
+                if ((this.aME instanceof LinearLayout) || this.aMF != 0) {
                     i3 = i2;
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i3);
                 layoutParams.setMargins(0, i, 0, 0);
                 Iw.setLayoutParams(layoutParams);
-                this.aMD.addView(Iw);
+                this.aME.addView(Iw);
             }
         }
         return Iw;
@@ -97,11 +97,11 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.aMD) {
+        synchronized (this.aME) {
             Container Iw = Iw();
             if (!z || Iw == null || Iw.getChildCount() <= 0) {
                 if (Iw != null) {
-                    this.aMD.removeView(Iw);
+                    this.aME.removeView(Iw);
                 }
             }
         }

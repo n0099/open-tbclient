@@ -20,8 +20,8 @@ public class b extends JSEvent {
 
     private Object x(com.baidu.swan.apps.v.b.b bVar) {
         a aVar = new a();
-        aVar.scene = bVar.axJ;
-        aVar.devhook = bVar.ayb;
+        aVar.scene = bVar.axK;
+        aVar.devhook = bVar.ayc;
         return aVar;
     }
 }

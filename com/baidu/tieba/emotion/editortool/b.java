@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes2.dex */
 public class b {
     private int column;
-    private EmotionGroupType eAt;
-    private int eAu;
+    private EmotionGroupType eAu;
     private int eAv;
-    private com.baidu.tbadk.editortools.emotiontool.c eAw;
-    private int eAx;
+    private int eAw;
+    private com.baidu.tbadk.editortools.emotiontool.c eAx;
     private int eAy;
+    private int eAz;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.eAw = cVar;
+        this.eAx = cVar;
     }
 
     public com.baidu.tbadk.editortools.emotiontool.c aVB() {
-        return this.eAw;
+        return this.eAx;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.eAt = emotionGroupType;
+        this.eAu = emotionGroupType;
     }
 
     public EmotionGroupType aVC() {
-        return this.eAt;
+        return this.eAu;
     }
 
     public void jF(int i) {
@@ -48,27 +48,27 @@ public class b {
     }
 
     public void oS(int i) {
-        this.eAy = i;
+        this.eAz = i;
     }
 
     public int aVE() {
-        return this.eAy;
+        return this.eAz;
     }
 
     public void oT(int i) {
-        this.eAx = i;
+        this.eAy = i;
     }
 
     public int aVF() {
-        return this.eAx;
+        return this.eAy;
     }
 
     public void oU(int i) {
-        this.eAu = i;
+        this.eAv = i;
     }
 
     public int aVG() {
-        return this.eAu;
+        return this.eAv;
     }
 
     public void oV(int i) {
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void oW(int i) {
-        this.eAv = i;
+        this.eAw = i;
     }
 
     public int aVI() {
-        return this.eAv;
+        return this.eAw;
     }
 }

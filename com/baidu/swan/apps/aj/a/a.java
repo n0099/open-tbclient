@@ -10,15 +10,15 @@ import com.baidu.swan.apps.ae.b;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a aTy;
-    private SensorEventListener aTA;
-    private Sensor aTB;
-    private InterfaceC0110a aTC;
-    private double[] aTD = new double[3];
-    private boolean aTE = false;
-    private long aTF = 0;
-    private int aTG;
-    private SensorManager aTz;
+    private static volatile a aTz;
+    private SensorManager aTA;
+    private SensorEventListener aTB;
+    private Sensor aTC;
+    private InterfaceC0110a aTD;
+    private double[] aTE = new double[3];
+    private boolean aTF = false;
+    private long aTG = 0;
+    private int aTH;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.aj.a.a$a  reason: collision with other inner class name */
@@ -31,36 +31,36 @@ public class a {
     }
 
     public static a KZ() {
-        if (aTy == null) {
+        if (aTz == null) {
             synchronized (a.class) {
-                if (aTy == null) {
-                    aTy = new a();
+                if (aTz == null) {
+                    aTz = new a();
                 }
             }
         }
-        return aTy;
+        return aTz;
     }
 
     public void m(Context context, int i) {
         this.mContext = context;
-        this.aTG = i;
+        this.aTH = i;
     }
 
     public void a(InterfaceC0110a interfaceC0110a) {
-        this.aTC = interfaceC0110a;
+        this.aTD = interfaceC0110a;
     }
 
     public void La() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
-        } else if (this.aTE) {
+        } else if (this.aTF) {
             c.w("accelerometer", "has already start");
         } else {
-            this.aTz = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.aTz != null) {
-                this.aTB = this.aTz.getDefaultSensor(1);
-                this.aTz.registerListener(Lc(), this.aTB, 1);
-                this.aTE = true;
+            this.aTA = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.aTA != null) {
+                this.aTC = this.aTA.getDefaultSensor(1);
+                this.aTA.registerListener(Lc(), this.aTC, 1);
+                this.aTF = true;
                 c.i("accelerometer", "start listen");
                 return;
             }
@@ -69,57 +69,57 @@ public class a {
     }
 
     public void Lb() {
-        if (!this.aTE) {
+        if (!this.aTF) {
             c.w("accelerometer", "has already stop");
             return;
         }
-        if (this.aTA != null && this.aTz != null) {
-            this.aTz.unregisterListener(this.aTA);
-            this.aTA = null;
+        if (this.aTB != null && this.aTA != null) {
+            this.aTA.unregisterListener(this.aTB);
+            this.aTB = null;
         }
-        this.aTz = null;
-        this.aTB = null;
-        this.aTE = false;
+        this.aTA = null;
+        this.aTC = null;
+        this.aTF = false;
     }
 
     public static void release() {
-        if (aTy != null) {
-            aTy.zO();
+        if (aTz != null) {
+            aTz.zO();
         }
     }
 
     private void zO() {
         c.i("accelerometer", "release");
-        if (this.aTE) {
+        if (this.aTF) {
             Lb();
         }
-        this.aTz = null;
-        this.aTB = null;
         this.aTA = null;
-        this.aTD = null;
+        this.aTC = null;
+        this.aTB = null;
+        this.aTE = null;
         this.mContext = null;
-        aTy = null;
+        aTz = null;
     }
 
     private SensorEventListener Lc() {
         c.i("accelerometer", "get Accelerometer listener");
-        if (this.aTA != null) {
-            return this.aTA;
+        if (this.aTB != null) {
+            return this.aTB;
         }
-        this.aTA = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.a.a.1
+        this.aTB = new SensorEventListener() { // from class: com.baidu.swan.apps.aj.a.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        if (a.this.aTC != null && System.currentTimeMillis() - a.this.aTF > a.this.aTG) {
-                            a.this.aTD[0] = (-sensorEvent.values[0]) / 9.8d;
-                            a.this.aTD[1] = (-sensorEvent.values[1]) / 9.8d;
-                            a.this.aTD[2] = (-sensorEvent.values[2]) / 9.8d;
-                            a.this.aTC.a(a.this.aTD);
-                            a.this.aTF = System.currentTimeMillis();
+                        if (a.this.aTD != null && System.currentTimeMillis() - a.this.aTG > a.this.aTH) {
+                            a.this.aTE[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.aTE[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.aTE[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.aTD.a(a.this.aTE);
+                            a.this.aTG = System.currentTimeMillis();
                         }
                         if (b.DEBUG) {
-                            Log.d("AccelerometerManager", "current Time : " + a.this.aTF + "current Acc x : " + a.this.aTD[0] + "current Acc y : " + a.this.aTD[1] + "current Acc z : " + a.this.aTD[2]);
+                            Log.d("AccelerometerManager", "current Time : " + a.this.aTG + "current Acc x : " + a.this.aTE[0] + "current Acc y : " + a.this.aTE[1] + "current Acc z : " + a.this.aTE[2]);
                             return;
                         }
                         return;
@@ -132,6 +132,6 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.aTA;
+        return this.aTB;
     }
 }

@@ -6,11 +6,11 @@ import org.json.JSONObject;
 public class i {
     private int forumId;
     private String forumName;
-    private a ixm = new a();
-    private int iyv;
+    private a ixn = new a();
     private int iyw;
     private int iyx;
     private int iyy;
+    private int iyz;
     private int signed;
 
     public int getForumId() {
@@ -22,28 +22,28 @@ public class i {
     }
 
     public int ccp() {
-        return this.iyx;
-    }
-
-    public int getCurScore() {
         return this.iyy;
     }
 
+    public int getCurScore() {
+        return this.iyz;
+    }
+
     public a cbK() {
-        return this.ixm;
+        return this.ixn;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ixm.parserJson(jSONObject.optJSONObject("error"));
+                this.ixn.parserJson(jSONObject.optJSONObject("error"));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.iyv = jSONObject.optInt("is_on");
-                this.iyw = jSONObject.optInt("is_filter");
-                this.iyx = jSONObject.optInt("sign_day_count");
-                this.iyy = jSONObject.optInt("cur_score");
+                this.iyw = jSONObject.optInt("is_on");
+                this.iyx = jSONObject.optInt("is_filter");
+                this.iyy = jSONObject.optInt("sign_day_count");
+                this.iyz = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

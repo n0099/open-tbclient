@@ -5,9 +5,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class b {
-    private static b iNK;
+    private static b iNL;
     private boolean mInited = false;
-    private a iNL = chj();
+    private a iNM = chj();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,19 +30,19 @@ public class b {
     }
 
     public static b chk() {
-        if (iNK == null) {
+        if (iNL == null) {
             synchronized (b.class) {
-                if (iNK == null) {
-                    iNK = new b();
+                if (iNL == null) {
+                    iNL = new b();
                 }
             }
         }
-        return iNK;
+        return iNL;
     }
 
     public void d(Application application) {
-        if (!this.mInited && this.iNL != null) {
-            this.iNL.d(application);
+        if (!this.mInited && this.iNM != null) {
+            this.iNM.d(application);
             this.mInited = true;
         }
     }

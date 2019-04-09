@@ -6,8 +6,8 @@ public class ShareWebActivity extends TbWebViewActivity {
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.mView != null && this.mView.bug != null) {
-            this.mView.bug.setVisibility(8);
+        if (this.mView != null && this.mView.buh != null) {
+            this.mView.buh.setVisibility(8);
         }
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a bKA;
+    private com.baidu.tbadk.coreExtra.model.a bKB;
     private c ffa;
     private TbPageContext mPageContext;
-    private BdUniqueId Zr = BdUniqueId.gen();
+    private BdUniqueId Zs = BdUniqueId.gen();
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,17 +38,17 @@ public class h {
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
         this.ffa = cVar;
-        this.bKA = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.bKB = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAttentionListener.setSelfListener(true);
-        this.mAttentionListener.setTag(this.Zr);
+        this.mAttentionListener.setTag(this.Zs);
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
     public void f(g gVar) {
         if (!j.kY()) {
             this.mPageContext.showToast(d.j.no_network);
-        } else if (gVar != null && gVar.feE != null && this.bKA != null && bc.cZ(this.mPageContext.getPageActivity())) {
-            this.bKA.a(!gVar.feE.hasFocus, gVar.feE.portrait, gVar.feE.userId, this.Zr);
+        } else if (gVar != null && gVar.feE != null && this.bKB != null && bc.cZ(this.mPageContext.getPageActivity())) {
+            this.bKB.a(!gVar.feE.hasFocus, gVar.feE.portrait, gVar.feE.userId, this.Zs);
         }
     }
 
@@ -70,8 +70,8 @@ public class h {
     }
 
     public void beW() {
-        if (this.bKA != null) {
-            this.bKA.cancel();
+        if (this.bKB != null) {
+            this.bKB.cancel();
         }
         MessageManager.getInstance().unRegisterListener(this.mAttentionListener);
     }

@@ -13,14 +13,14 @@ import com.baidu.tieba.card.n;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
-    private ab<bg> dqo;
+    private ab<bg> dqp;
     private com.baidu.tieba.homepage.daily.view.c fHO;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dqo = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
+        this.dqp = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
@@ -72,7 +72,7 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
         amVar.bJ("tid", bgVar.getTid());
         amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
         t.aQD().b(amVar);
-        aVar.aRg().d(this.dqo);
+        aVar.aRg().d(this.dqp);
         aVar.aRg().a(bgVar);
         return aVar.getView();
     }

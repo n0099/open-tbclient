@@ -21,8 +21,8 @@ public class e {
     private FrsFragment fvm;
     private TextView fvn;
     private final Runnable mHideRunnable;
-    private int faj = -1;
-    private int cZU = -1;
+    private int fak = -1;
+    private int cZV = -1;
     private int fvq = -1;
     private final Handler fvl = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.vc.e.1
         @Override // android.os.Handler.Callback
@@ -91,19 +91,19 @@ public class e {
     }
 
     public void a(RecyclerView recyclerView, int i, int i2) {
-        this.faj = i;
-        this.cZU = i2;
+        this.fak = i;
+        this.cZV = i2;
         if (this.fvq < 0) {
-            this.fvq = this.faj;
+            this.fvq = this.fak;
         }
     }
 
     public void onScrollStateChanged(RecyclerView recyclerView, int i) {
         if (i == 0) {
-            if (this.faj > 0 && this.cZU > 0 && this.fvq >= 0 && this.faj + this.cZU + 1 < this.fvq) {
+            if (this.fak > 0 && this.cZV > 0 && this.fvq >= 0 && this.fak + this.cZV + 1 < this.fvq) {
                 this.fvl.sendEmptyMessage(111);
             }
-            this.fvq = this.faj;
+            this.fvq = this.fak;
         }
     }
 
@@ -121,7 +121,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void biV() {
         if (this.fvn.getParent() != null) {
-            this.faj = -1;
+            this.fak = -1;
             this.fvq = -1;
             this.fvl.removeCallbacks(this.mHideRunnable);
             this.fvn.clearAnimation();

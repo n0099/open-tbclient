@@ -7,10 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData bWR;
-    private final ArrayList<bg> eXE;
-    private boolean eXF;
-    private b eXG;
+    private AntiData bWS;
+    private final ArrayList<bg> eXF;
+    private boolean eXG;
+    private b eXH;
     private String forumId;
 
     /* loaded from: classes.dex */
@@ -23,22 +23,22 @@ public class a {
     }
 
     private a() {
-        this.eXF = false;
-        this.eXE = new ArrayList<>();
+        this.eXG = false;
+        this.eXF = new ArrayList<>();
     }
 
     public static a bbD() {
-        return C0288a.eXH;
+        return C0288a.eXI;
     }
 
     public boolean bbE() {
-        return this.eXF;
+        return this.eXG;
     }
 
     public void z(boolean z, boolean z2) {
-        this.eXF = z;
-        if (this.eXG != null) {
-            this.eXG.A(this.eXF, z2);
+        this.eXG = z;
+        if (this.eXH != null) {
+            this.eXH.A(this.eXG, z2);
         }
     }
 
@@ -46,42 +46,42 @@ public class a {
         if (bgVar == null) {
             return false;
         }
-        if (this.eXE.size() > 29) {
-            if (this.eXG != null) {
-                this.eXG.bbJ();
+        if (this.eXF.size() > 29) {
+            if (this.eXH != null) {
+                this.eXH.bbJ();
                 return false;
             }
             return false;
         }
-        this.eXE.add(bgVar);
-        if (this.eXG != null) {
-            this.eXG.pN(this.eXE.size());
+        this.eXF.add(bgVar);
+        if (this.eXH != null) {
+            this.eXH.pN(this.eXF.size());
         }
         return true;
     }
 
     public List<bg> bbF() {
-        return this.eXE;
+        return this.eXF;
     }
 
     public void aa(bg bgVar) {
-        this.eXE.remove(bgVar);
-        if (this.eXG != null) {
-            this.eXG.pN(this.eXE.size());
+        this.eXF.remove(bgVar);
+        if (this.eXH != null) {
+            this.eXH.pN(this.eXF.size());
         }
     }
 
     public void clearData() {
-        Iterator<bg> it = this.eXE.iterator();
+        Iterator<bg> it = this.eXF.iterator();
         while (it.hasNext()) {
             bg next = it.next();
             if (next != null) {
                 next.dn(false);
             }
         }
-        this.eXE.clear();
-        if (this.eXG != null) {
-            this.eXG.pN(0);
+        this.eXF.clear();
+        if (this.eXH != null) {
+            this.eXH.pN(0);
         }
     }
 
@@ -91,22 +91,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.eXG = bVar;
+        this.eXH = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0288a {
-        private static a eXH = new a();
+        private static a eXI = new a();
     }
 
     public AntiData bbG() {
-        return this.bWR;
+        return this.bWS;
     }
 
     public void b(AntiData antiData) {
-        this.bWR = antiData;
+        this.bWS = antiData;
     }
 
     public String getForumId() {
@@ -118,8 +118,8 @@ public class a {
     }
 
     public void bO(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.T(list) && !com.baidu.tbadk.core.util.v.T(this.eXE)) {
-            Iterator<bg> it = this.eXE.iterator();
+        if (!com.baidu.tbadk.core.util.v.T(list) && !com.baidu.tbadk.core.util.v.T(this.eXF)) {
+            Iterator<bg> it = this.eXF.iterator();
             while (it.hasNext()) {
                 bg next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.eXG != null) {
-                this.eXG.pN(this.eXE.size());
+            if (this.eXH != null) {
+                this.eXH.pN(this.eXF.size());
             }
         }
     }
 
     public boolean bbH() {
-        return this.bWR != null && this.bWR.isMultiDeleteEnable();
+        return this.bWS != null && this.bWS.isMultiDeleteEnable();
     }
 }

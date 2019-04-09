@@ -19,12 +19,12 @@ import com.baidu.tieba.d;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes6.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
-    public TextView eDV;
+    public TextView eDW;
     public TextView hTA;
     public TextView hTB;
-    private com.baidu.tieba.personPolymeric.c.f hTC;
-    public BarImageView hTy;
-    public TextView hTz;
+    public TextView hTC;
+    private com.baidu.tieba.personPolymeric.c.f hTD;
+    public BarImageView hTz;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -39,21 +39,21 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     private void init() {
-        this.hTy = (BarImageView) findViewById(d.g.forum_avatar);
-        this.eDV = (TextView) findViewById(d.g.forum_name);
-        this.hTz = (TextView) findViewById(d.g.forum_post_thread);
-        this.hTA = (TextView) findViewById(d.g.forum_thread_num);
-        this.hTB = (TextView) findViewById(d.g.forum_thread_str);
+        this.hTz = (BarImageView) findViewById(d.g.forum_avatar);
+        this.eDW = (TextView) findViewById(d.g.forum_name);
+        this.hTA = (TextView) findViewById(d.g.forum_post_thread);
+        this.hTB = (TextView) findViewById(d.g.forum_thread_num);
+        this.hTC = (TextView) findViewById(d.g.forum_thread_str);
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PersonCommonForumItemView.this.hTC != null) {
+                if (view != null && PersonCommonForumItemView.this.hTD != null) {
                     TiebaStatic.log(new am("c12503").bJ("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
                     TiebaStatic.log(new am("c11594"));
-                    String str = PersonCommonForumItemView.this.hTC.forumName;
+                    String str = PersonCommonForumItemView.this.hTD.forumName;
                     if (ap.bv(str)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(PersonCommonForumItemView.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
                     }
@@ -63,11 +63,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.hTC = fVar;
-        this.hTy.startLoad(fVar.avatar, 10, false);
-        this.eDV.setText(ap.h(fVar.forumName, 7, "...") + this.mContext.getString(d.j.forum));
-        this.hTA.setText(ap.as(fVar.hRO));
-        this.hTz.setText(String.format(this.mContext.getString(d.j.person_has_posted), ap.hx(fVar.sex)));
+        this.hTD = fVar;
+        this.hTz.startLoad(fVar.avatar, 10, false);
+        this.eDW.setText(ap.h(fVar.forumName, 7, "...") + this.mContext.getString(d.j.forum));
+        this.hTB.setText(ap.as(fVar.hRP));
+        this.hTA.setText(String.format(this.mContext.getString(d.j.person_has_posted), ap.hx(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
@@ -76,10 +76,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            al.j(this.eDV, d.C0277d.cp_cont_b);
-            al.j(this.hTz, d.C0277d.cp_cont_d);
-            al.j(this.hTB, d.C0277d.cp_cont_d);
-            al.j(this.hTA, d.C0277d.cp_link_tip_a);
+            al.j(this.eDW, d.C0277d.cp_cont_b);
+            al.j(this.hTA, d.C0277d.cp_cont_d);
+            al.j(this.hTC, d.C0277d.cp_cont_d);
+            al.j(this.hTB, d.C0277d.cp_link_tip_a);
             al.k(this, d.f.person_common_forum_item_bg);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();

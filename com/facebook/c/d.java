@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d jEA;
-    private int jEB;
+    private static d jEB;
+    private int jEC;
     @Nullable
-    private List<c.a> jEC;
-    private final c.a jED = new a();
+    private List<c.a> jED;
+    private final c.a jEE = new a();
 
     private d() {
         cwf();
     }
 
     public void ev(@Nullable List<c.a> list) {
-        this.jEC = list;
+        this.jED = list;
         cwf();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.jEB];
-        int a = a(this.jEB, inputStream, bArr);
-        if (this.jEC != null) {
-            for (c.a aVar : this.jEC) {
+        byte[] bArr = new byte[this.jEC];
+        int a = a(this.jEC, inputStream, bArr);
+        if (this.jED != null) {
+            for (c.a aVar : this.jED) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.jEy) {
+                if (j != null && j != c.jEz) {
                     return j;
                 }
             }
         }
-        c j2 = this.jED.j(bArr, a);
+        c j2 = this.jEE.j(bArr, a);
         if (j2 == null) {
-            return c.jEy;
+            return c.jEz;
         }
         return j2;
     }
 
     private void cwf() {
-        this.jEB = this.jED.getHeaderSize();
-        if (this.jEC != null) {
-            for (c.a aVar : this.jEC) {
-                this.jEB = Math.max(this.jEB, aVar.getHeaderSize());
+        this.jEC = this.jEE.getHeaderSize();
+        if (this.jED != null) {
+            for (c.a aVar : this.jED) {
+                this.jEC = Math.max(this.jEC, aVar.getHeaderSize());
             }
         }
     }
@@ -70,10 +70,10 @@ public class d {
     public static synchronized d cwg() {
         d dVar;
         synchronized (d.class) {
-            if (jEA == null) {
-                jEA = new d();
+            if (jEB == null) {
+                jEB = new d();
             }
-            dVar = jEA;
+            dVar = jEB;
         }
         return dVar;
     }

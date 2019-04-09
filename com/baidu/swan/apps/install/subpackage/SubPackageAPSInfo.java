@@ -20,12 +20,12 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
             return new SubPackageAPSInfo[i];
         }
     };
-    public String asN;
-    public int axp;
-    public String axq;
+    public String asO;
+    public int axq;
     public String axr;
     public String axs;
     public String axt;
+    public String axu;
     public String mAppId;
     public String mAppVersion;
     public String mKey;
@@ -39,12 +39,12 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
         this.mAppVersion = parcel.readString();
         this.mKey = parcel.readString();
         this.mResultCode = parcel.readInt();
-        this.axp = parcel.readInt();
-        this.axq = parcel.readString();
+        this.axq = parcel.readInt();
         this.axr = parcel.readString();
         this.axs = parcel.readString();
-        this.asN = parcel.readString();
         this.axt = parcel.readString();
+        this.asO = parcel.readString();
+        this.axu = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.mAppVersion);
         parcel.writeString(this.mKey);
         parcel.writeInt(this.mResultCode);
-        parcel.writeInt(this.axp);
-        parcel.writeString(this.axq);
+        parcel.writeInt(this.axq);
         parcel.writeString(this.axr);
         parcel.writeString(this.axs);
-        parcel.writeString(this.asN);
         parcel.writeString(this.axt);
+        parcel.writeString(this.asO);
+        parcel.writeString(this.axu);
     }
 
     public String toString() {
-        return "mAppId:" + this.mAppId + ",mAppVersion:" + this.mAppVersion + ",mKey:" + this.mKey + ",mResultCode:" + this.mResultCode + ",mSwanAppProcessId:" + this.axp + ",mAppRootPath:" + this.axq + ",mSubPackageName:" + this.axr + ",mZipPath:" + this.axs + ",mWebViewId:" + this.asN + ",mCallbackKey:" + this.axt;
+        return "mAppId:" + this.mAppId + ",mAppVersion:" + this.mAppVersion + ",mKey:" + this.mKey + ",mResultCode:" + this.mResultCode + ",mSwanAppProcessId:" + this.axq + ",mAppRootPath:" + this.axr + ",mSubPackageName:" + this.axs + ",mZipPath:" + this.axt + ",mWebViewId:" + this.asO + ",mCallbackKey:" + this.axu;
     }
 }

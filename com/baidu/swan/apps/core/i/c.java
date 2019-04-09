@@ -34,25 +34,25 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int atH = 10150;
-    public static boolean atI = false;
-    private static volatile c att;
-    private com.baidu.swan.apps.b.c.c atA;
-    private boolean atB;
+    private static int atI = 10150;
+    public static boolean atJ = false;
+    private static volatile c atu;
+    private boolean atA;
+    private com.baidu.swan.apps.b.c.c atB;
     private boolean atC;
-    private HashMap<String, e> atD;
-    private String atG;
-    private p atJ;
-    private i atK;
-    private SwanCoreVersion atu;
+    private boolean atD;
+    private HashMap<String, e> atE;
+    private String atH;
+    private p atK;
+    private i atL;
+    private SwanCoreVersion atv;
     @Nullable
-    private ExtensionCore atv;
-    private com.baidu.swan.apps.core.container.a.b atw;
-    private com.baidu.swan.apps.core.f.a aty;
-    private boolean atz;
-    private ArrayList<a> atx = new ArrayList<>();
-    private LinkedList<com.baidu.swan.apps.m.a.a> atE = new LinkedList<>();
-    private final Object atF = new Object();
+    private ExtensionCore atw;
+    private com.baidu.swan.apps.core.container.a.b atx;
+    private com.baidu.swan.apps.core.f.a atz;
+    private ArrayList<a> aty = new ArrayList<>();
+    private LinkedList<com.baidu.swan.apps.m.a.a> atF = new LinkedList<>();
+    private final Object atG = new Object();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -61,24 +61,24 @@ public final class c implements g {
 
     private c() {
         h.a(this);
-        this.atD = new HashMap<>();
-        this.atJ = com.baidu.swan.apps.ae.e.Jm().aOc.get().uO().a(this);
-        this.atK = com.baidu.swan.apps.b.c.a.a.wh().wi().wf();
+        this.atE = new HashMap<>();
+        this.atK = com.baidu.swan.apps.ae.e.Jm().aOd.get().uO().a(this);
+        this.atL = com.baidu.swan.apps.b.c.a.a.wh().wi().wf();
     }
 
     public static c Aa() {
-        if (att == null) {
+        if (atu == null) {
             synchronized (c.class) {
-                if (att == null) {
-                    att = new c();
+                if (atu == null) {
+                    atu = new c();
                 }
             }
         }
-        return att;
+        return atu;
     }
 
     public p Ab() {
-        return this.atJ;
+        return this.atK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,35 +90,35 @@ public final class c implements g {
         if (DEBUG) {
             Log.d("SwanAppCoreRuntime", "release");
         }
-        if (att != null) {
-            att.atC = true;
-            atI = false;
-            if (att.atw != null) {
-                att.atK.b(att.atw);
+        if (atu != null) {
+            atu.atD = true;
+            atJ = false;
+            if (atu.atx != null) {
+                atu.atL.b(atu.atx);
             }
             Ac();
-            h.b(att);
-            att = null;
+            h.b(atu);
+            atu = null;
             Aa().Ad();
         }
     }
 
     private static void Ac() {
-        if (att.atD != null) {
-            for (e eVar : ((HashMap) att.atD.clone()).values()) {
+        if (atu.atE != null) {
+            for (e eVar : ((HashMap) atu.atE.clone()).values()) {
                 if (eVar != null) {
                     eVar.destroy();
                 }
             }
         }
-        if (att.aty != null) {
-            if (att.aty instanceof com.baidu.swan.apps.core.f.e) {
-                att.aty.destroy();
+        if (atu.atz != null) {
+            if (atu.atz instanceof com.baidu.swan.apps.core.f.e) {
+                atu.atz.destroy();
             }
-            att.aty = null;
+            atu.atz = null;
         }
-        if (att.atA != null) {
-            att.atA = null;
+        if (atu.atB != null) {
+            atu.atB = null;
         }
     }
 
@@ -136,7 +136,7 @@ public final class c implements g {
             }
             return;
         }
-        atI = true;
+        atJ = true;
         if (DEBUG) {
             Log.d("SwanAppCoreRuntime", "preloadCoreRuntime start.");
         }
@@ -147,7 +147,7 @@ public final class c implements g {
             intent.setExtrasClassLoader(SwanCoreVersion.class.getClassLoader());
             swanCoreVersion = (SwanCoreVersion) intent.getParcelableExtra("bundle_key_swan_core");
             extensionCore = (ExtensionCore) intent.getParcelableExtra("bundle_key_extension_core");
-            com.baidu.swan.apps.u.a.CS().bL(intent.getIntExtra("bundle_key_preload_switch", atH));
+            com.baidu.swan.apps.u.a.CS().bL(intent.getIntExtra("bundle_key_preload_switch", atI));
         }
         if (swanCoreVersion == null) {
             if (DEBUG) {
@@ -178,17 +178,17 @@ public final class c implements g {
     }
 
     public void d(com.baidu.swan.apps.v.b.b bVar) {
-        if (this.atu != null) {
-            bVar.atu = this.atu;
+        if (this.atv != null) {
+            bVar.atv = this.atv;
         } else {
-            this.atu = bVar.atu;
+            this.atv = bVar.atv;
         }
     }
 
     public void a(final com.baidu.swan.apps.v.b.b bVar, final c.g gVar) {
         if (DEBUG) {
-            Log.d("SwanAppCoreRuntime", "startFirstPage cur mSwanCoreVersion: " + this.atu);
-            Log.d("SwanAppCoreRuntime", "startFirstPage launchInfo coreVersion: " + bVar.atu);
+            Log.d("SwanAppCoreRuntime", "startFirstPage cur mSwanCoreVersion: " + this.atv);
+            Log.d("SwanAppCoreRuntime", "startFirstPage launchInfo coreVersion: " + bVar.atv);
         }
         d(bVar);
         e(bVar);
@@ -200,17 +200,17 @@ public final class c implements g {
                 f.fz("startup").f(new UbcFlowEvent("na_pre_load_ok"));
                 com.baidu.swan.apps.y.f.EP().fm("na_pre_load_ok");
                 f.at("preload", "startup");
-                if (c.this.aty != null && c.this.atA != null) {
-                    com.baidu.swan.apps.scheme.actions.h.c.a(c.this.aty, c.this.atA, bVar, gVar);
-                    c.this.atA = null;
+                if (c.this.atz != null && c.this.atB != null) {
+                    com.baidu.swan.apps.scheme.actions.h.c.a(c.this.atz, c.this.atB, bVar, gVar);
+                    c.this.atB = null;
                 }
             }
         });
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.atx.contains(aVar)) {
-            this.atx.add(aVar);
+        if (aVar != null && !this.aty.contains(aVar)) {
+            this.aty.add(aVar);
         }
         boolean Af = Af();
         f.FQ().aq("preload", Af ? "1" : "0");
@@ -223,8 +223,8 @@ public final class c implements g {
         if (Ao()) {
             An();
         }
-        if (this.atw == null) {
-            this.atw = new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.core.i.c.3
+        if (this.atx == null) {
+            this.atx = new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.core.i.c.3
                 @Override // com.baidu.swan.apps.core.container.a.b
                 public void xT() {
                     if (c.DEBUG) {
@@ -235,9 +235,9 @@ public final class c implements g {
                         @Override // java.lang.Runnable
                         public void run() {
                             if (c.DEBUG) {
-                                Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener do prepare. isReleased: " + c.this.atC);
+                                Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener do prepare. isReleased: " + c.this.atD);
                             }
-                            if (c.this.atC) {
+                            if (c.this.atD) {
                                 if (c.DEBUG) {
                                     Log.d("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("runtime object is release.")));
                                     return;
@@ -246,7 +246,7 @@ public final class c implements g {
                             }
                             c.this.Aq();
                             c.this.At();
-                            if (c.this.atu != null) {
+                            if (c.this.atv != null) {
                                 c.this.An();
                                 c.this.Ap();
                                 return;
@@ -259,23 +259,23 @@ public final class c implements g {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener.");
             }
-            this.atK.a(this.atw);
+            this.atL.a(this.atx);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ae() {
-        synchronized (this.atF) {
-            this.atz = false;
-            this.aty = null;
+        synchronized (this.atG) {
+            this.atA = false;
+            this.atz = null;
         }
-        this.atB = false;
-        this.atA = null;
+        this.atC = false;
+        this.atB = null;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swanjs version", com.baidu.swan.apps.swancore.e.a.dZ(0));
             jSONObject.put("system model", Build.MODEL);
-            jSONObject.put("webview ua", this.atG);
+            jSONObject.put("webview ua", this.atH);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -286,23 +286,23 @@ public final class c implements g {
 
     public boolean Af() {
         boolean z;
-        synchronized (this.atF) {
-            z = this.atz && this.atB;
+        synchronized (this.atG) {
+            z = this.atA && this.atC;
         }
         return z;
     }
 
     public void Ag() {
-        if (!this.atx.isEmpty() && Af()) {
+        if (!this.aty.isEmpty() && Af()) {
             f.fz("preload").f(new UbcFlowEvent("na_pre_load_end"));
-            Iterator<a> it = this.atx.iterator();
+            Iterator<a> it = this.aty.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
                     next.onReady();
                 }
             }
-            this.atx.clear();
+            this.aty.clear();
         }
     }
 
@@ -319,7 +319,7 @@ public final class c implements g {
     }
 
     public String Ai() {
-        return this.atu == null ? "" : this.atu.aTj + File.separator;
+        return this.atv == null ? "" : this.atv.aTk + File.separator;
     }
 
     public String Aj() {
@@ -328,7 +328,7 @@ public final class c implements g {
         if (Am()) {
             str = Ah();
         } else {
-            str = this.atu.aTj + File.separator + "master/master.html";
+            str = this.atv.aTk + File.separator + "master/master.html";
         }
         if (com.baidu.swan.apps.core.a.vw()) {
             n(str, false);
@@ -342,7 +342,7 @@ public final class c implements g {
 
     public String Ak() {
         Aq();
-        String str = this.atu.aTj + File.separator + "slaves/slaves.html";
+        String str = this.atv.aTk + File.separator + "slaves/slaves.html";
         if (com.baidu.swan.apps.core.a.vw()) {
             n(str, true);
         } else if (d.wO()) {
@@ -355,43 +355,43 @@ public final class c implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Al() {
-        if (!this.atE.isEmpty()) {
-            Iterator<com.baidu.swan.apps.m.a.a> it = this.atE.iterator();
+        if (!this.atF.isEmpty()) {
+            Iterator<com.baidu.swan.apps.m.a.a> it = this.atF.iterator();
             while (it.hasNext()) {
                 com.baidu.swan.apps.m.a.a next = it.next();
                 if (DEBUG) {
-                    Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.avm);
+                    Log.d("SwanAppCoreRuntime", "dispatchPendingEvents event: " + next.avn);
                 }
                 a(next);
             }
-            this.atE.clear();
+            this.atF.clear();
         }
     }
 
     public boolean Am() {
-        return this.aty instanceof com.baidu.swan.apps.core.f.e;
+        return this.atz instanceof com.baidu.swan.apps.core.f.e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void An() {
-        synchronized (this.atF) {
-            if (!this.atz && this.aty == null) {
+        synchronized (this.atG) {
+            if (!this.atA && this.atz == null) {
                 if (DEBUG) {
                     Log.d("SwanAppCoreRuntime", "prepareMaster start.");
                 }
                 f.fz("preload").f(new UbcFlowEvent("na_pre_load_master_start"));
-                this.aty = this.atJ.i(getContext(), Ao() ? 1 : 0);
+                this.atz = this.atK.i(getContext(), Ao() ? 1 : 0);
                 f.fz("preload").f(new UbcFlowEvent("na_pre_load_master_created"));
-                this.aty.loadUrl(Aj());
-                this.aty.a(new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.c.4
+                this.atz.loadUrl(Aj());
+                this.atz.a(new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.c.4
                     @Override // com.baidu.swan.apps.core.c
                     public void dF(String str) {
                         if (c.DEBUG) {
                             Log.d("SwanAppCoreRuntime", "prepareMaster finish. url: " + str);
                         }
                         f.fz("preload").f(new UbcFlowEvent("na_pre_load_master_ok"));
-                        synchronized (c.this.atF) {
-                            c.this.atz = true;
+                        synchronized (c.this.atG) {
+                            c.this.atA = true;
                             c.this.Al();
                             c.this.Ag();
                         }
@@ -410,19 +410,19 @@ public final class c implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ap() {
-        if (!this.atB && this.atA == null) {
+        if (!this.atC && this.atB == null) {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "prepareSlave start.");
             }
             f.fz("preload").f(new UbcFlowEvent("na_pre_load_slave_start"));
-            this.atA = a(getContext(), new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.c.5
+            this.atB = a(getContext(), new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.c.5
                 @Override // com.baidu.swan.apps.core.c
                 public void dF(String str) {
                     if (c.DEBUG) {
                         Log.d("SwanAppCoreRuntime", "prepareSlave finish. url: " + str);
                     }
                     f.fz("preload").f(new UbcFlowEvent("na_pre_load_slave_ok"));
-                    c.this.atB = true;
+                    c.this.atC = true;
                     c.this.Ag();
                 }
             });
@@ -431,7 +431,7 @@ public final class c implements g {
     }
 
     public com.baidu.swan.apps.b.c.c a(Context context, com.baidu.swan.apps.core.c cVar) {
-        com.baidu.swan.apps.b.c.c bn = this.atJ.bn(context);
+        com.baidu.swan.apps.b.c.c bn = this.atK.bn(context);
         f.fz("preload").f(new UbcFlowEvent("na_pre_load_slave_created"));
         bn.loadUrl(Ak());
         bn.a(cVar);
@@ -448,17 +448,17 @@ public final class c implements g {
             return;
         }
         if (DEBUG) {
-            Log.d("SwanAppCoreRuntime", "setSwanCoreVersion before. swan core: " + this.atu);
+            Log.d("SwanAppCoreRuntime", "setSwanCoreVersion before. swan core: " + this.atv);
         }
-        this.atu = swanCoreVersion;
+        this.atv = swanCoreVersion;
         if (DEBUG) {
-            Log.d("SwanAppCoreRuntime", "setSwanCoreVersion after. swan core: " + this.atu);
+            Log.d("SwanAppCoreRuntime", "setSwanCoreVersion after. swan core: " + this.atv);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Aq() {
-        if (this.atu == null || !this.atu.isAvailable()) {
+        if (this.atv == null || !this.atv.isAvailable()) {
             if (DEBUG) {
                 Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("mSwanCoreVersion is invalid.")));
             }
@@ -467,12 +467,12 @@ public final class c implements g {
     }
 
     public SwanCoreVersion Ar() {
-        return this.atu;
+        return this.atv;
     }
 
     @Nullable
     public ExtensionCore As() {
-        return this.atv;
+        return this.atw;
     }
 
     public void a(ExtensionCore extensionCore) {
@@ -489,17 +489,17 @@ public final class c implements g {
             return;
         }
         if (DEBUG) {
-            Log.d("SwanAppCoreRuntime", "setExtensionCore before. extension core: " + this.atv);
+            Log.d("SwanAppCoreRuntime", "setExtensionCore before. extension core: " + this.atw);
         }
-        this.atv = extensionCore;
+        this.atw = extensionCore;
         if (DEBUG) {
-            Log.d("SwanAppCoreRuntime", "setExtensionCore after. extension core: " + this.atv);
+            Log.d("SwanAppCoreRuntime", "setExtensionCore after. extension core: " + this.atw);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void At() {
-        if (this.atv == null || !this.atv.isAvailable()) {
+        if (this.atw == null || !this.atw.isAvailable()) {
             if (DEBUG) {
                 Log.w("SwanAppCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
             }
@@ -508,16 +508,16 @@ public final class c implements g {
     }
 
     public void e(com.baidu.swan.apps.v.b.b bVar) {
-        if (this.atv != null) {
-            bVar.atv = this.atv;
+        if (this.atw != null) {
+            bVar.atw = this.atw;
         } else {
-            this.atv = bVar.atv;
+            this.atw = bVar.atw;
         }
     }
 
     @Override // com.baidu.swan.apps.w.g
     public void a(e eVar) {
-        this.atD.put(eVar.wd(), eVar);
+        this.atE.put(eVar.wd(), eVar);
     }
 
     @Override // com.baidu.swan.apps.w.g
@@ -531,7 +531,7 @@ public final class c implements g {
     @Override // com.baidu.swan.apps.w.g
     public void d(e eVar) {
         String wd = eVar.wd();
-        this.atD.remove(wd);
+        this.atE.remove(wd);
         if (eVar instanceof com.baidu.swan.apps.b.c.c) {
             HashMap hashMap = new HashMap();
             hashMap.put("lcType", "onUnload");
@@ -543,24 +543,24 @@ public final class c implements g {
     }
 
     public e eg(String str) {
-        if (this.atD.isEmpty() || TextUtils.isEmpty(str)) {
+        if (this.atE.isEmpty() || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.atD.get(str);
+        return this.atE.get(str);
     }
 
     public void a(com.baidu.swan.apps.m.a.a aVar) {
         if (aVar == null) {
             throw new IllegalArgumentException("message must be non-null.");
         }
-        synchronized (this.atF) {
-            if (!this.atz) {
+        synchronized (this.atG) {
+            if (!this.atA) {
                 if (DEBUG) {
-                    Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.avm)));
+                    Log.e("SwanAppCoreRuntime", Log.getStackTraceString(new Exception("message:" + aVar.avn)));
                 }
-                this.atE.add(aVar);
-            } else if (this.aty != null) {
-                com.baidu.swan.apps.m.a.a(this.aty.zr(), aVar);
+                this.atF.add(aVar);
+            } else if (this.atz != null) {
+                com.baidu.swan.apps.m.a.a(this.atz.zr(), aVar);
             }
         }
     }
@@ -570,7 +570,7 @@ public final class c implements g {
             a(aVar);
             return;
         }
-        e eVar = this.atD.get(str);
+        e eVar = this.atE.get(str);
         if (eVar == null) {
             if (DEBUG) {
                 Log.e("SwanAppCoreRuntime", "can't find view manager. webviewId: " + str + " message: " + aVar);
@@ -584,31 +584,31 @@ public final class c implements g {
     @Nullable
     public String Au() {
         Av();
-        return this.atG;
+        return this.atH;
     }
 
     private void Av() {
-        if (TextUtils.isEmpty(this.atG)) {
-            this.atG = this.atA != null ? this.atA.getUserAgent() : "";
+        if (TextUtils.isEmpty(this.atH)) {
+            this.atH = this.atB != null ? this.atB.getUserAgent() : "";
             if (DEBUG) {
-                Log.d("SwanAppCoreRuntime", "initWebViewUa ua: " + this.atG);
+                Log.d("SwanAppCoreRuntime", "initWebViewUa ua: " + this.atH);
             }
         }
     }
 
     /* loaded from: classes2.dex */
     public static class b {
-        private static boolean atO = com.baidu.swan.apps.u.a.Cz().vo();
-        private static boolean atP = false;
+        private static boolean atP = com.baidu.swan.apps.u.a.Cz().vo();
+        private static boolean atQ = false;
 
         public static void E(Intent intent) {
             if (intent != null && intent.hasExtra("bundle_key_v8_ab")) {
-                atO = intent.getBooleanExtra("bundle_key_v8_ab", atO);
+                atP = intent.getBooleanExtra("bundle_key_v8_ab", atP);
             }
         }
 
         public static void Ax() {
-            atP = atO;
+            atQ = atP;
         }
 
         public static String Ay() {

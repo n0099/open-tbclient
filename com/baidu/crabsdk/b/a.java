@@ -13,26 +13,26 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class a {
-    private static long abD;
-    private static Activity abz;
-    private static com.baidu.crabsdk.c.b<List> abA = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean abB = false;
-    private static boolean abC = true;
+    private static Activity abA;
+    private static long abE;
+    private static com.baidu.crabsdk.c.b<List> abB = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
+    private static boolean abC = false;
+    private static boolean abD = true;
     private static int aQ = 0;
     private static int aR = 0;
     private static int aS = 0;
 
     public static void a(Activity activity) {
-        abB = true;
-        abz = activity;
+        abC = true;
+        abA = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        abA.add(arrayList);
-        int size = abA.size();
+        abB.add(arrayList);
+        int size = abB.size();
         if (size >= 2) {
-            List list = abA.get(size - 2);
-            if (list.size() == 3 && ((Date) abA.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
+            List list = abB.get(size - 2);
+            if (list.size() == 3 && ((Date) abB.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
                 aQ++;
             }
         } else {
@@ -43,9 +43,9 @@ public final class a {
 
     @SuppressLint({"NewApi"})
     public static void a(Application application) {
-        if (abC) {
-            abC = false;
-            abD = System.currentTimeMillis();
+        if (abD) {
+            abD = false;
+            abE = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
@@ -54,16 +54,16 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity) {
-        if (abz != null && activity != null && abz.hashCode() == activity.hashCode()) {
-            abz = null;
+        if (abA != null && activity != null && abA.hashCode() == activity.hashCode()) {
+            abA = null;
         }
         int i = aR - aS;
-        int size = abA.size();
+        int size = abB.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = abA.get(size - i);
+            List list = abB.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
@@ -85,9 +85,9 @@ public final class a {
 
     public static String p() {
         StringBuilder sb = new StringBuilder();
-        int size = abA.size();
+        int size = abB.size();
         for (int i = 0; i < size; i++) {
-            List list = abA.get((size - i) - 1);
+            List list = abB.get((size - i) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.e((Date) list.get(2))).append("\n");
             } else if (list.size() == 2) {
@@ -98,30 +98,30 @@ public final class a {
     }
 
     public static String q() {
-        return abz == null ? Apn.APN_UNKNOWN : abz.getClass().getName();
+        return abA == null ? Apn.APN_UNKNOWN : abA.getClass().getName();
     }
 
     public static long rP() {
-        return abD;
+        return abE;
     }
 
     public static byte[] rQ() {
-        if (abz == null) {
+        if (abA == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = abz.getWindow().getDecorView();
+            View decorView = abA.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.c.a.cv("getScreenshot failed, curActivity " + abz.getClass().getName());
+                com.baidu.crabsdk.c.a.cv("getScreenshot failed, curActivity " + abA.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
         } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.f("getScreenshot failed, curActivity " + abz.getClass().getName(), e);
+            com.baidu.crabsdk.c.a.f("getScreenshot failed, curActivity " + abA.getClass().getName(), e);
         }
         return byteArrayOutputStream.toByteArray();
     }

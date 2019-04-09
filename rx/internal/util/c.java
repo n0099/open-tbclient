@@ -4,35 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    final int kah;
-    Object[] kai;
+    final int kai;
     Object[] kaj;
-    int kak;
+    Object[] kak;
+    int kal;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.kai = new Object[this.kah + 1];
-            this.kaj = this.kai;
-            this.kai[0] = obj;
-            this.kak = 1;
+            this.kaj = new Object[this.kai + 1];
+            this.kak = this.kaj;
+            this.kaj[0] = obj;
+            this.kal = 1;
             this.size = 1;
-        } else if (this.kak == this.kah) {
-            Object[] objArr = new Object[this.kah + 1];
+        } else if (this.kal == this.kai) {
+            Object[] objArr = new Object[this.kai + 1];
             objArr[0] = obj;
-            this.kaj[this.kah] = objArr;
-            this.kaj = objArr;
-            this.kak = 1;
+            this.kak[this.kai] = objArr;
+            this.kak = objArr;
+            this.kal = 1;
             this.size++;
         } else {
-            this.kaj[this.kak] = obj;
-            this.kak++;
+            this.kak[this.kal] = obj;
+            this.kal++;
             this.size++;
         }
     }
 
     public Object[] cEp() {
-        return this.kai;
+        return this.kaj;
     }
 
     public int size() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     List<Object> cEq() {
-        int i = this.kah;
+        int i = this.kai;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;

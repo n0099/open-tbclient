@@ -11,23 +11,23 @@ import com.baidu.swan.apps.env.c;
 /* loaded from: classes2.dex */
 public final class e implements c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c avc;
-    private volatile boolean avd;
+    private c avd;
+    private volatile boolean ave;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        static final e avh = new e();
+        static final e avi = new e();
     }
 
     private e() {
-        this.avd = false;
-        this.avc = new c(this);
+        this.ave = false;
+        this.avd = new c(this);
         com.baidu.swan.apps.extcore.cores.a.Bm().Bn();
     }
 
     public static e Bd() {
-        return a.avh;
+        return a.avi;
     }
 
     @Override // com.baidu.swan.apps.env.b
@@ -37,18 +37,18 @@ public final class e implements c.a {
     }
 
     public void l(Bundle bundle) {
-        if (!this.avd) {
+        if (!this.ave) {
             synchronized (this) {
-                if (!this.avd) {
+                if (!this.ave) {
                     m(bundle);
-                    this.avd = true;
+                    this.ave = true;
                 }
             }
         }
     }
 
     public c Be() {
-        return this.avc;
+        return this.avd;
     }
 
     private void m(Bundle bundle) {

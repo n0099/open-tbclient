@@ -84,20 +84,20 @@ public final class a {
 
     public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
         com.baidu.swan.apps.performance.e.as("route", "createAndLoadPage start.");
-        String x = aa.x(bVar.mBaseUrl, bVar.axL, bVar.mParams);
-        com.baidu.swan.apps.ae.a.d eO = com.baidu.swan.apps.w.e.Ea().eO(bVar.axL);
+        String x = aa.x(bVar.mBaseUrl, bVar.axM, bVar.mParams);
+        com.baidu.swan.apps.ae.a.d eO = com.baidu.swan.apps.w.e.Ea().eO(bVar.axM);
         com.baidu.swan.apps.core.i.b bVar2 = new com.baidu.swan.apps.core.i.b();
-        bVar2.atk = bVar.mBaseUrl;
-        bVar2.atq = com.baidu.swan.apps.model.b.f(bVar);
-        bVar2.atr = eO.aOL;
-        bVar2.ato = String.valueOf(com.baidu.swan.apps.console.a.wH());
+        bVar2.atl = bVar.mBaseUrl;
+        bVar2.atr = com.baidu.swan.apps.model.b.f(bVar);
+        bVar2.ats = eO.aOM;
+        bVar2.atp = String.valueOf(com.baidu.swan.apps.console.a.wH());
         if (com.baidu.swan.apps.ae.b.IV() != null) {
-            String gk = com.baidu.swan.apps.ae.b.IV().gk(bVar.axL);
+            String gk = com.baidu.swan.apps.ae.b.IV().gk(bVar.axM);
             if (!TextUtils.isEmpty(gk)) {
                 if (DEBUG) {
                     Log.d("ActionUtils", "add initData: " + gk);
                 }
-                bVar2.ats = gk;
+                bVar2.att = gk;
             }
         }
         com.baidu.swan.apps.w.e.Ea().a(cVar.wd(), com.baidu.swan.apps.core.i.b.a(bVar2));

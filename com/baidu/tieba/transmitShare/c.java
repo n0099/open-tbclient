@@ -24,14 +24,14 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c implements View.OnClickListener, a {
-    private static final int iTA = l.h(TbadkCoreApplication.getInst(), d.e.tbds130);
-    private static final int iTB = l.h(TbadkCoreApplication.getInst(), d.e.tbds48);
-    private static final int iTC = l.h(TbadkCoreApplication.getInst(), d.e.tbds34);
-    private static final int ing = l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
-    private LinearLayout bFy;
-    private b iTy;
-    private boolean iTz;
-    private TextView ivp;
+    private static final int iTB = l.h(TbadkCoreApplication.getInst(), d.e.tbds130);
+    private static final int iTC = l.h(TbadkCoreApplication.getInst(), d.e.tbds48);
+    private static final int iTD = l.h(TbadkCoreApplication.getInst(), d.e.tbds34);
+    private static final int inh = l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
+    private LinearLayout bFz;
+    private boolean iTA;
+    private b iTz;
+    private TextView ivq;
     private Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mOnDismissListener;
@@ -39,11 +39,11 @@ public class c implements View.OnClickListener, a {
 
     public c(Context context) {
         this.mContext = context;
-        this.bFy = new LinearLayout(context);
-        this.bFy.setOrientation(1);
+        this.bFz = new LinearLayout(context);
+        this.bFz.setOrientation(1);
         this.mTitle = new TextView(context);
-        this.mTitle.setTextSize(0, iTC);
-        this.mTitle.setPadding(iTB, 0, iTB, 0);
+        this.mTitle.setTextSize(0, iTD);
+        this.mTitle.setPadding(iTC, 0, iTC, 0);
         this.mTitle.setGravity(17);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (TextUtils.isEmpty(sharePanelText)) {
@@ -51,28 +51,28 @@ public class c implements View.OnClickListener, a {
         } else {
             this.mTitle.setText(sharePanelText);
         }
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, iTA));
-        this.bFy.addView(this.mTitle);
-        this.iTy = new b(context);
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, iTB));
+        this.bFz.addView(this.mTitle);
+        this.iTz = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.iTs;
-        layoutParams.rightMargin = ShareGridLayout.iTs;
-        this.bFy.addView(this.iTy.cil(), layoutParams);
-        this.ivp = new TextView(context);
-        this.ivp.setTextSize(0, ing);
-        this.ivp.setGravity(17);
-        this.ivp.setText(d.j.cancel);
-        this.ivp.setLayoutParams(new LinearLayout.LayoutParams(-1, iTA));
-        this.ivp.setOnClickListener(this);
-        this.bFy.addView(this.ivp);
-        this.iTy.a(this);
+        layoutParams.leftMargin = ShareGridLayout.iTt;
+        layoutParams.rightMargin = ShareGridLayout.iTt;
+        this.bFz.addView(this.iTz.cil(), layoutParams);
+        this.ivq = new TextView(context);
+        this.ivq.setTextSize(0, inh);
+        this.ivq.setGravity(17);
+        this.ivq.setText(d.j.cancel);
+        this.ivq.setLayoutParams(new LinearLayout.LayoutParams(-1, iTB));
+        this.ivq.setOnClickListener(this);
+        this.bFz.addView(this.ivq);
+        this.iTz.a(this);
     }
 
     public void a(ArrayList<TransmitForumData> arrayList, com.baidu.tbadk.coreExtra.c.d dVar, int i) {
-        if (!TextUtils.isEmpty(dVar.cbA)) {
-            dVar.content = dVar.cbA;
+        if (!TextUtils.isEmpty(dVar.cbB)) {
+            dVar.content = dVar.cbB;
         }
-        this.iTy.a(dVar, arrayList, i, this.iTz);
+        this.iTz.a(dVar, arrayList, i, this.iTA);
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -80,7 +80,7 @@ public class c implements View.OnClickListener, a {
     }
 
     public void qw(boolean z) {
-        this.iTz = z;
+        this.iTA = z;
     }
 
     public void show() {
@@ -94,8 +94,8 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (c.this.iTy != null) {
-                    c.this.iTy.release();
+                if (c.this.iTz != null) {
+                    c.this.iTz.release();
                 }
             }
         });
@@ -103,16 +103,16 @@ public class c implements View.OnClickListener, a {
             g.a(this.mDialog, (Activity) this.mContext);
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.bFy.setBackgroundResource(d.f.transmit_share_dialog_background_1);
+            this.bFz.setBackgroundResource(d.f.transmit_share_dialog_background_1);
         } else {
-            this.bFy.setBackgroundResource(d.f.transmit_share_dialog_background);
+            this.bFz.setBackgroundResource(d.f.transmit_share_dialog_background);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
             window.setWindowAnimations(d.k.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setContentView(this.bFy);
+            window.setContentView(this.bFz);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 window.setBackgroundDrawableResource(d.f.transmit_share_dialog_background_1);
             } else {
@@ -124,9 +124,9 @@ public class c implements View.OnClickListener, a {
 
     private void caZ() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            al.k(this.bFy, d.f.transmit_share_dialog_background_1);
+            al.k(this.bFz, d.f.transmit_share_dialog_background_1);
         } else {
-            al.k(this.bFy, d.f.transmit_share_dialog_background);
+            al.k(this.bFz, d.f.transmit_share_dialog_background);
         }
         al.j(this.mTitle, d.C0277d.cp_cont_c);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
@@ -135,7 +135,7 @@ public class c implements View.OnClickListener, a {
         } else {
             this.mTitle.setText(sharePanelText);
         }
-        al.d(this.ivp, d.C0277d.cp_cont_j, 1);
+        al.d(this.ivq, d.C0277d.cp_cont_j, 1);
     }
 
     private void aDA() {
@@ -161,7 +161,7 @@ public class c implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ivp) {
+        if (view == this.ivq) {
             k("share_cancel", new Object[0]);
             dismiss();
         }

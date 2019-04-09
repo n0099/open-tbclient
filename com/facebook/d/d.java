@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> jya = d.class;
+    private static final Class<?> jyb = d.class;
 
     d() {
     }
@@ -20,7 +20,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(jya, "Unsupported orientation");
+                com.facebook.common.c.a.e(jyb, "Unsupported orientation");
                 return 0;
             case 3:
                 return SubsamplingScaleImageView.ORIENTATION_180;
@@ -34,20 +34,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.jLB - 8;
+        int i2 = aVar.jLC - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.jLz, 274), aVar.jLz);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.jLA, 274), aVar.jLA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        int jLA;
+        boolean jLA;
         int jLB;
-        boolean jLz;
+        int jLC;
 
         private a() {
         }
@@ -57,17 +57,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.jLA = c.a(inputStream, 4, false);
+        aVar.jLB = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.jLA != 1229531648 && aVar.jLA != 1296891946) {
-            com.facebook.common.c.a.g(jya, "Invalid TIFF header");
+        if (aVar.jLB != 1229531648 && aVar.jLB != 1296891946) {
+            com.facebook.common.c.a.g(jyb, "Invalid TIFF header");
             return 0;
         }
-        aVar.jLz = aVar.jLA == 1229531648;
-        aVar.jLB = c.a(inputStream, 4, aVar.jLz);
+        aVar.jLA = aVar.jLB == 1229531648;
+        aVar.jLC = c.a(inputStream, 4, aVar.jLA);
         int i3 = i2 - 4;
-        if (aVar.jLB < 8 || aVar.jLB - 8 > i3) {
-            com.facebook.common.c.a.g(jya, "Invalid offset");
+        if (aVar.jLC < 8 || aVar.jLC - 8 > i3) {
+            com.facebook.common.c.a.g(jyb, "Invalid offset");
             return 0;
         }
         return i3;

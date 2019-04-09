@@ -29,7 +29,7 @@ import com.baidu.tieba.frs.view.ProfessionDialogLayout;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes4.dex */
 public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceManager.c, ag {
-    private VoiceManager eYD;
+    private VoiceManager eYE;
     private com.baidu.tbadk.m.c fdA;
     private b ffU;
     private c ffV;
@@ -52,7 +52,7 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
             }
         }
     };
-    private CustomMessageListener eZG = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.commontab.FrsCommonTabFragment.2
+    private CustomMessageListener eZH = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.commontab.FrsCommonTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -107,10 +107,10 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
                 this.ffW = (FrsViewData) arguments.getSerializable("view_data");
             }
         }
-        this.eYD = getVoiceManager();
-        this.eYD.onCreate(getPageContext());
+        this.eYE = getVoiceManager();
+        this.eYE.onCreate(getPageContext());
         this.ffV = new c(this, Integer.parseInt(this.forumId), this.tabId);
-        registerListener(this.eZG);
+        registerListener(this.eZH);
         registerListener(this.fgb);
     }
 
@@ -200,8 +200,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
 
     public void bfb() {
         if (l.lo()) {
-            if (this.eYD != null) {
-                this.eYD.stopPlay();
+            if (this.eYE != null) {
+                this.eYE.stopPlay();
             }
             if (this.ffV != null) {
                 this.ffV.aAZ();
@@ -211,8 +211,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
 
     private void bfc() {
         if (l.lo()) {
-            if (this.eYD != null) {
-                this.eYD.stopPlay();
+            if (this.eYE != null) {
+                this.eYE.stopPlay();
             }
             if (this.ffV != null) {
                 this.ffV.bfc();
@@ -252,8 +252,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
         if (this.ffU != null) {
             this.ffU.onDestroy();
         }
-        if (this.eYD != null) {
-            this.eYD.onDestory(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onDestory(getPageContext());
         }
     }
 
@@ -337,8 +337,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.eYD != null) {
-            this.eYD.onResume(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onResume(getPageContext());
         }
     }
 
@@ -348,8 +348,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
         if (this.ffU != null) {
             this.ffU.pause();
         }
-        if (this.eYD != null) {
-            this.eYD.onPause(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onPause(getPageContext());
         }
     }
 
@@ -370,17 +370,17 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
         bundle.putBoolean("can_auto_play_video", this.ffY);
         bundle.putBoolean("need_log", this.ffX);
         bundle.putBoolean("is_brand_forum", this.isBrandForum);
-        if (this.eYD != null) {
-            this.eYD.onSaveInstanceState(getPageContext().getPageActivity());
+        if (this.eYE != null) {
+            this.eYE.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.eYD == null) {
-            this.eYD = VoiceManager.instance();
+        if (this.eYE == null) {
+            this.eYE = VoiceManager.instance();
         }
-        return this.eYD;
+        return this.eYE;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -391,16 +391,16 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        if (this.eYD != null) {
-            this.eYD.onStart(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onStart(getPageContext());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.eYD != null) {
-            this.eYD.onStop(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onStop(getPageContext());
         }
     }
 

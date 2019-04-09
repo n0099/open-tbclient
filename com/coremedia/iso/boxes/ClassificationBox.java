@@ -33,15 +33,15 @@ public class ClassificationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ClassificationBox.java", ClassificationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 48);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationEntity", "", "void"), 60);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 68);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationInfo", "", "void"), 72);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 101);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 44);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 48);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "int"), 52);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 56);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setClassificationEntity", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationEntity", "", "void"), 60);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setClassificationTableIndex", "com.coremedia.iso.boxes.ClassificationBox", "int", "classificationTableIndex", "", "void"), 64);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", IjkMediaMeta.IJKM_KEY_LANGUAGE, "", "void"), 68);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setClassificationInfo", "com.coremedia.iso.boxes.ClassificationBox", "java.lang.String", "classificationInfo", "", "void"), 72);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.ClassificationBox", "", "", "", "java.lang.String"), 101);
     }
 
     public ClassificationBox() {

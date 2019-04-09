@@ -15,29 +15,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b coE = null;
-    private a coF;
+    private static b coF = null;
+    private a coG;
 
     public static b anR() {
-        if (coE == null) {
+        if (coF == null) {
             synchronized (b.class) {
-                if (coE == null) {
-                    coE = new b();
+                if (coF == null) {
+                    coF = new b();
                 }
             }
         }
-        return coE;
+        return coF;
     }
 
     public void c(Application application) {
         if (application != null) {
             try {
-                if (this.coF == null) {
-                    this.coF = new a();
+                if (this.coG == null) {
+                    this.coG = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.coF, intentFilter);
+                    application.registerReceiver(this.coG, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

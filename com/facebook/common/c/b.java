@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b jzn = new b();
-    private String jzo = "unknown";
-    private int jzp = 5;
+    public static final b jzo = new b();
+    private String jzp = "unknown";
+    private int jzq = 5;
 
     public static b ctG() {
-        return jzn;
+        return jzo;
     }
 
     private b() {
@@ -19,7 +19,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.jzp <= i;
+        return this.jzq <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -76,8 +76,8 @@ public class b implements c {
     }
 
     private String Fo(String str) {
-        if (this.jzo != null) {
-            return this.jzo + Config.TRACE_TODAY_VISIT_SPLIT + str;
+        if (this.jzp != null) {
+            return this.jzp + Config.TRACE_TODAY_VISIT_SPLIT + str;
         }
         return str;
     }

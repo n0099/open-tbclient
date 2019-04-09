@@ -5,21 +5,21 @@ import com.baidu.tieba.recapp.report.f;
 public class b {
     public static void a(com.baidu.afd.videopaster.b.a aVar) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.xU(aVar.Uw);
+        o.xU(aVar.Ux);
         com.baidu.tieba.recapp.report.c.bXA().a(o);
     }
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
         o.BR(str);
-        o.xU(aVar.Uw);
+        o.xU(aVar.Ux);
         com.baidu.tieba.recapp.report.c.bXA().a(o);
     }
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, int i) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.xU(aVar.Uw);
-        o.xV(aVar.Us);
+        o.xU(aVar.Ux);
+        o.xV(aVar.Ut);
         o.xW(i);
         com.baidu.tieba.recapp.report.c.bXA().a(o);
     }

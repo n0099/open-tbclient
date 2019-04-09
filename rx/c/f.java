@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f kbD = new f();
-    static final b kbI = new b() { // from class: rx.c.f.1
+    private static final f kbE = new f();
+    static final b kbJ = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> kbE = new AtomicReference<>();
-    private final AtomicReference<d> kbF = new AtomicReference<>();
-    private final AtomicReference<h> kbG = new AtomicReference<>();
-    private final AtomicReference<a> kbH = new AtomicReference<>();
-    private final AtomicReference<g> jUJ = new AtomicReference<>();
+    private final AtomicReference<b> kbF = new AtomicReference<>();
+    private final AtomicReference<d> kbG = new AtomicReference<>();
+    private final AtomicReference<h> kbH = new AtomicReference<>();
+    private final AtomicReference<a> kbI = new AtomicReference<>();
+    private final AtomicReference<g> jUK = new AtomicReference<>();
 
     @Deprecated
     public static f cES() {
-        return kbD;
+        return kbE;
     }
 
     f() {
     }
 
     public b cET() {
-        if (this.kbE.get() == null) {
+        if (this.kbF.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.kbE.compareAndSet(null, kbI);
+                this.kbF.compareAndSet(null, kbJ);
             } else {
-                this.kbE.compareAndSet(null, (b) a);
-            }
-        }
-        return this.kbE.get();
-    }
-
-    public d cEU() {
-        if (this.kbF.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.kbF.compareAndSet(null, e.cER());
-            } else {
-                this.kbF.compareAndSet(null, (d) a);
+                this.kbF.compareAndSet(null, (b) a);
             }
         }
         return this.kbF.get();
     }
 
-    public h cEV() {
+    public d cEU() {
         if (this.kbG.get() == null) {
-            Object a = a(h.class, System.getProperties());
+            Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.kbG.compareAndSet(null, i.cFf());
+                this.kbG.compareAndSet(null, e.cER());
             } else {
-                this.kbG.compareAndSet(null, (h) a);
+                this.kbG.compareAndSet(null, (d) a);
             }
         }
         return this.kbG.get();
     }
 
-    public a cEW() {
+    public h cEV() {
         if (this.kbH.get() == null) {
-            Object a = a(a.class, System.getProperties());
+            Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.kbH.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
+                this.kbH.compareAndSet(null, i.cFf());
             } else {
-                this.kbH.compareAndSet(null, (a) a);
+                this.kbH.compareAndSet(null, (h) a);
             }
         }
         return this.kbH.get();
+    }
+
+    public a cEW() {
+        if (this.kbI.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.kbI.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.kbI.compareAndSet(null, (a) a);
+            }
+        }
+        return this.kbI.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -114,14 +114,14 @@ public class f {
     }
 
     public g cEX() {
-        if (this.jUJ.get() == null) {
+        if (this.jUK.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.jUJ.compareAndSet(null, g.cFe());
+                this.jUK.compareAndSet(null, g.cFe());
             } else {
-                this.jUJ.compareAndSet(null, (g) a);
+                this.jUK.compareAndSet(null, (g) a);
             }
         }
-        return this.jUJ.get();
+        return this.jUK.get();
     }
 }

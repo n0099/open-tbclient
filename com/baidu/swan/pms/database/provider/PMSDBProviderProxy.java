@@ -15,17 +15,17 @@ import com.baidu.swan.pms.e;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    private volatile b blO;
+    private volatile b blP;
 
     public b RF() {
-        if (this.blO == null) {
+        if (this.blP == null) {
             synchronized (b.class) {
-                if (this.blO == null) {
-                    this.blO = new b(getContext());
+                if (this.blP == null) {
+                    this.blP = new b(getContext());
                 }
             }
         }
-        return this.blO;
+        return this.blP;
     }
 
     @Override // android.content.ContentProvider

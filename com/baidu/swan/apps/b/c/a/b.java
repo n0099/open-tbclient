@@ -7,7 +7,7 @@ import com.baidu.swan.apps.b.c.i;
 import com.baidu.swan.apps.b.c.j;
 /* loaded from: classes2.dex */
 public final class b implements j {
-    private h ajR = new h() { // from class: com.baidu.swan.apps.b.c.a.b.1
+    private h ajS = new h() { // from class: com.baidu.swan.apps.b.c.a.b.1
         @Override // com.baidu.swan.apps.b.c.h
         public void a(Activity activity, int i, int i2, Intent intent) {
             c.wj().b(activity, i, i2, intent);
@@ -21,6 +21,6 @@ public final class b implements j {
 
     @Override // com.baidu.swan.apps.b.c.j
     public h wg() {
-        return this.ajR;
+        return this.ajS;
     }
 }

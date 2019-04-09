@@ -8,22 +8,22 @@ import com.baidu.swan.apps.canvas.view.CanvasView;
 import java.util.Stack;
 /* loaded from: classes2.dex */
 public class b implements Cloneable {
-    CanvasView alo;
-    ak alp;
-    private Stack<b> alk = new Stack<>();
+    CanvasView alp;
+    ak alq;
+    private Stack<b> alm = new Stack<>();
     Paint mFillPaint = new Paint();
     Paint mStrokePaint = new Paint();
     Paint mBitmapPaint = new Paint();
-    TextPaint alm = new TextPaint();
+    TextPaint aln = new TextPaint();
     Path mPath = new Path();
-    boolean aln = false;
-    int alq = -1;
-    int alr = 0;
+    boolean alo = false;
+    int alr = -1;
     int als = 0;
+    int alt = 0;
     int mStrokeColor = ViewCompat.MEASURED_STATE_MASK;
 
     public b(CanvasView canvasView) {
-        this.alo = canvasView;
+        this.alp = canvasView;
         init();
     }
 
@@ -32,28 +32,28 @@ public class b implements Cloneable {
         bVar.mFillPaint = new Paint(this.mFillPaint);
         bVar.mStrokePaint = new Paint(this.mStrokePaint);
         bVar.mBitmapPaint = new Paint(this.mBitmapPaint);
-        bVar.alm = new TextPaint(this.alm);
+        bVar.aln = new TextPaint(this.aln);
         bVar.mPath = new Path(this.mPath);
-        bVar.alr = this.alr;
         bVar.als = this.als;
+        bVar.alt = this.alt;
         bVar.mStrokeColor = this.mStrokeColor;
-        this.alk.push(bVar);
+        this.alm.push(bVar);
     }
 
     public void restore() {
-        if (!this.alk.empty()) {
-            b pop = this.alk.pop();
+        if (!this.alm.empty()) {
+            b pop = this.alm.pop();
             this.mFillPaint = pop.mFillPaint;
             this.mStrokePaint = pop.mStrokePaint;
             this.mBitmapPaint = pop.mBitmapPaint;
-            this.alm = pop.alm;
-            this.mPath = pop.mPath;
             this.aln = pop.aln;
-            this.alk = pop.alk;
-            this.alp = pop.alp;
+            this.mPath = pop.mPath;
+            this.alo = pop.alo;
+            this.alm = pop.alm;
             this.alq = pop.alq;
             this.alr = pop.alr;
             this.als = pop.als;
+            this.alt = pop.alt;
             this.mStrokeColor = pop.mStrokeColor;
         }
     }
@@ -61,21 +61,21 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Paint paint) {
         if (paint != null) {
-            if (this.alo != null && this.alp != null && this.alp.alX != null && !this.alp.alX.wz()) {
-                paint.setShadowLayer(this.alp.amn, this.alp.aml, this.alp.amm, this.alp.alX.getColor());
+            if (this.alp != null && this.alq != null && this.alq.alY != null && !this.alq.alY.wz()) {
+                paint.setShadowLayer(this.alq.amo, this.alq.amm, this.alq.amn, this.alq.alY.getColor());
             }
-            if (this.alq >= 0 && this.alq <= 255) {
-                paint.setAlpha(Math.min((paint.getAlpha() * this.alq) >> 8, 255));
+            if (this.alr >= 0 && this.alr <= 255) {
+                paint.setAlpha(Math.min((paint.getAlpha() * this.alr) >> 8, 255));
             }
         }
     }
 
     public void bQ(int i) {
-        this.als = i;
+        this.alt = i;
     }
 
     public int wy() {
-        return this.als;
+        return this.alt;
     }
 
     public void init() {
@@ -84,10 +84,10 @@ public class b implements Cloneable {
         this.mFillPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mBitmapPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.alm.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.aln.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mStrokePaint.setStrokeWidth(com.baidu.swan.apps.an.x.ad(1.0f));
         this.mStrokePaint.setAntiAlias(true);
-        this.alm.setAntiAlias(true);
+        this.aln.setAntiAlias(true);
         this.mBitmapPaint.setAntiAlias(true);
         this.mPath.reset();
     }

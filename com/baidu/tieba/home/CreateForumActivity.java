@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
-    private LinearLayout bFy;
-    private NoNetworkView eUC;
+    private LinearLayout bFz;
+    private NoNetworkView eUD;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = null;
     private a fFq = null;
@@ -67,11 +67,11 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                 CreateForumActivity.this.blh();
             }
         };
-        this.bFy = (LinearLayout) findViewById(d.g.root_view);
+        this.bFz = (LinearLayout) findViewById(d.g.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.j.create_bar);
-        this.eUC = (NoNetworkView) this.bFy.findViewById(d.g.view_no_network);
+        this.eUD = (NoNetworkView) this.bFz.findViewById(d.g.view_no_network);
         this.fER = (EditText) findViewById(d.g.edit_forum_name);
         this.fER.setText(this.fFb);
         this.fES = (EditText) findViewById(d.g.edit_vcode);
@@ -140,13 +140,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        getLayoutMode().onModeChanged(this.bFy);
-        com.baidu.tbadk.r.a.a(getPageContext(), this.bFy);
+        getLayoutMode().onModeChanged(this.bFz);
+        com.baidu.tbadk.r.a.a(getPageContext(), this.bFz);
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        if (this.eUC != null && this.eUC.getVisibility() == 0) {
-            this.eUC.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.eUD != null && this.eUD.getVisibility() == 0) {
+            this.eUD.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

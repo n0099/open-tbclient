@@ -41,12 +41,12 @@ public class a {
         this.mAdapters.add(cVar);
         this.mAdapters.add(new h(this.mPageContext, this.mForumId));
         this.mAdapters.add(new f(this.mPageContext, this.mForumId));
-        this.mAdapters.add(new i(this.mPageContext, com.baidu.tieba.e.h.exM, this.mPageContext.getUniqueId(), this.mForumId));
+        this.mAdapters.add(new i(this.mPageContext, com.baidu.tieba.e.h.exN, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
         eVar.e(this.flt);
         this.mAdapters.add(eVar);
-        this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.exA, this.mPageContext.getUniqueId(), this.mForumId));
-        this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.exI, this.mPageContext.getUniqueId(), this.mForumId));
+        this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.exB, this.mPageContext.getUniqueId(), this.mForumId));
+        this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.exJ, this.mPageContext.getUniqueId(), this.mForumId));
         v vVar = new v(this.mPageContext, q.fbR, this.mPageContext.getUniqueId());
         vVar.bfG();
         vVar.setForumId(this.mForumId);

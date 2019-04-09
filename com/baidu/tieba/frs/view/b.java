@@ -33,12 +33,12 @@ import java.util.HashSet;
 public abstract class b {
     private static HashMap<Integer, String> fze = new HashMap<>();
     private static HashSet<Integer> fzf = new HashSet<>();
-    protected boolean aBB;
-    protected TbImageView eBi;
-    protected TextView eKf;
-    protected ImageView eVv;
+    protected boolean aBC;
+    protected TbImageView eBj;
+    protected TextView eKg;
     protected ImageView eVw;
-    protected TextView eXA;
+    protected ImageView eVx;
+    protected TextView eXB;
     protected FrsFragment fat;
     protected LinearGradientView fuk;
     protected FrsViewData fvY;
@@ -197,11 +197,11 @@ public abstract class b {
     }
 
     public TextView bka() {
-        return this.eKf;
+        return this.eKg;
     }
 
     public TextView bkb() {
-        return this.eXA;
+        return this.eXB;
     }
 
     public boolean bjf() {
@@ -242,7 +242,7 @@ public abstract class b {
     }
 
     public void jY(boolean z) {
-        this.aBB = z;
+        this.aBC = z;
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {

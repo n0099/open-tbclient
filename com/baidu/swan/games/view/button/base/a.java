@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class a {
     @V8JavascriptField
     public String backgroundColor;
-    private InterfaceC0205a bfR;
+    private InterfaceC0205a bfS;
     @V8JavascriptField
     public String borderColor;
     @V8JavascriptField
@@ -43,7 +43,7 @@ public class a {
     public double fontSize = 16.0d;
     @V8JavascriptField
     public double opacity = 1.0d;
-    public HashSet<String> bfQ = new HashSet<>();
+    public HashSet<String> bfR = new HashSet<>();
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -199,7 +199,7 @@ public class a {
                         this.color = jsObject.toString(i);
                         break;
                 }
-                this.bfQ.add(propertyName);
+                this.bfR.add(propertyName);
             }
         }
         if (com.baidu.swan.apps.b.DEBUG) {
@@ -212,13 +212,13 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bfR != null) {
-            this.bfR.PA();
+        if (this.bfS != null) {
+            this.bfS.PA();
         }
     }
 
     public void a(InterfaceC0205a interfaceC0205a) {
-        this.bfR = interfaceC0205a;
+        this.bfS = interfaceC0205a;
     }
 
     public static int eL(@ColorInt int i) {

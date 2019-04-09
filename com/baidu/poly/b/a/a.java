@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.poly.b.a.a.a agP;
+    private com.baidu.poly.b.a.a.a agQ;
 
     public a(Context context) {
         File ac = ac(context, "bitmap");
@@ -20,17 +20,17 @@ public class a {
             ac.mkdirs();
         }
         try {
-            this.agP = com.baidu.poly.b.a.a.a.a(ac, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+            this.agQ = com.baidu.poly.b.a.a.a.a(ac, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Bitmap k(String str, int i, int i2) throws IOException {
-        if (this.agP == null) {
+        if (this.agQ == null) {
             return null;
         }
-        a.c dd = this.agP.dd(com.baidu.poly.b.b.b.df(str));
+        a.c dd = this.agQ.dd(com.baidu.poly.b.b.b.df(str));
         if (dd != null) {
             FileInputStream fileInputStream = (FileInputStream) dd.bH(0);
             if (i <= 0 || i2 <= 0) {
@@ -42,16 +42,16 @@ public class a {
     }
 
     public void da(String str) {
-        if (this.agP != null) {
+        if (this.agQ != null) {
             try {
-                a.C0080a de = this.agP.de(com.baidu.poly.b.b.b.df(str));
+                a.C0080a de = this.agQ.de(com.baidu.poly.b.b.b.df(str));
                 if (de != null) {
                     if (d.a(str, de.bE(0))) {
                         de.commit();
                     } else {
                         de.abort();
                     }
-                    this.agP.flush();
+                    this.agQ.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

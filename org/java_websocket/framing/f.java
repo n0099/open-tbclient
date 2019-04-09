@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode jTU;
-    private ByteBuffer jTV = org.java_websocket.e.b.cDp();
-    private boolean jTT = true;
-    private boolean jTW = false;
+    private Framedata.Opcode jTV;
+    private ByteBuffer jTW = org.java_websocket.e.b.cDp();
+    private boolean jTU = true;
     private boolean jTX = false;
     private boolean jTY = false;
     private boolean jTZ = false;
+    private boolean jUa = false;
 
     public abstract void cDd() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.jTU = opcode;
+        this.jTV = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean cDh() {
-        return this.jTX;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean cDi() {
         return this.jTY;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDj() {
+    public boolean cDi() {
         return this.jTZ;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cDg() {
-        return this.jTT;
+    public boolean cDj() {
+        return this.jUa;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode cDk() {
+    public boolean cDg() {
         return this.jTU;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cDf() {
+    public Framedata.Opcode cDk() {
         return this.jTV;
     }
 
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer cDf() {
+        return this.jTW;
+    }
+
     public String toString() {
-        return "Framedata{ optcode:" + cDk() + ", fin:" + cDg() + ", rsv1:" + cDh() + ", rsv2:" + cDi() + ", rsv3:" + cDj() + ", payloadlength:[pos:" + this.jTV.position() + ", len:" + this.jTV.remaining() + "], payload:" + (this.jTV.remaining() > 1000 ? "(too big to display)" : new String(this.jTV.array())) + '}';
+        return "Framedata{ optcode:" + cDk() + ", fin:" + cDg() + ", rsv1:" + cDh() + ", rsv2:" + cDi() + ", rsv3:" + cDj() + ", payloadlength:[pos:" + this.jTW.position() + ", len:" + this.jTW.remaining() + "], payload:" + (this.jTW.remaining() > 1000 ? "(too big to display)" : new String(this.jTW.array())) + '}';
     }
 
     public void t(ByteBuffer byteBuffer) {
-        this.jTV = byteBuffer;
+        this.jTW = byteBuffer;
     }
 
     public void rG(boolean z) {
-        this.jTT = z;
+        this.jTU = z;
     }
 
     public void rH(boolean z) {
-        this.jTX = z;
-    }
-
-    public void rI(boolean z) {
         this.jTY = z;
     }
 
-    public void rJ(boolean z) {
+    public void rI(boolean z) {
         this.jTZ = z;
     }
 
+    public void rJ(boolean z) {
+        this.jUa = z;
+    }
+
     public void rK(boolean z) {
-        this.jTW = z;
+        this.jTX = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.jTT == fVar.jTT && this.jTW == fVar.jTW && this.jTX == fVar.jTX && this.jTY == fVar.jTY && this.jTZ == fVar.jTZ && this.jTU == fVar.jTU) {
-            if (this.jTV != null) {
-                z = this.jTV.equals(fVar.jTV);
-            } else if (fVar.jTV != null) {
+        if (this.jTU == fVar.jTU && this.jTX == fVar.jTX && this.jTY == fVar.jTY && this.jTZ == fVar.jTZ && this.jUa == fVar.jUa && this.jTV == fVar.jTV) {
+            if (this.jTW != null) {
+                z = this.jTW.equals(fVar.jTW);
+            } else if (fVar.jTW != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.jTY ? 1 : 0) + (((this.jTX ? 1 : 0) + (((this.jTW ? 1 : 0) + (((this.jTV != null ? this.jTV.hashCode() : 0) + ((((this.jTT ? 1 : 0) * 31) + this.jTU.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.jTZ ? 1 : 0);
+        return (((this.jTZ ? 1 : 0) + (((this.jTY ? 1 : 0) + (((this.jTX ? 1 : 0) + (((this.jTW != null ? this.jTW.hashCode() : 0) + ((((this.jTU ? 1 : 0) * 31) + this.jTV.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.jUa ? 1 : 0);
     }
 }

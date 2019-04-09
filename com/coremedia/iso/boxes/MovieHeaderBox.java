@@ -68,35 +68,35 @@ public class MovieHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MovieHeaderBox.java", MovieHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 63);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 67);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "setModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "modificationTime", "", "void"), 203);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "timescale", "", "void"), 211);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "setDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "long", UBC.CONTENT_KEY_DURATION, "", "void"), 215);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setRate", "com.coremedia.iso.boxes.MovieHeaderBox", "double", "rate", "", "void"), 222);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "float", "volume", "", "void"), 226);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 238);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.c("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.c("1", "getPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 254);
-        ajc$tjp_22 = bVar.a("method-execution", bVar.c("1", "setPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "posterTime", "", "void"), 258);
-        ajc$tjp_23 = bVar.a("method-execution", bVar.c("1", "getSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 262);
-        ajc$tjp_24 = bVar.a("method-execution", bVar.c("1", "setSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionTime", "", "void"), 266);
-        ajc$tjp_25 = bVar.a("method-execution", bVar.c("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), SubsamplingScaleImageView.ORIENTATION_270);
-        ajc$tjp_26 = bVar.a("method-execution", bVar.c("1", "setSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionDuration", "", "void"), 274);
-        ajc$tjp_27 = bVar.a("method-execution", bVar.c("1", "getCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 278);
-        ajc$tjp_28 = bVar.a("method-execution", bVar.c("1", "setCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "currentTime", "", "void"), 282);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 75);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getRate", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "double"), 79);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "float"), 83);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 87);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "getNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 91);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.lang.String"), 139);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "creationTime", "", "void"), 195);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 63);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.util.Date"), 67);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "setModificationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "modificationTime", "", "void"), 203);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "timescale", "", "void"), 211);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "long", UBC.CONTENT_KEY_DURATION, "", "void"), 215);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setRate", "com.coremedia.iso.boxes.MovieHeaderBox", "double", "rate", "", "void"), 222);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "float", "volume", "", "void"), 226);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "com.googlecode.mp4parser.util.Matrix", "matrix", "", "void"), 230);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "setNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "long", "nextTrackId", "", "void"), 234);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "getPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 238);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "setPreviewTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewTime", "", "void"), 242);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "getPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 246);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getTimescale", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 71);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "setPreviewDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "previewDuration", "", "void"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "getPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 254);
+        ajc$tjp_22 = bVar.a("method-execution", bVar.b("1", "setPosterTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "posterTime", "", "void"), 258);
+        ajc$tjp_23 = bVar.a("method-execution", bVar.b("1", "getSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 262);
+        ajc$tjp_24 = bVar.a("method-execution", bVar.b("1", "setSelectionTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionTime", "", "void"), 266);
+        ajc$tjp_25 = bVar.a("method-execution", bVar.b("1", "getSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), SubsamplingScaleImageView.ORIENTATION_270);
+        ajc$tjp_26 = bVar.a("method-execution", bVar.b("1", "setSelectionDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "selectionDuration", "", "void"), 274);
+        ajc$tjp_27 = bVar.a("method-execution", bVar.b("1", "getCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "int"), 278);
+        ajc$tjp_28 = bVar.a("method-execution", bVar.b("1", "setCurrentTime", "com.coremedia.iso.boxes.MovieHeaderBox", "int", "currentTime", "", "void"), 282);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getDuration", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 75);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getRate", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "double"), 79);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getVolume", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "float"), 83);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getMatrix", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "com.googlecode.mp4parser.util.Matrix"), 87);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "getNextTrackId", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "long"), 91);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.MovieHeaderBox", "", "", "", "java.lang.String"), 139);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setCreationTime", "com.coremedia.iso.boxes.MovieHeaderBox", "java.util.Date", "creationTime", "", "void"), 195);
     }
 
     public MovieHeaderBox() {

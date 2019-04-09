@@ -11,14 +11,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes5.dex */
 public class ForumRankModel extends BdBaseModel {
-    private a iAU;
+    private a iAV;
     private String id;
     private String stType;
 
     public ForumRankModel(Bundle bundle) {
         super(null);
         this.id = null;
-        this.iAU = null;
+        this.iAV = null;
         this.stType = null;
         this.id = bundle.getString("id");
         this.stType = bundle.getString("st_type");
@@ -27,7 +27,7 @@ public class ForumRankModel extends BdBaseModel {
     public ForumRankModel(Intent intent) {
         super(null);
         this.id = null;
-        this.iAU = null;
+        this.iAV = null;
         this.stType = null;
         this.id = intent.getStringExtra("id");
         this.stType = intent.getStringExtra("st_type");
@@ -44,17 +44,17 @@ public class ForumRankModel extends BdBaseModel {
         if (this.id == null) {
             return false;
         }
-        if (this.iAU == null) {
-            this.iAU = new a();
-            this.iAU.execute(new Void[0]);
+        if (this.iAV == null) {
+            this.iAV = new a();
+            this.iAV.execute(new Void[0]);
         }
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iAU != null) {
-            this.iAU.cancel();
+        if (this.iAV != null) {
+            this.iAV.cancel();
             return false;
         }
         return false;
@@ -92,7 +92,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.iAU = null;
+            ForumRankModel.this.iAV = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.iAU = null;
+            ForumRankModel.this.iAV = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.m(forumRankData);
             }

@@ -14,8 +14,8 @@ import com.baidu.tieba.f.a;
 import com.baidu.tieba.frs.gamesubpb.view.BlankView;
 /* loaded from: classes4.dex */
 public class c {
-    private BaseActivity cNc;
-    private com.baidu.tieba.f.b dLI;
+    private BaseActivity cNd;
+    private com.baidu.tieba.f.b dLJ;
     private BlankView fng;
     private a fni;
     private boolean fnj = false;
@@ -34,32 +34,32 @@ public class c {
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.cNc = baseActivity;
-        this.dLI = new com.baidu.tieba.f.b(this.cNc.getPageContext().getPageActivity());
+        this.cNd = baseActivity;
+        this.dLJ = new com.baidu.tieba.f.b(this.cNd.getPageContext().getPageActivity());
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.setStatusBarVisibility(8);
         this.fnk = new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                c.this.dLI.onTouchEvent(motionEvent);
+                c.this.dLJ.onTouchEvent(motionEvent);
                 return true;
             }
         };
         view.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                c.this.dLI.onTouchEvent(motionEvent);
+                c.this.dLJ.onTouchEvent(motionEvent);
                 return false;
             }
         });
-        this.dLI.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
+        this.dLJ.a(new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gamesubpb.c.3
             @Override // com.baidu.tieba.f.a.InterfaceC0284a
             public void aR(int i, int i2) {
                 if (c.this.fni != null && c.this.fni.bgB() && Math.abs(i2) > c.TOUCH_SLOP) {
                     if (c.this.fng != null) {
                         c.this.fng.setBackgroundResource(d.C0277d.transparent);
                     }
-                    c.this.cNc.finish();
+                    c.this.cNd.finish();
                 }
             }
 
@@ -77,7 +77,7 @@ public class c {
     public void bgC() {
         if (this.fnj && this.mNavigationBar != null && this.fng != null && this.fng.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
-            this.cNc.setExcludeHeight(0);
+            this.cNd.setExcludeHeight(0);
             if (this.fni != null) {
                 this.fni.bgz();
             }
@@ -87,15 +87,15 @@ public class c {
 
     public void bgD() {
         ViewGroup viewGroup;
-        if (!this.fnj && (viewGroup = (ViewGroup) this.cNc.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.fng = new BlankView(this.cNc.getPageContext().getPageActivity());
+        if (!this.fnj && (viewGroup = (ViewGroup) this.cNd.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.fng = new BlankView(this.cNd.getPageContext().getPageActivity());
             this.fng.setBackgroundResource(d.C0277d.transparent);
             ((LinearLayout) viewGroup.getParent()).addView(this.fng, 0, new LinearLayout.LayoutParams(-1, fnh));
             this.fng.setVisibility(0);
             this.fng.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.cNc.finish();
+                    c.this.cNd.finish();
                 }
             });
             this.fng.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
@@ -110,7 +110,7 @@ public class c {
                     }
                 }
             });
-            this.cNc.setExcludeHeight(fnh);
+            this.cNd.setExcludeHeight(fnh);
             this.fnj = true;
         }
     }

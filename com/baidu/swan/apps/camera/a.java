@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.camera.c.a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b akp;
+    private com.baidu.swan.apps.camera.b.b akq;
     private Timer mTimer;
 
     private a() {
@@ -35,11 +35,11 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0118a {
-        private static final a aks = new a();
+        private static final a akt = new a();
     }
 
     public static a wm() {
-        return C0118a.aks;
+        return C0118a.akt;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -90,10 +90,10 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public CameraPreview dr(String str) {
-        if (TextUtils.isEmpty(str) || akI.isEmpty()) {
+        if (TextUtils.isEmpty(str) || akJ.isEmpty()) {
             return null;
         }
-        for (CameraPreview cameraPreview : akI) {
+        for (CameraPreview cameraPreview : akJ) {
             if (cameraPreview != null && TextUtils.equals(cameraPreview.getSlaveId(), str)) {
                 return cameraPreview;
             }
@@ -102,13 +102,13 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void a(CameraPreview cameraPreview) {
-        akI.add(cameraPreview);
+        akJ.add(cameraPreview);
     }
 
     public void ds(String str) {
         CameraPreview cameraPreview;
-        if (!TextUtils.isEmpty(str) && !akI.isEmpty()) {
-            Iterator<CameraPreview> it = akI.iterator();
+        if (!TextUtils.isEmpty(str) && !akJ.isEmpty()) {
+            Iterator<CameraPreview> it = akJ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     cameraPreview = null;
@@ -121,13 +121,13 @@ public class a implements com.baidu.swan.apps.camera.c.a {
             }
             if (cameraPreview != null) {
                 cameraPreview.onRelease();
-                akI.remove(cameraPreview);
+                akJ.remove(cameraPreview);
             }
         }
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.akp = bVar;
+        this.akq = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -141,15 +141,15 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void stopTimer() {
-        this.akp = null;
+        this.akq = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void wn() {
-        if (this.akp != null) {
-            this.akp.cancel();
+        if (this.akq != null) {
+            this.akq.cancel();
         }
         stopTimer();
     }

@@ -10,14 +10,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.b jGx;
-    private final an jHQ;
+    private final com.facebook.imagepipeline.g.b jGy;
+    private final an jHR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        this.jHQ = anVar;
-        this.jGx = bVar;
-        this.jGx.a(anVar.czA(), this.jHQ.cuW(), this.jHQ.getId(), this.jHQ.czD());
+        this.jHR = anVar;
+        this.jGy = bVar;
+        this.jGy.a(anVar.czA(), this.jHR.cuW(), this.jHR.getId(), this.jHR.czD());
         aiVar.a(cyu(), anVar);
     }
 
@@ -48,14 +48,14 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(@Nullable T t, boolean z) {
         if (super.a((a<T>) t, z) && z) {
-            this.jGx.a(this.jHQ.czA(), this.jHQ.getId(), this.jHQ.czD());
+            this.jGy.a(this.jHR.czA(), this.jHR.getId(), this.jHR.czD());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void B(Throwable th) {
         if (super.u(th)) {
-            this.jGx.a(this.jHQ.czA(), this.jHQ.getId(), th, this.jHQ.czD());
+            this.jGy.a(this.jHR.czA(), this.jHR.getId(), th, this.jHR.czD());
         }
     }
 
@@ -70,8 +70,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.jGx.Fx(this.jHQ.getId());
-            this.jHQ.cancel();
+            this.jGy.Fx(this.jHR.getId());
+            this.jHR.cancel();
         }
         return true;
     }

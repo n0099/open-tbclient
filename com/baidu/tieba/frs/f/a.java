@@ -40,7 +40,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && v.S(list) > 0 && v.S(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.iFn) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.iFo) {
                 m mVar = (m) v.c(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
                     fVar.cn(i, indexOf);

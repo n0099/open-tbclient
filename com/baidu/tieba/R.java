@@ -7076,6 +7076,7 @@ public final class R {
         public static final int sapi_camera_too_far = 0x7f070028;
         public static final int sapi_camera_too_near = 0x7f070029;
         public static final int shake_tone = 0x7f07002a;
+        public static final int sweep = 0x7f07002b;
     }
 
     public static final class string {

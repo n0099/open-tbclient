@@ -15,11 +15,11 @@ public class c extends e {
     private int MC;
     private int MD;
     private int ME;
-    private String aFG;
-    private boolean aFH;
-    private Date aFx;
+    private String aFH;
+    private boolean aFI;
     private Date aFy;
-    private BdDatePicker aLX;
+    private Date aFz;
+    private BdDatePicker aLY;
 
     c(Context context) {
         super(context, a.i.NoTitleDialog);
@@ -30,7 +30,7 @@ public class c extends e {
     }
 
     public int getYear() {
-        return this.aLX.getYear();
+        return this.aLY.getYear();
     }
 
     public void setMonth(int i) {
@@ -38,7 +38,7 @@ public class c extends e {
     }
 
     public int getMonth() {
-        return this.aLX.getMonth();
+        return this.aLY.getMonth();
     }
 
     public void setDay(int i) {
@@ -46,11 +46,11 @@ public class c extends e {
     }
 
     public int getDay() {
-        return this.aLX.getDay();
+        return this.aLY.getDay();
     }
 
     private boolean fW(String str) {
-        return this.aLX.fW(str);
+        return this.aLY.fW(str);
     }
 
     public String Im() {
@@ -72,25 +72,25 @@ public class c extends e {
     }
 
     private void In() {
-        this.aLX = new BdDatePicker(getContext());
+        this.aLY = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.aLX.setLayoutParams(layoutParams);
-        this.aLX.setScrollCycle(true);
-        this.aLX.setStartDate(this.aFx);
-        this.aLX.setEndDate(this.aFy);
-        this.aLX.setYear(this.MC);
-        this.aLX.setMonth(this.MD);
-        this.aLX.setDay(this.ME);
-        this.aLX.GL();
-        this.aLX.setFields(this.aFG);
-        this.aLX.setDisabled(this.aFH);
+        this.aLY.setLayoutParams(layoutParams);
+        this.aLY.setScrollCycle(true);
+        this.aLY.setStartDate(this.aFy);
+        this.aLY.setEndDate(this.aFz);
+        this.aLY.setYear(this.MC);
+        this.aLY.setMonth(this.MD);
+        this.aLY.setDay(this.ME);
+        this.aLY.GL();
+        this.aLY.setFields(this.aFH);
+        this.aLY.setDisabled(this.aFI);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         In();
-        Ip().ad(this.aLX);
+        Ip().ad(this.aLY);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b, android.app.Dialog
@@ -103,28 +103,28 @@ public class c extends e {
     }
 
     public void setFields(String str) {
-        this.aFG = str;
+        this.aFH = str;
     }
 
     public void setDisabled(boolean z) {
-        this.aFH = z;
+        this.aFI = z;
     }
 
     public void setStartDate(Date date) {
-        this.aFx = date;
+        this.aFy = date;
     }
 
     public void setEndDate(Date date) {
-        this.aFy = date;
+        this.aFz = date;
     }
 
     /* loaded from: classes2.dex */
     public static class a extends e.a {
-        public Date aLY;
         public Date aLZ;
         public Date aMa;
-        private String aMb;
-        private boolean aMc;
+        public Date aMb;
+        private String aMc;
+        private boolean aMd;
 
         public a(Context context) {
             super(context);
@@ -136,45 +136,45 @@ public class c extends e {
         }
 
         public a g(Date date) {
-            this.aLY = date;
-            return this;
-        }
-
-        public a h(Date date) {
             this.aLZ = date;
             return this;
         }
 
-        public a i(Date date) {
+        public a h(Date date) {
             this.aMa = date;
             return this;
         }
 
+        public a i(Date date) {
+            this.aMb = date;
+            return this;
+        }
+
         public a gd(String str) {
-            this.aMb = str;
+            this.aMc = str;
             return this;
         }
 
         public a bM(boolean z) {
-            this.aMc = z;
+            this.aMd = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
         public e zq() {
             c cVar = (c) super.zq();
-            cVar.setFields(this.aMb);
-            cVar.setDisabled(this.aMc);
-            if (this.aMa != null) {
-                cVar.setYear(this.aMa.getYear() + 1900);
-                cVar.setMonth(this.aMa.getMonth() + 1);
-                cVar.setDay(this.aMa.getDate());
-            }
-            if (this.aLY != null) {
-                cVar.setStartDate(this.aLY);
+            cVar.setFields(this.aMc);
+            cVar.setDisabled(this.aMd);
+            if (this.aMb != null) {
+                cVar.setYear(this.aMb.getYear() + 1900);
+                cVar.setMonth(this.aMb.getMonth() + 1);
+                cVar.setDay(this.aMb.getDate());
             }
             if (this.aLZ != null) {
-                cVar.setEndDate(this.aLZ);
+                cVar.setStartDate(this.aLZ);
+            }
+            if (this.aMa != null) {
+                cVar.setEndDate(this.aMa);
             }
             return cVar;
         }

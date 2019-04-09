@@ -7,9 +7,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h {
-    private static h ctj = new h();
-    private b ctk;
-    private a ctl;
+    private static h ctk = new h();
+    private b ctl;
+    private a ctm;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,17 +20,17 @@ public class h {
     }
 
     public static h apR() {
-        return ctj;
+        return ctk;
     }
 
     public void a(a aVar) {
-        this.ctl = aVar;
-        if (this.ctk != null) {
-            this.ctk.cancel();
+        this.ctm = aVar;
+        if (this.ctl != null) {
+            this.ctl.cancel();
         }
-        this.ctk = new b();
-        this.ctk.setPriority(4);
-        this.ctk.execute(new String[0]);
+        this.ctl = new b();
+        this.ctl.setPriority(4);
+        this.ctl.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -77,8 +77,8 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (h.this.ctl != null && bool != null) {
-                h.this.ctl.bt(bool.booleanValue());
+            if (h.this.ctm != null && bool != null) {
+                h.this.ctm.bt(bool.booleanValue());
             }
         }
     }

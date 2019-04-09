@@ -10,47 +10,47 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class PointPageIndicator extends View {
-    protected Drawable blm;
     protected Drawable bln;
-    protected Rect blo;
+    protected Drawable blo;
     protected Rect blp;
-    private int blq;
+    protected Rect blq;
     private int blr;
+    private int bls;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.blm = null;
         this.bln = null;
-        this.blo = new Rect();
+        this.blo = null;
         this.blp = new Rect();
-        this.blq = 0;
-        this.mPosition = 0;
+        this.blq = new Rect();
         this.blr = 0;
+        this.mPosition = 0;
+        this.bls = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.blm = null;
         this.bln = null;
-        this.blo = new Rect();
+        this.blo = null;
         this.blp = new Rect();
-        this.blq = 0;
-        this.mPosition = 0;
+        this.blq = new Rect();
         this.blr = 0;
+        this.mPosition = 0;
+        this.bls = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.blm = null;
         this.bln = null;
-        this.blo = new Rect();
+        this.blo = null;
         this.blp = new Rect();
-        this.blq = 0;
-        this.mPosition = 0;
+        this.blq = new Rect();
         this.blr = 0;
+        this.mPosition = 0;
+        this.bls = 0;
         init(context);
     }
 
@@ -58,15 +58,15 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator eZ(int i) {
-        if (this.blr != i) {
-            this.blr = i;
+        if (this.bls != i) {
+            this.bls = i;
             invalidate();
         }
         return this;
     }
 
     public PointPageIndicator fa(int i) {
-        this.blq = i;
+        this.blr = i;
         return this;
     }
 
@@ -82,13 +82,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.blm = drawable;
-        this.bln = drawable2;
+        this.bln = drawable;
+        this.blo = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.blo.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.blp.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.blp.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.blq.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.blr > 0) {
-            int i = this.blr;
-            int i2 = this.blq;
+        if (this.bls > 0) {
+            int i = this.bls;
+            int i2 = this.blr;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.blo;
-            Rect rect2 = this.blp;
-            Drawable drawable = this.blm;
-            Drawable drawable2 = this.bln;
+            Rect rect = this.blp;
+            Rect rect2 = this.blq;
+            Drawable drawable = this.bln;
+            Drawable drawable2 = this.blo;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

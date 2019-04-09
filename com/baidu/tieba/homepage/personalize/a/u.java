@@ -34,9 +34,9 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         setOnAdapterItemClickListener(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.personalize.a.u.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if (view != null && aVar != null && !ap.isEmpty(aVar.cMZ)) {
+                if (view != null && aVar != null && !ap.isEmpty(aVar.cNa)) {
                     TiebaStatic.log(new am("c12885"));
-                    ba.adA().c(u.this.mPageContext, new String[]{aVar.cMZ});
+                    ba.adA().c(u.this.mPageContext, new String[]{aVar.cNa});
                 }
             }
         });
@@ -58,8 +58,8 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes4.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.personalize.data.g> {
-        private String cMZ;
-        private ImageView cck;
+        private String cNa;
+        private ImageView ccl;
         private TbImageView fLZ;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
@@ -71,8 +71,8 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             layoutParams.height = (int) (com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds236) * ((com.baidu.adp.lib.util.l.aO(tbPageContext.getPageActivity()) * 1.0f) / 1080.0f));
             this.fLZ.setLayoutParams(layoutParams);
             this.fLZ.setDefaultBgResource(d.f.pic_quiz_banner_default);
-            this.cck = (ImageView) getView().findViewById(d.g.close);
-            this.cck.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.u.a.1
+            this.ccl = (ImageView) getView().findViewById(d.g.close);
+            this.ccl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.u.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016569));
@@ -93,14 +93,14 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
-            if (gVar.aal >= 0 && gVar.fNi >= 0) {
+            if (gVar.aam >= 0 && gVar.fNi >= 0) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fLZ.getLayoutParams();
-                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.aal) * gVar.fNi);
+                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.aam) * gVar.fNi);
                 this.fLZ.setLayoutParams(layoutParams);
             }
             this.fLZ.startLoad(gVar.imgUrl, 10, false);
-            this.cMZ = gVar.bvL;
-            al.c(this.cck, d.f.icon_live_close_n);
+            this.cNa = gVar.bvM;
+            al.c(this.ccl, d.f.icon_live_close_n);
         }
 
         @Override // android.view.View.OnClickListener

@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes4.dex */
 public class c {
-    a hLs;
+    a hLt;
     private BdTypeListView mListView;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mListView = bdTypeListView;
-        this.hLs = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.hLt = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void b(e eVar) {
@@ -19,18 +19,18 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        this.hLs.onChangeSkinType();
+        this.hLt.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.hLs.onChangeSkinType();
+        this.hLt.onChangeSkinType();
     }
 
     public void bQp() {
-        this.hLs.bQp();
+        this.hLt.bQp();
     }
 
     public void bQq() {
-        this.hLs.bQq();
+        this.hLt.bQq();
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.a<f> {
-    private c ehj;
+    private c ehk;
     public ClickableHeaderImageView fAm;
     private MetaData fEB;
     private f fEC;
@@ -41,7 +41,7 @@ public class b extends com.baidu.tieba.card.a<f> {
         this.fEz = (TextView) getView().findViewById(d.g.god_describe);
         this.fED = (TextView) getView().findViewById(d.g.rec_reason);
         this.fEw = (CommonUserLikeButton) getView().findViewById(d.g.god_like_btn);
-        this.ehj = new c(tbPageContext, this.fEw);
+        this.ehk = new c(tbPageContext, this.fEw);
         this.fEw.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(d.g.bottom_line);
     }
@@ -71,20 +71,20 @@ public class b extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.bBJ != null && fVar.bBJ.getGodUserData() != null) {
+        if (fVar != null && fVar.bBK != null && fVar.bBK.getGodUserData() != null) {
             this.fEC = fVar;
-            this.fEB = fVar.bBJ;
-            this.fAm.setData(fVar.bBJ);
-            this.fEy.setText(fVar.bBJ.getName_show());
-            this.fEz.setText(fVar.bBJ.getGodUserData().getIntro());
+            this.fEB = fVar.bBK;
+            this.fAm.setData(fVar.bBK);
+            this.fEy.setText(fVar.bBK.getName_show());
+            this.fEz.setText(fVar.bBK.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(d.j.recommend_reason);
-            String recommendReason = fVar.bBJ.getGodUserData().getRecommendReason();
+            String recommendReason = fVar.bBK.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
                 this.fED.setText("");
             } else {
                 this.fED.setText(String.format(string, recommendReason));
             }
-            this.ehj.a(fVar.bBJ);
+            this.ehk.a(fVar.bBK);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }

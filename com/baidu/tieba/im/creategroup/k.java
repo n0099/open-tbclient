@@ -12,9 +12,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     BdListView Pj;
-    TextView csC;
-    private View csD;
-    TbPageContext<GroupAddressEditActivity> eKd;
+    TextView csD;
+    private View csE;
+    TbPageContext<GroupAddressEditActivity> eKe;
     private boolean gga;
     private TextView ggc;
     private String[] ggd;
@@ -23,20 +23,20 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     View mParent;
 
     public View brJ() {
-        return this.csC;
+        return this.csD;
     }
 
     public View getBackButton() {
-        return this.csD;
+        return this.csE;
     }
 
     public k(TbPageContext<GroupAddressEditActivity> tbPageContext, String[] strArr, boolean z) {
         super(tbPageContext);
         this.mNavigationBar = null;
         this.mParent = null;
-        this.eKd = null;
-        this.csC = null;
+        this.eKe = null;
         this.csD = null;
+        this.csE = null;
         this.Pj = null;
         this.ggc = null;
         this.ggd = null;
@@ -49,12 +49,12 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     private void a(GroupAddressEditActivity groupAddressEditActivity) {
+        this.csE.setOnClickListener(groupAddressEditActivity);
         this.csD.setOnClickListener(groupAddressEditActivity);
-        this.csC.setOnClickListener(groupAddressEditActivity);
     }
 
     private void b(GroupAddressEditActivity groupAddressEditActivity) {
-        this.eKd = groupAddressEditActivity.getPageContext();
+        this.eKe = groupAddressEditActivity.getPageContext();
         groupAddressEditActivity.setContentView(d.h.group_address_activity);
         this.mParent = groupAddressEditActivity.findViewById(d.g.parent);
         this.Pj = (BdListView) groupAddressEditActivity.findViewById(d.g.lv_address);
@@ -76,8 +76,8 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
         this.mNavigationBar = (NavigationBar) groupAddressEditActivity.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupAddressEditActivity.getResources().getString(d.j.group_address_edit));
         this.mNavigationBar.setSystemClickable(false);
-        this.csD = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.csC = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(d.j.save));
+        this.csE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.csD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(d.j.save));
     }
 
     public void brK() {
@@ -85,11 +85,11 @@ public class k extends com.baidu.adp.base.c<GroupAddressEditActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.eKd.getLayoutMode().setNightMode(i == 1);
-        this.eKd.getLayoutMode().onModeChanged(this.mParent);
+        this.eKe.getLayoutMode().setNightMode(i == 1);
+        this.eKe.getLayoutMode().onModeChanged(this.mParent);
         al.h(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         al.l(this.mParent, d.C0277d.common_color_10041);
-        al.d(this.csC, d.C0277d.cp_cont_f, 1);
+        al.d(this.csD, d.C0277d.cp_cont_f, 1);
     }
 }

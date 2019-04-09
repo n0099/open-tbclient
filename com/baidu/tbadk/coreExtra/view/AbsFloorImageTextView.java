@@ -17,16 +17,16 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.a.c;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
-    protected ImageUrlData cbY;
-    private c.a cbZ;
-    public com.baidu.tieba.pb.a.c cca;
+    protected ImageUrlData cbZ;
+    private c.a cca;
+    public com.baidu.tieba.pb.a.c ccb;
     protected String mUserId;
     protected static final int TOP = l.h(TbadkApplication.getInst(), d.e.tbds34);
     protected static final int BOTTOM = l.h(TbadkApplication.getInst(), d.e.tbds28);
     protected static final int LEFT = l.h(TbadkApplication.getInst(), d.e.tbds44);
     protected static final int RIGHT = l.h(TbadkApplication.getInst(), d.e.tbds44);
-    protected static final int cbW = (l.aO(TbadkApplication.getInst()) - LEFT) - RIGHT;
-    protected static final int cbX = l.h(TbadkApplication.getInst(), d.e.tbds42);
+    protected static final int cbX = (l.aO(TbadkApplication.getInst()) - LEFT) - RIGHT;
+    protected static final int cbY = l.h(TbadkApplication.getInst(), d.e.tbds42);
 
     public abstract void a(ImageUrlData imageUrlData);
 
@@ -34,7 +34,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
-        this.cbZ = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
+        this.cca = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean b(View view, MotionEvent motionEvent) {
                 return false;
@@ -51,7 +51,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return true;
             }
         };
-        this.cca = new com.baidu.tieba.pb.a.c(this.cbZ) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
+        this.ccb = new com.baidu.tieba.pb.a.c(this.cca) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
             @Override // com.baidu.tieba.pb.a.c, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 return false;
@@ -69,9 +69,9 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     public void ajU() {
-        if (this.cbY != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cbY.threadId), String.valueOf(this.cbY.postId), this.cbY.mIsSeeHost, this.cbY.mIsReserver, null);
-            if (this.cbY.isFirstPost) {
+        if (this.cbZ != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cbZ.threadId), String.valueOf(this.cbZ.postId), this.cbZ.mIsSeeHost, this.cbZ.mIsReserver, null);
+            if (this.cbZ.isFirstPost) {
                 createHistoryCfg.setJumpToTopArea(true);
             } else {
                 createHistoryCfg.setJumpToCommentArea(true);
@@ -82,7 +82,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Pair<Integer, Integer> og(String str) {
-        return ab.q(str, cbX, cbW);
+        return ab.q(str, cbY, cbX);
     }
 
     protected void o(View view, int i) {

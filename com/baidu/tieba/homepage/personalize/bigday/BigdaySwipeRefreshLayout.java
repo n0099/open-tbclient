@@ -28,7 +28,7 @@ import com.baidu.tbadk.util.BdListViewHelper;
 /* loaded from: classes4.dex */
 public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int[] LAYOUT_ATTRS = {16842766};
-    private int bQU;
+    private int bQV;
     a fMU;
     private boolean fMV;
     private int fMW;
@@ -78,7 +78,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     void reset() {
         finish();
         if (getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQU;
+            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQV;
         }
         if (this.fMU != null) {
             this.fMU.getView().setVisibility(8);
@@ -194,7 +194,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, LAYOUT_ATTRS);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
-        this.bQU = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.bQV = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void setCustomDistances(int i, int i2, int i3) {
@@ -672,7 +672,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
         }, 200);
         if ((getLayoutParams() instanceof FrameLayout.LayoutParams) && ((FrameLayout.LayoutParams) getLayoutParams()).topMargin == 0) {
-            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQU;
+            ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQV;
         }
     }
 
@@ -903,7 +903,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void resume() {
         if (this.mState == 6) {
             if (getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQU;
+                ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.bQV;
             }
             a(this.mCurrentTargetOffsetTop, (Animation.AnimationListener) null, 400);
             this.mRefreshing = false;

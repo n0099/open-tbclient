@@ -11,8 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<c> bzj;
-    public final ArrayList<e> cyp = new ArrayList<>();
+    private List<c> bzk;
+    public final ArrayList<e> cyq = new ArrayList<>();
     private e fSw;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
@@ -25,7 +25,7 @@ public class b extends BaseAdapter {
     }
 
     public void setData(List<c> list) {
-        this.bzj = list;
+        this.bzk = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,20 +39,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.S(this.bzj);
+        return v.S(this.bzk);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.c(this.bzj, i);
+        return v.c(this.bzk, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (v.c(this.bzj, i) == null) {
+        if (v.c(this.bzk, i) == null) {
             return -1L;
         }
-        return ((c) v.c(this.bzj, i)).hashCode();
+        return ((c) v.c(this.bzk, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
@@ -62,11 +62,11 @@ public class b extends BaseAdapter {
             e bv = this.fSw.bv(view);
             bv.setOnClickListener(this.mOnClickListener);
             view.setTag(bv);
-            this.cyp.add(bv);
+            this.cyq.add(bv);
         }
         e eVar = (e) view.getTag();
-        if (v.c(this.bzj, i) != null) {
-            a(eVar, this.bzj.get(i));
+        if (v.c(this.bzk, i) != null) {
+            a(eVar, this.bzk.get(i));
         }
         return eVar.getView();
     }
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void hM(int i) {
-        if (v.S(this.cyp) > 0) {
-            Iterator<e> it = this.cyp.iterator();
+        if (v.S(this.cyq) > 0) {
+            Iterator<e> it = this.cyq.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

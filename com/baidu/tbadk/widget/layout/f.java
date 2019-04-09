@@ -7,23 +7,23 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int cAO;
-    protected int cAP;
-    private double cAQ;
-    private boolean cAR;
+    private int cAP;
+    protected int cAQ;
+    private double cAR;
+    private boolean cAS;
 
     public f() {
-        this.cAO = 3;
-        this.cAP = this.cAO;
-        this.cAR = true;
+        this.cAP = 3;
+        this.cAQ = this.cAP;
+        this.cAS = true;
     }
 
     public f(int i) {
-        this.cAO = 3;
-        this.cAP = this.cAO;
-        this.cAR = true;
+        this.cAP = 3;
+        this.cAQ = this.cAP;
+        this.cAS = true;
         if (i > 0) {
-            this.cAP = i;
+            this.cAQ = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class f implements c {
         }
         int S = v.S(list);
         if (S >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.cAO);
+            constrainImageLayout.setImageMaxChildCount(this.cAP);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = S - this.cAP;
+        int i3 = S - this.cAQ;
         if (i3 > 0) {
-            int i4 = this.cAP + i;
+            int i4 = this.cAQ + i;
             List<MediaData> c = v.c(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.cAR) {
+            if (!this.cAS) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(c, i, true, this.cAR);
+            constrainImageLayout.setUrls(c, i, true, this.cAS);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(v.c(list, i, S), i);
@@ -75,17 +75,17 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.cAQ > 0.0d) {
-            return this.cAQ;
+        if (this.cAR > 0.0d) {
+            return this.cAR;
         }
         return 0.6666666666666666d;
     }
 
     public void h(double d) {
-        this.cAQ = d;
+        this.cAR = d;
     }
 
     public void fq(boolean z) {
-        this.cAR = z;
+        this.cAS = z;
     }
 }

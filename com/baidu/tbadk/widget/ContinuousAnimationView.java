@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.b {
-    private boolean ctS;
     private boolean ctT;
+    private boolean ctU;
 
     public ContinuousAnimationView(Context context) {
         this(context, null);
@@ -22,8 +22,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ctS = false;
         this.ctT = false;
+        this.ctU = false;
         init();
     }
 
@@ -32,16 +32,16 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 ContinuousAnimationView.this.aqw();
-                ContinuousAnimationView.this.ctS = true;
+                ContinuousAnimationView.this.ctT = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 ContinuousAnimationView.this.aqt();
-                if (ContinuousAnimationView.this.ctT) {
-                    ContinuousAnimationView.this.ctT = false;
+                if (ContinuousAnimationView.this.ctU) {
+                    ContinuousAnimationView.this.ctU = false;
                 }
-                ContinuousAnimationView.this.ctS = false;
+                ContinuousAnimationView.this.ctT = false;
                 ContinuousAnimationView.this.setFrame(0);
             }
 
@@ -53,9 +53,9 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 ContinuousAnimationView.this.aqv();
-                if (ContinuousAnimationView.this.ctT) {
+                if (ContinuousAnimationView.this.ctU) {
                     ContinuousAnimationView.this.cancelAnimation();
-                    ContinuousAnimationView.this.ctT = false;
+                    ContinuousAnimationView.this.ctU = false;
                 }
             }
         });
@@ -75,8 +75,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void cw() {
-        if (this.ctS) {
-            this.ctT = true;
+        if (this.ctT) {
+            this.ctU = true;
         }
     }
 

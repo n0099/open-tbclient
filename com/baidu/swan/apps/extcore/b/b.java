@@ -11,13 +11,13 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.e.a, R extends com.baidu.swan.apps.extcore.f.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P avx;
+    private P avy;
     @NonNull
-    private R avy;
+    private R avz;
 
     public b(@NonNull P p, @NonNull R r) {
-        this.avx = p;
-        this.avy = r;
+        this.avy = p;
+        this.avz = r;
     }
 
     public void B(int i, int i2) {
@@ -30,15 +30,15 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.e.a, R extends com
     }
 
     public void a(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        this.avx.b(aVar);
+        this.avy.b(aVar);
     }
 
     public void Bk() {
-        this.avx.Bk();
+        this.avy.Bk();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> boolean a(T t) {
-        return t != null && this.avy.b(t);
+        return t != null && this.avz.b(t);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,16 +46,16 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.e.a, R extends com
     public ExtensionCore Bl() {
         if (DEBUG && com.baidu.swan.apps.extcore.g.a.BB()) {
             ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.avO = 0L;
-            extensionCore.avP = com.baidu.swan.apps.extcore.g.a.v(0L);
-            extensionCore.avQ = com.baidu.swan.apps.extcore.d.b.Bo().getPath();
-            extensionCore.avN = 2;
+            extensionCore.avP = 0L;
+            extensionCore.avQ = com.baidu.swan.apps.extcore.g.a.v(0L);
+            extensionCore.avR = com.baidu.swan.apps.extcore.d.b.Bo().getPath();
+            extensionCore.avO = 2;
             Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
             return extensionCore;
         }
-        ExtensionCore Bx = this.avx.Bx();
-        ExtensionCore Bx2 = this.avy.Bx();
-        if (Bx.avO >= Bx2.avO) {
+        ExtensionCore Bx = this.avy.Bx();
+        ExtensionCore Bx2 = this.avz.Bx();
+        if (Bx.avP >= Bx2.avP) {
             if (DEBUG) {
                 Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + Bx.toString());
                 return Bx;

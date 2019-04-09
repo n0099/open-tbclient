@@ -23,10 +23,10 @@ public class CleanApertureAtom extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("CleanApertureAtom.java", CleanApertureAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getWidth", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "", "", "", "double"), 45);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setWidth", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "double", "width", "", "void"), 49);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getHeight", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "", "", "", "double"), 53);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setHeight", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "double", "height", "", "void"), 57);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getWidth", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "", "", "", "double"), 45);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setWidth", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "double", "width", "", "void"), 49);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getHeight", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "", "", "", "double"), 53);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setHeight", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "double", "height", "", "void"), 57);
     }
 
     public CleanApertureAtom() {

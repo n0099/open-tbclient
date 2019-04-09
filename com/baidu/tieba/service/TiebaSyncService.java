@@ -280,7 +280,7 @@ public class TiebaSyncService extends BdBaseService {
                     b.getInstance().putInt("home_page_max_thread_count", aiN.ahc());
                     b.getInstance().putBoolean("localvideo_open", aiN.ahi());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001365));
-                    b.getInstance().putInt("card_show_statistic_max_count", aiN.bYa);
+                    b.getInstance().putInt("card_show_statistic_max_count", aiN.bYb);
                     b.getInstance().putString("nick_name_activity_link", aiN.ahk());
                     String string = b.getInstance().getString("clean_smart_frs_cookie", "");
                     String ahh = aiN.ahh();
@@ -298,16 +298,16 @@ public class TiebaSyncService extends BdBaseService {
                     b.getInstance().putInt("key_card_abstract_switch", aiN.ahp());
                     s ahq = aiN.ahq();
                     if (ahq != null) {
-                        b.getInstance().putBoolean("nani_key_is_show_download_nani_panel", ahq.bXo);
-                        b.getInstance().putBoolean("nani_key_is_activate_app", ahq.bXp);
-                        b.getInstance().putInt("nani_key_download_show_position", ahq.bXq);
-                        b.getInstance().putInt("nani_key_download_show_rate", ahq.bXr);
-                        b.getInstance().putString("nani_key_download_link_url", ahq.bXs);
-                        b.getInstance().putString("nani_key_download_txt", ahq.bXt);
-                        b.getInstance().putString("nani_key_show_tail_txt", ahq.bXu);
-                        b.getInstance().putInt("nani_key_show_tail_video_type", ahq.bXv);
-                        b.getInstance().putString("nani_key_show_tail_txt", ahq.bXu);
-                        b.getInstance().putString("nani_key_pre_h5_link", ahq.bXw);
+                        b.getInstance().putBoolean("nani_key_is_show_download_nani_panel", ahq.bXp);
+                        b.getInstance().putBoolean("nani_key_is_activate_app", ahq.bXq);
+                        b.getInstance().putInt("nani_key_download_show_position", ahq.bXr);
+                        b.getInstance().putInt("nani_key_download_show_rate", ahq.bXs);
+                        b.getInstance().putString("nani_key_download_link_url", ahq.bXt);
+                        b.getInstance().putString("nani_key_download_txt", ahq.bXu);
+                        b.getInstance().putString("nani_key_show_tail_txt", ahq.bXv);
+                        b.getInstance().putInt("nani_key_show_tail_video_type", ahq.bXw);
+                        b.getInstance().putString("nani_key_show_tail_txt", ahq.bXv);
+                        b.getInstance().putString("nani_key_pre_h5_link", ahq.bXx);
                     }
                     b.getInstance().putLong("key_frs_cache_time", aiN.ahr() * 1000);
                     TbSingleton.getInstance().setPushDialogLoopTime(aiN.ahs());

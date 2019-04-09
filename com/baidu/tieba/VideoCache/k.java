@@ -6,9 +6,9 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes4.dex */
 public class k {
-    private static k cLT;
-    private g cLU;
-    private b cLV;
+    private static k cLU;
+    private g cLV;
+    private b cLW;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.cLU.setVideoUrl((String) message.obj);
-                    k.this.cLU.run();
+                    k.this.cLV.setVideoUrl((String) message.obj);
+                    k.this.cLV.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.cLV != null) {
-                    k.this.cLV.avy();
+                if (k.this.cLW != null) {
+                    k.this.cLW.avy();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.cLV.qm((String) message.obj);
+                    k.this.cLW.qm((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.cLV != null) {
-                k.this.cLV.clearCache();
+            } else if (message.what == 5 && k.this.cLW != null) {
+                k.this.cLW.clearCache();
             }
             return true;
         }
@@ -45,19 +45,19 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.cLU = new g();
-        this.cLV = new b();
+        this.cLV = new g();
+        this.cLW = new b();
     }
 
     public static k avN() {
-        if (cLT == null) {
+        if (cLU == null) {
             synchronized (k.class) {
-                if (cLT == null) {
-                    cLT = new k();
+                if (cLU == null) {
+                    cLU = new k();
                 }
             }
         }
-        return cLT;
+        return cLU;
     }
 
     public void o(InputStream inputStream) {

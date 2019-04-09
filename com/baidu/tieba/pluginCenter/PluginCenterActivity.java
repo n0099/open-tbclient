@@ -42,7 +42,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (AY = PluginCenterActivity.this.AY(bdFileDownloadData.getId())) != null) {
                 AY.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
                 AY.setDownLoadStatus(3);
-                PluginCenterActivity.this.iat.ac(AY);
+                PluginCenterActivity.this.iau.ac(AY);
             }
         }
 
@@ -56,7 +56,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (AY = PluginCenterActivity.this.AY(bdFileDownloadData.getId())) != null) {
                 PluginCenterActivity.this.showToast(d.j.download_fail_tip);
                 AY.setDownLoadStatus(0);
-                PluginCenterActivity.this.iat.ac(AY);
+                PluginCenterActivity.this.iau.ac(AY);
             }
         }
 
@@ -66,7 +66,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (AY = PluginCenterActivity.this.AY(bdFileDownloadData.getId())) != null) {
                 if (i == 0) {
                     PluginCenterActivity.this.showToast(d.j.plugin_installation_finished);
-                    PluginCenterActivity.this.eAK.dispatchMvcEvent(new b(1, AY, null, null));
+                    PluginCenterActivity.this.eAL.dispatchMvcEvent(new b(1, AY, null, null));
                     return;
                 }
                 PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(d.j.plugin_installation_failed) + str);
@@ -75,9 +75,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     };
     private BdListView Pj;
-    private ViewEventCenter eAK;
-    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> iat;
-    private List<Object> iau;
+    private ViewEventCenter eAL;
+    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> iau;
+    private List<Object> iav;
     private int mFromType;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -88,8 +88,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.plugin_center_activity);
-        this.eAK = new ViewEventCenter();
-        this.eAK.addEventDelegate(this);
+        this.eAL = new ViewEventCenter();
+        this.eAL.addEventDelegate(this);
         aBy();
         aBW();
     }
@@ -108,13 +108,13 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         this.Pj = (BdListView) findViewById(d.g.list);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(d.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(getActivity(), d.e.ds220)), NoDataViewFactory.d.hT(d.j.plugin_no_plugins), null);
         this.Pj.setEmptyView(this.mNoDataView);
-        this.iat = new com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>>(getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.view.a.class, com.baidu.tieba.pluginCenter.view.b.class}, new int[]{d.h.plugin_center_list_function_item, d.h.plugin_center_list_desc_item}, this.eAK) { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.1
+        this.iau = new com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>>(getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.view.a.class, com.baidu.tieba.pluginCenter.view.b.class}, new int[]{d.h.plugin_center_list_function_item, d.h.plugin_center_list_desc_item}, this.eAL) { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.1
             @Override // com.baidu.tbadk.mvc.f.b
             public int jS(int i) {
                 return getItem(i) instanceof String ? 1 : 0;
             }
         };
-        this.Pj.setAdapter((ListAdapter) this.iat);
+        this.Pj.setAdapter((ListAdapter) this.iau);
         this.Pj.setOnItemClickListener(this);
     }
 
@@ -125,11 +125,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         PluginPackageManager.ni().a(this.Lt);
         PluginNetConfigInfos nG = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nF().nG();
         if (nG != null && nG.getConfigs() != null && nG.getConfigs().size() > 0) {
-            this.iau = dL(nG.getConfigs());
-            this.iat.ae(this.iau);
+            this.iav = dL(nG.getConfigs());
+            this.iau.ae(this.iav);
             PluginPackageManager.ni().nw();
         }
-        if (this.iau != null && !this.iau.isEmpty()) {
+        if (this.iav != null && !this.iav.isEmpty()) {
             al.l(this.mRootView, d.C0277d.cp_bg_line_c);
         } else {
             al.l(this.mRootView, d.C0277d.cp_bg_line_d);
@@ -141,7 +141,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iat.notifyDataSetChanged();
+        this.iau.notifyDataSetChanged();
         getLayoutMode().onModeChanged(findViewById(16908290));
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
@@ -150,8 +150,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.iat.getItem(i) instanceof PluginConfigWrapper) {
-            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginConfigWrapper) this.iat.getItem(i)).package_name)));
+        if (this.iau.getItem(i) instanceof PluginConfigWrapper) {
+            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginConfigWrapper) this.iau.getItem(i)).package_name)));
         }
     }
 
@@ -174,7 +174,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                         PluginPackageManager.ni().a(pluginConfigWrapper, PluginCenterActivity.this.Lt);
                         pluginConfigWrapper.setDownLoadPercent(0);
                         pluginConfigWrapper.setDownLoadStatus(3);
-                        PluginCenterActivity.this.iat.ac(pluginConfigWrapper);
+                        PluginCenterActivity.this.iau.ac(pluginConfigWrapper);
                     } else {
                         PluginCenterActivity.this.showToast(d.j.neterror);
                     }
@@ -196,8 +196,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void bUr() {
         PluginNetConfigInfos nG = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.nF().nG();
         if (nG != null && nG.getConfigs() != null && nG.getConfigs().size() > 0) {
-            this.iau = dL(nG.getConfigs());
-            this.iat.ae(this.iau);
+            this.iav = dL(nG.getConfigs());
+            this.iau.ae(this.iav);
         }
     }
 
@@ -206,7 +206,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         if (str == null) {
             return null;
         }
-        List<Object> dataList = this.iat.getDataList();
+        List<Object> dataList = this.iau.getDataList();
         if (dataList == null || dataList.isEmpty()) {
             return null;
         }

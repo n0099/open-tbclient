@@ -1,16 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class PbNormalLikeButtonSwitchStatic extends com.baidu.tbadk.s.j {
-    private static final PbNormalLikeButtonSwitchStatic hua;
-    private final String htZ = "android_pb_normal_like_btn";
+    private static final PbNormalLikeButtonSwitchStatic hub;
+    private final String hua = "android_pb_normal_like_btn";
 
     static {
         com.baidu.adp.lib.b.d.iQ().i(PbNormalLikeButtonSwitchStatic.class);
-        hua = new PbNormalLikeButtonSwitchStatic();
+        hub = new PbNormalLikeButtonSwitchStatic();
     }
 
     public static boolean apE() {
-        return hua.jK();
+        return hub.jK();
     }
 
     @Override // com.baidu.tbadk.s.j, com.baidu.adp.lib.b.a

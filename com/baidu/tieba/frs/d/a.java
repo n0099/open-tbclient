@@ -18,7 +18,7 @@ public class a {
             if (!z2 || bgVar.Zh().frsLiveStageType != 0) {
                 z = false;
             }
-            am a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bDU, z, null, null);
+            am a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bDV, z, null, null);
             if (a != null) {
                 a.T("list_order", c.bij().a(bVar));
                 if (z2) {
@@ -46,7 +46,7 @@ public class a {
             if (!z2 || bgVar.Zh().frsLiveStageType != 0) {
                 z = false;
             }
-            am a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bDU, z, null, null);
+            am a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bDV, z, null, null);
             if (a != null) {
                 a.T("list_order", c.bij().a(bVar));
                 if (z2) {

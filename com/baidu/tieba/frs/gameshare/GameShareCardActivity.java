@@ -20,7 +20,7 @@ import com.baidu.tieba.frs.gameshare.a;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes4.dex */
 public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0292a {
-    private e dLo;
+    private e dLp;
     private a fmm;
     private GameShareData fmn;
 
@@ -56,8 +56,8 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     }
 
     private void initData(Bundle bundle) {
-        if (this.dLo == null) {
-            this.dLo = new e(getActivity(), null);
+        if (this.dLp == null) {
+            this.dLp = new e(getActivity(), null);
         }
         if (bundle == null) {
             this.fmn = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
@@ -78,8 +78,8 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     public com.baidu.tbadk.coreExtra.c.d t(Bitmap bitmap) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         dVar.n(bitmap);
+        dVar.cbQ = false;
         dVar.cbP = false;
-        dVar.cbO = false;
         dVar.ajS();
         return dVar;
     }
@@ -101,7 +101,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.k
                 /* renamed from: l */
                 public void onReturnDataInUI(com.baidu.tbadk.coreExtra.c.d dVar) {
-                    GameShareCardActivity.this.dLo.b(dVar);
+                    GameShareCardActivity.this.dLp.b(dVar);
                 }
             });
         }
@@ -124,7 +124,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.k
                 /* renamed from: l */
                 public void onReturnDataInUI(com.baidu.tbadk.coreExtra.c.d dVar) {
-                    GameShareCardActivity.this.dLo.c(dVar);
+                    GameShareCardActivity.this.dLp.c(dVar);
                 }
             });
         }
@@ -147,7 +147,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.k
                 /* renamed from: l */
                 public void onReturnDataInUI(com.baidu.tbadk.coreExtra.c.d dVar) {
-                    GameShareCardActivity.this.dLo.d(dVar);
+                    GameShareCardActivity.this.dLp.d(dVar);
                 }
             });
         }
@@ -170,7 +170,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.k
                 /* renamed from: l */
                 public void onReturnDataInUI(com.baidu.tbadk.coreExtra.c.d dVar) {
-                    GameShareCardActivity.this.dLo.g(dVar);
+                    GameShareCardActivity.this.dLp.g(dVar);
                 }
             });
         }

@@ -33,34 +33,34 @@ import tbclient.FrsPage.FrsPageResIdl;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
 public class FrsActivityStatic {
-    public static boolean eXQ = true;
     public static boolean eXR = true;
+    public static boolean eXS = true;
     public static String forumName = "";
-    public static final CustomMessageListener eXS = new CustomMessageListener(2012111) { // from class: com.baidu.tieba.frs.FrsActivityStatic.6
+    public static final CustomMessageListener eXT = new CustomMessageListener(2012111) { // from class: com.baidu.tieba.frs.FrsActivityStatic.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
                 int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
                 if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                    FrsActivityStatic.eXS = true;
                     FrsActivityStatic.eXR = true;
-                    FrsActivityStatic.eXQ = true;
                     return;
                 }
+                FrsActivityStatic.eXS = false;
                 FrsActivityStatic.eXR = false;
-                FrsActivityStatic.eXQ = false;
             }
         }
     };
-    private static final CustomMessageListener eXT = new CustomMessageListener(2012112) { // from class: com.baidu.tieba.frs.FrsActivityStatic.7
+    private static final CustomMessageListener eXU = new CustomMessageListener(2012112) { // from class: com.baidu.tieba.frs.FrsActivityStatic.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 int l = com.baidu.adp.lib.g.b.l(customResponsedMessage.getData().toString(), 1);
                 if (l == 1 || l == 0) {
+                    FrsActivityStatic.eXS = false;
                     FrsActivityStatic.eXR = false;
-                    FrsActivityStatic.eXQ = false;
                 }
             }
         }
@@ -78,8 +78,8 @@ public class FrsActivityStatic {
         bbY();
         bbW();
         bbZ();
-        MessageManager.getInstance().registerListener(eXS);
         MessageManager.getInstance().registerListener(eXT);
+        MessageManager.getInstance().registerListener(eXU);
         bbX();
         com.baidu.tieba.frs.FrsHotTopic.a.bcY();
     }

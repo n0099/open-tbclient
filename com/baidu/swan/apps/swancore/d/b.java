@@ -7,19 +7,19 @@ import java.util.Iterator;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b aTn;
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> aTo = new ArrayList<>();
+    public static volatile b aTo;
     private ArrayList<com.baidu.swan.apps.swancore.a.a> aTp = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> aTq = new ArrayList<>();
 
     public static b KU() {
-        if (aTn == null) {
+        if (aTo == null) {
             synchronized (b.class) {
-                if (aTn == null) {
-                    aTn = new b();
+                if (aTo == null) {
+                    aTo = new b();
                 }
             }
         }
-        return aTn;
+        return aTo;
     }
 
     public void dX(int i) {
@@ -43,9 +43,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.aTp;
+                arrayList = this.aTq;
             } else {
-                arrayList = this.aTo;
+                arrayList = this.aTp;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.1
@@ -73,17 +73,17 @@ public final class b {
     public void dY(int i) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.aTo.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.aTp.iterator();
                 while (it.hasNext()) {
                     a(it.next());
                 }
-                this.aTo.clear();
+                this.aTp.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.aTp.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.aTq.iterator();
                 while (it2.hasNext()) {
                     a(it2.next());
                 }
-                this.aTp.clear();
+                this.aTq.clear();
             }
         }
     }

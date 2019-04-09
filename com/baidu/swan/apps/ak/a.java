@@ -3,13 +3,13 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
-    private a aVE = null;
-    private long aVF = 0;
+    private a aVF = null;
     private long aVG = 0;
-    private long aVH = 2;
-    private String aVI = "";
-    private final StringBuilder aVJ = new StringBuilder();
-    private boolean aVK = false;
+    private long aVH = 0;
+    private long aVI = 2;
+    private String aVJ = "";
+    private final StringBuilder aVK = new StringBuilder();
+    private boolean aVL = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
@@ -28,51 +28,51 @@ public final class a {
     }
 
     public a K(long j) {
-        this.aVH = a(j, 9L, "platform");
+        this.aVI = a(j, 9L, "platform");
         return this;
     }
 
     public long Lv() {
-        return this.aVH;
+        return this.aVI;
     }
 
     public a L(long j) {
-        this.aVF = a(j, 999L, "feature");
+        this.aVG = a(j, 999L, "feature");
         return this;
     }
 
     public long Lw() {
-        return this.aVF;
+        return this.aVG;
     }
 
     public a M(long j) {
-        this.aVG = a(j, 9999L, "error");
+        this.aVH = a(j, 9999L, "error");
         return this;
     }
 
     public long Lx() {
-        return this.aVG;
+        return this.aVH;
     }
 
     public a hw(String str) {
         if (str == null) {
             str = "";
         }
-        this.aVI = str;
+        this.aVJ = str;
         return this;
     }
 
     public String Ly() {
-        return this.aVI;
+        return this.aVJ;
     }
 
     public a hx(String str) {
-        this.aVJ.append(str).append("\n");
+        this.aVK.append(str).append("\n");
         return this;
     }
 
     public StringBuilder Lz() {
-        return this.aVJ;
+        return this.aVK;
     }
 
     public long LA() {
@@ -88,11 +88,11 @@ public final class a {
     }
 
     public boolean LB() {
-        return this.aVK;
+        return this.aVL;
     }
 
     public void LC() {
-        this.aVK = true;
+        this.aVL = true;
     }
 
     private long a(long j, long j2, String str) {

@@ -97,37 +97,37 @@ public class a extends y {
         }
         switch (c) {
             case 0:
-                c.i("backgroundAudio", "open, audioId " + a.azv);
+                c.i("backgroundAudio", "open, audioId " + a.azw);
                 Je.a(a, callbackHandler);
                 jSONObject = null;
                 z = true;
                 break;
             case 1:
-                c.i("backgroundAudio", "update, audioId " + a.azv);
+                c.i("backgroundAudio", "update, audioId " + a.azw);
                 Je.a(a);
                 jSONObject = null;
                 z = true;
                 break;
             case 2:
-                c.i("backgroundAudio", "play, audioId " + a.azv);
+                c.i("backgroundAudio", "play, audioId " + a.azw);
                 Je.resume();
                 jSONObject = null;
                 z = true;
                 break;
             case 3:
-                c.i("backgroundAudio", "pause, audioId " + a.azv);
+                c.i("backgroundAudio", "pause, audioId " + a.azw);
                 Je.pause();
                 jSONObject = null;
                 z = true;
                 break;
             case 4:
-                c.i("backgroundAudio", "seek, audioId " + a.azv + " position " + a.mPos);
+                c.i("backgroundAudio", "seek, audioId " + a.azw + " position " + a.mPos);
                 Je.seekTo(a.mPos);
                 jSONObject = null;
                 z = true;
                 break;
             case 5:
-                c.i("backgroundAudio", "stop, audioId " + a.azv);
+                c.i("backgroundAudio", "stop, audioId " + a.azw);
                 Je.stop();
                 jSONObject = null;
                 z = true;
@@ -135,7 +135,7 @@ public class a extends y {
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a.azB, Je.eV(a.azB));
+                    jSONObject2.putOpt(a.azC, Je.eV(a.azC));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {

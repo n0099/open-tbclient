@@ -12,7 +12,7 @@ public class a extends e {
 
     @Override // com.baidu.card.e, com.baidu.card.ac
     protected com.baidu.tieba.play.operableVideoView.a ro() {
-        this.fNJ = new c(this.mContext, this.Zp);
+        this.fNJ = new c(this.mContext, this.Zq);
         return this.fNJ;
     }
 

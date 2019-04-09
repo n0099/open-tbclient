@@ -18,12 +18,12 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private ViewGroup TG;
-    private InterfaceC0038a aeK;
+    private ViewGroup TH;
+    private InterfaceC0038a aeL;
     private com.baidu.c.a.c.a criusData;
-    private Map<String, View> aeI = new HashMap();
     private Map<String, View> aeJ = new HashMap();
-    private boolean aeL = false;
+    private Map<String, View> aeK = new HashMap();
+    private boolean aeM = false;
 
     /* renamed from: com.baidu.c.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -32,39 +32,39 @@ public class a {
     }
 
     public void a(InterfaceC0038a interfaceC0038a) {
-        this.aeK = interfaceC0038a;
+        this.aeL = interfaceC0038a;
     }
 
     public ViewGroup a(Context context, com.baidu.c.a.c.a aVar, boolean z) {
         if (aVar == this.criusData) {
-            this.aeL = true;
+            this.aeM = true;
         } else {
-            this.aeL = a(aVar, this.criusData);
+            this.aeM = a(aVar, this.criusData);
         }
-        if (this.TG == null || !this.aeL) {
-            this.TG = new RelativeLayout(context);
-            this.TG.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+        if (this.TH == null || !this.aeM) {
+            this.TH = new RelativeLayout(context);
+            this.TH.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         }
         this.criusData = aVar;
         try {
-            a(context, aVar, this.TG, z);
+            a(context, aVar, this.TH, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return this.TG;
+        return this.TH;
     }
 
     private boolean a(com.baidu.c.a.c.a aVar, com.baidu.c.a.c.a aVar2) {
         if (aVar == null || aVar2 == null) {
             return false;
         }
-        if (TextUtils.isEmpty(aVar.adu) || aVar.adu.equals(aVar2.adu)) {
+        if (TextUtils.isEmpty(aVar.adv) || aVar.adv.equals(aVar2.adv)) {
             if (TextUtils.isEmpty(aVar.type) || aVar.type.equals(aVar2.type)) {
-                if (aVar.aeG != null) {
-                    if (aVar2.aeG != null && aVar.aeG.size() == aVar2.aeG.size()) {
-                        int size = aVar.aeG.size();
+                if (aVar.aeH != null) {
+                    if (aVar2.aeH != null && aVar.aeH.size() == aVar2.aeH.size()) {
+                        int size = aVar.aeH.size();
                         for (int i = 0; i < size; i++) {
-                            if (!a(aVar.aeG.get(i), aVar2.aeG.get(i))) {
+                            if (!a(aVar.aeH.get(i), aVar2.aeH.get(i))) {
                                 return false;
                             }
                         }
@@ -80,78 +80,78 @@ public class a {
 
     public void i(Context context, boolean z) {
         try {
-            this.aeL = true;
-            a(context, this.criusData, this.TG, z);
+            this.aeM = true;
+            a(context, this.criusData, this.TH, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
     private void a(Context context, com.baidu.c.a.c.a aVar, View view, boolean z) throws Throwable {
-        if (aVar != null && aVar.adg != null && view != null) {
-            if (aVar.adg.getDisplay() == CriusDisplay.NONE) {
+        if (aVar != null && aVar.adh != null && view != null) {
+            if (aVar.adh.getDisplay() == CriusDisplay.NONE) {
                 view.setVisibility(8);
             } else {
                 view.setVisibility(0);
             }
-            if (aVar.adg.getLayoutWidth() > 0.0f) {
+            if (aVar.adh.getLayoutWidth() > 0.0f) {
                 if (view.getLayoutParams() != null) {
-                    view.getLayoutParams().width = (int) aVar.adg.getLayoutWidth();
+                    view.getLayoutParams().width = (int) aVar.adh.getLayoutWidth();
                 } else {
-                    view.setMinimumWidth((int) aVar.adg.getLayoutWidth());
+                    view.setMinimumWidth((int) aVar.adh.getLayoutWidth());
                 }
             }
-            if (aVar.adg.getLayoutHeight() > 0.0f) {
+            if (aVar.adh.getLayoutHeight() > 0.0f) {
                 if (view.getLayoutParams() != null) {
-                    view.getLayoutParams().height = (int) aVar.adg.getLayoutHeight();
+                    view.getLayoutParams().height = (int) aVar.adh.getLayoutHeight();
                 } else {
-                    view.setMinimumHeight((int) aVar.adg.getLayoutHeight());
+                    view.setMinimumHeight((int) aVar.adh.getLayoutHeight());
                 }
             }
-            if (aVar.adg.getLayoutX() > 0.0f) {
-                view.setX(aVar.adg.getLayoutX());
+            if (aVar.adh.getLayoutX() > 0.0f) {
+                view.setX(aVar.adh.getLayoutX());
             }
-            if (aVar.adg.getLayoutY() > 0.0f) {
-                view.setY(aVar.adg.getLayoutY());
+            if (aVar.adh.getLayoutY() > 0.0f) {
+                view.setY(aVar.adh.getLayoutY());
             }
-            if (!TextUtils.isEmpty(aVar.adu)) {
-                a(aVar.adu, view, aVar, z);
+            if (!TextUtils.isEmpty(aVar.adv)) {
+                a(aVar.adv, view, aVar, z);
             } else {
                 a(context, view, aVar, z);
             }
             a(context, view, aVar);
-            if (aVar.aeG != null && aVar.aeG.size() > 0) {
-                for (int i = 0; i < aVar.aeG.size(); i++) {
+            if (aVar.aeH != null && aVar.aeH.size() > 0) {
+                for (int i = 0; i < aVar.aeH.size(); i++) {
                     View view2 = null;
-                    if (this.aeL && (view instanceof ViewGroup)) {
+                    if (this.aeM && (view instanceof ViewGroup)) {
                         view2 = ((ViewGroup) view).getChildAt(i);
                     }
                     if (view2 == null) {
-                        if (!TextUtils.isEmpty(aVar.aeG.get(i).adu)) {
-                            view2 = com.baidu.c.a.b.a.sh().Y(context, aVar.aeG.get(i).adu);
-                            this.aeI.put(aVar.aeG.get(i).adu, view2);
-                        } else if ("view".equalsIgnoreCase(aVar.aeG.get(i).type)) {
+                        if (!TextUtils.isEmpty(aVar.aeH.get(i).adv)) {
+                            view2 = com.baidu.c.a.b.a.sh().Y(context, aVar.aeH.get(i).adv);
+                            this.aeJ.put(aVar.aeH.get(i).adv, view2);
+                        } else if ("view".equalsIgnoreCase(aVar.aeH.get(i).type)) {
                             view2 = new RelativeLayout(context);
-                        } else if ("image".equalsIgnoreCase(aVar.aeG.get(i).type)) {
+                        } else if ("image".equalsIgnoreCase(aVar.aeH.get(i).type)) {
                             view2 = d.si().Z(context, "image");
                             if (view2 == null) {
                                 view2 = new ImageView(context);
                             }
-                        } else if ("text".equalsIgnoreCase(aVar.aeG.get(i).type)) {
+                        } else if ("text".equalsIgnoreCase(aVar.aeH.get(i).type)) {
                             view2 = new TextView(context);
                             ((TextView) view2).setIncludeFontPadding(false);
-                        } else if ("video".equalsIgnoreCase(aVar.aeG.get(i).type)) {
+                        } else if ("video".equalsIgnoreCase(aVar.aeH.get(i).type)) {
                             view2 = d.si().Z(context, "video");
                         } else {
                             view2 = new RelativeLayout(context);
                         }
-                        if (!TextUtils.isEmpty(aVar.aeG.get(i).id)) {
-                            this.aeJ.put(aVar.aeG.get(i).id, view2);
+                        if (!TextUtils.isEmpty(aVar.aeH.get(i).id)) {
+                            this.aeK.put(aVar.aeH.get(i).id, view2);
                         }
                         ((ViewGroup) view).addView(view2, i);
                     }
                     if ((view instanceof ViewGroup) && view2 != null) {
-                        a(context, aVar.aeG.get(i), view2, z);
+                        a(context, aVar.aeH.get(i), view2, z);
                     }
                 }
             }
@@ -159,16 +159,16 @@ public class a {
     }
 
     private void a(final Context context, View view, final com.baidu.c.a.c.a aVar) {
-        if (view != null && aVar != null && !TextUtils.isEmpty(aVar.adv)) {
+        if (view != null && aVar != null && !TextUtils.isEmpty(aVar.adw)) {
             view.setClickable(true);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.c.a.d.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!TextUtils.isEmpty(aVar.adv)) {
-                        if (a.this.aeK != null) {
-                            a.this.aeK.c(aVar.adv, a.this.a(aVar));
+                    if (!TextUtils.isEmpty(aVar.adw)) {
+                        if (a.this.aeL != null) {
+                            a.this.aeL.c(aVar.adw, a.this.a(aVar));
                         } else {
-                            c.aa(context, aVar.adv);
+                            c.aa(context, aVar.adw);
                         }
                     }
                 }
@@ -187,12 +187,12 @@ public class a {
                 ((TextView) view).setMaxLines(aVar.maxLines);
                 ((TextView) view).setEllipsize(TextUtils.TruncateAt.END);
             }
-            if (!z || TextUtils.isEmpty(aVar.aeB)) {
+            if (!z || TextUtils.isEmpty(aVar.aeC)) {
                 if (!TextUtils.isEmpty(aVar.color)) {
-                    if (!TextUtils.isEmpty(aVar.aew)) {
+                    if (!TextUtils.isEmpty(aVar.aex)) {
                         try {
                             TextView textView = (TextView) view;
-                            textView.setTextColor(new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{com.baidu.c.a.e.a.parseColor(aVar.aew), com.baidu.c.a.e.a.parseColor(aVar.color)}));
+                            textView.setTextColor(new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{com.baidu.c.a.e.a.parseColor(aVar.aex), com.baidu.c.a.e.a.parseColor(aVar.color)}));
                         } catch (Throwable th) {
                         }
                     } else {
@@ -202,49 +202,49 @@ public class a {
                         }
                     }
                 }
-            } else if (!TextUtils.isEmpty(aVar.aeF)) {
+            } else if (!TextUtils.isEmpty(aVar.aeG)) {
                 try {
                     TextView textView2 = (TextView) view;
-                    textView2.setTextColor(new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{com.baidu.c.a.e.a.parseColor(aVar.aeF), com.baidu.c.a.e.a.parseColor(aVar.aeB)}));
+                    textView2.setTextColor(new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{com.baidu.c.a.e.a.parseColor(aVar.aeG), com.baidu.c.a.e.a.parseColor(aVar.aeC)}));
                 } catch (Throwable th3) {
                 }
             } else {
                 try {
-                    ((TextView) view).setTextColor(com.baidu.c.a.e.a.parseColor(aVar.aeB));
+                    ((TextView) view).setTextColor(com.baidu.c.a.e.a.parseColor(aVar.aeC));
                 } catch (Throwable th4) {
                 }
             }
             if (aVar.fontSize >= 0.0d) {
                 ((TextView) view).setTextSize(0, (float) (aVar.fontSize * view.getContext().getResources().getDisplayMetrics().density));
             }
-            ((TextView) view).setTypeface(aVar.aeq);
+            ((TextView) view).setTypeface(aVar.aer);
             ((TextView) view).setGravity(aVar.gravity);
             ((TextView) view).setText(aVar.text);
-            if (aVar.adE > 0.0d) {
-                ((TextView) view).setLineSpacing((float) aVar.adE, 1.0f);
+            if (aVar.adF > 0.0d) {
+                ((TextView) view).setLineSpacing((float) aVar.adF, 1.0f);
             }
         }
     }
 
     private void a(String str, View view, com.baidu.c.a.c.a aVar, boolean z) {
         if (aVar != null) {
-            view.setMinimumWidth((int) aVar.adg.getLayoutWidth());
-            view.setMinimumHeight((int) aVar.adg.getLayoutHeight());
+            view.setMinimumWidth((int) aVar.adh.getLayoutWidth());
+            view.setMinimumHeight((int) aVar.adh.getLayoutHeight());
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.text = aVar.text;
             aVar2.src = aVar.src;
-            aVar2.acT = (float) aVar.borderRadius;
-            aVar2.acU = (float) aVar.aek;
+            aVar2.acU = (float) aVar.borderRadius;
             aVar2.acV = (float) aVar.ael;
             aVar2.acW = (float) aVar.aem;
             aVar2.acX = (float) aVar.aen;
+            aVar2.acY = (float) aVar.aeo;
             if (!TextUtils.isEmpty(aVar.color)) {
                 aVar2.color = com.baidu.c.a.e.a.parseColor(aVar.color);
             }
-            if (!TextUtils.isEmpty(aVar.aeB)) {
-                aVar2.acY = com.baidu.c.a.e.a.parseColor(aVar.aeB);
+            if (!TextUtils.isEmpty(aVar.aeC)) {
+                aVar2.acZ = com.baidu.c.a.e.a.parseColor(aVar.aeC);
             }
-            aVar2.acZ = (float) aVar.fontSize;
+            aVar2.ada = (float) aVar.fontSize;
             com.baidu.c.a.b.a.sh().a(str, view, aVar2, z);
         }
     }
@@ -263,36 +263,36 @@ public class a {
 
     private void a(View view, com.baidu.c.a.c.a aVar) {
         if (aVar != null && "video".equalsIgnoreCase(aVar.type)) {
-            view.setMinimumWidth((int) aVar.adg.getLayoutWidth());
-            view.setMinimumHeight((int) aVar.adg.getLayoutHeight());
+            view.setMinimumWidth((int) aVar.adh.getLayoutWidth());
+            view.setMinimumHeight((int) aVar.adh.getLayoutHeight());
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.src = aVar.src;
-            aVar2.acS = aVar.acS;
+            aVar2.acT = aVar.acT;
             aVar2.videoDuration = aVar.videoDuration;
-            aVar2.width = (int) aVar.adg.getLayoutWidth();
-            aVar2.height = (int) aVar.adg.getLayoutHeight();
+            aVar2.width = (int) aVar.adh.getLayoutWidth();
+            aVar2.height = (int) aVar.adh.getLayoutHeight();
             d.si().a("video", view, aVar2);
         }
     }
 
     private void b(View view, com.baidu.c.a.c.a aVar) {
         if (view != null && aVar != null && "image".equalsIgnoreCase(aVar.type)) {
-            view.setMinimumWidth((int) aVar.adg.getLayoutWidth());
-            view.setMinimumHeight((int) aVar.adg.getLayoutHeight());
+            view.setMinimumWidth((int) aVar.adh.getLayoutWidth());
+            view.setMinimumHeight((int) aVar.adh.getLayoutHeight());
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.src = aVar.src;
-            aVar2.acT = (float) aVar.borderRadius;
-            aVar2.acU = (float) aVar.aek;
+            aVar2.acU = (float) aVar.borderRadius;
             aVar2.acV = (float) aVar.ael;
             aVar2.acW = (float) aVar.aem;
             aVar2.acX = (float) aVar.aen;
+            aVar2.acY = (float) aVar.aeo;
             d.si().a("image", view, aVar2);
         }
     }
 
     private void b(View view, com.baidu.c.a.c.a aVar, boolean z) {
         if (view != null && aVar != null) {
-            if (!z || aVar.aeA < -1.0d) {
+            if (!z || aVar.aeB < -1.0d) {
                 if (aVar.opacity > -1.0d) {
                     view.setAlpha((float) aVar.opacity);
                     return;
@@ -301,7 +301,7 @@ public class a {
                     return;
                 }
             }
-            view.setAlpha((float) aVar.aeA);
+            view.setAlpha((float) aVar.aeB);
         }
     }
 
@@ -311,23 +311,23 @@ public class a {
         String str3;
         String str4;
         if (aVar != null) {
-            if (!z || TextUtils.isEmpty(aVar.aez)) {
+            if (!z || TextUtils.isEmpty(aVar.aeA)) {
                 String str5 = aVar.borderColor;
-                str = aVar.aev;
+                str = aVar.aew;
                 str2 = str5;
             } else {
-                String str6 = aVar.aez;
-                str = aVar.aeE;
+                String str6 = aVar.aeA;
+                str = aVar.aeF;
                 str2 = str6;
             }
-            if (!z || TextUtils.isEmpty(aVar.aey)) {
+            if (!z || TextUtils.isEmpty(aVar.aez)) {
                 str3 = aVar.backgroundColor;
-                str4 = aVar.aeu;
+                str4 = aVar.aev;
             } else {
-                str3 = aVar.aey;
-                str4 = aVar.aeD;
+                str3 = aVar.aez;
+                str4 = aVar.aeE;
             }
-            if (aVar.aej > 0.0d && !TextUtils.isEmpty(str2)) {
+            if (aVar.aek > 0.0d && !TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -335,11 +335,11 @@ public class a {
                             gradientDrawable.setColor(com.baidu.c.a.e.a.parseColor(str3));
                         }
                         float f = context.getResources().getDisplayMetrics().density;
-                        gradientDrawable.setStroke((int) com.baidu.c.a.c.a.a(aVar.aej, f), com.baidu.c.a.e.a.parseColor(str2));
+                        gradientDrawable.setStroke((int) com.baidu.c.a.c.a.a(aVar.aek, f), com.baidu.c.a.e.a.parseColor(str2));
                         if (aVar.borderRadius > 0.0d) {
                             gradientDrawable.setCornerRadius(com.baidu.c.a.c.a.a(aVar.borderRadius, f));
                         } else {
-                            gradientDrawable.setCornerRadii(new float[]{b(aVar.aek, f), b(aVar.aem, f), b(aVar.aen, f), b(aVar.ael, f)});
+                            gradientDrawable.setCornerRadii(new float[]{b(aVar.ael, f), b(aVar.aen, f), b(aVar.aeo, f), b(aVar.aem, f)});
                         }
                         GradientDrawable gradientDrawable2 = new GradientDrawable();
                         if (!TextUtils.isEmpty(str4)) {
@@ -347,11 +347,11 @@ public class a {
                         } else {
                             gradientDrawable2.setColor(com.baidu.c.a.e.a.parseColor(str3));
                         }
-                        gradientDrawable2.setStroke((int) com.baidu.c.a.c.a.a(aVar.aej, f), com.baidu.c.a.e.a.parseColor(str));
+                        gradientDrawable2.setStroke((int) com.baidu.c.a.c.a.a(aVar.aek, f), com.baidu.c.a.e.a.parseColor(str));
                         if (aVar.borderRadius > 0.0d) {
                             gradientDrawable2.setCornerRadius(com.baidu.c.a.c.a.a(aVar.borderRadius, f));
                         } else {
-                            gradientDrawable.setCornerRadii(new float[]{b(aVar.aek, f), b(aVar.aem, f), b(aVar.aen, f), b(aVar.ael, f)});
+                            gradientDrawable.setCornerRadii(new float[]{b(aVar.ael, f), b(aVar.aen, f), b(aVar.aeo, f), b(aVar.aem, f)});
                         }
                         StateListDrawable stateListDrawable = new StateListDrawable();
                         stateListDrawable.addState(new int[]{16842919}, gradientDrawable2);
@@ -368,11 +368,11 @@ public class a {
                         gradientDrawable3.setColor(com.baidu.c.a.e.a.parseColor(str3));
                     }
                     float f2 = context.getResources().getDisplayMetrics().density;
-                    gradientDrawable3.setStroke((int) com.baidu.c.a.c.a.a(aVar.aej, f2), com.baidu.c.a.e.a.parseColor(str2));
+                    gradientDrawable3.setStroke((int) com.baidu.c.a.c.a.a(aVar.aek, f2), com.baidu.c.a.e.a.parseColor(str2));
                     if (aVar.borderRadius > 0.0d) {
                         gradientDrawable3.setCornerRadius(com.baidu.c.a.c.a.a(aVar.borderRadius, f2));
                     } else {
-                        gradientDrawable3.setCornerRadii(new float[]{b(aVar.aek, f2), b(aVar.aem, f2), b(aVar.aen, f2), b(aVar.ael, f2)});
+                        gradientDrawable3.setCornerRadii(new float[]{b(aVar.ael, f2), b(aVar.aen, f2), b(aVar.aeo, f2), b(aVar.aem, f2)});
                     }
                     view.setBackgroundDrawable(gradientDrawable3);
                 } catch (Throwable th2) {
@@ -383,12 +383,12 @@ public class a {
 
     private void c(View view, com.baidu.c.a.c.a aVar, boolean z) {
         if (view != null && aVar != null) {
-            if (!z || TextUtils.isEmpty(aVar.aey)) {
+            if (!z || TextUtils.isEmpty(aVar.aez)) {
                 if (!TextUtils.isEmpty(aVar.backgroundColor)) {
-                    if (!TextUtils.isEmpty(aVar.aeu)) {
+                    if (!TextUtils.isEmpty(aVar.aev)) {
                         try {
                             StateListDrawable stateListDrawable = new StateListDrawable();
-                            ColorDrawable colorDrawable = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aeu));
+                            ColorDrawable colorDrawable = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aev));
                             ColorDrawable colorDrawable2 = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.backgroundColor));
                             stateListDrawable.addState(new int[]{16842919}, colorDrawable);
                             stateListDrawable.addState(new int[]{-16842919}, colorDrawable2);
@@ -403,11 +403,11 @@ public class a {
                     } catch (Throwable th2) {
                     }
                 }
-            } else if (!TextUtils.isEmpty(aVar.aeD)) {
+            } else if (!TextUtils.isEmpty(aVar.aeE)) {
                 try {
                     StateListDrawable stateListDrawable2 = new StateListDrawable();
-                    ColorDrawable colorDrawable3 = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aeD));
-                    ColorDrawable colorDrawable4 = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aey));
+                    ColorDrawable colorDrawable3 = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aeE));
+                    ColorDrawable colorDrawable4 = new ColorDrawable(com.baidu.c.a.e.a.parseColor(aVar.aez));
                     stateListDrawable2.addState(new int[]{16842919}, colorDrawable3);
                     stateListDrawable2.addState(new int[]{-16842919}, colorDrawable4);
                     view.setBackgroundDrawable(stateListDrawable2);
@@ -415,7 +415,7 @@ public class a {
                 }
             } else {
                 try {
-                    view.setBackgroundColor(com.baidu.c.a.e.a.parseColor(aVar.aey));
+                    view.setBackgroundColor(com.baidu.c.a.e.a.parseColor(aVar.aez));
                 } catch (Throwable th4) {
                 }
             }
@@ -424,23 +424,23 @@ public class a {
 
     private void d(View view, com.baidu.c.a.c.a aVar, boolean z) {
         if (view != null && aVar != null) {
-            if (!z || TextUtils.isEmpty(aVar.aex)) {
-                if (!TextUtils.isEmpty(aVar.aei)) {
-                    d.si().a(aVar.type, view, aVar.aei, aVar.aet);
+            if (!z || TextUtils.isEmpty(aVar.aey)) {
+                if (!TextUtils.isEmpty(aVar.aej)) {
+                    d.si().a(aVar.type, view, aVar.aej, aVar.aeu);
                     return;
                 }
                 return;
             }
-            d.si().a(aVar.type, view, aVar.aex, aVar.aeC);
+            d.si().a(aVar.type, view, aVar.aey, aVar.aeD);
         }
     }
 
     public View cQ(String str) {
-        return this.aeI.get(str);
+        return this.aeJ.get(str);
     }
 
     public View cR(String str) {
-        return this.aeJ.get(str);
+        return this.aeK.get(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -449,8 +449,8 @@ public class a {
             return null;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("data-als-stat", aVar.adw);
-        hashMap.put("data-url-stat", aVar.adx);
+        hashMap.put("data-als-stat", aVar.adx);
+        hashMap.put("data-url-stat", aVar.ady);
         return hashMap;
     }
 

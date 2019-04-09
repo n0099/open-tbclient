@@ -10,7 +10,7 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        return a(aVar.aBG, aVar.id, aVar2);
+        return a(aVar.aBH, aVar.id, aVar2);
     }
 
     public static SwanAppNAViewContainer a(String str, String str2, @Nullable com.baidu.swan.apps.view.container.a aVar) {

@@ -7,36 +7,36 @@ import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public String TV;
     public String TW;
-    public int TX;
-    public String TY;
+    public String TX;
+    public int TY;
     public String TZ;
     public String Ua;
     public String Ub;
-    public boolean Uc;
-    public int Ud;
+    public String Uc;
+    public boolean Ud;
     public int Ue;
-    private b.a Uh;
+    public int Uf;
+    private b.a Ui;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int TU = 3;
-    public ArrayList<String> Uf = new ArrayList<>();
+    private int TV = 3;
     public ArrayList<String> Ug = new ArrayList<>();
+    public ArrayList<String> Uh = new ArrayList<>();
 
     public void bk(int i) {
-        this.TU = i;
+        this.TV = i;
     }
 
     public boolean isEmpty() {
-        return this.TU == 2;
+        return this.TV == 2;
     }
 
     public int qu() {
-        return this.TU;
+        return this.TV;
     }
 
     public boolean isValid() {
@@ -50,16 +50,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String qv() {
-        return StringUtils.isNull(this.Ua) ? TbadkCoreApplication.getInst().getResources().getString(d.j.check_detail) : this.Ua;
+        return StringUtils.isNull(this.Ub) ? TbadkCoreApplication.getInst().getResources().getString(d.j.check_detail) : this.Ub;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.Uh == null) {
-            this.Uh = new b.a();
-            this.Uh.gGt = this.Uf;
-            this.Uh.gGu = this.Ug;
+        if (this.Ui == null) {
+            this.Ui = new b.a();
+            this.Ui.gGu = this.Ug;
+            this.Ui.gGv = this.Uh;
         }
-        return this.Uh;
+        return this.Ui;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes5.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
     private float Qm;
-    private h bhT;
-    private boolean bib;
+    private h bhU;
+    private boolean bic;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.bhT = hVar;
+        this.bhU = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bib || this.bhT == null) {
+        if (this.bic || this.bhU == null) {
             this.Qm = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.Qm;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.bhT.Qy() && aj(rawY)) {
-                    this.bhT.cJ(true);
+                if (z && !this.bhU.Qy() && aj(rawY)) {
+                    this.bhU.cJ(true);
                     return true;
-                } else if (!z && Qu() && this.bhT.Qy() && aj(rawY)) {
-                    this.bhT.cJ(false);
+                } else if (!z && Qu() && this.bhU.Qy() && aj(rawY)) {
+                    this.bhU.cJ(false);
                     return true;
                 }
                 break;
@@ -75,11 +75,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void cG(boolean z) {
-        this.bib = false;
+        this.bic = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
     public void cH(boolean z) {
-        this.bib = true;
+        this.bic = true;
     }
 }

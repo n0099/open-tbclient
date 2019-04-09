@@ -15,8 +15,8 @@ public class a {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.jkU != null) {
-                                a.this.jkU.onError();
+                            if (a.this.jkV != null) {
+                                a.this.jkV.onError();
                                 return;
                             }
                             return;
@@ -31,8 +31,8 @@ public class a {
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.jkU != null) {
-                            a.this.jkU.g(a.this.fyf, a.this.privateThread);
+                        if (a.this.jkV != null) {
+                            a.this.jkV.g(a.this.fyf, a.this.privateThread);
                         }
                     }
                 }
@@ -41,7 +41,7 @@ public class a {
     };
     private String forumId;
     private List<SimpleForum> fyf;
-    private InterfaceC0411a jkU;
+    private InterfaceC0411a jkV;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
     private int privateThread;
@@ -101,7 +101,7 @@ public class a {
     }
 
     public void a(InterfaceC0411a interfaceC0411a) {
-        this.jkU = interfaceC0411a;
+        this.jkV = interfaceC0411a;
     }
 
     public void destroy() {

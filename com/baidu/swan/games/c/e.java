@@ -7,37 +7,37 @@ import java.util.List;
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = e.class.getSimpleName();
-    private static volatile boolean amO = false;
-    private static volatile boolean bbg = false;
-    private static volatile List<com.baidu.swan.apps.m.a.b> bbh = new ArrayList();
+    private static volatile boolean amP = false;
+    private static volatile boolean bbh = false;
+    private static volatile List<com.baidu.swan.apps.m.a.b> bbi = new ArrayList();
 
     private e() {
     }
 
     public static void aR(boolean z) {
-        amO = z;
+        amP = z;
         com.baidu.swan.apps.console.c.aR(z);
     }
 
     public static void NA() {
         synchronized (e.class) {
-            bbh = new ArrayList();
+            bbi = new ArrayList();
         }
-        bbg = false;
+        bbh = false;
     }
 
     public static void NB() {
-        if (amO && !bbg) {
+        if (amP && !bbh) {
             synchronized (e.class) {
-                if (bbh != null) {
-                    for (int i = 0; i < bbh.size(); i++) {
-                        com.baidu.swan.apps.w.e.Ea().a("console", bbh.get(i));
+                if (bbi != null) {
+                    for (int i = 0; i < bbi.size(); i++) {
+                        com.baidu.swan.apps.w.e.Ea().a("console", bbi.get(i));
                     }
-                    bbh.clear();
-                    bbh = null;
+                    bbi.clear();
+                    bbi = null;
                 }
             }
-            bbg = true;
+            bbh = true;
         }
     }
 
@@ -64,22 +64,22 @@ public class e {
     }
 
     public static void aQ(String str, String str2) {
-        if (amO) {
+        if (amP) {
             a(b.aO(str, str2));
         }
     }
 
     public static void aR(String str, String str2) {
-        if (amO) {
+        if (amP) {
             a(b.aP(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.m.a.b bVar) {
-        if (!bbg) {
+        if (!bbh) {
             synchronized (e.class) {
-                if (bbh != null) {
-                    bbh.add(bVar);
+                if (bbi != null) {
+                    bbi.add(bVar);
                     return;
                 }
             }

@@ -21,11 +21,11 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
 public class ImMessageCenterListAdapter extends c {
-    private e guQ;
+    private e guR;
 
     public ImMessageCenterListAdapter(Context context) {
         super(context);
-        this.guQ = null;
+        this.guR = null;
     }
 
     @Override // com.baidu.tieba.im.chat.a.c
@@ -33,9 +33,9 @@ public class ImMessageCenterListAdapter extends c {
         super.setData(list);
         if (TbadkCoreApplication.isLogin()) {
             if (this.mList.size() <= 0) {
-                this.guQ.P(true, true);
+                this.guR.P(true, true);
             } else {
-                this.guQ.P(true, false);
+                this.guR.P(true, false);
             }
         }
         notifyDataSetChanged();
@@ -46,18 +46,18 @@ public class ImMessageCenterListAdapter extends c {
         ImMessageCenterShowItemData tx = getItem(i);
         if (tx != null && String.valueOf(String.valueOf(2)).equals(tx.getOwnerName())) {
             if (tx.getUnReadCount() >= 30) {
-                if (this.guQ != null) {
-                    this.guQ.lK(true);
+                if (this.guR != null) {
+                    this.guR.lK(true);
                 }
-            } else if (this.guQ != null) {
-                this.guQ.lK(false);
+            } else if (this.guR != null) {
+                this.guR.lK(false);
             }
         }
         return super.getView(i, view, viewGroup);
     }
 
     public void a(e eVar) {
-        this.guQ = eVar;
+        this.guR = eVar;
     }
 
     @Override // com.baidu.tieba.im.chat.a.c

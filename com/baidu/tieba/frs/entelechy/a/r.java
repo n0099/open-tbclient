@@ -21,9 +21,9 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
-    private String YA;
-    private boolean bSP;
-    private ab<bg> dqo;
+    private String YB;
+    private boolean bSQ;
+    private ab<bg> dqp;
     private boolean fgO;
     private int fgP;
     private com.baidu.tieba.frs.d.b fgQ;
@@ -33,17 +33,17 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.bSP = false;
+        this.bSQ = false;
         this.fgO = false;
         this.fgP = 3;
         this.fgQ = new com.baidu.tieba.frs.d.b();
-        this.dqo = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.r.1
+        this.dqp = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.r.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
                 if (view != null && bgVar != null) {
-                    if (r.this.eYn != null) {
-                        r.this.eYn.a(view, (View) bgVar, (Object) bg.bBg);
+                    if (r.this.eYo != null) {
+                        r.this.eYo.a(view, (View) bgVar, (Object) bg.bBh);
                     }
                     if ("c13010".equals(r.this.mFrom)) {
                         TiebaStatic.log(new am("c13010").T("obj_type", 2).k(ImageViewerConfig.FORUM_ID, bgVar.getFid()).bJ("tid", bgVar.getTid()));
@@ -96,10 +96,10 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
         eVar.setFrom("frs");
         aVar.b(eVar);
         aVar.rv().setBackgroundResource(d.C0277d.cp_bg_line_d);
-        com.baidu.card.x a = aVar.a(false, viewGroup, this.eEc);
+        com.baidu.card.x a = aVar.a(false, viewGroup, this.eEd);
         com.baidu.card.a aVar2 = new com.baidu.card.a(a);
         aVar2.setPageId(this.mPageId);
-        a.a(this.dqo);
+        a.a(this.dqp);
         a.bx(this.fgP);
         setOnAdapterItemClickListener(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.frs.entelechy.a.r.2
             @Override // com.baidu.adp.widget.ListView.s
@@ -108,8 +108,8 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
                     com.baidu.card.z zVar = (com.baidu.card.z) view.getTag();
                     bg bgVar = ((bf) mVar).threadData;
                     bgVar.objType = 1;
-                    if (r.this.dqo != null) {
-                        r.this.dqo.a(zVar.getView(), bgVar);
+                    if (r.this.dqp != null) {
+                        r.this.dqp.a(zVar.getView(), bgVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) bgVar, view.getContext(), r.this.fgP, false);
                     zVar.rx().b(new a.C0039a(1));
@@ -132,24 +132,24 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
             return aVar.getView();
         }
         if (aVar.rx() instanceof com.baidu.tieba.a.e) {
-            aVar.rx().setPage(this.YA);
+            aVar.rx().setPage(this.YB);
         }
         super.onFillViewHolder(i, view, viewGroup, bfVar, aVar);
-        com.baidu.tieba.frs.g.a(aVar.rx().rr(), this.eYh);
+        com.baidu.tieba.frs.g.a(aVar.rx().rr(), this.eYi);
         aVar.setVideoStatsData(af(bfVar.threadData));
         aVar.rx().setPosition(i);
-        if (this.eYh != null && this.eYh.getForum() != null && !StringUtils.isNull(this.eYh.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.eYh.getForum().getTopic_special_icon_right())) {
-            bfVar.threadData.bt(this.eYh.getForum().getTopic_special_icon(), this.eYh.getForum().getTopic_special_icon_right());
+        if (this.eYi != null && this.eYi.getForum() != null && !StringUtils.isNull(this.eYi.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.eYi.getForum().getTopic_special_icon_right())) {
+            bfVar.threadData.bt(this.eYi.getForum().getTopic_special_icon(), this.eYi.getForum().getTopic_special_icon_right());
         }
         aVar.a(bfVar.threadData);
         aVar.rx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.rx().a(this.dqo);
+        aVar.rx().a(this.dqp);
         if (this.fgQ != null) {
             int i2 = 0;
-            if (this.eYh != null) {
-                i2 = this.eYh.getTopThreadSize();
+            if (this.eYi != null) {
+                i2 = this.eYi.getTopThreadSize();
             }
-            bfVar.threadData.bDU = (bfVar.position + 1) - i2;
+            bfVar.threadData.bDV = (bfVar.position + 1) - i2;
         }
         com.baidu.tieba.frs.d.c.bij().a(this.fgQ, bfVar.threadData);
         com.baidu.tieba.frs.d.c.bij().ak(bfVar.threadData);
@@ -168,14 +168,14 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
         if (this.fgQ.fsP == 501) {
             zVar.mLocate = "frs_tab";
         }
-        zVar.ekM = this.fgQ.fsO;
-        zVar.ctw = bgVar.getTid();
+        zVar.ekN = this.fgQ.fsO;
+        zVar.ctx = bgVar.getTid();
         zVar.mSource = bgVar.mRecomSource;
-        zVar.hYx = bgVar.bDc;
-        zVar.hYy = bgVar.mRecomWeight;
-        zVar.hYA = bgVar.mRecomAbTag;
+        zVar.hYy = bgVar.bDd;
+        zVar.hYz = bgVar.mRecomWeight;
+        zVar.hYB = bgVar.mRecomAbTag;
         if (bgVar.Zf() != null) {
-            zVar.hYB = bgVar.Zf().video_md5;
+            zVar.hYC = bgVar.Zf().video_md5;
         }
         return zVar;
     }
@@ -192,7 +192,7 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
 
     @Override // com.baidu.tieba.a.f
     public void qM(String str) {
-        this.YA = str;
+        this.YB = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -201,7 +201,7 @@ public class r extends com.baidu.tieba.frs.h<bf, com.baidu.card.a<bg>> implement
     }
 
     public void setInFrsAllThread(boolean z) {
-        this.bSP = z;
+        this.bSQ = z;
     }
 
     @Override // com.baidu.tieba.card.aa

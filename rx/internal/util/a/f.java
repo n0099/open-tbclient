@@ -3,62 +3,62 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int kaQ = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long kaR;
-    private static final int kaS;
-    protected final E[] jRD;
-    protected final long kaT;
+    protected static final int kaR = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long kaS;
+    private static final int kaT;
+    protected final E[] jRE;
+    protected final long kaU;
 
     static {
-        int arrayIndexScale = ae.kbb.arrayIndexScale(Object[].class);
+        int arrayIndexScale = ae.kbc.arrayIndexScale(Object[].class);
         if (4 == arrayIndexScale) {
-            kaS = kaQ + 2;
+            kaT = kaR + 2;
         } else if (8 == arrayIndexScale) {
-            kaS = kaQ + 3;
+            kaT = kaR + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        kaR = ae.kbb.arrayBaseOffset(Object[].class) + (32 << (kaS - kaQ));
+        kaS = ae.kbc.arrayBaseOffset(Object[].class) + (32 << (kaT - kaR));
     }
 
     public f(int i) {
         int Dk = h.Dk(i);
-        this.kaT = Dk - 1;
-        this.jRD = (E[]) new Object[(Dk << kaQ) + 64];
+        this.kaU = Dk - 1;
+        this.jRE = (E[]) new Object[(Dk << kaR) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final long er(long j) {
-        return y(j, this.kaT);
+        return y(j, this.kaU);
     }
 
     protected final long y(long j, long j2) {
-        return kaR + ((j & j2) << kaS);
+        return kaS + ((j & j2) << kaT);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.kbb.putObject(eArr, j, e);
+        ae.kbc.putObject(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.kbb.putOrderedObject(eArr, j, e);
+        ae.kbc.putOrderedObject(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.kbb.getObject(eArr, j);
+        return (E) ae.kbc.getObject(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E es(long j) {
-        return b(this.jRD, j);
+        return b(this.jRE, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.kbb.getObjectVolatile(eArr, j);
+        return (E) ae.kbc.getObjectVolatile(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

@@ -5,13 +5,13 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    float dmP;
     float dmQ;
-    InterfaceC0431a jDR;
-    final float jDS;
-    boolean jDT;
+    float dmR;
+    InterfaceC0431a jDS;
+    final float jDT;
     boolean jDU;
-    long jDV;
+    boolean jDV;
+    long jDW;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -20,7 +20,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.jDS = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.jDT = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.jDR = null;
+        this.jDS = null;
         reset();
     }
 
     public void reset() {
-        this.jDT = false;
         this.jDU = false;
+        this.jDV = false;
     }
 
     public void a(InterfaceC0431a interfaceC0431a) {
-        this.jDR = interfaceC0431a;
+        this.jDS = interfaceC0431a;
     }
 
     public boolean cvY() {
-        return this.jDT;
+        return this.jDU;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.jDT = true;
                 this.jDU = true;
-                this.jDV = motionEvent.getEventTime();
-                this.dmP = motionEvent.getX();
-                this.dmQ = motionEvent.getY();
+                this.jDV = true;
+                this.jDW = motionEvent.getEventTime();
+                this.dmQ = motionEvent.getX();
+                this.dmR = motionEvent.getY();
                 break;
             case 1:
-                this.jDT = false;
-                if (Math.abs(motionEvent.getX() - this.dmP) > this.jDS || Math.abs(motionEvent.getY() - this.dmQ) > this.jDS) {
-                    this.jDU = false;
-                }
-                if (this.jDU && motionEvent.getEventTime() - this.jDV <= ViewConfiguration.getLongPressTimeout() && this.jDR != null) {
-                    this.jDR.cuU();
-                }
                 this.jDU = false;
+                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jDT || Math.abs(motionEvent.getY() - this.dmR) > this.jDT) {
+                    this.jDV = false;
+                }
+                if (this.jDV && motionEvent.getEventTime() - this.jDW <= ViewConfiguration.getLongPressTimeout() && this.jDS != null) {
+                    this.jDS.cuU();
+                }
+                this.jDV = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.dmP) > this.jDS || Math.abs(motionEvent.getY() - this.dmQ) > this.jDS) {
-                    this.jDU = false;
+                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jDT || Math.abs(motionEvent.getY() - this.dmR) > this.jDT) {
+                    this.jDV = false;
                     break;
                 }
                 break;
             case 3:
-                this.jDT = false;
                 this.jDU = false;
+                this.jDV = false;
                 break;
         }
         return true;

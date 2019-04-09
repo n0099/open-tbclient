@@ -17,8 +17,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.lego.card.view.f {
     private BdTypeRecyclerView Qr;
-    private i Tz;
-    private String byD;
+    private i TA;
+    private String byE;
     private boolean fey;
     private c fwM;
     private e fxp;
@@ -42,14 +42,14 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         this.fey = z;
         this.fwM = cVar;
         this.mFrom = str;
-        this.byD = str2;
+        this.byE = str2;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.fxp = new e(this.mContext, this, this.fwM, this.fey, this.mFrom, this.byD, this, this.mBdUniqueId, this);
-        this.fxq = new com.baidu.afd.a.b(this.mContext, com.baidu.afd.b.Tc, this, this.fwM, this);
-        this.fxr = new com.baidu.afd.a.c(this.mContext, com.baidu.afd.b.Tb);
+        this.fxp = new e(this.mContext, this, this.fwM, this.fey, this.mFrom, this.byE, this, this.mBdUniqueId, this);
+        this.fxq = new com.baidu.afd.a.b(this.mContext, com.baidu.afd.b.Td, this, this.fwM, this);
+        this.fxr = new com.baidu.afd.a.c(this.mContext, com.baidu.afd.b.Tc);
         this.mAdapters.add(this.fxp);
         this.mAdapters.add(this.fxr);
         this.mAdapters.add(this.fxq);
@@ -272,7 +272,7 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
         }
         if (mVar instanceof com.baidu.afd.d) {
             com.baidu.afd.e pS = ((com.baidu.afd.d) mVar).pS();
-            if (pS == null || pS.Tn) {
+            if (pS == null || pS.To) {
                 z = false;
             }
             return z;
@@ -281,8 +281,8 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
     }
 
     public void rK(int i) {
-        if (this.fez != i || this.Tz == null || !this.Tz.isPlaying()) {
-            if (this.fez != i || this.Tz == null || !bjD()) {
+        if (this.fez != i || this.TA == null || !this.TA.isPlaying()) {
+            if (this.fez != i || this.TA == null || !bjD()) {
                 this.fez = i;
                 this.fxt = i;
                 if (!v.T(this.mDatas) && this.Qr != null) {
@@ -309,9 +309,9 @@ public class f implements com.baidu.tieba.frs.aggregation.a, b, com.baidu.tieba.
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(i iVar) {
-        i iVar2 = this.Tz;
-        this.Tz = iVar;
-        if (iVar2 != null && iVar2 != this.Tz) {
+        i iVar2 = this.TA;
+        this.TA = iVar;
+        if (iVar2 != null && iVar2 != this.TA) {
             iVar2.stopPlay();
         }
     }

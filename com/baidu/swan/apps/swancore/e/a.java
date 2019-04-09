@@ -55,8 +55,8 @@ public class a {
             return arrayList;
         }
         for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Gu().Gv()) {
-            if (bVar.aFh && bVar.aFe != null && (Ar = bVar.aFe.Ar()) != null && !arrayList.contains(Long.valueOf(Ar.aTg))) {
-                arrayList.add(Long.valueOf(Ar.aTg));
+            if (bVar.aFi && bVar.aFf != null && (Ar = bVar.aFf.Ar()) != null && !arrayList.contains(Long.valueOf(Ar.aTh))) {
+                arrayList.add(Long.valueOf(Ar.aTh));
             }
         }
         if (DEBUG) {

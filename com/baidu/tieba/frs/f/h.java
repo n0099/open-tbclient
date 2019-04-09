@@ -36,8 +36,8 @@ public class h {
                         for (m mVar2 : singletonList) {
                             if (mVar == mVar2 && (mVar2 instanceof bg)) {
                                 a.b bVar = new a.b();
-                                bVar.ctw = ((bg) mVar2).getTid();
-                                bVar.ekF = i2;
+                                bVar.ctx = ((bg) mVar2).getTid();
+                                bVar.ekG = i2;
                                 arrayList.add(bVar);
                             }
                         }
@@ -49,11 +49,11 @@ public class h {
                         if (mVar3 instanceof bg) {
                             bg bgVar2 = (bg) mVar3;
                             i3++;
-                            if (bgVar2.bCj == 1 && !TextUtils.isEmpty(bgVar2.getTid())) {
-                                bgVar2.bCj = 2;
+                            if (bgVar2.bCk == 1 && !TextUtils.isEmpty(bgVar2.getTid())) {
+                                bgVar2.bCk = 2;
                                 a.b bVar2 = new a.b();
-                                bVar2.ctw = bgVar2.getTid();
-                                bVar2.ekF = i3;
+                                bVar2.ctx = bgVar2.getTid();
+                                bVar2.ekG = i3;
                                 arrayList.add(bVar2);
                             }
                         }
@@ -105,7 +105,7 @@ public class h {
             if (StringUtils.isNull(Yl)) {
                 Yl = beVar.getTaskId();
             }
-            com.baidu.tieba.tbadkCore.d.a.b("frs", "CLICK", beVar.getForumId(), beVar.getForumName(), beVar.getThreadId(), "tieba.baidu.com/p/" + beVar.getThreadId(), Yl);
+            com.baidu.tieba.tbadkCore.d.a.a("frs", "CLICK", beVar.getForumId(), beVar.getForumName(), beVar.getThreadId(), "tieba.baidu.com/p/" + beVar.getThreadId(), Yl);
         }
     }
 

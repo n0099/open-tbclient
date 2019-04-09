@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String bGr = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> gYX = new HashSet();
-    private static final boolean gYY = zg(System.getProperty("java.vm.version"));
+    private static final String bGs = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> gYY = new HashSet();
+    private static final boolean gYZ = zg(System.getProperty("java.vm.version"));
 
     public static void ed(Context context) {
         Log.i("MultiDex", "install");
-        if (gYY) {
+        if (gYZ) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = gYX;
-                    synchronized (gYX) {
+                    Set<String> set = gYY;
+                    synchronized (gYY) {
                         String str = applicationInfo.sourceDir;
-                        if (!gYX.contains(str)) {
-                            gYX.add(str);
+                        if (!gYY.contains(str)) {
+                            gYY.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -53,7 +53,7 @@ public final class a {
                                     return;
                                 }
                                 ee(context);
-                                File file = new File(applicationInfo.dataDir, bGr);
+                                File file = new File(applicationInfo.dataDir, bGs);
                                 List<File> a = com.baidu.tieba.l.b.a(context, applicationInfo, file, false);
                                 if (dp(a)) {
                                     a(classLoader, file, a);

@@ -16,7 +16,7 @@ import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.UtilityFunctions;
 /* loaded from: classes2.dex */
 public class d<T> {
-    final a<T> jUw;
+    final a<T> jUx;
 
     /* loaded from: classes2.dex */
     public interface a<T> extends rx.functions.b<j<? super T>> {
@@ -28,7 +28,7 @@ public class d<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(a<T> aVar) {
-        this.jUw = aVar;
+        this.jUx = aVar;
     }
 
     public static <T> d<T> a(a<T> aVar) {
@@ -36,7 +36,7 @@ public class d<T> {
     }
 
     public final <R> d<R> a(b<? extends R, ? super T> bVar) {
-        return a((a) new rx.internal.operators.e(this.jUw, bVar));
+        return a((a) new rx.internal.operators.e(this.jUx, bVar));
     }
 
     public static <T> d<T> cDz() {
@@ -168,7 +168,7 @@ public class d<T> {
     public final k a(j<? super T> jVar) {
         try {
             jVar.onStart();
-            rx.c.c.a(this, this.jUw).call(jVar);
+            rx.c.c.a(this, this.jUx).call(jVar);
             return rx.c.c.b(jVar);
         } catch (Throwable th) {
             rx.exceptions.a.L(th);
@@ -192,7 +192,7 @@ public class d<T> {
         if (jVar == null) {
             throw new IllegalArgumentException("subscriber can not be null");
         }
-        if (dVar.jUw == null) {
+        if (dVar.jUx == null) {
             throw new IllegalStateException("onSubscribe function can not be null.");
         }
         jVar.onStart();
@@ -200,7 +200,7 @@ public class d<T> {
             jVar = new rx.b.c(jVar);
         }
         try {
-            rx.c.c.a(dVar, dVar.jUw).call(jVar);
+            rx.c.c.a(dVar, dVar.jUx).call(jVar);
             return rx.c.c.b(jVar);
         } catch (Throwable th) {
             rx.exceptions.a.L(th);

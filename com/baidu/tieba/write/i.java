@@ -88,35 +88,35 @@ public class i {
     /* loaded from: classes.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
         private TbPageContext fuO;
-        private ForumWriteData jml;
-        private com.baidu.tbadk.core.dialog.c jmm;
+        private ForumWriteData jmm;
+        private com.baidu.tbadk.core.dialog.c jmn;
 
         public a(TbPageContext tbPageContext, ForumWriteData forumWriteData, com.baidu.tbadk.core.dialog.c cVar) {
             this.fuO = null;
             this.fuO = tbPageContext;
-            this.jml = forumWriteData;
-            this.jmm = cVar;
+            this.jmm = forumWriteData;
+            this.jmn = cVar;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jmm != null) {
-                this.jmm.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jmn != null) {
+                this.jmn.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (this.jmm != null) {
-                com.baidu.adp.lib.g.g.b(this.jmm, this.fuO);
+            if (this.jmn != null) {
+                com.baidu.adp.lib.g.g.b(this.jmn, this.fuO);
             }
             this.fuO.showToast(d.j.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (this.jmm != null) {
-                com.baidu.adp.lib.g.g.b(this.jmm, this.fuO);
+            if (this.jmn != null) {
+                com.baidu.adp.lib.g.g.b(this.jmn, this.fuO);
             }
             if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.fuO != null) {
                 this.fuO.showToast(bdFileDownloadData.getStatusMsg());
@@ -126,11 +126,11 @@ public class i {
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (this.jmm != null) {
-                com.baidu.adp.lib.g.g.b(this.jmm, this.fuO);
+            if (this.jmn != null) {
+                com.baidu.adp.lib.g.g.b(this.jmn, this.fuO);
             }
             if (i == 0) {
-                i.a(this.fuO, "", this.jml);
+                i.a(this.fuO, "", this.jmm);
             } else {
                 this.fuO.showToast(this.fuO.getString(d.j.install_failed) + str);
             }

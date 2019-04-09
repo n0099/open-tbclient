@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern bLC = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern bLD = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String ai(String str, boolean z) {
         String str2 = null;
@@ -194,7 +194,7 @@ public class e {
             if (xv == null) {
                 return null;
             }
-            Matcher matcher = bLC.matcher(xv);
+            Matcher matcher = bLD.matcher(xv);
             while (matcher.find()) {
                 String group = matcher.group();
                 xv = xv.replace(group, group.replace("#(", "[").replace(")", "]"));

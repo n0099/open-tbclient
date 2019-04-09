@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d eAz = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> eAA;
+    private static d eAA = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> eAB;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
@@ -18,22 +18,22 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     public static synchronized d aVJ() {
         d dVar;
         synchronized (d.class) {
-            dVar = eAz;
+            dVar = eAA;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.eAA;
+        return this.eAB;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0236a interfaceC0236a) {
-        if (this.eAA == null || this.eAA.isEmpty()) {
-            this.eAA = new LinkedList<>();
+        if (this.eAB == null || this.eAB.isEmpty()) {
+            this.eAB = new LinkedList<>();
             if (TbFaceManager.anl().amd() > 0) {
                 c cVar = new c();
-                this.eAA.add(cVar);
+                this.eAB.add(cVar);
                 if (interfaceC0236a != null) {
                     interfaceC0236a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eAA.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eAB.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0236a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.eAA == null || this.eAA.size() == 0;
+        return this.eAB == null || this.eAB.size() == 0;
     }
 }

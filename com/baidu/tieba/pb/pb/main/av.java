@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.ba;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class av {
-    private static av hyw = null;
+    private static av hyx = null;
 
     public static av bNA() {
-        if (hyw == null) {
+        if (hyx == null) {
             synchronized (av.class) {
-                if (hyw == null) {
-                    hyw = new av();
+                if (hyx == null) {
+                    hyx = new av();
                 }
             }
         }
-        return hyw;
+        return hyx;
     }
 
     public void c(TbPageContext tbPageContext, String str) {

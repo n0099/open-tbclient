@@ -12,24 +12,24 @@ import android.util.DisplayMetrics;
 import android.widget.ImageView;
 /* loaded from: classes6.dex */
 public class PersonExpandImageView extends ImageView {
-    private final Rect alH;
-    private final DisplayMetrics hTE;
-    private int hTF;
+    private final Rect alI;
+    private final DisplayMetrics hTF;
+    private int hTG;
     private final Rect mDstRect;
     private final Paint mPaint;
 
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alH = new Rect();
+        this.alI = new Rect();
         this.mDstRect = new Rect();
-        this.hTF = 0;
+        this.hTG = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.hTE = getResources().getDisplayMetrics();
+        this.hTF = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.hTF = i;
+        this.hTG = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.hTF != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.hTE);
-            int scaledHeight = bitmap.getScaledHeight(this.hTE);
+        if (this.hTG != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int scaledWidth = bitmap.getScaledWidth(this.hTF);
+            int scaledHeight = bitmap.getScaledHeight(this.hTF);
             if (scaledWidth != 0 && scaledHeight != 0) {
-                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.hTF) {
-                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.hTF) - getWidth()) * 0.2f) + getWidth();
+                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.hTG) {
+                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.hTG) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((scaledHeight * 1.0f) / scaledWidth) * width;
                     if (width != 0.0f && f5 != 0.0f) {
                         float width2 = (getWidth() * scaledWidth) / width;
@@ -68,9 +68,9 @@ public class PersonExpandImageView extends ImageView {
                         return;
                     }
                 }
-                this.alH.set((int) f, (int) f4, (int) f2, (int) f3);
+                this.alI.set((int) f, (int) f4, (int) f2, (int) f3);
                 this.mDstRect.set(0, 0, getWidth(), getHeight());
-                canvas.drawBitmap(bitmap, this.alH, this.mDstRect, this.mPaint);
+                canvas.drawBitmap(bitmap, this.alI, this.mDstRect, this.mPaint);
             }
         }
     }

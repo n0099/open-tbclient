@@ -15,19 +15,19 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.h.a ccm;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> eNg;
+    private com.baidu.tbadk.h.a ccn;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> eNh;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.eNg = null;
+        this.eNh = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.eNg = new CoverFlowView<>(getContext());
+        this.eNh = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e abk() {
@@ -59,16 +59,16 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.eNg.setIndicatorNoOffet(false);
-        this.eNg.setDisableParentEvent(false);
-        this.eNg.setCoverFlowFactory(bVar);
-        this.eNg.setIndicatorVisible(0);
-        this.eNg.setIsAutoPlayDragging(false);
-        addView(this.eNg);
+        this.eNh.setIndicatorNoOffet(false);
+        this.eNh.setDisableParentEvent(false);
+        this.eNh.setCoverFlowFactory(bVar);
+        this.eNh.setIndicatorVisible(0);
+        this.eNh.setIsAutoPlayDragging(false);
+        addView(this.eNh);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.eNg;
+        return this.eNh;
     }
 
     public boolean checkIndex(int i) {
@@ -86,43 +86,43 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void afj() {
-        if (this.eNg != null) {
-            this.eNg.abn();
+        if (this.eNh != null) {
+            this.eNh.abn();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.eNg != null) {
-            this.eNg.setIndicatorVisible(i);
+        if (this.eNh != null) {
+            this.eNh.setIndicatorVisible(i);
         }
     }
 
     public void cu(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.eNg.setData(list);
+        this.eNh.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
-        this.ccm = aVar;
+        this.ccn = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eNg != null) {
-            this.eNg.onChangeSkinType();
+        if (this.eNh != null) {
+            this.eNh.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.eNg != null) {
-            this.eNg.setMarqueenTime(j);
+        if (this.eNh != null) {
+            this.eNh.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.ccm != null) {
-            this.ccm.a(this, i == 0, null);
+        if (this.ccn != null) {
+            this.ccn.a(this, i == 0, null);
         }
     }
 }

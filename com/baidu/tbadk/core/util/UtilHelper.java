@@ -151,7 +151,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType bLH = NativePageType.NONE;
+        public NativePageType bLI = NativePageType.NONE;
         public String id;
     }
 
@@ -530,7 +530,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.bLH = NativePageType.PB;
+                    aVar.bLI = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -565,7 +565,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.bLH = NativePageType.PB;
+                aVar.bLI = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -597,7 +597,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.bLH = NativePageType.FRS;
+                aVar.bLI = NativePageType.FRS;
             }
         }
         return aVar;

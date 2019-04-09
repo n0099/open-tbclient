@@ -20,21 +20,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class d {
-    private static com.baidu.poly.a cWc = null;
-    private static volatile d cWd;
+    private static com.baidu.poly.a cWd = null;
+    private static volatile d cWe;
     private Context mContext;
 
     public static synchronized d dI(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (cWd == null) {
+            if (cWe == null) {
                 synchronized (d.class) {
-                    if (cWd == null) {
-                        cWd = new d(context.getApplicationContext());
+                    if (cWe == null) {
+                        cWe = new d(context.getApplicationContext());
                     }
                 }
             }
-            dVar = cWd;
+            dVar = cWe;
         }
         return dVar;
     }
@@ -102,7 +102,7 @@ public final class d {
                 jSONObject = new JSONObject(optString);
             }
             if (bVar.uA() != null) {
-                jSONObject.put("swanFrom", bVar.uA().axJ);
+                jSONObject.put("swanFrom", bVar.uA().axK);
             }
             jSONObject.put("cuid", bJ);
             jSONObject.put("appId", com.baidu.swan.apps.ae.b.Jg());
@@ -198,15 +198,15 @@ public final class d {
     }
 
     private static com.baidu.poly.a ad(Activity activity) {
-        if (cWc != null) {
-            return cWc;
+        if (cWd != null) {
+            return cWd;
         }
-        cWc = new a.C0078a().a(new com.baidu.poly.d.b.a(activity)).bD(a.b.agq).bf(activity);
-        return cWc;
+        cWd = new a.C0078a().a(new com.baidu.poly.d.b.a(activity)).bD(a.b.agr).bf(activity);
+        return cWd;
     }
 
     public static com.baidu.poly.a azJ() {
-        return cWc;
+        return cWd;
     }
 
     public boolean bK(Context context) {

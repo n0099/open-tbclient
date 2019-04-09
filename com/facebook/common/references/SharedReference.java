@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> jzO = new IdentityHashMap();
+    private static final Map<Object, Integer> jzP = new IdentityHashMap();
     @GuardedBy("this")
     private T jp;
     @GuardedBy("this")
-    private int jzP = 1;
-    private final c<T> jzt;
+    private int jzQ = 1;
+    private final c<T> jzu;
 
     public SharedReference(T t, c<T> cVar) {
         this.jp = (T) g.checkNotNull(t);
-        this.jzt = (c) g.checkNotNull(cVar);
+        this.jzu = (c) g.checkNotNull(cVar);
         aC(t);
     }
 
     private static void aC(Object obj) {
-        synchronized (jzO) {
-            Integer num = jzO.get(obj);
+        synchronized (jzP) {
+            Integer num = jzP.get(obj);
             if (num == null) {
-                jzO.put(obj, 1);
+                jzP.put(obj, 1);
             } else {
-                jzO.put(obj, Integer.valueOf(num.intValue() + 1));
+                jzP.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aD(Object obj) {
-        synchronized (jzO) {
-            Integer num = jzO.get(obj);
+        synchronized (jzP) {
+            Integer num = jzP.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.f("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                jzO.remove(obj);
+                jzP.remove(obj);
             } else {
-                jzO.put(obj, Integer.valueOf(num.intValue() - 1));
+                jzP.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -49,7 +49,7 @@ public class SharedReference<T> {
     }
 
     public synchronized boolean isValid() {
-        return this.jzP > 0;
+        return this.jzQ > 0;
     }
 
     public static boolean a(SharedReference<?> sharedReference) {
@@ -58,7 +58,7 @@ public class SharedReference<T> {
 
     public synchronized void ctV() {
         ctY();
-        this.jzP++;
+        this.jzQ++;
     }
 
     public void ctW() {
@@ -68,16 +68,16 @@ public class SharedReference<T> {
                 t = this.jp;
                 this.jp = null;
             }
-            this.jzt.release(t);
+            this.jzu.release(t);
             aD(t);
         }
     }
 
     private synchronized int ctX() {
         ctY();
-        g.checkArgument(this.jzP > 0);
-        this.jzP--;
-        return this.jzP;
+        g.checkArgument(this.jzQ > 0);
+        this.jzQ--;
+        return this.jzQ;
     }
 
     private void ctY() {

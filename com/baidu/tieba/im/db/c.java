@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ggP;
+    private static c ggQ;
 
     private c() {
     }
@@ -27,10 +27,10 @@ public class c {
     public static synchronized c bse() {
         c cVar;
         synchronized (c.class) {
-            if (ggP == null) {
-                ggP = new c();
+            if (ggQ == null) {
+                ggQ = new c();
             }
-            cVar = ggP;
+            cVar = ggQ;
         }
         return cVar;
     }

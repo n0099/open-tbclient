@@ -9,8 +9,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean cgt = false;
-    private int cgu = 0;
+    private boolean cgu = false;
+    private int cgv = 0;
 
     public void ot(String str) {
         int lastIndexOf;
@@ -18,8 +18,8 @@ public class f {
         Exception e;
         int i;
         int i2;
-        this.cgt = false;
-        this.cgu = 0;
+        this.cgu = false;
+        this.cgv = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 5) {
             String str3 = null;
             try {
@@ -50,7 +50,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.cgt = true;
+                                this.cgu = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -81,19 +81,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.cgt && i4 > 0) {
-                    this.cgu = i3 / i4;
+                if (this.cgu && i4 > 0) {
+                    this.cgv = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.cgt;
+        return this.cgu;
     }
 
     public int akX() {
-        return this.cgu;
+        return this.cgv;
     }
 
     private int getTimeout() {

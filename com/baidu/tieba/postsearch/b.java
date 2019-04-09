@@ -11,14 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    public List<a> icf = new ArrayList();
-    public an eTV = new an();
+    public List<a> icg = new ArrayList();
+    public an eTW = new an();
 
     /* loaded from: classes6.dex */
     public static class a {
         public String content;
         public String fname;
-        public int icg;
+        public int ich;
         public int is_floor;
         public String name;
         public String name_show;
@@ -30,20 +30,20 @@ public class b {
     }
 
     public boolean bvL() {
-        return (this.icf == null || this.icf.size() == 0) ? false : true;
+        return (this.icg == null || this.icg.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.eTV != null && this.eTV.XH() == 1;
+        return this.eTW != null && this.eTW.XH() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eTV.parserJson(jSONObject.getJSONObject("page"));
+                this.eTW.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.icf.clear();
+                    this.icg.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -68,11 +68,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.icg = optInt2;
+                                aVar.ich = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.icf.add(aVar);
+                                this.icg.add(aVar);
                             }
                         }
                     }

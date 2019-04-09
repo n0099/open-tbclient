@@ -22,16 +22,16 @@ import com.baidu.tieba.view.k;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
 public class d {
-    private boolean gZq;
-    public TextView hDA;
+    private boolean gZr;
     public TextView hDB;
     public TextView hDC;
-    private boolean hDD;
+    public TextView hDD;
     private boolean hDE;
-    private SpannableStringBuilder hDF;
+    private boolean hDF;
     private SpannableStringBuilder hDG;
-    private View.OnTouchListener hDH;
+    private SpannableStringBuilder hDH;
     private View.OnTouchListener hDI;
+    private View.OnTouchListener hDJ;
     public View mRootView;
     public TextView mTitleView;
 
@@ -42,68 +42,68 @@ public class d {
             this.mTitleView.setTextSize(0, TbConfig.getContentSize());
             this.mTitleView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
             this.mTitleView.getPaint().setFakeBoldText(true);
-            this.hDA = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
-            this.hDB = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
-            this.hDC = (TextView) this.mRootView.findViewById(d.g.view_video_title_up);
+            this.hDB = (TextView) this.mRootView.findViewById(d.g.pb_video_replay_num);
+            this.hDC = (TextView) this.mRootView.findViewById(d.g.pb_video_play_count);
+            this.hDD = (TextView) this.mRootView.findViewById(d.g.view_video_title_up);
             this.mTitleView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.pb.video.d.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Layout layout;
                     int ellipsisCount;
                     Object[] spans;
-                    if (d.this.mTitleView != null && d.this.hDF != null && !d.this.hDE && (layout = d.this.mTitleView.getLayout()) != null) {
-                        if (d.this.gZq) {
-                            if (!d.this.hDD) {
+                    if (d.this.mTitleView != null && d.this.hDG != null && !d.this.hDF && (layout = d.this.mTitleView.getLayout()) != null) {
+                        if (d.this.gZr) {
+                            if (!d.this.hDE) {
                                 int lineCount = layout.getLineCount();
-                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) d.this.hDC.getLayoutParams();
-                                if (layout.getLineWidth(lineCount - 1) + d.this.hDC.getWidth() > layout.getWidth()) {
+                                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) d.this.hDD.getLayoutParams();
+                                if (layout.getLineWidth(lineCount - 1) + d.this.hDD.getWidth() > layout.getWidth()) {
                                     layoutParams.addRule(3, d.g.view_video_title);
                                     layoutParams.addRule(8, 0);
                                 } else {
                                     layoutParams.addRule(8, d.g.view_video_title);
                                     layoutParams.addRule(3, 0);
                                 }
-                                d.this.hDC.setLayoutParams(layoutParams);
-                                d.this.hDD = true;
+                                d.this.hDD.setLayoutParams(layoutParams);
+                                d.this.hDE = true;
                                 return;
                             }
                             return;
                         }
                         int lineCount2 = layout.getLineCount();
                         if (lineCount2 >= 2 && (ellipsisCount = layout.getEllipsisCount(lineCount2 - 1)) != 0) {
-                            if (d.this.hDG == null) {
+                            if (d.this.hDH == null) {
                                 String charSequence = d.this.mTitleView.getText().toString();
                                 String g = ap.g(charSequence, ap.mH(charSequence.substring(0, charSequence.length() - ellipsisCount)) - 6, "");
                                 int length = g.length();
-                                d.this.hDG = new SpannableStringBuilder();
-                                d.this.hDG.append((CharSequence) g);
-                                for (Object obj : d.this.hDF.getSpans(length, charSequence.length(), Object.class)) {
-                                    int spanStart = d.this.hDF.getSpanStart(obj);
-                                    int spanEnd = d.this.hDF.getSpanEnd(obj);
+                                d.this.hDH = new SpannableStringBuilder();
+                                d.this.hDH.append((CharSequence) g);
+                                for (Object obj : d.this.hDG.getSpans(length, charSequence.length(), Object.class)) {
+                                    int spanStart = d.this.hDG.getSpanStart(obj);
+                                    int spanEnd = d.this.hDG.getSpanEnd(obj);
                                     if (spanStart < length && spanEnd >= length) {
                                         break;
                                     }
                                     if (obj instanceof SpannableString) {
-                                        d.this.hDG.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                                        d.this.hDH.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                                     }
                                 }
                                 SpannableString spannableString = new SpannableString("...详情");
                                 spannableString.setSpan(new com.baidu.tbadk.widget.richText.c(2, null) { // from class: com.baidu.tieba.pb.video.d.1.1
                                     @Override // com.baidu.tbadk.widget.richText.c, android.text.style.ClickableSpan
                                     public void onClick(View view2) {
-                                        d.this.gZq = true;
+                                        d.this.gZr = true;
                                         d.this.mTitleView.setMaxLines(10);
-                                        d.this.mTitleView.setOnTouchListener(new k(d.this.hDF));
-                                        d.this.mTitleView.setText(d.this.hDF);
-                                        d.this.hDC.setVisibility(0);
+                                        d.this.mTitleView.setOnTouchListener(new k(d.this.hDG));
+                                        d.this.mTitleView.setText(d.this.hDG);
+                                        d.this.hDD.setVisibility(0);
                                     }
                                 }, 0, spannableString.length(), 17);
-                                d.this.hDG.insert(length, (CharSequence) spannableString);
-                                d.this.hDI = new k(d.this.hDG);
+                                d.this.hDH.insert(length, (CharSequence) spannableString);
+                                d.this.hDJ = new k(d.this.hDH);
                             }
-                            d.this.hDC.setVisibility(8);
-                            d.this.mTitleView.setOnTouchListener(d.this.hDI);
-                            d.this.mTitleView.setText(d.this.hDG);
+                            d.this.hDD.setVisibility(8);
+                            d.this.mTitleView.setOnTouchListener(d.this.hDJ);
+                            d.this.mTitleView.setText(d.this.hDH);
                         }
                     }
                 }
@@ -114,10 +114,10 @@ public class d {
     public void ay(bg bgVar) {
         if (bgVar != null && bgVar.Zf() != null) {
             bgVar.ZF();
-            this.hDF = new SpannableStringBuilder(bgVar.Zu());
+            this.hDG = new SpannableStringBuilder(bgVar.Zu());
             if (bgVar.ZB() && !StringUtils.isNull(bgVar.getTid())) {
                 final String str = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + bgVar.getTid();
-                this.hDF.append((CharSequence) bgVar.a(new com.baidu.tbadk.widget.richText.c(2, str) { // from class: com.baidu.tieba.pb.video.d.2
+                this.hDG.append((CharSequence) bgVar.a(new com.baidu.tbadk.widget.richText.c(2, str) { // from class: com.baidu.tieba.pb.video.d.2
                     @Override // com.baidu.tbadk.widget.richText.c, android.text.style.ClickableSpan
                     public void onClick(View view) {
                         com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str);
@@ -132,39 +132,39 @@ public class d {
                     }
                 }));
             }
-            this.hDH = new k(this.hDF);
-            this.mTitleView.setOnTouchListener(this.hDH);
+            this.hDI = new k(this.hDG);
+            this.mTitleView.setOnTouchListener(this.hDI);
             VideoInfo Zf = bgVar.Zf();
             if (!StringUtils.isNull(Zf.mcn_lead_page) && !bgVar.ZB()) {
-                this.hDE = true;
+                this.hDF = true;
             } else {
-                this.hDE = false;
+                this.hDF = false;
             }
-            if (this.hDE) {
+            if (this.hDF) {
                 com.baidu.tieba.pb.video.a.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mTitleView, bgVar.Zu().toString(), Zf.mcn_lead_page, bgVar.getTid());
             } else {
-                this.mTitleView.setText(this.hDF);
+                this.mTitleView.setText(this.hDG);
             }
             this.mTitleView.setLinkTextColor(al.getColor(d.C0277d.cp_link_tip_c));
-            this.hDC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.d.3
+            this.hDD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.gZq = false;
-                    d.this.mTitleView.setOnTouchListener(d.this.hDI);
-                    d.this.mTitleView.setText(d.this.hDG);
-                    d.this.hDC.setVisibility(8);
+                    d.this.gZr = false;
+                    d.this.mTitleView.setOnTouchListener(d.this.hDJ);
+                    d.this.mTitleView.setText(d.this.hDH);
+                    d.this.hDD.setVisibility(8);
                 }
             });
-            this.hDA.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), ap.au(bgVar.YF())));
-            this.hDB.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), ap.au(Zf.play_count.intValue())));
+            this.hDB.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_replay_num), ap.au(bgVar.YF())));
+            this.hDC.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.pb_video_header_play_count), ap.au(Zf.play_count.intValue())));
             ajX();
         }
     }
 
     public void ajX() {
         al.d(this.mTitleView, d.C0277d.cp_cont_b, 1);
-        al.d(this.hDC, d.C0277d.cp_link_tip_c, 1);
-        al.d(this.hDA, d.C0277d.cp_cont_d, 1);
+        al.d(this.hDD, d.C0277d.cp_link_tip_c, 1);
         al.d(this.hDB, d.C0277d.cp_cont_d, 1);
+        al.d(this.hDC, d.C0277d.cp_cont_d, 1);
     }
 }

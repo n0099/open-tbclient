@@ -10,10 +10,10 @@ import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class d {
-    private b bfG;
+    private b bfH;
 
     public d(JsObject jsObject) {
-        this.bfG = b.e(com.baidu.swan.games.binding.model.c.b(jsObject));
+        this.bfH = b.e(com.baidu.swan.games.binding.model.c.b(jsObject));
         a.Pg().a(this);
     }
 
@@ -27,7 +27,7 @@ public class d {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate getLaunchInfo is null");
             return false;
         } else {
-            final String str = DM.uA().axK;
+            final String str = DM.uA().axL;
             if (TextUtils.isEmpty(str)) {
                 com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate launchScheme is empty");
                 return false;
@@ -52,7 +52,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.bfG != null && JSEvent.isValid(cVar)) {
+        if (this.bfH != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -78,13 +78,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.bfG.b(cVar);
+                    this.bfH.b(cVar);
                     return;
                 case true:
-                    this.bfG.Pi();
+                    this.bfH.Pi();
                     return;
                 case true:
-                    this.bfG.Pj();
+                    this.bfH.Pj();
                     return;
                 default:
                     return;

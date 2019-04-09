@@ -17,18 +17,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
-    private LinearLayout egd;
-    private TextView ege;
-    private LinearLayout egf;
-    private d egg;
-    private e egh;
+    private LinearLayout ege;
+    private TextView egf;
+    private LinearLayout egg;
+    private d egh;
     private e egi;
-    private com.baidu.tieba.e.a egj;
-    private com.baidu.tieba.e.b egk;
+    private e egj;
+    private com.baidu.tieba.e.a egk;
     private com.baidu.tieba.e.b egl;
-    private View egm;
+    private com.baidu.tieba.e.b egm;
     private View egn;
-    private a ego;
+    private View ego;
+    private a egp;
     private String mForumId;
 
     /* loaded from: classes4.dex */
@@ -43,35 +43,24 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     private void init(View view) {
-        this.egd = (LinearLayout) view.findViewById(d.g.card_frs_game_head_line_layout);
-        this.ege = (TextView) view.findViewById(d.g.frs_game_head_line_title);
-        this.egf = (LinearLayout) view.findViewById(d.g.frs_game_head_line_container);
-        this.egm = view.findViewById(d.g.divider_line_1);
-        this.egn = view.findViewById(d.g.divider_line_2);
+        this.ege = (LinearLayout) view.findViewById(d.g.card_frs_game_head_line_layout);
+        this.egf = (TextView) view.findViewById(d.g.frs_game_head_line_title);
+        this.egg = (LinearLayout) view.findViewById(d.g.frs_game_head_line_container);
+        this.egn = view.findViewById(d.g.divider_line_1);
+        this.ego = view.findViewById(d.g.divider_line_2);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.tbds44);
-        if (this.egg == null) {
-            this.egg = new d(this.mTbPageContext, null, null);
-        }
-        this.egg.q(0, 0, 0, 0);
-        this.egg.oh(8);
-        this.egg.oi(8);
-        if (this.egg.getView().getParent() != null) {
-            ((ViewGroup) this.egg.getView().getParent()).removeView(this.egg.getView());
-        }
-        this.egg.getView().setOnClickListener(this);
-        this.egg.getView().setVisibility(8);
-        this.egf.addView(this.egg.getView());
         if (this.egh == null) {
-            this.egh = new e(this.mTbPageContext);
+            this.egh = new d(this.mTbPageContext, null, null);
         }
+        this.egh.q(0, 0, 0, 0);
+        this.egh.oh(8);
         this.egh.oi(8);
-        this.egh.r(0, dimensionPixelSize, 0, 0);
         if (this.egh.getView().getParent() != null) {
             ((ViewGroup) this.egh.getView().getParent()).removeView(this.egh.getView());
         }
         this.egh.getView().setOnClickListener(this);
         this.egh.getView().setVisibility(8);
-        this.egf.addView(this.egh.getView());
+        this.egg.addView(this.egh.getView());
         if (this.egi == null) {
             this.egi = new e(this.mTbPageContext);
         }
@@ -82,23 +71,34 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
         }
         this.egi.getView().setOnClickListener(this);
         this.egi.getView().setVisibility(8);
-        this.egf.addView(this.egi.getView());
+        this.egg.addView(this.egi.getView());
+        if (this.egj == null) {
+            this.egj = new e(this.mTbPageContext);
+        }
+        this.egj.oi(8);
+        this.egj.r(0, dimensionPixelSize, 0, 0);
+        if (this.egj.getView().getParent() != null) {
+            ((ViewGroup) this.egj.getView().getParent()).removeView(this.egj.getView());
+        }
+        this.egj.getView().setOnClickListener(this);
+        this.egj.getView().setVisibility(8);
+        this.egg.addView(this.egj.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         al.k(getView(), d.C0277d.cp_bg_line_d);
-        al.d(this.ege, d.C0277d.cp_cont_f, 1);
-        al.k(this.egm, d.C0277d.cp_bg_line_e);
+        al.d(this.egf, d.C0277d.cp_cont_f, 1);
         al.k(this.egn, d.C0277d.cp_bg_line_e);
-        if (this.egg != null) {
-            this.egg.onChangeSkinType(tbPageContext, i);
-        }
+        al.k(this.ego, d.C0277d.cp_bg_line_e);
         if (this.egh != null) {
             this.egh.onChangeSkinType(tbPageContext, i);
         }
         if (this.egi != null) {
             this.egi.onChangeSkinType(tbPageContext, i);
+        }
+        if (this.egj != null) {
+            this.egj.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -112,28 +112,28 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     public void a(com.baidu.tieba.e.d dVar) {
         if (dVar != null && dVar.aUM() != null) {
             if (!TextUtils.isEmpty(dVar.aUM().title)) {
-                this.ege.setText(dVar.aUM().title);
+                this.egf.setText(dVar.aUM().title);
             }
             List<bg> list = dVar.aUM().sub_nodes;
             if (com.baidu.tbadk.core.util.v.S(list) >= 1) {
-                this.egj = new com.baidu.tieba.e.a();
-                this.egj.setData(list.get(0));
-                this.egg.getView().setVisibility(0);
-                this.egg.a(this.egj);
-            }
-            if (com.baidu.tbadk.core.util.v.S(list) >= 2) {
-                this.egk = new com.baidu.tieba.e.b();
-                this.egk.setData(list.get(1));
+                this.egk = new com.baidu.tieba.e.a();
+                this.egk.setData(list.get(0));
                 this.egh.getView().setVisibility(0);
                 this.egh.a(this.egk);
-                this.egh.oj(8);
             }
-            if (com.baidu.tbadk.core.util.v.S(list) >= 3) {
+            if (com.baidu.tbadk.core.util.v.S(list) >= 2) {
                 this.egl = new com.baidu.tieba.e.b();
-                this.egl.setData(list.get(2));
+                this.egl.setData(list.get(1));
                 this.egi.getView().setVisibility(0);
                 this.egi.a(this.egl);
                 this.egi.oj(8);
+            }
+            if (com.baidu.tbadk.core.util.v.S(list) >= 3) {
+                this.egm = new com.baidu.tieba.e.b();
+                this.egm.setData(list.get(2));
+                this.egj.getView().setVisibility(0);
+                this.egj.a(this.egm);
+                this.egj.oj(8);
             }
         }
     }
@@ -141,25 +141,25 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log(new am("c13047").T("obj_locate", 6).bJ(ImageViewerConfig.FORUM_ID, this.mForumId));
-        if (view == this.egg.getView()) {
-            if (this.egj != null) {
-                if (this.ego != null) {
-                    this.ego.b(view, this.egj);
-                }
-                Q(this.egj.WO());
-            }
-        } else if (view == this.egh.getView()) {
+        if (view == this.egh.getView()) {
             if (this.egk != null) {
-                if (this.ego != null) {
-                    this.ego.b(view, this.egk);
+                if (this.egp != null) {
+                    this.egp.b(view, this.egk);
                 }
                 Q(this.egk.WO());
             }
-        } else if (view == this.egi.getView() && this.egl != null) {
-            if (this.ego != null) {
-                this.ego.b(view, this.egl);
+        } else if (view == this.egi.getView()) {
+            if (this.egl != null) {
+                if (this.egp != null) {
+                    this.egp.b(view, this.egl);
+                }
+                Q(this.egl.WO());
             }
-            Q(this.egl.WO());
+        } else if (view == this.egj.getView() && this.egm != null) {
+            if (this.egp != null) {
+                this.egp.b(view, this.egm);
+            }
+            Q(this.egm.WO());
         }
     }
 
@@ -173,6 +173,6 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     public void a(a aVar) {
-        this.ego = aVar;
+        this.egp = aVar;
     }
 }

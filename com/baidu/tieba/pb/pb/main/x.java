@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class x {
-    public int hsZ;
+    public int hta;
 
     public x(PbModel pbModel, BaseActivity baseActivity) {
     }
@@ -30,7 +30,7 @@ public class x {
         }
         Map<String, String> mO = ba.mO(str);
         if (mO != null) {
-            this.hsZ = 5;
+            this.hta = 5;
             com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c10320");
             amVar.bJ("obj_locate", mO.get("obj_locate"));
             amVar.T("obj_type", 1);

@@ -12,17 +12,17 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes2.dex */
 public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.extcore.f.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a avt;
+    private static volatile a avu;
 
     public static a Bh() {
-        if (avt == null) {
+        if (avu == null) {
             synchronized (a.class) {
-                if (avt == null) {
-                    avt = new a();
+                if (avu == null) {
+                    avu = new a();
                 }
             }
         }
-        return avt;
+        return avu;
     }
 
     private a() {

@@ -23,7 +23,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent eHo = new KeyEvent(0, 67);
+    private static final KeyEvent eHp = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -114,7 +114,7 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.eHm.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.eHn.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
@@ -251,9 +251,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, eHo);
+                editText.onKeyDown(67, eHp);
             }
-            editText.onKeyDown(67, eHo);
+            editText.onKeyDown(67, eHp);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

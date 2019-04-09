@@ -6,23 +6,23 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class m implements Runnable {
-    final /* synthetic */ Context acD;
-    final /* synthetic */ Throwable acE;
+    final /* synthetic */ Context acE;
+    final /* synthetic */ Throwable acF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Throwable th, Context context) {
-        this.acE = th;
-        this.acD = context;
+        this.acF = th;
+        this.acE = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Map<String, Object> a = g.a(this.acE, this.acD);
+            Map<String, Object> a = g.a(this.acF, this.acE);
             g.b(a);
             a.put("exceptionThread", r.a(Thread.currentThread()));
-            i.b(this.acD, i.j(a));
-            k.o(this.acD);
+            i.b(this.acE, i.j(a));
+            k.o(this.acE);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -15,9 +15,9 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes5.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel gsN;
-    private a gsM = null;
-    private int gsO = 1;
+    private UpdateGroupModel gsO;
+    private a gsN = null;
+    private int gsP = 1;
     a.b ggm = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -36,7 +36,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.gsM.setIsLoading(false);
+                UpdateGroupActivity.this.gsN.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(d.j.group_update_fail);
                     return;
@@ -48,7 +48,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
                 }
                 UpdateGroupActivity.this.showToast(d.j.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.gsM.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.gsN.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -74,11 +74,11 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         long longExtra = intent.getLongExtra("group_id", 0L);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         l(intExtra, longExtra);
-        this.gsN = new UpdateGroupModel(getPageContext());
-        this.gsN.setUniqueId(getUniqueId());
-        this.gsM.xu(stringExtra);
-        this.gsM.b(this.ggn);
-        this.gsM.c(this.ggm);
+        this.gsO = new UpdateGroupModel(getPageContext());
+        this.gsO.setUniqueId(getUniqueId());
+        this.gsN.xu(stringExtra);
+        this.gsN.b(this.ggn);
+        this.gsN.c(this.ggm);
         initListener();
     }
 
@@ -88,35 +88,35 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
 
     private void l(int i, long j) {
         if (i == 1) {
-            this.gsM = new c(this);
+            this.gsN = new c(this);
         } else if (i == 2) {
-            this.gsM = new b(this);
+            this.gsN = new b(this);
         }
-        this.gsO = i;
-        this.gsM.setGroupId(j);
+        this.gsP = i;
+        this.gsN.setGroupId(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gsM.onChangeSkinType(i);
+        this.gsN.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gsM.brJ()) {
-            if (((d) this.gsM).bwo()) {
+        if (view == this.gsN.brJ()) {
+            if (((d) this.gsN).bwo()) {
                 finish();
-            } else if (this.gsM.bwl() && this.gsM.brz()) {
+            } else if (this.gsN.bwl() && this.gsN.brz()) {
                 bwn();
             } else {
-                showToast(this.gsM.bwk());
+                showToast(this.gsN.bwk());
             }
-        } else if (view == this.gsM.bqX()) {
-            this.gsM.clearText();
-        } else if (view == this.gsM.bwi() && !bwm()) {
+        } else if (view == this.gsN.bqX()) {
+            this.gsN.clearText();
+        } else if (view == this.gsN.bwi() && !bwm()) {
             finish();
         }
     }
@@ -130,23 +130,23 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     }
 
     private boolean bwm() {
-        if (TextUtils.isEmpty(this.gsM.getText()) || !this.gsM.brz() || this.gsM.getText().equals(this.gsM.bwh())) {
+        if (TextUtils.isEmpty(this.gsN.getText()) || !this.gsN.brz() || this.gsN.getText().equals(this.gsN.bwh())) {
             return false;
         }
-        this.gsM.showDialog();
+        this.gsN.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bwn() {
-        this.gsM.setIsLoading(true);
-        this.gsN.setGroupId(this.gsM.getGroupId());
-        if (this.gsO == 1) {
-            this.gsN.setName(this.gsM.getText());
-            this.gsN.sendMessage(2);
-        } else if (this.gsO == 2) {
-            this.gsN.setIntro(this.gsM.getText());
-            this.gsN.sendMessage(1);
+        this.gsN.setIsLoading(true);
+        this.gsO.setGroupId(this.gsN.getGroupId());
+        if (this.gsP == 1) {
+            this.gsO.setName(this.gsN.getText());
+            this.gsO.sendMessage(2);
+        } else if (this.gsP == 2) {
+            this.gsO.setIntro(this.gsN.getText());
+            this.gsO.sendMessage(1);
         }
     }
 
@@ -155,7 +155,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.gsN.cancelMessage();
-        this.gsM.release();
+        this.gsO.cancelMessage();
+        this.gsN.release();
     }
 }

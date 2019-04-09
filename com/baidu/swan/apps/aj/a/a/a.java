@@ -98,16 +98,16 @@ public class a extends y {
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0111a {
-        private static ArrayMap<String, Integer> aTJ = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> aTK = new ArrayMap<>(3);
 
         static {
-            aTJ.put("ui", 60);
-            aTJ.put("game", 20);
-            aTJ.put("normal", 200);
+            aTK.put("ui", 60);
+            aTK.put("game", 20);
+            aTK.put("normal", 200);
         }
 
         public static int hk(String str) {
-            Integer num = aTJ.get(str);
+            Integer num = aTK.get(str);
             if (num != null) {
                 return num.intValue();
             }

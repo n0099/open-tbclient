@@ -18,7 +18,7 @@ public class a extends y {
             return false;
         }
         bVar.IY().KD().edit().clear().apply();
-        com.baidu.swan.apps.ak.e.aVS.update();
+        com.baidu.swan.apps.ak.e.aVT.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

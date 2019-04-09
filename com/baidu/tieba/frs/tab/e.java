@@ -18,8 +18,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.as;
 /* loaded from: classes4.dex */
 public class e {
-    private MorePopupWindow bun;
-    private LinearLayout eIt;
+    private MorePopupWindow buo;
+    private LinearLayout eIu;
     private as ftA;
     private View ftB;
     private SparseArray<com.baidu.tieba.frs.tab.a> ftC = new SparseArray<>();
@@ -40,7 +40,7 @@ public class e {
 
     /* loaded from: classes4.dex */
     public static class c {
-        public TextView dfo;
+        public TextView dfp;
         public ImageView ftG;
         public View ftH;
         public View ftI;
@@ -50,34 +50,34 @@ public class e {
         this.mContext = context;
         this.fto = bVar;
         this.ftp = aVar;
-        this.eIt = new LinearLayout(context);
-        this.eIt.setOrientation(1);
-        this.eIt.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.eIu = new LinearLayout(context);
+        this.eIu.setOrientation(1);
+        this.eIu.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.ftB = new View(context);
         this.ftB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.adp.lib.g.g.a(e.this.bun);
+                com.baidu.adp.lib.g.g.a(e.this.buo);
             }
         });
     }
 
     private void a(Activity activity, View view, final TabItemView tabItemView) {
-        if (this.bun == null) {
-            this.bun = new MorePopupWindow(activity, this.eIt, view, al.getDrawable(d.f.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
+        if (this.buo == null) {
+            this.buo = new MorePopupWindow(activity, this.eIu, view, al.getDrawable(d.f.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
                 public void VU() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
                 public void VV() {
-                    if (e.this.bun != null) {
-                        com.baidu.adp.lib.g.g.a(e.this.bun);
+                    if (e.this.buo != null) {
+                        com.baidu.adp.lib.g.g.a(e.this.buo);
                     }
                 }
             });
         }
-        this.bun.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
+        this.buo.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
                 if (e.this.ftp != null) {
@@ -110,24 +110,24 @@ public class e {
                 }
             }
         }
-        this.eIt.removeAllViews();
-        this.eIt.addView(this.ftD.getView());
+        this.eIu.removeAllViews();
+        this.eIu.addView(this.ftD.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         al.k(this.ftB, d.C0277d.common_color_10050);
-        this.eIt.addView(this.ftB, layoutParams);
+        this.eIu.addView(this.ftB, layoutParams);
         a(activity, view, tabItemView);
-        if (this.bun != null) {
-            this.bun.refresh();
-            this.bun.setWidthAsWidthOfDeviceScreen(activity);
-            this.bun.setHeight(-1);
-            this.bun.showWindowInCustomPosition(0, 0);
+        if (this.buo != null) {
+            this.buo.refresh();
+            this.buo.setWidthAsWidthOfDeviceScreen(activity);
+            this.buo.setHeight(-1);
+            this.buo.showWindowInCustomPosition(0, 0);
         }
     }
 
     public void bio() {
-        if (this.bun != null) {
+        if (this.buo != null) {
             try {
-                this.bun.dismiss();
+                this.buo.dismiss();
             } catch (Exception e) {
                 BdLog.e(e);
             }

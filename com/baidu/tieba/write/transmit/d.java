@@ -29,18 +29,18 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
-    private a.InterfaceC0332a dBC;
-    private com.baidu.tieba.likedForum.a dBz;
-    private List<TransmitForumData> jkS;
-    private s jqa;
+    private com.baidu.tieba.likedForum.a dBA;
+    private a.InterfaceC0332a dBD;
+    private List<TransmitForumData> jkT;
+    private s jqb;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ci(long j) {
-        if (this.jkS == null) {
+        if (this.jkT == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.jkS) {
+        for (TransmitForumData transmitForumData : this.jkT) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -65,7 +65,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.jqa = new s() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.jqb = new s() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.kY()) {
@@ -76,12 +76,12 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     d.this.cim();
                     return;
                 }
-                d.this.dBz = new com.baidu.tieba.likedForum.a(d.this.mPageId);
-                d.this.dBz.a(d.this.dBC);
-                d.this.dBz.aor();
+                d.this.dBA = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.dBA.a(d.this.dBD);
+                d.this.dBA.aor();
             }
         };
-        this.dBC = new a.InterfaceC0332a() { // from class: com.baidu.tieba.write.transmit.d.2
+        this.dBD = new a.InterfaceC0332a() { // from class: com.baidu.tieba.write.transmit.d.2
             @Override // com.baidu.tieba.likedForum.a.InterfaceC0332a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
@@ -106,8 +106,8 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
             }
         };
-        setOnAdapterItemClickListener(this.jqa);
-        this.jkS = list;
+        setOnAdapterItemClickListener(this.jqb);
+        this.jkT = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,26 +123,26 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        al.j(aVar.jqc, d.C0277d.cp_link_tip_a);
-        al.c(aVar.eOd, d.f.icon_post_add_ba_n);
+        al.j(aVar.jqd, d.C0277d.cp_link_tip_a);
+        al.c(aVar.eOe, d.f.icon_post_add_ba_n);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends v.a {
-        public ImageView eOd;
-        public TextView jqc;
+        public ImageView eOe;
+        public TextView jqd;
 
         public a(View view) {
             super(view);
-            this.jqc = (TextView) view.findViewById(d.g.select_by_self);
-            this.eOd = (ImageView) view.findViewById(d.g.add_icon);
+            this.jqd = (TextView) view.findViewById(d.g.select_by_self);
+            this.eOe = (ImageView) view.findViewById(d.g.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.dBz != null) {
-            this.dBz.destroy();
+        if (this.dBA != null) {
+            this.dBA.destroy();
         }
     }
 }

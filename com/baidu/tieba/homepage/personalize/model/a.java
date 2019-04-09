@@ -28,10 +28,10 @@ public class a {
     private int fNk = 0;
     private com.baidu.tieba.homepage.personalize.b.d fNl = new com.baidu.tieba.homepage.personalize.b.d();
     private final c fGU = new c();
-    private final int dfW = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final int dfX = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
     public int bmU() {
-        return this.dfW;
+        return this.dfX;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -47,14 +47,14 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.dfW);
+        a(builder, i, this.dfX);
         d.e(builder);
         List<p> b = d.b(builder);
         cx(b);
         List<m> l = l(builder.thread_list, b);
         this.fNl.cA(l);
         b.a(builder, l);
-        this.fGU.cHL = l;
+        this.fGU.cHM = l;
         return this.fGU;
     }
 
@@ -202,8 +202,8 @@ public class a {
                         if (aq instanceof k) {
                             if (bgVar.ZM() == 1) {
                                 d.b(aq);
-                                aq.bAQ = ap[0];
-                                aq.bAR = ap[1];
+                                aq.bAR = ap[0];
+                                aq.bAS = ap[1];
                             } else if (bgVar.ZM() >= 2) {
                                 d.c(aq);
                             } else {

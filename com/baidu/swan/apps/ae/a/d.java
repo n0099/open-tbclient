@@ -8,15 +8,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int aOG;
-    public String aOH;
+    public int aOH;
     public String aOI;
     public String aOJ;
-    public boolean aOK;
-    public String aOL;
-    public boolean aOM;
+    public String aOK;
+    public boolean aOL;
+    public String aOM;
     public boolean aON;
-    public String aOO;
+    public boolean aOO;
+    public String aOP;
     public int mBackgroundColor;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,31 +49,31 @@ public class d {
 
     private static d Z(JSONObject jSONObject) {
         d dVar = new d();
-        dVar.aOG = c.parseColor(jSONObject.optString("navigationBarBackgroundColor"));
-        dVar.aOH = jSONObject.optString("navigationBarTitleText");
-        dVar.aOI = jSONObject.optString("navigationBarTextStyle", "black");
-        dVar.aOJ = jSONObject.optString("backgroundTextStyle", "black");
+        dVar.aOH = c.parseColor(jSONObject.optString("navigationBarBackgroundColor"));
+        dVar.aOI = jSONObject.optString("navigationBarTitleText");
+        dVar.aOJ = jSONObject.optString("navigationBarTextStyle", "black");
+        dVar.aOK = jSONObject.optString("backgroundTextStyle", "black");
         dVar.mBackgroundColor = c.parseColor(jSONObject.optString("backgroundColor"));
-        dVar.aOK = jSONObject.optBoolean("enablePullDownRefresh");
-        dVar.aOL = jSONObject.optString("onReachBottomDistance");
-        dVar.aOM = jSONObject.optBoolean("enableOpacityNavigationBar");
-        dVar.aON = jSONObject.optBoolean("enableOpacityNavigationBarText");
-        dVar.aOO = jSONObject.optString("navigationStyle", "default");
+        dVar.aOL = jSONObject.optBoolean("enablePullDownRefresh");
+        dVar.aOM = jSONObject.optString("onReachBottomDistance");
+        dVar.aON = jSONObject.optBoolean("enableOpacityNavigationBar");
+        dVar.aOO = jSONObject.optBoolean("enableOpacityNavigationBarText");
+        dVar.aOP = jSONObject.optString("navigationStyle", "default");
         return dVar;
     }
 
     private static d a(JSONObject jSONObject, @NonNull d dVar) {
         d dVar2 = new d();
-        dVar2.aOG = jSONObject.has("navigationBarBackgroundColor") ? c.parseColor(jSONObject.optString("navigationBarBackgroundColor")) : dVar.aOG;
-        dVar2.aOH = jSONObject.optString("navigationBarTitleText", dVar.aOH);
-        dVar2.aOI = jSONObject.optString("navigationBarTextStyle", dVar.aOI);
-        dVar2.aOJ = jSONObject.optString("backgroundTextStyle", dVar.aOJ);
+        dVar2.aOH = jSONObject.has("navigationBarBackgroundColor") ? c.parseColor(jSONObject.optString("navigationBarBackgroundColor")) : dVar.aOH;
+        dVar2.aOI = jSONObject.optString("navigationBarTitleText", dVar.aOI);
+        dVar2.aOJ = jSONObject.optString("navigationBarTextStyle", dVar.aOJ);
+        dVar2.aOK = jSONObject.optString("backgroundTextStyle", dVar.aOK);
         dVar2.mBackgroundColor = jSONObject.has("backgroundColor") ? c.parseColor(jSONObject.optString("backgroundColor")) : dVar.mBackgroundColor;
-        dVar2.aOK = jSONObject.optBoolean("enablePullDownRefresh", dVar.aOK);
-        dVar2.aOL = jSONObject.optString("onReachBottomDistance", dVar.aOL);
-        dVar2.aOM = jSONObject.optBoolean("enableOpacityNavigationBar", dVar.aOM);
-        dVar2.aON = jSONObject.optBoolean("enableOpacityNavigationBarText", dVar.aON);
-        dVar2.aOO = jSONObject.optString("navigationStyle", dVar.aOO);
+        dVar2.aOL = jSONObject.optBoolean("enablePullDownRefresh", dVar.aOL);
+        dVar2.aOM = jSONObject.optString("onReachBottomDistance", dVar.aOM);
+        dVar2.aON = jSONObject.optBoolean("enableOpacityNavigationBar", dVar.aON);
+        dVar2.aOO = jSONObject.optBoolean("enableOpacityNavigationBarText", dVar.aOO);
+        dVar2.aOP = jSONObject.optString("navigationStyle", dVar.aOP);
         return dVar2;
     }
 
@@ -88,6 +88,6 @@ public class d {
         if (dVar == null) {
             return false;
         }
-        return dVar.aOM || TextUtils.equals(dVar.aOO, "custom");
+        return dVar.aON || TextUtils.equals(dVar.aOP, "custom");
     }
 }

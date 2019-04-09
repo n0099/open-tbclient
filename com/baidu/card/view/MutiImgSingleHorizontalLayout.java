@@ -28,18 +28,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> {
-    private a Xy;
-    private ab<a> YB;
-    private boolean ZQ;
-    private boolean aab;
-    private LinkedList<MediaData> aaf;
-    public TbImageView aav;
-    public ImageView aaw;
+    private a Xz;
+    private ab<a> YC;
+    private boolean ZR;
+    private boolean aac;
+    private LinkedList<MediaData> aag;
+    public TbImageView aaw;
+    public ImageView aax;
     public TextView mTitle;
-    private static final int Zl = l.h(TbadkCoreApplication.getInst(), d.e.tbds88);
+    private static final int Zm = l.h(TbadkCoreApplication.getInst(), d.e.tbds88);
     private static final int SCREEN_WIDTH = l.aO(TbadkCoreApplication.getInst());
-    private static final int Zm = SCREEN_WIDTH - Zl;
-    private static final int Zn = Zm / 2;
+    private static final int Zn = SCREEN_WIDTH - Zm;
+    private static final int Zo = Zn / 2;
 
     public MutiImgSingleHorizontalLayout(Context context) {
         this(context, null);
@@ -47,19 +47,19 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZQ = true;
-        this.Xy = null;
-        this.aab = false;
+        this.ZR = true;
+        this.Xz = null;
+        this.aac = false;
         initUI();
     }
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.h.multi_image_single_h_layout, (ViewGroup) this, true);
         setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, Zn));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, Zo));
         this.mTitle = (TextView) findViewById(d.g.thread_card_title);
-        this.aav = (TbImageView) findViewById(d.g.thread_card_img_singal);
-        this.aaw = (ImageView) findViewById(d.g.play_btn);
+        this.aaw = (TbImageView) findViewById(d.g.thread_card_img_singal);
+        this.aax = (ImageView) findViewById(d.g.play_btn);
     }
 
     private void setImageData(bg bgVar) {
@@ -72,29 +72,29 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
                     linkedList.add(mediaData);
                 }
             }
-            this.aaf = linkedList;
-            this.aab = true;
-            this.aav.setVisibility(8);
+            this.aag = linkedList;
+            this.aac = true;
             this.aaw.setVisibility(8);
+            this.aax.setVisibility(8);
             if (v.S(linkedList) > 0) {
-                this.aav.setVisibility(0);
                 this.aaw.setVisibility(0);
-                this.aav.setConrers(15);
-                a((MediaData) v.c(YY, 0), this.aav, true, false, true, 0);
+                this.aax.setVisibility(0);
+                this.aaw.setConrers(15);
+                a((MediaData) v.c(YY, 0), this.aaw, true, false, true, 0);
                 return;
             }
-            this.aav.setVisibility(8);
             this.aaw.setVisibility(8);
-            this.aab = false;
+            this.aax.setVisibility(8);
+            this.aac = false;
             return;
         }
-        this.aav.setVisibility(8);
         this.aaw.setVisibility(8);
-        this.aab = false;
+        this.aax.setVisibility(8);
+        this.aac = false;
     }
 
     public void setFromCDN(boolean z) {
-        this.ZQ = z;
+        this.ZR = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -104,7 +104,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(a aVar) {
-        this.Xy = aVar;
+        this.Xz = aVar;
         bg WO = aVar.WO();
         au.a(this.mTitle, WO);
         setImageData(WO);
@@ -121,11 +121,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
     }
 
     public ab<a> getSubClickListener() {
-        return this.YB;
+        return this.YC;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.YB = abVar;
+        this.YC = abVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -135,7 +135,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements i<a> 
 
     private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
         String a = a(mediaData);
-        int i2 = this.ZQ ? 13 : 14;
+        int i2 = this.ZR ? 13 : 14;
         if (!ap.equals(a, tbImageView.getUrl())) {
             tbImageView.reset();
         }

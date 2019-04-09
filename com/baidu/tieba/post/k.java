@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class k {
-    private String gXU;
+    private String gXV;
     private boolean isSuccess = true;
-    private int ibS = 0;
-    private boolean ibe = false;
-    private List<com.baidu.tieba.m.c> ibT = new ArrayList();
+    private int ibT = 0;
+    private boolean ibf = false;
+    private List<com.baidu.tieba.m.c> ibU = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.hy()) {
@@ -24,9 +24,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.j.d.yO(g.a.cLM);
-                    com.baidu.tieba.j.d.yO(g.a.gXR);
+                    com.baidu.tieba.j.d.yO(g.a.cLN);
                     com.baidu.tieba.j.d.yO(g.a.gXS);
+                    com.baidu.tieba.j.d.yO(g.a.gXT);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -34,7 +34,7 @@ public class k {
     }
 
     public k(String str) {
-        this.gXU = str;
+        this.gXV = str;
     }
 
     public void bUO() {
@@ -46,23 +46,23 @@ public class k {
     }
 
     public void bUQ() {
-        this.ibS++;
+        this.ibT++;
     }
 
     public boolean bUR() {
-        return this.ibS > 0;
+        return this.ibT > 0;
     }
 
     public void bUS() {
-        this.ibe = true;
+        this.ibf = true;
     }
 
     public boolean bUT() {
-        return this.ibe;
+        return this.ibf;
     }
 
     public void a(com.baidu.tieba.m.c cVar) {
-        this.ibT.add(cVar);
+        this.ibU.add(cVar);
         bUV();
         b(cVar);
         bUU();
@@ -79,12 +79,12 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.j.d.a(new File(g.a.gXT + g.a.gXK + lVar.uuid + g.a.gXK + "debug"), lVar.ibW.bUo().toString() + "\n", true);
+                            com.baidu.tieba.j.d.a(new File(g.a.gXU + g.a.gXL + lVar.uuid + g.a.gXL + "debug"), lVar.ibX.bUo().toString() + "\n", true);
                         }
                     }
                     return null;
                 }
-            }.execute(new l(cVar, this.gXU));
+            }.execute(new l(cVar, this.gXV));
         }
     }
 
@@ -99,18 +99,18 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.j.d.a(new File(g.a.gXT + g.a.gXK + eVar.uuid + g.a.gXK + "kpi"), k.e(eVar.isSuccess, eVar.ibd, eVar.ibe).toString(), false);
+                            com.baidu.tieba.j.d.a(new File(g.a.gXU + g.a.gXL + eVar.uuid + g.a.gXL + "kpi"), k.e(eVar.isSuccess, eVar.ibe, eVar.ibf).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.ibS, this.ibe, this.gXU));
+            }.execute(new e(this.isSuccess, this.ibT, this.ibf, this.gXV));
         }
     }
 
     private void bUV() {
         if (com.baidu.adp.lib.util.f.hy()) {
-            File file = new File(g.a.gXT + g.a.gXK + this.gXU + g.a.gXK);
+            File file = new File(g.a.gXU + g.a.gXL + this.gXV + g.a.gXL);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -118,7 +118,7 @@ public class k {
     }
 
     public JSONObject bEs() {
-        return e(this.isSuccess, this.ibS, this.ibe);
+        return e(this.isSuccess, this.ibT, this.ibf);
     }
 
     public static final JSONObject e(boolean z, int i, boolean z2) {
@@ -137,10 +137,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!v.T(this.ibT)) {
-                int size = this.ibT.size();
+            if (!v.T(this.ibU)) {
+                int size = this.ibU.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.ibT.get(i).bUo());
+                    jSONArray.put(this.ibU.get(i).bUo());
                 }
             }
             jSONObject.put("running", jSONArray);

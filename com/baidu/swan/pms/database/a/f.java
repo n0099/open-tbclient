@@ -39,7 +39,7 @@ public class f extends b<com.baidu.swan.pms.model.g> {
     /* renamed from: f */
     public ContentValues U(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
-        e.put("pkg_type", Integer.valueOf(gVar.bma));
+        e.put("pkg_type", Integer.valueOf(gVar.bmb));
         return e;
     }
 }

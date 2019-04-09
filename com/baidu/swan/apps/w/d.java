@@ -12,9 +12,9 @@ import java.util.TimerTask;
 /* loaded from: classes2.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c ayv = new c(this);
-    private a ayw = new a();
-    private boolean ayx;
+    private c ayw = new c(this);
+    private a ayx = new a();
+    private boolean ayy;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -22,17 +22,17 @@ public class d {
     }
 
     public void bN(Context context) {
-        if (!this.ayx) {
-            this.ayx = true;
-            context.registerReceiver(this.ayv, c.getIntentFilter());
+        if (!this.ayy) {
+            this.ayy = true;
+            context.registerReceiver(this.ayw, c.getIntentFilter());
         }
     }
 
     public void bO(Context context) {
-        if (this.ayx) {
-            this.ayx = false;
+        if (this.ayy) {
+            this.ayy = false;
             try {
-                context.unregisterReceiver(this.ayv);
+                context.unregisterReceiver(this.ayw);
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -54,42 +54,42 @@ public class d {
     }
 
     public void a(b bVar) {
-        this.ayw.a(bVar);
+        this.ayx.a(bVar);
     }
 
     public void DR() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.ayw.jL();
+        this.ayx.jL();
     }
 
     private void DS() {
-        this.ayw.DV();
+        this.ayx.DV();
     }
 
     private void DT() {
-        this.ayw.DW();
+        this.ayx.DW();
     }
 
     public void DU() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.ayw.stopTimer();
+        this.ayx.stopTimer();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private b ayy;
-        private long ayz = 300;
-        private int mStatus = 0;
+        private b ayz;
         private Timer mTimer;
+        private long ayA = 300;
+        private int mStatus = 0;
 
         static /* synthetic */ long b(a aVar) {
-            long j = aVar.ayz - 1;
-            aVar.ayz = j;
+            long j = aVar.ayA - 1;
+            aVar.ayA = j;
             return j;
         }
 
@@ -135,11 +135,11 @@ public class d {
         }
 
         private void DY() {
-            this.ayz = 300L;
+            this.ayA = 300L;
         }
 
         public void a(b bVar) {
-            this.ayy = bVar;
+            this.ayz = bVar;
         }
 
         private TimerTask DZ() {
@@ -147,11 +147,11 @@ public class d {
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
-                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.ayz);
+                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.ayA);
                     }
                     a.b(a.this);
-                    if (a.this.ayz <= 0 && a.this.ayy != null) {
-                        a.this.ayy.cE(1);
+                    if (a.this.ayA <= 0 && a.this.ayz != null) {
+                        a.this.ayz.cE(1);
                         a.this.stopTimer();
                     }
                 }

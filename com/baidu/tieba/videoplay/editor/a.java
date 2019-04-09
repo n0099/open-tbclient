@@ -31,11 +31,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes6.dex */
 public class a extends d {
-    private String ckd;
-    private NewWriteModel ckg;
-    private final NewWriteModel.d cku;
+    private String cke;
+    private NewWriteModel ckh;
+    private final NewWriteModel.d ckv;
     private com.baidu.tieba.write.b fOW;
-    private InterfaceC0406a jgF;
+    private InterfaceC0406a jgG;
     private TbPageContext<?> mContext;
     private String mForumId;
     private String mForumName;
@@ -50,21 +50,21 @@ public class a extends d {
 
     public a(EditorTools editorTools) {
         super(editorTools);
-        this.ckd = "";
+        this.cke = "";
         this.mThreadId = null;
-        this.cku = new NewWriteModel.d() { // from class: com.baidu.tieba.videoplay.editor.a.1
+        this.ckv = new NewWriteModel.d() { // from class: com.baidu.tieba.videoplay.editor.a.1
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
                 String str;
                 String str2 = null;
-                if (a.this.ckg != null) {
+                if (a.this.ckh != null) {
                     if (a.this.alP() != null) {
                         a.this.alP().hide();
                     }
-                    if (a.this.jgF != null) {
-                        a.this.jgF.qN(false);
+                    if (a.this.jgG != null) {
+                        a.this.jgG.qN(false);
                     }
-                    WriteData writeData2 = writeData == null ? a.this.ckg.getWriteData() : writeData;
+                    WriteData writeData2 = writeData == null ? a.this.ckh.getWriteData() : writeData;
                     if (z) {
                         a.this.fOW.Ei(null);
                         a.this.fOW.aE(null);
@@ -144,7 +144,7 @@ public class a extends d {
     }
 
     public void oT(String str) {
-        this.ckd = str;
+        this.cke = str;
     }
 
     public void ad(String str, String str2, String str3) {
@@ -188,45 +188,45 @@ public class a extends d {
             alP().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             alP().hide();
         }
-        if (this.jgF != null) {
-            this.jgF.qN(true);
+        if (this.jgG != null) {
+            this.jgG.qN(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        if (this.ckg != null) {
-            this.ckg.setWriteData(null);
-            this.ckg.qd(false);
+        if (this.ckh != null) {
+            this.ckh.setWriteData(null);
+            this.ckh.qd(false);
         }
     }
 
     public void onDestroy() {
-        if (this.ckg != null) {
-            this.ckg.cancelLoadData();
+        if (this.ckh != null) {
+            this.ckh.cancelLoadData();
         }
     }
 
     public void amI() {
-        if (this.ckg == null) {
-            this.ckg = new NewWriteModel(this.mContext);
-            this.ckg.b(this.cku);
+        if (this.ckh == null) {
+            this.ckh = new NewWriteModel(this.mContext);
+            this.ckh.b(this.ckv);
         }
         WriteData writeData = new WriteData();
         writeData.setType(1);
         writeData.setThreadId(this.mThreadId);
         writeData.setForumId(this.mForumId);
         writeData.setForumName(this.mForumName);
-        writeData.setContent(this.ckd);
-        this.ckg.setWriteData(writeData);
-        this.ckg.startPostWrite();
+        writeData.setContent(this.cke);
+        this.ckh.setWriteData(writeData);
+        this.ckh.startPostWrite();
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
         switch (i) {
             case IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG /* 12006 */:
                 if (i2 == 0) {
-                    this.cku.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.ckg.getWriteData(), null);
+                    this.ckv.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.ckh.getWriteData(), null);
                     return;
                 } else if (i2 == -1) {
                     cmL();
@@ -267,7 +267,7 @@ public class a extends d {
     }
 
     public void a(InterfaceC0406a interfaceC0406a) {
-        this.jgF = interfaceC0406a;
+        this.jgG = interfaceC0406a;
     }
 
     public void cmM() {

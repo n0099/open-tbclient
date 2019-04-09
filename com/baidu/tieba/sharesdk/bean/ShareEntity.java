@@ -28,8 +28,8 @@ public class ShareEntity implements Parcelable {
             shareEntity.yD(parcel.readInt());
             shareEntity.setTid(parcel.readString());
             shareEntity.topic = parcel.readString();
-            shareEntity.cbK = parcel.readString();
-            shareEntity.cbx = parcel.readBundle();
+            shareEntity.cbL = parcel.readString();
+            shareEntity.cby = parcel.readBundle();
             return shareEntity;
         }
 
@@ -40,14 +40,14 @@ public class ShareEntity implements Parcelable {
             return new ShareEntity[i];
         }
     };
-    public String cbK;
-    private Bundle cbM;
-    private String cbw;
-    public Bundle cbx;
-    private Location cby;
+    public String cbL;
+    private Bundle cbN;
+    private String cbx;
+    public Bundle cby;
+    private Location cbz;
     private String content;
     private Uri imageUri;
-    private int ivb;
+    private int ivc;
     private String linkUrl;
     private int shareType;
     private String tid;
@@ -56,11 +56,11 @@ public class ShareEntity implements Parcelable {
     private String videoUrl;
 
     public void D(Bundle bundle) {
-        this.cbM = bundle;
+        this.cbN = bundle;
     }
 
     public Bundle ajP() {
-        return this.cbM;
+        return this.cbN;
     }
 
     public String getVideoUrl() {
@@ -96,11 +96,11 @@ public class ShareEntity implements Parcelable {
     }
 
     public void BW(String str) {
-        this.cbw = str;
+        this.cbx = str;
     }
 
     public String caN() {
-        return this.cbw;
+        return this.cbx;
     }
 
     public String Xk() {
@@ -116,15 +116,15 @@ public class ShareEntity implements Parcelable {
     }
 
     public void setLocation(Location location) {
-        this.cby = location;
+        this.cbz = location;
     }
 
     public int caO() {
-        return this.ivb;
+        return this.ivc;
     }
 
     public void yC(int i) {
-        this.ivb = i;
+        this.ivc = i;
     }
 
     public int caP() {
@@ -144,7 +144,7 @@ public class ShareEntity implements Parcelable {
     }
 
     public boolean caQ() {
-        return this.shareType != 0 && (this.ivb == 8 || this.ivb == 4 || this.ivb == 3 || this.ivb == 2);
+        return this.shareType != 0 && (this.ivc == 8 || this.ivc == 4 || this.ivc == 3 || this.ivc == 2);
     }
 
     @Override // android.os.Parcelable
@@ -157,16 +157,16 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeString(this.cbw);
-        parcel.writeInt(this.ivb);
+        parcel.writeString(this.cbx);
+        parcel.writeInt(this.ivc);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.cby, i);
-        parcel.writeBundle(this.cbM);
+        parcel.writeParcelable(this.cbz, i);
+        parcel.writeBundle(this.cbN);
         parcel.writeInt(this.shareType);
         parcel.writeString(this.tid);
         parcel.writeString(this.topic);
-        parcel.writeString(this.cbK);
-        parcel.writeBundle(this.cbx);
+        parcel.writeString(this.cbL);
+        parcel.writeBundle(this.cby);
     }
 }

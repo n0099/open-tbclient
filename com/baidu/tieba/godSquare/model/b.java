@@ -23,14 +23,14 @@ import tbclient.GetHotGod.DataRes;
 import tbclient.User;
 /* loaded from: classes6.dex */
 public class b {
-    private BaseActivity cNc;
+    private BaseActivity cNd;
     private a fEr;
     private boolean fEs;
     private LongSparseArray<MetaData> fEu;
     private int pn = 0;
-    public List<m> eVa = new ArrayList();
+    public List<m> eVb = new ArrayList();
     public int fEt = 1;
-    private com.baidu.adp.framework.listener.a eDJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_HOT_GOD, 309315) { // from class: com.baidu.tieba.godSquare.model.b.1
+    private com.baidu.adp.framework.listener.a eDK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_HOT_GOD, 309315) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (b.this.fEr != null) {
@@ -44,7 +44,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener eUy = new CustomMessageListener(2016446) { // from class: com.baidu.tieba.godSquare.model.b.2
+    private CustomMessageListener eUz = new CustomMessageListener(2016446) { // from class: com.baidu.tieba.godSquare.model.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -70,7 +70,7 @@ public class b {
 
     public b(a aVar, BaseActivity baseActivity) {
         this.fEr = aVar;
-        this.cNc = baseActivity;
+        this.cNd = baseActivity;
         registerListener();
     }
 
@@ -91,26 +91,26 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sb(int i) {
-        if (this.cNc != null) {
+        if (this.cNd != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
             godSquareRequestMsg.pn = i;
-            this.cNc.sendMessage(godSquareRequestMsg);
+            this.cNd.sendMessage(godSquareRequestMsg);
         }
     }
 
     private void sc(int i) {
-        if (this.cNc != null) {
+        if (this.cNd != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";
-            this.cNc.sendMessage(godSquareCacheRequestMsg);
+            this.cNd.sendMessage(godSquareCacheRequestMsg);
         }
     }
 
     private void registerListener() {
-        if (this.cNc != null) {
-            this.cNc.registerListener(this.eUy);
-            this.cNc.registerListener(this.eDJ);
+        if (this.cNd != null) {
+            this.cNd.registerListener(this.eUz);
+            this.cNd.registerListener(this.eDK);
         }
     }
 
@@ -129,14 +129,14 @@ public class b {
             for (Long l : dataRes.recommend_uid_list) {
                 if (l != null && (metaData2 = this.fEu.get(l.longValue())) != null) {
                     f fVar = new f();
-                    fVar.bBJ = metaData2;
+                    fVar.bBK = metaData2;
                     fVar.type = 1;
                     arrayList2.add(fVar);
                 }
             }
-            if (this.cNc != null && !v.T(arrayList2)) {
+            if (this.cNd != null && !v.T(arrayList2)) {
                 com.baidu.tieba.card.divider.b bVar = new com.baidu.tieba.card.divider.b();
-                bVar.title = this.cNc.getResources().getString(d.j.special_recommend);
+                bVar.title = this.cNd.getResources().getString(d.j.special_recommend);
                 bVar.needTopMargin = false;
                 arrayList2.add(0, bVar);
             }
@@ -146,16 +146,16 @@ public class b {
             for (Long l2 : dataRes.hot_uid_list) {
                 if (l2 != null && (metaData = this.fEu.get(l2.longValue())) != null) {
                     f fVar2 = new f();
-                    fVar2.bBJ = metaData;
+                    fVar2.bBK = metaData;
                     fVar2.type = 0;
                     fVar2.rank = this.fEt;
                     arrayList3.add(fVar2);
                     this.fEt++;
                 }
             }
-            if (this.cNc != null && !v.T(arrayList3) && this.fEs) {
+            if (this.cNd != null && !v.T(arrayList3) && this.fEs) {
                 com.baidu.tieba.card.divider.b bVar2 = new com.baidu.tieba.card.divider.b();
-                bVar2.title = this.cNc.getResources().getString(d.j.hot_god);
+                bVar2.title = this.cNd.getResources().getString(d.j.hot_god);
                 if (v.T(arrayList2)) {
                     bVar2.needTopMargin = false;
                 } else {
@@ -174,9 +174,9 @@ public class b {
         }
         for (User user : list) {
             f fVar = new f();
-            fVar.bBJ = new MetaData();
-            fVar.bBJ.parserProtobuf(user);
-            this.fEu.put(user.id.longValue(), fVar.bBJ);
+            fVar.bBK = new MetaData();
+            fVar.bBK.parserProtobuf(user);
+            this.fEu.put(user.id.longValue(), fVar.bBK);
         }
     }
 

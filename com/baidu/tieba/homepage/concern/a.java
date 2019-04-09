@@ -41,16 +41,16 @@ public class a {
     }
 
     private void dN(Context context) {
-        this.fFC = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.cgR);
+        this.fFC = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.cgS);
         this.fFH = new e(this.mPageContext, k.TYPE);
-        this.fFI = new h(this.mPageContext, l.elv);
-        this.fFJ = new h(this.mPageContext, l.elw);
+        this.fFI = new h(this.mPageContext, l.elw);
+        this.fFJ = new h(this.mPageContext, l.elx);
         this.fFD = new f(this.mPageContext.getContext());
         this.fFE = new d(this.mPageContext.getContext());
         this.fFF = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.fGM);
         this.fFG = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.homepage.concern.b.b.fGN);
         this.fFK = new c(this.mPageContext, j.TYPE);
-        this.fFL = new g(this.mPageContext, k.bBk);
+        this.fFL = new g(this.mPageContext, k.bBl);
         this.fFA.add(this.fFC);
         this.fFA.add(this.fFH);
         this.fFA.add(this.fFI);
@@ -79,14 +79,14 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fFK.cnZ = bdUniqueId;
-        this.fFH.cnZ = bdUniqueId;
-        this.fFI.cnZ = bdUniqueId;
-        this.fFJ.cnZ = bdUniqueId;
-        this.fFF.cnZ = bdUniqueId;
-        this.fFG.cnZ = bdUniqueId;
-        this.fFK.cnZ = bdUniqueId;
-        this.fFL.cnZ = bdUniqueId;
+        this.fFK.coa = bdUniqueId;
+        this.fFH.coa = bdUniqueId;
+        this.fFI.coa = bdUniqueId;
+        this.fFJ.coa = bdUniqueId;
+        this.fFF.coa = bdUniqueId;
+        this.fFG.coa = bdUniqueId;
+        this.fFK.coa = bdUniqueId;
+        this.fFL.coa = bdUniqueId;
     }
 
     private void qM(String str) {

@@ -16,21 +16,21 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class HybridUbcFlow {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final SubmitStrategy aDI = SubmitStrategy.HYBRID;
-    private String aDx;
+    public static final SubmitStrategy aDJ = SubmitStrategy.HYBRID;
+    private String aDy;
     public final String name;
-    private final JSONObject aDy = new JSONObject();
-    private final Map<String, String> aDz = new HashMap();
-    public final List<String> aDA = new ArrayList();
-    private final Map<String, UbcFlowEvent> aDB = new HashMap();
-    public final List<UbcFlowEvent> aDC = new ArrayList();
-    private boolean aDD = false;
+    private final JSONObject aDz = new JSONObject();
+    private final Map<String, String> aDA = new HashMap();
+    public final List<String> aDB = new ArrayList();
+    private final Map<String, UbcFlowEvent> aDC = new HashMap();
+    public final List<UbcFlowEvent> aDD = new ArrayList();
     private boolean aDE = false;
     private boolean aDF = false;
     private boolean aDG = false;
     private boolean aDH = false;
-    private SubmitStrategy aDJ = aDI;
-    private final Map<ExtensionType, List<a>> aDK = new HashMap();
+    private boolean aDI = false;
+    private SubmitStrategy aDK = aDJ;
+    private final Map<ExtensionType, List<a>> aDL = new HashMap();
 
     /* loaded from: classes2.dex */
     public enum ExtensionType {
@@ -68,32 +68,32 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow fC(String str) {
-        this.aDx = str;
+        this.aDy = str;
         return this;
     }
 
     private void a(UbcFlowEvent ubcFlowEvent) {
-        this.aDA.remove(ubcFlowEvent.id);
-        this.aDA.add(ubcFlowEvent.id);
-        this.aDB.put(ubcFlowEvent.id, ubcFlowEvent);
+        this.aDB.remove(ubcFlowEvent.id);
+        this.aDB.add(ubcFlowEvent.id);
+        this.aDC.put(ubcFlowEvent.id, ubcFlowEvent);
     }
 
     private void b(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.aDB.get(ubcFlowEvent.id);
+        UbcFlowEvent ubcFlowEvent2 = this.aDC.get(ubcFlowEvent.id);
         if (!e(ubcFlowEvent2) || ubcFlowEvent.FR() > ubcFlowEvent2.FR()) {
             a(ubcFlowEvent);
         }
     }
 
     private void c(UbcFlowEvent ubcFlowEvent) {
-        UbcFlowEvent ubcFlowEvent2 = this.aDB.get(ubcFlowEvent.id);
+        UbcFlowEvent ubcFlowEvent2 = this.aDC.get(ubcFlowEvent.id);
         if (!e(ubcFlowEvent2) || ubcFlowEvent.FR() < ubcFlowEvent2.FR()) {
             a(ubcFlowEvent);
         }
     }
 
     private void d(UbcFlowEvent ubcFlowEvent) {
-        if (!e(this.aDB.get(ubcFlowEvent.id))) {
+        if (!e(this.aDC.get(ubcFlowEvent.id))) {
             a(ubcFlowEvent);
         }
     }
@@ -107,7 +107,7 @@ public final class HybridUbcFlow {
             Log.i("HybridUbcFlow", "record " + ubcFlowEvent);
         }
         if (e(ubcFlowEvent)) {
-            synchronized (this.aDA) {
+            synchronized (this.aDB) {
                 switch (ubcFlowEvent.FU()) {
                     case UPDATE:
                         a(ubcFlowEvent);
@@ -131,7 +131,7 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "record events size = " + list.size());
         }
-        synchronized (this.aDA) {
+        synchronized (this.aDB) {
             for (UbcFlowEvent ubcFlowEvent : list) {
                 f(ubcFlowEvent);
             }
@@ -140,19 +140,19 @@ public final class HybridUbcFlow {
     }
 
     public HybridUbcFlow aq(String str, String str2) {
-        this.aDz.put(str, str2);
+        this.aDA.put(str, str2);
         return this;
     }
 
     public String fD(String str) {
-        return this.aDz.get(str);
+        return this.aDA.get(str);
     }
 
     public HybridUbcFlow b(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
             hybridUbcFlow.FB();
-            x(hybridUbcFlow.aDC);
-            this.aDz.putAll(hybridUbcFlow.aDz);
+            x(hybridUbcFlow.aDD);
+            this.aDA.putAll(hybridUbcFlow.aDA);
         }
         return this;
     }
@@ -160,7 +160,7 @@ public final class HybridUbcFlow {
     public HybridUbcFlow i(String str, Object obj) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.aDy.put(str, obj);
+                this.aDz.put(str, obj);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -171,14 +171,14 @@ public final class HybridUbcFlow {
     }
 
     public JSONObject Fs() {
-        return this.aDy;
+        return this.aDz;
     }
 
     public HybridUbcFlow Ft() {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "naFlowDone");
         }
-        this.aDD = true;
+        this.aDE = true;
         FD();
         return this;
     }
@@ -187,7 +187,7 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "naExtDone");
         }
-        this.aDE = true;
+        this.aDF = true;
         FD();
         return this;
     }
@@ -196,7 +196,7 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "naAnimFlowDone");
         }
-        this.aDF = true;
+        this.aDG = true;
         FD();
         return this;
     }
@@ -205,42 +205,42 @@ public final class HybridUbcFlow {
         if (DEBUG) {
             Log.i("HybridUbcFlow", "h5FlowDone");
         }
-        this.aDG = true;
+        this.aDH = true;
         FD();
         return this;
     }
 
     public boolean Fx() {
-        return this.aDD;
-    }
-
-    public boolean Fy() {
         return this.aDE;
     }
 
-    public boolean Fz() {
+    public boolean Fy() {
         return this.aDF;
     }
 
-    public boolean FA() {
+    public boolean Fz() {
         return this.aDG;
+    }
+
+    public boolean FA() {
+        return this.aDH;
     }
 
     private boolean isEmpty() {
         boolean isEmpty;
-        synchronized (this.aDA) {
-            isEmpty = this.aDA.isEmpty();
+        synchronized (this.aDB) {
+            isEmpty = this.aDB.isEmpty();
         }
         return isEmpty;
     }
 
     public void FB() {
         UbcFlowEvent ubcFlowEvent;
-        synchronized (this.aDA) {
-            this.aDC.clear();
-            for (String str : this.aDA) {
-                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.aDB.get(str)) != null && ubcFlowEvent.FR() > 0) {
-                    this.aDC.add(ubcFlowEvent);
+        synchronized (this.aDB) {
+            this.aDD.clear();
+            for (String str : this.aDB) {
+                if (!TextUtils.isEmpty(str) && (ubcFlowEvent = this.aDC.get(str)) != null && ubcFlowEvent.FR() > 0) {
+                    this.aDD.add(ubcFlowEvent);
                 }
             }
             sort();
@@ -248,7 +248,7 @@ public final class HybridUbcFlow {
     }
 
     private void sort() {
-        Collections.sort(this.aDC, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
+        Collections.sort(this.aDD, new Comparator<UbcFlowEvent>() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
@@ -260,14 +260,14 @@ public final class HybridUbcFlow {
 
     public HybridUbcFlow a(SubmitStrategy submitStrategy) {
         if (submitStrategy != null) {
-            this.aDJ = submitStrategy;
+            this.aDK = submitStrategy;
         }
         return this;
     }
 
     private boolean FC() {
-        boolean submitAllowed = (this.aDJ == null ? aDI : this.aDJ).submitAllowed(this);
-        if (f.aEf) {
+        boolean submitAllowed = (this.aDK == null ? aDJ : this.aDK).submitAllowed(this);
+        if (f.aEg) {
             return submitAllowed;
         }
         return Fy() && submitAllowed;
@@ -280,14 +280,14 @@ public final class HybridUbcFlow {
     }
 
     private void FE() {
-        if (!this.aDH) {
-            this.aDH = true;
+        if (!this.aDI) {
+            this.aDI = true;
             a(ExtensionType.CALLBACK_ON_SUBMIT);
             j.b(new Runnable() { // from class: com.baidu.swan.apps.performance.HybridUbcFlow.2
                 @Override // java.lang.Runnable
                 public void run() {
                     HybridUbcFlow.this.FF();
-                    HybridUbcFlow.this.aDH = false;
+                    HybridUbcFlow.this.aDI = false;
                 }
             }, "HybridUbcFlow");
         }
@@ -297,9 +297,9 @@ public final class HybridUbcFlow {
     public void FF() {
         FB();
         a(ExtensionType.COMPONENT_REPORTER);
-        if (!TextUtils.isEmpty(this.aDx)) {
-            Flow jT = q.jT(this.aDx);
-            for (UbcFlowEvent ubcFlowEvent : this.aDC) {
+        if (!TextUtils.isEmpty(this.aDy)) {
+            Flow jT = q.jT(this.aDy);
+            for (UbcFlowEvent ubcFlowEvent : this.aDD) {
                 if (!ubcFlowEvent.FT()) {
                     jT.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.FR());
                 }
@@ -307,7 +307,7 @@ public final class HybridUbcFlow {
             if (!isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.aDz.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.aDA.entrySet()) {
                         String key = entry.getKey();
                         if (!TextUtils.isEmpty(key)) {
                             String value = entry.getValue();
@@ -323,18 +323,18 @@ public final class HybridUbcFlow {
                         e.printStackTrace();
                     }
                 }
-                jT.setValueWithDuration(this.aDy.toString());
+                jT.setValueWithDuration(this.aDz.toString());
                 jT.end();
             }
         }
     }
 
     private void a(ExtensionType extensionType) {
-        List<a> list = this.aDK.get(extensionType);
+        List<a> list = this.aDL.get(extensionType);
         if (list != null && !list.isEmpty()) {
             for (a aVar : list) {
-                if (aVar != null && aVar.aDO != null) {
-                    aVar.aDO.D(this);
+                if (aVar != null && aVar.aDP != null) {
+                    aVar.aDP.D(this);
                 }
             }
         }
@@ -343,11 +343,11 @@ public final class HybridUbcFlow {
     public HybridUbcFlow a(ExtensionType extensionType, com.baidu.swan.apps.an.c.a<HybridUbcFlow> aVar) {
         a aVar2 = new a(extensionType, aVar);
         if (aVar2.FG()) {
-            synchronized (this.aDK) {
-                List<a> list = this.aDK.get(extensionType);
+            synchronized (this.aDL) {
+                List<a> list = this.aDL.get(extensionType);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.aDK.put(extensionType, list);
+                    this.aDL.put(extensionType, list);
                 }
                 list.add(aVar2);
             }
@@ -386,7 +386,7 @@ public final class HybridUbcFlow {
                 ubcFlowEvent = null;
                 break;
             }
-            ubcFlowEvent = this.aDB.get(strArr[i]);
+            ubcFlowEvent = this.aDC.get(strArr[i]);
             if (ubcFlowEvent2 == null) {
                 if (ubcFlowEvent == null || ubcFlowEvent.FR() < 1) {
                     break;
@@ -405,16 +405,16 @@ public final class HybridUbcFlow {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        final ExtensionType aDN;
-        final com.baidu.swan.apps.an.c.a<HybridUbcFlow> aDO;
+        final ExtensionType aDO;
+        final com.baidu.swan.apps.an.c.a<HybridUbcFlow> aDP;
 
         private a(ExtensionType extensionType, com.baidu.swan.apps.an.c.a<HybridUbcFlow> aVar) {
-            this.aDN = extensionType;
-            this.aDO = aVar;
+            this.aDO = extensionType;
+            this.aDP = aVar;
         }
 
         boolean FG() {
-            return (this.aDN == null || this.aDO == null) ? false : true;
+            return (this.aDO == null || this.aDP == null) ? false : true;
         }
     }
 }

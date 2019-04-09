@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes5.dex */
 public class p implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId eVQ = BdUniqueId.gen();
-    private String eVT;
+    public static final BdUniqueId eVR = BdUniqueId.gen();
     private String eVU;
-    private int eVR = -1;
+    private String eVV;
     private int eVS = -1;
-    private int eVV = -1;
+    private int eVT = -1;
+    private int eVW = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eVQ;
+        return eVR;
     }
 
     public int bbe() {
-        return this.eVR;
-    }
-
-    public void pG(int i) {
-        this.eVR = i;
-    }
-
-    public int bbf() {
-        return this.eVV;
-    }
-
-    public void pH(int i) {
-        this.eVV = i;
-    }
-
-    public int bbg() {
         return this.eVS;
     }
 
-    public void pI(int i) {
+    public void pG(int i) {
         this.eVS = i;
     }
 
-    public String bbh() {
+    public int bbf() {
+        return this.eVW;
+    }
+
+    public void pH(int i) {
+        this.eVW = i;
+    }
+
+    public int bbg() {
         return this.eVT;
     }
 
-    public void uO(String str) {
-        this.eVT = str;
+    public void pI(int i) {
+        this.eVT = i;
     }
 
-    public String bbi() {
+    public String bbh() {
         return this.eVU;
     }
 
-    public void uP(String str) {
+    public void uO(String str) {
         this.eVU = str;
     }
 
+    public String bbi() {
+        return this.eVV;
+    }
+
+    public void uP(String str) {
+        this.eVV = str;
+    }
+
     public boolean isEmpty() {
-        return StringUtils.isNull(this.eVT) || StringUtils.isNull(this.eVU) || this.eVR < 0 || this.eVS < 0;
+        return StringUtils.isNull(this.eVU) || StringUtils.isNull(this.eVV) || this.eVS < 0 || this.eVT < 0;
     }
 }

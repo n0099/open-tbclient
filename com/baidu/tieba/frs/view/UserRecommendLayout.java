@@ -15,33 +15,33 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public class UserRecommendLayout extends LinearLayout {
-    private com.baidu.adp.lib.e.b<UserRecommendItemView> efX;
-    private int efY;
-    private int ega;
-    private final ViewGroup.OnHierarchyChangeListener egb;
+    private com.baidu.adp.lib.e.b<UserRecommendItemView> efY;
+    private int efZ;
+    private int egb;
+    private final ViewGroup.OnHierarchyChangeListener egc;
     private View.OnClickListener fhF;
     private View.OnClickListener fhG;
     private TbPageContext pageContext;
 
     public UserRecommendLayout(Context context) {
         super(context);
-        this.efY = 0;
+        this.efZ = 0;
         this.fhF = null;
         this.fhG = null;
-        this.efX = null;
-        this.egb = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
+        this.efY = null;
+        this.egc = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof UserRecommendItemView) && UserRecommendLayout.this.efX != null) {
+                if ((view2 instanceof UserRecommendItemView) && UserRecommendLayout.this.efY != null) {
                     UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view2;
                     if (userRecommendItemView.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) {
                         ((com.baidu.tbadk.core.view.userLike.c) userRecommendItemView.getTag()).unRegisterListener(UserRecommendLayout.this.pageContext.getUniqueId());
                     }
-                    UserRecommendLayout.this.efX.t((UserRecommendItemView) view2);
+                    UserRecommendLayout.this.efY.t((UserRecommendItemView) view2);
                 }
             }
         };
@@ -50,23 +50,23 @@ public class UserRecommendLayout extends LinearLayout {
 
     public UserRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.efY = 0;
+        this.efZ = 0;
         this.fhF = null;
         this.fhG = null;
-        this.efX = null;
-        this.egb = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
+        this.efY = null;
+        this.egc = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.frs.view.UserRecommendLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof UserRecommendItemView) && UserRecommendLayout.this.efX != null) {
+                if ((view2 instanceof UserRecommendItemView) && UserRecommendLayout.this.efY != null) {
                     UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view2;
                     if (userRecommendItemView.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) {
                         ((com.baidu.tbadk.core.view.userLike.c) userRecommendItemView.getTag()).unRegisterListener(UserRecommendLayout.this.pageContext.getUniqueId());
                     }
-                    UserRecommendLayout.this.efX.t((UserRecommendItemView) view2);
+                    UserRecommendLayout.this.efY.t((UserRecommendItemView) view2);
                 }
             }
         };
@@ -80,7 +80,7 @@ public class UserRecommendLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.egb);
+        setOnHierarchyChangeListener(this.egc);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -95,8 +95,8 @@ public class UserRecommendLayout extends LinearLayout {
 
     public void setData(List<MetaData> list) {
         if (!v.T(list)) {
-            int aO = ((com.baidu.adp.lib.util.e.aO(getContext()) - (getPaddingLeft() * 2)) - (this.efY * 2)) / 3;
-            this.ega = this.efY + aO;
+            int aO = ((com.baidu.adp.lib.util.e.aO(getContext()) - (getPaddingLeft() * 2)) - (this.efZ * 2)) / 3;
+            this.egb = this.efZ + aO;
             int i = 0;
             int childCount = getChildCount();
             while (i < childCount && i < list.size()) {
@@ -115,7 +115,7 @@ public class UserRecommendLayout extends LinearLayout {
             while (true) {
                 int i3 = i2;
                 if (i3 < list.size()) {
-                    UserRecommendItemView jA = this.efX.jA();
+                    UserRecommendItemView jA = this.efY.jA();
                     if (jA.getParent() != null) {
                         ((ViewGroup) jA.getParent()).removeView(jA);
                     }
@@ -140,7 +140,7 @@ public class UserRecommendLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.efY;
+            layoutParams.leftMargin = this.efZ;
         }
         userRecommendItemView.setLayoutParams(layoutParams);
     }
@@ -172,15 +172,15 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public int getChildItemWidth() {
-        return this.ega;
+        return this.egb;
     }
 
     public void setViewPool(com.baidu.adp.lib.e.b<UserRecommendItemView> bVar) {
-        this.efX = bVar;
+        this.efY = bVar;
     }
 
     public void setItemSpace(int i) {
-        this.efY = i;
+        this.efZ = i;
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {

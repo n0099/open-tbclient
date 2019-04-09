@@ -20,10 +20,10 @@ public class AppleTrackNumberBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleTrackNumberBox.java", AppleTrackNumberBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 16);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", Config.APP_VERSION_CODE, "", "void"), 20);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 24);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", "b", "", "void"), 28);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 16);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", Config.APP_VERSION_CODE, "", "void"), 20);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 24);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", "b", "", "void"), 28);
     }
 
     public AppleTrackNumberBox() {

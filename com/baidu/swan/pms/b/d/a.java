@@ -1,41 +1,41 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class a extends c {
-    private String bmS;
-    private String bmU;
+    private String bmT;
     private String bmV;
-    private String bmX;
+    private String bmW;
+    private String bmY;
     private String mPath;
-    private int bmT = -1;
-    private long bmW = -1;
+    private int bmU = -1;
+    private long bmX = -1;
 
     public a(String str, int i) {
-        this.bmS = str;
-        this.bmZ = i;
+        this.bmT = str;
+        this.bna = i;
     }
 
     public a jq(String str) {
-        this.bmV = str;
+        this.bmW = str;
         return this;
     }
 
     public a jr(String str) {
-        this.bmU = str;
+        this.bmV = str;
         return this;
     }
 
     public a fh(int i) {
-        this.bmT = i;
+        this.bmU = i;
         return this;
     }
 
     public a U(long j) {
-        this.bmW = j;
+        this.bmX = j;
         return this;
     }
 
     public a js(String str) {
-        this.bmX = str;
+        this.bmY = str;
         return this;
     }
 
@@ -53,27 +53,27 @@ public class a extends c {
     }
 
     public String getBundleId() {
-        return this.bmS;
-    }
-
-    public int Sd() {
         return this.bmT;
     }
 
-    public long Se() {
-        return this.bmW;
-    }
-
-    public String Sf() {
+    public int Sd() {
         return this.bmU;
     }
 
-    public String Sg() {
+    public long Se() {
+        return this.bmX;
+    }
+
+    public String Sf() {
         return this.bmV;
     }
 
+    public String Sg() {
+        return this.bmW;
+    }
+
     public String Sh() {
-        return this.bmX;
+        return this.bmY;
     }
 
     public String getPath() {
@@ -82,6 +82,6 @@ public class a extends c {
 
     @Override // com.baidu.swan.pms.b.d.c
     public int Si() {
-        return this.bmZ;
+        return this.bna;
     }
 }

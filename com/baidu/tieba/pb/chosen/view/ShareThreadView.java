@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public final class ShareThreadView extends LinearLayout {
-    private LinearLayout bFy;
+    private LinearLayout bFz;
     private TbImageView fYw;
     private TextView fYx;
     private EditText fzM;
@@ -41,7 +41,7 @@ public final class ShareThreadView extends LinearLayout {
     private void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.bFy = (LinearLayout) findViewById(d.g.share_content);
+        this.bFz = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
         al.d(this.title, d.C0277d.cp_cont_b, 1);
         this.fzM = (EditText) findViewById(d.g.chat_msg);
@@ -55,9 +55,9 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public void bkf() {
-        this.bFy.setFocusable(true);
-        this.bFy.setFocusableInTouchMode(true);
-        this.bFy.requestFocus();
+        this.bFz.setFocusable(true);
+        this.bFz.setFocusableInTouchMode(true);
+        this.bFz.requestFocus();
     }
 
     public void setDesc(String str) {

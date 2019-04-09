@@ -47,17 +47,17 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class c extends a {
-    private e hQV;
-    private com.baidu.tieba.personPolymeric.b.a hQv;
+    private e hQW;
+    private com.baidu.tieba.personPolymeric.b.a hQw;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.hQV = eVar;
-        if (this.hQV != null) {
-            this.hQv = this.hQV.bRM();
+        this.hQW = eVar;
+        if (this.hQW != null) {
+            this.hQw = this.hQW.bRM();
         }
     }
 
@@ -75,12 +75,12 @@ public class c extends a {
         int i2 = 1;
         super.a(view, aVar);
         if (aVar != null) {
-            if (aVar.eHl == null) {
+            if (aVar.eHm == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.eHl.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.eHm.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.eHk) {
+            switch (aVar.eHl) {
                 case 1:
                     if (userData != null) {
                         m mVar = new m();
@@ -93,7 +93,7 @@ public class c extends a {
                         mVar.eA(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(mVar);
-                        this.hQV.bRN().a((com.baidu.adp.widget.ListView.m) mVar, (List<com.baidu.adp.widget.ListView.m>) arrayList, 0);
+                        this.hQW.bRN().a((com.baidu.adp.widget.ListView.m) mVar, (List<com.baidu.adp.widget.ListView.m>) arrayList, 0);
                         return;
                     }
                     return;
@@ -117,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.hQv != null && this.hQv.bRG() != null) {
+                    if (this.hQw != null && this.hQw.bRG() != null) {
                         TiebaStatic.log("c12207");
-                        this.hQv.bRG().bRT();
+                        this.hQw.bRG().bRT();
                         return;
                     }
                     return;
@@ -166,8 +166,8 @@ public class c extends a {
                             personChangeData.setIntro(userData.getIntro());
                             personChangeData.setNameShow(userData.getName_show());
                             personChangeData.setMem(userData.getIsMem());
-                            if (aVar.eHl != null) {
-                                personChangeData.setNickNameLeftDays(aVar.eHl.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.eHm != null) {
+                                personChangeData.setNickNameLeftDays(aVar.eHm.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -271,7 +271,7 @@ public class c extends a {
                     return;
                 case 33:
                     xd(9);
-                    ba.adA().a(this.mPageContext, new String[]{aVar.eHl.getString("book_jump_link")}, true);
+                    ba.adA().a(this.mPageContext, new String[]{aVar.eHm.getString("book_jump_link")}, true);
                     return;
                 case 34:
                     if (bc.cZ(this.mPageContext.getPageActivity())) {

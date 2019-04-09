@@ -7,32 +7,32 @@ import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class e {
     private String bBA;
-    private String bBz;
-    private List<FrsTabInfo> eXU;
-    private final List<com.baidu.tbadk.mainTab.b> eXV = new LinkedList();
+    private String bBB;
+    private List<FrsTabInfo> eXV;
+    private final List<com.baidu.tbadk.mainTab.b> eXW = new LinkedList();
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private Context mContext;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.eXU = list;
+        this.eXV = list;
         this.mContext = context;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.anH() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.eXV) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.eXW) {
                 if (bVar2 != null && bVar2.anH() != null && bVar2.anH().type == bVar.anH().type) {
                     return;
                 }
             }
-            this.eXV.add(bVar);
+            this.eXW.add(bVar);
         }
     }
 
     public List<com.baidu.tbadk.mainTab.b> bca() {
-        return this.eXV;
+        return this.eXW;
     }
 
     public void setForumName(String str) {
@@ -52,10 +52,10 @@ public class e {
     }
 
     public void ls(String str) {
-        this.bBz = str;
+        this.bBA = str;
     }
 
     public void lt(String str) {
-        this.bBA = str;
+        this.bBB = str;
     }
 }

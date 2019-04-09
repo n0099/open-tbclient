@@ -17,17 +17,17 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private BdListView Pj;
-    private View bub;
-    private NoNetworkView eCe;
-    private IMBlackListActivity gvu;
-    private a gvy;
+    private View buc;
+    private NoNetworkView eCf;
+    private IMBlackListActivity gvv;
+    private a gvz;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgress;
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.gvu = iMBlackListActivity;
+        this.gvv = iMBlackListActivity;
         initialize();
     }
 
@@ -40,26 +40,26 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.gvy.b(blackListItemData);
-        if (this.gvy.getCount() <= 0) {
+        this.gvz.b(blackListItemData);
+        if (this.gvz.getCount() <= 0) {
             this.Pj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.Pj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gvy.notifyDataSetChanged();
+        this.gvz.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.gvy.getCount() <= 0) {
+        if (this.gvz.getCount() <= 0) {
             this.Pj.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.Pj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gvy.notifyDataSetChanged();
+        this.gvz.notifyDataSetChanged();
     }
 
     public void ac(ArrayList<BlackListItemData> arrayList) {
@@ -70,31 +70,31 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         }
         this.Pj.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gvy.setData(arrayList);
-        this.gvy.notifyDataSetChanged();
+        this.gvz.setData(arrayList);
+        this.gvz.notifyDataSetChanged();
     }
 
     private void initialize() {
-        this.gvu.setContentView(d.h.im_black_list);
-        this.bub = this.gvu.findViewById(d.g.root_view);
-        this.eCe = (NoNetworkView) this.bub.findViewById(d.g.view_no_network);
-        this.mNavigationBar = (NavigationBar) this.bub.findViewById(d.g.view_navigation_bar);
+        this.gvv.setContentView(d.h.im_black_list);
+        this.buc = this.gvv.findViewById(d.g.root_view);
+        this.eCf = (NoNetworkView) this.buc.findViewById(d.g.view_no_network);
+        this.mNavigationBar = (NavigationBar) this.buc.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.j.chat_black_list_title);
-        this.Pj = (BdListView) this.bub.findViewById(d.g.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.gvu.getPageContext().getContext(), this.bub, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.csX), NoDataViewFactory.d.hT(d.j.black_list_no_data_text), null);
-        this.mProgress = (ProgressBar) this.bub.findViewById(d.g.progress);
-        this.gvy = new a(this.gvu);
-        this.Pj.setAdapter((ListAdapter) this.gvy);
+        this.Pj = (BdListView) this.buc.findViewById(d.g.black_list);
+        this.mNoDataView = NoDataViewFactory.a(this.gvv.getPageContext().getContext(), this.buc, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.csY), NoDataViewFactory.d.hT(d.j.black_list_no_data_text), null);
+        this.mProgress = (ProgressBar) this.buc.findViewById(d.g.progress);
+        this.gvz = new a(this.gvv);
+        this.Pj.setAdapter((ListAdapter) this.gvz);
         aeH();
     }
 
     private void aeH() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.gvu.getLayoutMode().setNightMode(skinType == 1);
-        this.gvu.getLayoutMode().onModeChanged(this.bub);
-        this.mNavigationBar.onChangeSkinType(this.gvu.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.gvu.getPageContext(), skinType);
-        this.eCe.onChangeSkinType(this.gvu.getPageContext(), skinType);
+        this.gvv.getLayoutMode().setNightMode(skinType == 1);
+        this.gvv.getLayoutMode().onModeChanged(this.buc);
+        this.mNavigationBar.onChangeSkinType(this.gvv.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.gvv.getPageContext(), skinType);
+        this.eCf.onChangeSkinType(this.gvv.getPageContext(), skinType);
     }
 }

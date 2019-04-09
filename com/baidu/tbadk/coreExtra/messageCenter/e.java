@@ -30,8 +30,8 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class e implements a {
-    private static final long bZB = 1 * ap.bKN;
-    private com.baidu.tbadk.widget.timepicker.a.f.b bZC;
+    private static final long bZC = 1 * ap.bKO;
+    private com.baidu.tbadk.widget.timepicker.a.f.b bZD;
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
     public boolean isSignAlertOn() {
@@ -80,7 +80,7 @@ public class e implements a {
 
     private void prepareForDefaultAlertTime() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis() + bZB);
+        calendar.setTimeInMillis(System.currentTimeMillis() + bZC);
         setSignAlertTime(calendar.get(11), calendar.get(12));
     }
 
@@ -141,9 +141,9 @@ public class e implements a {
         if (signAlertHours > 0 && signAlertMins > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), signAlertHours, signAlertMins);
         } else {
-            calendar.setTimeInMillis(System.currentTimeMillis() + bZB);
+            calendar.setTimeInMillis(System.currentTimeMillis() + bZC);
         }
-        this.bZC = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(d.h.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
+        this.bZD = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(d.h.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
             @Override // com.baidu.tbadk.widget.timepicker.a.d.a
             public void aT(View view) {
                 com.baidu.tbadk.r.a.a(tbPageContext, view);
@@ -160,9 +160,9 @@ public class e implements a {
                 ((TextView) view.findViewById(d.g.dialog_yes)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.bZC != null) {
-                            e.this.bZC.atB();
-                            e.this.bZC.dismiss();
+                        if (e.this.bZD != null) {
+                            e.this.bZD.atB();
+                            e.this.bZD.dismiss();
                         }
                         am amVar = new am("c13250");
                         amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
@@ -172,8 +172,8 @@ public class e implements a {
                 ((ImageView) view.findViewById(d.g.dialog_cancel)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.bZC != null) {
-                            e.this.bZC.dismiss();
+                        if (e.this.bZD != null) {
+                            e.this.bZD.dismiss();
                         }
                         am amVar = new am("c13251");
                         amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
@@ -182,11 +182,11 @@ public class e implements a {
                 });
             }
         }).kQ(18).b(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").at(2.0f).e(0, 0, 0, 0, 0, 0).fv(false).kR(al.getColor(d.C0277d.cp_bg_line_b)).kT(al.getColor(d.C0277d.cp_cont_b)).kU(al.getColor(d.C0277d.cp_cont_d)).kS(al.getColor(d.C0277d.black_alpha30)).kP(al.getColor(d.C0277d.cp_bg_line_d)).atr();
-        this.bZC.show();
+        this.bZD.show();
         am amVar = new am("c13249");
         amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(amVar);
-        return this.bZC.getDialog();
+        return this.bZD.getDialog();
     }
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a

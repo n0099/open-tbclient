@@ -12,8 +12,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String iJC;
     private String iJD;
+    private String iJE;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -108,19 +108,19 @@ public class b {
     }
 
     public String cfG() {
-        return this.iJC;
-    }
-
-    public void CR(String str) {
-        this.iJC = str;
-    }
-
-    public String cfH() {
         return this.iJD;
     }
 
-    public void CS(String str) {
+    public void CR(String str) {
         this.iJD = str;
+    }
+
+    public String cfH() {
+        return this.iJE;
+    }
+
+    public void CS(String str) {
+        this.iJE = str;
     }
 
     public CustomDialogData getActivityDialog() {

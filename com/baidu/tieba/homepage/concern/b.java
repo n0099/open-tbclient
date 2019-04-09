@@ -38,8 +38,8 @@ import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserList;
 /* loaded from: classes4.dex */
 public class b {
-    private View.OnTouchListener cft;
-    private w ctI;
+    private View.OnTouchListener cfu;
+    private w ctJ;
     private LongSparseArray<com.baidu.tieba.homepage.concern.b.b> fEu;
     private com.baidu.tieba.homepage.concern.b.a fGb;
     private com.baidu.tieba.homepage.concern.b.b fGc;
@@ -61,8 +61,8 @@ public class b {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (b.this.ctI != null && !b.this.mIsBackground) {
-                b.this.ctI.h(absListView, i);
+            if (b.this.ctJ != null && !b.this.mIsBackground) {
+                b.this.ctJ.h(absListView, i);
             }
             if (i == 0) {
                 t.aQD().aAl();
@@ -71,17 +71,17 @@ public class b {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            if (b.this.ctI != null && !b.this.mIsBackground) {
-                b.this.ctI.onScroll(this.fGj, i);
+            if (b.this.ctJ != null && !b.this.mIsBackground) {
+                b.this.ctJ.onScroll(this.fGj, i);
             }
             this.fGj = i;
         }
     };
-    private View.OnTouchListener ccW = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.2
+    private View.OnTouchListener ccX = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (b.this.cft != null) {
-                b.this.cft.onTouch(view, motionEvent);
+            if (b.this.cfu != null) {
+                b.this.cfu.onTouch(view, motionEvent);
             }
             if (b.this.fvC != null) {
                 b.this.fvC.onTouchEvent(motionEvent);
@@ -90,7 +90,7 @@ public class b {
             return false;
         }
     };
-    private a.InterfaceC0284a dLJ = new a.InterfaceC0284a() { // from class: com.baidu.tieba.homepage.concern.b.3
+    private a.InterfaceC0284a dLK = new a.InterfaceC0284a() { // from class: com.baidu.tieba.homepage.concern.b.3
         @Override // com.baidu.tieba.f.a.InterfaceC0284a
         public void aR(int i, int i2) {
         }
@@ -137,10 +137,10 @@ public class b {
 
     public b(e<?> eVar, BdTypeListView bdTypeListView, com.baidu.tieba.homepage.concern.a aVar) {
         this.mListView = bdTypeListView;
-        this.mListView.setOnTouchListener(this.ccW);
+        this.mListView.setOnTouchListener(this.ccX);
         this.fvC = new com.baidu.tieba.f.a();
         this.fGg = new com.baidu.tieba.homepage.concern.c.a();
-        this.fvC.a(this.dLJ);
+        this.fvC.a(this.dLK);
         this.fGf = aVar;
         bdTypeListView.setOnScrollListener(this.mOnScrollListener);
     }
@@ -154,8 +154,8 @@ public class b {
 
     public void setRecommendFrsNavigationAnimDispatcher(x xVar) {
         if (xVar != null) {
-            this.ctI = xVar.aqi();
-            this.cft = xVar.aqj();
+            this.ctJ = xVar.aqi();
+            this.cfu = xVar.aqj();
         }
     }
 
@@ -214,7 +214,7 @@ public class b {
         if (a2 == null) {
             return null;
         }
-        return a2.cHL;
+        return a2.cHM;
     }
 
     private List<m> a(DataRes.Builder builder) {
@@ -269,13 +269,13 @@ public class b {
         com.baidu.tieba.homepage.concern.b.b bVar = new com.baidu.tieba.homepage.concern.b.b();
         bVar.fGO = new com.baidu.tieba.homepage.concern.b.c();
         bVar.fGO.b(userList);
-        bVar.eNy = new bg();
-        bVar.eNy.a(userList.thread_info);
+        bVar.eNz = new bg();
+        bVar.eNz.a(userList.thread_info);
         bVar.blu();
-        if (bVar.eNy.isLinkThread()) {
+        if (bVar.eNz.isLinkThread()) {
             bVar.isLinkThread = true;
         }
-        if (StringUtils.isNull(bVar.fGO.getName()) || bVar.fGO.getId() == 0 || StringUtils.isNull(bVar.eNy.getTid()) || StringUtils.isNull(bVar.eNy.getId())) {
+        if (StringUtils.isNull(bVar.fGO.getName()) || bVar.fGO.getId() == 0 || StringUtils.isNull(bVar.eNz.getTid()) || StringUtils.isNull(bVar.eNz.getId())) {
             return null;
         }
         return bVar;
@@ -305,7 +305,7 @@ public class b {
         if (dataRes.top_user_info != null && bls()) {
             if (!ap.isEmpty(builder.top_tips)) {
                 com.baidu.tieba.homepage.concern.b.a aVar = new com.baidu.tieba.homepage.concern.b.a();
-                aVar.bOu = builder.top_tips;
+                aVar.bOv = builder.top_tips;
                 this.fGb = aVar;
                 this.mDataList.add(aVar);
             }
@@ -326,7 +326,7 @@ public class b {
             com.baidu.tieba.homepage.concern.b.a aVar2 = new com.baidu.tieba.homepage.concern.b.a();
             this.fGh = builder.user_tips_type.intValue();
             aVar2.fGJ = builder.user_tips_type.intValue();
-            aVar2.bOu = builder.user_tips;
+            aVar2.bOv = builder.user_tips;
             aVar2.fGL = true;
             this.mDataList.add(aVar2);
         }
@@ -336,7 +336,7 @@ public class b {
         }
         if (!ap.isEmpty(builder.last_tips)) {
             com.baidu.tieba.homepage.concern.b.a aVar3 = new com.baidu.tieba.homepage.concern.b.a();
-            aVar3.bOu = builder.last_tips;
+            aVar3.bOv = builder.last_tips;
             aVar3.fGK = true;
             this.mDataList.add(aVar3);
         }

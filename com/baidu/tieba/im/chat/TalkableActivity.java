@@ -74,8 +74,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class TalkableActivity<T> extends BaseActivity<T> implements View.OnTouchListener, com.baidu.adp.lib.c.a, com.baidu.adp.lib.c.b, BdListView.e, BdListView.h, a.InterfaceC0042a, i.c, VoiceManager.c, com.baidu.tbadk.widget.richText.e {
-    private boolean djB;
-    protected VoiceManager eYD;
+    private boolean djC;
+    protected VoiceManager eYE;
     protected boolean gco;
     private View gcr;
     private boolean gcv;
@@ -427,8 +427,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.eYD != null) {
-            this.eYD.onStart(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onStart(getPageContext());
         }
     }
 
@@ -436,9 +436,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.djB = false;
-        if (this.eYD != null) {
-            this.eYD.onPause(getPageContext());
+        this.djC = false;
+        if (this.eYE != null) {
+            this.eYE.onPause(getPageContext());
         }
         MessageManager.getInstance().unRegisterListener(this.gct);
     }
@@ -450,7 +450,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.eYD;
+        return this.eYE;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -466,11 +466,11 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     }
 
     private void bqg() {
-        if (this.eYD == null) {
-            this.eYD = new VoiceManager();
-            this.eYD.onCreate(getPageContext());
+        if (this.eYE == null) {
+            this.eYE = new VoiceManager();
+            this.eYE.onCreate(getPageContext());
         }
-        this.eYD.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+        this.eYE.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
     }
 
     @Override // com.baidu.tbadk.widget.richText.e
@@ -573,8 +573,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.eYD != null) {
-            this.eYD.onStop(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onStop(getPageContext());
         }
     }
 
@@ -582,17 +582,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.djB = true;
-        if (this.eYD != null) {
-            this.eYD.onResume(getPageContext());
-            this.eYD.setSpeakerphoneOn(TbadkCoreApplication.getInst().isHeadsetModeOn() ? false : true);
+        this.djC = true;
+        if (this.eYE != null) {
+            this.eYE.onResume(getPageContext());
+            this.eYE.setSpeakerphoneOn(TbadkCoreApplication.getInst().isHeadsetModeOn() ? false : true);
         }
         registerListener(this.gct);
     }
 
     private void bcK() {
-        if (this.eYD != null) {
-            this.eYD.stopPlay();
+        if (this.eYE != null) {
+            this.eYE.stopPlay();
         }
     }
 
@@ -645,8 +645,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        if (this.eYD != null) {
-            this.eYD.onSaveInstanceState(getPageContext().getPageActivity());
+        if (this.eYE != null) {
+            this.eYE.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
@@ -673,7 +673,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             }
             com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
-                if (this.eYD == null || !recorderManager.qW()) {
+                if (this.eYE == null || !recorderManager.qW()) {
                     return true;
                 }
                 recorderManager.a(this.gcj, -1);
@@ -687,7 +687,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                         recorderManager.qV();
                     }
                     this.gcj.closeRecordCancel();
-                } else if (!this.djB) {
+                } else if (!this.djC) {
                     if (recorderManager != null) {
                         recorderManager.qV();
                     }
@@ -740,8 +740,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             this.gck.onDestroy();
         }
         super.onDestroy();
-        if (this.eYD != null) {
-            this.eYD.onDestory(getPageContext());
+        if (this.eYE != null) {
+            this.eYE.onDestory(getPageContext());
         }
         if (this.gcn != null) {
             this.gcn = null;
@@ -781,8 +781,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 this.gcj.addAt2SendMsg(msg.getUserInfo().getUserName());
             }
         } else if (str.equals(TbadkCoreApplication.getInst().getString(d.j.delete))) {
-            if ((this.gcr instanceof ChatVoiceView) && ((ChatVoiceView) this.gcr).isPlaying() && this.eYD != null) {
-                this.eYD.stopPlay();
+            if ((this.gcr instanceof ChatVoiceView) && ((ChatVoiceView) this.gcr).isPlaying() && this.eYE != null) {
+                this.eYE.stopPlay();
             }
             this.gck.markDeleteMsg(i);
             showToast(d.j.delete_success);
@@ -803,12 +803,12 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
         } else if (str.equals(TbadkCoreApplication.getInst().getString(d.j.group_open_receiver)) || str.equals(TbadkCoreApplication.getInst().getString(d.j.group_close_receiver))) {
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 TbadkCoreApplication.getInst().setHeadsetModeOn(false);
-                this.eYD.setSpeakerphoneOn(true);
+                this.eYE.setSpeakerphoneOn(true);
                 this.gcj.closeReceiver();
                 return;
             }
             TbadkCoreApplication.getInst().setHeadsetModeOn(true);
-            this.eYD.setSpeakerphoneOn(false);
+            this.eYE.setSpeakerphoneOn(false);
             this.gcj.showReceiver();
         }
     }
@@ -976,10 +976,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
     }
 
     public com.baidu.tieba.tbadkCore.voice.a getRecorderManager() {
-        if (this.eYD == null || this.eYD.getRecorderManager() == null) {
+        if (this.eYE == null || this.eYE.getRecorderManager() == null) {
             return null;
         }
-        return this.eYD.getRecorderManager();
+        return this.eYE.getRecorderManager();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity

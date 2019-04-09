@@ -300,7 +300,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
                     this.cardVideoInfo.ZE();
-                    this.cardVideoInfo.bDI = this.isBrandForum;
+                    this.cardVideoInfo.bDJ = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && longValue != 0) {
                         this.cardVideoInfo.setFid(longValue);
                     }
@@ -315,17 +315,17 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new f();
-                    this.mFrsInsertLiveData.iDE = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.iDF = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < dataRes.ala_live_insert.ala_live_list.size(); i3++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i3) != null) {
                             bg bgVar = new bg();
                             bgVar.a(dataRes.ala_live_insert.ala_live_list.get(i3));
-                            bgVar.bDI = this.isBrandForum;
+                            bgVar.bDJ = this.isBrandForum;
                             arrayList.add(bgVar);
                         }
                     }
-                    this.mFrsInsertLiveData.iDD = arrayList;
+                    this.mFrsInsertLiveData.iDE = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new g();
@@ -334,11 +334,11 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         if (dataRes.ala_stage_list.get(i4) != null) {
                             bg bgVar2 = new bg();
                             bgVar2.a(dataRes.ala_stage_list.get(i4));
-                            bgVar2.bDI = this.isBrandForum;
+                            bgVar2.bDJ = this.isBrandForum;
                             arrayList2.add(bgVar2);
                         }
                     }
-                    this.mFrsStageLiveData.iDG = arrayList2;
+                    this.mFrsStageLiveData.iDH = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -365,7 +365,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         }
                         bgVar3.dl(true);
                         bgVar3.a(dataRes.card_shipin_new.get(i5));
-                        bgVar3.bDI = this.isBrandForum;
+                        bgVar3.bDJ = this.isBrandForum;
                         this.mCardShipinNew.add(bgVar3);
                     }
                 }
@@ -463,7 +463,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         bgVar.lk(this.forum.getName());
                     }
                     bgVar.o(this.color_eggs);
-                    bgVar.bDI = this.forum.isBrandForum;
+                    bgVar.bDJ = this.forum.isBrandForum;
                     if (!TextUtils.isEmpty(bgVar.ZQ())) {
                         ad adVar = new ad();
                         adVar.lb(bgVar.ZQ());
@@ -488,57 +488,57 @@ public class j implements com.baidu.tbadk.mvc.b.c {
             } else if (next instanceof bg) {
                 bg bgVar = (bg) next;
                 int[] ap = ap(bgVar);
-                if (bgVar.getType() == bg.bAT && !bgVar.Zv()) {
+                if (bgVar.getType() == bg.bAU && !bgVar.Zv()) {
                     bf bfVar = new bf();
                     bfVar.threadData = bgVar;
                     bfVar.position = i;
-                    bfVar.bAI = true;
+                    bfVar.bAJ = true;
                     arrayList.add(bfVar);
                     bf bfVar2 = new bf();
                     bfVar2.threadData = bgVar;
                     bfVar2.position = i;
                     if (bgVar.ZM() == 1) {
-                        bfVar2.bAL = true;
-                        bfVar2.bAQ = ap[0];
-                        bfVar2.bAR = ap[1];
-                    } else if (bgVar.ZM() >= 2) {
                         bfVar2.bAM = true;
+                        bfVar2.bAR = ap[0];
+                        bfVar2.bAS = ap[1];
+                    } else if (bgVar.ZM() >= 2) {
+                        bfVar2.bAN = true;
                     } else {
-                        bfVar2.bAJ = true;
+                        bfVar2.bAK = true;
                     }
                     arrayList.add(bfVar2);
                     if (bgVar.aam() != null) {
                         bf bfVar3 = new bf();
-                        bfVar3.bAO = true;
+                        bfVar3.bAP = true;
                         bfVar3.threadData = bgVar;
                         bfVar3.position = i;
                         arrayList.add(bfVar3);
                     }
                     bf bfVar4 = new bf();
-                    bfVar4.bAN = true;
+                    bfVar4.bAO = true;
                     bfVar4.threadData = bgVar;
                     bfVar4.position = i;
                     arrayList.add(bfVar4);
-                } else if (bgVar.getType() == bg.bBg && !bgVar.Zv()) {
+                } else if (bgVar.getType() == bg.bBh && !bgVar.Zv()) {
                     bf bfVar5 = new bf();
                     bfVar5.threadData = bgVar;
                     bfVar5.position = i;
-                    bfVar5.bAI = true;
+                    bfVar5.bAJ = true;
                     arrayList.add(bfVar5);
                     bf bfVar6 = new bf();
                     bfVar6.threadData = bgVar;
                     bfVar6.position = i;
-                    bfVar6.bAP = true;
+                    bfVar6.bAQ = true;
                     arrayList.add(bfVar6);
                     if (bgVar.aam() != null) {
                         bf bfVar7 = new bf();
-                        bfVar7.bAO = true;
+                        bfVar7.bAP = true;
                         bfVar7.threadData = bgVar;
                         bfVar7.position = i;
                         arrayList.add(bfVar7);
                     }
                     bf bfVar8 = new bf();
-                    bfVar8.bAN = true;
+                    bfVar8.bAO = true;
                     bfVar8.threadData = bgVar;
                     bfVar8.position = i;
                     arrayList.add(bfVar8);

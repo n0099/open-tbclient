@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
     private BdListView fsx = null;
-    private a iuk = null;
+    private a iul = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -46,14 +46,14 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             caI();
         } else if (v.T(this.list)) {
             bhq();
-        } else if (this.iuk == null) {
-            this.iuk = new a(getPageContext());
-            this.iuk.setData(this.list);
-            this.fsx.setAdapter((ListAdapter) this.iuk);
-            this.iuk.setSwitchStateChangeListener(this);
+        } else if (this.iul == null) {
+            this.iul = new a(getPageContext());
+            this.iul.setData(this.list);
+            this.fsx.setAdapter((ListAdapter) this.iul);
+            this.iul.setSwitchStateChangeListener(this);
         } else {
-            this.iuk.setData(this.list);
-            this.iuk.notifyDataSetChanged();
+            this.iul.setData(this.list);
+            this.iul.notifyDataSetChanged();
         }
     }
 
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void d(boolean z, long j) {
-        if (this.list != null && this.iuk != null) {
+        if (this.list != null && this.iul != null) {
             if (!j.kY()) {
-                this.iuk.notifyDataSetChanged();
+                this.iul.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iun = 1;
+                        this.list.get(i).iuo = 1;
                     } else {
-                        this.list.get(i).iun = 0;
+                        this.list.get(i).iuo = 0;
                     }
                 }
             }
-            this.iuk.notifyDataSetChanged();
+            this.iul.notifyDataSetChanged();
         }
     }
 

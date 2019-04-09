@@ -20,8 +20,8 @@ import java.util.Date;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private static b bbm;
-    private boolean bbn;
+    private static b bbn;
+    private boolean bbo;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -29,23 +29,23 @@ public class b {
     }
 
     private b() {
-        this.bbn = DEBUG && com.baidu.swan.apps.ac.a.a.Gc();
+        this.bbo = DEBUG && com.baidu.swan.apps.ac.a.a.Gc();
     }
 
     public static b ND() {
-        if (bbm == null) {
+        if (bbn == null) {
             synchronized (b.class) {
-                if (bbm == null) {
-                    bbm = new b();
+                if (bbn == null) {
+                    bbn = new b();
                 }
             }
         }
-        return bbm;
+        return bbn;
     }
 
     private File NE() {
         File file = new File(com.baidu.swan.games.i.a.Co(), "game_core_console");
-        File file2 = (DEBUG && this.bbn) ? new File(file, "debug") : file;
+        File file2 = (DEBUG && this.bbo) ? new File(file, "debug") : file;
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -88,8 +88,8 @@ public class b {
 
     public void a(String str, final a aVar) {
         if (DEBUG) {
-            final boolean z = this.bbn;
-            this.bbn = true;
+            final boolean z = this.bbo;
+            this.bbo = true;
             c.C0144c c0144c = new c.C0144c();
             c0144c.mDownloadUrl = str;
             final File NG = NG();
@@ -111,13 +111,13 @@ public class b {
                     }
                     com.baidu.swan.c.b.deleteFile(NG);
                     aVar.aV(bl);
-                    b.this.bbn = z;
+                    b.this.bbo = z;
                 }
 
                 @Override // com.baidu.swan.apps.install.c.b
                 public void onFailed() {
                     aVar.aV(false);
-                    b.this.bbn = z;
+                    b.this.bbo = z;
                 }
             });
         }
@@ -151,7 +151,7 @@ public class b {
     }
 
     public void a(@NonNull final a aVar) {
-        if (DEBUG && this.bbn) {
+        if (DEBUG && this.bbo) {
             aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.c.a.b.2
                 @Override // java.lang.Runnable
                 public void run() {

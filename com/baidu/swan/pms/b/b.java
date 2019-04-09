@@ -27,7 +27,7 @@ public class b {
                 aVar2 = com.baidu.swan.pms.database.a.Ry().jj(aVar.getBundleId());
             }
             if (aVar2 != null) {
-                aVar.U(aVar2.blP);
+                aVar.U(aVar2.blQ);
             } else {
                 aVar.U(0L);
             }

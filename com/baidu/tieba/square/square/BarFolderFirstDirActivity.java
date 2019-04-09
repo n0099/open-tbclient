@@ -29,18 +29,18 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFirstDirActivity> {
-    public static String iBs = "st_type";
-    private ProgressBar iBo;
-    private com.baidu.tieba.square.square.a iBp;
-    private a iBq;
-    protected ViewGroup iBr;
+    public static String iBt = "st_type";
+    private ProgressBar iBp;
+    private com.baidu.tieba.square.square.a iBq;
+    private a iBr;
+    protected ViewGroup iBs;
     private NavigationBar mNavigationBar;
     protected ListView mList = null;
     private String stType = null;
 
     public static void h(Activity activity, String str) {
         Intent intent = new Intent(activity, BarFolderFirstDirActivity.class);
-        intent.putExtra(iBs, str);
+        intent.putExtra(iBt, str);
         activity.startActivity(intent);
     }
 
@@ -59,7 +59,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        this.iBp.notifyDataSetChanged();
+        this.iBq.notifyDataSetChanged();
     }
 
     protected void initUI() {
@@ -67,22 +67,22 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         this.mNavigationBar.setTitleText(getResources().getString(d.j.bar_first_dir_name));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mList = (ListView) findViewById(d.g.list);
-        this.iBp = new com.baidu.tieba.square.square.a(getPageContext().getPageActivity(), new b(), true);
+        this.iBq = new com.baidu.tieba.square.square.a(getPageContext().getPageActivity(), new b(), true);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.h(getActivity(), d.e.ds76)));
         this.mList.addHeaderView(textView);
-        this.mList.setAdapter((ListAdapter) this.iBp);
-        this.iBo = (ProgressBar) findViewById(d.g.progress);
-        this.iBr = (ViewGroup) findViewById(d.g.body_container);
-        bc.aD(this.iBr);
+        this.mList.setAdapter((ListAdapter) this.iBq);
+        this.iBp = (ProgressBar) findViewById(d.g.progress);
+        this.iBs = (ViewGroup) findViewById(d.g.body_container);
+        bc.aD(this.iBs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iBq != null) {
-            this.iBq.cancel();
+        if (this.iBr != null) {
+            this.iBr.cancel();
         }
         a(null, true);
     }
@@ -92,9 +92,9 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 d dVar;
-                ArrayList<d> ccY = BarFolderFirstDirActivity.this.iBp.ccY();
+                ArrayList<d> ccY = BarFolderFirstDirActivity.this.iBq.ccY();
                 if (ccY != null && i < ccY.size() && (dVar = ccY.get(i)) != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.izp, dVar.izq, dVar.izr)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.izq, dVar.izr, dVar.izs)));
                 }
             }
         });
@@ -102,32 +102,32 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
 
     protected void ag(Bundle bundle) {
         if (bundle != null) {
-            this.stType = bundle.getString(iBs);
+            this.stType = bundle.getString(iBt);
         } else {
-            this.stType = getIntent().getStringExtra(iBs);
+            this.stType = getIntent().getStringExtra(iBt);
         }
-        this.iBo.setVisibility(0);
+        this.iBp.setVisibility(0);
         this.mList.setEnabled(false);
-        if (this.iBq != null) {
-            this.iBq.cancel();
+        if (this.iBr != null) {
+            this.iBr.cancel();
         }
-        this.iBq = new a();
-        this.iBq.setPriority(3);
-        this.iBq.execute("");
+        this.iBr = new a();
+        this.iBr.setPriority(3);
+        this.iBr.execute("");
     }
 
     protected void a(b bVar, boolean z) {
-        this.iBo.setVisibility(8);
+        this.iBp.setVisibility(8);
         this.mList.setEnabled(true);
-        this.iBq = null;
+        this.iBr = null;
         if (!z) {
             if (bVar.isFailed()) {
                 showToast(bVar.getErrorMsg());
                 return;
             }
-            this.iBp.az(bVar.ccY());
+            this.iBq.az(bVar.ccY());
             this.mList.setVisibility(4);
-            this.iBp.notifyDataSetChanged();
+            this.iBq.notifyDataSetChanged();
             this.mList.setVisibility(0);
         }
     }
@@ -140,8 +140,8 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         if (this.mList != null) {
             this.mList.invalidateViews();
         }
-        if (this.iBr != null) {
-            bc.c(this.iBr, i);
+        if (this.iBs != null) {
+            bc.c(this.iBs, i);
         }
         al.h(findViewById(d.g.root_view), i);
     }
@@ -195,7 +195,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
                     z2 = z;
                     this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
                     if (BarFolderFirstDirActivity.this.stType != null) {
-                        this.mNetwork.x(BarFolderFirstDirActivity.iBs, BarFolderFirstDirActivity.this.stType);
+                        this.mNetwork.x(BarFolderFirstDirActivity.iBt, BarFolderFirstDirActivity.this.stType);
                     }
                     String acg = this.mNetwork.acg();
                     if (!this.mNetwork.acE().adD().isRequestSuccess()) {

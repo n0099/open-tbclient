@@ -14,53 +14,53 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class am implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g jEJ;
-    private final boolean jHB;
-    private final ai<com.facebook.imagepipeline.f.d> jJk;
-    private final boolean jKO;
+    private final com.facebook.common.memory.g jEK;
+    private final boolean jHC;
+    private final ai<com.facebook.imagepipeline.f.d> jJl;
+    private final boolean jKP;
     private final Executor mExecutor;
 
     public am(Executor executor, com.facebook.common.memory.g gVar, boolean z, ai<com.facebook.imagepipeline.f.d> aiVar, boolean z2) {
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.jEJ = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
-        this.jKO = z;
-        this.jJk = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
-        this.jHB = z2;
+        this.jEK = (com.facebook.common.memory.g) com.facebook.common.internal.g.checkNotNull(gVar);
+        this.jKP = z;
+        this.jJl = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.jHC = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.jJk.a(new a(jVar, ajVar), ajVar);
+        this.jJl.a(new a(jVar, ajVar), ajVar);
     }
 
     /* loaded from: classes2.dex */
     private class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private boolean bVF;
-        private final JobScheduler jJB;
-        private final aj jJv;
+        private boolean bVG;
+        private final JobScheduler jJC;
+        private final aj jJw;
 
         public a(final j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
             super(jVar);
-            this.bVF = false;
-            this.jJv = ajVar;
-            this.jJB = new JobScheduler(am.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.am.a.1
+            this.bVG = false;
+            this.jJw = ajVar;
+            this.jJC = new JobScheduler(am.this.mExecutor, new JobScheduler.a() { // from class: com.facebook.imagepipeline.producers.am.a.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.a
                 public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
                     a.this.g(dVar, z);
                 }
             }, 100);
-            this.jJv.a(new e() { // from class: com.facebook.imagepipeline.producers.am.a.2
+            this.jJw.a(new e() { // from class: com.facebook.imagepipeline.producers.am.a.2
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
                 public void czJ() {
-                    if (a.this.jJv.czF()) {
-                        a.this.jJB.czR();
+                    if (a.this.jJw.czF()) {
+                        a.this.jJC.czR();
                     }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
                 public void czH() {
-                    a.this.jJB.czQ();
-                    a.this.bVF = true;
+                    a.this.jJC.czQ();
+                    a.this.bVG = true;
                     jVar.ctB();
                 }
             });
@@ -71,15 +71,15 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void d(@Nullable com.facebook.imagepipeline.f.d dVar, boolean z) {
-            if (!this.bVF) {
+            if (!this.bVG) {
                 if (dVar != null) {
-                    TriState a = am.a(this.jJv.czA(), dVar, am.this.jKO);
+                    TriState a = am.a(this.jJw.czA(), dVar, am.this.jKP);
                     if (z || a != TriState.UNSET) {
                         if (a != TriState.YES) {
                             czN().e(dVar, z);
-                        } else if (this.jJB.e(dVar, z)) {
-                            if (z || this.jJv.czF()) {
-                                this.jJB.czR();
+                        } else if (this.jJC.e(dVar, z)) {
+                            if (z || this.jJw.czF()) {
+                                this.jJC.czR();
                             }
                         }
                     }
@@ -99,17 +99,17 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
         public void g(com.facebook.imagepipeline.f.d dVar, boolean z) {
             InputStream inputStream;
             Map<String, String> map = null;
-            al czB = this.jJv.czB();
-            ?? id = this.jJv.getId();
+            al czB = this.jJw.czB();
+            ?? id = this.jJw.getId();
             czB.em(id, "ResizeAndRotateProducer");
-            ImageRequest czA = this.jJv.czA();
-            com.facebook.common.memory.i ctK = am.this.jEJ.ctK();
+            ImageRequest czA = this.jJw.czA();
+            com.facebook.common.memory.i ctK = am.this.jEK.ctK();
             try {
                 try {
                     try {
-                        int b = am.b(czA, dVar, am.this.jKO);
+                        int b = am.b(czA, dVar, am.this.jKP);
                         int CF = am.CF(p.b(czA, dVar));
-                        int i = am.this.jHB ? CF : b;
+                        int i = am.this.jHC ? CF : b;
                         int a = am.a(czA.cAr(), dVar);
                         Map<String, String> a2 = a(dVar, czA, i, CF, b, a);
                         try {
@@ -119,9 +119,9 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
                                 com.facebook.common.references.a d = com.facebook.common.references.a.d(ctK.ctL());
                                 try {
                                     com.facebook.imagepipeline.f.d dVar2 = new com.facebook.imagepipeline.f.d(d);
-                                    dVar2.c(com.facebook.c.b.jEp);
+                                    dVar2.c(com.facebook.c.b.jEq);
                                     dVar2.cyL();
-                                    this.jJv.czB().a(this.jJv.getId(), "ResizeAndRotateProducer", a2);
+                                    this.jJw.czB().a(this.jJw.getId(), "ResizeAndRotateProducer", a2);
                                     czN().e(dVar2, z);
                                     com.facebook.imagepipeline.f.d.e(dVar2);
                                     com.facebook.common.internal.b.q(inputStream);
@@ -132,7 +132,7 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
                             } catch (Exception e) {
                                 e = e;
                                 map = a2;
-                                this.jJv.czB().a(this.jJv.getId(), "ResizeAndRotateProducer", e, map);
+                                this.jJw.czB().a(this.jJw.getId(), "ResizeAndRotateProducer", e, map);
                                 czN().C(e);
                                 com.facebook.common.internal.b.q(inputStream);
                                 ctK.close();
@@ -163,7 +163,7 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
 
         private Map<String, String> a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, int i, int i2, int i3, int i4) {
             String str;
-            if (!this.jJv.czB().Fy(this.jJv.getId())) {
+            if (!this.jJw.czB().Fy(this.jJw.getId())) {
                 return null;
             }
             String str2 = dVar.getWidth() + Config.EVENT_HEAT_X + dVar.getHeight();
@@ -177,7 +177,7 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
             hashMap.put("Original size", str2);
             hashMap.put("Requested size", str);
             hashMap.put("Fraction", str3);
-            hashMap.put("queueTime", String.valueOf(this.jJB.czV()));
+            hashMap.put("queueTime", String.valueOf(this.jJC.czV()));
             hashMap.put("downsampleEnumerator", Integer.toString(i2));
             hashMap.put("softwareEnumerator", Integer.toString(i3));
             hashMap.put("rotationAngle", Integer.toString(i4));
@@ -187,10 +187,10 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static TriState a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar, boolean z) {
-        if (dVar == null || dVar.cyJ() == com.facebook.c.c.jEy) {
+        if (dVar == null || dVar.cyJ() == com.facebook.c.c.jEz) {
             return TriState.UNSET;
         }
-        if (dVar.cyJ() != com.facebook.c.b.jEp) {
+        if (dVar.cyJ() != com.facebook.c.b.jEq) {
             return TriState.NO;
         }
         return TriState.valueOf(b(imageRequest.cAr(), dVar) || CE(b(imageRequest, dVar, z)));
@@ -201,11 +201,11 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
             return 1.0f;
         }
         float max = Math.max(cVar.width / i, cVar.height / i2);
-        if (i * max > cVar.jGk) {
-            max = cVar.jGk / i;
+        if (i * max > cVar.jGl) {
+            max = cVar.jGl / i;
         }
-        if (i2 * max > cVar.jGk) {
-            return cVar.jGk / i2;
+        if (i2 * max > cVar.jGl) {
+            return cVar.jGl / i2;
         }
         return max;
     }
@@ -220,7 +220,7 @@ public class am implements ai<com.facebook.imagepipeline.f.d> {
         if (z && (cAq = imageRequest.cAq()) != null) {
             int a2 = a(imageRequest.cAr(), dVar);
             boolean z2 = a2 == 90 || a2 == 270;
-            int D = D(a(cAq, z2 ? dVar.getHeight() : dVar.getWidth(), z2 ? dVar.getWidth() : dVar.getHeight()), cAq.jGl);
+            int D = D(a(cAq, z2 ? dVar.getHeight() : dVar.getWidth(), z2 ? dVar.getWidth() : dVar.getHeight()), cAq.jGm);
             if (D > 8) {
                 return 8;
             }

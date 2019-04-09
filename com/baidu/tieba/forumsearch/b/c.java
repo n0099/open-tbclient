@@ -7,31 +7,31 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
 public class c {
-    private String eWT;
-    private SearchForum eXp;
-    private List<SearchForum> eXq;
-    private ArrayList<m> eXr;
+    private String eWU;
+    private SearchForum eXq;
+    private List<SearchForum> eXr;
+    private ArrayList<m> eXs;
 
     public c(String str) {
-        this.eWT = str;
+        this.eWU = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.eXp = dataRes.exact_match;
-            this.eXq = dataRes.fuzzy_match;
-            this.eXr = new ArrayList<>();
-            b bVar = new b(this.eWT);
-            if (this.eXp != null) {
-                bVar.a(this.eXp);
-                this.eXr.add(bVar);
-            }
+            this.eXq = dataRes.exact_match;
+            this.eXr = dataRes.fuzzy_match;
+            this.eXs = new ArrayList<>();
+            b bVar = new b(this.eWU);
             if (this.eXq != null) {
-                for (SearchForum searchForum : this.eXq) {
+                bVar.a(this.eXq);
+                this.eXs.add(bVar);
+            }
+            if (this.eXr != null) {
+                for (SearchForum searchForum : this.eXr) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.eWT);
+                        b bVar2 = new b(this.eWU);
                         bVar2.a(searchForum);
-                        this.eXr.add(bVar2);
+                        this.eXs.add(bVar2);
                     }
                 }
             }
@@ -39,6 +39,6 @@ public class c {
     }
 
     public ArrayList<m> bbB() {
-        return this.eXr;
+        return this.eXs;
     }
 }

@@ -20,18 +20,18 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* loaded from: classes4.dex */
 public class t extends com.baidu.tbadk.editortools.d {
-    private LocationModel ckf;
-    private int ckl;
-    private LocationModel.a cks;
-    private LocationModel.b ckt;
+    private LocationModel ckg;
+    private int ckm;
+    private LocationModel.a ckt;
+    private LocationModel.b cku;
     private BaseActivity<?> mContext;
     private PbEditorData.ThreadData mThreadData;
     private VoiceData.VoiceModel mVoiceModel;
 
     public t(EditorTools editorTools) {
         super(editorTools);
-        this.ckl = 0;
-        this.cks = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
+        this.ckm = 0;
+        this.ckt = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void amG() {
                 t.this.mContext.showToast(d.j.no_network_guide);
@@ -57,7 +57,7 @@ public class t extends com.baidu.tbadk.editortools.d {
                 }
             }
         };
-        this.ckt = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
+        this.cku = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
             public void amH() {
                 t.this.b(0, false, null);
@@ -109,12 +109,12 @@ public class t extends com.baidu.tbadk.editortools.d {
             this.mContext.showToast(d.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             amu();
-        } else if (this.ckf.ceZ()) {
+        } else if (this.ckg.ceZ()) {
             amr();
         } else {
-            this.ckf.qb(false);
+            this.ckg.qb(false);
             b(1, true, null);
-            this.ckf.ceX();
+            this.ckg.ceX();
         }
     }
 
@@ -125,9 +125,9 @@ public class t extends com.baidu.tbadk.editortools.d {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.kY()) {
                     t.this.b(1, true, null);
-                    t.this.ckf.aNy();
+                    t.this.ckg.aNy();
                 } else {
-                    t.this.cks.amG();
+                    t.this.ckt.amG();
                 }
                 aVar2.dismiss();
             }
@@ -142,13 +142,13 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public void amv() {
-        if (this.ckf.aNu()) {
-            if (this.ckf.ceZ()) {
-                this.cks.a(com.baidu.tieba.tbadkCore.location.c.ceV().getLocationData());
+        if (this.ckg.aNu()) {
+            if (this.ckg.ceZ()) {
+                this.ckt.a(com.baidu.tieba.tbadkCore.location.c.ceV().getLocationData());
                 return;
             }
             if (com.baidu.adp.lib.util.l.lo()) {
-                this.ckf.ceX();
+                this.ckg.ceX();
             }
             b(0, true, null);
             return;
@@ -157,13 +157,13 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public void c(BaseActivity baseActivity) {
-        this.ckf = new LocationModel(baseActivity);
-        this.ckf.a(this.cks);
-        this.ckf.a(this.ckt);
+        this.ckg = new LocationModel(baseActivity);
+        this.ckg.a(this.ckt);
+        this.ckg.a(this.cku);
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && alP() != null) {
             alP().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.ckf.aNu() && alP() != null) {
+        if (!this.ckg.aNu() && alP() != null) {
             alP().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
     }
@@ -177,12 +177,12 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public int amz() {
-        return this.ckl;
+        return this.ckm;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, boolean z, String str) {
-        this.ckl = i;
+        this.ckm = i;
         if (alP() != null) {
             alP().b(new com.baidu.tbadk.editortools.a(19, 8, new com.baidu.tbadk.editortools.d.a(i, z, str)));
         }

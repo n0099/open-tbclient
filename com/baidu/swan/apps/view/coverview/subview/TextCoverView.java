@@ -15,24 +15,24 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TextCoverView extends TextView implements a {
     private static final boolean DEBUG = b.DEBUG;
-    private CoverViewHelper aZn;
-    private com.baidu.swan.apps.view.coverview.b.a aZo;
+    private CoverViewHelper aZo;
+    private com.baidu.swan.apps.view.coverview.b.a aZp;
 
     public TextCoverView(Context context) {
         super(context);
-        this.aZn = new CoverViewHelper();
+        this.aZo = new CoverViewHelper();
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void a(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.aZo = aVar;
-            this.aZn.am(this);
-            JSONObject jSONObject = aVar.akk;
+            this.aZp = aVar;
+            this.aZo.am(this);
+            JSONObject jSONObject = aVar.akl;
             if (jSONObject != null) {
-                this.aZn.a(this, jSONObject);
+                this.aZo.a(this, jSONObject);
                 if (getParent() != null && (getParent() instanceof View)) {
-                    this.aZn.c((View) getParent(), jSONObject);
+                    this.aZo.c((View) getParent(), jSONObject);
                 }
                 c(aVar);
             }
@@ -41,32 +41,32 @@ public class TextCoverView extends TextView implements a {
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setAlpha(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
-        if (aVar.akk != null && getParent() != null && (getParent() instanceof View)) {
-            this.aZn.b((View) getParent(), aVar.akk);
+        if (aVar.akl != null && getParent() != null && (getParent() instanceof View)) {
+            this.aZo.b((View) getParent(), aVar.akl);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setModel(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.aZo = aVar;
-            this.aZn.am(this);
+            this.aZp = aVar;
+            this.aZo.am(this);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        this.aZn.setOnActionCallback(aVar);
+        this.aZo.setOnActionCallback(aVar);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public CoverViewHelper.a getClickPosition() {
-        return this.aZn.getClickPosition();
+        return this.aZo.getClickPosition();
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public com.baidu.swan.apps.view.coverview.b.a getModel() {
-        return this.aZo;
+        return this.aZp;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -76,7 +76,7 @@ public class TextCoverView extends TextView implements a {
         int i;
         boolean z;
         boolean z2;
-        JSONObject jSONObject = aVar.akk;
+        JSONObject jSONObject = aVar.akl;
         if (jSONObject != null) {
             if (aVar instanceof c) {
                 setText(((c) aVar).text);

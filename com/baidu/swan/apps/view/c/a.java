@@ -61,9 +61,9 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
         LottieAnimationView lottieAnimationView = new LottieAnimationView(context);
         lottieAnimationView.G(c0181a.loop);
         lottieAnimationView.setAnimation(c);
-        if (c0181a.aZD != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZD.aZE), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0181a.aZD.aZF);
+        if (c0181a.aZE != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZE.aZF), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0181a.aZE.aZG);
         }
         if (c0181a.autoPlay) {
             lottieAnimationView.cu();
@@ -109,9 +109,9 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             return false;
         }
         LottieAnimationView lottieAnimationView = (LottieAnimationView) nAView;
-        if (c0181a.aZD != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZD.aZE), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0181a.aZD.aZF);
+        if (c0181a.aZE != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZE.aZF), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0181a.aZE.aZG);
         }
         String str2 = c0181a.action;
         if (TextUtils.equals(str2, "play")) {
@@ -168,7 +168,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", c0181a.aBG);
+            jSONObject.put("wvID", c0181a.aBH);
             jSONObject.put("vtype", "ended");
             jSONObject2.putOpt("animationViewId", c0181a.id);
             jSONObject.put("data", jSONObject2.toString());
@@ -185,7 +185,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (lottieAnimationView.getProgress() == 1.0f) {
-                    d.a(c0181a.aBG, c0181a.id, "animateview", "ended", jSONObject);
+                    d.a(c0181a.aBH, c0181a.id, "animateview", "ended", jSONObject);
                 }
                 c.d("AbsSwanAppWidget", "progress: " + lottieAnimationView.getProgress());
             }
@@ -205,7 +205,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
     /* renamed from: com.baidu.swan.apps.view.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0181a extends com.baidu.swan.apps.model.a.a.a {
-        C0182a aZD;
+        C0182a aZE;
         String action;
         boolean autoPlay;
         boolean loop;
@@ -233,16 +233,16 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
                 this.action = jSONObject.optString("action");
                 JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
                 if (optJSONObject != null) {
-                    this.aZD = new C0182a();
-                    this.aZD.aZE = optJSONObject.optString("bgColor");
-                    this.aZD.aZF = (float) optJSONObject.optDouble("opacity");
+                    this.aZE = new C0182a();
+                    this.aZE.aZF = optJSONObject.optString("bgColor");
+                    this.aZE.aZG = (float) optJSONObject.optDouble("opacity");
                 }
             }
         }
 
         @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.aBG) || TextUtils.isEmpty(this.id)) ? false : true;
+            return (TextUtils.isEmpty(this.aBH) || TextUtils.isEmpty(this.id)) ? false : true;
         }
 
         public boolean MZ() {
@@ -253,8 +253,8 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
         /* renamed from: com.baidu.swan.apps.view.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public class C0182a {
-            String aZE;
-            float aZF;
+            String aZF;
+            float aZG;
 
             C0182a() {
             }

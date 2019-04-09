@@ -10,20 +10,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String aAV;
     public static String aAW;
     public static String aAX;
     public static String aAY;
-    private UnitedSchemeEntity ayH;
-    private CallbackHandler ayI;
+    public static String aAZ;
+    private UnitedSchemeEntity ayI;
+    private CallbackHandler ayJ;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4) {
-        this.ayI = callbackHandler;
-        this.ayH = unitedSchemeEntity;
-        aAV = str;
-        aAX = str4;
-        aAW = str2;
-        aAY = str3;
+        this.ayJ = callbackHandler;
+        this.ayI = unitedSchemeEntity;
+        aAW = str;
+        aAY = str4;
+        aAX = str2;
+        aAZ = str3;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -53,7 +53,7 @@ public class b {
     public void f(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.ayI, this.ayH, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.ayJ, this.ayI, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -69,7 +69,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            f(aAY, jSONObject);
+            f(aAZ, jSONObject);
         }
     }
 }

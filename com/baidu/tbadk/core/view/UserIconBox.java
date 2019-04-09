@@ -16,12 +16,12 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private int bPm;
-    private com.baidu.adp.lib.e.b<TbImageView> bTU;
-    private a bTV;
-    private boolean bTW;
-    private int bTX;
-    private boolean bTY;
+    private int bPn;
+    private com.baidu.adp.lib.e.b<TbImageView> bTV;
+    private a bTW;
+    private boolean bTX;
+    private int bTY;
+    private boolean bTZ;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -32,22 +32,22 @@ public class UserIconBox extends LinearLayout {
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.bTW = z;
+        this.bTX = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.bTU = null;
         this.bTV = null;
-        this.bTW = true;
+        this.bTW = null;
+        this.bTX = true;
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bTU = null;
         this.bTV = null;
-        this.bTW = true;
+        this.bTW = null;
+        this.bTX = true;
         init(context);
     }
 
@@ -57,15 +57,15 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.bTU = bVar.afa();
-            if (bVar.aeZ() == null || this.bTV == null) {
+            this.bTV = bVar.afa();
+            if (bVar.aeZ() == null || this.bTW == null) {
             }
         }
         setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserIconBox.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof TbImageView) && UserIconBox.this.bTU != null) {
-                    UserIconBox.this.bTU.t((TbImageView) view2);
+                if ((view2 instanceof TbImageView) && UserIconBox.this.bTV != null) {
+                    UserIconBox.this.bTV.t((TbImageView) view2);
                 }
             }
 
@@ -91,10 +91,10 @@ public class UserIconBox extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.bPm = i2;
-        this.bTX = i4;
-        this.bTY = z;
-        this.bPm = i2;
+        this.bPn = i2;
+        this.bTY = i4;
+        this.bTZ = z;
+        this.bPn = i2;
         if (!ih(min)) {
             setVisibility(8);
         } else if (min > 0) {
@@ -118,7 +118,7 @@ public class UserIconBox extends LinearLayout {
                             tbImageView.setContentDescription(list.get(i5).getIconName());
                         }
                         tbImageView.setClickable(false);
-                        tbImageView.setAutoChangeStyle(this.bTW);
+                        tbImageView.setAutoChangeStyle(this.bTX);
                         tbImageView.setImageDrawable(null);
                         tbImageView.startLoad(list.get(i5).getIcon(), 21, i2, i3, false);
                     }
@@ -162,10 +162,10 @@ public class UserIconBox extends LinearLayout {
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             if (!z2) {
-                if (i6 == 0 && this.bTY) {
-                    i5 += this.bPm;
+                if (i6 == 0 && this.bTZ) {
+                    i5 += this.bPn;
                 } else {
-                    i5 += this.bPm + this.bTX;
+                    i5 += this.bPn + this.bTY;
                 }
                 if (i5 > measuredWidth) {
                     z2 = true;
@@ -189,8 +189,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView db(Context context) {
         TbImageView tbImageView = null;
-        if (this.bTU != null) {
-            tbImageView = this.bTU.jA();
+        if (this.bTV != null) {
+            tbImageView = this.bTV.jA();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);

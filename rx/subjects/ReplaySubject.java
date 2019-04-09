@@ -12,7 +12,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class ReplaySubject<T> extends c<T, T> {
-    private static final Object[] kbX = new Object[0];
+    private static final Object[] kbY = new Object[0];
     final ReplayState<T> state;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -167,19 +167,19 @@ public final class ReplaySubject<T> extends c<T, T> {
     static final class ReplaySizeBoundBuffer<T> implements a<T> {
         volatile boolean done;
         Throwable error;
-        volatile Node<T> kce;
-        Node<T> kcf;
+        volatile Node<T> kcf;
+        Node<T> kcg;
         final int limit;
         int size;
 
         @Override // rx.subjects.ReplaySubject.a
         public void next(T t) {
             Node<T> node = new Node<>(t);
-            this.kcf.set(node);
-            this.kcf = node;
+            this.kcg.set(node);
+            this.kcg = node;
             int i = this.size;
             if (i == this.limit) {
-                this.kce = this.kce.get();
+                this.kcf = this.kcf.get();
             } else {
                 this.size = i + 1;
             }
@@ -210,7 +210,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     Node<T> node2 = (Node) replayProducer.node;
                     if (node2 == null) {
-                        node2 = this.kce;
+                        node2 = this.kcf;
                     }
                     while (true) {
                         j = j3;
@@ -288,9 +288,9 @@ public final class ReplaySubject<T> extends c<T, T> {
     static final class ReplaySizeAndTimeBoundBuffer<T> implements a<T> {
         volatile boolean done;
         Throwable error;
-        final long kcb;
-        volatile TimedNode<T> kcc;
-        TimedNode<T> kcd;
+        final long kcc;
+        volatile TimedNode<T> kcd;
+        TimedNode<T> kce;
         final int limit;
         final g scheduler;
         int size;
@@ -301,11 +301,11 @@ public final class ReplaySubject<T> extends c<T, T> {
             int i;
             long now = this.scheduler.now();
             TimedNode<T> timedNode2 = new TimedNode<>(t, now);
-            this.kcd.set(timedNode2);
-            this.kcd = timedNode2;
-            long j = now - this.kcb;
+            this.kce.set(timedNode2);
+            this.kce = timedNode2;
+            long j = now - this.kcc;
             int i2 = this.size;
-            TimedNode<T> timedNode3 = this.kcc;
+            TimedNode<T> timedNode3 = this.kcd;
             if (i2 == this.limit) {
                 i = i2;
                 timedNode = timedNode3.get();
@@ -324,7 +324,7 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
             this.size = i;
             if (timedNode != timedNode3) {
-                this.kcc = timedNode;
+                this.kcd = timedNode;
             }
         }
 
@@ -342,8 +342,8 @@ public final class ReplaySubject<T> extends c<T, T> {
         }
 
         void cFl() {
-            long now = this.scheduler.now() - this.kcb;
-            TimedNode<T> timedNode = this.kcc;
+            long now = this.scheduler.now() - this.kcc;
+            TimedNode<T> timedNode = this.kcd;
             TimedNode<T> timedNode2 = timedNode;
             while (true) {
                 TimedNode<T> timedNode3 = timedNode2.get();
@@ -353,14 +353,14 @@ public final class ReplaySubject<T> extends c<T, T> {
                 timedNode2 = timedNode3;
             }
             if (timedNode != timedNode2) {
-                this.kcc = timedNode2;
+                this.kcd = timedNode2;
             }
         }
 
         TimedNode<T> cFm() {
             TimedNode<T> timedNode;
-            long now = this.scheduler.now() - this.kcb;
-            TimedNode<T> timedNode2 = this.kcc;
+            long now = this.scheduler.now() - this.kcc;
+            TimedNode<T> timedNode2 = this.kcd;
             while (true) {
                 timedNode = timedNode2;
                 timedNode2 = timedNode.get();

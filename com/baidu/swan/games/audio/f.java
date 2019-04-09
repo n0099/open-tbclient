@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class f extends EventTargetImpl implements a, b {
     @V8JavascriptField
     public boolean autoplay;
-    String azv;
-    private com.baidu.swan.games.e.b bac;
-    private AudioPlayer bad;
+    String azw;
+    private com.baidu.swan.games.e.b bad;
+    private AudioPlayer bae;
     @V8JavascriptField
     public int buffered;
     @V8JavascriptField
@@ -41,22 +41,22 @@ public class f extends EventTargetImpl implements a, b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.bac = bVar;
+        this.bad = bVar;
         No();
     }
 
     private void init() {
-        if (this.bad != null) {
+        if (this.bae != null) {
             d dVar = new d(this, e.Nk());
             dVar.a(this);
-            this.bad.a(dVar);
+            this.bae.a(dVar);
         }
     }
 
     private void No() {
         String valueOf = String.valueOf(c.Ne());
-        this.azv = valueOf;
-        this.bad = hX(valueOf);
+        this.azw = valueOf;
+        this.bae = hX(valueOf);
         init();
     }
 
@@ -64,9 +64,9 @@ public class f extends EventTargetImpl implements a, b {
         com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.1
             @Override // java.lang.Runnable
             public void run() {
-                f.this.bad.b(e.a(f.this));
+                f.this.bae.b(e.a(f.this));
                 if (f.this.autoplay) {
-                    f.this.bad.play();
+                    f.this.bae.play();
                 }
             }
         });
@@ -75,11 +75,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void play() {
-        if (this.bad != null) {
+        if (this.bae != null) {
             com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.bad.play();
+                    f.this.bae.play();
                 }
             });
         }
@@ -88,11 +88,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void pause() {
-        if (this.bad != null) {
+        if (this.bae != null) {
             com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.bad.pause();
+                    f.this.bae.pause();
                 }
             });
         }
@@ -101,11 +101,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void seek(final int i) {
-        if (this.bad != null) {
+        if (this.bae != null) {
             com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.bad.seekTo(i);
+                    f.this.bae.seekTo(i);
                 }
             });
         }
@@ -114,11 +114,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void stop() {
-        if (this.bad != null) {
+        if (this.bae != null) {
             com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.bad.stop();
+                    f.this.bae.stop();
                 }
             });
         }
@@ -127,11 +127,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void destroy() {
-        if (this.bad != null) {
+        if (this.bae != null) {
             com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.bad.release();
+                    f.this.bae.release();
                 }
             });
         }
@@ -139,32 +139,32 @@ public class f extends EventTargetImpl implements a, b {
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        if (this.bad != null) {
-            return this.bad.getDuration();
+        if (this.bae != null) {
+            return this.bae.getDuration();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        if (this.bad != null) {
-            return this.bad.getCurrentPosition();
+        if (this.bae != null) {
+            return this.bae.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public boolean isPaused() {
-        if (this.bad != null) {
-            this.bad.isPaused();
+        if (this.bae != null) {
+            this.bae.isPaused();
             return true;
         }
         return true;
     }
 
     public int Ng() {
-        if (this.bad != null) {
-            return this.bad.Ng();
+        if (this.bae != null) {
+            return this.bae.Ng();
         }
         return 0;
     }
@@ -214,14 +214,14 @@ public class f extends EventTargetImpl implements a, b {
         switch (c) {
             case 0:
             case 1:
-                this.bad.a(e.a(this));
+                this.bae.a(e.a(this));
                 return;
             case 2:
                 if (e.ag(this.volume)) {
-                    this.bad.a(e.a(this));
+                    this.bae.a(e.a(this));
                     return;
                 } else {
-                    this.volume = this.bad.getVolume();
+                    this.volume = this.bae.getVolume();
                     return;
                 }
             case 3:

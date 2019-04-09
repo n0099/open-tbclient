@@ -27,7 +27,7 @@ public class f extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(cVar.aBG);
+        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(cVar.aBH);
         if (dr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
@@ -97,7 +97,7 @@ public class f extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, CameraPreview cameraPreview, final com.baidu.swan.apps.camera.d.c cVar, String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "take photo start");
-        cameraPreview.setQuality(cVar.akM);
+        cameraPreview.setQuality(cVar.akN);
         final String dw = cameraPreview.dw(str);
         try {
             cameraPreview.a(dw, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
@@ -108,7 +108,7 @@ public class f extends a {
                         jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aD(dw, bVar.id));
                     } catch (JSONException e) {
                         com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture onSuccess but json object occur exception");
-                        com.baidu.swan.apps.camera.a.wm().c(cVar.aBG, cVar.akL, false);
+                        com.baidu.swan.apps.camera.a.wm().c(cVar.aBH, cVar.akM, false);
                         if (f.DEBUG) {
                             e.printStackTrace();
                         }
@@ -124,7 +124,7 @@ public class f extends a {
             });
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture api occur exception");
-            com.baidu.swan.apps.camera.a.wm().c(cVar.aBG, cVar.akL, false);
+            com.baidu.swan.apps.camera.a.wm().c(cVar.aBH, cVar.akM, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

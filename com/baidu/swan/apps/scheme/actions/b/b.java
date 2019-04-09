@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public abstract class b extends y {
-    protected String aPO;
+    protected String aPP;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -22,7 +22,7 @@ public abstract class b extends y {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.aPO = null;
+        this.aPP = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y

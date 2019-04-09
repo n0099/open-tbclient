@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class MyFansUserLikeButton extends CommonUserLikeButton {
     private int currentPage;
-    private g gZF;
+    private g gZG;
     private e mContext;
     private String uid;
 
@@ -44,12 +44,12 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void f(boolean z, int i) {
-        this.bUp = z;
+        this.bUq = z;
         if (z) {
             switch (i) {
                 case 1:
                     setTextSize(0, l.h(getContext(), d.e.ds26));
-                    setText(this.bUn);
+                    setText(this.bUo);
                     break;
                 case 2:
                     setTextSize(0, l.h(getContext(), d.e.ds24));
@@ -57,13 +57,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                     break;
                 default:
                     setTextSize(0, l.h(getContext(), d.e.ds26));
-                    setText(this.bUn);
+                    setText(this.bUo);
                     break;
             }
             setPadding(0, 0, 0, 0);
         } else {
             setTextSize(0, l.h(getContext(), d.e.ds26));
-            setText(this.bUo);
+            setText(this.bUp);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -76,7 +76,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUp) {
+        if (this.bUq) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.j(this, d.C0277d.btn_forum_focus_gray_color);
             al.k(this, d.f.btn_transparent_gray_border);
@@ -98,14 +98,14 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
             public void onClick(final View view) {
                 if (MyFansUserLikeButton.this.currentPage != 1) {
                     if (MyFansUserLikeButton.this.currentPage == 2) {
-                        TiebaStatic.log(new am("c12605").T("obj_locate", MyFansUserLikeButton.this.bUp ? 3 : 2).bJ("obj_param1", MyFansUserLikeButton.this.uid));
+                        TiebaStatic.log(new am("c12605").T("obj_locate", MyFansUserLikeButton.this.bUq ? 3 : 2).bJ("obj_param1", MyFansUserLikeButton.this.uid));
                     }
                 } else {
-                    TiebaStatic.log(new am("c12772").bJ("obj_locate", MyFansUserLikeButton.this.bUp ? "3" : "2").bJ("obj_param1", MyFansUserLikeButton.this.uid));
+                    TiebaStatic.log(new am("c12772").bJ("obj_locate", MyFansUserLikeButton.this.bUq ? "3" : "2").bJ("obj_param1", MyFansUserLikeButton.this.uid));
                 }
-                if (MyFansUserLikeButton.this.bUp) {
+                if (MyFansUserLikeButton.this.bUq) {
                     if (MyFansUserLikeButton.this.mContext != null) {
-                        if (MyFansUserLikeButton.this.gZF == null) {
+                        if (MyFansUserLikeButton.this.gZG == null) {
                             i iVar = new i(MyFansUserLikeButton.this.mContext.getContext());
                             iVar.setTitleText(MyFansUserLikeButton.this.mContext.getString(d.j.confirm_unlike));
                             ArrayList arrayList = new ArrayList();
@@ -122,7 +122,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                                         } else {
                                             TiebaStatic.log(new am("c12773").bJ("obj_param1", MyFansUserLikeButton.this.uid));
                                         }
-                                        com.baidu.adp.lib.g.g.b(MyFansUserLikeButton.this.gZF, MyFansUserLikeButton.this.mContext);
+                                        com.baidu.adp.lib.g.g.b(MyFansUserLikeButton.this.gZG, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
@@ -130,16 +130,16 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                             iVar.a(new i.a() { // from class: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton.1.2
                                 @Override // com.baidu.tbadk.core.dialog.i.a
                                 public void onClick() {
-                                    if (MyFansUserLikeButton.this.gZF != null) {
-                                        com.baidu.adp.lib.g.g.b(MyFansUserLikeButton.this.gZF, MyFansUserLikeButton.this.mContext);
+                                    if (MyFansUserLikeButton.this.gZG != null) {
+                                        com.baidu.adp.lib.g.g.b(MyFansUserLikeButton.this.gZG, MyFansUserLikeButton.this.mContext);
                                     }
                                 }
                             });
                             iVar.P(arrayList);
-                            MyFansUserLikeButton.this.gZF = new g(MyFansUserLikeButton.this.mContext, iVar.abh());
-                            MyFansUserLikeButton.this.gZF.al(0.7f);
+                            MyFansUserLikeButton.this.gZG = new g(MyFansUserLikeButton.this.mContext, iVar.abh());
+                            MyFansUserLikeButton.this.gZG.al(0.7f);
                         }
-                        com.baidu.adp.lib.g.g.a(MyFansUserLikeButton.this.gZF, MyFansUserLikeButton.this.mContext);
+                        com.baidu.adp.lib.g.g.a(MyFansUserLikeButton.this.gZG, MyFansUserLikeButton.this.mContext);
                         return;
                     }
                     return;

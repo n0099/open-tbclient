@@ -16,7 +16,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aOS = h.K("https", "wss");
+    private static final Set<String> aOT = h.K("https", "wss");
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x0089  */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0096  */
@@ -271,7 +271,7 @@ public final class b {
     }
 
     private static boolean gv(String str) {
-        for (String str2 : aOS) {
+        for (String str2 : aOT) {
             if (str.startsWith(str2)) {
                 return true;
             }

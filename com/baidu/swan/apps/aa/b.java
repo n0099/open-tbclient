@@ -39,8 +39,8 @@ public class b extends g {
     @Override // com.baidu.swan.apps.core.c.g, com.baidu.swan.apps.core.c.b
     public void M(View view) {
         super.M(view);
-        this.aqa.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
-        this.aqa.setRightMenuVisibility(false);
+        this.aqb.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        this.aqb.setRightMenuVisibility(false);
         aW(false);
     }
 }

@@ -15,11 +15,11 @@ import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public class e extends y {
-    private static final int aQf = com.baidu.swan.apps.u.a.Cz().vb();
+    private static final int aQg = com.baidu.swan.apps.u.a.Cz().vb();
 
     static {
         if (DEBUG) {
-            Log.d("NavigateToAction", "NavigateToAction max count: " + aQf);
+            Log.d("NavigateToAction", "NavigateToAction max count: " + aQg);
         }
     }
 
@@ -47,19 +47,19 @@ public class e extends y {
         }
         final com.baidu.swan.apps.model.b ap = com.baidu.swan.apps.model.b.ap(b, Ea.DJ());
         if (!aa.a(Ea.DI(), ap, false)) {
-            com.baidu.swan.apps.console.c.e("navigateTo", "page params error : pageParam=" + ap.axL);
+            com.baidu.swan.apps.console.c.e("navigateTo", "page params error : pageParam=" + ap.axM);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
         String a = a.a(unitedSchemeEntity, "params", "initData");
-        if (!TextUtils.isEmpty(a) && ap != null && !TextUtils.isEmpty(ap.axL) && com.baidu.swan.apps.ae.b.IV() != null) {
-            com.baidu.swan.apps.ae.b.IV().au(a, ap.axL);
+        if (!TextUtils.isEmpty(a) && ap != null && !TextUtils.isEmpty(ap.axM) && com.baidu.swan.apps.ae.b.IV() != null) {
+            com.baidu.swan.apps.ae.b.IV().au(a, ap.axM);
         }
         if (DEBUG) {
             Log.d("NavigateToAction", "PreloadSlaveManager start.");
         }
         final b.a x = com.baidu.swan.apps.core.h.b.x(Ea.DM());
-        final String wd = x.asJ.wd();
+        final String wd = x.asK.wd();
         if (DEBUG) {
             Log.d("NavigateToAction", "slave webView id: " + wd);
         }
@@ -71,20 +71,20 @@ public class e extends y {
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         Ea.showLoadingView();
-        f.JJ().a(bVar, ap.axL, wd, new f.a() { // from class: com.baidu.swan.apps.scheme.actions.h.e.1
+        f.JJ().a(bVar, ap.axM, wd, new f.a() { // from class: com.baidu.swan.apps.scheme.actions.h.e.1
             @Override // com.baidu.swan.apps.scheme.actions.h.f.a
             public void eQ(String str) {
                 com.baidu.swan.apps.console.c.i("navigateTo", "check pages success");
-                com.baidu.swan.apps.statistic.c.g(true, bVar.uA().axJ);
+                com.baidu.swan.apps.statistic.c.g(true, bVar.uA().axK);
                 Ea.uB();
-                a.a(unitedSchemeEntity, callbackHandler, bVar, wd, ap.axL, optString);
+                a.a(unitedSchemeEntity, callbackHandler, bVar, wd, ap.axM, optString);
                 e.this.a(x, ap, uy);
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.h.f.a
             public void cF(int i) {
                 com.baidu.swan.apps.console.c.e("navigateTo", "check pages failed");
-                com.baidu.swan.apps.statistic.c.g(false, bVar.uA().axJ);
+                com.baidu.swan.apps.statistic.c.g(false, bVar.uA().axK);
                 Ea.uB();
                 if (e.DEBUG) {
                     com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).II();
@@ -98,7 +98,7 @@ public class e extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final b.a aVar, final com.baidu.swan.apps.model.b bVar, final com.baidu.swan.apps.core.c.e eVar) {
         if (DEBUG) {
-            Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + aVar.asK);
+            Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + aVar.asL);
         }
         com.baidu.swan.apps.core.h.b.a(aVar, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.h.e.2
             @Override // com.baidu.swan.apps.core.h.b.InterfaceC0134b
@@ -106,7 +106,7 @@ public class e extends y {
                 if (e.DEBUG) {
                     Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
                 }
-                e.this.a(aVar.asJ, bVar, eVar);
+                e.this.a(aVar.asK, bVar, eVar);
                 if (e.DEBUG) {
                     Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
                 }
@@ -120,8 +120,8 @@ public class e extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar, com.baidu.swan.apps.core.c.e eVar) {
         a.a(cVar, bVar);
-        if (eVar.yQ() < aQf) {
-            eVar.ea("navigateTo").A(com.baidu.swan.apps.core.c.e.aqN, com.baidu.swan.apps.core.c.e.aqP).a("normal", bVar).yZ();
+        if (eVar.yQ() < aQg) {
+            eVar.ea("navigateTo").A(com.baidu.swan.apps.core.c.e.aqO, com.baidu.swan.apps.core.c.e.aqQ).a("normal", bVar).yZ();
         } else {
             h.c(eVar, bVar);
         }

@@ -36,7 +36,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         View inflate = LayoutInflater.from(context).inflate(d.h.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.cKM = inflate.findViewById(d.g.divider_line);
+        aVar.cKN = inflate.findViewById(d.g.divider_line);
         aVar.fHN = (TextView) inflate.findViewById(d.g.daily_title);
         return aVar;
     }
@@ -62,10 +62,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             al.j(aVar.fHN, d.C0277d.cp_cont_b);
             al.l(aVar.fHN, d.C0277d.cp_bg_line_d);
             if (dVar.blF()) {
-                aVar.cKM.setVisibility(0);
-                al.l(aVar.cKM, d.C0277d.cp_bg_line_e);
+                aVar.cKN.setVisibility(0);
+                al.l(aVar.cKN, d.C0277d.cp_bg_line_e);
             } else {
-                aVar.cKM.setVisibility(8);
+                aVar.cKN.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -75,7 +75,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public View cKM;
+        public View cKN;
         public TextView fHN;
 
         public a(View view) {

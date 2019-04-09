@@ -16,15 +16,15 @@ import com.baidu.swan.apps.database.subpackage.SubPackageTable;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
-    private SQLiteOpenHelper auL;
+    private SQLiteOpenHelper auM;
     private Context mContext;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
-    public static final Uri auJ = Uri.parse("content://" + AUTHORITY + "/" + SubPackageTable.Table.TABLE_NAME);
-    private static UriMatcher auK = new UriMatcher(-1);
+    public static final Uri auK = Uri.parse("content://" + AUTHORITY + "/" + SubPackageTable.Table.TABLE_NAME);
+    private static UriMatcher auL = new UriMatcher(-1);
 
     static {
-        auK.addURI(AUTHORITY, SubPackageTable.Table.TABLE_NAME, 0);
+        auL.addURI(AUTHORITY, SubPackageTable.Table.TABLE_NAME, 0);
     }
 
     public b(Context context) {
@@ -32,7 +32,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (auK.match(uri)) {
+        switch (auL.match(uri)) {
             case 0:
                 return SubPackageTable.Table.TABLE_NAME;
             default:
@@ -104,9 +104,9 @@ public class b {
     }
 
     private SQLiteOpenHelper Az() {
-        if (this.auL == null) {
-            this.auL = SwanAppDbControl.bE(this.mContext).Az();
+        if (this.auM == null) {
+            this.auM = SwanAppDbControl.bE(this.mContext).Az();
         }
-        return this.auL;
+        return this.auM;
     }
 }

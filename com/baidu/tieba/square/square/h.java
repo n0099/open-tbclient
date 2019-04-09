@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.view.i;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class h extends com.baidu.adp.base.c<Object> {
-    private View bub;
-    private NoNetworkView eCe;
-    private TbPageContext<Object> eKd;
-    private BdListView iCJ;
-    private e iCK;
+    private View buc;
+    private NoNetworkView eCf;
+    private TbPageContext<Object> eKe;
+    private BdListView iCK;
+    private e iCL;
     private NoDataView mNoDataView;
     i mPullView;
 
@@ -31,34 +31,34 @@ public class h extends com.baidu.adp.base.c<Object> {
 
     public h(TbPageContext<Object> tbPageContext, View view, View.OnKeyListener onKeyListener) {
         super(tbPageContext);
-        this.eKd = null;
-        this.iCJ = null;
-        this.mPullView = null;
+        this.eKe = null;
         this.iCK = null;
-        this.eKd = tbPageContext;
-        this.bub = view;
-        this.iCJ = (BdListView) this.bub.findViewById(d.g.square_list);
-        this.iCJ.setOnKeyListener(onKeyListener);
-        if (this.eKd.getOrignalPage() instanceof SquareActivity) {
-            this.iCJ.setOnItemClickListener((SquareActivity) this.eKd.getOrignalPage());
+        this.mPullView = null;
+        this.iCL = null;
+        this.eKe = tbPageContext;
+        this.buc = view;
+        this.iCK = (BdListView) this.buc.findViewById(d.g.square_list);
+        this.iCK.setOnKeyListener(onKeyListener);
+        if (this.eKe.getOrignalPage() instanceof SquareActivity) {
+            this.iCK.setOnItemClickListener((SquareActivity) this.eKe.getOrignalPage());
         }
-        this.iCK = new e(tbPageContext);
-        this.iCJ.setAdapter((ListAdapter) this.iCK);
+        this.iCL = new e(tbPageContext);
+        this.iCK.setAdapter((ListAdapter) this.iCL);
         this.mPullView = new i(tbPageContext);
-        this.iCJ.setPullRefresh(this.mPullView);
-        this.eCe = (NoNetworkView) this.bub.findViewById(d.g.view_no_network);
+        this.iCK.setPullRefresh(this.mPullView);
+        this.eCf = (NoNetworkView) this.buc.findViewById(d.g.view_no_network);
     }
 
     public View getRootView() {
-        return this.bub;
+        return this.buc;
     }
 
     public void c(f fVar) {
         if (fVar != null) {
             try {
                 if (!fVar.isEmpty()) {
-                    this.iCK.a(fVar);
-                    this.iCK.notifyDataSetChanged();
+                    this.iCL.a(fVar);
+                    this.iCL.notifyDataSetChanged();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -67,38 +67,38 @@ public class h extends com.baidu.adp.base.c<Object> {
     }
 
     public void pD() {
-        this.iCJ.completePullRefreshPostDelayed(0L);
+        this.iCK.completePullRefreshPostDelayed(0L);
     }
 
     public void y(boolean z, String str) {
         pD();
         if (!z && str != null) {
-            this.eKd.showToast(str, true);
+            this.eKe.showToast(str, true);
         }
     }
 
     public void cdk() {
-        this.eCe.setVisibility(0);
+        this.eCf.setVisibility(0);
     }
 
     public void cdl() {
-        this.eCe.setVisibility(8);
+        this.eCf.setVisibility(8);
     }
 
     public void d(NoNetworkView.a aVar) {
-        this.eCe.a(aVar);
+        this.eCf.a(aVar);
     }
 
     public void e(NoNetworkView.a aVar) {
-        this.eCe.b(aVar);
+        this.eCf.b(aVar);
     }
 
     public void onChangeSkinType(int i) {
-        this.eKd.getLayoutMode().setNightMode(i == 1);
-        this.eKd.getLayoutMode().onModeChanged(this.bub);
-        this.iCK.onChangeSkinType(i);
+        this.eKe.getLayoutMode().setNightMode(i == 1);
+        this.eKe.getLayoutMode().onModeChanged(this.buc);
+        this.iCL.onChangeSkinType(i);
         this.mPullView.ib(i);
-        this.eCe.onChangeSkinType(this.mContext, i);
+        this.eCf.onChangeSkinType(this.mContext, i);
     }
 
     public void setListPullRefreshListener(h.c cVar) {
@@ -108,18 +108,18 @@ public class h extends com.baidu.adp.base.c<Object> {
     public void hideNoDataView() {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
-            this.iCJ.removeHeaderView(this.mNoDataView);
+            this.iCK.removeHeaderView(this.mNoDataView);
         }
     }
 
     public void nQ(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.eKd.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds240)), NoDataViewFactory.d.hT(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.eKe.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds240)), NoDataViewFactory.d.hT(i), null);
         }
         this.mNoDataView.setTextOption(NoDataViewFactory.d.hT(i));
-        this.mNoDataView.onChangeSkinType(this.eKd, TbadkCoreApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.eKe, TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.iCJ.removeHeaderView(this.mNoDataView);
-        this.iCJ.addHeaderView(this.mNoDataView);
+        this.iCK.removeHeaderView(this.mNoDataView);
+        this.iCK.addHeaderView(this.mNoDataView);
     }
 }

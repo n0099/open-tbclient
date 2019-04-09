@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class RecordLayout extends RelativeLayout {
-    private a jcg;
+    private a jch;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.jcg != null) {
+                if (this.jch != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.jcg.clv();
+                            this.jch.clv();
                         } else {
-                            this.jcg.clu();
+                            this.jch.clu();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.aO(getContext())) {
                         if (rawX > 0) {
-                            this.jcg.clv();
+                            this.jch.clv();
                         } else {
-                            this.jcg.clv();
+                            this.jch.clv();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.jcg = aVar;
+        this.jch = aVar;
     }
 }

@@ -24,27 +24,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class SelectMusicModel extends BdBaseModel {
-    private com.baidu.tieba.video.editvideo.b iXe;
-    private final HttpMessageListener iXf;
+    private com.baidu.tieba.video.editvideo.b iXf;
+    private final HttpMessageListener iXg;
     private TbPageContext mPageContext;
 
     public SelectMusicModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.b bVar) {
         super(tbPageContext);
-        this.iXf = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
+        this.iXg = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003366 && (httpResponsedMessage instanceof VideoSugMusicResponseMessage) && ((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas != null) {
-                    SelectMusicModel.this.iXe.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
+                    SelectMusicModel.this.iXf.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.iXe = bVar;
+        this.iXf = bVar;
         cjP();
-        this.iXf.setTag(getUniqueId());
-        this.iXf.setSelfListener(true);
-        registerListener(this.iXf);
+        this.iXg.setTag(getUniqueId());
+        this.iXg.setSelfListener(true);
+        registerListener(this.iXg);
     }
 
     public void e(final String str, final String str2, final String str3, final boolean z) {
@@ -68,9 +68,9 @@ public class SelectMusicModel extends BdBaseModel {
                 public void onPostExecute(i iVar) {
                     super.onPostExecute(iVar);
                     if (iVar == null || iVar.result != 0) {
-                        SelectMusicModel.this.iXe.p(null, iVar.result, iVar.msg);
+                        SelectMusicModel.this.iXf.p(null, iVar.result, iVar.msg);
                     } else {
-                        SelectMusicModel.this.iXe.p(str3, -4399, "");
+                        SelectMusicModel.this.iXf.p(str3, -4399, "");
                     }
                 }
             }.execute(new Void[0]);

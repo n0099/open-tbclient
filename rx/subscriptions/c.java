@@ -4,22 +4,22 @@ import rx.internal.subscriptions.SequentialSubscription;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class c implements k {
-    final SequentialSubscription kcv = new SequentialSubscription();
+    final SequentialSubscription kcw = new SequentialSubscription();
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kcv.isUnsubscribed();
+        return this.kcw.isUnsubscribed();
     }
 
     @Override // rx.k
     public void unsubscribe() {
-        this.kcv.unsubscribe();
+        this.kcw.unsubscribe();
     }
 
     public void f(k kVar) {
         if (kVar == null) {
             throw new IllegalArgumentException("Subscription can not be null");
         }
-        this.kcv.replace(kVar);
+        this.kcw.replace(kVar);
     }
 }

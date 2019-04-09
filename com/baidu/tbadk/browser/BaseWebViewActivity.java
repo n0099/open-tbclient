@@ -163,7 +163,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.kQ(this.mUrlTitle);
         }
         if (!this.mView.VN() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bc.b(this.mView.bub, d.C0277d.cp_link_tip_b, false);
+            bc.b(this.mView.buc, d.C0277d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -474,7 +474,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             dVar.imageUri = Uri.parse(str4);
         }
-        dVar.cbp = true;
+        dVar.cbq = true;
         dVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", dVar.linkUrl);
@@ -511,10 +511,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         dVar.topic = optString5;
                     }
                     if (!ap.isEmpty(optString6)) {
-                        dVar.cbI = optString6;
+                        dVar.cbJ = optString6;
                     }
                     if (!ap.isEmpty(optString7)) {
-                        dVar.cbJ = optString7;
+                        dVar.cbK = optString7;
                     }
                     dVar.shareType = jSONObject.optInt("shareimg");
                     String optString8 = jSONObject.optString("extdata");
@@ -526,7 +526,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                dVar.cbK = jSONObject3.toString();
+                                dVar.cbL = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -720,9 +720,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (kV.Ek != null) {
                 str3 = kV.Ek;
             }
-            if (kV.bvG != null) {
+            if (kV.bvH != null) {
                 str = str3;
-                str2 = kV.bvG;
+                str2 = kV.bvH;
                 ae.a aVar = new ae.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

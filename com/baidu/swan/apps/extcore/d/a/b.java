@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends y {
-    private static final String avE = b.class.getSimpleName();
+    private static final String avF = b.class.getSimpleName();
 
     public b(j jVar) {
         super(jVar, "/swan/debug/getDebugConfig");
@@ -24,7 +24,7 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
             return false;
         }
-        com.baidu.swan.apps.console.c.d(avE, "getDebugConfig");
+        com.baidu.swan.apps.console.c.d(avF, "getDebugConfig");
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("loadCts", A(context.getResources().getString(a.h.aiapps_debug_load_cts), com.baidu.swan.apps.extcore.d.a.ba(com.baidu.swan.apps.ac.a.a.Gg())));

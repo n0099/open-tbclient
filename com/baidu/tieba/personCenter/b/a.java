@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c hKS;
-    private d hLi;
-    private com.baidu.tieba.personCenter.a.a hLj;
-    private com.baidu.tieba.personCenter.a.b hLk;
-    private e hLl;
+    private com.baidu.tieba.personCenter.a.c hKT;
+    private d hLj;
+    private com.baidu.tieba.personCenter.a.a hLk;
+    private com.baidu.tieba.personCenter.a.b hLl;
+    private e hLm;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.hLi = new d(tbPageContext, g.hLO);
-        this.hLj = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.hLy);
-        this.hLk = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.hLz);
-        this.hLl = new e(tbPageContext, i.hLS);
-        this.hKS = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.hLN);
-        this.mAdapters.add(this.hLi);
+        this.hLj = new d(tbPageContext, g.hLP);
+        this.hLk = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.hLz);
+        this.hLl = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.hLA);
+        this.hLm = new e(tbPageContext, i.hLT);
+        this.hKT = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.hLO);
         this.mAdapters.add(this.hLj);
         this.mAdapters.add(this.hLk);
         this.mAdapters.add(this.hLl);
-        this.mAdapters.add(this.hKS);
+        this.mAdapters.add(this.hLm);
+        this.mAdapters.add(this.hKT);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -46,10 +46,10 @@ public class a {
     }
 
     public void bQp() {
-        this.hLj.bQp();
+        this.hLk.bQp();
     }
 
     public void bQq() {
-        this.hLj.destroy();
+        this.hLk.destroy();
     }
 }

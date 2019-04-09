@@ -21,11 +21,11 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
             return new AlaBroadcastGiftToastData[i];
         }
     };
-    public String bxt;
     public String bxu;
-    public long bxv;
+    public String bxv;
     public long bxw;
-    public String bxx;
+    public long bxx;
+    public String bxy;
     public String gift_name;
     public long live_id;
     public String thumbnail_url;
@@ -35,12 +35,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
 
     public AlaBroadcastGiftToastData(Parcel parcel) {
         this.live_id = parcel.readLong();
-        this.bxt = parcel.readString();
         this.bxu = parcel.readString();
-        this.bxv = parcel.readLong();
-        this.gift_name = parcel.readString();
+        this.bxv = parcel.readString();
         this.bxw = parcel.readLong();
-        this.bxx = parcel.readString();
+        this.gift_name = parcel.readString();
+        this.bxx = parcel.readLong();
+        this.bxy = parcel.readString();
         this.thumbnail_url = parcel.readString();
     }
 
@@ -48,12 +48,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.live_id = jSONObject.optLong("live_id", 0L);
-            this.bxt = jSONObject.optString("sender");
-            this.bxx = jSONObject.optString("sender_portrait");
-            this.bxu = jSONObject.optString(SocialConstants.PARAM_RECEIVER);
-            this.bxv = jSONObject.optLong("gift_id", 0L);
+            this.bxu = jSONObject.optString("sender");
+            this.bxy = jSONObject.optString("sender_portrait");
+            this.bxv = jSONObject.optString(SocialConstants.PARAM_RECEIVER);
+            this.bxw = jSONObject.optLong("gift_id", 0L);
             this.gift_name = jSONObject.optString("gift_name");
-            this.bxw = jSONObject.optLong("msg_id", 0L);
+            this.bxx = jSONObject.optLong("msg_id", 0L);
             this.thumbnail_url = jSONObject.optString("gift_url");
         }
     }
@@ -66,12 +66,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.live_id);
-        parcel.writeString(this.bxt);
         parcel.writeString(this.bxu);
-        parcel.writeLong(this.bxv);
-        parcel.writeString(this.gift_name);
+        parcel.writeString(this.bxv);
         parcel.writeLong(this.bxw);
-        parcel.writeString(this.bxx);
+        parcel.writeString(this.gift_name);
+        parcel.writeLong(this.bxx);
+        parcel.writeString(this.bxy);
         parcel.writeString(this.thumbnail_url);
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.tieba.recapp.l;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b cHr;
-    private long cHo;
-    private final int cHm = 2;
-    private final int cHn = 3;
+    private static volatile b cHs;
+    private long cHp;
+    private final int cHn = 2;
+    private final int cHo = 3;
     private int interval = -1;
-    private CustomMessageListener cHs = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
+    private CustomMessageListener cHt = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,7 +25,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cHt = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
+    private CustomMessageListener cHu = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,11 +34,11 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cHu = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
+    private CustomMessageListener cHv = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cHo != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cHp != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
                     if (b.this.aua()) {
@@ -58,7 +58,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cHv = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
+    private CustomMessageListener cHw = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -67,32 +67,32 @@ public class b {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        b.this.cHp = currentTimeMillis - b.this.cHo <= 1;
+                        b.this.cHq = currentTimeMillis - b.this.cHp <= 1;
                     }
                 }
             }
         }
     };
-    private boolean cHp = false;
     private boolean cHq = false;
+    private boolean cHr = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b atY() {
-        if (cHr == null) {
+        if (cHs == null) {
             synchronized (b.class) {
-                if (cHr == null) {
-                    cHr = new b();
+                if (cHs == null) {
+                    cHs = new b();
                 }
             }
         }
-        return cHr;
+        return cHs;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.cHt);
         MessageManager.getInstance().registerListener(this.cHu);
-        MessageManager.getInstance().registerListener(this.cHs);
         MessageManager.getInstance().registerListener(this.cHv);
+        MessageManager.getInstance().registerListener(this.cHt);
+        MessageManager.getInstance().registerListener(this.cHw);
         if (r.bWF().bWA() != null) {
             r.bWF().bWA().bWr();
         }
@@ -100,19 +100,19 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void atZ() {
-        this.cHq = true;
-        this.cHo = System.currentTimeMillis() / 1000;
+        this.cHr = true;
+        this.cHp = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aua() {
         aub();
-        this.cHq = false;
+        this.cHr = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.cHp) {
-            this.cHp = false;
+        if (this.cHq) {
+            this.cHq = false;
             return false;
-        } else if (currentTimeMillis - this.cHo <= 2 || currentTimeMillis - this.cHo <= this.interval) {
+        } else if (currentTimeMillis - this.cHp <= 2 || currentTimeMillis - this.cHp <= this.interval) {
             return false;
         } else {
             l bWA = r.bWF().bWA();

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.UserBfbInfo;
 /* loaded from: classes6.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
-    com.baidu.adp.framework.listener.a eDJ;
+    com.baidu.adp.framework.listener.a eDK;
     private a fEN;
 
     /* loaded from: classes6.dex */
@@ -18,7 +18,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
 
     public BfbInfoModel(CreateBarGuideActivity createBarGuideActivity) {
         super(createBarGuideActivity.getPageContext());
-        this.eDJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366) { // from class: com.baidu.tieba.home.BfbInfoModel.1
+        this.eDK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BFB_INFO, 309366) { // from class: com.baidu.tieba.home.BfbInfoModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -53,7 +53,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     private void aPO() {
-        registerListener(this.eDJ);
+        registerListener(this.eDK);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -72,7 +72,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void blf() {
-        MessageManager.getInstance().unRegisterListener(this.eDJ);
+        MessageManager.getInstance().unRegisterListener(this.eDK);
         MessageManager.getInstance().unRegisterTask(309366);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
     }

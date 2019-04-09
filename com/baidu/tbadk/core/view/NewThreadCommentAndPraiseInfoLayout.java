@@ -14,22 +14,22 @@ import com.baidu.tieba.card.ac;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class NewThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
-    private int ZK;
+    private int ZL;
 
     private void init(Context context) {
-        this.bSN = d.f.icon_home_card_share;
-        this.bSM = d.f.icon_home_card_comment;
+        this.bSO = d.f.icon_home_card_share;
+        this.bSN = d.f.icon_home_card_comment;
     }
 
     public NewThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.ZK = 11;
+        this.ZL = 11;
         init(context);
     }
 
     public NewThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZK = 11;
+        this.ZL = 11;
         init(context);
     }
 
@@ -39,122 +39,122 @@ public class NewThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseI
     }
 
     public void setShowFlag(int i) {
-        this.ZK = i;
+        this.ZL = i;
         rE();
     }
 
     private void rE() {
-        this.bSl.setVisibility(bB(1) ? 0 : 8);
-        this.bSi.setVisibility(bB(2) ? 0 : 8);
-        this.bSs.setVisibility(bB(4) ? 0 : 8);
-        this.bSf.setVisibility(bB(8) ? 0 : 8);
+        this.bSm.setVisibility(bB(1) ? 0 : 8);
+        this.bSj.setVisibility(bB(2) ? 0 : 8);
+        this.bSt.setVisibility(bB(4) ? 0 : 8);
+        this.bSg.setVisibility(bB(8) ? 0 : 8);
     }
 
     private boolean bB(int i) {
-        return (this.ZK & i) > 0;
+        return (this.ZL & i) > 0;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(bg bgVar) {
         if (bgVar.aaE() != null) {
             bgVar.aaE().isInThread = true;
-            this.bSf.setData(bgVar.aaE());
+            this.bSg.setData(bgVar.aaE());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void o(bg bgVar) {
-        if (this.bSl != null && this.bSj != null && bgVar != null) {
-            if (this.bSF) {
-                this.bSl.setVisibility(0);
+        if (this.bSm != null && this.bSk != null && bgVar != null) {
+            if (this.bSG) {
+                this.bSm.setVisibility(0);
                 long aal = bgVar.aal();
                 if ((bgVar.ZZ() || bgVar.aac()) && bgVar.Zh() != null) {
                     aal = bgVar.Zh().share_info.share_count;
                 }
-                this.bSj.setText(aal > 0 ? ap.az(aal) : this.mContext.getString(d.j.share));
-                this.bSx = true;
-                if (bgVar.bDy != null && bgVar.bDy.isDeleted) {
+                this.bSk.setText(aal > 0 ? ap.az(aal) : this.mContext.getString(d.j.share));
+                this.bSy = true;
+                if (bgVar.bDz != null && bgVar.bDz.isDeleted) {
                     setShareClickable(false);
-                    al.k(this.bSk, d.f.icon_card_share_d);
-                    al.j(this.bSj, d.C0277d.cp_cont_e);
+                    al.k(this.bSl, d.f.icon_card_share_d);
+                    al.j(this.bSk, d.C0277d.cp_cont_e);
                     return;
                 }
                 setShareClickable(true);
-                al.k(this.bSk, this.bSN);
-                al.j(this.bSj, d.f.selector_comment_and_prise_item_text_color);
+                al.k(this.bSl, this.bSO);
+                al.j(this.bSk, d.f.selector_comment_and_prise_item_text_color);
                 return;
             }
-            this.bSl.setVisibility(8);
+            this.bSm.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(bg bgVar) {
-        if (this.bSg != null && bgVar != null) {
-            if (this.bSD) {
-                this.bSi.setVisibility(0);
+        if (this.bSh != null && bgVar != null) {
+            if (this.bSE) {
+                this.bSj.setVisibility(0);
                 if (bgVar.YF() > 0) {
-                    this.bSg.setVisibility(0);
+                    this.bSh.setVisibility(0);
                     String az = ap.az(bgVar.YF());
-                    if (this.bSB) {
-                        this.bSh.setImageDrawable(al.getDrawable(this.bSM));
-                        this.bSg.setText(az);
+                    if (this.bSC) {
+                        this.bSi.setImageDrawable(al.getDrawable(this.bSN));
+                        this.bSh.setText(az);
                     } else {
-                        this.bSg.setText(String.format(this.mContext.getString(d.j.reply_num_tip), az));
+                        this.bSh.setText(String.format(this.mContext.getString(d.j.reply_num_tip), az));
                     }
-                    this.bSg.setContentDescription(this.mContext.getString(d.j.reply_num) + az);
-                    this.bSx = true;
+                    this.bSh.setContentDescription(this.mContext.getString(d.j.reply_num) + az);
+                    this.bSy = true;
                     return;
-                } else if (this.bSB) {
-                    this.bSh.setImageDrawable(al.getDrawable(this.bSM));
-                    this.bSg.setText(this.mContext.getString(d.j.action_comment_default));
-                    this.bSg.setVisibility(0);
-                    this.bSx = true;
+                } else if (this.bSC) {
+                    this.bSi.setImageDrawable(al.getDrawable(this.bSN));
+                    this.bSh.setText(this.mContext.getString(d.j.action_comment_default));
+                    this.bSh.setVisibility(0);
+                    this.bSy = true;
                     return;
                 } else {
-                    this.bSg.setVisibility(8);
+                    this.bSh.setVisibility(8);
                     return;
                 }
             }
-            this.bSi.setVisibility(8);
+            this.bSj.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void aH(View view) {
-        if (this.bSt == null) {
-            this.bSt = new ac(this.mPageContext, bB(16));
+        if (this.bSu == null) {
+            this.bSu = new ac(this.mPageContext, bB(16));
         }
-        this.bSt.setData(this.XS);
-        this.bSt.showDialog();
+        this.bSu.setData(this.XT);
+        this.bSu.showDialog();
         TiebaStatic.log(new am("c12711"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void q(bg bgVar) {
-        if (this.bSs != null && bgVar != null) {
-            this.bSG = bB(4);
-            if (bgVar.bDH != null) {
-                this.bSG = false;
+        if (this.bSt != null && bgVar != null) {
+            this.bSH = bB(4);
+            if (bgVar.bDI != null) {
+                this.bSH = false;
             }
-            if (this.bSG && (this.bSw == null || this.bSw.getVisibility() == 8)) {
-                this.bSs.setVisibility(0);
+            if (this.bSH && (this.bSx == null || this.bSx.getVisibility() == 8)) {
+                this.bSt.setVisibility(0);
                 String string = this.mContext.getString(d.j.manage);
-                this.bSq.setText(string);
-                this.bSq.setContentDescription(string);
-                this.bSx = true;
+                this.bSr.setText(string);
+                this.bSr.setContentDescription(string);
+                this.bSy = true;
                 return;
             }
-            this.bSs.setVisibility(8);
+            this.bSt.setVisibility(8);
         }
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        if (this.bSf != null) {
-            this.bSf.setStatisticData(dVar);
+        if (this.bSg != null) {
+            this.bSg.setStatisticData(dVar);
         }
     }
 }

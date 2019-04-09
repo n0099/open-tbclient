@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a bGD = null;
+    private a bGE = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g bGP = new g();
+        private static final g bGQ = new g();
     }
 
     public static g abw() {
-        return c.bGP;
+        return c.bGQ;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.bGD = new a(i, jVar);
-                this.bGD.aby();
+                this.bGE = new a(i, jVar);
+                this.bGE.aby();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a bGD;
-        private final List<Long> bGN = new ArrayList(240);
-        private final List<Integer> bGO = new ArrayList(15);
+        protected a bGE;
+        private final List<Long> bGO = new ArrayList(240);
+        private final List<Integer> bGP = new ArrayList(15);
 
         public b(a aVar) {
-            this.bGD = aVar;
+            this.bGE = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.bGN.add(Long.valueOf(j));
-            this.bGD.aby();
+            this.bGO.add(Long.valueOf(j));
+            this.bGE.aby();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.bGD = null;
-            this.bGN.clear();
+            this.bGE = null;
             this.bGO.clear();
+            this.bGP.clear();
         }
     }
 
@@ -79,31 +79,31 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> bGE;
-        private final Object bGF;
-        private final Class<?> bGG;
-        private final Method bGH;
-        private final Object bGI;
-        private final Method bGJ;
-        private final b bGK;
-        private final j bGL;
+        private final Class<?> bGF;
+        private final Object bGG;
+        private final Class<?> bGH;
+        private final Method bGI;
+        private final Object bGJ;
+        private final Method bGK;
+        private final b bGL;
+        private final j bGM;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.bGG = Class.forName("android.view.Choreographer");
-            this.bGE = Class.forName("android.view.Choreographer$FrameCallback");
-            this.bGK = new b(this);
-            this.bGF = Proxy.newProxyInstance(this.bGE.getClassLoader(), new Class[]{this.bGE}, this.bGK);
-            this.bGH = this.bGG.getMethod("getInstance", new Class[0]);
-            this.bGI = this.bGH.invoke(null, new Object[0]);
-            this.bGJ = this.bGG.getMethod("postFrameCallback", this.bGE);
+            this.bGH = Class.forName("android.view.Choreographer");
+            this.bGF = Class.forName("android.view.Choreographer$FrameCallback");
+            this.bGL = new b(this);
+            this.bGG = Proxy.newProxyInstance(this.bGF.getClassLoader(), new Class[]{this.bGF}, this.bGL);
+            this.bGI = this.bGH.getMethod("getInstance", new Class[0]);
+            this.bGJ = this.bGI.invoke(null, new Object[0]);
+            this.bGK = this.bGH.getMethod("postFrameCallback", this.bGF);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.bGL = jVar;
+            this.bGM = jVar;
         }
 
         private void abx() throws InvocationTargetException, IllegalAccessException {
-            this.bGJ.invoke(this.bGI, this.bGF);
+            this.bGK.invoke(this.bGJ, this.bGG);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -112,8 +112,8 @@ public class g {
                 com.baidu.adp.lib.g.e.jH().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.bGL.Q(a.this.abA());
-                        a.this.bGK.destroy();
+                        a.this.bGM.Q(a.this.abA());
+                        a.this.bGL.destroy();
                         a.this.destroy();
                     }
                 });
@@ -128,12 +128,12 @@ public class g {
         }
 
         private List<Long> abz() {
-            return this.bGK.bGN;
+            return this.bGL.bGO;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.bGK.destroy();
+            this.bGL.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */

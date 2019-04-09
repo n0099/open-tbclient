@@ -6,29 +6,29 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 public class j {
-    private MediaController.MediaPlayerControl cNO;
-    private a ehO;
-    private c hVY;
-    private b hVZ;
-    private int hVW = 1000;
-    private int hVX = 0;
+    private MediaController.MediaPlayerControl cNP;
+    private a ehP;
+    private c hVZ;
+    private b hWa;
+    private int hVX = 1000;
+    private int hVY = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && j.this.cNO != null && j.this.cNO.isPlaying()) {
-                int currentPosition = j.this.cNO.getCurrentPosition();
-                int duration = j.this.cNO.getDuration();
-                if (currentPosition < j.this.hVX) {
-                    if (j.this.ehO != null) {
-                        j.this.ehO.qE();
+            if (message != null && message.what == 1 && j.this.cNP != null && j.this.cNP.isPlaying()) {
+                int currentPosition = j.this.cNP.getCurrentPosition();
+                int duration = j.this.cNP.getDuration();
+                if (currentPosition < j.this.hVY) {
+                    if (j.this.ehP != null) {
+                        j.this.ehP.qE();
                     }
-                } else if (currentPosition == j.this.hVX && j.this.hVY != null) {
-                    j.this.hVY.aBk();
+                } else if (currentPosition == j.this.hVY && j.this.hVZ != null) {
+                    j.this.hVZ.aBk();
                 }
-                if (j.this.hVZ != null) {
-                    j.this.hVZ.aW(duration, currentPosition);
+                if (j.this.hWa != null) {
+                    j.this.hWa.aW(duration, currentPosition);
                 }
-                j.this.hVX = currentPosition;
+                j.this.hVY = currentPosition;
                 j.this.bTg();
             }
         }
@@ -50,11 +50,11 @@ public class j {
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.cNO = mediaPlayerControl;
+        this.cNP = mediaPlayerControl;
     }
 
     public void start() {
-        this.hVX = 0;
+        this.hVY = 0;
         bTg();
     }
 
@@ -65,18 +65,18 @@ public class j {
     /* JADX INFO: Access modifiers changed from: private */
     public void bTg() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.hVW);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.hVX);
     }
 
     public void a(a aVar) {
-        this.ehO = aVar;
+        this.ehP = aVar;
     }
 
     public void a(c cVar) {
-        this.hVY = cVar;
+        this.hVZ = cVar;
     }
 
     public void a(b bVar) {
-        this.hVZ = bVar;
+        this.hWa = bVar;
     }
 }

@@ -29,9 +29,9 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private boolean FR;
-    private com.baidu.tbadk.core.dialog.a VQ;
-    private g cXp;
-    private final String hNw = "https://tieba.baidu.com/n/interact/modifyname";
+    private com.baidu.tbadk.core.dialog.a VR;
+    private g cXq;
+    private final String hNx = "https://tieba.baidu.com/n/interact/modifyname";
     private NavigationBar mNavigationBar;
     private TbPageContext<EditNickNameActivity> mPageContext;
     private h mRefreshView;
@@ -128,16 +128,16 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.cXp = new g(this.mPageContext.getPageActivity());
-            this.cXp.attachView(this.mRootView, false);
-            this.cXp.onChangeSkinType();
+            this.cXq = new g(this.mPageContext.getPageActivity());
+            this.cXq.attachView(this.mRootView, false);
+            this.cXq.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.cXp != null) {
-            this.cXp.dettachView(this.mRootView);
-            this.cXp = null;
+        if (this.cXq != null) {
+            this.cXq.dettachView(this.mRootView);
+            this.cXq = null;
         }
     }
 
@@ -263,25 +263,25 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     private void showDialog() {
-        if (this.VQ == null) {
-            this.VQ = new com.baidu.tbadk.core.dialog.a(getActivity());
-            this.VQ.lz(getPageContext().getResources().getString(d.j.modify_user_dialog_msg));
-            this.VQ.a(d.j.save, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.3
+        if (this.VR == null) {
+            this.VR = new com.baidu.tbadk.core.dialog.a(getActivity());
+            this.VR.lz(getPageContext().getResources().getString(d.j.modify_user_dialog_msg));
+            this.VR.a(d.j.save, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     EditNickNameActivity.this.bQT();
                 }
             });
-            this.VQ.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4
+            this.VR.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     EditNickNameActivity.this.AA(null);
                 }
             });
-            this.VQ.b(getPageContext());
+            this.VR.b(getPageContext());
         }
-        this.VQ.aaW();
+        this.VR.aaW();
     }
 }

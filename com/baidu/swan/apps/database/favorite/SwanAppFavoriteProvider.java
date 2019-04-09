@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b aux;
+    private volatile b auy;
 
     private b AO() {
-        if (this.aux == null) {
+        if (this.auy == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.aux == null) {
-                    this.aux = new b();
+                if (this.auy == null) {
+                    this.auy = new b();
                 }
             }
         }
-        return this.aux;
+        return this.auy;
     }
 
     @Override // android.content.ContentProvider

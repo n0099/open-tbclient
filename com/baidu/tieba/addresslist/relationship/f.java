@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private static f cQc;
+    private static f cQd;
 
     private f() {
     }
 
     public static f axi() {
         synchronized (f.class) {
-            if (cQc == null) {
-                cQc = new f();
+            if (cQd == null) {
+                cQd = new f();
             }
         }
-        return cQc;
+        return cQd;
     }
 
     private ContentValues b(com.baidu.tbadk.coreExtra.relationship.a aVar) {
@@ -117,7 +117,7 @@ public class f {
         if (axm != null && !TextUtils.isEmpty(currentAccount)) {
             axm.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cbh) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cbi) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.oa(str);
@@ -165,7 +165,7 @@ public class f {
         if (axm != null && !TextUtils.isEmpty(currentAccount)) {
             axm.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cbh) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cbi) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.oa(str);

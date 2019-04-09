@@ -13,8 +13,8 @@ import com.baidu.tieba.im.chat.officialBar.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MultiContentView extends LinearLayout {
-    private LinearLayout bRq;
-    private View dcP;
+    private LinearLayout bRr;
+    private View dcQ;
     private com.baidu.adp.lib.c.b gbj;
     private com.baidu.adp.lib.e.b<MultiImageTextTopView> gcQ;
     private com.baidu.adp.lib.e.b<MultiImageTextBottomView> gcR;
@@ -44,13 +44,13 @@ public class MultiContentView extends LinearLayout {
     }
 
     private void initView() {
-        this.dcP = View.inflate(this.mContext, d.h.msg_multi_pic_text_content_view, this);
-        this.bRq = (LinearLayout) this.dcP.findViewById(d.g.view_container);
+        this.dcQ = View.inflate(this.mContext, d.h.msg_multi_pic_text_content_view, this);
+        this.bRr = (LinearLayout) this.dcQ.findViewById(d.g.view_container);
         b bVar = new b();
         this.gcQ = bVar.dV(this.mContext);
         this.gcR = bVar.dW(this.mContext);
         this.gcS = bVar.dX(this.mContext);
-        this.bRq.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiContentView.1
+        this.bRr.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiContentView.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
                 if (view2 instanceof MultiImageTextTopView) {
@@ -70,11 +70,11 @@ public class MultiContentView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        this.bRq.addView(view);
+        this.bRr.addView(view);
     }
 
     public void setData(TbPageContext<?> tbPageContext, List<c.a> list, View view) {
-        this.bRq.removeAllViews();
+        this.bRr.removeAllViews();
         if (list != null && list.size() != 0) {
             int size = list.size();
             String str = "";
@@ -135,7 +135,7 @@ public class MultiContentView extends LinearLayout {
             multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             multiImageTextTopView.setTime(this.gcU);
             multiImageTextTopView.setData(tbPageContext, aVar, view, this.mType);
-            this.bRq.addView(multiImageTextTopView);
+            this.bRr.addView(multiImageTextTopView);
         }
     }
 
@@ -192,7 +192,7 @@ public class MultiContentView extends LinearLayout {
         if (aVar != null && multiImageTextBottomView != null) {
             multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(d.e.ds132)));
             multiImageTextBottomView.setData(tbPageContext, aVar, view, this.mType);
-            this.bRq.addView(multiImageTextBottomView);
+            this.bRr.addView(multiImageTextBottomView);
         }
     }
 
@@ -224,7 +224,7 @@ public class MultiContentView extends LinearLayout {
             singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             singleImageTextView.setTime(this.gcU);
             singleImageTextView.setData(tbPageContext, aVar, view, this.mType);
-            this.bRq.addView(singleImageTextView);
+            this.bRr.addView(singleImageTextView);
         }
     }
 

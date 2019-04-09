@@ -17,9 +17,9 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends Dialog {
-    private boolean bFA;
-    private LinearLayout bFy;
-    private float bFz;
+    private float bFA;
+    private boolean bFB;
+    private LinearLayout bFz;
     private Context context;
     private boolean isShowing;
     protected View mContentView;
@@ -27,8 +27,8 @@ public class g extends Dialog {
 
     public g(com.baidu.adp.base.e eVar, View view) {
         super(eVar.getPageActivity(), 16973835);
-        this.bFz = 0.3f;
-        this.bFA = false;
+        this.bFA = 0.3f;
+        this.bFB = false;
         this.isShowing = false;
         this.mPageContext = eVar;
         this.context = eVar.getPageActivity();
@@ -37,15 +37,15 @@ public class g extends Dialog {
 
     public g(com.baidu.adp.base.e eVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.bFz = 0.3f;
-        this.bFA = false;
+        this.bFA = 0.3f;
+        this.bFB = false;
         this.isShowing = false;
         this.context = eVar.getPageActivity();
         this.mPageContext = eVar;
     }
 
     public void al(float f) {
-        this.bFz = f;
+        this.bFA = f;
     }
 
     @Override // android.app.Dialog
@@ -78,39 +78,39 @@ public class g extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(d.C0277d.transparent);
-        getWindow().setDimAmount(this.bFz);
+        getWindow().setDimAmount(this.bFA);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(0);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.bFy = (LinearLayout) findViewById(d.g.root_view);
-        this.bFy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
+        this.bFz = (LinearLayout) findViewById(d.g.root_view);
+        this.bFz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 g.this.cancel();
             }
         });
         if (this.mContentView != null) {
-            this.bFy.removeAllViews();
+            this.bFz.removeAllViews();
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.bFy.addView(this.mContentView);
+                    this.bFz.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.bFy.addView(this.mContentView);
+            this.bFz.addView(this.mContentView);
         }
     }
 
     public void showDialog() {
-        this.bFA = false;
+        this.bFB = false;
         if (isShowing()) {
             super.dismiss();
         }
         com.baidu.adp.lib.g.g.a(this, this.mPageContext);
-        if (this.bFy != null) {
+        if (this.bFz != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, d.a.pop_enter_anim);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.dialog.g.2
@@ -128,24 +128,24 @@ public class g extends Dialog {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.bFy.startAnimation(loadAnimation);
+            this.bFz.startAnimation(loadAnimation);
         }
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (this.bFy != null && !this.bFA && isShowing()) {
+        if (this.bFz != null && !this.bFB && isShowing()) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, d.a.pop_exit_anim);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.dialog.g.3
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    g.this.bFA = true;
+                    g.this.bFB = true;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    g.this.bFA = false;
+                    g.this.bFB = false;
                     if (g.this.mPageContext != null && g.this.mPageContext.getPageActivity() != null) {
                         Activity pageActivity = g.this.mPageContext.getPageActivity();
                         if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
@@ -158,7 +158,7 @@ public class g extends Dialog {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.bFy.startAnimation(loadAnimation);
+            this.bFz.startAnimation(loadAnimation);
         }
     }
 
@@ -176,6 +176,6 @@ public class g extends Dialog {
     }
 
     public LinearLayout getRootView() {
-        return this.bFy;
+        return this.bFz;
     }
 }

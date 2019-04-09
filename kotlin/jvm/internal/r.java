@@ -2,18 +2,18 @@ package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class r implements l {
     private final String fUA;
-    private final Class<?> jRX;
+    private final Class<?> jRY;
 
     public r(Class<?> cls, String str) {
         p.k(cls, "jClass");
         p.k(str, "moduleName");
-        this.jRX = cls;
+        this.jRY = cls;
         this.fUA = str;
     }
 
     @Override // kotlin.jvm.internal.l
     public Class<?> cCr() {
-        return this.jRX;
+        return this.jRY;
     }
 
     public boolean equals(Object obj) {

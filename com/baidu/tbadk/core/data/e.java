@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    public String bxy;
+    public String bxz;
     public int labelId;
     public String labelName;
 
@@ -11,7 +11,7 @@ public class e {
         if (jSONObject != null) {
             this.labelId = jSONObject.optInt("label_id");
             this.labelName = jSONObject.optString("label_name");
-            this.bxy = jSONObject.optString("label_rgb");
+            this.bxz = jSONObject.optString("label_rgb");
         }
     }
 }

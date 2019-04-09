@@ -18,8 +18,8 @@ public class ItemDataBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ItemDataBox.java", ItemDataBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getData", "com.coremedia.iso.boxes.ItemDataBox", "", "", "", "java.nio.ByteBuffer"), 19);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setData", "com.coremedia.iso.boxes.ItemDataBox", "java.nio.ByteBuffer", "data", "", "void"), 23);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getData", "com.coremedia.iso.boxes.ItemDataBox", "", "", "", "java.nio.ByteBuffer"), 19);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setData", "com.coremedia.iso.boxes.ItemDataBox", "java.nio.ByteBuffer", "data", "", "void"), 23);
     }
 
     public ItemDataBox() {

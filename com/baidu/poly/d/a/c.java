@@ -5,10 +5,10 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class c implements d {
-    protected a.C0083a ahk;
+    protected a.C0083a ahl;
 
     @Override // com.baidu.poly.d.a.d
     public void a(Activity activity, Map<String, String> map, a.C0083a c0083a) {
-        this.ahk = c0083a;
+        this.ahl = c0083a;
     }
 }

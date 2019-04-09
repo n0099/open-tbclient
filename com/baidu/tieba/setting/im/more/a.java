@@ -4,41 +4,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int chn;
-    private int chq;
-    private int ipY;
+    private int cho;
+    private int chr;
     private int ipZ;
-    private boolean iqa;
-    private int iqb;
-    private SimpleUser iqc;
-    private int iqd;
+    private int iqa;
+    private boolean iqb;
+    private int iqc;
+    private SimpleUser iqd;
+    private int iqe;
 
     public boolean bYo() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.ipY = bVar.getInt("post" + currentAccount, 0);
-        this.ipZ = bVar.getInt("like" + currentAccount, 0);
-        this.chn = bVar.getInt("group" + currentAccount, 0);
-        this.chq = bVar.getInt("live" + currentAccount, 0);
-        this.iqb = bVar.getInt("reply" + currentAccount, 1);
-        this.iqa = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.ipY == 0 && this.ipZ == 0 && this.chn == 0 && this.chq == 0 && this.iqb == 1) ? false : true;
+        this.ipZ = bVar.getInt("post" + currentAccount, 0);
+        this.iqa = bVar.getInt("like" + currentAccount, 0);
+        this.cho = bVar.getInt("group" + currentAccount, 0);
+        this.chr = bVar.getInt("live" + currentAccount, 0);
+        this.iqc = bVar.getInt("reply" + currentAccount, 1);
+        this.iqb = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.ipZ == 0 && this.iqa == 0 && this.cho == 0 && this.chr == 0 && this.iqc == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.ipY = aVar.ipY;
             this.ipZ = aVar.ipZ;
-            this.chn = aVar.chn;
             this.iqa = aVar.iqa;
-            this.chq = aVar.chq;
-            this.iqd = aVar.iqd;
+            this.cho = aVar.cho;
             this.iqb = aVar.iqb;
+            this.chr = aVar.chr;
+            this.iqe = aVar.iqe;
+            this.iqc = aVar.iqc;
         }
     }
 
     public int bYp() {
-        return this.ipY;
+        return this.ipZ;
     }
 
     public void bn(String str, int i) {
@@ -48,84 +48,84 @@ public class a {
     public void bYq() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.ipY);
-        bVar.putInt("like" + currentAccount, this.ipZ);
-        bVar.putInt("group" + currentAccount, this.chn);
-        bVar.putInt("live" + currentAccount, this.chq);
-        bVar.putInt("reply" + currentAccount, this.iqb);
-        TbadkCoreApplication.getInst().setLocationShared(this.iqa);
+        bVar.putInt("post" + currentAccount, this.ipZ);
+        bVar.putInt("like" + currentAccount, this.iqa);
+        bVar.putInt("group" + currentAccount, this.cho);
+        bVar.putInt("live" + currentAccount, this.chr);
+        bVar.putInt("reply" + currentAccount, this.iqc);
+        TbadkCoreApplication.getInst().setLocationShared(this.iqb);
     }
 
     public void yk(int i) {
-        this.ipY = i;
+        this.ipZ = i;
     }
 
     public int bYr() {
-        return this.ipZ;
+        return this.iqa;
     }
 
     public void yl(int i) {
         if (i <= 3 && i >= 1) {
-            this.ipZ = i;
+            this.iqa = i;
         }
     }
 
     public int alp() {
-        return this.chq;
+        return this.chr;
     }
 
     public void ym(int i) {
         if (i <= 3 && i >= 1) {
-            this.chq = i;
+            this.chr = i;
         }
     }
 
     public int bYs() {
-        return this.chn;
+        return this.cho;
     }
 
     public void yn(int i) {
         if (i <= 3 && i >= 1) {
-            this.chn = i;
+            this.cho = i;
         }
     }
 
     public boolean bYt() {
-        return this.iqa;
+        return this.iqb;
     }
 
     public void yo(int i) {
         switch (i) {
             case 1:
-                this.iqa = true;
+                this.iqb = true;
                 return;
             default:
-                this.iqa = false;
+                this.iqb = false;
                 return;
         }
     }
 
     public SimpleUser awz() {
-        return this.iqc;
+        return this.iqd;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.iqc = simpleUser;
+        this.iqd = simpleUser;
     }
 
     public void yp(int i) {
-        this.iqd = i;
+        this.iqe = i;
     }
 
     public void yq(int i) {
         if (i == 0) {
-            this.iqb = 1;
+            this.iqc = 1;
         } else {
-            this.iqb = i;
+            this.iqc = i;
         }
     }
 
     public int bYu() {
-        return this.iqb;
+        return this.iqc;
     }
 }

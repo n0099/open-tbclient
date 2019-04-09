@@ -14,97 +14,97 @@ public class TbRichTextCommInfo extends OrmObject {
     public static final int URL_VALIDITY_INVALID = 1;
     public static final int URL_VALIDITY_NORMAL = 0;
     public static final int URL_VALIDITY_VALID = 2;
-    private String alN;
-    private String cCA;
+    private String alO;
+    private int cCA;
     private String cCB;
-    private int cCC;
-    private int cCz;
+    private String cCC;
+    private int cCD;
     private String mLink;
     private int mType;
 
     public TbRichTextCommInfo() {
-        this.alN = null;
+        this.alO = null;
         this.mLink = null;
         this.mType = 0;
-        this.cCC = 0;
+        this.cCD = 0;
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
-        this.alN = null;
+        this.alO = null;
         this.mLink = null;
         this.mType = 0;
-        this.cCC = 0;
+        this.cCD = 0;
         if (jSONObject != null) {
-            this.alN = jSONObject.optString("text");
+            this.alO = jSONObject.optString("text");
             this.mLink = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
             this.mType = jSONObject.optInt("type", 0);
-            this.cCC = jSONObject.optInt("url_type", 0);
-            this.cCz = jSONObject.optInt("is_native_app", 0);
-            if (this.cCz == 1) {
+            this.cCD = jSONObject.optInt("url_type", 0);
+            this.cCA = jSONObject.optInt("is_native_app", 0);
+            if (this.cCA == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.cCz = 0;
+                    this.cCA = 0;
                     return;
                 }
-                this.cCA = jSONObject.optString("jump_and");
-                this.cCB = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.cCA) || TextUtils.isEmpty(this.cCB)) {
-                    this.cCz = 0;
+                this.cCB = jSONObject.optString("jump_and");
+                this.cCC = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.cCB) || TextUtils.isEmpty(this.cCC)) {
+                    this.cCA = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.cCA += ";download_url:" + this.cCB + ";web_play_url:" + this.mLink;
+                    this.cCB += ";download_url:" + this.cCC + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.cCA += ";download_url:" + this.cCB + ";web_play_url:" + this.alN;
+                    this.cCB += ";download_url:" + this.cCC + ";web_play_url:" + this.alO;
                 }
-                this.cCA += ";is_native_app=1";
+                this.cCB += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(PbContent pbContent) {
-        this.alN = null;
+        this.alO = null;
         this.mLink = null;
         this.mType = 0;
-        this.cCC = 0;
+        this.cCD = 0;
         if (pbContent != null) {
-            this.alN = pbContent.text;
+            this.alO = pbContent.text;
             this.mLink = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.cCC = pbContent.url_type.intValue();
-            this.cCz = pbContent.is_native_app.intValue();
-            if (this.cCz == 1) {
+            this.cCD = pbContent.url_type.intValue();
+            this.cCA = pbContent.is_native_app.intValue();
+            if (this.cCA == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.cCz = 0;
+                    this.cCA = 0;
                     return;
                 }
-                this.cCA = nativeApp.jump_and;
-                this.cCB = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.cCA) || TextUtils.isEmpty(this.cCB)) {
-                    this.cCz = 0;
+                this.cCB = nativeApp.jump_and;
+                this.cCC = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.cCB) || TextUtils.isEmpty(this.cCC)) {
+                    this.cCA = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.cCA += ";download_url:" + this.cCB + ";web_play_url:" + this.mLink;
+                    this.cCB += ";download_url:" + this.cCC + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.cCA += ";download_url:" + this.cCB + ";web_play_url:" + this.alN;
+                    this.cCB += ";download_url:" + this.cCC + ";web_play_url:" + this.alO;
                 }
-                this.cCA += ";is_native_app=1";
+                this.cCB += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(String str, String str2) {
-        this.alN = null;
+        this.alO = null;
         this.mLink = null;
         this.mType = 0;
-        this.cCC = 0;
-        this.alN = str;
+        this.cCD = 0;
+        this.alO = str;
         this.mLink = str2;
     }
 
     public void setText(String str) {
-        this.alN = str;
+        this.alO = str;
     }
 
     public void setLink(String str) {
@@ -112,7 +112,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     public String getText() {
-        return this.alN;
+        return this.alO;
     }
 
     public String getLink() {
@@ -120,20 +120,20 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     public int asv() {
-        return this.cCz;
-    }
-
-    public String asw() {
         return this.cCA;
     }
 
+    public String asw() {
+        return this.cCB;
+    }
+
     public int asx() {
-        return this.cCC;
+        return this.cCD;
     }
 
     public void asy() {
-        if (this.alN != null) {
-            this.alN = this.alN.replaceAll("\n", "");
+        if (this.alO != null) {
+            this.alO = this.alO.replaceAll("\n", "");
         }
         if (this.mLink != null) {
             this.mLink = this.mLink.replaceAll("\n", "");

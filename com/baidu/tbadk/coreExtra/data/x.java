@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private VcodeExtra bXB;
+    private VcodeExtra bXC;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String bXA = null;
+    private String bXB = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -19,11 +19,11 @@ public class x {
     }
 
     public String agA() {
-        return this.bXA;
+        return this.bXB;
     }
 
     public VcodeExtra agB() {
-        return this.bXB;
+        return this.bXC;
     }
 
     public void parserJson(String str) {
@@ -44,14 +44,14 @@ public class x {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.bXA = jSONObject.optString("vcode_type");
+                this.bXB = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.bXB = new VcodeExtra();
-                this.bXB.textImg = jSONObject2.optString("textimg");
-                this.bXB.slideImg = jSONObject2.optString("slideimg");
-                this.bXB.endPoint = jSONObject2.optString("endpoint");
-                this.bXB.successImg = jSONObject2.optString("successimg");
-                this.bXB.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.bXC = new VcodeExtra();
+                this.bXC.textImg = jSONObject2.optString("textimg");
+                this.bXC.slideImg = jSONObject2.optString("slideimg");
+                this.bXC.endPoint = jSONObject2.optString("endpoint");
+                this.bXC.successImg = jSONObject2.optString("successimg");
+                this.bXC.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -29,8 +29,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class b {
-    private BdUniqueId cnZ;
-    private final List<m> eVa;
+    private BdUniqueId coa;
+    private final List<m> eVb;
     private final v fKi;
     private List<ThreadInfo> fKk;
     private a fKl;
@@ -51,7 +51,7 @@ public class b {
             }
         }
     };
-    private final com.baidu.adp.framework.listener.a erR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.personalize.b.2
+    private final com.baidu.adp.framework.listener.a erS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.personalize.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -69,8 +69,8 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str) && !com.baidu.tbadk.core.util.v.T(b.this.eVa) && !com.baidu.tbadk.core.util.v.T(b.this.fKk)) {
-                    Iterator it = b.this.eVa.iterator();
+                if (!StringUtils.isNull(str) && !com.baidu.tbadk.core.util.v.T(b.this.eVb) && !com.baidu.tbadk.core.util.v.T(b.this.fKk)) {
+                    Iterator it = b.this.eVb.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -80,8 +80,8 @@ public class b {
                             com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) mVar;
                             if (cVar.WO() != null && cVar.WO().getTid() != null && cVar.WO().getTid().equals(str)) {
                                 it.remove();
-                                com.baidu.tieba.homepage.personalize.model.b.cy(b.this.eVa);
-                                b.this.fKi.ay(new ArrayList(b.this.eVa));
+                                com.baidu.tieba.homepage.personalize.model.b.cy(b.this.eVb);
+                                b.this.fKi.ay(new ArrayList(b.this.eVb));
                                 break;
                             }
                         }
@@ -101,20 +101,20 @@ public class b {
     };
 
     public b(List<m> list, v vVar) {
-        this.eVa = list;
+        this.eVb = list;
         this.fKi = vVar;
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        this.cnZ = bdUniqueId;
+        this.coa = bdUniqueId;
         this.fKm.setTag(bdUniqueId);
         this.fKm.setSelfListener(false);
-        this.erR.setTag(bdUniqueId);
-        this.erR.getHttpMessageListener().setSelfListener(true);
-        this.erR.getSocketMessageListener().setSelfListener(true);
+        this.erS.setTag(bdUniqueId);
+        this.erS.getHttpMessageListener().setSelfListener(true);
+        this.erS.getSocketMessageListener().setSelfListener(true);
         this.fgb.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.fKm);
-        MessageManager.getInstance().registerListener(this.erR);
+        MessageManager.getInstance().registerListener(this.erS);
         MessageManager.getInstance().registerListener(this.fgb);
     }
 
@@ -155,7 +155,7 @@ public class b {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(b.this.cnZ);
+            requestGetMyPostNetMessage.setTag(b.this.coa);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, aO, aQ, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -163,7 +163,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, GetMyPostResIdl getMyPostResIdl) {
-        if (i == 0 && !com.baidu.tbadk.core.util.v.T(this.eVa) && !com.baidu.tbadk.core.util.v.T(this.fKk) && this.fKi != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        if (i == 0 && !com.baidu.tbadk.core.util.v.T(this.eVb) && !com.baidu.tbadk.core.util.v.T(this.fKk) && this.fKi != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
@@ -173,9 +173,9 @@ public class b {
             bg bgVar = new bg();
             bgVar.a(build);
             if (k.V(bgVar)) {
-                this.eVa.add(this.eVa.get(0) instanceof g ? 1 : 0, com.baidu.tieba.homepage.personalize.model.d.aq(bgVar));
-                com.baidu.tieba.homepage.personalize.model.b.cy(this.eVa);
-                this.fKi.ay(new ArrayList(this.eVa));
+                this.eVb.add(this.eVb.get(0) instanceof g ? 1 : 0, com.baidu.tieba.homepage.personalize.model.d.aq(bgVar));
+                com.baidu.tieba.homepage.personalize.model.b.cy(this.eVb);
+                this.fKi.ay(new ArrayList(this.eVb));
                 this.fKk.add(0, build);
                 this.fKj.put(build.tid.longValue(), build);
             }

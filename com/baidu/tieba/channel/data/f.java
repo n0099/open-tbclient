@@ -7,12 +7,12 @@ public class f {
     private String channel_name;
     private String create_time;
     private String description;
-    private String enX;
+    private String enY;
     private String follow_time;
     private String user_id;
 
     public String aRt() {
-        return this.enX;
+        return this.enY;
     }
 
     public String aRu() {
@@ -28,7 +28,7 @@ public class f {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.enX = jSONObject.optString("channel_id");
+        this.enY = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

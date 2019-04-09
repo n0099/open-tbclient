@@ -3,16 +3,16 @@ package com.baidu.tieba.channel.data;
 import tbclient.ChannelPage;
 /* loaded from: classes6.dex */
 public class g {
-    private int enY;
     private int enZ;
+    private int eoa;
     private int totalCount;
 
     public boolean isHasMore() {
-        return this.enY == 1;
+        return this.enZ == 1;
     }
 
     public void setHasMore(int i) {
-        this.enY = i;
+        this.enZ = i;
     }
 
     public void setTotalCount(int i) {
@@ -20,7 +20,7 @@ public class g {
     }
 
     public void ov(int i) {
-        this.enZ = i;
+        this.eoa = i;
     }
 
     public static g a(ChannelPage channelPage) {

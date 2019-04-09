@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 public class a extends com.baidu.tieba.card.a<c> {
     private static final int fNr = l.h(TbadkCoreApplication.getInst(), d.e.tbds105);
     private static final int fNs = l.h(TbadkCoreApplication.getInst(), d.e.tbds6);
-    private View bub;
+    private View buc;
     private TextView fNt;
     private String fNu;
     private c fNv;
@@ -26,10 +26,10 @@ public class a extends com.baidu.tieba.card.a<c> {
         super(tbPageContext, viewGroup);
         this.mSkinType = 3;
         this.mPageContext = tbPageContext;
-        this.bub = getView();
-        this.fNt = (TextView) this.bub.findViewById(d.g.read_progress_bar_time);
+        this.buc = getView();
+        this.fNt = (TextView) this.buc.findViewById(d.g.read_progress_bar_time);
         this.fNu = this.mPageContext.getResources().getString(d.j.home_read_here);
-        this.bub.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
+        this.buc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.aQf() != null) {
@@ -41,7 +41,7 @@ public class a extends com.baidu.tieba.card.a<c> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bmV() {
-        final ViewGroup.LayoutParams layoutParams = this.bub.getLayoutParams();
+        final ViewGroup.LayoutParams layoutParams = this.buc.getLayoutParams();
         if (layoutParams != null && layoutParams.height != fNr) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.2
@@ -49,7 +49,7 @@ public class a extends com.baidu.tieba.card.a<c> {
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     a.this.fNt.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                     layoutParams.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.fNr - a.fNs)) + a.fNs);
-                    a.this.bub.setLayoutParams(layoutParams);
+                    a.this.buc.setLayoutParams(layoutParams);
                 }
             });
             ofFloat.setDuration(400L);
@@ -61,7 +61,7 @@ public class a extends com.baidu.tieba.card.a<c> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.j(this.fNt, d.C0277d.cp_link_tip_a);
-            al.k(this.bub, d.C0277d.cp_bg_line_e);
+            al.k(this.buc, d.C0277d.cp_bg_line_e);
         }
         this.mSkinType = i;
     }
@@ -74,13 +74,13 @@ public class a extends com.baidu.tieba.card.a<c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
-        if (cVar != null && this.bub.getLayoutParams() != null) {
+        if (cVar != null && this.buc.getLayoutParams() != null) {
             if (!cVar.fNA) {
-                this.bub.getLayoutParams().height = fNs;
-                this.bub.requestLayout();
+                this.buc.getLayoutParams().height = fNs;
+                this.buc.requestLayout();
                 this.fNt.setAlpha(0.0f);
             }
-            if (this.bub.getLayoutParams().height != fNr) {
+            if (this.buc.getLayoutParams().height != fNr) {
                 cVar.fNA = true;
                 e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.b.a.3
                     @Override // java.lang.Runnable
@@ -89,7 +89,7 @@ public class a extends com.baidu.tieba.card.a<c> {
                     }
                 }, 1600L);
             }
-            this.fNt.setText(ap.aq(cVar.aYK) + this.fNu);
+            this.fNt.setText(ap.aq(cVar.aYL) + this.fNu);
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }

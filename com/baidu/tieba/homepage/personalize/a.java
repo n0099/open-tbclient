@@ -19,8 +19,8 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
 import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
 /* loaded from: classes4.dex */
 public class a {
-    private int aIV;
-    private BdUniqueId bvY;
+    private int aIW;
+    private BdUniqueId bvZ;
     private ScrollFragmentTabHost fJW;
     private PersonalizePageView fJX;
     private ConcernUnreadTipView fJY;
@@ -89,10 +89,10 @@ public class a {
     public void b(com.baidu.tieba.homepage.personalize.data.e eVar) {
         if (this.fJX != null) {
             this.fJY = new ConcernUnreadTipView(this.mContext.getContext());
-            this.fJY.setBdUniqueId(this.bvY);
+            this.fJY.setBdUniqueId(this.bvZ);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 49;
-            layoutParams.topMargin = this.aIV;
+            layoutParams.topMargin = this.aIW;
             this.fJY.setLayoutParams(layoutParams);
             this.fJY.setData(eVar);
             this.fJY.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.4
@@ -135,7 +135,7 @@ public class a {
     }
 
     public void setHeaderViewHeight(int i) {
-        this.aIV = i;
+        this.aIW = i;
     }
 
     public void onDestroy() {
@@ -149,6 +149,6 @@ public class a {
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.bvY = bdUniqueId;
+        this.bvZ = bdUniqueId;
     }
 }

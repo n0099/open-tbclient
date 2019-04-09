@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private o eWg;
-    private r eWh;
+    private o eWh;
+    private r eWi;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -28,16 +28,16 @@ public class a {
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.eVm));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.eVy));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.eYo));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.eUP));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.eUS));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.eVn));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.eVz));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.eYp));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.eUQ));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.eUT));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.eWg = new o(baseActivity.getPageContext(), p.eVQ);
-        this.mAdapters.add(this.eWg);
-        this.eWh = new r(baseActivity.getPageContext(), s.eWe);
+        this.eWh = new o(baseActivity.getPageContext(), p.eVR);
         this.mAdapters.add(this.eWh);
+        this.eWi = new r(baseActivity.getPageContext(), s.eWf);
+        this.mAdapters.add(this.eWi);
     }
 
     public void notifyDataSetChanged() {
@@ -47,7 +47,7 @@ public class a {
     }
 
     public void onDestroy() {
-        this.eWg.onDestroy();
         this.eWh.onDestroy();
+        this.eWi.onDestroy();
     }
 }

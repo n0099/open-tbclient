@@ -43,7 +43,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     private LinkedHashMap<String, String> fZY = null;
     private int mIndex = 0;
     private a fZZ = null;
-    private View bWb = null;
+    private View bWc = null;
     private TextView mTextView = null;
     private NavigationBar gab = null;
     private MultiImageView gac = null;
@@ -98,7 +98,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         super.onChangeSkinType(i);
         al.l(this.gac, d.C0277d.black_alpha100);
         al.l(this.gab, d.C0277d.common_color_10222);
-        getLayoutMode().onModeChanged(this.bWb);
+        getLayoutMode().onModeChanged(this.bWc);
         getLayoutMode().onModeChanged(this.mTextView);
         getLayoutMode().onModeChanged(this.gaa);
     }
@@ -157,7 +157,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.AbsMsgImageActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == AbsMsgImageActivity.this.bWb) {
+                if (view == AbsMsgImageActivity.this.bWc) {
                     if (AbsMsgImageActivity.this.gab.getVisibility() != 8) {
                         Intent intent = new Intent();
                         intent.putExtra("index", AbsMsgImageActivity.this.mIndex);
@@ -297,7 +297,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         if (this.gan) {
             this.gaa.setVisibility(8);
         }
-        this.bWb = this.gab.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
+        this.bWc = this.gab.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
         al.c(this.gab.getBackImageView(), d.f.icon_return_bg);
         this.mTextView = this.gab.setTitleText("");
         this.gac = (MultiImageView) findViewById(d.g.viewpager);

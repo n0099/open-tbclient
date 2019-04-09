@@ -26,7 +26,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String btI;
+    public static String btJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String bs(String str, String str2) {
@@ -43,7 +43,7 @@ public class a {
     }
 
     public static void kt(String str) {
-        btI = str;
+        btJ = str;
     }
 
     public static void ar(Context context, String str) {

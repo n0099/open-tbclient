@@ -22,15 +22,15 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
-    private static c eyC = null;
+    private static c eyD = null;
     private Wire wire = new Wire(new Class[0]);
-    private Map<String, a> eyD = null;
-    private Runnable eyE = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
+    private Map<String, a> eyE = null;
+    private Runnable eyF = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
         @Override // java.lang.Runnable
         public void run() {
             final Map map;
             synchronized (c.class) {
-                map = c.this.eyD;
+                map = c.this.eyE;
             }
             if (map != null) {
                 aa.a(new z<Void>() { // from class: com.baidu.tieba.dnsproxy.a.c.1.1
@@ -48,7 +48,7 @@ public class c {
                         }
                         c.this.P(builder.build(true).toByteArray());
                         synchronized (c.class) {
-                            c.this.eyD = null;
+                            c.this.eyE = null;
                         }
                         return null;
                     }
@@ -58,14 +58,14 @@ public class c {
     };
 
     public static final c aVg() {
-        if (eyC == null) {
+        if (eyD == null) {
             synchronized (c.class) {
-                if (eyC == null) {
-                    eyC = new c();
+                if (eyD == null) {
+                    eyD = new c();
                 }
             }
         }
-        return eyC;
+        return eyD;
     }
 
     private c() {
@@ -180,16 +180,16 @@ public class c {
 
     public void aVi() {
         e.jH().removeMessages(0, this);
-        e.jH().post(this.eyE);
+        e.jH().post(this.eyF);
     }
 
     public void u(Map<String, a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.eyD = map;
+                this.eyE = map;
             }
             if (!e.jH().hasMessages(0, this)) {
-                Message obtain = Message.obtain(e.jH(), this.eyE);
+                Message obtain = Message.obtain(e.jH(), this.eyF);
                 obtain.what = 0;
                 obtain.obj = this;
                 e.jH().sendMessageDelayed(obtain, StatisticConfig.MIN_UPLOAD_INTERVAL);

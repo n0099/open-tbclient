@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String buP;
-    private int buQ;
+    private String buQ;
     private int buR;
     private int buS;
     private int buT;
@@ -22,63 +21,64 @@ public class b {
     private int bvh;
     private int bvi;
     private int bvj;
-    private StringBuffer bvk = new StringBuffer();
+    private int bvk;
+    private StringBuffer bvl = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.bvk.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.bvl.toString() + "]";
     }
 
     public void kS(String str) {
-        this.bvk.append(str).append(" || ");
+        this.bvl.append(str).append(" || ");
     }
 
     public int VZ() {
-        return this.bve;
-    }
-
-    public void fD(int i) {
-        this.bve = i;
-    }
-
-    public int Wa() {
         return this.bvf;
     }
 
-    public void fE(int i) {
+    public void fD(int i) {
         this.bvf = i;
     }
 
+    public int Wa() {
+        return this.bvg;
+    }
+
+    public void fE(int i) {
+        this.bvg = i;
+    }
+
     public int Wb() {
-        return this.bvc;
-    }
-
-    public void fF(int i) {
-        this.bvc = i;
-    }
-
-    public int Wc() {
         return this.bvd;
     }
 
-    public void fG(int i) {
+    public void fF(int i) {
         this.bvd = i;
     }
 
+    public int Wc() {
+        return this.bve;
+    }
+
+    public void fG(int i) {
+        this.bve = i;
+    }
+
     public int Wd() {
-        return this.bva;
-    }
-
-    public void fH(int i) {
-        this.bva = i;
-    }
-
-    public int We() {
         return this.bvb;
     }
 
-    public void fI(int i) {
+    public void fH(int i) {
         this.bvb = i;
+    }
+
+    public int We() {
+        return this.bvc;
+    }
+
+    public void fI(int i) {
+        this.bvc = i;
     }
 
     public String getId() {
@@ -86,19 +86,19 @@ public class b {
     }
 
     public int Wf() {
-        return this.bvg;
-    }
-
-    public void fJ(int i) {
-        this.bvg = i;
-    }
-
-    public int Wg() {
         return this.bvh;
     }
 
-    public void fK(int i) {
+    public void fJ(int i) {
         this.bvh = i;
+    }
+
+    public int Wg() {
+        return this.bvi;
+    }
+
+    public void fK(int i) {
+        this.bvi = i;
     }
 
     public void setId(String str) {
@@ -106,102 +106,102 @@ public class b {
     }
 
     public void kT(String str) {
-        this.buP = str;
+        this.buQ = str;
     }
 
     public int Wh() {
-        return this.buQ;
-    }
-
-    public void fL(int i) {
-        this.buQ = i;
-    }
-
-    public int Wi() {
         return this.buR;
     }
 
-    public void fM(int i) {
+    public void fL(int i) {
         this.buR = i;
     }
 
-    public int Wj() {
-        return this.buU;
-    }
-
-    public void fN(int i) {
-        this.buU = i;
-    }
-
-    public int Wk() {
-        return this.buV;
-    }
-
-    public void fO(int i) {
-        this.buV = i;
-    }
-
-    public int Wl() {
+    public int Wi() {
         return this.buS;
     }
 
-    public void fP(int i) {
+    public void fM(int i) {
         this.buS = i;
     }
 
-    public int Wm() {
-        return this.buT;
+    public int Wj() {
+        return this.buV;
     }
 
-    public void fQ(int i) {
-        this.buT = i;
+    public void fN(int i) {
+        this.buV = i;
     }
 
-    public int Wn() {
-        return this.buX;
-    }
-
-    public int Wo() {
+    public int Wk() {
         return this.buW;
     }
 
-    public void fR(int i) {
+    public void fO(int i) {
         this.buW = i;
     }
 
-    public void fS(int i) {
-        this.buX = i;
+    public int Wl() {
+        return this.buT;
     }
 
-    public int Wp() {
-        return this.buZ;
+    public void fP(int i) {
+        this.buT = i;
     }
 
-    public void fT(int i) {
-        this.buZ = i;
+    public int Wm() {
+        return this.buU;
     }
 
-    public int Wq() {
+    public void fQ(int i) {
+        this.buU = i;
+    }
+
+    public int Wn() {
         return this.buY;
     }
 
-    public void fU(int i) {
+    public int Wo() {
+        return this.buX;
+    }
+
+    public void fR(int i) {
+        this.buX = i;
+    }
+
+    public void fS(int i) {
         this.buY = i;
     }
 
+    public int Wp() {
+        return this.bva;
+    }
+
+    public void fT(int i) {
+        this.bva = i;
+    }
+
+    public int Wq() {
+        return this.buZ;
+    }
+
+    public void fU(int i) {
+        this.buZ = i;
+    }
+
     public int Wr() {
-        return this.bvi;
-    }
-
-    public void fV(int i) {
-        this.bvi = i;
-    }
-
-    public int Ws() {
         return this.bvj;
     }
 
-    public void fW(int i) {
+    public void fV(int i) {
         this.bvj = i;
+    }
+
+    public int Ws() {
+        return this.bvk;
+    }
+
+    public void fW(int i) {
+        this.bvk = i;
     }
 }

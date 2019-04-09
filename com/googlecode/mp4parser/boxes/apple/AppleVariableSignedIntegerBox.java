@@ -22,10 +22,10 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleVariableSignedIntegerBox.java", AppleVariableSignedIntegerBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "int"), 19);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "int", "intLength", "", "void"), 23);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "long"), 27);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "long", UBC.CONTENT_KEY_VALUE, "", "void"), 31);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "int"), 19);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "int", "intLength", "", "void"), 23);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "long"), 27);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "long", UBC.CONTENT_KEY_VALUE, "", "void"), 31);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

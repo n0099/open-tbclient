@@ -115,8 +115,8 @@ public class c {
                                 com.baidu.swan.apps.performance.b.FH().ar(uuid, str2);
                                 return;
                             case 1:
-                                if (this.aoT != null) {
-                                    this.aoT.add(new UbcFlowEvent(str2));
+                                if (this.aoU != null) {
+                                    this.aoU.add(new UbcFlowEvent(str2));
                                     return;
                                 }
                                 return;
@@ -144,8 +144,8 @@ public class c {
                         @Override // com.baidu.swan.pms.a.e, com.baidu.swan.pms.a.b
                         public void ac(String str, String str2) {
                             super.ac(str, str2);
-                            if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoT != null) {
-                                this.aoT.add(new UbcFlowEvent(str2));
+                            if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoU != null) {
+                                this.aoU.add(new UbcFlowEvent(str2));
                             }
                         }
                     });
@@ -156,8 +156,8 @@ public class c {
                 @Override // com.baidu.swan.pms.a.e, com.baidu.swan.pms.a.b
                 public void ac(String str, String str2) {
                     super.ac(str, str2);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoT != null) {
-                        this.aoT.add(new UbcFlowEvent(str2));
+                    if (!TextUtils.isEmpty(str2) && TextUtils.equals(str, "770") && this.aoU != null) {
+                        this.aoU.add(new UbcFlowEvent(str2));
                     }
                 }
             });
@@ -171,9 +171,9 @@ public class c {
         com.baidu.swan.pms.b.d.a aVar2 = new com.baidu.swan.pms.b.d.a(cVar.mAppId, 0);
         if (!z && aVar != null) {
             aVar2.fh(aVar.versionCode);
-            aVar2.U(aVar.blP);
+            aVar2.U(aVar.blQ);
         }
-        String hG = y.hG(cVar.axL);
+        String hG = y.hG(cVar.axM);
         if (!TextUtils.isEmpty(hG)) {
             if (hG.startsWith(File.separator)) {
                 hG = hG.substring(1);
@@ -251,14 +251,14 @@ public class c {
 
     private static void a(com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.pms.model.a aVar, String str) {
         f fVar = new f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.aya);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.ayb);
         fVar.d(cVar);
         fVar.mType = "launch";
-        fVar.aSx = str;
+        fVar.aSy = str;
         if (aVar != null) {
             fVar.mAppVersion = String.valueOf(aVar.versionCode);
         }
-        String str2 = cVar.axK;
+        String str2 = cVar.axL;
         if (str2 != null) {
             String queryParameter = Uri.parse(str2).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {

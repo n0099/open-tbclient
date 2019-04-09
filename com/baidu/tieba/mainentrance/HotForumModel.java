@@ -8,8 +8,8 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class HotForumModel extends BdBaseModel {
-    private a gMR;
-    private List<b> gMS;
+    private a gMS;
+    private List<b> gMT;
     private HotSearchInfoData mHotSearchInfo;
     private com.baidu.adp.base.e mPageContext;
     private List<c> mTopicInfoList;
@@ -25,7 +25,7 @@ public class HotForumModel extends BdBaseModel {
     public HotForumModel(com.baidu.adp.base.e eVar, a aVar) {
         super(eVar);
         this.mPageContext = eVar;
-        this.gMR = aVar;
+        this.gMS = aVar;
         bBs();
     }
 
@@ -38,31 +38,31 @@ public class HotForumModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    HotForumModel.this.gMR.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
+                    HotForumModel.this.gMS.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    HotForumModel.this.gMR.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
+                    HotForumModel.this.gMS.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        HotForumModel.this.gMR.yi(responsedMessage.getErrorString());
+                        HotForumModel.this.gMS.yi(responsedMessage.getErrorString());
                     } else {
-                        HotForumModel.this.gMR.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
+                        HotForumModel.this.gMS.yi(HotForumModel.this.mPageContext.getString(d.j.neterror));
                     }
                 } else {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
-                        HotForumModel.this.gMS = hotForumHttpResponseMessage.getForumInfoList();
+                        HotForumModel.this.gMT = hotForumHttpResponseMessage.getForumInfoList();
                         HotForumModel.this.mTopicInfoList = hotForumHttpResponseMessage.getTopicInfoList();
                         HotForumModel.this.mHotSearchInfo = hotForumHttpResponseMessage.getHotSearchInfo();
                         HotForumModel.this.mTopicInfoTitle = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        HotForumModel.this.gMR.a(HotForumModel.this.gMS, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
+                        HotForumModel.this.gMS.a(HotForumModel.this.gMT, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
                     }
                     if (responsedMessage instanceof HotForumSocketResponseMessage) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
-                        HotForumModel.this.gMS = hotForumSocketResponseMessage.getForumInfoList();
+                        HotForumModel.this.gMT = hotForumSocketResponseMessage.getForumInfoList();
                         HotForumModel.this.mTopicInfoList = hotForumSocketResponseMessage.getTopicInfoList();
                         HotForumModel.this.mHotSearchInfo = hotForumSocketResponseMessage.getSearchInfo();
                         HotForumModel.this.mTopicInfoTitle = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        HotForumModel.this.gMR.a(HotForumModel.this.gMS, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
+                        HotForumModel.this.gMS.a(HotForumModel.this.gMT, HotForumModel.this.mTopicInfoList, HotForumModel.this.mHotSearchInfo, HotForumModel.this.mTopicInfoTitle);
                     }
                 }
             }

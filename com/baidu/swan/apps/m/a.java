@@ -19,11 +19,11 @@ public final class a {
         if (aVar != null && aVar2 != null) {
             e.as("postMessage", "dispatchJSEvent start.");
             if (aVar.xR()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.avm);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.avn);
                 n = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.avm);
+                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.avn);
             }
             final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.eC(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
             e.as("postMessage", "dispatchJSEvent buildEvent");

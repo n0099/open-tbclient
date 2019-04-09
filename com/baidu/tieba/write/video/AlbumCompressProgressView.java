@@ -9,11 +9,11 @@ import android.view.View;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class AlbumCompressProgressView extends View {
-    private int amc;
-    private int bFn;
-    private Paint bFo;
+    private int amd;
+    private int bFo;
     private Paint bFp;
-    private RectF bFq;
+    private Paint bFq;
+    private RectF bFr;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class AlbumCompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(d.e.ds100);
-        this.amc = getResources().getDimensionPixelSize(d.e.ds4);
-        this.bFn = getResources().getDimensionPixelSize(d.e.ds2);
-        this.bFo = new Paint();
-        this.bFo.setStrokeWidth(this.amc);
-        this.bFo.setColor(getResources().getColor(d.C0277d.cp_bg_line_d));
-        this.bFo.setStyle(Paint.Style.STROKE);
-        this.bFo.setAntiAlias(true);
+        this.amd = getResources().getDimensionPixelSize(d.e.ds4);
+        this.bFo = getResources().getDimensionPixelSize(d.e.ds2);
         this.bFp = new Paint();
-        this.bFp.setStrokeWidth(this.bFn);
-        this.bFp.setColor(getResources().getColor(d.C0277d.cp_btn_a));
+        this.bFp.setStrokeWidth(this.amd);
+        this.bFp.setColor(getResources().getColor(d.C0277d.cp_bg_line_d));
         this.bFp.setStyle(Paint.Style.STROKE);
         this.bFp.setAntiAlias(true);
-        this.bFq = new RectF(this.amc, this.amc, this.mWidth + this.amc, this.mWidth + this.amc);
+        this.bFq = new Paint();
+        this.bFq.setStrokeWidth(this.bFo);
+        this.bFq.setColor(getResources().getColor(d.C0277d.cp_btn_a));
+        this.bFq.setStyle(Paint.Style.STROKE);
+        this.bFq.setAntiAlias(true);
+        this.bFr = new RectF(this.amd, this.amd, this.mWidth + this.amd, this.mWidth + this.amd);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.bFq, 270.0f, 360.0f, false, this.bFp);
-        canvas.drawArc(this.bFq, 270.0f, (this.mValue * 360) / 100, false, this.bFo);
+        canvas.drawArc(this.bFr, 270.0f, 360.0f, false, this.bFq);
+        canvas.drawArc(this.bFr, 270.0f, (this.mValue * 360) / 100, false, this.bFp);
     }
 }

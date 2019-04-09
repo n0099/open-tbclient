@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class g implements e<com.baidu.tieba.channel.data.d> {
-    private ImageView eoL;
-    private h epk;
-    public TextView epl;
-    private boolean epm = false;
+    private ImageView eoM;
+    private h epl;
+    public TextView epm;
+    private boolean epn = false;
     private boolean isHost;
     private Context mContext;
     private NavigationBar mNavigationBar;
@@ -22,10 +22,10 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     public g(Context context, NavigationBar navigationBar, final com.baidu.tieba.channel.view.b bVar) {
         this.mContext = context;
         this.mNavigationBar = navigationBar;
-        this.epl = this.mNavigationBar.setCenterTextTitle("");
+        this.epm = this.mNavigationBar.setCenterTextTitle("");
         this.mNavigationBar.showBottomLine(false);
-        this.eoL = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
-        this.eoL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.1
+        this.eoM = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
+        this.eoM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (bVar != null) {
@@ -37,11 +37,11 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, com.baidu.tieba.channel.view.b bVar) {
-        if (this.epk == null) {
+        if (this.epl == null) {
             this.isHost = z;
-            this.epk = z ? new b(this, this.mContext, this.mNavigationBar) : new a(this, this.mContext, this.mNavigationBar);
-            if (this.epk != null) {
-                this.epk.a(z, bVar);
+            this.epl = z ? new b(this, this.mContext, this.mNavigationBar) : new a(this, this.mContext, this.mNavigationBar);
+            if (this.epl != null) {
+                this.epl.a(z, bVar);
             }
         }
     }
@@ -51,9 +51,9 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     /* renamed from: c */
     public void am(com.baidu.tieba.channel.data.d dVar) {
         if (dVar != null && dVar.aRq() != null) {
-            this.epl.setText(dVar.aRq().getChannelName());
-            if (this.epk != null) {
-                this.epk.am(dVar);
+            this.epm.setText(dVar.aRq().getChannelName());
+            if (this.epl != null) {
+                this.epl.am(dVar);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -62,7 +62,7 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
     @Override // com.baidu.tieba.channel.view.e
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(null, i);
-        if (this.epk != null) {
+        if (this.epl != null) {
             this.mNavigationBar.getTopCoverBgView().setVisibility(0);
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
             al.l(this.mNavigationBar.getBarBgView(), d.C0277d.cp_bg_line_d);
@@ -74,24 +74,24 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         aRH();
         aRF();
         aRG();
-        if (this.epk != null) {
-            this.epk.b(aRI(), this.mNavigationBar.getBarBgView().getAlpha());
+        if (this.epl != null) {
+            this.epl.b(aRI(), this.mNavigationBar.getBarBgView().getAlpha());
         }
     }
 
     private void aRF() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (aRI()) {
-            this.epl.setVisibility(0);
-            al.c(this.epl, d.C0277d.cp_cont_b, d.C0277d.s_navbar_title_color);
-            this.epl.setAlpha(alpha);
+            this.epm.setVisibility(0);
+            al.c(this.epm, d.C0277d.cp_cont_b, d.C0277d.s_navbar_title_color);
+            this.epm.setAlpha(alpha);
             return;
         }
-        this.epl.setVisibility(8);
+        this.epm.setVisibility(8);
     }
 
     public void oB(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.epl.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.epm.getLayoutParams();
         if (layoutParams.leftMargin != i) {
             layoutParams.leftMargin = i;
             layoutParams.rightMargin = i;
@@ -100,11 +100,11 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     private void aRG() {
         if (aRI()) {
-            al.a(this.eoL, d.f.icon_return_bg_s, d.f.icon_return_bg_s);
+            al.a(this.eoM, d.f.icon_return_bg_s, d.f.icon_return_bg_s);
         } else {
-            al.a(this.eoL, d.f.icon_return_bg, d.f.icon_return_bg);
+            al.a(this.eoM, d.f.icon_return_bg, d.f.icon_return_bg);
         }
-        bB(this.eoL);
+        bB(this.eoM);
     }
 
     private void G(int i, int i2, int i3) {
@@ -125,17 +125,17 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     private void aRH() {
         if (2 == TbadkCoreApplication.getInst().getSkinType()) {
-            this.epm = false;
+            this.epn = false;
         } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-            this.epm = false;
+            this.epn = false;
         } else {
-            this.epm = true;
+            this.epn = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aRI() {
-        return this.epm;
+        return this.epn;
     }
 
     public void bB(View view) {
@@ -153,32 +153,32 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
 
     /* loaded from: classes6.dex */
     public static class a implements h<com.baidu.tieba.channel.data.d> {
-        private ImageView dFJ;
-        private g epo;
-        private TextView epp;
-        private boolean epq = false;
+        private ImageView dFK;
+        private g epp;
+        private TextView epq;
+        private boolean epr = false;
         private Context mContext;
         private NavigationBar mNavigationBar;
 
         public a(g gVar, Context context, NavigationBar navigationBar) {
             this.mContext = context;
             this.mNavigationBar = navigationBar;
-            this.epo = gVar;
+            this.epp = gVar;
         }
 
         @Override // com.baidu.tieba.channel.view.e
         public void a(boolean z, final com.baidu.tieba.channel.view.b bVar) {
-            this.epp = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_subscriber_btn, (View.OnClickListener) null).findViewById(d.g.channel_nav_right_sub_btn);
-            this.dFJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
-            this.epp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.1
+            this.epq = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_subscriber_btn, (View.OnClickListener) null).findViewById(d.g.channel_nav_right_sub_btn);
+            this.dFK = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
+            this.epq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bVar != null) {
-                        bVar.a(a.this.epq ? 17 : 5, view, null, -1);
+                        bVar.a(a.this.epr ? 17 : 5, view, null, -1);
                     }
                 }
             });
-            this.dFJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.2
+            this.dFK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.g.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bVar != null) {
@@ -193,8 +193,8 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         /* renamed from: c */
         public void am(com.baidu.tieba.channel.data.d dVar) {
             if (dVar != null && dVar.aRq() != null) {
-                this.epq = dVar.aRq().isSubscribe();
-                b(this.epo.aRI(), this.mNavigationBar.getBarBgView().getAlpha());
+                this.epr = dVar.aRq().isSubscribe();
+                b(this.epp.aRI(), this.mNavigationBar.getBarBgView().getAlpha());
             }
         }
 
@@ -205,19 +205,19 @@ public class g implements e<com.baidu.tieba.channel.data.d> {
         @Override // com.baidu.tieba.channel.view.h
         public void b(boolean z, float f) {
             c(z, f);
-            this.epp.setVisibility(8);
-            this.epo.oB(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
+            this.epq.setVisibility(8);
+            this.epp.oB(this.mContext.getResources().getDimensionPixelSize(d.e.ds60));
         }
 
         private void c(boolean z, float f) {
-            if (this.dFJ != null) {
+            if (this.dFK != null) {
                 if (z) {
-                    al.a(this.dFJ, d.f.icon_more_bg_s, d.f.icon_more_bg_s);
+                    al.a(this.dFK, d.f.icon_more_bg_s, d.f.icon_more_bg_s);
                 } else {
-                    al.a(this.dFJ, d.f.icon_more_bg, d.f.icon_more_bg);
+                    al.a(this.dFK, d.f.icon_more_bg, d.f.icon_more_bg);
                 }
-                this.dFJ.setVisibility(0);
-                this.epo.bB(this.dFJ);
+                this.dFK.setVisibility(0);
+                this.epp.bB(this.dFK);
             }
         }
     }

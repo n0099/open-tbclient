@@ -133,7 +133,7 @@ public class AACTrackImpl extends AbstractTrack {
         double size;
         this.samples = new ArrayList();
         this.firstHeader = readSamples(dataSource);
-        double d = this.firstHeader.aAS / 1024.0d;
+        double d = this.firstHeader.aAT / 1024.0d;
         double size2 = this.samples.size() / d;
         LinkedList linkedList = new LinkedList();
         long j = 0;
@@ -163,12 +163,12 @@ public class AACTrackImpl extends AbstractTrack {
         this.bufferSizeDB = 1536;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        if (this.firstHeader.jQz == 7) {
+        if (this.firstHeader.jQA == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
-            audioSampleEntry.setChannelCount(this.firstHeader.jQz);
+            audioSampleEntry.setChannelCount(this.firstHeader.jQA);
         }
-        audioSampleEntry.setSampleRate(this.firstHeader.aAS);
+        audioSampleEntry.setSampleRate(this.firstHeader.aAT);
         audioSampleEntry.setDataReferenceIndex(1);
         audioSampleEntry.setSampleSize(16);
         ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -185,8 +185,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.jQw);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.jQz);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.jQx);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.jQA);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -198,7 +198,7 @@ public class AACTrackImpl extends AbstractTrack {
         this.trackMetaData.setModificationTime(new Date());
         this.trackMetaData.setLanguage(this.lang);
         this.trackMetaData.setVolume(1.0f);
-        this.trackMetaData.setTimescale(this.firstHeader.aAS);
+        this.trackMetaData.setTimescale(this.firstHeader.aAT);
         this.decTimes = new long[this.samples.size()];
         Arrays.fill(this.decTimes, 1024L);
     }
@@ -256,7 +256,7 @@ public class AACTrackImpl extends AbstractTrack {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class a {
-        int aAS;
+        int aAT;
         int home;
         int jQA;
         int jQB;
@@ -264,7 +264,7 @@ public class AACTrackImpl extends AbstractTrack {
         int jQD;
         int jQE;
         int jQF;
-        int jQw;
+        int jQG;
         int jQx;
         int jQy;
         int jQz;
@@ -275,7 +275,7 @@ public class AACTrackImpl extends AbstractTrack {
         }
 
         int getSize() {
-            return (this.jQy == 0 ? 2 : 0) + 7;
+            return (this.jQz == 0 ? 2 : 0) + 7;
         }
     }
 
@@ -291,25 +291,25 @@ public class AACTrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(12) != 4095) {
             throw new IOException("Expected Start Word 0xfff");
         }
-        aVar.jQx = bitReaderBuffer.readBits(1);
-        aVar.layer = bitReaderBuffer.readBits(2);
         aVar.jQy = bitReaderBuffer.readBits(1);
+        aVar.layer = bitReaderBuffer.readBits(2);
+        aVar.jQz = bitReaderBuffer.readBits(1);
         aVar.profile = bitReaderBuffer.readBits(2) + 1;
-        aVar.jQw = bitReaderBuffer.readBits(4);
-        aVar.aAS = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.jQw)).intValue();
+        aVar.jQx = bitReaderBuffer.readBits(4);
+        aVar.aAT = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.jQx)).intValue();
         bitReaderBuffer.readBits(1);
-        aVar.jQz = bitReaderBuffer.readBits(3);
-        aVar.jQA = bitReaderBuffer.readBits(1);
-        aVar.home = bitReaderBuffer.readBits(1);
+        aVar.jQA = bitReaderBuffer.readBits(3);
         aVar.jQB = bitReaderBuffer.readBits(1);
+        aVar.home = bitReaderBuffer.readBits(1);
         aVar.jQC = bitReaderBuffer.readBits(1);
-        aVar.jQD = bitReaderBuffer.readBits(13);
-        aVar.jQE = bitReaderBuffer.readBits(11);
-        aVar.jQF = bitReaderBuffer.readBits(2) + 1;
-        if (aVar.jQF != 1) {
+        aVar.jQD = bitReaderBuffer.readBits(1);
+        aVar.jQE = bitReaderBuffer.readBits(13);
+        aVar.jQF = bitReaderBuffer.readBits(11);
+        aVar.jQG = bitReaderBuffer.readBits(2) + 1;
+        if (aVar.jQG != 1) {
             throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
         }
-        if (aVar.jQy == 0) {
+        if (aVar.jQz == 0) {
             dataSource.read(ByteBuffer.allocate(2));
         }
         return aVar;
@@ -323,9 +323,9 @@ public class AACTrackImpl extends AbstractTrack {
                 if (aVar == null) {
                     aVar = readADTSHeader;
                 }
-                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.jQD - readADTSHeader.getSize());
+                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.jQE - readADTSHeader.getSize());
                 this.samples.add(new SampleImpl(map));
-                dataSource.position((dataSource.position() + readADTSHeader.jQD) - readADTSHeader.getSize());
+                dataSource.position((dataSource.position() + readADTSHeader.jQE) - readADTSHeader.getSize());
                 map.rewind();
             } else {
                 return aVar;
@@ -334,6 +334,6 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.aAS + ", channelconfig=" + this.firstHeader.jQz + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.aAT + ", channelconfig=" + this.firstHeader.jQA + '}';
     }
 }

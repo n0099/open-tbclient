@@ -26,12 +26,12 @@ public final class BitRateBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("BitRateBox.java", BitRateBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
     }
 
     public BitRateBox() {

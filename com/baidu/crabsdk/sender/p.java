@@ -7,11 +7,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class p implements Runnable {
-    final /* synthetic */ Context acD;
+    final /* synthetic */ Context acE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(Context context) {
-        this.acD = context;
+        this.acE = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b6 A[Catch: Exception -> 0x00ba, TRY_LEAVE, TryCatch #4 {Exception -> 0x00ba, blocks: (B:34:0x00b1, B:36:0x00b6), top: B:53:0x00b1, outer: #7 }] */

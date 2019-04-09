@@ -20,21 +20,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private WrapLineLayout eXu;
-    private List<a> eXv;
+    private WrapLineLayout eXv;
+    private List<a> eXw;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eXv = new ArrayList();
+        this.eXw = new ArrayList();
         this.mSkinType = 3;
-        this.eXu = (WrapLineLayout) getView();
+        this.eXv = (WrapLineLayout) getView();
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            for (a aVar : this.eXv) {
+            for (a aVar : this.eXw) {
                 if (aVar != null) {
                     aVar.onChangeSkinType();
                 }
@@ -53,9 +53,9 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
         if (aVar != null && !v.T(aVar.bbx())) {
             pM(aVar.bbx().size());
-            int size = this.eXv.size();
+            int size = this.eXw.size();
             for (int i = 0; i < size; i++) {
-                a aVar2 = this.eXv.get(i);
+                a aVar2 = this.eXw.get(i);
                 if (aVar2 != null) {
                     aVar2.iQ(false);
                     aVar2.mTextView.setText(aVar.bbx().get(i));
@@ -66,7 +66,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     }
 
     private void pM(int i) {
-        int size = this.eXv.size();
+        int size = this.eXw.size();
         if (size != i) {
             if (size < i) {
                 int i2 = i - size;
@@ -75,17 +75,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                     marginLayoutParams.topMargin = l.h(TbadkCoreApplication.getInst(), d.e.ds2);
                     marginLayoutParams.leftMargin = marginLayoutParams.topMargin;
-                    this.eXu.addView(bbC.getView(), marginLayoutParams);
-                    this.eXv.add(bbC);
+                    this.eXv.addView(bbC.getView(), marginLayoutParams);
+                    this.eXw.add(bbC);
                 }
             } else if (i == 0) {
-                this.eXu.removeAllViews();
-                this.eXv.clear();
+                this.eXv.removeAllViews();
+                this.eXw.clear();
             } else if (size > i) {
                 int i4 = size - i;
                 for (int i5 = 0; i5 < i4; i5++) {
-                    this.eXu.removeView(this.eXv.get(i5).getView());
-                    this.eXv.remove(i5);
+                    this.eXv.removeView(this.eXw.get(i5).getView());
+                    this.eXw.remove(i5);
                 }
             }
         }
@@ -98,19 +98,19 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a {
-        private ImageView eXd;
+        private ImageView eXe;
         private View mRootView;
         private TextView mTextView;
 
         public a() {
             this.mRootView = LayoutInflater.from(b.this.getTbPageContext().getPageActivity()).inflate(d.h.forum_search_history_info_item, (ViewGroup) null);
             this.mTextView = (TextView) this.mRootView.findViewById(d.g.content);
-            this.eXd = (ImageView) this.mRootView.findViewById(d.g.delete);
+            this.eXe = (ImageView) this.mRootView.findViewById(d.g.delete);
             onChangeSkinType();
             this.mTextView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    for (a aVar : b.this.eXv) {
+                    for (a aVar : b.this.eXw) {
                         if (aVar != null && aVar.getView() != view) {
                             aVar.iQ(false);
                         }
@@ -127,7 +127,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                     }
                 }
             });
-            this.eXd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.3
+            this.eXe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.mTextView.getText() != null) {
@@ -144,17 +144,17 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
         public void iQ(boolean z) {
             if (z) {
-                this.eXd.setVisibility(0);
-                al.c(this.eXd, d.f.del_search_btn);
+                this.eXe.setVisibility(0);
+                al.c(this.eXe, d.f.del_search_btn);
                 return;
             }
-            this.eXd.setVisibility(4);
+            this.eXe.setVisibility(4);
         }
 
         public void onChangeSkinType() {
             al.j(this.mTextView, d.C0277d.cp_cont_b);
             al.k(this.mTextView, d.f.search_history_item_bg);
-            al.c(this.eXd, d.f.del_search_btn);
+            al.c(this.eXe, d.f.del_search_btn);
         }
     }
 

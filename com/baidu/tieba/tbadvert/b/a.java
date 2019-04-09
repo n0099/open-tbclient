@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a iJO;
-    private InterfaceC0393a iJP;
-    private InterfaceC0393a iJQ = new InterfaceC0393a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a iJP;
+    private InterfaceC0393a iJQ;
+    private InterfaceC0393a iJR = new InterfaceC0393a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0393a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.iJO = aVar;
-            if (a.this.iJP != null) {
-                a.this.iJP.a(aVar);
+            a.this.iJP = aVar;
+            if (a.this.iJQ != null) {
+                a.this.iJQ.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0393a
         public void aw(Object obj) {
-            if (a.this.iJP != null) {
-                a.this.iJP.aw(obj);
+            if (a.this.iJQ != null) {
+                a.this.iJQ.aw(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0393a
         public void cfI() {
-            a.this.iJO = null;
-            if (a.this.iJP != null) {
-                a.this.iJP.cfI();
+            a.this.iJP = null;
+            if (a.this.iJQ != null) {
+                a.this.iJQ.cfI();
             }
         }
     };
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> iJR = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> iJS = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.oy() == null) {
-                if (a.this.iJP != null) {
-                    a.this.iJP.cfI();
+                if (a.this.iJQ != null) {
+                    a.this.iJQ.cfI();
                 }
-            } else if (a.this.iJP != null) {
-                a.this.iJP.aw(aVar);
+            } else if (a.this.iJQ != null) {
+                a.this.iJQ.aw(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.f.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.iJP != null) {
-                a.this.iJP.cfI();
+            if (a.this.iJQ != null) {
+                a.this.iJQ.cfI();
             }
         }
     };
@@ -72,17 +72,17 @@ public class a {
     }
 
     public void cfM() {
-        b bVar = new b(this.iJQ);
+        b bVar = new b(this.iJR);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
     public com.baidu.tieba.tbadvert.a.b cfN() {
-        if (this.iJO == null || v.T(this.iJO.iJL)) {
+        if (this.iJP == null || v.T(this.iJP.iJM)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.iJO.iJL) {
-            if (bVar != null && bVar.cfL() && bVar.bCj == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.iJP.iJM) {
+            if (bVar != null && bVar.cfL() && bVar.bCk == 3) {
                 return bVar;
             }
         }
@@ -91,19 +91,19 @@ public class a {
 
     public void cfO() {
         com.baidu.tieba.tbadvert.a.b cfN = cfN();
-        if (cfN != null && !TextUtils.isEmpty(cfN.iJN)) {
-            h(cfN.showType, cfN.iJN, true);
-        } else if (this.iJP != null) {
-            this.iJP.cfI();
+        if (cfN != null && !TextUtils.isEmpty(cfN.iJO)) {
+            h(cfN.showType, cfN.iJO, true);
+        } else if (this.iJQ != null) {
+            this.iJQ.cfI();
         }
     }
 
     public void cfP() {
-        if (this.iJO != null && !v.T(this.iJO.iJL)) {
+        if (this.iJP != null && !v.T(this.iJP.iJM)) {
             com.baidu.tieba.tbadvert.a.b cfN = cfN();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.iJO.iJL) {
-                if (bVar != null && bVar != cfN && bVar.cfL() && bVar.bCj != 4) {
-                    h(bVar.showType, bVar.iJN, false);
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.iJP.iJM) {
+                if (bVar != null && bVar != cfN && bVar.cfL() && bVar.bCk != 4) {
+                    h(bVar.showType, bVar.iJO, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void h(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.jB().a(str, 10, this.iJR, null);
+                c.jB().a(str, 10, this.iJS, null);
             } else {
                 c.jB().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0393a interfaceC0393a) {
-        this.iJP = interfaceC0393a;
+        this.iJQ = interfaceC0393a;
     }
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0393a iJP;
+        private InterfaceC0393a iJQ;
 
         public b(InterfaceC0393a interfaceC0393a) {
-            this.iJP = interfaceC0393a;
+            this.iJQ = interfaceC0393a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,11 +149,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.iJP != null) {
+            if (this.iJQ != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.iJP.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.iJQ.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.iJP.cfI();
+                    this.iJQ.cfI();
                 }
             }
         }

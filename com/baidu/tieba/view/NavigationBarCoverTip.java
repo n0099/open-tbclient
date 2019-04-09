@@ -17,7 +17,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     private View fcY;
     private Animation fvo;
     private Animation fvp;
-    private a jij;
+    private a jik;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
@@ -68,8 +68,8 @@ public class NavigationBarCoverTip extends LinearLayout {
         this.fvo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.jij != null) {
-                    NavigationBarCoverTip.this.jij.Ra();
+                if (NavigationBarCoverTip.this.jik != null) {
+                    NavigationBarCoverTip.this.jik.Ra();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -92,8 +92,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.jij != null) {
-                    NavigationBarCoverTip.this.jij.onHide();
+                if (NavigationBarCoverTip.this.jik != null) {
+                    NavigationBarCoverTip.this.jik.onHide();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -171,6 +171,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.jij = aVar;
+        this.jik = aVar;
     }
 }

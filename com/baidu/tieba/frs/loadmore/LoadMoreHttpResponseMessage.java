@@ -65,7 +65,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bgVar.a(list2.get(i3));
                             bgVar.setCurrentPage(3);
                             bgVar.ZE();
-                            bgVar.bDI = isBrandForum;
+                            bgVar.bDJ = isBrandForum;
                             if (!TextUtils.isEmpty(bgVar.ZQ())) {
                                 ad adVar = new ad();
                                 adVar.lb(bgVar.ZQ());

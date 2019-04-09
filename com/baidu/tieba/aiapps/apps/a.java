@@ -9,7 +9,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static SharedPreferences cQU = null;
+    private static SharedPreferences cQV = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -21,10 +21,10 @@ public class a {
     }
 
     private static SharedPreferences dy(Context context) {
-        if (cQU == null) {
-            cQU = context.getSharedPreferences("downgradefile", 0);
+        if (cQV == null) {
+            cQV = context.getSharedPreferences("downgradefile", 0);
         }
-        return cQU;
+        return cQV;
     }
 
     private int dz(Context context) {

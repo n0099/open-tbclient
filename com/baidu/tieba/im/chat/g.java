@@ -18,7 +18,7 @@ import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
-    protected TextView eKM;
+    protected TextView eKN;
     private Calendar gbD;
     protected long gbE;
     protected Long gbF;
@@ -103,7 +103,7 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.eKM = (TextView) findViewById(d.g.tex_msgitem_time);
+        this.eKN = (TextView) findViewById(d.g.tex_msgitem_time);
         this.gbG = (TbRichTextView) findViewById(d.g.tex_msgitem_text);
         this.gbG.setLinkTextColor(-14845754);
         this.gbN = (ChatImageWithTailView) findViewById(d.g.img_msgitem_image);
@@ -241,10 +241,10 @@ public class g extends com.baidu.adp.base.b<MsglistActivity<?>> {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
         boolean cV = cV(chatMessage.getTime());
         if (z || cV) {
-            this.eKM.setVisibility(0);
-            this.eKM.setText(cW(chatMessage.getTime()));
+            this.eKN.setVisibility(0);
+            this.eKN.setText(cW(chatMessage.getTime()));
         } else {
-            this.eKM.setVisibility(8);
+            this.eKN.setVisibility(8);
         }
         if (!z && cV) {
             MsgCacheData cacheData = chatMessage.getCacheData();

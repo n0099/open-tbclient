@@ -13,7 +13,7 @@ import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private View bub;
+    private View buc;
     private BdListView fsx;
     private NavigationBar gdA;
     private d gdB;
@@ -28,12 +28,12 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     }
 
     private void initView() {
-        this.bub = View.inflate(this.mContext.getPageContext().getContext(), d.h.official_bar_history_activity, null);
-        this.mContext.getPageContext().getPageActivity().setContentView(this.bub);
-        this.gdA = (NavigationBar) this.bub.findViewById(d.g.view_navigation_bar);
+        this.buc = View.inflate(this.mContext.getPageContext().getContext(), d.h.official_bar_history_activity, null);
+        this.mContext.getPageContext().getPageActivity().setContentView(this.buc);
+        this.gdA = (NavigationBar) this.buc.findViewById(d.g.view_navigation_bar);
         this.gdA.setTitleText(d.j.officical_bar_info_history);
         this.gdA.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.fsx = (BdListView) this.bub.findViewById(d.g.bar_history_list);
+        this.fsx = (BdListView) this.buc.findViewById(d.g.bar_history_list);
         this.gdB = new d(this.mContext, this.mContext.getPageContext().getContext());
         this.fsx.setAdapter((ListAdapter) this.gdB);
         this.gdC = View.inflate(this.mContext.getPageContext().getContext(), d.h.official_bar_history_item_occupy, null);
@@ -48,7 +48,7 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
 
     public void onChangeSkinType(int i) {
         this.mContext.getLayoutMode().setNightMode(i == 1);
-        this.mContext.getLayoutMode().onModeChanged(this.bub);
+        this.mContext.getLayoutMode().onModeChanged(this.buc);
         this.gdA.onChangeSkinType(this.mContext.getPageContext(), i);
     }
 
@@ -69,7 +69,7 @@ public class e extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
     public void cF(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.bub, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.hT(d.j.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.mContext.getPageContext().getPageActivity(), this.buc, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.hT(d.j.no_data_text), null);
             }
             this.mNoDataView.onChangeSkinType(this.mContext.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);

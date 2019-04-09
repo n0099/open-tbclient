@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends v.a {
-    public int bUM;
-    public RelativeLayout bUQ;
-    public TextView bUR;
-    public IndicatorView bUS;
-    public View bUT;
-    public BdBaseViewPager bUU;
+    public int bUN;
+    public RelativeLayout bUR;
+    public TextView bUS;
+    public IndicatorView bUT;
+    public View bUU;
+    public BdBaseViewPager bUV;
     public TextView title;
 
     public a(View view, Context context) {
         super(view);
-        this.bUM = 3;
+        this.bUN = 3;
         this.title = null;
-        this.bUR = null;
         this.bUS = null;
         this.bUT = null;
         this.bUU = null;
-        this.bUQ = (RelativeLayout) view.findViewById(d.g.top_area);
+        this.bUV = null;
+        this.bUR = (RelativeLayout) view.findViewById(d.g.top_area);
         this.title = (TextView) view.findViewById(d.g.theme_title);
-        this.bUR = (TextView) view.findViewById(d.g.more_textview);
-        this.bUS = (IndicatorView) view.findViewById(d.g.tab_indicator);
-        this.bUT = view.findViewById(d.g.bottom_divider_line);
-        this.bUU = (BdBaseViewPager) view.findViewById(d.g.bd_base_view_pager);
+        this.bUS = (TextView) view.findViewById(d.g.more_textview);
+        this.bUT = (IndicatorView) view.findViewById(d.g.tab_indicator);
+        this.bUU = view.findViewById(d.g.bottom_divider_line);
+        this.bUV = (BdBaseViewPager) view.findViewById(d.g.bd_base_view_pager);
     }
 }

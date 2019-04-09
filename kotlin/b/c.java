@@ -3,8 +3,8 @@ package kotlin.b;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public final class c extends kotlin.b.a {
-    public static final a jSh = new a(null);
-    private static final c jSg = new c(1, 0);
+    public static final a jSi = new a(null);
+    private static final c jSh = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
@@ -51,7 +51,7 @@ public final class c extends kotlin.b.a {
         }
 
         public final c cCC() {
-            return c.jSg;
+            return c.jSh;
         }
     }
 }

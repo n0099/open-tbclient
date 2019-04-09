@@ -18,32 +18,32 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public SwanCoreVersion atu;
-    public ExtensionCore atv;
-    public String axK;
+    public SwanCoreVersion atv;
+    public ExtensionCore atw;
     public String axL;
-    private Bundle axT;
-    public String axU;
-    public boolean axV;
-    public String axW;
-    public String axZ;
-    public int ayc;
-    public String ayf;
-    public int ayi;
+    public String axM;
+    private Bundle axU;
+    public String axV;
+    public boolean axW;
+    public String axX;
+    public String aya;
+    public int ayd;
+    public String ayg;
+    public int ayj;
     public String mAppId;
     public String mFrom;
-    public int aya = 0;
-    public int ayh = 0;
+    public int ayb = 0;
+    public int ayi = 0;
 
     public void al(String str, String str2) {
         DA().putString(str, str2);
     }
 
     public Bundle DA() {
-        if (this.axT == null) {
-            this.axT = new Bundle();
+        if (this.axU == null) {
+            this.axU = new Bundle();
         }
-        return this.axT;
+        return this.axU;
     }
 
     public static Intent c(Context context, c cVar) {
@@ -58,29 +58,29 @@ public class c {
         }
         intent.putExtra("mAppId", cVar.mAppId);
         intent.putExtra("mFrom", cVar.mFrom);
-        intent.putExtra("mPage", cVar.axL);
-        intent.putExtra("mIsDebug", cVar.axV);
-        intent.putExtra("mExtraData", cVar.axT);
-        intent.putExtra("notInHistory", cVar.axW);
-        if (!TextUtils.isEmpty(cVar.axK)) {
-            intent.putExtra("launchScheme", cVar.axK);
-        }
-        if (cVar.atu != null) {
-            intent.putExtra("swanCoreVersion", cVar.atu);
+        intent.putExtra("mPage", cVar.axM);
+        intent.putExtra("mIsDebug", cVar.axW);
+        intent.putExtra("mExtraData", cVar.axU);
+        intent.putExtra("notInHistory", cVar.axX);
+        if (!TextUtils.isEmpty(cVar.axL)) {
+            intent.putExtra("launchScheme", cVar.axL);
         }
         if (cVar.atv != null) {
-            intent.putExtra("extensionCore", cVar.atv);
+            intent.putExtra("swanCoreVersion", cVar.atv);
         }
-        if (!TextUtils.isEmpty(cVar.axZ)) {
-            intent.putExtra("targetSwanVersion", cVar.axZ);
+        if (cVar.atw != null) {
+            intent.putExtra("extensionCore", cVar.atw);
         }
-        if (!TextUtils.isEmpty(cVar.axU)) {
-            intent.putExtra("mClickId", cVar.axU);
+        if (!TextUtils.isEmpty(cVar.aya)) {
+            intent.putExtra("targetSwanVersion", cVar.aya);
         }
-        intent.putExtra("launchFlags", cVar.ayc);
-        intent.putExtra("swanCoreFallbackCount", cVar.ayi);
-        intent.putExtra("appFrameType", cVar.aya);
-        intent.putExtra("appFrameOrientation", cVar.ayh);
+        if (!TextUtils.isEmpty(cVar.axV)) {
+            intent.putExtra("mClickId", cVar.axV);
+        }
+        intent.putExtra("launchFlags", cVar.ayd);
+        intent.putExtra("swanCoreFallbackCount", cVar.ayj);
+        intent.putExtra("appFrameType", cVar.ayb);
+        intent.putExtra("appFrameOrientation", cVar.ayi);
         return intent;
     }
 
@@ -91,31 +91,31 @@ public class c {
         c cVar = new c();
         cVar.mAppId = m.a(intent, "mAppId");
         cVar.mFrom = m.a(intent, "mFrom");
-        cVar.axL = m.a(intent, "mPage");
-        cVar.axV = m.a(intent, "mIsDebug", false);
-        cVar.axT = m.b(intent, "mExtraData");
-        cVar.axK = m.a(intent, "launchScheme");
-        cVar.axW = m.a(intent, "notInHistory");
-        cVar.atu = (SwanCoreVersion) m.c(intent, "swanCoreVersion");
-        cVar.atv = (ExtensionCore) m.c(intent, "extensionCore");
-        cVar.axZ = m.a(intent, "targetSwanVersion");
-        cVar.ayf = m.a(intent, "remoteDebugUrl");
-        cVar.axU = m.a(intent, "mClickId");
-        cVar.ayc = m.a(intent, "launchFlags", 0);
-        cVar.ayi = m.a(intent, "swanCoreFallbackCount", 0);
-        cVar.aya = m.a(intent, "appFrameType", 0);
-        cVar.ayh = m.a(intent, "appFrameOrientation", 0);
+        cVar.axM = m.a(intent, "mPage");
+        cVar.axW = m.a(intent, "mIsDebug", false);
+        cVar.axU = m.b(intent, "mExtraData");
+        cVar.axL = m.a(intent, "launchScheme");
+        cVar.axX = m.a(intent, "notInHistory");
+        cVar.atv = (SwanCoreVersion) m.c(intent, "swanCoreVersion");
+        cVar.atw = (ExtensionCore) m.c(intent, "extensionCore");
+        cVar.aya = m.a(intent, "targetSwanVersion");
+        cVar.ayg = m.a(intent, "remoteDebugUrl");
+        cVar.axV = m.a(intent, "mClickId");
+        cVar.ayd = m.a(intent, "launchFlags", 0);
+        cVar.ayj = m.a(intent, "swanCoreFallbackCount", 0);
+        cVar.ayb = m.a(intent, "appFrameType", 0);
+        cVar.ayi = m.a(intent, "appFrameOrientation", 0);
         return cVar;
     }
 
     @NonNull
     public c cD(int i) {
-        this.ayc |= i;
+        this.ayd |= i;
         return this;
     }
 
     public String toString() {
-        return "SwanAppLaunchParams{mAppId='" + this.mAppId + "', mFrom='" + this.mFrom + "', mPage='" + this.axL + "', mIsDebug=" + this.axV + ", mExtraData=" + this.axT + ", mClickId='" + this.axU + "', mLaunchScheme='" + this.axK + "', mNotInHistory='" + this.axW + "'}";
+        return "SwanAppLaunchParams{mAppId='" + this.mAppId + "', mFrom='" + this.mFrom + "', mPage='" + this.axM + "', mIsDebug=" + this.axW + ", mExtraData=" + this.axU + ", mClickId='" + this.axV + "', mLaunchScheme='" + this.axL + "', mNotInHistory='" + this.axX + "'}";
     }
 
     public static String d(String str, String str2, int i) {

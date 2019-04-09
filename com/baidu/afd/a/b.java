@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> implements f {
-    private List<i> TA;
-    private f TB;
-    private ICardInfo Tv;
-    private TbPageContext Tw;
-    private com.baidu.tieba.frs.aggregation.a Tx;
-    private com.baidu.tieba.frs.videomiddlepage.c Ty;
-    private i Tz;
+    private i TA;
+    private List<i> TB;
+    private f TC;
+    private ICardInfo Tw;
+    private TbPageContext Tx;
+    private com.baidu.tieba.frs.aggregation.a Ty;
+    private com.baidu.tieba.frs.videomiddlepage.c Tz;
     private com.baidu.afd.d adFacadeData;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.frs.aggregation.a aVar, com.baidu.tieba.frs.videomiddlepage.c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.TA = new ArrayList();
-        this.Tw = tbPageContext;
-        this.Tx = aVar;
-        this.Ty = cVar;
-        this.TB = fVar;
+        this.TB = new ArrayList();
+        this.Tx = tbPageContext;
+        this.Ty = aVar;
+        this.Tz = cVar;
+        this.TC = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: c */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         e a;
-        if (this.Tv == null || (a = com.baidu.tieba.lego.card.b.bzE().a(this.Tw, this.Tv, 2)) == null) {
+        if (this.Tw == null || (a = com.baidu.tieba.lego.card.b.bzE().a(this.Tx, this.Tw, 2)) == null) {
             return null;
         }
         if (a instanceof i) {
-            this.TA.add((i) a);
+            this.TB.add((i) a);
         }
         a.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.afd.a.b.1
             @Override // com.baidu.tieba.lego.card.a
@@ -67,7 +67,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             return null;
         }
         this.adFacadeData = dVar;
-        this.Tv = dVar.pQ();
+        this.Tw = dVar.pQ();
         return onCreateViewHolder(viewGroup);
     }
 
@@ -96,8 +96,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         }
         if (aVar.pV() instanceof g) {
             g gVar = (g) aVar.pV();
-            gVar.setAutoPlayCallBack(this.Tx);
-            gVar.setOnVideoContainerForegroundClickListener(this.Ty);
+            gVar.setAutoPlayCallBack(this.Ty);
+            gVar.setOnVideoContainerForegroundClickListener(this.Tz);
             gVar.setCurrentPlayCallBack(this);
         }
         dVar.pT();
@@ -113,39 +113,39 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar) {
         this.adFacadeData = dVar;
-        this.Tv = dVar.pQ();
+        this.Tw = dVar.pQ();
         return super.getView(i, view, viewGroup, dVar);
     }
 
     public void pW() {
-        if (this.Tz != null) {
-            this.Tz.pausePlay();
+        if (this.TA != null) {
+            this.TA.pausePlay();
         }
     }
 
     public void pX() {
-        if (this.Tz != null) {
-            this.Tz.stopPlay();
+        if (this.TA != null) {
+            this.TA.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(i iVar) {
-        this.Tz = iVar;
-        if (this.TB != null) {
-            this.TB.a(this.Tz);
+        this.TA = iVar;
+        if (this.TC != null) {
+            this.TC.a(this.TA);
         }
     }
 
     public boolean pY() {
-        if (this.Tz != null) {
-            return this.Tz.isPlaying();
+        if (this.TA != null) {
+            return this.TA.isPlaying();
         }
         return false;
     }
 
     public void onDestory() {
-        for (i iVar : this.TA) {
+        for (i iVar : this.TB) {
             if (iVar != null) {
                 iVar.onDestroy();
             }

@@ -21,18 +21,18 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void aed() {
         super.aed();
-        this.bOj = d.C0277d.cp_btn_a;
-        this.bOk = d.C0277d.cp_cont_h_alpha70;
-        this.bOh = d.f.icon_card_like_video_n;
-        this.bOi = d.f.icon_card_like_video_s;
+        this.bOk = d.C0277d.cp_btn_a;
+        this.bOl = d.C0277d.cp_cont_h_alpha70;
+        this.bOi = d.f.icon_card_like_video_n;
+        this.bOj = d.f.icon_card_like_video_s;
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, d.h.praise_view_middlevideo, this);
-            this.bOl = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
-            this.bOm = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
+            this.bOm = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
+            this.bOn = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
             setDisPraiseFrom(6);
         }
     }
@@ -49,19 +49,19 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     public void GP() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.bOg);
+        String string = context.getString(this.bOh);
         if (num > 0) {
             string = ap.az(num);
         }
-        this.bOl.setText(string);
-        this.bOl.setContentDescription(context.getString(this.bOg) + num);
+        this.bOm.setText(string);
+        this.bOm.setContentDescription(context.getString(this.bOh) + num);
         if (((com.baidu.tieba.frs.aggregation.g) this.mData).beU() && aeg()) {
-            this.bOm.setImageDrawable(W(this.bOi, this.bOh));
-            this.bOl.setTextColor(createColorStateList(this.bOk, this.bOj));
+            this.bOn.setImageDrawable(W(this.bOj, this.bOi));
+            this.bOm.setTextColor(createColorStateList(this.bOl, this.bOk));
             return;
         }
-        this.bOm.setImageDrawable(W(this.bOh, this.bOi));
-        this.bOl.setTextColor(createColorStateList(this.bOj, this.bOk));
+        this.bOn.setImageDrawable(W(this.bOi, this.bOj));
+        this.bOm.setTextColor(createColorStateList(this.bOk, this.bOl));
     }
 
     public boolean aeg() {

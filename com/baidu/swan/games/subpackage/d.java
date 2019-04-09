@@ -11,29 +11,29 @@ import com.baidu.swan.games.subpackage.c;
 /* loaded from: classes2.dex */
 public class d extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String axr;
-    private com.baidu.swan.games.e.b bac;
-    private com.baidu.swan.games.binding.model.a bfr;
+    private String axs;
+    private com.baidu.swan.games.e.b bad;
+    private com.baidu.swan.games.binding.model.a bfs;
 
     public d(com.baidu.swan.games.e.b bVar) {
         super(bVar);
-        this.bac = bVar;
+        this.bad = bVar;
     }
 
     public void k(JsObject jsObject) {
         reset();
         l(jsObject);
-        if (TextUtils.isEmpty(this.axr)) {
+        if (TextUtils.isEmpty(this.axs)) {
             if (DEBUG) {
                 Log.i("LoadSubpackageTask", "params error");
                 return;
             }
             return;
         }
-        c.Pe().a(this.axr, new c.a() { // from class: com.baidu.swan.games.subpackage.d.1
+        c.Pe().a(this.axs, new c.a() { // from class: com.baidu.swan.games.subpackage.d.1
             @Override // com.baidu.swan.games.subpackage.c.a
             public void Pf() {
-                d.this.cA(d.this.jb(d.this.axr));
+                d.this.cA(d.this.jb(d.this.axs));
             }
 
             @Override // com.baidu.swan.games.subpackage.c.a
@@ -61,25 +61,25 @@ public class d extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cA(final boolean z) {
-        if (this.bac != null) {
-            this.bac.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.subpackage.d.2
+        if (this.bad != null) {
+            this.bad.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.subpackage.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.bfr != null && d.this.bfr.baV != null) {
-                        d.this.bfr.onComplete();
+                    if (d.this.bfs != null && d.this.bfs.baW != null) {
+                        d.this.bfs.onComplete();
                         if (d.DEBUG) {
                             Log.i("LoadSubpackageTask", "complete call");
                         }
                     }
                     if (z) {
-                        if (d.this.bfr != null && d.this.bfr.baT != null) {
-                            d.this.bfr.onSuccess();
+                        if (d.this.bfs != null && d.this.bfs.baU != null) {
+                            d.this.bfs.onSuccess();
                             if (d.DEBUG) {
                                 Log.i("LoadSubpackageTask", "success call");
                             }
                         }
-                    } else if (d.this.bfr != null && d.this.bfr.baU != null) {
-                        d.this.bfr.onFail();
+                    } else if (d.this.bfs != null && d.this.bfs.baV != null) {
+                        d.this.bfs.onFail();
                         if (d.DEBUG) {
                             Log.i("LoadSubpackageTask", "fail call");
                         }
@@ -90,21 +90,21 @@ public class d extends EventTargetImpl {
     }
 
     private void reset() {
-        this.bfr = null;
-        this.axr = null;
+        this.bfs = null;
+        this.axs = null;
     }
 
     private void l(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c b;
         if (jsObject != null && (b = com.baidu.swan.games.binding.model.c.b(jsObject)) != null) {
-            this.bfr = com.baidu.swan.games.binding.model.a.a(b);
+            this.bfs = com.baidu.swan.games.binding.model.a.a(b);
             try {
-                this.axr = b.getString("name");
+                this.axs = b.getString("name");
             } catch (JSTypeMismatchException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                com.baidu.swan.games.utils.a.a(this.bac, e);
+                com.baidu.swan.games.utils.a.a(this.bad, e);
                 reset();
             }
         }
@@ -112,7 +112,7 @@ public class d extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean jb(String str) {
-        if (this.bac == null) {
+        if (this.bad == null) {
             return false;
         }
         String str2 = e.Ea().DJ() + a.Pd().L(str, 2);
@@ -120,7 +120,7 @@ public class d extends EventTargetImpl {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(L)) {
             return false;
         }
-        this.bac.aS(str2, L);
+        this.bad.aS(str2, L);
         return true;
     }
 }

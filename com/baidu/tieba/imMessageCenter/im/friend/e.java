@@ -10,8 +10,8 @@ import protobuf.CommitInviteMsg.DataReq;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
     private long gbE;
-    private RequestCommitInviteMessage gwh;
-    private long gwi;
+    private RequestCommitInviteMessage gwi;
+    private long gwj;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -25,25 +25,25 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
     public void initWithIntent(Intent intent) {
         if (intent != null) {
             this.gbE = intent.getLongExtra("gid", -1L);
-            this.gwi = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.gwj = intent.getLongExtra(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
             this.gbE = bundle.getLong("gid", -1L);
-            this.gwi = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
+            this.gwj = bundle.getLong(InviteFriendListActivityConfig.GROUP_ID, -1L);
         }
     }
 
     public void X(Bundle bundle) {
         bundle.putLong("gid", this.gbE);
-        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.gwi);
+        bundle.putLong(InviteFriendListActivityConfig.GROUP_ID, this.gwj);
     }
 
     public void xD(String str) {
-        this.gwh = b(this.gbE, this.gwi, str);
-        super.sendMessage(this.gwh);
+        this.gwi = b(this.gbE, this.gwj, str);
+        super.sendMessage(this.gwi);
     }
 
     private RequestCommitInviteMessage b(long j, long j2, String str) {

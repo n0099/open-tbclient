@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a grj;
+    private static volatile a grk;
     private List<ImMessageCenterPojo> mList = new LinkedList();
     private final CustomMessageListener gdU = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,14 +55,14 @@ public class a {
     };
 
     public static a bvE() {
-        if (grj == null) {
+        if (grk == null) {
             synchronized (a.class) {
-                if (grj == null) {
-                    grj = new a();
+                if (grk == null) {
+                    grk = new a();
                 }
             }
         }
-        return grj;
+        return grk;
     }
 
     private a() {
@@ -173,7 +173,7 @@ public class a {
                 if (aVar != null) {
                     for (e.a aVar2 : list2) {
                         if (aVar2 != null && ap.equals(aVar.gid, aVar2.gid)) {
-                            aVar.caM = aVar2.unReadCount;
+                            aVar.caN = aVar2.unReadCount;
                         }
                     }
                 }
@@ -236,7 +236,7 @@ public class a {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && d.bvZ().db(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
             e.a aVar = new e.a();
             aVar.gid = imMessageCenterPojo.getGid();
-            aVar.caL = imMessageCenterPojo.getGroup_name();
+            aVar.caM = imMessageCenterPojo.getGroup_name();
             if (userType == 4) {
                 try {
                     JSONArray jSONArray = new JSONArray(imMessageCenterPojo.getLastContentRawData());
@@ -262,8 +262,8 @@ public class a {
                                 }
                                 aVar.title = str6;
                                 aVar.content = str7;
-                                aVar.caN = str4;
-                                aVar.caK = imMessageCenterPojo.getGroup_name() + Config.TRACE_TODAY_VISIT_SPLIT + imMessageCenterPojo.getLast_content();
+                                aVar.caO = str4;
+                                aVar.caL = imMessageCenterPojo.getGroup_name() + Config.TRACE_TODAY_VISIT_SPLIT + imMessageCenterPojo.getLast_content();
                                 aVar.userType = userType;
                                 aVar.unReadCount = imMessageCenterPojo.getUnread_count();
                                 eVar.ajt().add(aVar);
@@ -302,11 +302,11 @@ public class a {
                 }
                 aVar.title = str6;
                 aVar.content = str7;
-                aVar.caN = str4;
-                aVar.caK = imMessageCenterPojo.getGroup_name() + Config.TRACE_TODAY_VISIT_SPLIT + imMessageCenterPojo.getLast_content();
+                aVar.caO = str4;
+                aVar.caL = imMessageCenterPojo.getGroup_name() + Config.TRACE_TODAY_VISIT_SPLIT + imMessageCenterPojo.getLast_content();
             } else {
                 aVar.content = TbadkCoreApplication.getInst().getContext().getString(d.j.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + " : " + imMessageCenterPojo.getLast_content();
-                aVar.caK = aVar.content;
+                aVar.caL = aVar.content;
             }
             aVar.userType = userType;
             aVar.unReadCount = imMessageCenterPojo.getUnread_count();

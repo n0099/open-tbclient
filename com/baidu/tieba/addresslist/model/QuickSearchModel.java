@@ -9,23 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a cPY;
-    private byte[] cPZ;
+    private a cPZ;
+    private byte[] cQa;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.cPZ = new byte[0];
-        this.cPY = a.awP();
+        this.cQa = new byte[0];
+        this.cPZ = a.awP();
     }
 
     @SuppressLint({"DefaultLocale"})
     public List<com.baidu.tbadk.coreExtra.relationship.a> ri(String str) {
-        synchronized (this.cPZ) {
+        synchronized (this.cQa) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPY.awQ();
+            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPZ.awQ();
             if (awQ == null) {
                 return arrayList;
             }

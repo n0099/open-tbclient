@@ -16,14 +16,14 @@ public class b {
     public static void a(SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo, int i) {
         if (swanGameSubPackageAPSInfo != null) {
             if (b(swanGameSubPackageAPSInfo)) {
-                swanGameSubPackageAPSInfo.bfv = i;
+                swanGameSubPackageAPSInfo.bfw = i;
                 a(swanGameSubPackageAPSInfo);
                 return;
             }
             swanGameSubPackageAPSInfo.resultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", swanGameSubPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfv, 111, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(swanGameSubPackageAPSInfo.bfw, 111, bundle);
         }
     }
 
@@ -41,6 +41,6 @@ public class b {
         if (DEBUG && swanGameSubPackageAPSInfo != null) {
             Log.e("GetGamesSubHelper", swanGameSubPackageAPSInfo.toString());
         }
-        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfw) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfx) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfz)) ? false : true;
+        return (swanGameSubPackageAPSInfo == null || TextUtils.isEmpty(swanGameSubPackageAPSInfo.appVersion) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.key) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfx) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfy) || TextUtils.isEmpty(swanGameSubPackageAPSInfo.bfA)) ? false : true;
     }
 }

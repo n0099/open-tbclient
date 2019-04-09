@@ -5,15 +5,15 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class a {
-    private int bcJ;
+    private int bcK;
     @V8JavascriptField
     public JsArrayBuffer data;
     private int mID;
 
     public a() {
-        this.bcJ = 0;
-        int i = this.bcJ;
-        this.bcJ = i + 1;
+        this.bcK = 0;
+        int i = this.bcK;
+        this.bcK = i + 1;
         this.mID = i;
     }
 

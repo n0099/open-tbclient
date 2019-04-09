@@ -8,14 +8,14 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.b.c.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0117a {
-        public static final a ajQ = new a();
+        public static final a ajR = new a();
     }
 
     private a() {
     }
 
     public static a wh() {
-        return C0117a.ajQ;
+        return C0117a.ajR;
     }
 
     public j wi() {

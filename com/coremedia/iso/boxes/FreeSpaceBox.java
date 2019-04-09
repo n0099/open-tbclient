@@ -19,9 +19,9 @@ public class FreeSpaceBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("FreeSpaceBox.java", FreeSpaceBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "setData", "com.coremedia.iso.boxes.FreeSpaceBox", "[B", "data", "", "void"), 42);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getData", "com.coremedia.iso.boxes.FreeSpaceBox", "", "", "", "[B"), 46);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.FreeSpaceBox", "", "", "", "java.lang.String"), 61);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setData", "com.coremedia.iso.boxes.FreeSpaceBox", "[B", "data", "", "void"), 42);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getData", "com.coremedia.iso.boxes.FreeSpaceBox", "", "", "", "[B"), 46);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.FreeSpaceBox", "", "", "", "java.lang.String"), 61);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

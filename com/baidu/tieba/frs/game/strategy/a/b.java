@@ -26,7 +26,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     private Context mContext;
     private long mFid;
     private BdUniqueId mPageId;
-    private int dag = 0;
+    private int dah = 0;
     private int fjS = 0;
     private int fjT = 0;
     private boolean mIsLoading = false;
@@ -52,7 +52,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
                 b.this.mIsLoading = false;
                 if (responsedMessage.hasError()) {
                     if (b.this.fjI != null) {
-                        b.this.fjI.e(b.this.dag, b.this.fjS, responsedMessage.getErrorString());
+                        b.this.fjI.e(b.this.dah, b.this.fjS, responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -74,9 +74,9 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
                 } else {
                     return;
                 }
-                int i2 = b.this.dag;
+                int i2 = b.this.dah;
                 int i3 = b.this.fjS;
-                if (b.this.dag == 0 && b.this.fjS == 0 && !v.T(b.this.fjQ) && (eVar = (e) b.this.fjQ.get(0)) != null) {
+                if (b.this.dah == 0 && b.this.fjS == 0 && !v.T(b.this.fjQ) && (eVar = (e) b.this.fjQ.get(0)) != null) {
                     i2 = eVar.tabId;
                     if (eVar.extra instanceof LabelDataList) {
                         LabelDataList labelDataList = (LabelDataList) eVar.extra;
@@ -112,7 +112,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
                     }
                 }
                 if (b.this.fjI != null) {
-                    b.this.fjI.a(b.this.dag, b.this.fjS, cVar.fjN, b.this.fjQ, cVar.hasMore, false, i);
+                    b.this.fjI.a(b.this.dah, b.this.fjS, cVar.fjN, b.this.fjQ, cVar.hasMore, false, i);
                 }
             }
         }
@@ -158,7 +158,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
             }, 1000L);
             return;
         }
-        this.dag = i;
+        this.dah = i;
         this.fjS = i2;
         if (i == 0 && i2 == 0) {
             this.fjU.vi(String.valueOf(this.mFid));
@@ -170,13 +170,13 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
                 this.fjR.put(bm, cVar);
             }
             cVar.key = bm;
-            cVar.fjM = this.dag;
+            cVar.fjM = this.dah;
             cVar.labelId = this.fjS;
             cVar.pn = 0;
             cVar.hasMore = true;
         }
         this.fjT = 0;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.fjT, this.dag, this.fjS);
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.fjT, this.dah, this.fjS);
         frsGameStrategyRequestMessage.setTag(this.mPageId);
         MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
         this.mIsLoading = true;
@@ -194,7 +194,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
             }, 1000L);
             return;
         }
-        this.dag = i;
+        this.dah = i;
         if (i == 0 && i2 == 0) {
             e qC = qC(i);
             if (qC != null && (qC.extra instanceof LabelDataList)) {
@@ -213,12 +213,12 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
             this.fjR.put(bm, cVar);
             cVar.key = bm;
             cVar.fjM = this.fjS;
-            cVar.labelId = this.dag;
+            cVar.labelId = this.dah;
             cVar.hasMore = true;
             this.fjR.put(bm, cVar);
         }
         this.fjT = cVar.pn + 1;
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.fjT, this.dag, this.fjS);
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = new FrsGameStrategyRequestMessage(this.mFid, this.fjT, this.dah, this.fjS);
         frsGameStrategyRequestMessage.setTag(this.mPageId);
         MessageManager.getInstance().sendMessage(frsGameStrategyRequestMessage);
         this.mIsLoading = true;

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow eDo;
+    private PopupWindow eDp;
     private boolean fuQ;
     private View mAnchor;
     private TbPageContext mPageContext;
@@ -30,12 +30,12 @@ public class a implements View.OnClickListener {
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int h2 = l.h(pageActivity, d.e.ds32);
                 int h3 = l.h(pageActivity, d.e.ds16) + (iArr[1] - h);
-                a.this.eDo = new PopupWindow(g, -2, h);
-                a.this.eDo.showAtLocation(a.this.mAnchor, 53, h2, h3);
+                a.this.eDp = new PopupWindow(g, -2, h);
+                a.this.eDp.showAtLocation(a.this.mAnchor, 53, h2, h3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.eDo != null) {
+                        if (a.this.eDp != null) {
                             a.this.biG();
                         }
                     }
@@ -90,9 +90,9 @@ public class a implements View.OnClickListener {
     }
 
     public void biG() {
-        if (this.eDo != null) {
-            this.eDo.dismiss();
-            this.eDo = null;
+        if (this.eDp != null) {
+            this.eDp.dismiss();
+            this.eDp = null;
         }
     }
 

@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String bqi;
-    private String jwb;
+    private String bqj;
     private String jwc;
-    private int jwd;
+    private String jwd;
     private int jwe;
     private int jwf;
-    private String jwg;
+    private int jwg;
+    private String jwh;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.jwb = str2;
-        this.jwc = str3;
-        this.jwd = i;
+        this.jwc = str2;
+        this.jwd = str3;
+        this.jwe = i;
         this.mType = str4;
-        this.bqi = str5;
+        this.bqj = str5;
     }
 
     public String getId() {
@@ -27,15 +27,15 @@ class h {
     }
 
     public String crX() {
-        return this.jwb;
-    }
-
-    public String crY() {
         return this.jwc;
     }
 
-    public int getTimeout() {
+    public String crY() {
         return this.jwd;
+    }
+
+    public int getTimeout() {
+        return this.jwe;
     }
 
     public String getType() {
@@ -43,7 +43,7 @@ class h {
     }
 
     public String crZ() {
-        return this.bqi;
+        return this.bqj;
     }
 
     public int csa() {
@@ -63,26 +63,26 @@ class h {
     }
 
     public int csb() {
-        return this.jwe;
-    }
-
-    public void BD(int i) {
-        this.jwe = i;
-    }
-
-    public int csc() {
         return this.jwf;
     }
 
-    public void BE(int i) {
+    public void BD(int i) {
         this.jwf = i;
     }
 
-    public String getIdType() {
+    public int csc() {
         return this.jwg;
     }
 
+    public void BE(int i) {
+        this.jwg = i;
+    }
+
+    public String getIdType() {
+        return this.jwh;
+    }
+
     public void EJ(String str) {
-        this.jwg = str;
+        this.jwh = str;
     }
 }

@@ -4,19 +4,19 @@ import android.os.Looper;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a jUL = new a();
-    private final g jUM;
+    private static final a jUM = new a();
+    private final g jUN;
 
     private a() {
         g cDI = rx.a.a.a.cDF().cDG().cDI();
         if (cDI != null) {
-            this.jUM = cDI;
+            this.jUN = cDI;
         } else {
-            this.jUM = new b(Looper.getMainLooper());
+            this.jUN = new b(Looper.getMainLooper());
         }
     }
 
     public static g cDJ() {
-        return jUL.jUM;
+        return jUM.jUN;
     }
 }

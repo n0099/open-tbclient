@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private String bYA;
+    private String bYB;
     private int cur_score;
     private int errorCode;
     private String errorMsg;
@@ -20,8 +20,8 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> iEG = new ArrayList();
-    private int iEF = 0;
+    private List<FeedForumData> iEH = new ArrayList();
+    private int iEG = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -65,7 +65,7 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iEF = jSONObject.optInt("is_black", 0);
+                this.iEG = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -81,12 +81,12 @@ public class r {
 
     private void aO(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bYA = jSONObject.optString("block_dealurl");
+            this.bYB = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             if (!StringUtils.isNull(optString)) {
                 this.mBlockPopInfoData = new BlockPopInfoData();
                 this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.bYA;
+                this.mBlockPopInfoData.ahead_url = this.bYB;
                 this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
                 this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
@@ -109,7 +109,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.iEG.add(feedForumData);
+                    this.iEH.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,7 +154,7 @@ public class r {
     }
 
     public List<FeedForumData> cdx() {
-        return this.iEG;
+        return this.iEH;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,7 +166,7 @@ public class r {
     }
 
     public String cdG() {
-        return this.bYA;
+        return this.bYB;
     }
 
     public int getErrorCode() {

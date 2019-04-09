@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private LinearLayout eGC;
-    private TextView eGD;
-    private ImageView eGE;
+    private LinearLayout eGD;
+    private TextView eGE;
+    private ImageView eGF;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -42,11 +42,11 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(d.h.layout_enterforum_search, (ViewGroup) this, true);
-        this.eGC = (LinearLayout) findViewById(d.g.search_container);
-        this.eGD = (TextView) findViewById(d.g.search_text);
-        this.eGE = (ImageView) findViewById(d.g.search_icon);
+        this.eGD = (LinearLayout) findViewById(d.g.search_container);
+        this.eGE = (TextView) findViewById(d.g.search_text);
+        this.eGF = (ImageView) findViewById(d.g.search_icon);
         setDescendantFocusability(262144);
-        this.eGC.setOnClickListener(this);
+        this.eGD.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -64,12 +64,12 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.eGD.setText(UtilHelper.getFixedText(str, 20));
+        this.eGE.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public void onChangeSkinType() {
-        al.c(this.eGE, d.f.icon_ba_search_n);
-        al.j(this.eGD, d.C0277d.cp_cont_d);
-        al.k(this.eGC, d.f.enter_forum_search_bg);
+        al.c(this.eGF, d.f.icon_ba_search_n);
+        al.j(this.eGE, d.C0277d.cp_cont_d);
+        al.k(this.eGD, d.f.enter_forum_search_bg);
     }
 }

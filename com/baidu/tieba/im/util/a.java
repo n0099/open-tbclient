@@ -4,16 +4,16 @@ import android.text.InputFilter;
 import android.text.Spanned;
 /* loaded from: classes5.dex */
 public class a implements InputFilter {
-    private int gsU;
+    private int gsV;
 
     public a(int i) {
-        this.gsU = i;
+        this.gsV = i;
     }
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
         int i5 = i4 - i3;
-        int length = this.gsU - (spanned.length() - i5);
+        int length = this.gsV - (spanned.length() - i5);
         String obj = spanned.toString();
         int pN = f.pN(obj);
         if (i5 > 0) {
@@ -26,7 +26,7 @@ public class a implements InputFilter {
         } else {
             pN += f.pN(charSequence.toString());
         }
-        if (pN > this.gsU || length <= 0) {
+        if (pN > this.gsV || length <= 0) {
             return "";
         }
         if (length >= i2 - i) {

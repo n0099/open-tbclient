@@ -54,11 +54,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailView extends RelativeLayout implements View.OnClickListener {
-    private g cXp;
-    private com.baidu.tbadk.editortools.pb.b cko;
-    private NoNetworkView dbq;
-    private PbListView dbr;
-    private NoNetworkView.a emy;
+    private g cXq;
+    private com.baidu.tbadk.editortools.pb.b ckp;
+    private NoNetworkView dbr;
+    private PbListView dbs;
+    private NoNetworkView.a emz;
     private com.baidu.tieba.homepage.topic.topicdetail.a fOM;
     private ImageView fON;
     private TopicDetailHeadView fOO;
@@ -98,7 +98,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.mHasMore = true;
         this.fPb = 0;
         this.fPc = 44;
-        this.emy = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.1
+        this.emz = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void dP(boolean z) {
                 if (z && TopicDetailView.this.mTopicDetailData == null && TopicDetailView.this.fOM != null) {
@@ -106,7 +106,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 }
             }
         };
-        this.cko = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
+        this.ckp = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
             @Override // com.baidu.tbadk.editortools.pb.b
             public boolean amn() {
                 if (TopicDetailView.this.fOW.cnY()) {
@@ -195,8 +195,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         al.j(this.mNavigationBar.mCenterText, d.C0277d.cp_btn_a);
         this.mNavigationBar.mCenterText.setTextSize(0, getResources().getDimensionPixelSize(d.e.tbds52));
         this.mNavigationBar.mCenterText.setTypeface(Typeface.defaultFromStyle(1));
-        this.dbq = (NoNetworkView) findViewById(d.g.activity_topic_detail_no_network_view);
-        this.dbq.a(this.emy);
+        this.dbr = (NoNetworkView) findViewById(d.g.activity_topic_detail_no_network_view);
+        this.dbr.a(this.emz);
         this.fOR = findViewById(d.g.pb_editor_tool_comment);
         this.fOS = (TextView) findViewById(d.g.topic_editor_tool_comment_reply_text);
         this.fOS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.3
@@ -228,19 +228,19 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 TopicDetailView.this.sC(i);
             }
         });
-        if (this.cXp == null) {
-            this.dbr = new PbListView(this.mPageContext.getPageActivity());
-            this.dbr.getView();
+        if (this.cXq == null) {
+            this.dbs = new PbListView(this.mPageContext.getPageActivity());
+            this.dbs.getView();
         }
-        this.dbr.ia(d.C0277d.cp_bg_line_e);
-        this.dbr.setHeight(l.h(this.mPageContext.getPageActivity(), d.e.tbds182));
-        this.dbr.setTextSize(d.e.tbfontsize33);
-        this.dbr.hZ(d.C0277d.cp_cont_e);
-        this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_e));
-        this.dbr.ia(al.getColor(d.C0277d.cp_bg_line_d));
-        this.dbr.hW(al.getColor(d.C0277d.cp_bg_line_c));
-        this.dbr.setText(getResources().getString(d.j.list_has_no_more));
-        this.dbr.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.dbs.ia(d.C0277d.cp_bg_line_e);
+        this.dbs.setHeight(l.h(this.mPageContext.getPageActivity(), d.e.tbds182));
+        this.dbs.setTextSize(d.e.tbfontsize33);
+        this.dbs.hZ(d.C0277d.cp_cont_e);
+        this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_e));
+        this.dbs.ia(al.getColor(d.C0277d.cp_bg_line_d));
+        this.dbs.hW(al.getColor(d.C0277d.cp_bg_line_c));
+        this.dbs.setText(getResources().getString(d.j.list_has_no_more));
+        this.dbs.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         if (this.fOZ == null) {
             this.fOZ = new com.baidu.tieba.homepage.topic.topicdetail.model.a(this);
             this.fOZ.i(this.mPageContext.getUniqueId());
@@ -252,7 +252,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (this.fOU != null) {
             this.fOU.a(this.mPageContext);
             this.fOU.b(this.fPd);
-            this.fOU.a(this.cko);
+            this.fOU.a(this.ckp);
             this.fOU.alP().eH(true);
             this.fOU.a((BaseActivity) getContext(), bundle);
             this.fOU.amM();
@@ -342,8 +342,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             } else {
                 aCr();
             }
-            if (!StringUtils.isNull(aVar.bAp)) {
-                this.mNavigationBar.setCenterTextTitle(String.format(getContext().getString(d.j.daily_topic_name), ap.g(aVar.bAp, 14, "...")));
+            if (!StringUtils.isNull(aVar.bAq)) {
+                this.mNavigationBar.setCenterTextTitle(String.format(getContext().getString(d.j.daily_topic_name), ap.g(aVar.bAq, 14, "...")));
             }
             this.fOO.setData(aVar.fOc);
             this.fxw.addHeaderView(this.fOO);
@@ -391,13 +391,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
     public void aCr() {
         this.mHasMore = true;
-        this.fxw.setNextPage(this.dbr);
-        this.dbr.aez();
+        this.fxw.setNextPage(this.dbs);
+        this.dbs.aez();
     }
 
     public void aCs() {
-        this.fxw.setNextPage(this.dbr);
-        this.dbr.aeA();
+        this.fxw.setNextPage(this.dbs);
+        this.dbs.aeA();
     }
 
     @Override // android.view.View.OnClickListener
@@ -413,7 +413,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     private void aeU() {
         if (this.mTopicDetailData != null && getContext() != null) {
             String valueOf = String.valueOf(this.mTopicDetailData.topicId);
-            String str = this.mTopicDetailData.bAp;
+            String str = this.mTopicDetailData.bAq;
             String str2 = this.mTopicDetailData.shareTitle;
             if (TextUtils.isEmpty(valueOf) || TextUtils.isEmpty(str)) {
                 this.mPageContext.showToast(getContext().getString(d.j.no_hot_topic_data));
@@ -425,7 +425,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             dVar.title = str;
             dVar.content = str2;
             dVar.linkUrl = str3;
-            dVar.cbr = true;
+            dVar.cbs = true;
             dVar.extData = valueOf;
             dVar.imageUri = parse;
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(getContext(), dVar, true, true);
@@ -455,11 +455,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (this.fON != null) {
                 al.c(this.fON, d.f.selector_topbar_share_white);
             }
-            if (this.mPageContext != null && this.dbq != null) {
-                this.dbq.onChangeSkinType(this.mPageContext, this.mSkinType);
+            if (this.mPageContext != null && this.dbr != null) {
+                this.dbr.onChangeSkinType(this.mPageContext, this.mSkinType);
             }
-            if (this.cXp != null) {
-                this.cXp.onChangeSkinType();
+            if (this.cXq != null) {
+                this.cXq.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
@@ -467,11 +467,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (this.fOU != null && this.fOU.alP() != null) {
                 this.fOU.alP().onChangeSkinType(this.mSkinType);
             }
-            if (this.dbr != null) {
-                this.dbr.hZ(d.C0277d.cp_cont_e);
-                this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_e));
-                this.dbr.ia(al.getColor(d.C0277d.cp_bg_line_d));
-                this.dbr.hW(al.getColor(d.C0277d.cp_bg_line_c));
+            if (this.dbs != null) {
+                this.dbs.hZ(d.C0277d.cp_cont_e);
+                this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_e));
+                this.dbs.ia(al.getColor(d.C0277d.cp_bg_line_d));
+                this.dbs.hW(al.getColor(d.C0277d.cp_bg_line_c));
             }
             if (this.fOO != null) {
                 this.fOO.onChangeSkinType();
@@ -485,24 +485,24 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
     public void cE(boolean z) {
         if (!aXo()) {
-            if (this.cXp == null) {
-                this.cXp = new g(getContext());
-                this.cXp.onChangeSkinType();
+            if (this.cXq == null) {
+                this.cXq = new g(getContext());
+                this.cXq.onChangeSkinType();
             }
-            this.cXp.attachView(this, z);
+            this.cXq.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.cXp != null) {
-            this.cXp.dettachView(this);
-            this.cXp = null;
+        if (this.cXq != null) {
+            this.cXq.dettachView(this);
+            this.cXq = null;
         }
     }
 
     public boolean aXo() {
-        if (this.cXp != null) {
-            return this.cXp.isViewAttached();
+        if (this.cXq != null) {
+            return this.cXq.isViewAttached();
         }
         return false;
     }
@@ -549,8 +549,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
     public void destroy() {
         this.fxw.setOnSrollToBottomListener(null);
-        if (this.dbq != null) {
-            this.dbq.b(this.emy);
+        if (this.dbr != null) {
+            this.dbr.b(this.emz);
         }
         if (this.fOU != null) {
             this.fOU.onDestory();

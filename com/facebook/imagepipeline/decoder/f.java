@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f implements d {
-    private final b jId;
+    private final b jIe;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -36,12 +36,12 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.jId = (b) g.checkNotNull(bVar);
+        this.jIe = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int Cd(int i) {
-        List<Integer> cyB = this.jId.cyB();
+        List<Integer> cyB = this.jIe.cyB();
         if (cyB == null || cyB.isEmpty()) {
             return i + 1;
         }
@@ -62,6 +62,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public com.facebook.imagepipeline.f.g Ce(int i) {
-        return com.facebook.imagepipeline.f.f.f(i, i >= this.jId.cyC(), false);
+        return com.facebook.imagepipeline.f.f.f(i, i >= this.jIe.cyC(), false);
     }
 }

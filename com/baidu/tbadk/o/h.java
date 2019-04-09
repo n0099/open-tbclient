@@ -5,7 +5,7 @@ import com.tencent.open.SocialConstants;
 public class h extends g {
     public String Oh;
     public long Oi;
-    public boolean cqo;
+    public boolean cqp;
     public boolean isSuccess;
 
     public void apb() {

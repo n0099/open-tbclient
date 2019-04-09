@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String cPF = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, cPF);
-    private int hNN;
+    private static final String cPG = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, cPG);
+    private int hNO;
     private a mData;
     private String mId;
     private boolean mIsHost;
@@ -47,7 +47,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void setCurrentPageIndex(int i) {
-        this.hNN = i;
+        this.hNO = i;
     }
 
     public a bRh() {
@@ -82,7 +82,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void AE(String str) {
-        if (this.hNN == 1 && this.mIsHost) {
+        if (this.hNO == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

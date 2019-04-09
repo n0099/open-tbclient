@@ -15,7 +15,7 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("PiffTrackEncryptionBox.java", PiffTrackEncryptionBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", "int"), 29);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", "int"), 29);
     }
 
     public PiffTrackEncryptionBox() {

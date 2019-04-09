@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class EllipsizingTextView extends TextView {
-    private float cFi;
+    private float cFj;
     private final List<a> fEE;
     private boolean fEF;
     private boolean fEG;
@@ -29,7 +29,7 @@ public class EllipsizingTextView extends TextView {
         super(context);
         this.fEE = new ArrayList();
         this.maxLines = -1;
-        this.cFi = 1.0f;
+        this.cFj = 1.0f;
         this.fEJ = 0.0f;
     }
 
@@ -37,7 +37,7 @@ public class EllipsizingTextView extends TextView {
         super(context, attributeSet);
         this.fEE = new ArrayList();
         this.maxLines = -1;
-        this.cFi = 1.0f;
+        this.cFj = 1.0f;
         this.fEJ = 0.0f;
     }
 
@@ -45,7 +45,7 @@ public class EllipsizingTextView extends TextView {
         super(context, attributeSet, i);
         this.fEE = new ArrayList();
         this.maxLines = -1;
-        this.cFi = 1.0f;
+        this.cFj = 1.0f;
         this.fEJ = 0.0f;
     }
 
@@ -71,7 +71,7 @@ public class EllipsizingTextView extends TextView {
     @Override // android.widget.TextView
     public void setLineSpacing(float f, float f2) {
         this.fEJ = f;
-        this.cFi = f2;
+        this.cFj = f2;
         super.setLineSpacing(f, f2);
     }
 
@@ -147,7 +147,7 @@ public class EllipsizingTextView extends TextView {
     }
 
     private Layout vX(String str) {
-        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.cFi, this.fEJ, false);
+        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.cFj, this.fEJ, false);
     }
 
     @Override // android.widget.TextView

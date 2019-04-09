@@ -16,7 +16,7 @@ public class d extends com.baidu.swan.apps.process.b.a.a {
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: o */
                 public void D(Bundle bundle2) {
-                    d.this.aEH.putBundle("key_result_stokent", bundle2);
+                    d.this.aEI.putBundle("key_result_stokent", bundle2);
                     d.this.finish();
                 }
             }, stringArray);

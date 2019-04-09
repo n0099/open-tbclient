@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private FrameLayout bfJ;
-    private boolean bfK;
+    private FrameLayout bfK;
+    private boolean bfL;
 
     public b(@NonNull FrameLayout frameLayout) {
-        this.bfJ = frameLayout;
+        this.bfK = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
@@ -20,7 +20,7 @@ public class b {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
         layoutParams.topMargin = bVar.getTop();
-        this.bfJ.addView(view, layoutParams);
+        this.bfK.addView(view, layoutParams);
         return true;
     }
 
@@ -28,7 +28,7 @@ public class b {
         if (!an(view)) {
             return false;
         }
-        this.bfJ.removeView(view);
+        this.bfK.removeView(view);
         return true;
     }
 
@@ -39,23 +39,23 @@ public class b {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
         layoutParams.topMargin = bVar.getTop();
-        this.bfJ.updateViewLayout(view, layoutParams);
+        this.bfK.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public void cB(boolean z) {
-        this.bfK = z;
+        this.bfL = z;
     }
 
     public boolean an(View view) {
-        return view != null && view.getParent() == this.bfJ && this.bfJ.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.bfK && this.bfK.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.bfJ.getContext();
+        return this.bfK.getContext();
     }
 
     public FrameLayout Pm() {
-        return this.bfJ;
+        return this.bfK;
     }
 }

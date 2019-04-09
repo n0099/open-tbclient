@@ -8,9 +8,9 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d aoJ;
-    private HashMap<String, a> aoK = new HashMap<>();
-    private HashMap<String, Set<b>> aoL = new HashMap<>();
+    private static volatile d aoK;
+    private HashMap<String, a> aoL = new HashMap<>();
+    private HashMap<String, Set<b>> aoM = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -21,14 +21,14 @@ public final class d {
     }
 
     public static d xD() {
-        if (aoJ == null) {
+        if (aoK == null) {
             synchronized (d.class) {
-                if (aoJ == null) {
-                    aoJ = new d();
+                if (aoK == null) {
+                    aoK = new d();
                 }
             }
         }
-        return aoJ;
+        return aoK;
     }
 
     public synchronized void dI(String str) {
@@ -37,11 +37,11 @@ public final class d {
                 Log.i("SwanAppAPSStatusSync", "swanAppPreDownloadFinish:" + str);
             }
             a aVar = new a(2, 0);
-            if (this.aoK != null) {
-                this.aoK.put(str, aVar);
-            }
             if (this.aoL != null) {
-                Set<b> set = this.aoL.get(str);
+                this.aoL.put(str, aVar);
+            }
+            if (this.aoM != null) {
+                Set<b> set = this.aoM.get(str);
                 if (set != null) {
                     for (b bVar : set) {
                         if (bVar != null) {
@@ -49,7 +49,7 @@ public final class d {
                         }
                     }
                 }
-                this.aoL.remove(str);
+                this.aoM.remove(str);
             }
         }
     }
@@ -63,7 +63,7 @@ public final class d {
             return "";
         }
         String str = subPackageAPSInfo.mAppId;
-        String str2 = subPackageAPSInfo.axr;
+        String str2 = subPackageAPSInfo.axs;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }

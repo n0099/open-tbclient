@@ -24,10 +24,10 @@ import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class x {
-    private static DisplayMetrics aWv;
+    private static DisplayMetrics aWw;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final DisplayMetrics aWw = com.baidu.swan.apps.u.a.Cw().getResources().getDisplayMetrics();
-    private static final float aWx = aWw.density;
+    private static final DisplayMetrics aWx = com.baidu.swan.apps.u.a.Cw().getResources().getDisplayMetrics();
+    private static final float aWy = aWx.density;
 
     public static int co(Context context) {
         int i;
@@ -142,7 +142,7 @@ public class x {
     }
 
     public static void O(Activity activity) {
-        if (activity != null && com.baidu.swan.apps.view.a.b.aKZ) {
+        if (activity != null && com.baidu.swan.apps.view.a.b.aLa) {
             new com.baidu.swan.apps.view.a.b(activity).er(-1);
         }
     }
@@ -173,44 +173,44 @@ public class x {
 
     public static int getDisplayWidth(Context context) {
         cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWv != null) {
-            return aWv.widthPixels;
+        if (aWw != null) {
+            return aWw.widthPixels;
         }
         return 0;
     }
 
     public static int getDisplayHeight(Context context) {
         cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWv != null) {
-            return aWv.heightPixels;
+        if (aWw != null) {
+            return aWw.heightPixels;
         }
         return 0;
     }
 
     public static float cq(Context context) {
         cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWv != null) {
-            return aWv.density;
+        if (aWw != null) {
+            return aWw.density;
         }
         return 0.0f;
     }
 
     public static int cr(Context context) {
         cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWv != null) {
-            return aWv.densityDpi;
+        if (aWw != null) {
+            return aWw.densityDpi;
         }
         return 0;
     }
 
     private static void cs(Context context) {
-        if (aWv == null) {
+        if (aWw == null) {
             Application Cw = com.baidu.swan.apps.u.a.Cw();
             if (Cw != null) {
                 context = Cw;
             }
             if (context != null) {
-                aWv = context.getResources().getDisplayMetrics();
+                aWw = context.getResources().getDisplayMetrics();
             }
         }
     }
@@ -270,7 +270,7 @@ public class x {
             }
         }
         if (i == 0) {
-            return (int) (25.0f * aWx);
+            return (int) (25.0f * aWy);
         }
         return i;
     }

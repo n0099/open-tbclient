@@ -26,8 +26,8 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class b {
-    private TextView eAX;
-    private String ekM;
+    private TextView eAY;
+    private String ekN;
     private FrsFragment fat;
     private View fhQ;
     private TextView fhS;
@@ -85,10 +85,10 @@ public class b {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.b.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (b.this.eAX != null) {
+            if (b.this.eAY != null) {
                 Drawable drawable = al.getDrawable(d.f.icon_common_arrow20_down_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                b.this.eAX.setCompoundDrawables(null, null, drawable, null);
+                b.this.eAY.setCompoundDrawables(null, null, drawable, null);
             }
         }
     };
@@ -134,16 +134,16 @@ public class b {
     };
 
     public void setFid(String str) {
-        this.ekM = str;
+        this.ekN = str;
     }
 
     public TextView bfP() {
-        return this.eAX;
+        return this.eAY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vh(String str) {
-        this.eAX.setText(str);
+        this.eAY.setText(str);
     }
 
     public void qx(int i) {
@@ -159,14 +159,14 @@ public class b {
         }
         this.fhT.setData(list, this.fhV);
         this.fhT.bg(view);
-        this.eAX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_h), (Drawable) null);
+        this.eAY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_h), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bfM() {
         am amVar = new am("c11437");
         amVar.T("obj_type", this.fhV);
-        amVar.bJ(ImageViewerConfig.FORUM_ID, this.ekM);
+        amVar.bJ(ImageViewerConfig.FORUM_ID, this.ekN);
         TiebaStatic.log(amVar);
     }
 
@@ -175,18 +175,18 @@ public class b {
             this.fat = frsFragment;
             this.mRootView = relativeLayout;
             this.fhQ = LayoutInflater.from(frsFragment.getContext()).inflate(d.h.frs_sort_tab_layout, relativeLayout);
-            this.eAX = (TextView) this.fhQ.findViewById(d.g.sort_tab_menu_button);
+            this.eAY = (TextView) this.fhQ.findViewById(d.g.sort_tab_menu_button);
             this.fhS = (TextView) this.fhQ.findViewById(d.g.sort_tab_sort_name);
-            this.eAX.setOnClickListener(this.fhY);
+            this.eAY.setOnClickListener(this.fhY);
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.eAX != null) {
-            al.j(this.eAX, d.C0277d.cp_cont_j);
-            al.l(this.eAX, d.C0277d.transparent);
-            this.eAX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_n), (Drawable) null);
+        if (this.eAY != null) {
+            al.j(this.eAY, d.C0277d.cp_cont_j);
+            al.l(this.eAY, d.C0277d.transparent);
+            this.eAY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_n), (Drawable) null);
         }
         al.j(this.fhS, d.C0277d.cp_cont_b);
         al.l(this.fhQ, d.C0277d.cp_bg_line_d);
@@ -291,14 +291,14 @@ public class b {
     }
 
     private void bfN() {
-        if (this.eAX != null) {
-            this.eAX.setVisibility(0);
+        if (this.eAY != null) {
+            this.eAY.setVisibility(0);
         }
     }
 
     private void bfO() {
-        if (this.eAX != null) {
-            this.eAX.setVisibility(8);
+        if (this.eAY != null) {
+            this.eAY.setVisibility(8);
         }
     }
 }

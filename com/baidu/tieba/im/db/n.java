@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private static int ghl = TbConfig.POST_IMAGE_SMALL;
-    private static int ghm = 500;
+    private static int ghm = TbConfig.POST_IMAGE_SMALL;
+    private static int ghn = 500;
 
     public static void bsx() {
         if (!bb.jK()) {
@@ -32,14 +32,14 @@ public class n {
     }
 
     public static void tI(int i) {
-        if (i < ghm) {
-            i = ghm;
+        if (i < ghn) {
+            i = ghn;
         }
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_max_stranger", i);
     }
 
     private static int bsy() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", ghl);
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_max_stranger", ghm);
     }
 
     private static String bsz() {

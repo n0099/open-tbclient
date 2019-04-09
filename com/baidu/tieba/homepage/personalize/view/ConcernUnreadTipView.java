@@ -20,7 +20,7 @@ import com.baidu.tieba.homepage.personalize.data.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
-    private BdUniqueId Zr;
+    private BdUniqueId Zs;
     private int ds94;
     public ImageView fNE;
     private LinearLayout fNF;
@@ -60,7 +60,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.Zr = bdUniqueId;
+        this.Zs = bdUniqueId;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
@@ -97,7 +97,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
                         headImageView.setDrawBorder(false);
                         al.c((ImageView) frameLayout.findViewById(d.g.out_img), d.f.bg_unread_tip_head_border);
                         this.fNF.addView(frameLayout);
-                        headImageView.setPageId(this.Zr);
+                        headImageView.setPageId(this.Zs);
                         headImageView.startLoad(str, 12, false);
                     }
                 }

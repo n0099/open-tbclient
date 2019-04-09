@@ -5,8 +5,8 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
     final int index;
-    final boolean jWL;
-    final T jWM;
+    final boolean jWM;
+    final T jWN;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -36,8 +36,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.jWL) {
-                        jVar.onNext(OperatorElementAt.this.jWM);
+                    if (OperatorElementAt.this.jWM) {
+                        jVar.onNext(OperatorElementAt.this.jWN);
                         jVar.onCompleted();
                         return;
                     }

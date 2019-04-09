@@ -14,39 +14,39 @@ import com.baidu.tieba.enterForum.view.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b {
-    private com.baidu.tieba.enterForum.view.e eAL;
-    private com.baidu.tieba.enterForum.view.a eCL;
-    private a eCM;
+    private com.baidu.tieba.enterForum.view.e eAM;
+    private com.baidu.tieba.enterForum.view.a eCM;
+    private a eCN;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private a.InterfaceC0283a eCN = new a.InterfaceC0283a() { // from class: com.baidu.tieba.enterForum.home.b.1
+    private a.InterfaceC0283a eCO = new a.InterfaceC0283a() { // from class: com.baidu.tieba.enterForum.home.b.1
         @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0283a
         public void lH(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new am("c13369").T("obj_type", i == 1 ? 2 : 1));
             b.this.aWD();
-            if (b.this.eCM != null) {
-                b.this.eCM.oY(b.this.mSortType);
+            if (b.this.eCN != null) {
+                b.this.eCN.oY(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener bQM = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener bQN = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.eAL.aXC() && view == b.this.mTitle) {
-                if (b.this.eCL == null) {
-                    b.this.eCL = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                    b.this.eCL.setOnDismissListener(b.this.mOnDismissListener);
-                    b.this.eCL.a(b.this.eCN);
-                    b.this.eCL.pj(b.this.mStatusBarHeight);
+            if (!b.this.eAM.aXC() && view == b.this.mTitle) {
+                if (b.this.eCM == null) {
+                    b.this.eCM = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                    b.this.eCM.setOnDismissListener(b.this.mOnDismissListener);
+                    b.this.eCM.a(b.this.eCO);
+                    b.this.eCM.pj(b.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new i(b.this.mContext.getString(d.j.level_sort), 1));
                 arrayList.add(new i(b.this.mContext.getString(d.j.update_sort), 2));
-                b.this.eCL.setData(arrayList, b.this.mSortType);
-                b.this.eCL.bg(b.this.mTitle);
+                b.this.eCM.setData(arrayList, b.this.mSortType);
+                b.this.eCM.bg(b.this.mTitle);
                 b.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow_up_n), (Drawable) null);
             }
         }
@@ -71,7 +71,7 @@ public class b {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.eAL = eVar;
+        this.eAM = eVar;
     }
 
     public void h(TextView textView) {
@@ -88,7 +88,7 @@ public class b {
                     this.mTitle.setText(d.j.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bQM);
+            this.mTitle.setOnClickListener(this.bQN);
         }
     }
 
@@ -104,6 +104,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.eCM = aVar;
+        this.eCN = aVar;
     }
 }

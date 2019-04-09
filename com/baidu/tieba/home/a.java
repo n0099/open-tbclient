@@ -24,9 +24,9 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes6.dex */
 public class a {
     private UserBfbInfo bfbInfo;
-    private View bub;
-    private View eDL;
-    private NoNetworkView eUC;
+    private View buc;
+    private View eDM;
+    private NoNetworkView eUD;
     private CreateBarGuideActivity fFi;
     private NoDataView fFj;
     private TextView fFk;
@@ -39,16 +39,16 @@ public class a {
 
     public a(CreateBarGuideActivity createBarGuideActivity) {
         this.fFi = createBarGuideActivity;
-        this.bub = LayoutInflater.from(this.fFi.getPageContext().getPageActivity()).inflate(d.h.create_bar_guide_activity, (ViewGroup) null);
-        this.fFi.setContentView(this.bub);
-        this.eDL = this.bub.findViewById(d.g.body_view);
-        this.mNavigationBar = (NavigationBar) this.bub.findViewById(d.g.view_navigation_bar);
+        this.buc = LayoutInflater.from(this.fFi.getPageContext().getPageActivity()).inflate(d.h.create_bar_guide_activity, (ViewGroup) null);
+        this.fFi.setContentView(this.buc);
+        this.eDM = this.buc.findViewById(d.g.body_view);
+        this.mNavigationBar = (NavigationBar) this.buc.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.j.create_bar);
-        this.eUC = (NoNetworkView) this.bub.findViewById(d.g.view_no_network);
-        this.ffG = (TextView) this.bub.findViewById(d.g.text_forum_name);
-        this.fFk = (TextView) this.bub.findViewById(d.g.text_forum_create);
-        this.fFn = (TbImageView) this.bub.findViewById(d.g.status_icon);
+        this.eUD = (NoNetworkView) this.buc.findViewById(d.g.view_no_network);
+        this.ffG = (TextView) this.buc.findViewById(d.g.text_forum_name);
+        this.fFk = (TextView) this.buc.findViewById(d.g.text_forum_create);
+        this.fFn = (TbImageView) this.buc.findViewById(d.g.status_icon);
         this.fFk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -65,8 +65,8 @@ public class a {
                 a.this.fFi.finish();
             }
         });
-        this.fFl = (TextView) this.bub.findViewById(d.g.text_create_need);
-        this.fFm = (LinearLayout) this.bub.findViewById(d.g.need_desc_layout);
+        this.fFl = (TextView) this.buc.findViewById(d.g.text_create_need);
+        this.fFm = (LinearLayout) this.buc.findViewById(d.g.need_desc_layout);
         MessageManager.getInstance().registerListener(new CustomMessageListener(2016458) { // from class: com.baidu.tieba.home.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -83,11 +83,11 @@ public class a {
     }
 
     public void blj() {
-        this.eDL.setVisibility(8);
+        this.eDM.setVisibility(8);
     }
 
     public void blk() {
-        this.eDL.setVisibility(0);
+        this.eDM.setVisibility(0);
     }
 
     public void a(String str, UserBfbInfo userBfbInfo) {
@@ -95,7 +95,7 @@ public class a {
         this.bfbInfo = userBfbInfo;
         if (this.fFj == null) {
             int h = l.h(this.fFi.getActivity(), d.e.ds100);
-            this.fFj = NoDataViewFactory.a(this.fFi.getPageContext().getPageActivity(), (LinearLayout) this.bub.findViewById(d.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, h), null, null);
+            this.fFj = NoDataViewFactory.a(this.fFi.getPageContext().getPageActivity(), (LinearLayout) this.buc.findViewById(d.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, h), null, null);
             this.fFj.setVisibility(0);
             ajX();
         }
@@ -115,12 +115,12 @@ public class a {
     }
 
     public void ajX() {
-        com.baidu.tbadk.r.a.a(this.fFi.getPageContext(), this.bub);
+        com.baidu.tbadk.r.a.a(this.fFi.getPageContext(), this.buc);
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.fFi.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.eUC != null) {
-            this.eUC.onChangeSkinType(this.fFi.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.eUD != null) {
+            this.eUD.onChangeSkinType(this.fFi.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.fFj != null) {
             this.fFj.onChangeSkinType(this.fFi.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -128,6 +128,6 @@ public class a {
     }
 
     public View getRootView() {
-        return this.bub;
+        return this.buc;
     }
 }

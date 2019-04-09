@@ -5,8 +5,8 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo Tv;
-    private boolean bzi;
+    private ICardInfo Tw;
+    private boolean bzj;
     private String card;
 
     public void lb(String str) {
@@ -14,16 +14,16 @@ public class ad extends com.baidu.tieba.card.data.b {
     }
 
     public void Xq() {
-        this.Tv = com.baidu.tieba.lego.card.b.xU(this.card);
-        this.bzi = this.Tv != null;
+        this.Tw = com.baidu.tieba.lego.card.b.xU(this.card);
+        this.bzj = this.Tw != null;
     }
 
     public ICardInfo Xr() {
-        return this.Tv;
+        return this.Tw;
     }
 
     public boolean isValid() {
-        return this.bzi;
+        return this.bzj;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

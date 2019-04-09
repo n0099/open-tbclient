@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends y {
-    private static final String avE = c.class.getSimpleName();
+    private static final String avF = c.class.getSimpleName();
 
     public c(j jVar) {
         super(jVar, "/swan/debug/setDebugConfig");
@@ -23,13 +23,13 @@ public class c extends y {
         }
         JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
-            com.baidu.swan.apps.console.c.e(avE, "params is null");
+            com.baidu.swan.apps.console.c.e(avF, "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         JSONObject optJSONObject = c.optJSONObject("config");
         if (optJSONObject == null) {
-            com.baidu.swan.apps.console.c.e(avE, "config is null");
+            com.baidu.swan.apps.console.c.e(avF, "config is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

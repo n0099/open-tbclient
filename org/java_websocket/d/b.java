@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String jUe;
+    private final String jUf;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.jUe = str;
+        this.jUf = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean Ga(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.jUe.equals(str2)) {
+            if (this.jUf.equals(str2)) {
                 return true;
             }
         }
@@ -24,7 +24,7 @@ public class b implements a {
 
     @Override // org.java_websocket.d.a
     public String cDn() {
-        return this.jUe;
+        return this.jUf;
     }
 
     @Override // org.java_websocket.d.a
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.jUe.equals(((b) obj).jUe);
+        return this.jUf.equals(((b) obj).jUf);
     }
 
     public int hashCode() {
-        return this.jUe.hashCode();
+        return this.jUf.hashCode();
     }
 }

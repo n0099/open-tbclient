@@ -6,8 +6,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.e.DEBUG;
-    private long bmg;
-    private JSONObject bmh;
+    private long bmh;
+    private JSONObject bmi;
     private int mErrorCode = -1;
     private String mErrorMessage;
 
@@ -20,11 +20,11 @@ public class c {
     }
 
     public JSONObject RJ() {
-        return this.bmh;
+        return this.bmi;
     }
 
     public void aw(JSONObject jSONObject) {
-        this.bmh = jSONObject;
+        this.bmi = jSONObject;
     }
 
     public void setErrorMessage(String str) {
@@ -32,7 +32,7 @@ public class c {
     }
 
     public void S(long j) {
-        this.bmg = j;
+        this.bmh = j;
     }
 
     public static c jm(String str) {

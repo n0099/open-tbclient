@@ -5,30 +5,30 @@ import android.util.Log;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private int avi;
+    private int avj;
 
     public b(int i) {
-        this.avi = i;
+        this.avj = i;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
     public List<String> s(@Nullable List<String> list) {
-        if (list == null || list.size() == 0 || this.avi < 0) {
+        if (list == null || list.size() == 0 || this.avj < 0) {
             return null;
         }
-        if (list.size() < this.avi) {
+        if (list.size() < this.avj) {
             if (DEBUG) {
                 Log.d("IDiskCleanStrategy", "数量未达到上限，无需删除");
                 return null;
             }
             return null;
         }
-        int size = list.size() - this.avi;
+        int size = list.size() - this.avj;
         int size2 = list.size() - size;
         int size3 = list.size();
         if (DEBUG) {
-            Log.d("IDiskCleanStrategy", "过滤后的列表有" + list.size() + "个小程序，上限" + this.avi + "个，删除最早的" + size + "个");
+            Log.d("IDiskCleanStrategy", "过滤后的列表有" + list.size() + "个小程序，上限" + this.avj + "个，删除最早的" + size + "个");
         }
         return list.subList(size2, size3);
     }

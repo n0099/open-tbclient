@@ -24,20 +24,20 @@ import com.baidu.tieba.video.cloudmusic.d;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 /* loaded from: classes5.dex */
 public class CloudMusicListFragment extends BaseFragment implements BdListView.f, a.b, d.b {
-    private PbListView dbr;
+    private PbListView dbs;
     private BdListView gee;
-    private com.baidu.tieba.video.cloudmusic.a.a iVb;
-    private d.a iVc;
-    private CloudMusicData.MusicTagList iVd;
+    private com.baidu.tieba.video.cloudmusic.a.a iVc;
+    private d.a iVd;
+    private CloudMusicData.MusicTagList iVe;
     private NoDataView mNoDataView;
     private int tagId = 0;
-    private int enY = 1;
-    private CustomMessageListener iVe = new CustomMessageListener(2921307) { // from class: com.baidu.tieba.video.cloudmusic.CloudMusicListFragment.1
+    private int enZ = 1;
+    private CustomMessageListener iVf = new CustomMessageListener(2921307) { // from class: com.baidu.tieba.video.cloudmusic.CloudMusicListFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921307 && CloudMusicListFragment.this.iVb != null) {
-                CloudMusicListFragment.this.iVb.notifyDataSetChanged();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921307 && CloudMusicListFragment.this.iVc != null) {
+                CloudMusicListFragment.this.iVc.notifyDataSetChanged();
             }
         }
     };
@@ -58,35 +58,35 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.fragment_cloud_music_list, viewGroup, false);
-        this.iVd = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
+        this.iVe = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
         this.gee = (BdListView) inflate.findViewById(d.g.cloud_music_list_view);
-        this.iVb = new com.baidu.tieba.video.cloudmusic.a.a(getPageContext());
-        this.gee.setAdapter((ListAdapter) this.iVb);
+        this.iVc = new com.baidu.tieba.video.cloudmusic.a.a(getPageContext());
+        this.gee.setAdapter((ListAdapter) this.iVc);
         this.gee.setExOnSrollToBottomListener(this);
         this.gee.setDivider(null);
-        this.iVb.a(this);
-        this.dbr = new PbListView(getPageContext().getPageActivity());
-        this.dbr.oM();
-        this.dbr.ia(d.C0277d.cp_bg_line_d);
-        this.dbr.ib(TbadkCoreApplication.getInst().getSkinType());
+        this.iVc.a(this);
+        this.dbs = new PbListView(getPageContext().getPageActivity());
+        this.dbs.oM();
+        this.dbs.ia(d.C0277d.cp_bg_line_d);
+        this.dbs.ib(TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(d.e.ds200)), NoDataViewFactory.d.hT(d.j.no_data_text), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        if (this.iVd != null && this.iVc != null && this.iVd.page != null) {
-            this.tagId = this.iVd.tag_id;
-            this.enY = this.iVd.page.has_more;
-            this.iVc.c(this.iVd);
+        if (this.iVe != null && this.iVd != null && this.iVe.page != null) {
+            this.tagId = this.iVe.tag_id;
+            this.enZ = this.iVe.page.has_more;
+            this.iVd.c(this.iVe);
         }
         this.gee.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.cloudmusic.CloudMusicListFragment.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (j.kY()) {
-                    CloudMusicListFragment.this.iVc.a(CloudMusicListFragment.this.iVb.getItem(i), i);
+                    CloudMusicListFragment.this.iVd.a(CloudMusicListFragment.this.iVc.getItem(i), i);
                 } else {
                     l.showToast(CloudMusicListFragment.this.getPageContext().getPageActivity(), d.j.neterror);
                 }
             }
         });
-        registerListener(this.iVe);
+        registerListener(this.iVf);
         return inflate;
     }
 
@@ -94,8 +94,8 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     public void a(BdListView bdListView) {
         if (!j.kY()) {
             l.showToast(getPageContext().getPageActivity(), d.j.neterror);
-        } else if (this.iVc != null && this.enY != 0) {
-            this.iVc.Ap(this.tagId);
+        } else if (this.iVd != null && this.enZ != 0) {
+            this.iVd.Ap(this.tagId);
         }
     }
 
@@ -103,19 +103,19 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mSkinType = i;
-        this.dbr.ib(i);
+        this.dbs.ib(i);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void a(d.a aVar) {
-        this.iVc = aVar;
+        this.iVd = aVar;
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void b(CloudMusicData.MusicTagList musicTagList) {
-        this.iVd = musicTagList;
-        if (this.iVb != null) {
-            this.iVb.eb(musicTagList.music_list);
+        this.iVe = musicTagList;
+        if (this.iVc != null) {
+            this.iVc.eb(musicTagList.music_list);
         }
     }
 
@@ -130,45 +130,45 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void ciV() {
-        if (this.dbr != null) {
-            if (this.dbr.getView().getParent() == null) {
-                this.gee.setNextPage(this.dbr);
+        if (this.dbs != null) {
+            if (this.dbs.getView().getParent() == null) {
+                this.gee.setNextPage(this.dbs);
             }
-            this.dbr.setText(getPageContext().getResources().getString(d.j.cloud_music_from_baidu_music));
-            this.dbr.aeA();
+            this.dbs.setText(getPageContext().getResources().getString(d.j.cloud_music_from_baidu_music));
+            this.dbs.aeA();
         }
-        this.enY = 0;
+        this.enZ = 0;
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void qA(boolean z) {
-        if (this.dbr != null) {
+        if (this.dbs != null) {
             if (z) {
-                if (this.dbr.getView().getParent() == null) {
-                    this.gee.setNextPage(this.dbr);
+                if (this.dbs.getView().getParent() == null) {
+                    this.gee.setNextPage(this.dbs);
                 }
-                this.dbr.aeF();
-                this.dbr.aez();
+                this.dbs.aeF();
+                this.dbs.aez();
                 return;
             }
-            this.dbr.aeA();
+            this.dbs.aeA();
             this.gee.setNextPage(null);
         }
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void Am(int i) {
-        this.iVb.L(i, true);
+        this.iVc.L(i, true);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void An(int i) {
-        this.iVb.L(i, false);
+        this.iVc.L(i, false);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.d.b
     public void Ao(int i) {
-        this.iVb.L(i, false);
+        this.iVc.L(i, false);
         if (getPageContext() != null || getPageContext().getPageActivity() != null) {
             l.showToast(getPageContext().getPageActivity(), d.j.download_error);
         }
@@ -177,14 +177,14 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.iVc.bVq();
+        this.iVd.bVq();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iVc != null) {
-            this.iVc.beW();
+        if (this.iVd != null) {
+            this.iVd.beW();
         }
         com.baidu.tieba.video.cloudmusic.data.a.cjc().onDestroy();
     }
@@ -193,8 +193,8 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.f
     public void a(View view, String str, int i) {
         Intent intent = new Intent();
         intent.putExtra("music_resource", str);
-        if (this.iVb != null && this.iVb.getItem(i) != null) {
-            intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.iVb.getItem(i).music_id)));
+        if (this.iVc != null && this.iVc.getItem(i) != null) {
+            intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.iVc.getItem(i).music_id)));
         }
         getPageContext().getPageActivity().setResult(-1, intent);
         getPageContext().getPageActivity().finish();

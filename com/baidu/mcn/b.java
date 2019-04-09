@@ -7,32 +7,32 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String aeT = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private SharedPreferences aeU;
-    private Set<String> aeV;
+    private static String aeU = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private SharedPreferences aeV;
+    private Set<String> aeW;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b aeW = new b();
+        public static b aeX = new b();
     }
 
     public static b sX() {
-        return a.aeW;
+        return a.aeX;
     }
 
     private b() {
-        this.aeU = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.aeV = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
     public void cS(String str) {
         if (!StringUtils.isNull(str)) {
-            this.aeV = this.aeU.getStringSet(aeT, null);
-            if (this.aeV == null) {
-                this.aeV = new HashSet();
+            this.aeW = this.aeV.getStringSet(aeU, null);
+            if (this.aeW == null) {
+                this.aeW = new HashSet();
             }
-            this.aeV.add(str);
-            this.aeU.edit().putStringSet(aeT, this.aeV).commit();
+            this.aeW.add(str);
+            this.aeV.edit().putStringSet(aeU, this.aeW).commit();
         }
     }
 
@@ -40,11 +40,11 @@ public class b {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.aeV == null) {
-            this.aeV = this.aeU.getStringSet(aeT, null);
+        if (this.aeW == null) {
+            this.aeW = this.aeV.getStringSet(aeU, null);
         }
-        if (this.aeV != null) {
-            return this.aeV.contains(str);
+        if (this.aeW != null) {
+            return this.aeW.contains(str);
         }
         return false;
     }

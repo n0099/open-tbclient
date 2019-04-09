@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 /* loaded from: classes2.dex */
 public final class j extends o<Date> {
-    public static final p jNR = new p() { // from class: com.google.gson.internal.a.j.1
+    public static final p jNS = new p() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
             if (aVar.cBC() == Date.class) {
@@ -20,7 +20,7 @@ public final class j extends o<Date> {
             return null;
         }
     };
-    private final DateFormat jOy = new SimpleDateFormat("MMM d, yyyy");
+    private final DateFormat jOz = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
@@ -32,7 +32,7 @@ public final class j extends o<Date> {
             date = null;
         } else {
             try {
-                date = new Date(this.jOy.parse(aVar.nextString()).getTime());
+                date = new Date(this.jOz.parse(aVar.nextString()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -43,6 +43,6 @@ public final class j extends o<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.FH(date == null ? null : this.jOy.format((java.util.Date) date));
+        bVar.FH(date == null ? null : this.jOz.format((java.util.Date) date));
     }
 }

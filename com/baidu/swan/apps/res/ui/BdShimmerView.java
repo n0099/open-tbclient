@@ -8,7 +8,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 /* loaded from: classes2.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.apps.res.widget.loadingview.b<BdShimmerView> {
-    private ImageView aFW;
+    private ImageView aFX;
     private int mType;
 
     public BdShimmerView(Context context) {
@@ -25,9 +25,9 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     }
 
     protected void init(Context context) {
-        this.aFW = new ImageView(context);
-        this.aFW.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        addView(this.aFW);
+        this.aFX = new ImageView(context);
+        this.aFX.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        addView(this.aFX);
     }
 
     public void setType(int i) {
@@ -38,7 +38,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
     private void GQ() {
         switch (this.mType) {
             case 0:
-                this.aFW.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
+                this.aFX.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
                 ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
                 if (com.baidu.swan.apps.u.a.CR().Dq()) {
                     maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
@@ -46,7 +46,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
                 setMaskShape(maskShape);
                 return;
             case 1:
-                this.aFW.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
+                this.aFX.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
                 setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
                 return;
             default:

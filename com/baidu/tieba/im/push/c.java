@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c grg = null;
+    private static c grh = null;
     private long gbE = 0;
-    private List<Long> grh = new ArrayList();
-    private final CustomMessageListener gqi = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
+    private List<Long> gri = new ArrayList();
+    private final CustomMessageListener gqj = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,18 +27,18 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gqi);
+        MessageManager.getInstance().registerListener(this.gqj);
     }
 
     public static c bvy() {
-        if (grg == null) {
+        if (grh == null) {
             synchronized (c.class) {
-                if (grg == null) {
-                    grg = new c();
+                if (grh == null) {
+                    grh = new c();
                 }
             }
         }
-        return grg;
+        return grh;
     }
 
     public synchronized void cY(String str, String str2) {
@@ -51,7 +51,7 @@ public class c {
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.grh.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.gri.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -66,7 +66,7 @@ public class c {
 
     public synchronized void clear() {
         this.gbE = 0L;
-        this.grh.clear();
+        this.gri.clear();
     }
 
     public long getGid() {
@@ -80,7 +80,7 @@ public class c {
     public synchronized List<Long> bvA() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.grh) {
+        for (Long l : this.gri) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.dn(l.longValue())));
             }
@@ -89,22 +89,22 @@ public class c {
     }
 
     public synchronized void bvB() {
-        this.grh.clear();
+        this.gri.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.grh.add(java.lang.Long.valueOf(r12));
+        r9.gri.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void q(long j, long j2) {
         if (this.gbE != 0 && this.gbE != j) {
-            this.grh.clear();
+            this.gri.clear();
             i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.gbE);
         }
         this.gbE = j;
-        Iterator<Long> it = this.grh.iterator();
+        Iterator<Long> it = this.gri.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -119,14 +119,14 @@ public class c {
     public synchronized boolean bvC() {
         boolean z;
         if (this.gbE > 0) {
-            z = this.grh.size() > 0;
+            z = this.gri.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean dh(long j) {
         boolean z;
-        Iterator<Long> it = this.grh.iterator();
+        Iterator<Long> it = this.gri.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -144,7 +144,7 @@ public class c {
     public synchronized String bvD() {
         String str;
         str = "";
-        for (Long l : this.grh) {
+        for (Long l : this.gri) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

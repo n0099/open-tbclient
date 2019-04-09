@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean iIu = true;
     private static Boolean iIv = true;
+    private static Boolean iIw = true;
 
     public static void CF(String str) {
         aE(13, str);
@@ -192,7 +192,7 @@ public class a {
     }
 
     public static void j(Boolean bool) {
-        iIu = bool;
+        iIv = bool;
     }
 
     public static void aif() {

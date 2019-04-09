@@ -19,7 +19,7 @@ public class MsgMultiImageTextView extends g {
     }
 
     private void init() {
-        this.eKM = (TextView) findViewById(d.g.tex_msgitem_time);
+        this.eKN = (TextView) findViewById(d.g.tex_msgitem_time);
         this.gcO = (MultiContentView) findViewById(d.g.msg_content);
     }
 

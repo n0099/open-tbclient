@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
-    private ImageView agJ;
-    private TextView ahN;
-    private LinearLayout ceG;
-    private HeadImageView itV;
+    private ImageView agK;
+    private TextView ahO;
+    private LinearLayout ceH;
+    private HeadImageView itW;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -37,32 +37,32 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     public void jf(int i) {
-        al.d(this.ahN, d.C0277d.common_color_10039, 1);
-        al.b(this.agJ, d.f.icon_arrow_gray_right_n, i);
-        this.itV.invalidate();
+        al.d(this.ahO, d.C0277d.common_color_10039, 1);
+        al.b(this.agK, d.f.icon_arrow_gray_right_n, i);
+        this.itW.invalidate();
     }
 
     public void caB() {
-        if (this.itV != null) {
-            this.itV.setVisibility(8);
+        if (this.itW != null) {
+            this.itW.setVisibility(8);
         }
     }
 
     public void caC() {
-        if (this.itV != null) {
-            this.itV.setVisibility(0);
+        if (this.itW != null) {
+            this.itW.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.ahN.setText(str);
+        this.ahO.setText(str);
     }
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.itV.startLoad(str, 26, false);
+            this.itW.startLoad(str, 26, false);
         } else {
-            this.itV.startLoad(str, 12, false);
+            this.itW.startLoad(str, 12, false);
         }
     }
 
@@ -71,10 +71,10 @@ public class SettingTextImageView extends FrameLayout {
 
     private void akn() {
         LayoutInflater.from(this.mContext).inflate(d.h.setting_text_image_view, (ViewGroup) this, true);
-        this.ceG = (LinearLayout) findViewById(d.g.container);
-        this.ahN = (TextView) findViewById(d.g.text);
-        this.itV = (HeadImageView) findViewById(d.g.icon);
-        this.agJ = (ImageView) findViewById(d.g.arrow);
+        this.ceH = (LinearLayout) findViewById(d.g.container);
+        this.ahO = (TextView) findViewById(d.g.text);
+        this.itW = (HeadImageView) findViewById(d.g.icon);
+        this.agK = (ImageView) findViewById(d.g.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -83,12 +83,12 @@ public class SettingTextImageView extends FrameLayout {
         int color = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTextColor, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.ahN.setText(string);
+            this.ahO.setText(string);
         }
         if (color > -1) {
-            this.ahN.setTextColor(color);
+            this.ahO.setTextColor(color);
         }
-        this.ceG.setClickable(false);
-        this.ceG.setFocusable(false);
+        this.ceH.setClickable(false);
+        this.ceH.setFocusable(false);
     }
 }

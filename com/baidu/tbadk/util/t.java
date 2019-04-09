@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class t {
+    private static final byte[] ctA = new byte[1];
+    private static t ctB = null;
     private CustomMessageListener mNetworkChangedListener;
-    private static final byte[] ctz = new byte[1];
-    private static t ctA = null;
 
     public static t aqb() {
-        if (ctA == null) {
-            synchronized (ctz) {
-                if (ctA == null) {
-                    ctA = new t();
+        if (ctB == null) {
+            synchronized (ctA) {
+                if (ctB == null) {
+                    ctB = new t();
                 }
             }
         }
-        return ctA;
+        return ctB;
     }
 
     private t() {

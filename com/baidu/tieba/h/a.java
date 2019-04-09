@@ -3,7 +3,7 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cMZ;
+    private String cNa;
     private String fAs;
     private String fAt;
     private String fAu;
@@ -16,7 +16,7 @@ public class a {
             this.mTitle = esportRank.title;
             this.fAs = String.valueOf(esportRank.rank);
             this.fAt = esportRank.text;
-            this.cMZ = esportRank.url;
+            this.cNa = esportRank.url;
             if (esportRank.user != null) {
                 this.fAu = esportRank.user.steam_name;
                 this.fAv = esportRank.user.steam_portrait;
@@ -53,10 +53,10 @@ public class a {
     }
 
     public String bkp() {
-        return this.cMZ;
+        return this.cNa;
     }
 
     public void vS(String str) {
-        this.cMZ = str;
+        this.cNa = str;
     }
 }

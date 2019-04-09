@@ -174,7 +174,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             this.gdi.bqt();
         }
         this.gcj.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        long longValue = com.baidu.tieba.im.sendmessage.a.grS.longValue();
+        long longValue = com.baidu.tieba.im.sendmessage.a.grT.longValue();
         if ((this.gck instanceof OfficialBarMsglistModel) && (user = ((OfficialBarMsglistModel) this.gck).getUser()) != null) {
             String str = "";
             if (!TextUtils.isEmpty(user.getUserName())) {

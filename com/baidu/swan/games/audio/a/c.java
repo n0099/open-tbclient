@@ -13,32 +13,32 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bag;
-    private com.baidu.swan.games.network.b bah;
-    private a baj;
+    private String bah;
+    private com.baidu.swan.games.network.b bai;
+    private a bak;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.bag = "";
-        this.bah = bVar;
-        this.bag = str;
+        this.bah = "";
+        this.bai = bVar;
+        this.bah = str;
         this.mSrc = str2;
-        this.baj = aVar;
+        this.bak = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.bah.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
+        this.bai.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("AudioDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.baj != null) {
-                    c.this.baj.s(-1, c.this.mSrc);
+                if (c.this.bak != null) {
+                    c.this.bak.s(-1, c.this.mSrc);
                 }
             }
 
@@ -57,7 +57,7 @@ class c {
                     inputStream = response.body().byteStream();
                     try {
                         String hW = e.hW(c.this.mSrc);
-                        String str = c.this.bag + hW.substring(0, hW.lastIndexOf("/"));
+                        String str = c.this.bah + hW.substring(0, hW.lastIndexOf("/"));
                         File file = new File(str);
                         if (!file.exists() || !file.isDirectory()) {
                             file.mkdirs();
@@ -84,8 +84,8 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load failed", e);
                                     }
-                                    if (c.this.baj != null) {
-                                        c.this.baj.s(-1, c.this.mSrc);
+                                    if (c.this.bak != null) {
+                                        c.this.bak.s(-1, c.this.mSrc);
                                     }
                                     if (inputStream2 != null) {
                                         try {
@@ -144,15 +144,15 @@ class c {
                             if (c.DEBUG) {
                                 Log.e("AudioDownloader", c.this.mSrc + " load success path = " + absolutePath);
                             }
-                            if (c.this.baj != null) {
-                                c.this.baj.aN(c.this.mSrc, absolutePath);
+                            if (c.this.bak != null) {
+                                c.this.bak.aN(c.this.mSrc, absolutePath);
                             }
                         } else {
                             if (c.DEBUG) {
                                 Log.e("AudioDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                             }
-                            if (c.this.baj != null) {
-                                c.this.baj.s(-1, absolutePath);
+                            if (c.this.bak != null) {
+                                c.this.bak.s(-1, absolutePath);
                             }
                         }
                         if (inputStream != null) {

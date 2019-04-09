@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String aSJ;
-    private HashMap<String, String> aSL;
-    private int aSM;
+    private String aSK;
+    private HashMap<String, String> aSM;
+    private int aSN;
     private String mAppId;
     private String mSource;
     private String mType;
     private String mValue;
-    private HashMap<String, SearchFlowEvent> aSK = new HashMap<>();
+    private HashMap<String, SearchFlowEvent> aSL = new HashMap<>();
     private Timer mTimer = new Timer();
 
     public a(String str) {
-        this.aSM = 0;
-        this.aSJ = str;
-        this.aSM = 0;
+        this.aSN = 0;
+        this.aSK = str;
+        this.aSN = 0;
         if (DEBUG) {
             Log.d("SearchFlow", "-----New SearchFlow-----");
         }
@@ -40,20 +40,20 @@ public class a {
             if (DEBUG) {
                 Log.d("SearchFlow", "SearchFlowEvent is invalid");
             }
-        } else if (TextUtils.isEmpty(this.aSJ) || this.aSK == null) {
+        } else if (TextUtils.isEmpty(this.aSK) || this.aSL == null) {
             if (DEBUG) {
                 Log.d("SearchFlow", "ubc flow status is invalid");
             }
         } else {
-            if (this.aSK.get(searchFlowEvent.id) != null) {
-                this.aSK.remove(searchFlowEvent.id);
+            if (this.aSL.get(searchFlowEvent.id) != null) {
+                this.aSL.remove(searchFlowEvent.id);
                 if (DEBUG) {
                     Log.d("SearchFlow", "SearchFlowEvent removed: " + searchFlowEvent.id);
                 }
-            } else if (searchFlowEvent.aSO == SearchFlowEvent.EventType.END) {
-                this.aSM++;
+            } else if (searchFlowEvent.aSP == SearchFlowEvent.EventType.END) {
+                this.aSN++;
             }
-            this.aSK.put(searchFlowEvent.id, searchFlowEvent);
+            this.aSL.put(searchFlowEvent.id, searchFlowEvent);
             if (DEBUG) {
                 Log.d("SearchFlow", "SearchFlowEvent added: " + searchFlowEvent.id);
             }
@@ -97,10 +97,10 @@ public class a {
 
     public void aB(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            if (this.aSL == null) {
-                this.aSL = new HashMap<>();
+            if (this.aSM == null) {
+                this.aSM = new HashMap<>();
             }
-            this.aSL.put(str, str2);
+            this.aSM.put(str, str2);
         }
     }
 
@@ -116,7 +116,7 @@ public class a {
         if (DEBUG) {
             Log.d("SearchFlow", "try to send ubc: ");
         }
-        if (this.aSM >= 2) {
+        if (this.aSN >= 2) {
             if (DEBUG) {
                 Log.d("SearchFlow", "two+ ends, cancel timer task, and send ubc instantly");
             }
@@ -159,7 +159,7 @@ public class a {
             if (DEBUG) {
                 Log.w("SearchFlow", "source=" + this.mSource + ", ignore this case");
             }
-        } else if (this.aSK == null) {
+        } else if (this.aSL == null) {
             if (DEBUG) {
                 Log.d("SearchFlow", "event pool is empty");
             }
@@ -167,13 +167,13 @@ public class a {
             if (DEBUG) {
                 Log.d("SearchFlow", "ubc: begin flow");
             }
-            Flow jT = q.jT(this.aSJ);
+            Flow jT = q.jT(this.aSK);
             if (jT == null) {
                 if (DEBUG) {
                     Log.w("SearchFlow", "UBC Flow create failed");
                 }
             } else {
-                for (SearchFlowEvent searchFlowEvent : this.aSK.values()) {
+                for (SearchFlowEvent searchFlowEvent : this.aSL.values()) {
                     jT.addEvent(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
                 }
                 JSONObject jSONObject = new JSONObject();
@@ -184,9 +184,9 @@ public class a {
                     jSONObject.put(UBC.CONTENT_KEY_VALUE, this.mValue);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("appid", this.mAppId);
-                    if (this.aSL != null) {
-                        for (String str : this.aSL.keySet()) {
-                            jSONObject2.put(str, this.aSL.get(str));
+                    if (this.aSM != null) {
+                        for (String str : this.aSM.keySet()) {
+                            jSONObject2.put(str, this.aSM.get(str));
                         }
                     }
                     jSONObject.put("ext", jSONObject2);
@@ -210,19 +210,19 @@ public class a {
 
     public void destroy() {
         wn();
-        if (this.aSK != null) {
-            this.aSK.clear();
-        }
         if (this.aSL != null) {
             this.aSL.clear();
+        }
+        if (this.aSM != null) {
+            this.aSM.clear();
         }
         this.mAppId = null;
         this.mType = null;
         this.mSource = null;
         this.mValue = null;
-        this.aSK = null;
         this.aSL = null;
-        this.aSM = 0;
+        this.aSM = null;
+        this.aSN = 0;
         if (DEBUG) {
             Log.d("SearchFlow", "-----Destroy SearchFlow-----");
         }

@@ -1,36 +1,36 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes2.dex */
 public class b {
-    protected boolean aBK;
     protected boolean aBL;
-    private boolean aBM;
+    protected boolean aBM;
+    private boolean aBN;
     protected int height;
     protected int left;
     protected int top;
     protected int width;
 
     public b() {
-        this.aBK = false;
         this.aBL = false;
+        this.aBM = false;
     }
 
     public b(b bVar) {
-        this.aBK = false;
         this.aBL = false;
+        this.aBM = false;
         if (bVar != null) {
             this.left = bVar.left;
             this.top = bVar.top;
             this.width = bVar.width;
             this.height = bVar.height;
-            this.aBK = bVar.aBK;
             this.aBL = bVar.aBL;
             this.aBM = bVar.aBM;
+            this.aBN = bVar.aBN;
         }
     }
 
     public b(int i, int i2, int i3, int i4) {
-        this.aBK = false;
         this.aBL = false;
+        this.aBM = false;
         this.left = i;
         this.top = i2;
         this.width = i3;
@@ -47,19 +47,19 @@ public class b {
     }
 
     public void bq(boolean z) {
-        this.aBK = z;
-    }
-
-    public void br(boolean z) {
         this.aBL = z;
     }
 
+    public void br(boolean z) {
+        this.aBM = z;
+    }
+
     public boolean isFixed() {
-        return this.aBM;
+        return this.aBN;
     }
 
     public void bs(boolean z) {
-        this.aBM = z;
+        this.aBN = z;
     }
 
     public int getLeft() {
@@ -96,8 +96,8 @@ public class b {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.aBK || this.width >= 0;
-        if (this.aBL || this.height >= 0) {
+        boolean z2 = this.aBL || this.width >= 0;
+        if (this.aBM || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -109,12 +109,12 @@ public class b {
         }
         if (obj instanceof b) {
             b bVar = (b) obj;
-            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aBM == bVar.aBM;
+            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aBN == bVar.aBN;
         }
         return false;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aBK + ", HAuto=" + this.aBL + ", fixed=" + this.aBM + '}';
+        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aBL + ", HAuto=" + this.aBM + ", fixed=" + this.aBN + '}';
     }
 }

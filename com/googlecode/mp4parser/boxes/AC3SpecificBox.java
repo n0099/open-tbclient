@@ -39,21 +39,21 @@ public class AC3SpecificBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AC3SpecificBox.java", AC3SpecificBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFscod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 55);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setFscod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "fscod", "", "void"), 59);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getBitRateCode", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 95);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setBitRateCode", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bitRateCode", "", "void"), 99);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "getReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 103);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "reserved", "", "void"), 107);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "java.lang.String"), 112);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 63);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bsid", "", "void"), 67);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getBsmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 71);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setBsmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bsmod", "", "void"), 75);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getAcmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 79);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setAcmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "acmod", "", "void"), 83);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getLfeon", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 87);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setLfeon", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "lfeon", "", "void"), 91);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFscod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 55);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFscod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "fscod", "", "void"), 59);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getBitRateCode", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 95);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setBitRateCode", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bitRateCode", "", "void"), 99);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 103);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "reserved", "", "void"), 107);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "java.lang.String"), 112);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 63);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setBsid", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bsid", "", "void"), 67);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getBsmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 71);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setBsmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "bsmod", "", "void"), 75);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getAcmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 79);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setAcmod", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "acmod", "", "void"), 83);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getLfeon", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "", "", "", "int"), 87);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLfeon", "com.googlecode.mp4parser.boxes.AC3SpecificBox", "int", "lfeon", "", "void"), 91);
     }
 
     public AC3SpecificBox() {

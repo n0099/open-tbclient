@@ -31,7 +31,7 @@ public class b extends com.baidu.tbadk.editortools.c {
             k jv = alP.jv(5);
             if (jv != null) {
                 jv.eK(false);
-                jv.cjk = 0;
+                jv.cjl = 0;
             }
             alP.b(new c(alP.getContext()));
             alP.alQ();

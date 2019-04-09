@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.h;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile a cUV;
+    private static volatile a cUW;
 
     public static synchronized a azs() {
         a aVar;
         synchronized (b.class) {
-            if (cUV == null) {
-                cUV = new a();
+            if (cUW == null) {
+                cUW = new a();
             }
-            aVar = cUV;
+            aVar = cUW;
         }
         return aVar;
     }

@@ -7,7 +7,7 @@ import android.view.View;
 public class f extends com.baidu.swan.apps.core.b.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
-    private View bbi;
+    private View bbj;
 
     public f(Context context) {
         super(context);
@@ -41,7 +41,7 @@ public class f extends com.baidu.swan.apps.core.b.d {
 
     @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.a
     public void L(View view) {
-        this.bbi = view;
+        this.bbj = view;
     }
 
     @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.a
@@ -58,8 +58,8 @@ public class f extends com.baidu.swan.apps.core.b.d {
             if (z) {
                 com.baidu.swan.apps.w.e.Ea().a("console", b.cu(true));
             }
-            if (this.bbi != null) {
-                this.bbi.setVisibility(z ? 4 : 0);
+            if (this.bbj != null) {
+                this.bbj.setVisibility(z ? 4 : 0);
             }
             super.aM(z);
         }

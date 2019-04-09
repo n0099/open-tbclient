@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public class x implements o {
-    private static x jFO = null;
+    private static x jFP = null;
 
     private x() {
     }
@@ -9,10 +9,10 @@ public class x implements o {
     public static synchronized x cwF() {
         x xVar;
         synchronized (x.class) {
-            if (jFO == null) {
-                jFO = new x();
+            if (jFP == null) {
+                jFP = new x();
             }
-            xVar = jFO;
+            xVar = jFP;
         }
         return xVar;
     }

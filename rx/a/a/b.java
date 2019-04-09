@@ -3,10 +3,10 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes2.dex */
 public class b {
-    private static final b jUK = new b();
+    private static final b jUL = new b();
 
     public static b cDH() {
-        return jUK;
+        return jUL;
     }
 
     public g cDI() {

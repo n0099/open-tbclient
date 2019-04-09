@@ -53,9 +53,9 @@ import tbclient.ThemeElement;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.frs.view.b {
-    private String byl;
-    private RelativeLayout cMt;
-    private View dvJ;
+    private String bym;
+    private RelativeLayout cMu;
+    private View dvK;
     private TextView fgp;
     private TextView fgq;
     private al fgs;
@@ -75,15 +75,15 @@ public class b extends com.baidu.tieba.frs.view.b {
         this.mForumName = str;
         this.mForumId = str2;
         this.mParent = bfh();
-        this.cMt = (RelativeLayout) this.mParent.findViewById(d.g.container);
+        this.cMu = (RelativeLayout) this.mParent.findViewById(d.g.container);
         this.fyF = (RelativeLayout) this.mParent.findViewById(d.g.head_top_bg_container);
         this.fuk = (LinearGradientView) this.mParent.findViewById(d.g.head_top_gradient_bg);
-        this.eBi = (TbImageView) this.mParent.findViewById(d.g.head_top_bg_mask);
-        this.eBi.setPageId(this.fat.getUniqueId());
-        this.eBi.setDefaultBgResource(d.C0277d.transparent);
-        this.eBi.setDefaultResource(d.f.pic_frs_head_default);
-        this.eBi.setDefaultErrorResource(d.f.pic_frs_head_default);
-        this.dvJ = this.mParent.findViewById(d.g.header_top_cover);
+        this.eBj = (TbImageView) this.mParent.findViewById(d.g.head_top_bg_mask);
+        this.eBj.setPageId(this.fat.getUniqueId());
+        this.eBj.setDefaultBgResource(d.C0277d.transparent);
+        this.eBj.setDefaultResource(d.f.pic_frs_head_default);
+        this.eBj.setDefaultErrorResource(d.f.pic_frs_head_default);
+        this.dvK = this.mParent.findViewById(d.g.header_top_cover);
         this.fgv = (RelativeLayout) this.mParent.findViewById(d.g.layout_banner_container);
         this.fyG = (FrsTopView) this.mParent.findViewById(d.g.frs_topview);
         this.fyK = (ImageView) this.mParent.findViewById(d.g.speed_icon);
@@ -94,11 +94,11 @@ public class b extends com.baidu.tieba.frs.view.b {
         this.fyv = (TextView) this.mParent.findViewById(d.g.tv_love);
         this.fyw = (TextView) this.mParent.findViewById(d.g.tv_sign);
         this.fyw.setContentDescription(frsFragment.getResources().getString(d.j.sign));
-        this.eVv = (ImageView) this.mParent.findViewById(d.g.love_level_top);
-        this.eVw = (ImageView) this.mParent.findViewById(d.g.love_level_bg);
+        this.eVw = (ImageView) this.mParent.findViewById(d.g.love_level_top);
+        this.eVx = (ImageView) this.mParent.findViewById(d.g.love_level_bg);
         this.fyt = (TextView) this.mParent.findViewById(d.g.member_num_text);
         this.fyu = (TextView) this.mParent.findViewById(d.g.post_num_text);
-        this.eXA = (TextView) this.mParent.findViewById(d.g.forum_name);
+        this.eXB = (TextView) this.mParent.findViewById(d.g.forum_name);
         this.fyz = (TextView) this.mParent.findViewById(d.g.brand_label);
         this.fyM = (BarImageView) this.mParent.findViewById(d.g.frs_image);
         this.fyM.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -123,7 +123,7 @@ public class b extends com.baidu.tieba.frs.view.b {
     @Override // com.baidu.tieba.frs.view.b
     public void t(View.OnClickListener onClickListener) {
         this.fyM.setOnClickListener(onClickListener);
-        this.eXA.setOnClickListener(onClickListener);
+        this.eXB.setOnClickListener(onClickListener);
         this.fyw.setOnClickListener(onClickListener);
         this.fyv.setOnClickListener(onClickListener);
         this.fyC.setOnClickListener(onClickListener);
@@ -140,11 +140,11 @@ public class b extends com.baidu.tieba.frs.view.b {
         this.mContext.getLayoutMode().onModeChanged(this.mParent);
         this.mContext.getLayoutMode().onModeChanged(this.fyH);
         this.mContext.getLayoutMode().onModeChanged(this.fyy);
-        com.baidu.tbadk.core.util.al.k(this.eVv, d.f.frs_exp_progress);
-        com.baidu.tbadk.core.util.al.l(this.eVw, d.C0277d.cp_btn_a);
+        com.baidu.tbadk.core.util.al.k(this.eVw, d.f.frs_exp_progress);
+        com.baidu.tbadk.core.util.al.l(this.eVx, d.C0277d.cp_btn_a);
         com.baidu.tbadk.core.util.al.l(this.fyE, d.C0277d.black_alpha0);
-        com.baidu.tbadk.core.util.al.l(this.cMt, d.C0277d.cp_bg_line_e);
-        com.baidu.tbadk.core.util.al.j(this.eXA, d.C0277d.cp_btn_a);
+        com.baidu.tbadk.core.util.al.l(this.cMu, d.C0277d.cp_bg_line_e);
+        com.baidu.tbadk.core.util.al.j(this.eXB, d.C0277d.cp_btn_a);
         com.baidu.tbadk.core.util.al.j(this.fyD, d.C0277d.cp_btn_a);
         com.baidu.tbadk.core.util.al.j(this.fyx, d.C0277d.cp_btn_a);
         com.baidu.tbadk.core.util.al.j(this.fgp, d.C0277d.cp_btn_a);
@@ -181,7 +181,7 @@ public class b extends com.baidu.tieba.frs.view.b {
             this.mMemberNum = forumData.getMember_num();
             this.fyU = forumData.getPost_num();
             this.fyR = forumData.getTag_color();
-            this.byl = forumData.getImage_url();
+            this.bym = forumData.getImage_url();
             this.fyQ = forumData.getLevelName();
             this.mLevel = forumData.getUser_level();
             if (forumData.getSignData() != null) {
@@ -208,7 +208,7 @@ public class b extends com.baidu.tieba.frs.view.b {
     protected void bfj() {
         MediaData mediaData = new MediaData();
         mediaData.setType(3);
-        mediaData.setPic(this.byl);
+        mediaData.setPic(this.bym);
         this.fyT.YY().add(mediaData);
     }
 
@@ -270,21 +270,21 @@ public class b extends com.baidu.tieba.frs.view.b {
             this.mForumName = UtilHelper.getFixedText(this.mForumName, 6);
         }
         String str = this.mForumName + this.mContext.getString(d.j.forum);
-        if (this.eKf != null) {
-            this.eKf.setText(str);
+        if (this.eKg != null) {
+            this.eKg.setText(str);
         }
-        if (this.eXA != null) {
-            this.eXA.setText(str);
+        if (this.eXB != null) {
+            this.eXB.setText(str);
         }
         bfs();
         this.fgt = bfr();
         if (this.fgt) {
             this.fuk.setVisibility(8);
-            this.dvJ.setVisibility(0);
+            this.dvK.setVisibility(0);
         } else {
-            this.dvJ.setVisibility(8);
+            this.dvK.setVisibility(8);
             this.fuk.setVisibility(0);
-            this.eBi.setOnClickListener(null);
+            this.eBj.setOnClickListener(null);
         }
         bfq();
         qu(TbadkCoreApplication.getInst().getSkinType());
@@ -388,10 +388,10 @@ public class b extends com.baidu.tieba.frs.view.b {
             sVar = frsViewData.getActivityHeadData().Xc().get(0);
         }
         if (sVar != null) {
-            if (this.eBi != null) {
-                this.eBi.startLoad(sVar.getImageUrl(), 10, false);
+            if (this.eBj != null) {
+                this.eBj.startLoad(sVar.getImageUrl(), 10, false);
                 if (!TextUtils.isEmpty(sVar.getLinkUrl())) {
-                    this.eBi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.b.2
+                    this.eBj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.b.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (b.this.mContext != null) {
@@ -424,8 +424,8 @@ public class b extends com.baidu.tieba.frs.view.b {
                     this.fuk.setGradientColor(themeElement3.light_color, themeElement3.dark_color, themeElement2.light_color, themeElement2.dark_color);
                     bfo.setGradientColor(themeElement3.light_color, themeElement3.dark_color, themeElement2.light_color, themeElement2.dark_color);
                 }
-                if (this.eBi != null) {
-                    this.eBi.startLoad(themeElement.pattern_image, 10, false);
+                if (this.eBj != null) {
+                    this.eBj.startLoad(themeElement.pattern_image, 10, false);
                 }
             }
             if (this.fyG != null) {
@@ -436,7 +436,7 @@ public class b extends com.baidu.tieba.frs.view.b {
     }
 
     protected void bfs() {
-        this.fyM.startLoad(this.byl, 10, false);
+        this.fyM.startLoad(this.bym, 10, false);
     }
 
     @Override // com.baidu.tieba.frs.view.b
@@ -535,7 +535,7 @@ public class b extends com.baidu.tieba.frs.view.b {
                 public void onClick(View view) {
                     if (b.this.mContext != null && b.this.mContext.getPageActivity() != null) {
                         g.a(b.this.fyL, b.this.mContext.getPageActivity());
-                        b.this.fat.eYr = false;
+                        b.this.fat.eYs = false;
                         com.baidu.tbadk.browser.a.a(b.this.mContext.getPageActivity(), b.this.mContext.getResources().getString(d.j.experion_speed), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
                     }
                 }
@@ -549,7 +549,7 @@ public class b extends com.baidu.tieba.frs.view.b {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 4) {
                         g.a(b.this.fyL);
-                        b.this.fat.eYr = false;
+                        b.this.fat.eYs = false;
                     }
                     return false;
                 }
@@ -572,7 +572,7 @@ public class b extends com.baidu.tieba.frs.view.b {
         int i;
         this.fzb = z;
         Bitmap cashBitmap = BitmapHelper.getCashBitmap(d.f.bg_frs_signin_bar_down);
-        if (cashBitmap != null && this.fyx != null && this.eVv != null && this.fyD != null && cashBitmap.getWidth() > 0) {
+        if (cashBitmap != null && this.fyx != null && this.eVw != null && this.fyD != null && cashBitmap.getWidth() > 0) {
             if (this.fzb) {
                 this.fyx.setText(d.j.level_up);
                 if (f >= 1.0f) {
@@ -589,15 +589,15 @@ public class b extends com.baidu.tieba.frs.view.b {
                 this.fyx.setText(this.fyQ);
                 this.fyD.setText(this.mContext.getResources().getString(d.j.lv_num, Integer.valueOf(this.mLevel)));
             }
-            this.eVv.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, pF(this.mLevel)));
+            this.eVw.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, pF(this.mLevel)));
             if (this.fzb) {
                 if (f >= 1.0f) {
-                    a(this.fat.getBaseFragmentActivity(), this.eVv, this.fzd, f);
+                    a(this.fat.getBaseFragmentActivity(), this.eVw, this.fzd, f);
                 } else {
-                    b(this.fat.getBaseFragmentActivity(), this.eVv, this.fzd, f);
+                    b(this.fat.getBaseFragmentActivity(), this.eVw, this.fzd, f);
                 }
             } else {
-                a(this.fat.getBaseFragmentActivity(), this.eVv, this.fzd, f);
+                a(this.fat.getBaseFragmentActivity(), this.eVw, this.fzd, f);
             }
             this.fzd = f;
         }

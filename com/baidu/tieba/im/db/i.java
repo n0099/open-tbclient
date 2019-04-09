@@ -18,21 +18,21 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class i {
-    private static i ghc;
-    private static long ghf = -1;
-    private static int ghg = 0;
-    private a ghd = new a();
-    private b ghe = null;
+    private static i ghd;
+    private static long ghg = -1;
+    private static int ghh = 0;
+    private a ghe = new a();
+    private b ghf = null;
 
     public static i bsn() {
-        if (ghc == null) {
+        if (ghd == null) {
             synchronized (i.class) {
-                if (ghc == null) {
-                    ghc = new i();
+                if (ghd == null) {
+                    ghd = new i();
                 }
             }
         }
-        return ghc;
+        return ghd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,7 +46,7 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.bsn().ghd.removeMessages(1);
+                    i.bsn().ghe.removeMessages(1);
                     i.bsn().execute();
                     return;
                 default:
@@ -62,10 +62,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.ghd.sendMessageDelayed(i.this.ghd.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
+                        i.this.ghe.sendMessageDelayed(i.this.ghe.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
                         return;
                     }
-                    i.this.ghd.removeMessages(1);
+                    i.this.ghe.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -74,21 +74,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.ghe != null) {
-            this.ghe.cancel();
-            this.ghe = null;
+        if (this.ghf != null) {
+            this.ghf.cancel();
+            this.ghf = null;
         }
-        this.ghe = new b();
-        this.ghe.setParallel(TiebaIMConfig.getParallel());
-        this.ghe.setPriority(4);
-        this.ghe.execute(new String[0]);
+        this.ghf = new b();
+        this.ghf.setParallel(TiebaIMConfig.getParallel());
+        this.ghf.setPriority(4);
+        this.ghf.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.ghe != null) {
-            this.ghe.cancel();
-            this.ghe = null;
+        if (this.ghf != null) {
+            this.ghf.cancel();
+            this.ghf = null;
         }
     }
 
@@ -107,23 +107,23 @@ public class i {
             if (bsr == null || bsr.size() == 0) {
                 return false;
             }
-            if (i.ghf < 0) {
+            if (i.ghg < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.ghf = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.ghf > IjkMediaMeta.AV_CH_WIDE_LEFT) {
-                        int unused2 = i.ghg = UIMsg.m_AppUI.MSG_APP_GPS;
-                    } else if (i.ghf > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        int unused3 = i.ghg = 3000;
+                    long unused = i.ghg = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.ghg > IjkMediaMeta.AV_CH_WIDE_LEFT) {
+                        int unused2 = i.ghh = UIMsg.m_AppUI.MSG_APP_GPS;
+                    } else if (i.ghg > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = i.ghh = 3000;
                     } else {
-                        int unused4 = i.ghg = 1000;
+                        int unused4 = i.ghh = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.ghg < 1000) {
-                int unused5 = i.ghg = 1000;
+            if (i.ghh < 1000) {
+                int unused5 = i.ghh = 1000;
             }
             try {
                 h.bsl().bsm();
@@ -132,13 +132,13 @@ public class i {
                         h.bsl().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.bse().aI(imMessageCenterPojo.getGid(), i.ghg);
+                        c.bse().aI(imMessageCenterPojo.getGid(), i.ghh);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.bsw().aI(imMessageCenterPojo.getGid(), i.ghg);
+                        m.bsw().aI(imMessageCenterPojo.getGid(), i.ghh);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.bsu().aI(imMessageCenterPojo.getGid(), i.ghg);
+                        l.bsu().aI(imMessageCenterPojo.getGid(), i.ghh);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.bsf().aI(imMessageCenterPojo.getGid(), i.ghg);
+                        d.bsf().aI(imMessageCenterPojo.getGid(), i.ghh);
                     }
                 }
             } catch (Exception e2) {

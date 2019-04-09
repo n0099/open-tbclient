@@ -19,7 +19,7 @@ final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<S
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ kotlin.e invoke(String str) {
         invoke2(str);
-        return kotlin.e.jRr;
+        return kotlin.e.jRs;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

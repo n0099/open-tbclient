@@ -79,11 +79,11 @@ public final class a {
     }
 
     private static boolean b(c cVar) {
-        return (DEBUG && cVar.axV) || fM(cVar.ayf);
+        return (DEBUG && cVar.axW) || fM(cVar.ayg);
     }
 
     public static boolean l(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.axV) || fM(bVar.ayf);
+        return (DEBUG && bVar.axW) || fM(bVar.ayg);
     }
 
     public static boolean fM(String str) {
@@ -95,10 +95,10 @@ public final class a {
     }
 
     public static c.g a(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.an.a.b bVar2) {
-        if (DEBUG && bVar.axV) {
+        if (DEBUG && bVar.axW) {
             return c.a.a(bVar, bVar2);
         }
-        if (fM(bVar.ayf)) {
+        if (fM(bVar.ayg)) {
             return c.e.j(bVar);
         }
         return null;
@@ -109,20 +109,20 @@ public final class a {
             com.baidu.swan.apps.v.b.b DB = DB();
             cVar.DA().putLong("aiapp_start_timestamp", System.currentTimeMillis());
             DB.mAppId = cVar.mAppId;
-            DB.axJ = cVar.mFrom;
-            DB.axL = cVar.axL;
-            DB.axV = cVar.axV;
-            DB.axU = cVar.axU;
-            DB.axT = cVar.DA();
-            DB.axK = cVar.axK;
+            DB.axK = cVar.mFrom;
+            DB.axM = cVar.axM;
             DB.axW = cVar.axW;
-            DB.atu = cVar.atu;
+            DB.axV = cVar.axV;
+            DB.axU = cVar.DA();
+            DB.axL = cVar.axL;
+            DB.axX = cVar.axX;
             DB.atv = cVar.atv;
-            DB.axZ = cVar.axZ;
-            DB.ayf = cVar.ayf;
-            DB.mVersion = "0";
+            DB.atw = cVar.atw;
             DB.aya = cVar.aya;
-            DB.orientation = cVar.ayh;
+            DB.ayg = cVar.ayg;
+            DB.mVersion = "0";
+            DB.ayb = cVar.ayb;
+            DB.orientation = cVar.ayi;
             SwanAppLauncherActivity.a(context, DB, UUID.randomUUID().toString());
             return true;
         }
@@ -130,10 +130,10 @@ public final class a {
     }
 
     public static String m(com.baidu.swan.apps.v.b.b bVar) {
-        if (DEBUG && bVar.axV) {
+        if (DEBUG && bVar.axW) {
             return c.a.Cp().getPath();
         }
-        if (fM(bVar.ayf)) {
+        if (fM(bVar.ayg)) {
             return c.e.Cq().getPath();
         }
         return "";
@@ -141,16 +141,16 @@ public final class a {
 
     public static com.baidu.swan.apps.v.b.b DB() {
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
-        bVar.axG = "小程序测试";
+        bVar.axH = "小程序测试";
         bVar.mAppId = "10985873";
-        bVar.axI = Color.parseColor("#FF308EF0");
-        bVar.axJ = "1230000000000000";
+        bVar.axJ = Color.parseColor("#FF308EF0");
+        bVar.axK = "1230000000000000";
         bVar.mDescription = "小程序简介";
-        bVar.axQ = "测试服务类目";
-        bVar.axR = "测试主体信息";
+        bVar.axR = "测试服务类目";
+        bVar.axS = "测试主体信息";
         bVar.mAppKey = "CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N";
         bVar.mVersion = "1.0";
-        bVar.axH = "https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg";
+        bVar.axI = "https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg";
         return bVar;
     }
 }

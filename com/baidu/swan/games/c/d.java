@@ -11,10 +11,10 @@ import com.baidu.swan.games.c.a.b;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    protected com.baidu.swan.games.e.b bac;
+    protected com.baidu.swan.games.e.b bad;
 
     public d(com.baidu.swan.games.e.b bVar) {
-        this.bac = bVar;
+        this.bad = bVar;
     }
 
     public void setEnableDebug(JsObject jsObject) {

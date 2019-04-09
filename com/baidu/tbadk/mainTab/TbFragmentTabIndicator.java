@@ -10,37 +10,37 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean cou;
-    protected float cov;
+    protected boolean cov;
     protected float cow;
-    protected int cox;
+    protected float cox;
     protected int coy;
+    protected int coz;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.cou = false;
-        this.cov = 0.0f;
+        this.cov = false;
         this.cow = 0.0f;
-        this.cox = 0;
+        this.cox = 0.0f;
         this.coy = 0;
+        this.coz = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cou = false;
-        this.cov = 0.0f;
+        this.cov = false;
         this.cow = 0.0f;
-        this.cox = 0;
+        this.cox = 0.0f;
         this.coy = 0;
+        this.coz = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cou = false;
-        this.cov = 0.0f;
+        this.cov = false;
         this.cow = 0.0f;
-        this.cox = 0;
+        this.cox = 0.0f;
         this.coy = 0;
+        this.coz = 0;
     }
 
     public void ii(int i) {
@@ -109,41 +109,41 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.cou = z;
+        this.cov = z;
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cov = f;
-    }
-
-    public void setContentDefaultTextSize(float f) {
         this.cow = f;
     }
 
+    public void setContentDefaultTextSize(float f) {
+        this.cox = f;
+    }
+
     public void setContentSelectTextColor(int i) {
-        this.cox = i;
+        this.coy = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.coy = i;
+        this.coz = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int Cc;
-        public int coA;
-        public TbFragmentTabIndicator coC;
+        public int coB;
+        public TbFragmentTabIndicator coD;
         public View view;
-        public boolean coz = true;
-        public int coB = d.C0277d.common_color_10225;
+        public boolean coA = true;
+        public int coC = d.C0277d.common_color_10225;
 
         public void ii(int i) {
-            if (this.coA != 0) {
-                al.k(this.view, this.coA);
+            if (this.coB != 0) {
+                al.k(this.view, this.coB);
             }
             if (this.view instanceof TextView) {
-                if (this.coB != 0) {
-                    al.d(this.view, this.coB, 1);
+                if (this.coC != 0) {
+                    al.d(this.view, this.coC, 1);
                 }
                 int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {

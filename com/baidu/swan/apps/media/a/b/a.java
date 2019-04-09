@@ -15,7 +15,7 @@ import java.net.URI;
 /* loaded from: classes2.dex */
 public class a extends c.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] aAq = {"_id", "_data", UBC.CONTENT_KEY_DURATION, "_size", "height", "width"};
+    private static final String[] aAr = {"_id", "_data", UBC.CONTENT_KEY_DURATION, "_size", "height", "width"};
 
     public a(d.a aVar) {
         super(aVar);
@@ -26,24 +26,24 @@ public class a extends c.b {
         if (c0145c == null) {
             c0145c = new c.C0145c();
         }
-        if (this.aAv.uri == null) {
+        if (this.aAw.uri == null) {
             return c0145c.d(true, "uri is Null");
         }
         if (DEBUG) {
-            Log.i("AlbumTaskStrategy", "AlbumTaskStrategy doInBackground uri=" + this.aAv.uri);
+            Log.i("AlbumTaskStrategy", "AlbumTaskStrategy doInBackground uri=" + this.aAw.uri);
         }
         boolean a = a(c0145c);
         if (!a) {
             a = b(context, c0145c);
         }
         if (!a) {
-            return c0145c.d(true, "can not handle uri:" + this.aAv.uri);
+            return c0145c.d(true, "can not handle uri:" + this.aAw.uri);
         }
-        if (f(this.aAv)) {
-            c0145c.b(1, this.aAv);
+        if (f(this.aAw)) {
+            c0145c.b(1, this.aAw);
             return c0145c;
         }
-        c0145c.b(2, this.aAv);
+        c0145c.b(2, this.aAw);
         return c0145c;
     }
 
@@ -57,8 +57,8 @@ public class a extends c.b {
         MediaMetadataRetriever mediaMetadataRetriever;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            MediaMetadataRetriever mediaMetadataRetriever2 = this.aAv.uri;
-            Cursor query = contentResolver.query(mediaMetadataRetriever2, aAq, null, null, null);
+            MediaMetadataRetriever mediaMetadataRetriever2 = this.aAw.uri;
+            Cursor query = contentResolver.query(mediaMetadataRetriever2, aAr, null, null, null);
             try {
             } catch (Exception e) {
                 if (DEBUG) {
@@ -69,27 +69,27 @@ public class a extends c.b {
                 com.baidu.swan.c.b.c(query);
             }
             if (query == null) {
-                c0145c.d(true, "query return null:" + this.aAv.uri);
+                c0145c.d(true, "query return null:" + this.aAw.uri);
                 return false;
             } else if (query.moveToFirst()) {
                 d.c cVar = new d.c();
                 cVar.id = query.getLong(0);
-                cVar.aAL = query.getString(1);
+                cVar.aAM = query.getString(1);
                 cVar.duration = query.getLong(2);
                 cVar.size = query.getLong(3);
-                cVar.aAJ = query.getLong(4);
-                cVar.aAK = query.getLong(5);
-                if (cVar.aAK == 0 || cVar.aAJ == 0) {
+                cVar.aAK = query.getLong(4);
+                cVar.aAL = query.getLong(5);
+                if (cVar.aAL == 0 || cVar.aAK == 0) {
                     try {
-                        if (!TextUtils.isEmpty(cVar.aAL)) {
+                        if (!TextUtils.isEmpty(cVar.aAM)) {
                             try {
                                 mediaMetadataRetriever = new MediaMetadataRetriever();
                                 try {
-                                    mediaMetadataRetriever.setDataSource(cVar.aAL);
+                                    mediaMetadataRetriever.setDataSource(cVar.aAM);
                                     String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
                                     String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                                    cVar.aAK = Long.parseLong(extractMetadata);
-                                    cVar.aAJ = Long.parseLong(extractMetadata2);
+                                    cVar.aAL = Long.parseLong(extractMetadata);
+                                    cVar.aAK = Long.parseLong(extractMetadata2);
                                     if (mediaMetadataRetriever != null) {
                                         mediaMetadataRetriever.release();
                                     }
@@ -101,7 +101,7 @@ public class a extends c.b {
                                     if (mediaMetadataRetriever != null) {
                                         mediaMetadataRetriever.release();
                                     }
-                                    this.aAv.aAE = cVar;
+                                    this.aAw.aAF = cVar;
                                     return true;
                                 }
                             } catch (Exception e3) {
@@ -120,7 +120,7 @@ public class a extends c.b {
                         th = th2;
                     }
                 }
-                this.aAv.aAE = cVar;
+                this.aAw.aAF = cVar;
                 return true;
             } else {
                 return false;
@@ -138,7 +138,7 @@ public class a extends c.b {
         MediaMetadataRetriever mediaMetadataRetriever = null;
         try {
             try {
-                file = new File(new URI(this.aAv.uri.toString()));
+                file = new File(new URI(this.aAw.uri.toString()));
             } catch (Exception e) {
                 e = e;
             }
@@ -149,8 +149,8 @@ public class a extends c.b {
                 return false;
             }
             d.c cVar = new d.c();
-            cVar.aAL = file.getPath();
-            if (TextUtils.isEmpty(cVar.aAL)) {
+            cVar.aAM = file.getPath();
+            if (TextUtils.isEmpty(cVar.aAM)) {
                 c0145c.d(true, "can not find path");
                 if (0 != 0) {
                     mediaMetadataRetriever.release();
@@ -161,14 +161,14 @@ public class a extends c.b {
             cVar.size = file.length();
             MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
             try {
-                mediaMetadataRetriever2.setDataSource(cVar.aAL);
+                mediaMetadataRetriever2.setDataSource(cVar.aAM);
                 String extractMetadata = mediaMetadataRetriever2.extractMetadata(18);
                 String extractMetadata2 = mediaMetadataRetriever2.extractMetadata(19);
                 String extractMetadata3 = mediaMetadataRetriever2.extractMetadata(9);
-                cVar.aAK = Long.parseLong(extractMetadata);
-                cVar.aAJ = Long.parseLong(extractMetadata2);
+                cVar.aAL = Long.parseLong(extractMetadata);
+                cVar.aAK = Long.parseLong(extractMetadata2);
                 cVar.duration = Long.parseLong(extractMetadata3);
-                this.aAv.aAE = cVar;
+                this.aAw.aAF = cVar;
                 if (mediaMetadataRetriever2 != null) {
                     mediaMetadataRetriever2.release();
                     return true;

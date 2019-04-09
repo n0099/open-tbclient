@@ -3,22 +3,22 @@ package com.baidu.poly.b;
 import android.widget.ImageView;
 /* loaded from: classes2.dex */
 public class b {
-    private static b agI;
-    private c agn;
+    private static b agJ;
+    private c ago;
 
     public b(c cVar) {
-        this.agn = cVar;
+        this.ago = cVar;
     }
 
     public static void a(c cVar) {
-        agI = new b(cVar);
+        agJ = new b(cVar);
     }
 
     public static b ty() {
-        return agI;
+        return agJ;
     }
 
     public void b(ImageView imageView, String str) {
-        this.agn.a(imageView, str);
+        this.ago.a(imageView, str);
     }
 }

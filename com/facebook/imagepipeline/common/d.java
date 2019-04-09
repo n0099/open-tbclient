@@ -1,23 +1,23 @@
 package com.facebook.imagepipeline.common;
 /* loaded from: classes2.dex */
 public class d {
-    private static final d jGn = new d(-1, false);
-    private static final d jGo = new d(-2, false);
-    private static final d jGp = new d(-1, true);
-    private final boolean jGm;
+    private static final d jGo = new d(-1, false);
+    private static final d jGp = new d(-2, false);
+    private static final d jGq = new d(-1, true);
+    private final boolean jGn;
     private final int mRotation;
 
     public static d cwS() {
-        return jGn;
+        return jGo;
     }
 
     public static d cwT() {
-        return jGp;
+        return jGq;
     }
 
     private d(int i, boolean z) {
         this.mRotation = i;
-        this.jGm = z;
+        this.jGn = z;
     }
 
     public boolean cwU() {
@@ -36,11 +36,11 @@ public class d {
     }
 
     public boolean cwX() {
-        return this.jGm;
+        return this.jGn;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.f(Integer.valueOf(this.mRotation), Boolean.valueOf(this.jGm));
+        return com.facebook.common.util.a.f(Integer.valueOf(this.mRotation), Boolean.valueOf(this.jGn));
     }
 
     public boolean equals(Object obj) {
@@ -49,12 +49,12 @@ public class d {
         }
         if (obj instanceof d) {
             d dVar = (d) obj;
-            return this.mRotation == dVar.mRotation && this.jGm == dVar.jGm;
+            return this.mRotation == dVar.mRotation && this.jGn == dVar.jGn;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.jGm));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.jGn));
     }
 }

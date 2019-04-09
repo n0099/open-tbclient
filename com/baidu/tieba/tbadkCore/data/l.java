@@ -18,13 +18,13 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern iFG = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern iFH = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String iFE = null;
-    private SpannableStringBuilder iFF = null;
-    private boolean iFD = false;
+    private String iFF = null;
+    private SpannableStringBuilder iFG = null;
+    private boolean iFE = false;
 
     public static boolean co(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -47,15 +47,15 @@ public class l {
     }
 
     public SpannableStringBuilder cea() {
-        return this.iFF;
+        return this.iFG;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.iFF == null) {
-            this.iFF = new SpannableStringBuilder();
+        if (this.iFG == null) {
+            this.iFG = new SpannableStringBuilder();
         }
-        this.iFF.append((CharSequence) spannableString);
-        return this.iFF;
+        this.iFG.append((CharSequence) spannableString);
+        return this.iFG;
     }
 
     public SpannableString es(Context context) {
@@ -81,7 +81,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.iFG.matcher(l.this.link);
+                        Matcher matcher2 = l.iFH.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();

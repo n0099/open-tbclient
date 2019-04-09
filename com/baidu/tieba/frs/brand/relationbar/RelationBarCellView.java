@@ -22,7 +22,7 @@ import com.baidu.tieba.d;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TbImageView eEH;
+    private TbImageView eEI;
     private TextView ffG;
     private TextView ffH;
     private OriForumInfo ffI;
@@ -50,14 +50,14 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.eEH = (TbImageView) findViewById(d.g.frs_brand_bar_cell_img);
+        this.eEI = (TbImageView) findViewById(d.g.frs_brand_bar_cell_img);
         this.ffG = (TextView) findViewById(d.g.frs_brand_bar_cell_name);
         this.ffH = (TextView) findViewById(d.g.frs_brand_bar_cell_attention);
-        this.eEH.setDefaultResource(17170445);
-        this.eEH.setDefaultBgResource(d.C0277d.cp_bg_line_e);
-        this.eEH.setBorderColor(0);
-        this.eEH.setRadius(l.h(getContext(), d.e.tbds20));
-        this.eEH.setConrers(5);
+        this.eEI.setDefaultResource(17170445);
+        this.eEI.setDefaultBgResource(d.C0277d.cp_bg_line_e);
+        this.eEI.setBorderColor(0);
+        this.eEI.setRadius(l.h(getContext(), d.e.tbds20));
+        this.eEI.setConrers(5);
         this.mWidth = l.h(context, d.e.tbds471);
         this.mHeight = l.h(context, d.e.tbds164);
         setOnClickListener(this);
@@ -77,7 +77,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         }
         setVisibility(0);
         this.ffI = oriForumInfo;
-        this.eEH.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.eEI.startLoad(oriForumInfo.ori_avatar, 10, false);
         this.ffG.setText(oriForumInfo.ori_fname);
         this.ffH.setText(String.format(getContext().getString(d.j.frs_brand_relation_bar_attention), ap.ay(oriForumInfo.ori_member_num.longValue())));
     }

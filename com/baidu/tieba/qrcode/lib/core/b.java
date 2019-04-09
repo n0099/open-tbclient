@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 final class b {
-    private static final Pattern idS = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point idT;
+    private static final Pattern idT = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
     private Point idU;
     private Point idV;
+    private Point idW;
     private final Context mContext;
 
     public b(Context context) {
@@ -28,20 +28,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.idT = a.ep(this.mContext);
+        this.idU = a.ep(this.mContext);
         Point point = new Point();
-        point.x = this.idT.x;
-        point.y = this.idT.y;
+        point.x = this.idU.x;
+        point.y = this.idU.y;
         int eo = a.eo(this.mContext);
         if (eo == 0) {
-            point.x = this.idT.y;
-            point.y = this.idT.x;
+            point.x = this.idU.y;
+            point.y = this.idU.x;
         }
-        this.idV = a(parameters, point);
+        this.idW = a(parameters, point);
         if (eo == 0) {
-            this.idU = new Point(this.idV.y, this.idV.x);
+            this.idV = new Point(this.idW.y, this.idW.x);
         } else {
-            this.idU = this.idV;
+            this.idV = this.idW;
         }
     }
 
@@ -50,12 +50,12 @@ final class b {
     }
 
     public Point bVQ() {
-        return this.idU;
+        return this.idV;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.idV.x, this.idV.y);
+        parameters.setPreviewSize(this.idW.x, this.idW.y);
         a(parameters);
         camera.setDisplayOrientation(bVR());
         camera.setParameters(parameters);
@@ -148,7 +148,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = idS.split(charSequence);
+        String[] split = idT.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

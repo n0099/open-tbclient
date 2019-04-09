@@ -5,23 +5,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String bXC;
-    private long bXD;
+    private String bXD;
     private long bXE;
     private long bXF;
-    private String bXG;
+    private long bXG;
     private String bXH;
+    private String bXI;
 
     public void parseJson(String str) {
         if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.bXC = jSONObject.optString("splash_video_url");
-                this.bXD = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.bXE = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.bXF = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.bXG = jSONObject.optString("splash_video_h5_url");
-                this.bXH = jSONObject.optString("splash_video_h5_text");
+                this.bXD = jSONObject.optString("splash_video_url");
+                this.bXE = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.bXF = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.bXG = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.bXH = jSONObject.optString("splash_video_h5_url");
+                this.bXI = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -29,26 +29,26 @@ public class y {
     }
 
     public String agD() {
-        return this.bXC;
-    }
-
-    public long agE() {
         return this.bXD;
     }
 
-    public long agF() {
+    public long agE() {
         return this.bXE;
     }
 
-    public long agG() {
+    public long agF() {
         return this.bXF;
     }
 
-    public String agH() {
+    public long agG() {
         return this.bXG;
     }
 
-    public String agI() {
+    public String agH() {
         return this.bXH;
+    }
+
+    public String agI() {
+        return this.bXI;
     }
 }

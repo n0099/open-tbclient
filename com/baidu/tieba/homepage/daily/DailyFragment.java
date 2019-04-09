@@ -24,7 +24,7 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes4.dex */
 public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae {
-    private boolean eEb;
+    private boolean eEc;
     private com.baidu.tieba.homepage.daily.model.a fHw;
     private a fHx;
     private a.InterfaceC0303a fHy = new a.InterfaceC0303a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
@@ -90,10 +90,10 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (!this.eEb) {
+        if (!this.eEc) {
             this.fHx.showLoadingView();
             this.fHw.refresh();
-            this.eEb = true;
+            this.eEc = true;
         }
     }
 
@@ -103,7 +103,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
 
     @Override // com.baidu.tieba.frs.ae
     public void aBr() {
-        if (this.eEb) {
+        if (this.eEc) {
             this.fHx.reload();
         }
     }

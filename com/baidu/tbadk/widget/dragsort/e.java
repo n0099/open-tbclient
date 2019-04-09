@@ -10,9 +10,9 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap cyg;
-    private ImageView cyh;
-    private int cyi = ViewCompat.MEASURED_STATE_MASK;
+    private Bitmap cyh;
+    private ImageView cyi;
+    private int cyj = ViewCompat.MEASURED_STATE_MASK;
     private ListView mListView;
 
     public e(ListView listView) {
@@ -20,7 +20,7 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.cyi = i;
+        this.cyj = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -31,16 +31,16 @@ public class e implements a.h {
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.cyg = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.cyh = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.cyh == null) {
-            this.cyh = new ImageView(this.mListView.getContext());
+        if (this.cyi == null) {
+            this.cyi = new ImageView(this.mListView.getContext());
         }
-        this.cyh.setBackgroundColor(this.cyi);
-        this.cyh.setPadding(0, 0, 0, 0);
-        this.cyh.setImageBitmap(this.cyg);
-        this.cyh.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.cyh;
+        this.cyi.setBackgroundColor(this.cyj);
+        this.cyi.setPadding(0, 0, 0, 0);
+        this.cyi.setImageBitmap(this.cyh);
+        this.cyi.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.cyi;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -50,7 +50,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void ba(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.cyg.recycle();
-        this.cyg = null;
+        this.cyh.recycle();
+        this.cyh = null;
     }
 }

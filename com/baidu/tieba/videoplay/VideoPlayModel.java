@@ -23,10 +23,10 @@ public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
     private String fxi;
-    private VideoPlayActivity jgo;
-    private a jgp;
-    private VideoItemData jgq;
-    private HttpMessageListener jgr;
+    private VideoPlayActivity jgp;
+    private a jgq;
+    private VideoItemData jgr;
+    private HttpMessageListener jgs;
     private String mFrom;
     private String mLocate;
     private int mPn;
@@ -48,7 +48,7 @@ public class VideoPlayModel extends BdBaseModel {
     public VideoPlayModel(VideoPlayActivity videoPlayActivity) {
         super(videoPlayActivity.getPageContext());
         this.fxi = "client_other";
-        this.jgr = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
+        this.jgs = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -56,11 +56,11 @@ public class VideoPlayModel extends BdBaseModel {
                     ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
                     if (responseGetNaniVideoMessage.getError() == 0) {
                         TbSingleton.getInstance().clearVideoRecord();
-                        if (VideoPlayModel.this.jgp != null) {
+                        if (VideoPlayModel.this.jgq != null) {
                             if (VideoPlayModel.this.mPn == 1) {
-                                VideoPlayModel.this.jgp.s(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.jgq.s(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             } else {
-                                VideoPlayModel.this.jgp.t(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.jgq.t(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             }
                         }
                         VideoPlayModel.c(VideoPlayModel.this);
@@ -68,8 +68,8 @@ public class VideoPlayModel extends BdBaseModel {
                 }
             }
         };
-        this.jgo = videoPlayActivity;
-        registerListener(this.jgr);
+        this.jgp = videoPlayActivity;
+        registerListener(this.jgs);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -87,7 +87,7 @@ public class VideoPlayModel extends BdBaseModel {
         if (videoItemData != null) {
             this.mStType = str;
             this.mLocate = str2;
-            this.jgq = videoItemData;
+            this.jgr = videoItemData;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
             httpMessage.addParam("tid", videoItemData.thread_id);
             httpMessage.addParam("st_type", str);
@@ -108,9 +108,9 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void aAZ() {
-        if (this.jgq != null) {
+        if (this.jgr != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
-            httpMessage.addParam("tid", this.jgq.thread_id);
+            httpMessage.addParam("tid", this.jgr.thread_id);
             httpMessage.addParam("st_type", this.mStType);
             httpMessage.addParam("yuelaou_locate", this.mLocate);
             httpMessage.addParam("is_vertical", "1");
@@ -147,6 +147,6 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.jgp = aVar;
+        this.jgq = aVar;
     }
 }

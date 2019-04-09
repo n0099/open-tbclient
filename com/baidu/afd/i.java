@@ -10,35 +10,35 @@ public interface i {
 
     /* loaded from: classes.dex */
     public static class a implements i {
-        private d Tq;
-        private boolean Tr;
-        private final HttpMessageListener Ts = new HttpMessageListener(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC) { // from class: com.baidu.afd.i.a.1
+        private d Tr;
+        private boolean Ts;
+        private final HttpMessageListener Tt = new HttpMessageListener(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC) { // from class: com.baidu.afd.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                    a.this.Tq.a(eVar);
-                    if (eVar.Tn && eVar.Tp != null) {
-                        com.baidu.tieba.recapp.report.c.bXA().a(com.baidu.tieba.recapp.report.f.a(a.this.Tq, eVar.Tp));
+                    a.this.Tr.a(eVar);
+                    if (eVar.To && eVar.Tq != null) {
+                        com.baidu.tieba.recapp.report.c.bXA().a(com.baidu.tieba.recapp.report.f.a(a.this.Tr, eVar.Tq));
                     }
                 }
             }
         };
 
         public a(d dVar) {
-            this.Tq = dVar;
-            this.Ts.setSelfListener(true);
-            this.Ts.setTag(dVar.getTag());
-            MessageManager.getInstance().registerListener(this.Ts);
+            this.Tr = dVar;
+            this.Tt.setSelfListener(true);
+            this.Tt.setTag(dVar.getTag());
+            MessageManager.getInstance().registerListener(this.Tt);
         }
 
         @Override // com.baidu.afd.i
         public void pU() {
-            if (!this.Tr) {
-                this.Tr = true;
-                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Tq.Tj);
-                afdSyncRequestMessage.setTag(this.Tq.getTag());
+            if (!this.Ts) {
+                this.Ts = true;
+                AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Tr.Tk);
+                afdSyncRequestMessage.setTag(this.Tr.getTag());
                 MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
             }
         }

@@ -12,16 +12,16 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a {
-    private static a clJ = new a();
-    private GameInfoData clK;
-    private final c clL = new c(303009) { // from class: com.baidu.tbadk.game.a.2
+    private static a clK = new a();
+    private GameInfoData clL;
+    private final c clM = new c(303009) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.clK = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.clL = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -29,7 +29,7 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.clL);
+        MessageManager.getInstance().registerListener(this.clM);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -44,7 +44,7 @@ public class a {
     }
 
     public static a amZ() {
-        return clJ;
+        return clK;
     }
 
     private GameInfoData ana() {
@@ -58,7 +58,7 @@ public class a {
     }
 
     public GameInfoData anb() {
-        return this.clK == null ? ana() : this.clK;
+        return this.clL == null ? ana() : this.clL;
     }
 
     public ShareFromGameCenterMsgData anc() {

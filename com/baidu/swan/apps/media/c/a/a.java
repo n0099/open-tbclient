@@ -70,7 +70,7 @@ public class a extends y {
                 unitedSchemeEntity.result = EB;
                 return false;
             }
-            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aAU, com.baidu.swan.apps.media.c.c.a.EE().EH());
+            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aAV, com.baidu.swan.apps.media.c.c.a.EE().EH());
             if (a2 == null) {
                 c.e("record", "error cb");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");

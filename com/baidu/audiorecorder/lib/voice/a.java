@@ -7,133 +7,133 @@ import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class a {
-    private static b Vh;
-    private static String Vi;
-    private static g Vj;
-    private static int Vg = 0;
-    private static long Vk = 0;
+    private static b Vi;
+    private static String Vj;
+    private static g Vk;
+    private static int Vh = 0;
+    private static long Vl = 0;
     private static Handler mHandler = new Handler(new Handler.Callback() { // from class: com.baidu.audiorecorder.lib.voice.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    if (a.Vj != null) {
-                        a.Vj.p(a.Vi, message.arg1);
-                        g unused = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.p(a.Vj, message.arg1);
+                        g unused = a.Vk = null;
                         break;
                     }
                     break;
                 case 1:
                 case 3:
-                    if (a.Vj != null) {
+                    if (a.Vk != null) {
                         if (com.baidu.adp.lib.util.f.kI()) {
-                            a.Vj.error(message.what, h.getString(d.j.voice_err_create_file_fail));
+                            a.Vk.error(message.what, h.getString(d.j.voice_err_create_file_fail));
                         } else {
-                            a.Vj.error(message.what, h.getString(d.j.voice_err_sdcard_nospace));
+                            a.Vk.error(message.what, h.getString(d.j.voice_err_sdcard_nospace));
                         }
-                        g unused2 = a.Vj = null;
+                        g unused2 = a.Vk = null;
                         break;
                     }
                     break;
                 case 2:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_err_file_fail));
-                        g unused3 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_err_file_fail));
+                        g unused3 = a.Vk = null;
                         break;
                     }
                     break;
                 case 4:
-                    if (a.Vj != null) {
-                        a.Vj.aE(message.arg1);
+                    if (a.Vk != null) {
+                        a.Vk.aE(message.arg1);
                         break;
                     }
                     break;
                 case 5:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_err_load_lib_fail));
-                        g unused4 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_err_load_lib_fail));
+                        g unused4 = a.Vk = null;
                         break;
                     }
                     break;
                 case 6:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_err_init_fail));
-                        g unused5 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_err_init_fail));
+                        g unused5 = a.Vk = null;
                         break;
                     }
                     break;
                 case 7:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_record_timeout_tip));
-                        g unused6 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_record_timeout_tip));
+                        g unused6 = a.Vk = null;
                         break;
                     }
                     break;
                 case 8:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_record_short_tip));
-                        g unused7 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_record_short_tip));
+                        g unused7 = a.Vk = null;
                         break;
                     }
                     break;
                 case 9:
-                    if (a.Vj != null) {
-                        a.Vj.aF(message.arg1);
+                    if (a.Vk != null) {
+                        a.Vk.aF(message.arg1);
                         break;
                     }
                     break;
                 case 100:
-                    if (a.Vj != null) {
-                        a.Vj.lB();
+                    if (a.Vk != null) {
+                        a.Vk.lB();
                         break;
                     }
                     break;
                 default:
-                    if (a.Vj != null) {
-                        a.Vj.error(message.what, h.getString(d.j.voice_err_other));
-                        g unused8 = a.Vj = null;
+                    if (a.Vk != null) {
+                        a.Vk.error(message.what, h.getString(d.j.voice_err_other));
+                        g unused8 = a.Vk = null;
                         break;
                     }
                     break;
             }
-            int unused9 = a.Vg = 0;
+            int unused9 = a.Vh = 0;
             return false;
         }
     });
 
     public static boolean a(String str, int i, g gVar) {
-        if (System.currentTimeMillis() - Vk < 1000) {
+        if (System.currentTimeMillis() - Vl < 1000) {
             return false;
         }
-        Vk = System.currentTimeMillis();
-        if (Vg == 0) {
-            if (Vh == null) {
-                Vh = new b(mHandler);
+        Vl = System.currentTimeMillis();
+        if (Vh == 0) {
+            if (Vi == null) {
+                Vi = new b(mHandler);
             }
-            Vi = str;
-            Vj = gVar;
-            if (Vh.t(str, i)) {
-                Vg = 3;
-                new Thread(Vh).start();
+            Vj = str;
+            Vk = gVar;
+            if (Vi.t(str, i)) {
+                Vh = 3;
+                new Thread(Vi).start();
                 return true;
             }
-            Vh = null;
+            Vi = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (Vh != null) {
-            Vh.stop();
+        if (Vi != null) {
+            Vi.stop();
         }
-        Vg = 0;
+        Vh = 0;
     }
 
     public static void cancel() {
-        if (Vh != null) {
-            Vh.cancel();
+        if (Vi != null) {
+            Vi.cancel();
         }
-        Vg = 0;
+        Vh = 0;
     }
 }

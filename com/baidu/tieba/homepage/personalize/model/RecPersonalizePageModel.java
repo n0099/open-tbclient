@@ -165,11 +165,11 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
             com.baidu.tbadk.o.d dVar = new com.baidu.tbadk.o.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.blN().sj(1), false, sk + createTime);
             dVar.pageType = 1;
             if (z) {
-                dVar.cqH = sk;
+                dVar.cqI = sk;
                 dVar.fe(false);
                 return;
             }
-            dVar.cqG = sk;
+            dVar.cqH = sk;
             dVar.fe(true);
         }
     }

@@ -21,11 +21,11 @@ public class DisPraiseView extends PraiseView {
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void aed() {
         this.agreeType = 5;
-        this.bOg = d.j.action_dislike;
-        this.bOj = d.C0277d.cp_cont_j;
-        this.bOk = d.C0277d.cp_link_tip_a;
-        this.bOh = d.f.icon_card_dislike_n;
-        this.bOi = d.f.icon_card_dislike_s;
+        this.bOh = d.j.action_dislike;
+        this.bOk = d.C0277d.cp_cont_j;
+        this.bOl = d.C0277d.cp_link_tip_a;
+        this.bOi = d.f.icon_card_dislike_n;
+        this.bOj = d.f.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PraiseView, com.baidu.tbadk.core.view.BasePraiseView

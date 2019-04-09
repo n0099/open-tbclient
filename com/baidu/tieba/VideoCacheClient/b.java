@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b cMd;
+    private static b cMe;
     private int mPort = 0;
 
     private b() {
@@ -20,14 +20,14 @@ public class b implements i {
     }
 
     public static b avT() {
-        if (cMd == null) {
+        if (cMe == null) {
             synchronized (b.class) {
-                if (cMd == null) {
-                    cMd = new b();
+                if (cMe == null) {
+                    cMe = new b();
                 }
             }
         }
-        return cMd;
+        return cMe;
     }
 
     private static long avP() {
@@ -61,7 +61,7 @@ public class b implements i {
             String qD = qD(str);
             if (qD == null) {
                 String qA = qA(str);
-                if (qA != null && new File(c.cLQ + qA + "/header_downloaded").exists()) {
+                if (qA != null && new File(c.cLR + qA + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -81,7 +81,7 @@ public class b implements i {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.cLQ + qA + "/header_downloaded").exists()) {
+                    if (new File(c.cLR + qA + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
@@ -97,7 +97,7 @@ public class b implements i {
     public String qD(String str) {
         String qA;
         File file;
-        if (str == null || !str.contains("/") || (qA = qA(str)) == null || (file = new File(c.cLQ + qA + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (qA = qA(str)) == null || (file = new File(c.cLR + qA + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -151,7 +151,7 @@ public class b implements i {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.cLR);
+            File file = new File(c.cLS);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -250,6 +250,6 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public String qF(String str) {
-        return com.baidu.tieba.VideoCache.i.cLQ + qA(str);
+        return com.baidu.tieba.VideoCache.i.cLR + qA(str);
     }
 }

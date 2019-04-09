@@ -14,10 +14,10 @@ import okhttp3.ResponseBody;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b<ResultDataT> {
-    private final Map<String, String> aRM = new HashMap();
-    private String aRN;
-    private JSONObject aRO;
-    private boolean aRP;
+    private final Map<String, String> aRN = new HashMap();
+    private String aRO;
+    private JSONObject aRP;
+    private boolean aRQ;
 
     protected abstract Request a(g gVar);
 
@@ -61,33 +61,33 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g<ResultDataT> ay(String str, String str2) {
-        this.aRM.put(str, str2);
+        this.aRN.put(str, str2);
         return this;
     }
 
     public Map<String, String> Kj() {
-        return this.aRM;
+        return this.aRN;
     }
 
     public void Kk() {
-        this.aRP = true;
+        this.aRQ = true;
     }
 
     protected void gM(String str) {
-        this.aRN = str;
+        this.aRO = str;
         try {
-            this.aRO = new JSONObject(this.aRN);
+            this.aRP = new JSONObject(this.aRO);
         } catch (OAuthException e) {
             l(e);
         } catch (Exception e2) {
             l(new OAuthException(e2, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE));
         }
-        if (this.aRP && this.aRO.optInt("errno") == 402) {
-            this.aRP = false;
+        if (this.aRQ && this.aRP.optInt("errno") == 402) {
+            this.aRQ = false;
             gN(str);
             return;
         }
-        J(C(this.aRO));
+        J(C(this.aRP));
         Ce();
         finish();
     }
@@ -111,6 +111,6 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     }
 
     public String toString() {
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), Kb(), Integer.valueOf(this.aRd.getErrorCode()), this.aRN, this.aRO, this.aRd.mData, this.aRd.Ki());
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), Kb(), Integer.valueOf(this.aRe.getErrorCode()), this.aRO, this.aRP, this.aRe.mData, this.aRe.Ki());
     }
 }

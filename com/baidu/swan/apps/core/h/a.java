@@ -14,7 +14,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> asF = h.K("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
+    private static final Set<String> asG = h.K("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
 
     @Override // com.baidu.swan.apps.b.c.g
     public boolean ad(@NonNull Context context, String str) {
@@ -51,7 +51,7 @@ public class a implements g {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : asF) {
+        for (String str2 : asG) {
             if (str.startsWith(str2)) {
                 return true;
             }

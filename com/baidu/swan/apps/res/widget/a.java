@@ -11,16 +11,16 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
-    public static final int aKY = Color.parseColor("#80000000");
-    public static final boolean aKZ = Ij();
-    private static int aLa;
+    public static final int aKZ = Color.parseColor("#80000000");
+    public static final boolean aLa = Ij();
+    private static int aLb;
 
     static {
-        aLa = 0;
+        aLb = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            aLa = 1;
+            aLb = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            aLa = 2;
+            aLb = 2;
         }
     }
 

@@ -12,37 +12,37 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes4.dex */
 public class j {
-    private TextView bFK;
-    private NavigationBarCoverTip bsr;
+    private TextView bFL;
+    private NavigationBarCoverTip bss;
     private FrsFragment fqE;
     private int fwC;
 
     public j(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         this.fqE = frsFragment;
-        this.bsr = navigationBarCoverTip;
+        this.bss = navigationBarCoverTip;
         init();
     }
 
     private void init() {
         this.fwC = 0;
-        this.bFK = new TextView(this.fqE.getActivity());
-        this.bFK.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fqE.getResources().getDimensionPixelSize(d.e.tbds112)));
+        this.bFL = new TextView(this.fqE.getActivity());
+        this.bFL.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fqE.getResources().getDimensionPixelSize(d.e.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bFK.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), this.fqE.getResources().getDimensionPixelSize(d.e.ds1), this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.bFK.setGravity(3);
+            this.bFL.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), this.fqE.getResources().getDimensionPixelSize(d.e.ds1), this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
+            this.bFL.setGravity(3);
         } else {
-            this.bFK.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0, this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.bFK.setGravity(19);
+            this.bFL.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0, this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
+            this.bFL.setGravity(19);
         }
-        this.bFK.setTextSize(0, this.fqE.getResources().getDimensionPixelSize(d.e.ds28));
-        this.bFK.setLineSpacing(this.fqE.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
-        this.bFK.setMaxLines(2);
-        this.bFK.setEllipsize(TextUtils.TruncateAt.END);
+        this.bFL.setTextSize(0, this.fqE.getResources().getDimensionPixelSize(d.e.ds28));
+        this.bFL.setLineSpacing(this.fqE.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
+        this.bFL.setMaxLines(2);
+        this.bFL.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void uX(String str) {
         String str2;
-        if (!ap.isEmpty(str) && this.bsr != null && this.fqE.isPrimary() && this.fwC <= 0) {
+        if (!ap.isEmpty(str) && this.bss != null && this.fqE.isPrimary() && this.fwC <= 0) {
             this.fwC++;
             if (str.length() < 20) {
                 str2 = this.fqE.getResources().getString(d.j.forum_ueg_tip) + "\n" + str;
@@ -51,16 +51,16 @@ public class j {
             } else {
                 str2 = this.fqE.getResources().getString(d.j.forum_ueg_tip) + str.substring(0, 34);
             }
-            this.bFK.setText(str2);
-            al.j(this.bFK, d.C0277d.cp_btn_a);
-            al.l(this.bsr, d.C0277d.cp_link_tip_a_alpha95);
-            this.bsr.a(this.fqE.getActivity(), this.bFK, UIMsg.m_AppUI.MSG_APP_GPS);
+            this.bFL.setText(str2);
+            al.j(this.bFL, d.C0277d.cp_btn_a);
+            al.l(this.bss, d.C0277d.cp_link_tip_a_alpha95);
+            this.bss.a(this.fqE.getActivity(), this.bFL, UIMsg.m_AppUI.MSG_APP_GPS);
         }
     }
 
     public void onDestory() {
-        if (this.bsr != null) {
-            this.bsr.onDestroy();
+        if (this.bss != null) {
+            this.bss.onDestroy();
         }
     }
 }

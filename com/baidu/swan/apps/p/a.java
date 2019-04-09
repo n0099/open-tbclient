@@ -17,23 +17,23 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e awl;
+    private e awm;
     private SharedPreferences.Editor mEditor;
 
     private a() {
-        this.awl = new e("aiapps_guide_dialog_sp");
-        this.mEditor = this.awl.edit();
+        this.awm = new e("aiapps_guide_dialog_sp");
+        this.mEditor = this.awm.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static final class C0148a {
-        private static final a awo = new a();
+        private static final a awp = new a();
     }
 
     public static a BX() {
-        return C0148a.awo;
+        return C0148a.awp;
     }
 
     private boolean z(@NonNull Activity activity) {
@@ -87,7 +87,7 @@ public class a {
     }
 
     private boolean BY() {
-        return this.awl.getBoolean("new_first_in", true);
+        return this.awm.getBoolean("new_first_in", true);
     }
 
     private void cw(int i) {
@@ -98,15 +98,15 @@ public class a {
     }
 
     private int B(Activity activity) {
-        return this.awl.getInt("up_first_in", bF(activity));
+        return this.awm.getInt("up_first_in", bF(activity));
     }
 
     public String BZ() {
-        return this.awl.getString("url", "");
+        return this.awm.getString("url", "");
     }
 
     public String Ca() {
-        return this.awl.getString("switch", "1");
+        return this.awm.getString("switch", "1");
     }
 
     private boolean d(@NonNull final Activity activity, String str) {

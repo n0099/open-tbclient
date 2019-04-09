@@ -8,23 +8,23 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends g {
     public long Cv;
     public long Oi;
-    public long cqg;
     public long cqh;
     public long cqi;
-    public int cqj;
+    public long cqj;
     public int cqk;
-    private a cql = null;
-    private final Handler cqm = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.o.f.1
+    public int cql;
+    private a cqm = null;
+    private final Handler cqn = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.o.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.cql = new a();
-            f.this.cql.setSelfExecute(true);
-            f.this.cql.execute(new String[0]);
+            f.this.cqm = new a();
+            f.this.cqm.setSelfExecute(true);
+            f.this.cqm.execute(new String[0]);
         }
     };
 
     public void aoZ() {
-        this.cqm.sendEmptyMessage(0);
+        this.cqn.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.cqk = m.apg().apk();
+            f.this.cql = m.apg().apk();
             f.this.apa();
             return Boolean.TRUE;
         }

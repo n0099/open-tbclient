@@ -7,9 +7,9 @@ public class UbcFlowEvent {
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String aEn = "NA";
-    private RecordType aEo = RecordType.KEEP;
-    private boolean aEp = false;
+    private String aEo = "NA";
+    private RecordType aEp = RecordType.KEEP;
+    private boolean aEq = false;
 
     /* loaded from: classes2.dex */
     public enum RecordType {
@@ -40,25 +40,25 @@ public class UbcFlowEvent {
     }
 
     public UbcFlowEvent fL(String str) {
-        this.aEn = str;
+        this.aEo = str;
         return this;
     }
 
     public String FS() {
-        return this.aEn;
+        return this.aEo;
     }
 
     public boolean FT() {
-        return this.aEp;
+        return this.aEq;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.aEo = recordType;
+        this.aEp = recordType;
         return this;
     }
 
     public RecordType FU() {
-        return this.aEo;
+        return this.aEp;
     }
 
     public String toString() {

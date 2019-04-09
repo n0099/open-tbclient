@@ -15,12 +15,12 @@ public class v extends BaseAdapter implements q<m> {
     private SparseArray<com.baidu.adp.widget.ListView.a<m, a>> Qy;
     @SuppressLint({"UseSparseArrays"})
     private SparseArray<Integer> Qz = new SparseArray<>();
-    private List<m> QA = new ArrayList();
+    private List<m> QB = new ArrayList();
 
     @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public int getCount() {
-        if (this.QA != null) {
-            return this.QA.size();
+        if (this.QB != null) {
+            return this.QB.size();
         }
         return 0;
     }
@@ -28,10 +28,10 @@ public class v extends BaseAdapter implements q<m> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public m getItem(int i) {
-        if (this.QA != null) {
-            int size = this.QA.size();
+        if (this.QB != null) {
+            int size = this.QB.size();
             if (i >= 0 && i < size) {
-                return this.QA.get(i);
+                return this.QB.get(i);
             }
         }
         return null;
@@ -46,7 +46,7 @@ public class v extends BaseAdapter implements q<m> {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.adp.widget.ListView.a<m, a> aVar;
         View view2 = null;
-        if (this.Qy != null && this.QA != null) {
+        if (this.Qy != null && this.QB != null) {
             int count = getCount();
             if (i >= 0 && i < count && (aVar = this.Qy.get(getItemViewType(i))) != null) {
                 m item = getItem(i);
@@ -97,17 +97,17 @@ public class v extends BaseAdapter implements q<m> {
     }
 
     public void setData(List<? extends m> list) {
-        if (this.QA == null) {
-            this.QA = new ArrayList();
+        if (this.QB == null) {
+            this.QB = new ArrayList();
         } else {
-            this.QA.clear();
+            this.QB.clear();
         }
-        this.QA.addAll(list);
+        this.QB.addAll(list);
         notifyDataSetChanged();
     }
 
     public List<m> getData() {
-        return this.QA;
+        return this.QB;
     }
 
     public void a(ViewGroup viewGroup, View view, int i, long j) {
@@ -147,19 +147,19 @@ public class v extends BaseAdapter implements q<m> {
     @Override // com.baidu.adp.widget.ListView.q
     public int u(int i, int i2) {
         int i3;
-        if (this.QA == null || this.QA.size() == 0) {
+        if (this.QB == null || this.QB.size() == 0) {
             return -1;
         }
-        int size = this.QA.size();
+        int size = this.QB.size();
         int i4 = 0;
         int i5 = -1;
         while (i4 < size) {
-            if (this.QA.get(i4) == null) {
+            if (this.QB.get(i4) == null) {
                 i3 = i5;
-            } else if (this.QA.get(i4).getType() == null) {
+            } else if (this.QB.get(i4).getType() == null) {
                 i3 = i5;
             } else {
-                i3 = i2 == this.QA.get(i4).getType().getId() ? i5 + 1 : i5;
+                i3 = i2 == this.QB.get(i4).getType().getId() ? i5 + 1 : i5;
                 if (i4 == i) {
                     return i3;
                 }

@@ -19,8 +19,8 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
-    private TextView cMv;
-    private NoNetworkView dbq;
+    private TextView cMw;
+    private NoNetworkView dbr;
     private BdListView gee;
     private OfficialBarTipListAdapter gef;
     private OfficialBarTipActivity geg;
@@ -58,14 +58,14 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         });
         this.mNavigationBar.showBottomLine();
         this.mRootView = (ViewGroup) officialBarTipActivity.findViewById(d.g.root_view);
-        this.dbq = (NoNetworkView) this.mRootView.findViewById(d.g.no_network_view);
+        this.dbr = (NoNetworkView) this.mRootView.findViewById(d.g.no_network_view);
         this.gem = LayoutInflater.from(this.geg.getBaseContext()).inflate(d.h.im_ba_btn, (ViewGroup) null);
         this.gen = (TextView) this.gem.findViewById(d.g.all_read);
         this.gen.setVisibility(8);
-        this.cMv = (TextView) this.gem.findViewById(d.g.edit);
-        this.cMv.setVisibility(0);
+        this.cMw = (TextView) this.gem.findViewById(d.g.edit);
+        this.cMw.setVisibility(0);
         this.gem = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gem, (View.OnClickListener) null);
-        this.cMv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.2
+        this.cMw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!f.this.geh) {
@@ -84,13 +84,13 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.geg.getLayoutMode().setNightMode(i == 1);
         this.geg.getLayoutMode().onModeChanged(this.mRootView);
         this.mNavigationBar.onChangeSkinType(this.geg.getPageContext(), i);
-        al.c(this.cMv, d.C0277d.navi_op_text, d.C0277d.navi_op_text_skin);
+        al.c(this.cMw, d.C0277d.navi_op_text, d.C0277d.navi_op_text_skin);
         al.c(this.gen, d.C0277d.navi_op_text, d.C0277d.navi_op_text_skin);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.geg.getPageContext(), i);
         }
-        if (this.dbq != null) {
-            this.dbq.onChangeSkinType(this.geg.getPageContext(), i);
+        if (this.dbr != null) {
+            this.dbr.onChangeSkinType(this.geg.getPageContext(), i);
         }
     }
 
@@ -148,7 +148,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
             } else {
                 kN(false);
             }
-            this.cMv.setText(officialBarTipActivity.getPageContext().getString(d.j.cancel));
+            this.cMw.setText(officialBarTipActivity.getPageContext().getString(d.j.cancel));
             this.gen.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -163,7 +163,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
         this.gen.setVisibility(8);
         this.gef.kJ(false);
         this.gef.notifyDataSetChanged();
-        this.cMv.setText(officialBarTipActivity.getPageContext().getString(d.j.edit));
+        this.cMw.setText(officialBarTipActivity.getPageContext().getString(d.j.edit));
         this.geh = false;
     }
 
@@ -180,7 +180,7 @@ public class f extends com.baidu.adp.base.c<OfficialBarTipActivity> {
     public void setData(List<ImMessageCenterShowItemData> list) {
         this.gef.setData(list);
         if (list != null && list.size() <= 0) {
-            this.cMv.setVisibility(8);
+            this.cMw.setVisibility(8);
         }
     }
 

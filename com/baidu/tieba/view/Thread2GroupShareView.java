@@ -12,11 +12,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private LinearLayout bFy;
+    private LinearLayout bFz;
     private TbImageView fYw;
     private TextView fYx;
     private EditText fzM;
-    private ShareFromPBMsgData gtQ;
+    private ShareFromPBMsgData gtR;
     private TextView title;
 
     public EditText getChatMsgView() {
@@ -42,7 +42,7 @@ public final class Thread2GroupShareView extends LinearLayout {
     private void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.bFy = (LinearLayout) findViewById(d.g.share_content);
+        this.bFz = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
         this.fzM = (EditText) findViewById(d.g.chat_msg);
         this.fYw = (TbImageView) findViewById(d.g.chat_group_img);
@@ -56,9 +56,9 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void bkf() {
-        this.bFy.setFocusable(true);
-        this.bFy.setFocusableInTouchMode(true);
-        this.bFy.requestFocus();
+        this.bFz.setFocusable(true);
+        this.bFz.setFocusableInTouchMode(true);
+        this.bFz.requestFocus();
     }
 
     public String getLeaveMsg() {
@@ -76,13 +76,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.gtQ = shareFromPBMsgData;
+        this.gtR = shareFromPBMsgData;
         GP();
     }
 
     private void GP() {
-        this.title.setText(this.gtQ.getTitle());
-        this.fYw.setTag(this.gtQ.getImageUrl());
-        this.fYx.setText(this.gtQ.getContent());
+        this.title.setText(this.gtR.getTitle());
+        this.fYw.setTag(this.gtR.getImageUrl());
+        this.fYx.setText(this.gtR.getContent());
     }
 }

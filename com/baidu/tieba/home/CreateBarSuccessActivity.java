@@ -22,7 +22,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     private String fFb = null;
     private TextView mTextView = null;
     private TextView fFp = null;
-    LinearLayout bRq = null;
+    LinearLayout bRr = null;
 
     public static void aJ(Context context, String str) {
         if (str != null && str.length() > 0) {
@@ -52,7 +52,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     }
 
     private void bll() {
-        this.bRq = (LinearLayout) findViewById(d.g.container);
+        this.bRr = (LinearLayout) findViewById(d.g.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(d.g.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
@@ -71,7 +71,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.bRq);
+        getLayoutMode().onModeChanged(this.bRr);
         boolean jK = new q().jK();
         String string = jK ? getPageContext().getString(d.j.create_bar_new_tip) : getPageContext().getString(d.j.create_bar_info1);
         int length = string.length();

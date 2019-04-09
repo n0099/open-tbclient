@@ -25,7 +25,7 @@ public class b extends y {
             return false;
         } else {
             SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-            String str = swanAppActivity.uA().axK;
+            String str = swanAppActivity.uA().axL;
             if (TextUtils.isEmpty(str)) {
                 com.baidu.swan.apps.console.c.e("applyUpdate", "launchScheme is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");

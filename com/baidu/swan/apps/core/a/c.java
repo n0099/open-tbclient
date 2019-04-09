@@ -24,7 +24,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String aoH;
+    public static String aoI;
 
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar) {
         a(context, cVar, true);
@@ -34,8 +34,8 @@ public class c {
         boolean z2;
         String uuid = UUID.randomUUID().toString();
         cVar.DA().putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        com.baidu.swan.apps.performance.b.FH().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(aoH) ? "" : aoH);
-        aoH = "";
+        com.baidu.swan.apps.performance.b.FH().q(uuid, "aiapp_abtest_info", TextUtils.isEmpty(aoI) ? "" : aoI);
+        aoI = "";
         com.baidu.swan.apps.performance.b.FH().f(uuid, "is_sileng_updating_when_start", com.baidu.swan.apps.core.a.c.b.xO().isInProgress());
         cVar.DA().putLong("aiapp_start_timestamp", System.currentTimeMillis());
         com.baidu.swan.apps.database.a eh = SwanAppDbControl.bE(context).eh(cVar.mAppId);
@@ -65,7 +65,7 @@ public class c {
                 Log.i("loadSwanAppBundle", "本地有包，并行请求APS");
             }
             final int xA = a.xA();
-            if (eh != null && (z2 = eh.aum)) {
+            if (eh != null && (z2 = eh.aun)) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动: " + z2);
                 }
@@ -100,7 +100,7 @@ public class c {
             if (DEBUG) {
                 Log.d("loadSwanAppBundle", "appId: " + str + ", client: " + fP);
             }
-            if (fP.aFh && fP.aFd.isSwanAppProcess()) {
+            if (fP.aFi && fP.aFe.isSwanAppProcess()) {
                 SwanAppPreHandleInfo swanAppPreHandleInfo = new SwanAppPreHandleInfo();
                 swanAppPreHandleInfo.appId = str;
                 if (!TextUtils.isEmpty(str3)) {
@@ -119,14 +119,14 @@ public class c {
 
     private static void a(com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.database.a aVar, String str) {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.aya);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.ayb);
         fVar.d(cVar);
-        fVar.aSx = str;
+        fVar.aSy = str;
         fVar.mType = "launch";
         if (aVar != null) {
             fVar.mAppVersion = aVar.version;
         }
-        String str2 = cVar.axK;
+        String str2 = cVar.axL;
         if (str2 != null) {
             String queryParameter = Uri.parse(str2).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
@@ -177,7 +177,7 @@ public class c {
                 Log.i("loadSwanAppBundle", "本地包已过期");
             }
             com.baidu.swan.apps.performance.b.FH().e(str, "aiapp_launch_state", 1);
-            boolean z = aVar.aum;
+            boolean z = aVar.aun;
             if (z) {
                 if (DEBUG) {
                     Log.i("loadSwanAppBundle", "本地有包，手百更新后小程序首次启动且包过期: " + z);

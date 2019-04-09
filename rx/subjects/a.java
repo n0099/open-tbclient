@@ -6,8 +6,8 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] kbX = new Object[0];
-    private final SubjectSubscriptionManager<T> kbY;
+    private static final Object[] kbY = new Object[0];
+    private final SubjectSubscriptionManager<T> kbZ;
 
     public static <T> a<T> cFj() {
         return g(null, false);
@@ -32,14 +32,14 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.kbY = subjectSubscriptionManager;
+        this.kbZ = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.kbY.getLatest() == null || this.kbY.active) {
+        if (this.kbZ.getLatest() == null || this.kbZ.active) {
             Object cDR = NotificationLite.cDR();
-            for (SubjectSubscriptionManager.b<T> bVar : this.kbY.terminate(cDR)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kbZ.terminate(cDR)) {
                 bVar.bB(cDR);
             }
         }
@@ -47,10 +47,10 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.kbY.getLatest() == null || this.kbY.active) {
+        if (this.kbZ.getLatest() == null || this.kbZ.active) {
             Object O = NotificationLite.O(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.kbY.terminate(O)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kbZ.terminate(O)) {
                 try {
                     bVar.bB(O);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.kbY.getLatest() == null || this.kbY.active) {
+        if (this.kbZ.getLatest() == null || this.kbZ.active) {
             Object bm = NotificationLite.bm(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.kbY.next(bm)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kbZ.next(bm)) {
                 bVar.bB(bm);
             }
         }

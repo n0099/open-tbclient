@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.d, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c>> {
-    private ab eEg;
+    private ab eEh;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, ab abVar) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.eEx);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.d.eEy);
         this.mPageContext = tbPageContext;
-        this.eEg = abVar;
+        this.eEh = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,8 +35,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
             return null;
         }
         aVar.aRg().a(dVar);
-        if (this.eEg != null) {
-            aVar.aRg().d(this.eEg);
+        if (this.eEh != null) {
+            aVar.aRg().d(this.eEh);
         }
         return aVar.getView();
     }

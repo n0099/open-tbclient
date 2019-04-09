@@ -5,21 +5,21 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aVs;
+    private static volatile a aVt;
     private HashMap<String, b> jk = new HashMap<>();
 
     private a() {
     }
 
     public static a Lu() {
-        if (aVs == null) {
+        if (aVt == null) {
             synchronized (a.class) {
-                if (aVs == null) {
-                    aVs = new a();
+                if (aVt == null) {
+                    aVt = new a();
                 }
             }
         }
-        return aVs;
+        return aVt;
     }
 
     private b hq(String str) {

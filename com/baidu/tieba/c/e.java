@@ -19,26 +19,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0273a {
-    private static e erD = null;
-    private a erE;
+    private static e erE = null;
     private a erF;
-    private ArrayList<TransmitForumData> erG;
-    private ArrayList<TransmitForumData> erI;
+    private a erG;
+    private ArrayList<TransmitForumData> erH;
+    private ArrayList<TransmitForumData> erJ;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean erH = false;
-    private boolean erJ = false;
+    private boolean erI = false;
+    private boolean erK = false;
     private boolean isLoading = false;
 
     public static e aSr() {
-        if (erD == null) {
+        if (erE == null) {
             synchronized (e.class) {
-                if (erD == null) {
-                    erD = new e();
+                if (erE == null) {
+                    erE = new e();
                 }
             }
         }
-        return erD;
+        return erE;
     }
 
     private e() {
@@ -54,6 +54,16 @@ public class e implements a.InterfaceC0273a {
     private void aSs() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
+            this.erG = (a) runTask.getData();
+        }
+        if (this.erG != null) {
+            this.erG.a(this);
+        }
+    }
+
+    private void aSt() {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
+        if (runTask != null) {
             this.erF = (a) runTask.getData();
         }
         if (this.erF != null) {
@@ -61,20 +71,10 @@ public class e implements a.InterfaceC0273a {
         }
     }
 
-    private void aSt() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
-        if (runTask != null) {
-            this.erE = (a) runTask.getData();
-        }
-        if (this.erE != null) {
-            this.erE.a(this);
-        }
-    }
-
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !i.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.cby = aSx();
+                shareDialogConfig.shareItem.cbz = aSx();
             }
             if (l.lo() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 aSu();
@@ -88,11 +88,11 @@ public class e implements a.InterfaceC0273a {
 
     public void aSu() {
         this.isLoading = true;
-        if (this.erE != null) {
-            this.erE.aSg();
-        }
         if (this.erF != null) {
             this.erF.aSg();
+        }
+        if (this.erG != null) {
+            this.erG.aSg();
         }
     }
 
@@ -100,28 +100,28 @@ public class e implements a.InterfaceC0273a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.erI = arrayList;
+                this.erJ = arrayList;
             }
-            this.erJ = true;
+            this.erK = true;
         } else if (i == 2) {
             if (z) {
-                this.erG = arrayList;
+                this.erH = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.erH = true;
+            this.erI = true;
         }
         aSv();
     }
 
     private void aSv() {
-        if (this.erE == null || this.erH) {
-            if (this.erF == null || this.erJ) {
-                this.erH = false;
-                this.erJ = false;
+        if (this.erF == null || this.erI) {
+            if (this.erG == null || this.erK) {
+                this.erI = false;
+                this.erK = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.T(this.erG)) {
-                    Iterator<TransmitForumData> it = this.erG.iterator();
+                if (!v.T(this.erH)) {
+                    Iterator<TransmitForumData> it = this.erH.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!ci(next.forumId)) {
@@ -129,8 +129,8 @@ public class e implements a.InterfaceC0273a {
                         }
                     }
                 }
-                if (!v.T(this.erI)) {
-                    Iterator<TransmitForumData> it2 = this.erI.iterator();
+                if (!v.T(this.erJ)) {
+                    Iterator<TransmitForumData> it2 = this.erJ.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!ci(next2.forumId)) {
@@ -138,8 +138,8 @@ public class e implements a.InterfaceC0273a {
                         }
                     }
                 }
-                this.erG = null;
-                this.erI = null;
+                this.erH = null;
+                this.erJ = null;
                 aSw();
             }
         }

@@ -9,11 +9,11 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static b aFm = new b();
+        private static b aFn = new b();
     }
 
     public static b GI() {
-        return a.aFm;
+        return a.aFn;
     }
 
     public void a(final SwanAppProcessInfo swanAppProcessInfo, final int i, final Bundle bundle) {

@@ -40,7 +40,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.fGA.setText(aVar.bOu);
+        aVar2.fGA.setText(aVar.bOv);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.fGA.getLayoutParams();
         if (aVar.fGK) {
             layoutParams.height = fGz;
@@ -55,19 +55,19 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private int bUM;
+        private int bUN;
         public TextView fGA;
         public View fhN;
 
         public a(View view) {
             super(view);
-            this.bUM = 3;
+            this.bUN = 3;
             this.fGA = (TextView) view.findViewById(d.g.concern_tip_txt);
             this.fhN = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.bUM != i) {
+            if (this.bUN != i) {
                 al.l(getView(), d.C0277d.cp_bg_line_e);
                 al.j(this.fGA, d.C0277d.cp_cont_d);
                 al.k(this.fhN, d.C0277d.cp_bg_line_e);

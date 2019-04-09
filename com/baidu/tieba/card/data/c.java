@@ -15,22 +15,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    private String ekE;
-    private int ekF;
-    private String ekG;
+    private String ekF;
+    private int ekG;
     private String ekH;
     private String ekI;
-    public int ekK;
+    private String ekJ;
+    public int ekL;
     private String mSource;
     public String tid;
     public int objType = 1;
-    public SparseArray<String> bzx = null;
-    private Integer ekJ = 0;
-    public int bAQ = 0;
+    public SparseArray<String> bzy = null;
+    private Integer ekK = 0;
     public int bAR = 0;
+    public int bAS = 0;
 
     public void setWeight(String str) {
-        this.ekE = str;
+        this.ekF = str;
     }
 
     public void setSource(String str) {
@@ -38,24 +38,24 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void oo(int i) {
-        this.ekF = i;
+        this.ekG = i;
     }
 
     public void tB(String str) {
-        this.ekG = str;
+        this.ekH = str;
     }
 
     public int aQN() {
-        return this.ekF;
+        return this.ekG;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public String WR() {
-        return this.mSource + "#" + this.ekF + "#" + this.ekG;
+        return this.mSource + "#" + this.ekG + "#" + this.ekH;
     }
 
     public String getWeight() {
-        return this.ekE;
+        return this.ekF;
     }
 
     public String getSource() {
@@ -63,15 +63,15 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public String aQO() {
-        return this.ekG;
-    }
-
-    public String aQP() {
         return this.ekH;
     }
 
+    public String aQP() {
+        return this.ekI;
+    }
+
     public void tC(String str) {
-        this.ekH = str;
+        this.ekI = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -84,19 +84,19 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void tD(String str) {
-        this.ekI = str;
+        this.ekJ = str;
     }
 
     public String getExtra() {
-        return this.ekI;
-    }
-
-    public Integer aQQ() {
         return this.ekJ;
     }
 
+    public Integer aQQ() {
+        return this.ekK;
+    }
+
     public void d(Integer num) {
-        this.ekJ = num;
+        this.ekK = num;
     }
 
     public am tE(String str) {
@@ -112,7 +112,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (!z) {
             bJ.T("obj_type", aQR());
         } else {
-            if (WO.bDw > 0) {
+            if (WO.bDx > 0) {
                 bJ.T("midpageflag", 1);
             } else {
                 bJ.T("midpageflag", 0);
@@ -121,7 +121,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
             bJ.T("is_vertical", aQQ().intValue());
         }
         if (WO.aam() != null && WO.aam().cer() != null && WO.aam().cer().ast() != null && WO.aam().cer().ast().size() > 0) {
-            bJ.T("obj_to", WO.aam().iGr ? 2 : 1);
+            bJ.T("obj_to", WO.aam().iGs ? 2 : 1);
         }
         return bJ;
     }
@@ -185,25 +185,25 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void op(int i) {
-        this.ekK = i;
+        this.ekL = i;
     }
 
     public boolean aQS() {
-        return this.ekK == 1;
+        return this.ekL == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public aj WQ() {
-        if (WO() == null || this.bzx == null || this.bzx.size() <= 0) {
+        if (WO() == null || this.bzy == null || this.bzy.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
         ajVar.setTid(WO().getTid());
         ajVar.setFid(WO().getFid());
-        ajVar.b(this.bzx);
-        ajVar.weight = this.ekE;
+        ajVar.b(this.bzy);
+        ajVar.weight = this.ekF;
         ajVar.source = this.mSource;
-        ajVar.extra = this.ekI;
+        ajVar.extra = this.ekJ;
         ajVar.threadType = WO().threadType;
         return ajVar;
     }

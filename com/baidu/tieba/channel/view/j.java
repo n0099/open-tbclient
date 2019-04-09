@@ -23,14 +23,14 @@ import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     private BdListView Pj;
-    private NoNetworkView dbq;
-    private ChannelListActivity enH;
-    private View eoA;
-    private ViewStub eoD;
-    private TextView eoE;
-    private AdapterView.OnItemClickListener eoH;
-    private TextView eoy;
-    private com.baidu.tieba.channel.a.f epF;
+    private NoNetworkView dbr;
+    private ChannelListActivity enI;
+    private View eoB;
+    private ViewStub eoE;
+    private TextView eoF;
+    private AdapterView.OnItemClickListener eoI;
+    private TextView eoz;
+    private com.baidu.tieba.channel.a.f epG;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.core.view.i mPullView;
@@ -39,53 +39,53 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     public j(ChannelListActivity channelListActivity) {
         super(channelListActivity.getPageContext());
         this.mPullView = null;
-        this.eoH = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.j.1
+        this.eoI = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.j.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.channel.data.f item = j.this.epF.getItem(i);
+                com.baidu.tieba.channel.data.f item = j.this.epG.getItem(i);
                 if (item != null) {
                     String aRt = item.aRt();
                     if (!TextUtils.isEmpty(aRt)) {
                         if (!com.baidu.adp.lib.util.j.kY()) {
-                            j.this.enH.showToast(d.j.neterror);
+                            j.this.enI.showToast(d.j.neterror);
                         } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(j.this.enH.getActivity(), com.baidu.adp.lib.g.b.d(aRt, 0L), 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(j.this.enI.getActivity(), com.baidu.adp.lib.g.b.d(aRt, 0L), 0)));
                         }
                     }
                 }
             }
         };
-        this.enH = channelListActivity;
-        this.enH.setIsAddSwipeBackLayout(true);
-        this.enH.setSwipeBackEnabled(true);
-        this.enH.setUseStyleImmersiveSticky(true);
+        this.enI = channelListActivity;
+        this.enI.setIsAddSwipeBackLayout(true);
+        this.enI.setSwipeBackEnabled(true);
+        this.enI.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     private void initViews() {
-        this.enH.setContentView(d.h.channel_list_layout);
-        this.mRootView = (RelativeLayout) this.enH.findViewById(d.g.parent);
-        this.dbq = (NoNetworkView) this.mRootView.findViewById(d.g.channel_list_no_network_view);
+        this.enI.setContentView(d.h.channel_list_layout);
+        this.mRootView = (RelativeLayout) this.enI.findViewById(d.g.parent);
+        this.dbr = (NoNetworkView) this.mRootView.findViewById(d.g.channel_list_no_network_view);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.channel_list_navigation_bar);
         this.mNavigationBar.showBottomLine(false);
-        this.mNavigationBar.setCenterTextTitle(this.enH.getResources().getString(d.j.subcribe_channel_list_title));
+        this.mNavigationBar.setCenterTextTitle(this.enI.getResources().getString(d.j.subcribe_channel_list_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eoD = (ViewStub) this.mRootView.findViewById(d.g.no_data_viewstub);
+        this.eoE = (ViewStub) this.mRootView.findViewById(d.g.no_data_viewstub);
         this.Pj = (BdListView) this.mRootView.findViewById(d.g.channel_list_listview);
-        this.epF = new com.baidu.tieba.channel.a.f(this.enH);
-        this.mPullView = new com.baidu.tbadk.core.view.i(this.enH.getPageContext());
+        this.epG = new com.baidu.tieba.channel.a.f(this.enI);
+        this.mPullView = new com.baidu.tbadk.core.view.i(this.enI.getPageContext());
         this.Pj.setPullRefresh(this.mPullView);
-        this.Pj.setOnItemClickListener(this.eoH);
-        this.Pj.setAdapter((ListAdapter) this.epF);
-        this.eoA = LayoutInflater.from(this.enH.getPageContext().getPageActivity()).inflate(d.h.channel_list_footer, (ViewGroup) null, false);
-        this.mProgressBar = (ProgressBar) this.eoA.findViewById(d.g.list_more_progress);
-        this.eoy = (TextView) this.eoA.findViewById(d.g.list_more_title);
-        this.Pj.addFooterView(this.eoA);
+        this.Pj.setOnItemClickListener(this.eoI);
+        this.Pj.setAdapter((ListAdapter) this.epG);
+        this.eoB = LayoutInflater.from(this.enI.getPageContext().getPageActivity()).inflate(d.h.channel_list_footer, (ViewGroup) null, false);
+        this.mProgressBar = (ProgressBar) this.eoB.findViewById(d.g.list_more_progress);
+        this.eoz = (TextView) this.eoB.findViewById(d.g.list_more_title);
+        this.Pj.addFooterView(this.eoB);
     }
 
     public void onDestroy() {
-        if (this.epF != null) {
-            this.epF = null;
+        if (this.epG != null) {
+            this.epG = null;
         }
     }
 
@@ -99,32 +99,32 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.dbq.a(aVar);
+        this.dbr.a(aVar);
     }
 
     public void a(com.baidu.tieba.channel.data.e eVar) {
         if (eVar == null || eVar.getItems() == null || eVar.getItems().size() <= 0) {
-            this.epF.setData(null);
+            this.epG.setData(null);
             this.Pj.setVisibility(8);
-            this.eoD.setVisibility(0);
-            this.eoE = (TextView) this.mRootView.findViewById(d.g.no_data_tip);
-            this.eoE.setText(this.enH.getResources().getString(d.j.no_channel));
+            this.eoE.setVisibility(0);
+            this.eoF = (TextView) this.mRootView.findViewById(d.g.no_data_tip);
+            this.eoF.setText(this.enI.getResources().getString(d.j.no_channel));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
         hY(eVar.hasMore());
-        this.epF.setData(eVar.getItems());
+        this.epG.setData(eVar.getItems());
     }
 
     public void hY(boolean z) {
-        this.eoA.setVisibility(0);
+        this.eoB.setVisibility(0);
         if (z) {
             this.mProgressBar.setVisibility(0);
-            this.eoy.setText(getPageContext().getString(d.j.subcribe_channel_list_hasmore));
+            this.eoz.setText(getPageContext().getString(d.j.subcribe_channel_list_hasmore));
             return;
         }
         this.mProgressBar.setVisibility(8);
-        this.eoy.setText(getPageContext().getString(d.j.channel_subscribe_list_no_more));
+        this.eoz.setText(getPageContext().getString(d.j.channel_subscribe_list_no_more));
     }
 
     public void a(h.c cVar) {
@@ -132,14 +132,14 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.enH.getLayoutMode().setNightMode(i == 1);
-        this.enH.getLayoutMode().onModeChanged(this.mRootView);
-        this.enH.getLayoutMode().onModeChanged(this.eoA);
+        this.enI.getLayoutMode().setNightMode(i == 1);
+        this.enI.getLayoutMode().onModeChanged(this.mRootView);
+        this.enI.getLayoutMode().onModeChanged(this.eoB);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dbq.onChangeSkinType(getPageContext(), i);
+        this.dbr.onChangeSkinType(getPageContext(), i);
         this.mPullView.ib(i);
-        if (this.epF != null) {
-            this.epF.notifyDataSetChanged();
+        if (this.epG != null) {
+            this.epG.notifyDataSetChanged();
         }
     }
 

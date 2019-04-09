@@ -25,23 +25,23 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 /* loaded from: classes2.dex */
 public abstract class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected FullScreenFloatView apR;
-    protected SwanAppPropertyWindow apU;
-    protected boolean atC;
-    protected String axb;
-    protected com.baidu.swan.apps.ae.a.c axc;
-    protected com.baidu.swan.apps.b.c.a ayj;
-    protected com.baidu.swan.games.o.a.a ayk;
-    protected com.baidu.swan.apps.ae.a.a ayl = new com.baidu.swan.apps.ae.a.a();
-    protected SwanAppActivity aym;
-    protected d ayn;
-    protected boolean ayo;
+    protected FullScreenFloatView apS;
+    protected SwanAppPropertyWindow apV;
+    protected boolean atD;
+    protected String axc;
+    protected com.baidu.swan.apps.ae.a.c axd;
+    protected com.baidu.swan.apps.b.c.a ayk;
+    protected com.baidu.swan.games.o.a.a ayl;
+    protected com.baidu.swan.apps.ae.a.a aym = new com.baidu.swan.apps.ae.a.a();
+    protected SwanAppActivity ayn;
+    protected d ayo;
+    protected boolean ayp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
         com.baidu.swan.apps.core.i.c.Aa();
-        this.ayn = new d();
-        this.ayn.a(this);
+        this.ayo = new d();
+        this.ayo.a(this);
         f.Ec().Ed();
     }
 
@@ -54,21 +54,21 @@ public abstract class a implements c {
     @Override // com.baidu.swan.apps.w.c
     public void bL(Context context) {
         DC();
-        this.ayn.bN(context);
+        this.ayo.bN(context);
     }
 
     @Override // com.baidu.swan.apps.w.c
     public void bM(Context context) {
-        this.ayn.bO(context);
+        this.ayo.bO(context);
     }
 
     @Override // com.baidu.swan.apps.w.c
     @CallSuper
     public void doRelease() {
-        this.atC = true;
-        if (this.ayn != null) {
-            this.ayn.DU();
-            this.ayn = null;
+        this.atD = true;
+        if (this.ayo != null) {
+            this.ayo.DU();
+            this.ayo = null;
         }
         f.Ec().Ee();
         com.baidu.swan.apps.process.b.b.b.a.Gl().release();
@@ -80,8 +80,8 @@ public abstract class a implements c {
         DC();
         String Jg = com.baidu.swan.apps.ae.b.Jg();
         if (!TextUtils.isEmpty(Jg)) {
-            this.ayo = true;
-            this.ayn.DU();
+            this.ayp = true;
+            this.ayo.DU();
             Bundle bundle = new Bundle();
             bundle.putString("app_id", Jg);
             com.baidu.swan.apps.process.messaging.client.a.Go().e(9, bundle);
@@ -91,8 +91,8 @@ public abstract class a implements c {
     @Override // com.baidu.swan.apps.w.c
     @CallSuper
     public void vQ() {
-        if (!TextUtils.isEmpty(com.baidu.swan.apps.ae.b.Jg()) && this.ayo) {
-            this.ayn.DR();
+        if (!TextUtils.isEmpty(com.baidu.swan.apps.ae.b.Jg()) && this.ayp) {
+            this.ayo.DR();
         }
     }
 
@@ -102,15 +102,15 @@ public abstract class a implements c {
     }
 
     private void exit(final boolean z) {
-        if (this.aym != null) {
+        if (this.ayn != null) {
             aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.w.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.aym != null) {
-                        com.baidu.swan.apps.performance.f.aEf = true;
-                        a.this.aym.finish();
+                    if (a.this.ayn != null) {
+                        com.baidu.swan.apps.performance.f.aEg = true;
+                        a.this.ayn.finish();
                         if (z) {
-                            a.this.aym.overridePendingTransition(0, a.C0107a.aiapps_slide_out_to_right_zadjustment_top);
+                            a.this.ayn.overridePendingTransition(0, a.C0107a.aiapps_slide_out_to_right_zadjustment_top);
                         }
                     }
                 }
@@ -129,12 +129,12 @@ public abstract class a implements c {
 
     @Override // com.baidu.swan.apps.w.c
     public void DD() {
-        this.ayo = false;
+        this.ayp = false;
     }
 
     @Override // com.baidu.swan.apps.w.c
     public void DE() {
-        this.ayo = true;
+        this.ayp = true;
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -164,14 +164,14 @@ public abstract class a implements c {
     @DebugTrace
     public com.baidu.swan.apps.b.c.a DG() {
         DC();
-        if (this.ayj == null) {
-            this.ayj = com.baidu.swan.apps.core.i.c.Aa().Ab().bo(AppRuntime.getAppContext());
+        if (this.ayk == null) {
+            this.ayk = com.baidu.swan.apps.core.i.c.Aa().Ab().bo(AppRuntime.getAppContext());
             com.baidu.swan.apps.console.c.aR(true);
         }
-        if (this.aym != null) {
-            this.ayj.e((ViewGroup) this.aym.findViewById(a.f.ai_apps_activity_root));
+        if (this.ayn != null) {
+            this.ayk.e((ViewGroup) this.ayn.findViewById(a.f.ai_apps_activity_root));
         }
-        return this.ayj;
+        return this.ayk;
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -180,20 +180,20 @@ public abstract class a implements c {
         if (activity == null) {
             return null;
         }
-        if (this.apR == null) {
-            this.apR = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.apR.setFloatButtonText(activity.getString(a.h.aiapps_sconsole));
-            this.apR.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
-            this.apR.setVisibility(8);
-            this.apR.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.w.a.2
-                com.baidu.swan.apps.b.c.a ayj;
+        if (this.apS == null) {
+            this.apS = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.apS.setFloatButtonText(activity.getString(a.h.aiapps_sconsole));
+            this.apS.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
+            this.apS.setVisibility(8);
+            this.apS.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.apps.w.a.2
+                com.baidu.swan.apps.b.c.a ayk;
 
                 @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
                 public void onClick() {
-                    if (this.ayj == null) {
-                        this.ayj = e.Ea().DG();
+                    if (this.ayk == null) {
+                        this.ayk = e.Ea().DG();
                     }
-                    this.ayj.vT();
+                    this.ayk.vT();
                 }
 
                 @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
@@ -201,7 +201,7 @@ public abstract class a implements c {
                 }
             });
         }
-        return this.apR;
+        return this.apS;
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -211,12 +211,12 @@ public abstract class a implements c {
         if (activity == null) {
             return null;
         }
-        if (this.apU == null && (viewGroup = (ViewGroup) activity.findViewById(a.f.ai_apps_activity_root)) != null) {
-            this.apU = new SwanAppPropertyWindow(activity);
-            this.apU.setVisibility(8);
-            viewGroup.addView(this.apU);
+        if (this.apV == null && (viewGroup = (ViewGroup) activity.findViewById(a.f.ai_apps_activity_root)) != null) {
+            this.apV = new SwanAppPropertyWindow(activity);
+            this.apV.setVisibility(8);
+            viewGroup.addView(this.apV);
         }
-        return this.apU;
+        return this.apV;
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -227,7 +227,7 @@ public abstract class a implements c {
         if (IV != null) {
             bVar = IV.uA();
         }
-        return bVar != null && ((DEBUG && bVar.axV) || com.baidu.swan.apps.f.a.c(bVar) || com.baidu.swan.apps.f.a.b(bVar));
+        return bVar != null && ((DEBUG && bVar.axW) || com.baidu.swan.apps.f.a.c(bVar) || com.baidu.swan.apps.f.a.b(bVar));
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -237,7 +237,7 @@ public abstract class a implements c {
 
     @Override // com.baidu.swan.apps.w.c
     public void f(SwanAppActivity swanAppActivity) {
-        this.aym = swanAppActivity;
+        this.ayn = swanAppActivity;
         com.baidu.swan.apps.ae.b za = za();
         if (za == null && swanAppActivity != null) {
             com.baidu.swan.apps.ae.b.n(swanAppActivity.uA());
@@ -250,50 +250,50 @@ public abstract class a implements c {
 
     @Override // com.baidu.swan.apps.w.c
     public com.baidu.swan.apps.ae.a.c DI() {
-        return this.axc;
+        return this.axd;
     }
 
     @Override // com.baidu.swan.apps.w.c
     @NonNull
     public com.baidu.swan.apps.ae.a.d eO(String str) {
-        if (this.axc == null) {
+        if (this.axd == null) {
             if (DEBUG) {
                 Log.e("AiBaseController", "mConfigData is null." + Log.getStackTraceString(new Exception()));
             }
             return com.baidu.swan.apps.ae.a.d.JA();
         }
-        return this.ayl.a(DJ(), str, this.axc.aOm);
+        return this.aym.a(DJ(), str, this.axd.aOn);
     }
 
     @Override // com.baidu.swan.apps.w.c
     public String DJ() {
-        return TextUtils.isEmpty(this.axb) ? "" : this.axb;
+        return TextUtils.isEmpty(this.axc) ? "" : this.axc;
     }
 
     @Override // com.baidu.swan.apps.w.c
     public String DK() {
-        if (this.aym == null || this.aym.uA() == null) {
+        if (this.ayn == null || this.ayn.uA() == null) {
             return null;
         }
-        return com.baidu.swan.apps.v.b.b.a(this.aym.uA(), e.Ea().DI());
+        return com.baidu.swan.apps.v.b.b.a(this.ayn.uA(), e.Ea().DI());
     }
 
     @Override // com.baidu.swan.apps.w.c
     public String DL() {
-        return this.axc == null ? "" : this.axc.DL();
+        return this.axd == null ? "" : this.axd.DL();
     }
 
     @Override // com.baidu.swan.apps.w.c
     public com.baidu.swan.apps.core.c.e uy() {
-        if (this.aym == null) {
+        if (this.ayn == null) {
             return null;
         }
-        return this.aym.uy();
+        return this.ayn.uy();
     }
 
     @Override // com.baidu.swan.apps.w.c
     public SwanAppActivity DM() {
-        return this.aym;
+        return this.ayn;
     }
 
     @Override // com.baidu.swan.apps.w.c
@@ -327,12 +327,12 @@ public abstract class a implements c {
         com.baidu.swan.apps.performance.e.as("postMessage", "handleNativeMessage start.");
         if (dVar != null) {
             com.baidu.swan.apps.m.a.f fVar = new com.baidu.swan.apps.m.a.f();
-            fVar.mData = dVar.avn;
-            fVar.avs = z;
+            fVar.mData = dVar.avo;
+            fVar.avt = z;
             if (DEBUG) {
-                Log.d("AiBaseController", "handleNativeMessage data: " + dVar.avn + " ; needEncode = " + z);
+                Log.d("AiBaseController", "handleNativeMessage data: " + dVar.avo + " ; needEncode = " + z);
             }
-            a(dVar.asN, fVar);
+            a(dVar.asO, fVar);
             com.baidu.swan.apps.performance.e.as("postMessage", "handleNativeMessage end.");
         }
     }
@@ -408,16 +408,16 @@ public abstract class a implements c {
     @Override // com.baidu.swan.apps.w.c
     public void showLoadingView() {
         DC();
-        if (this.aym != null) {
-            this.aym.showLoadingView();
+        if (this.ayn != null) {
+            this.ayn.showLoadingView();
         }
     }
 
     @Override // com.baidu.swan.apps.w.c
     public void uB() {
         DC();
-        if (this.aym != null) {
-            this.aym.uB();
+        if (this.ayn != null) {
+            this.ayn.uB();
         }
     }
 }

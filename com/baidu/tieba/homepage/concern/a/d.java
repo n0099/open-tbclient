@@ -28,8 +28,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        if (aVar.bOu != null) {
-            aVar2.bPU.setText(aVar.bOu);
+        if (aVar.bOv != null) {
+            aVar2.bPV.setText(aVar.bOv);
         }
         switch (aVar.fGJ) {
             case 2:
@@ -44,8 +44,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public TextView bPU;
-        private int bUM;
+        public TextView bPV;
+        private int bUN;
         public ViewGroup fGs;
         public ImageView fGt;
         public View fhN;
@@ -53,22 +53,22 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
         public a(View view) {
             super(view);
-            this.bUM = 3;
+            this.bUN = 3;
             this.fhN = view.findViewById(d.g.concern_emotion_tip_top_line);
             this.fGs = (ViewGroup) view.findViewById(d.g.ll_concern_emotion_tip);
             this.fGt = (ImageView) view.findViewById(d.g.iv_concern_emotion_tip_pic);
-            this.bPU = (TextView) view.findViewById(d.g.tv_concern_emotion_tip);
+            this.bPV = (TextView) view.findViewById(d.g.tv_concern_emotion_tip);
             this.fhO = view.findViewById(d.g.concern_emotion_tip_bottom_line);
         }
 
         protected void bu(int i, int i2) {
-            if (this.bUM != i) {
+            if (this.bUN != i) {
                 al.l(this.fhN, d.C0277d.cp_bg_line_c);
                 al.c(this.fGt, i2);
-                al.j(this.bPU, d.C0277d.cp_cont_b);
+                al.j(this.bPV, d.C0277d.cp_cont_b);
                 al.l(this.fhO, d.C0277d.cp_bg_line_c);
             }
-            this.bUM = i;
+            this.bUN = i;
         }
     }
 }

@@ -64,8 +64,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.ihQ)) {
-            this.operateData.ihQ = this.userName;
+        if (TextUtils.isEmpty(this.operateData.ihR)) {
+            this.operateData.ihR = this.userName;
         }
     }
 

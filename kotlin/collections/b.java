@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State jRs = State.NotReady;
-    private T jRt;
+    private State jRt = State.NotReady;
+    private T jRu;
 
     protected abstract void cCg();
 
@@ -16,8 +16,8 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.jRs, State.Failed)) {
-            switch (this.jRs) {
+        if (!kotlin.jvm.internal.p.h(this.jRt, State.Failed)) {
+            switch (this.jRt) {
                 case Done:
                     return false;
                 case Ready:
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.jRs = State.NotReady;
-            return this.jRt;
+            this.jRt = State.NotReady;
+            return this.jRu;
         }
         throw new NoSuchElementException();
     }
 
     private final boolean cCf() {
-        this.jRs = State.Failed;
+        this.jRt = State.Failed;
         cCg();
-        return kotlin.jvm.internal.p.h(this.jRs, State.Ready);
+        return kotlin.jvm.internal.p.h(this.jRt, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bf(T t) {
-        this.jRt = t;
-        this.jRs = State.Ready;
+        this.jRu = t;
+        this.jRt = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.jRs = State.Done;
+        this.jRt = State.Done;
     }
 }

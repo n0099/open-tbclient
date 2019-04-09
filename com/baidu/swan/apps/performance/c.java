@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c {
-    private final Object aEd = new Object();
-    private List<Runnable> aEe;
+    private final Object aEe = new Object();
+    private List<Runnable> aEf;
 
     public c f(Runnable runnable) {
-        synchronized (this.aEd) {
+        synchronized (this.aEe) {
             FL().add(runnable);
         }
         return this;
     }
 
     public void FK() {
-        synchronized (this.aEd) {
-            this.aEe = null;
+        synchronized (this.aEe) {
+            this.aEf = null;
         }
     }
 
     public List<Runnable> FL() {
         List<Runnable> list;
-        synchronized (this.aEd) {
-            if (this.aEe == null) {
-                this.aEe = new ArrayList();
+        synchronized (this.aEe) {
+            if (this.aEf == null) {
+                this.aEf = new ArrayList();
             }
-            list = this.aEe;
+            list = this.aEf;
         }
         return list;
     }
@@ -38,10 +38,10 @@ class c {
     }
 
     public int size() {
-        if (this.aEe == null) {
+        if (this.aEf == null) {
             return 0;
         }
-        return this.aEe.size();
+        return this.aEf.size();
     }
 
     public c FN() {

@@ -7,9 +7,9 @@ import com.facebook.imagepipeline.d.j;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    private static f jAO;
-    private static final Class<?> jya = c.class;
-    private static volatile boolean jAP = false;
+    private static f jAP;
+    private static final Class<?> jyb = c.class;
+    private static volatile boolean jAQ = false;
 
     private c() {
     }
@@ -19,10 +19,10 @@ public class c {
     }
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
-        if (jAP) {
-            com.facebook.common.c.a.f(jya, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+        if (jAQ) {
+            com.facebook.common.c.a.f(jyb, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
-            jAP = true;
+            jAQ = true;
         }
         Context applicationContext = context.getApplicationContext();
         if (hVar == null) {
@@ -34,12 +34,12 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        jAO = new f(context, bVar);
-        SimpleDraweeView.b(jAO);
+        jAP = new f(context, bVar);
+        SimpleDraweeView.b(jAP);
     }
 
     public static e cuw() {
-        return jAO.get();
+        return jAP.get();
     }
 
     public static j cux() {

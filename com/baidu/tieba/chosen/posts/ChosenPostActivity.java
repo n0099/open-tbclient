@@ -9,49 +9,49 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.chosen.posts.a.d;
 /* loaded from: classes5.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter epL;
-    private ChosenPostModelController epM;
-    private b epN;
+    private ViewEventCenter epM;
+    private ChosenPostModelController epN;
+    private b epO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         aoG().addEventDelegate(this);
-        this.epM = aRL();
-        this.epN = aRM();
+        this.epN = aRL();
+        this.epO = aRM();
         if (getIntent() != null) {
-            this.epM.J(getIntent().getExtras());
+            this.epN.J(getIntent().getExtras());
         } else if (bundle != null) {
-            this.epM.J(bundle);
+            this.epN.J(bundle);
         } else {
-            this.epM.J(null);
+            this.epN.J(null);
         }
-        setContentView(this.epN.aDs());
-        this.epN.aRR();
-        this.epN.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        setContentView(this.epO.aDs());
+        this.epO.aRR();
+        this.epO.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
     public ChosenPostModelController aRL() {
-        if (this.epM == null) {
-            this.epM = new ChosenPostModelController(this);
-        }
-        return this.epM;
-    }
-
-    public b aRM() {
         if (this.epN == null) {
-            this.epN = new b(this);
+            this.epN = new ChosenPostModelController(this);
         }
         return this.epN;
     }
 
-    public ViewEventCenter aoG() {
-        if (this.epL == null) {
-            this.epL = new ViewEventCenter();
+    public b aRM() {
+        if (this.epO == null) {
+            this.epO = new b(this);
         }
-        return this.epL;
+        return this.epO;
+    }
+
+    public ViewEventCenter aoG() {
+        if (this.epM == null) {
+            this.epM = new ViewEventCenter();
+        }
+        return this.epM;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a

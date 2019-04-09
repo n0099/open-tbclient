@@ -4,17 +4,17 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class f extends c {
-    private static f jzg = null;
+    private static f jzh = null;
 
     private f() {
         super(new Handler(Looper.getMainLooper()));
     }
 
     public static f ctC() {
-        if (jzg == null) {
-            jzg = new f();
+        if (jzh == null) {
+            jzh = new f();
         }
-        return jzg;
+        return jzh;
     }
 
     @Override // com.facebook.common.b.c, java.util.concurrent.Executor

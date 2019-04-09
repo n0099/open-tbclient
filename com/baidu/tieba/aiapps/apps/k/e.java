@@ -140,7 +140,7 @@ public class e implements o {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, String str2, com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.v.b.b uA = bVar.uA();
-        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uA != null ? uA.aya : 0);
+        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uA != null ? uA.ayb : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

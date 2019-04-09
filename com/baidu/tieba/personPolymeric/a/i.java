@@ -21,7 +21,7 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.elJ);
+        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.elK);
         this.fdJ = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
@@ -99,14 +99,14 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
         rVar.setConstrainLayoutPool(this.fdJ);
         rVar.setConstrainImagePool(this.fdK);
         rVar.currentPageType = 4;
-        if (rVar.eiO != null) {
-            rVar.eiO.bSJ = 4;
+        if (rVar.eiP != null) {
+            rVar.eiP.bSK = 4;
         }
-        if (rVar.drm != null) {
-            rVar.drm.bSJ = 4;
+        if (rVar.drn != null) {
+            rVar.drn.bSK = 4;
         }
-        if (rVar.ejm != null) {
-            rVar.ejm.ejX = 4;
+        if (rVar.ejn != null) {
+            rVar.ejn.ejY = 4;
         }
         rVar.d(new ab<CardPersonDynamicThreadData>() { // from class: com.baidu.tieba.personPolymeric.a.i.1
             /* JADX DEBUG: Method merged with bridge method */

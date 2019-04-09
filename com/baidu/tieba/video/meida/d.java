@@ -1,19 +1,19 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes5.dex */
 public abstract class d {
-    int aAS;
+    int aAT;
     int channelCount;
-    String jab;
+    String jac;
 
     public abstract void DM(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.jab = str;
+        this.jac = str;
     }
 
     public void setSampleRate(int i) {
-        this.aAS = i;
+        this.aAT = i;
     }
 
     public void setChannelCount(int i) {

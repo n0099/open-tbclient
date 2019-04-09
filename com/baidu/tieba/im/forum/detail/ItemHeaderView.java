@@ -15,11 +15,11 @@ import com.baidu.tieba.d;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemHeaderView extends RelativeLayout {
-    private TextView bTa;
+    private TextView bTb;
     private TextView fAo;
-    private BarImageView ghV;
-    private TextView ghW;
+    private BarImageView ghW;
     private TextView ghX;
+    private TextView ghY;
     private Context mContext;
 
     public ItemHeaderView(Context context) {
@@ -41,32 +41,32 @@ public class ItemHeaderView extends RelativeLayout {
         this.mContext = context;
         LayoutInflater.from(context).inflate(d.h.forum_detail_header, (ViewGroup) this, true);
         setVisibility(8);
-        this.ghV = (BarImageView) findViewById(d.g.h_forum_portrait);
-        this.bTa = (TextView) findViewById(d.g.h_forum_name);
-        this.ghW = (TextView) findViewById(d.g.forum_authen);
+        this.ghW = (BarImageView) findViewById(d.g.h_forum_portrait);
+        this.bTb = (TextView) findViewById(d.g.h_forum_name);
+        this.ghX = (TextView) findViewById(d.g.forum_authen);
         this.fAo = (TextView) findViewById(d.g.h_fans_num);
-        this.ghX = (TextView) findViewById(d.g.h_thread_num);
+        this.ghY = (TextView) findViewById(d.g.h_thread_num);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo != null) {
             boolean z = recommendForumInfo.forum_type.intValue() == 1;
-            this.bTa.setText(recommendForumInfo.forum_name);
+            this.bTb.setText(recommendForumInfo.forum_name);
             if (z) {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(d.f.icon_v);
                 bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                this.bTa.setCompoundDrawables(null, null, bitmapDrawable, null);
-                this.bTa.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(d.e.ds4)));
-                this.ghW.setText(recommendForumInfo.authen);
-                this.ghW.setVisibility(0);
+                this.bTb.setCompoundDrawables(null, null, bitmapDrawable, null);
+                this.bTb.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(d.e.ds4)));
+                this.ghX.setText(recommendForumInfo.authen);
+                this.ghX.setVisibility(0);
             } else {
-                this.bTa.setCompoundDrawables(null, null, null, null);
-                this.ghW.setVisibility(8);
+                this.bTb.setCompoundDrawables(null, null, null, null);
+                this.ghX.setVisibility(8);
             }
             this.fAo.setText(ap.as(recommendForumInfo.member_count.intValue()));
-            this.ghX.setText(ap.as(recommendForumInfo.thread_count.intValue()));
+            this.ghY.setText(ap.as(recommendForumInfo.thread_count.intValue()));
             int dip2px = l.dip2px(this.mContext, 80.0f);
-            this.ghV.startLoad(recommendForumInfo.avatar, 10, dip2px, dip2px, false);
+            this.ghW.startLoad(recommendForumInfo.avatar, 10, dip2px, dip2px, false);
             setVisibility(0);
         }
     }

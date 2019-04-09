@@ -31,23 +31,23 @@ public final class a {
 
     public static void d(Context context, final com.baidu.swan.apps.v.b.b bVar) {
         Uri hM;
-        if (!TextUtils.isEmpty(bVar.axH) && (hM = aa.hM(bVar.axH)) != null) {
+        if (!TextUtils.isEmpty(bVar.axI) && (hM = aa.hM(bVar.axI)) != null) {
             q(bVar);
             final c cVar = new c();
             cVar.mAppId = bVar.mAppId;
-            cVar.mFrom = bVar.axJ;
-            cVar.axW = bVar.axW;
-            cVar.axL = bVar.axL;
-            cVar.axU = bVar.axU;
+            cVar.mFrom = bVar.axK;
+            cVar.axX = bVar.axX;
+            cVar.axM = bVar.axM;
             cVar.axV = bVar.axV;
-            cVar.axZ = bVar.axZ;
+            cVar.axW = bVar.axW;
             cVar.aya = bVar.aya;
-            cVar.ayh = bVar.orientation;
-            cVar.axK = c.d(bVar.mAppId, bVar.axJ, bVar.aya);
+            cVar.ayb = bVar.ayb;
+            cVar.ayi = bVar.orientation;
+            cVar.axL = c.d(bVar.mAppId, bVar.axK, bVar.ayb);
             if (l.i(hM)) {
                 a(context, bVar, cVar, l.b(hM, context));
             } else {
-                com.baidu.swan.apps.core.a.b.a(bVar.axH, new l.a() { // from class: com.baidu.swan.apps.ah.a.1
+                com.baidu.swan.apps.core.a.b.a(bVar.axI, new l.a() { // from class: com.baidu.swan.apps.ah.a.1
                     @Override // com.baidu.swan.apps.an.l.a
                     public void d(String str, Bitmap bitmap) {
                         if (com.baidu.swan.apps.ae.b.IV() != null) {
@@ -67,17 +67,17 @@ public final class a {
                 return;
             }
             if (com.baidu.swan.apps.an.a.LM()) {
-                a(context, bVar.mAppId, bVar.axG, bitmap, c.c(context, cVar));
+                a(context, bVar.mAppId, bVar.axH, bitmap, c.c(context, cVar));
             } else {
-                context.sendBroadcast(a(bVar.axG, bitmap, c.c(context, cVar)));
+                context.sendBroadcast(a(bVar.axH, bitmap, c.c(context, cVar)));
             }
             cd(context);
         }
     }
 
     private static void q(com.baidu.swan.apps.v.b.b bVar) {
-        bVar.axL = null;
-        bVar.axJ = "1230000000000000";
+        bVar.axM = null;
+        bVar.axK = "1230000000000000";
     }
 
     private static void cd(Context context) {

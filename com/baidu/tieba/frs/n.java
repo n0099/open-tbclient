@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class n extends v.a {
     public static BdUniqueId fby = BdUniqueId.gen();
-    private LinearLayout ceG;
-    private int cnE;
+    private LinearLayout ceH;
+    private int cnF;
     public ImageView fbA;
     private int fbB;
     private CustomMessageListener fbC;
@@ -42,7 +42,7 @@ public class n extends v.a {
         };
         this.mRootView = view;
         this.mParent = viewGroup;
-        this.ceG = (LinearLayout) view.findViewById(d.g.container);
+        this.ceH = (LinearLayout) view.findViewById(d.g.container);
         this.fbA = (ImageView) view.findViewById(d.g.emotion_view);
         this.fbz = (TextView) view.findViewById(d.g.no_data_tips);
         com.baidu.tbadk.core.util.al.c(this.fbA, d.f.new_pic_emotion_gray_06);
@@ -75,35 +75,35 @@ public class n extends v.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void jN(int i) {
         if (this.mRootView != null && this.mParent != null) {
-            if (this.cnE <= 0) {
-                this.cnE = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.tbds156);
+            if (this.cnF <= 0) {
+                this.cnF = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.tbds156);
             }
             if (i != Integer.MAX_VALUE || this.fbB != Integer.MAX_VALUE) {
                 this.fbB = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
-                    int abs = Math.abs(this.ceG.getTop());
-                    int abs2 = i2 - Math.abs(this.ceG.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.ceG.getLayoutParams();
+                    int abs = Math.abs(this.ceH.getTop());
+                    int abs2 = i2 - Math.abs(this.ceH.getBottom());
+                    ViewGroup.LayoutParams layoutParams = this.ceH.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.cnE) {
-                            marginLayoutParams.topMargin = this.cnE;
-                            this.ceG.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.cnE) {
-                            if (abs2 > this.cnE) {
-                                marginLayoutParams.topMargin = ((abs2 - this.cnE) / 2) + this.cnE;
-                                this.ceG.setLayoutParams(marginLayoutParams);
+                        if (abs < this.cnF) {
+                            marginLayoutParams.topMargin = this.cnF;
+                            this.ceH.setLayoutParams(marginLayoutParams);
+                        } else if (abs == this.cnF) {
+                            if (abs2 > this.cnF) {
+                                marginLayoutParams.topMargin = ((abs2 - this.cnF) / 2) + this.cnF;
+                                this.ceH.setLayoutParams(marginLayoutParams);
                             }
-                        } else if (abs > this.cnE) {
-                            if (abs2 < this.cnE) {
-                                marginLayoutParams.topMargin = this.cnE;
-                            } else if (abs2 == this.cnE) {
-                                marginLayoutParams.topMargin = this.cnE;
-                            } else if (abs2 > this.cnE) {
+                        } else if (abs > this.cnF) {
+                            if (abs2 < this.cnF) {
+                                marginLayoutParams.topMargin = this.cnF;
+                            } else if (abs2 == this.cnF) {
+                                marginLayoutParams.topMargin = this.cnF;
+                            } else if (abs2 > this.cnF) {
                                 marginLayoutParams.topMargin = (abs + abs2) / 2;
                             }
-                            this.ceG.setLayoutParams(marginLayoutParams);
+                            this.ceH.setLayoutParams(marginLayoutParams);
                         }
                     }
                 }

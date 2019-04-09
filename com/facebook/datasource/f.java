@@ -10,11 +10,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class f<T> implements i<b<T>> {
-    private final List<i<b<T>>> jAC;
+    private final List<i<b<T>>> jAD;
 
     private f(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.jAC = list;
+        this.jAD = list;
     }
 
     public static <T> f<T> eu(List<i<b<T>>> list) {
@@ -29,7 +29,7 @@ public class f<T> implements i<b<T>> {
     }
 
     public int hashCode() {
-        return this.jAC.hashCode();
+        return this.jAD.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -39,11 +39,11 @@ public class f<T> implements i<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.jAC, ((f) obj).jAC);
+        return com.facebook.common.internal.f.equal(this.jAD, ((f) obj).jAD);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aA(this).q(IntentConfig.LIST, this.jAC).toString();
+        return com.facebook.common.internal.f.aA(this).q(IntentConfig.LIST, this.jAD).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,17 +52,17 @@ public class f<T> implements i<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> jAH;
+        private ArrayList<b<T>> jAI;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int jAI;
+        private int jAJ;
 
         public a() {
-            int size = f.this.jAC.size();
-            this.jAI = size;
-            this.jAH = new ArrayList<>(size);
+            int size = f.this.jAD.size();
+            this.jAJ = size;
+            this.jAI = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                b<T> bVar = (b) ((i) f.this.jAC.get(i)).get();
-                this.jAH.add(bVar);
+                b<T> bVar = (b) ((i) f.this.jAD.get(i)).get();
+                this.jAI.add(bVar);
                 bVar.a(new C0429a(i), com.facebook.common.b.a.ctz());
                 if (bVar.cuh()) {
                     return;
@@ -72,15 +72,15 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> BO(int i) {
-            return (this.jAH == null || i >= this.jAH.size()) ? null : this.jAH.get(i);
+            return (this.jAI == null || i >= this.jAI.size()) ? null : this.jAI.get(i);
         }
 
         @Nullable
         private synchronized b<T> BP(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.jAH != null && i < this.jAH.size()) {
-                    bVar = this.jAH.set(i, null);
+                if (this.jAI != null && i < this.jAI.size()) {
+                    bVar = this.jAI.set(i, null);
                 }
             }
             return bVar;
@@ -88,7 +88,7 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> cuq() {
-            return BO(this.jAI);
+            return BO(this.jAJ);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
@@ -114,8 +114,8 @@ public class f<T> implements i<b<T>> {
             int i = 0;
             synchronized (this) {
                 if (super.ze()) {
-                    ArrayList<b<T>> arrayList = this.jAH;
-                    this.jAH = null;
+                    ArrayList<b<T>> arrayList = this.jAI;
+                    this.jAI = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -150,14 +150,14 @@ public class f<T> implements i<b<T>> {
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.jAI;
-                if (bVar == BO(i) && i != this.jAI) {
-                    if (cuq() == null || (z && i < this.jAI)) {
-                        this.jAI = i;
+                int i2 = this.jAJ;
+                if (bVar == BO(i) && i != this.jAJ) {
+                    if (cuq() == null || (z && i < this.jAJ)) {
+                        this.jAJ = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.jAI; i3 > i; i3--) {
+                    for (int i3 = this.jAJ; i3 > i; i3--) {
                         l(BP(i3));
                     }
                 }

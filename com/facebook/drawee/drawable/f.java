@@ -6,101 +6,101 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Drawable[] jCh;
-    int jCt;
+    int jCA;
+    private final Drawable[] jCi;
     int jCu;
-    long jCv;
-    int[] jCw;
+    int jCv;
+    long jCw;
     int[] jCx;
-    boolean[] jCy;
-    int jCz;
+    int[] jCy;
+    boolean[] jCz;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.jCh = drawableArr;
-        this.jCw = new int[drawableArr.length];
+        this.jCi = drawableArr;
         this.jCx = new int[drawableArr.length];
+        this.jCy = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.jCy = new boolean[drawableArr.length];
-        this.jCz = 0;
+        this.jCz = new boolean[drawableArr.length];
+        this.jCA = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.jCz == 0) {
+        if (this.jCA == 0) {
             super.invalidateSelf();
         }
     }
 
     public void cvl() {
-        this.jCz++;
+        this.jCA++;
     }
 
     public void cvm() {
-        this.jCz--;
+        this.jCA--;
         invalidateSelf();
     }
 
     public void BU(int i) {
-        this.jCu = i;
-        if (this.jCt == 1) {
-            this.jCt = 0;
+        this.jCv = i;
+        if (this.jCu == 1) {
+            this.jCu = 0;
         }
     }
 
     private void resetInternal() {
-        this.jCt = 2;
-        Arrays.fill(this.jCw, 0);
-        this.jCw[0] = 255;
+        this.jCu = 2;
         Arrays.fill(this.jCx, 0);
         this.jCx[0] = 255;
-        Arrays.fill(this.jCy, false);
-        this.jCy[0] = true;
+        Arrays.fill(this.jCy, 0);
+        this.jCy[0] = 255;
+        Arrays.fill(this.jCz, false);
+        this.jCz[0] = true;
     }
 
     public void BV(int i) {
-        this.jCt = 0;
-        this.jCy[i] = true;
+        this.jCu = 0;
+        this.jCz[i] = true;
         invalidateSelf();
     }
 
     public void BW(int i) {
-        this.jCt = 0;
-        this.jCy[i] = false;
+        this.jCu = 0;
+        this.jCz[i] = false;
         invalidateSelf();
     }
 
     public void cvn() {
-        this.jCt = 0;
-        Arrays.fill(this.jCy, true);
+        this.jCu = 0;
+        Arrays.fill(this.jCz, true);
         invalidateSelf();
     }
 
     public void cvo() {
-        this.jCt = 2;
-        for (int i = 0; i < this.jCh.length; i++) {
-            this.jCx[i] = this.jCy[i] ? 255 : 0;
+        this.jCu = 2;
+        for (int i = 0; i < this.jCi.length; i++) {
+            this.jCy[i] = this.jCz[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aU(float f) {
         boolean z = true;
-        for (int i = 0; i < this.jCh.length; i++) {
-            this.jCx[i] = (int) (((this.jCy[i] ? 1 : -1) * 255 * f) + this.jCw[i]);
-            if (this.jCx[i] < 0) {
-                this.jCx[i] = 0;
+        for (int i = 0; i < this.jCi.length; i++) {
+            this.jCy[i] = (int) (((this.jCz[i] ? 1 : -1) * 255 * f) + this.jCx[i]);
+            if (this.jCy[i] < 0) {
+                this.jCy[i] = 0;
             }
-            if (this.jCx[i] > 255) {
-                this.jCx[i] = 255;
+            if (this.jCy[i] > 255) {
+                this.jCy[i] = 255;
             }
-            if (this.jCy[i] && this.jCx[i] < 255) {
+            if (this.jCz[i] && this.jCy[i] < 255) {
                 z = false;
             }
-            if (!this.jCy[i] && this.jCx[i] > 0) {
+            if (!this.jCz[i] && this.jCy[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.jCt) {
+        switch (this.jCu) {
             case 0:
-                System.arraycopy(this.jCx, 0, this.jCw, 0, this.jCh.length);
-                this.jCv = cvp();
-                boolean aU = aU(this.jCu == 0 ? 1.0f : 0.0f);
-                this.jCt = aU ? 2 : 1;
+                System.arraycopy(this.jCy, 0, this.jCx, 0, this.jCi.length);
+                this.jCw = cvp();
+                boolean aU = aU(this.jCv == 0 ? 1.0f : 0.0f);
+                this.jCu = aU ? 2 : 1;
                 z = aU;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.jCu > 0);
-                boolean aU2 = aU(((float) (cvp() - this.jCv)) / this.jCu);
-                this.jCt = aU2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.jCv > 0);
+                boolean aU2 = aU(((float) (cvp() - this.jCw)) / this.jCv);
+                this.jCu = aU2 ? 2 : 1;
                 z = aU2;
                 break;
         }
-        for (int i = 0; i < this.jCh.length; i++) {
-            a(canvas, this.jCh[i], (this.jCx[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.jCi.length; i++) {
+            a(canvas, this.jCi[i], (this.jCy[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.jCz++;
+            this.jCA++;
             drawable.mutate().setAlpha(i);
-            this.jCz--;
+            this.jCA--;
             drawable.draw(canvas);
         }
     }

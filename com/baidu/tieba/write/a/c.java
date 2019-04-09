@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private final ArrayList<MetaData> jox = new ArrayList<>();
+    private final ArrayList<MetaData> joy = new ArrayList<>();
 
     public void a(JSONObject jSONObject, b bVar) {
         String str;
@@ -25,7 +25,7 @@ public class c {
                     if (cpr != null && (str = cpr.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.jox.add(metaData);
+                    this.joy.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -49,8 +49,8 @@ public class c {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.jox.size()) {
-                    MetaData metaData = this.jox.get(i2);
+                if (i2 < this.joy.size()) {
+                    MetaData metaData = this.joy.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -61,6 +61,6 @@ public class c {
     }
 
     public ArrayList<MetaData> cps() {
-        return this.jox;
+        return this.joy;
     }
 }

@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoverViewHelper {
     private static final boolean DEBUG = b.DEBUG;
-    protected com.baidu.swan.apps.view.coverview.a aZk;
-    private a aZl = new a();
+    protected com.baidu.swan.apps.view.coverview.a aZl;
+    private a aZm = new a();
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -36,8 +36,8 @@ public class CoverViewHelper {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.coverview.subview.CoverViewHelper.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (CoverViewHelper.this.aZk != null) {
-                        CoverViewHelper.this.aZk.a(2, view, null);
+                    if (CoverViewHelper.this.aZl != null) {
+                        CoverViewHelper.this.aZl.a(2, view, null);
                     }
                 }
             });
@@ -46,8 +46,8 @@ public class CoverViewHelper {
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 1) {
-                        CoverViewHelper.this.aZl.x = motionEvent.getRawX();
-                        CoverViewHelper.this.aZl.y = motionEvent.getRawY();
+                        CoverViewHelper.this.aZm.x = motionEvent.getRawX();
+                        CoverViewHelper.this.aZm.y = motionEvent.getRawY();
                         return false;
                     }
                     return false;
@@ -57,13 +57,13 @@ public class CoverViewHelper {
     }
 
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        if (this.aZk != aVar) {
-            this.aZk = aVar;
+        if (this.aZl != aVar) {
+            this.aZl = aVar;
         }
     }
 
     public com.baidu.swan.apps.view.coverview.a MR() {
-        return this.aZk;
+        return this.aZl;
     }
 
     public void a(@NonNull View view, @NonNull JSONObject jSONObject) {
@@ -107,6 +107,6 @@ public class CoverViewHelper {
     }
 
     public a getClickPosition() {
-        return this.aZl;
+        return this.aZm;
     }
 }

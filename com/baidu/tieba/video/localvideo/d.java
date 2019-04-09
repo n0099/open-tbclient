@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class d {
     private long duration;
     private boolean hasLoaded = false;
-    private String iZV;
+    private String iZW;
     private long lastModified;
     private String mimeType;
     private Bitmap thumbnailBitmap;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void DI(String str) {
-        this.iZV = str;
+        this.iZW = str;
     }
 
     public long getLastModified() {

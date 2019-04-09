@@ -52,12 +52,12 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 /* loaded from: classes3.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.a {
-    private e isj;
-    private MoreDiscoveryModel isl;
-    private GetFriendAndStrangerSwitchModel iso;
-    private MoreModel isk = null;
-    private a ism = null;
-    private com.baidu.adp.framework.listener.a isn = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_USER_INFO, 303024) { // from class: com.baidu.tieba.setting.more.MoreActivity.1
+    private e isk;
+    private MoreDiscoveryModel ism;
+    private GetFriendAndStrangerSwitchModel isp;
+    private MoreModel isl = null;
+    private a isn = null;
+    private com.baidu.adp.framework.listener.a iso = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_USER_INFO, 303024) { // from class: com.baidu.tieba.setting.more.MoreActivity.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getError() == 0) {
@@ -70,8 +70,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     }
                     if (aVar != null && aVar.and() != null) {
                         String portrait = aVar.and().getPortrait();
-                        MoreActivity.this.isj.at(o.mt(portrait), false);
-                        PersonChangeData personChangeData = MoreActivity.this.isk.getPersonChangeData();
+                        MoreActivity.this.isk.at(o.mt(portrait), false);
+                        PersonChangeData personChangeData = MoreActivity.this.isl.getPersonChangeData();
                         if (personChangeData != null) {
                             personChangeData.setPhotoChanged(true);
                             personChangeData.setPortrait(portrait);
@@ -81,27 +81,27 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             }
         }
     };
-    private HttpMessageListener gSG = new HttpMessageListener(CmdConfigHttp.GETPAYINFO_CMD) { // from class: com.baidu.tieba.setting.more.MoreActivity.2
+    private HttpMessageListener gSH = new HttpMessageListener(CmdConfigHttp.GETPAYINFO_CMD) { // from class: com.baidu.tieba.setting.more.MoreActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (statusCode == 200 && error == 0 && MoreActivity.this.isl != null) {
-                    MoreActivity.this.isl.ag(false, true);
+                if (statusCode == 200 && error == 0 && MoreActivity.this.ism != null) {
+                    MoreActivity.this.ism.ag(false, true);
                 }
             }
         }
     };
-    private CustomMessageListener fac = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.setting.more.MoreActivity.3
+    private CustomMessageListener fad = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.setting.more.MoreActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof String) && !TextUtils.isEmpty((String) data) && MoreActivity.this.isl != null) {
-                    MoreActivity.this.isl.ag(false, true);
+                if ((data instanceof String) && !TextUtils.isEmpty((String) data) && MoreActivity.this.ism != null) {
+                    MoreActivity.this.ism.ag(false, true);
                 }
             }
         }
@@ -111,12 +111,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.isj = new e(this, bZl());
+        this.isk = new e(this, bZl());
         ae(bundle);
         bpz();
-        registerListener(this.isn);
-        registerListener(this.gSG);
-        registerListener(this.fac);
+        registerListener(this.iso);
+        registerListener(this.gSH);
+        registerListener(this.fad);
     }
 
     private d bZl() {
@@ -148,7 +148,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 } else if (i == 9) {
                     MoreActivity.this.bZz();
                 } else if (i == 10) {
-                    MoreActivity.this.isj.bZE();
+                    MoreActivity.this.isk.bZE();
                 } else if (i == 12) {
                     MessageManager.getInstance().runTask(2921330, null, MoreActivity.this);
                 } else if (i == 11) {
@@ -170,8 +170,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void onDestroy() {
         super.onDestroy();
         bpA();
-        if (this.isj != null) {
-            this.isj.atv();
+        if (this.isk != null) {
+            this.isk.atv();
         }
     }
 
@@ -179,8 +179,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.isj != null) {
-            this.isj.bZB();
+        if (this.isk != null) {
+            this.isk.bZB();
         }
     }
 
@@ -188,19 +188,19 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.isj.onChangeSkinType(i);
+        this.isk.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.isj.bYE();
+        this.isk.bYE();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, OrmObject.jsonStrWithObject(this.isk.getPersonChangeData()));
+        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, OrmObject.jsonStrWithObject(this.isl.getPersonChangeData()));
         super.onSaveInstanceState(bundle);
     }
 
@@ -222,9 +222,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 case 101:
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     if (personChangeData != null) {
-                        this.isk.setPersonChangeData(personChangeData);
-                        this.isk.pw(true);
-                        if (this.isl != null) {
+                        this.isl.setPersonChangeData(personChangeData);
+                        this.isl.pw(true);
+                        if (this.ism != null) {
                             bZm();
                             return;
                         }
@@ -245,9 +245,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     private void bZn() {
-        if (this.isk.bYI()) {
+        if (this.isl.bYI()) {
             Intent intent = new Intent();
-            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.isk.getPersonChangeData());
+            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.isl.getPersonChangeData());
             setResult(-1, intent);
         }
     }
@@ -263,41 +263,41 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra(PersonChangeData.TAG_PERSON_INFO);
         }
         if (personChangeData == null) {
-            this.isl = new MoreDiscoveryModel(this);
-            this.isl.setUniqueId(getUniqueId());
-            this.isl.setId(TbadkCoreApplication.getCurrentAccount());
-            this.isl.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.5
+            this.ism = new MoreDiscoveryModel(this);
+            this.ism.setUniqueId(getUniqueId());
+            this.ism.setId(TbadkCoreApplication.getCurrentAccount());
+            this.ism.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.5
                 @Override // com.baidu.adp.base.d
                 public void m(Object obj) {
                     PersonChangeData personChangeData2 = new PersonChangeData();
-                    if (MoreActivity.this.isl.getUser() != null) {
-                        personChangeData2.setName(MoreActivity.this.isl.getUser().getUserName());
-                        personChangeData2.setIntro(MoreActivity.this.isl.getUser().getIntro());
-                        personChangeData2.setPortrait(MoreActivity.this.isl.getUser().getPortrait());
-                        personChangeData2.setSex(MoreActivity.this.isl.getUser().getSex());
-                        personChangeData2.setNameShow(MoreActivity.this.isl.getUser().getName_show());
-                        personChangeData2.setMem(MoreActivity.this.isl.getUser().getIsMem());
-                        if (MoreActivity.this.isl.getNicknameInfo() != null) {
-                            personChangeData2.setNickNameLeftDays(MoreActivity.this.isl.getNicknameInfo().left_days.intValue());
+                    if (MoreActivity.this.ism.getUser() != null) {
+                        personChangeData2.setName(MoreActivity.this.ism.getUser().getUserName());
+                        personChangeData2.setIntro(MoreActivity.this.ism.getUser().getIntro());
+                        personChangeData2.setPortrait(MoreActivity.this.ism.getUser().getPortrait());
+                        personChangeData2.setSex(MoreActivity.this.ism.getUser().getSex());
+                        personChangeData2.setNameShow(MoreActivity.this.ism.getUser().getName_show());
+                        personChangeData2.setMem(MoreActivity.this.ism.getUser().getIsMem());
+                        if (MoreActivity.this.ism.getNicknameInfo() != null) {
+                            personChangeData2.setNickNameLeftDays(MoreActivity.this.ism.getNicknameInfo().left_days.intValue());
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData2));
                         MoreActivity.this.b(personChangeData2);
                     }
                 }
             });
-            this.isl.ag(false, true);
+            this.ism.ag(false, true);
         }
         b(personChangeData);
-        this.iso = new GetFriendAndStrangerSwitchModel(this);
+        this.isp = new GetFriendAndStrangerSwitchModel(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.isj.at(o.mt(personChangeData.getPortrait()), false);
+            this.isk.at(o.mt(personChangeData.getPortrait()), false);
         }
-        this.isk = new MoreModel(personChangeData);
-        this.isk.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.6
+        this.isl = new MoreModel(personChangeData);
+        this.isl.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.6
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 if (obj != null && (obj instanceof MoreModel.TaskType)) {
@@ -318,35 +318,35 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            MoreActivity.this.isj.bZB();
+            MoreActivity.this.isk.bZB();
         }
     }
 
     private void bpz() {
-        this.ism = new a();
+        this.isn = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.ism, intentFilter);
+        registerReceiver(this.isn, intentFilter);
     }
 
     private void bpA() {
-        if (this.ism != null) {
-            unregisterReceiver(this.ism);
+        if (this.isn != null) {
+            unregisterReceiver(this.isn);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && this.isj != null && view == this.isj.bZF()) {
+        if (view != null && this.isk != null && view == this.isk.bZF()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 UtilHelper.showSkinChangeAnimation(this);
                 UtilHelper.setNavigationBarBackground(this, getResources().getColor(d.C0277d.cp_bg_line_d_1));
-                this.isj.yz(1);
+                this.isk.yz(1);
                 return;
             }
             UtilHelper.showSkinChangeAnimation(this);
             UtilHelper.setNavigationBarBackground(this, getResources().getColor(d.C0277d.cp_bg_line_d));
-            this.isj.yz(0);
+            this.isk.yz(0);
         }
     }
 
@@ -375,7 +375,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZq() {
-        MessageManager.getInstance().runTask(com.baidu.tbadk.core.frameworkData.a.bGp, null, this);
+        MessageManager.getInstance().runTask(com.baidu.tbadk.core.frameworkData.a.bGq, null, this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -413,7 +413,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void bZw() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.isk.getPersonChangeData(), false)));
+            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.isl.getPersonChangeData(), false)));
         }
     }
 
