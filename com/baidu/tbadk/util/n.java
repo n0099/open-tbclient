@@ -26,9 +26,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private a ctr;
-    private String cts;
-    private File ctt;
+    private a cts;
+    private String ctt;
+    private File ctu;
     private int from = 0;
     private String imagePath;
     private String url;
@@ -36,7 +36,7 @@ public class n extends BdAsyncTask<String, String, b> {
     public n(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.ctr = aVar;
+        this.cts = aVar;
     }
 
     public void setFrom(int i) {
@@ -67,17 +67,17 @@ public class n extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.ctr != null) {
-                this.ctr.onError(-2, "error");
+            if (this.cts != null) {
+                this.cts.onError(-2, "error");
             }
         } else if (!bVar.isSuccess()) {
-            if (this.ctr != null) {
-                this.ctr.onError(-1, bVar.getMessage());
+            if (this.cts != null) {
+                this.cts.onError(-1, bVar.getMessage());
             }
         } else {
             apZ();
-            if (this.ctr != null) {
-                this.ctr.onSuccess(this.imagePath);
+            if (this.cts != null) {
+                this.cts.onSuccess(this.imagePath);
             }
         }
     }
@@ -95,14 +95,14 @@ public class n extends BdAsyncTask<String, String, b> {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.cts = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.cts) && !this.cts.endsWith("/")) {
-                    this.cts += "/";
+                this.ctt = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.ctt) && !this.ctt.endsWith("/")) {
+                    this.ctt += "/";
                 }
             } else {
-                this.cts = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.ctt = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.cts);
+            File file = new File(this.ctt);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -111,15 +111,15 @@ public class n extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.cts + lowerCase + pJ(this.url);
-            this.ctt = new File(this.imagePath);
-            if (this.ctt.exists()) {
-                this.ctt.delete();
+            this.imagePath = this.ctt + lowerCase + pJ(this.url);
+            this.ctu = new File(this.imagePath);
+            if (this.ctu.exists()) {
+                this.ctu.delete();
             }
-            if (this.ctt.exists()) {
+            if (this.ctu.exists()) {
                 return true;
             }
-            this.ctt.createNewFile();
+            this.ctu.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -167,21 +167,21 @@ public class n extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField("Location");
                         com.baidu.adp.lib.g.a.f(a2);
                         try {
-                            if (this.ctt != null) {
-                                this.ctt.delete();
+                            if (this.ctu != null) {
+                                this.ctu.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.cts + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pJ(headerField2);
-                        this.ctt = new File(this.imagePath);
-                        if (this.ctt.exists()) {
-                            this.ctt.delete();
+                        this.imagePath = this.ctt + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pJ(headerField2);
+                        this.ctu = new File(this.imagePath);
+                        if (this.ctu.exists()) {
+                            this.ctu.delete();
                         }
-                        if (!this.ctt.exists()) {
-                            this.ctt.createNewFile();
+                        if (!this.ctu.exists()) {
+                            this.ctu.createNewFile();
                         }
                         com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.ctt, true);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.ctu, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -320,8 +320,8 @@ public class n extends BdAsyncTask<String, String, b> {
     }
 
     private void apZ() {
-        if (this.ctt != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.ctt)));
+        if (this.ctu != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.ctu)));
         }
     }
 

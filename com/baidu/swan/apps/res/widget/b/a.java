@@ -27,9 +27,9 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class a {
-    private static WeakReference<b> aMY;
-    private static Toast aMZ;
-    private static boolean aMX = com.baidu.swan.apps.b.DEBUG;
+    private static WeakReference<b> aMZ;
+    private static Toast aNa;
+    private static boolean aMY = com.baidu.swan.apps.b.DEBUG;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,12 +58,12 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMZ = new Toast(applicationContext);
-                    a.aMZ.setView(relativeLayout);
-                    a.aMZ.setGravity(17, 0, 0);
-                    c.a(a.aMZ, a.i.toast_animation);
-                    a.aMZ.show();
-                    if (a.aMX) {
+                    Toast unused = a.aNa = new Toast(applicationContext);
+                    a.aNa.setView(relativeLayout);
+                    a.aNa.setGravity(17, 0, 0);
+                    c.a(a.aNa, a.i.toast_animation);
+                    a.aNa.show();
+                    if (a.aMY) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in show");
                     }
                 }
@@ -95,12 +95,12 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMZ = new Toast(applicationContext);
-                    a.aMZ.setView(relativeLayout);
-                    a.aMZ.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMZ, a.i.toast_animation);
-                    a.aMZ.show();
-                    if (a.aMX) {
+                    Toast unused = a.aNa = new Toast(applicationContext);
+                    a.aNa.setView(relativeLayout);
+                    a.aNa.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aNa, a.i.toast_animation);
+                    a.aNa.show();
+                    if (a.aMY) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in showToastBottom");
                     }
                 }
@@ -140,11 +140,11 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMZ = new Toast(context);
-                    a.aMZ.setView(linearLayout);
-                    a.aMZ.setGravity(17, 0, 0);
-                    c.a(a.aMZ, a.i.highlight_toast_animation);
-                    a.aMZ.show();
+                    Toast unused = a.aNa = new Toast(context);
+                    a.aNa.setView(linearLayout);
+                    a.aNa.setGravity(17, 0, 0);
+                    c.a(a.aNa, a.i.highlight_toast_animation);
+                    a.aNa.show();
                 }
             });
             return;
@@ -174,11 +174,11 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMZ = new Toast(context);
-                    a.aMZ.setView(linearLayout);
-                    a.aMZ.setGravity(17, 0, 0);
-                    c.a(a.aMZ, a.i.highlight_toast_animation);
-                    a.aMZ.show();
+                    Toast unused = a.aNa = new Toast(context);
+                    a.aNa.setView(linearLayout);
+                    a.aNa.setGravity(17, 0, 0);
+                    c.a(a.aNa, a.i.highlight_toast_animation);
+                    a.aNa.show();
                 }
             });
             return;
@@ -279,11 +279,11 @@ public final class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     findViewById.setVisibility(8);
-                    Toast unused = a.aMZ = new Toast(applicationContext);
-                    a.aMZ.setView(linearLayout);
-                    a.aMZ.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMZ, a.i.toast_animation);
-                    a.aMZ.show();
+                    Toast unused = a.aNa = new Toast(applicationContext);
+                    a.aNa.setView(linearLayout);
+                    a.aNa.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aNa, a.i.toast_animation);
+                    a.aNa.show();
                 }
             });
             return;
@@ -292,7 +292,7 @@ public final class a {
         a(bVar);
         if (c.IF()) {
             bVar.dq(2003);
-            if (aMX) {
+            if (aMY) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
         }
@@ -307,18 +307,18 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void cancel() {
         b bVar;
-        if (aMY != null && (bVar = aMY.get()) != null) {
+        if (aMZ != null && (bVar = aMZ.get()) != null) {
             bVar.cancel();
         }
-        if (aMZ != null) {
-            aMZ.cancel();
+        if (aNa != null) {
+            aNa.cancel();
         }
     }
 
     private static void a(b bVar) {
-        if (aMY != null) {
-            aMY.clear();
+        if (aMZ != null) {
+            aMZ.clear();
         }
-        aMY = new WeakReference<>(bVar);
+        aMZ = new WeakReference<>(bVar);
     }
 }

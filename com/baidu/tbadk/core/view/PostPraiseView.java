@@ -13,7 +13,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class PostPraiseView extends BasePraiseView<PostData> {
-    private CustomMessageListener bRz;
+    private CustomMessageListener bRA;
     private Context mContext;
 
     public PostPraiseView(Context context) {
@@ -22,7 +22,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRz = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
+        this.bRA = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,7 +58,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         String string;
         Context context = getContext();
         long num = getNum();
-        context.getString(this.bOg);
+        context.getString(this.bOh);
         if (!com.baidu.tbadk.util.a.apJ().afK()) {
         }
         if (num > 0) {
@@ -66,15 +66,15 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         } else {
             string = getContext().getString(d.j.action_praise_default);
         }
-        this.bOl.setText(string);
-        this.bOl.setContentDescription(context.getString(this.bOg) + num);
+        this.bOm.setText(string);
+        this.bOm.setContentDescription(context.getString(this.bOh) + num);
         if (this.mData != 0 && ((PostData) this.mData).beU() && aeg()) {
-            this.bOm.setImageDrawable(W(this.bOi, this.bOh));
-            this.bOl.setTextColor(createColorStateList(this.bOk, this.bOj));
+            this.bOn.setImageDrawable(W(this.bOj, this.bOi));
+            this.bOm.setTextColor(createColorStateList(this.bOl, this.bOk));
             return;
         }
-        this.bOm.setImageDrawable(W(this.bOh, this.bOi));
-        this.bOl.setTextColor(createColorStateList(this.bOj, this.bOk));
+        this.bOn.setImageDrawable(W(this.bOi, this.bOj));
+        this.bOm.setTextColor(createColorStateList(this.bOk, this.bOl));
     }
 
     public int aef() {
@@ -108,8 +108,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
             GP();
             hD(i);
             hC(i);
-            if (this.bNw != null) {
-                this.bNw.onClick(view);
+            if (this.bNx != null) {
+                this.bNx.onClick(view);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }

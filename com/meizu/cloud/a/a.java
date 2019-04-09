@@ -8,16 +8,16 @@ import com.meizu.cloud.pushsdk.common.util.Logger;
 import com.meizu.cloud.pushsdk.common.util.g;
 /* loaded from: classes3.dex */
 public class a {
-    private static c jRo;
-    public static boolean jRn = false;
+    private static c jRp;
+    public static boolean jRo = false;
     public static boolean debug = false;
 
     public static void eP(Context context) {
-        if (jRo == null) {
-            jRo = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
-            Logger.a(jRo);
+        if (jRp == null) {
+            jRp = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+            Logger.a(jRp);
             debug = g.b(context);
-            Log.e("DebugLogger", "isOnDebug " + jRn + " debugConfig " + debug + " isDebuggable " + cCd());
+            Log.e("DebugLogger", "isOnDebug " + jRo + " debugConfig " + debug + " isDebuggable " + cCd());
             if (!cCd()) {
                 Logger.a(Logger.Out.CONSOLE, Logger.Callback.Level.NULL);
             }
@@ -25,7 +25,7 @@ public class a {
     }
 
     public static boolean cCd() {
-        return jRn || debug;
+        return jRo || debug;
     }
 
     public static void i(String str, String str2) {

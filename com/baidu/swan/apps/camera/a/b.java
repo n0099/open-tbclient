@@ -14,7 +14,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private SwanAppNAViewContainer akt;
+    private SwanAppNAViewContainer aku;
 
     public b(j jVar) {
         super(jVar, "/swan/camera/insert");
@@ -28,9 +28,9 @@ public class b extends a {
             return false;
         }
         final com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) b(unitedSchemeEntity);
-        this.akt = new SwanAppNAViewContainer(context);
-        this.akt.b(aVar);
-        this.akt.MJ();
+        this.aku = new SwanAppNAViewContainer(context);
+        this.aku.b(aVar);
+        this.aku.MJ();
         bVar.IZ().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.c.a
@@ -41,7 +41,7 @@ public class b extends a {
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
-                b.this.akt.MI();
+                b.this.aku.MI();
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", "camera authorize failure");
             }
         });
@@ -67,7 +67,7 @@ public class b extends a {
                 boolean z = false;
                 if (i != 1) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
-                    b.this.akt.MI();
+                    b.this.aku.MI();
                     com.baidu.swan.apps.console.c.e("SwanAppCamera", "handleAuthorized end, failure");
                     return;
                 }
@@ -88,7 +88,7 @@ public class b extends a {
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
-                b.this.akt.MI();
+                b.this.aku.MI();
                 com.baidu.swan.apps.console.c.e("SwanAppCamera", "user want not authorize");
             }
         });
@@ -101,14 +101,14 @@ public class b extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Context is null ? = " + (context == null) + " ; model is null ? = " + (aVar == null));
             return false;
         }
-        String str = aVar.akL;
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
+        String str = aVar.akM;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBJ;
         if (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (bVar == null));
             return false;
         }
         CameraPreview cameraPreview = new CameraPreview(context, aVar);
-        this.akt.addView(cameraPreview, 0);
+        this.aku.addView(cameraPreview, 0);
         com.baidu.swan.apps.camera.a.wm().a(cameraPreview);
         com.baidu.swan.apps.console.c.e("SwanAppCamera", "handle insert camera instruction end");
         return true;

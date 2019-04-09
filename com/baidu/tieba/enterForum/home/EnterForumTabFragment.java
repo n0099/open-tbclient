@@ -17,8 +17,8 @@ import com.baidu.tbadk.widget.tab.PagerSlidingTabBaseStrip;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class EnterForumTabFragment extends BaseFragment {
-    private c eCP;
-    private PagerSlidingTabBaseStrip.a eCQ = new PagerSlidingTabBaseStrip.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.1
+    private c eCQ;
+    private PagerSlidingTabBaseStrip.a eCR = new PagerSlidingTabBaseStrip.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.1
         @Override // com.baidu.tbadk.widget.tab.PagerSlidingTabBaseStrip.a
         public void r(View view, int i) {
             if (view != null) {
@@ -33,7 +33,7 @@ public class EnterForumTabFragment extends BaseFragment {
             }
         }
     };
-    private CustomMessageListener eCR = new CustomMessageListener(2001384) { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.2
+    private CustomMessageListener eCS = new CustomMessageListener(2001384) { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -49,14 +49,14 @@ public class EnterForumTabFragment extends BaseFragment {
             }
         }
     };
-    private CustomMessageListener eCS = new CustomMessageListener(2001630) { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.3
+    private CustomMessageListener eCT = new CustomMessageListener(2001630) { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 Integer num = (Integer) customResponsedMessage.getData();
-                if (EnterForumTabFragment.this.eCP != null) {
-                    EnterForumTabFragment.this.eCP.pb(num.intValue());
+                if (EnterForumTabFragment.this.eCQ != null) {
+                    EnterForumTabFragment.this.eCQ.pb(num.intValue());
                 }
             }
         }
@@ -64,24 +64,24 @@ public class EnterForumTabFragment extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aWF() {
-        return this.eCP != null && this.eCP.pc(1);
+        return this.eCQ != null && this.eCQ.pc(1);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.eCR);
         registerListener(this.eCS);
+        registerListener(this.eCT);
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.enter_forum_tab, viewGroup, false);
-        this.eCP = new c(this);
-        this.eCP.a(inflate, bundle);
+        this.eCQ = new c(this);
+        this.eCQ.a(inflate, bundle);
         a(getActivity().getIntent(), bundle);
-        this.eCP.a(this.eCQ);
+        this.eCQ.a(this.eCR);
         TiebaStatic.log(new am("c13366").T("obj_locate", 1));
         return inflate;
     }
@@ -89,14 +89,14 @@ public class EnterForumTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.eCP.BC();
+        this.eCQ.BC();
     }
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.eCP != null) {
-            this.eCP.onActivityResult(i, i2, intent);
+        if (this.eCQ != null) {
+            this.eCQ.onActivityResult(i, i2, intent);
         }
     }
 
@@ -106,7 +106,7 @@ public class EnterForumTabFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
-        if (this.eCP != null) {
+        if (this.eCQ != null) {
             super.changeSkinType(i);
         }
     }
@@ -114,8 +114,8 @@ public class EnterForumTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eCP != null) {
-            this.eCP.onChangeSkinType(this.mSkinType);
+        if (this.eCQ != null) {
+            this.eCQ.onChangeSkinType(this.mSkinType);
         }
     }
 
@@ -127,8 +127,8 @@ public class EnterForumTabFragment extends BaseFragment {
         if (i == -1) {
             i = 1;
         }
-        if (this.eCP != null) {
-            this.eCP.pb(i);
+        if (this.eCQ != null) {
+            this.eCQ.pb(i);
         }
     }
 
@@ -136,10 +136,10 @@ public class EnterForumTabFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         com.baidu.tieba.im.db.e.bsg().bsh();
-        MessageManager.getInstance().unRegisterListener(this.eCR);
         MessageManager.getInstance().unRegisterListener(this.eCS);
-        if (this.eCP != null) {
-            this.eCP.aWI();
+        MessageManager.getInstance().unRegisterListener(this.eCT);
+        if (this.eCQ != null) {
+            this.eCQ.aWI();
         }
     }
 
@@ -166,8 +166,8 @@ public class EnterForumTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        if (this.eCP != null) {
-            this.eCP.setPrimary(z);
+        if (this.eCQ != null) {
+            this.eCQ.setPrimary(z);
         }
     }
 }

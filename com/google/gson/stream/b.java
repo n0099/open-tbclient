@@ -7,41 +7,41 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] jQe = new String[128];
-    private static final String[] jQf;
+    private static final String[] jQf = new String[128];
+    private static final String[] jQg;
     private String indent;
-    private boolean jMB;
     private boolean jMC;
-    private boolean jMF;
-    private String jQg;
+    private boolean jMD;
+    private boolean jMG;
+    private String jQh;
     private final Writer out;
     private String separator;
-    private int[] jQd = new int[32];
-    private int jOb = 0;
+    private int[] jQe = new int[32];
+    private int jOc = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            jQe[i] = String.format("\\u%04x", Integer.valueOf(i));
+            jQf[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        jQe[34] = "\\\"";
-        jQe[92] = "\\\\";
-        jQe[9] = "\\t";
-        jQe[8] = "\\b";
-        jQe[10] = "\\n";
-        jQe[13] = "\\r";
-        jQe[12] = "\\f";
-        jQf = (String[]) jQe.clone();
-        jQf[60] = "\\u003c";
-        jQf[62] = "\\u003e";
-        jQf[38] = "\\u0026";
-        jQf[61] = "\\u003d";
-        jQf[39] = "\\u0027";
+        jQf[34] = "\\\"";
+        jQf[92] = "\\\\";
+        jQf[9] = "\\t";
+        jQf[8] = "\\b";
+        jQf[10] = "\\n";
+        jQf[13] = "\\r";
+        jQf[12] = "\\f";
+        jQg = (String[]) jQf.clone();
+        jQg[60] = "\\u003c";
+        jQg[62] = "\\u003e";
+        jQg[38] = "\\u0026";
+        jQg[61] = "\\u003d";
+        jQg[39] = "\\u0027";
     }
 
     public b(Writer writer) {
         CM(6);
         this.separator = Config.TRACE_TODAY_VISIT_SPLIT;
-        this.jMB = true;
+        this.jMC = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
@@ -59,27 +59,27 @@ public class b implements Closeable, Flushable {
     }
 
     public final void setLenient(boolean z) {
-        this.jMF = z;
+        this.jMG = z;
     }
 
     public boolean isLenient() {
-        return this.jMF;
+        return this.jMG;
     }
 
     public final void rD(boolean z) {
-        this.jMC = z;
+        this.jMD = z;
     }
 
     public final boolean cBL() {
-        return this.jMC;
+        return this.jMD;
     }
 
     public final void rE(boolean z) {
-        this.jMB = z;
+        this.jMC = z;
     }
 
     public final boolean cBM() {
-        return this.jMB;
+        return this.jMC;
     }
 
     public b cBx() throws IOException {
@@ -112,10 +112,10 @@ public class b implements Closeable, Flushable {
         if (cBN != i2 && cBN != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.jQg != null) {
-            throw new IllegalStateException("Dangling name: " + this.jQg);
+        if (this.jQh != null) {
+            throw new IllegalStateException("Dangling name: " + this.jQh);
         }
-        this.jOb--;
+        this.jOc--;
         if (cBN == i2) {
             newline();
         }
@@ -124,47 +124,47 @@ public class b implements Closeable, Flushable {
     }
 
     private void CM(int i) {
-        if (this.jOb == this.jQd.length) {
-            int[] iArr = new int[this.jOb * 2];
-            System.arraycopy(this.jQd, 0, iArr, 0, this.jOb);
-            this.jQd = iArr;
+        if (this.jOc == this.jQe.length) {
+            int[] iArr = new int[this.jOc * 2];
+            System.arraycopy(this.jQe, 0, iArr, 0, this.jOc);
+            this.jQe = iArr;
         }
-        int[] iArr2 = this.jQd;
-        int i2 = this.jOb;
-        this.jOb = i2 + 1;
+        int[] iArr2 = this.jQe;
+        int i2 = this.jOc;
+        this.jOc = i2 + 1;
         iArr2[i2] = i;
     }
 
     private int cBN() {
-        if (this.jOb == 0) {
+        if (this.jOc == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.jQd[this.jOb - 1];
+        return this.jQe[this.jOc - 1];
     }
 
     private void CO(int i) {
-        this.jQd[this.jOb - 1] = i;
+        this.jQe[this.jOc - 1] = i;
     }
 
     public b FG(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.jQg != null) {
+        if (this.jQh != null) {
             throw new IllegalStateException();
         }
-        if (this.jOb == 0) {
+        if (this.jOc == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.jQg = str;
+        this.jQh = str;
         return this;
     }
 
     private void cBO() throws IOException {
-        if (this.jQg != null) {
+        if (this.jQh != null) {
             cBP();
-            string(this.jQg);
-            this.jQg = null;
+            string(this.jQh);
+            this.jQh = null;
         }
     }
 
@@ -179,11 +179,11 @@ public class b implements Closeable, Flushable {
     }
 
     public b cBB() throws IOException {
-        if (this.jQg != null) {
-            if (this.jMB) {
+        if (this.jQh != null) {
+            if (this.jMC) {
                 cBO();
             } else {
-                this.jQg = null;
+                this.jQh = null;
                 return this;
             }
         }
@@ -222,7 +222,7 @@ public class b implements Closeable, Flushable {
         }
         cBO();
         String obj = number.toString();
-        if (!this.jMF && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.jMG && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         beforeValue();
@@ -231,7 +231,7 @@ public class b implements Closeable, Flushable {
     }
 
     public void flush() throws IOException {
-        if (this.jOb == 0) {
+        if (this.jOc == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
         this.out.flush();
@@ -240,11 +240,11 @@ public class b implements Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         this.out.close();
-        int i = this.jOb;
-        if (i > 1 || (i == 1 && this.jQd[i - 1] != 7)) {
+        int i = this.jOc;
+        if (i > 1 || (i == 1 && this.jQe[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.jOb = 0;
+        this.jOc = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
@@ -255,7 +255,7 @@ public class b implements Closeable, Flushable {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.jMC ? jQf : jQe;
+        String[] strArr = this.jMD ? jQg : jQf;
         this.out.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
@@ -289,7 +289,7 @@ public class b implements Closeable, Flushable {
     private void newline() throws IOException {
         if (this.indent != null) {
             this.out.write("\n");
-            int i = this.jOb;
+            int i = this.jOc;
             for (int i2 = 1; i2 < i; i2++) {
                 this.out.write(this.indent);
             }
@@ -329,7 +329,7 @@ public class b implements Closeable, Flushable {
             case 6:
                 break;
             case 7:
-                if (!this.jMF) {
+                if (!this.jMG) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;

@@ -15,32 +15,32 @@ import org.json.JSONObject;
 public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.swan.apps.ae.b aDm;
-    private String aDn;
-    private UnitedSchemeEntity ayH;
-    private CallbackHandler ayI;
+    private com.baidu.swan.apps.ae.b aDn;
+    private String aDo;
+    private UnitedSchemeEntity ayI;
+    private CallbackHandler ayJ;
     private String mAppKey;
     private int mStatusCode;
     private String mVersion;
 
     public a(com.baidu.swan.apps.ae.b bVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, String str2) {
-        this.aDm = bVar;
-        this.ayH = unitedSchemeEntity;
-        this.ayI = callbackHandler;
+        this.aDn = bVar;
+        this.ayI = unitedSchemeEntity;
+        this.ayJ = callbackHandler;
         this.mVersion = str;
         this.mAppKey = str2;
     }
 
     public boolean fw(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.ayH.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.ayI.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.u.a.CM().a(this.aDm, str, new com.baidu.swan.apps.aa.a.b() { // from class: com.baidu.swan.apps.aa.a.1
+        com.baidu.swan.apps.u.a.CM().a(this.aDn, str, new com.baidu.swan.apps.aa.a.b() { // from class: com.baidu.swan.apps.aa.a.1
             @Override // com.baidu.swan.apps.aa.a.b
             public void m(int i, String str2) {
                 a.this.mStatusCode = i;
-                a.this.aDn = str2;
+                a.this.aDo = str2;
                 if (a.DEBUG) {
                     Log.d(a.TAG, "statusCode: " + i + " ,result:" + str2);
                 }
@@ -52,23 +52,23 @@ public class a implements d {
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(this.ayI, this.ayH, UnitedSchemeUtility.wrapCallbackParams(0));
+        UnitedSchemeUtility.callCallback(this.ayJ, this.ayI, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
     public boolean fx(String str) {
         com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher ACTION_REQUEST_ALI_PAYMENT");
         if (TextUtils.isEmpty(str)) {
-            this.ayH.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.ayI.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         com.baidu.swan.apps.u.a.CM().a(str, new com.baidu.swan.apps.aa.a.a() { // from class: com.baidu.swan.apps.aa.a.2
             @Override // com.baidu.swan.apps.aa.a.a
             public void n(int i, String str2) {
                 a.this.mStatusCode = i;
-                a.this.aDn = str2;
+                a.this.aDo = str2;
                 if (a.DEBUG) {
-                    Log.d(a.TAG, "statusCode: " + a.this.mStatusCode + " ,result:" + a.this.aDn);
+                    Log.d(a.TAG, "statusCode: " + a.this.mStatusCode + " ,result:" + a.this.aDo);
                 }
                 a.this.c(i, "alipay", str2);
                 if (i != 0 || !TextUtils.equals(a.this.mVersion, "2.0")) {
@@ -78,66 +78,66 @@ public class a implements d {
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(this.ayI, this.ayH, UnitedSchemeUtility.wrapCallbackParams(0));
+        UnitedSchemeUtility.callCallback(this.ayJ, this.ayI, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
     public boolean Fq() {
         com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher ACTION_REQUEST_WECHAT_PAYMENT");
-        if (c.Fr().a(this.aDm, this.ayI, this.ayH)) {
+        if (c.Fr().a(this.aDn, this.ayJ, this.ayI)) {
             if (TextUtils.equals(this.mVersion, "2.0")) {
                 this.mStatusCode = 0;
-                this.aDn = null;
+                this.aDo = null;
                 com.baidu.swan.apps.u.a.CZ().a(this.mAppKey, this);
             }
-            UnitedSchemeUtility.callCallback(this.ayI, this.ayH, UnitedSchemeUtility.wrapCallbackParams(0));
+            UnitedSchemeUtility.callCallback(this.ayJ, this.ayI, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
-        this.ayH.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        this.ayI.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         com.baidu.swan.apps.statistic.c.gR("wechatH5Action");
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, String str, String str2) {
-        com.baidu.swan.apps.v.b.b uA = this.aDm.uA();
-        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uA != null ? uA.aya : 0);
+        com.baidu.swan.apps.v.b.b uA = this.aDn.uA();
+        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uA != null ? uA.ayb : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fy(String str) {
         String str2;
-        com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.aDn);
-        String str3 = this.ayH.getParams().get("params");
+        com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.aDo);
+        String str3 = this.ayI.getParams().get("params");
         if (!TextUtils.isEmpty(str3)) {
             try {
                 str2 = new JSONObject(str3).optString("cb");
                 try {
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(this.aDn)) {
-                        String optString = new JSONObject(this.aDn).optString("responseData");
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(this.aDo)) {
+                        String optString = new JSONObject(this.aDo).optString("responseData");
                         if (TextUtils.equals(this.mVersion, "2.0")) {
                             JSONObject jSONObject = new JSONObject();
                             if (!TextUtils.isEmpty(str)) {
                                 jSONObject.put("payId", str);
                             }
-                            if (!TextUtils.isEmpty(this.aDn)) {
+                            if (!TextUtils.isEmpty(this.aDo)) {
                                 jSONObject.put("payResult", Base64.encodeToString(optString.getBytes(HTTP.UTF_8), 2));
                             }
-                            this.ayI.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, cI(this.mStatusCode)).toString());
+                            this.ayJ.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, cI(this.mStatusCode)).toString());
                             return;
                         }
-                        this.ayI.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, this.mStatusCode, cI(this.mStatusCode)).toString());
+                        this.ayJ.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(optString, this.mStatusCode, cI(this.mStatusCode)).toString());
                         return;
                     }
-                    this.ayI.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
+                    this.ayJ.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
                 } catch (UnsupportedEncodingException e) {
                     e = e;
                     e.printStackTrace();
-                    this.ayI.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
+                    this.ayJ.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
                 } catch (JSONException e2) {
                     e = e2;
                     e.printStackTrace();
-                    this.ayI.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
+                    this.ayJ.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, cI(this.mStatusCode)).toString());
                 }
             } catch (UnsupportedEncodingException e3) {
                 e = e3;

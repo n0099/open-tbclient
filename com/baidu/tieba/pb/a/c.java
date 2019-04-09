@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a hkQ;
-    private View hkR;
+    private a hkR;
+    private View hkS;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.hkQ = aVar;
+        this.hkR = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.hkR = view;
+        this.hkS = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -60,29 +60,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.hkQ != null) {
-            return this.hkQ.b(this.hkR, motionEvent);
+        if (this.hkR != null) {
+            return this.hkR.b(this.hkS, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.hkQ != null) {
-            return this.hkQ.c(this.hkR, motionEvent);
+        if (this.hkR != null) {
+            return this.hkR.c(this.hkS, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.hkQ != null) {
-            return this.hkQ.d(this.hkR, motionEvent);
+        if (this.hkR != null) {
+            return this.hkR.d(this.hkS, motionEvent);
         }
         return false;
     }
 
     public void ci(View view) {
-        this.hkR = view;
+        this.hkS = view;
     }
 }

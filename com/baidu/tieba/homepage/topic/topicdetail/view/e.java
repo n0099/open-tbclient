@@ -20,7 +20,7 @@ import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topicdetail.b.d> {
-    private TbImageView bNW;
+    private TbImageView bNX;
     private CellTopicLinearLayout fPs;
     private TextView fPt;
     private TextView fPu;
@@ -34,11 +34,11 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         View view = getView();
         this.fPs = (CellTopicLinearLayout) view.findViewById(d.g.topic_special_root);
         this.fPt = (TextView) view.findViewById(d.g.topic_special_title);
-        this.bNW = (TbImageView) view.findViewById(d.g.topic_special_thread_img);
+        this.bNX = (TbImageView) view.findViewById(d.g.topic_special_thread_img);
         this.mTitleView = (TextView) view.findViewById(d.g.topic_special_thread_title);
         this.fPu = (TextView) view.findViewById(d.g.topic_special_thread_discuss);
-        this.bNW.setRadius(l.h(this.mContext, d.e.tbds22));
-        this.bNW.setConrers(15);
+        this.bNX.setRadius(l.h(this.mContext, d.e.tbds22));
+        this.bNX.setConrers(15);
         this.fPs.setTopicOnClickListener(this);
     }
 
@@ -47,7 +47,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         if (i != this.mSkinType) {
             this.mSkinType = i;
             al.j(this.fPt, d.C0277d.cp_cont_b);
-            this.bNW.setIsNight(this.mSkinType == 1);
+            this.bNX.setIsNight(this.mSkinType == 1);
             al.j(this.mTitleView, d.C0277d.cp_cont_f);
             al.j(this.fPu, d.C0277d.cp_cont_d);
         }
@@ -93,10 +93,10 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                     }
                 }
             }
-            if (!ap.equals(str, this.bNW.getUrl())) {
-                this.bNW.reset();
+            if (!ap.equals(str, this.bNX.getUrl())) {
+                this.bNX.reset();
             }
-            this.bNW.startLoad(str, 10, false);
+            this.bNX.startLoad(str, 10, false);
             if (StringUtils.isNull(dVar.threadData.getTitle())) {
                 this.mTitleView.setVisibility(8);
             } else {

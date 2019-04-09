@@ -24,8 +24,8 @@ public class AppleRecordingYearBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleRecordingYearBox.java", AppleRecordingYearBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "", "", "", "java.util.Date"), 27);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "java.util.Date", "date", "", "void"), 31);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "", "", "", "java.util.Date"), 27);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "java.util.Date", "date", "", "void"), 31);
     }
 
     public AppleRecordingYearBox() {

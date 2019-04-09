@@ -14,21 +14,21 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView bUa;
-    private TextView eKM;
+    private TextView bUb;
+    private TextView eKN;
     private HeadImageView fbF;
-    private ImageView gwZ;
-    private TextView gxa;
+    private ImageView gxa;
+    private TextView gxb;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.fbF = (HeadImageView) view.findViewById(d.g.photo);
         this.fbF.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.bUa = (TextView) view.findViewById(d.g.user_name);
-        this.gwZ = (ImageView) view.findViewById(d.g.fans_reply);
-        this.eKM = (TextView) view.findViewById(d.g.time);
-        this.gxa = (TextView) view.findViewById(d.g.content);
+        this.bUb = (TextView) view.findViewById(d.g.user_name);
+        this.gxa = (ImageView) view.findViewById(d.g.fans_reply);
+        this.eKN = (TextView) view.findViewById(d.g.time);
+        this.gxb = (TextView) view.findViewById(d.g.content);
         this.mLine = view.findViewById(d.g.line);
         this.fbF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
@@ -50,11 +50,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void ad(FeedData feedData) {
         super.ad(feedData);
         if (feedData.getReplyer() != null) {
-            this.bUa.setText(feedData.getReplyer().getName_show());
+            this.bUb.setText(feedData.getReplyer().getName_show());
             if (feedData.getReplyer().isBigV()) {
-                al.j(this.bUa, d.C0277d.cp_cont_r);
+                al.j(this.bUb, d.C0277d.cp_cont_r);
             } else {
-                al.j(this.bUa, d.C0277d.cp_cont_c);
+                al.j(this.bUb, d.C0277d.cp_cont_c);
             }
             this.fbF.setShowV(feedData.getReplyer().isBigV());
             this.fbF.setIsRound(true);
@@ -67,23 +67,23 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
                 this.fbF.setImageResource(d.f.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.gwZ.setVisibility(0);
+                this.gxa.setVisibility(0);
             } else {
-                this.gwZ.setVisibility(8);
+                this.gxa.setVisibility(8);
             }
         }
-        this.eKM.setText(ap.ao(feedData.getTime()));
-        this.gxa.setText(feedData.getContent());
+        this.eKN.setText(ap.ao(feedData.getTime()));
+        this.gxb.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         al.k(getRootView(), d.f.list_selector);
         al.l(this.mLine, d.C0277d.cp_bg_line_b);
-        al.j(this.eKM, d.C0277d.cp_cont_d);
-        al.k(this.gwZ, d.f.icon_pb_fans);
-        al.j(this.gxa, d.C0277d.cp_cont_b);
-        this.eKM.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.j(this.eKN, d.C0277d.cp_cont_d);
+        al.k(this.gxa, d.f.icon_pb_fans);
+        al.j(this.gxb, d.C0277d.cp_cont_b);
+        this.eKN.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

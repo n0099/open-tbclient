@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
-    private TextView cKh;
     private TextView cKi;
     private TextView cKj;
-    private ClickableSpan cKk = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
+    private TextView cKk;
+    private ClickableSpan cKl = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.SecretHintActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.text.style.ClickableSpan
@@ -41,7 +41,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             textPaint.setColor(SecretHintActivity.this.getResources().getColor(d.C0277d.cp_link_tip_c));
         }
     };
-    private View.OnClickListener cKl = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
+    private View.OnClickListener cKm = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             SecretHintActivity.this.showDialog();
@@ -50,7 +50,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             TiebaStatic.log(amVar);
         }
     };
-    private View.OnClickListener cKm = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
+    private View.OnClickListener cKn = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_secret_is_show", true);
@@ -78,20 +78,20 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
     }
 
     private void initUI() {
-        this.cKh = (TextView) findViewById(d.g.secret_hint_footer);
-        this.cKi = (TextView) findViewById(d.g.unok_text);
-        this.cKj = (TextView) findViewById(d.g.ok_text);
+        this.cKi = (TextView) findViewById(d.g.secret_hint_footer);
+        this.cKj = (TextView) findViewById(d.g.unok_text);
+        this.cKk = (TextView) findViewById(d.g.ok_text);
         SpannableString spannableString = new SpannableString(getString(d.j.secret_hint_footer));
-        spannableString.setSpan(this.cKk, 39, 45, 33);
+        spannableString.setSpan(this.cKl, 39, 45, 33);
         spannableString.setSpan(new ForegroundColorSpan(al.getColor(0, d.C0277d.cp_link_tip_a)), 39, 45, 33);
-        this.cKh.setText(spannableString);
-        this.cKh.setMovementMethod(LinkMovementMethod.getInstance());
+        this.cKi.setText(spannableString);
+        this.cKi.setMovementMethod(LinkMovementMethod.getInstance());
         onChangeSkinType(0);
     }
 
     private void initListener() {
-        this.cKi.setOnClickListener(this.cKl);
         this.cKj.setOnClickListener(this.cKm);
+        this.cKk.setOnClickListener(this.cKn);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

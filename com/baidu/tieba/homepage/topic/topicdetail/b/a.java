@@ -12,7 +12,7 @@ import tbclient.NewHottopic.TopicThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    public String bAp;
+    public String bAq;
     public String fOb;
     public b fOc;
     private boolean fOd;
@@ -27,7 +27,7 @@ public class a {
             this.fOd = false;
             if (dataRes.topic_info != null) {
                 this.topicId = dataRes.topic_info.topic_id.longValue();
-                this.bAp = dataRes.topic_info.topic_name;
+                this.bAq = dataRes.topic_info.topic_name;
                 this.shareTitle = dataRes.topic_info.share_title;
                 this.fOb = dataRes.topic_info.share_pic;
                 this.fOc = new b();
@@ -82,13 +82,13 @@ public class a {
             }
             if (this.fOd) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar.eEC = d.e.tbds78;
+                cVar.eED = d.e.tbds78;
                 cVar.fPQ = d.C0277d.cp_bg_line_d;
                 this.mDataList.add(cVar);
             }
             if (dataRes.relate_thread != null && !v.T(dataRes.relate_thread.thread_list)) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar2 = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar2.eEC = d.e.tbds16;
+                cVar2.eED = d.e.tbds16;
                 this.mDataList.add(cVar2);
                 this.hasMore = dataRes.relate_thread.has_more.intValue() == 1;
                 for (TopicThread topicThread : dataRes.relate_thread.thread_list) {

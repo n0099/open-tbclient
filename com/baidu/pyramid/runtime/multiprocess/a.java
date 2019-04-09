@@ -16,11 +16,11 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static final boolean DEBUG = h.DEBUG;
-    private static volatile int ahQ = 0;
+    private static volatile int ahR = 0;
     private static volatile String sProcessName;
 
     public static int tP() {
-        int i = ahQ;
+        int i = ahR;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = f.getAppContext().getPackageName();
@@ -29,7 +29,7 @@ public class a {
             } else {
                 i |= 4;
             }
-            ahQ = i;
+            ahR = i;
         }
         return i;
     }

@@ -18,18 +18,18 @@ import android.widget.TextView;
 import com.baidu.swan.apps.an.x;
 /* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
-    private GradientDrawable aGC;
-    private Paint aGD;
-    private Pair<Object, Object> aGE;
-    private Object aGF;
+    private GradientDrawable aGD;
+    private Paint aGE;
+    private Pair<Object, Object> aGF;
     private Object aGG;
-    private int aGH;
-    private boolean aGI;
+    private Object aGH;
+    private int aGI;
     private boolean aGJ;
     private boolean aGK;
     private boolean aGL;
-    private float aGM;
-    private boolean aGN;
+    private boolean aGM;
+    private float aGN;
+    private boolean aGO;
     private float mCornerRadius;
     private Path mRoundPath;
 
@@ -39,13 +39,13 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGC = new GradientDrawable();
-        this.aGD = null;
-        this.mRoundPath = new Path();
+        this.aGD = new GradientDrawable();
         this.aGE = null;
-        this.aGL = false;
+        this.mRoundPath = new Path();
+        this.aGF = null;
+        this.aGM = false;
         this.mCornerRadius = -1.0f;
-        this.aGM = 0.0f;
+        this.aGN = 0.0f;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -131,37 +131,37 @@ public class DrawableCenterTextView extends TextView {
     private void h(Canvas canvas) {
         if (GV()) {
             if (this.mCornerRadius >= 0.0f) {
-                this.aGC.setCornerRadius(this.mCornerRadius);
+                this.aGD.setCornerRadius(this.mCornerRadius);
             } else {
-                this.aGC.setCornerRadius(4.0f);
+                this.aGD.setCornerRadius(4.0f);
             }
-            if (this.aGJ) {
+            if (this.aGK) {
                 int dip2px = x.dip2px(getContext(), 0.5f);
-                if (this.aGF instanceof String) {
-                    this.aGC.setStroke(dip2px, Color.parseColor(this.aGF.toString()));
-                } else if (this.aGF instanceof Integer) {
-                    this.aGC.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aGF.toString()).intValue()));
+                if (this.aGG instanceof String) {
+                    this.aGD.setStroke(dip2px, Color.parseColor(this.aGG.toString()));
+                } else if (this.aGG instanceof Integer) {
+                    this.aGD.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aGG.toString()).intValue()));
                 }
             }
-            if (this.aGL) {
-                if (this.aGE.second instanceof String) {
-                    this.aGC.setColor(Color.parseColor(this.aGE.second.toString()));
-                } else if (this.aGE.second instanceof Integer) {
-                    this.aGC.setColor(getResources().getColor(Integer.valueOf(this.aGE.second.toString()).intValue()));
+            if (this.aGM) {
+                if (this.aGF.second instanceof String) {
+                    this.aGD.setColor(Color.parseColor(this.aGF.second.toString()));
+                } else if (this.aGF.second instanceof Integer) {
+                    this.aGD.setColor(getResources().getColor(Integer.valueOf(this.aGF.second.toString()).intValue()));
                 }
-            } else if (this.aGE.first instanceof String) {
-                this.aGC.setColor(Color.parseColor(this.aGE.first.toString()));
-            } else if (this.aGE.first instanceof Integer) {
-                this.aGC.setColor(getResources().getColor(Integer.valueOf(this.aGE.first.toString()).intValue()));
+            } else if (this.aGF.first instanceof String) {
+                this.aGD.setColor(Color.parseColor(this.aGF.first.toString()));
+            } else if (this.aGF.first instanceof Integer) {
+                this.aGD.setColor(getResources().getColor(Integer.valueOf(this.aGF.first.toString()).intValue()));
             }
             canvas.save();
-            if (this.aGN) {
+            if (this.aGO) {
                 GT();
             } else {
-                this.aGC.setBounds(0, 0, getWidth(), getHeight());
+                this.aGD.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.aGC.draw(canvas);
-            if (this.aGK) {
+            this.aGD.draw(canvas);
+            if (this.aGL) {
                 i(canvas);
             }
             canvas.restore();
@@ -175,12 +175,12 @@ public class DrawableCenterTextView extends TextView {
         float height2 = getHeight();
         Paint paint = new Paint();
         paint.setStrokeWidth(x.dip2px(getContext(), 0.5f));
-        if (this.aGG instanceof String) {
-            paint.setColor(Color.parseColor(this.aGG.toString()));
-        } else if (this.aGG instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.aGG.toString()).intValue()));
+        if (this.aGH instanceof String) {
+            paint.setColor(Color.parseColor(this.aGH.toString()));
+        } else if (this.aGH instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.aGH.toString()).intValue()));
         }
-        switch (this.aGH) {
+        switch (this.aGI) {
             case 0:
                 width = 0.0f;
                 height = 0.0f;
@@ -208,25 +208,25 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public void setAnimationPercent(float f) {
-        if (this.aGM != f) {
-            this.aGM = f;
+        if (this.aGN != f) {
+            this.aGN = f;
             postInvalidate();
         }
     }
 
     public void setAnimationModeActive(boolean z) {
-        this.aGN = z;
+        this.aGO = z;
     }
 
     private void GT() {
-        if (this.aGC != null) {
+        if (this.aGD != null) {
             int[] iArr = {getWidth(), getHeight()};
-            if (this.aGN) {
-                iArr[0] = (int) (getWidth() * this.aGM);
+            if (this.aGO) {
+                iArr[0] = (int) (getWidth() * this.aGN);
                 iArr[1] = getHeight();
             }
             int width = getWidth() / 2;
-            this.aGC.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
+            this.aGD.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
         }
     }
 
@@ -236,16 +236,16 @@ public class DrawableCenterTextView extends TextView {
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.aGD.setShadowLayer(f, f2, f3, i);
+        this.aGE.setShadowLayer(f, f2, f3, i);
     }
 
     private void GU() {
-        if (this.aGD == null) {
-            this.aGD = new Paint();
-            this.aGD.setColor(0);
-            this.aGD.setStyle(Paint.Style.STROKE);
-            this.aGD.setAntiAlias(true);
-            this.aGD.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        if (this.aGE == null) {
+            this.aGE = new Paint();
+            this.aGE.setColor(0);
+            this.aGE.setStyle(Paint.Style.STROKE);
+            this.aGE.setAntiAlias(true);
+            this.aGE.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
@@ -280,7 +280,7 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private boolean GV() {
-        return this.aGI && this.aGE != null;
+        return this.aGJ && this.aGF != null;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -288,21 +288,21 @@ public class DrawableCenterTextView extends TextView {
         switch (motionEvent.getAction()) {
             case 0:
                 if (GV()) {
-                    this.aGL = true;
+                    this.aGM = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
                 if (GV()) {
-                    this.aGL = false;
+                    this.aGM = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
                 if (GV()) {
-                    this.aGL = false;
+                    this.aGM = false;
                     invalidate();
                     break;
                 }

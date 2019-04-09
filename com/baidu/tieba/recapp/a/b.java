@@ -8,27 +8,27 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> gFe;
+    private final HashMap<String, f> gFf;
 
     private b() {
-        this.gFe = new HashMap<>();
+        this.gFf = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0376b {
-        private static b igJ = new b();
+        private static b igK = new b();
     }
 
     public static b bWG() {
-        return C0376b.igJ;
+        return C0376b.igK;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a Bt = a.Bt(str);
-            f fVar = this.gFe.get(Bt.getKey());
+            f fVar = this.gFf.get(Bt.getKey());
             if (fVar != null && Bt.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
                     Bt.getParams().putAll(hashMap);
@@ -39,7 +39,7 @@ public class b implements e {
     }
 
     public void a(String str, f fVar) {
-        this.gFe.put(str, fVar);
+        this.gFf.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
@@ -48,12 +48,12 @@ public class b implements e {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean bzi;
-        HashMap<String, String> gFf;
+        private boolean bzj;
+        HashMap<String, String> gFg;
         String key;
 
         public boolean isValid() {
-            return this.bzi;
+            return this.bzj;
         }
 
         public String getKey() {
@@ -61,23 +61,23 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.gFf;
+            return this.gFg;
         }
 
         private a(String str) {
-            this.bzi = false;
+            this.bzj = false;
             Uri parse = Uri.parse(str);
-            this.bzi = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.bzi) {
+            this.bzj = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.bzj) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.gFf = new HashMap<>();
+                this.gFg = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.gFf.put(str2, parse.getQueryParameter(str2));
+                    this.gFg.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.gFf = new HashMap<>();
+            this.gFg = new HashMap<>();
         }
 
         public static a Bt(String str) {

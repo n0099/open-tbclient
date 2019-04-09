@@ -20,49 +20,49 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<l>, NetModel.b<k, l> {
-    private FeedData gxg;
-    private f gxh;
-    private ReplyMessageFragment gym;
-    private k gyn;
-    private ReplyMeNetModel gyo;
-    private ReplyMeCacheModel gyp;
+    private FeedData gxh;
+    private f gxi;
+    private ReplyMessageFragment gyn;
+    private k gyo;
+    private ReplyMeNetModel gyp;
+    private ReplyMeCacheModel gyq;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.gym = replyMessageFragment;
+        this.gyn = replyMessageFragment;
     }
 
     public void J(Bundle bundle) {
-        this.gyn = new k();
-        this.gyo = new ReplyMeNetModel(this.gym.getPageContext(), this.gyn);
-        this.gyo.a(this);
-        this.gyo.setUniqueId(this.gym.getUniqueId());
-        this.gyp = new ReplyMeCacheModel(this.gym.getPageContext());
+        this.gyo = new k();
+        this.gyp = new ReplyMeNetModel(this.gyn.getPageContext(), this.gyo);
         this.gyp.a(this);
-        this.gyp.setUniqueId(this.gym.getUniqueId());
-        this.gxh = new f();
+        this.gyp.setUniqueId(this.gyn.getUniqueId());
+        this.gyq = new ReplyMeCacheModel(this.gyn.getPageContext());
+        this.gyq.a(this);
+        this.gyq.setUniqueId(this.gyn.getUniqueId());
+        this.gxi = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean aRP() {
-        if (this.gyo.qz() || !bxp()) {
+        if (this.gyp.qz() || !bxp()) {
             return false;
         }
-        this.gyn.d(this.gxg);
-        this.gyo.setNeedCache(false);
-        this.gyo.aor();
+        this.gyo.d(this.gxh);
+        this.gyp.setNeedCache(false);
+        this.gyp.aor();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean bhl() {
-        if (this.gyo.qz() || !bxp()) {
+        if (this.gyp.qz() || !bxp()) {
             return false;
         }
-        this.gxg = null;
-        this.gyn.reset();
-        this.gyo.setNeedCache(true);
-        this.gyo.aor();
+        this.gxh = null;
+        this.gyo.reset();
+        this.gyp.setNeedCache(true);
+        this.gyp.aor();
         return true;
     }
 
@@ -70,17 +70,17 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.gxh != null && this.gxh.gyc != null) {
-            this.gxh.gyc.clear();
+        if (this.gxi != null && this.gxi.gyd != null) {
+            this.gxi.gyd.clear();
         }
-        this.gym.bxO();
-        this.gym.b(false, (ArrayList<com.baidu.adp.widget.ListView.m>) null);
+        this.gyn.bxO();
+        this.gyn.b(false, (ArrayList<com.baidu.adp.widget.ListView.m>) null);
         return false;
     }
 
     public boolean aRO() {
         if (bxp()) {
-            this.gyp.a((com.baidu.tbadk.mvc.b.e) this.gyn);
+            this.gyq.a((com.baidu.tbadk.mvc.b.e) this.gyo);
             return true;
         }
         return true;
@@ -91,13 +91,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.gxh.bxJ().clear();
+            this.gxi.bxJ().clear();
         }
-        this.gxh.a(lVar);
+        this.gxi.a(lVar);
         if (lVar != null && lVar.bxJ() != null && lVar.bxJ().size() > 0) {
-            this.gxg = lVar.bxJ().get(lVar.bxJ().size() - 1);
-            if (this.gxh.getPage() != null) {
-                z4 = this.gxh.getPage().XH() == 1;
+            this.gxh = lVar.bxJ().get(lVar.bxJ().size() - 1);
+            if (this.gxi.getPage() != null) {
+                z4 = this.gxi.getPage().XH() == 1;
             } else {
                 z4 = true;
             }
@@ -113,13 +113,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 z2 = z4;
             }
         } else {
-            this.gxg = null;
+            this.gxh = null;
             z2 = false;
             z3 = false;
         }
         com.baidu.tbadk.coreExtra.messageCenter.b.ahx().ahL();
         ArrayList<com.baidu.adp.widget.ListView.m> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.gxh.gyc.iterator();
+        Iterator<FeedData> it = this.gxi.gyd.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
             aVar.e(it.next());
@@ -128,19 +128,19 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             }
             arrayList.add(aVar);
         }
-        this.gym.b(z2, arrayList);
+        this.gyn.b(z2, arrayList);
         return z3;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<l>> readCacheRespMsg, ReadCacheMessage<l> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.gyn, readCacheRespMsg.getData().get(0), true);
+            a(this.gyo, readCacheRespMsg.getData().get(0), true);
         }
-        this.gxg = null;
-        this.gyn.reset();
-        this.gyo.setNeedCache(true);
-        this.gyo.aor();
+        this.gxh = null;
+        this.gyo.reset();
+        this.gyp.setNeedCache(true);
+        this.gyp.aor();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -169,7 +169,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.gym.a(errorData);
+                this.gyn.a(errorData);
             }
         }
     }
@@ -196,7 +196,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.gym.a(errorData);
+                this.gyn.a(errorData);
             }
         }
     }
@@ -212,11 +212,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     public void onDestroy() {
-        if (this.gyo != null) {
-            this.gyo.a((NetModel.b) null);
-        }
         if (this.gyp != null) {
-            this.gyp.a((CacheModel.a) null);
+            this.gyp.a((NetModel.b) null);
+        }
+        if (this.gyq != null) {
+            this.gyq.a((CacheModel.a) null);
         }
     }
 }

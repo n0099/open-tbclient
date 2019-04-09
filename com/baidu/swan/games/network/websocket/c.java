@@ -18,13 +18,13 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends WebSocketEventTarget {
-    private b bex;
+    private b bey;
     private String taskId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.swan.games.e.b bVar2) {
         super(bVar2);
-        this.bex = bVar;
+        this.bey = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,7 +36,7 @@ public class c extends WebSocketEventTarget {
             a(h, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.q.a.d.eH(7), com.baidu.swan.games.q.a.d.eH(m16if)));
         } else {
             String optString = h.optString("url");
-            if (!this.bex.Fc()) {
+            if (!this.bey.Fc()) {
                 a(h, "connectSocket", "up to max connect count");
             } else if (TextUtils.isEmpty(optString) || !optString.startsWith("wss://") || !com.baidu.swan.apps.af.a.b.av("socket", optString)) {
                 a(h, "connectSocket", String.format("invalid url \"%s\"", optString));
@@ -44,7 +44,7 @@ public class c extends WebSocketEventTarget {
                 try {
                     WebSocketTask connect = WebSocketManager.INSTANCE.connect(a(optString, h), this);
                     this.taskId = connect.getTaskId();
-                    this.bex.a(connect);
+                    this.bey.a(connect);
                     com.baidu.swan.games.utils.a.a(h, true, new e.c(this.taskId, String.format("%s:ok", "connectSocket")));
                 } catch (Exception e) {
                     a(h, "connectSocket", e.getMessage());
@@ -58,7 +58,7 @@ public class c extends WebSocketEventTarget {
     public void send(JsObject jsObject) {
         String str = null;
         com.baidu.swan.games.binding.model.c h = h(jsObject);
-        switch (this.beA) {
+        switch (this.beB) {
             case IDLE:
                 a(h, "SocketTask.send", "SocketTask.readyState is not OPEN");
                 return;
@@ -111,7 +111,7 @@ public class c extends WebSocketEventTarget {
     @JavascriptInterface
     public void close(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c h = h(jsObject);
-        if (this.beA == WebSocketEventTarget.SocketTaskState.CLOSE) {
+        if (this.beB == WebSocketEventTarget.SocketTaskState.CLOSE) {
             a(h, "SocketTask.close", "SocketTask.readyState is CLOSED");
             return;
         }
@@ -121,10 +121,10 @@ public class c extends WebSocketEventTarget {
         } catch (Exception e) {
             a(h, "SocketTask.close", e.getMessage());
         } finally {
-            this.bex.fu(this.taskId);
+            this.bey.fu(this.taskId);
         }
         if (!(optInt == 1000 || (optInt >= 3000 && optInt <= 4999))) {
-            a(h, "SocketTask.close", d.bez);
+            a(h, "SocketTask.close", d.beA);
             return;
         }
         WebSocketManager.INSTANCE.close(this.taskId, optInt, optString);
@@ -140,7 +140,7 @@ public class c extends WebSocketEventTarget {
             for (int i = 0; i < ij.length(); i++) {
                 int propertyType = ij.getPropertyType(i);
                 String propertyName = ij.getPropertyName(i);
-                if (!TextUtils.isEmpty(propertyName) && !com.baidu.swan.apps.network.a.aCj.contains(propertyName.toUpperCase()) && propertyType == 7) {
+                if (!TextUtils.isEmpty(propertyName) && !com.baidu.swan.apps.network.a.aCk.contains(propertyName.toUpperCase()) && propertyType == 7) {
                     builder.addHeader(propertyName, ij.toString(i));
                 }
             }
@@ -182,16 +182,16 @@ public class c extends WebSocketEventTarget {
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         super.onClose(jSONObject);
-        if (this.bex != null && jSONObject != null) {
-            this.bex.fu(jSONObject.optString("taskID"));
+        if (this.bey != null && jSONObject != null) {
+            this.bey.fu(jSONObject.optString("taskID"));
         }
     }
 
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         super.onError(th, jSONObject);
-        if (this.bex != null && jSONObject != null) {
-            this.bex.fu(jSONObject.optString("taskID"));
+        if (this.bey != null && jSONObject != null) {
+            this.bey.fu(jSONObject.optString("taskID"));
         }
     }
 }

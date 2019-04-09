@@ -28,16 +28,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
-    private static volatile f aBT;
-    private boolean aBQ;
-    private String aBR;
-    private JSONArray aBS;
-    private volatile boolean aBU;
-    private int aBV;
-    private long aBW;
-    private int aBX;
-    private com.baidu.swan.apps.y.a aBY;
+    private static volatile f aBU;
+    private boolean aBR;
+    private String aBS;
+    private JSONArray aBT;
+    private volatile boolean aBV;
+    private int aBW;
+    private long aBX;
+    private int aBY;
     private com.baidu.swan.apps.y.a aBZ;
+    private com.baidu.swan.apps.y.a aCa;
     private Handler mHandler;
     private long mStartTime;
     private static final String TAG = f.class.getSimpleName();
@@ -51,24 +51,24 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
     private f() {
         super("SwanAppPageMonitor", 5);
-        this.aBU = false;
-        this.aBV = 0;
-        this.aBX = 0;
-        this.aBW = com.baidu.swan.apps.u.a.Cz().vc() * 1000;
-        this.aBY = a.C0187a.fj("simple_parser");
-        this.aBZ = a.C0187a.fj("hsv_parser");
-        this.aBQ = com.baidu.swan.apps.u.a.Cz().vn();
+        this.aBV = false;
+        this.aBW = 0;
+        this.aBY = 0;
+        this.aBX = com.baidu.swan.apps.u.a.Cz().vc() * 1000;
+        this.aBZ = a.C0187a.fj("simple_parser");
+        this.aCa = a.C0187a.fj("hsv_parser");
+        this.aBR = com.baidu.swan.apps.u.a.Cz().vn();
     }
 
     public static f EP() {
-        if (aBT == null) {
+        if (aBU == null) {
             synchronized (f.class) {
-                if (aBT == null) {
-                    aBT = new f();
+                if (aBU == null) {
+                    aBU = new f();
                 }
             }
         }
-        return aBT;
+        return aBU;
     }
 
     private void iX() {
@@ -90,17 +90,17 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class c extends Handler {
-        int aCd;
+        int aCe;
 
         private c(Looper looper) {
             super(looper);
-            this.aCd = 0;
+            this.aCe = 0;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             f.this.log("get message " + message.what);
-            if (f.this.aBU) {
+            if (f.this.aBV) {
                 f.this.log("aiapp is in background, ignore message");
                 return;
             }
@@ -115,9 +115,9 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                         }
                         String yA = ((com.baidu.swan.apps.core.c.d) yN).yA();
                         if (TextUtils.isEmpty(yA)) {
-                            if (this.aCd == 3) {
+                            if (this.aCe == 3) {
                                 f.this.log("can't get slaveId after retrying 3 times");
-                                this.aCd = 0;
+                                this.aCe = 0;
                                 return;
                             }
                             f.this.mHandler.sendEmptyMessageDelayed(1, 1000L);
@@ -128,13 +128,13 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                             eg.a(f.this);
                         }
                         f.this.a(yN, yA);
-                        this.aCd = 0;
+                        this.aCe = 0;
                         return;
                     }
                     return;
                 case 2:
                     final com.baidu.swan.apps.y.c cVar = (com.baidu.swan.apps.y.c) message.obj;
-                    f.this.a(cVar, f.this.aBY, new a() { // from class: com.baidu.swan.apps.y.f.c.1
+                    f.this.a(cVar, f.this.aBZ, new a() { // from class: com.baidu.swan.apps.y.f.c.1
                         @Override // com.baidu.swan.apps.y.f.a
                         public void bt(boolean z) {
                             if (z) {
@@ -145,7 +145,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                     return;
                 case 3:
                     final com.baidu.swan.apps.y.c cVar2 = (com.baidu.swan.apps.y.c) message.obj;
-                    f.this.a(cVar2, f.this.aBY, new a() { // from class: com.baidu.swan.apps.y.f.c.2
+                    f.this.a(cVar2, f.this.aBZ, new a() { // from class: com.baidu.swan.apps.y.f.c.2
                         @Override // com.baidu.swan.apps.y.f.a
                         public void bt(boolean z) {
                             if (z) {
@@ -155,7 +155,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                         }
                     });
                     if (f.this.ER()) {
-                        f.this.a(cVar2, f.this.aBZ, new a() { // from class: com.baidu.swan.apps.y.f.c.3
+                        f.this.a(cVar2, f.this.aCa, new a() { // from class: com.baidu.swan.apps.y.f.c.3
                             @Override // com.baidu.swan.apps.y.f.a
                             public void bt(boolean z) {
                                 if (z) {
@@ -196,7 +196,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.y.c cVar, int i, boolean z) {
-        this.aBV++;
+        this.aBW++;
         String a2 = a(cVar, z);
         log(a2);
         com.baidu.swan.apps.ak.a hx = new com.baidu.swan.apps.ak.a().L(5L).M(i).hx(a2);
@@ -204,11 +204,11 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
         if (com.baidu.swan.apps.ae.b.IV() != null) {
             bVar = com.baidu.swan.apps.ae.b.IV().uA();
         }
-        com.baidu.swan.apps.statistic.a.d cg = new com.baidu.swan.apps.statistic.a.d().a(hx).r(bVar).gS(com.baidu.swan.apps.statistic.c.dB(com.baidu.swan.apps.ae.b.us())).gT(com.baidu.swan.apps.ae.b.Jg()).gV(String.valueOf(this.aBX)).cg(false);
-        if (ER() && this.aBS != null) {
+        com.baidu.swan.apps.statistic.a.d cg = new com.baidu.swan.apps.statistic.a.d().a(hx).r(bVar).gS(com.baidu.swan.apps.statistic.c.dB(com.baidu.swan.apps.ae.b.us())).gT(com.baidu.swan.apps.ae.b.Jg()).gV(String.valueOf(this.aBY)).cg(false);
+        if (ER() && this.aBT != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("launchlog", this.aBS);
+                jSONObject.put("launchlog", this.aBT);
                 cg.ai(jSONObject);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -219,7 +219,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ER() {
-        return this.aBX == 1;
+        return this.aBY == 1;
     }
 
     private String a(com.baidu.swan.apps.y.c cVar, boolean z) {
@@ -231,10 +231,10 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
             } else {
                 jSONObject.put("name", "UNKNOWN");
             }
-            jSONObject.put("slaveId", this.aBR);
-            jSONObject.put("errCnt", this.aBV);
+            jSONObject.put("slaveId", this.aBS);
+            jSONObject.put("errCnt", this.aBW);
             jSONObject.put("startTime", this.mStartTime);
-            jSONObject.put("monitorCnt", this.aBX);
+            jSONObject.put("monitorCnt", this.aBY);
             jSONObject.put("firstPage", ER());
             jSONObject.put("zeus", com.baidu.swan.apps.u.a.CI().bs(AppRuntime.getAppContext()));
             jSONObject.put("net", SwanAppNetworkUtils.Fa());
@@ -252,11 +252,11 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
     public void a(com.baidu.swan.apps.y.c cVar, com.baidu.swan.apps.y.a aVar, @NonNull a aVar2) {
         if (cVar == null || aVar == null) {
             aVar2.bt(false);
-        } else if (TextUtils.equals(cVar.getToken(), this.aBR)) {
+        } else if (TextUtils.equals(cVar.getToken(), this.aBS)) {
             log("start parse");
             aVar2.bt(aVar.a(cVar.EN(), cVar.getRect()));
         } else {
-            log("page has changed from " + cVar.getToken() + " => " + this.aBR);
+            log("page has changed from " + cVar.getToken() + " => " + this.aBS);
             aVar2.bt(false);
         }
     }
@@ -267,9 +267,9 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
         if (bVar instanceof com.baidu.swan.apps.core.c.d) {
             str2 = ((com.baidu.swan.apps.core.c.d) bVar).yD();
         }
-        if (!TextUtils.equals(str, this.aBR)) {
-            this.aBR = str;
-            this.mHandler.postDelayed(new b(str2, str), this.aBW);
+        if (!TextUtils.equals(str, this.aBS)) {
+            this.aBS = str;
+            this.mHandler.postDelayed(new b(str2, str), this.aBX);
         }
     }
 
@@ -286,7 +286,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.equals(this.token, f.this.aBR)) {
+            if (TextUtils.equals(this.token, f.this.aBS)) {
                 aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.y.f.b.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -298,7 +298,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                             f.this.log("invalid webview " + eP);
                             return;
                         }
-                        if (f.this.aBQ) {
+                        if (f.this.aBR) {
                             f.this.log("get full screenshot");
                             Md = x.ah(eP);
                             int[] iArr = new int[2];
@@ -333,8 +333,8 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
                 this.mHandler.sendEmptyMessage(4);
             } else if (yN instanceof com.baidu.swan.apps.core.c.d) {
                 this.mHandler.sendEmptyMessageDelayed(1, 1000L);
-                this.aBX++;
-                log("page count: " + this.aBX);
+                this.aBY++;
+                log("page count: " + this.aBY);
             }
             this.mStartTime = System.currentTimeMillis();
         }
@@ -353,10 +353,10 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
     public void ES() {
         log("stop monitor");
-        this.aBX = 0;
-        this.aBV = 0;
+        this.aBY = 0;
+        this.aBW = 0;
         EU();
-        this.aBS = null;
+        this.aBT = null;
     }
 
     public void bo(boolean z) {
@@ -364,7 +364,7 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
         if (z) {
             EU();
         }
-        this.aBU = z;
+        this.aBV = z;
     }
 
     private String ET() {
@@ -413,13 +413,13 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
 
     public void i(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            if (this.aBS == null) {
-                this.aBS = new JSONArray();
+            if (this.aBT == null) {
+                this.aBT = new JSONArray();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     log("stage " + jSONArray.getJSONObject(i).toString());
-                    this.aBS.put(jSONArray.getJSONObject(i));
+                    this.aBT.put(jSONArray.getJSONObject(i));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -432,17 +432,17 @@ public class f extends HandlerThread implements com.baidu.swan.apps.core.e.b {
     public void fm(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.equals(str, "frame_create") || TextUtils.equals(str, "frame_new_intent")) {
-                this.aBS = null;
+                this.aBT = null;
             }
             log("stage " + str);
             try {
-                if (this.aBS == null) {
-                    this.aBS = new JSONArray();
+                if (this.aBT == null) {
+                    this.aBT = new JSONArray();
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("actionId", str);
                 jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis()));
-                this.aBS.put(jSONObject);
+                this.aBT.put(jSONObject);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();

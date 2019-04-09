@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class b {
-    private static b iMC;
-    private ClientConfigModel iMA;
-    private a iMB;
-    private boolean iMD = false;
-    private final com.baidu.tbadk.clientConfig.a buI = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
+    private static b iMD;
+    private ClientConfigModel iMB;
+    private a iMC;
+    private boolean iME = false;
+    private final com.baidu.tbadk.clientConfig.a buJ = new com.baidu.tbadk.clientConfig.a() { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.1
         @Override // com.baidu.tbadk.clientConfig.a
         public void Y(Object obj) {
-            b.this.iMD = false;
+            b.this.iME = false;
             if (obj != null && (obj instanceof DataRes)) {
                 DataRes dataRes = (DataRes) obj;
                 if (dataRes.local_dialog != null) {
@@ -42,7 +42,7 @@ public class b {
 
         @Override // com.baidu.tbadk.clientConfig.a
         public void onError(String str) {
-            b.this.iMD = false;
+            b.this.iME = false;
         }
     };
     CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.tblauncher.alarmRemind.b.2
@@ -66,25 +66,25 @@ public class b {
     };
 
     public static b cgP() {
-        if (iMC == null) {
+        if (iMD == null) {
             synchronized (b.class) {
-                if (iMC == null) {
-                    iMC = new b();
+                if (iMD == null) {
+                    iMD = new b();
                 }
             }
         }
-        return iMC;
+        return iMD;
     }
 
     private b() {
     }
 
     public void e(BaseFragmentActivity baseFragmentActivity) {
-        this.iMB = new a();
-        baseFragmentActivity.registerListener(this.iMB);
+        this.iMC = new a();
+        baseFragmentActivity.registerListener(this.iMC);
         baseFragmentActivity.registerListener(this.mNetworkChangedListener);
         baseFragmentActivity.registerListener(this.mAccountChangedListener);
-        this.iMA = new ClientConfigModel(baseFragmentActivity, this.buI);
+        this.iMB = new ClientConfigModel(baseFragmentActivity, this.buJ);
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("tieba_last_active_time", System.currentTimeMillis());
         if (cgR()) {
             qo(true);
@@ -120,9 +120,9 @@ public class b {
     }
 
     private void cgS() {
-        if (this.iMA != null && !this.iMD) {
-            this.iMD = true;
-            this.iMA.kR("local_dialog");
+        if (this.iMB != null && !this.iME) {
+            this.iME = true;
+            this.iMB.kR("local_dialog");
         }
     }
 

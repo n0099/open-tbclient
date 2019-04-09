@@ -30,13 +30,13 @@ public class AmrSpecificBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AmrSpecificBox.java", AmrSpecificBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getVendor", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getDecoderVersion", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getModeSet", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getModeChangePeriod", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getFramesPerSample", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "getContent", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 84);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 92);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getVendor", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getDecoderVersion", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getModeSet", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getModeChangePeriod", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getFramesPerSample", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getContent", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 84);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 92);
     }
 
     public AmrSpecificBox() {

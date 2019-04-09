@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.ab;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tbadk.mainTab.b {
     public d(FrsFragment frsFragment) {
-        anH().cof = frsFragment;
+        anH().cog = frsFragment;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,8 +23,8 @@ public class d extends com.baidu.tbadk.mainTab.b {
     public com.baidu.tbadk.mainTab.c anG() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 1;
-        cVar.bOg = d.j.chosen_pb_title;
-        cVar.col = com.baidu.tbadk.mainTab.c.coi;
+        cVar.bOh = d.j.chosen_pb_title;
+        cVar.f5com = com.baidu.tbadk.mainTab.c.coj;
         return cVar;
     }
 
@@ -36,8 +36,8 @@ public class d extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator di(Context context) {
-        this.cnR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.cnR.setTextSize(2.0f);
-        return this.cnR;
+        this.cnS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.cnS.setTextSize(2.0f);
+        return this.cnS;
     }
 }

@@ -35,15 +35,15 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleGroupDescriptionBox.java", SampleGroupDescriptionBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.lang.String"), 135);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.String", "groupingType", "", "void"), 139);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 143);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "int", "defaultLength", "", "void"), 147);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.util.List"), 151);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.util.List", "groupEntries", "", "void"), 155);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "equals", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.Object", Config.OS, "", "boolean"), 160);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 184);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.lang.String"), 192);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.lang.String"), 135);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.String", "groupingType", "", "void"), 139);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 143);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "int", "defaultLength", "", "void"), 147);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.util.List"), 151);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.util.List", "groupEntries", "", "void"), 155);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.Object", Config.OS, "", "boolean"), 160);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 184);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.lang.String"), 192);
     }
 
     public SampleGroupDescriptionBox() {

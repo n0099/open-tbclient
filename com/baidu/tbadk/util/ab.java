@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ab {
-    public static TextView ctM;
+    public static TextView ctN;
 
     public static int d(char c) {
         if (e(c)) {
@@ -170,10 +170,10 @@ public class ab {
 
     public static Pair<Integer, Integer> q(String str, int i, int i2) {
         try {
-            if (ctM == null) {
-                ctM = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (ctN == null) {
+                ctN = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = ctM;
+            TextView textView = ctN;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

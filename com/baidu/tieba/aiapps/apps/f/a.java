@@ -51,8 +51,8 @@ public class a implements i {
             dVar.aS(currentTimeMillis);
             dVar.pu(getCurrentPageKey());
             dVar.setTid(j);
-            dVar.cpN = string;
-            dVar.cpO = string2;
+            dVar.cpO = string;
+            dVar.cpP = string2;
             dVar.ah(getCurrentPageSourceKeyList());
             e.aoM().fc(true);
             e.aoM().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());

@@ -34,8 +34,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> aRi = new HashMap();
-    private static OkHttpClient aRj;
+    private static final Map<String, a> aRj = new HashMap();
+    private static OkHttpClient aRk;
 
     public static Context getAppContext() {
         return AppRuntime.getAppContext();
@@ -81,11 +81,11 @@ public final class c {
     }
 
     public static OkHttpClient EX() {
-        if (aRj != null) {
-            return aRj;
+        if (aRk != null) {
+            return aRk;
         }
-        OkHttpClient build = com.baidu.swan.apps.ae.e.Jm().aOc.get().uO().uU().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.u.a.CT().Dr())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
-        aRj = build;
+        OkHttpClient build = com.baidu.swan.apps.ae.e.Jm().aOd.get().uO().uU().newBuilder().cookieJar(new CookieJarImpl(com.baidu.swan.apps.u.a.CT().Dr())).addNetworkInterceptor(new com.baidu.swan.apps.network.a.c()).build();
+        aRk = build;
         return build;
     }
 
@@ -107,14 +107,14 @@ public final class c {
             aVar.bt(false);
             return;
         }
-        synchronized (aRi) {
-            a aVar2 = aRi.get(eVar.id);
+        synchronized (aRj) {
+            a aVar2 = aRj.get(eVar.id);
             if (aVar2 != null) {
-                aVar2.aRn.add(aVar);
+                aVar2.aRo.add(aVar);
             } else {
                 a aVar3 = new a(eVar.id);
-                aVar3.aRn.add(aVar);
-                aRi.put(eVar.id, aVar3);
+                aVar3.aRo.add(aVar);
+                aRj.put(eVar.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -177,11 +177,11 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void u(String str, boolean z) {
         a remove;
-        synchronized (aRi) {
-            remove = aRi.remove(str);
+        synchronized (aRj) {
+            remove = aRj.remove(str);
         }
-        if (remove != null && !remove.aRn.isEmpty()) {
-            for (com.baidu.swan.apps.setting.oauth.a aVar : remove.aRn) {
+        if (remove != null && !remove.aRo.isEmpty()) {
+            for (com.baidu.swan.apps.setting.oauth.a aVar : remove.aRo) {
                 if (aVar != null) {
                     aVar.bt(z);
                 }
@@ -227,7 +227,7 @@ public final class c {
         TextView textView3 = (TextView) inflate.findViewById(a.f.ext);
         textView3.setTextColor(resources.getColor(a.c.aiapps_auth_dialog_label));
         StringBuilder sb = new StringBuilder();
-        Iterator<String> it = eVar.aRr.iterator();
+        Iterator<String> it = eVar.aRs.iterator();
         while (it.hasNext()) {
             sb.append(context.getString(a.h.aiapps_auth_dialog_scope_entity, it.next()));
             sb.append("\n");
@@ -249,7 +249,7 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        final Set<com.baidu.swan.apps.setting.oauth.a> aRn = new HashSet();
+        final Set<com.baidu.swan.apps.setting.oauth.a> aRo = new HashSet();
         final String scope;
 
         a(String str) {

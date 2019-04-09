@@ -15,8 +15,8 @@ public class c {
     private static boolean Dk;
     private static String Dl;
     private long Dq;
-    private g ihH;
-    private d ihI;
+    private g ihI;
+    private d ihJ;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -36,33 +36,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.ihH = new g();
-        a(this.ihH, z);
-        this.ihH.bWV().setUrl(str);
-        this.ihI = new d(this.ihH);
-        this.ihI.e(i, i3, i4);
-        return this.ihH.bWW();
+        this.ihI = new g();
+        a(this.ihI, z);
+        this.ihI.bWV().setUrl(str);
+        this.ihJ = new d(this.ihI);
+        this.ihJ.e(i, i3, i4);
+        return this.ihI.bWW();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.ihH = new g();
-        a(this.ihH, z);
-        this.ihH.bWV().setUrl(str);
+        this.ihI = new g();
+        a(this.ihI, z);
+        this.ihI.bWV().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.ihH.bWV().a(basicNameValuePair);
+                this.ihI.bWV().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.ihH.bWV().y(next.getName(), next.getValue());
+                this.ihI.bWV().y(next.getName(), next.getValue());
             }
         }
-        this.ihI = new d(this.ihH);
-        this.ihI.g(i, i2, -1);
-        return this.ihH.bWW();
+        this.ihJ = new d(this.ihI);
+        this.ihJ.g(i, i2, -1);
+        return this.ihI.bWW();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -70,11 +70,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.ihH = new g();
-        b(this.ihH);
-        this.ihH.bWV().setUrl(str);
-        this.ihI = new d(this.ihH);
-        return this.ihI.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.ihI = new g();
+        b(this.ihI);
+        this.ihI.bWV().setUrl(str);
+        this.ihJ = new d(this.ihI);
+        return this.ihJ.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -82,26 +82,26 @@ public class c {
     }
 
     public void cancel() {
-        if (this.ihI != null) {
-            this.ihI.cancel();
+        if (this.ihJ != null) {
+            this.ihJ.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.ihI != null) {
-            return this.ihI.jk();
+        if (this.ihJ != null) {
+            return this.ihJ.jk();
         }
         return false;
     }
 
     public void jl() {
-        if (this.ihI != null) {
-            this.ihI.jl();
+        if (this.ihJ != null) {
+            this.ihJ.jl();
         }
     }
 
     public g bWU() {
-        return this.ihH;
+        return this.ihI;
     }
 
     private void a(g gVar, boolean z) {

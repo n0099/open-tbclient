@@ -31,7 +31,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                        anH.cof.setArguments(bundle);
+                        anH.cog.setArguments(bundle);
                     }
                 }
             }
@@ -46,16 +46,16 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c anG() {
         c cVar = new c();
-        cVar.cof = new FrsGameStrategyMainFragment();
+        cVar.cog = new FrsGameStrategyMainFragment();
         cVar.type = 3;
-        cVar.col = c.coi;
+        cVar.f5com = c.coj;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator di(Context context) {
-        this.cnR = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.cnR.setTextSize(2.0f);
-        return this.cnR;
+        this.cnS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+        this.cnS.setTextSize(2.0f);
+        return this.cnS;
     }
 }

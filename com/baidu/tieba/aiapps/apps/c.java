@@ -10,7 +10,7 @@ import com.baidu.swan.ubc.o;
 import com.baidu.tbadk.s.bc;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean cQV = false;
+    private static boolean cQW = false;
 
     public static void a(Application application, boolean z) {
         fM(z);
@@ -60,10 +60,10 @@ public class c {
     }
 
     private static void fM(boolean z) {
-        cQV = z;
+        cQW = z;
     }
 
     public static boolean axS() {
-        return !cQV || com.baidu.swan.apps.an.a.hasLollipop();
+        return !cQW || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

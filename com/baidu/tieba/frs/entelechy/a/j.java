@@ -18,7 +18,7 @@ public class j extends com.baidu.tieba.frs.h<bf, a<com.baidu.tieba.frs.entelechy
     public static int fgX = 5;
     public static int fgY = 10;
     public static int fgZ = 15;
-    private ab<bg> dqo;
+    private ab<bg> dqp;
     private int fgP;
     private com.baidu.tieba.frs.d.b fgQ;
     private String forumName;
@@ -54,7 +54,7 @@ public class j extends com.baidu.tieba.frs.h<bf, a<com.baidu.tieba.frs.entelechy
         super(tbPageContext, bdUniqueId, bdUniqueId2);
         this.fgP = 3;
         this.fgQ = new com.baidu.tieba.frs.d.b();
-        this.dqo = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
+        this.dqp = new ab<bg>() { // from class: com.baidu.tieba.frs.entelechy.a.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
@@ -99,11 +99,11 @@ public class j extends com.baidu.tieba.frs.h<bf, a<com.baidu.tieba.frs.entelechy
         if (bgVar != null) {
             zVar = new com.baidu.tieba.play.z();
             zVar.mLocate = qw(bgVar.ZV());
-            zVar.ekM = this.fgQ.fsO;
-            zVar.ctw = bgVar.getTid();
-            zVar.hYA = bgVar.mRecomAbTag;
+            zVar.ekN = this.fgQ.fsO;
+            zVar.ctx = bgVar.getTid();
+            zVar.hYB = bgVar.mRecomAbTag;
             if (bgVar.Zf() != null) {
-                zVar.hYB = bgVar.Zf().video_md5;
+                zVar.hYC = bgVar.Zf().video_md5;
             }
             bgVar.ZS();
         }
@@ -120,7 +120,7 @@ public class j extends com.baidu.tieba.frs.h<bf, a<com.baidu.tieba.frs.entelechy
         }
         aVar.aRg().setVideoStatsData(af(bfVar.threadData));
         aVar.aRg().a(bfVar.threadData);
-        aVar.aRg().d(this.dqo);
+        aVar.aRg().d(this.dqp);
         com.baidu.tieba.frs.d.a.a(bfVar.threadData, this.mPageId, this.fgQ);
         return aVar.getView();
     }

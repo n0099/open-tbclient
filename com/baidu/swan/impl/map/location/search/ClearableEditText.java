@@ -10,8 +10,8 @@ import com.baidu.swan.apps.an.x;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int biO = x.ad(10.0f);
-    private Drawable biN;
+    private static final int biP = x.ad(10.0f);
+    private Drawable biO;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.biN = getResources().getDrawable(d.f.aiapps_location_search_del);
+        this.biO = getResources().getDrawable(d.f.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + biO && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - biO) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + biP && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - biP) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.biN : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.biO : null, getCompoundDrawables()[3]);
     }
 }

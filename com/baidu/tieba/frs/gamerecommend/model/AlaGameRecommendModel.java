@@ -22,7 +22,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     private boolean isLoadMore;
     private String mForumId;
     private int mPn;
-    private BdUniqueId dcb = BdUniqueId.gen();
+    private BdUniqueId dcc = BdUniqueId.gen();
     private com.baidu.tieba.frs.gamerecommend.b.a fmf = new com.baidu.tieba.frs.gamerecommend.b.a();
 
     /* loaded from: classes4.dex */
@@ -56,7 +56,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaGameRecommendModel.this.dcb) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaGameRecommendModel.this.dcc) {
                     AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                     if (alaGameRecommendReponseMessage.hasError() || alaGameRecommendReponseMessage.getError() != 0) {
                         if (AlaGameRecommendModel.this.fme != null) {
@@ -90,7 +90,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
         httpMessage.addParam("forum_id", this.mForumId);
         httpMessage.addParam("recom_pn", this.mPn);
-        httpMessage.setTag(this.dcb);
+        httpMessage.setTag(this.dcc);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -100,7 +100,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
             httpMessage.addParam("forum_id", this.mForumId);
             httpMessage.addParam("recom_pn", this.mPn + 1);
-            httpMessage.setTag(this.dcb);
+            httpMessage.setTag(this.dcc);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

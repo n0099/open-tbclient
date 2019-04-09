@@ -27,11 +27,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private final C0419a jvM;
+    private final C0419a jvN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.jvM = new C0419a(context, "bdbehavior.db");
+        this.jvN = new C0419a(context, "bdbehavior.db");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,7 +72,7 @@ public class a {
                 protected boolean j(SQLiteDatabase sQLiteDatabase) {
                     return a.this.a(Ta, id, Tb, sQLiteDatabase) && sQLiteDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, contentValues) != -1;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -117,7 +117,7 @@ public class a {
                     }
                     return z;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -175,7 +175,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(k kVar) {
         if (kVar != null && !TextUtils.isEmpty(kVar.getId())) {
-            SQLiteDatabase writableDatabase = this.jvM.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.jvN.getWritableDatabase();
             final ContentValues contentValues = new ContentValues();
             contentValues.put("flowid", kVar.getId());
             contentValues.put("flowhandle", Integer.valueOf(kVar.Tb()));
@@ -232,7 +232,7 @@ public class a {
                 protected boolean j(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -258,7 +258,7 @@ public class a {
                 protected boolean j(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -280,7 +280,7 @@ public class a {
                     sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, "flowhandle = " + i, null);
                     return true;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -382,7 +382,7 @@ public class a {
                 }
                 return true;
             }
-        }.k(this.jvM.getWritableDatabase());
+        }.k(this.jvN.getWritableDatabase());
         jD("flow");
         jD(NotificationCompat.CATEGORY_EVENT);
     }
@@ -397,7 +397,7 @@ public class a {
         RuntimeException runtimeException;
         Cursor cursor2 = null;
         final int i = 0;
-        SQLiteDatabase writableDatabase = this.jvM.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.jvN.getWritableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT COUNT(*), MIN(").append("_id").append("), MAX(").append("_id").append(") FROM ").append(str);
         try {
@@ -465,7 +465,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         RuntimeException e;
-        ?? readableDatabase = this.jvM.getReadableDatabase();
+        ?? readableDatabase = this.jvN.getReadableDatabase();
         Cursor cursor2 = null;
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM ").append("config");
@@ -554,7 +554,7 @@ public class a {
     public void a(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        SQLiteDatabase readableDatabase = this.jvM.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.jvN.getReadableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ").append("eventid").append(" , ").append("type").append(" , ").append("cycle").append(" FROM ").append("config").append(" WHERE ").append("switch").append("=\"").append("1").append("\"");
         try {
@@ -645,7 +645,7 @@ public class a {
         try {
             try {
                 try {
-                    cursor2 = this.jvM.getReadableDatabase().rawQuery(str, null);
+                    cursor2 = this.jvN.getReadableDatabase().rawQuery(str, null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.getCount() > 0) {
@@ -769,7 +769,7 @@ public class a {
     private void b(ArrayList<k> arrayList, s sVar) {
         Cursor cursor;
         Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.jvM.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.jvN.getReadableDatabase();
         try {
             Iterator<k> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -847,7 +847,7 @@ public class a {
         long j2 = 0;
         try {
             try {
-                Cursor rawQuery = this.jvM.getReadableDatabase().rawQuery(str, null);
+                Cursor rawQuery = this.jvN.getReadableDatabase().rawQuery(str, null);
                 if (rawQuery != null) {
                     try {
                         if (rawQuery.getCount() > 0) {
@@ -993,7 +993,7 @@ public class a {
                     }
                     return true;
                 }
-            }.k(this.jvM.getWritableDatabase());
+            }.k(this.jvN.getWritableDatabase());
         }
     }
 
@@ -1039,7 +1039,7 @@ public class a {
                 return true;
             }
         };
-        bVar.k(this.jvM.getWritableDatabase());
+        bVar.k(this.jvN.getWritableDatabase());
         return bVar.AD();
     }
 
@@ -1058,7 +1058,7 @@ public class a {
                 sQLiteDatabase.delete("file", sb.toString(), null);
                 return true;
             }
-        }.k(this.jvM.getWritableDatabase());
+        }.k(this.jvN.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1078,7 +1078,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.k(this.jvM.getWritableDatabase());
+        }.k(this.jvN.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1091,7 +1091,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, null, null);
                 return true;
             }
-        }.k(this.jvM.getWritableDatabase());
+        }.k(this.jvN.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1107,22 +1107,22 @@ public class a {
     }
 
     final long SI() {
-        return this.jvM.SI();
+        return this.jvN.SI();
     }
 
     final long SJ() {
-        return this.jvM.SJ();
+        return this.jvN.SJ();
     }
 
     /* renamed from: com.baidu.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0419a extends SQLiteOpenHelper {
-        private String boQ;
+        private String boR;
         private Context mContext;
 
         C0419a(Context context, String str) {
             super(context.getApplicationContext(), str, (SQLiteDatabase.CursorFactory) null, 5);
-            this.boQ = str;
+            this.boR = str;
             this.mContext = context.getApplicationContext();
         }
 
@@ -1198,7 +1198,7 @@ public class a {
                 sQLiteDatabase = super.getReadableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.boQ).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.boR).getPath()).delete()) {
                     sQLiteDatabase = super.getReadableDatabase();
                     r.csh().putString("ubc_version_md5", "0");
                     JSONObject jSONObject = new JSONObject();
@@ -1221,7 +1221,7 @@ public class a {
                 sQLiteDatabase = super.getWritableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.boQ).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.boR).getPath()).delete()) {
                     sQLiteDatabase = super.getWritableDatabase();
                     r.csh().putString("ubc_version_md5", "0");
                     UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delDB");
@@ -1231,34 +1231,34 @@ public class a {
         }
 
         long SI() {
-            return new File(this.mContext.getDatabasePath(this.boQ).getPath()).length();
+            return new File(this.mContext.getDatabasePath(this.boR).getPath()).length();
         }
 
         long SJ() {
-            return new File(this.mContext.getDatabasePath(this.boQ).getPath() + "-journal").length();
+            return new File(this.mContext.getDatabasePath(this.boR).getPath() + "-journal").length();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class b {
-        private boolean boR;
+        private boolean boS;
 
         protected abstract boolean j(SQLiteDatabase sQLiteDatabase);
 
         private b() {
-            this.boR = false;
+            this.boS = false;
         }
 
         public void k(SQLiteDatabase sQLiteDatabase) {
             if (sQLiteDatabase != null) {
-                this.boR = false;
+                this.boS = false;
                 sQLiteDatabase.beginTransaction();
                 try {
                     try {
                         if (j(sQLiteDatabase)) {
                             sQLiteDatabase.setTransactionSuccessful();
-                            this.boR = true;
+                            this.boS = true;
                         }
                         try {
                             sQLiteDatabase.endTransaction();
@@ -1291,7 +1291,7 @@ public class a {
         }
 
         protected boolean AD() {
-            return this.boR;
+            return this.boS;
         }
     }
 }

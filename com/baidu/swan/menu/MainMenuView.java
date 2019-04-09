@@ -13,13 +13,13 @@ import com.baidu.swan.menu.viewpager.SwanAppMenuSlidableGridView;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MainMenuView extends BaseMenuView {
-    private List<k> aMJ;
-    private SwanAppMenuSlidableGridView bjQ;
-    private j bjR;
-    private int bjS;
-    private boolean bjT;
-    private SwanAppMenuMode bjU;
-    private View bjV;
+    private List<k> aMK;
+    private SwanAppMenuSlidableGridView bjR;
+    private j bjS;
+    private int bjT;
+    private boolean bjU;
+    private SwanAppMenuMode bjV;
+    private View bjW;
 
     public MainMenuView(@NonNull Context context) {
         this(context, null);
@@ -31,55 +31,55 @@ public class MainMenuView extends BaseMenuView {
 
     public MainMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
-        this.bjT = false;
+        this.bjU = false;
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i);
         linearLayout.setOrientation(1);
         new LinearLayout.LayoutParams(-1, -2);
-        this.bjQ = new SwanAppMenuSlidableGridView(context, attributeSet, i);
+        this.bjR = new SwanAppMenuSlidableGridView(context, attributeSet, i);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.bjQ.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
-        linearLayout.addView(this.bjQ, layoutParams);
+        this.bjR.setPadding(0, (int) this.mContext.getResources().getDimension(g.b.aiapp_menu_gridview_padding_top), 0, 0);
+        linearLayout.addView(this.bjR, layoutParams);
         a(linearLayout, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
     public boolean QZ() {
-        return this.aMJ != null && this.aMJ.size() > 0 && this.aMJ.size() > 4;
+        return this.aMK != null && this.aMK.size() > 0 && this.aMK.size() > 4;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.menu.BaseMenuView
     public void setMode(SwanAppMenuMode swanAppMenuMode) {
-        this.bjU = swanAppMenuMode;
-        this.bjQ.setMode(swanAppMenuMode);
+        this.bjV = swanAppMenuMode;
+        this.bjR.setMode(swanAppMenuMode);
         super.setMode(swanAppMenuMode);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.bjQ.setCurrentPage(0);
+        this.bjR.setCurrentPage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMenuStyle(int i) {
-        this.bjS = i;
+        this.bjT = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void A(List<k> list) {
-        this.aMJ = list;
-        this.bjQ.setGridViewPading(0, 0, 0, 0);
-        this.bjQ.setIndicatorColor(g.c.menu_indicator_normal, g.c.menu_indicator_selected);
-        this.bjQ.setBackground(null);
-        if (this.bjR == null) {
-            this.bjR = new j(this.mContext);
-            this.bjQ.setGridItemAdapter(this.bjR);
+        this.aMK = list;
+        this.bjR.setGridViewPading(0, 0, 0, 0);
+        this.bjR.setIndicatorColor(g.c.menu_indicator_normal, g.c.menu_indicator_selected);
+        this.bjR.setBackground(null);
+        if (this.bjS == null) {
+            this.bjS = new j(this.mContext);
+            this.bjR.setGridItemAdapter(this.bjS);
         }
-        this.bjR.setMenuStyle(this.bjS);
-        this.bjR.cN(this.bjT);
-        this.bjR.setData(list);
-        this.bjR.Rs();
-        this.aMJ = list;
+        this.bjS.setMenuStyle(this.bjT);
+        this.bjS.cN(this.bjU);
+        this.bjS.setData(list);
+        this.bjS.Rs();
+        this.aMK = list;
     }
 
     public void setDismissCallback(b bVar) {
@@ -96,10 +96,10 @@ public class MainMenuView extends BaseMenuView {
 
     @Nullable
     public View getCoverView() {
-        return this.bjV;
+        return this.bjW;
     }
 
     public void setCoverView(View view) {
-        this.bjV = view;
+        this.bjW = view;
     }
 }

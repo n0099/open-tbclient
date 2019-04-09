@@ -21,7 +21,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.igD.set(new t());
+        r.igE.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         com.baidu.tieba.ad.a.awB().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
@@ -74,7 +74,7 @@ public class RecAppStatic {
         });
         com.baidu.tieba.InjectPlugin.a.e.auj().a(1, new f());
         com.baidu.tieba.InjectPlugin.a.e.auj().a(2, new d());
-        bg.bBr.set(true);
+        bg.bBs.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);

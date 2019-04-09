@@ -29,14 +29,14 @@ public final class a {
             c.a(aVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0127a) { // from class: com.baidu.swan.apps.core.a.b.a.1
                 @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.e
                 public void xL() {
-                    this.api = str2;
+                    this.apj = str2;
                 }
 
                 @Override // com.baidu.swan.pms.a.e, com.baidu.swan.pms.a.b
                 public void ac(String str3, String str4) {
                     super.ac(str3, str4);
-                    if (!TextUtils.isEmpty(str4) && TextUtils.equals(str3, "770") && this.aoT != null) {
-                        this.aoT.add(new UbcFlowEvent(str4));
+                    if (!TextUtils.isEmpty(str4) && TextUtils.equals(str3, "770") && this.aoU != null) {
+                        this.aoU.add(new UbcFlowEvent(str4));
                     }
                 }
             });

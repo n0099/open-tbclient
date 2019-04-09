@@ -48,8 +48,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.tbadkCore.e.b {
-    private n btJ;
-    private String btK;
+    private n btK;
+    private String btL;
     private final Context mContext;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
     private WebView mWebView;
@@ -196,15 +196,15 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private n Vx() {
-        if (this.btJ == null) {
-            this.btJ = new n(this.mContext, new n.a() { // from class: com.baidu.tbadk.browser.b.1
+        if (this.btK == null) {
+            this.btK = new n(this.mContext, new n.a() { // from class: com.baidu.tbadk.browser.b.1
                 @Override // com.baidu.tbadk.BdToken.n.a
                 public void Ux() {
-                    if (!TextUtils.isEmpty(b.this.btK)) {
+                    if (!TextUtils.isEmpty(b.this.btL)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("resultCode", 1);
-                            b.this.k(b.this.btK, jSONObject);
+                            b.this.k(b.this.btL, jSONObject);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -212,13 +212,13 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
             });
         }
-        return this.btJ;
+        return this.btK;
     }
 
     private String kw(String str) {
         int i;
         try {
-            this.btK = new JSONObject(str).optString("method_name");
+            this.btL = new JSONObject(str).optString("method_name");
             if (!Vx().isOpen()) {
                 Vx().open();
             }
@@ -407,7 +407,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                         if (new File(str2).exists()) {
                             if (b.this.shareItem != null) {
                                 b.this.shareItem.shareType = 1;
-                                b.this.shareItem.cbw = str2;
+                                b.this.shareItem.cbx = str2;
                             }
                             if (i != 0) {
                                 MessageManager.getInstance().sendMessage(new ImplicitShareMessage(b.this.mContext, i, b.this.shareItem, true));
@@ -718,8 +718,8 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     public void onDestroy() {
-        if (this.btJ != null && this.btJ.isOpen()) {
-            this.btJ.close();
+        if (this.btK != null && this.btK.isOpen()) {
+            this.btK.close();
         }
     }
 

@@ -6,13 +6,13 @@ import android.preference.PreferenceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public final class r {
-    private static SharedPreferences aeU = null;
+    private static SharedPreferences aeV = null;
 
     private static SharedPreferences LZ() {
-        if (aeU == null) {
-            aeU = PreferenceManager.getDefaultSharedPreferences(getAppContext());
+        if (aeV == null) {
+            aeV = PreferenceManager.getDefaultSharedPreferences(getAppContext());
         }
-        return aeU;
+        return aeV;
     }
 
     public static boolean getBoolean(String str, boolean z) {

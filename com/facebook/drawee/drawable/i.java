@@ -8,8 +8,8 @@ import android.graphics.drawable.Drawable;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes2.dex */
 public class i extends g {
-    final Matrix jCE;
-    private int jCF;
+    final Matrix jCF;
+    private int jCG;
     private final Matrix mTempMatrix;
     private final RectF mTempRectF;
 
@@ -18,40 +18,40 @@ public class i extends g {
         this.mTempMatrix = new Matrix();
         this.mTempRectF = new RectF();
         com.facebook.common.internal.g.checkArgument(i % 90 == 0);
-        this.jCE = new Matrix();
-        this.jCF = i;
+        this.jCF = new Matrix();
+        this.jCG = i;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.jCF <= 0) {
+        if (this.jCG <= 0) {
             super.draw(canvas);
             return;
         }
         int save = canvas.save();
-        canvas.concat(this.jCE);
+        canvas.concat(this.jCF);
         super.draw(canvas);
         canvas.restoreToCount(save);
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.jCF % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
+        return this.jCG % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.jCF % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
+        return this.jCG % SubsamplingScaleImageView.ORIENTATION_180 == 0 ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         Drawable current = getCurrent();
-        if (this.jCF > 0) {
-            this.jCE.setRotate(this.jCF, rect.centerX(), rect.centerY());
+        if (this.jCG > 0) {
+            this.jCF.setRotate(this.jCG, rect.centerX(), rect.centerY());
             this.mTempMatrix.reset();
-            this.jCE.invert(this.mTempMatrix);
+            this.jCF.invert(this.mTempMatrix);
             this.mTempRectF.set(rect);
             this.mTempMatrix.mapRect(this.mTempRectF);
             current.setBounds((int) this.mTempRectF.left, (int) this.mTempRectF.top, (int) this.mTempRectF.right, (int) this.mTempRectF.bottom);
@@ -63,8 +63,8 @@ public class i extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.p
     public void e(Matrix matrix) {
         f(matrix);
-        if (!this.jCE.isIdentity()) {
-            matrix.preConcat(this.jCE);
+        if (!this.jCF.isIdentity()) {
+            matrix.preConcat(this.jCF);
         }
     }
 }

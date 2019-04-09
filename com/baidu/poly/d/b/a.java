@@ -18,8 +18,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
     private Activity activity;
-    int ahm = 0;
-    int ahn = 1;
+    int ahn = 0;
+    int aho = 1;
 
     public a(Activity activity) {
         this.activity = activity;
@@ -30,9 +30,9 @@ public class a implements com.baidu.poly.d.a {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.ahm) {
+            if (optInt == this.ahn) {
                 b(map, str, c0083a);
-            } else if (optInt == this.ahn) {
+            } else if (optInt == this.aho) {
                 a(l(map), str, c0083a);
             }
         } catch (Throwable th) {

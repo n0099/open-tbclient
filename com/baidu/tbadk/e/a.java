@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static b bty = null;
-    private static a btz = null;
-    private static boolean btA = false;
-    private static String btB = "";
-    private static transient List<String> btC = new ArrayList(5);
+    private static b btz = null;
+    private static a btA = null;
+    private static boolean btB = false;
+    private static String btC = "";
+    private static transient List<String> btD = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (btz == null) {
+        if (btA == null) {
             synchronized (a.class) {
-                if (btz == null) {
-                    btz = new a();
-                    bty = b.c(baseFragmentActivity);
+                if (btA == null) {
+                    btA = new a();
+                    btz = b.c(baseFragmentActivity);
                 }
             }
-        } else if (bty != null) {
-            bty.a(baseFragmentActivity.getPageContext());
+        } else if (btz != null) {
+            btz.a(baseFragmentActivity.getPageContext());
         }
-        if (btA && bty != null) {
-            bty.Vl();
-            bty.Vm();
-            btA = false;
+        if (btB && btz != null) {
+            btz.Vl();
+            btz.Vm();
+            btB = false;
         }
-        return btz;
+        return btA;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
@@ -48,66 +48,66 @@ public class a {
 
     public void Vc() {
         Vh();
-        if (bty != null) {
-            bty.Vl();
-            btA = false;
+        if (btz != null) {
+            btz.Vl();
+            btB = false;
         }
     }
 
     public void Vd() {
         Vh();
-        if (bty != null) {
-            bty.Vm();
-            btA = false;
+        if (btz != null) {
+            btz.Vm();
+            btB = false;
         }
     }
 
     public void da(boolean z) {
         Vh();
-        if (bty != null) {
-            bty.da(z);
+        if (btz != null) {
+            btz.da(z);
         }
     }
 
     public void a(b.a aVar) {
         Vh();
-        if (bty != null) {
-            bty.c(aVar);
+        if (btz != null) {
+            btz.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
         Vh();
-        if (bty != null) {
-            if (bty.Vi()) {
-                bty.c(aVar);
+        if (btz != null) {
+            if (btz.Vi()) {
+                btz.c(aVar);
             }
-            bty.Vk();
+            btz.Vk();
         }
     }
 
     public void a(int i, b.a aVar) {
         Vh();
-        if (bty != null) {
-            if (bty.Vi()) {
-                bty.c(aVar);
+        if (btz != null) {
+            if (btz.Vi()) {
+                btz.c(aVar);
             }
-            bty.fB(i);
+            btz.fB(i);
         }
     }
 
     public void Ve() {
         Vh();
-        if (bty != null) {
-            bty.Ve();
-            btA = true;
+        if (btz != null) {
+            btz.Ve();
+            btB = true;
         }
     }
 
     public void Vf() {
         Vh();
-        if (bty != null) {
-            bty.Vf();
+        if (btz != null) {
+            btz.Vf();
         }
     }
 
@@ -118,22 +118,22 @@ public class a {
     }
 
     private void Vh() {
-        if (bty == null) {
+        if (btz == null) {
         }
     }
 
     public static void Hf() {
         try {
-            if (bty != null) {
-                if (btz != null) {
-                    btz.Vg();
-                }
-                bty.Vj();
-                bty.Vn();
-                bty = null;
-            }
             if (btz != null) {
+                if (btA != null) {
+                    btA.Vg();
+                }
+                btz.Vj();
+                btz.Vn();
                 btz = null;
+            }
+            if (btA != null) {
+                btA = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

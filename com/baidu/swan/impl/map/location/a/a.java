@@ -12,8 +12,8 @@ import org.json.JSONObject;
 public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> implements a.InterfaceC0207a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.swan.apps.x.b biC;
-    private com.baidu.swan.apps.x.a.a biD;
+    private com.baidu.swan.apps.x.b biD;
+    private com.baidu.swan.apps.x.a.a biE;
 
     public static a Qz() {
         return new a();
@@ -30,8 +30,8 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
             c.e("map", "cb is empty");
             return false;
         }
-        this.biC = bVar;
-        this.biD = aVar;
+        this.biD = bVar;
+        this.biE = aVar;
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.a.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
@@ -59,23 +59,23 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.a> im
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0207a
     public void onCancel() {
         c.i("map", "choose location cancel");
-        if (this.biC != null && this.biD != null) {
-            this.biC.d(this.biD.callBack, 1002, "choose location canceled");
+        if (this.biD != null && this.biE != null) {
+            this.biD.d(this.biE.callBack, 1002, "choose location canceled");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0207a
     public void onError() {
         c.i("map", "choose location fail");
-        if (this.biC != null && this.biD != null) {
-            this.biC.d(this.biD.callBack, PointerIconCompat.TYPE_CROSSHAIR, "choose location failed");
+        if (this.biD != null && this.biE != null) {
+            this.biD.d(this.biE.callBack, PointerIconCompat.TYPE_CROSSHAIR, "choose location failed");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0207a
     public void a(SelectedLocationInfo selectedLocationInfo) {
-        if (this.biC != null && this.biD != null) {
-            this.biC.e(this.biD.callBack, selectedLocationInfo.toJson());
+        if (this.biD != null && this.biE != null) {
+            this.biD.e(this.biE.callBack, selectedLocationInfo.toJson());
         }
     }
 

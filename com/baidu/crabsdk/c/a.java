@@ -4,26 +4,26 @@ import android.util.Log;
 import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public final class a {
-    public static String acf = "CRAB";
-    public static String acg = "CRAB-NA";
+    public static String acg = "CRAB";
+    public static String ach = "CRAB-NA";
 
     public static int cv(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(acf, cy(str));
+            return Log.i(acg, cy(str));
         }
         return -1;
     }
 
     public static int cw(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(acg, cy(str));
+            return Log.d(ach, cy(str));
         }
         return -1;
     }
 
     public static int cx(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(acf, cy(str));
+            return Log.w(acg, cy(str));
         }
         return -1;
     }
@@ -45,21 +45,21 @@ public final class a {
 
     public static int f(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(acf, cy(str), th);
+            return Log.e(acg, cy(str), th);
         }
         return -1;
     }
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(acf, cy(str));
+            return Log.d(acg, cy(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(acf, cy(str));
+            return Log.e(acg, cy(str));
         }
         return -1;
     }

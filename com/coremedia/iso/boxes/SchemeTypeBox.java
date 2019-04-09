@@ -26,13 +26,13 @@ public class SchemeTypeBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SchemeTypeBox.java", SchemeTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "getSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "long"), 48);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 52);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "java.lang.String", "schemeType", "", "void"), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "setSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "int", "schemeVersion", "", "void"), 61);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "java.lang.String", "schemeUri", "", "void"), 65);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 93);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 44);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "long"), 48);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 52);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "java.lang.String", "schemeType", "", "void"), 56);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "int", "schemeVersion", "", "void"), 61);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "java.lang.String", "schemeUri", "", "void"), 65);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "java.lang.String"), 93);
     }
 
     static {

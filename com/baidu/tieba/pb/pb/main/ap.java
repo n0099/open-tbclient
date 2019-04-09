@@ -9,7 +9,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class ap {
-    private static final int[] hvs = {d.j.i_have_a_bold_idea, d.j.give_you_a_god_comment_chance, d.j.wait_for_you_so_long_time_finally_you_come, d.j.hot_or_not_hot_up_to_you, d.j.let_us_talk_dont_shy};
+    private static final int[] hvt = {d.j.i_have_a_bold_idea, d.j.give_you_a_god_comment_chance, d.j.wait_for_you_so_long_time_finally_you_come, d.j.hot_or_not_hot_up_to_you, d.j.let_us_talk_dont_shy};
 
     public static Intent aH(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -28,7 +28,7 @@ public class ap {
             return false;
         }
         com.baidu.tieba.tbadkCore.data.i cey = postData.cey();
-        if (cey.iFt) {
+        if (cey.iFu) {
             int cdW = cey.cdW();
             return cdW == 2 || cdW == 1 || cdW == 3;
         }
@@ -36,6 +36,6 @@ public class ap {
     }
 
     public static int bMg() {
-        return hvs[new Random().nextInt(hvs.length)];
+        return hvt[new Random().nextInt(hvt.length)];
     }
 }

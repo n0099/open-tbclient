@@ -12,8 +12,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 /* loaded from: classes4.dex */
 public class i {
-    private static i gxZ = null;
-    private final HttpMessageListener bKt = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
+    private static i gya = null;
+    private final HttpMessageListener bKu = new HttpMessageListener(CmdConfigHttp.MSG_REMINDER_CMD) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -39,13 +39,13 @@ public class i {
             }
         }
     };
-    private long gya = 0;
+    private long gyb = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.gya = System.currentTimeMillis();
+                i.this.gyb = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.kY())) {
                     i.this.bxI();
@@ -65,16 +65,16 @@ public class i {
     public static synchronized i bxH() {
         i iVar;
         synchronized (i.class) {
-            if (gxZ == null) {
-                gxZ = new i();
+            if (gya == null) {
+                gya = new i();
             }
-            iVar = gxZ;
+            iVar = gya;
         }
         return iVar;
     }
 
     public i() {
-        MessageManager.getInstance().registerListener(this.bKt);
+        MessageManager.getInstance().registerListener(this.bKu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -83,7 +83,7 @@ public class i {
     }
 
     public void restart() {
-        this.gya = 0L;
+        this.gyb = 0L;
         destroy();
         start();
     }
@@ -91,7 +91,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.gya;
+        long currentTimeMillis = System.currentTimeMillis() - this.gyb;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= KeepJobService.JOB_CHECK_PERIODIC) {
             i = 2;
@@ -101,7 +101,7 @@ public class i {
             j = KeepJobService.JOB_CHECK_PERIODIC - j2;
         }
         m(i, j);
-        this.gya = System.currentTimeMillis();
+        this.gyb = System.currentTimeMillis();
     }
 
     public void destroy() {

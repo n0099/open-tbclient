@@ -29,7 +29,7 @@ public class ab implements ai<com.facebook.common.references.a<com.facebook.imag
                 if (createVideoThumbnail == null) {
                     return null;
                 }
-                return com.facebook.common.references.a.d(new com.facebook.imagepipeline.f.c(createVideoThumbnail, com.facebook.imagepipeline.b.g.cwi(), com.facebook.imagepipeline.f.f.jIl, 0));
+                return com.facebook.common.references.a.d(new com.facebook.imagepipeline.f.c(createVideoThumbnail, com.facebook.imagepipeline.b.g.cwi(), com.facebook.imagepipeline.f.f.jIm, 0));
             }
 
             /* JADX DEBUG: Method merged with bridge method */

@@ -20,7 +20,7 @@ import com.baidu.tieba.frs.game.strategy.view.g;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ScrollLabelTabHost extends RelativeLayout {
-    private int dag;
+    private int dah;
     private List<e> fjQ;
     private int fjS;
     private a fka;
@@ -38,7 +38,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public ScrollLabelTabHost(Context context) {
         super(context);
-        this.dag = 0;
+        this.dah = 0;
         this.fjS = 0;
         this.fkm = false;
         this.fka = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
@@ -91,7 +91,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public ScrollLabelTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dag = 0;
+        this.dah = 0;
         this.fjS = 0;
         this.fkm = false;
         this.fka = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
@@ -144,7 +144,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public ScrollLabelTabHost(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dag = 0;
+        this.dah = 0;
         this.fjS = 0;
         this.fkm = false;
         this.fka = new a() { // from class: com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost.1
@@ -212,7 +212,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
             public void b(int i, e eVar) {
                 com.baidu.tieba.frs.game.strategy.data.a aVar;
                 if (eVar != null) {
-                    ScrollLabelTabHost.this.dag = eVar.tabId;
+                    ScrollLabelTabHost.this.dah = eVar.tabId;
                     if (eVar.extra instanceof LabelDataList) {
                         LabelDataList labelDataList = (LabelDataList) eVar.extra;
                         if (!labelDataList.isEmpty() && (aVar = labelDataList.get(0)) != null) {
@@ -239,8 +239,8 @@ public class ScrollLabelTabHost extends RelativeLayout {
                 if (obj instanceof com.baidu.tieba.frs.game.strategy.data.a) {
                     ScrollLabelTabHost.this.fjS = ((com.baidu.tieba.frs.game.strategy.data.a) obj).labelId;
                     FrsGameStrategyItemListView bgc = ScrollLabelTabHost.this.fkj.bgc();
-                    bgc.bp(ScrollLabelTabHost.this.dag, ScrollLabelTabHost.this.fjS);
-                    if (ScrollLabelTabHost.this.fka != null && !ScrollLabelTabHost.this.fka.bl(ScrollLabelTabHost.this.dag, ScrollLabelTabHost.this.fjS)) {
+                    bgc.bp(ScrollLabelTabHost.this.dah, ScrollLabelTabHost.this.fjS);
+                    if (ScrollLabelTabHost.this.fka != null && !ScrollLabelTabHost.this.fka.bl(ScrollLabelTabHost.this.dah, ScrollLabelTabHost.this.fjS)) {
                         bgc.pullToRefresh();
                     }
                 }

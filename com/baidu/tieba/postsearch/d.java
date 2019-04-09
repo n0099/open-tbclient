@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    public String eWT;
-    private PostSearchActivity ibZ;
-    public ArrayList<String> icA;
-    private String icr;
-    public int ics = 0;
+    public String eWU;
+    public ArrayList<String> icB;
+    private PostSearchActivity ica;
+    private String ics;
     public int ict = 0;
-    public int icu = 1;
+    public int icu = 0;
     public int icv = 1;
     public int icw = 1;
-    public boolean icx = false;
+    public int icx = 1;
     public boolean icy = false;
     public boolean icz = false;
-    private int icB = 0;
-    private final HttpMessageListener icC = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
+    public boolean icA = false;
+    private int icC = 0;
+    private final HttpMessageListener icD = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,7 +41,7 @@ public class d {
                 boolean z = d.this.xx(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.ibZ.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.ica.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.xw(intValue);
                     d.this.bVo();
                     d.this.bVr();
@@ -49,36 +49,36 @@ public class d {
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.ibZ.getResources().getString(d.j.neterror);
+                    errorString = d.this.ica.getResources().getString(d.j.neterror);
                 }
-                d.this.ibZ.showToast(errorString);
-                d.this.ibZ.a(intValue, null, z);
+                d.this.ica.showToast(errorString);
+                d.this.ica.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener icD = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener icE = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.icA = (ArrayList) data;
-                d.this.ibZ.bVa();
+                d.this.icB = (ArrayList) data;
+                d.this.ica.bVa();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.ibZ = postSearchActivity;
-        this.ibZ.registerListener(this.icD);
-        this.ibZ.registerListener(this.icC);
+        this.ica = postSearchActivity;
+        this.ica.registerListener(this.icE);
+        this.ica.registerListener(this.icD);
     }
 
     public boolean bk(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.eWT)) {
+        if (!str.equals(this.eWU)) {
             bVq();
         }
         switch (i) {
@@ -94,70 +94,70 @@ public class d {
     }
 
     public boolean Bd(String str) {
-        if (this.icx) {
-            return false;
-        }
-        this.eWT = str;
-        this.icB = 1;
-        this.ibZ.sendMessage(xv(this.icB));
-        this.icx = true;
-        return true;
-    }
-
-    public boolean Be(String str) {
         if (this.icy) {
             return false;
         }
-        this.eWT = str;
-        this.icB = 2;
-        this.ibZ.sendMessage(xv(this.icB));
+        this.eWU = str;
+        this.icC = 1;
+        this.ica.sendMessage(xv(this.icC));
         this.icy = true;
         return true;
     }
 
-    public boolean Bf(String str) {
+    public boolean Be(String str) {
         if (this.icz) {
             return false;
         }
-        this.eWT = str;
-        this.icB = 3;
-        this.ibZ.sendMessage(xv(this.icB));
+        this.eWU = str;
+        this.icC = 2;
+        this.ica.sendMessage(xv(this.icC));
         this.icz = true;
         return true;
     }
 
+    public boolean Bf(String str) {
+        if (this.icA) {
+            return false;
+        }
+        this.eWU = str;
+        this.icC = 3;
+        this.ica.sendMessage(xv(this.icC));
+        this.icA = true;
+        return true;
+    }
+
     public void bVn() {
-        this.ibZ.sendMessage(new CustomMessage(2009001));
+        this.ica.sendMessage(new CustomMessage(2009001));
     }
 
     public void bVo() {
-        if (!StringUtils.isNull(this.eWT) && !this.eWT.equals(this.icr)) {
-            this.ibZ.sendMessage(new CustomMessage(2009003, this.eWT));
-            this.icr = this.eWT;
+        if (!StringUtils.isNull(this.eWU) && !this.eWU.equals(this.ics)) {
+            this.ica.sendMessage(new CustomMessage(2009003, this.eWU));
+            this.ics = this.eWU;
         }
     }
 
     public void bVp() {
-        if (this.icA != null) {
-            this.icA.clear();
+        if (this.icB != null) {
+            this.icB.clear();
         }
-        this.ibZ.sendMessage(new CustomMessage(2009004));
+        this.ica.sendMessage(new CustomMessage(2009004));
     }
 
     public void bVq() {
-        this.icu = 1;
         this.icv = 1;
         this.icw = 1;
+        this.icx = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bVr() {
-        if (this.icA == null) {
-            this.icA = new ArrayList<>();
+        if (this.icB == null) {
+            this.icB = new ArrayList<>();
         }
-        this.icA.remove(this.eWT);
-        this.icA.add(0, this.eWT);
-        dM(this.icA);
+        this.icB.remove(this.eWU);
+        this.icB.add(0, this.eWU);
+        dM(this.icB);
     }
 
     private void dM(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage xv(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.eWT);
+        httpMessage.addParam("word", this.eWU);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.ibZ.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.icB));
+        httpMessage.addParam("kw", this.ica.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.icC));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icu);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icv);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icv);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icw);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.icw);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.icx);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void xw(int i) {
         switch (i) {
             case 1:
-                this.icu++;
-                return;
-            case 2:
                 this.icv++;
                 return;
-            case 3:
+            case 2:
                 this.icw++;
+                return;
+            case 3:
+                this.icx++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int xx(int i) {
         switch (i) {
             case 1:
-                return this.icu;
-            case 2:
                 return this.icv;
-            case 3:
+            case 2:
                 return this.icw;
+            case 3:
+                return this.icx;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void xy(int i) {
         switch (i) {
             case 1:
-                this.icx = false;
-                return;
-            case 2:
                 this.icy = false;
                 return;
-            case 3:
+            case 2:
                 this.icz = false;
+                return;
+            case 3:
+                this.icA = false;
                 return;
             default:
                 return;

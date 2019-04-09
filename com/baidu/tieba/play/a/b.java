@@ -15,10 +15,10 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b hYH = null;
-    private com.baidu.tieba.play.a.a hYG;
-    private InterfaceC0366b hYI = null;
-    private int hYJ = 0;
+    private static b hYI = null;
+    private com.baidu.tieba.play.a.a hYH;
+    private InterfaceC0366b hYJ = null;
+    private int hYK = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,40 +30,40 @@ public class b {
     }
 
     public static b bTU() {
-        if (hYH == null) {
+        if (hYI == null) {
             synchronized (b.class) {
-                if (hYH == null) {
-                    hYH = new b();
+                if (hYI == null) {
+                    hYI = new b();
                 }
             }
         }
-        return hYH;
+        return hYI;
     }
 
     public void a(InterfaceC0366b interfaceC0366b) {
-        this.hYI = interfaceC0366b;
+        this.hYJ = interfaceC0366b;
     }
 
     public boolean AU(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (AV(str) && this.hYG.bTT().size() > this.hYJ) {
-            if (this.hYI != null) {
-                InterfaceC0366b interfaceC0366b = this.hYI;
-                List<String> bTT = this.hYG.bTT();
-                int i = this.hYJ;
-                this.hYJ = i + 1;
+        if (AV(str) && this.hYH.bTT().size() > this.hYK) {
+            if (this.hYJ != null) {
+                InterfaceC0366b interfaceC0366b = this.hYJ;
+                List<String> bTT = this.hYH.bTT();
+                int i = this.hYK;
+                this.hYK = i + 1;
                 interfaceC0366b.dG(bTT.get(i), str);
             }
             return true;
-        } else if (this.hYG != null && this.hYG.bTT() != null && this.hYG.bTT().size() <= this.hYJ) {
-            this.hYJ = 0;
-            this.hYG = null;
+        } else if (this.hYH != null && this.hYH.bTT() != null && this.hYH.bTT().size() <= this.hYK) {
+            this.hYK = 0;
+            this.hYH = null;
             return false;
         } else {
-            this.hYJ = 0;
-            this.hYG = null;
+            this.hYK = 0;
+            this.hYH = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -72,7 +72,7 @@ public class b {
     }
 
     private boolean AV(String str) {
-        return (this.hYG == null || TextUtils.isEmpty(str) || !str.equals(this.hYG.getHost()) || v.T(this.hYG.bTT()) || this.hYG.dK(System.currentTimeMillis()) || this.hYG.bTT().size() <= this.hYJ) ? false : true;
+        return (this.hYH == null || TextUtils.isEmpty(str) || !str.equals(this.hYH.getHost()) || v.T(this.hYH.bTT()) || this.hYH.dK(System.currentTimeMillis()) || this.hYH.bTT().size() <= this.hYK) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.HR)) {
-                b.this.hYG = aVarArr[0];
-                if (!v.T(aVarArr[0].bTT()) && b.this.hYI != null) {
-                    b.this.hYI.dG(aVarArr[0].bTT().get(0), aVarArr[0].getHost());
+                b.this.hYH = aVarArr[0];
+                if (!v.T(aVarArr[0].bTT()) && b.this.hYJ != null) {
+                    b.this.hYJ.dG(aVarArr[0].bTT().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.hYI != null) {
-                b.this.hYI.dG(null, null);
+            if (b.this.hYJ != null) {
+                b.this.hYJ.dG(null, null);
             }
         }
 

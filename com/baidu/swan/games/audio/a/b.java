@@ -6,22 +6,22 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bag;
-    private HashMap<String, c> baf = new HashMap<>();
+    private String bah;
+    private HashMap<String, c> bag = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
-    private final Object bai = new Object();
-    private com.baidu.swan.games.network.b bah = com.baidu.swan.games.network.b.OD();
+    private final Object baj = new Object();
+    private com.baidu.swan.games.network.b bai = com.baidu.swan.games.network.b.OD();
 
     public b(String str) {
-        this.bag = str;
+        this.bah = str;
     }
 
     private boolean hY(String str) {
-        return this.baf.containsKey(str);
+        return this.bag.containsKey(str);
     }
 
     public void a(String str, a aVar) {
-        synchronized (this.bai) {
+        synchronized (this.baj) {
             if (!hY(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
@@ -35,8 +35,8 @@ public class b implements a {
     }
 
     public void download(String str) {
-        c cVar = new c(this.bah, this.bag, str, this);
-        this.baf.put(str, cVar);
+        c cVar = new c(this.bai, this.bah, str, this);
+        this.bag.put(str, cVar);
         cVar.load();
     }
 
@@ -53,7 +53,7 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void aN(String str, String str2) {
         ArrayList<a> arrayList;
-        synchronized (this.bai) {
+        synchronized (this.baj) {
             if (hY(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -62,7 +62,7 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.baf.remove(str);
+                this.bag.remove(str);
             }
         }
     }
@@ -70,13 +70,13 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void s(int i, String str) {
         ArrayList<a> arrayList;
-        synchronized (this.bai) {
+        synchronized (this.baj) {
             if (hY(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).s(i, str);
                 }
-                this.baf.remove(str);
+                this.bag.remove(str);
             }
         }
     }

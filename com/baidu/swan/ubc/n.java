@@ -13,11 +13,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static final n bpH = new n();
+        private static final n bpI = new n();
     }
 
     public static n Tj() {
-        return a.bpH;
+        return a.bpI;
     }
 
     public final void onEvent(String str) {

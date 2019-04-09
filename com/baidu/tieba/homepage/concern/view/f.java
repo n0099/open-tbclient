@@ -33,17 +33,17 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class f extends d {
-    private boolean ZQ;
-    public PlayVoiceBntNew ZZ;
-    private ConstrainImageGroup ehZ;
-    private final View.OnClickListener eif;
+    private boolean ZR;
+    public PlayVoiceBntNew aaa;
+    private ConstrainImageGroup eia;
+    private final View.OnClickListener eig;
     private View fGZ;
     private ConcernVideoImageView fHn;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.ZQ = true;
-        this.eif = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.f.3
+        this.ZR = true;
+        this.eig = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ab<com.baidu.tieba.homepage.concern.b.b> aQf = f.this.aQf();
@@ -58,42 +58,42 @@ public class f extends d {
     @Override // com.baidu.tieba.homepage.concern.view.d
     protected void bQ(View view) {
         if (view != null) {
-            this.ZZ = (PlayVoiceBntNew) view.findViewById(d.g.card_recommend_god_therad_voice);
-            this.ZZ.setAfterClickListener(this.eif);
-            this.ehZ = (ConstrainImageGroup) view.findViewById(d.g.card_recommend_god_therad_img_layout);
+            this.aaa = (PlayVoiceBntNew) view.findViewById(d.g.card_recommend_god_therad_voice);
+            this.aaa.setAfterClickListener(this.eig);
+            this.eia = (ConstrainImageGroup) view.findViewById(d.g.card_recommend_god_therad_img_layout);
             this.fHn = (ConcernVideoImageView) view.findViewById(d.g.card_recommend_god_thread_video_layout);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16);
-            this.ehZ.setChildClickListener(this.fHj);
-            this.ehZ.setImageMargin(dimensionPixelSize);
+            this.eia.setChildClickListener(this.fHj);
+            this.eia.setImageMargin(dimensionPixelSize);
             com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
             fVar.h(1.0d);
-            this.ehZ.setImageProcessor(fVar);
+            this.eia.setImageProcessor(fVar);
             this.fGZ = view.findViewById(d.g.no_image_divider_line);
         }
     }
 
     public void setSingleImageRatio(double d) {
-        if (this.ehZ != null) {
-            this.ehZ.setSingleImageRatio(d);
+        if (this.eia != null) {
+            this.eia.setSingleImageRatio(d);
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.ehZ != null) {
-            this.ehZ.setConstrainLayoutPool(bVar);
+        if (this.eia != null) {
+            this.eia.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.ehZ != null) {
-            this.ehZ.setImageViewPool(bVar);
+        if (this.eia != null) {
+            this.eia.setImageViewPool(bVar);
         }
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        this.ehZ.onChangeSkinType();
+        this.eia.onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.card.a
@@ -107,7 +107,7 @@ public class f extends d {
             if (getView() == null) {
                 getView().setVisibility(8);
             }
-            this.dry.setVisibility(8);
+            this.drz.setVisibility(8);
             ((LinearLayout.LayoutParams) this.fHf.getLayoutParams()).bottomMargin = (int) this.mPageContext.getResources().getDimension(d.e.ds34);
             return;
         }
@@ -115,7 +115,7 @@ public class f extends d {
             getView().setVisibility(0);
             getView().setOnClickListener(this.fHj);
         }
-        this.dry.setVisibility(0);
+        this.drz.setVisibility(0);
         ArrayList<MediaData> YY = bgVar.YY();
         int S = v.S(YY);
         if (!this.fHh) {
@@ -145,15 +145,15 @@ public class f extends d {
         }
         ArrayList<VoiceData.VoiceModel> Zc = bgVar.Zc();
         if (v.T(Zc)) {
-            this.ZZ.setVisibility(8);
+            this.aaa.setVisibility(8);
         } else {
-            this.ZZ.setVisibility(0);
+            this.aaa.setVisibility(0);
             VoiceData.VoiceModel voiceModel = Zc.get(0);
-            this.ZZ.setVoiceModel(voiceModel);
-            this.ZZ.setTag(voiceModel);
-            this.ZZ.bxS();
+            this.aaa.setVoiceModel(voiceModel);
+            this.aaa.setTag(voiceModel);
+            this.aaa.bxS();
             if (voiceModel != null) {
-                this.ZZ.uq(voiceModel.voice_status.intValue());
+                this.aaa.uq(voiceModel.voice_status.intValue());
             }
         }
         if (i.Wv().Wz() && S > 0) {
@@ -171,10 +171,10 @@ public class f extends d {
             }
             if (v.S(linkedList) > 0) {
                 this.fGZ.setVisibility(8);
-                this.ehZ.setVisibility(0);
+                this.eia.setVisibility(0);
                 this.fHn.setVisibility(8);
-                this.ehZ.setFromCDN(this.ZQ);
-                this.ehZ.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.homepage.concern.view.f.1
+                this.eia.setFromCDN(this.ZR);
+                this.eia.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.homepage.concern.view.f.1
                     @Override // com.baidu.tbadk.widget.layout.d
                     public void a(View view, int i3, boolean z) {
                         ab<com.baidu.tieba.homepage.concern.b.b> aQf = f.this.aQf();
@@ -183,15 +183,15 @@ public class f extends d {
                             aQf.a(view, f.this.fHg);
                         }
                         if (!z) {
-                            f.this.a(view, linkedList, i3, f.this.bTn);
+                            f.this.a(view, linkedList, i3, f.this.bTo);
                         } else {
                             f.this.ajU();
                         }
                     }
                 });
-                this.ehZ.setImageMediaList(linkedList);
+                this.eia.setImageMediaList(linkedList);
             } else if (v.S(linkedList2) > 0) {
-                this.ehZ.setVisibility(8);
+                this.eia.setVisibility(8);
                 this.fHn.setVisibility(0);
                 this.fHn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.f.2
                     @Override // android.view.View.OnClickListener
@@ -202,10 +202,10 @@ public class f extends d {
                 this.fHn.setData(linkedList2);
                 this.fGZ.setVisibility(0);
             } else {
-                this.ehZ.setVisibility(8);
+                this.eia.setVisibility(8);
             }
         } else {
-            this.ehZ.setVisibility(8);
+            this.eia.setVisibility(8);
             this.fHn.setVisibility(8);
             this.fGZ.setVisibility(0);
         }
@@ -226,7 +226,7 @@ public class f extends d {
                 arrayList.add(mediaData.getSrc_pic());
                 if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.urlType = this.ZQ ? 13 : 14;
+                    imageUrlData.urlType = this.ZR ? 13 : 14;
                     imageUrlData.imageUrl = mediaData.getPicUrl();
                     imageUrlData.originalUrl = mediaData.getOriginalUrl();
                     imageUrlData.originalSize = mediaData.getOriginalSize();
@@ -245,7 +245,7 @@ public class f extends d {
                 }
             }
         }
-        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bgVar.YT(), String.valueOf(bgVar.getFid()), bgVar.getTid(), this.ZQ, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bgVar.YT(), String.valueOf(bgVar.getFid()), bgVar.getTid(), this.ZR, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
         createConfig.getIntent().putExtra("from", ImageViewerConfig.FROM_CONCERN);
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect);
@@ -255,8 +255,8 @@ public class f extends d {
 
     private void setPageUniqueId(BdUniqueId bdUniqueId) {
         setTag(bdUniqueId);
-        if (this.ehZ != null) {
-            this.ehZ.setPageUniqueId(bdUniqueId);
+        if (this.eia != null) {
+            this.eia.setPageUniqueId(bdUniqueId);
         }
     }
 

@@ -8,14 +8,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends e {
-    public SwanCoreVersion aSu;
+    public SwanCoreVersion aSv;
     public String mAppVersion = "";
-    public String aSv = "";
     public String aSw = "";
     public String aSx = "";
     public String aSy = "";
     public String aSz = "";
     public String aSA = "";
+    public String aSB = "";
 
     public void d(com.baidu.swan.apps.v.b.c cVar) {
         if (cVar == null) {
@@ -27,50 +27,50 @@ public class f extends e {
         }
         this.mAppId = cVar.mAppId;
         this.mSource = cVar.mFrom;
-        this.aSx = cVar.DA().getString("aiapp_extra_need_download", "");
-        this.aSy = cVar.axK;
-        this.aSA = cVar.axL;
+        this.aSy = cVar.DA().getString("aiapp_extra_need_download", "");
+        this.aSz = cVar.axL;
+        this.aSB = cVar.axM;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         try {
             com.baidu.swan.apps.ae.b za = com.baidu.swan.apps.w.e.Ea().za();
-            String a = com.baidu.swan.apps.swancore.b.a(this.aSu, this.mFrom == "swangame" ? 1 : 0);
+            String a = com.baidu.swan.apps.swancore.b.a(this.aSv, this.mFrom == "swangame" ? 1 : 0);
             if (za != null && za.uA() != null) {
                 com.baidu.swan.apps.v.b.b uA = za.uA();
                 if (TextUtils.isEmpty(this.mAppVersion)) {
                     this.mAppVersion = za.getVersion();
                 }
-                if (TextUtils.isEmpty(this.aSv)) {
-                    this.aSv = uA.auk;
+                if (TextUtils.isEmpty(this.aSw)) {
+                    this.aSw = uA.aul;
                 }
-                if (uA.axT != null) {
-                    this.aSx = uA.axT.getString("aiapp_extra_need_download", "");
+                if (uA.axU != null) {
+                    this.aSy = uA.axU.getString("aiapp_extra_need_download", "");
                 }
-                if (TextUtils.isEmpty(this.aSy)) {
-                    this.aSy = uA.axK;
+                if (TextUtils.isEmpty(this.aSz)) {
+                    this.aSz = uA.axL;
                 }
-                if (TextUtils.isEmpty(this.axL) && !TextUtils.isEmpty(uA.axL)) {
-                    this.aSA = uA.axL;
+                if (TextUtils.isEmpty(this.axM) && !TextUtils.isEmpty(uA.axM)) {
+                    this.aSB = uA.axM;
                 }
             }
-            this.aSw = SwanAppNetworkUtils.Fb().type;
-            if (this.aSt == null) {
-                this.aSt = new JSONObject();
+            this.aSx = SwanAppNetworkUtils.Fb().type;
+            if (this.aSu == null) {
+                this.aSu = new JSONObject();
             }
-            this.aSt.put("swan", a);
-            this.aSt.put("appversion", this.mAppVersion);
-            this.aSt.put("thirdversion", this.aSv);
-            this.aSt.put("net", this.aSw);
-            this.aSt.put("needdown", this.aSx);
-            this.aSt.put("scheme", this.aSy);
-            this.aSt.put("page", this.aSA);
-            if (!TextUtils.isEmpty(this.aSz)) {
-                this.aSt.put("canceltime", this.aSz);
+            this.aSu.put("swan", a);
+            this.aSu.put("appversion", this.mAppVersion);
+            this.aSu.put("thirdversion", this.aSw);
+            this.aSu.put("net", this.aSx);
+            this.aSu.put("needdown", this.aSy);
+            this.aSu.put("scheme", this.aSz);
+            this.aSu.put("page", this.aSB);
+            if (!TextUtils.isEmpty(this.aSA)) {
+                this.aSu.put("canceltime", this.aSA);
             }
             if (DEBUG) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.aSt + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.aSu + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e) {
             if (DEBUG) {

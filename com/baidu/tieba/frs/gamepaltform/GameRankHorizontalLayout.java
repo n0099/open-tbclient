@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
-    private LinearLayout cNh;
+    private LinearLayout cNi;
     private a fld;
 
     /* loaded from: classes4.dex */
@@ -42,13 +42,13 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     private void init(Context context) {
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.cNh = new LinearLayout(context);
-        addView(this.cNh, -1, -1);
+        this.cNi = new LinearLayout(context);
+        addView(this.cNi, -1, -1);
     }
 
     public void setData(com.baidu.tieba.h.b bVar) {
-        if (this.cNh != null && bVar != null) {
-            this.cNh.removeAllViews();
+        if (this.cNi != null && bVar != null) {
+            this.cNi.removeAllViews();
             if (!v.T(bVar.bkr())) {
                 for (int i = 0; i < bVar.bkr().size(); i++) {
                     View a2 = a(bVar.bkr().get(i), i);
@@ -64,7 +64,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                         layoutParams.rightMargin = 0;
                     }
                     a2.setLayoutParams(layoutParams);
-                    this.cNh.addView(a2);
+                    this.cNi.addView(a2);
                 }
             }
         }

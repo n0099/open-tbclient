@@ -11,14 +11,14 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LinkedList<a> asG = new LinkedList<>();
-    private static Map<String, com.baidu.swan.apps.b.c.c> asH = new TreeMap();
+    private static LinkedList<a> asH = new LinkedList<>();
+    private static Map<String, com.baidu.swan.apps.b.c.c> asI = new TreeMap();
 
     /* loaded from: classes2.dex */
     public static class a {
-        public com.baidu.swan.apps.b.c.c asJ;
-        public boolean asK;
-        public final ArrayList<InterfaceC0134b> asL = new ArrayList<>();
+        public com.baidu.swan.apps.b.c.c asK;
+        public boolean asL;
+        public final ArrayList<InterfaceC0134b> asM = new ArrayList<>();
     }
 
     /* renamed from: com.baidu.swan.apps.core.h.b$b  reason: collision with other inner class name */
@@ -35,14 +35,14 @@ public final class b {
             }
             return;
         }
-        if (asG.size() < 2) {
+        if (asH.size() < 2) {
             if (DEBUG) {
                 Log.d("SwanAppSlavePool", "preloadSlaveManager do preload.");
             }
-            asG.add(y(activity));
+            asH.add(y(activity));
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + asG.size());
+            Log.d("SwanAppSlavePool", "preloadSlaveManager size: " + asH.size());
         }
     }
 
@@ -68,13 +68,13 @@ public final class b {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
         }
-        if (asG.isEmpty()) {
+        if (asH.isEmpty()) {
             return y(activity);
         }
         if (DEBUG) {
-            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + asG.getFirst());
+            Log.d("SwanAppSlavePool", "getPreloadSlaveManager : " + asH.getFirst());
         }
-        a removeFirst = asG.removeFirst();
+        a removeFirst = asH.removeFirst();
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
         }
@@ -99,33 +99,33 @@ public final class b {
 
     public static void a(a aVar, InterfaceC0134b interfaceC0134b) {
         if (interfaceC0134b != null) {
-            if (aVar.asK) {
+            if (aVar.asL) {
                 interfaceC0134b.onReady();
             } else {
-                aVar.asL.add(interfaceC0134b);
+                aVar.asM.add(interfaceC0134b);
             }
         }
     }
 
     private static a y(Activity activity) {
         final a aVar = new a();
-        aVar.asK = false;
-        aVar.asJ = com.baidu.swan.apps.core.i.c.Aa().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.h.b.3
+        aVar.asL = false;
+        aVar.asK = com.baidu.swan.apps.core.i.c.Aa().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.h.b.3
             @Override // com.baidu.swan.apps.core.c
             public void dF(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.asJ.wd() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.asK.wd() + " url: " + str);
                 }
-                a.this.asK = true;
-                if (!a.this.asL.isEmpty()) {
-                    Iterator<InterfaceC0134b> it = a.this.asL.iterator();
+                a.this.asL = true;
+                if (!a.this.asM.isEmpty()) {
+                    Iterator<InterfaceC0134b> it = a.this.asM.iterator();
                     while (it.hasNext()) {
                         InterfaceC0134b next = it.next();
                         if (next != null) {
                             next.onReady();
                         }
                     }
-                    a.this.asL.clear();
+                    a.this.asM.clear();
                 }
             }
         });
@@ -133,19 +133,19 @@ public final class b {
     }
 
     public static void b(String str, com.baidu.swan.apps.b.c.c cVar) {
-        asH.put(str, cVar);
+        asI.put(str, cVar);
     }
 
     public static com.baidu.swan.apps.b.c.c ef(String str) {
-        com.baidu.swan.apps.b.c.c cVar = asH.get(str);
+        com.baidu.swan.apps.b.c.c cVar = asI.get(str);
         if (cVar != null) {
-            asH.remove(str);
+            asI.remove(str);
         }
         return cVar;
     }
 
     public static void clearAll() {
-        asG.clear();
         asH.clear();
+        asI.clear();
     }
 }

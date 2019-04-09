@@ -32,7 +32,7 @@ import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class HorizontalTabView extends MyHorizontalScrollView implements com.baidu.tieba.frs.tab.b {
-    private TbPageContext eKd;
+    private TbPageContext eKe;
     public int fsZ;
     private final LinearLayout fta;
     private final e ftb;
@@ -75,7 +75,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
 
     public void bil() {
         final as asVar;
-        if (this.eKd != null) {
+        if (this.eKe != null) {
             ArrayList arrayList = new ArrayList();
             if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (asVar = this.mData.get(0).ftu) != null && asVar.fcr != null) {
                 for (ar arVar : asVar.fcr) {
@@ -83,7 +83,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                         arrayList.add(arVar.name);
                     }
                 }
-                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.eKd.getPageActivity());
+                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.eKe.getPageActivity());
                 bVar.a(arrayList, new b.InterfaceC0225b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.4
                     @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0225b
                     public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
@@ -93,7 +93,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                         }
                     }
                 });
-                bVar.d(this.eKd);
+                bVar.d(this.eKe);
                 bVar.aaZ();
             }
         }

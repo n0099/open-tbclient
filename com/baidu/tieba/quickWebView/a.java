@@ -6,13 +6,13 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.browser.b {
-    private b ifk;
-    private final String ifs;
+    private b ifl;
+    private final String ift;
 
     public a(Context context, b bVar) {
         super(context);
-        this.ifs = "requestByNative";
-        this.ifk = bVar;
+        this.ift = "requestByNative";
+        this.ifl = bVar;
     }
 
     @Override // com.baidu.tbadk.browser.b, com.baidu.tieba.tbadkCore.e.b
@@ -21,8 +21,8 @@ public class a extends com.baidu.tbadk.browser.b {
             try {
                 QuickWebViewBridgeData quickWebViewBridgeData = (QuickWebViewBridgeData) OrmObject.objectWithJsonStr(str3, QuickWebViewBridgeData.class);
                 quickWebViewBridgeData.begin = System.currentTimeMillis();
-                if (this.ifk != null) {
-                    this.ifk.a(quickWebViewBridgeData, quickWebViewBridgeData.callBack);
+                if (this.ifl != null) {
+                    this.ifl.a(quickWebViewBridgeData, quickWebViewBridgeData.callBack);
                 }
                 jsPromptResult.confirm();
                 return true;

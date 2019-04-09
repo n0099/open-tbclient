@@ -51,7 +51,7 @@ public class a implements com.baidu.swan.pms.b {
     public String Dk() {
         ExtensionCore As = com.baidu.swan.apps.extcore.a.Bh().As();
         if (As != null) {
-            String str = As.avP;
+            String str = As.avQ;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";

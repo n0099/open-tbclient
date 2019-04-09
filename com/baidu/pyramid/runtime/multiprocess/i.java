@@ -5,24 +5,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private static e ahY;
+    private static e ahZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(e eVar) {
-        ahY = eVar;
+        ahZ = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void i(Exception exc) {
-        if (ahY != null) {
-            ahY.dh(j(exc).toString());
+        if (ahZ != null) {
+            ahZ.dh(j(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void dh(String str) {
-        if (ahY != null) {
-            ahY.dh(str);
+        if (ahZ != null) {
+            ahZ.dh(str);
         }
     }
 

@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0425a jzh;
         private C0425a jzi;
-        private boolean jzj;
+        private C0425a jzj;
+        private boolean jzk;
 
         private a(String str) {
-            this.jzh = new C0425a();
-            this.jzi = this.jzh;
-            this.jzj = false;
+            this.jzi = new C0425a();
+            this.jzj = this.jzi;
+            this.jzk = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.jzj;
+            boolean z = this.jzk;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0425a c0425a = this.jzh.jzk; c0425a != null; c0425a = c0425a.jzk) {
+            for (C0425a c0425a = this.jzi.jzl; c0425a != null; c0425a = c0425a.jzl) {
                 if (!z || c0425a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -72,8 +72,8 @@ public final class f {
 
         private C0425a ctD() {
             C0425a c0425a = new C0425a();
-            this.jzi.jzk = c0425a;
-            this.jzi = c0425a;
+            this.jzj.jzl = c0425a;
+            this.jzj = c0425a;
             return c0425a;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0425a {
-            C0425a jzk;
+            C0425a jzl;
             String name;
             Object value;
 

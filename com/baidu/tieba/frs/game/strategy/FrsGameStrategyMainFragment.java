@@ -25,7 +25,7 @@ import com.baidu.tieba.frs.game.strategy.view.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsGameStrategyMainFragment extends BaseFragment implements a.InterfaceC0042a, ah {
-    private String ekM;
+    private String ekN;
     private String fjF;
     private e fjG;
     private b fjH;
@@ -105,7 +105,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
             return null;
         }
     };
-    private CustomMessageListener dgA = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.3
+    private CustomMessageListener dgB = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -117,8 +117,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
             }
         }
     };
-    private boolean ddg = true;
-    private CustomMessageListener dpw = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.4
+    private boolean ddh = true;
+    private CustomMessageListener dpx = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -138,25 +138,25 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.ekM = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.ekN = bundle.getString(ImageViewerConfig.FORUM_ID);
             this.fjF = bundle.getString("name");
             this.mFrom = bundle.getString("key_from");
         } else if (getArguments() != null) {
-            this.ekM = getArguments().getString(ImageViewerConfig.FORUM_ID);
+            this.ekN = getArguments().getString(ImageViewerConfig.FORUM_ID);
             this.fjF = getArguments().getString("name");
             this.mFrom = getArguments().getString("key_from");
         }
-        this.fjH = new b(getActivity(), getUniqueId(), com.baidu.adp.lib.g.b.d(this.ekM, 0L), this.fjF);
+        this.fjH = new b(getActivity(), getUniqueId(), com.baidu.adp.lib.g.b.d(this.ekN, 0L), this.fjF);
         this.fjH.a(this.fjI);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.dpw.setSelfListener(true);
-        registerListener(2001617, this.dpw, getBaseFragmentActivity().getUniqueId());
-        registerListener(2001618, this.dpw, getBaseFragmentActivity().getUniqueId());
-        registerListener(2001446, this.dgA, getBaseFragmentActivity().getUniqueId());
+        this.dpx.setSelfListener(true);
+        registerListener(2001617, this.dpx, getBaseFragmentActivity().getUniqueId());
+        registerListener(2001618, this.dpx, getBaseFragmentActivity().getUniqueId());
+        registerListener(2001446, this.dgB, getBaseFragmentActivity().getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -179,9 +179,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     }
 
     private void bga() {
-        if (this.ddg && this.fjH != null) {
+        if (this.ddh && this.fjH != null) {
             this.fjH.bj(0, 0);
-            this.ddg = false;
+            this.ddh = false;
             if (this.fjG != null) {
                 this.isLoading = true;
                 showLoadingView(this.fjG.getRootView());
@@ -206,7 +206,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(ImageViewerConfig.FORUM_ID, this.ekM);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.ekN);
         bundle.putString("name", this.fjF);
         bundle.putString("key_from", this.mFrom);
     }
@@ -232,7 +232,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements a.Inter
     }
 
     public String getFid() {
-        return this.ekM;
+        return this.ekN;
     }
 
     @Override // android.support.v4.app.Fragment, com.baidu.e.a.a.InterfaceC0042a

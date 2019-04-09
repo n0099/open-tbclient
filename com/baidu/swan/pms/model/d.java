@@ -6,6 +6,6 @@ public abstract class d {
     public long createTime = 0;
     public long updateTime = 0;
     public int state = 0;
-    public long acM = 0;
-    public int acN = 0;
+    public long acN = 0;
+    public int acO = 0;
 }

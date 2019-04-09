@@ -11,8 +11,8 @@ import java.util.HashSet;
 /* loaded from: classes.dex */
 public abstract class g implements IBinder, IBinder.DeathRecipient {
     private static final boolean DEBUG = h.DEBUG;
-    private volatile IBinder ahW;
-    private HashSet<IBinder.DeathRecipient> ahX = new HashSet<>();
+    private volatile IBinder ahX;
+    private HashSet<IBinder.DeathRecipient> ahY = new HashSet<>();
     private Object mLock = new Object();
 
     protected abstract IBinder tX() throws RemoteException;
@@ -20,10 +20,10 @@ public abstract class g implements IBinder, IBinder.DeathRecipient {
     private IBinder tY() throws RemoteException {
         IBinder iBinder;
         synchronized (this.mLock) {
-            iBinder = this.ahW;
+            iBinder = this.ahX;
             if (iBinder == null) {
                 iBinder = tX();
-                this.ahW = iBinder;
+                this.ahX = iBinder;
                 if (iBinder != null) {
                     iBinder.linkToDeath(this, 0);
                 } else {
@@ -86,17 +86,17 @@ public abstract class g implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
-        synchronized (this.ahX) {
-            this.ahX.add(deathRecipient);
+        synchronized (this.ahY) {
+            this.ahY.add(deathRecipient);
         }
     }
 
     @Override // android.os.IBinder
     public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        synchronized (this.ahX) {
-            this.ahX.remove(deathRecipient);
+        synchronized (this.ahY) {
+            this.ahY.remove(deathRecipient);
         }
-        return this.ahW != null;
+        return this.ahX != null;
     }
 
     @Override // android.os.IBinder.DeathRecipient
@@ -105,14 +105,14 @@ public abstract class g implements IBinder, IBinder.DeathRecipient {
             Log.d("MultiProcess", "Long Live Binder -> [binderDied]");
         }
         synchronized (this.mLock) {
-            IBinder iBinder = this.ahW;
+            IBinder iBinder = this.ahX;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(this, 0);
-                this.ahW = null;
+                this.ahX = null;
             }
             ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-            synchronized (this.ahX) {
-                arrayList.addAll(this.ahX);
+            synchronized (this.ahY) {
+                arrayList.addAll(this.ahY);
             }
             for (IBinder.DeathRecipient deathRecipient : arrayList) {
                 deathRecipient.binderDied();

@@ -14,13 +14,13 @@ public final class d {
     private String h;
     private String i;
     private boolean j;
-    private JSONArray jwu;
+    private JSONArray jwv;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        public static final d jwv = new d((byte) 0);
+        public static final d jww = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
@@ -40,7 +40,7 @@ public final class d {
     }
 
     public static d cso() {
-        return a.jwv;
+        return a.jww;
     }
 
     public final void a(Context context) {
@@ -87,7 +87,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult EP(String str) {
-        if (this.jwu == null) {
+        if (this.jwv == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -96,8 +96,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.jwu.length(); i++) {
-            JSONObject optJSONObject = this.jwu.optJSONObject(i);
+        for (int i = 0; i < this.jwv.length(); i++) {
+            JSONObject optJSONObject = this.jwv.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.Fc(optJSONObject.optString("group"));
             }

@@ -15,23 +15,22 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String cbR = m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int bDY;
-    public String cbA;
+    public static final String cbS = m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int bDZ;
     public String cbB;
-    public int cbH;
-    public String cbI;
+    public String cbC;
+    public int cbI;
     public String cbJ;
     public String cbK;
-    private Bundle cbM;
-    public String cbu;
-    public Bundle cbx;
+    public String cbL;
+    private Bundle cbN;
+    public String cbv;
+    public Bundle cby;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean cbj = false;
     public boolean cbk = false;
     public boolean cbl = false;
     public boolean cbm = false;
@@ -41,52 +40,53 @@ public class d {
     public boolean cbq = false;
     public boolean cbr = false;
     public boolean cbs = false;
-    public String cbt = "";
-    public int cbC = 0;
-    public int cbD = 3;
-    public int cbE = 0;
+    public boolean cbt = false;
+    public String cbu = "";
+    public int cbD = 0;
+    public int cbE = 3;
     public int cbF = 0;
     public int cbG = 0;
+    public int cbH = 0;
     public int shareType = 0;
-    public boolean cbN = true;
     public boolean cbO = true;
     public boolean cbP = true;
-    public int cbQ = 0;
+    public boolean cbQ = true;
+    public int cbR = 0;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String cbv = null;
-    public Uri imageUri = null;
-    public Location cby = null;
-    private WeakReference<Bitmap> cbL = null;
-    public String cbz = null;
-    public String extData = null;
     public String cbw = null;
+    public Uri imageUri = null;
+    public Location cbz = null;
+    private WeakReference<Bitmap> cbM = null;
+    public String cbA = null;
+    public String extData = null;
+    public String cbx = null;
 
     public Bundle ajP() {
-        return this.cbM;
+        return this.cbN;
     }
 
     public void D(Bundle bundle) {
-        this.cbM = bundle;
+        this.cbN = bundle;
     }
 
     public Bitmap ajQ() {
         Bitmap bitmap;
-        if (this.cbL == null || (bitmap = this.cbL.get()) == null || bitmap.isRecycled()) {
+        if (this.cbM == null || (bitmap = this.cbM.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void n(Bitmap bitmap) {
-        this.cbL = new WeakReference<>(bitmap);
+        this.cbM = new WeakReference<>(bitmap);
     }
 
     public byte[] ajR() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.cbL == null || (bitmap = this.cbL.get()) == null || bitmap.isRecycled()) {
+        if (this.cbM == null || (bitmap = this.cbM.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -106,14 +106,14 @@ public class d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4, 233=4, 235=4, 236=4] */
     public void ajS() {
         FileOutputStream fileOutputStream = null;
-        if (this.cbL == null) {
+        if (this.cbM == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (m.hy()) {
-                    File file = new File(cbR);
+                    File file = new File(cbS);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -128,7 +128,7 @@ public class d {
                             fileOutputStream3.write(ajR);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.cbL = null;
+                            this.cbM = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

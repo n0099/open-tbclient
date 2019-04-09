@@ -21,13 +21,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d ggQ;
+    private static d ggR;
 
     public static d bsf() {
-        if (ggQ == null) {
-            ggQ = new d();
+        if (ggR == null) {
+            ggR = new d();
         }
-        return ggQ;
+        return ggR;
     }
 
     public void wN(String str) {

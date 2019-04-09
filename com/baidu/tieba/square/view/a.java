@@ -25,11 +25,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private CoverFlowView<g> iCQ;
+    private CoverFlowView<g> iCR;
     private TbPageContext<?> mContext;
-    private HashSet<String> iCP = new HashSet<>();
+    private HashSet<String> iCQ = new HashSet<>();
     private ArrayList<g> datas = new ArrayList<>();
-    private d<g> bGf = new d<g>() { // from class: com.baidu.tieba.square.view.a.1
+    private d<g> bGg = new d<g>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
         public void y(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
         public void a(int i, g gVar) {
             if (gVar != null) {
                 String cdg = gVar.cdg();
-                if (i == 2 && !TextUtils.isEmpty(cdg) && a.this.iCP.add(cdg)) {
+                if (i == 2 && !TextUtils.isEmpty(cdg) && a.this.iCQ.add(cdg)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", "task", "tbanner", VideoPlayActivityConfig.OBJ_ID, String.valueOf(cdg), "obj_name", String.valueOf(cdg), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", "os_version", Build.VERSION.RELEASE);
                 }
             }
@@ -54,10 +54,10 @@ public class a extends BaseAdapter {
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.iCQ = null;
+        this.iCR = null;
         this.mContext = tbPageContext;
-        this.iCQ = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.iCQ.setCoverFlowFactory(new b() { // from class: com.baidu.tieba.square.view.a.2
+        this.iCR = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.iCR.setCoverFlowFactory(new b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e abk() {
                 e eVar = new e();
@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
                 return abj;
             }
         });
-        this.iCQ.setCallback(this.bGf);
+        this.iCR.setCallback(this.bGg);
     }
 
     public void setData(ArrayList<bd> arrayList) {
@@ -89,7 +89,7 @@ public class a extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.iCQ.setData(arrayList2);
+        this.iCR.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -110,16 +110,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.iCQ;
+        return this.iCR;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iCQ != null) {
-            this.iCQ.onChangeSkinType();
+        if (this.iCR != null) {
+            this.iCR.onChangeSkinType();
         }
     }
 
     public CoverFlowView<g> cdn() {
-        return this.iCQ;
+        return this.iCR;
     }
 }

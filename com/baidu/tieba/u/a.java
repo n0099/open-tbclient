@@ -7,8 +7,8 @@ import com.baidu.tbadk.coreExtra.data.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private long aEs;
-    private CustomMessageListener bvw = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.a.1
+    private long aEt;
+    private CustomMessageListener bvx = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -17,8 +17,8 @@ public class a {
             }
         }
     };
-    private long jgK;
-    private y jgL;
+    private long jgL;
+    private y jgM;
     private long mInterval;
     private long mStartTime;
 
@@ -28,12 +28,12 @@ public class a {
 
     private void init() {
         cmP();
-        this.jgK = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
-        MessageManager.getInstance().registerListener(this.bvw);
+        this.jgL = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
+        MessageManager.getInstance().registerListener(this.bvx);
     }
 
     public boolean cmO() {
-        if (this.mStartTime == 0 || this.aEs == 0 || this.mInterval == 0) {
+        if (this.mStartTime == 0 || this.aEt == 0 || this.mInterval == 0) {
             return false;
         }
         Date date = new Date();
@@ -41,26 +41,26 @@ public class a {
     }
 
     private boolean q(Date date) {
-        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.aEs;
+        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.aEt;
     }
 
     private boolean r(Date date) {
-        return date != null && date.getTime() - this.jgK >= this.mInterval;
+        return date != null && date.getTime() - this.jgL >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cmP() {
-        if (this.jgL == null) {
-            this.jgL = new y();
+        if (this.jgM == null) {
+            this.jgM = new y();
         }
-        this.jgL.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.jgL.agE();
-        this.aEs = this.jgL.agF();
-        this.mInterval = this.jgL.agG();
+        this.jgM.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
+        this.mStartTime = this.jgM.agE();
+        this.aEt = this.jgM.agF();
+        this.mInterval = this.jgM.agG();
     }
 
     public void dY(long j) {
-        this.jgK = j;
+        this.jgL = j;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

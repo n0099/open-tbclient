@@ -21,8 +21,8 @@ import com.baidu.tieba.d;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
-    private String bvL;
-    private long bvN;
+    private String bvM;
+    private long bvO;
     private TbImageView fMI;
     private ImageView fMJ;
     private String imgUrl;
@@ -42,22 +42,22 @@ public class BigdayActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.bvL = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.bvN = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.bvM = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.bvO = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
         this.fMI.setTag(getPageContext().getUniqueId());
         this.fMI.startLoad(this.imgUrl, 41, false);
         this.fMI.setOnClickListener(this);
         this.fMJ.setOnClickListener(this);
-        TiebaStatic.log(new am("c13111").k(VideoPlayActivityConfig.OBJ_ID, this.bvN).bJ("obj_to", this.bvL));
+        TiebaStatic.log(new am("c13111").k(VideoPlayActivityConfig.OBJ_ID, this.bvO).bJ("obj_to", this.bvM));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == this.fMI.getId()) {
-            if (!StringUtils.isNULL(this.bvL)) {
-                ba.adA().c(getPageContext(), new String[]{this.bvL});
-                TiebaStatic.log(new am("c13112").k(VideoPlayActivityConfig.OBJ_ID, this.bvN).bJ("obj_to", this.bvL));
+            if (!StringUtils.isNULL(this.bvM)) {
+                ba.adA().c(getPageContext(), new String[]{this.bvM});
+                TiebaStatic.log(new am("c13112").k(VideoPlayActivityConfig.OBJ_ID, this.bvO).bJ("obj_to", this.bvM));
                 finish();
             }
         } else if (view.getId() == this.fMJ.getId()) {

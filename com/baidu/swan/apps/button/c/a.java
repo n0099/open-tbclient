@@ -52,7 +52,7 @@ public class a {
     }
 
     private static void a(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
-        view.setPadding(x.ad((float) aVar.adZ), x.ad((float) aVar.aea), x.ad((float) aVar.aeb), x.ad((float) aVar.aec));
+        view.setPadding(x.ad((float) aVar.aea), x.ad((float) aVar.aeb), x.ad((float) aVar.aec), x.ad((float) aVar.aed));
         float f = aVar.alpha;
         if (f >= 0.0f && f <= 1.0f) {
             view.setAlpha(f);
@@ -62,7 +62,7 @@ public class a {
     private static void b(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(aVar.backgroundColor);
-        gradientDrawable.setCornerRadius(aVar.akl);
+        gradientDrawable.setCornerRadius(aVar.akm);
         gradientDrawable.setStroke(aVar.borderWidth, aVar.borderColor);
         view.setBackground(gradientDrawable);
     }
@@ -76,7 +76,7 @@ public class a {
         boolean z2;
         textView.setText(aVar.text);
         try {
-            textView.setTextColor(Color.parseColor(aVar.akm));
+            textView.setTextColor(Color.parseColor(aVar.akn));
         } catch (Exception e) {
             c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
         }
@@ -161,7 +161,7 @@ public class a {
                 }
                 break;
         }
-        String str3 = aVar.akn;
+        String str3 = aVar.ako;
         switch (str3.hashCode()) {
             case -1039745817:
                 if (str3.equals("normal")) {

@@ -14,9 +14,9 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> bMK = new ArrayList<>();
-    private b bML;
-    private InterfaceC0227a bMM;
+    private ArrayList<String> bML = new ArrayList<>();
+    private b bMM;
+    private InterfaceC0227a bMN;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -32,18 +32,18 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.bML = bVar;
+        this.bMM = bVar;
     }
 
     public void adN() {
-        if (this.bMK != null) {
-            this.bMK.clear();
+        if (this.bML != null) {
+            this.bML.clear();
         }
     }
 
     public void e(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bMK.add(str);
+            this.bML.add(str);
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
         if (!com.baidu.e.a.ts()) {
             adO();
             return false;
-        } else if (v.T(this.bMK)) {
+        } else if (v.T(this.bML)) {
             adO();
             return false;
         } else {
@@ -89,16 +89,16 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bML != null) {
-                    a.this.bML.na(str);
+                if (a.this.bMM != null) {
+                    a.this.bMM.na(str);
                 }
             }
         }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bML != null) {
-                    a.this.bML.mZ(str);
+                if (a.this.bMM != null) {
+                    a.this.bMM.mZ(str);
                 }
             }
         }).b(i.aK(activity));
@@ -109,7 +109,7 @@ public class a {
     private void Z(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bMK.toArray(new String[this.bMK.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bML.toArray(new String[this.bML.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -145,12 +145,12 @@ public class a {
     }
 
     public void a(InterfaceC0227a interfaceC0227a) {
-        this.bMM = interfaceC0227a;
+        this.bMN = interfaceC0227a;
     }
 
     public void adO() {
-        if (this.bMM != null) {
-            this.bMM.adO();
+        if (this.bMN != null) {
+            this.bMN.adO();
         }
     }
 }

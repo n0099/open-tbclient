@@ -37,7 +37,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private ArrayList<m> ezS;
+    private ArrayList<m> ezT;
     private BdTypeRecyclerView fdo;
     private final HashMap<Integer, bg> fhc;
     private FrsViewData fhd;
@@ -76,7 +76,7 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && v.T(b.this.fpL)) {
                 b.this.b(b.this.fdo);
-                b.this.b(b.this.ezS, b.this.fhd);
+                b.this.b(b.this.ezT, b.this.fhd);
             }
         }
     };
@@ -92,25 +92,25 @@ public class b {
         this.ffS.setPriority(1);
         this.ffS.setSelfListener(true);
         this.fpr.registerListener(this.ffS);
-        q qVar = new q(frsGoodFragment.getTbPageContext(), bg.bAX, this.fpr.getUniqueId());
+        q qVar = new q(frsGoodFragment.getTbPageContext(), bg.bAY, this.fpr.getUniqueId());
         qVar.setInFrsAllThread(true);
-        g gVar = new g(frsGoodFragment.getTbPageContext(), bg.bAY, this.fpr.getUniqueId());
-        o oVar = new o(frsGoodFragment.getTbPageContext(), bg.bBa, this.fpr.getUniqueId());
-        com.baidu.tieba.frs.entelechy.a.m mVar = new com.baidu.tieba.frs.entelechy.a.m(frsGoodFragment.getTbPageContext(), bg.bBb, this.fpr.getUniqueId());
-        f fVar = new f(frsGoodFragment.getTbPageContext(), bg.bBc, this.fpr.getUniqueId());
-        com.baidu.tieba.frs.entelechy.a.h hVar = new com.baidu.tieba.frs.entelechy.a.h(frsGoodFragment.getTbPageContext(), bg.bBd, this.fpr.getUniqueId());
-        r rVar = new r(frsGoodFragment.getPageContext(), bg.bBg, this.fpr.getUniqueId());
+        g gVar = new g(frsGoodFragment.getTbPageContext(), bg.bAZ, this.fpr.getUniqueId());
+        o oVar = new o(frsGoodFragment.getTbPageContext(), bg.bBb, this.fpr.getUniqueId());
+        com.baidu.tieba.frs.entelechy.a.m mVar = new com.baidu.tieba.frs.entelechy.a.m(frsGoodFragment.getTbPageContext(), bg.bBc, this.fpr.getUniqueId());
+        f fVar = new f(frsGoodFragment.getTbPageContext(), bg.bBd, this.fpr.getUniqueId());
+        com.baidu.tieba.frs.entelechy.a.h hVar = new com.baidu.tieba.frs.entelechy.a.h(frsGoodFragment.getTbPageContext(), bg.bBe, this.fpr.getUniqueId());
+        r rVar = new r(frsGoodFragment.getPageContext(), bg.bBh, this.fpr.getUniqueId());
         rVar.setInFrsAllThread(true);
-        k kVar = new k(frsGoodFragment.getPageContext(), bg.bBe, this.fpr.getUniqueId());
-        n nVar = new n(frsGoodFragment.getPageContext(), bg.bBf, this.fpr.getUniqueId());
+        k kVar = new k(frsGoodFragment.getPageContext(), bg.bBf, this.fpr.getUniqueId());
+        n nVar = new n(frsGoodFragment.getPageContext(), bg.bBg, this.fpr.getUniqueId());
         nVar.setVoiceManager(frsGoodFragment.getVoiceManager());
-        r rVar2 = new r(frsGoodFragment.getPageContext(), bg.bBl, this.fpr.getUniqueId());
+        r rVar2 = new r(frsGoodFragment.getPageContext(), bg.bBm, this.fpr.getUniqueId());
         l lVar = new l(frsGoodFragment.getPageContext(), com.baidu.tieba.frs.m.fbw);
         com.baidu.adp.widget.ListView.a<? extends bf, ? extends v.a> a = c.bbM().a(frsGoodFragment.getPageContext(), this.fpr.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> b = c.bbM().b(frsGoodFragment.getPageContext(), bg.bCL, this.fpr.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.bWF().a(this.fpr, AdvertAppInfo.bwp);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.bWF().a(this.fpr, AdvertAppInfo.bwy);
-        p pVar = new p(frsGoodFragment.getPageContext(), bg.bBk, this.fpr.getUniqueId());
+        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> b = c.bbM().b(frsGoodFragment.getPageContext(), bg.bCM, this.fpr.getUniqueId());
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.bWF().a(this.fpr, AdvertAppInfo.bwq);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.bWF().a(this.fpr, AdvertAppInfo.bwz);
+        p pVar = new p(frsGoodFragment.getPageContext(), bg.bBl, this.fpr.getUniqueId());
         this.mAdapters.add(qVar);
         this.mAdapters.add(gVar);
         this.mAdapters.add(oVar);
@@ -165,7 +165,7 @@ public class b {
         com.baidu.tieba.tbadkCore.q.p(arrayList, 1);
         V(arrayList);
         this.fdo.setData(frsViewData.switchThreadDataToThreadCardInfo());
-        this.ezS = arrayList;
+        this.ezT = arrayList;
         this.fhd = frsViewData;
         bfa();
     }
@@ -280,7 +280,7 @@ public class b {
         if (arrayList != null && arrayList.size() > 0) {
             Iterator<m> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (it.next().getType() == bg.bAS) {
+                if (it.next().getType() == bg.bAT) {
                     it.remove();
                 }
             }

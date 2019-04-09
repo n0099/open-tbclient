@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private int bIa;
+    private int bIb;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.bIa = 0;
+        this.bIb = 0;
         this.mTabHost = fragmentTabHost;
-        this.bIa = i;
+        this.bIb = i;
     }
 
     public void c(Pair<String, String> pair) {
@@ -80,9 +80,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void abU() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bIa);
-            al.l(this.mTabHost.getFragmentTabWidget(), this.bIa);
-            al.l(this.mTabHost.getTabWrapper(), this.bIa);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bIb);
+            al.l(this.mTabHost.getFragmentTabWidget(), this.bIb);
+            al.l(this.mTabHost.getTabWrapper(), this.bIb);
         }
     }
 }

@@ -6,11 +6,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(11)
 /* loaded from: classes2.dex */
 public class e extends f {
-    private final b jEK;
-    private final com.facebook.imagepipeline.h.e jEM;
+    private final b jEL;
+    private final com.facebook.imagepipeline.h.e jEN;
 
     public e(b bVar, com.facebook.imagepipeline.h.e eVar) {
-        this.jEK = bVar;
-        this.jEM = eVar;
+        this.jEL = bVar;
+        this.jEN = eVar;
     }
 }

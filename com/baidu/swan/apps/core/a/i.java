@@ -94,7 +94,7 @@ public class i {
             if (DEBUG) {
                 Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + fR);
             }
-            if (fR != null && fR.aFh && fR.aFd.isSwanAppProcess()) {
+            if (fR != null && fR.aFi && fR.aFe.isSwanAppProcess()) {
                 serviceObject.sendMessageToClient(fR, 107, bundle);
                 return;
             }
@@ -144,8 +144,8 @@ public class i {
         if (aVar != null && aVar.isValid()) {
             SwanAppDbControl bE = SwanAppDbControl.bE(com.baidu.swan.apps.u.a.Cw());
             if (z || aVar.AE()) {
-                if (aVar.aul <= 0) {
-                    aVar.aul = 432000L;
+                if (aVar.aum <= 0) {
+                    aVar.aum = 432000L;
                 }
                 aVar.createTime = System.currentTimeMillis();
                 z2 = bE.e(aVar, true);

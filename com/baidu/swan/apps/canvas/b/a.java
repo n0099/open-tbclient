@@ -11,12 +11,12 @@ public abstract class a {
         if (aVar == null) {
             return null;
         }
-        String str = aVar.aBG;
+        String str = aVar.aBH;
         String str2 = aVar.id;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        c cVar = (c) e.Ea().eg(aVar.aBG);
+        c cVar = (c) e.Ea().eg(aVar.aBH);
         return cVar != null ? cVar.dl(aVar.id) : null;
     }
 
@@ -25,6 +25,6 @@ public abstract class a {
         if (a == null) {
             return null;
         }
-        return a.amA;
+        return a.amB;
     }
 }

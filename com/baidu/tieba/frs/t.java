@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class t extends com.baidu.tieba.horizonalList.widget.e {
-    private com.baidu.tbadk.core.view.userLike.c ehj;
+    private com.baidu.tbadk.core.view.userLike.c ehk;
     public HeadImageView fbV;
     public TextView fbW;
     public TextView fbX;
@@ -45,9 +45,9 @@ public class t extends com.baidu.tieba.horizonalList.widget.e {
         this.fbW = (TextView) view.findViewById(d.g.rec_user_name);
         this.fbX = (TextView) view.findViewById(d.g.rec_user_describe);
         this.fbY = (EntelechyUserLikeButton) view.findViewById(d.g.rec_user_like);
-        this.ehj = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fbY);
-        this.ehj.setFromType("1");
-        this.ehj.i(bdUniqueId);
+        this.ehk = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fbY);
+        this.ehk.setFromType("1");
+        this.ehk.i(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.e
@@ -65,7 +65,7 @@ public class t extends com.baidu.tieba.horizonalList.widget.e {
                 this.fbX.setText(com.baidu.tbadk.core.util.ap.V(this.fbZ.metaData.getGodUserData().getIntro(), 6));
                 this.fbW.setText(V);
                 getView().setOnClickListener(this.mOnClickListener);
-                this.ehj.a(this.fbZ.metaData);
+                this.ehk.a(this.fbZ.metaData);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }

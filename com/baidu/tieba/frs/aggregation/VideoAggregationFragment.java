@@ -29,8 +29,8 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d {
-    private FrameLayout bfJ;
-    private NoNetworkView dbq;
+    private FrameLayout bfK;
+    private NoNetworkView dbr;
     private BdTypeListView feR;
     private PbListView feS;
     private f feT;
@@ -107,12 +107,12 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.bfJ = (FrameLayout) view.findViewById(d.g.container);
+        this.bfK = (FrameLayout) view.findViewById(d.g.container);
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.navigation_bar);
         aBy();
-        this.dbq = (NoNetworkView) view.findViewById(d.g.no_network_view);
+        this.dbr = (NoNetworkView) view.findViewById(d.g.no_network_view);
         if (!j.kY()) {
-            this.dbq.setVisibility(0);
+            this.dbr.setVisibility(0);
         }
         this.feR = (BdTypeListView) view.findViewById(d.g.listView);
         this.mPullView = new com.baidu.tbadk.core.view.i(getPageContext());
@@ -163,7 +163,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                     }
                 })));
             } else {
-                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.bfJ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(getActivity(), d.e.ds220)), NoDataViewFactory.d.hT(d.j.video_no_data), null);
+                this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.bfK, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(getActivity(), d.e.ds220)), NoDataViewFactory.d.hT(d.j.video_no_data), null);
             }
         }
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -210,8 +210,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dbq.onChangeSkinType(getPageContext(), i);
-        al.l(this.bfJ, d.C0277d.cp_cont_g);
+        this.dbr.onChangeSkinType(getPageContext(), i);
+        al.l(this.bfK, d.C0277d.cp_cont_g);
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
@@ -253,16 +253,16 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void showLoadingView() {
-        if (getPageContext() != null && this.bfJ != null) {
-            showLoadingView(this.bfJ, false, l.h(getPageContext().getPageActivity(), d.e.ds360));
+        if (getPageContext() != null && this.bfK != null) {
+            showLoadingView(this.bfK, false, l.h(getPageContext().getPageActivity(), d.e.ds360));
         }
     }
 
     @Override // com.baidu.tieba.frs.aggregation.d
     public void hideLoadingView() {
-        if (this.bfJ != null) {
+        if (this.bfK != null) {
             this.feR.completePullRefreshPostDelayed(0L);
-            hideLoadingView(this.bfJ);
+            hideLoadingView(this.bfK);
         }
     }
 
@@ -273,7 +273,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // com.baidu.tieba.frs.aggregation.d
     public void amY() {
         if (v.T(this.mListData)) {
-            j(this.bfJ, true);
+            j(this.bfK, true);
         }
     }
 
@@ -286,7 +286,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.mListData.addAll(list);
             }
             if (z && list.size() == 0) {
-                j(this.bfJ, false);
+                j(this.bfK, false);
                 return;
             }
             this.feT.setData(list, z);
@@ -295,7 +295,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             }
             hideNoDataView();
             if (this.mNoDataView != null) {
-                this.bfJ.removeView(this.mNoDataView);
+                this.bfK.removeView(this.mNoDataView);
                 this.mNoDataView = null;
             }
         }

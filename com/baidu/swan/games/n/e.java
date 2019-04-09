@@ -9,12 +9,12 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b bac;
+    private com.baidu.swan.games.e.b bad;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(com.baidu.swan.games.e.b bVar) {
-        this.bac = bVar;
+        this.bad = bVar;
         OI();
         OJ();
     }
@@ -35,19 +35,19 @@ public class e {
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.bac.NS().Od();
+        this.bad.NS().Od();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.bac.NU().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.bad.NU().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean bd(String str, String str2) {
         if (!f.OK().OL() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.bac.NS().aS(str, str2);
+        this.bad.NS().aS(str, str2);
         return true;
     }
 }

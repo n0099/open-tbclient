@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     private static final boolean DEBUG = com.baidu.swan.menu.a.DEBUG;
-    private b<View> blk = new b<>(5);
-    private SparseArray<View> bll = new SparseArray<>();
+    private b<View> bll = new b<>(5);
+    private SparseArray<View> blm = new SparseArray<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -41,20 +41,20 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.blk.R(view);
-        this.bll.remove(i);
+        this.bll.R(view);
+        this.blm.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.blk.get();
+        View view = this.bll.get();
         if (view == null) {
             if (DEBUG) {
                 Log.e("PagerAdapterImpl", "instantiateItem    create view!!!");
             }
             view = b(viewGroup, i);
         }
-        this.bll.put(i, view);
+        this.blm.put(i, view);
         viewGroup.addView(view);
         f(view, i);
         return view;

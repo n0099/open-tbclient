@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private com.baidu.tieba.setting.im.more.a cMY;
-    private String cMZ;
+    private com.baidu.tieba.setting.im.more.a cMZ;
     private String cNa;
     private String cNb;
-    private boolean csf;
+    private String cNc;
+    private boolean csg;
     private boolean mFinished;
 
     public com.baidu.tieba.setting.im.more.a awu() {
-        return this.cMY;
+        return this.cMZ;
     }
 
     public String awv() {
-        return this.cMZ;
+        return this.cNa;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.csf = false;
+        this.csg = false;
         this.mFinished = false;
     }
 
@@ -34,7 +34,7 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.csf = false;
+        this.csg = false;
         this.mFinished = false;
         return false;
     }
@@ -44,42 +44,42 @@ public class AccountSafeModel extends BdBaseModel {
     }
 
     public boolean awx() {
-        if (this.csf) {
+        if (this.csg) {
             return false;
         }
-        this.csf = true;
+        this.csg = true;
         this.mFinished = false;
         sendMessage(aww());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.cMY = aVar;
+        this.cMZ = aVar;
         awy();
     }
 
     private void awy() {
         SimpleUser awz = awz();
         if (awz != null) {
-            this.cNa = awz.secureemail;
-            this.cNb = awz.securemobil;
-            this.cMZ = awz.ahead_url;
+            this.cNb = awz.secureemail;
+            this.cNc = awz.securemobil;
+            this.cNa = awz.ahead_url;
             this.mFinished = true;
         }
     }
 
     private SimpleUser awz() {
-        if (this.cMY == null || this.cMY.awz() == null) {
+        if (this.cMZ == null || this.cMZ.awz() == null) {
             return null;
         }
-        return this.cMY.awz();
+        return this.cMZ.awz();
     }
 
     public boolean qz() {
-        return this.csf;
+        return this.csg;
     }
 
     public void setLoading(boolean z) {
-        this.csf = z;
+        this.csg = z;
     }
 }

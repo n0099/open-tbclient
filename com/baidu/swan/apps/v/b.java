@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b axC;
-    private List<a> axD = new ArrayList();
+    private static volatile b axD;
+    private List<a> axE = new ArrayList();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -18,30 +18,30 @@ public class b {
     }
 
     public static b Dv() {
-        if (axC == null) {
+        if (axD == null) {
             synchronized (b.class) {
-                if (axC == null) {
-                    axC = new b();
+                if (axD == null) {
+                    axD = new b();
                 }
             }
         }
-        return axC;
+        return axD;
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.axD.contains(aVar)) {
-            this.axD.add(aVar);
+        if (aVar != null && !this.axE.contains(aVar)) {
+            this.axE.add(aVar);
         }
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.axD.remove(aVar);
+            this.axE.remove(aVar);
         }
     }
 
     public void Dw() {
-        for (a aVar : this.axD) {
+        for (a aVar : this.axE) {
             if (aVar != null && aVar.uH()) {
                 return;
             }
@@ -49,7 +49,7 @@ public class b {
     }
 
     public void Dx() {
-        for (a aVar : this.axD) {
+        for (a aVar : this.axE) {
             if (aVar != null && aVar.uI()) {
                 return;
             }

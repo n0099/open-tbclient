@@ -28,9 +28,9 @@ import com.baidu.tieba.homepage.concern.b;
 import com.baidu.tieba.homepage.concern.view.ConcernNotLoginLayout;
 /* loaded from: classes4.dex */
 public class ConcernPageView extends FrameLayout {
-    private int aIO;
-    private g cXp;
-    private PbListView dbr;
+    private int aIP;
+    private g cXq;
+    private PbListView dbs;
     private BdTypeListView fFB;
     private com.baidu.tieba.homepage.concern.a fFQ;
     private a fFR;
@@ -259,16 +259,16 @@ public class ConcernPageView extends FrameLayout {
         this.fFB = new BdTypeListView(context);
         this.fFB.setDividerHeight(0);
         this.fFB.setSelector(17170445);
-        this.dbr = new PbListView(context);
-        this.dbr.getView();
-        this.dbr.ia(d.C0277d.cp_bg_line_e);
-        this.dbr.setHeight(l.h(context, d.e.tbds182));
-        this.dbr.aew();
-        this.dbr.setTextSize(d.e.tbfontsize33);
-        this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-        this.dbr.hZ(d.C0277d.cp_cont_e);
-        this.dbr.setOnClickListener(this.fFX);
-        this.fFB.setNextPage(this.dbr);
+        this.dbs = new PbListView(context);
+        this.dbs.getView();
+        this.dbs.ia(d.C0277d.cp_bg_line_e);
+        this.dbs.setHeight(l.h(context, d.e.tbds182));
+        this.dbs.aew();
+        this.dbs.setTextSize(d.e.tbfontsize33);
+        this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+        this.dbs.hZ(d.C0277d.cp_cont_e);
+        this.dbs.setOnClickListener(this.fFX);
+        this.fFB.setNextPage(this.dbs);
         e<?> aK = com.baidu.adp.base.i.aK(context);
         if (aK instanceof TbPageContext) {
             this.pageContext = (TbPageContext) aK;
@@ -291,7 +291,7 @@ public class ConcernPageView extends FrameLayout {
             this.fFU.getLayoutParams().height = i;
             this.fFU.setLayoutParams(this.fFU.getLayoutParams());
         }
-        this.aIO = i;
+        this.aIP = i;
     }
 
     public void bgy() {
@@ -315,13 +315,13 @@ public class ConcernPageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kf(boolean z) {
-        if (this.dbr != null) {
+        if (this.dbs != null) {
             if (z) {
-                this.dbr.aeC();
-                this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.dbs.aeC();
+                this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 return;
             }
-            this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.dbs.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
@@ -349,8 +349,8 @@ public class ConcernPageView extends FrameLayout {
             if (this.fFT != null) {
                 this.fFT.onChangeSkinType(i);
             }
-            if (this.cXp != null) {
-                this.cXp.onChangeSkinType();
+            if (this.cXq != null) {
+                this.cXq.onChangeSkinType();
             }
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
@@ -358,9 +358,9 @@ public class ConcernPageView extends FrameLayout {
             if (this.mPullView != null) {
                 this.mPullView.ib(i);
             }
-            if (this.dbr != null) {
-                this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-                this.dbr.ib(i);
+            if (this.dbs != null) {
+                this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+                this.dbs.ib(i);
             }
             if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
                 this.mNoDataView.onChangeSkinType(this.pageContext, i);
@@ -404,10 +404,10 @@ public class ConcernPageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void J(boolean z, boolean z2) {
-        if (this.cXp != null) {
-            this.cXp.dettachView(this);
-            this.cXp = null;
-            this.fFB.setNextPage(this.dbr);
+        if (this.cXq != null) {
+            this.cXq.dettachView(this);
+            this.cXq = null;
+            this.fFB.setNextPage(this.dbs);
         }
         if (this.fFR != null) {
             this.fFR.L(z, z2);
@@ -436,15 +436,15 @@ public class ConcernPageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(boolean z, int i) {
-        if (this.cXp == null) {
+        if (this.cXq == null) {
             if (i < 0) {
-                this.cXp = new g(getContext());
+                this.cXq = new g(getContext());
             } else {
-                this.cXp = new g(getContext(), i);
+                this.cXq = new g(getContext(), i);
             }
-            this.cXp.onChangeSkinType();
+            this.cXq.onChangeSkinType();
         }
-        this.cXp.attachView(this, z);
+        this.cXq.attachView(this, z);
         this.fFB.setNextPage(null);
     }
 
@@ -505,9 +505,9 @@ public class ConcernPageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aAZ() {
-        if (this.dbr != null && !this.dbr.qz()) {
-            this.dbr.aez();
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.dbs != null && !this.dbs.qz()) {
+            this.dbs.aez();
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.fFS.aAZ();
     }

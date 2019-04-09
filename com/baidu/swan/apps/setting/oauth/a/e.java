@@ -21,15 +21,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g.a aRG;
-    public b aRH = new b(Looper.getMainLooper(), this);
-    public Bundle aRI;
+    public g.a aRH;
+    public b aRI = new b(Looper.getMainLooper(), this);
+    public Bundle aRJ;
     protected final Activity mActivity;
 
     public e(Activity activity, g.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.aRG = aVar;
-        this.aRI = bundle;
+        this.aRH = aVar;
+        this.aRJ = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -95,7 +95,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.aRH.removeMessages(1);
+        this.aRI.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class e extends g<c> {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bk + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bk) {
-                Ja.a(e.this.mActivity, e.this.aRI, this);
+                Ja.a(e.this.mActivity, e.this.aRJ, this);
             }
             return bk;
         }
@@ -153,16 +153,16 @@ public class e extends g<c> {
 
     /* loaded from: classes2.dex */
     public static class b extends Handler {
-        private WeakReference<e> aRK;
+        private WeakReference<e> aRL;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.aRK = new WeakReference<>(eVar);
+            this.aRL = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.aRK.get();
+            e eVar = this.aRL.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:

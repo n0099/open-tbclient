@@ -39,11 +39,11 @@ public class f extends a {
             unitedSchemeEntity.result = bP(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aBG) && (yO = com.baidu.swan.apps.w.e.Ea().yO()) != null) {
-            c.aBG = yO.yA();
+        if (TextUtils.isEmpty(c.aBH) && (yO = com.baidu.swan.apps.w.e.Ea().yO()) != null) {
+            c.aBH = yO.yA();
         }
-        if (TextUtils.isEmpty(c.aBG) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aBG + " ; canvas id = " + c.id);
+        if (TextUtils.isEmpty(c.aBH) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aBH + " ; canvas id = " + c.id);
             unitedSchemeEntity.result = bP(201);
             return false;
         }

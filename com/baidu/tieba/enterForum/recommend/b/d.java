@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eEx = BdUniqueId.gen();
-    private List<c> eEA;
-    private int eEy;
-    private int eEz = 0;
+    public static final BdUniqueId eEy = BdUniqueId.gen();
+    private int eEA = 0;
+    private List<c> eEB;
+    private int eEz;
     private List<b> forumList;
     private String title;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eEx;
+        return eEy;
     }
 
     public String getTitle() {
@@ -26,11 +26,11 @@ public class d extends com.baidu.tieba.card.data.b {
     }
 
     public int aXc() {
-        return this.eEy;
+        return this.eEz;
     }
 
     public void pf(int i) {
-        this.eEy = i;
+        this.eEz = i;
     }
 
     public List<b> getForumList() {
@@ -42,11 +42,11 @@ public class d extends com.baidu.tieba.card.data.b {
     }
 
     public List<c> aXd() {
-        return this.eEA;
+        return this.eEB;
     }
 
     private void by(List<c> list) {
-        this.eEA = list;
+        this.eEB = list;
     }
 
     public List<c> aXe() {
@@ -54,7 +54,7 @@ public class d extends com.baidu.tieba.card.data.b {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.eEy == 2) {
+        if (this.eEz == 2) {
             if (aXf() != null) {
                 arrayList.add(aXf());
             }
@@ -89,15 +89,15 @@ public class d extends com.baidu.tieba.card.data.b {
 
     private b aXg() {
         b bVar;
-        if (this.eEz < getForumList().size()) {
-            bVar = getForumList().get(this.eEz);
-        } else if (this.eEy < getForumList().size()) {
-            this.eEz = 0;
-            bVar = getForumList().get(this.eEz);
+        if (this.eEA < getForumList().size()) {
+            bVar = getForumList().get(this.eEA);
+        } else if (this.eEz < getForumList().size()) {
+            this.eEA = 0;
+            bVar = getForumList().get(this.eEA);
         } else {
             return null;
         }
-        this.eEz++;
+        this.eEA++;
         return bVar;
     }
 }

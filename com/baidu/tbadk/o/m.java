@@ -8,32 +8,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String cqX = "tb_perfor_samllflow_time";
-    private static volatile m cra;
-    private long cqZ;
-    private boolean cqV = false;
-    private long cqY = 86400;
-    private long cqW = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(cqX, 0);
+    private static String cqY = "tb_perfor_samllflow_time";
+    private static volatile m crb;
+    private long cra;
+    private boolean cqW = false;
+    private long cqZ = 86400;
+    private long cqX = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(cqY, 0);
 
     public static m apg() {
-        if (cra == null) {
+        if (crb == null) {
             synchronized (m.class) {
-                if (cra == null) {
-                    cra = new m();
+                if (crb == null) {
+                    crb = new m();
                 }
             }
         }
-        return cra;
+        return crb;
     }
 
     private m() {
-        this.cqZ = 0L;
-        this.cqZ = this.cqY;
+        this.cra = 0L;
+        this.cra = this.cqZ;
     }
 
     public boolean aph() {
-        if (!this.cqV || (System.currentTimeMillis() - this.cqW) / 1000 <= this.cqZ) {
-            return this.cqV;
+        if (!this.cqW || (System.currentTimeMillis() - this.cqX) / 1000 <= this.cra) {
+            return this.cqW;
         }
         return false;
     }
@@ -41,15 +41,15 @@ public class m {
     public void ff(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.cqW || currentTimeMillis - this.cqW >= this.cqZ) {
-                this.cqW = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(cqX, this.cqW);
+            if (0 == this.cqX || currentTimeMillis - this.cqX >= this.cra) {
+                this.cqX = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(cqY, this.cqX);
             }
         } else {
-            this.cqW = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(cqX, this.cqW);
+            this.cqX = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(cqY, this.cqX);
         }
-        this.cqV = z;
+        this.cqW = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             n.apn().apo();
         }
@@ -130,7 +130,7 @@ public class m {
 
     public void aU(long j) {
         if (j > 0) {
-            this.cqZ = j;
+            this.cra = j;
         }
     }
 

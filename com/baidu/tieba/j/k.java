@@ -12,25 +12,25 @@ import com.baidu.tieba.play.QuickVideoView;
 public class k {
     private static final String TAG = k.class.getName();
     private long gYA;
-    private boolean gYB;
-    private long gYz;
+    private long gYB;
+    private boolean gYC;
 
     public void bEx() {
-        this.gYB = true;
-        this.gYz = SystemClock.elapsedRealtime();
-    }
-
-    public void bEy() {
+        this.gYC = true;
         this.gYA = SystemClock.elapsedRealtime();
     }
 
+    public void bEy() {
+        this.gYB = SystemClock.elapsedRealtime();
+    }
+
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.gYB) {
-            this.gYB = false;
+        if (this.gYC) {
+            this.gYC = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.gYA - this.gYz;
-            long j4 = elapsedRealtime - this.gYA;
-            long j5 = elapsedRealtime - this.gYz;
+            long j3 = this.gYB - this.gYA;
+            long j4 = elapsedRealtime - this.gYB;
+            long j5 = elapsedRealtime - this.gYA;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);

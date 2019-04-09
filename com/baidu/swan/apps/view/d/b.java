@@ -3,8 +3,8 @@ package com.baidu.swan.apps.view.d;
 import android.support.annotation.NonNull;
 /* loaded from: classes2.dex */
 public class b {
-    private int aZL;
     private int aZM;
+    private int aZN;
     private int mFlags = 0;
 
     @NonNull
@@ -22,18 +22,18 @@ public class b {
     }
 
     public int Na() {
-        return this.aZL;
-    }
-
-    public void ez(int i) {
-        this.aZL = i;
-    }
-
-    public int Nb() {
         return this.aZM;
     }
 
-    public void eA(int i) {
+    public void ez(int i) {
         this.aZM = i;
+    }
+
+    public int Nb() {
+        return this.aZN;
+    }
+
+    public void eA(int i) {
+        this.aZN = i;
     }
 }

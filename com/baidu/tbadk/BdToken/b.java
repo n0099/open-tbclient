@@ -8,59 +8,59 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private int bqT;
     private int bqU;
-    private String bqV;
-    private int bqW;
-    private String bqX;
-    private long bqY;
-    private int bqZ;
-    private long brb;
+    private int bqV;
+    private String bqW;
+    private int bqX;
+    private String bqY;
+    private long bqZ;
+    private int bra;
     private long brc;
-    private String brd;
+    private long brd;
     private String bre;
-    private long brf;
-    private int[] brg;
-    private long brj;
+    private String brf;
+    private long brg;
+    private int[] brh;
+    private long brk;
     private long mFid;
     private int mTaskType;
     private int mThreadNum;
     public static String ACTIVITY_ID = "activityid";
-    public static String bqo = "missionid";
-    public static String bqp = "activitysource";
-    public static String bqq = "calltype";
-    public static String bqr = "tasktype";
-    public static String bqs = "browsetimepage";
-    public static String bqt = "browsetime";
-    public static String bqu = "threadnum";
-    public static String bqv = "forumnum";
-    public static String bqw = "cleartype";
-    public static String bqx = "cleartime";
+    public static String bqp = "missionid";
+    public static String bqq = "activitysource";
+    public static String bqr = "calltype";
+    public static String bqs = "tasktype";
+    public static String bqt = "browsetimepage";
+    public static String bqu = "browsetime";
+    public static String bqv = "threadnum";
+    public static String bqw = "forumnum";
+    public static String bqx = "cleartype";
+    public static String bqy = "cleartime";
     public static String TID = "tid";
-    public static String bqy = ImageViewerConfig.FORUM_ID;
-    public static String bqz = "threadtext";
-    public static String bqA = "threadimg";
-    public static String bqB = "threadforum";
-    public static int bqC = 1;
-    public static int bqD = 2;
-    public static int bqE = 3;
-    public static int bqF = 4;
-    public static int bqG = 1;
-    public static int bqH = 2;
-    public static int bqI = 3;
-    public static int bqJ = 4;
-    public static int bqK = 5;
-    public static int bqL = 6;
-    public static int bqM = 7;
-    public static int bqN = 8;
-    public static int bqO = -1;
-    public static int bqP = 0;
-    public static int bqQ = 1;
-    public static int bqR = 2;
-    public static int bqS = 3;
-    private int bra = bqO;
-    private volatile int brh = 0;
+    public static String bqz = ImageViewerConfig.FORUM_ID;
+    public static String bqA = "threadtext";
+    public static String bqB = "threadimg";
+    public static String bqC = "threadforum";
+    public static int bqD = 1;
+    public static int bqE = 2;
+    public static int bqF = 3;
+    public static int bqG = 4;
+    public static int bqH = 1;
+    public static int bqI = 2;
+    public static int bqJ = 3;
+    public static int bqK = 4;
+    public static int bqL = 5;
+    public static int bqM = 6;
+    public static int bqN = 7;
+    public static int bqO = 8;
+    public static int bqP = -1;
+    public static int bqQ = 0;
+    public static int bqR = 1;
+    public static int bqS = 2;
+    public static int bqT = 3;
+    private int brb = bqP;
     private volatile int bri = 0;
+    private volatile int brj = 0;
 
     public b() {
     }
@@ -76,24 +76,24 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.bqT = jSONObject.optInt(ACTIVITY_ID);
-                this.bqU = jSONObject.optInt(bqo);
-                this.bqV = jSONObject.optString(bqp);
-                this.bqW = jSONObject.optInt(bqq);
-                this.mTaskType = jSONObject.optInt(bqr);
-                this.bqX = jSONObject.optString(bqs);
-                this.brg = kd(this.bqX);
-                this.bqY = jSONObject.optLong(bqt);
-                this.mThreadNum = jSONObject.optInt(bqu);
-                this.bqZ = jSONObject.optInt(bqv);
+                this.bqU = jSONObject.optInt(ACTIVITY_ID);
+                this.bqV = jSONObject.optInt(bqp);
+                this.bqW = jSONObject.optString(bqq);
+                this.bqX = jSONObject.optInt(bqr);
+                this.mTaskType = jSONObject.optInt(bqs);
+                this.bqY = jSONObject.optString(bqt);
+                this.brh = kd(this.bqY);
+                this.bqZ = jSONObject.optLong(bqu);
+                this.mThreadNum = jSONObject.optInt(bqv);
                 this.bra = jSONObject.optInt(bqw);
-                this.brb = jSONObject.optLong(bqx);
-                this.brj = TI();
-                this.brc = jSONObject.optLong(TID);
-                this.mFid = jSONObject.optLong(bqy);
-                this.brd = jSONObject.optString(bqz);
+                this.brb = jSONObject.optInt(bqx);
+                this.brc = jSONObject.optLong(bqy);
+                this.brk = TI();
+                this.brd = jSONObject.optLong(TID);
+                this.mFid = jSONObject.optLong(bqz);
                 this.bre = jSONObject.optString(bqA);
-                this.brf = jSONObject.optLong(bqB);
+                this.brf = jSONObject.optString(bqB);
+                this.brg = jSONObject.optLong(bqC);
                 return true;
             }
             return false;
@@ -105,15 +105,15 @@ public class b {
 
     public synchronized int TG() {
         int i;
-        i = this.bri + 1;
-        this.bri = i;
+        i = this.brj + 1;
+        this.brj = i;
         return i;
     }
 
     public synchronized int TH() {
         int i;
-        i = this.brh + 1;
-        this.brh = i;
+        i = this.bri + 1;
+        this.bri = i;
         return i;
     }
 
@@ -130,23 +130,23 @@ public class b {
     }
 
     private long TI() {
-        if (this.bra == bqO) {
+        if (this.brb == bqP) {
             return 0L;
         }
-        if (this.bra == bqP) {
-            return (System.currentTimeMillis() / 1000) + this.brb;
+        if (this.brb == bqQ) {
+            return (System.currentTimeMillis() / 1000) + this.brc;
         }
-        if (this.bra == bqQ) {
-            long TJ = (TJ() / 1000) + this.brb;
+        if (this.brb == bqR) {
+            long TJ = (TJ() / 1000) + this.brc;
             if (System.currentTimeMillis() > TJ) {
                 return TJ + 86400;
             }
             return TJ;
-        } else if (this.bra == bqR) {
-            return e((int) this.brb, fs(4)) / 1000;
+        } else if (this.brb == bqS) {
+            return e((int) this.brc, fs(4)) / 1000;
         } else {
-            if (this.bra == bqS) {
-                return this.brb / 1000;
+            if (this.brb == bqT) {
+                return this.brc / 1000;
             }
             return 0L;
         }
@@ -211,35 +211,35 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.bqT;
-    }
-
-    public void setActivityId(int i) {
-        this.bqT = i;
-    }
-
-    public int TK() {
         return this.bqU;
     }
 
-    public void ft(int i) {
+    public void setActivityId(int i) {
         this.bqU = i;
     }
 
-    public String TL() {
+    public int TK() {
         return this.bqV;
     }
 
-    public void ke(String str) {
-        this.bqV = str;
+    public void ft(int i) {
+        this.bqV = i;
     }
 
-    public int TM() {
+    public String TL() {
         return this.bqW;
     }
 
+    public void ke(String str) {
+        this.bqW = str;
+    }
+
+    public int TM() {
+        return this.bqX;
+    }
+
     public void fu(int i) {
-        this.bqW = i;
+        this.bqX = i;
     }
 
     public int getTaskType() {
@@ -251,24 +251,24 @@ public class b {
     }
 
     public String TN() {
-        return this.bqX;
-    }
-
-    public void kf(String str) {
-        this.bqX = str;
-        this.brg = kd(str);
-    }
-
-    public int[] TO() {
-        return this.brg;
-    }
-
-    public long TP() {
         return this.bqY;
     }
 
+    public void kf(String str) {
+        this.bqY = str;
+        this.brh = kd(str);
+    }
+
+    public int[] TO() {
+        return this.brh;
+    }
+
+    public long TP() {
+        return this.bqZ;
+    }
+
     public void Y(long j) {
-        this.bqY = j;
+        this.bqZ = j;
     }
 
     public int getThreadNum() {
@@ -280,43 +280,43 @@ public class b {
     }
 
     public int TQ() {
-        return this.bqZ;
-    }
-
-    public void fw(int i) {
-        this.bqZ = i;
-    }
-
-    public int TR() {
         return this.bra;
     }
 
-    public void fx(int i) {
+    public void fw(int i) {
         this.bra = i;
     }
 
-    public long TS() {
+    public int TR() {
         return this.brb;
     }
 
-    public void Z(long j) {
-        this.brb = j;
+    public void fx(int i) {
+        this.brb = i;
     }
 
-    public long TT() {
-        return this.brj;
-    }
-
-    public void aa(long j) {
-        this.brj = j;
-    }
-
-    public long getTid() {
+    public long TS() {
         return this.brc;
     }
 
-    public void setTid(long j) {
+    public void Z(long j) {
         this.brc = j;
+    }
+
+    public long TT() {
+        return this.brk;
+    }
+
+    public void aa(long j) {
+        this.brk = j;
+    }
+
+    public long getTid() {
+        return this.brd;
+    }
+
+    public void setTid(long j) {
+        this.brd = j;
     }
 
     public long getFid() {
@@ -328,26 +328,26 @@ public class b {
     }
 
     public String TU() {
-        return this.brd;
-    }
-
-    public void kg(String str) {
-        this.brd = str;
-    }
-
-    public String TV() {
         return this.bre;
     }
 
-    public void kh(String str) {
+    public void kg(String str) {
         this.bre = str;
     }
 
-    public long TW() {
+    public String TV() {
         return this.brf;
     }
 
+    public void kh(String str) {
+        this.brf = str;
+    }
+
+    public long TW() {
+        return this.brg;
+    }
+
     public void ab(long j) {
-        this.brf = j;
+        this.brg = j;
     }
 }

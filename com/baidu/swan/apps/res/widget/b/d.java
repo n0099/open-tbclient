@@ -11,19 +11,19 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.x;
 /* loaded from: classes2.dex */
 public class d {
-    private static boolean axV = com.baidu.swan.apps.b.DEBUG;
-    private CharSequence aNq;
+    private static boolean axW = com.baidu.swan.apps.b.DEBUG;
+    private boolean aNA;
     private CharSequence aNr;
-    private Drawable aNs;
-    private Uri aNt;
-    private int aNu;
-    private a aNv;
-    private boolean aNz;
+    private CharSequence aNs;
+    private Drawable aNt;
+    private Uri aNu;
+    private int aNv;
+    private a aNw;
     private Context mContext;
     private CharSequence mTitleText;
-    private int aNw = 2;
-    private int aNx = 1;
+    private int aNx = 2;
     private int aNy = 1;
+    private int aNz = 1;
     private int mDuration = 2;
     private int mTextSize = 14;
 
@@ -42,23 +42,23 @@ public class d {
 
     public static d a(@NonNull Context context, @NonNull CharSequence charSequence) {
         d dVar = new d(context);
-        dVar.aNq = charSequence;
+        dVar.aNr = charSequence;
         return dVar;
     }
 
     public static d l(@NonNull Context context, @StringRes int i) {
         d dVar = new d(context);
-        dVar.aNq = context.getText(i);
+        dVar.aNr = context.getText(i);
         return dVar;
     }
 
     public d dr(@NonNull int i) {
-        this.aNu = i;
+        this.aNv = i;
         return this;
     }
 
     public d bY(boolean z) {
-        this.aNz = z;
+        this.aNA = z;
         return this;
     }
 
@@ -68,27 +68,27 @@ public class d {
     }
 
     public d f(@NonNull CharSequence charSequence) {
-        this.aNq = charSequence;
+        this.aNr = charSequence;
         return this;
     }
 
     public d ds(int i) {
-        this.aNw = i;
-        return this;
-    }
-
-    public d dt(int i) {
         this.aNx = i;
         return this;
     }
 
-    public d du(int i) {
+    public d dt(int i) {
         this.aNy = i;
         return this;
     }
 
+    public d du(int i) {
+        this.aNz = i;
+        return this;
+    }
+
     public d g(@NonNull CharSequence charSequence) {
-        this.aNr = charSequence;
+        this.aNs = charSequence;
         return this;
     }
 
@@ -102,35 +102,35 @@ public class d {
     }
 
     public d b(a aVar) {
-        this.aNv = aVar;
+        this.aNw = aVar;
         return this;
     }
 
     public d e(@NonNull Drawable drawable) {
-        this.aNs = drawable;
+        this.aNt = drawable;
         return this;
     }
 
     public d dw(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
-            this.aNs = this.mContext.getResources().getDrawable(i);
+            this.aNt = this.mContext.getResources().getDrawable(i);
         }
         return this;
     }
 
     public d f(@NonNull Uri uri) {
-        this.aNt = uri;
+        this.aNu = uri;
         return this;
     }
 
     private boolean IH() {
         if (this.mContext == null) {
-            if (axV) {
+            if (axW) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.aNq == null) {
-            if (axV) {
+        } else if (this.aNr == null) {
+            if (axW) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
             return false;
@@ -146,7 +146,7 @@ public class d {
     public void IJ() {
         if (IH()) {
             IO();
-            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration, false, this.aNu, this.aNz);
+            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration, false, this.aNv, this.aNA);
         }
     }
 
@@ -154,9 +154,9 @@ public class d {
         if (IH()) {
             IO();
             if (!z && (this.mContext instanceof Activity)) {
-                e.a((Activity) this.mContext, this.aNq, this.mDuration, this.aNu, this.aNz);
+                e.a((Activity) this.mContext, this.aNr, this.mDuration, this.aNv, this.aNA);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration, true, this.aNu, this.aNz);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration, true, this.aNv, this.aNA);
             }
         }
     }
@@ -169,11 +169,11 @@ public class d {
         if (IH()) {
             IO();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aNq, this.mDuration);
+                e.a((Activity) this.mContext, this.aNr, this.mDuration);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration);
             }
         }
     }
@@ -186,11 +186,11 @@ public class d {
         if (IH()) {
             IO();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.aNs, this.mDuration, this.aNz);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.aNt, this.mDuration, this.aNA);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aNq, this.aNs, this.mDuration, this.aNz);
+                e.a((Activity) this.mContext, this.aNr, this.aNt, this.mDuration, this.aNA);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.aNs, this.mDuration, this.aNz);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.aNt, this.mDuration, this.aNA);
             }
         }
     }
@@ -203,11 +203,11 @@ public class d {
         if (IH()) {
             IO();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration, this.aNz);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration, this.aNA);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aNq, this.mDuration, this.aNz);
+                e.a((Activity) this.mContext, this.aNr, this.mDuration, this.aNA);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNq, this.mDuration, this.aNz);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNr, this.mDuration, this.aNA);
             }
         }
     }
@@ -220,11 +220,11 @@ public class d {
         if (IH()) {
             IO();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNt, this.aNy, this.mTitleText, this.aNq, this.aNr, this.aNw, this.mDuration, this.aNv);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNu, this.aNz, this.mTitleText, this.aNr, this.aNs, this.aNx, this.mDuration, this.aNw);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.aNt, this.aNy, this.mTitleText, this.aNq, this.aNr, this.aNw, this.aNx, this.mDuration, this.aNv);
+                e.a((Activity) this.mContext, this.aNu, this.aNz, this.mTitleText, this.aNr, this.aNs, this.aNx, this.aNy, this.mDuration, this.aNw);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNt, this.aNy, this.mTitleText, this.aNq, this.aNr, this.aNw, this.mDuration, this.aNv);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.aNu, this.aNz, this.mTitleText, this.aNr, this.aNs, this.aNx, this.mDuration, this.aNw);
             }
         }
     }

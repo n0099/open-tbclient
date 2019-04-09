@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h bNq;
-    private HashMap<String, f> bNr = new HashMap<>();
-    private LinkedList<String> bNs = new LinkedList<>();
+    private static h bNr;
+    private HashMap<String, f> bNs = new HashMap<>();
+    private LinkedList<String> bNt = new LinkedList<>();
 
     private h() {
     }
 
     public static h adY() {
-        if (bNq == null) {
+        if (bNr == null) {
             synchronized (h.class) {
-                if (bNq == null) {
-                    bNq = new h();
+                if (bNr == null) {
+                    bNr = new h();
                 }
             }
         }
-        return bNq;
+        return bNr;
     }
 
     public void V(List<String> list) {
-        if (this.bNs != null) {
-            this.bNs.clear();
+        if (this.bNt != null) {
+            this.bNt.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.bNr.get(str) == null) {
-                    if (this.bNr.size() < e.adW().adX()) {
+                if (this.bNs.get(str) == null) {
+                    if (this.bNs.size() < e.adW().adX()) {
                         g.log("put loadingQueue  url: " + str);
                         f nk = nk(str);
-                        this.bNr.put(str, nk);
+                        this.bNs.put(str, nk);
                         nk.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.bNs.push(str);
+                        this.bNt.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nj(String str) {
-        f remove = this.bNr.remove(str);
+        f remove = this.bNs.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.bNs != null && this.bNs.size() > 0) {
-            String pop = this.bNs.pop();
+        if (this.bNt != null && this.bNt.size() > 0) {
+            String pop = this.bNt.pop();
             f nk = nk(pop);
-            this.bNr.put(pop, nk);
+            this.bNs.put(pop, nk);
             g.log("processCallback put loadingQueue  url: " + pop);
             nk.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.bNs.size() + " mLoadingQueue.size()  " + this.bNr.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.bNt.size() + " mLoadingQueue.size()  " + this.bNs.size());
     }
 
     private f nk(String str) {

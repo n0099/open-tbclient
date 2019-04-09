@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> btD = null;
-    protected static boolean btF = false;
-    protected String btB = "183322726";
-    protected boolean btE = true;
-    protected transient List<String> btC = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> btE = null;
+    protected static boolean btG = false;
+    protected String btC = "183322726";
+    protected boolean btF = true;
+    protected transient List<String> btD = new ArrayList(5);
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -54,29 +54,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (btD == null) {
-            btD = new WeakReference<>(tbPageContext);
+        if (btE == null) {
+            btE = new WeakReference<>(tbPageContext);
             return;
         }
-        btD.clear();
-        btD = null;
-        btD = new WeakReference<>(tbPageContext);
+        btE.clear();
+        btE = null;
+        btE = new WeakReference<>(tbPageContext);
     }
 
     public boolean Vi() {
-        return btF;
+        return btG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void da(boolean z) {
-        this.btE = z;
+        this.btF = z;
     }
 
     public void Vf() {
-        if (btD != null) {
-            btD.get();
-            btD.clear();
-            btD = null;
+        if (btE != null) {
+            btE.get();
+            btE.clear();
+            btE = null;
         }
     }
 }

@@ -11,25 +11,25 @@ import java.util.Date;
 /* loaded from: classes2.dex */
 public class f extends e {
     private int MG;
-    private String aFG;
-    private boolean aFH;
-    private int aFY;
-    private Date aFx;
+    private String aFH;
+    private boolean aFI;
+    private int aFZ;
     private Date aFy;
-    private BdTimePicker aMA;
-    private boolean aMB;
+    private Date aFz;
+    private BdTimePicker aMB;
+    private boolean aMC;
 
     f(Context context) {
         super(context, a.i.NoTitleDialog);
-        this.aMB = false;
+        this.aMC = false;
     }
 
     public void setHour(int i) {
-        this.aFY = i;
+        this.aFZ = i;
     }
 
     public int getHour() {
-        return this.aMA.getHour();
+        return this.aMB.getHour();
     }
 
     public void setMinute(int i) {
@@ -37,30 +37,30 @@ public class f extends e {
     }
 
     public int getMinute() {
-        return this.aMA.getMinute();
+        return this.aMB.getMinute();
     }
 
     private void In() {
-        this.aMA = new BdTimePicker(getContext());
+        this.aMB = new BdTimePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.aMA.setLayoutParams(layoutParams);
-        this.aMA.setScrollCycle(true);
-        this.aMA.setStartDate(this.aFx);
-        this.aMA.setmEndDate(this.aFy);
-        this.aMA.setHour(this.aFY);
-        this.aMA.setMinute(this.MG);
-        this.aMA.GL();
-        this.aMA.setDisabled(this.aFH);
+        this.aMB.setLayoutParams(layoutParams);
+        this.aMB.setScrollCycle(true);
+        this.aMB.setStartDate(this.aFy);
+        this.aMB.setmEndDate(this.aFz);
+        this.aMB.setHour(this.aFZ);
+        this.aMB.setMinute(this.MG);
+        this.aMB.GL();
+        this.aMB.setDisabled(this.aFI);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        if (this.aMB) {
+        if (this.aMC) {
             getWindow().addFlags(4718592);
         }
         In();
-        Ip().ad(this.aMA);
+        Ip().ad(this.aMB);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b, android.app.Dialog
@@ -69,40 +69,40 @@ public class f extends e {
         if (Il != null) {
             Il.setBackgroundResource(a.e.aiapp_alertdialog_button_day_bg_all_selector);
         }
-        if (this.aMA != null) {
-            if (this.aFY != this.aMA.getHour()) {
-                this.aMA.setHour(this.aFY);
+        if (this.aMB != null) {
+            if (this.aFZ != this.aMB.getHour()) {
+                this.aMB.setHour(this.aFZ);
             }
-            if (this.MG != this.aMA.getMinute()) {
-                this.aMA.setMinute(this.MG);
+            if (this.MG != this.aMB.getMinute()) {
+                this.aMB.setMinute(this.MG);
             }
         }
         super.show();
     }
 
     public void setFields(String str) {
-        this.aFG = str;
+        this.aFH = str;
     }
 
     public void setDisabled(boolean z) {
-        this.aFH = z;
+        this.aFI = z;
     }
 
     public void setStartDate(Date date) {
-        this.aFx = date;
+        this.aFy = date;
     }
 
     public void setEndDate(Date date) {
-        this.aFy = date;
+        this.aFz = date;
     }
 
     /* loaded from: classes2.dex */
     public static class a extends e.a {
-        public Date aLY;
         public Date aLZ;
         public Date aMa;
-        private String aMb;
-        private boolean aMc;
+        public Date aMb;
+        private String aMc;
+        private boolean aMd;
 
         public a(Context context) {
             super(context);
@@ -114,44 +114,44 @@ public class f extends e {
         }
 
         public a j(Date date) {
-            this.aLY = date;
-            return this;
-        }
-
-        public a k(Date date) {
             this.aLZ = date;
             return this;
         }
 
-        public a l(Date date) {
+        public a k(Date date) {
             this.aMa = date;
             return this;
         }
 
+        public a l(Date date) {
+            this.aMb = date;
+            return this;
+        }
+
         public a gf(String str) {
-            this.aMb = str;
+            this.aMc = str;
             return this;
         }
 
         public a bW(boolean z) {
-            this.aMc = z;
+            this.aMd = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
         public e zq() {
             f fVar = (f) super.zq();
-            fVar.setFields(this.aMb);
-            fVar.setDisabled(this.aMc);
-            if (this.aMa != null) {
-                fVar.setHour(this.aMa.getHours());
-                fVar.setMinute(this.aMa.getMinutes());
-            }
-            if (this.aLY != null) {
-                fVar.setStartDate(this.aLY);
+            fVar.setFields(this.aMc);
+            fVar.setDisabled(this.aMd);
+            if (this.aMb != null) {
+                fVar.setHour(this.aMb.getHours());
+                fVar.setMinute(this.aMb.getMinutes());
             }
             if (this.aLZ != null) {
-                fVar.setEndDate(this.aLZ);
+                fVar.setStartDate(this.aLZ);
+            }
+            if (this.aMa != null) {
+                fVar.setEndDate(this.aMa);
             }
             return fVar;
         }

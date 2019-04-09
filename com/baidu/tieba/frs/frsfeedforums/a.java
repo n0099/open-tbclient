@@ -35,7 +35,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private LikeModel bUs;
+    private LikeModel bUt;
     private View fgE;
     private boolean fgz;
     private View fjj;
@@ -60,7 +60,7 @@ public class a {
             String str2;
             if (view.getId() == d.g.frs_feed_forum_attention) {
                 if (bc.cZ(a.this.mTbPageContext.getPageActivity()) && (feedForumData = (FeedForumData) view.getTag()) != null) {
-                    a.this.bUs.dW(feedForumData.getForumName(), feedForumData.getForumId());
+                    a.this.bUt.dW(feedForumData.getForumName(), feedForumData.getForumId());
                     if (a.this.mType == 1) {
                         str2 = "c10028";
                     } else {
@@ -94,14 +94,14 @@ public class a {
             }
         }
     };
-    private com.baidu.adp.base.d eCD = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.a.4
+    private com.baidu.adp.base.d eCE = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.a.4
         @Override // com.baidu.adp.base.d
         public void m(Object obj) {
-            if (AntiHelper.aD(a.this.bUs.getErrorCode(), a.this.bUs.getErrorString())) {
-                AntiHelper.aU(a.this.mTbPageContext.getPageActivity(), a.this.bUs.getErrorString());
+            if (AntiHelper.aD(a.this.bUt.getErrorCode(), a.this.bUt.getErrorString())) {
+                AntiHelper.aU(a.this.mTbPageContext.getPageActivity(), a.this.bUt.getErrorString());
             } else if (obj == null) {
-                if (!StringUtils.isNull(a.this.bUs.getErrorString())) {
-                    l.showToast(TbadkCoreApplication.getInst(), a.this.bUs.getErrorString());
+                if (!StringUtils.isNull(a.this.bUt.getErrorString())) {
+                    l.showToast(TbadkCoreApplication.getInst(), a.this.bUt.getErrorString());
                 }
             } else {
                 final r rVar = (r) obj;
@@ -165,9 +165,9 @@ public class a {
         this.fjo = (TextView) this.fjl.findViewById(d.g.feed_forums_more);
         this.fgE = view.findViewById(d.g.feed_forum_bottom_line);
         this.fjo.setOnClickListener(this.mOnClickListener);
-        this.bUs = new LikeModel(tbPageContext);
-        this.bUs.setUniqueId(bdUniqueId);
-        this.bUs.setLoadDataCallBack(this.eCD);
+        this.bUt = new LikeModel(tbPageContext);
+        this.bUt.setUniqueId(bdUniqueId);
+        this.bUt.setLoadDataCallBack(this.eCE);
         this.mType = i;
         this.fgz = z;
     }
@@ -206,7 +206,7 @@ public class a {
         } else if (size2 < 0) {
             for (int i3 = 0; i3 < (-size2); i3++) {
                 int size3 = this.fjq.size() - 1;
-                this.fjl.removeView(this.fjq.get(size3).cOv);
+                this.fjl.removeView(this.fjq.get(size3).cOw);
                 this.fjq.remove(size3);
             }
         }
@@ -214,8 +214,8 @@ public class a {
             FeedForumData feedForumData = this.fjr.get(i4);
             b bVar = this.fjq.get(i4);
             if (feedForumData != null && bVar != null) {
-                bVar.cOv.setTag(feedForumData);
-                bVar.cOv.setOnClickListener(this.mOnClickListener);
+                bVar.cOw.setTag(feedForumData);
+                bVar.cOw.setOnClickListener(this.mOnClickListener);
                 bVar.fjw.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 bVar.fjw.startLoad(feedForumData.getAvatar(), 15, false);
                 bVar.mTitle.setText(feedForumData.getForumName());
@@ -295,7 +295,7 @@ public class a {
         al.c(this.fjn, d.f.icon_frs_recommend_arrow_down);
         al.d(this.fjo, d.C0277d.cp_cont_e, 1);
         for (b bVar : this.fjq) {
-            al.k(bVar.cOv, d.f.frs_like_feed_forum_item_bg);
+            al.k(bVar.cOw, d.f.frs_like_feed_forum_item_bg);
             al.d(bVar.mTitle, d.C0277d.cp_cont_b, 1);
             al.d(bVar.fjx, d.C0277d.cp_cont_c, 1);
             al.d(bVar.fjy, d.C0277d.cp_link_tip_d, 1);

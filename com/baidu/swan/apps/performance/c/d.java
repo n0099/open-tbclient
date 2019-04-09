@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public final class d {
-    private static volatile d aEu;
-    private HashMap<String, e> aEv;
+    private static volatile d aEv;
     private HashMap<String, e> aEw;
     private HashMap<String, e> aEx;
+    private HashMap<String, e> aEy;
 
     private d() {
         FY();
     }
 
     public static d FX() {
-        if (aEu == null) {
+        if (aEv == null) {
             synchronized (d.class) {
-                if (aEu == null) {
-                    aEu = new d();
+                if (aEv == null) {
+                    aEv = new d();
                 }
             }
         }
-        return aEu;
+        return aEv;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (aEu != null) {
-                aEu.release();
-                aEu = null;
+            if (aEv != null) {
+                aEv.release();
+                aEv = null;
             }
         }
     }
 
     private void release() {
-        if (this.aEv != null) {
-            this.aEv.clear();
-        }
         if (this.aEw != null) {
             this.aEw.clear();
         }
         if (this.aEx != null) {
             this.aEx.clear();
+        }
+        if (this.aEy != null) {
+            this.aEy.clear();
         }
     }
 
@@ -105,14 +105,14 @@ public final class d {
     }
 
     private void FY() {
-        if (this.aEv == null) {
-            this.aEv = new HashMap<>();
-        }
         if (this.aEw == null) {
             this.aEw = new HashMap<>();
         }
         if (this.aEx == null) {
             this.aEx = new HashMap<>();
+        }
+        if (this.aEy == null) {
+            this.aEy = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.aEv.get(str);
-                    if (eVar == null) {
-                        eVar = new b();
-                        this.aEv.put(str, eVar);
-                        break;
-                    }
-                    break;
-                case 1:
                     eVar = this.aEw.get(str);
                     if (eVar == null) {
-                        eVar = new a();
+                        eVar = new b();
                         this.aEw.put(str, eVar);
                         break;
                     }
                     break;
-                case 2:
+                case 1:
                     eVar = this.aEx.get(str);
                     if (eVar == null) {
-                        eVar = new c();
+                        eVar = new a();
                         this.aEx.put(str, eVar);
+                        break;
+                    }
+                    break;
+                case 2:
+                    eVar = this.aEy.get(str);
+                    if (eVar == null) {
+                        eVar = new c();
+                        this.aEy.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,13 +198,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.aEv.remove(str);
-                    break;
-                case 1:
                     eVar = this.aEw.remove(str);
                     break;
-                case 2:
+                case 1:
                     eVar = this.aEx.remove(str);
+                    break;
+                case 2:
+                    eVar = this.aEy.remove(str);
                     break;
             }
             if (eVar != null) {
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.ak.e.aVO.K(Long.valueOf(j));
-                    return;
-                case 1:
                     com.baidu.swan.apps.ak.e.aVP.K(Long.valueOf(j));
                     return;
-                case 2:
+                case 1:
                     com.baidu.swan.apps.ak.e.aVQ.K(Long.valueOf(j));
+                    return;
+                case 2:
+                    com.baidu.swan.apps.ak.e.aVR.K(Long.valueOf(j));
                     return;
                 default:
                     return;

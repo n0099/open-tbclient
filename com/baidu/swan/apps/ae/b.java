@@ -15,19 +15,19 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b extends ContextWrapper {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    com.baidu.swan.apps.ae.a.c aNM;
-    com.baidu.swan.games.o.a.a aNN;
-    private com.baidu.swan.apps.storage.c aNO;
-    private com.baidu.swan.apps.setting.a aNP;
-    private com.baidu.swan.apps.a.b aNQ;
-    private j aNR;
-    private com.baidu.swan.games.network.b aNS;
-    private com.baidu.swan.apps.af.a.a aNT;
-    private com.baidu.swan.apps.media.audio.d aNU;
-    private k aNV;
-    private d aNW;
-    private Map<String, String> aNX;
-    private com.baidu.swan.apps.v.b.b ajx;
+    com.baidu.swan.apps.ae.a.c aNN;
+    com.baidu.swan.games.o.a.a aNO;
+    private com.baidu.swan.apps.storage.c aNP;
+    private com.baidu.swan.apps.setting.a aNQ;
+    private com.baidu.swan.apps.a.b aNR;
+    private j aNS;
+    private com.baidu.swan.games.network.b aNT;
+    private com.baidu.swan.apps.af.a.a aNU;
+    private com.baidu.swan.apps.media.audio.d aNV;
+    private k aNW;
+    private d aNX;
+    private Map<String, String> aNY;
+    private com.baidu.swan.apps.v.b.b ajy;
     public final String id;
     private Activity mActivity;
 
@@ -49,7 +49,7 @@ public class b extends ContextWrapper {
 
     @Nullable
     public static b IV() {
-        return e.Jm().aOa.get();
+        return e.Jm().aOb.get();
     }
 
     @Deprecated
@@ -74,8 +74,8 @@ public class b extends ContextWrapper {
     private b(String str) {
         super(AppRuntime.getApplication());
         this.id = str;
-        this.aNT = new com.baidu.swan.apps.af.a.a();
-        this.aNT.gr(str);
+        this.aNU = new com.baidu.swan.apps.af.a.a();
+        this.aNU.gr(str);
     }
 
     public void H(Activity activity) {
@@ -91,47 +91,47 @@ public class b extends ContextWrapper {
         if (DEBUG) {
             Log.d("SwanApp", "——> release client Id " + Jg());
         }
-        if (this.aNW != null) {
-            this.aNW.onDestroy();
+        if (this.aNX != null) {
+            this.aNX.onDestroy();
         }
         com.baidu.swan.c.b.deleteFile(com.baidu.swan.apps.storage.b.gY(Jg()));
-        if (this.aNU != null) {
-            this.aNU.release();
-        }
-        if (this.aNT != null) {
-            this.aNT.release();
-        }
         if (this.aNV != null) {
             this.aNV.release();
         }
-        this.aNO = null;
+        if (this.aNU != null) {
+            this.aNU.release();
+        }
+        if (this.aNW != null) {
+            this.aNW.release();
+        }
         this.aNP = null;
-        this.aNS = null;
+        this.aNQ = null;
+        this.aNT = null;
     }
 
     public void c(com.baidu.swan.apps.ae.a.c cVar) {
-        this.aNM = cVar;
+        this.aNN = cVar;
     }
 
     public com.baidu.swan.apps.ae.a.c IW() {
-        return this.aNM;
-    }
-
-    public void a(com.baidu.swan.games.o.a.a aVar) {
-        this.aNN = aVar;
-    }
-
-    public com.baidu.swan.games.o.a.a IX() {
         return this.aNN;
     }
 
+    public void a(com.baidu.swan.games.o.a.a aVar) {
+        this.aNO = aVar;
+    }
+
+    public com.baidu.swan.games.o.a.a IX() {
+        return this.aNO;
+    }
+
     public void o(com.baidu.swan.apps.v.b.b bVar) {
-        this.ajx = bVar;
+        this.ajy = bVar;
     }
 
     @Nullable
     public com.baidu.swan.apps.v.b.b uA() {
-        return this.ajx;
+        return this.ajy;
     }
 
     @Nullable
@@ -140,61 +140,61 @@ public class b extends ContextWrapper {
     }
 
     public com.baidu.swan.apps.storage.c IY() {
-        if (this.aNO == null) {
-            this.aNO = new com.baidu.swan.apps.storage.c(this);
-        }
-        return this.aNO;
-    }
-
-    @NonNull
-    public com.baidu.swan.apps.setting.a IZ() {
         if (this.aNP == null) {
-            this.aNP = new com.baidu.swan.apps.setting.a(this);
+            this.aNP = new com.baidu.swan.apps.storage.c(this);
         }
         return this.aNP;
     }
 
-    public com.baidu.swan.apps.a.b Ja() {
+    @NonNull
+    public com.baidu.swan.apps.setting.a IZ() {
         if (this.aNQ == null) {
-            this.aNQ = new com.baidu.swan.apps.a.b(this);
+            this.aNQ = new com.baidu.swan.apps.setting.a(this);
         }
         return this.aNQ;
     }
 
-    public synchronized j Jb() {
+    public com.baidu.swan.apps.a.b Ja() {
         if (this.aNR == null) {
-            this.aNR = new j(this);
+            this.aNR = new com.baidu.swan.apps.a.b(this);
         }
         return this.aNR;
     }
 
-    public synchronized com.baidu.swan.games.network.b Jc() {
+    public synchronized j Jb() {
         if (this.aNS == null) {
-            this.aNS = com.baidu.swan.games.network.b.OD();
+            this.aNS = new j(this);
         }
         return this.aNS;
     }
 
+    public synchronized com.baidu.swan.games.network.b Jc() {
+        if (this.aNT == null) {
+            this.aNT = com.baidu.swan.games.network.b.OD();
+        }
+        return this.aNT;
+    }
+
     public k Jd() {
+        if (this.aNW == null) {
+            this.aNW = new k();
+        }
+        return this.aNW;
+    }
+
+    public com.baidu.swan.apps.media.audio.d Je() {
         if (this.aNV == null) {
-            this.aNV = new k();
+            this.aNV = new com.baidu.swan.apps.media.audio.d(this);
         }
         return this.aNV;
     }
 
-    public com.baidu.swan.apps.media.audio.d Je() {
-        if (this.aNU == null) {
-            this.aNU = new com.baidu.swan.apps.media.audio.d(this);
-        }
-        return this.aNU;
-    }
-
     @NonNull
     public d Jf() {
-        if (this.aNW == null) {
-            this.aNW = new d(this);
+        if (this.aNX == null) {
+            this.aNX = new d(this);
         }
-        return this.aNW;
+        return this.aNX;
     }
 
     @Nullable
@@ -204,7 +204,7 @@ public class b extends ContextWrapper {
     }
 
     public String getAppKey() {
-        return (this.ajx == null || TextUtils.isEmpty(this.ajx.mAppKey)) ? "" : this.ajx.mAppKey;
+        return (this.ajy == null || TextUtils.isEmpty(this.ajy.mAppKey)) ? "" : this.ajy.mAppKey;
     }
 
     @Nullable
@@ -216,22 +216,22 @@ public class b extends ContextWrapper {
     }
 
     public static int us() {
-        if (IV() == null || IV().ajx == null) {
+        if (IV() == null || IV().ajy == null) {
             return 0;
         }
-        return IV().ajx.aya;
+        return IV().ajy.ayb;
     }
 
     public boolean Jh() {
-        return this.ajx != null && this.ajx.aya == 1;
+        return this.ajy != null && this.ajy.ayb == 1;
     }
 
     public String getName() {
-        return this.ajx == null ? "" : this.ajx.axG;
+        return this.ajy == null ? "" : this.ajy.axH;
     }
 
     public String getVersion() {
-        return this.ajx != null ? this.ajx.mVersion : "";
+        return this.ajy != null ? this.ajy.mVersion : "";
     }
 
     public static boolean isDataValid() {
@@ -244,28 +244,28 @@ public class b extends ContextWrapper {
     }
 
     public com.baidu.swan.apps.af.a.a Ji() {
-        if (this.aNT == null) {
-            this.aNT = new com.baidu.swan.apps.af.a.a();
+        if (this.aNU == null) {
+            this.aNU = new com.baidu.swan.apps.af.a.a();
         }
-        return this.aNT;
+        return this.aNU;
     }
 
     public boolean gg(String str) {
-        if (TextUtils.isEmpty(str) || this.aNM == null || this.aNM.aOj == null) {
+        if (TextUtils.isEmpty(str) || this.aNN == null || this.aNN.aOk == null) {
             return false;
         }
-        return this.aNM.aOj.gp(str);
+        return this.aNN.aOk.gp(str);
     }
 
     public boolean gh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.aNM != null && this.aNM.aOk != null && this.aNM.aOk.aOx != null && this.aNM.aOk.aOx.containsKey(str)) {
+        if (this.aNN != null && this.aNN.aOl != null && this.aNN.aOl.aOy != null && this.aNN.aOl.aOy.containsKey(str)) {
             if (DEBUG) {
                 Log.i("SwanApp", "内存中查询分包是否存在信息");
             }
-            return this.aNM.aOk.aOx.get(str).booleanValue();
+            return this.aNN.aOl.aOy.get(str).booleanValue();
         }
         if (DEBUG) {
             Log.i("SwanApp", "DB中查询分包是否存在信息");
@@ -279,26 +279,26 @@ public class b extends ContextWrapper {
     }
 
     public void s(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.aNM != null && this.aNM.aOk != null && this.aNM.aOk.aOx != null) {
+        if (!TextUtils.isEmpty(str) && this.aNN != null && this.aNN.aOl != null && this.aNN.aOl.aOy != null) {
             if (DEBUG) {
                 Log.i("SwanApp", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.aNM.aOk.aOx.put(str, Boolean.valueOf(z));
+            this.aNN.aOl.aOy.put(str, Boolean.valueOf(z));
         }
     }
 
     public String gi(String str) {
-        if (this.aNM == null || this.aNM.aOk == null || this.aNM.aOk.aOy == null) {
+        if (this.aNN == null || this.aNN.aOl == null || this.aNN.aOl.aOz == null) {
             return null;
         }
-        return this.aNM.aOk.aOy.get(str);
+        return this.aNN.aOl.aOz.get(str);
     }
 
     public String gj(String str) {
-        if (this.aNM == null || this.aNM.aOl == null || this.aNM.aOl.aOz == null) {
+        if (this.aNN == null || this.aNN.aOm == null || this.aNN.aOm.aOA == null) {
             return null;
         }
-        return this.aNM.aOl.aOz.get(str);
+        return this.aNN.aOm.aOA.get(str);
     }
 
     public String Jj() {
@@ -308,7 +308,7 @@ public class b extends ContextWrapper {
 
     private String dx(int i) {
         if (i == 0) {
-            String str = this.ajx != null ? this.ajx.auk : "";
+            String str = this.ajy != null ? this.ajy.aul : "";
             if (TextUtils.isEmpty(str)) {
                 str = getVersion();
             }
@@ -321,21 +321,21 @@ public class b extends ContextWrapper {
 
     public void au(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.aNX == null) {
-                this.aNX = new HashMap();
+            if (this.aNY == null) {
+                this.aNY = new HashMap();
             }
             if (DEBUG) {
                 Log.d("SwanApp", "update initData, page: " + str2 + " initDta : " + str);
             }
-            this.aNX.put(str2, str);
+            this.aNY.put(str2, str);
         }
     }
 
     @Nullable
     public String gk(String str) {
-        if (TextUtils.isEmpty(str) || this.aNX == null) {
+        if (TextUtils.isEmpty(str) || this.aNY == null) {
             return null;
         }
-        return this.aNX.get(str);
+        return this.aNY.get(str);
     }
 }

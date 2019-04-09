@@ -37,20 +37,20 @@ public class h extends y {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("appid", uA.mAppId);
-            jSONObject.put("appname", uA.axG);
-            if (!TextUtils.isEmpty(uA.axH)) {
-                jSONObject.put("iconUrl", uA.axH);
+            jSONObject.put("appname", uA.axH);
+            if (!TextUtils.isEmpty(uA.axI)) {
+                jSONObject.put("iconUrl", uA.axI);
             }
-            if (!TextUtils.isEmpty(uA.axK)) {
-                jSONObject.put("appLaunchScheme", uA.axK);
+            if (!TextUtils.isEmpty(uA.axL)) {
+                jSONObject.put("appLaunchScheme", uA.axL);
             }
             String bJ = com.baidu.swan.apps.u.a.CB().bJ(context);
             jSONObject.put("cuid", bJ);
             jSONObject.put("mtjCuid", bJ);
-            jSONObject.put("clkid", uA.axU);
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, uA.axJ);
+            jSONObject.put("clkid", uA.axV);
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, uA.axK);
             jSONObject.put("appId", uA.mAppId);
-            Bundle bundle = uA.axT;
+            Bundle bundle = uA.axU;
             if (bundle != null) {
                 String string = bundle.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {

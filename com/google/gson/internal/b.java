@@ -24,16 +24,16 @@ import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 /* loaded from: classes2.dex */
 public final class b {
-    private final Map<Type, com.google.gson.e<?>> jMQ;
+    private final Map<Type, com.google.gson.e<?>> jMR;
 
     public b(Map<Type, com.google.gson.e<?>> map) {
-        this.jMQ = map;
+        this.jMR = map;
     }
 
     public <T> e<T> b(com.google.gson.b.a<T> aVar) {
         final Type cBD = aVar.cBD();
         Class<? super T> cBC = aVar.cBC();
-        final com.google.gson.e<?> eVar = this.jMQ.get(cBD);
+        final com.google.gson.e<?> eVar = this.jMR.get(cBD);
         if (eVar != null) {
             return new e<T>() { // from class: com.google.gson.internal.b.1
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -43,7 +43,7 @@ public final class b {
                 }
             };
         }
-        final com.google.gson.e<?> eVar2 = this.jMQ.get(cBC);
+        final com.google.gson.e<?> eVar2 = this.jMR.get(cBC);
         if (eVar2 != null) {
             return new e<T>() { // from class: com.google.gson.internal.b.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -190,13 +190,13 @@ public final class b {
 
     private <T> e<T> d(final Type type, final Class<? super T> cls) {
         return new e<T>() { // from class: com.google.gson.internal.b.6
-            private final h jMU = h.cBp();
+            private final h jMV = h.cBp();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
             @Override // com.google.gson.internal.e
             public T cBe() {
                 try {
-                    return this.jMU.newInstance(cls);
+                    return this.jMV.newInstance(cls);
                 } catch (Exception e) {
                     throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Register an InstanceCreator with Gson for this type may fix this problem.", e);
                 }
@@ -205,6 +205,6 @@ public final class b {
     }
 
     public String toString() {
-        return this.jMQ.toString();
+        return this.jMR.toString();
     }
 }

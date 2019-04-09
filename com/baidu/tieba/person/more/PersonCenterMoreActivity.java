@@ -18,29 +18,29 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.data.f;
 /* loaded from: classes6.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b hKO;
-    private Bundle hKP;
-    private f hKQ;
+    private b hKP;
+    private Bundle hKQ;
+    private f hKR;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.hKP = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.hKQ = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(d.h.person_center_more_layout);
-        this.hKO = new b(getPageContext(), this.hKP, new ab<f>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.hKP = new b(getPageContext(), this.hKQ, new ab<f>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, f fVar) {
-                PersonCenterMoreActivity.this.hKQ = fVar;
-                if (PersonCenterMoreActivity.this.hKQ != null && !PersonCenterMoreActivity.this.aJi()) {
-                    PersonCenterMoreActivity.this.Av(PersonCenterMoreActivity.this.hKQ.bvL);
+                PersonCenterMoreActivity.this.hKR = fVar;
+                if (PersonCenterMoreActivity.this.hKR != null && !PersonCenterMoreActivity.this.aJi()) {
+                    PersonCenterMoreActivity.this.Av(PersonCenterMoreActivity.this.hKR.bvM);
                 }
             }
         });
-        this.hKO.initView();
+        this.hKP.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,7 +55,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            Av(this.hKQ.bvL);
+            Av(this.hKR.bvM);
         }
     }
 
@@ -92,8 +92,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hKO != null) {
-            this.hKO.onChangeSkinType();
+        if (this.hKP != null) {
+            this.hKP.onChangeSkinType();
         }
     }
 }

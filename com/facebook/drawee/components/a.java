@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a jBc = null;
-    private final Runnable jBe = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a jBd = null;
+    private final Runnable jBf = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.cuJ();
-            for (InterfaceC0432a interfaceC0432a : a.this.jBd) {
+            for (InterfaceC0432a interfaceC0432a : a.this.jBe) {
                 interfaceC0432a.release();
             }
-            a.this.jBd.clear();
+            a.this.jBe.clear();
         }
     };
-    private final Set<InterfaceC0432a> jBd = new HashSet();
+    private final Set<InterfaceC0432a> jBe = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -30,24 +30,24 @@ public class a {
     public static synchronized a cuI() {
         a aVar;
         synchronized (a.class) {
-            if (jBc == null) {
-                jBc = new a();
+            if (jBd == null) {
+                jBd = new a();
             }
-            aVar = jBc;
+            aVar = jBd;
         }
         return aVar;
     }
 
     public void a(InterfaceC0432a interfaceC0432a) {
         cuJ();
-        if (this.jBd.add(interfaceC0432a) && this.jBd.size() == 1) {
-            this.mUiHandler.post(this.jBe);
+        if (this.jBe.add(interfaceC0432a) && this.jBe.size() == 1) {
+            this.mUiHandler.post(this.jBf);
         }
     }
 
     public void b(InterfaceC0432a interfaceC0432a) {
         cuJ();
-        this.jBd.remove(interfaceC0432a);
+        this.jBe.remove(interfaceC0432a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -222,12 +222,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 } else {
                                     ChatMessage chatMessage = groupMsgData2.getListMessage().get(0);
                                     ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
-                                    imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.sendmessage.a.grS));
+                                    imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.sendmessage.a.grT));
                                     imMessageCenterPojo4.setCustomGroupType(-1);
                                     imMessageCenterPojo4.setIs_hidden(1);
                                     imMessageCenterPojo4.setPulled_msgId(chatMessage.getMsgId());
                                     j.bso().f(imMessageCenterPojo4);
-                                    BdLog.i("pullMessage insertMessagecent personal_Group gid = " + com.baidu.tieba.im.sendmessage.a.grS + " msgid = " + chatMessage.getMsgId());
+                                    BdLog.i("pullMessage insertMessagecent personal_Group gid = " + com.baidu.tieba.im.sendmessage.a.grT + " msgid = " + chatMessage.getMsgId());
                                 }
                             } else if (groupMsgData2.getCmd() == 2012129) {
                                 if (groupMsgData2.getListMessage() == null) {
@@ -302,12 +302,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             h.bsl().endTransaction();
                             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.o.f fVar = new com.baidu.tbadk.o.f();
-                            fVar.cqg = getCmd();
+                            fVar.cqh = getCmd();
                             if (this.performanceData != null) {
                                 fVar.Cv = this.performanceData.yq;
-                                fVar.cqh = getDownSize();
-                                fVar.cqi = currentTimeMillis2;
-                                fVar.cqj = i3;
+                                fVar.cqi = getDownSize();
+                                fVar.cqj = currentTimeMillis2;
+                                fVar.cqk = i3;
                                 fVar.Oi = this.performanceData.yn;
                                 fVar.jW(1002);
                                 fVar.aoZ();
@@ -319,12 +319,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             h.bsl().endTransaction();
                             long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.o.f fVar2 = new com.baidu.tbadk.o.f();
-                            fVar2.cqg = getCmd();
+                            fVar2.cqh = getCmd();
                             if (this.performanceData != null) {
                                 fVar2.Cv = this.performanceData.yq;
-                                fVar2.cqh = getDownSize();
-                                fVar2.cqi = currentTimeMillis3;
-                                fVar2.cqj = i2;
+                                fVar2.cqi = getDownSize();
+                                fVar2.cqj = currentTimeMillis3;
+                                fVar2.cqk = i2;
                                 fVar2.Oi = this.performanceData.yn;
                                 fVar2.jW(1002);
                                 fVar2.aoZ();
@@ -336,12 +336,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 h.bsl().endTransaction();
                 long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                 com.baidu.tbadk.o.f fVar3 = new com.baidu.tbadk.o.f();
-                fVar3.cqg = getCmd();
+                fVar3.cqh = getCmd();
                 if (this.performanceData != null) {
                     fVar3.Cv = this.performanceData.yq;
-                    fVar3.cqh = getDownSize();
-                    fVar3.cqi = currentTimeMillis4;
-                    fVar3.cqj = i3;
+                    fVar3.cqi = getDownSize();
+                    fVar3.cqj = currentTimeMillis4;
+                    fVar3.cqk = i3;
                     fVar3.Oi = this.performanceData.yn;
                     fVar3.jW(1002);
                     fVar3.aoZ();
@@ -652,10 +652,10 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 JSONArray optJSONArray = new JSONObject(str).optJSONArray("tab_uid");
                 if (optJSONArray != null) {
                     if (ap.equals(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_response_pull_pull_config_tab_uid", ""), optJSONArray.toString())) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bYC = false;
-                    } else {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.bYC = true;
                         com.baidu.tbadk.coreExtra.messageCenter.b.bYD = false;
+                    } else {
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bYD = true;
+                        com.baidu.tbadk.coreExtra.messageCenter.b.bYE = false;
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_response_pull_pull_config_tab_uid", optJSONArray.toString());
                     }
                 }

@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static com.baidu.adp.lib.guide.c dgz;
+    private static com.baidu.adp.lib.guide.c dgA;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -41,10 +41,10 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c anG() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.cof = new EnterForumTabFragment();
+        cVar.cog = new EnterForumTabFragment();
         cVar.type = 1;
-        cVar.bOg = d.j.enter_forum;
-        cVar.col = com.baidu.tbadk.mainTab.c.coj;
+        cVar.bOh = d.j.enter_forum;
+        cVar.f5com = com.baidu.tbadk.mainTab.c.cok;
         cVar.nf = d.i.enter_forum;
         return cVar;
     }
@@ -58,8 +58,8 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (anH = enterForumDelegateStatic.anH()) != null && !anH.cof.isAdded()) {
-                        anH.cof.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (anH = enterForumDelegateStatic.anH()) != null && !anH.cog.isAdded()) {
+                        anH.cog.setArguments(new Bundle());
                     }
                 }
             }
@@ -118,15 +118,15 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void ah(final Activity activity) {
-        if (dgz != null) {
-            dgz.dismiss();
+        if (dgA != null) {
+            dgA.dismiss();
         }
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.5
             @Override // java.lang.Runnable
             public void run() {
-                if (EnterForumDelegateStatic.dgz != null) {
-                    EnterForumDelegateStatic.dgz.dismiss();
+                if (EnterForumDelegateStatic.dgA != null) {
+                    EnterForumDelegateStatic.dgA.dismiss();
                 }
             }
         };
@@ -140,7 +140,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             @Override // com.baidu.adp.lib.guide.d.a
             public void onDismiss() {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_tip_show" + TbadkCoreApplication.getCurrentAccount(), true);
-                com.baidu.adp.lib.guide.c unused = EnterForumDelegateStatic.dgz = null;
+                com.baidu.adp.lib.guide.c unused = EnterForumDelegateStatic.dgA = null;
                 handler.removeCallbacks(runnable);
             }
         });
@@ -153,7 +153,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.7.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        EnterForumDelegateStatic.dgz.dismiss();
+                        EnterForumDelegateStatic.dgA.dismiss();
                     }
                 });
                 al.j(textView, d.C0277d.cp_btn_a);
@@ -188,14 +188,14 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                 return dimensionPixelSize;
             }
         });
-        dgz = dVar.iT();
-        dgz.n(activity);
+        dgA = dVar.iT();
+        dgA.n(activity);
         handler.postDelayed(runnable, 5000L);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator di(Context context) {
-        this.cnR = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.cnR;
+        this.cnS = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.cnS;
     }
 }

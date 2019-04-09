@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes5.dex */
 class e {
-    private final MediaMuxer iWF;
-    private volatile boolean iWH;
+    private final MediaMuxer iWG;
     private volatile boolean iWI;
-    private int iWG = 2;
+    private volatile boolean iWJ;
+    private int iWH = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.iWF = new MediaMuxer(str, 0);
+        this.iWG = new MediaMuxer(str, 0);
     }
 
     public void cjC() {
-        this.iWH = true;
+        this.iWI = true;
     }
 
     public void cjD() {
-        this.iWI = true;
+        this.iWJ = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.iWI || !this.iWH) {
+        if (!this.iWJ || !this.iWI) {
             z = false;
         } else {
-            if (this.iWG > 0 && this.iWI && this.iWH) {
-                this.iWF.start();
+            if (this.iWH > 0 && this.iWJ && this.iWI) {
+                this.iWG.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.iWG > 0) {
+        if (this.iWH > 0) {
             try {
-                this.iWF.stop();
-                this.iWF.release();
+                this.iWG.stop();
+                this.iWG.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.iWF.addTrack(mediaFormat);
+        return this.iWG.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.iWF.writeSampleData(i, byteBuffer, bufferInfo);
+            this.iWG.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

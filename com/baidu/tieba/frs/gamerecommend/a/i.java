@@ -79,14 +79,14 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
             aVar.flS.setMaxOverScrollDistance(aVar.flT.getChildItemWidth());
             aVar.flQ.setBackgroundColor(al.getColor(skinType, d.C0277d.cp_bg_line_d));
             al.k(aVar.flE, d.C0277d.cp_bg_line_e);
-            al.k(aVar.eOz, d.C0277d.cp_bg_line_e);
+            al.k(aVar.eOA, d.C0277d.cp_bg_line_e);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes4.dex */
     public class a extends v.a {
-        private View eOz;
+        private View eOA;
         private View flE;
         private LinearLayout flQ;
         private TextView flR;
@@ -102,7 +102,7 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
             this.flT.setItemSpace(l.h(view.getContext(), d.e.tbds20));
             this.flT.setItemWidth(((l.h(view.getContext(), d.e.tbds170) * 2) * 21) / 9);
             this.flE = view.findViewById(d.g.divider_line_1);
-            this.eOz = view.findViewById(d.g.divider_line_2);
+            this.eOA = view.findViewById(d.g.divider_line_2);
         }
     }
 }

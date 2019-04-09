@@ -13,13 +13,13 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public class x implements au<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g jEJ;
+    private final com.facebook.common.memory.g jEK;
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
 
     public x(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         this.mExecutor = executor;
-        this.jEJ = gVar;
+        this.jEK = gVar;
         this.mContentResolver = contentResolver;
     }
 
@@ -43,7 +43,7 @@ public class x implements au<com.facebook.imagepipeline.f.d> {
                 if (L == null || !L.hasThumbnail()) {
                     return null;
                 }
-                return x.this.a(x.this.jEJ.Y(L.getThumbnail()), L);
+                return x.this.a(x.this.jEK.Y(L.getThumbnail()), L);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class x implements au<com.facebook.imagepipeline.f.d> {
         try {
             com.facebook.imagepipeline.f.d dVar = new com.facebook.imagepipeline.f.d(d);
             com.facebook.common.references.a.c(d);
-            dVar.c(com.facebook.c.b.jEp);
+            dVar.c(com.facebook.c.b.jEq);
             dVar.Ch(a);
             dVar.setWidth(intValue);
             dVar.setHeight(intValue2);

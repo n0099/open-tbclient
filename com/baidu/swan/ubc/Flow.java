@@ -28,7 +28,7 @@ public class Flow implements Parcelable {
             return new Flow(parcel);
         }
     };
-    private j bpu;
+    private j bpv;
     private int mHandle;
     private String mId;
     private int mOption;
@@ -40,7 +40,7 @@ public class Flow implements Parcelable {
     public Flow() {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpu = q.Tq();
+        this.bpv = q.Tq();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -51,7 +51,7 @@ public class Flow implements Parcelable {
     public Flow(String str, int i, int i2) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpu = q.Tq();
+        this.bpv = q.Tq();
         this.mId = str;
         this.mHandle = i;
         this.mOption = i2;
@@ -61,7 +61,7 @@ public class Flow implements Parcelable {
     private Flow(Parcel parcel) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.bpu = q.Tq();
+        this.bpv = q.Tq();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();
@@ -76,8 +76,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().a(this.mId, str, this.mHandle, str2, this.mOption);
                 }
-                if (this.bpu != null) {
-                    this.bpu.a(this.mId, str, this.mHandle, str2, this.mOption);
+                if (this.bpv != null) {
+                    this.bpv.a(this.mId, str, this.mHandle, str2, this.mOption);
                     return;
                 }
                 return;
@@ -96,8 +96,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().a(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
-                if (this.bpu != null) {
-                    this.bpu.a(this.mId, str, this.mHandle, str2, j, this.mOption);
+                if (this.bpv != null) {
+                    this.bpv.a(this.mId, str, this.mHandle, str2, j, this.mOption);
                     return;
                 }
                 return;
@@ -116,8 +116,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().c(this.mId, this.mHandle, str);
                 }
-                if (this.bpu != null) {
-                    this.bpu.c(this.mId, this.mHandle, str);
+                if (this.bpv != null) {
+                    this.bpv.c(this.mId, this.mHandle, str);
                     return;
                 }
                 return;
@@ -151,8 +151,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().c(this.mId, this.mHandle, jSONObject.toString());
                 }
-                if (this.bpu != null) {
-                    this.bpu.c(this.mId, this.mHandle, jSONObject.toString());
+                if (this.bpv != null) {
+                    this.bpv.c(this.mId, this.mHandle, jSONObject.toString());
                     return;
                 }
                 return;
@@ -184,8 +184,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().a(this.mId, this.mHandle, jSONArray);
                 }
-                if (this.bpu != null) {
-                    this.bpu.a(this.mId, this.mHandle, jSONArray);
+                if (this.bpv != null) {
+                    this.bpv.a(this.mId, this.mHandle, jSONArray);
                     return;
                 }
                 return;
@@ -204,8 +204,8 @@ public class Flow implements Parcelable {
                 if (com.baidu.swan.b.c.TC()) {
                     l.Ti().y(this.mId, this.mHandle);
                 }
-                if (this.bpu != null) {
-                    this.bpu.y(this.mId, this.mHandle);
+                if (this.bpv != null) {
+                    this.bpv.y(this.mId, this.mHandle);
                     return;
                 }
                 return;

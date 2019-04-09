@@ -44,26 +44,26 @@ public class TrackRunBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackRunBox.java", TrackRunBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.util.List"), 57);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "int", "dataOffset", "", "void"), 120);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "setDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 271);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 279);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "setSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 287);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 296);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "setSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 304);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "getDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "int"), 313);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "getFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 317);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "firstSampleFlags", "", "void"), 321);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.lang.String"), 331);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "java.util.List", "entries", "", "void"), 346);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getSampleCompositionTimeOffsets", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "[J"), 129);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), 242);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "isDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 246);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "isSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 255);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 259);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 263);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "isSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 267);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.util.List"), 57);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "int", "dataOffset", "", "void"), 120);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "setDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 271);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 279);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "setSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 287);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 296);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "setSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "boolean", "v", "", "void"), 304);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "getDataOffset", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "int"), 313);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "com.coremedia.iso.boxes.fragment.SampleFlags"), 317);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setFirstSampleFlags", "com.coremedia.iso.boxes.fragment.TrackRunBox", "com.coremedia.iso.boxes.fragment.SampleFlags", "firstSampleFlags", "", "void"), 321);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.lang.String"), 331);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "java.util.List", "entries", "", "void"), 346);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getSampleCompositionTimeOffsets", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "[J"), 129);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), 242);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "isDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 246);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "isSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 255);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 259);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 263);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "isSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 267);
     }
 
     public List<Entry> getEntries() {

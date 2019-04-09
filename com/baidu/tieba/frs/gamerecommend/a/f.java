@@ -12,7 +12,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, com.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.exG);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.e.exH);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }

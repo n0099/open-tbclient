@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class v extends y {
-    private static final String[] aAq = {"_id", "_data"};
+    private static final String[] aAr = {"_id", "_data"};
     private final ContentResolver mContentResolver;
 
     public v(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -43,7 +43,7 @@ public class v extends y {
     @Nullable
     private com.facebook.imagepipeline.f.d K(Uri uri) throws IOException {
         com.facebook.imagepipeline.f.d dVar = null;
-        Cursor query = this.mContentResolver.query(uri, aAq, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, aAr, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {

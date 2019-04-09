@@ -8,24 +8,24 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes2.dex */
 public class a implements Interceptor {
-    private InterfaceC0146a aCV;
-    final e aCW = new e() { // from class: com.baidu.swan.apps.network.a.a.1
+    private InterfaceC0146a aCW;
+    final e aCX = new e() { // from class: com.baidu.swan.apps.network.a.a.1
         @Override // com.baidu.swan.apps.network.e
         public void a(long j, long j2, boolean z) {
-            if (a.this.aCV == null) {
+            if (a.this.aCW == null) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                a.this.aCV.b(0, j, j2);
+                a.this.aCW.b(0, j, j2);
             } else if (j2 > Config.FULL_TRACE_LOG_LIMIT) {
-                a.this.aCV.y(j2);
+                a.this.aCW.y(j2);
             } else if (j2 <= 0 || j > j2 || j == 0) {
-                a.this.aCV.e(j, j2);
+                a.this.aCW.e(j, j2);
             } else {
                 int floor = (int) Math.floor((100 * j) / j2);
                 if (floor != 100) {
-                    a.this.aCV.b(floor, j, j2);
+                    a.this.aCW.b(floor, j, j2);
                 }
             }
         }
@@ -42,12 +42,12 @@ public class a implements Interceptor {
     }
 
     public void a(InterfaceC0146a interfaceC0146a) {
-        this.aCV = interfaceC0146a;
+        this.aCW = interfaceC0146a;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.aCW)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.aCX)).build();
     }
 }

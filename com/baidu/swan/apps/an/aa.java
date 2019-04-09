@@ -65,20 +65,20 @@ public final class aa {
             return false;
         }
         if (DEBUG) {
-            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axL);
+            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axM);
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
         if (z) {
-            return cVar.gn(bVar.axL) || cVar.go(bVar.axL);
+            return cVar.gn(bVar.axM) || cVar.go(bVar.axM);
         }
-        if (!cVar.gn(bVar.axL) || cVar.go(bVar.axL)) {
+        if (!cVar.gn(bVar.axM) || cVar.go(bVar.axM)) {
             z2 = false;
         }
         return z2;
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar) {
-        return cVar != null && cVar.Jq() && cVar.go(bVar.axL);
+        return cVar != null && cVar.Jq() && cVar.go(bVar.axM);
     }
 
     public static void i(Runnable runnable) {
@@ -280,8 +280,8 @@ public final class aa {
 
     public static Bitmap a(com.baidu.swan.apps.v.b.b bVar, String str, boolean z) {
         String str2 = "";
-        if (bVar != null && !TextUtils.isEmpty(bVar.axH)) {
-            str2 = bVar.axH;
+        if (bVar != null && !TextUtils.isEmpty(bVar.axI)) {
+            str2 = bVar.axI;
         }
         return j(str2, str, z);
     }

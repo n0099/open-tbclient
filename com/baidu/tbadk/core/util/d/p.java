@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
-    private boolean ZQ = true;
+    private boolean ZR = true;
 
     @Override // com.baidu.adp.lib.f.e
     public boolean jE() {
@@ -116,7 +116,7 @@ public class p implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             aVar.Dv = iVar;
         }
-        byte[] K = iVar.K(str3, !this.ZQ);
+        byte[] K = iVar.K(str3, !this.ZR);
         if (K == null && !iVar.js().Dc) {
             return null;
         }

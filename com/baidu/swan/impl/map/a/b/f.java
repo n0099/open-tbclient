@@ -18,7 +18,7 @@ import com.baidu.swan.apps.x.a.a.d;
 public class f {
     public static void b(com.baidu.swan.impl.map.item.b bVar, com.baidu.swan.apps.x.a.a.d dVar) {
         Bitmap F;
-        if (bVar != null && dVar.isValid() && (F = com.baidu.swan.impl.map.e.b.F(dVar.azg, true)) != null) {
+        if (bVar != null && dVar.isValid() && (F = com.baidu.swan.impl.map.e.b.F(dVar.azh, true)) != null) {
             com.baidu.swan.impl.map.item.c cVar = new com.baidu.swan.impl.map.item.c();
             int width = dVar.width == -1 ? F.getWidth() : dVar.width;
             int height = dVar.height == -1 ? F.getHeight() : dVar.height;
@@ -27,15 +27,15 @@ public class f {
                 imageView.setLayoutParams(new ViewGroup.LayoutParams(width, height));
                 imageView.setImageBitmap(com.baidu.swan.impl.map.e.b.c(F, width, height));
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                if (dVar.azm == null) {
-                    dVar.azm = new d.a();
+                if (dVar.azn == null) {
+                    dVar.azn = new d.a();
                 }
                 BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
                 if (fromView != null) {
                     Bitmap bitmap = fromView.getBitmap();
-                    LatLng latLng = new LatLng(dVar.ayL.latitude, dVar.ayL.longitude);
-                    cVar.bho = (Marker) bVar.bhm.getMap().addOverlay(new MarkerOptions().position(latLng).icon(fromView).alpha((float) dVar.azj).title(dVar.title).rotate((float) dVar.azb).zIndex(88).anchor((float) dVar.azm.x, (float) dVar.azm.y));
-                    cVar.bhn = dVar;
+                    LatLng latLng = new LatLng(dVar.ayM.latitude, dVar.ayM.longitude);
+                    cVar.bhp = (Marker) bVar.bhn.getMap().addOverlay(new MarkerOptions().position(latLng).icon(fromView).alpha((float) dVar.azk).title(dVar.title).rotate((float) dVar.azc).zIndex(88).anchor((float) dVar.azn.x, (float) dVar.azn.y));
+                    cVar.bho = dVar;
                     LinearLayout linearLayout = new LinearLayout(AppRuntime.getAppContext());
                     linearLayout.setOrientation(1);
                     linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
@@ -44,14 +44,14 @@ public class f {
                     view.setLayoutParams(new ViewGroup.LayoutParams(width, height));
                     view.setVisibility(4);
                     linearLayout.addView(view);
-                    cVar.bhs = linearLayout;
-                    if (com.baidu.swan.impl.map.item.c.bhr.booleanValue()) {
-                        if (dVar.azk != null && dVar.azk.isValid() && TextUtils.equals(dVar.azk.adF, "ALWAYS")) {
+                    cVar.bht = linearLayout;
+                    if (com.baidu.swan.impl.map.item.c.bhs.booleanValue()) {
+                        if (dVar.azl != null && dVar.azl.isValid() && TextUtils.equals(dVar.azl.adG, "ALWAYS")) {
                             View a = a.a(bVar, dVar);
                             linearLayout.addView(a, 0);
-                            cVar.bhq = a;
+                            cVar.bhr = a;
                         }
-                        if (dVar.azl != null && dVar.azl.isValid()) {
+                        if (dVar.azm != null && dVar.azm.isValid()) {
                             c.a(bVar, cVar);
                         }
                     }
@@ -59,14 +59,14 @@ public class f {
                     MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                     builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                     builder.position(latLng);
-                    builder.yOffset((int) ((bitmap.getHeight() * (1.0d - dVar.azm.y)) + 0.0d));
-                    bVar.bhm.addView(linearLayout, builder.build());
+                    builder.yOffset((int) ((bitmap.getHeight() * (1.0d - dVar.azn.y)) + 0.0d));
+                    bVar.bhn.addView(linearLayout, builder.build());
                     linearLayout.setAlpha(0.0f);
                     BitmapDescriptor fromView2 = BitmapDescriptorFactory.fromView(linearLayout);
                     if (fromView2 != null) {
                         Bitmap bitmap2 = fromView2.getBitmap();
-                        cVar.bht = (Marker) bVar.bhm.getMap().addOverlay(new MarkerOptions().position(latLng).icon(fromView2).anchor(((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (dVar.azm.x * bitmap.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (dVar.azm.y * bitmap.getHeight()))) / bitmap2.getHeight()).zIndex(66));
-                        bVar.ayN.add(cVar);
+                        cVar.bhu = (Marker) bVar.bhn.getMap().addOverlay(new MarkerOptions().position(latLng).icon(fromView2).anchor(((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (dVar.azn.x * bitmap.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (dVar.azn.y * bitmap.getHeight()))) / bitmap2.getHeight()).zIndex(66));
+                        bVar.ayO.add(cVar);
                     }
                 }
             }

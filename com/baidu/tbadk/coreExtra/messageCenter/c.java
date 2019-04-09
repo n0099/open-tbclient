@@ -23,18 +23,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c bYV;
+    private static volatile c bYW;
     private final LinkedList<ImMessageCenterPojo> mList = new LinkedList<>();
-    private int bYW = 0;
     private int bYX = 0;
-    private int mReplyNum = 0;
     private int bYY = 0;
-    private boolean bYZ = false;
-    private int bZa = 0;
-    private boolean bZb = false;
-    private int bZc = 0;
-    private boolean bZd = false;
-    private final CustomMessageListener bZe = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
+    private int mReplyNum = 0;
+    private int bYZ = 0;
+    private boolean bZa = false;
+    private int bZb = 0;
+    private boolean bZc = false;
+    private int bZd = 0;
+    private boolean bZe = false;
+    private final CustomMessageListener bZf = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,39 +62,39 @@ public class c {
     }
 
     public static c aia() {
-        if (bYV == null) {
+        if (bYW == null) {
             synchronized (c.class) {
-                if (bYV == null) {
-                    bYV = new c();
+                if (bYW == null) {
+                    bYW = new c();
                 }
             }
         }
-        return bYV;
+        return bYW;
     }
 
     public void init() {
         reset();
         MessageManager.getInstance().registerStickyMode(2921002);
-        MessageManager.getInstance().registerListener(2001120, this.bZe);
-        MessageManager.getInstance().registerListener(2016002, this.bZe);
-        MessageManager.getInstance().registerListener(2016004, this.bZe);
-        MessageManager.getInstance().registerListener(2016001, this.bZe);
-        MessageManager.getInstance().registerListener(2016007, this.bZe);
-        MessageManager.getInstance().registerListener(2016011, this.bZe);
-        MessageManager.getInstance().registerListener(2016010, this.bZe);
+        MessageManager.getInstance().registerListener(2001120, this.bZf);
+        MessageManager.getInstance().registerListener(2016002, this.bZf);
+        MessageManager.getInstance().registerListener(2016004, this.bZf);
+        MessageManager.getInstance().registerListener(2016001, this.bZf);
+        MessageManager.getInstance().registerListener(2016007, this.bZf);
+        MessageManager.getInstance().registerListener(2016011, this.bZf);
+        MessageManager.getInstance().registerListener(2016010, this.bZf);
     }
 
     private void reset() {
         this.mList.clear();
-        this.bYW = 0;
         this.bYX = 0;
-        this.mReplyNum = 0;
         this.bYY = 0;
-        this.bYZ = false;
-        this.bZa = 0;
-        this.bZb = false;
-        this.bZa = 0;
-        this.bZb = false;
+        this.mReplyNum = 0;
+        this.bYZ = 0;
+        this.bZa = false;
+        this.bZb = 0;
+        this.bZc = false;
+        this.bZb = 0;
+        this.bZc = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aib() {
-        r(this.bYW, this.bYX, this.mReplyNum);
+        r(this.bYX, this.bYY, this.mReplyNum);
         X(this.mList);
         Y(this.mList);
         aid();
@@ -120,7 +120,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aic() {
-        r(this.bYW, this.bYX, this.mReplyNum);
+        r(this.bYX, this.bYY, this.mReplyNum);
         X(this.mList);
         Y(this.mList);
         aid();
@@ -201,10 +201,10 @@ public class c {
             i4 += i3;
         }
         int i5 = d.aie().aih() == 0 ? 0 : i4;
-        this.bYZ = i5 <= 0 ? false : z;
-        this.bYY = i5;
-        this.bYW = i;
-        this.bYX = i2;
+        this.bZa = i5 <= 0 ? false : z;
+        this.bYZ = i5;
+        this.bYX = i;
+        this.bYY = i2;
         this.mReplyNum = i3;
     }
 
@@ -264,8 +264,8 @@ public class c {
                 i = 0;
             }
             boolean z2 = i > 0 ? z : false;
-            this.bZa = i;
-            this.bZb = z2;
+            this.bZb = i;
+            this.bZc = z2;
         }
     }
 
@@ -285,8 +285,8 @@ public class c {
                 i2 = i2;
             }
             boolean z2 = i2 > 0 ? z : false;
-            this.bZc = i2;
-            this.bZd = z2;
+            this.bZd = i2;
+            this.bZe = z2;
         }
     }
 
@@ -338,15 +338,15 @@ public class c {
 
     private void aid() {
         NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-        newsRemindMessage.setMsgAgreeCount(this.bYW);
-        newsRemindMessage.setMsgAtCount(this.bYX);
+        newsRemindMessage.setMsgAgreeCount(this.bYX);
+        newsRemindMessage.setMsgAtCount(this.bYY);
         newsRemindMessage.setMsgReplyCount(this.mReplyNum);
-        newsRemindMessage.setMsgCount(this.bYY);
-        newsRemindMessage.setHasMsgRemind(this.bYZ);
-        newsRemindMessage.setChatCount(this.bZa);
-        newsRemindMessage.setHasChatRemind(this.bZb);
-        newsRemindMessage.setNotificationCount(this.bZc);
-        newsRemindMessage.setHasNotificationRemind(this.bZd);
+        newsRemindMessage.setMsgCount(this.bYZ);
+        newsRemindMessage.setHasMsgRemind(this.bZa);
+        newsRemindMessage.setChatCount(this.bZb);
+        newsRemindMessage.setHasChatRemind(this.bZc);
+        newsRemindMessage.setNotificationCount(this.bZd);
+        newsRemindMessage.setHasNotificationRemind(this.bZe);
         MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
     }
 }

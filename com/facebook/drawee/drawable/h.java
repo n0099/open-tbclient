@@ -7,14 +7,14 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class h extends g {
     private Matrix IR;
-    private int jCC;
     private int jCD;
+    private int jCE;
     private Matrix mMatrix;
 
     public h(Drawable drawable, Matrix matrix) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jCC = 0;
         this.jCD = 0;
+        this.jCE = 0;
         this.mMatrix = matrix;
     }
 
@@ -47,7 +47,7 @@ public class h extends g {
     }
 
     private void cvq() {
-        if (this.jCC != getCurrent().getIntrinsicWidth() || this.jCD != getCurrent().getIntrinsicHeight()) {
+        if (this.jCD != getCurrent().getIntrinsicWidth() || this.jCE != getCurrent().getIntrinsicHeight()) {
             cvr();
         }
     }
@@ -56,9 +56,9 @@ public class h extends g {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.jCC = intrinsicWidth;
+        this.jCD = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.jCD = intrinsicHeight;
+        this.jCE = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.IR = null;

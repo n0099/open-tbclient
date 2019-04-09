@@ -23,16 +23,16 @@ public final class v {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aWs;
         public final boolean aWt;
-        public final int aWu;
+        public final boolean aWu;
+        public final int aWv;
         public final String mPath;
 
         a(String str, boolean z, boolean z2, int i) {
             this.mPath = str;
-            this.aWs = z;
-            this.aWt = z2;
-            this.aWu = i;
+            this.aWt = z;
+            this.aWu = z2;
+            this.aWv = i;
         }
     }
 

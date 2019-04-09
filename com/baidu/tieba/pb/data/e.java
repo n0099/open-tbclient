@@ -83,24 +83,24 @@ public class e {
     }
 
     public static void a(PostData postData, PbActivity.c cVar) {
-        if (postData != null && postData.cer() != null && postData.cer().ast() != null && cVar != null && cVar.hoD != null && cVar.hoE != null && postData.cer().ast().size() != 0) {
-            String str = (String) v.c(cVar.hoD, cVar.index);
+        if (postData != null && postData.cer() != null && postData.cer().ast() != null && cVar != null && cVar.hoE != null && cVar.hoF != null && postData.cer().ast().size() != 0) {
+            String str = (String) v.c(cVar.hoE, cVar.index);
             if (!StringUtils.isNull(str)) {
-                cVar.hoD = new ArrayList<>();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.hoE;
-                cVar.hoE = new ConcurrentHashMap<>();
+                cVar.hoE = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.hoF;
+                cVar.hoF = new ConcurrentHashMap<>();
                 Iterator<TbRichTextData> it = postData.cer().ast().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String b = b(next);
                         if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
-                            cVar.hoD.add(b);
-                            cVar.hoE.put(b, concurrentHashMap.get(b));
+                            cVar.hoE.add(b);
+                            cVar.hoF.put(b, concurrentHashMap.get(b));
                         }
                     }
                 }
-                cVar.index = v.a(cVar.hoD, str);
+                cVar.index = v.a(cVar.hoE, str);
             }
         }
     }

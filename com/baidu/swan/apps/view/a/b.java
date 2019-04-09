@@ -21,14 +21,14 @@ import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean aKZ = Ij();
-    private static int aLa;
-    private boolean aXd;
+    public static final boolean aLa = Ij();
+    private static int aLb;
+    private boolean aXe;
     @Nullable
-    private View aXh;
-    private int aXi;
-    private a aXj;
-    private View.OnSystemUiVisibilityChangeListener aXk;
+    private View aXi;
+    private int aXj;
+    private a aXk;
+    private View.OnSystemUiVisibilityChangeListener aXl;
     @NonNull
     private Activity mActivity;
     @Nullable
@@ -37,11 +37,11 @@ public class b {
     private ViewGroup mRootView;
 
     static {
-        aLa = 0;
+        aLb = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            aLa = 1;
+            aLb = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            aLa = 2;
+            aLb = 2;
         }
     }
 
@@ -50,7 +50,7 @@ public class b {
     }
 
     public b(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
-        this.aXi = 1;
+        this.aXj = 1;
         this.mActivity = activity;
         this.mRootView = viewGroup;
         this.mContentView = this.mRootView.getChildAt(0);
@@ -62,19 +62,19 @@ public class b {
 
     public void c(int i, boolean z, boolean z2) {
         a b;
-        if (aKZ) {
+        if (aLa) {
             if (i == 1) {
-                if (this.aXi != 1) {
+                if (this.aXj != 1) {
                     reset();
                 }
-                this.aXi = i;
+                this.aXj = i;
                 b = Mx();
             } else {
-                this.aXi = i;
+                this.aXj = i;
                 b = b(i, es(i), z, z2);
-                this.aXj = b;
+                this.aXk = b;
             }
-            this.aXd = z2;
+            this.aXe = z2;
             a(b);
         }
     }
@@ -84,29 +84,29 @@ public class b {
     }
 
     public void reset() {
-        this.aXj = null;
-        this.aXi = 1;
+        this.aXk = null;
+        this.aXj = 1;
     }
 
     @NonNull
     public a Mx() {
-        if (this.aXj == null) {
+        if (this.aXk == null) {
             MB();
         }
-        return this.aXj;
+        return this.aXk;
     }
 
     @Nullable
     public View My() {
-        return this.aXh;
+        return this.aXi;
     }
 
     public boolean Mz() {
-        return this.aXd;
+        return this.aXe;
     }
 
     private void a(@NonNull a aVar) {
-        if (aLa == 2) {
+        if (aLb == 2) {
             c(aVar);
         } else {
             MA();
@@ -114,7 +114,7 @@ public class b {
         }
         if (this.mContentView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
-            if (aVar.aXd) {
+            if (aVar.aXe) {
                 layoutParams.topMargin = 0;
             } else {
                 layoutParams.topMargin = x.getStatusBarHeight();
@@ -129,9 +129,9 @@ public class b {
         if (Build.VERSION.SDK_INT >= 21) {
             window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
-            switch (aLa) {
+            switch (aLb) {
                 case 1:
-                    a(window, Mx().aXb);
+                    a(window, Mx().aXc);
                     return;
                 default:
                     return;
@@ -145,19 +145,19 @@ public class b {
         int i;
         int i2;
         Window window = this.mActivity.getWindow();
-        if (aVar.aXa) {
-        }
         if (aVar.aXb) {
+        }
+        if (aVar.aXc) {
             i = 13312;
         } else {
             i = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         }
-        if (!aVar.aXc) {
+        if (!aVar.aXd) {
             i2 = i & (-257);
         } else {
             i2 = i | 256;
         }
-        int i3 = aVar.aWZ;
+        int i3 = aVar.aXa;
         if (i3 == 1) {
             i3 = MC();
         }
@@ -169,13 +169,13 @@ public class b {
         if (d != null) {
             d.setBackgroundColor(i3);
         }
-        if (this.aXk == null) {
-            this.aXk = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
+        if (this.aXl == null) {
+            this.aXl = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
                 @Override // android.view.View.OnSystemUiVisibilityChangeListener
                 public void onSystemUiVisibilityChange(int i4) {
                 }
             };
-            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.aXk);
+            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.aXl);
         }
     }
 
@@ -191,14 +191,14 @@ public class b {
             declaredField2.setAccessible(true);
             int i2 = declaredField.getInt(null);
             int i3 = declaredField2.getInt(attributes);
-            if (aVar.aXb) {
+            if (aVar.aXc) {
                 i = i2 | i3;
             } else {
                 i = (i2 ^ (-1)) & i3;
             }
             declaredField2.setInt(attributes, i);
             window.setAttributes(attributes);
-            int i4 = aVar.aWZ;
+            int i4 = aVar.aXa;
             if (i4 == 1) {
                 i4 = MC();
             }
@@ -233,15 +233,15 @@ public class b {
 
     @Nullable
     private View d(@NonNull a aVar) {
-        if (this.aXh != null) {
-            if (!aVar.aXc) {
-                this.mRootView.removeView(this.aXh);
-                this.aXh = null;
+        if (this.aXi != null) {
+            if (!aVar.aXd) {
+                this.mRootView.removeView(this.aXi);
+                this.aXi = null;
                 return null;
             }
-            return this.aXh;
-        } else if (!aVar.aXc) {
-            this.aXh = null;
+            return this.aXi;
+        } else if (!aVar.aXd) {
+            this.aXi = null;
             return null;
         } else {
             int statusBarHeight = x.getStatusBarHeight();
@@ -249,14 +249,14 @@ public class b {
             view.setTag("IMMERSION_VIEW");
             view.setId(a.f.immersion_custom_statusbar_view);
             this.mRootView.addView(view, new ViewGroup.LayoutParams(-1, statusBarHeight));
-            this.aXh = view;
+            this.aXi = view;
             return view;
         }
     }
 
     private void MB() {
         int MC = MC();
-        this.aXj = b(MC, es(MC), false, false);
+        this.aXk = b(MC, es(MC), false, false);
     }
 
     private a b(int i, int i2, boolean z, boolean z2) {

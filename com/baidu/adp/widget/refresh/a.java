@@ -21,8 +21,8 @@ import android.view.animation.Transformation;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends Drawable implements Animatable {
-    private double So;
     private double Sp;
+    private double Sq;
     private Animation mAnimation;
     boolean mFinishing;
     private View mParent;
@@ -49,27 +49,27 @@ public class a extends Drawable implements Animatable {
             a.this.unscheduleSelf(runnable);
         }
     };
-    private final C0027a Sn = new C0027a(this.mCallback);
+    private final C0027a So = new C0027a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.Sn.setColors(COLORS);
+        this.So.setColors(COLORS);
         bg(1);
         setupAnimators();
     }
 
     private void a(double d, double d2, double d3, double d4, float f, float f2) {
-        C0027a c0027a = this.Sn;
+        C0027a c0027a = this.So;
         float f3 = this.mResources.getDisplayMetrics().density;
-        this.So = f3 * d;
-        this.Sp = f3 * d2;
+        this.Sp = f3 * d;
+        this.Sq = f3 * d2;
         c0027a.setStrokeWidth(((float) d4) * f3);
         c0027a.d(f3 * d3);
         c0027a.setColorIndex(0);
         c0027a.setArrowDimensions(f * f3, f3 * f2);
-        c0027a.w((int) this.So, (int) this.Sp);
+        c0027a.w((int) this.Sp, (int) this.Sq);
     }
 
     public void bg(int i) {
@@ -81,39 +81,39 @@ public class a extends Drawable implements Animatable {
     }
 
     public void aB(boolean z) {
-        this.Sn.setShowArrow(z);
+        this.So.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.Sn.setArrowScale(f);
+        this.So.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.Sn.setStartTrim(f);
-        this.Sn.setEndTrim(f2);
+        this.So.setStartTrim(f);
+        this.So.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.Sn.setRotation(f);
+        this.So.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.Sn.setBackgroundColor(i);
+        this.So.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.Sn.setColors(iArr);
-        this.Sn.setColorIndex(0);
+        this.So.setColors(iArr);
+        this.So.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return (int) this.Sp;
+        return (int) this.Sq;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return (int) this.So;
+        return (int) this.Sp;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -121,23 +121,23 @@ public class a extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.Sn.draw(canvas, bounds);
+        this.So.draw(canvas, bounds);
         canvas.restoreToCount(save);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.Sn.setAlpha(i);
+        this.So.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.Sn.getAlpha();
+        return this.So.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.Sn.setColorFilter(colorFilter);
+        this.So.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -166,15 +166,15 @@ public class a extends Drawable implements Animatable {
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.mAnimation.reset();
-        this.Sn.storeOriginals();
-        if (this.Sn.getEndTrim() != this.Sn.getStartTrim()) {
+        this.So.storeOriginals();
+        if (this.So.getEndTrim() != this.So.getStartTrim()) {
             this.mFinishing = true;
             this.mAnimation.setDuration(666L);
             this.mParent.startAnimation(this.mAnimation);
             return;
         }
-        this.Sn.setColorIndex(0);
-        this.Sn.resetOriginals();
+        this.So.setColorIndex(0);
+        this.So.resetOriginals();
         this.mAnimation.setDuration(1332L);
         this.mParent.startAnimation(this.mAnimation);
     }
@@ -183,9 +183,9 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.Sn.setShowArrow(false);
-        this.Sn.setColorIndex(0);
-        this.Sn.resetOriginals();
+        this.So.setShowArrow(false);
+        this.So.setColorIndex(0);
+        this.So.resetOriginals();
     }
 
     float a(C0027a c0027a) {
@@ -217,7 +217,7 @@ public class a extends Drawable implements Animatable {
     }
 
     private void setupAnimators() {
-        final C0027a c0027a = this.Sn;
+        final C0027a c0027a = this.So;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.a.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {
@@ -274,7 +274,7 @@ public class a extends Drawable implements Animatable {
     /* renamed from: com.baidu.adp.widget.refresh.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0027a {
-        private double St;
+        private double Su;
         private int mAlpha;
         private Path mArrow;
         private int mArrowHeight;
@@ -296,7 +296,7 @@ public class a extends Drawable implements Animatable {
         private float mEndTrim = 0.0f;
         private float mRotation = 0.0f;
         private float mStrokeWidth = 5.0f;
-        private float Ss = 2.5f;
+        private float St = 2.5f;
         private final Paint mCirclePaint = new Paint(1);
 
         C0027a(Drawable.Callback callback) {
@@ -320,7 +320,7 @@ public class a extends Drawable implements Animatable {
         public void draw(Canvas canvas, Rect rect) {
             RectF rectF = this.mTempBounds;
             rectF.set(rect);
-            rectF.inset(this.Ss, this.Ss);
+            rectF.inset(this.St, this.St);
             float f = (this.mStartTrim + this.mRotation) * 360.0f;
             float f2 = ((this.mEndTrim + this.mRotation) * 360.0f) - f;
             this.mPaint.setColor(this.mCurrentColor);
@@ -341,12 +341,12 @@ public class a extends Drawable implements Animatable {
                 } else {
                     this.mArrow.reset();
                 }
-                float f3 = (((int) this.Ss) / 2) * this.mArrowScale;
-                float cos = (float) ((this.St * Math.cos(0.0d)) + rect.exactCenterX());
+                float f3 = (((int) this.St) / 2) * this.mArrowScale;
+                float cos = (float) ((this.Su * Math.cos(0.0d)) + rect.exactCenterX());
                 this.mArrow.moveTo(0.0f, 0.0f);
                 this.mArrow.lineTo(this.mArrowWidth * this.mArrowScale, 0.0f);
                 this.mArrow.lineTo((this.mArrowWidth * this.mArrowScale) / 2.0f, this.mArrowHeight * this.mArrowScale);
-                this.mArrow.offset(cos - f3, (float) ((this.St * Math.sin(0.0d)) + rect.exactCenterY()));
+                this.mArrow.offset(cos - f3, (float) ((this.Su * Math.sin(0.0d)) + rect.exactCenterY()));
                 this.mArrow.close();
                 this.mArrowPaint.setColor(this.mCurrentColor);
                 canvas.rotate((f + f2) - 5.0f, rect.exactCenterX(), rect.exactCenterY());
@@ -441,20 +441,20 @@ public class a extends Drawable implements Animatable {
         public void w(int i, int i2) {
             float ceil;
             float min = Math.min(i, i2);
-            if (this.St <= 0.0d || min < 0.0f) {
+            if (this.Su <= 0.0d || min < 0.0f) {
                 ceil = (float) Math.ceil(this.mStrokeWidth / 2.0f);
             } else {
-                ceil = (float) ((min / 2.0f) - this.St);
+                ceil = (float) ((min / 2.0f) - this.Su);
             }
-            this.Ss = ceil;
+            this.St = ceil;
         }
 
         public void d(double d) {
-            this.St = d;
+            this.Su = d;
         }
 
         public double pB() {
-            return this.St;
+            return this.Su;
         }
 
         public void setShowArrow(boolean z) {

@@ -93,13 +93,13 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Model is null");
             return false;
         }
-        String str = aVar.akL;
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBI;
+        String str = aVar.akM;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBJ;
         if (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (bVar == null));
             return false;
         }
-        CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(aVar.aBG);
+        CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(aVar.aBH);
         if (dr != null) {
             dr.b(aVar);
         }

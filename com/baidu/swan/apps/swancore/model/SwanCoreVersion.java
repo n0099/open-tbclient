@@ -22,21 +22,21 @@ public class SwanCoreVersion extends SwanAppIPCData {
             return new SwanCoreVersion[i];
         }
     };
-    public long aTg;
-    public int aTi;
-    public String aTj;
+    public long aTh;
+    public int aTj;
+    public String aTk;
 
     public SwanCoreVersion() {
     }
 
     private SwanCoreVersion(Parcel parcel) {
-        this.aTi = parcel.readInt();
-        this.aTg = parcel.readLong();
-        this.aTj = parcel.readString();
+        this.aTj = parcel.readInt();
+        this.aTh = parcel.readLong();
+        this.aTk = parcel.readString();
     }
 
     public String toString() {
-        return "SwanCoreVersion{swanCorePath='" + this.aTj + "', swanCoreVersion=" + this.aTg + ", swanCoreType=" + this.aTi + ", isAvailable=" + isAvailable() + '}';
+        return "SwanCoreVersion{swanCorePath='" + this.aTk + "', swanCoreVersion=" + this.aTh + ", swanCoreType=" + this.aTj + ", isAvailable=" + isAvailable() + '}';
     }
 
     @Override // android.os.Parcelable
@@ -46,12 +46,12 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.aTi);
-        parcel.writeLong(this.aTg);
-        parcel.writeString(this.aTj);
+        parcel.writeInt(this.aTj);
+        parcel.writeLong(this.aTh);
+        parcel.writeString(this.aTk);
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.aTj) && new File(this.aTj).exists();
+        return !TextUtils.isEmpty(this.aTk) && new File(this.aTk).exists();
     }
 }

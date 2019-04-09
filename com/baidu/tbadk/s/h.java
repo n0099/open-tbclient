@@ -1,7 +1,7 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.b.a {
-    public static final String[] csu = {"com.baidu.browser"};
+    public static final String[] csv = {"com.baidu.browser"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void Y(int i) {
@@ -14,7 +14,7 @@ public class h extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] iG() {
-        return csu;
+        return csv;
     }
 
     @Override // com.baidu.adp.lib.b.a

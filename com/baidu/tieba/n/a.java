@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a ifL;
-    private e ifM;
+    private static a ifM;
+    private e ifN;
     private int mScore = 0;
 
     public static a bWn() {
-        if (ifL == null) {
+        if (ifM == null) {
             synchronized (a.class) {
-                if (ifL == null) {
-                    ifL = new a();
+                if (ifM == null) {
+                    ifM = new a();
                 }
             }
         }
-        return ifL;
+        return ifM;
     }
 
     public void init() {
@@ -85,18 +85,18 @@ public class a {
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
                 public void xK(int i) {
-                    if (a.this.ifM != null) {
-                        a.this.ifM.dismiss();
-                        a.this.ifM = null;
+                    if (a.this.ifN != null) {
+                        a.this.ifN.dismiss();
+                        a.this.ifN = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new am("c13072").T("obj_type", a.this.mScore));
                         a.this.z(tbPageContext);
                     }
                 }
             });
-            this.ifM = new e(tbPageContext.getContext(), jVar.abh());
-            this.ifM.al(0.7f);
-            g.a(this.ifM, tbPageContext);
+            this.ifN = new e(tbPageContext.getContext(), jVar.abh());
+            this.ifN.al(0.7f);
+            g.a(this.ifN, tbPageContext);
             TiebaStatic.log(new am("c13071"));
         }
     }
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.ifM != null) {
-                        a.this.ifM.dismiss();
-                        a.this.ifM = null;
+                    if (a.this.ifN != null) {
+                        a.this.ifN.dismiss();
+                        a.this.ifN = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.B(tbPageContext);
                             TiebaStatic.log(new am("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.ifM != null) {
-                        a.this.ifM.dismiss();
-                        a.this.ifM = null;
+                    if (a.this.ifN != null) {
+                        a.this.ifN.dismiss();
+                        a.this.ifN = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new am("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.P(arrayList);
-            this.ifM = new e(tbPageContext.getContext(), jVar.abh());
-            this.ifM.al(0.7f);
-            g.a(this.ifM, tbPageContext);
+            this.ifN = new e(tbPageContext.getContext(), jVar.abh());
+            this.ifN.al(0.7f);
+            g.a(this.ifN, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new am("c13076"));
             } else {

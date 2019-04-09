@@ -32,7 +32,7 @@ import com.baidu.tieba.frs.smartapp.FrsListProgramListModel;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class FrsLiteProgramListFragment extends BaseFragment {
-    private PbListView dbr;
+    private PbListView dbs;
     private BaseWebView fsC;
     private FrsListProgramListModel fsw;
     private a fsy;
@@ -50,13 +50,13 @@ public class FrsLiteProgramListFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (FrsLiteProgramListFragment.this.mHasMore) {
-                if (FrsLiteProgramListFragment.this.dbr != null) {
-                    FrsLiteProgramListFragment.this.dbr.aez();
+                if (FrsLiteProgramListFragment.this.dbs != null) {
+                    FrsLiteProgramListFragment.this.dbs.aez();
                 }
                 FrsLiteProgramListFragment.g(FrsLiteProgramListFragment.this);
                 FrsLiteProgramListFragment.this.t(FrsLiteProgramListFragment.this.mForumId, FrsLiteProgramListFragment.this.pageNumber, 10);
-            } else if (FrsLiteProgramListFragment.this.dbr != null) {
-                FrsLiteProgramListFragment.this.dbr.aeB();
+            } else if (FrsLiteProgramListFragment.this.dbs != null) {
+                FrsLiteProgramListFragment.this.dbs.aeB();
             }
         }
     };
@@ -114,9 +114,9 @@ public class FrsLiteProgramListFragment extends BaseFragment {
                             FrsLiteProgramListFragment.this.fsx.setAdapter((ListAdapter) FrsLiteProgramListFragment.this.fsy);
                         }
                     }
-                    if (FrsLiteProgramListFragment.this.fsx != null && FrsLiteProgramListFragment.this.dbr != null && !FrsLiteProgramListFragment.this.mHasMore) {
-                        FrsLiteProgramListFragment.this.dbr.aeB();
-                        FrsLiteProgramListFragment.this.fsx.setNextPage(FrsLiteProgramListFragment.this.dbr);
+                    if (FrsLiteProgramListFragment.this.fsx != null && FrsLiteProgramListFragment.this.dbs != null && !FrsLiteProgramListFragment.this.mHasMore) {
+                        FrsLiteProgramListFragment.this.dbs.aeB();
+                        FrsLiteProgramListFragment.this.fsx.setNextPage(FrsLiteProgramListFragment.this.dbs);
                     }
                 }
             };
@@ -179,15 +179,15 @@ public class FrsLiteProgramListFragment extends BaseFragment {
         this.fsx.setOnSrollToBottomListener(this.fsD);
         this.fsx.setOnItemClickListener(this.mOnItemClickListener);
         this.mNetworkView = (NoNetworkView) view.findViewById(d.g.no_network);
-        this.dbr = new PbListView(getPageContext().getPageActivity());
-        this.dbr.oM();
-        this.dbr.ia(d.C0277d.cp_bg_line_e);
-        this.dbr.setHeight(l.h(getActivity(), d.e.tbds182));
-        this.dbr.aew();
-        this.dbr.setTextSize(d.e.tbfontsize33);
-        this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-        this.dbr.hZ(d.C0277d.cp_cont_e);
-        this.fsx.setNextPage(this.dbr);
+        this.dbs = new PbListView(getPageContext().getPageActivity());
+        this.dbs.oM();
+        this.dbs.ia(d.C0277d.cp_bg_line_e);
+        this.dbs.setHeight(l.h(getActivity(), d.e.tbds182));
+        this.dbs.aew();
+        this.dbs.setTextSize(d.e.tbfontsize33);
+        this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+        this.dbs.hZ(d.C0277d.cp_cont_e);
+        this.fsx.setNextPage(this.dbs);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -208,9 +208,9 @@ public class FrsLiteProgramListFragment extends BaseFragment {
         if (this.mNetworkView != null) {
             this.mNetworkView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.dbr != null) {
-            this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-            this.dbr.ib(i);
+        if (this.dbs != null) {
+            this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+            this.dbs.ib(i);
         }
         if (this.fsy != null) {
             this.fsy.notifyDataSetChanged();

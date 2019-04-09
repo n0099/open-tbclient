@@ -5,13 +5,13 @@ import com.facebook.common.internal.g;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class RoundingParams {
-    private RoundingMethod jDN = RoundingMethod.BITMAP_ONLY;
-    private boolean jDO = false;
-    private float[] jDP = null;
-    private int jDb = 0;
+    private RoundingMethod jDO = RoundingMethod.BITMAP_ONLY;
+    private boolean jDP = false;
+    private float[] jDQ = null;
+    private int jDc = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
-    private float jCU = 0.0f;
+    private float jCV = 0.0f;
 
     /* loaded from: classes2.dex */
     public enum RoundingMethod {
@@ -20,12 +20,12 @@ public class RoundingParams {
     }
 
     public RoundingParams ru(boolean z) {
-        this.jDO = z;
+        this.jDP = z;
         return this;
     }
 
     public boolean cvR() {
-        return this.jDO;
+        return this.jDP;
     }
 
     public RoundingParams aX(float f) {
@@ -47,28 +47,28 @@ public class RoundingParams {
     }
 
     public float[] cvS() {
-        return this.jDP;
+        return this.jDQ;
     }
 
     public RoundingMethod cvT() {
-        return this.jDN;
+        return this.jDO;
     }
 
     public RoundingParams Ca(@ColorInt int i) {
-        this.jDb = i;
-        this.jDN = RoundingMethod.OVERLAY_COLOR;
+        this.jDc = i;
+        this.jDO = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
     public int cvU() {
-        return this.jDb;
+        return this.jDc;
     }
 
     private float[] cvV() {
-        if (this.jDP == null) {
-            this.jDP = new float[8];
+        if (this.jDQ == null) {
+            this.jDQ = new float[8];
         }
-        return this.jDP;
+        return this.jDQ;
     }
 
     public RoundingParams aY(float f) {
@@ -92,12 +92,12 @@ public class RoundingParams {
 
     public RoundingParams aZ(float f) {
         g.checkArgument(f >= 0.0f, "the padding cannot be < 0");
-        this.jCU = f;
+        this.jCV = f;
         return this;
     }
 
     public float cvX() {
-        return this.jCU;
+        return this.jCV;
     }
 
     public boolean equals(Object obj) {
@@ -108,13 +108,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.jDO == roundingParams.jDO && this.jDb == roundingParams.jDb && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.jCU, this.jCU) == 0 && this.jDN == roundingParams.jDN) {
-            return Arrays.equals(this.jDP, roundingParams.jDP);
+        if (this.jDP == roundingParams.jDP && this.jDc == roundingParams.jDc && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.jCV, this.jCV) == 0 && this.jDO == roundingParams.jDO) {
+            return Arrays.equals(this.jDQ, roundingParams.jDQ);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.jDP != null ? Arrays.hashCode(this.jDP) : 0) + (((this.jDO ? 1 : 0) + ((this.jDN != null ? this.jDN.hashCode() : 0) * 31)) * 31)) * 31) + this.jDb) * 31)) * 31) + this.mBorderColor) * 31) + (this.jCU != 0.0f ? Float.floatToIntBits(this.jCU) : 0);
+        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.jDQ != null ? Arrays.hashCode(this.jDQ) : 0) + (((this.jDP ? 1 : 0) + ((this.jDO != null ? this.jDO.hashCode() : 0) * 31)) * 31)) * 31) + this.jDc) * 31)) * 31) + this.mBorderColor) * 31) + (this.jCV != 0.0f ? Float.floatToIntBits(this.jCV) : 0);
     }
 }

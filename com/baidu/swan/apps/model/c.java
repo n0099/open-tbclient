@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean aBB;
-    private String axL;
+    private boolean aBC;
+    private String axM;
     private String mBaseUrl;
     private String mParams;
 
     public String getPage() {
-        return this.axL;
+        return this.axM;
     }
 
     public String getParams() {
@@ -26,16 +26,16 @@ public final class c {
     }
 
     public void yM() {
-        this.aBB = false;
+        this.aBC = false;
     }
 
     public String EI() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("page", this.axL);
+            jSONObject.put("page", this.axM);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.aBB);
+            jSONObject.put("isFirstPage", this.aBC);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -51,10 +51,10 @@ public final class c {
         try {
             c cVar = new c();
             JSONObject jSONObject = new JSONObject(str);
-            cVar.axL = jSONObject.optString("page");
+            cVar.axM = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.aBB = jSONObject.optBoolean("isFirstPage");
+            cVar.aBC = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private c apY = new c();
+        private c apZ = new c();
 
         public a fg(String str) {
-            this.apY.axL = str;
+            this.apZ.axM = str;
             return this;
         }
 
         public a fh(String str) {
-            this.apY.mParams = str;
+            this.apZ.mParams = str;
             return this;
         }
 
         public a fi(String str) {
-            this.apY.mBaseUrl = str;
+            this.apZ.mBaseUrl = str;
             return this;
         }
 
         public a bp(boolean z) {
-            this.apY.aBB = z;
+            this.apZ.aBC = z;
             return this;
         }
 
         public c EJ() {
-            return this.apY;
+            return this.apZ;
         }
     }
 }

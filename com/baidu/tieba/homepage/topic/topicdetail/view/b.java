@@ -20,7 +20,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.editortools.c {
-    private boolean ckM = false;
+    private boolean ckN = false;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.d de(Context context) {
@@ -48,7 +48,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                             case 4:
                             case 6:
                                 aVar.oT((String) aVar2.data);
-                                b.this.ckM = false;
+                                b.this.ckN = false;
                                 return;
                             case 5:
                             case 9:
@@ -60,7 +60,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 7:
                                 aVar.agg().showToast(d.j.over_limit_tip);
-                                b.this.ckM = true;
+                                b.this.ckN = true;
                                 return;
                             case 8:
                                 if (b.this.a(aVar.agg(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
@@ -116,11 +116,11 @@ public class b extends com.baidu.tbadk.editortools.c {
         k jv = alP.jv(5);
         if (jv != null) {
             jv.eK(false);
-            jv.cjm = 1;
-            jv.cjk = d.f.new_pbeditor_face_button;
+            jv.cjn = 1;
+            jv.cjl = d.f.new_pbeditor_face_button;
         }
         com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alP.getContext(), 3);
-        dVar2.cjk = d.f.new_pbeditor_image_button;
+        dVar2.cjl = d.f.new_pbeditor_image_button;
         alP.b(dVar2);
         c cVar = new c(alP.getContext());
         if (cVar.getInputView() != null) {

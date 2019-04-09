@@ -16,18 +16,18 @@ import com.baidu.tieba.d;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private bg XS;
-    private View.OnClickListener bNw;
-    private boolean bOF;
-    protected com.baidu.tbadk.h.b bOG;
+    private bg XT;
+    private View.OnClickListener bNx;
+    private boolean bOG;
+    protected com.baidu.tbadk.h.b bOH;
     public View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.h.b bVar) {
-        this.bOG = bVar;
+        this.bOH = bVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bNw = onClickListener;
+        this.bNx = onClickListener;
     }
 
     public ClickableHeaderImageView(Context context) {
@@ -35,20 +35,20 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.bOG == null || !ClickableHeaderImageView.this.bOG.ay(view)) && ClickableHeaderImageView.this.XS != null) {
-                    MetaData YO = ClickableHeaderImageView.this.bOF ? ClickableHeaderImageView.this.XS.aam().YO() : ClickableHeaderImageView.this.XS.YO();
+                if ((ClickableHeaderImageView.this.bOH == null || !ClickableHeaderImageView.this.bOH.ay(view)) && ClickableHeaderImageView.this.XT != null) {
+                    MetaData YO = ClickableHeaderImageView.this.bOG ? ClickableHeaderImageView.this.XT.aam().YO() : ClickableHeaderImageView.this.XT.YO();
                     if (YO != null && !StringUtils.isNull(YO.getName_show()) && !StringUtils.isNull(YO.getUserId())) {
                         long d = com.baidu.adp.lib.g.b.d(YO.getUserId(), 0L);
                         boolean z = d == com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        if (ClickableHeaderImageView.this.XS.ZY() != null && ClickableHeaderImageView.this.XS.ZY().channelId > 0) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.XS.ZY().channelId, ClickableHeaderImageView.this.XS.ZY().mCurrentPage)));
+                        if (ClickableHeaderImageView.this.XT.ZY() != null && ClickableHeaderImageView.this.XT.ZY().channelId > 0) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.XT.ZY().channelId, ClickableHeaderImageView.this.XT.ZY().mCurrentPage)));
                         } else {
                             PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(d, z, YO.isBigV());
-                            createNormalConfig.setSourceTid(ClickableHeaderImageView.this.XS.getTid());
+                            createNormalConfig.setSourceTid(ClickableHeaderImageView.this.XT.getTid());
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                         }
-                        if (ClickableHeaderImageView.this.bNw != null) {
-                            ClickableHeaderImageView.this.bNw.onClick(view);
+                        if (ClickableHeaderImageView.this.bNx != null) {
+                            ClickableHeaderImageView.this.bNx.onClick(view);
                         }
                     }
                 }
@@ -62,20 +62,20 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.bOG == null || !ClickableHeaderImageView.this.bOG.ay(view)) && ClickableHeaderImageView.this.XS != null) {
-                    MetaData YO = ClickableHeaderImageView.this.bOF ? ClickableHeaderImageView.this.XS.aam().YO() : ClickableHeaderImageView.this.XS.YO();
+                if ((ClickableHeaderImageView.this.bOH == null || !ClickableHeaderImageView.this.bOH.ay(view)) && ClickableHeaderImageView.this.XT != null) {
+                    MetaData YO = ClickableHeaderImageView.this.bOG ? ClickableHeaderImageView.this.XT.aam().YO() : ClickableHeaderImageView.this.XT.YO();
                     if (YO != null && !StringUtils.isNull(YO.getName_show()) && !StringUtils.isNull(YO.getUserId())) {
                         long d = com.baidu.adp.lib.g.b.d(YO.getUserId(), 0L);
                         boolean z = d == com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        if (ClickableHeaderImageView.this.XS.ZY() != null && ClickableHeaderImageView.this.XS.ZY().channelId > 0) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.XS.ZY().channelId, ClickableHeaderImageView.this.XS.ZY().mCurrentPage)));
+                        if (ClickableHeaderImageView.this.XT.ZY() != null && ClickableHeaderImageView.this.XT.ZY().channelId > 0) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(ClickableHeaderImageView.this.getContext(), ClickableHeaderImageView.this.XT.ZY().channelId, ClickableHeaderImageView.this.XT.ZY().mCurrentPage)));
                         } else {
                             PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(d, z, YO.isBigV());
-                            createNormalConfig.setSourceTid(ClickableHeaderImageView.this.XS.getTid());
+                            createNormalConfig.setSourceTid(ClickableHeaderImageView.this.XT.getTid());
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                         }
-                        if (ClickableHeaderImageView.this.bNw != null) {
-                            ClickableHeaderImageView.this.bNw.onClick(view);
+                        if (ClickableHeaderImageView.this.bNx != null) {
+                            ClickableHeaderImageView.this.bNx.onClick(view);
                         }
                     }
                 }
@@ -94,8 +94,8 @@ public class ClickableHeaderImageView extends HeadImageView {
     public void setData(bg bgVar, boolean z, boolean z2) {
         MetaData YO;
         if (bgVar != null && bgVar.YO() != null) {
-            this.XS = bgVar;
-            this.bOF = z2;
+            this.XT = bgVar;
+            this.bOG = z2;
             if (z2) {
                 YO = bgVar.aam().YO();
             } else {
@@ -105,11 +105,11 @@ public class ClickableHeaderImageView extends HeadImageView {
             setUserId(YO.getUserId());
             setUserName(YO.getUserName());
             setUrl(YO.getPortrait());
-            if (bgVar.Zh() != null && this.XS.getThreadType() == 49) {
+            if (bgVar.Zh() != null && this.XT.getThreadType() == 49) {
                 startLoad(bgVar.YO().getPortrait(), 28, false);
-            } else if (this.XS.ZY() != null && this.XS.ZY().channelId > 0) {
+            } else if (this.XT.ZY() != null && this.XT.ZY().channelId > 0) {
                 setDefaultErrorResource(d.f.avatar_channel_poto_defaul160);
-                startLoad(this.XS.ZY().channelAvatar, 10, false);
+                startLoad(this.XT.ZY().channelAvatar, 10, false);
             } else if (!StringUtils.isNull(YO.getPortrait()) && YO.getPortrait().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
                 startLoad(YO.getPortrait(), 10, false);
             } else {

@@ -32,8 +32,8 @@ import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class MainTabActivityStatic {
-    private static int iMd = 0;
-    private static boolean iMe = false;
+    private static int iMe = 0;
+    private static boolean iMf = false;
 
     static {
         bbQ();
@@ -128,9 +128,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != iMd || b != iMe) {
-                iMd = a;
-                iMe = b;
+            if (a != iMe || b != iMf) {
+                iMe = a;
+                iMf = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }

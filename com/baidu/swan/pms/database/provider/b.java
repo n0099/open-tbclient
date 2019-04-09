@@ -19,19 +19,19 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 public class b {
     private Context mContext;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri blK = Uri.parse("content://" + AUTHORITY + "/framework");
-    public static final Uri blL = Uri.parse("content://" + AUTHORITY + "/swan_app");
-    public static final Uri blM = Uri.parse("content://" + AUTHORITY + "/pkg_main");
-    public static final Uri auJ = Uri.parse("content://" + AUTHORITY + "/pkg_sub");
-    public static final Uri blN = Uri.parse("content://" + AUTHORITY + "/extension");
-    private static UriMatcher auK = new UriMatcher(-1);
+    public static final Uri blL = Uri.parse("content://" + AUTHORITY + "/framework");
+    public static final Uri blM = Uri.parse("content://" + AUTHORITY + "/swan_app");
+    public static final Uri blN = Uri.parse("content://" + AUTHORITY + "/pkg_main");
+    public static final Uri auK = Uri.parse("content://" + AUTHORITY + "/pkg_sub");
+    public static final Uri blO = Uri.parse("content://" + AUTHORITY + "/extension");
+    private static UriMatcher auL = new UriMatcher(-1);
 
     static {
-        auK.addURI(AUTHORITY, "framework", 2);
-        auK.addURI(AUTHORITY, "pkg_main", 0);
-        auK.addURI(AUTHORITY, "pkg_sub", 1);
-        auK.addURI(AUTHORITY, "extension", 3);
-        auK.addURI(AUTHORITY, "swan_app", 4);
+        auL.addURI(AUTHORITY, "framework", 2);
+        auL.addURI(AUTHORITY, "pkg_main", 0);
+        auL.addURI(AUTHORITY, "pkg_sub", 1);
+        auL.addURI(AUTHORITY, "extension", 3);
+        auL.addURI(AUTHORITY, "swan_app", 4);
     }
 
     public b(Context context) {
@@ -39,7 +39,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (auK.match(uri)) {
+        switch (auL.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:

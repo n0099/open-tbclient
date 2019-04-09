@@ -14,7 +14,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    BaseActivity cNc;
+    BaseActivity cNd;
     private View.OnClickListener gdz = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -33,7 +33,7 @@ public class d extends BaseAdapter {
 
     public d(BaseActivity baseActivity, Context context) {
         this.mContext = context;
-        this.cNc = baseActivity;
+        this.cNd = baseActivity;
     }
 
     @Override // android.widget.Adapter
@@ -128,7 +128,7 @@ public class d extends BaseAdapter {
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
-                    multiContentView.setData(this.cNc.getPageContext(), c.g(aVar.content, "", 0L), viewGroup);
+                    multiContentView.setData(this.cNd.getPageContext(), c.g(aVar.content, "", 0L), viewGroup);
                     ((HistoryItemView) historyItemView5).bU(multiContentView);
                     return historyItemView5;
                 default:

@@ -19,7 +19,7 @@ import com.baidu.tieba.card.w;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<w>> {
-    private ab Xr;
+    private ab Xs;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> fdJ;
     private com.baidu.adp.lib.e.b<TbImageView> fdK;
     private TbPageContext mPageContext;
@@ -27,7 +27,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Xr = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.i.1
+        this.Xs = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.i.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if ((bVar instanceof bg) && (obj instanceof com.baidu.tieba.card.u)) {
@@ -112,7 +112,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         com.baidu.tieba.card.a.a<w> aVar = new com.baidu.tieba.card.a.a<>(wVar);
         wVar.setConstrainImagePool(this.fdK);
         wVar.setConstrainLayoutPool(this.fdJ);
-        wVar.d(this.Xr);
+        wVar.d(this.Xs);
         return aVar;
     }
 
@@ -129,10 +129,10 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             uVar.locate = kVar.position + 1;
             uVar.source = kVar.getSource();
             uVar.weight = kVar.getWeight();
-            uVar.ejF = kVar.aQO();
+            uVar.ejG = kVar.aQO();
             com.baidu.tieba.card.t.aQD().b(a("c13023", kVar.WO(), uVar));
             aVar.aRg().a(uVar);
-            aVar.aRg().d(this.Xr);
+            aVar.aRg().d(this.Xs);
             aVar.aRg().a(kVar.WO());
         }
         return aVar.getView();
@@ -143,7 +143,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (StringUtils.isNull(str) || bgVar == null || uVar == null) {
             return null;
         }
-        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(bgVar.getFid())).bJ("tid", String.valueOf(bgVar.getTid())).T("obj_locate", uVar.locate).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uVar.source).bJ("obj_param1", uVar.weight).bJ("ab_tag", uVar.ejF).bJ("obj_param3", com.baidu.tieba.card.n.aQv());
+        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(bgVar.getFid())).bJ("tid", String.valueOf(bgVar.getTid())).T("obj_locate", uVar.locate).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uVar.source).bJ("obj_param1", uVar.weight).bJ("ab_tag", uVar.ejG).bJ("obj_param3", com.baidu.tieba.card.n.aQv());
         if (bgVar.YO() != null) {
             bJ.bJ("obj_name", bgVar.YO().getName_show());
             return bJ;

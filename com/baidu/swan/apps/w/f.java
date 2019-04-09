@@ -8,19 +8,19 @@ import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes2.dex */
 public class f implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f ayE;
-    private boolean ars = false;
-    private int ayF;
+    private static volatile f ayF;
+    private boolean art = false;
+    private int ayG;
 
     public static f Ec() {
-        if (ayE == null) {
+        if (ayF == null) {
             synchronized (f.class) {
-                if (ayE == null) {
-                    ayE = new f();
+                if (ayF == null) {
+                    ayF = new f();
                 }
             }
         }
-        return ayE;
+        return ayF;
     }
 
     private f() {
@@ -39,7 +39,7 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onBackgroundToForeground");
             }
-            this.ars = true;
+            this.art = true;
         }
     }
 
@@ -48,12 +48,12 @@ public class f implements Application.ActivityLifecycleCallbacks {
             if (DEBUG) {
                 Log.d("SwanAppLifecycle", "onForegroundToBackground");
             }
-            this.ars = false;
+            this.art = false;
         }
     }
 
     public boolean Ef() {
-        return this.ars;
+        return this.art;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -62,8 +62,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        this.ayF++;
-        if (this.ayF == 1) {
+        this.ayG++;
+        if (this.ayG == 1) {
             E(activity);
         }
     }
@@ -78,8 +78,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        this.ayF--;
-        if (this.ayF == 0) {
+        this.ayG--;
+        if (this.ayG == 0) {
             F(activity);
         }
     }

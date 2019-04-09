@@ -8,12 +8,12 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
     public void checkBigVideoType() {
         int i = 0;
         if (size() > 5) {
-            ((h) get(0)).setType(a.C0276a.enM);
+            ((h) get(0)).setType(a.C0276a.enN);
             int i2 = 1;
             while (true) {
                 int i3 = i2;
                 if (i3 < size()) {
-                    ((h) get(i3)).setType(a.C0276a.enN);
+                    ((h) get(i3)).setType(a.C0276a.enO);
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -23,7 +23,7 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
             while (true) {
                 int i4 = i;
                 if (i4 < size()) {
-                    ((h) get(i4)).setType(a.C0276a.enM);
+                    ((h) get(i4)).setType(a.C0276a.enN);
                     i = i4 + 1;
                 } else {
                     return;
@@ -39,7 +39,7 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
     }
 
     public void setTop(h hVar) {
-        hVar.setType(a.C0276a.enM);
+        hVar.setType(a.C0276a.enN);
         hVar.oA(1);
         int i = 0;
         while (true) {
@@ -61,7 +61,7 @@ public class ChannelHomeVideoList<E extends h> extends ArrayList<E> {
     public void unSetTop() {
         if (size() > 0) {
             h hVar = (h) get(0);
-            hVar.setType(a.C0276a.enN);
+            hVar.setType(a.C0276a.enO);
             if (hVar.Zv()) {
                 hVar.oA(0);
                 int size = size() - 1;

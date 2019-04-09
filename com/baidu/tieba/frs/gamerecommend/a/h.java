@@ -17,7 +17,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.g, com.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.exK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.g.exL);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }

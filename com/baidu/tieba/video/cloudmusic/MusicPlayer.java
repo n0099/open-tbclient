@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class MusicPlayer {
-    private static MusicPlayer iVs = null;
-    private MediaPlayer iVr;
-    private MusicPlayerState iVt = MusicPlayerState.WAIT;
+    private static MusicPlayer iVt = null;
+    private MediaPlayer iVs;
+    private MusicPlayerState iVu = MusicPlayerState.WAIT;
 
     /* loaded from: classes5.dex */
     public enum MusicPlayerState {
@@ -32,38 +32,38 @@ public class MusicPlayer {
     public static synchronized MusicPlayer ciZ() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (iVs == null) {
-                iVs = new MusicPlayer();
+            if (iVt == null) {
+                iVt = new MusicPlayer();
             }
-            musicPlayer = iVs;
+            musicPlayer = iVt;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.iVt != MusicPlayerState.PAUSE) {
-            if (this.iVr == null) {
-                this.iVr = new MediaPlayer();
-                this.iVr.setAudioStreamType(3);
+        if (this.iVu != MusicPlayerState.PAUSE) {
+            if (this.iVs == null) {
+                this.iVs = new MediaPlayer();
+                this.iVs.setAudioStreamType(3);
             }
             try {
-                this.iVr.reset();
-                this.iVr.setDataSource(str);
-                this.iVr.prepare();
-                this.iVt = MusicPlayerState.WAIT;
-                this.iVr.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.iVs.reset();
+                this.iVs.setDataSource(str);
+                this.iVs.prepare();
+                this.iVu = MusicPlayerState.WAIT;
+                this.iVs.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         com.baidu.tieba.video.cloudmusic.data.a.cjc().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.iVr.setLooping(true);
-                        MusicPlayer.this.iVr.start();
-                        MusicPlayer.this.iVt = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.iVs.setLooping(true);
+                        MusicPlayer.this.iVs.start();
+                        MusicPlayer.this.iVu = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.iVt = MusicPlayerState.ERROR;
+                this.iVu = MusicPlayerState.ERROR;
                 if (aVar != null) {
                     aVar.ciX();
                 }
@@ -72,27 +72,27 @@ public class MusicPlayer {
     }
 
     public void cja() {
-        if (this.iVr != null && this.iVr.isPlaying()) {
-            this.iVr.pause();
+        if (this.iVs != null && this.iVs.isPlaying()) {
+            this.iVs.pause();
         }
-        this.iVt = MusicPlayerState.PAUSE;
+        this.iVu = MusicPlayerState.PAUSE;
     }
 
     public void cjb() {
-        if (this.iVr != null) {
-            this.iVr.start();
-            this.iVr.seekTo(0);
+        if (this.iVs != null) {
+            this.iVs.start();
+            this.iVs.seekTo(0);
         }
-        this.iVt = MusicPlayerState.RESUME;
+        this.iVu = MusicPlayerState.RESUME;
     }
 
     public void avd() {
-        if (this.iVr != null) {
-            if (this.iVr.isPlaying()) {
-                this.iVr.stop();
+        if (this.iVs != null) {
+            if (this.iVs.isPlaying()) {
+                this.iVs.stop();
             }
-            this.iVr.release();
-            this.iVr = null;
+            this.iVs.release();
+            this.iVs = null;
         }
     }
 }

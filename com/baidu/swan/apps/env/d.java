@@ -36,7 +36,7 @@ public class d {
         }
         HashSet hashSet = new HashSet();
         for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Gu().Gv()) {
-            if (bVar.aFh && bVar.GG() && list.contains(bVar.GC())) {
+            if (bVar.aFi && bVar.GG() && list.contains(bVar.GC())) {
                 serviceObject.sendMessageToClient(bVar, i, (Bundle) null);
                 hashSet.add(bVar.GC());
                 if (DEBUG) {

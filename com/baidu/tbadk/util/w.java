@@ -7,9 +7,9 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class w {
-    private View ctF;
-    private int ctG;
-    private boolean ctH;
+    private View ctG;
+    private int ctH;
+    private boolean ctI;
     private final Handler mHandler;
 
     public void aqf() {
@@ -31,29 +31,29 @@ public class w {
     }
 
     public void fk(boolean z) {
-        if (this.ctF != null) {
-            if (z || this.ctF.getVisibility() != 8) {
+        if (this.ctG != null) {
+            if (z || this.ctG.getVisibility() != 8) {
                 aqg();
             }
         }
     }
 
     public void fl(boolean z) {
-        if (this.ctF != null) {
-            if (z || this.ctF.getVisibility() != 0) {
+        if (this.ctG != null) {
+            if (z || this.ctG.getVisibility() != 0) {
                 aqf();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.ctF != null) {
-            if (i != 0 && i2 > i && this.ctF.getVisibility() != 8) {
+        if (this.ctG != null) {
+            if (i != 0 && i2 > i && this.ctG.getVisibility() != 8) {
                 fk(false);
-            } else if ((i == 0 || i2 < i) && this.ctF.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.ctG.getVisibility() != 0) {
                 fl(false);
             }
-            this.ctG = i;
+            this.ctH = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class w {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.ctG) {
+            if (firstVisiblePosition > this.ctH) {
                 fk(true);
-            } else if (firstVisiblePosition < this.ctG) {
+            } else if (firstVisiblePosition < this.ctH) {
                 fl(true);
-            } else if (firstVisiblePosition == this.ctG) {
-                if (firstVisiblePosition == 0 || !this.ctH) {
+            } else if (firstVisiblePosition == this.ctH) {
+                if (firstVisiblePosition == 0 || !this.ctI) {
                     fl(true);
                 } else {
                     fk(true);

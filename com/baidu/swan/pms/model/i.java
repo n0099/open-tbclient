@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class i extends f {
     public String Jz;
     public String appId;
-    public boolean bmd;
+    public boolean bme;
 
     @Override // com.baidu.swan.pms.model.f
     public boolean RI() {

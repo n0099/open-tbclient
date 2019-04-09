@@ -18,8 +18,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 /* loaded from: classes4.dex */
 public class TopicDetailHeadView extends RelativeLayout {
-    private TbImageView eEH;
-    private TextView eEK;
+    private TbImageView eEI;
+    private TextView eEL;
     private TbImageView fOH;
     private LinearLayout fOI;
     private View fOJ;
@@ -49,17 +49,17 @@ public class TopicDetailHeadView extends RelativeLayout {
         LayoutInflater.from(context).inflate(d.h.topic_detail_head_view_layout, (ViewGroup) this, true);
         this.fOH = (TbImageView) findViewById(d.g.topic_detail_head_bg);
         this.fOH.setDrawingCacheEnabled(true);
-        this.eEK = (TextView) findViewById(d.g.topic_detail_head_des);
+        this.eEL = (TextView) findViewById(d.g.topic_detail_head_des);
         this.fOI = (LinearLayout) findViewById(d.g.topic_detail_head_img_layout);
-        this.eEH = (TbImageView) findViewById(d.g.topic_detail_head_img);
+        this.eEI = (TbImageView) findViewById(d.g.topic_detail_head_img);
         this.fOJ = findViewById(d.g.topic_detail_head_img_placeholder);
         this.fOK = (TopicPkView) findViewById(d.g.topic_detail_head_pk);
         this.fOL = (TopicTimelineView) findViewById(d.g.topic_detail_head_timeline);
-        ViewGroup.LayoutParams layoutParams = this.eEH.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.eEI.getLayoutParams();
         layoutParams.height = ((l.aO(getContext()) - l.h(getContext(), d.e.tbds88)) * 9) / 16;
-        this.eEH.setLayoutParams(layoutParams);
-        this.eEH.setRadius(l.h(context, d.e.tbds22));
-        this.eEH.setConrers(15);
+        this.eEI.setLayoutParams(layoutParams);
+        this.eEI.setRadius(l.h(context, d.e.tbds22));
+        this.eEI.setConrers(15);
         onChangeSkinType();
     }
 
@@ -74,15 +74,15 @@ public class TopicDetailHeadView extends RelativeLayout {
         }
         setVisibility(0);
         if (bVar.fOh == null && StringUtils.isNull(bVar.fOf)) {
-            ((LinearLayout.LayoutParams) this.eEK.getLayoutParams()).bottomMargin = l.h(getContext(), d.e.tbds130);
+            ((LinearLayout.LayoutParams) this.eEL.getLayoutParams()).bottomMargin = l.h(getContext(), d.e.tbds130);
         }
-        this.eEK.setText(bVar.bAr);
+        this.eEL.setText(bVar.bAs);
         if (StringUtils.isNull(bVar.fOf)) {
             this.fOI.setVisibility(8);
             this.fOH.setDefaultBgResource(d.f.topic_detail_default_bg);
         } else {
             this.fOI.setVisibility(0);
-            this.eEH.startLoad(bVar.fOf, 10, false);
+            this.eEI.startLoad(bVar.fOf, 10, false);
             this.fOH.setDefaultBgResource(d.f.topic_detail_img_default_bg);
         }
         if (bVar.fOh == null) {
@@ -107,8 +107,8 @@ public class TopicDetailHeadView extends RelativeLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             this.fOH.setIsNight(this.mSkinType == 1);
-            al.j(this.eEK, d.C0277d.cp_btn_a);
-            this.eEH.setIsNight(this.mSkinType == 1);
+            al.j(this.eEL, d.C0277d.cp_btn_a);
+            this.eEI.setIsNight(this.mSkinType == 1);
             this.fOK.onChangeSkinType();
             this.fOL.onChangeSkinType();
         }

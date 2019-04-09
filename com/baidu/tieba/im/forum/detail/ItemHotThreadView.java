@@ -20,19 +20,19 @@ import java.util.List;
 import tbclient.SimpleThreadInfo;
 /* loaded from: classes3.dex */
 public class ItemHotThreadView extends LinearLayout {
-    private HashMap<String, View> ghY;
-    private List<SimpleThreadInfo> ghZ;
+    private HashMap<String, View> ghZ;
+    private List<SimpleThreadInfo> gia;
     private Context mContext;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.ghY = new HashMap<>();
+        this.ghZ = new HashMap<>();
         init(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ghY = new HashMap<>();
+        this.ghZ = new HashMap<>();
         init(context);
     }
 
@@ -43,7 +43,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     public void setData(List<SimpleThreadInfo> list) {
-        this.ghZ = list;
+        this.gia = list;
         if (list != null && list.size() != 0) {
             setVisibility(0);
             int i = 0;
@@ -55,30 +55,30 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     private void refresh() {
-        setData(this.ghZ);
+        setData(this.gia);
     }
 
     private void a(SimpleThreadInfo simpleThreadInfo, boolean z) {
         a aVar;
         View view;
         if (simpleThreadInfo != null) {
-            if (!this.ghY.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            if (!this.ghZ.containsKey(String.valueOf(simpleThreadInfo.tid))) {
                 view = LayoutInflater.from(this.mContext).inflate(d.h.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 aVar = new a();
-                aVar.gib = (LinearLayout) view.findViewById(d.g.thread_item_ll);
-                aVar.gic = (TextView) view.findViewById(d.g.ht_item_title);
-                aVar.gie = (TextView) view.findViewById(d.g.ht_item_content);
-                aVar.gif = (TextView) view.findViewById(d.g.ht_item_reply);
-                aVar.gig = (TextView) view.findViewById(d.g.ht_divider_line);
+                aVar.gic = (LinearLayout) view.findViewById(d.g.thread_item_ll);
+                aVar.gie = (TextView) view.findViewById(d.g.ht_item_title);
+                aVar.gif = (TextView) view.findViewById(d.g.ht_item_content);
+                aVar.gig = (TextView) view.findViewById(d.g.ht_item_reply);
+                aVar.gih = (TextView) view.findViewById(d.g.ht_divider_line);
                 view.setTag(aVar);
-                this.ghY.put(String.valueOf(simpleThreadInfo.tid), view);
+                this.ghZ.put(String.valueOf(simpleThreadInfo.tid), view);
                 addView(view);
             } else {
-                View view2 = this.ghY.get(String.valueOf(simpleThreadInfo.tid));
+                View view2 = this.ghZ.get(String.valueOf(simpleThreadInfo.tid));
                 aVar = (a) view2.getTag();
                 view = view2;
             }
-            aVar.gic.setText(simpleThreadInfo.title);
+            aVar.gie.setText(simpleThreadInfo.title);
             StringBuilder sb = new StringBuilder();
             if (simpleThreadInfo._abstract != null && simpleThreadInfo._abstract.size() != 0) {
                 int size = simpleThreadInfo._abstract.size();
@@ -89,24 +89,24 @@ public class ItemHotThreadView extends LinearLayout {
                 }
             }
             if (!ap.isEmpty(sb.toString().trim())) {
-                aVar.gie.setText(sb.toString());
-                aVar.gie.setVisibility(0);
+                aVar.gif.setText(sb.toString());
+                aVar.gif.setVisibility(0);
             } else {
-                aVar.gie.setVisibility(8);
+                aVar.gif.setVisibility(8);
             }
-            aVar.gif.setText(String.valueOf(simpleThreadInfo.reply_num));
-            al.k(aVar.gib, d.f.live_frs_list_item_bg);
-            al.d(aVar.gic, d.C0277d.cp_cont_b, 1);
-            al.d(aVar.gie, d.C0277d.cp_cont_c, 1);
-            al.d(aVar.gif, d.C0277d.cp_link_tip_c, 1);
+            aVar.gig.setText(String.valueOf(simpleThreadInfo.reply_num));
+            al.k(aVar.gic, d.f.live_frs_list_item_bg);
+            al.d(aVar.gie, d.C0277d.cp_cont_b, 1);
+            al.d(aVar.gif, d.C0277d.cp_cont_c, 1);
+            al.d(aVar.gig, d.C0277d.cp_link_tip_c, 1);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(d.f.icon_ba_comment);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.gif.setCompoundDrawables(bitmapDrawable, null, null, null);
-            al.k(aVar.gig, d.C0277d.cp_bg_line_c);
+            aVar.gig.setCompoundDrawables(bitmapDrawable, null, null, null);
+            al.k(aVar.gih, d.C0277d.cp_bg_line_c);
             if (z) {
-                aVar.gig.setVisibility(0);
+                aVar.gih.setVisibility(0);
             } else {
-                aVar.gig.setVisibility(8);
+                aVar.gih.setVisibility(8);
             }
             final String valueOf = String.valueOf(simpleThreadInfo.tid);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemHotThreadView.1
@@ -128,11 +128,11 @@ public class ItemHotThreadView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        LinearLayout gib;
-        TextView gic;
+        LinearLayout gic;
         TextView gie;
         TextView gif;
         TextView gig;
+        TextView gih;
 
         private a() {
         }

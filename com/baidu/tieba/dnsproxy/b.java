@@ -10,17 +10,17 @@ import java.io.IOException;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
-    private static b exZ = null;
+    private static b eya = null;
 
     public static final b aUV() {
-        if (exZ == null) {
+        if (eya == null) {
             synchronized (b.class) {
-                if (exZ == null) {
-                    exZ = new b();
+                if (eya == null) {
+                    eya = new b();
                 }
             }
         }
-        return exZ;
+        return eya;
     }
 
     private b() {
@@ -34,14 +34,14 @@ public class b {
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Void, Boolean> {
-        private static final BdUniqueId dgS = BdUniqueId.gen();
-        Process cgj;
-        private long eya;
+        private static final BdUniqueId dgT = BdUniqueId.gen();
+        Process cgk;
+        private long eyb;
         private String ip;
 
         private a(String str) {
-            this.cgj = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, dgS));
+            this.cgk = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, dgT));
             this.ip = str;
         }
 
@@ -71,31 +71,31 @@ public class b {
             try {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.cgj = runtime.exec(akT() + this.ip);
-                    z = this.cgj.waitFor() == 0;
+                    this.cgk = runtime.exec(akT() + this.ip);
+                    z = this.cgk.waitFor() == 0;
                     try {
-                        this.eya = System.currentTimeMillis() - currentTimeMillis;
+                        this.eyb = System.currentTimeMillis() - currentTimeMillis;
                     } catch (IOException e3) {
                         e2 = e3;
                         BdLog.detailException(e2);
                         d.aUW().cd("test_speed", e2.getMessage());
-                        this.cgj.destroy();
+                        this.cgk.destroy();
                         return Boolean.valueOf(z);
                     } catch (InterruptedException e4) {
                         e = e4;
                         BdLog.detailException(e);
                         d.aUW().cd("test_speed", e.getMessage());
-                        this.cgj.destroy();
+                        this.cgk.destroy();
                         return Boolean.valueOf(z);
                     } catch (Throwable th2) {
                         th = th2;
                         BdLog.detailException(th);
                         d.aUW().cd("test_speed", th.getMessage());
-                        this.cgj.destroy();
+                        this.cgk.destroy();
                         return Boolean.valueOf(z);
                     }
                 } finally {
-                    this.cgj.destroy();
+                    this.cgk.destroy();
                 }
             } catch (IOException e5) {
                 z = false;
@@ -114,14 +114,14 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.cgj != null) {
+            if (this.cgk != null) {
                 try {
-                    this.cgj.destroy();
+                    this.cgk.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eya, false);
+            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eyb, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,12 +129,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eya, booleanValue);
+            com.baidu.tieba.dnsproxy.a.d.aVk().c(this.ip, (int) this.eyb, booleanValue);
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_testspeed");
             statsItem.f("issuc", Boolean.valueOf(booleanValue));
             statsItem.append("ip", this.ip);
-            statsItem.f("speed", Integer.valueOf((int) this.eya));
+            statsItem.f("speed", Integer.valueOf((int) this.eyb));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
         }
     }

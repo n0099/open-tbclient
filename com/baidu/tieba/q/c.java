@@ -17,9 +17,9 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c iDk;
-    private SparseArray<HashSet<String>> iDn;
-    private a iDo;
+    private static c iDl;
+    private SparseArray<HashSet<String>> iDo;
+    private a iDp;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.q.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -39,84 +39,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener bvw = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
+    private CustomMessageListener bvx = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.iDn != null) {
-                    c.this.iDn.clear();
+                if (c.this.iDo != null) {
+                    c.this.iDo.clear();
                 }
-                c.this.iDl.cdo();
+                c.this.iDm.cdo();
             }
         }
     };
-    private int iDm = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-    private final b iDl = new b();
+    private int iDn = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+    private final b iDm = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.bvw);
+        MessageManager.getInstance().registerListener(this.bvx);
     }
 
     public static c cdp() {
-        if (iDk == null) {
+        if (iDl == null) {
             synchronized (c.class) {
-                if (iDk == null) {
-                    iDk = new c();
+                if (iDl == null) {
+                    iDl = new c();
                 }
             }
         }
-        return iDk;
+        return iDl;
     }
 
     public void s(BdUniqueId bdUniqueId) {
         l.lm();
         if (bdUniqueId != null) {
-            this.iDl.s(bdUniqueId);
+            this.iDm.s(bdUniqueId);
         }
     }
 
     public void t(BdUniqueId bdUniqueId) {
         l.lm();
         if (bdUniqueId != null) {
-            this.iDl.t(bdUniqueId);
+            this.iDm.t(bdUniqueId);
             v(bdUniqueId);
         }
     }
 
     private void v(BdUniqueId bdUniqueId) {
-        if (this.iDn != null) {
-            this.iDn.remove(bdUniqueId.getId());
+        if (this.iDo != null) {
+            this.iDo.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, am amVar) {
-        this.iDl.a(bdUniqueId, true);
+        this.iDm.a(bdUniqueId, true);
         TiebaStatic.log(amVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, am amVar) {
         if (bdUniqueId != null && amVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.iDl.u(bdUniqueId)) {
+            if (!this.iDm.u(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + amVar.getKey());
             }
-            if (this.iDn == null) {
-                this.iDn = new SparseArray<>();
+            if (this.iDo == null) {
+                this.iDo = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.iDn.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.iDo.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.iDn.put(bdUniqueId.getId(), hashSet);
+                this.iDo.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = amVar.getKey() + "_" + str;
             if (!hashSet.contains(str2) && !bik()) {
                 hashSet.add(str2);
-                this.iDl.a(bdUniqueId, amVar);
+                this.iDm.a(bdUniqueId, amVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,28 +125,28 @@ public class c {
     }
 
     private boolean bik() {
-        if (this.iDo == null) {
-            this.iDo = new a();
+        if (this.iDp == null) {
+            this.iDp = new a();
         }
-        if (this.iDo.fsY) {
+        if (this.iDp.fsY) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.iDo.isRunning) {
-            this.iDo.count++;
-            if (currentTimeMillis - this.iDo.fsX < 120000) {
-                if (this.iDo.count >= this.iDm) {
-                    this.iDo.fsY = true;
-                    a(this.iDo);
+        if (this.iDp.isRunning) {
+            this.iDp.count++;
+            if (currentTimeMillis - this.iDp.fsX < 120000) {
+                if (this.iDp.count >= this.iDn) {
+                    this.iDp.fsY = true;
+                    a(this.iDp);
                     return true;
                 }
             } else {
-                this.iDo.isRunning = false;
-                this.iDo.count = 0;
+                this.iDp.isRunning = false;
+                this.iDp.count = 0;
             }
         } else {
-            this.iDo.isRunning = true;
-            this.iDo.fsX = currentTimeMillis;
+            this.iDp.isRunning = true;
+            this.iDp.fsX = currentTimeMillis;
         }
         return false;
     }
@@ -163,7 +163,7 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.iDl.a(bdUniqueId, z);
+        this.iDm.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

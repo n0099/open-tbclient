@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> jUv = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind jUt;
-    private final Throwable jUu;
+    private static final Notification<Void> jUw = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind jUu;
+    private final Throwable jUv;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -22,17 +22,17 @@ public final class Notification<T> {
     }
 
     public static <T> Notification<T> cDs() {
-        return (Notification<T>) jUv;
+        return (Notification<T>) jUw;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.jUu = th;
-        this.jUt = kind;
+        this.jUv = th;
+        this.jUu = kind;
     }
 
     public Throwable cDt() {
-        return this.jUu;
+        return this.jUv;
     }
 
     public T getValue() {
@@ -44,11 +44,11 @@ public final class Notification<T> {
     }
 
     public boolean cDu() {
-        return cDw() && this.jUu != null;
+        return cDw() && this.jUv != null;
     }
 
     public Kind cDv() {
-        return this.jUt;
+        return this.jUu;
     }
 
     public boolean cDw() {
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cDv() != cDv() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.jUu != notification.jUu && (this.jUu == null || !this.jUu.equals(notification.jUu))))) {
+            if (notification.cDv() != cDv() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.jUv != notification.jUv && (this.jUv == null || !this.jUv.equals(notification.jUv))))) {
                 z = false;
             }
             return z;

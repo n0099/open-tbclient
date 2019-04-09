@@ -6,14 +6,14 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d jRF;
-    private final d.b jRG;
+    private final d jRG;
+    private final d.b jRH;
 
     public a(d dVar, d.b bVar) {
         p.k(dVar, CustomDialogData.POS_LEFT);
         p.k(bVar, "element");
-        this.jRF = dVar;
-        this.jRG = bVar;
+        this.jRG = dVar;
+        this.jRH = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -21,9 +21,9 @@ public final class a implements d {
         p.k(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.jRG.a(cVar);
+            E e = (E) aVar.jRH.a(cVar);
             if (e == null) {
-                d dVar = aVar.jRF;
+                d dVar = aVar.jRG;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -38,22 +38,22 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
         p.k(cVar, "operation");
-        return cVar.invoke((Object) this.jRF.a(r, cVar), this.jRG);
+        return cVar.invoke((Object) this.jRG.a(r, cVar), this.jRH);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         p.k(cVar, "key");
-        if (this.jRG.a(cVar) != null) {
-            return this.jRF;
+        if (this.jRH.a(cVar) != null) {
+            return this.jRG;
         }
-        d b = this.jRF.b(cVar);
-        return b == this.jRF ? this : b == e.jRJ ? this.jRG : new a(b, this.jRG);
+        d b = this.jRG.b(cVar);
+        return b == this.jRG ? this : b == e.jRK ? this.jRH : new a(b, this.jRH);
     }
 
     private final int size() {
-        if (this.jRF instanceof a) {
-            return ((a) this.jRF).size() + 1;
+        if (this.jRG instanceof a) {
+            return ((a) this.jRG).size() + 1;
         }
         return 2;
     }
@@ -63,8 +63,8 @@ public final class a implements d {
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.jRG)) {
-            d dVar = aVar.jRF;
+        while (a(aVar.jRH)) {
+            d dVar = aVar.jRG;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.jRF.hashCode() + this.jRG.hashCode();
+        return this.jRG.hashCode() + this.jRH.hashCode();
     }
 
     public String toString() {

@@ -26,9 +26,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bwH;
-        if (StringUtils.isNull(str) && advertAppInfo.bwQ != null) {
-            str = advertAppInfo.bwQ.userName;
+        String str = advertAppInfo.bwI;
+        if (StringUtils.isNull(str) && advertAppInfo.bwR != null) {
+            str = advertAppInfo.bwR.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -45,16 +45,16 @@ public class s {
             return false;
         }
         com.baidu.tbadk.distribute.a.alC().b(advertAppInfo);
-        String str2 = advertAppInfo.bwH;
+        String str2 = advertAppInfo.bwI;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bWM().a(advertAppInfo.bwK, advertAppInfo.bwJ, str2, i, com.baidu.tieba.recapp.download.d.Bv(advertAppInfo.bwK).intValue(), null, true, false, true, advertAppInfo.bwQ.userPortrait, downloadStaticsData, advertAppInfo.bwQ.userName);
+        com.baidu.tieba.recapp.download.d.bWM().a(advertAppInfo.bwL, advertAppInfo.bwK, str2, i, com.baidu.tieba.recapp.download.d.Bv(advertAppInfo.bwL).intValue(), null, true, false, true, advertAppInfo.bwR.userPortrait, downloadStaticsData, advertAppInfo.bwR.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bWM().u(advertAppInfo.bwJ, advertAppInfo.bwK, true);
+        com.baidu.tieba.recapp.download.d.bWM().u(advertAppInfo.bwK, advertAppInfo.bwL, true);
     }
 
     public static final void aR(Context context, String str) {

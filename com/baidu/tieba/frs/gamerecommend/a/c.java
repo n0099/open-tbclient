@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.exz);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.exA);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }

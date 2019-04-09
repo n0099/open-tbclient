@@ -39,13 +39,13 @@ import java.util.regex.Pattern;
 import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class j {
-    private static final Pattern juK = Pattern.compile("[ ]*http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?#%&=]*)?", 2);
+    private static final Pattern juL = Pattern.compile("[ ]*http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?#%&=]*)?", 2);
     public com.baidu.tieba.write.b fOW;
-    private WriteUrlModel juG;
-    private k juL;
-    private com.baidu.tieba.write.model.a juM;
-    private com.baidu.tieba.write.transmit.model.a juN;
-    private com.baidu.tbadk.core.view.b juO;
+    private WriteUrlModel juH;
+    private k juM;
+    private com.baidu.tieba.write.model.a juN;
+    private com.baidu.tieba.write.transmit.model.a juO;
+    private com.baidu.tbadk.core.view.b juP;
     private TbPageContext mContext;
     public String mLat;
     public String mLng;
@@ -63,31 +63,31 @@ public class j {
             }
         }
     };
-    private View.OnClickListener juP = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.j.2
+    private View.OnClickListener juQ = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.j.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getId() == d.g.url_add) {
                 TiebaStatic.log(new am("c12163"));
-                String crJ = j.this.juL.crJ();
-                if (j.juK.matcher(crJ).matches()) {
+                String crJ = j.this.juM.crJ();
+                if (j.juL.matcher(crJ).matches()) {
                     j.this.crv();
-                    j.this.juM.Es(crJ);
-                    j.this.juL.a(null, true);
+                    j.this.juN.Es(crJ);
+                    j.this.juM.a(null, true);
                     return;
                 }
                 TiebaStatic.log(new am("c12164"));
-                j.this.juL.crK();
+                j.this.juM.crK();
             }
         }
     };
-    private TextWatcher juQ = new TextWatcher() { // from class: com.baidu.tieba.write.write.j.3
+    private TextWatcher juR = new TextWatcher() { // from class: com.baidu.tieba.write.write.j.3
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            j.this.juL.crB();
+            j.this.juM.crB();
         }
 
         @Override // android.text.TextWatcher
@@ -100,15 +100,15 @@ public class j {
             }
         }
     };
-    private DialogInterface.OnCancelListener juR = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.j.4
+    private DialogInterface.OnCancelListener juS = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.j.4
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (j.this.juN != null) {
-                j.this.juN.beW();
+            if (j.this.juO != null) {
+                j.this.juO.beW();
             }
         }
     };
-    private a.InterfaceC0411a jkU = new a.InterfaceC0411a() { // from class: com.baidu.tieba.write.write.j.5
+    private a.InterfaceC0411a jkV = new a.InterfaceC0411a() { // from class: com.baidu.tieba.write.write.j.5
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0411a
         public void onError() {
             j.this.eq(null);
@@ -119,7 +119,7 @@ public class j {
             j.this.eq(list);
         }
     };
-    private a.InterfaceC0015a dju = new a.InterfaceC0015a() { // from class: com.baidu.tieba.write.write.j.6
+    private a.InterfaceC0015a djv = new a.InterfaceC0015a() { // from class: com.baidu.tieba.write.write.j.6
         @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
         public void b(int i, String str, Address address) {
             if (i == 0 && address != null) {
@@ -128,10 +128,10 @@ public class j {
             }
         }
     };
-    private final NewWriteModel.d cku = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.j.7
+    private final NewWriteModel.d ckv = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.j.7
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
-            j.this.juL.closeLoadingDialog();
+            j.this.juM.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 j.this.fOW.aE(null);
                 j.this.fOW.qU(false);
@@ -156,7 +156,7 @@ public class j {
                         j.this.re(true);
                     }
                 } else if ((xVar == null || writeData == null || xVar.getVcode_pic_url() == null || AntiHelper.e(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
-                    j.this.juL.l(postWriteCallBackData);
+                    j.this.juM.l(postWriteCallBackData);
                 } else if (xVar != null && writeData != null && xVar.getVcode_pic_url() != null) {
                     writeData.setVcodeMD5(xVar.getVcode_md5());
                     writeData.setVcodeUrl(xVar.getVcode_pic_url());
@@ -174,45 +174,45 @@ public class j {
     };
 
     public j(TbPageContext tbPageContext, k kVar, com.baidu.tieba.write.model.a aVar, WriteUrlModel writeUrlModel) {
-        this.juO = null;
+        this.juP = null;
         this.mContext = tbPageContext;
-        this.juL = kVar;
-        this.juM = aVar;
-        this.juG = writeUrlModel;
-        this.juL.Z(this.mClickListener);
-        this.juL.aa(this.juP);
-        this.juL.f(this.juQ);
+        this.juM = kVar;
+        this.juN = aVar;
+        this.juH = writeUrlModel;
+        this.juM.Z(this.mClickListener);
+        this.juM.aa(this.juQ);
+        this.juM.f(this.juR);
         crw();
-        this.juO = new com.baidu.tbadk.core.view.b(this.mContext);
-        this.juO.e(this.juR);
+        this.juP = new com.baidu.tbadk.core.view.b(this.mContext);
+        this.juP.e(this.juS);
         cru();
-        this.juG.b(this.cku);
+        this.juH.b(this.ckv);
         this.fOW = new com.baidu.tieba.write.b();
         this.fOW.AS(d.C0277d.cp_btn_a);
         this.fOW.AT(d.C0277d.cp_cont_h_alpha85);
     }
 
     private void cru() {
-        this.juN = new com.baidu.tieba.write.transmit.model.a(this.mContext.getUniqueId());
-        this.juN.a(this.jkU);
-        if (this.juG.getWriteData() != null) {
-            this.juN.setForumId(this.juG.getWriteData().getForumId());
+        this.juO = new com.baidu.tieba.write.transmit.model.a(this.mContext.getUniqueId());
+        this.juO.a(this.jkV);
+        if (this.juH.getWriteData() != null) {
+            this.juO.setForumId(this.juH.getWriteData().getForumId());
         }
     }
 
     protected void crv() {
-        this.juL.crI();
+        this.juM.crI();
     }
 
     protected void crw() {
-        this.juL.b((com.baidu.tieba.write.a.a) null);
+        this.juM.b((com.baidu.tieba.write.a.a) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eq(List<SimpleForum> list) {
-        WriteData writeData = this.juG.getWriteData();
+        WriteData writeData = this.juH.getWriteData();
         if (writeData != null) {
-            this.juO.dJ(false);
+            this.juP.dJ(false);
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
             if (!StringUtils.isNull(writeData.getForumId()) && !writeData.getForumId().equals("0") && !StringUtils.isNull(writeData.getForumName())) {
                 TransmitForumData transmitForumData = new TransmitForumData(com.baidu.adp.lib.g.b.d(writeData.getForumId(), 0L), writeData.getForumName(), true, 0);
@@ -236,40 +236,40 @@ public class j {
 
     public void ceX() {
         if (ab.cQ(this.mContext.getPageActivity())) {
-            com.baidu.adp.lib.d.a.iW().a(true, this.dju);
+            com.baidu.adp.lib.d.a.iW().a(true, this.djv);
         }
     }
 
     public void destroy() {
+        if (this.juO != null) {
+            this.juO.destroy();
+        }
         if (this.juN != null) {
             this.juN.destroy();
         }
-        if (this.juM != null) {
-            this.juM.destroy();
-        }
-        if (this.juG != null) {
-            this.juG.cancelLoadData();
+        if (this.juH != null) {
+            this.juH.cancelLoadData();
         }
     }
 
     public void aSg() {
-        this.juN.setThreadContent(this.juL.crC());
-        this.juN.loadData();
+        this.juO.setThreadContent(this.juM.crC());
+        this.juO.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void re(boolean z) {
-        if (this.juL.crE() != null && this.juL.crC() != null) {
-            int selectionEnd = this.juL.crE().getSelectionEnd();
-            SpannableStringBuilder b = this.fOW.b(this.juL.crE().getText());
+        if (this.juM.crE() != null && this.juM.crC() != null) {
+            int selectionEnd = this.juM.crE().getSelectionEnd();
+            SpannableStringBuilder b = this.fOW.b(this.juM.crE().getText());
             if (b != null) {
                 this.fOW.qV(true);
-                this.juL.crE().setText(b);
+                this.juM.crE().setText(b);
                 if (z && this.fOW.cnX() >= 0) {
-                    this.juL.crE().requestFocus();
-                    this.juL.crE().setSelection(this.fOW.cnX());
+                    this.juM.crE().requestFocus();
+                    this.juM.crE().setSelection(this.fOW.cnX());
                 } else {
-                    this.juL.crE().setSelection(selectionEnd);
+                    this.juM.crE().setSelection(selectionEnd);
                 }
                 this.fOW.qU(this.fOW.cnX() >= 0);
             }
@@ -311,13 +311,13 @@ public class j {
                     this.mContext.getPageActivity().setResult(-1, intent2);
                 }
                 baseActivity.finish();
-            } else if (i == 25013 && (writeData = this.juG.getWriteData()) != null && this.juM.cpy() != null) {
+            } else if (i == 25013 && (writeData = this.juH.getWriteData()) != null && this.juN.cpy() != null) {
                 if (intent != null) {
                     writeData.setTransmitForumData(intent.getStringExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED));
                 }
                 writeData.setForumId("0");
                 writeData.setCanNoForum(true);
-                writeData.setRecommendExt(this.juN.getRecommendExt());
+                writeData.setRecommendExt(this.juO.getRecommendExt());
                 if (!TextUtils.isEmpty(this.mLat) && !TextUtils.isEmpty(this.mLng)) {
                     cry();
                 } else if (ab.cQ(this.mContext.getPageActivity())) {
@@ -332,7 +332,7 @@ public class j {
                         }
                     });
                 }
-                this.juL.showLoadingDialog();
+                this.juM.showLoadingDialog();
             }
         } else if (i2 == 0) {
             switch (i) {
@@ -354,6 +354,6 @@ public class j {
     }
 
     public void cry() {
-        this.juG.g("", this.juL.crC(), this.juM.cpy().linkUrl, this.juM.cpy().linkUrlCode, this.mLat, this.mLng);
+        this.juH.g("", this.juM.crC(), this.juN.cpy().linkUrl, this.juN.cpy().linkUrlCode, this.mLat, this.mLng);
     }
 }

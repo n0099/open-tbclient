@@ -7,32 +7,32 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 /* loaded from: classes5.dex */
 public class a {
-    private static a bjt;
-    private RoutePlanSearch bjs;
+    private static a bju;
+    private RoutePlanSearch bjt;
 
     public static a QP() {
-        if (bjt == null) {
+        if (bju == null) {
             synchronized (a.class) {
-                if (bjt == null) {
-                    bjt = new a();
+                if (bju == null) {
+                    bju = new a();
                 }
             }
         }
-        return bjt;
+        return bju;
     }
 
     public void a(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
         if (latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
-            this.bjs = RoutePlanSearch.newInstance();
-            this.bjs.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
+            this.bjt = RoutePlanSearch.newInstance();
+            this.bjt.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
             PlanNode withLocation = PlanNode.withLocation(latLng);
-            this.bjs.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+            this.bjt.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
         }
     }
 
     public void QQ() {
-        if (this.bjs != null) {
-            this.bjs.destroy();
+        if (this.bjt != null) {
+            this.bjt.destroy();
         }
     }
 }

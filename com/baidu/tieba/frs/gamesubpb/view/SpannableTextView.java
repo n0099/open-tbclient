@@ -23,7 +23,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.gamesubpb.a;
 /* loaded from: classes4.dex */
 public class SpannableTextView extends TextView {
-    private long dfr;
+    private long dfs;
     private int fnY;
     private int fnZ;
     private a.InterfaceC0293a fne;
@@ -49,7 +49,7 @@ public class SpannableTextView extends TextView {
     }
 
     private void init() {
-        this.dfr = com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), -1L);
+        this.dfs = com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), -1L);
         this.fod = (l.aO(getContext()) - (getResources().getDimensionPixelSize(d.e.ds34) * 2)) - 20;
         onChangeSkinType();
     }
@@ -79,7 +79,7 @@ public class SpannableTextView extends TextView {
             str = " " + dVar.fnw;
         }
         int length5 = str != null ? str.length() : 0;
-        boolean equals = String.valueOf(this.dfr).equals(dVar.userId);
+        boolean equals = String.valueOf(this.dfs).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
             if (vn("|  删除") + (vn(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.fod) >= this.fod) {

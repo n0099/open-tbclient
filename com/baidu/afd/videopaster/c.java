@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private final int Td;
-    private HashMap Th;
+    private final int Te;
+    private HashMap Ti;
     private int floor;
     private final int height;
     private final String pid;
@@ -13,7 +13,7 @@ public class c implements a {
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.Td = i;
+        this.Te = i;
         this.refreshCount = i2;
         this.pid = str;
         this.floor = i3;
@@ -42,7 +42,7 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public int pM() {
-        return this.Td;
+        return this.Te;
     }
 
     @Override // com.baidu.afd.videopaster.a
@@ -52,11 +52,11 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public Map<String, String> pP() {
-        return this.Th;
+        return this.Ti;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void l(HashMap hashMap) {
-        this.Th = hashMap;
+        this.Ti = hashMap;
     }
 }

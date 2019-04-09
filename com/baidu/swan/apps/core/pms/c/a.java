@@ -55,9 +55,9 @@ public final class a {
             return hx;
         }
         if (fVar.category == 0) {
-            str = xC() + File.separator + fVar.blZ + ".aiapps";
+            str = xC() + File.separator + fVar.bma + ".aiapps";
         } else if (fVar.category == 1) {
-            str = zK() + File.separator + fVar.blZ + ".aigames";
+            str = zK() + File.separator + fVar.bma + ".aigames";
         } else {
             com.baidu.swan.apps.ak.a hx2 = new com.baidu.swan.apps.ak.a().L(11L).M(2310L).hx("pkh category illegal");
             e.LE().b(hx2);
@@ -90,11 +90,11 @@ public final class a {
             return hx;
         }
         if (fVar.category == 1) {
-            file = new File(zK(), fVar.blZ + ".aigames");
-            ah = a.c.ah(fVar.blZ, String.valueOf(fVar.versionCode));
+            file = new File(zK(), fVar.bma + ".aigames");
+            ah = a.c.ah(fVar.bma, String.valueOf(fVar.versionCode));
         } else if (fVar.category == 0) {
-            file = new File(xC(), fVar.blZ + ".aiapps");
-            ah = c.d.ah(fVar.blZ, String.valueOf(fVar.versionCode));
+            file = new File(xC(), fVar.bma + ".aiapps");
+            ah = c.d.ah(fVar.bma, String.valueOf(fVar.versionCode));
         } else {
             com.baidu.swan.apps.ak.a hx2 = new com.baidu.swan.apps.ak.a().L(11L).M(2320L).hx("pkh category illegal");
             e.LE().b(hx2);
@@ -151,7 +151,7 @@ public final class a {
             if (z) {
                 aVar.L(11L).M(2320L).hx("unzip failed");
             } else {
-                aVar.L(11L).M(2330L).hx("decrypt failed:" + (c0143a == null ? "" : c0143a.axf));
+                aVar.L(11L).M(2330L).hx("decrypt failed:" + (c0143a == null ? "" : c0143a.axg));
             }
             e.LE().b(aVar);
             return aVar;

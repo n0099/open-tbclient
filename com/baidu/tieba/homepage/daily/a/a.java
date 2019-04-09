@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eEc;
+    private r eEd;
     private e fHG;
     private d fHH;
     private c fHI;
@@ -20,9 +20,9 @@ public class a {
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eEc = rVar;
+        this.eEd = rVar;
         initAdapters();
-        this.eEc.addAdapters(this.mAdapters);
+        this.eEd.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
@@ -30,8 +30,8 @@ public class a {
         this.fHG = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.fHY);
         this.fHH = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.fHU);
         this.fHI = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.fHS);
-        this.fHJ = new b(this.mPageContext, bg.bAT);
-        this.fHK = new f(this.mPageContext, bg.bBg);
+        this.fHJ = new b(this.mPageContext, bg.bAU);
+        this.fHK = new f(this.mPageContext, bg.bBh);
         this.mAdapters.add(this.fHG);
         this.mAdapters.add(this.fHH);
         this.mAdapters.add(this.fHI);
@@ -40,13 +40,13 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.eEc != null) {
-            this.eEc.getListAdapter().notifyDataSetChanged();
+        if (this.eEd != null) {
+            this.eEd.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eEc.setData(list);
+        this.eEd.setData(list);
     }
 
     public void onChangeSkinType(int i) {

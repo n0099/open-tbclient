@@ -12,27 +12,27 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.f;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.adp.widget.ListView.a<f, a> {
-    private ab dqj;
+    private ab dqk;
     private com.baidu.tieba.godSquare.b.a fEl;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.ekN);
-        this.dqj = new ab() { // from class: com.baidu.tieba.godSquare.a.b.1
+        super(tbPageContext.getPageActivity(), f.ekO);
+        this.dqk = new ab() { // from class: com.baidu.tieba.godSquare.a.b.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar) {
                 if (view != null && b.this.fEl != null && (bVar instanceof f)) {
                     f fVar = (f) bVar;
-                    if (fVar.bBJ != null && !StringUtils.isNull(fVar.bBJ.getUserId())) {
+                    if (fVar.bBK != null && !StringUtils.isNull(fVar.bBK.getUserId())) {
                         if (view.getId() != b.this.fEl.fEw.getId()) {
                             if (view.getId() == b.this.fEl.getView().getId() || view.getId() == b.this.fEl.fAm.getId()) {
-                                TiebaStatic.log(new am("c10951").bJ(VideoPlayActivityConfig.OBJ_ID, fVar.bBJ.getUserId()));
+                                TiebaStatic.log(new am("c10951").bJ(VideoPlayActivityConfig.OBJ_ID, fVar.bBK.getUserId()));
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(new am("c10803").T("obj_locate", 4).bJ(VideoPlayActivityConfig.OBJ_ID, fVar.bBJ.getUserId()));
+                        TiebaStatic.log(new am("c10803").T("obj_locate", 4).bJ(VideoPlayActivityConfig.OBJ_ID, fVar.bBK.getUserId()));
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class b extends com.baidu.adp.widget.ListView.a<f, a> {
     public a onCreateViewHolder(ViewGroup viewGroup) {
         this.fEl = new com.baidu.tieba.godSquare.b.a(this.mPageContext);
         this.fEl.i(this.mPageContext.getUniqueId());
-        this.fEl.d(this.dqj);
+        this.fEl.d(this.dqk);
         return new a(this.fEl);
     }
 

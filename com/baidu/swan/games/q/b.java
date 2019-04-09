@@ -13,16 +13,16 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class b {
-    private File aSV;
-    private SharedPreferences bfk;
+    private File aSW;
+    private SharedPreferences bfl;
 
     public b() {
         String OV = OV();
         if (OV != null) {
-            this.bfk = com.baidu.swan.apps.u.a.Cw().getSharedPreferences(OV, 0);
-            this.aSV = new File(OZ(), OV + ".xml");
+            this.bfl = com.baidu.swan.apps.u.a.Cw().getSharedPreferences(OV, 0);
+            this.aSW = new File(OZ(), OV + ".xml");
         }
-        e.aVS.a(new c.a<Long>() { // from class: com.baidu.swan.games.q.b.1
+        e.aVT.a(new c.a<Long>() { // from class: com.baidu.swan.games.q.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
             /* renamed from: KH */
@@ -49,12 +49,12 @@ public class b {
     }
 
     private boolean OW() {
-        return this.bfk != null;
+        return this.bfl != null;
     }
 
     public long KF() {
-        if (this.aSV != null) {
-            return this.aSV.length();
+        if (this.aSW != null) {
+            return this.aSW.length();
         }
         return 0L;
     }
@@ -65,7 +65,7 @@ public class b {
 
     public String getString(String str, String str2) {
         if (OW()) {
-            return this.bfk.getString(str, str2);
+            return this.bfl.getString(str, str2);
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class b {
         if (!OW()) {
             return new String[0];
         }
-        Set<String> keySet = this.bfk.getAll().keySet();
+        Set<String> keySet = this.bfl.getAll().keySet();
         String[] strArr = new String[keySet.size()];
         keySet.toArray(strArr);
         return strArr;
@@ -82,17 +82,17 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean be(String str, String str2) {
-        return OW() && this.bfk.edit().putString(str, str2).commit();
+        return OW() && this.bfl.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean remove(String str) {
-        return OW() && this.bfk.edit().remove(str).commit();
+        return OW() && this.bfl.edit().remove(str).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean OY() {
-        return OW() && this.bfk.edit().clear().commit();
+        return OW() && this.bfl.edit().clear().commit();
     }
 
     @NonNull

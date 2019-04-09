@@ -18,13 +18,13 @@ import com.baidu.tieba.video.VideoItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends c {
-    private VideoItemData hYT;
-    private VideoSerializeVideoThreadInfo hYU;
-    private bg hYV;
+    private VideoItemData hYU;
+    private VideoSerializeVideoThreadInfo hYV;
+    private bg hYW;
 
     public b(Context context, View view) {
         super(context, view);
-        this.hYW = UIMsg.m_AppUI.MSG_APP_GPS;
+        this.hYX = UIMsg.m_AppUI.MSG_APP_GPS;
     }
 
     public b(Context context, View view, boolean z) {
@@ -36,25 +36,25 @@ public class b extends c {
     @Override // com.baidu.tieba.play.operableVideoView.c
     public void init() {
         super.init();
-        this.hZy.setOnTouchListener(null);
-        this.hZy.setOnClickListener(this);
+        this.hZz.setOnTouchListener(null);
+        this.hZz.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c, com.baidu.tieba.play.operableVideoView.a
     public void setData(bg bgVar) {
         super.setData(bgVar);
-        this.hYV = bgVar;
-        if (this.hZA) {
-            this.hYT = new VideoItemData();
-            this.hYT.buildWithThreadData(bgVar);
+        this.hYW = bgVar;
+        if (this.hZB) {
+            this.hYU = new VideoItemData();
+            this.hYU.buildWithThreadData(bgVar);
             return;
         }
-        this.hYU = new VideoSerializeVideoThreadInfo();
-        this.hYU.copyFromThreadInfo(bgVar);
-        this.hYU.source = bgVar.mRecomSource;
-        this.hYU.extra = bgVar.mRecomExtra;
-        this.hYU.ab_tag = bgVar.mRecomAbTag;
-        this.hYU.weight = bgVar.mRecomWeight;
+        this.hYV = new VideoSerializeVideoThreadInfo();
+        this.hYV.copyFromThreadInfo(bgVar);
+        this.hYV.source = bgVar.mRecomSource;
+        this.hYV.extra = bgVar.mRecomExtra;
+        this.hYV.ab_tag = bgVar.mRecomAbTag;
+        this.hYV.weight = bgVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c
@@ -63,7 +63,7 @@ public class b extends c {
 
     @Override // com.baidu.tieba.play.operableVideoView.c
     public void bTY() {
-        this.hZa = 128;
+        this.hZb = 128;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c, android.view.View.OnClickListener
@@ -75,31 +75,31 @@ public class b extends c {
             }
             if (!j.kY()) {
                 l.showToast(this.mContext, d.j.no_network_guide);
-            } else if (this.hZA) {
+            } else if (this.hZB) {
                 aQn();
             } else {
                 aQo();
             }
-            if (this.bNw != null) {
-                this.bNw.onClick(bSV());
+            if (this.bNx != null) {
+                this.bNx.onClick(bSV());
             }
         }
     }
 
     private void aQn() {
-        if (this.hYT != null) {
+        if (this.hYU != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.hYT);
+            arrayList.add(this.hYU);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoPlayActivityConfig(this.mContext, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", "index", this.mFrom)));
         }
     }
 
     private void aQo() {
-        if (this.hYU != null) {
-            if (this.hYV != null) {
-                this.hYU.copyFromThreadInfo(this.hYV);
+        if (this.hYV != null) {
+            if (this.hYW != null) {
+                this.hYV.copyFromThreadInfo(this.hYW);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ctw, n.YB(), "", this.hYU)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ctx, n.YB(), "", this.hYV)));
         }
     }
 
@@ -110,19 +110,19 @@ public class b extends c {
 
     @Override // com.baidu.tieba.play.operableVideoView.c
     protected void bTZ() {
-        if (this.hZg == this.hYZ) {
+        if (this.hZh == this.hZa) {
             bUa();
         }
     }
 
     public void bUa() {
-        xo(this.hZa);
+        xo(this.hZb);
         bUb();
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c, com.baidu.tieba.play.operableVideoView.a
     public void bTV() {
-        if (this.gHW.getVisibility() == 8 && this.hZg != this.hZa) {
+        if (this.gHX.getVisibility() == 8 && this.hZh != this.hZb) {
             bUa();
         }
     }

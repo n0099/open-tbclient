@@ -90,7 +90,7 @@ public class v extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
             aVar.fhD.setData(qVar.getUserInfo());
             aVar.fhC.setMaxOverScrollDistance(aVar.fhD.getChildItemWidth());
             aVar.fhE.setTextColor(al.getColor(skinType, d.C0277d.cp_cont_f));
-            aVar.bFy.setBackgroundColor(al.getColor(skinType, d.C0277d.cp_bg_line_e));
+            aVar.bFz.setBackgroundColor(al.getColor(skinType, d.C0277d.cp_bg_line_e));
             if (!qVar.bdW()) {
                 for (MetaData metaData : qVar.getUserInfo()) {
                     if (metaData != null && !ap.isEmpty(metaData.getUserId())) {
@@ -105,7 +105,7 @@ public class v extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        LinearLayout bFy;
+        LinearLayout bFz;
         FlexibleHorizontalScrollView fhC;
         UserRecommendLayout fhD;
         TextView fhE;
@@ -151,7 +151,7 @@ public class v extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
             this.fhD.setAfterLikeBtnClickListener(this.fhF);
             this.fhD.setAfterHeaderLickListener(this.fhG);
             this.fhE = (TextView) view.findViewById(d.g.user_recommend_document);
-            this.bFy = (LinearLayout) view.findViewById(d.g.user_recommend_root);
+            this.bFz = (LinearLayout) view.findViewById(d.g.user_recommend_root);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

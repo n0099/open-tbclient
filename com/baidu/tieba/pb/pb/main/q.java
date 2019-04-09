@@ -14,130 +14,130 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.view.PbGiftListView;
 /* loaded from: classes4.dex */
 public class q {
-    private OriginalThreadCardView ejm;
-    private View hqI;
-    private ViewStub hqK;
-    private PbGiftListView hqL;
-    private ViewStub hqM;
-    private OriginalThreadCardView.a hqN;
-    private ViewStub hqO;
-    private LinearLayout hqP;
-    public View hqQ;
-    public BaseWebView hqR;
-    private int dSF = 0;
-    private int hqJ = 0;
+    private OriginalThreadCardView ejn;
+    private View hqJ;
+    private ViewStub hqL;
+    private PbGiftListView hqM;
+    private ViewStub hqN;
+    private OriginalThreadCardView.a hqO;
+    private ViewStub hqP;
+    private LinearLayout hqQ;
+    public View hqR;
+    public BaseWebView hqS;
+    private int dSG = 0;
+    private int hqK = 0;
 
     public q(View view) {
-        this.hqI = view;
-        this.hqK = (ViewStub) view.findViewById(d.g.gift_list_viewStub);
-        this.hqM = (ViewStub) view.findViewById(d.g.original_thread_info_viewStub);
-        this.hqO = (ViewStub) view.findViewById(d.g.link_thread_viewStub);
+        this.hqJ = view;
+        this.hqL = (ViewStub) view.findViewById(d.g.gift_list_viewStub);
+        this.hqN = (ViewStub) view.findViewById(d.g.original_thread_info_viewStub);
+        this.hqP = (ViewStub) view.findViewById(d.g.link_thread_viewStub);
     }
 
     public void wi(int i) {
-        this.hqJ = i;
+        this.hqK = i;
     }
 
     public void a(OriginalThreadCardView.a aVar) {
-        this.hqN = aVar;
+        this.hqO = aVar;
     }
 
     public void a(com.baidu.tbadk.core.data.ao aoVar, String str, String str2, long j, long j2, long j3) {
-        if (aoVar == null || com.baidu.tbadk.core.util.v.T(aoVar.XJ()) || this.hqK == null) {
-            if (this.hqL != null) {
-                this.hqL.setVisibility(8);
+        if (aoVar == null || com.baidu.tbadk.core.util.v.T(aoVar.XJ()) || this.hqL == null) {
+            if (this.hqM != null) {
+                this.hqM.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.hqL == null) {
-            this.hqL = (PbGiftListView) this.hqK.inflate();
+        if (this.hqM == null) {
+            this.hqM = (PbGiftListView) this.hqL.inflate();
         }
-        this.hqL.setVisibility(0);
-        this.hqL.a(aoVar, str, str2, j, j2, j3);
-        this.hqL.onChangeSkinType();
+        this.hqM.setVisibility(0);
+        this.hqM.a(aoVar, str, str2, j, j2, j3);
+        this.hqM.onChangeSkinType();
     }
 
     public void f(OriginalThreadInfo originalThreadInfo) {
-        if (this.hqM == null || originalThreadInfo == null) {
-            if (this.ejm != null) {
-                this.ejm.setVisibility(8);
+        if (this.hqN == null || originalThreadInfo == null) {
+            if (this.ejn != null) {
+                this.ejn.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.ejm == null) {
-            this.ejm = (OriginalThreadCardView) this.hqM.inflate();
+        if (this.ejn == null) {
+            this.ejn = (OriginalThreadCardView) this.hqN.inflate();
         }
-        this.ejm.setSubClickListener(this.hqN);
-        this.ejm.setVisibility(0);
-        this.ejm.ejX = this.hqJ;
-        this.ejm.b(originalThreadInfo);
-        if (this.ejm.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            this.dSF = this.dSF > 0 ? this.dSF : com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds34);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ejm.getLayoutParams();
-            layoutParams.bottomMargin = this.dSF;
-            this.ejm.setLayoutParams(layoutParams);
+        this.ejn.setSubClickListener(this.hqO);
+        this.ejn.setVisibility(0);
+        this.ejn.ejY = this.hqK;
+        this.ejn.b(originalThreadInfo);
+        if (this.ejn.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            this.dSG = this.dSG > 0 ? this.dSG : com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds34);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ejn.getLayoutParams();
+            layoutParams.bottomMargin = this.dSG;
+            this.ejn.setLayoutParams(layoutParams);
         }
-        this.ejm.onChangeSkinType();
+        this.ejn.onChangeSkinType();
     }
 
     public void a(com.baidu.tbadk.core.data.af afVar) {
         if (afVar != null && !com.baidu.tbadk.core.util.ap.isEmpty(afVar.getLinkUrl())) {
-            if ((this.hqR == null || !this.hqR.getIsLoaded()) && afVar.Xv() == com.baidu.tbadk.core.data.af.bzk && this.hqO != null) {
+            if ((this.hqS == null || !this.hqS.getIsLoaded()) && afVar.Xv() == com.baidu.tbadk.core.data.af.bzl && this.hqP != null) {
                 if (afVar.Xw()) {
-                    if (this.hqP != null) {
-                        this.hqP.setVisibility(8);
+                    if (this.hqQ != null) {
+                        this.hqQ.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                if (this.hqP == null) {
-                    this.hqP = (LinearLayout) this.hqO.inflate();
-                    this.hqQ = this.hqP.findViewById(d.g.link_thread_divider);
-                    this.hqR = (BaseWebView) this.hqP.findViewById(d.g.link_thread_webview);
+                if (this.hqQ == null) {
+                    this.hqQ = (LinearLayout) this.hqP.inflate();
+                    this.hqR = this.hqQ.findViewById(d.g.link_thread_divider);
+                    this.hqS = (BaseWebView) this.hqQ.findViewById(d.g.link_thread_webview);
                 }
-                this.hqQ.setVisibility(0);
-                com.baidu.tbadk.core.util.al.l(this.hqQ, d.C0277d.cp_bg_line_c);
                 this.hqR.setVisibility(0);
-                this.hqR.setFocusable(false);
-                this.hqR.setBackgroundColor(0);
-                this.hqR.getSettings().setCacheMode(-1);
-                this.hqR.setVerticalScrollBarEnabled(false);
-                this.hqR.setHorizontalScrollBarEnabled(false);
-                this.hqR.getSettings().setAllowFileAccess(true);
-                this.hqR.getSettings().setAppCacheEnabled(true);
-                this.hqR.getSettings().setDomStorageEnabled(true);
-                this.hqR.getSettings().setDatabaseEnabled(true);
-                this.hqR.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.q.1
+                com.baidu.tbadk.core.util.al.l(this.hqR, d.C0277d.cp_bg_line_c);
+                this.hqS.setVisibility(0);
+                this.hqS.setFocusable(false);
+                this.hqS.setBackgroundColor(0);
+                this.hqS.getSettings().setCacheMode(-1);
+                this.hqS.setVerticalScrollBarEnabled(false);
+                this.hqS.setHorizontalScrollBarEnabled(false);
+                this.hqS.getSettings().setAllowFileAccess(true);
+                this.hqS.getSettings().setAppCacheEnabled(true);
+                this.hqS.getSettings().setDomStorageEnabled(true);
+                this.hqS.getSettings().setDatabaseEnabled(true);
+                this.hqS.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.pb.pb.main.q.1
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                         return true;
                     }
                 });
-                this.hqR.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.q.2
+                this.hqS.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.pb.pb.main.q.2
                     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
                     public void onPageFinished(WebView webView, String str) {
                         webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
                     }
                 });
-                this.hqR.loadUrl(afVar.getLinkUrl());
+                this.hqS.loadUrl(afVar.getLinkUrl());
             }
         }
     }
 
     public void destroy() {
-        if (this.hqR != null) {
-            this.hqR.removeAllViews();
-            this.hqR.getSettings().setBuiltInZoomControls(true);
-            this.hqR.setVisibility(8);
+        if (this.hqS != null) {
+            this.hqS.removeAllViews();
+            this.hqS.getSettings().setBuiltInZoomControls(true);
+            this.hqS.setVisibility(8);
             com.baidu.adp.lib.g.e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.main.q.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (q.this.hqR != null) {
-                            q.this.hqR.destroy();
-                            q.this.hqR = null;
+                        if (q.this.hqS != null) {
+                            q.this.hqS.destroy();
+                            q.this.hqS = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -148,9 +148,9 @@ public class q {
     }
 
     public void resume() {
-        if (this.hqR != null) {
+        if (this.hqS != null) {
             try {
-                this.hqR.onResume();
+                this.hqS.onResume();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -158,9 +158,9 @@ public class q {
     }
 
     public void pause() {
-        if (this.hqR != null) {
+        if (this.hqS != null) {
             try {
-                this.hqR.onPause();
+                this.hqS.onPause();
             } catch (Exception e) {
                 e.printStackTrace();
             }

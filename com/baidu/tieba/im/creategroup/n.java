@@ -15,8 +15,8 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
-    private TextView csC;
-    private View csD;
+    private TextView csD;
+    private View csE;
     private int geO;
     private com.baidu.tieba.im.util.b gfO;
     private String gfW;
@@ -47,8 +47,8 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.mNavigationBar = null;
         this.mParent = null;
         this.ggq = null;
-        this.csC = null;
         this.csD = null;
+        this.csE = null;
         this.ggr = null;
         this.ggs = null;
         this.ggt = null;
@@ -144,13 +144,13 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.mNavigationBar = (NavigationBar) groupAddressLocateActivity.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupAddressLocateActivity.getResources().getString(d.j.group_address_edit));
         this.mNavigationBar.setSystemClickable(false);
-        this.csD = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.csC = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(d.j.save));
+        this.csE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.csD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressLocateActivity.getResources().getString(d.j.save));
     }
 
     private void c(GroupAddressLocateActivity groupAddressLocateActivity) {
+        this.csE.setOnClickListener(groupAddressLocateActivity);
         this.csD.setOnClickListener(groupAddressLocateActivity);
-        this.csC.setOnClickListener(groupAddressLocateActivity);
     }
 
     private void initData() {
@@ -224,11 +224,11 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
     }
 
     public View brJ() {
-        return this.csC;
+        return this.csD;
     }
 
     public View getBackButton() {
-        return this.csD;
+        return this.csE;
     }
 
     public View brS() {
@@ -281,6 +281,6 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         al.h(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         al.l(this.mParent, d.C0277d.common_color_10041);
-        al.d(this.csC, d.C0277d.cp_cont_f, 1);
+        al.d(this.csD, d.C0277d.cp_cont_f, 1);
     }
 }

@@ -23,7 +23,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.kco);
+        super(a.kcp);
         this.active = true;
         this.onStart = Actions.cDM();
         this.onAdded = Actions.cDM();
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().kcl;
+        return get().kcm;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().kcl;
+        return get().kcm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.kcm : getAndSet(a.kcn).kcl;
+        return get().terminated ? a.kcn : getAndSet(a.kco).kcm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static final class a<T> {
-        static final b[] kcm = new b[0];
-        static final a kcn = new a(true, kcm);
-        static final a kco = new a(false, kcm);
-        final b[] kcl;
+        static final b[] kcn = new b[0];
+        static final a kco = new a(true, kcn);
+        static final a kcp = new a(false, kcn);
+        final b[] kcm;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.kcl = bVarArr;
+            this.kcm = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.kcl.length;
+            int length = this.kcm.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.kcl, 0, bVarArr, 0, length);
+            System.arraycopy(this.kcm, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.kcl;
+            b[] bVarArr2 = this.kcm;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return kco;
+                return kcp;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return kco;
+                    return kcp;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -167,8 +167,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         final j<? super T> actual;
         boolean emitting;
         boolean first = true;
-        List<Object> kcp;
-        boolean kcq;
+        List<Object> kcq;
+        boolean kcr;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -191,17 +191,17 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void bB(Object obj) {
-            if (!this.kcq) {
+            if (!this.kcr) {
                 synchronized (this) {
                     this.first = false;
                     if (this.emitting) {
-                        if (this.kcp == null) {
-                            this.kcp = new ArrayList();
+                        if (this.kcq == null) {
+                            this.kcq = new ArrayList();
                         }
-                        this.kcp.add(obj);
+                        this.kcq.add(obj);
                         return;
                     }
-                    this.kcq = true;
+                    this.kcr = true;
                 }
             }
             NotificationLite.a(this.actual, obj);
@@ -251,8 +251,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 try {
                     synchronized (this) {
                         try {
-                            list = this.kcp;
-                            this.kcp = null;
+                            list = this.kcq;
+                            this.kcq = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;

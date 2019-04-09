@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class k {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static HashMap<String, Integer> aWl = new HashMap<>();
     private static HashMap<String, Integer> aWm = new HashMap<>();
-    private static HashMap<String, String> aWn = new HashMap<>();
-    public static HashMap<String, String> aWo = new HashMap<>();
-    private static final Pattern aWp;
+    private static HashMap<String, Integer> aWn = new HashMap<>();
+    private static HashMap<String, String> aWo = new HashMap<>();
+    public static HashMap<String, String> aWp = new HashMap<>();
+    private static final Pattern aWq;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -332,15 +332,15 @@ public final class k {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        aWp = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        aWq = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        aWl.put(str2, Integer.valueOf(i));
-        aWm.put(str, Integer.valueOf(i));
-        aWn.put(str2, str);
-        if (!aWo.containsKey(str)) {
-            aWo.put(str, str2);
+        aWm.put(str2, Integer.valueOf(i));
+        aWn.put(str, Integer.valueOf(i));
+        aWo.put(str2, str);
+        if (!aWp.containsKey(str)) {
+            aWp.put(str, str2);
         }
     }
 }

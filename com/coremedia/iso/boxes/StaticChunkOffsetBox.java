@@ -20,8 +20,8 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("StaticChunkOffsetBox.java", StaticChunkOffsetBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "", "", "", "[J"), 39);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "[J", "chunkOffsets", "", "void"), 47);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "", "", "", "[J"), 39);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "[J", "chunkOffsets", "", "void"), 47);
     }
 
     public StaticChunkOffsetBox() {

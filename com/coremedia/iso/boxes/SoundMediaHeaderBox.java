@@ -19,8 +19,8 @@ public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SoundMediaHeaderBox.java", SoundMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "float"), 36);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "java.lang.String"), 58);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "float"), 36);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "java.lang.String"), 58);
     }
 
     public SoundMediaHeaderBox() {

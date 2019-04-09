@@ -24,8 +24,8 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class d {
-    private ImageView dpt;
-    private ImageView dwG;
+    private ImageView dpu;
+    private ImageView dwH;
     private com.baidu.tieba.c.b faz;
     private SpecialFrsWebFragment fpa;
     private ImageView fpb;
@@ -35,11 +35,11 @@ public class d {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == d.this.dwG) {
+            if (view == d.this.dwH) {
                 d.this.bhc();
             } else if (view != d.this.fpb) {
                 if (d.this.faz == null || view != d.this.faz.getView()) {
-                    if (view != d.this.dpt) {
+                    if (view != d.this.dpu) {
                         if (view == d.this.fpc) {
                             d.this.a(d.this.fpa.q(null, null, null, null));
                         }
@@ -58,7 +58,7 @@ public class d {
             }
         }
     };
-    private CustomMessageListener eZS = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.gametabs.d.2
+    private CustomMessageListener eZT = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.gametabs.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -77,7 +77,7 @@ public class d {
         this.mPageContext = eVar;
         this.faz = new com.baidu.tieba.c.b(this.mPageContext.getPageActivity());
         this.faz.getView().setOnClickListener(this.mOnClickListener);
-        this.mPageContext.registerListener(this.eZS);
+        this.mPageContext.registerListener(this.eZT);
     }
 
     public String getForumId() {
@@ -99,13 +99,13 @@ public class d {
             al.d(this.mNavigationBar.mCenterText, d.C0277d.cp_cont_b, 1);
             al.l(this.mNavigationBar.getBottomLine(), d.C0277d.cp_bg_line_b);
             int i2 = d.C0277d.select_topbar_icon_color_tint;
-            aq.adl().d(this.dwG, d.f.icon_topbar_return_n_svg, i2);
+            aq.adl().d(this.dwH, d.f.icon_topbar_return_n_svg, i2);
             aq.adl().d(this.fpb, d.f.icon_topbar_search_n_svg, i2);
             if (this.faz != null) {
                 this.faz.oD(i2);
                 this.faz.onChangeSkinType(i);
             }
-            al.a(this.dpt, d.f.btn_more_selector_s, d.f.btn_more_selector);
+            al.a(this.dpu, d.f.btn_more_selector_s, d.f.btn_more_selector);
             al.a(this.fpc, d.f.icon_nav_share_selector, d.f.icon_nav_share_selector);
         }
     }
@@ -116,16 +116,16 @@ public class d {
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         this.mNavigationBar.setCenterTextTitle(getForumName());
-        this.dwG = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(d.g.widget_navi_back_button);
-        this.dwG.setOnClickListener(this.mOnClickListener);
+        this.dwH = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(d.g.widget_navi_back_button);
+        this.dwH.setOnClickListener(this.mOnClickListener);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.h(this.mPageContext.getPageActivity(), d.e.ds24), 0);
         this.fpc = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.special_frs_web_navigation_share, (View.OnClickListener) null);
         this.fpc.setLayoutParams(layoutParams);
         this.fpc.setOnClickListener(this.mOnClickListener);
-        this.dpt = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.dpt.setLayoutParams(layoutParams);
-        this.dpt.setOnClickListener(this.mOnClickListener);
+        this.dpu = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.dpu.setLayoutParams(layoutParams);
+        this.dpu.setOnClickListener(this.mOnClickListener);
         setNavBarVisibility(specialFrsWebFragment.isNeedShowNavigationBar());
         db(specialFrsWebFragment.isNeedShowShareItem());
         jI(specialFrsWebFragment.isNeedShowMenuItem());
@@ -158,8 +158,8 @@ public class d {
     }
 
     public void jI(boolean z) {
-        if (this.dpt != null) {
-            this.dpt.setVisibility(z ? 0 : 8);
+        if (this.dpu != null) {
+            this.dpu.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -167,6 +167,6 @@ public class d {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.eZS);
+        MessageManager.getInstance().unRegisterListener(this.eZT);
     }
 }

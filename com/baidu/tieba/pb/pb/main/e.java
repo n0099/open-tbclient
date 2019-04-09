@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class e extends ar {
-    private TextView hmj;
+    private TextView hmk;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.hmj = null;
+        this.hmk = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ar
     protected void a(d dVar) {
-        this.hmj = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.hmj.setVisibility(8);
+        this.hmk = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.hmk.setVisibility(8);
     }
 
     public void nh(boolean z) {
-        if (this.hmj != null) {
+        if (this.hmk != null) {
             if (z) {
-                this.hmj.setText(d.j.push);
-                com.baidu.tbadk.core.util.al.j(this.hmj, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.k(this.hmj, d.f.push_bg_selector);
-                this.hmj.setClickable(true);
+                this.hmk.setText(d.j.push);
+                com.baidu.tbadk.core.util.al.j(this.hmk, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.k(this.hmk, d.f.push_bg_selector);
+                this.hmk.setClickable(true);
             } else {
-                this.hmj.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.al.k(this.hmj, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.j(this.hmj, d.C0277d.cp_cont_d);
-                this.hmj.setClickable(false);
+                this.hmk.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.al.k(this.hmk, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.j(this.hmk, d.C0277d.cp_cont_d);
+                this.hmk.setClickable(false);
             }
-            this.hmj.setVisibility(0);
+            this.hmk.setVisibility(0);
         }
     }
 
@@ -49,6 +49,6 @@ public class e extends ar {
     }
 
     public TextView bJi() {
-        return this.hmj;
+        return this.hmk;
     }
 }

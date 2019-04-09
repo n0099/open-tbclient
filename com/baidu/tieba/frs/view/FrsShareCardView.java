@@ -16,9 +16,9 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class FrsShareCardView extends LinearLayout {
-    private LinearLayout bFy;
+    private LinearLayout bFz;
     private Context context;
-    private TextView dfo;
+    private TextView dfp;
     private EditText fzM;
     private HeadImageView fzN;
     private TextView fzO;
@@ -54,13 +54,13 @@ public class FrsShareCardView extends LinearLayout {
     private void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.frs_share_card_view, this);
         setOrientation(1);
-        this.bFy = (LinearLayout) findViewById(d.g.share_content);
-        this.dfo = (TextView) findViewById(d.g.frs_card_name);
+        this.bFz = (LinearLayout) findViewById(d.g.share_content);
+        this.dfp = (TextView) findViewById(d.g.frs_card_name);
         this.fzM = (EditText) findViewById(d.g.chat_msg);
         this.fzN = (HeadImageView) findViewById(d.g.frs_card_img);
         this.fzP = (TextView) findViewById(d.g.frs_card_member_num);
         this.fzO = (TextView) findViewById(d.g.frs_card_post_num);
-        al.d(this.dfo, d.C0277d.cp_cont_b, 1);
+        al.d(this.dfp, d.C0277d.cp_cont_b, 1);
         al.d(this.fzM, d.C0277d.cp_cont_b, 2);
         this.fzM.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
         this.fzM.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
@@ -68,9 +68,9 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void bkf() {
-        this.bFy.setFocusable(true);
-        this.bFy.setFocusableInTouchMode(true);
-        this.bFy.requestFocus();
+        this.bFz.setFocusable(true);
+        this.bFz.setFocusableInTouchMode(true);
+        this.bFz.requestFocus();
     }
 
     public String getLeaveMsg() {
@@ -93,7 +93,7 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     private void GP() {
-        this.dfo.setText(mN(this.fzQ.getName()));
+        this.dfp.setText(mN(this.fzQ.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.fzQ.getImageUrl());
         this.fzN.startLoad(this.fzQ.getImageUrl(), 15, false);
         this.fzP.setText(ap.ax(this.fzQ.getMemberNum()));

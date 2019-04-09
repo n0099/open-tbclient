@@ -96,17 +96,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String ctR;
+        public String ctS;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.ctR = "";
+            this.ctS = "";
             this.BDUSS = str;
-            this.ctR = str2;
+            this.ctS = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctR != null ? this.ctR.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctS != null ? this.ctS.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +122,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.ctR == null ? aVar.ctR == null : this.ctR.equals(aVar.ctR);
+                return this.ctS == null ? aVar.ctS == null : this.ctS.equals(aVar.ctS);
             }
             return false;
         }

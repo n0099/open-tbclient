@@ -13,11 +13,11 @@ import java.text.ParseException;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b extends a implements View.OnClickListener {
-    private c cFK;
+    private c cFL;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.cEs = aVar;
+        this.cEt = aVar;
         initView(aVar.context);
     }
 
@@ -25,8 +25,8 @@ public class b extends a implements View.OnClickListener {
         atu();
         initViews();
         initAnim();
-        if (this.cEs.cEv == null) {
-            LayoutInflater.from(context).inflate(d.h.pickerview_time, this.cFy);
+        if (this.cEt.cEw == null) {
+            LayoutInflater.from(context).inflate(d.h.pickerview_time, this.cFz);
             TextView textView = (TextView) findViewById(d.g.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(d.g.rv_topbar);
             Button button = (Button) findViewById(d.g.btnSubmit);
@@ -35,54 +35,54 @@ public class b extends a implements View.OnClickListener {
             button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.cEs.cEU) ? context.getResources().getString(d.j.pickerview_submit) : this.cEs.cEU);
-            button2.setText(TextUtils.isEmpty(this.cEs.cEV) ? context.getResources().getString(d.j.pickerview_cancel) : this.cEs.cEV);
-            textView.setText(TextUtils.isEmpty(this.cEs.cEW) ? "" : this.cEs.cEW);
-            button.setTextColor(this.cEs.cEX);
-            button2.setTextColor(this.cEs.cEY);
-            textView.setTextColor(this.cEs.cEZ);
-            relativeLayout.setBackgroundColor(this.cEs.cFb);
-            button.setTextSize(this.cEs.cFc);
-            button2.setTextSize(this.cEs.cFc);
-            textView.setTextSize(this.cEs.cFd);
+            button.setText(TextUtils.isEmpty(this.cEt.cEV) ? context.getResources().getString(d.j.pickerview_submit) : this.cEt.cEV);
+            button2.setText(TextUtils.isEmpty(this.cEt.cEW) ? context.getResources().getString(d.j.pickerview_cancel) : this.cEt.cEW);
+            textView.setText(TextUtils.isEmpty(this.cEt.cEX) ? "" : this.cEt.cEX);
+            button.setTextColor(this.cEt.cEY);
+            button2.setTextColor(this.cEt.cEZ);
+            textView.setTextColor(this.cEt.cFa);
+            relativeLayout.setBackgroundColor(this.cEt.cFc);
+            button.setTextSize(this.cEt.cFd);
+            button2.setTextSize(this.cEt.cFd);
+            textView.setTextSize(this.cEt.cFe);
         } else {
-            this.cEs.cEv.aT(LayoutInflater.from(context).inflate(this.cEs.cES, this.cFy));
+            this.cEt.cEw.aT(LayoutInflater.from(context).inflate(this.cEt.cET, this.cFz));
         }
         LinearLayout linearLayout = (LinearLayout) findViewById(d.g.timepicker);
-        linearLayout.setBackgroundColor(this.cEs.cFa);
+        linearLayout.setBackgroundColor(this.cEt.cFb);
         b(linearLayout);
     }
 
     private void b(LinearLayout linearLayout) {
-        this.cFK = new c(linearLayout, this.cEs.cEA, this.cEs.cET, this.cEs.cFe);
-        if (this.cEs.cEu != null) {
-            this.cFK.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.cFL = new c(linearLayout, this.cEt.cEB, this.cEt.cEU, this.cEt.cFf);
+        if (this.cEt.cEv != null) {
+            this.cFL.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
                 public void ats() {
                     try {
-                        b.this.cEs.cEu.p(c.cFM.parse(b.this.cFK.getTime()));
+                        b.this.cEt.cEv.p(c.cFN.parse(b.this.cFL.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.cFK.fy(this.cEs.cEF);
-        if (this.cEs.startYear != 0 && this.cEs.endYear != 0 && this.cEs.startYear <= this.cEs.endYear) {
+        this.cFL.fy(this.cEt.cEG);
+        if (this.cEt.startYear != 0 && this.cEt.endYear != 0 && this.cEt.startYear <= this.cEt.endYear) {
             atx();
         }
-        if (this.cEs.cEC != null && this.cEs.cED != null) {
-            if (this.cEs.cEC.getTimeInMillis() > this.cEs.cED.getTimeInMillis()) {
+        if (this.cEt.cED != null && this.cEt.cEE != null) {
+            if (this.cEt.cED.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
             aty();
-        } else if (this.cEs.cEC != null) {
-            if (this.cEs.cEC.get(1) < 1900) {
+        } else if (this.cEt.cED != null) {
+            if (this.cEt.cED.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
             aty();
-        } else if (this.cEs.cED != null) {
-            if (this.cEs.cED.get(1) > 2100) {
+        } else if (this.cEt.cEE != null) {
+            if (this.cEt.cEE.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
             aty();
@@ -90,37 +90,37 @@ public class b extends a implements View.OnClickListener {
             aty();
         }
         atA();
-        this.cFK.c(this.cEs.cEG, this.cEs.cEH, this.cEs.cEI, this.cEs.cEJ, this.cEs.cEK, this.cEs.cEL);
-        this.cFK.h(this.cEs.cEM, this.cEs.cEN, this.cEs.cEO, this.cEs.cEP, this.cEs.cEQ, this.cEs.cER);
-        fx(this.cEs.cFk);
-        this.cFK.setCyclic(this.cEs.cEE);
-        this.cFK.setDividerColor(this.cEs.cFh);
-        this.cFK.setDividerType(this.cEs.cFn);
-        this.cFK.setLineSpacingMultiplier(this.cEs.cFi);
-        this.cFK.setTextColorOut(this.cEs.cFf);
-        this.cFK.setTextColorCenter(this.cEs.cFg);
-        this.cFK.fz(this.cEs.cFl);
+        this.cFL.c(this.cEt.cEH, this.cEt.cEI, this.cEt.cEJ, this.cEt.cEK, this.cEt.cEL, this.cEt.cEM);
+        this.cFL.h(this.cEt.cEN, this.cEt.cEO, this.cEt.cEP, this.cEt.cEQ, this.cEt.cER, this.cEt.cES);
+        fx(this.cEt.cFl);
+        this.cFL.setCyclic(this.cEt.cEF);
+        this.cFL.setDividerColor(this.cEt.cFi);
+        this.cFL.setDividerType(this.cEt.cFo);
+        this.cFL.setLineSpacingMultiplier(this.cEt.cFj);
+        this.cFL.setTextColorOut(this.cEt.cFg);
+        this.cFL.setTextColorCenter(this.cEt.cFh);
+        this.cFL.fz(this.cEt.cFm);
     }
 
     private void atx() {
-        this.cFK.setStartYear(this.cEs.startYear);
-        this.cFK.lb(this.cEs.endYear);
+        this.cFL.setStartYear(this.cEt.startYear);
+        this.cFL.lb(this.cEt.endYear);
     }
 
     private void aty() {
-        this.cFK.a(this.cEs.cEC, this.cEs.cED);
+        this.cFL.a(this.cEt.cED, this.cEt.cEE);
         atz();
     }
 
     private void atz() {
-        if (this.cEs.cEC != null && this.cEs.cED != null) {
-            if (this.cEs.cEB == null || this.cEs.cEB.getTimeInMillis() < this.cEs.cEC.getTimeInMillis() || this.cEs.cEB.getTimeInMillis() > this.cEs.cED.getTimeInMillis()) {
-                this.cEs.cEB = this.cEs.cEC;
+        if (this.cEt.cED != null && this.cEt.cEE != null) {
+            if (this.cEt.cEC == null || this.cEt.cEC.getTimeInMillis() < this.cEt.cED.getTimeInMillis() || this.cEt.cEC.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
+                this.cEt.cEC = this.cEt.cED;
             }
-        } else if (this.cEs.cEC != null) {
-            this.cEs.cEB = this.cEs.cEC;
-        } else if (this.cEs.cED != null) {
-            this.cEs.cEB = this.cEs.cED;
+        } else if (this.cEt.cED != null) {
+            this.cEt.cEC = this.cEt.cED;
+        } else if (this.cEt.cEE != null) {
+            this.cEt.cEC = this.cEt.cEE;
         }
     }
 
@@ -132,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.cEs.cEB == null) {
+        if (this.cEt.cEC == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -141,14 +141,14 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.cEs.cEB.get(1);
-            i2 = this.cEs.cEB.get(2);
-            i3 = this.cEs.cEB.get(5);
-            i4 = this.cEs.cEB.get(11);
-            i5 = this.cEs.cEB.get(12);
-            i6 = this.cEs.cEB.get(13);
+            i = this.cEt.cEC.get(1);
+            i2 = this.cEt.cEC.get(2);
+            i3 = this.cEt.cEC.get(5);
+            i4 = this.cEt.cEC.get(11);
+            i5 = this.cEt.cEC.get(12);
+            i6 = this.cEt.cEC.get(13);
         }
-        this.cFK.f(i, i2, i3, i4, i5, i6);
+        this.cFL.f(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
@@ -160,9 +160,9 @@ public class b extends a implements View.OnClickListener {
     }
 
     public void atB() {
-        if (this.cEs.cEt != null) {
+        if (this.cEt.cEu != null) {
             try {
-                this.cEs.cEt.a(c.cFM.parse(this.cFK.getTime()), this.cFF);
+                this.cEt.cEu.a(c.cFN.parse(this.cFL.getTime()), this.cFG);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -171,6 +171,6 @@ public class b extends a implements View.OnClickListener {
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
     public boolean atw() {
-        return this.cEs.cFj;
+        return this.cEt.cFk;
     }
 }

@@ -11,19 +11,19 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c extends b {
-    private IUiListener ivd;
-    private final com.baidu.adp.lib.f.b<f.a> ive;
+    private IUiListener ive;
+    private final com.baidu.adp.lib.f.b<f.a> ivf;
 
     public c(Context context) {
         super(context);
-        this.ive = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.ivf = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.bMV == null || TextUtils.isEmpty(aVar.path)) {
+                if (aVar == null || aVar.bMW == null || TextUtils.isEmpty(aVar.path)) {
                     c.this.yF(2);
                 }
                 c.this.Ca(aVar.path);
@@ -36,12 +36,12 @@ public class c extends b {
                 c.this.yF(3);
             }
         };
-        this.iuW = 4;
+        this.iuX = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.ivc == null) {
+        if (shareEntity == null || this.ivd == null) {
             yF(2);
             if (bVar != null) {
                 bVar.cf(0, 2);
@@ -52,7 +52,7 @@ public class c extends b {
                 bVar.cf(0, 2);
             }
         } else {
-            this.ivd = new b.a(bVar);
+            this.ive = new b.a(bVar);
             if (shareEntity.caP() != 0) {
                 b(shareEntity);
             } else {
@@ -67,7 +67,7 @@ public class c extends b {
         } else if (q(shareEntity.getImageUri())) {
             Ca(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.f.c.jB().a(shareEntity.Xk(), 34, this.ive, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.jB().a(shareEntity.Xk(), 34, this.ivf, 0, 0, getPageId(), new Object[0]);
         }
     }
 
@@ -77,8 +77,8 @@ public class c extends b {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.ivd != null) {
-            this.ivc.shareToQQ((Activity) this.context, bundle, this.ivd);
+        if (this.ive != null) {
+            this.ivd.shareToQQ((Activity) this.context, bundle, this.ive);
         }
     }
 
@@ -93,8 +93,8 @@ public class c extends b {
             arrayList.add(shareEntity.Xk());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.ivd != null) {
-            this.ivc.shareToQzone((Activity) this.context, bundle, this.ivd);
+        if (this.ive != null) {
+            this.ivd.shareToQzone((Activity) this.context, bundle, this.ive);
         }
     }
 }

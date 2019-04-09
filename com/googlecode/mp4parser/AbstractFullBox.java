@@ -20,8 +20,8 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AbstractFullBox.java", AbstractFullBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

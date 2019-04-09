@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    protected final Paint cvP = new Paint();
     protected final Paint cvQ = new Paint();
-    private int cvR;
+    protected final Paint cvR = new Paint();
     private int cvS;
     private int cvT;
     private int cvU;
     private int cvV;
     private int cvW;
     private int cvX;
+    private int cvY;
     private int radius;
     protected final View view;
 
@@ -28,27 +28,27 @@ public class b {
     }
 
     public b(View view) {
-        this.cvR = 16;
         this.cvS = 16;
-        this.cvT = -1;
-        this.cvU = 1711276032;
-        this.cvV = 20;
+        this.cvT = 16;
+        this.cvU = -1;
+        this.cvV = 1711276032;
         this.cvW = 20;
-        this.cvX = 36;
+        this.cvX = 20;
+        this.cvY = 36;
         this.radius = 0;
         this.view = view;
-        this.cvU = getContext().getResources().getColor(d.C0277d.black_alpha40);
+        this.cvV = getContext().getResources().getColor(d.C0277d.black_alpha40);
+        this.cvR.setColor(this.cvV);
+        this.cvR.setAntiAlias(true);
+        this.cvW = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
+        this.cvU = getContext().getResources().getColor(d.C0277d.cp_btn_a);
         this.cvQ.setColor(this.cvU);
+        this.cvQ.setTextSize(this.cvW);
         this.cvQ.setAntiAlias(true);
-        this.cvV = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.cvT = getContext().getResources().getColor(d.C0277d.cp_btn_a);
-        this.cvP.setColor(this.cvT);
-        this.cvP.setTextSize(this.cvV);
-        this.cvP.setAntiAlias(true);
-        this.cvR = l.h(getContext(), d.e.tbds16);
         this.cvS = l.h(getContext(), d.e.tbds16);
-        this.cvW = l.h(getContext(), d.e.tbds22);
-        this.cvX = l.h(getContext(), d.e.tbds40);
+        this.cvT = l.h(getContext(), d.e.tbds16);
+        this.cvX = l.h(getContext(), d.e.tbds22);
+        this.cvY = l.h(getContext(), d.e.tbds40);
         this.radius = l.h(getContext(), d.e.tbds10);
     }
 
@@ -63,14 +63,14 @@ public class b {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.cvP.measureText(str);
-            float f = this.cvX + measureText;
-            float f2 = this.cvV + this.cvW;
-            canvas.translate((((right - left) - paddingRight) - f) - this.cvS, (((bottom - top) - paddingBottom) - f2) - this.cvR);
+            float measureText = this.cvQ.measureText(str);
+            float f = this.cvY + measureText;
+            float f2 = this.cvW + this.cvX;
+            canvas.translate((((right - left) - paddingRight) - f) - this.cvT, (((bottom - top) - paddingBottom) - f2) - this.cvS);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.cvQ);
-            Paint.FontMetrics fontMetrics = this.cvP.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.cvP);
+            canvas.drawRoundRect(rectF, this.radius, this.radius, this.cvR);
+            Paint.FontMetrics fontMetrics = this.cvQ.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.cvQ);
             canvas.restoreToCount(save);
         }
     }
@@ -82,28 +82,28 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.cvS = i;
-        this.cvR = i2;
+        this.cvT = i;
+        this.cvS = i2;
         invalidate();
     }
 
     public void kf(int i) {
-        this.cvT = i;
-        this.cvP.setColor(i);
+        this.cvU = i;
+        this.cvQ.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.cvV = i;
-        this.cvP.setTextSize(i);
+        this.cvW = i;
+        this.cvQ.setTextSize(i);
         invalidate();
     }
 
     public float pV(String str) {
-        return l.b(this.cvP, str).height() + this.cvW;
+        return l.b(this.cvQ, str).height() + this.cvX;
     }
 
     public float pW(String str) {
-        return l.a(this.cvP, str) + this.cvX;
+        return l.a(this.cvQ, str) + this.cvY;
     }
 }

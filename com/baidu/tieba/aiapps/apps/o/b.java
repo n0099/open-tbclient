@@ -33,25 +33,25 @@ public class b {
         /* renamed from: com.baidu.tieba.aiapps.apps.o.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
         public static final class C0271a {
-            private static final a cWD = new a();
+            private static final a cWE = new a();
         }
 
         public static a azS() {
-            return C0271a.cWD;
+            return C0271a.cWE;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class e {
-        final int aTa;
-        final String aTb;
+        final int aTb;
         final String aTc;
+        final String aTd;
 
         e(int i, String str, String str2) {
-            this.aTa = i;
-            this.aTb = str;
-            this.aTc = str2;
+            this.aTb = i;
+            this.aTc = str;
+            this.aTd = str2;
         }
 
         static e I(Bundle bundle) {
@@ -70,7 +70,7 @@ public class b {
         }
 
         public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aTa + ", mPrefName='" + this.aTb + "', mDataValue='" + this.aTc + "'}";
+            return "SpMethodInfo{mDataType=" + this.aTb + ", mPrefName='" + this.aTc + "', mDataValue='" + this.aTd + "'}";
         }
     }
 
@@ -100,9 +100,9 @@ public class b {
 
         @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
-            switch (eVar.aTa) {
+            switch (eVar.aTb) {
                 case 1:
-                    a.azS().putBoolean(eVar.aTb, Boolean.parseBoolean(eVar.aTc));
+                    a.azS().putBoolean(eVar.aTc, Boolean.parseBoolean(eVar.aTd));
                     break;
             }
             return Bundle.EMPTY;
@@ -119,9 +119,9 @@ public class b {
         @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
         protected Bundle a(e eVar) {
             Bundle bundle = new Bundle();
-            switch (eVar.aTa) {
+            switch (eVar.aTb) {
                 case 1:
-                    bundle.putBoolean("result_value", a.azS().getBoolean(eVar.aTb, Boolean.parseBoolean(eVar.aTc)));
+                    bundle.putBoolean("result_value", a.azS().getBoolean(eVar.aTc, Boolean.parseBoolean(eVar.aTd)));
                     break;
             }
             return bundle;

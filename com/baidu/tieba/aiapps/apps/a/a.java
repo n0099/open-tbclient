@@ -48,9 +48,9 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
-    private static CookieManager cRf;
+    private static CookieManager cRg;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static Object cRg = new Object();
+    private static Object cRh = new Object();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -66,8 +66,8 @@ public final class a {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String cRk;
-        public Map<String, String> cRl;
+        public String cRl;
+        public Map<String, String> cRm;
         public int mErrCode;
         public String mErrMsg;
     }
@@ -195,11 +195,11 @@ public final class a {
         a(new InterfaceC0260a() { // from class: com.baidu.tieba.aiapps.apps.a.a.3
             @Override // com.baidu.tieba.aiapps.apps.a.a.InterfaceC0260a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.cRl == null) {
+                if (bVar.mErrCode != 0 || bVar.cRm == null) {
                     com.baidu.swan.apps.an.c.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.cRl.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.cRm.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -231,11 +231,11 @@ public final class a {
                 if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRl = getTplStokenResult.tplStokenMap;
+                        bVar.cRm = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRk = getTplStokenResult.failureType.name();
+                            bVar.cRl = getTplStokenResult.failureType.name();
                         }
                     }
                     InterfaceC0260a.this.a(bVar);
@@ -248,11 +248,11 @@ public final class a {
                 if (InterfaceC0260a.this != null) {
                     b bVar = new b();
                     if (getTplStokenResult != null) {
-                        bVar.cRl = getTplStokenResult.tplStokenMap;
+                        bVar.cRm = getTplStokenResult.tplStokenMap;
                         bVar.mErrCode = getTplStokenResult.getResultCode();
                         bVar.mErrMsg = getTplStokenResult.getResultMsg();
                         if (getTplStokenResult.failureType != null) {
-                            bVar.cRk = getTplStokenResult.failureType.name();
+                            bVar.cRl = getTplStokenResult.failureType.name();
                         }
                     }
                     InterfaceC0260a.this.b(bVar);
@@ -391,10 +391,10 @@ public final class a {
     }
 
     public static CookieManager Dn() {
-        if (cRf == null) {
-            synchronized (cRg) {
-                if (cRf == null) {
-                    cRf = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
+        if (cRg == null) {
+            synchronized (cRh) {
+                if (cRg == null) {
+                    cRg = new CookieManager() { // from class: com.baidu.tieba.aiapps.apps.a.a.8
                         @Override // com.baidu.searchbox.http.cookie.CookieManager
                         public boolean shouldAcceptCookie(String str, String str2) {
                             return true;
@@ -446,7 +446,7 @@ public final class a {
                 }
             }
         }
-        return cRf;
+        return cRg;
     }
 
     public static void a(final Activity activity, JSONObject jSONObject) {

@@ -55,14 +55,14 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.FloatInfo;
 /* loaded from: classes4.dex */
 public class PersonalizePageView extends FrameLayout {
-    private final CustomMessageListener bZe;
-    private LinearLayoutManager biS;
-    private g cXp;
-    private int dbB;
-    private PbListView dbr;
-    private k eHe;
-    private CustomMessageListener eHf;
-    private boolean eZs;
+    private final CustomMessageListener bZf;
+    private LinearLayoutManager biT;
+    private g cXq;
+    private int dbC;
+    private PbListView dbs;
+    private k eHf;
+    private CustomMessageListener eHg;
+    private boolean eZt;
     private View.OnClickListener fFX;
     private BdTypeRecyclerView fHB;
     private FloatingAnimationView fKA;
@@ -92,7 +92,7 @@ public class PersonalizePageView extends FrameLayout {
     private com.baidu.tieba.homepage.personalize.model.e fKy;
     private long fKz;
     private com.baidu.tieba.c.c faJ;
-    private CustomMessageListener fac;
+    private CustomMessageListener fad;
     RecyclerView.OnScrollListener mOnScrollListener;
     private int mSkinType;
     private TbPageContext<?> pageContext;
@@ -153,9 +153,9 @@ public class PersonalizePageView extends FrameLayout {
             this.fKs.setTag(bdUniqueId);
         }
         com.baidu.tbadk.core.bigday.b.WJ().setTag(bdUniqueId);
-        if (this.bZe != null) {
-            this.bZe.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.bZe);
+        if (this.bZf != null) {
+            this.bZf.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.bZf);
         }
         if (this.fKx != null) {
             this.fKx.setBdUniqueId(bdUniqueId);
@@ -182,24 +182,24 @@ public class PersonalizePageView extends FrameLayout {
         super(context);
         this.fKz = 0L;
         this.mSkinType = 3;
-        this.eZs = false;
+        this.eZt = false;
         this.fKB = false;
         this.fKC = 0;
         this.fKD = 0;
         this.fKE = false;
         this.fKF = 1;
-        this.eHf = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.eHg = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (PersonalizePageView.this.eHe == null) {
-                            PersonalizePageView.this.eHe = new k(new i());
+                        if (PersonalizePageView.this.eHf == null) {
+                            PersonalizePageView.this.eHf = new k(new i());
                         }
-                        PersonalizePageView.this.eHe.a(PersonalizePageView.this.fHB, 2);
-                    } else if (PersonalizePageView.this.eHe != null) {
-                        PersonalizePageView.this.eHe.pg();
+                        PersonalizePageView.this.eHf.a(PersonalizePageView.this.fHB, 2);
+                    } else if (PersonalizePageView.this.eHf != null) {
+                        PersonalizePageView.this.eHf.pg();
                     }
                 }
             }
@@ -244,13 +244,13 @@ public class PersonalizePageView extends FrameLayout {
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.13
-            private int dcL = -1;
+            private int dcM = -1;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (this.dcL != i && PersonalizePageView.this.fKH != null) {
-                    this.dcL = i;
-                    if (this.dcL == 1) {
+                if (this.dcM != i && PersonalizePageView.this.fKH != null) {
+                    this.dcM = i;
+                    if (this.dcM == 1) {
                         PersonalizePageView.this.fKH.aBB();
                     } else if (PersonalizePageView.this.a(recyclerView)) {
                         PersonalizePageView.this.fKH.aBC();
@@ -320,10 +320,10 @@ public class PersonalizePageView extends FrameLayout {
 
             @Override // com.baidu.tieba.homepage.personalize.e.a
             public void bmr() {
-                if (PersonalizePageView.this.dbr != null) {
-                    PersonalizePageView.this.dbr.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
-                    PersonalizePageView.this.dbr.aeA();
-                    PersonalizePageView.this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                if (PersonalizePageView.this.dbs != null) {
+                    PersonalizePageView.this.dbs.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
+                    PersonalizePageView.this.dbs.aeA();
+                    PersonalizePageView.this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 }
             }
         };
@@ -380,7 +380,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.bZe = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+        this.bZf = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -407,14 +407,14 @@ public class PersonalizePageView extends FrameLayout {
                 PersonalizePageView.this.aAZ();
             }
         };
-        this.fac = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+        this.fad = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.eZs = true;
+                        PersonalizePageView.this.eZt = true;
                     }
                 }
             }
@@ -465,24 +465,24 @@ public class PersonalizePageView extends FrameLayout {
         super(context, attributeSet);
         this.fKz = 0L;
         this.mSkinType = 3;
-        this.eZs = false;
+        this.eZt = false;
         this.fKB = false;
         this.fKC = 0;
         this.fKD = 0;
         this.fKE = false;
         this.fKF = 1;
-        this.eHf = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.eHg = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (PersonalizePageView.this.eHe == null) {
-                            PersonalizePageView.this.eHe = new k(new i());
+                        if (PersonalizePageView.this.eHf == null) {
+                            PersonalizePageView.this.eHf = new k(new i());
                         }
-                        PersonalizePageView.this.eHe.a(PersonalizePageView.this.fHB, 2);
-                    } else if (PersonalizePageView.this.eHe != null) {
-                        PersonalizePageView.this.eHe.pg();
+                        PersonalizePageView.this.eHf.a(PersonalizePageView.this.fHB, 2);
+                    } else if (PersonalizePageView.this.eHf != null) {
+                        PersonalizePageView.this.eHf.pg();
                     }
                 }
             }
@@ -527,13 +527,13 @@ public class PersonalizePageView extends FrameLayout {
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.13
-            private int dcL = -1;
+            private int dcM = -1;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (this.dcL != i && PersonalizePageView.this.fKH != null) {
-                    this.dcL = i;
-                    if (this.dcL == 1) {
+                if (this.dcM != i && PersonalizePageView.this.fKH != null) {
+                    this.dcM = i;
+                    if (this.dcM == 1) {
                         PersonalizePageView.this.fKH.aBB();
                     } else if (PersonalizePageView.this.a(recyclerView)) {
                         PersonalizePageView.this.fKH.aBC();
@@ -603,10 +603,10 @@ public class PersonalizePageView extends FrameLayout {
 
             @Override // com.baidu.tieba.homepage.personalize.e.a
             public void bmr() {
-                if (PersonalizePageView.this.dbr != null) {
-                    PersonalizePageView.this.dbr.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
-                    PersonalizePageView.this.dbr.aeA();
-                    PersonalizePageView.this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                if (PersonalizePageView.this.dbs != null) {
+                    PersonalizePageView.this.dbs.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
+                    PersonalizePageView.this.dbs.aeA();
+                    PersonalizePageView.this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 }
             }
         };
@@ -663,7 +663,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.bZe = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+        this.bZf = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -690,14 +690,14 @@ public class PersonalizePageView extends FrameLayout {
                 PersonalizePageView.this.aAZ();
             }
         };
-        this.fac = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+        this.fad = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.eZs = true;
+                        PersonalizePageView.this.eZt = true;
                     }
                 }
             }
@@ -748,24 +748,24 @@ public class PersonalizePageView extends FrameLayout {
         super(context, attributeSet, i);
         this.fKz = 0L;
         this.mSkinType = 3;
-        this.eZs = false;
+        this.eZt = false;
         this.fKB = false;
         this.fKC = 0;
         this.fKD = 0;
         this.fKE = false;
         this.fKF = 1;
-        this.eHf = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.eHg = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (PersonalizePageView.this.eHe == null) {
-                            PersonalizePageView.this.eHe = new k(new i());
+                        if (PersonalizePageView.this.eHf == null) {
+                            PersonalizePageView.this.eHf = new k(new i());
                         }
-                        PersonalizePageView.this.eHe.a(PersonalizePageView.this.fHB, 2);
-                    } else if (PersonalizePageView.this.eHe != null) {
-                        PersonalizePageView.this.eHe.pg();
+                        PersonalizePageView.this.eHf.a(PersonalizePageView.this.fHB, 2);
+                    } else if (PersonalizePageView.this.eHf != null) {
+                        PersonalizePageView.this.eHf.pg();
                     }
                 }
             }
@@ -810,13 +810,13 @@ public class PersonalizePageView extends FrameLayout {
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.13
-            private int dcL = -1;
+            private int dcM = -1;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
-                if (this.dcL != i2 && PersonalizePageView.this.fKH != null) {
-                    this.dcL = i2;
-                    if (this.dcL == 1) {
+                if (this.dcM != i2 && PersonalizePageView.this.fKH != null) {
+                    this.dcM = i2;
+                    if (this.dcM == 1) {
                         PersonalizePageView.this.fKH.aBB();
                     } else if (PersonalizePageView.this.a(recyclerView)) {
                         PersonalizePageView.this.fKH.aBC();
@@ -886,10 +886,10 @@ public class PersonalizePageView extends FrameLayout {
 
             @Override // com.baidu.tieba.homepage.personalize.e.a
             public void bmr() {
-                if (PersonalizePageView.this.dbr != null) {
-                    PersonalizePageView.this.dbr.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
-                    PersonalizePageView.this.dbr.aeA();
-                    PersonalizePageView.this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                if (PersonalizePageView.this.dbs != null) {
+                    PersonalizePageView.this.dbs.setText(PersonalizePageView.this.getContext().getString(d.j.recommend_no_more_data));
+                    PersonalizePageView.this.dbs.aeA();
+                    PersonalizePageView.this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 }
             }
         };
@@ -946,7 +946,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.bZe = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+        this.bZf = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -973,14 +973,14 @@ public class PersonalizePageView extends FrameLayout {
                 PersonalizePageView.this.aAZ();
             }
         };
-        this.fac = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+        this.fad = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.eZs = true;
+                        PersonalizePageView.this.eZt = true;
                     }
                 }
             }
@@ -1029,28 +1029,28 @@ public class PersonalizePageView extends FrameLayout {
 
     private void init(Context context) {
         this.fHB = new BdTypeRecyclerView(context);
-        this.biS = new LinearLayoutManager(this.fHB.getContext());
-        this.fHB.setLayoutManager(this.biS);
+        this.biT = new LinearLayoutManager(this.fHB.getContext());
+        this.fHB.setLayoutManager(this.biT);
         this.fHB.setFadingEdgeLength(0);
         this.fHB.setOverScrollMode(2);
         this.fHB.addOnScrollListener(this.mOnScrollListener);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            this.eHe = new k(new i());
-            this.eHe.a(this.fHB, 2);
+            this.eHf = new k(new i());
+            this.eHf.a(this.fHB, 2);
         }
-        MessageManager.getInstance().registerListener(this.eHf);
+        MessageManager.getInstance().registerListener(this.eHg);
         this.fKq = new BigdaySwipeRefreshLayout(context);
         this.fKq.addView(this.fHB);
-        this.dbr = new PbListView(context);
-        this.dbr.getView();
-        this.dbr.ia(d.C0277d.cp_bg_line_e);
-        this.dbr.aew();
-        this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-        this.dbr.setTextSize(d.e.tbfontsize33);
-        this.dbr.hZ(d.C0277d.cp_cont_e);
-        this.dbr.setHeight(l.h(context, d.e.tbds182));
-        this.dbr.setOnClickListener(this.fFX);
-        this.fHB.setNextPage(this.dbr);
+        this.dbs = new PbListView(context);
+        this.dbs.getView();
+        this.dbs.ia(d.C0277d.cp_bg_line_e);
+        this.dbs.aew();
+        this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+        this.dbs.setTextSize(d.e.tbfontsize33);
+        this.dbs.hZ(d.C0277d.cp_cont_e);
+        this.dbs.setHeight(l.h(context, d.e.tbds182));
+        this.dbs.setOnClickListener(this.fFX);
+        this.fHB.setNextPage(this.dbs);
         com.baidu.adp.base.e<?> aK = com.baidu.adp.base.i.aK(context);
         if (aK instanceof TbPageContext) {
             this.pageContext = (TbPageContext) aK;
@@ -1070,7 +1070,7 @@ public class PersonalizePageView extends FrameLayout {
         this.fKw = new e(this.pageContext, this.fHB, this.fKu, this.fKq);
         this.fKx = new com.baidu.tieba.homepage.personalize.a(this.pageContext);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        MessageManager.getInstance().registerListener(this.fac);
+        MessageManager.getInstance().registerListener(this.fad);
         this.fKC = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("show_is_uninterest_tag", 0);
     }
 
@@ -1122,7 +1122,7 @@ public class PersonalizePageView extends FrameLayout {
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (PersonalizePageView.this.biS != null && i == 0 && PersonalizePageView.this.biS.getItemCount() - PersonalizePageView.this.biS.findLastVisibleItemPosition() <= 3) {
+                if (PersonalizePageView.this.biT != null && i == 0 && PersonalizePageView.this.biT.getItemCount() - PersonalizePageView.this.biT.findLastVisibleItemPosition() <= 3) {
                     PersonalizePageView.this.aAZ();
                 }
             }
@@ -1162,10 +1162,10 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void d(DataRes dataRes, boolean z, boolean z2) {
-        if (this.dbr != null) {
-            this.dbr.setText(getContext().getString(d.j.pb_load_more));
-            this.dbr.aeA();
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.dbs != null) {
+            this.dbs.setText(getContext().getString(d.j.pb_load_more));
+            this.dbs.aeA();
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.fKw.a(z, z2, dataRes, 0, null);
     }
@@ -1186,7 +1186,7 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void setHeaderViewHeight(int i) {
-        this.dbB = i;
+        this.dbC = i;
         if (this.fKq != null && this.fKq.getLayoutParams() != null) {
             if (this.fKw != null) {
                 this.fKw.setHeaderViewHeight(i);
@@ -1217,8 +1217,8 @@ public class PersonalizePageView extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.cXp != null) {
-                this.cXp.onChangeSkinType();
+            if (this.cXq != null) {
+                this.cXq.onChangeSkinType();
             }
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
@@ -1227,9 +1227,9 @@ public class PersonalizePageView extends FrameLayout {
             if (this.fKs != null) {
                 this.fKs.ib(i);
             }
-            if (this.dbr != null) {
-                this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-                this.dbr.ib(i);
+            if (this.dbs != null) {
+                this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+                this.dbs.ib(i);
             }
             this.fKu.onChangeSkinType(i);
             if (this.fKw != null) {
@@ -1240,10 +1240,10 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void aC(String str, int i) {
-        if (this.dbr != null) {
-            this.dbr.setText(getContext().getString(d.j.pb_load_more));
-            this.dbr.aeA();
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.dbs != null) {
+            this.dbs.setText(getContext().getString(d.j.pb_load_more));
+            this.dbs.aeA();
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.fKw.a(true, false, null, i, str);
     }
@@ -1260,7 +1260,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             });
         }
-        this.refreshView.jR(this.dbB);
+        this.refreshView.jR(this.dbC);
         this.refreshView.pp(str);
         this.refreshView.attachView(view, z);
         this.refreshView.any();
@@ -1276,13 +1276,13 @@ public class PersonalizePageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.cXp != null) {
-            this.cXp.dettachView(this);
-            this.cXp = null;
-            this.fHB.setNextPage(this.dbr);
-            this.dbr.setText(getContext().getString(d.j.pb_load_more));
-            this.dbr.aeA();
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.cXq != null) {
+            this.cXq.dettachView(this);
+            this.cXq = null;
+            this.fHB.setNextPage(this.dbs);
+            this.dbs.setText(getContext().getString(d.j.pb_load_more));
+            this.dbs.aeA();
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         if (this.fKq != null) {
             this.fKq.setVisibility(0);
@@ -1302,15 +1302,15 @@ public class PersonalizePageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(boolean z, int i) {
-        if (this.cXp == null) {
+        if (this.cXq == null) {
             if (i < 0) {
-                this.cXp = new g(getContext());
+                this.cXq = new g(getContext());
             } else {
-                this.cXp = new g(getContext(), i);
+                this.cXq = new g(getContext(), i);
             }
-            this.cXp.onChangeSkinType();
+            this.cXq.onChangeSkinType();
         }
-        this.cXp.attachView(this, z);
+        this.cXq.attachView(this, z);
         this.fHB.setNextPage(null);
         if (this.fKq != null) {
             this.fKq.setVisibility(8);
@@ -1374,8 +1374,8 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eHf);
-        MessageManager.getInstance().unRegisterListener(this.fac);
+        MessageManager.getInstance().unRegisterListener(this.eHg);
+        MessageManager.getInstance().unRegisterListener(this.fad);
         MessageManager.getInstance().unRegisterListener(this.fKP);
         this.fKw.onDestroy();
         this.fKu.b((NEGFeedBackView.a) null);
@@ -1400,8 +1400,8 @@ public class PersonalizePageView extends FrameLayout {
         if (this.fKH != null) {
             this.fKH.b(this.fKI);
         }
-        if (this.cXp != null) {
-            this.cXp.release();
+        if (this.cXq != null) {
+            this.cXq.release();
         }
         this.fHB.setRecyclerListener(null);
         if (this.fKx != null) {
@@ -1422,9 +1422,9 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void onResume() {
-        if (this.eZs) {
+        if (this.eZt) {
             reload();
-            this.eZs = false;
+            this.eZt = false;
         }
         if (this.fKq != null) {
             this.fKq.resume();
@@ -1461,9 +1461,9 @@ public class PersonalizePageView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void aAZ() {
         com.baidu.tieba.homepage.framework.a.blN().p(System.currentTimeMillis(), 1);
-        if (this.dbr != null && !this.dbr.qz()) {
-            this.dbr.aez();
-            this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.dbs != null && !this.dbs.qz()) {
+            this.dbs.aez();
+            this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
         this.fKw.aAZ();
     }

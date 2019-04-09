@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private SparseArray<List<b>> Zu = new SparseArray<>();
+    private SparseArray<List<b>> Zv = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -15,23 +15,23 @@ public class a {
     }
 
     public void c(int i, b bVar) {
-        if (this.Zu == null) {
-            this.Zu = new SparseArray<>();
+        if (this.Zv == null) {
+            this.Zv = new SparseArray<>();
         }
-        List<b> list = this.Zu.get(i);
+        List<b> list = this.Zv.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.Zu.put(i, list);
+            this.Zv.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.Zu.remove(i);
+            this.Zv.remove(i);
             return;
         }
-        List<b> list = this.Zu.get(i);
+        List<b> list = this.Zv.get(i);
         if (!v.T(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class a {
     }
 
     public boolean b(C0039a c0039a) {
-        List<b> list = this.Zu.get(c0039a.Zv);
+        List<b> list = this.Zv.get(c0039a.Zw);
         if (v.T(list)) {
             return false;
         }
@@ -58,28 +58,28 @@ public class a {
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0039a {
-        private int Zv;
-        private Object Zw;
+        private int Zw;
+        private Object Zx;
 
         public C0039a(int i, Object obj) {
-            this.Zv = i;
-            this.Zw = obj;
+            this.Zw = i;
+            this.Zx = obj;
         }
 
         public C0039a(int i) {
-            this.Zv = i;
+            this.Zw = i;
         }
 
         public int getActionType() {
-            return this.Zv;
+            return this.Zw;
         }
 
         public void setExtraData(Object obj) {
-            this.Zw = obj;
+            this.Zx = obj;
         }
 
         public Object rD() {
-            return this.Zw;
+            return this.Zx;
         }
     }
 }

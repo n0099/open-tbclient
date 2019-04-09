@@ -40,7 +40,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRv));
+            jSONObject3.put("permit", Boolean.toString(this.aRw));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -48,7 +48,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
             e.printStackTrace();
         }
         ay("data", jSONObject.toString());
-        if (this.aRv) {
+        if (this.aRw) {
             Kk();
             return true;
         }

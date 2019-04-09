@@ -21,7 +21,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 /* loaded from: classes4.dex */
 public class g {
-    public RelativeLayout dlr;
+    public RelativeLayout dls;
     public LinearGradientView fuk;
     public BarImageView ful;
     public TextView fum;
@@ -58,7 +58,7 @@ public class g {
         if (context != null) {
             this.mContext = context;
             this.mRootView = LayoutInflater.from(context).inflate(d.h.frs_fake_view, (ViewGroup) null);
-            this.dlr = (RelativeLayout) this.mRootView.findViewById(d.g.head_top_bg_container);
+            this.dls = (RelativeLayout) this.mRootView.findViewById(d.g.head_top_bg_container);
             this.fuk = (LinearGradientView) this.mRootView.findViewById(d.g.head_top_gradient_bg);
             this.fuq = (TbImageView) this.mRootView.findViewById(d.g.head_top_bg_mask);
             this.fuq.setDefaultBgResource(d.C0277d.transparent);

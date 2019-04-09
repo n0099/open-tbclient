@@ -15,7 +15,7 @@ class b implements com.baidu.tieba.lego.model.b {
     public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         com.baidu.tieba.homeExtra.a.a aVar = new com.baidu.tieba.homeExtra.a.a();
         e eVar = new e();
-        eVar.gKI = j;
+        eVar.gKJ = j;
         eVar.itemId = str;
         com.baidu.tieba.lego.c.a a = com.baidu.tieba.lego.d.b.bBi().a(eVar);
         if (a != null) {

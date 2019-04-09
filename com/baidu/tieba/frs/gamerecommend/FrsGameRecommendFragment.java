@@ -25,7 +25,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
     private AlaGameRecommendModel flq;
     private String mForumId;
     private String mForumName;
-    private CustomMessageListener dgA = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.1
+    private CustomMessageListener dgB = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,7 +57,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
             FrsGameRecommendFragment.this.flp.aBY();
         }
     };
-    private h.c bRI = new h.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
+    private h.c bRJ = new h.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
         @Override // com.baidu.tbadk.core.view.h.c
         public void dR(boolean z) {
             if (j.kY()) {
@@ -97,9 +97,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
             this.mForumId = arguments.getString("forum_id");
             this.mForumName = arguments.getString("forum_name");
             this.flp = new com.baidu.tieba.frs.gamerecommend.c.a(getPageContext(), this.mForumId, this.mForumName);
-            this.flp.setListPullRefreshListener(this.bRI);
+            this.flp.setListPullRefreshListener(this.bRJ);
             this.flp.b(this.mOnScrollToBottomListener);
-            MessageManager.getInstance().registerListener(2001446, this.dgA);
+            MessageManager.getInstance().registerListener(2001446, this.dgB);
             this.flq = new AlaGameRecommendModel(this.mForumId, this.flr);
         }
     }
@@ -148,8 +148,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
         if (this.flq != null) {
             this.flq.onDestroy();
         }
-        if (this.dgA != null) {
-            MessageManager.getInstance().unRegisterListener(this.dgA);
+        if (this.dgB != null) {
+            MessageManager.getInstance().unRegisterListener(this.dgB);
         }
     }
 

@@ -25,10 +25,10 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
 
     private Bundle a(com.baidu.swan.apps.x.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.aBG);
-        bundle.putDouble("latitude", eVar.ayL.latitude);
-        bundle.putDouble("longitude", eVar.ayL.longitude);
-        bundle.putDouble("scale", eVar.ayM);
+        bundle.putString("slaveId", eVar.aBH);
+        bundle.putDouble("latitude", eVar.ayM.latitude);
+        bundle.putDouble("longitude", eVar.ayM.longitude);
+        bundle.putDouble("scale", eVar.ayN);
         bundle.putString("name", eVar.name);
         bundle.putString("address", eVar.address);
         return bundle;

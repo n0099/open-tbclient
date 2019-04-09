@@ -34,7 +34,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     private TbPageContext context;
-    private String eYw;
+    private String eYx;
     private com.baidu.tbadk.m.c fdA;
     private ADRequestModel.a fdw;
     private ADRequestModel fdx;
@@ -45,8 +45,8 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     private boolean mHasMore;
     protected e fdv = null;
     private int offset = 0;
-    public int Td = 0;
-    private ArrayList<m> ezS = new ArrayList<>();
+    public int Te = 0;
+    private ArrayList<m> ezT = new ArrayList<>();
     private CustomMessageListener fbC = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -57,13 +57,13 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
             }
         }
     };
-    private final h.c dht = new h.c() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.3
+    private final h.c dhu = new h.c() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.3
         @Override // com.baidu.tbadk.core.view.h.c
         public void dR(boolean z) {
             if (FrsADFragment.this.fdv != null) {
                 if (j.kY()) {
                     FrsADFragment.this.qq(2);
-                    if (v.T(FrsADFragment.this.ezS)) {
+                    if (v.T(FrsADFragment.this.ezT)) {
                         FrsADFragment.this.showLoadingView();
                         return;
                     }
@@ -93,7 +93,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
             }
         }
     };
-    private CustomMessageListener eZG = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.5
+    private CustomMessageListener eZH = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -114,7 +114,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
             }
         }
     };
-    private s faa = new s() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.6
+    private s fab = new s() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.6
         @Override // com.baidu.adp.widget.ListView.s
         public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             c cVar;
@@ -152,7 +152,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
         this.context = getPageContext();
         initData(bundle);
         registerListener(this.fdB);
-        registerListener(this.eZG);
+        registerListener(this.eZH);
         if (this.fdx == null) {
             this.fdx = new ADRequestModel(this.context);
         }
@@ -160,14 +160,14 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.eYw = bundle.getString("name");
+            this.eYx = bundle.getString("name");
             this.mFrom = bundle.getString("from");
             this.forumId = Long.parseLong(bundle.getString("forum_id"));
             return;
         }
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.eYw = arguments.getString("name");
+            this.eYx = arguments.getString("name");
             this.mFrom = arguments.getString("from");
             this.forumId = Long.parseLong(arguments.getString("forum_id"));
         }
@@ -177,9 +177,9 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(d.h.frs_ad_fragment, (ViewGroup) null);
         this.fdv = new e(this, inflate);
-        this.fdv.setListPullRefreshListener(this.dht);
+        this.fdv.setListPullRefreshListener(this.dhu);
         this.fdy = new a(this, this.fdv.getListView());
-        this.fdy.setOnAdapterItemClickListener(this.faa);
+        this.fdy.setOnAdapterItemClickListener(this.fab);
         if (this.fdw == null) {
             this.fdw = new ADRequestModel.a() { // from class: com.baidu.tieba.frs.ad.FrsADFragment.2
                 @Override // com.baidu.tieba.frs.adModel.ADRequestModel.a
@@ -222,14 +222,14 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     public void aBr() {
         if (this.fdv != null) {
             hideLoadingView();
-            if (this.Td == 0) {
+            if (this.Te == 0) {
                 if (!v.T(this.fdz)) {
                     F(true, false);
                     this.fdv.aCs();
                     return;
                 }
                 showEmptyView();
-            } else if (this.Td == 2) {
+            } else if (this.Te == 2) {
                 this.fdv.fB(false);
                 if (!v.T(this.fdz)) {
                     F(true, false);
@@ -237,7 +237,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
                     return;
                 }
                 showEmptyView();
-            } else if (this.Td == 1) {
+            } else if (this.Te == 1) {
                 if (!v.T(this.fdz)) {
                     F(false, true);
                 } else {
@@ -248,20 +248,20 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     }
 
     private void F(boolean z, boolean z2) {
-        if (this.ezS != null) {
+        if (this.ezT != null) {
             if (z) {
-                this.ezS.clear();
+                this.ezT.clear();
             }
             if (z2) {
-                for (int i = 0; i < this.ezS.size(); i++) {
-                    m mVar = (m) v.c(this.ezS, i);
+                for (int i = 0; i < this.ezT.size(); i++) {
+                    m mVar = (m) v.c(this.ezT, i);
                     if (mVar instanceof c) {
                         ((c) mVar).ju(false);
                     }
                 }
             }
-            this.ezS.addAll(this.fdz);
-            this.fdv.beH().setData(this.ezS);
+            this.ezT.addAll(this.fdz);
+            this.fdv.beH().setData(this.ezT);
             this.fdv.beH().notifyDataSetChanged();
         }
     }
@@ -309,7 +309,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     public void qq(int i) {
         if (this.fdx != null) {
             aBq();
-            this.Td = i;
+            this.Te = i;
             if (i == 0 || i == 2) {
                 this.fdx.b(this.forumId, 0, 20);
             } else if (i == 1) {
@@ -361,9 +361,9 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     }
 
     private void showEmptyView() {
-        if (this.ezS != null && this.fdv != null) {
-            this.ezS.add(new com.baidu.tieba.frs.m());
-            this.fdv.beH().setData(this.ezS);
+        if (this.ezT != null && this.fdv != null) {
+            this.ezT.add(new com.baidu.tieba.frs.m());
+            this.fdv.beH().setData(this.ezT);
             this.fdv.beH().notifyDataSetChanged();
         }
     }

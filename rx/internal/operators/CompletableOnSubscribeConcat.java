@@ -7,7 +7,7 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcat implements b.a {
-    final rx.d<rx.b> jVf;
+    final rx.d<rx.b> jVg;
     final int prefetch;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
     public void call(rx.c cVar) {
         CompletableConcatSubscriber completableConcatSubscriber = new CompletableConcatSubscriber(cVar, this.prefetch);
         cVar.onSubscribe(completableConcatSubscriber);
-        this.jVf.a((rx.j<? super rx.b>) completableConcatSubscriber);
+        this.jVg.a((rx.j<? super rx.b>) completableConcatSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,15 +25,15 @@ public final class CompletableOnSubscribeConcat implements b.a {
         volatile boolean active;
         final rx.c actual;
         volatile boolean done;
-        final rx.internal.util.a.q<rx.b> jVh;
-        final SequentialSubscription jVg = new SequentialSubscription();
-        final ConcatInnerSubscriber jVi = new ConcatInnerSubscriber();
+        final rx.internal.util.a.q<rx.b> jVi;
+        final SequentialSubscription jVh = new SequentialSubscription();
+        final ConcatInnerSubscriber jVj = new ConcatInnerSubscriber();
         final AtomicBoolean once = new AtomicBoolean();
 
         public CompletableConcatSubscriber(rx.c cVar, int i) {
             this.actual = cVar;
-            this.jVh = new rx.internal.util.a.q<>(i);
-            add(this.jVg);
+            this.jVi = new rx.internal.util.a.q<>(i);
+            add(this.jVh);
             request(i);
         }
 
@@ -41,7 +41,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
         @Override // rx.e
         /* renamed from: a */
         public void onNext(rx.b bVar) {
-            if (!this.jVh.offer(bVar)) {
+            if (!this.jVi.offer(bVar)) {
                 onError(new MissingBackpressureException());
             } else {
                 drain();
@@ -76,12 +76,12 @@ public final class CompletableOnSubscribeConcat implements b.a {
         }
 
         void drain() {
-            ConcatInnerSubscriber concatInnerSubscriber = this.jVi;
+            ConcatInnerSubscriber concatInnerSubscriber = this.jVj;
             if (concatInnerSubscriber.getAndIncrement() == 0) {
                 while (!isUnsubscribed()) {
                     if (!this.active) {
                         boolean z = this.done;
-                        rx.b poll = this.jVh.poll();
+                        rx.b poll = this.jVi.poll();
                         boolean z2 = poll == null;
                         if (z && z2) {
                             this.actual.onCompleted();
@@ -109,7 +109,7 @@ public final class CompletableOnSubscribeConcat implements b.a {
 
             @Override // rx.c
             public void onSubscribe(rx.k kVar) {
-                CompletableConcatSubscriber.this.jVg.set(kVar);
+                CompletableConcatSubscriber.this.jVh.set(kVar);
             }
 
             @Override // rx.c

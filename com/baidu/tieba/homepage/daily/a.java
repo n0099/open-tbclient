@@ -30,9 +30,9 @@ import com.baidu.tieba.homepage.daily.view.AutoBannerView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private g cXp;
-    private PbListView dbr;
-    private BdSwipeRefreshLayout dcE;
+    private g cXq;
+    private PbListView dbs;
+    private BdSwipeRefreshLayout dcF;
     private AutoBannerView fHA;
     private BdTypeRecyclerView fHB;
     private com.baidu.tieba.homepage.daily.a.a fHC;
@@ -65,23 +65,23 @@ public class a {
     private void g(TbPageContext tbPageContext) {
         Activity pageActivity = tbPageContext.getPageActivity();
         this.mRootView = (ViewGroup) LayoutInflater.from(pageActivity).inflate(d.h.daily_page_view, (ViewGroup) null);
-        this.dcE = (BdSwipeRefreshLayout) this.mRootView.findViewById(d.g.daily_refresh_layout);
-        ((FrameLayout.LayoutParams) this.dcE.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.dcF = (BdSwipeRefreshLayout) this.mRootView.findViewById(d.g.daily_refresh_layout);
+        ((FrameLayout.LayoutParams) this.dcF.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.fHB = (BdTypeRecyclerView) this.mRootView.findViewById(d.g.daily_listview);
         this.fHB.setLayoutManager(new LinearLayoutManager(pageActivity));
         this.fHB.setFadingEdgeLength(0);
         this.fHB.setOverScrollMode(2);
         this.fHC = new com.baidu.tieba.homepage.daily.a.a(tbPageContext, this.fHB);
         this.mPullView = new i(tbPageContext);
-        this.dcE.setProgressView(this.mPullView);
-        this.dbr = new PbListView(pageActivity);
-        this.dbr.getView();
-        this.dbr.ia(d.C0277d.cp_bg_line_e);
-        this.dbr.aew();
-        this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_j));
-        this.dbr.setTextSize(d.e.tbfontsize33);
-        this.dbr.hZ(d.C0277d.cp_cont_e);
-        this.dbr.setHeight(l.h(pageActivity, d.e.tbds182));
+        this.dcF.setProgressView(this.mPullView);
+        this.dbs = new PbListView(pageActivity);
+        this.dbs.getView();
+        this.dbs.ia(d.C0277d.cp_bg_line_e);
+        this.dbs.aew();
+        this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_j));
+        this.dbs.setTextSize(d.e.tbfontsize33);
+        this.dbs.hZ(d.C0277d.cp_cont_e);
+        this.dbs.setHeight(l.h(pageActivity, d.e.tbds182));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -122,26 +122,26 @@ public class a {
 
     public void o(boolean z, int i) {
         Activity pageActivity = this.mPageContext.getPageActivity();
-        if (this.cXp == null) {
+        if (this.cXq == null) {
             if (i < 0) {
-                this.cXp = new g(pageActivity);
+                this.cXq = new g(pageActivity);
             } else {
-                this.cXp = new g(pageActivity, i);
+                this.cXq = new g(pageActivity, i);
             }
-            this.cXp.onChangeSkinType();
+            this.cXq.onChangeSkinType();
         }
-        this.cXp.attachView(this.mRootView, z);
+        this.cXq.attachView(this.mRootView, z);
         this.fHB.setNextPage(null);
     }
 
     public void hideLoadingView() {
-        if (this.cXp != null) {
-            this.cXp.dettachView(this.mRootView);
-            this.cXp = null;
-            this.fHB.setNextPage(this.dbr);
+        if (this.cXq != null) {
+            this.cXq.dettachView(this.mRootView);
+            this.cXq = null;
+            this.fHB.setNextPage(this.dbs);
         }
-        if (this.dcE != null) {
-            this.dcE.setVisibility(0);
+        if (this.dcF != null) {
+            this.dcF.setVisibility(0);
         }
     }
 
@@ -172,9 +172,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aCr() {
-        this.fHB.setNextPage(this.dbr);
-        this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.dbr.aez();
+        this.fHB.setNextPage(this.dbs);
+        this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.dbs.aez();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -183,24 +183,24 @@ public class a {
     }
 
     public void aCs() {
-        this.fHB.setNextPage(this.dbr);
-        this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.dbr.aeB();
-        this.dbr.setText(this.mPageContext.getResources().getString(d.j.list_has_no_more));
+        this.fHB.setNextPage(this.dbs);
+        this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.dbs.aeB();
+        this.dbs.setText(this.mPageContext.getResources().getString(d.j.list_has_no_more));
     }
 
     public void blA() {
-        this.fHB.setNextPage(this.dbr);
-        this.dbr.aeA();
-        this.dbr.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fHB.setNextPage(this.dbs);
+        this.dbs.aeA();
+        this.dbs.ic(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
     public void startPullRefresh() {
-        this.dcE.setRefreshing(true);
+        this.dcF.setRefreshing(true);
     }
 
     public void aBJ() {
-        this.dcE.setRefreshing(false);
+        this.dcF.setRefreshing(false);
     }
 
     public void reload() {
@@ -215,8 +215,8 @@ public class a {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.cXp != null) {
-                this.cXp.onChangeSkinType();
+            if (this.cXq != null) {
+                this.cXq.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
@@ -224,9 +224,9 @@ public class a {
             if (this.mPullView != null) {
                 this.mPullView.ib(i);
             }
-            if (this.dbr != null) {
-                this.dbr.setTextColor(al.getColor(d.C0277d.cp_cont_d));
-                this.dbr.ib(i);
+            if (this.dbs != null) {
+                this.dbs.setTextColor(al.getColor(d.C0277d.cp_cont_d));
+                this.dbs.ib(i);
             }
             if (this.fHA != null) {
                 this.fHA.onChangeSkinType(i);
@@ -234,7 +234,7 @@ public class a {
             if (this.fHC != null) {
                 this.fHC.onChangeSkinType(i);
             }
-            al.l(this.dcE, d.C0277d.cp_bg_line_e);
+            al.l(this.dcF, d.C0277d.cp_bg_line_e);
             al.l(this.fHB, d.C0277d.cp_bg_line_d);
         }
     }

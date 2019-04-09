@@ -9,12 +9,12 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class MenuKeyboardView extends LinearLayout implements l {
-    private EditorTools VN;
-    private int VO;
+    private EditorTools VO;
+    private int VP;
 
     public MenuKeyboardView(Context context) {
         super(context);
-        this.VO = 0;
+        this.VP = 0;
         inflate(context, d.h.official_bar_menu_toggle, this);
         setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(d.e.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
@@ -31,24 +31,24 @@ public class MenuKeyboardView extends LinearLayout implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.VN = editorTools;
+        this.VO = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.VN != null) {
-            this.VN.b(aVar);
+        if (this.VO != null) {
+            this.VO.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.VO = i;
+        this.VP = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.VO;
+        return this.VP;
     }
 
     @Override // com.baidu.tbadk.editortools.l

@@ -7,20 +7,20 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final Set<Integer> aWd = new HashSet();
     private static final Set<Integer> aWe = new HashSet();
     private static final Set<Integer> aWf = new HashSet();
+    private static final Set<Integer> aWg = new HashSet();
 
     static {
-        aWd.add(2);
-        aWd.add(3);
-        aWd.add(4);
-        aWd.add(5);
-        aWd.add(6);
-        aWe.add(7);
-        aWe.add(1);
-        aWf.addAll(aWd);
-        aWf.addAll(aWe);
+        aWe.add(2);
+        aWe.add(3);
+        aWe.add(4);
+        aWe.add(5);
+        aWe.add(6);
+        aWf.add(7);
+        aWf.add(1);
+        aWg.addAll(aWe);
+        aWg.addAll(aWf);
     }
 
     public static Date LO() {

@@ -7,16 +7,15 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
     private String caA;
-    private String caD;
+    private String caB;
     private String caE;
     private String caF;
     private String caG;
     private String caH;
     private String caI;
-    private String cax;
+    private String caJ;
     private String cay;
     private String caz;
-    private int caf = 0;
     private int cag = 0;
     private int cah = 0;
     private int cai = 0;
@@ -32,18 +31,19 @@ public class e {
     private int cas = 0;
     private int cat = 0;
     private int cau = 0;
-    private boolean cav = true;
+    private int cav = 0;
     private boolean caw = true;
-    private HashMap<String, String> caB = new HashMap<>();
+    private boolean cax = true;
     private HashMap<String, String> caC = new HashMap<>();
-    private List<a> caJ = new ArrayList();
+    private HashMap<String, String> caD = new HashMap<>();
+    private List<a> caK = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String caK;
         public String caL;
-        public int caM;
-        public String caN;
+        public String caM;
+        public int caN;
+        public String caO;
         public String content;
         public String gid;
         public String title;
@@ -72,198 +72,198 @@ public class e {
     }
 
     public int aiV() {
-        return this.caf;
-    }
-
-    public void iF(int i) {
-        this.caf = i;
-    }
-
-    public int aiW() {
-        return this.cai;
-    }
-
-    public void iG(int i) {
-        this.cai = i;
-    }
-
-    public int aiX() {
-        return this.caj;
-    }
-
-    public int aiY() {
-        return this.cal;
-    }
-
-    public void iH(int i) {
-        this.cal = i;
-    }
-
-    public int aiZ() {
-        return this.cap;
-    }
-
-    public void iI(int i) {
-        this.cap = i;
-    }
-
-    public int aja() {
-        return this.cao;
-    }
-
-    public void iJ(int i) {
-        this.cao = i;
-    }
-
-    public int ajb() {
-        return this.caf;
-    }
-
-    public int ajc() {
-        return this.cah;
-    }
-
-    public void iK(int i) {
-        this.cah = i;
-    }
-
-    public boolean ajd() {
-        return this.cav;
-    }
-
-    public void eo(boolean z) {
-        this.cav = z;
-    }
-
-    public String aje() {
-        return this.cax;
-    }
-
-    public void nP(String str) {
-        this.cax = str;
-    }
-
-    public String ajf() {
-        return this.caD;
-    }
-
-    public void nQ(String str) {
-        this.caD = str;
-    }
-
-    public void nR(String str) {
-        this.caE = str;
-    }
-
-    public int ajg() {
         return this.cag;
     }
 
-    public void iL(int i) {
+    public void iF(int i) {
         this.cag = i;
     }
 
-    public void nS(String str) {
-        this.caF = str;
+    public int aiW() {
+        return this.caj;
     }
 
-    public String ajh() {
-        return this.caH;
+    public void iG(int i) {
+        this.caj = i;
     }
 
-    public String aji() {
-        return this.caI;
-    }
-
-    public HashMap<String, String> ajj() {
-        return this.caB;
-    }
-
-    public int ajk() {
+    public int aiX() {
         return this.cak;
     }
 
-    public void iM(int i) {
-        this.cak = i;
-    }
-
-    public int ajl() {
+    public int aiY() {
         return this.cam;
     }
 
-    public void iN(int i) {
+    public void iH(int i) {
         this.cam = i;
     }
 
-    public int ajm() {
+    public int aiZ() {
         return this.caq;
     }
 
-    public void iO(int i) {
+    public void iI(int i) {
         this.caq = i;
     }
 
-    public void nT(String str) {
+    public int aja() {
+        return this.cap;
+    }
+
+    public void iJ(int i) {
+        this.cap = i;
+    }
+
+    public int ajb() {
+        return this.cag;
+    }
+
+    public int ajc() {
+        return this.cai;
+    }
+
+    public void iK(int i) {
+        this.cai = i;
+    }
+
+    public boolean ajd() {
+        return this.caw;
+    }
+
+    public void eo(boolean z) {
+        this.caw = z;
+    }
+
+    public String aje() {
+        return this.cay;
+    }
+
+    public void nP(String str) {
         this.cay = str;
     }
 
-    public void nU(String str) {
-        this.caz = str;
+    public String ajf() {
+        return this.caE;
     }
 
-    public int ajn() {
-        return this.can;
+    public void nQ(String str) {
+        this.caE = str;
     }
 
-    public void iP(int i) {
-        this.can = i;
+    public void nR(String str) {
+        this.caF = str;
     }
 
-    public String ajo() {
-        return this.caA;
+    public int ajg() {
+        return this.cah;
     }
 
-    public void nV(String str) {
-        this.caA = str;
+    public void iL(int i) {
+        this.cah = i;
     }
 
-    public HashMap<String, String> ajp() {
-        return this.caC;
-    }
-
-    public String ajq() {
-        return this.caG;
-    }
-
-    public void nW(String str) {
+    public void nS(String str) {
         this.caG = str;
     }
 
-    public int ajr() {
-        return this.cas;
+    public String ajh() {
+        return this.caI;
     }
 
-    public void iQ(int i) {
-        this.cas = i;
-    }
-
-    public int ajs() {
-        return this.cat;
-    }
-
-    public void iR(int i) {
-        this.cat = i;
-    }
-
-    public List<a> ajt() {
+    public String aji() {
         return this.caJ;
     }
 
-    public int aju() {
+    public HashMap<String, String> ajj() {
+        return this.caC;
+    }
+
+    public int ajk() {
+        return this.cal;
+    }
+
+    public void iM(int i) {
+        this.cal = i;
+    }
+
+    public int ajl() {
+        return this.can;
+    }
+
+    public void iN(int i) {
+        this.can = i;
+    }
+
+    public int ajm() {
+        return this.car;
+    }
+
+    public void iO(int i) {
+        this.car = i;
+    }
+
+    public void nT(String str) {
+        this.caz = str;
+    }
+
+    public void nU(String str) {
+        this.caA = str;
+    }
+
+    public int ajn() {
+        return this.cao;
+    }
+
+    public void iP(int i) {
+        this.cao = i;
+    }
+
+    public String ajo() {
+        return this.caB;
+    }
+
+    public void nV(String str) {
+        this.caB = str;
+    }
+
+    public HashMap<String, String> ajp() {
+        return this.caD;
+    }
+
+    public String ajq() {
+        return this.caH;
+    }
+
+    public void nW(String str) {
+        this.caH = str;
+    }
+
+    public int ajr() {
+        return this.cat;
+    }
+
+    public void iQ(int i) {
+        this.cat = i;
+    }
+
+    public int ajs() {
         return this.cau;
     }
 
-    public void iS(int i) {
+    public void iR(int i) {
         this.cau = i;
+    }
+
+    public List<a> ajt() {
+        return this.caK;
+    }
+
+    public int aju() {
+        return this.cav;
+    }
+
+    public void iS(int i) {
+        this.cav = i;
     }
 }

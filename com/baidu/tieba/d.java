@@ -15121,6 +15121,7 @@ public final class d {
         public static final int sapi_camera_too_far = 2131165224;
         public static final int sapi_camera_too_near = 2131165225;
         public static final int shake_tone = 2131165226;
+        public static final int sweep = 2131165227;
     }
 
     /* loaded from: classes.dex */

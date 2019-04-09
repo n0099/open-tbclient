@@ -14,7 +14,7 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String aST = "/aiapp";
+    public static String aSU = "/aiapp";
 
     @Nullable
     public static String aC(String str, String str2) {
@@ -128,7 +128,7 @@ public final class b {
             if (DEBUG) {
                 Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
             }
-            return AppRuntime.getAppContext().getExternalFilesDir(null) + aST;
+            return AppRuntime.getAppContext().getExternalFilesDir(null) + aSU;
         }
         return null;
     }
@@ -140,7 +140,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
         }
-        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aST + "/store" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aSU + "/store" + File.separator + "aiapp_" + str;
         ha(str2);
         return str2;
     }
@@ -149,7 +149,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        return AppRuntime.getAppContext().getExternalCacheDir() + aST;
+        return AppRuntime.getAppContext().getExternalCacheDir() + aSU;
     }
 
     public static String gY(String str) {
@@ -159,7 +159,7 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aST + "/tmp" + File.separator + "aiapp_" + str;
+        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aSU + "/tmp" + File.separator + "aiapp_" + str;
         ha(str2);
         return str2;
     }
@@ -180,7 +180,7 @@ public final class b {
             return null;
         }
         com.baidu.swan.apps.v.b.b uA = bVar.uA();
-        boolean z = uA != null && uA.axV;
+        boolean z = uA != null && uA.axW;
         if (DEBUG && z) {
             Log.d("StorageUtil", "relative path : " + str);
             ah = c.a.Cq();

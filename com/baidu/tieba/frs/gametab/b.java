@@ -13,14 +13,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b dLI;
+    private com.baidu.tieba.f.b dLJ;
     private boolean foj;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean ctH = false;
-    private a.InterfaceC0284a dLJ = new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int dVI = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
+    private boolean ctI = false;
+    private a.InterfaceC0284a dLK = new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int dVJ = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
         @Override // com.baidu.tieba.f.a.InterfaceC0284a
         public void aR(int i, int i2) {
@@ -50,8 +50,8 @@ public class b {
         this.mPageId = bdUniqueId;
         this.foj = z;
         if (this.foj) {
-            this.dLI = new com.baidu.tieba.f.b(context);
-            this.dLI.a(this.dLJ);
+            this.dLJ = new com.baidu.tieba.f.b(context);
+            this.dLJ.a(this.dLK);
         }
     }
 
@@ -75,8 +75,8 @@ public class b {
                     break;
                 }
         }
-        if (this.foj && this.dLI != null) {
-            this.dLI.onTouchEvent(motionEvent);
+        if (this.foj && this.dLJ != null) {
+            this.dLJ.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,9 +90,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jr(boolean z) {
-        this.ctH = z;
+        this.ctI = z;
         if (this.foj) {
-            s(!this.ctH, true);
+            s(!this.ctI, true);
         }
     }
 

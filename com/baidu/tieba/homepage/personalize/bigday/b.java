@@ -25,10 +25,10 @@ import com.baidu.tieba.homepage.personalize.PersonalizePageView;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
 /* loaded from: classes4.dex */
 public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLayout.a {
-    private h.c bRI;
-    private h.b bRJ;
-    private h.d bRK;
-    private h.a bRL;
+    private h.c bRJ;
+    private h.b bRK;
+    private h.d bRL;
+    private h.a bRM;
     private TbImageView fMK;
     private LottieAnimationView fML;
     private ImageView fMM;
@@ -41,10 +41,10 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
 
     public b(Context context) {
         super(context);
-        this.bRI = null;
         this.bRJ = null;
         this.bRK = null;
         this.bRL = null;
+        this.bRM = null;
         if (context != null) {
             this.fMP = context.getText(d.j.adp_pull_to_refresh).toString();
             this.fMQ = context.getText(d.j.bigday_refreshing).toString();
@@ -55,22 +55,22 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
     public void setListPullRefreshListener(h.c cVar) {
-        this.bRI = cVar;
+        this.bRJ = cVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
     public void a(h.b bVar) {
-        this.bRJ = bVar;
+        this.bRK = bVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
     public void a(h.d dVar) {
-        this.bRK = dVar;
+        this.bRL = dVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
     public void a(h.a aVar) {
-        this.bRL = aVar;
+        this.bRM = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
@@ -93,7 +93,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         if (aVar.WI()) {
             this.fMO = aVar;
         }
-        if (aVar.bvM == 1) {
+        if (aVar.bvN == 1) {
             this.fMN.setTextColor(getContext().getResources().getColor(d.C0277d.cp_btn_a));
             this.fMM.setBackgroundResource(d.f.bigday_text_mask_black);
             this.fML.setAnimation(d.i.lottie_refresh_light);
@@ -126,8 +126,8 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     public void aw(boolean z) {
         setAlpha(1.0f);
         this.fMN.setText(this.fMP);
-        if (this.bRK != null) {
-            this.bRK.dS(z);
+        if (this.bRL != null) {
+            this.bRL.dS(z);
         }
     }
 
@@ -148,8 +148,8 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
 
     @Override // com.baidu.adp.widget.ListView.c
     public void ay(boolean z) {
-        if (this.bRI != null) {
-            this.bRI.dR(z);
+        if (this.bRJ != null) {
+            this.bRJ.dR(z);
         }
     }
 
@@ -164,11 +164,11 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         setAlpha(1.0f);
         this.fML.setAlpha(1.0f);
         this.fMN.setText(this.fMP);
-        if (this.bRL != null) {
-            this.bRL.aeQ();
+        if (this.bRM != null) {
+            this.bRM.aeQ();
         }
-        if (this.bRJ != null) {
-            this.bRJ.f(getView(), z);
+        if (this.bRK != null) {
+            this.bRK.f(getView(), z);
         }
         this.fML.cancelAnimation();
     }
@@ -188,7 +188,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
     public void bmP() {
         if (this.fMO != null && this.fMO.WI()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(getContext(), this.fMO.imgUrl, this.fMO.bvL, this.fMO.bvN)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(getContext(), this.fMO.imgUrl, this.fMO.bvM, this.fMO.bvO)));
         }
     }
 
@@ -222,7 +222,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         this.fMN.setAlpha(f);
         this.fMM.setAlpha(f);
         if (this.fMM.getBackground() == null && this.fMO != null) {
-            if (this.fMO.bvM == 1) {
+            if (this.fMO.bvN == 1) {
                 this.fMM.setBackgroundResource(d.f.bigday_text_mask_black);
             } else {
                 this.fMM.setBackgroundResource(d.f.bigday_text_mask_white);

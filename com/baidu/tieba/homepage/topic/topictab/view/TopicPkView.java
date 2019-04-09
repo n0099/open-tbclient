@@ -33,10 +33,10 @@ import com.baidu.tieba.homepage.topic.topictab.b.b;
 import com.baidu.tieba.message.RequestBlessMessage;
 /* loaded from: classes4.dex */
 public class TopicPkView extends RelativeLayout implements View.OnClickListener {
-    private int aLC;
-    private int bIi;
+    private int aLD;
     private int bIj;
-    private int bNC;
+    private int bIk;
+    private int bND;
     private int fQA;
     private int fQB;
     private int fQC;
@@ -231,15 +231,15 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         super.onLayout(z, i, i2, i3, i4);
         if (this.fQc != null) {
             this.fQs = this.fQf.getWidth();
-            this.aLC = this.fQf.getHeight();
-            this.bNC = this.fQh.getWidth();
+            this.aLD = this.fQf.getHeight();
+            this.bND = this.fQh.getWidth();
             this.fQt = this.fQl.getWidth();
             this.fQu = this.fQm.getWidth();
             this.fQx = this.fQl.getHeight();
             this.fQv = this.fQo.getWidth();
             this.fQw = this.fQp.getWidth();
-            this.bIj = this.fQn.getWidth();
-            this.bIi = this.fQn.getHeight();
+            this.bIk = this.fQn.getWidth();
+            this.bIj = this.fQn.getHeight();
             this.fQy = ((this.mWidth - (this.fQs * 2)) - this.fQt) - this.fQu;
             this.fQB = this.fQq.getWidth();
             if (this.fQc.fPF.fPH == 0 && this.fQc.fPG.fPH == 0) {
@@ -247,18 +247,18 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             } else {
                 this.fQA = (int) (((((float) this.fQc.fPF.fPH) / ((float) (this.fQc.fPF.fPH + this.fQc.fPG.fPH))) * this.fQy) + this.fQt + this.fQs);
             }
-            float y = this.fQf.getY() - ((this.bIi - this.aLC) / 2);
-            if (this.fQA + (this.bIj / 2) >= this.fQm.getLeft()) {
-                this.fQA = (this.fQm.getLeft() - 10) - (this.bIj / 2);
-                this.fQn.layout((this.fQm.getLeft() - 10) - this.bIj, (int) y, this.fQm.getLeft() - 10, ((int) y) + this.bIi);
-            } else if (this.fQA - (this.bIj / 2) <= this.fQl.getRight()) {
-                this.fQA = this.fQl.getRight() + 10 + (this.bIj / 2);
-                this.fQn.layout(this.fQl.getRight() + 10, (int) y, this.fQl.getRight() + 10 + this.bIj, ((int) y) + this.bIi);
+            float y = this.fQf.getY() - ((this.bIj - this.aLD) / 2);
+            if (this.fQA + (this.bIk / 2) >= this.fQm.getLeft()) {
+                this.fQA = (this.fQm.getLeft() - 10) - (this.bIk / 2);
+                this.fQn.layout((this.fQm.getLeft() - 10) - this.bIk, (int) y, this.fQm.getLeft() - 10, ((int) y) + this.bIj);
+            } else if (this.fQA - (this.bIk / 2) <= this.fQl.getRight()) {
+                this.fQA = this.fQl.getRight() + 10 + (this.bIk / 2);
+                this.fQn.layout(this.fQl.getRight() + 10, (int) y, this.fQl.getRight() + 10 + this.bIk, ((int) y) + this.bIj);
             } else {
-                this.fQn.layout(this.fQA - (this.bIj / 2), (int) y, this.fQA + (this.bIj / 2), ((int) y) + this.bIi);
+                this.fQn.layout(this.fQA - (this.bIk / 2), (int) y, this.fQA + (this.bIk / 2), ((int) y) + this.bIj);
             }
             int x = (this.mWidth / 2) - ((int) this.fQh.getX());
-            if (this.fQv < this.bNC) {
+            if (this.fQv < this.bND) {
                 int i5 = (this.fQs - this.fQv) / 2;
                 this.fQo.layout(i5, (int) this.fQo.getY(), this.fQv + i5, ((int) this.fQo.getY()) + this.fQx);
             } else if (this.fQv <= x) {
@@ -269,7 +269,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.fQo.setLayoutParams(layoutParams);
                 postDelayed(this.mRunnable, 300L);
             }
-            if (this.fQw < this.bNC) {
+            if (this.fQw < this.bND) {
                 int x2 = ((int) this.fQg.getX()) + ((this.fQs - this.fQw) / 2);
                 this.fQp.layout(x2, (int) this.fQp.getY(), this.fQw + x2, ((int) this.fQp.getY()) + this.fQx);
             } else if (this.fQw <= x) {
@@ -355,7 +355,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     }
 
     private void M(Canvas canvas) {
-        float y = this.fQf.getY() + ((this.aLC - this.fQz) / 2);
+        float y = this.fQf.getY() + ((this.aLD - this.fQz) / 2);
         this.mPaint.setShader(new LinearGradient(this.fQs / 2, y, this.fQA, y, al.getColor(d.C0277d.topic_pk_agree_bar_start_color), al.getColor(d.C0277d.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
         canvas.drawRect(this.fQs / 2, y, this.fQA, y + this.fQz, this.mPaint);
         this.mPaint.setShader(new LinearGradient(this.fQA, y, this.mWidth - (this.fQs / 2), y, al.getColor(d.C0277d.topic_pk_disagree_bar_start_color), al.getColor(d.C0277d.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));

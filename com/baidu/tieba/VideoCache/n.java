@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes4.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket cLZ;
+    private ServerSocket cMa;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ public class n {
             j.as(n.TAG, "run ...");
             n.this.avQ();
             int i = 9000;
-            while (n.this.cLZ == null && i < 10000) {
+            while (n.this.cMa == null && i < 10000) {
                 try {
-                    n.this.cLZ = new ServerSocket(i);
+                    n.this.cMa = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.cLZ = null;
+                    n.this.cMa = null;
                     i++;
                 }
             }
@@ -33,10 +33,10 @@ public class n {
             n.this.lo(i);
             e.avE();
             k.avN();
-            while (!n.this.cLZ.isClosed()) {
+            while (!n.this.cMa.isClosed()) {
                 try {
                     j.as(n.TAG, "accept start");
-                    Socket accept = n.this.cLZ.accept();
+                    Socket accept = n.this.cMa.accept();
                     j.as(n.TAG, "accept end");
                     if (accept != null) {
                         j.as(n.TAG, "连接视频服务的client:" + accept);
@@ -54,7 +54,7 @@ public class n {
                             try {
                                 int indexOf = avI.indexOf("?segment_postion=", 0);
                                 b.qw(avI.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.d(avI.substring(indexOf + i.cLS), 0L);
+                                j = com.baidu.adp.lib.g.b.d(avI.substring(indexOf + i.cLT), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
@@ -85,11 +85,11 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void avQ() {
-        File file = new File(i.cLM);
+        File file = new File(i.cLN);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.cLN);
+        File file2 = new File(i.cLO);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -105,7 +105,7 @@ public class n {
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.cLP);
+        File file5 = new File(i.cLQ);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -128,7 +128,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void lo(int i) {
-        BufferedWriter bufferedWriter = i.cLR;
+        BufferedWriter bufferedWriter = i.cLS;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.cLZ != null) {
-                this.cLZ.close();
+            if (this.cMa != null) {
+                this.cMa.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

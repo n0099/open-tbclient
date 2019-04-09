@@ -21,10 +21,10 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.c;
 /* loaded from: classes3.dex */
 public class WriteLocationView extends LocationInfoView {
-    private LocationModel ckf;
-    private int ckl;
-    private final LocationModel.a cks;
-    private final CustomMessageListener iIg;
+    private LocationModel ckg;
+    private int ckm;
+    private final LocationModel.a ckt;
+    private final CustomMessageListener iIh;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -33,8 +33,8 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckl = 0;
-        this.cks = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.ckm = 0;
+        this.ckt = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void amG() {
                 WriteLocationView.this.mBaseActivity.showToast(d.j.no_network_guide);
@@ -60,19 +60,19 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.iIg = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
+        this.iIh = new CustomMessageListener(2001226) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof ResponsedSelectLocation) {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
-                        WriteLocationView.this.ckf.qb(false);
-                        WriteLocationView.this.ckf.ea(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                        WriteLocationView.this.ckg.qb(false);
+                        WriteLocationView.this.ckg.ea(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         WriteLocationView.this.c(2, true, responsedSelectLocation.getName());
                         return;
                     }
-                    WriteLocationView.this.ckf.qb(true);
+                    WriteLocationView.this.ckg.qb(true);
                     WriteLocationView.this.c(0, true, null);
                 }
             }
@@ -81,13 +81,13 @@ public class WriteLocationView extends LocationInfoView {
 
     public void d(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.iIg);
-        this.ckf = new LocationModel(this.mBaseActivity);
-        this.ckf.a(this.cks);
+        this.mBaseActivity.registerListener(this.iIh);
+        this.ckg = new LocationModel(this.mBaseActivity);
+        this.ckg.a(this.ckt);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                switch (WriteLocationView.this.ckl) {
+                switch (WriteLocationView.this.ckm) {
                     case 0:
                         WriteLocationView.this.ams();
                         return;
@@ -104,10 +104,10 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     public boolean aNu() {
-        if (this.ckf == null) {
+        if (this.ckg == null) {
             return false;
         }
-        return this.ckf.aNu();
+        return this.ckg.aNu();
     }
 
     public void ams() {
@@ -116,23 +116,23 @@ public class WriteLocationView extends LocationInfoView {
             c(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             amu();
-        } else if (this.ckf.ceZ()) {
+        } else if (this.ckg.ceZ()) {
             amr();
         } else {
-            this.ckf.qb(false);
+            this.ckg.qb(false);
             c(1, true, null);
-            this.ckf.ceX();
+            this.ckg.ceX();
         }
     }
 
     private void amv() {
-        if (this.ckf.aNu() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-            if (this.ckf.ceZ()) {
+        if (this.ckg.aNu() && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+            if (this.ckg.ceZ()) {
                 c(2, true, c.ceV().getLocationData().ceS());
                 return;
             }
             c(1, true, null);
-            this.ckf.ceX();
+            this.ckg.ceX();
             return;
         }
         c(0, true, null);
@@ -145,9 +145,9 @@ public class WriteLocationView extends LocationInfoView {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.kY()) {
                     WriteLocationView.this.c(1, true, null);
-                    WriteLocationView.this.ckf.aNy();
+                    WriteLocationView.this.ckg.aNy();
                 } else {
-                    WriteLocationView.this.cks.amG();
+                    WriteLocationView.this.ckt.amG();
                 }
                 aVar2.dismiss();
             }
@@ -163,8 +163,8 @@ public class WriteLocationView extends LocationInfoView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cbh() {
-        if (this.ckf != null) {
-            this.ckf.cancelLoadData();
+        if (this.ckg != null) {
+            this.ckg.cancelLoadData();
         }
     }
 
@@ -175,7 +175,7 @@ public class WriteLocationView extends LocationInfoView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, boolean z, String str) {
-        this.ckl = i;
+        this.ckm = i;
         setVisibility(z ? 0 : 8);
         setState(i, str);
     }

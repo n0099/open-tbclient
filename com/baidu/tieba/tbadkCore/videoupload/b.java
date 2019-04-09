@@ -50,8 +50,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.iIK = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.iIL = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.iIL = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.iIM = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.c(e, "getChunkUploadDataByMd5");

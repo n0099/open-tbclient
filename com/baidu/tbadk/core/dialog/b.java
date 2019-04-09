@@ -20,11 +20,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static final HashMap<Integer, Integer[]> bEZ = new HashMap<>(2);
-    private List<CharSequence> aMJ;
-    private InterfaceC0225b bES;
-    private final View bET;
-    private LinearLayout.LayoutParams bEY;
+    private static final HashMap<Integer, Integer[]> bFa = new HashMap<>(2);
+    private List<CharSequence> aMK;
+    private InterfaceC0225b bET;
+    private final View bEU;
+    private LinearLayout.LayoutParams bEZ;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -32,17 +32,17 @@ public class b {
     private final ViewGroup mRootView;
     private String mTitle;
     private final TextView mTitleView;
-    private int bEV = -1;
-    private int bEt = -1;
     private int bEW = -1;
-    private boolean bEH = false;
+    private int bEu = -1;
     private int bEX = -1;
-    private int bEU = d.h.dialog_bdlist_item;
+    private boolean bEI = false;
+    private int bEY = -1;
+    private int bEV = d.h.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int bFc = d.k.dialog_ani_b2t;
-        public static final int bFd = d.k.dialog_ani_t2b;
+        public static final int bFd = d.k.dialog_ani_b2t;
+        public static final int bFe = d.k.dialog_ani_t2b;
         public static final int LEFT_TO_RIGHT = d.k.dialog_ani_l2r;
         public static final int RIGHT_TO_LEFT = d.k.dialog_ani_r2l;
     }
@@ -54,8 +54,8 @@ public class b {
     }
 
     static {
-        bEZ.put(0, new Integer[]{Integer.valueOf(d.f.dialg_alert_btn_bg), Integer.valueOf(d.f.dialog_bdalert_button_textcolor_pressed)});
-        bEZ.put(1, new Integer[]{Integer.valueOf(d.f.btn_blue_square), Integer.valueOf(d.C0277d.cp_bg_line_d)});
+        bFa.put(0, new Integer[]{Integer.valueOf(d.f.dialg_alert_btn_bg), Integer.valueOf(d.f.dialog_bdalert_button_textcolor_pressed)});
+        bFa.put(1, new Integer[]{Integer.valueOf(d.f.btn_blue_square), Integer.valueOf(d.C0277d.cp_bg_line_d)});
     }
 
     public b(Activity activity) {
@@ -63,7 +63,7 @@ public class b {
         this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(d.h.dialog_bdlist, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.dialog_title_list);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(d.g.dialog_content);
-        this.bET = this.mRootView.findViewById(d.g.line_bg);
+        this.bEU = this.mRootView.findViewById(d.g.line_bg);
     }
 
     public b lA(String str) {
@@ -84,38 +84,38 @@ public class b {
 
     public b a(List<CharSequence> list, InterfaceC0225b interfaceC0225b) {
         if (list != null && list.size() > 0) {
-            this.aMJ = list;
+            this.aMK = list;
             if (interfaceC0225b != null) {
-                this.bES = interfaceC0225b;
+                this.bET = interfaceC0225b;
             }
         }
         return this;
     }
 
     public b gG(int i) {
-        this.bEV = i;
+        this.bEW = i;
         return this;
     }
 
     public b gH(int i) {
-        this.bEt = i;
+        this.bEu = i;
         return this;
     }
 
     public b d(com.baidu.adp.base.e<?> eVar) {
-        if (!this.bEH) {
+        if (!this.bEI) {
             this.mContext = eVar;
-            this.bEH = true;
+            this.bEI = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.bET.setVisibility(0);
+                this.bEU.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.bET.setVisibility(8);
+                this.bEU.setVisibility(8);
             }
-            if (this.aMJ != null && this.aMJ.size() > 0) {
-                int size = this.aMJ.size();
+            if (this.aMK != null && this.aMK.size() > 0) {
+                int size = this.aMK.size();
                 for (int i = 0; i < size; i++) {
                     gI(i);
                 }
@@ -126,7 +126,7 @@ public class b {
     }
 
     public b aaZ() {
-        if (!this.bEH) {
+        if (!this.bEI) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -136,16 +136,16 @@ public class b {
             this.mDialog.setCanceledOnTouchOutside(true);
             if (com.baidu.adp.lib.g.g.a(this.mDialog, this.mActivity)) {
                 Window window = this.mDialog.getWindow();
-                if (this.bEV == -1) {
-                    this.bEV = a.bFc;
+                if (this.bEW == -1) {
+                    this.bEW = a.bFd;
                 }
-                if (this.bEt == -1) {
-                    this.bEt = 17;
+                if (this.bEu == -1) {
+                    this.bEu = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.bEt);
+                window.setGravity(this.bEu);
                 window.setContentView(this.mRootView);
             }
         }
@@ -168,29 +168,29 @@ public class b {
     }
 
     private View gI(final int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.bEU, this.mContentView, false);
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.bEV, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         final TextView textView = (TextView) inflate.findViewById(d.g.dialog_item_btn);
-        if (this.bEY != null) {
-            textView.setLayoutParams(this.bEY);
-        }
-        if (this.bEW != -1) {
-            textView.setTextSize(0, this.bEW);
+        if (this.bEZ != null) {
+            textView.setLayoutParams(this.bEZ);
         }
         if (this.bEX != -1) {
+            textView.setTextSize(0, this.bEX);
+        }
+        if (this.bEY != -1) {
             textView.setPadding(0, 0, 0, 0);
-            textView.setGravity(this.bEX);
+            textView.setGravity(this.bEY);
         }
         View findViewById = inflate.findViewById(d.g.line);
-        CharSequence charSequence = this.aMJ.get(i);
+        CharSequence charSequence = this.aMK.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.aMJ.size() - 1) {
+        if (i == this.aMK.size() - 1) {
             findViewById.setVisibility(8);
             al.k(inflate, d.f.dialog_single_button_bg_selector);
-        } else if (this.aMJ.size() == 1) {
+        } else if (this.aMK.size() == 1) {
             findViewById.setVisibility(8);
             al.k(inflate, d.f.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
@@ -198,11 +198,11 @@ public class b {
         } else {
             al.k(inflate, d.f.dialg_alert_btn_bg);
         }
-        if (this.bES != null) {
+        if (this.bET != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bES.a(b.this, i, textView);
+                    b.this.bET.a(b.this, i, textView);
                 }
             });
         }

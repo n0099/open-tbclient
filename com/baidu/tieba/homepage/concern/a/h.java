@@ -15,15 +15,15 @@ import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baidu.tieba.a.f {
-    private String YA;
-    public BdUniqueId cnZ;
-    private ab eEg;
+    private String YB;
+    public BdUniqueId coa;
+    private ab eEh;
     private com.baidu.tieba.homepage.concern.view.c fGD;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eEg = new ab<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
+        this.eEh = new ab<l>() { // from class: com.baidu.tieba.homepage.concern.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, l lVar) {
@@ -35,8 +35,8 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
                         amVar.T("obj_locate", 2);
                     }
                     amVar.T("obj_type", 2);
-                    amVar.bJ("tid", lVar.cZC.getTid());
-                    amVar.k(ImageViewerConfig.FORUM_ID, lVar.cZC.getFid());
+                    amVar.bJ("tid", lVar.cZD.getTid());
+                    amVar.k(ImageViewerConfig.FORUM_ID, lVar.cZD.getFid());
                     amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
                     amVar.T("obj_param1", lVar.aQS() ? 2 : 1);
                     TiebaStatic.log(amVar);
@@ -52,8 +52,8 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
     /* renamed from: bb */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         final com.baidu.tieba.homepage.concern.view.c cVar = new com.baidu.tieba.homepage.concern.view.c(this.mPageContext);
-        if (this.cnZ != null) {
-            cVar.k(this.cnZ);
+        if (this.coa != null) {
+            cVar.k(this.coa);
         }
         if (!isPreloadSizeReady(1)) {
             cVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.h.2
@@ -81,10 +81,10 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
         lVar.oo(i + 1);
         t.aQD().b(lVar.tG("c12351"));
         if (aVar.fGG instanceof com.baidu.tieba.a.e) {
-            aVar.fGG.setPage(this.YA);
+            aVar.fGG.setPage(this.YB);
         }
         aVar.fGG.a(lVar);
-        aVar.fGG.d(this.eEg);
+        aVar.fGG.d(this.eEh);
         return aVar.getView();
     }
 
@@ -100,6 +100,6 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
 
     @Override // com.baidu.tieba.a.f
     public void qM(String str) {
-        this.YA = str;
+        this.YB = str;
     }
 }

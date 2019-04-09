@@ -12,21 +12,21 @@ import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class b {
-    private aq dfL;
-    private int eKv;
+    private aq dfM;
+    private int eKw;
     private TextView fkQ;
     private final FrsFragment fqE;
     private boolean fsK;
     private int fsL = -1;
 
     public b(FrsFragment frsFragment) {
-        this.eKv = 0;
+        this.eKw = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
         this.fqE = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.eKv = UtilHelper.getStatusBarHeight();
+            this.eKw = UtilHelper.getStatusBarHeight();
         }
     }
 
@@ -68,10 +68,10 @@ public class b {
             al.k(this.fkQ, d.C0277d.cp_link_tip_a);
             al.j(this.fkQ, d.C0277d.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.h(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (this.dfL == null) {
-                this.dfL = new aq();
+            if (this.dfM == null) {
+                this.dfM = new aq();
             }
-            this.dfL.a(this.fkQ, frameLayout, layoutParams, 2000);
+            this.dfM.a(this.fkQ, frameLayout, layoutParams, 2000);
             this.fsL = -1;
         }
     }
@@ -85,8 +85,8 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.dfL != null) {
-            this.dfL.onDestroy();
+        if (this.dfM != null) {
+            this.dfM.onDestroy();
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private Animation eNW;
+    private Animation eNX;
     private View fiv;
     private TbImageView fiw;
     private boolean fiy;
@@ -24,7 +24,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.eNW = null;
+        this.eNX = null;
         this.mIconId = d.f.icon_frs_reload;
         this.fiy = false;
         i(context, null);
@@ -33,7 +33,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.eNW = null;
+        this.eNX = null;
         this.mIconId = d.f.icon_frs_reload;
         this.fiy = false;
         i(context, attributeSet);
@@ -42,7 +42,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.eNW = null;
+        this.eNX = null;
         this.mIconId = d.f.icon_frs_reload;
         this.fiy = false;
         i(context, attributeSet);
@@ -90,12 +90,12 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.eNW == null) {
-            this.eNW = AnimationUtils.loadAnimation(getContext(), d.a.refresh_rotate);
-            this.eNW.setInterpolator(new LinearInterpolator());
-            this.eNW.setFillAfter(true);
+        if (this.eNX == null) {
+            this.eNX = AnimationUtils.loadAnimation(getContext(), d.a.refresh_rotate);
+            this.eNX.setInterpolator(new LinearInterpolator());
+            this.eNX.setFillAfter(true);
         }
-        return this.eNW;
+        return this.eNX;
     }
 
     public void aZz() {

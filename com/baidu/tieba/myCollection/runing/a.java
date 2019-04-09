@@ -12,14 +12,14 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes6.dex */
 public class a {
-    private static a hbB;
-    private long gya = 0;
+    private static a hbC;
+    private long gyb = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.runing.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.gya = System.currentTimeMillis();
+                a.this.gyb = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
@@ -37,16 +37,16 @@ public class a {
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        hbB = null;
+        hbC = null;
     }
 
     public static synchronized a bFz() {
         a aVar;
         synchronized (a.class) {
-            if (hbB == null) {
-                hbB = new a();
+            if (hbC == null) {
+                hbC = new a();
             }
-            aVar = hbB;
+            aVar = hbC;
         }
         return aVar;
     }
@@ -56,20 +56,20 @@ public class a {
     }
 
     public void restart() {
-        this.gya = 0L;
+        this.gyb = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.gya;
+        long currentTimeMillis = System.currentTimeMillis() - this.gyb;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.gya = System.currentTimeMillis();
+        this.gyb = System.currentTimeMillis();
     }
 
     public void destroy() {

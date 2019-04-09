@@ -5,14 +5,14 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes.dex */
 public class a<T extends e> extends v.a {
-    protected T Tu;
+    protected T Tv;
 
     public a(T t) {
         super((View) t);
-        this.Tu = t;
+        this.Tv = t;
     }
 
     public T pV() {
-        return this.Tu;
+        return this.Tv;
     }
 }

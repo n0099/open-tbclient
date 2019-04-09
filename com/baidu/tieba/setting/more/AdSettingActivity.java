@@ -24,13 +24,13 @@ import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private static int iru = 0;
-    private static int irv = 1;
-    private static int irw = -1;
-    private b irs;
-    private int irt = irw;
+    private static int irv = 0;
+    private static int irw = 1;
+    private static int irx = -1;
+    private b irt;
+    private int iru = irx;
     private com.baidu.tbadk.core.view.b mWaitingDialog = new com.baidu.tbadk.core.view.b(getPageContext());
-    private com.baidu.adp.framework.listener.a irx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348) { // from class: com.baidu.tieba.setting.more.AdSettingActivity.3
+    private com.baidu.adp.framework.listener.a iry = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348) { // from class: com.baidu.tieba.setting.more.AdSettingActivity.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.getError() != 0) {
@@ -65,22 +65,22 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.irs = new b(this);
+        this.irt = new b(this);
         registerTask();
-        registerListener(this.irx);
+        registerListener(this.iry);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.irs.onChangeSkinType(i);
+        this.irt.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.irs.bYR()) {
+        if (view == this.irt.bYR()) {
             bXH();
         }
     }
@@ -101,15 +101,15 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void px(boolean z) {
-        if (this.irt == iru) {
-            this.irs.bYT();
-        } else if (this.irt == irv) {
-            this.irs.bYS();
+        if (this.iru == irv) {
+            this.irt.bYT();
+        } else if (this.iru == irw) {
+            this.irt.bYS();
         }
         if (z) {
             showToast(d.j.setdefualt_error);
         }
-        this.irt = irw;
+        this.iru = irx;
         this.mWaitingDialog.dJ(false);
     }
 
@@ -117,22 +117,22 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     public void yw(int i) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (i == 0) {
-            this.irs.bYS();
+            this.irt.bYS();
             currentAccountObj.setMemberCloseAdVipClose(0);
         } else {
-            this.irs.bYT();
+            this.irt.bYT();
             currentAccountObj.setMemberCloseAdVipClose(1);
         }
-        this.irt = irw;
+        this.iru = irx;
         this.mWaitingDialog.dJ(false);
     }
 
     public void yx(int i) {
-        if (this.irt == irw) {
+        if (this.iru == irx) {
             if (i == 0) {
-                this.irt = iru;
+                this.iru = irv;
             } else {
-                this.irt = irv;
+                this.iru = irw;
             }
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
             memberCloseAdRequestMessage.setVipClose(i);
@@ -168,7 +168,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && this.irs != null) {
+        if (view != null && this.irt != null) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 TiebaStatic.log("c11143");
                 yx(1);

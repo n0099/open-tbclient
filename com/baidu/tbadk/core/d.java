@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    protected NewErrorData bvn = null;
+    protected NewErrorData bvo = null;
     protected x mNetWork;
 
     public d() {
@@ -30,8 +30,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: protected */
     public String getResult() {
         String acg = this.mNetWork.acg();
-        this.bvn = new NewErrorData();
-        this.bvn.parserJson(acg);
+        this.bvo = new NewErrorData();
+        this.bvo.parserJson(acg);
         return acg;
     }
 

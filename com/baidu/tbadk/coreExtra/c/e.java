@@ -20,21 +20,21 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private a cbS;
-    private b cbT;
-    private String cbU = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
-    private String cbV = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.cbU;
+    private a cbT;
+    private b cbU;
+    private String cbV = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
+    private String cbW = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.cbV;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.cbS = null;
         this.cbT = null;
+        this.cbU = null;
         this.mContext = context;
-        this.cbS = aVar;
+        this.cbT = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.cbT = cVar.a(this.mContext, this.cbS);
+            this.cbU = cVar.a(this.mContext, this.cbT);
         }
     }
 
@@ -51,53 +51,53 @@ public class e {
     }
 
     public void b(d dVar) {
-        if (this.cbT != null && dVar != null) {
+        if (this.cbU != null && dVar != null) {
             if (StringUtils.isNull(dVar.tid)) {
-                dVar.content = b(dVar.content, 80, 20, dVar.cbO ? this.cbU : "");
+                dVar.content = b(dVar.content, 80, 20, dVar.cbP ? this.cbV : "");
             }
-            this.cbT.a(a(dVar, "weixin"), 3, false);
+            this.cbU.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.cbT != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.cbO ? this.cbU : "");
-            this.cbT.a(a(dVar, "weixin_timeline"), 2, false);
+        if (this.cbU != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.cbP ? this.cbV : "");
+            this.cbU.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.cbT != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.cbO ? this.cbU : "");
-            this.cbT.a(a(dVar, "qqfriend"), 8, true);
+        if (this.cbU != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.cbP ? this.cbV : "");
+            this.cbU.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.cbT != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.cbO ? this.cbU : "");
-            this.cbT.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.cbU != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.cbP ? this.cbV : "");
+            this.cbU.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.cbT != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbO ? this.cbU : "");
-            this.cbT.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.cbU != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbV : "");
+            this.cbU.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.cbT != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbO ? this.cbV : "");
-            this.cbT.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.cbU != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbW : "");
+            this.cbU.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.cbT != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbO ? this.cbU : "");
-            this.cbT.a(a(dVar, "renren"), 7, true);
+        if (this.cbU != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbV : "");
+            this.cbU.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -129,7 +129,7 @@ public class e {
                 bR(uri, "sfc=" + str);
             }
         }
-        if (dVar.cbP) {
+        if (dVar.cbQ) {
             dVar.linkUrl = E(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;

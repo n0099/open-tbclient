@@ -19,10 +19,10 @@ public class ESDescriptorBox extends AbstractDescriptorBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ESDescriptorBox.java", ESDescriptorBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor"), 33);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor", "esDescriptor", "", "void"), 37);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "equals", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "java.lang.Object", Config.OS, "", "boolean"), 42);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "int"), 53);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor"), 33);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor", "esDescriptor", "", "void"), 37);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "java.lang.Object", Config.OS, "", "boolean"), 42);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "int"), 53);
     }
 
     public ESDescriptorBox() {

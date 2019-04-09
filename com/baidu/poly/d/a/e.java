@@ -6,20 +6,20 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e ahl;
+    private static e ahm;
 
     private e() {
     }
 
     public static e tJ() {
-        if (ahl == null) {
+        if (ahm == null) {
             synchronized (e.class) {
-                if (ahl == null) {
-                    ahl = new e();
+                if (ahm == null) {
+                    ahm = new e();
                 }
             }
         }
-        return ahl;
+        return ahm;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d

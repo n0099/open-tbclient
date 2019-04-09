@@ -293,7 +293,7 @@ public class e {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                if (next != null && str.equals(next.bwG)) {
+                if (next != null && str.equals(next.bwH)) {
                     it.remove();
                 }
             }
@@ -308,7 +308,7 @@ public class e {
                 m next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     Object aud = ((com.baidu.tieba.InjectPlugin.a) next).aud();
-                    if ((aud instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aud).bwG)) {
+                    if ((aud instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aud).bwH)) {
                         it.remove();
                     }
                 }

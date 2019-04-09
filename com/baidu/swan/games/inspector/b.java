@@ -9,22 +9,22 @@ import com.baidu.swan.apps.res.widget.dialog.e;
 import com.baidu.swan.games.i.a;
 /* loaded from: classes2.dex */
 public class b {
-    private FullScreenFloatView bdm;
+    private FullScreenFloatView bdn;
 
     public void a(a.b bVar, Activity activity) {
-        if (activity != null && this.bdm == null) {
-            if (a.a((bVar == null || bVar.bdH == null) ? null : bVar.bdH.bfa).isEnabled()) {
+        if (activity != null && this.bdn == null) {
+            if (a.a((bVar == null || bVar.bdI == null) ? null : bVar.bdI.bfc).isEnabled()) {
                 Q(activity);
             }
         }
     }
 
     private void Q(final Activity activity) {
-        this.bdm = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-        this.bdm.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
-        this.bdm.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
-        this.bdm.setAutoAttachEnable(false);
-        this.bdm.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
+        this.bdn = com.baidu.swan.apps.res.ui.b.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+        this.bdn.setFloatButtonText(activity.getString(a.h.aiapps_swan_inspector_info_button));
+        this.bdn.setFloatImageBackground(a.e.aiapps_float_view_button_shape);
+        this.bdn.setAutoAttachEnable(false);
+        this.bdn.setDragImageListener(new FullScreenFloatView.b() { // from class: com.baidu.swan.games.inspector.b.1
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
             public void onClick() {
                 b.this.R(activity);
@@ -34,7 +34,7 @@ public class b {
             public void DQ() {
             }
         });
-        this.bdm.setVisibility(0);
+        this.bdn.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

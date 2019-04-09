@@ -19,7 +19,7 @@ import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c ehj;
+    private c ehk;
     public ClickableHeaderImageView fAm;
     private Drawable fEA;
     private MetaData fEB;
@@ -41,7 +41,7 @@ public class a extends com.baidu.tieba.card.a<f> {
         this.fEy = (TextView) getView().findViewById(d.g.god_name);
         this.fEz = (TextView) getView().findViewById(d.g.god_describe);
         this.fEw = (CommonUserLikeButton) getView().findViewById(d.g.god_like_btn);
-        this.ehj = new c(tbPageContext, this.fEw);
+        this.ehk = new c(tbPageContext, this.fEw);
         this.fEw.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(d.g.bottom_line);
         this.fEx = (TextView) getView().findViewById(d.g.god_rank);
@@ -73,14 +73,14 @@ public class a extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.bBJ != null && fVar.bBJ.getGodUserData() != null) {
+        if (fVar != null && fVar.bBK != null && fVar.bBK.getGodUserData() != null) {
             this.fEC = fVar;
-            this.fEB = fVar.bBJ;
+            this.fEB = fVar.bBK;
             sd(fVar.rank);
-            this.fAm.setData(fVar.bBJ);
-            this.fEy.setText(fVar.bBJ.getName_show());
-            this.fEz.setText(fVar.bBJ.getGodUserData().getIntro());
-            this.ehj.a(fVar.bBJ);
+            this.fAm.setData(fVar.bBK);
+            this.fEy.setText(fVar.bBK.getName_show());
+            this.fEz.setText(fVar.bBK.getGodUserData().getIntro());
+            this.ehk.a(fVar.bBK);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }

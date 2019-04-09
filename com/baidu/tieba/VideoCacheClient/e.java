@@ -17,11 +17,11 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e cMe;
+    private static e cMf;
     private Context mContext;
     private Handler mHandler;
-    private long cMf = 0;
-    private boolean cJv = false;
+    private long cMg = 0;
+    private boolean cJw = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -49,27 +49,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.cJv = true;
-            com.baidu.adp.lib.g.e.jH().removeCallbacks(e.this.cJD);
+            e.this.cJw = true;
+            com.baidu.adp.lib.g.e.jH().removeCallbacks(e.this.cJE);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.cLR);
+            File file = new File(c.cLS);
             if (file.exists()) {
                 file.delete();
             }
             b.avT().avV();
-            e.this.cJv = false;
-            com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJD, 1000L);
+            e.this.cJw = false;
+            com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJE, 1000L);
         }
     };
-    private Runnable cJD = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable cJE = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.cJv) {
+            if (!e.this.cJw) {
                 e.this.ava();
-                com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJD, 1000L);
+                com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJE, 1000L);
             }
         }
     };
@@ -85,14 +85,14 @@ public class e {
     }
 
     public static e dq(Context context) {
-        if (cMe == null) {
+        if (cMf == null) {
             synchronized (e.class) {
-                if (cMe == null) {
-                    cMe = new e(context);
+                if (cMf == null) {
+                    cMf = new e(context);
                 }
             }
         }
-        return cMe;
+        return cMf;
     }
 
     public void ai(String str, int i) {
@@ -144,9 +144,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void avW() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.cMf >= 86400000) {
+        if (currentTimeMillis - this.cMg >= 86400000) {
             bZ("", "delete_expired_files");
-            this.cMf = currentTimeMillis;
+            this.cMg = currentTimeMillis;
         }
     }
 

@@ -14,36 +14,36 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int beS;
-    public boolean beT;
-    public String beU;
-    public b.a beV;
-    public String beW;
-    public b beX;
-    public c beY;
-    public String beZ;
-    public com.baidu.swan.games.inspector.a bfa;
+    public int beT;
+    public boolean beU;
+    public String beV;
+    public b.a beW;
+    public String beX;
+    public b beY;
+    public c beZ;
+    public String bfa;
+    public com.baidu.swan.games.inspector.a bfc;
 
     public static a iV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         a aVar = new a();
-        aVar.beU = str;
+        aVar.beV = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.beV = b.a.N(jSONObject);
+            aVar.beW = b.a.N(jSONObject);
             String optString = jSONObject.optString("deviceOrientation", IntentConfig.PORTRAIT);
-            aVar.beS = 0;
+            aVar.beT = 0;
             if (TextUtils.equals(optString, "landscape")) {
-                aVar.beS = 1;
+                aVar.beT = 1;
             }
-            aVar.beT = jSONObject.optBoolean("showStatusBar", false);
-            aVar.beW = jSONObject.optString("workers");
-            aVar.beX = b.as(jSONObject);
-            aVar.beY = c.a(jSONObject, aVar.beX);
-            aVar.beZ = jSONObject.optString("openDataContext");
-            aVar.bfa = new com.baidu.swan.games.inspector.a(jSONObject);
+            aVar.beU = jSONObject.optBoolean("showStatusBar", false);
+            aVar.beX = jSONObject.optString("workers");
+            aVar.beY = b.as(jSONObject);
+            aVar.beZ = c.a(jSONObject, aVar.beY);
+            aVar.bfa = jSONObject.optString("openDataContext");
+            aVar.bfc = new com.baidu.swan.games.inspector.a(jSONObject);
             return aVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -56,8 +56,8 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public List<C0204a> bfe;
-        public HashMap<String, Boolean> bff;
+        public List<C0204a> bff;
+        public HashMap<String, Boolean> bfg;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static b as(JSONObject jSONObject) {
@@ -69,12 +69,12 @@ public final class a {
                 return OR();
             }
             b bVar = new b();
-            bVar.bfe = new ArrayList();
-            bVar.bff = new HashMap<>();
+            bVar.bff = new ArrayList();
+            bVar.bfg = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    bVar.bfe.add(C0204a.aq(optJSONObject));
+                    bVar.bff.add(C0204a.aq(optJSONObject));
                 }
             }
             return bVar;
@@ -82,8 +82,8 @@ public final class a {
 
         private static b OR() {
             b bVar = new b();
-            bVar.bfe = new ArrayList();
-            bVar.bff = new HashMap<>();
+            bVar.bff = new ArrayList();
+            bVar.bfg = new HashMap<>();
             return bVar;
         }
     }
@@ -91,8 +91,8 @@ public final class a {
     /* renamed from: com.baidu.swan.games.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0204a {
-        public String bfc;
         public String bfd;
+        public String bfe;
         public String name;
         public String path;
 
@@ -102,27 +102,27 @@ public final class a {
                 return OQ();
             }
             C0204a c0204a = new C0204a();
-            c0204a.bfc = jSONObject.optString("root");
+            c0204a.bfd = jSONObject.optString("root");
             c0204a.name = jSONObject.optString("name");
-            if (TextUtils.isEmpty(c0204a.bfc) || TextUtils.isEmpty(c0204a.name)) {
+            if (TextUtils.isEmpty(c0204a.bfd) || TextUtils.isEmpty(c0204a.name)) {
                 return OQ();
             }
-            if (c0204a.bfc.endsWith(".js")) {
-                String[] split = c0204a.bfc.split(File.separator);
+            if (c0204a.bfd.endsWith(".js")) {
+                String[] split = c0204a.bfd.split(File.separator);
                 if (split.length < 1) {
                     return OQ();
                 }
-                c0204a.bfd = split[split.length - 1];
+                c0204a.bfe = split[split.length - 1];
                 c0204a.path = "";
                 for (int i = 0; i < split.length - 1; i++) {
                     c0204a.path += split[i] + File.separator;
                 }
             } else {
-                c0204a.path = c0204a.bfc;
+                c0204a.path = c0204a.bfd;
                 if (!c0204a.path.endsWith(File.separator)) {
                     c0204a.path += File.separator;
                 }
-                c0204a.bfd = "index.js";
+                c0204a.bfe = "index.js";
             }
             return c0204a;
         }
@@ -134,11 +134,11 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static class c {
-        public HashMap<String, String> bfg;
+        public HashMap<String, String> bfh;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static c a(JSONObject jSONObject, b bVar) {
-            if (jSONObject == null || bVar == null || bVar.bfe == null || bVar.bfe.size() <= 0) {
+            if (jSONObject == null || bVar == null || bVar.bff == null || bVar.bff.size() <= 0) {
                 return OS();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
@@ -146,10 +146,10 @@ public final class a {
                 return OS();
             }
             c cVar = new c();
-            cVar.bfg = new HashMap<>();
-            for (C0204a c0204a : bVar.bfe) {
-                if (c0204a != null && !TextUtils.isEmpty(c0204a.bfc)) {
-                    cVar.bfg.put(c0204a.bfc, optJSONObject.optString(c0204a.bfc));
+            cVar.bfh = new HashMap<>();
+            for (C0204a c0204a : bVar.bff) {
+                if (c0204a != null && !TextUtils.isEmpty(c0204a.bfd)) {
+                    cVar.bfh.put(c0204a.bfd, optJSONObject.optString(c0204a.bfd));
                 }
             }
             return cVar;
@@ -157,7 +157,7 @@ public final class a {
 
         private static c OS() {
             c cVar = new c();
-            cVar.bfg = new HashMap<>();
+            cVar.bfh = new HashMap<>();
             return cVar;
         }
     }

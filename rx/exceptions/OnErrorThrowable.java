@@ -64,7 +64,7 @@ public final class OnErrorThrowable extends RuntimeException {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public static final class a {
-            static final Set<Class<?>> jUR = cDL();
+            static final Set<Class<?>> jUS = cDL();
 
             private static Set<Class<?>> cDL() {
                 HashSet hashSet = new HashSet();
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.jUR.contains(obj.getClass())) {
+            if (a.jUS.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {

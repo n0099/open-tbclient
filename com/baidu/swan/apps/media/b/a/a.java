@@ -12,7 +12,7 @@ import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
 public class a extends y {
-    private static boolean aAM;
+    private static boolean aAN;
 
     public a(j jVar) {
         super(jVar, "/swan/live");
@@ -57,7 +57,7 @@ public class a extends y {
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
-                    boolean unused = a.aAM = bool.booleanValue();
+                    boolean unused = a.aAN = bool.booleanValue();
                     if (bool.booleanValue()) {
                         c.i("live", "authorize success");
                         a.this.b(context, str, unitedSchemeEntity, callbackHandler, bVar);
@@ -164,6 +164,6 @@ public class a extends y {
     }
 
     private boolean EA() {
-        return aAM;
+        return aAN;
     }
 }

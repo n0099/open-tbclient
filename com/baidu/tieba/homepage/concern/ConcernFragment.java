@@ -25,11 +25,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ConcernFragment extends BaseFragment implements ae {
-    private boolean eOn;
+    private boolean eOo;
     private ConcernPageView fFM;
     private ConcernPageView.a fFN;
     private boolean fFO = false;
-    private CustomMessageListener ddr = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
+    private CustomMessageListener dds = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,9 +37,9 @@ public class ConcernFragment extends BaseFragment implements ae {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(ConcernFragment.this.getUniqueId())) {
-                    if (updateAttentionMessage.getData().bYB != null) {
-                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().bYB, ConcernFragment.this.eZP) != null) {
-                            TiebaStatic.log(new am("c12534").T("obj_locate", at.a.bLp));
+                    if (updateAttentionMessage.getData().bYC != null) {
+                        if (AntiHelper.a(ConcernFragment.this.getActivity(), updateAttentionMessage.getData().bYC, ConcernFragment.this.eZQ) != null) {
+                            TiebaStatic.log(new am("c12534").T("obj_locate", at.a.bLq));
                         }
                     } else if (updateAttentionMessage.getData().Jy && updateAttentionMessage.getData().isAttention) {
                         l.showToast(ConcernFragment.this.getActivity(), d.j.attention_success);
@@ -48,15 +48,15 @@ public class ConcernFragment extends BaseFragment implements ae {
             }
         }
     };
-    private final AntiHelper.a eZP = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
+    private final AntiHelper.a eZQ = new AntiHelper.a() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.2
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12536").T("obj_locate", at.a.bLp));
+            TiebaStatic.log(new am("c12536").T("obj_locate", at.a.bLq));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12535").T("obj_locate", at.a.bLp));
+            TiebaStatic.log(new am("c12535").T("obj_locate", at.a.bLq));
         }
     };
 
@@ -125,7 +125,7 @@ public class ConcernFragment extends BaseFragment implements ae {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
-        MessageManager.getInstance().unRegisterListener(this.ddr);
+        MessageManager.getInstance().unRegisterListener(this.dds);
         super.onDetach();
     }
 
@@ -140,11 +140,11 @@ public class ConcernFragment extends BaseFragment implements ae {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.eOn) {
+            if (!this.eOo) {
                 if (this.fFM != null) {
                     this.fFM.blo();
                 }
-                this.eOn = true;
+                this.eOo = true;
             }
             this.fFM.setViewForeground();
             return;
@@ -159,7 +159,7 @@ public class ConcernFragment extends BaseFragment implements ae {
 
     @Override // com.baidu.tieba.frs.ae
     public void aBr() {
-        if (this.eOn) {
+        if (this.eOo) {
             this.fFM.reload();
         }
     }

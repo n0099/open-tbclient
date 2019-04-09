@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity jpe;
+    private HotTopicChangeFourmActivity jpf;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.jpe = hotTopicChangeFourmActivity;
-        this.mContext = this.jpe.getPageContext().getContext();
+        this.jpf = hotTopicChangeFourmActivity;
+        this.mContext = this.jpf.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -87,10 +87,10 @@ public class a extends BaseAdapter {
         } else {
             c0410a = (C0410a) obj;
         }
-        c0410a.jpg.setText(Et(hotTopicBussinessData.mForumName));
-        c0410a.jpf.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0410a.jph.setText(Et(hotTopicBussinessData.mForumName));
+        c0410a.jpg.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         al.k(c0410a.mRootView, d.f.select_forum_item_bg);
-        al.j(c0410a.jpg, d.C0277d.cp_cont_b);
+        al.j(c0410a.jph, d.C0277d.cp_cont_b);
         al.l(c0410a.fiv, d.C0277d.cp_bg_line_e);
         return c0410a;
     }
@@ -99,13 +99,13 @@ public class a extends BaseAdapter {
         C0410a c0410a = new C0410a();
         c0410a.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.hot_topic_change_item, (ViewGroup) null);
         al.k(c0410a.mRootView, d.f.select_forum_item_bg);
-        al.j(c0410a.jpg, d.C0277d.cp_cont_b);
-        c0410a.jpg = (TextView) c0410a.mRootView.findViewById(d.g.fourm_tv);
+        al.j(c0410a.jph, d.C0277d.cp_cont_b);
+        c0410a.jph = (TextView) c0410a.mRootView.findViewById(d.g.fourm_tv);
         c0410a.fiv = c0410a.mRootView.findViewById(d.g.line_view);
-        c0410a.jpf = (TbImageView) c0410a.mRootView.findViewById(d.g.icon_img);
-        c0410a.jpf.setDefaultBgResource(d.C0277d.cp_bg_line_e);
-        c0410a.jpf.setDefaultResource(d.f.transparent_bg);
-        c0410a.jpf.setDefaultErrorResource(d.f.icon_default_ba_120);
+        c0410a.jpg = (TbImageView) c0410a.mRootView.findViewById(d.g.icon_img);
+        c0410a.jpg.setDefaultBgResource(d.C0277d.cp_bg_line_e);
+        c0410a.jpg.setDefaultResource(d.f.transparent_bg);
+        c0410a.jpg.setDefaultErrorResource(d.f.icon_default_ba_120);
         c0410a.mRootView.setTag(c0410a);
         return c0410a;
     }
@@ -115,8 +115,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes3.dex */
     public class C0410a {
         public View fiv;
-        public TbImageView jpf;
-        public TextView jpg;
+        public TbImageView jpg;
+        public TextView jph;
         public View mRootView;
 
         private C0410a() {

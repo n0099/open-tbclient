@@ -13,42 +13,42 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cSo;
-    private boolean aIe;
-    private List<d> cSl = new ArrayList();
-    private Map<d, List<d>> cSm = new HashMap();
+    private static volatile c cSp;
+    private boolean aIf;
+    private List<d> cSm = new ArrayList();
     private Map<d, List<d>> cSn = new HashMap();
+    private Map<d, List<d>> cSo = new HashMap();
 
     public static c ayr() {
-        if (cSo == null) {
+        if (cSp == null) {
             synchronized (c.class) {
-                if (cSo == null) {
-                    cSo = new c();
+                if (cSp == null) {
+                    cSp = new c();
                 }
             }
         }
-        return cSo;
+        return cSp;
     }
 
     public void initData() {
         C(ayw());
-        this.aIe = true;
+        this.aIf = true;
     }
 
     public boolean ays() {
-        return this.aIe;
+        return this.aIf;
     }
 
     public List<d> ayt() {
-        return this.cSl;
-    }
-
-    public Map<d, List<d>> ayu() {
         return this.cSm;
     }
 
-    public Map<d, List<d>> ayv() {
+    public Map<d, List<d>> ayu() {
         return this.cSn;
+    }
+
+    public Map<d, List<d>> ayv() {
+        return this.cSo;
     }
 
     private void C(JSONArray jSONArray) {
@@ -60,12 +60,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (aU = d.aU(optJSONObject)) != null) {
-                        this.cSl.add(aU);
+                        this.cSm.add(aU);
                         if (aU.ayA()) {
-                            this.cSm.put(aU, aU.aeG);
-                            for (d dVar : aU.aeG) {
+                            this.cSn.put(aU, aU.aeH);
+                            for (d dVar : aU.aeH) {
                                 if (dVar.ayA()) {
-                                    this.cSn.put(dVar, dVar.aeG);
+                                    this.cSo.put(dVar, dVar.aeH);
                                 }
                             }
                         }

@@ -15,13 +15,13 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BannerGifView extends RelativeLayout {
-    private String bym;
-    private GifView ccj;
-    private ImageView cck;
-    private boolean ccl;
-    private com.baidu.tbadk.h.a ccm;
-    private com.baidu.tbadk.h.b ccn;
-    private final com.baidu.tbadk.h.b cco;
+    private String byn;
+    private GifView cck;
+    private ImageView ccl;
+    private boolean ccm;
+    private com.baidu.tbadk.h.a ccn;
+    private com.baidu.tbadk.h.b cco;
+    private final com.baidu.tbadk.h.b ccp;
     private View mMaskView;
     private final View.OnClickListener mOnClickListener;
     private String mPicUrl;
@@ -30,11 +30,11 @@ public class BannerGifView extends RelativeLayout {
     public BannerGifView(Context context) {
         super(context);
         this.mRatio = 5.744f;
-        this.ccl = false;
-        this.cco = new com.baidu.tbadk.h.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
+        this.ccm = false;
+        this.ccp = new com.baidu.tbadk.h.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
             @Override // com.baidu.tbadk.h.b
             public boolean ay(View view) {
-                if (BannerGifView.this.ccn == null || !BannerGifView.this.ccn.ay(view)) {
+                if (BannerGifView.this.cco == null || !BannerGifView.this.cco.ay(view)) {
                     BannerGifView.this.ajV();
                 }
                 return true;
@@ -43,7 +43,7 @@ public class BannerGifView extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerGifView.this.cck) {
+                if (view == BannerGifView.this.ccl) {
                     BannerGifView.this.setCloseVisibility(false);
                 }
             }
@@ -53,14 +53,14 @@ public class BannerGifView extends RelativeLayout {
 
     private void initUI() {
         View inflate = LayoutInflater.from(getContext()).inflate(d.h.gif_banner_view, this);
-        this.cck = (ImageView) inflate.findViewById(d.g.btn_close);
+        this.ccl = (ImageView) inflate.findViewById(d.g.btn_close);
         this.mMaskView = inflate.findViewById(d.g.image_mask);
-        this.ccj = (GifView) inflate.findViewById(d.g.image_gif);
-        this.ccj.setShowStaticDrawable(false);
-        this.ccj.setSupportNoImage(false);
-        this.ccj.setAutoPlay(true);
-        this.cck.setOnClickListener(this.mOnClickListener);
-        this.ccj.setOnInterceptClickListener(this.cco);
+        this.cck = (GifView) inflate.findViewById(d.g.image_gif);
+        this.cck.setShowStaticDrawable(false);
+        this.cck.setSupportNoImage(false);
+        this.cck.setAutoPlay(true);
+        this.ccl.setOnClickListener(this.mOnClickListener);
+        this.cck.setOnInterceptClickListener(this.ccp);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -69,7 +69,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public GifView getGifView() {
-        return this.ccj;
+        return this.cck;
     }
 
     public void setRatio(float f) {
@@ -78,28 +78,28 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setErrorResid(int i) {
-        this.ccj.setErrorResid(i);
+        this.cck.setErrorResid(i);
     }
 
     public void setDefaultResid(int i) {
-        al.c(this.ccj, i);
+        al.c(this.cck, i);
     }
 
     public void setNeedNightMask(boolean z) {
-        this.ccl = z;
+        this.ccm = z;
         iX(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setCloseVisibility(boolean z) {
-        this.cck.setVisibility(z ? 0 : 8);
+        this.ccl.setVisibility(z ? 0 : 8);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
-        this.ccm = aVar;
+        this.ccn = aVar;
     }
 
     public void setOnClickEventListener(com.baidu.tbadk.h.b bVar) {
-        this.ccn = bVar;
+        this.cco = bVar;
     }
 
     public void onChangeSkinType(int i) {
@@ -109,14 +109,14 @@ public class BannerGifView extends RelativeLayout {
 
     private void iX(int i) {
         int i2 = 0;
-        this.mMaskView.setVisibility((this.ccl && (i == 1)) ? 8 : 8);
+        this.mMaskView.setVisibility((this.ccm && (i == 1)) ? 8 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ajV() {
         try {
-            if (!TextUtils.isEmpty(this.bym)) {
-                ba.adA().c((TbPageContext) i.aK(getContext()), new String[]{this.bym});
+            if (!TextUtils.isEmpty(this.byn)) {
+                ba.adA().c((TbPageContext) i.aK(getContext()), new String[]{this.byn});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,8 +138,8 @@ public class BannerGifView extends RelativeLayout {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.ccm != null) {
-            this.ccm.a(this, i == 0, this.mPicUrl);
+        if (this.ccn != null) {
+            this.ccn.a(this, i == 0, this.mPicUrl);
         }
     }
 }

@@ -20,8 +20,8 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("MovieExtendsHeaderBox.java", MovieExtendsHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
     }
 
     public MovieExtendsHeaderBox() {

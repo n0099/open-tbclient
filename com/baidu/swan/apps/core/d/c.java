@@ -13,8 +13,8 @@ import com.baidu.swan.apps.res.ui.SelectorTextView;
 import com.baidu.swan.apps.res.widget.dialog.a;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.a {
-    private SelectorTextView arH;
-    private a arI;
+    private SelectorTextView arI;
+    private a arJ;
     private TextView mContentView;
     private View mView;
 
@@ -23,7 +23,7 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
     }
 
     public void a(a aVar) {
-        this.arI = aVar;
+        this.arJ = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.a
@@ -31,55 +31,55 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
         this.mContentView = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
         this.mContentView.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.arH = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.arH.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        this.arI = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.arI.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
         zp();
         return this.mView;
     }
 
     private void zp() {
-        if (this.arI == null) {
+        if (this.arJ == null) {
             return;
         }
-        this.mContentView.setText(this.mContext.getText(this.arI.aiY));
+        this.mContentView.setText(this.mContext.getText(this.arJ.aiZ));
         this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.arI.arN != null) {
-                    c.this.arI.arN.U(view);
+                if (c.this.arJ.arO != null) {
+                    c.this.arJ.arO.U(view);
                 }
             }
         });
-        if (this.arI.arK > 0) {
-            this.arH.setVisibility(0);
-            this.arH.setText(this.mContext.getText(this.arI.arK));
-            this.arH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.2
+        if (this.arJ.arL > 0) {
+            this.arI.setVisibility(0);
+            this.arI.setText(this.mContext.getText(this.arJ.arL));
+            this.arI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.arI.arM != null) {
-                        c.this.arI.arM.U(view);
+                    if (c.this.arJ.arN != null) {
+                        c.this.arJ.arN.U(view);
                     }
                 }
             });
         } else {
-            this.arH.setVisibility(8);
+            this.arI.setVisibility(8);
         }
-        if (this.arI.arL <= 0) {
+        if (this.arJ.arM <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.arI.arL);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.arJ.arM);
         q.a(getContext(), drawable);
         drawable.setBounds(0, 0, x.dip2px(this.mContext, 12.0f), x.dip2px(this.mContext, 12.0f));
-        this.arH.setCompoundDrawables(drawable, null, null, null);
+        this.arI.setCompoundDrawables(drawable, null, null, null);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends a.b {
-        private int aiY;
-        private int arK;
+        private int aiZ;
         private int arL;
-        public a.c arM;
+        private int arM;
         public a.c arN;
+        public a.c arO;
 
         public a(Context context) {
             super(context);
@@ -102,13 +102,13 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.a {
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
         /* renamed from: ck */
         public a cl(int i) {
-            this.aiY = i;
+            this.aiZ = i;
             return this;
         }
 
         public a a(int i, a.c cVar) {
-            this.aiY = i;
-            this.arN = cVar;
+            this.aiZ = i;
+            this.arO = cVar;
             return this;
         }
 

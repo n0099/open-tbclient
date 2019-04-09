@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y hYu = null;
-    private LinkedHashMap<String, Integer> hYv = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private static y hYv = null;
+    private LinkedHashMap<String, Integer> hYw = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.hYv.clear();
+                y.this.hYw.clear();
             }
         }
     };
@@ -25,30 +25,30 @@ public class y {
     }
 
     public static y bTR() {
-        if (hYu == null) {
+        if (hYv == null) {
             synchronized (y.class) {
-                if (hYu == null) {
-                    hYu = new y();
+                if (hYv == null) {
+                    hYv = new y();
                 }
             }
         }
-        return hYu;
+        return hYv;
     }
 
     public void bj(String str, int i) {
-        if (i != 0 || !this.hYv.containsKey(str)) {
-            this.hYv.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.hYw.containsKey(str)) {
+            this.hYw.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.hYv.remove(str);
+            this.hYw.remove(str);
         }
     }
 
     public int AS(String str) {
-        Integer num = this.hYv.get(str);
+        Integer num = this.hYw.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.hYv.clear();
+        this.hYw.clear();
     }
 }

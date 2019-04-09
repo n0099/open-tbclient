@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean Jy;
-    protected ArrayList<FeedData> gyc = new ArrayList<>();
+    protected ArrayList<FeedData> gyd = new ArrayList<>();
     protected an page = new an();
-    protected h gyd = new h();
+    protected h gye = new h();
 
     public ArrayList<FeedData> bxJ() {
-        return this.gyc;
+        return this.gyd;
     }
 
     public an getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gyc.add(feedData);
+                    this.gyd.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                        this.gyc.remove(feedData);
+                        this.gyd.remove(feedData);
                     }
                 }
             }
-            this.gyd.parserJson(jSONObject.optJSONObject("message"));
+            this.gye.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.Jy = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gyc.add(feedData);
+                        this.gyd.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                            this.gyc.remove(feedData);
+                            this.gyd.remove(feedData);
                         }
                     }
                 }

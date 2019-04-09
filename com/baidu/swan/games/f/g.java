@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class g {
-    private static String bcG = "0123456789abcdef";
-    private static String bcH = "/aigames/sandbox/";
-    private static String bcI;
+    private static String bcH = "0123456789abcdef";
+    private static String bcI = "/aigames/sandbox/";
+    private static String bcJ;
 
     public static boolean iv(String str) {
         boolean z = true;
@@ -88,8 +88,8 @@ public class g {
         byte[] bytes = str.getBytes();
         StringBuffer stringBuffer = new StringBuffer(bytes.length * 2);
         for (int i = 0; i < bytes.length; i++) {
-            stringBuffer.append(bcG.charAt((bytes[i] & 240) >> 4));
-            stringBuffer.append(bcG.charAt((bytes[i] & 15) >> 0));
+            stringBuffer.append(bcH.charAt((bytes[i] & 240) >> 4));
+            stringBuffer.append(bcH.charAt((bytes[i] & 15) >> 0));
         }
         return stringBuffer.toString();
     }
@@ -317,7 +317,7 @@ public class g {
         if (TextUtils.isEmpty(str)) {
             str = md52;
         }
-        return append.append(str).append(bcH).append(Jg).toString();
+        return append.append(str).append(bcI).append(Jg).toString();
     }
 
     private static void aY(String str, String str2) {
@@ -397,10 +397,10 @@ public class g {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(bcI) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            bcI = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(bcJ) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            bcJ = externalFilesDir.getAbsolutePath();
         }
-        return bcI;
+        return bcJ;
     }
 
     public static String cv(Context context) {
@@ -559,25 +559,25 @@ public class g {
         if (bVar2 == null || bVar == null) {
             return false;
         }
-        Map<String, Object> map2 = bVar.bbQ;
-        if (bVar.bbQ == null) {
+        Map<String, Object> map2 = bVar.bbR;
+        if (bVar.bbR == null) {
             return false;
         }
-        c cVar = bVar.bbO;
+        c cVar = bVar.bbP;
         JsFunction e = e(LivenessStat.TYPE_FACE_MATCH_FAIL, map2);
         JsFunction e2 = e("complete", map2);
         JsFunction e3 = e("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            bVar2.errMsg = bVar.bbP + str;
+            bVar2.errMsg = bVar.bbQ + str;
             a(aVar, bVar2.errMsg);
             a(e, e2, bVar2, e3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.bbP + "unknown error";
+            bVar2.errMsg = bVar.bbQ + "unknown error";
             a(e, e2, bVar2, e3);
             return false;
         } else {
-            bVar2.errMsg = bVar.bbP + cVar.errMsg;
+            bVar2.errMsg = bVar.bbQ + cVar.errMsg;
             if (cVar.errCode != 0) {
                 a(e, e2, bVar2, e3);
                 return false;
@@ -592,9 +592,9 @@ public class g {
 
     public static b a(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.bbO = cVar;
-        bVar.bbP = str;
-        bVar.bbQ = map;
+        bVar.bbP = cVar;
+        bVar.bbQ = str;
+        bVar.bbR = map;
         return bVar;
     }
 
@@ -944,7 +944,7 @@ public class g {
         if (!TextUtils.isEmpty(bI)) {
             bJ = bI;
         }
-        return append.append(bJ).append(bcH).append(str).toString();
+        return append.append(bJ).append(bcI).append(str).toString();
     }
 
     public static boolean iI(String str) {

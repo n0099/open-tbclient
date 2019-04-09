@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes4.dex */
 public class a extends PostData {
-    public static final BdUniqueId hjz = BdUniqueId.gen();
+    public static final BdUniqueId hjA = BdUniqueId.gen();
     private String buttonText;
-    private String bxg;
-    private String hjA;
-    private int hjB;
+    private String bxh;
+    private String hjB;
+    private int hjC;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class a extends PostData {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.hjA = godCard.time_ex;
+            this.hjB = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
             this.buttonText = godCard.button_text;
-            this.bxg = godCard.button_url;
-            this.hjB = godCard.show_floor.intValue();
+            this.bxh = godCard.button_url;
+            this.hjC = godCard.show_floor.intValue();
         }
     }
 
@@ -38,7 +38,7 @@ public class a extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
     public String bHQ() {
-        return this.hjA;
+        return this.hjB;
     }
 
     public String getText() {
@@ -54,15 +54,15 @@ public class a extends PostData {
     }
 
     public String bHS() {
-        return this.bxg;
+        return this.bxh;
     }
 
     public int bHT() {
-        return this.hjB;
+        return this.hjC;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hjz;
+        return hjA;
     }
 }

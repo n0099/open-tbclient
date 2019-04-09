@@ -12,17 +12,17 @@ import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d<V> implements RunnableFuture<V>, ScheduledFuture<V> {
-    private final FutureTask<V> jze;
+    private final FutureTask<V> jzf;
     private final Handler mHandler;
 
     public d(Handler handler, Callable<V> callable) {
         this.mHandler = handler;
-        this.jze = new FutureTask<>(callable);
+        this.jzf = new FutureTask<>(callable);
     }
 
     public d(Handler handler, Runnable runnable, @Nullable V v) {
         this.mHandler = handler;
-        this.jze = new FutureTask<>(runnable, v);
+        this.jzf = new FutureTask<>(runnable, v);
     }
 
     @Override // java.util.concurrent.Delayed
@@ -39,31 +39,31 @@ public class d<V> implements RunnableFuture<V>, ScheduledFuture<V> {
 
     @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
     public void run() {
-        this.jze.run();
+        this.jzf.run();
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        return this.jze.cancel(z);
+        return this.jzf.cancel(z);
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        return this.jze.isCancelled();
+        return this.jzf.isCancelled();
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
-        return this.jze.isDone();
+        return this.jzf.isDone();
     }
 
     @Override // java.util.concurrent.Future
     public V get() throws InterruptedException, ExecutionException {
-        return this.jze.get();
+        return this.jzf.get();
     }
 
     @Override // java.util.concurrent.Future
     public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        return this.jze.get(j, timeUnit);
+        return this.jzf.get(j, timeUnit);
     }
 }

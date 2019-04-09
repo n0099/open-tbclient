@@ -21,9 +21,9 @@ import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.m.a {
-    private View aLe;
-    protected TextView cnA;
-    protected TbImageView cnz;
+    private View aLf;
+    protected TbImageView cnA;
+    protected TextView cnB;
     private BdListView fyc;
     private C0300a fyd;
     private TextView fye;
@@ -47,9 +47,9 @@ public class a extends com.baidu.tbadk.m.a {
     public a(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(eVar.getContext()).inflate(d.h.forbid_detail_view_layout, (ViewGroup) null));
         this.mPageContext = eVar;
-        this.cnz = (TbImageView) this.attachedView.findViewById(d.g.net_refresh_image);
-        this.cnA = (TextView) this.attachedView.findViewById(d.g.net_refresh_desc);
-        this.aLe = this.attachedView.findViewById(d.g.divider);
+        this.cnA = (TbImageView) this.attachedView.findViewById(d.g.net_refresh_image);
+        this.cnB = (TextView) this.attachedView.findViewById(d.g.net_refresh_desc);
+        this.aLf = this.attachedView.findViewById(d.g.divider);
         this.fyc = (BdListView) this.attachedView.findViewById(d.g.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
         this.mTitleView = (TextView) this.attachedView.findViewById(d.g.content_title);
@@ -58,11 +58,11 @@ public class a extends com.baidu.tbadk.m.a {
 
     public void pp(String str) {
         if (str == null) {
-            this.cnA.setVisibility(8);
+            this.cnB.setVisibility(8);
             return;
         }
-        this.cnA.setVisibility(0);
-        this.cnA.setText(str);
+        this.cnB.setVisibility(0);
+        this.cnB.setText(str);
     }
 
     public void cg(List<RecmForumInfo> list) {
@@ -83,16 +83,16 @@ public class a extends com.baidu.tbadk.m.a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cnz.setImageResource(0);
+        this.cnA.setImageResource(0);
     }
 
     public void onChangeSkinType() {
         if (isViewAttached()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            al.c(this.cnz, d.f.new_pic_emotion_01);
-            al.c(this.cnA, d.C0277d.cp_cont_d, 1, skinType);
+            al.c(this.cnA, d.f.new_pic_emotion_01);
+            al.c(this.cnB, d.C0277d.cp_cont_d, 1, skinType);
             al.l(this.attachedView, d.C0277d.cp_bg_line_d);
-            al.l(this.aLe, d.C0277d.cp_bg_line_c);
+            al.l(this.aLf, d.C0277d.cp_bg_line_c);
             al.c(this.mTitleView, d.C0277d.cp_cont_d, 1, skinType);
             al.c(this.fye, d.C0277d.cp_cont_f, 1, skinType);
             if (this.fyd != null) {

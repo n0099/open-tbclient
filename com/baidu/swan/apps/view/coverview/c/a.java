@@ -22,11 +22,11 @@ public class a {
         View nAView = swanAppNAViewContainer.getNAView();
         if (nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) {
             com.baidu.swan.apps.view.coverview.subview.a aVar2 = (com.baidu.swan.apps.view.coverview.subview.a) nAView;
-            if (aVar == null || aVar.aBI == null || !aVar.aBI.isValid()) {
+            if (aVar == null || aVar.aBJ == null || !aVar.aBJ.isValid()) {
                 return false;
             }
             com.baidu.swan.apps.view.coverview.b.a model = aVar2.getModel();
-            if (model == null || model.aBI == null || !model.aBI.isValid()) {
+            if (model == null || model.aBJ == null || !model.aBJ.isValid()) {
                 return false;
             }
             com.baidu.swan.apps.view.container.c.a a = a(model, aVar);
@@ -43,7 +43,7 @@ public class a {
                 return b(swanAppNAViewContainer, aVar);
             }
             if ((a.get() & 32) == 32 && swanAppNAViewContainer.getScrollView() != null) {
-                swanAppNAViewContainer.getScrollView().smoothScrollTo(0, aVar.aBC);
+                swanAppNAViewContainer.getScrollView().smoothScrollTo(0, aVar.aBD);
             }
             return swanAppNAViewContainer.a(aVar);
         }
@@ -84,7 +84,7 @@ public class a {
 
     private static boolean c(@NonNull SwanAppNAViewContainer swanAppNAViewContainer, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         long j;
-        if (aVar.aZg == null || TextUtils.isEmpty(aVar.aZg.optString(UBC.CONTENT_KEY_DURATION))) {
+        if (aVar.aZh == null || TextUtils.isEmpty(aVar.aZh.optString(UBC.CONTENT_KEY_DURATION))) {
             return false;
         }
         View nAView = swanAppNAViewContainer.getNAView();
@@ -96,11 +96,11 @@ public class a {
         ValueAnimator a2 = a(swanAppNAViewContainer, aVar, true);
         ValueAnimator d = d(swanAppNAViewContainer, aVar);
         try {
-            j = Long.parseLong(aVar.aZg.optString(UBC.CONTENT_KEY_DURATION));
+            j = Long.parseLong(aVar.aZh.optString(UBC.CONTENT_KEY_DURATION));
         } catch (Exception e) {
             j = 0;
         }
-        Interpolator hT = com.baidu.swan.apps.view.coverview.b.a.hT(aVar.aZg.optString("easing"));
+        Interpolator hT = com.baidu.swan.apps.view.coverview.b.a.hT(aVar.aZh.optString("easing"));
         aVar2.a(aVar);
         swanAppNAViewContainer.b(aVar);
         AnimatorSet a3 = a(swanAppNAViewContainer, aVar, j, hT, a, a2, d);
@@ -117,8 +117,8 @@ public class a {
         if (nAView == null || !(nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) || (model = ((com.baidu.swan.apps.view.coverview.subview.a) nAView).getModel()) == null) {
             return null;
         }
-        int left = z ? model.aBI.getLeft() : model.aBI.getTop();
-        int left2 = z ? aVar.aBI.getLeft() : aVar.aBI.getTop();
+        int left = z ? model.aBJ.getLeft() : model.aBJ.getTop();
+        int left2 = z ? aVar.aBJ.getLeft() : aVar.aBJ.getTop();
         if (left != left2) {
             valueAnimator = ValueAnimator.ofInt(left, left2);
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.view.coverview.c.a.1
@@ -151,9 +151,9 @@ public class a {
         if (nAView == null || !(nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) || (model = ((com.baidu.swan.apps.view.coverview.subview.a) nAView).getModel()) == null) {
             return null;
         }
-        if (aVar.akk != null) {
-            float a = n.a(model.akk, "opacity", 1.0f);
-            float a2 = n.a(aVar.akk, "opacity", a);
+        if (aVar.akl != null) {
+            float a = n.a(model.akl, "opacity", 1.0f);
+            float a2 = n.a(aVar.akl, "opacity", a);
             if (a != a2) {
                 objectAnimator = ObjectAnimator.ofFloat(swanAppNAViewContainer, "alpha", a, a2);
                 return objectAnimator;

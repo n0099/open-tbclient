@@ -11,22 +11,22 @@ import com.baidu.tieba.u.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private String akQ;
-    private String jgO;
+    private String akR;
+    private String jgP;
     private boolean isLoading = false;
-    private b.a jgN = new b.a() { // from class: com.baidu.tieba.u.c.1
+    private b.a jgO = new b.a() { // from class: com.baidu.tieba.u.c.1
         @Override // com.baidu.tieba.u.b.a
         public void b(boolean z, String str, String str2) {
             c.this.isLoading = false;
             if (z) {
-                c.this.akQ = str;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", c.this.akQ);
-                c.this.jgO = str2;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", c.this.jgO);
+                c.this.akR = str;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", c.this.akR);
+                c.this.jgP = str2;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", c.this.jgP);
             }
         }
     };
-    private CustomMessageListener bvw = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
+    private CustomMessageListener bvx = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -45,9 +45,9 @@ public class c {
 
     private void init() {
         this.isLoading = false;
-        this.jgO = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_url", null);
-        this.akQ = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_path", null);
-        MessageManager.getInstance().registerListener(this.bvw);
+        this.jgP = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_url", null);
+        this.akR = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_path", null);
+        MessageManager.getInstance().registerListener(this.bvx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -59,7 +59,7 @@ public class c {
 
     private void Ed(String str) {
         this.isLoading = true;
-        new b(getPath(), str, this.jgN).execute(new Void[0]);
+        new b(getPath(), str, this.jgO).execute(new Void[0]);
     }
 
     public boolean cmR() {
@@ -67,31 +67,31 @@ public class c {
             return false;
         }
         if (!new File(getVideoPath()).exists()) {
-            this.akQ = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.akQ);
-            this.jgO = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.jgO);
+            this.akR = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.akR);
+            this.jgP = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.jgP);
             return false;
         }
         return true;
     }
 
     public String getVideoPath() {
-        return this.akQ;
+        return this.akR;
     }
 
     public void cmS() {
         if (!ap.isEmpty(getPath())) {
             m.G(new File(getPath()));
-            this.akQ = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.akQ);
-            this.jgO = null;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.jgO);
+            this.akR = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_path", this.akR);
+            this.jgP = null;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_url", this.jgP);
         }
     }
 
     private boolean Ee(String str) {
-        return (ap.isEmpty(str) || str.equals(this.jgO)) ? false : true;
+        return (ap.isEmpty(str) || str.equals(this.jgP)) ? false : true;
     }
 
     private String getPath() {

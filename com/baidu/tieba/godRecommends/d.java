@@ -24,7 +24,7 @@ import tbclient.MFollow.MFollowResult;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class d implements View.OnClickListener {
-    private com.baidu.tbadk.core.dialog.a VQ;
+    private com.baidu.tbadk.core.dialog.a VR;
     private a fDN;
     private ViewGroup fDS;
     private com.baidu.tieba.godRecommends.a fDT;
@@ -103,8 +103,8 @@ public class d implements View.OnClickListener {
             al.k(this.fDY, d.f.god_recommend_right_button_selertor);
             this.fDT.setData(this.fDZ);
             this.mListView.setAdapter((ListAdapter) this.fDT);
-            this.VQ.reset();
-            this.VQ.b(this.mContext).aaW();
+            this.VR.reset();
+            this.VR.b(this.mContext).aaW();
         }
     }
 
@@ -124,11 +124,11 @@ public class d implements View.OnClickListener {
             this.mListView.setOnItemClickListener(this.mOnItemClickListener);
             this.fDT.setOnClickListener(this.mOnClickListener);
         }
-        if (this.VQ == null) {
-            this.VQ = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-            this.VQ.az(this.fDS);
-            this.VQ.gE(1);
-            this.VQ.dr(true);
+        if (this.VR == null) {
+            this.VR = new com.baidu.tbadk.core.dialog.a(this.mActivity);
+            this.VR.az(this.fDS);
+            this.VR.gE(1);
+            this.VR.dr(true);
         }
     }
 
@@ -255,12 +255,12 @@ public class d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bkS() {
-        return this.VQ != null && this.VQ.isShowing();
+        return this.VR != null && this.VR.isShowing();
     }
 
     public void atv() {
         if (bkS()) {
-            this.VQ.dismiss();
+            this.VR.dismiss();
         }
         this.mHandler.removeCallbacksAndMessages(null);
     }
@@ -269,7 +269,7 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == d.g.btn_to_do_leter) {
-            this.VQ.dismiss();
+            this.VR.dismiss();
         }
         if (id == d.g.btn_attention_all && this.fDN != null) {
             this.fDN.cl(bkQ());

@@ -6,25 +6,25 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class b extends TimePickerDialog {
-    private int aFY;
-    private int jht;
-    private boolean jhu;
+    private int aFZ;
+    private int jhu;
+    private boolean jhv;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
-        this.aFY = -1;
-        this.jht = -1;
-        this.jhu = false;
-        this.aFY = i;
-        this.jht = i2;
+        this.aFZ = -1;
+        this.jhu = -1;
+        this.jhv = false;
+        this.aFZ = i;
+        this.jhu = i2;
     }
 
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
-        this.aFY = i;
-        this.jht = i2;
-        this.jhu = false;
+        this.aFZ = i;
+        this.jhu = i2;
+        this.jhv = false;
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -37,8 +37,8 @@ public class b extends TimePickerDialog {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        bundle.putInt("hour_key", this.aFY);
-        bundle.putInt("min_key", this.jht);
+        bundle.putInt("hour_key", this.aFZ);
+        bundle.putInt("min_key", this.jhu);
         return bundle;
     }
 
@@ -46,25 +46,25 @@ public class b extends TimePickerDialog {
     public void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
-        this.aFY = bundle.getInt("hour_key");
-        this.jht = bundle.getInt("min_key");
-        updateTime(this.aFY, this.jht);
+        this.aFZ = bundle.getInt("hour_key");
+        this.jhu = bundle.getInt("min_key");
+        updateTime(this.aFZ, this.jhu);
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            this.jhu = true;
-        } else if (this.aFY >= 0 && this.jht >= 0) {
-            updateTime(this.aFY, this.jht);
+            this.jhv = true;
+        } else if (this.aFZ >= 0 && this.jhu >= 0) {
+            updateTime(this.aFZ, this.jhu);
         }
         super.onClick(dialogInterface, i);
     }
 
     @Override // android.app.Dialog
     protected void onStop() {
-        if (!this.jhu) {
-            updateTime(this.aFY, this.jht);
+        if (!this.jhv) {
+            updateTime(this.aFZ, this.jhu);
         }
         super.onStop();
     }

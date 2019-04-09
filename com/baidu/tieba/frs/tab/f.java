@@ -30,7 +30,7 @@ public class f implements a {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.tab_item_menu_item_view, (ViewGroup) null);
                 view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(d.e.ds80)));
                 e.c cVar = new e.c();
-                cVar.dfo = (TextView) view.findViewById(d.g.tab_menu_name);
+                cVar.dfp = (TextView) view.findViewById(d.g.tab_menu_name);
                 cVar.ftG = (ImageView) view.findViewById(d.g.tab_menu_check);
                 cVar.ftH = view.findViewById(d.g.tab_menu_line_s);
                 cVar.ftI = view.findViewById(d.g.tab_menu_line_f);
@@ -40,13 +40,13 @@ public class f implements a {
             e.c cVar2 = (e.c) view.getTag();
             ar item = getItem(i);
             if (item != null) {
-                cVar2.dfo.setText(item.name);
+                cVar2.dfp.setText(item.name);
                 if (item.isSelected) {
-                    al.d(cVar2.dfo, d.C0277d.cp_link_tip_a, 1);
+                    al.d(cVar2.dfp, d.C0277d.cp_link_tip_a, 1);
                     al.c(cVar2.ftG, d.f.chx_tips_list_ok);
                     cVar2.ftG.setVisibility(0);
                 } else {
-                    al.d(cVar2.dfo, d.C0277d.cp_cont_c, 1);
+                    al.d(cVar2.dfp, d.C0277d.cp_cont_c, 1);
                     cVar2.ftG.setVisibility(8);
                 }
                 if (i >= 0 && i == getCount() - 1) {

@@ -15,10 +15,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextNormalImageView extends FrameLayout {
-    private ImageView agJ;
-    private TextView ahN;
-    private LinearLayout ceG;
-    private TbImageView itW;
+    private ImageView agK;
+    private TextView ahO;
+    private LinearLayout ceH;
+    private TbImageView itX;
     private Context mContext;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
@@ -37,27 +37,27 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void jf(int i) {
-        al.d(this.ahN, d.C0277d.common_color_10039, 1);
-        al.b(this.agJ, d.f.icon_arrow_gray_right_n, i);
-        this.itW.invalidate();
+        al.d(this.ahO, d.C0277d.common_color_10039, 1);
+        al.b(this.agK, d.f.icon_arrow_gray_right_n, i);
+        this.itX.invalidate();
     }
 
     public void setText(String str) {
-        this.ahN.setText(str);
+        this.ahO.setText(str);
     }
 
     public void setLocalIcon(int i) {
-        this.itW.clearCornerFlag();
-        this.itW.setConrers(0);
-        this.itW.setImageResource(i);
+        this.itX.clearCornerFlag();
+        this.itX.setConrers(0);
+        this.itX.setImageResource(i);
     }
 
     private void akn() {
         LayoutInflater.from(this.mContext).inflate(d.h.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.ceG = (LinearLayout) findViewById(d.g.container);
-        this.ahN = (TextView) findViewById(d.g.text);
-        this.itW = (TbImageView) findViewById(d.g.icon);
-        this.agJ = (ImageView) findViewById(d.g.arrow);
+        this.ceH = (LinearLayout) findViewById(d.g.container);
+        this.ahO = (TextView) findViewById(d.g.text);
+        this.itX = (TbImageView) findViewById(d.g.icon);
+        this.agK = (ImageView) findViewById(d.g.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -66,12 +66,12 @@ public class SettingTextNormalImageView extends FrameLayout {
         int color = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTextColor, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.ahN.setText(string);
+            this.ahO.setText(string);
         }
         if (color > -1) {
-            this.ahN.setTextColor(color);
+            this.ahO.setTextColor(color);
         }
-        this.ceG.setClickable(false);
-        this.ceG.setFocusable(false);
+        this.ceH.setClickable(false);
+        this.ceH.setFocusable(false);
     }
 }

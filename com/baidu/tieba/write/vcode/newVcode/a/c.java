@@ -23,41 +23,41 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class c implements b {
-    private final NewWriteModel jmr;
-    private final NewVcodeView jqj;
-    private NewWriteModel.d jqk;
+    private final NewWriteModel jms;
+    private final NewVcodeView jqk;
+    private NewWriteModel.d jql;
     private String jsMethodForChangeVCode;
     private String jsMethodForInit;
     private boolean mNeedShowErrorToastOnStart = false;
     private String mErrorToastOnStart = null;
-    private boolean jms = false;
+    private boolean jmt = false;
     private Runnable mShowErrorTaostRunnable = new Runnable() { // from class: com.baidu.tieba.write.vcode.newVcode.a.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.jqj != null) {
+            if (c.this.jqk != null) {
                 if (StringUtils.isNull(c.this.mErrorToastOnStart)) {
-                    c.this.jqj.showToast(false, c.this.jqj.getContext().getResources().getString(d.j.drag_vcode_error));
+                    c.this.jqk.showToast(false, c.this.jqk.getContext().getResources().getString(d.j.drag_vcode_error));
                 } else {
-                    c.this.jqj.showToast(false, c.this.mErrorToastOnStart);
+                    c.this.jqk.showToast(false, c.this.mErrorToastOnStart);
                 }
             }
         }
     };
-    private final NewWriteModel.d cku = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.c.2
+    private final NewWriteModel.d ckv = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.c.2
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
             String str;
             String str2 = null;
-            if (c.this.jqj != null) {
-                c.this.jqj.showPostThreadLoadingView(false);
+            if (c.this.jqk != null) {
+                c.this.jqk.showPostThreadLoadingView(false);
                 if (z) {
-                    c.this.jms = true;
+                    c.this.jmt = true;
                     if (writeData != null && writeData.getVideoReviewType() == 1) {
-                        c.this.jqj.showToast(true, c.this.jqj.getContext().getResources().getString(d.j.video_send_success_under_review));
+                        c.this.jqk.showToast(true, c.this.jqk.getContext().getResources().getString(d.j.video_send_success_under_review));
                     } else if (writeData != null && writeData.getVideoReviewType() == 2) {
-                        c.this.jqj.showToast(true, c.this.jqj.getContext().getResources().getString(d.j.video_send_success));
+                        c.this.jqk.showToast(true, c.this.jqk.getContext().getResources().getString(d.j.video_send_success));
                     } else if (writeData != null) {
-                        String string = c.this.jqj.getContext().getResources().getString(d.j.send_success);
+                        String string = c.this.jqk.getContext().getResources().getString(d.j.send_success);
                         if (postWriteCallBackData != null) {
                             str = postWriteCallBackData.getPreMsg();
                             str2 = postWriteCallBackData.getColorMsg();
@@ -66,29 +66,29 @@ public class c implements b {
                             str = null;
                         }
                         if (writeData.getType() != 7) {
-                            com.baidu.tieba.tbadkCore.writeModel.c.f(c.this.jqj.getContext().getActivity(), string, str, str2);
+                            com.baidu.tieba.tbadkCore.writeModel.c.f(c.this.jqk.getContext().getActivity(), string, str, str2);
                         }
                     }
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    BaseActivity context = c.this.jqj.getContext();
-                    c.this.jqj.getContext();
+                    BaseActivity context = c.this.jqk.getContext();
+                    c.this.jqk.getContext();
                     context.setResult(-1, intent);
-                    c.this.jqj.getContext().finish();
+                    c.this.jqk.getContext().finish();
                 } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    c.this.jqj.getContext().setVisible(false);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(c.this.jqj.getContext().getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData, postWriteCallBackData.getAccessState())));
-                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && c.this.jqk != null) {
-                    if (c.this.jqk != null) {
-                        c.this.jqk.callback(z, postWriteCallBackData, xVar, writeData, antiData);
+                    c.this.jqk.getContext().setVisible(false);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(c.this.jqk.getContext().getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData, postWriteCallBackData.getAccessState())));
+                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && c.this.jql != null) {
+                    if (c.this.jql != null) {
+                        c.this.jql.callback(z, postWriteCallBackData, xVar, writeData, antiData);
                     }
                 } else if (postWriteCallBackData != null) {
                     if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                        c.this.jqj.showToast(false, c.this.jqj.getContext().getResources().getString(d.j.input_vcode_error));
+                        c.this.jqk.showToast(false, c.this.jqk.getContext().getResources().getString(d.j.input_vcode_error));
                     } else {
-                        c.this.jqj.showToast(false, postWriteCallBackData.getErrorString());
+                        c.this.jqk.showToast(false, postWriteCallBackData.getErrorString());
                     }
                     c.this.refreshVCode();
                 }
@@ -97,22 +97,22 @@ public class c implements b {
     };
 
     public c(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
-        this.jqj = newVcodeView;
-        this.jmr = newWriteModel;
-        this.jmr.b(this.cku);
+        this.jqk = newVcodeView;
+        this.jms = newWriteModel;
+        this.jms.b(this.ckv);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public boolean onUrlLoad(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
             this.jsMethodForInit = com.baidu.tbadk.u.a.pT(str);
-            if (this.jsMethodForInit != null && this.jmr.getWriteData() != null) {
-                this.jqj.runJsMethod(this.jsMethodForInit, "'" + this.jmr.getWriteData().getVcodeUrl() + "'");
+            if (this.jsMethodForInit != null && this.jms.getWriteData() != null) {
+                this.jqk.runJsMethod(this.jsMethodForInit, "'" + this.jms.getWriteData().getVcodeUrl() + "'");
                 return true;
             }
             return false;
         } else if (str.equals("objc:jumpToFeedback()")) {
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.jqj.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.jqk.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
             writeActivityConfig.setIsVcodeFeedBack();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
             return true;
@@ -125,8 +125,8 @@ public class c implements b {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public void onPageFinished(WebView webView, String str) {
-        if (this.jqj != null) {
-            this.jqj.showWebViewDelay(500);
+        if (this.jqk != null) {
+            this.jqk.showWebViewDelay(500);
             if (this.mNeedShowErrorToastOnStart) {
                 e.jH().postDelayed(this.mShowErrorTaostRunnable, 500L);
             }
@@ -141,13 +141,13 @@ public class c implements b {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public void start(boolean z) {
-        this.jqj.setRatio(1.2631578f);
-        this.jqj.showWebView(false);
+        this.jqk.setRatio(1.2631578f);
+        this.jqk.showWebView(false);
         String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
         if (z) {
             str = str + "?feedback=1";
         }
-        this.jqj.getWebView().loadUrl(str);
+        this.jqk.getWebView().loadUrl(str);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
@@ -157,18 +157,18 @@ public class c implements b {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public void d(NewWriteModel.d dVar) {
-        this.jqk = dVar;
+        this.jql = dVar;
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public void onPostThreadCancle() {
-        this.jqj.showPostThreadLoadingView(false);
-        this.jmr.cancelLoadData();
+        this.jqk.showPostThreadLoadingView(false);
+        this.jms.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshVCode() {
-        this.jqj.runJsMethod(this.jsMethodForChangeVCode, "'" + this.jmr.getWriteData().getVcodeUrl() + "'");
+        this.jqk.runJsMethod(this.jsMethodForChangeVCode, "'" + this.jms.getWriteData().getVcodeUrl() + "'");
     }
 
     private boolean dealJsSubmit(String str) {
@@ -182,18 +182,18 @@ public class c implements b {
     }
 
     private void Ew(String str) {
-        this.jms = false;
+        this.jmt = false;
         if (!l.lo()) {
-            this.jqj.getContext().showToast(d.j.neterror);
-            this.jqj.getContext().finish();
+            this.jqk.getContext().showToast(d.j.neterror);
+            this.jqk.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.jqj.showPostThreadLoadingView(true);
-            this.jmr.getWriteData().setVcode(str);
-            this.jmr.getWriteData().setVcodeType("4");
-            this.jmr.startPostWrite();
+            this.jqk.showPostThreadLoadingView(true);
+            this.jms.getWriteData().setVcode(str);
+            this.jms.getWriteData().setVcodeType("4");
+            this.jms.startPostWrite();
         } else {
-            this.jqj.getContext().showToast(d.j.neterror);
-            this.jqj.getContext().finish();
+            this.jqk.getContext().showToast(d.j.neterror);
+            this.jqk.getContext().finish();
         }
     }
 }

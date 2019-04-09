@@ -24,12 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String csk = "#";
-    public static String csl = "＃";
-    private static final Pattern bry = Pattern.compile("#([^#(]+)#", 2);
+    public static String csl = "#";
+    public static String csm = "＃";
+    private static final Pattern brz = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean pv(String str) {
-        return csk.equals(str);
+        return csl.equals(str);
     }
 
     public static boolean fi(boolean z) {
@@ -117,7 +117,7 @@ public class b {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = bry.matcher(str);
+        Matcher matcher = brz.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
@@ -134,7 +134,7 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = bry.matcher(obj);
+                Matcher matcher = brz.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
@@ -152,7 +152,7 @@ public class b {
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(csk).append(str).append(csk);
+            sb.append(csl).append(str).append(csl);
             return sb.toString();
         }
         return str;
@@ -160,7 +160,7 @@ public class b {
 
     public static boolean py(String str) {
         String substring;
-        return str != null && str.startsWith(csk) && str.endsWith(csk) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(csl) && str.endsWith(csl) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

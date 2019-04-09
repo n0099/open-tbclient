@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b {
-    private static SparseIntArray hFW = new SparseIntArray();
+    private static SparseIntArray hFX = new SparseIntArray();
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
@@ -50,10 +50,10 @@ public class b {
     }
 
     private static int wK(int i) {
-        int i2 = hFW.get(i, -1);
+        int i2 = hFX.get(i, -1);
         if (i2 == -1) {
             int h = l.h(TbadkCoreApplication.getInst().getContext(), i);
-            hFW.put(i, h);
+            hFX.put(i, h);
             return h;
         }
         return i2;

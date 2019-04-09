@@ -6,16 +6,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 /* loaded from: classes2.dex */
 public class b extends Dialog {
-    private boolean aqf;
+    private boolean aqg;
 
     public b(@NonNull Context context, @StyleRes int i) {
         super(context, i);
-        this.aqf = com.baidu.swan.apps.res.widget.a.aKZ;
+        this.aqg = com.baidu.swan.apps.res.widget.a.aLa;
     }
 
     @Override // android.app.Dialog
     public void show() {
-        if (this.aqf) {
+        if (this.aqg) {
             com.baidu.swan.apps.res.widget.a.a(this);
         }
         boolean b = com.baidu.swan.apps.res.widget.a.b(this);

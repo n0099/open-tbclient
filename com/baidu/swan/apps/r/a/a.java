@@ -11,22 +11,22 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private String[] awR;
+    private String[] awS;
     private Context mContext;
 
     public a(Context context, @NonNull String[] strArr) {
         this.mContext = context;
-        this.awR = strArr;
+        this.awS = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.awR.length;
+        return this.awS.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.awR[i];
+        return this.awS[i];
     }
 
     @Override // android.widget.Adapter
@@ -43,14 +43,14 @@ public class a extends BaseAdapter {
             if (i == 11) {
                 View inflate = View.inflate(this.mContext, a.g.aiapps_keyboard_img_item, null);
                 bVar = new C0158a();
-                ((C0158a) bVar).awS = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
+                ((C0158a) bVar).awT = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
                 view2 = inflate;
             } else {
                 View inflate2 = View.inflate(this.mContext, a.g.aiapps_keyboard_text_item, null);
                 bVar = new b();
-                ((b) bVar).awT = (TextView) inflate2.findViewById(a.f.key_text_view);
+                ((b) bVar).awU = (TextView) inflate2.findViewById(a.f.key_text_view);
                 if (i == 9) {
-                    if (TextUtils.isEmpty(this.awR[9])) {
+                    if (TextUtils.isEmpty(this.awS[9])) {
                         inflate2.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_keyboard_non_number_item_background_normal));
                         view2 = inflate2;
                     } else {
@@ -66,14 +66,14 @@ public class a extends BaseAdapter {
             tag = view.getTag();
         }
         if (i != 11) {
-            ((b) tag).awT.setText(this.awR[i]);
+            ((b) tag).awU.setText(this.awS[i]);
         }
         return view;
     }
 
     /* loaded from: classes2.dex */
     private static final class b {
-        private TextView awT;
+        private TextView awU;
 
         private b() {
         }
@@ -82,7 +82,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static final class C0158a {
-        private ImageView awS;
+        private ImageView awT;
 
         private C0158a() {
         }

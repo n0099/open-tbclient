@@ -40,7 +40,7 @@ public final class a extends y {
             c.e(Headers.LOCATION, "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (TextUtils.isEmpty(gG.aQb)) {
+        } else if (TextUtils.isEmpty(gG.aQc)) {
             c.e(Headers.LOCATION, "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
@@ -58,7 +58,7 @@ public final class a extends y {
                     if (bool.booleanValue()) {
                         a.this.a(context, callbackHandler, gG);
                     } else {
-                        callbackHandler.handleSchemeDispatchCallback(gG.aQb, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
+                        callbackHandler.handleSchemeDispatchCallback(gG.aQc, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
                     }
                 }
             });
@@ -76,7 +76,7 @@ public final class a extends y {
                 @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
-                        callbackHandler.handleSchemeDispatchCallback(c0166a.aQb, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
+                        callbackHandler.handleSchemeDispatchCallback(c0166a.aQc, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
                         if (a.DEBUG) {
                             Log.e("GetLocationAction", "onRequestPermissionsResult requestCode error.");
                         }
@@ -85,7 +85,7 @@ public final class a extends y {
                     }
                     for (int i2 : iArr) {
                         if (i2 == -1) {
-                            callbackHandler.handleSchemeDispatchCallback(c0166a.aQb, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
+                            callbackHandler.handleSchemeDispatchCallback(c0166a.aQc, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
                             if (a.DEBUG) {
                                 Log.d("GetLocationAction", "onRequestPermissionsResult user reject.");
                             }
@@ -107,19 +107,19 @@ public final class a extends y {
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.u.a.CP().a(str, false, c0166a.aQa, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
+        com.baidu.swan.apps.u.a.CP().a(str, false, c0166a.aQb, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
             @Override // com.baidu.swan.apps.u.b.n.a
             public void a(b bVar) {
                 if (a.DEBUG) {
                     Log.d("GetLocationAction", "convert info : " + bVar.toJSON());
                 }
-                callbackHandler.handleSchemeDispatchCallback(c0166a.aQb, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0166a.aQc, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
             }
 
             @Override // com.baidu.swan.apps.u.b.n.a
             public void onFailed(int i) {
                 c.e(Headers.LOCATION, "request location error code : " + i);
-                callbackHandler.handleSchemeDispatchCallback(c0166a.aQb, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0166a.aQc, UnitedSchemeUtility.wrapCallbackParams(i).toString());
             }
         });
     }
@@ -128,8 +128,8 @@ public final class a extends y {
     /* renamed from: com.baidu.swan.apps.scheme.actions.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0166a {
-        public boolean aQa;
-        public String aQb;
+        public boolean aQb;
+        public String aQc;
         public String mType;
 
         private C0166a() {
@@ -146,9 +146,9 @@ public final class a extends y {
                 if (TextUtils.isEmpty(c0166a.mType)) {
                     c0166a.mType = CoordinateType.WGS84;
                 }
-                c0166a.aQa = jSONObject.optBoolean("altitude");
-                c0166a.aQb = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0166a.aQb)) {
+                c0166a.aQb = jSONObject.optBoolean("altitude");
+                c0166a.aQc = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0166a.aQc)) {
                     return null;
                 }
                 return c0166a;
@@ -162,7 +162,7 @@ public final class a extends y {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, CoordinateType.GCJ02)) && !TextUtils.isEmpty(this.aQb);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, CoordinateType.GCJ02)) && !TextUtils.isEmpty(this.aQc);
         }
     }
 }

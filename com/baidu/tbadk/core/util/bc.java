@@ -16,10 +16,10 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bc {
-    private static int bLI = -1;
     private static int bLJ = -1;
-    private static boolean bLK = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bLL = new com.baidu.adp.lib.e.a<>(500);
+    private static int bLK = -1;
+    private static boolean bLL = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> bLM = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class bc {
 
     public static void cW(Context context) {
         mAppContext = context;
-        bLK = true;
+        bLL = true;
     }
 
     private static void adB() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bLJ = mAppContext.getResources().getColor(d.C0277d.common_color_10097);
-            bLI = mAppContext.getResources().getColor(d.C0277d.common_color_10004);
+            bLK = mAppContext.getResources().getColor(d.C0277d.common_color_10097);
+            bLJ = mAppContext.getResources().getColor(d.C0277d.common_color_10004);
         }
     }
 
@@ -45,11 +45,11 @@ public class bc {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int dF(boolean z) {
-        if (bLK) {
-            bLK = false;
+        if (bLL) {
+            bLL = false;
             adB();
         }
-        return z ? bLI : bLJ;
+        return z ? bLJ : bLK;
     }
 
     public static void aC(View view) {
@@ -60,16 +60,16 @@ public class bc {
 
     public static void aD(View view) {
         if (view != null) {
-            bLL.remove(Integer.valueOf(System.identityHashCode(view)));
+            bLM.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void c(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bLL.get(Integer.valueOf(identityHashCode));
+        Integer num = bLM.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             d(viewGroup, i);
-            bLL.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            bLM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

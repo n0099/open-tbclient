@@ -4,8 +4,8 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class r extends a {
-    private float alS;
     private float alT;
+    private float alU;
     private float mX;
     private float mY;
     private boolean wq = false;
@@ -13,8 +13,8 @@ public class r extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void g(JSONArray jSONArray) {
         if (jSONArray.length() > 3) {
-            this.alS = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(0));
-            this.alT = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(1));
+            this.alT = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(0));
+            this.alU = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(1));
             this.mX = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(2));
             this.mY = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(3));
             this.wq = true;
@@ -24,7 +24,7 @@ public class r extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.wq) {
-            bVar.mPath.quadTo(this.alS, this.alT, this.mX, this.mY);
+            bVar.mPath.quadTo(this.alT, this.alU, this.mX, this.mY);
         }
     }
 }

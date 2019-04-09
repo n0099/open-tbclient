@@ -47,7 +47,7 @@ public class b extends com.baidu.swan.apps.u.b.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azG().cVV.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azG().cVW.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

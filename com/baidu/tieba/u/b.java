@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String cQu = File.separator;
-    private a jgN;
+    public static final String cQv = File.separator;
+    private a jgO;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.jgN = aVar;
+        this.jgO = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
             return "";
         }
         new File(this.mPath).mkdirs();
-        String str = this.mPath + cQu + "videosplash.temp";
+        String str = this.mPath + cQv + "videosplash.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
@@ -49,18 +49,18 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.jgN != null) {
+        if (this.jgO != null) {
             if (!ap.isEmpty(str)) {
-                this.jgN.b(true, str, this.mUrl);
+                this.jgO.b(true, str, this.mUrl);
             } else {
-                this.jgN.b(false, null, null);
+                this.jgO.b(false, null, null);
             }
         }
     }
 
     private String cmQ() {
-        File file = new File(this.mPath + cQu + "videosplash.temp");
-        File file2 = new File(this.mPath + cQu + (s.bC(this.mUrl) + ".mp4"));
+        File file = new File(this.mPath + cQv + "videosplash.temp");
+        File file2 = new File(this.mPath + cQv + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }

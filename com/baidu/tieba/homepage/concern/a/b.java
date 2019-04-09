@@ -19,9 +19,9 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.f>> implements com.baidu.tieba.a.f {
-    private String YA;
-    public BdUniqueId cnZ;
-    private ab<com.baidu.tieba.homepage.concern.b.b> eEg;
+    private String YB;
+    public BdUniqueId coa;
+    private ab<com.baidu.tieba.homepage.concern.b.b> eEh;
     private com.baidu.tieba.homepage.concern.view.f fGo;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> fdJ;
     private com.baidu.adp.lib.e.b<TbImageView> fdK;
@@ -94,17 +94,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 return tbImageView;
             }
         }, 12, 0);
-        this.eEg = new ab<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.b.3
+        this.eEh = new ab<com.baidu.tieba.homepage.concern.b.b>() { // from class: com.baidu.tieba.homepage.concern.a.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.homepage.concern.b.b bVar) {
                 if (view != null && b.this.fGo != null) {
                     am amVar = new am("c12407");
-                    amVar.k(ImageViewerConfig.FORUM_ID, bVar.eNy.getFid());
-                    amVar.bJ("tid", bVar.eNy.getTid());
+                    amVar.k(ImageViewerConfig.FORUM_ID, bVar.eNz.getFid());
+                    amVar.bJ("tid", bVar.eNz.getTid());
                     amVar.T("obj_type", 1);
                     amVar.bJ(VideoPlayActivityConfig.OBJ_ID, bVar.fGO.getUserId());
-                    if ((b.this.fGo.fHf == null || view.getId() != b.this.fGo.fHf.getId()) && (b.this.fGo.dqx.getHeaderImg() == null || view.getId() != b.this.fGo.dqx.getHeaderImg().getId())) {
+                    if ((b.this.fGo.fHf == null || view.getId() != b.this.fGo.fHf.getId()) && (b.this.fGo.dqy.getHeaderImg() == null || view.getId() != b.this.fGo.dqy.getHeaderImg().getId())) {
                         if (b.this.fGo.fHe != null && view.getId() == b.this.fGo.fHe.getId()) {
                             amVar.T("obj_locate", 3);
                         } else {
@@ -129,10 +129,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.fGo = new com.baidu.tieba.homepage.concern.view.f(this.mPageContext);
         this.fGo.setConstrainLayoutPool(this.fdJ);
         this.fGo.setConstrainImagePool(this.fdK);
-        if (this.cnZ != null) {
-            this.fGo.k(this.cnZ);
+        if (this.coa != null) {
+            this.fGo.k(this.coa);
         }
-        this.fGo.d(this.eEg);
+        this.fGo.d(this.eEh);
         this.fGo.setSingleImageRatio(0.75d);
         return new com.baidu.tieba.card.a.a(this.fGo);
     }
@@ -146,17 +146,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         if (aVar.aRg() instanceof com.baidu.tieba.a.e) {
-            aVar.aRg().setPage(this.YA);
+            aVar.aRg().setPage(this.YB);
         }
         aVar.aRg().a(bVar);
-        aVar.aRg().d(this.eEg);
+        aVar.aRg().d(this.eEh);
         aVar.aRg().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        t.aQD().b(new am("c12353").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ(VideoPlayActivityConfig.OBJ_ID, bVar.fGO.getUserId()).T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.blv()).bJ("tid", bVar.eNy.getTid()));
+        t.aQD().b(new am("c12353").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ(VideoPlayActivityConfig.OBJ_ID, bVar.fGO.getUserId()).T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.blv()).bJ("tid", bVar.eNz.getTid()));
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
     public void qM(String str) {
-        this.YA = str;
+        this.YB = str;
     }
 }

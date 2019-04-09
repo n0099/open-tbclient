@@ -19,33 +19,33 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class h {
-    private static b jGZ = new b();
+    private static b jHa = new b();
     private final Bitmap.Config FI;
-    private final com.facebook.imagepipeline.c.f jFR;
-    private final o jFd;
+    private final com.facebook.imagepipeline.c.f jFS;
+    private final o jFe;
     @Nullable
-    private final com.facebook.imagepipeline.a.a.d jGH;
-    private final com.facebook.common.internal.i<u> jGI;
-    private final boolean jGJ;
-    private final f jGK;
-    private final com.facebook.common.internal.i<u> jGL;
-    private final e jGM;
+    private final com.facebook.imagepipeline.a.a.d jGI;
+    private final com.facebook.common.internal.i<u> jGJ;
+    private final boolean jGK;
+    private final f jGL;
+    private final com.facebook.common.internal.i<u> jGM;
+    private final e jGN;
     @Nullable
-    private final com.facebook.imagepipeline.decoder.b jGN;
-    private final com.facebook.cache.disk.b jGO;
-    private final com.facebook.common.memory.c jGP;
-    private final af jGQ;
+    private final com.facebook.imagepipeline.decoder.b jGO;
+    private final com.facebook.cache.disk.b jGP;
+    private final com.facebook.common.memory.c jGQ;
+    private final af jGR;
     @Nullable
-    private final com.facebook.imagepipeline.b.f jGR;
-    private final q jGS;
-    private final com.facebook.imagepipeline.decoder.d jGT;
-    private final Set<com.facebook.imagepipeline.g.b> jGU;
-    private final boolean jGV;
-    private final com.facebook.cache.disk.b jGW;
+    private final com.facebook.imagepipeline.b.f jGS;
+    private final q jGT;
+    private final com.facebook.imagepipeline.decoder.d jGU;
+    private final Set<com.facebook.imagepipeline.g.b> jGV;
+    private final boolean jGW;
+    private final com.facebook.cache.disk.b jGX;
     @Nullable
-    private final com.facebook.imagepipeline.decoder.c jGX;
-    private final i jGY;
-    private final com.facebook.common.internal.i<Boolean> jGy;
+    private final com.facebook.imagepipeline.decoder.c jGY;
+    private final i jGZ;
+    private final com.facebook.common.internal.i<Boolean> jGz;
     private final Context mContext;
 
     private h(a aVar) {
@@ -54,66 +54,66 @@ public class h {
         com.facebook.common.memory.c cVar;
         q qVar;
         com.facebook.common.g.b cuf;
-        this.jGY = aVar.jHb.cxL();
-        this.jGH = aVar.jGH;
-        this.jGI = aVar.jGI == null ? new com.facebook.imagepipeline.c.i((ActivityManager) aVar.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) : aVar.jGI;
+        this.jGZ = aVar.jHc.cxL();
+        this.jGI = aVar.jGI;
+        this.jGJ = aVar.jGJ == null ? new com.facebook.imagepipeline.c.i((ActivityManager) aVar.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) : aVar.jGJ;
         this.FI = aVar.FI == null ? Bitmap.Config.ARGB_8888 : aVar.FI;
-        if (aVar.jFR == null) {
+        if (aVar.jFS == null) {
             fVar = com.facebook.imagepipeline.c.j.cwv();
         } else {
-            fVar = aVar.jFR;
+            fVar = aVar.jFS;
         }
-        this.jFR = fVar;
+        this.jFS = fVar;
         this.mContext = (Context) com.facebook.common.internal.g.checkNotNull(aVar.mContext);
-        this.jGK = aVar.jGK == null ? new com.facebook.imagepipeline.d.b(new d()) : aVar.jGK;
-        this.jGJ = aVar.jGJ;
-        this.jGL = aVar.jGL == null ? new com.facebook.imagepipeline.c.k() : aVar.jGL;
-        if (aVar.jFd == null) {
+        this.jGL = aVar.jGL == null ? new com.facebook.imagepipeline.d.b(new d()) : aVar.jGL;
+        this.jGK = aVar.jGK;
+        this.jGM = aVar.jGM == null ? new com.facebook.imagepipeline.c.k() : aVar.jGM;
+        if (aVar.jFe == null) {
             oVar = x.cwF();
         } else {
-            oVar = aVar.jFd;
+            oVar = aVar.jFe;
         }
-        this.jFd = oVar;
-        this.jGN = aVar.jGN;
-        this.jGy = aVar.jGy == null ? new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.h.1
+        this.jFe = oVar;
+        this.jGO = aVar.jGO;
+        this.jGz = aVar.jGz == null ? new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.internal.i
             /* renamed from: cxz */
             public Boolean get() {
                 return true;
             }
-        } : aVar.jGy;
-        this.jGO = aVar.jGO == null ? eM(aVar.mContext) : aVar.jGO;
-        if (aVar.jGP == null) {
+        } : aVar.jGz;
+        this.jGP = aVar.jGP == null ? eM(aVar.mContext) : aVar.jGP;
+        if (aVar.jGQ == null) {
             cVar = com.facebook.common.memory.d.ctH();
         } else {
-            cVar = aVar.jGP;
+            cVar = aVar.jGQ;
         }
-        this.jGP = cVar;
-        this.jGQ = aVar.jGQ == null ? new t() : aVar.jGQ;
-        this.jGR = aVar.jGR;
-        if (aVar.jGS == null) {
+        this.jGQ = cVar;
+        this.jGR = aVar.jGR == null ? new t() : aVar.jGR;
+        this.jGS = aVar.jGS;
+        if (aVar.jGT == null) {
             qVar = new q(p.czp().czq());
         } else {
-            qVar = aVar.jGS;
+            qVar = aVar.jGT;
         }
-        this.jGS = qVar;
-        this.jGT = aVar.jGT == null ? new com.facebook.imagepipeline.decoder.f() : aVar.jGT;
-        this.jGU = aVar.jGU == null ? new HashSet<>() : aVar.jGU;
-        this.jGV = aVar.jGV;
-        this.jGW = aVar.jGW == null ? this.jGO : aVar.jGW;
-        this.jGX = aVar.jGX;
-        this.jGM = aVar.jGM == null ? new com.facebook.imagepipeline.d.a(this.jGS.czt()) : aVar.jGM;
-        com.facebook.common.g.b cxK = this.jGY.cxK();
+        this.jGT = qVar;
+        this.jGU = aVar.jGU == null ? new com.facebook.imagepipeline.decoder.f() : aVar.jGU;
+        this.jGV = aVar.jGV == null ? new HashSet<>() : aVar.jGV;
+        this.jGW = aVar.jGW;
+        this.jGX = aVar.jGX == null ? this.jGP : aVar.jGX;
+        this.jGY = aVar.jGY;
+        this.jGN = aVar.jGN == null ? new com.facebook.imagepipeline.d.a(this.jGT.czt()) : aVar.jGN;
+        com.facebook.common.g.b cxK = this.jGZ.cxK();
         if (cxK != null) {
-            a(cxK, this.jGY, new com.facebook.imagepipeline.b.d(cxs()));
-        } else if (this.jGY.cxH() && com.facebook.common.g.c.jAj && (cuf = com.facebook.common.g.c.cuf()) != null) {
-            a(cuf, this.jGY, new com.facebook.imagepipeline.b.d(cxs()));
+            a(cxK, this.jGZ, new com.facebook.imagepipeline.b.d(cxs()));
+        } else if (this.jGZ.cxH() && com.facebook.common.g.c.jAk && (cuf = com.facebook.common.g.c.cuf()) != null) {
+            a(cuf, this.jGZ, new com.facebook.imagepipeline.b.d(cxs()));
         }
     }
 
     private static void a(com.facebook.common.g.b bVar, i iVar, com.facebook.common.g.a aVar) {
-        com.facebook.common.g.c.jAm = bVar;
+        com.facebook.common.g.c.jAn = bVar;
         b.a cxJ = iVar.cxJ();
         if (cxJ != null) {
             bVar.a(cxJ);
@@ -132,11 +132,11 @@ public class h {
     }
 
     public com.facebook.common.internal.i<u> cxg() {
-        return this.jGI;
+        return this.jGJ;
     }
 
     public com.facebook.imagepipeline.c.f cxf() {
-        return this.jFR;
+        return this.jFS;
     }
 
     public Context getContext() {
@@ -144,77 +144,77 @@ public class h {
     }
 
     public static b cxh() {
-        return jGZ;
+        return jHa;
     }
 
     public f cxi() {
-        return this.jGK;
-    }
-
-    public boolean cxj() {
-        return this.jGJ;
-    }
-
-    public com.facebook.common.internal.i<u> cxk() {
         return this.jGL;
     }
 
-    public e cxl() {
+    public boolean cxj() {
+        return this.jGK;
+    }
+
+    public com.facebook.common.internal.i<u> cxk() {
         return this.jGM;
     }
 
+    public e cxl() {
+        return this.jGN;
+    }
+
     public o cxm() {
-        return this.jFd;
+        return this.jFe;
     }
 
     @Nullable
     public com.facebook.imagepipeline.decoder.b cxn() {
-        return this.jGN;
-    }
-
-    public com.facebook.common.internal.i<Boolean> cxo() {
-        return this.jGy;
-    }
-
-    public com.facebook.cache.disk.b cxp() {
         return this.jGO;
     }
 
-    public com.facebook.common.memory.c cxq() {
+    public com.facebook.common.internal.i<Boolean> cxo() {
+        return this.jGz;
+    }
+
+    public com.facebook.cache.disk.b cxp() {
         return this.jGP;
     }
 
-    public af cxr() {
+    public com.facebook.common.memory.c cxq() {
         return this.jGQ;
     }
 
-    public q cxs() {
-        return this.jGS;
+    public af cxr() {
+        return this.jGR;
     }
 
-    public com.facebook.imagepipeline.decoder.d cxt() {
+    public q cxs() {
         return this.jGT;
     }
 
+    public com.facebook.imagepipeline.decoder.d cxt() {
+        return this.jGU;
+    }
+
     public Set<com.facebook.imagepipeline.g.b> cxu() {
-        return Collections.unmodifiableSet(this.jGU);
+        return Collections.unmodifiableSet(this.jGV);
     }
 
     public boolean cxv() {
-        return this.jGV;
+        return this.jGW;
     }
 
     public com.facebook.cache.disk.b cxw() {
-        return this.jGW;
+        return this.jGX;
     }
 
     @Nullable
     public com.facebook.imagepipeline.decoder.c cxx() {
-        return this.jGX;
+        return this.jGY;
     }
 
     public i cxy() {
-        return this.jGY;
+        return this.jGZ;
     }
 
     public static a eN(Context context) {
@@ -223,47 +223,47 @@ public class h {
 
     /* loaded from: classes2.dex */
     public static class b {
-        private boolean jHc;
+        private boolean jHd;
 
         private b() {
-            this.jHc = false;
+            this.jHd = false;
         }
 
         public boolean cxB() {
-            return this.jHc;
+            return this.jHd;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class a {
         private Bitmap.Config FI;
-        private com.facebook.imagepipeline.c.f jFR;
-        private o jFd;
-        private com.facebook.imagepipeline.a.a.d jGH;
-        private com.facebook.common.internal.i<u> jGI;
-        private boolean jGJ;
-        private f jGK;
-        private com.facebook.common.internal.i<u> jGL;
-        private e jGM;
-        private com.facebook.imagepipeline.decoder.b jGN;
-        private com.facebook.cache.disk.b jGO;
-        private com.facebook.common.memory.c jGP;
-        private af jGQ;
-        private com.facebook.imagepipeline.b.f jGR;
-        private q jGS;
-        private com.facebook.imagepipeline.decoder.d jGT;
-        private Set<com.facebook.imagepipeline.g.b> jGU;
-        private boolean jGV;
-        private com.facebook.cache.disk.b jGW;
-        private com.facebook.imagepipeline.decoder.c jGX;
-        private com.facebook.common.internal.i<Boolean> jGy;
-        private final i.a jHb;
+        private com.facebook.imagepipeline.c.f jFS;
+        private o jFe;
+        private com.facebook.imagepipeline.a.a.d jGI;
+        private com.facebook.common.internal.i<u> jGJ;
+        private boolean jGK;
+        private f jGL;
+        private com.facebook.common.internal.i<u> jGM;
+        private e jGN;
+        private com.facebook.imagepipeline.decoder.b jGO;
+        private com.facebook.cache.disk.b jGP;
+        private com.facebook.common.memory.c jGQ;
+        private af jGR;
+        private com.facebook.imagepipeline.b.f jGS;
+        private q jGT;
+        private com.facebook.imagepipeline.decoder.d jGU;
+        private Set<com.facebook.imagepipeline.g.b> jGV;
+        private boolean jGW;
+        private com.facebook.cache.disk.b jGX;
+        private com.facebook.imagepipeline.decoder.c jGY;
+        private com.facebook.common.internal.i<Boolean> jGz;
+        private final i.a jHc;
         private final Context mContext;
 
         private a(Context context) {
-            this.jGJ = false;
-            this.jGV = true;
-            this.jHb = new i.a(this);
+            this.jGK = false;
+            this.jGW = true;
+            this.jHc = new i.a(this);
             this.mContext = (Context) com.facebook.common.internal.g.checkNotNull(context);
         }
 

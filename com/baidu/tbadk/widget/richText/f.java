@@ -4,10 +4,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private int cDf;
-    private String cDg;
-    private int cDh;
+    private int cDg;
+    private String cDh;
     private int cDi;
+    private int cDj;
     private int duration;
     private int height;
     private String thumbUrl;
@@ -20,11 +20,11 @@ public class f {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.cDf = pbContent.e_type.intValue();
-            this.cDg = pbContent.text;
+            this.cDg = pbContent.e_type.intValue();
+            this.cDh = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.cDh = pbContent.count.intValue();
-            this.cDi = pbContent.origin_size.intValue();
+            this.cDi = pbContent.count.intValue();
+            this.cDj = pbContent.origin_size.intValue();
         }
     }
 
@@ -45,11 +45,11 @@ public class f {
     }
 
     public String ath() {
-        return this.cDg;
+        return this.cDh;
     }
 
     public boolean ati() {
-        return this.cDf == 15;
+        return this.cDg == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class f {
     }
 
     public int getFileSize() {
-        return this.cDi;
+        return this.cDj;
     }
 }

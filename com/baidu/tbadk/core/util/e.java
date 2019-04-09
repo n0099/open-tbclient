@@ -16,7 +16,7 @@ public class e {
             }
         }
     };
-    private boolean bIy;
+    private boolean bIz;
 
     public static e abX() {
         return new e();
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void l(String str, int i, int i2) {
-        if (!this.bIy && str != null) {
+        if (!this.bIz && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.bIy = true;
+        this.bIz = true;
         cancel();
     }
 
     public void onResume() {
-        this.bIy = false;
+        this.bIz = false;
     }
 
     public static void cancel() {

@@ -7,9 +7,9 @@ import tbclient.NewTopicList.NewTopicList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId fPC = BdUniqueId.gen();
-    public String bAp;
-    public long bAq;
-    public String bAr;
+    public String bAq;
+    public long bAr;
+    public String bAs;
     public String fOf;
     public b fPD;
     public PostData fPE;
@@ -24,9 +24,9 @@ public class a extends com.baidu.tieba.card.data.b {
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.bAp = newTopicList.topic_name;
-            this.bAr = newTopicList.topic_desc;
-            this.bAq = newTopicList.discuss_num.longValue();
+            this.bAq = newTopicList.topic_name;
+            this.bAs = newTopicList.topic_desc;
+            this.bAr = newTopicList.discuss_num.longValue();
             this.fOf = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
                 this.fPD = new b();

@@ -33,11 +33,11 @@ import com.baidu.tieba.play.z;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<g> implements c {
-    public TextView Zy;
-    private Animation afd;
-    private boolean bGe;
-    public HeadImageView dQJ;
-    private n dbh;
+    public TextView Zz;
+    private Animation afe;
+    private boolean bGf;
+    public HeadImageView dQK;
+    private n dbi;
     public FrameLayout fdQ;
     public FrameLayout fdR;
     public TextView fdS;
@@ -81,8 +81,8 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         this.fdU = (FrameLayout) view.findViewById(d.g.mobile_network_container);
         this.fdV = (TextView) view.findViewById(d.g.mobile_network_text);
         this.fdW = (TextView) view.findViewById(d.g.mobile_network_play);
-        this.dQJ = (HeadImageView) view.findViewById(d.g.user_icon);
-        this.Zy = (TextView) view.findViewById(d.g.user_name);
+        this.dQK = (HeadImageView) view.findViewById(d.g.user_icon);
+        this.Zz = (TextView) view.findViewById(d.g.user_name);
         this.fdX = (TextView) view.findViewById(d.g.attention);
         this.fec = (LinearLayout) view.findViewById(d.g.thread_info_commont_container);
         this.fed = (LinearLayout) view.findViewById(d.g.agree_view_container);
@@ -93,8 +93,8 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         this.fec.setOnClickListener(this);
         this.fed.setOnClickListener(this);
         this.fdS.setOnClickListener(this);
-        this.dQJ.setOnClickListener(this);
-        this.Zy.setOnClickListener(this);
+        this.dQK.setOnClickListener(this);
+        this.Zz.setOnClickListener(this);
         this.fdX.setOnClickListener(this);
         view.setOnClickListener(this);
         this.fdW.setOnClickListener(this);
@@ -102,11 +102,11 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fdQ.getLayoutParams();
         layoutParams.height = (int) (0.5625f * this.mWidth);
         this.fdQ.setLayoutParams(layoutParams);
-        this.dQJ.setIsRound(true);
-        this.dbh = new n(tbPageContext.getPageActivity());
+        this.dQK.setIsRound(true);
+        this.dbi = new n(tbPageContext.getPageActivity());
         this.feg = new h(this.mPageContext, this);
         this.fel = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), d.a.anim_alpha_1_to_0_duration_200);
-        this.afd = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), d.a.anim_alpha_0_to_1_duration_200_accelerate);
+        this.afe = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), d.a.anim_alpha_0_to_1_duration_200_accelerate);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -155,7 +155,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         String format;
         if (gVar != null && gVar.feF != null) {
             this.fef = gVar;
-            this.bGe = this.fef.autoPlay;
+            this.bGf = this.fef.autoPlay;
             this.fdS.setVisibility(0);
             this.fdS.setText(gVar.title);
             this.fdT.setVisibility(0);
@@ -202,7 +202,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 public void beN() {
                     b.this.fek = false;
                     b.this.fdT.setVisibility(8);
-                    b.this.vb(b.this.bGe ? "1" : "2");
+                    b.this.vb(b.this.bGf ? "1" : "2");
                     b.this.onClick(b.this.fdR);
                 }
 
@@ -228,12 +228,12 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             });
             this.fee.oP(false);
             this.feh = new z();
-            this.feh.ctw = gVar.threadId;
-            this.feh.ekM = gVar.forumId;
+            this.feh.ctx = gVar.threadId;
+            this.feh.ekN = gVar.forumId;
             this.feh.mUid = TbadkCoreApplication.getCurrentAccount();
             this.fei = new z();
-            this.fei.ctw = gVar.threadId;
-            this.fei.ekM = gVar.forumId;
+            this.fei.ctx = gVar.threadId;
+            this.fei.ekN = gVar.forumId;
             this.fei.mUid = TbadkCoreApplication.getCurrentAccount();
             if (this.fen) {
                 am amVar = new am("c12590");
@@ -243,24 +243,24 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 amVar.T("obj_locate", i);
                 amVar.T("obj_param2", 1);
                 TiebaStatic.log(amVar);
-                this.feh.hYx = "auto_midpage";
+                this.feh.hYy = "auto_midpage";
                 this.feh.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-                this.feh.hYz = "1";
-                this.fei.hYx = "auto_midpage";
+                this.feh.hYA = "1";
+                this.fei.hYy = "auto_midpage";
                 this.fei.mLocate = "auto_midpage";
-                this.fei.hYz = "1";
+                this.fei.hYA = "1";
             } else {
-                this.feh.hYz = "frs_bavideotab";
+                this.feh.hYA = "frs_bavideotab";
                 this.feh.mLocate = Constants.VIA_REPORT_TYPE_SET_AVATAR;
-                this.fei.hYz = "frs_bavideotab";
+                this.fei.hYA = "frs_bavideotab";
                 this.fei.mLocate = "frs_bavideotab";
             }
             if (gVar.feF != null) {
-                this.feh.hYB = gVar.feF.videoMd5;
-                this.fei.hYB = gVar.feF.videoMd5;
+                this.feh.hYC = gVar.feF.videoMd5;
+                this.fei.hYC = gVar.feF.videoMd5;
             }
-            this.dbh.setVideoStatsData(this.feh);
-            this.fee.getVideoView().setBusiness(this.dbh);
+            this.dbi.setVideoStatsData(this.feh);
+            this.fee.getVideoView().setBusiness(this.dbi);
             this.fee.bAD();
             this.fee.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
@@ -274,7 +274,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                         }
                     } else if (b.this.fdS.getVisibility() == 8) {
                         b.this.fdS.setVisibility(0);
-                        b.this.fdS.startAnimation(b.this.afd);
+                        b.this.fdS.startAnimation(b.this.afe);
                     }
                 }
 
@@ -390,10 +390,10 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
 
     public void b(g gVar) {
         if (gVar != null && gVar.feE != null) {
-            this.Zy.setText(TextUtils.isEmpty(gVar.feE.userNickname) ? gVar.feE.userName : gVar.feE.userNickname);
-            this.dQJ.startLoad(gVar.feE.portrait, 12, false);
-            this.dQJ.setShowV(gVar.feE.isGod);
-            this.dQJ.setIsBigV(gVar.feE.isGod);
+            this.Zz.setText(TextUtils.isEmpty(gVar.feE.userNickname) ? gVar.feE.userName : gVar.feE.userNickname);
+            this.dQK.startLoad(gVar.feE.portrait, 12, false);
+            this.dQK.setShowV(gVar.feE.isGod);
+            this.dQK.setIsBigV(gVar.feE.isGod);
             c(gVar);
             d(gVar);
             e(gVar);
@@ -495,7 +495,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             view.setTag(this);
             aQf().a(view, this.fef);
         }
-        if (view == this.dQJ || view == this.Zy) {
+        if (view == this.dQK || view == this.Zz) {
             boolean z = false;
             if (this.fef != null && this.fef.feE != null && !TextUtils.isEmpty(this.fef.feE.userId)) {
                 if (TbadkCoreApplication.isLogin() && this.fef.feE.userId.equals(TbadkCoreApplication.getCurrentAccount())) {

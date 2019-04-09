@@ -14,8 +14,8 @@ import java.util.zip.DeflaterOutputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat ach;
-    private static PackageManager aci;
+    private static SimpleDateFormat aci;
+    private static PackageManager acj;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
         if (z) {
@@ -111,10 +111,10 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (ach == null) {
-            ach = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (aci == null) {
+            aci = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return ach.format(date);
+        return aci.format(date);
     }
 
     public static String f(Throwable th) {
@@ -145,11 +145,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (aci == null) {
-            aci = context.getPackageManager();
+        if (acj == null) {
+            acj = context.getPackageManager();
         }
         try {
-            return aci.checkPermission(str, context.getPackageName()) == 0;
+            return acj.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

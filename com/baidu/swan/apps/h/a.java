@@ -64,7 +64,7 @@ public class a extends y {
         boolean z = eVar.forbidden;
         int Mg = z.Mg();
         long Mh = z.Mh();
-        List<String> list = eVar.aRr;
+        List<String> list = eVar.aRs;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {

@@ -19,7 +19,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     private b gdw;
     private List<ResponseHistoryMessage.a> mDataList;
     private int gdt = 0;
-    private boolean daL = false;
+    private boolean daM = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -54,7 +54,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         if (this.mDataList != null && !this.mDataList.isEmpty()) {
             i = this.mDataList.get(this.mDataList.size() - 1).id;
         }
-        this.daL = true;
+        this.daM = true;
         MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.gdt, com.baidu.adp.lib.g.b.d(TbadkApplication.getCurrentAccount(), 0L), i));
     }
 
@@ -99,7 +99,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             OfficialBarHistoryActivity.this.hideProgressBar();
-            OfficialBarHistoryActivity.this.daL = false;
+            OfficialBarHistoryActivity.this.daM = false;
             if (socketResponsedMessage == null) {
                 OfficialBarHistoryActivity.this.showToast(d.j.neterror);
                 OfficialBarHistoryActivity.this.gdu.cF(OfficialBarHistoryActivity.this.mDataList);
@@ -144,7 +144,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!this.daL) {
+        if (!this.daM) {
             QG();
         }
     }

@@ -26,9 +26,9 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        fN.aEE = bundle;
-        fN.aEF = i;
-        fN.aEG = str2;
+        fN.aEF = bundle;
+        fN.aEG = i;
+        fN.aEH = str2;
         fN.t(bundle);
     }
 

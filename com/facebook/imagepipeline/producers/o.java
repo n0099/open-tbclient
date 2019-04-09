@@ -3,12 +3,12 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class o implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.l jJH;
-    private final ai<com.facebook.imagepipeline.f.d> jJk;
+    private final com.facebook.imagepipeline.c.l jJI;
+    private final ai<com.facebook.imagepipeline.f.d> jJl;
 
     public o(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.jJk = aiVar;
-        this.jJH = lVar;
+        this.jJl = aiVar;
+        this.jJI = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -22,21 +22,21 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
             return;
         }
         if (ajVar.czA().cAv()) {
-            jVar = new a(jVar, ajVar, this.jJH);
+            jVar = new a(jVar, ajVar, this.jJI);
         }
-        this.jJk.a(jVar, ajVar);
+        this.jJl.a(jVar, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.l jJH;
-        private final aj jJv;
+        private final com.facebook.imagepipeline.c.l jJI;
+        private final aj jJw;
 
         private a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar, com.facebook.imagepipeline.c.l lVar) {
             super(jVar);
-            this.jJv = ajVar;
-            this.jJH = lVar;
+            this.jJw = ajVar;
+            this.jJI = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class o implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar != null && z) {
-                this.jJH.a(dVar, this.jJv.czA(), this.jJv.cuW());
+                this.jJI.a(dVar, this.jJw.czA(), this.jJw.cuW());
             }
             czN().e(dVar, z);
         }

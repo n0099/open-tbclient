@@ -57,7 +57,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class c implements IGuard {
-        private Parcel gDU;
+        private Parcel gDV;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -146,20 +146,20 @@ public class GuardProxy {
         private void aN(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.gDU = Parcel.obtain();
-            this.gDU.writeInterfaceToken("android.app.IActivityManager");
-            this.gDU.writeStrongBinder(null);
-            intent.writeToParcel(this.gDU, 0);
-            this.gDU.writeString(null);
-            this.gDU.writeInt(0);
+            this.gDV = Parcel.obtain();
+            this.gDV.writeInterfaceToken("android.app.IActivityManager");
+            this.gDV.writeStrongBinder(null);
+            intent.writeToParcel(this.gDV, 0);
+            this.gDV.writeString(null);
+            this.gDV.writeInt(0);
         }
 
         private boolean bzh() {
             try {
-                if (this.mRemote == null || this.gDU == null) {
+                if (this.mRemote == null || this.gDV == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.gDU, null, 0);
+                this.mRemote.transact(34, this.gDV, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -171,8 +171,8 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements IGuard {
-        private AlarmManager gDO;
-        private PendingIntent gDP;
+        private AlarmManager gDP;
+        private PendingIntent gDQ;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -228,7 +228,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.gDO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.gDP);
+                this.gDP.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.gDQ);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -239,26 +239,26 @@ public class GuardProxy {
         }
 
         private void aM(Context context, String str) {
-            if (this.gDO == null) {
-                this.gDO = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
             if (this.gDP == null) {
+                this.gDP = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.gDQ == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.gDP = PendingIntent.getService(context, 0, intent, 0);
+                this.gDQ = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.gDO.cancel(this.gDP);
+            this.gDP.cancel(this.gDQ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements IGuard {
-        private final String gDM = "bin";
-        private final String gDN = "daemon";
-        private AlarmManager gDO;
-        private PendingIntent gDP;
+        private final String gDN = "bin";
+        private final String gDO = "daemon";
+        private AlarmManager gDP;
+        private PendingIntent gDQ;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a() {
@@ -303,22 +303,22 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.gDO.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.gDP);
+                this.gDP.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.gDQ);
                 Process.killProcess(Process.myPid());
             }
         }
 
         private void aM(Context context, String str) {
-            if (this.gDO == null) {
-                this.gDO = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
             if (this.gDP == null) {
+                this.gDP = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.gDQ == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.gDP = PendingIntent.getService(context, 0, intent, 0);
+                this.gDQ = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.gDO.cancel(this.gDP);
+            this.gDP.cancel(this.gDQ);
         }
 
         private boolean dZ(Context context) {
@@ -376,9 +376,9 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class d implements IGuard {
-        private final String gDM = "bin";
-        private final String gDN = "daemon";
-        private Parcel gDU;
+        private final String gDN = "bin";
+        private final String gDO = "daemon";
+        private Parcel gDV;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -455,20 +455,20 @@ public class GuardProxy {
         private void aN(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.gDU = Parcel.obtain();
-            this.gDU.writeInterfaceToken("android.app.IActivityManager");
-            this.gDU.writeStrongBinder(null);
-            intent.writeToParcel(this.gDU, 0);
-            this.gDU.writeString(null);
-            this.gDU.writeInt(0);
+            this.gDV = Parcel.obtain();
+            this.gDV.writeInterfaceToken("android.app.IActivityManager");
+            this.gDV.writeStrongBinder(null);
+            intent.writeToParcel(this.gDV, 0);
+            this.gDV.writeString(null);
+            this.gDV.writeInt(0);
         }
 
         private boolean bzh() {
             try {
-                if (this.mRemote == null || this.gDU == null) {
+                if (this.mRemote == null || this.gDV == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.gDU, null, 0);
+                this.mRemote.transact(34, this.gDV, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();

@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private TbImageView eIh;
+    private TbImageView eIi;
     private ChatClipImageItemView geK;
     private LinearLayout geL;
     private TextView geM;
@@ -30,9 +30,9 @@ public class ChatImageWithTailView extends LinearLayout {
         this.geK.setContentDescription(getContext().getString(d.j.editor_image));
         this.geK.setDefaultResource(d.f.pic_image_h_not);
         this.geL = (LinearLayout) findViewById(d.g.small_tail);
-        this.eIh = (TbImageView) findViewById(d.g.tail_icon);
-        this.eIh.setDefaultResource(d.f.icon);
-        this.eIh.setAutoChangeStyle(false);
+        this.eIi = (TbImageView) findViewById(d.g.tail_icon);
+        this.eIi.setDefaultResource(d.f.icon);
+        this.eIi.setAutoChangeStyle(false);
         this.geM = (TextView) findViewById(d.g.tail_game_from);
     }
 
@@ -53,11 +53,11 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public TbImageView getIcon() {
-        return this.eIh;
+        return this.eIi;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.eIh = tbImageView;
+        this.eIi = tbImageView;
     }
 
     public TextView getFromSource() {
@@ -69,6 +69,6 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public void setIsSupportNight(boolean z) {
-        this.eIh.setAutoChangeStyle(z);
+        this.eIi.setAutoChangeStyle(z);
     }
 }

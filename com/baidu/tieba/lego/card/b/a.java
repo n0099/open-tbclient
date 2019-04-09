@@ -13,16 +13,16 @@ public interface a {
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0331a {
-        public String gGp;
-        public Rect gGq;
+        public String gGq;
+        public Rect gGr;
         public String picUrl;
         public Rect rect;
 
         public C0331a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.gGp = "";
-            this.gGq = new Rect(0, 0, 0, 0);
+            this.gGq = "";
+            this.gGr = new Rect(0, 0, 0, 0);
         }
 
         private C0331a(JSONObject jSONObject) {
@@ -35,7 +35,7 @@ public interface a {
         }
 
         public boolean bzJ() {
-            return (TextUtils.isEmpty(this.gGp) || this.gGq.isEmpty()) ? false : true;
+            return (TextUtils.isEmpty(this.gGq) || this.gGr.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.gGp = jSONObject.optString("pic_url");
-                                this.gGq = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.gGq = jSONObject.optString("pic_url");
+                                this.gGr = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

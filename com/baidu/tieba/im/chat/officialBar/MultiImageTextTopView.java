@@ -21,7 +21,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.officialBar.c;
 /* loaded from: classes3.dex */
 public class MultiImageTextTopView extends RelativeLayout {
-    private TextView eKM;
+    private TextView eKN;
     private com.baidu.adp.lib.c.b gbj;
     private TbImageView gcW;
     private Context mContext;
@@ -48,7 +48,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         this.gcW = (TbImageView) findViewById(d.g.top_content_pic);
         this.gcW.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(d.g.top_title);
-        this.eKM = (TextView) findViewById(d.g.show_time);
+        this.eKN = (TextView) findViewById(d.g.show_time);
         setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
@@ -106,20 +106,20 @@ public class MultiImageTextTopView extends RelativeLayout {
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.eKM.setVisibility(8);
-            this.eKM.setText("");
+            this.eKN.setVisibility(8);
+            this.eKN.setText("");
             return;
         }
-        this.eKM.setVisibility(0);
-        this.eKM.setText(str);
+        this.eKN.setVisibility(0);
+        this.eKN.setText(str);
     }
 
     public void reset() {
         this.mTitle.setText("");
         this.gcW.setBackgroundDrawable(null);
         this.gcW.setImageDrawable(null);
-        this.eKM.setVisibility(8);
-        this.eKM.setText("");
+        this.eKN.setVisibility(8);
+        this.eKN.setText("");
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
@@ -137,6 +137,6 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
         this.gcW.setAutoChangeStyle(z);
         al.c(this.mTitle, d.C0277d.cp_cont_g, 1, skinType);
-        al.c(this.eKM, d.C0277d.common_color_10067, 1, skinType);
+        al.c(this.eKN, d.C0277d.common_color_10067, 1, skinType);
     }
 }

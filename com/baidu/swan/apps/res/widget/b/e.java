@@ -31,10 +31,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e {
-    private static View aNA;
     private static View aNB;
-    private static boolean aNC = false;
-    private static Runnable aNi;
+    private static View aNC;
+    private static boolean aND = false;
+    private static Runnable aNj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, int i2, boolean z) {
@@ -82,7 +82,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         Resources resources = activity.getResources();
-        aNC = z;
+        aND = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highlight_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highlight_toast_text);
@@ -105,7 +105,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Activity activity, CharSequence charSequence, int i, boolean z) {
         Resources resources = activity.getResources();
-        aNC = z;
+        aND = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highLoading_progress_toast_title);
@@ -135,9 +135,9 @@ public class e {
                 view.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.aNC && view != null) {
-                            if (e.aNB != null && (e.aNB.getParent() instanceof ViewGroup)) {
-                                ((ViewGroup) e.aNB.getParent()).removeView(e.aNB);
+                        if (e.aND && view != null) {
+                            if (e.aNC != null && (e.aNC.getParent() instanceof ViewGroup)) {
+                                ((ViewGroup) e.aNC.getParent()).removeView(e.aNC);
                             }
                             if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                                 FrameLayout frameLayout = new FrameLayout(context);
@@ -146,31 +146,31 @@ public class e {
                                 layoutParams2.topMargin = d.bY(context);
                                 if (view instanceof ViewGroup) {
                                     ((ViewGroup) view).addView(frameLayout, layoutParams2);
-                                    View unused = e.aNB = frameLayout;
+                                    View unused = e.aNC = frameLayout;
                                 }
                             } else {
                                 return;
                             }
                         }
-                        if (e.aNA != null && (e.aNA.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.aNA.getParent()).removeView(e.aNA);
+                        if (e.aNB != null && (e.aNB.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.aNB.getParent()).removeView(e.aNB);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.aNA = view2;
+                            View unused2 = e.aNB = view2;
                         }
                     }
                 });
-                if (aNi == null) {
-                    aNi = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
+                if (aNj == null) {
+                    aNj = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
                         @Override // java.lang.Runnable
                         public void run() {
                             e.cancel();
                         }
                     };
                 }
-                view.postDelayed(aNi, i * 1000);
+                view.postDelayed(aNj, i * 1000);
             }
         }
     }
@@ -287,12 +287,12 @@ public class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (aNA != null) {
-                aNA.post(new AnonymousClass2(aNA, aNB));
-                aNA.removeCallbacks(aNi);
-                aNA = null;
-                aNi = null;
+            if (aNB != null) {
+                aNB.post(new AnonymousClass2(aNB, aNC));
+                aNB.removeCallbacks(aNj);
                 aNB = null;
+                aNj = null;
+                aNC = null;
             }
         }
     }
@@ -301,17 +301,17 @@ public class e {
     /* renamed from: com.baidu.swan.apps.res.widget.b.e$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static class AnonymousClass2 implements Runnable {
-        final /* synthetic */ View aNG;
         final /* synthetic */ View aNH;
+        final /* synthetic */ View aNI;
 
         AnonymousClass2(View view, View view2) {
-            this.aNG = view;
-            this.aNH = view2;
+            this.aNH = view;
+            this.aNI = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.aNG.getContext(), a.C0107a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.aNH.getContext(), a.C0107a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -319,22 +319,22 @@ public class e {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    if (AnonymousClass2.this.aNG.getParent() instanceof ViewGroup) {
-                        AnonymousClass2.this.aNG.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
+                    if (AnonymousClass2.this.aNH.getParent() instanceof ViewGroup) {
+                        AnonymousClass2.this.aNH.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aNG.getParent() != null) {
-                                    ((ViewGroup) AnonymousClass2.this.aNG.getParent()).removeView(AnonymousClass2.this.aNG);
+                                if (AnonymousClass2.this.aNH.getParent() != null) {
+                                    ((ViewGroup) AnonymousClass2.this.aNH.getParent()).removeView(AnonymousClass2.this.aNH);
                                 }
                             }
                         });
                     }
-                    if (AnonymousClass2.this.aNH != null) {
-                        AnonymousClass2.this.aNH.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
+                    if (AnonymousClass2.this.aNI != null) {
+                        AnonymousClass2.this.aNI.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.aNH != null && AnonymousClass2.this.aNH.getParent() != null && (AnonymousClass2.this.aNH.getParent() instanceof ViewGroup)) {
-                                    ((ViewGroup) AnonymousClass2.this.aNH.getParent()).removeView(AnonymousClass2.this.aNH);
+                                if (AnonymousClass2.this.aNI != null && AnonymousClass2.this.aNI.getParent() != null && (AnonymousClass2.this.aNI.getParent() instanceof ViewGroup)) {
+                                    ((ViewGroup) AnonymousClass2.this.aNI.getParent()).removeView(AnonymousClass2.this.aNI);
                                 }
                             }
                         });
@@ -345,7 +345,7 @@ public class e {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aNG.startAnimation(loadAnimation);
+            this.aNH.startAnimation(loadAnimation);
         }
     }
 }

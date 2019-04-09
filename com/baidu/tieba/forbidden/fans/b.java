@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener eTQ = null;
-    private View.OnClickListener dWx = null;
+    private View.OnClickListener eTR = null;
+    private View.OnClickListener dWy = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -37,12 +37,12 @@ public class b extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(a aVar, int i) {
         com.baidu.tieba.forbidden.fans.a pB;
         if (aVar != null && (pB = pB(i)) != null) {
-            aVar.eTS.startLoad(pB.portrait, 12, false);
-            aVar.eTT.setText(pB.nameShow);
-            aVar.eTU.setOnClickListener(this.eTQ);
-            aVar.eTU.setTag(pB);
-            aVar.eTR.setOnClickListener(this.dWx);
-            aVar.eTR.setTag(pB);
+            aVar.eTT.startLoad(pB.portrait, 12, false);
+            aVar.eTU.setText(pB.nameShow);
+            aVar.eTV.setOnClickListener(this.eTR);
+            aVar.eTV.setTag(pB);
+            aVar.eTS.setOnClickListener(this.dWy);
+            aVar.eTS.setTag(pB);
             a(aVar);
         }
     }
@@ -86,36 +86,36 @@ public class b extends RecyclerView.Adapter<a> {
     /* loaded from: classes5.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View eTR;
-        public ClickableHeaderImageView eTS;
-        public TextView eTT;
+        public View eTS;
+        public ClickableHeaderImageView eTT;
         public TextView eTU;
+        public TextView eTV;
 
         public a(View view) {
             super(view);
-            this.eTR = view.findViewById(d.g.container_forbidden_item);
-            this.eTS = (ClickableHeaderImageView) view.findViewById(d.g.view_fans_photo);
-            this.eTS.setRadius(l.h(view.getContext(), d.e.ds90));
-            this.eTS.setAutoChangeStyle(true);
-            this.eTS.setClickable(false);
-            this.eTT = (TextView) view.findViewById(d.g.view_fans_name);
-            this.eTU = (TextView) view.findViewById(d.g.view_fans_remove);
+            this.eTS = view.findViewById(d.g.container_forbidden_item);
+            this.eTT = (ClickableHeaderImageView) view.findViewById(d.g.view_fans_photo);
+            this.eTT.setRadius(l.h(view.getContext(), d.e.ds90));
+            this.eTT.setAutoChangeStyle(true);
+            this.eTT.setClickable(false);
+            this.eTU = (TextView) view.findViewById(d.g.view_fans_name);
+            this.eTV = (TextView) view.findViewById(d.g.view_fans_remove);
             this.dividerLine = view.findViewById(d.g.line_divider);
         }
     }
 
     private void a(a aVar) {
-        al.j(aVar.eTT, d.C0277d.cp_cont_b);
+        al.j(aVar.eTU, d.C0277d.cp_cont_b);
         al.l(aVar.dividerLine, d.C0277d.cp_bg_line_b);
-        al.j(aVar.eTU, d.C0277d.btn_color_remove);
-        al.k(aVar.eTU, d.f.btn_transparent_focus_border_bg);
+        al.j(aVar.eTV, d.C0277d.btn_color_remove);
+        al.k(aVar.eTV, d.f.btn_transparent_focus_border_bg);
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.eTQ = onClickListener;
+        this.eTR = onClickListener;
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.dWx = onClickListener;
+        this.dWy = onClickListener;
     }
 }

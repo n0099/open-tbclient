@@ -15,8 +15,8 @@ import com.baidu.swan.apps.an.m;
 /* loaded from: classes2.dex */
 public class c extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private TextView aqn;
     private TextView aqo;
+    private TextView aqp;
     private LinearLayout mRootLayout;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
@@ -42,7 +42,7 @@ public class c extends b {
         if (!TextUtils.isEmpty(a)) {
             dT(a);
         }
-        this.aqa.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.c.c.1
+        this.aqb.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 c.this.yd();
@@ -68,12 +68,12 @@ public class c extends b {
         }
         this.mRootLayout = (LinearLayout) view.findViewById(a.f.error_layout);
         this.mRootLayout.setBackgroundColor(getResources().getColor(a.c.aiapps_error_fragment_background));
-        this.aqn = (TextView) view.findViewById(a.f.ai_apps_error_msg);
-        this.aqn.setText(uA.mErrorMsg);
-        this.aqn.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
-        this.aqo = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
-        this.aqo.setText(uA.axM);
-        this.aqo.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
+        this.aqo = (TextView) view.findViewById(a.f.ai_apps_error_msg);
+        this.aqo.setText(uA.mErrorMsg);
+        this.aqo.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
+        this.aqp = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
+        this.aqp.setText(uA.axN);
+        this.aqp.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
     }
 
     @Override // com.baidu.swan.apps.core.c.b

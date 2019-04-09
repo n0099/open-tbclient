@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
-    public int bUM;
-    public TextView buc;
-    public View hKE;
-    public HTypeListView hKF;
-    public e hKG;
+    public int bUN;
+    public TextView bud;
+    public View hKF;
+    public HTypeListView hKG;
+    public e hKH;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.bUM = 3;
+        this.bUN = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.hKE = view.findViewById(d.g.divider_view_under_photo_album);
-        this.buc = (TextView) view.findViewById(d.g.text_view_photo_album);
-        this.hKF = (HTypeListView) view.findViewById(d.g.listview_photo_album);
-        this.hKG = new e(this.mPageContext, this.hKF);
+        this.hKF = view.findViewById(d.g.divider_view_under_photo_album);
+        this.bud = (TextView) view.findViewById(d.g.text_view_photo_album);
+        this.hKG = (HTypeListView) view.findViewById(d.g.listview_photo_album);
+        this.hKH = new e(this.mPageContext, this.hKG);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.hKG.setDatas(dE(fVar.getPhotoAlbum()));
+            this.hKH.setDatas(dE(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,12 +53,12 @@ public class d extends v.a {
     }
 
     public void ank() {
-        if (this.bUM != TbadkCoreApplication.getInst().getSkinType()) {
-            this.bUM = TbadkCoreApplication.getInst().getSkinType();
+        if (this.bUN != TbadkCoreApplication.getInst().getSkinType()) {
+            this.bUN = TbadkCoreApplication.getInst().getSkinType();
             al.l(this.rootView, d.C0277d.cp_bg_line_d);
-            al.l(this.hKE, d.C0277d.cp_bg_line_c);
-            al.d(this.buc, d.C0277d.cp_cont_d, 1);
-            this.hKG.notifyDataSetChanged();
+            al.l(this.hKF, d.C0277d.cp_bg_line_c);
+            al.d(this.bud, d.C0277d.cp_cont_d, 1);
+            this.hKH.notifyDataSetChanged();
         }
     }
 }

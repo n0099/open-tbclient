@@ -20,20 +20,20 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.s;
 /* loaded from: classes.dex */
 public class McnVideoAdView extends FrameLayout {
-    private static final int afi = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds626);
-    private static final int afj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds156);
-    private static final int afk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds112);
+    private static final int afj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds626);
+    private static final int afk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds156);
+    private static final int afl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds112);
     private float Ql;
     private float Qm;
-    private TbImageView afa;
-    private TextView afb;
+    private TbImageView afb;
     private TextView afc;
-    private Animation afd;
+    private TextView afd;
     private Animation afe;
-    private boolean aff;
-    private com.baidu.mcn.a afg;
-    private a afh;
-    private ViewParent afl;
+    private Animation aff;
+    private boolean afg;
+    private com.baidu.mcn.a afh;
+    private a afi;
+    private ViewParent afm;
     private boolean isShowing;
     private Context mContext;
     private final Handler mHandler;
@@ -50,7 +50,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context) {
         super(context);
         this.isShowing = false;
-        this.aff = false;
+        this.afg = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -59,7 +59,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isShowing = false;
-        this.aff = false;
+        this.afg = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -68,7 +68,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isShowing = false;
-        this.aff = false;
+        this.afg = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -76,16 +76,16 @@ public class McnVideoAdView extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(d.h.mcn_video_ad_layout, this);
-        this.afa = (TbImageView) findViewById(d.g.id_mcn_video_ad_image);
-        this.afb = (TextView) findViewById(d.g.id_mcn_video_ad_title);
-        this.afc = (TextView) findViewById(d.g.id_mcn_video_ad_jump_btn);
-        this.afa.setConrers(5);
-        this.afa.setDefaultResource(d.f.mcn_video_ad_default_img_bg);
-        this.afa.setDefaultBgResource(d.f.mcn_video_ad_default_img_bg);
-        this.afa.setRadius(l.h(this.mContext, d.e.tbds20));
-        this.afd = AnimationUtils.loadAnimation(this.mContext, d.a.mcn_video_ad_open_anim);
-        this.afe = AnimationUtils.loadAnimation(this.mContext, d.a.mcn_video_ad_close_anim);
-        this.afe.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.mcn.McnVideoAdView.1
+        this.afb = (TbImageView) findViewById(d.g.id_mcn_video_ad_image);
+        this.afc = (TextView) findViewById(d.g.id_mcn_video_ad_title);
+        this.afd = (TextView) findViewById(d.g.id_mcn_video_ad_jump_btn);
+        this.afb.setConrers(5);
+        this.afb.setDefaultResource(d.f.mcn_video_ad_default_img_bg);
+        this.afb.setDefaultBgResource(d.f.mcn_video_ad_default_img_bg);
+        this.afb.setRadius(l.h(this.mContext, d.e.tbds20));
+        this.afe = AnimationUtils.loadAnimation(this.mContext, d.a.mcn_video_ad_open_anim);
+        this.aff = AnimationUtils.loadAnimation(this.mContext, d.a.mcn_video_ad_close_anim);
+        this.aff.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.mcn.McnVideoAdView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -103,13 +103,13 @@ public class McnVideoAdView extends FrameLayout {
 
     private void setData(com.baidu.mcn.a aVar) {
         if (aVar != null) {
-            this.afg = aVar;
-            this.afa.startLoad(aVar.aeO, 10, false);
-            if (!StringUtils.isNull(aVar.aeP)) {
-                this.afb.setText(aVar.aeP);
-            }
+            this.afh = aVar;
+            this.afb.startLoad(aVar.aeP, 10, false);
             if (!StringUtils.isNull(aVar.aeQ)) {
                 this.afc.setText(aVar.aeQ);
+            }
+            if (!StringUtils.isNull(aVar.aeR)) {
+                this.afd.setText(aVar.aeR);
             }
         }
     }
@@ -120,9 +120,9 @@ public class McnVideoAdView extends FrameLayout {
             case 0:
                 this.Ql = motionEvent.getX();
                 this.Qm = motionEvent.getY();
-                this.afl = getParent();
-                if (this.afl != null) {
-                    this.afl.requestDisallowInterceptTouchEvent(true);
+                this.afm = getParent();
+                if (this.afm != null) {
+                    this.afm.requestDisallowInterceptTouchEvent(true);
                     break;
                 }
                 break;
@@ -135,10 +135,10 @@ public class McnVideoAdView extends FrameLayout {
                 break;
             case 2:
                 if (motionEvent.getX() - this.Ql > 10.0f && this.isShowing) {
-                    this.aff = true;
+                    this.afg = true;
                     dismiss();
-                    if (this.afh != null) {
-                        this.afh.c(this.afg);
+                    if (this.afi != null) {
+                        this.afi.c(this.afh);
                         break;
                     }
                 }
@@ -154,19 +154,19 @@ public class McnVideoAdView extends FrameLayout {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.mcn.McnVideoAdView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (McnVideoAdView.this.afl != null) {
-                    McnVideoAdView.this.afl.requestDisallowInterceptTouchEvent(false);
-                    McnVideoAdView.this.afl = null;
+                if (McnVideoAdView.this.afm != null) {
+                    McnVideoAdView.this.afm.requestDisallowInterceptTouchEvent(false);
+                    McnVideoAdView.this.afm = null;
                 }
             }
         }, 500L);
     }
 
     private void ta() {
-        if (this.mContext != null && this.afg != null && this.afg.aeR != null) {
-            s.aS(this.mContext, this.afg.aeR);
-            if (this.afh != null) {
-                this.afh.b(this.afg);
+        if (this.mContext != null && this.afh != null && this.afh.aeS != null) {
+            s.aS(this.mContext, this.afh.aeS);
+            if (this.afi != null) {
+                this.afi.b(this.afh);
             }
         }
     }
@@ -181,16 +181,16 @@ public class McnVideoAdView extends FrameLayout {
 
     public void a(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
         b(aVar, viewGroup);
-        if (this.afd != null) {
+        if (this.afe != null) {
             clearAnimation();
-            startAnimation(this.afd);
+            startAnimation(this.afe);
         }
     }
 
     public void dismiss() {
-        if (this.afe != null) {
+        if (this.aff != null) {
             clearAnimation();
-            startAnimation(this.afe);
+            startAnimation(this.aff);
         }
     }
 
@@ -201,8 +201,8 @@ public class McnVideoAdView extends FrameLayout {
     public void reset() {
         removeView();
         this.isShowing = false;
-        this.aff = false;
-        this.afg = null;
+        this.afg = false;
+        this.afh = null;
     }
 
     public void b(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
@@ -211,19 +211,19 @@ public class McnVideoAdView extends FrameLayout {
         viewGroup.removeView(this);
         viewGroup.addView(this);
         if (viewGroup instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(afi, afj);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(afj, afk);
             layoutParams.gravity = 85;
-            layoutParams.bottomMargin = afk;
+            layoutParams.bottomMargin = afl;
             setLayoutParams(layoutParams);
         } else if (viewGroup instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(afi, afj);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(afj, afk);
             layoutParams2.addRule(11);
             layoutParams2.addRule(12);
-            layoutParams2.setMargins(0, 0, 0, afk);
+            layoutParams2.setMargins(0, 0, 0, afl);
             setLayoutParams(layoutParams2);
         }
-        if (this.afh != null) {
-            this.afh.a(aVar);
+        if (this.afi != null) {
+            this.afi.a(aVar);
         }
     }
 
@@ -232,6 +232,6 @@ public class McnVideoAdView extends FrameLayout {
     }
 
     public void setIMcnStatListener(a aVar) {
-        this.afh = aVar;
+        this.afi = aVar;
     }
 }

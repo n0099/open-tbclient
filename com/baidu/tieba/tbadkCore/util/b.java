@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class b {
-    private static String hBh = "tbgametype";
+    private static String hBi = "tbgametype";
 
     public static String CJ(String str) {
         String[] split;

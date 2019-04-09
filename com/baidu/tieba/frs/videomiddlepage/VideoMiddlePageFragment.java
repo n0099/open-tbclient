@@ -39,10 +39,10 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
-    private String byD;
-    private View csD;
-    private NoNetworkView dbq;
-    private com.baidu.tbadk.core.view.b eQC;
+    private String byE;
+    private View csE;
+    private NoNetworkView dbr;
+    private com.baidu.tbadk.core.view.b eQD;
     private PbListView feS;
     private List<com.baidu.tieba.card.data.b> fxA;
     private d fxB;
@@ -87,8 +87,8 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                 if (j.kY()) {
-                    if (VideoMiddlePageFragment.this.dbq != null) {
-                        VideoMiddlePageFragment.this.dbq.setVisibility(8);
+                    if (VideoMiddlePageFragment.this.dbr != null) {
+                        VideoMiddlePageFragment.this.dbr.setVisibility(8);
                     }
                     if (j.la() && !com.baidu.tieba.video.g.ciN().ciO()) {
                         if (VideoMiddlePageFragment.this.fxy == null || !VideoMiddlePageFragment.this.fxy.pY()) {
@@ -100,8 +100,8 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
                         }
                         VideoMiddlePageFragment.this.getPageContext().showToast(d.j.video_mobile_play_tips);
                     }
-                } else if (VideoMiddlePageFragment.this.dbq != null) {
-                    VideoMiddlePageFragment.this.dbq.setVisibility(0);
+                } else if (VideoMiddlePageFragment.this.dbr != null) {
+                    VideoMiddlePageFragment.this.dbr.setVisibility(0);
                 }
             }
         }
@@ -181,7 +181,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mFrom = arguments.getString("PARAM_FROM");
-            this.byD = arguments.getString("PARAM_FID");
+            this.byE = arguments.getString("PARAM_FID");
         }
         if (this.fxe != null) {
             this.fxe.setFrom(this.mFrom);
@@ -211,9 +211,9 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
         this.fxw.setOverScrollMode(2);
         this.fxw.setScrollable(this);
         this.fxx = (RelativeLayout) view.findViewById(d.g.container);
-        this.dbq = (NoNetworkView) view.findViewById(d.g.no_network_view);
+        this.dbr = (NoNetworkView) view.findViewById(d.g.no_network_view);
         if (!j.kY()) {
-            this.dbq.setVisibility(0);
+            this.dbr.setVisibility(0);
         }
         this.feS = new PbListView(getPageContext().getPageActivity());
         this.feS.dQ(false);
@@ -226,18 +226,18 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
         this.fxw.setNextPage(this.feS);
         this.feS.ic(l.h(TbadkCoreApplication.getInst(), d.e.tbds804));
         this.fxw.setOnScrollListener(this.mScrollListener);
-        this.fxy = new f(getPageContext(), this.fxw, this, true, this.mFrom, this.byD, getUniqueId());
+        this.fxy = new f(getPageContext(), this.fxw, this, true, this.mFrom, this.byE, getUniqueId());
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.navigation_bar);
         this.mNavigationBar.getBarBgView().setAlpha(0.0f);
         this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
         this.mNavigationBar.hideBottomLine();
-        this.csD = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddlePageFragment.4
+        this.csE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddlePageFragment.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 VideoMiddlePageFragment.this.getPageContext().getPageActivity().finish();
             }
         });
-        this.mBackImageView = (ImageView) this.csD.findViewById(d.g.widget_navi_back_button);
+        this.mBackImageView = (ImageView) this.csE.findViewById(d.g.widget_navi_back_button);
         this.mBackImageView.setImageDrawable(getPageContext().getResources().getDrawable(d.f.icon_return_bg));
         this.fxA = new ArrayList();
         this.fxB = new d();
@@ -299,8 +299,8 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
 
     @Override // com.baidu.tieba.frs.videomiddlepage.g.b
     public void hideLoadingView() {
-        if (this.eQC != null) {
-            this.eQC.dJ(false);
+        if (this.eQD != null) {
+            this.eQD.dJ(false);
         }
     }
 
@@ -339,9 +339,9 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
         this.mHasMore = z;
         if (!v.T(list)) {
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                this.fxG = TbadkCoreApplication.getInst().getAdAdSense().bWI;
-                this.fxH = TbadkCoreApplication.getInst().getAdAdSense().bWK;
-                this.fxI = TbadkCoreApplication.getInst().getAdAdSense().bWJ;
+                this.fxG = TbadkCoreApplication.getInst().getAdAdSense().bWJ;
+                this.fxH = TbadkCoreApplication.getInst().getAdAdSense().bWL;
+                this.fxI = TbadkCoreApplication.getInst().getAdAdSense().bWK;
             }
             ArrayList arrayList2 = new ArrayList();
             int size = list.size();
@@ -419,7 +419,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dbq.onChangeSkinType(getPageContext(), i);
+        this.dbr.onChangeSkinType(getPageContext(), i);
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks

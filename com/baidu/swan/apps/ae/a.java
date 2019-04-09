@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.ae;
 /* loaded from: classes2.dex */
 public class a<ImplemenT> {
-    private ImplemenT aNK;
-    private com.baidu.swan.apps.an.c.b<ImplemenT> aNL;
+    private ImplemenT aNL;
+    private com.baidu.swan.apps.an.c.b<ImplemenT> aNM;
 
     public a<ImplemenT> a(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
-        this.aNL = bVar;
+        this.aNM = bVar;
         return this;
     }
 
@@ -16,21 +16,21 @@ public class a<ImplemenT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a<ImplemenT> b(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
         if (bVar == null) {
-            bVar = this.aNL;
+            bVar = this.aNM;
         }
         if (bVar != null) {
             ImplemenT uR = bVar.uR();
             if (uR == null) {
-                uR = this.aNK;
+                uR = this.aNL;
             }
-            this.aNK = uR;
+            this.aNL = uR;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a<ImplemenT> IT() {
-        this.aNK = null;
+        this.aNL = null;
         return this;
     }
 
@@ -38,10 +38,10 @@ public class a<ImplemenT> {
         if (!IU()) {
             IS();
         }
-        return this.aNK;
+        return this.aNL;
     }
 
     public boolean IU() {
-        return this.aNK != null;
+        return this.aNL != null;
     }
 }

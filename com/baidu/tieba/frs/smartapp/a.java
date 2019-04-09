@@ -14,7 +14,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> aFL;
+    private ArrayList<b> aFM;
     private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
@@ -22,23 +22,23 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<b> arrayList) {
-        this.aFL = arrayList;
+        this.aFM = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aFL == null) {
+        if (this.aFM == null) {
             return 0;
         }
-        return this.aFL.size();
+        return this.aFM.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aFL == null || i < 0 || i >= this.aFL.size()) {
+        if (this.aFM == null || i < 0 || i >= this.aFM.size()) {
             return null;
         }
-        return this.aFL.get(i);
+        return this.aFM.get(i);
     }
 
     @Override // android.widget.Adapter

@@ -18,7 +18,7 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.a>> {
-    private ab<bg> dqo;
+    private ab<bg> dqp;
     private com.baidu.tieba.homepage.daily.view.a fHL;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> fdJ;
     private com.baidu.adp.lib.e.b<TbImageView> fdK;
@@ -92,7 +92,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
                 return tbImageView;
             }
         }, 12, 0);
-        this.dqo = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.b.3
+        this.dqp = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
@@ -145,7 +145,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
         amVar.bJ("tid", bgVar.getTid());
         amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
         t.aQD().b(amVar);
-        aVar.aRg().d(this.dqo);
+        aVar.aRg().d(this.dqp);
         aVar.aRg().a(bgVar);
         return aVar.getView();
     }

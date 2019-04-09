@@ -9,27 +9,27 @@ import com.baidu.swan.apps.an.x;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class b {
-    private static final int bgo = com.baidu.swan.games.utils.b.ad(52.0f);
-    private static volatile b bgv = null;
-    private int bgp;
+    private static final int bgp = com.baidu.swan.games.utils.b.ad(52.0f);
+    private static volatile b bgw = null;
     private int bgq;
     private int bgr;
-    private boolean bgt;
-    private int bgu;
-    private ViewTreeObserver.OnGlobalLayoutListener bgw = null;
+    private int bgt;
+    private boolean bgu;
+    private int bgv;
+    private ViewTreeObserver.OnGlobalLayoutListener bgx = null;
 
     private b() {
     }
 
     public static b PH() {
-        if (bgv == null) {
+        if (bgw == null) {
             synchronized (b.class) {
-                if (bgv == null) {
-                    bgv = new b();
+                if (bgw == null) {
+                    bgw = new b();
                 }
             }
         }
-        return bgv;
+        return bgw;
     }
 
     public boolean f(a aVar) {
@@ -46,8 +46,8 @@ public class b {
 
     private void a(final View view, final a aVar) {
         if (view != null && aVar != null) {
-            this.bgu = view.getHeight();
-            this.bgw = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
+            this.bgv = view.getHeight();
+            this.bgx = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.games.view.b.b.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Rect rect = new Rect();
@@ -56,33 +56,33 @@ public class b {
                         int i = rect.bottom - rect.top;
                         int displayHeight = x.getDisplayHeight(AppRuntime.getAppContext());
                         int statusBarHeight = x.getStatusBarHeight();
-                        if (!b.this.bgt) {
-                            b.this.bgt = true;
-                            b.this.bgr = (displayHeight - i) - statusBarHeight;
-                            if (b.this.bgr < 0) {
-                                b.this.bgr = 0;
+                        if (!b.this.bgu) {
+                            b.this.bgu = true;
+                            b.this.bgt = (displayHeight - i) - statusBarHeight;
+                            if (b.this.bgt < 0) {
+                                b.this.bgt = 0;
                             }
                         }
                         if (i > 0) {
-                            if (i >= b.this.bgu || view.getHeight() - i <= 200) {
-                                if (i > b.this.bgu && view.getHeight() - i < 200) {
-                                    b.this.bgu = i;
+                            if (i >= b.this.bgv || view.getHeight() - i <= 200) {
+                                if (i > b.this.bgv && view.getHeight() - i < 200) {
+                                    b.this.bgv = i;
                                     b.this.g(aVar);
                                     return;
                                 }
                                 return;
                             }
-                            b.this.bgu = i;
-                            b.this.bgq = i - b.bgo;
-                            b.this.bgp = ((displayHeight - i) - statusBarHeight) - b.this.bgr;
-                            if (b.this.bgp > 0 && !b.this.a(aVar, b.this.bgp, b.this.bgq)) {
+                            b.this.bgv = i;
+                            b.this.bgr = i - b.bgp;
+                            b.this.bgq = ((displayHeight - i) - statusBarHeight) - b.this.bgt;
+                            if (b.this.bgq > 0 && !b.this.a(aVar, b.this.bgq, b.this.bgr)) {
                                 b.this.g(aVar);
                             }
                         }
                     }
                 }
             };
-            view.getViewTreeObserver().addOnGlobalLayoutListener(this.bgw);
+            view.getViewTreeObserver().addOnGlobalLayoutListener(this.bgx);
         }
     }
 
@@ -102,16 +102,16 @@ public class b {
             return false;
         }
         FrameLayout Pm = Eb.Pm();
-        if (Pm != null && this.bgw != null) {
-            Pm.getViewTreeObserver().removeOnGlobalLayoutListener(this.bgw);
+        if (Pm != null && this.bgx != null) {
+            Pm.getViewTreeObserver().removeOnGlobalLayoutListener(this.bgx);
         }
         aVar.hideKeyboard();
-        this.bgw = null;
-        this.bgp = -1;
+        this.bgx = null;
         this.bgq = -1;
         this.bgr = -1;
-        this.bgt = false;
-        this.bgu = -1;
+        this.bgt = -1;
+        this.bgu = false;
+        this.bgv = -1;
         return Eb.ai(aVar.getContentView());
     }
 

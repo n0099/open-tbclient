@@ -52,11 +52,11 @@ public class b {
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0122a {
-            private static final a amN = new a();
+            private static final a amO = new a();
         }
 
         public static a wI() {
-            return C0122a.amN;
+            return C0122a.amO;
         }
     }
 

@@ -24,7 +24,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method gYZ;
+    private static Method gZa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -241,9 +241,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (gYZ != null) {
+        if (gZa != null) {
             try {
-                gYZ.invoke(editor, new Object[0]);
+                gZa.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -254,9 +254,9 @@ final class b {
 
     static {
         try {
-            gYZ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            gZa = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            gYZ = null;
+            gZa = null;
         }
     }
 }

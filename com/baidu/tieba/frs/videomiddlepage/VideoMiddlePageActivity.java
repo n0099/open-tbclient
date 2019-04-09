@@ -57,7 +57,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!ap.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.TX().f(com.baidu.tbadk.BdToken.b.bqN, com.baidu.adp.lib.g.b.d(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.TX().f(com.baidu.tbadk.BdToken.b.bqO, com.baidu.adp.lib.g.b.d(this.mId, 0L));
         }
     }
 
@@ -116,7 +116,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 arrayList.add("a002");
             }
             pageStayDurationItem.ah(arrayList);
-            pageStayDurationItem.cpP = "0";
+            pageStayDurationItem.cpQ = "0";
         }
         return pageStayDurationItem;
     }

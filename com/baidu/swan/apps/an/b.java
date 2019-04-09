@@ -80,7 +80,7 @@ public final class b {
             Window window = activity.getWindow();
             window.clearFlags(1024);
             int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (LN() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.aKZ) {
+            if (com.baidu.swan.apps.res.widget.a.aLa) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);

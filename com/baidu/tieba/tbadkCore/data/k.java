@@ -9,26 +9,26 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
     private String iFA;
     private String iFB;
     private String iFC;
-    private String iFz;
+    private String iFD;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.iFz = null;
-        this.urlFlag = 0;
         this.iFA = null;
+        this.urlFlag = 0;
         this.iFB = null;
         this.iFC = null;
+        this.iFD = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.iFz = timgs.img_url;
+            this.iFA = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.iFA = timgs.url;
-            this.iFB = timgs.big_cdn_url;
-            this.iFC = timgs.des_main;
+            this.iFB = timgs.url;
+            this.iFC = timgs.big_cdn_url;
+            this.iFD = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,19 +51,19 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.iFz;
+        return this.iFA;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String Xf() {
-        return this.iFA;
+        return this.iFB;
     }
 
     public String cdX() {
-        return this.iFz;
+        return this.iFA;
     }
 
     public String cdY() {
-        return this.iFB;
+        return this.iFC;
     }
 }

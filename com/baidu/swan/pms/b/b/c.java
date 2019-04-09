@@ -14,31 +14,31 @@ public class c extends d<com.baidu.swan.pms.b.c.c> {
         com.baidu.swan.pms.b.c.c az = com.baidu.swan.pms.d.d.az(cVar.RJ());
         if (az == null) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2102, "response data empty");
-            this.bmi.a(bVar);
+            this.bmj.a(bVar);
             return bVar;
         } else if (!a(az)) {
             com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RJ().toString());
-            this.bmi.a(bVar2);
+            this.bmj.a(bVar2);
             return bVar2;
         } else {
-            this.bmi.zB();
+            this.bmj.zB();
             com.baidu.swan.pms.d.e eVar = new com.baidu.swan.pms.d.e();
-            a(az.bmQ, eVar);
+            a(az.bmR, eVar);
             if (eVar.So() == 0) {
-                this.bmi.zy();
+                this.bmj.zy();
             } else {
-                this.bmi.a(eVar);
-                com.baidu.swan.pms.b.a.a.a(az, this.bmi);
+                this.bmj.a(eVar);
+                com.baidu.swan.pms.b.a.a.a(az, this.bmj);
             }
             return null;
         }
     }
 
     protected boolean a(com.baidu.swan.pms.b.c.c cVar) {
-        if (cVar == null || cVar.bmQ == null) {
+        if (cVar == null || cVar.bmR == null) {
             return false;
         }
-        for (i iVar : cVar.bmQ) {
+        for (i iVar : cVar.bmR) {
             if (!iVar.RI()) {
                 return false;
             }

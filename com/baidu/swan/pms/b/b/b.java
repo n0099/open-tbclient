@@ -14,25 +14,25 @@ public class b extends d<com.baidu.swan.pms.b.c.b> {
         com.baidu.swan.pms.b.c.b ay = com.baidu.swan.pms.d.d.ay(cVar.RJ());
         if (ay == null) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2102, "response data empty");
-            this.bmi.a(bVar);
+            this.bmj.a(bVar);
             return bVar;
         } else if (!a(ay)) {
             com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, cVar.RJ().toString());
-            this.bmi.a(bVar2);
+            this.bmj.a(bVar2);
             return bVar2;
         } else {
-            this.bmi.zB();
+            this.bmj.zB();
             com.baidu.swan.pms.d.e eVar = new com.baidu.swan.pms.d.e();
-            a(ay.bmb, eVar);
-            a(ay.bmQ, eVar);
-            a(ay.bmO, eVar);
+            a(ay.bmc, eVar);
+            a(ay.bmR, eVar);
             a(ay.bmP, eVar);
-            i(ay.bmR);
+            a(ay.bmQ, eVar);
+            i(ay.bmS);
             if (eVar.So() == 0) {
-                this.bmi.zy();
+                this.bmj.zy();
             } else {
-                this.bmi.a(eVar);
-                com.baidu.swan.pms.b.a.a.a(ay, this.bmi);
+                this.bmj.a(eVar);
+                com.baidu.swan.pms.b.a.a.a(ay, this.bmj);
             }
             return null;
         }
@@ -42,20 +42,20 @@ public class b extends d<com.baidu.swan.pms.b.c.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.bmb == null && ((bVar.bmQ == null || bVar.bmQ.isEmpty()) && bVar.bmO == null && bVar.bmP == null && bVar.bmR == null)) {
+        if (bVar.bmc == null && ((bVar.bmR == null || bVar.bmR.isEmpty()) && bVar.bmP == null && bVar.bmQ == null && bVar.bmS == null)) {
             return false;
         }
-        if (bVar.bmb == null || bVar.bmb.RI()) {
-            if (bVar.bmQ != null) {
-                for (i iVar : bVar.bmQ) {
+        if (bVar.bmc == null || bVar.bmc.RI()) {
+            if (bVar.bmR != null) {
+                for (i iVar : bVar.bmR) {
                     if (!iVar.RI()) {
                         return false;
                     }
                 }
             }
-            if (bVar.bmO == null || bVar.bmO.RI()) {
-                if (bVar.bmP == null || bVar.bmP.RI()) {
-                    return bVar.bmR == null || bVar.bmR.RI();
+            if (bVar.bmP == null || bVar.bmP.RI()) {
+                if (bVar.bmQ == null || bVar.bmQ.RI()) {
+                    return bVar.bmS == null || bVar.bmS.RI();
                 }
                 return false;
             }

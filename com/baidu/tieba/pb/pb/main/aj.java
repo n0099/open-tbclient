@@ -12,17 +12,17 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class aj {
-    private boolean hrL;
-    private boolean hrN;
-    private com.baidu.tieba.pb.data.d hsc;
-    private String huJ;
-    private boolean huK;
+    private boolean hrM;
+    private boolean hrO;
+    private com.baidu.tieba.pb.data.d hsd;
+    private String huK;
     private boolean huL;
-    private Parcelable huM;
-    private boolean huN;
-    private PostData huO;
+    private boolean huM;
+    private Parcelable huN;
+    private boolean huO;
     private PostData huP;
-    private int huQ;
+    private PostData huQ;
+    private int huR;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.pb.pb.main.aj.1
@@ -85,106 +85,106 @@ public class aj {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static aj huR = new aj();
+        private static aj huS = new aj();
     }
 
     public static aj bLX() {
-        return a.huR;
+        return a.huS;
     }
 
     private aj() {
-        this.huJ = null;
-        this.huK = false;
-        this.hsc = null;
+        this.huK = null;
         this.huL = false;
-        this.huM = null;
-        this.hrN = true;
-        this.hrL = false;
-        this.huN = false;
+        this.hsd = null;
+        this.huM = false;
+        this.huN = null;
+        this.hrO = true;
+        this.hrM = false;
+        this.huO = false;
     }
 
     public void ao(String str, boolean z) {
-        this.huK = false;
+        this.huL = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.huJ = null;
-        } else if (!str.equals(this.huJ)) {
+            this.huK = null;
+        } else if (!str.equals(this.huK)) {
             reset();
-            this.huJ = str;
+            this.huK = str;
         } else {
-            this.huK = true;
+            this.huL = true;
         }
     }
 
     public com.baidu.tieba.pb.data.d getPbData() {
-        if (!this.huK) {
-            this.huL = false;
+        if (!this.huL) {
+            this.huM = false;
             return null;
-        } else if (this.hsc != null && this.hsc.bHY() != null && this.hsc.bHY().size() > 0) {
-            this.huL = true;
-            com.baidu.tieba.pb.data.d dVar = this.hsc;
-            this.hsc = null;
+        } else if (this.hsd != null && this.hsd.bHY() != null && this.hsd.bHY().size() > 0) {
+            this.huM = true;
+            com.baidu.tieba.pb.data.d dVar = this.hsd;
+            this.hsd = null;
             return dVar;
         } else {
-            this.huL = false;
-            this.hsc = null;
+            this.huM = false;
+            this.hsd = null;
             return null;
         }
     }
 
     public Parcelable bLY() {
-        if (this.huL) {
-            this.huL = false;
-            Parcelable parcelable = this.huM;
-            this.huM = null;
+        if (this.huM) {
+            this.huM = false;
+            Parcelable parcelable = this.huN;
+            this.huN = null;
             return parcelable;
         }
-        this.huM = null;
+        this.huN = null;
         return null;
     }
 
     public int bLZ() {
-        return this.huQ;
+        return this.huR;
     }
 
     public void ws(int i) {
-        this.huQ = i;
+        this.huR = i;
     }
 
     public PostData bMa() {
-        return this.huP;
+        return this.huQ;
     }
 
     public void k(PostData postData) {
-        this.huP = postData;
+        this.huQ = postData;
     }
 
     public PostData bMb() {
-        return this.huO;
+        return this.huP;
     }
 
     public void l(PostData postData) {
-        this.huO = postData;
+        this.huP = postData;
     }
 
     public boolean bKP() {
-        return this.hrN;
+        return this.hrO;
     }
 
     public boolean bMc() {
-        return this.hrL;
+        return this.hrM;
     }
 
     public boolean bMd() {
-        return this.huN;
+        return this.huO;
     }
 
     public boolean a(com.baidu.tieba.pb.data.d dVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.huK = false;
-        if (this.huJ == null) {
+        this.huL = false;
+        if (this.huK == null) {
             reset();
             return false;
         } else if (dVar == null) {
@@ -200,41 +200,41 @@ public class aj {
             reset();
             return false;
         } else {
-            this.hsc = dVar;
-            this.huL = false;
-            this.huM = parcelable;
-            this.hrN = z;
-            this.hrL = z2;
-            this.huN = z3;
+            this.hsd = dVar;
+            this.huM = false;
+            this.huN = parcelable;
+            this.hrO = z;
+            this.hrM = z2;
+            this.huO = z3;
             return true;
         }
     }
 
     public void reset() {
-        this.huK = false;
-        this.hsc = null;
         this.huL = false;
-        this.huM = null;
+        this.hsd = null;
+        this.huM = false;
+        this.huN = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.hsc != null && this.hsc.getForum() != null) {
+        if (customResponsedMessage != null && this.hsd != null && this.hsd.getForum() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.hsc.getForum().getId(), 0L)) {
-                this.hsc.getForum().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.hsd.getForum().getId(), 0L)) {
+                this.hsd.getForum().setLike(i);
             }
         }
     }
 
     public void updateCurrentUserPendant(com.baidu.tbadk.data.l lVar) {
-        if (lVar != null && this.hsc != null && this.hsc.bHY() != null && this.hsc.bHY().size() > 0) {
+        if (lVar != null && this.hsd != null && this.hsd.bHY() != null && this.hsd.bHY().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.hsc.bHY().size();
+                int size = this.hsd.bHY().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.hsc.bHY().get(i) != null && this.hsc.bHY().get(i).YO() != null && currentAccount.equals(this.hsc.bHY().get(i).YO().getUserId()) && this.hsc.bHY().get(i).YO().getPendantData() != null) {
-                        this.hsc.bHY().get(i).YO().getPendantData().lg(lVar.Xk());
-                        this.hsc.bHY().get(i).YO().getPendantData().aR(lVar.alu());
+                    if (this.hsd.bHY().get(i) != null && this.hsd.bHY().get(i).YO() != null && currentAccount.equals(this.hsd.bHY().get(i).YO().getUserId()) && this.hsd.bHY().get(i).YO().getPendantData() != null) {
+                        this.hsd.bHY().get(i).YO().getPendantData().lg(lVar.Xk());
+                        this.hsd.bHY().get(i).YO().getPendantData().aR(lVar.alu());
                     }
                 }
             }
@@ -242,8 +242,8 @@ public class aj {
     }
 
     public void a(com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.hsc != null && eVar != null) {
-            ArrayList<PostData> bHY = this.hsc.bHY();
+        if (this.hsd != null && eVar != null) {
+            ArrayList<PostData> bHY = this.hsd.bHY();
             if (!com.baidu.tbadk.core.util.v.T(bHY)) {
                 AgreeData agreeData = eVar.agreeData;
                 for (PostData postData : bHY) {
@@ -262,9 +262,9 @@ public class aj {
     }
 
     public void b(com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.hsc != null && this.hsc.bHW() != null && this.hsc.bHW().aaE() != null && eVar != null) {
+        if (this.hsd != null && this.hsd.bHW() != null && this.hsd.bHW().aaE() != null && eVar != null) {
             AgreeData agreeData = eVar.agreeData;
-            AgreeData aaE = this.hsc.bHW().aaE();
+            AgreeData aaE = this.hsd.bHW().aaE();
             if (!TextUtils.isEmpty(aaE.threadId) && agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && aaE.threadId.equals(agreeData.threadId)) {
                 aaE.agreeType = agreeData.agreeType;
                 aaE.hasAgree = agreeData.hasAgree;

@@ -16,30 +16,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c implements u {
-    u.a cWy;
-    private CustomMessageListener cWz = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.c.1
+    private CustomMessageListener cWA = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (c.this.cWy != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (c.this.cWz != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    c.this.cWy.Ds();
+                    c.this.cWz.Ds();
                 } else {
-                    c.this.cWy.Dt();
+                    c.this.cWz.Dt();
                 }
             }
         }
     };
+    u.a cWz;
 
     public c() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.cWz);
+        MessageManager.getInstance().registerListener(this.cWA);
     }
 
     @Override // com.baidu.swan.apps.u.b.u
     public void a(Context context, JSONObject jSONObject, final u.a aVar) {
         if (context instanceof Activity) {
-            this.cWy = aVar;
+            this.cWz = aVar;
             Bundle bundle = new Bundle();
             bundle.putString("options", jSONObject.toString());
             bundle.putBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT, jSONObject.optBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT));

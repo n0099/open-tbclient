@@ -5,14 +5,14 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ay {
-    private static String bLw;
     private static String bLx;
-    private static final HashMap<String, String> bLy = new HashMap<>();
+    private static String bLy;
+    private static final HashMap<String, String> bLz = new HashMap<>();
 
     public static void mM(String str) {
-        bLx = str;
+        bLy = str;
         if (TextUtils.isEmpty(str)) {
-            bLw = str;
+            bLx = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -20,17 +20,17 @@ public class ay {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (bLy != null) {
-            str2 = bLy.get(str);
+        if (bLz != null) {
+            str2 = bLz.get(str);
         }
         if (str2 == null) {
             str2 = mN(str);
-            if (bLy != null) {
-                bLy.put(str, str2);
+            if (bLz != null) {
+                bLz.put(str, str2);
             }
         }
         if (str2 != null) {
-            bLw = str2 + System.currentTimeMillis();
+            bLx = str2 + System.currentTimeMillis();
         }
     }
 
@@ -46,10 +46,10 @@ public class ay {
     }
 
     public static String ady() {
-        return bLw;
+        return bLx;
     }
 
     public static String adz() {
-        return bLx;
+        return bLy;
     }
 }

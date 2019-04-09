@@ -12,7 +12,7 @@ public class c extends com.baidu.swan.apps.view.c {
 
     public c(Context context) {
         super(context);
-        this.aoe.setDownloadListener(new a());
+        this.aof.setDownloadListener(new a());
     }
 
     @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e

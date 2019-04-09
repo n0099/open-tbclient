@@ -13,18 +13,18 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
-    private BdUniqueId Zr;
-    private a bKs;
-    private HttpMessageListener bKt = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.ai.1
+    private BdUniqueId Zs;
+    private a bKt;
+    private HttpMessageListener bKu = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.ai.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Message<?> orginalMessage;
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.Zr;
-                if (ai.this.bKs != null) {
-                    ai.this.bKs.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.Zs;
+                if (ai.this.bKt != null) {
+                    ai.this.bKt.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -38,9 +38,9 @@ public class ai {
 
     public ai(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.Zr = bdUniqueId;
-        this.bKt.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.bKt);
+        this.Zs = bdUniqueId;
+        this.bKu.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.bKu);
         add();
     }
 
@@ -56,12 +56,12 @@ public class ai {
     public void ai(long j) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_FANS);
         httpMessage.addParam("fans_uid", j);
-        httpMessage.setTag(this.Zr);
+        httpMessage.setTag(this.Zs);
         httpMessage.setExtra(Long.valueOf(j));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.bKs = aVar;
+        this.bKt = aVar;
     }
 }

@@ -23,14 +23,14 @@ public class a {
     public static void a(SubPackageAPSInfo subPackageAPSInfo, int i) {
         if (subPackageAPSInfo != null) {
             if (g(subPackageAPSInfo)) {
-                subPackageAPSInfo.axp = i;
+                subPackageAPSInfo.axq = i;
                 c(subPackageAPSInfo);
                 return;
             }
             subPackageAPSInfo.mResultCode = 2101;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axp, 104, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axq, 104, bundle);
         }
     }
 
@@ -53,7 +53,7 @@ public class a {
             subPackageAPSInfo.mResultCode = i;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axp, 104, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axq, 104, bundle);
         }
     }
 
@@ -62,7 +62,7 @@ public class a {
             subPackageAPSInfo.mResultCode = PushConstants.BROADCAST_MESSAGE_ARRIVE;
             Bundle bundle = new Bundle();
             bundle.putParcelable("ai_apps_data", subPackageAPSInfo);
-            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axp, 105, bundle);
+            SwanAppMessengerService.getServiceObject().sendMessageToClient(subPackageAPSInfo.axq, 105, bundle);
         }
     }
 
@@ -79,7 +79,7 @@ public class a {
                 if (DEBUG) {
                     Log.e("GetSubPackageHelper", "解压成功");
                 }
-                com.baidu.swan.apps.database.subpackage.a.AT().j(subPackageAPSInfo.mAppId, subPackageAPSInfo.mAppVersion, subPackageAPSInfo.axr, subPackageAPSInfo.mKey);
+                com.baidu.swan.apps.database.subpackage.a.AT().j(subPackageAPSInfo.mAppId, subPackageAPSInfo.mAppVersion, subPackageAPSInfo.axs, subPackageAPSInfo.mKey);
                 if (z) {
                     d(subPackageAPSInfo);
                 }
@@ -99,7 +99,7 @@ public class a {
         if (subPackageAPSInfo == null) {
             return null;
         }
-        String str = subPackageAPSInfo.axq;
+        String str = subPackageAPSInfo.axr;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -141,7 +141,7 @@ public class a {
             if (DEBUG) {
                 Log.i("GetSubPackageHelper", "重命名成功");
             }
-            subPackageAPSInfo.axs = file.getAbsolutePath();
+            subPackageAPSInfo.axt = file.getAbsolutePath();
             return true;
         }
         if (DEBUG) {
@@ -170,6 +170,6 @@ public class a {
         if (DEBUG && subPackageAPSInfo != null) {
             Log.e("GetSubPackageHelper", subPackageAPSInfo.toString());
         }
-        return (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.mAppVersion) || TextUtils.isEmpty(subPackageAPSInfo.mKey) || TextUtils.isEmpty(subPackageAPSInfo.axq) || TextUtils.isEmpty(subPackageAPSInfo.axr) || TextUtils.isEmpty(subPackageAPSInfo.axt)) ? false : true;
+        return (subPackageAPSInfo == null || TextUtils.isEmpty(subPackageAPSInfo.mAppVersion) || TextUtils.isEmpty(subPackageAPSInfo.mKey) || TextUtils.isEmpty(subPackageAPSInfo.axr) || TextUtils.isEmpty(subPackageAPSInfo.axs) || TextUtils.isEmpty(subPackageAPSInfo.axu)) ? false : true;
     }
 }

@@ -9,19 +9,19 @@ import okio.Okio;
 import okio.Source;
 /* loaded from: classes2.dex */
 public class c extends RequestBody {
-    private final File aCk;
-    private final com.baidu.swan.apps.network.b.a aCl;
+    private final File aCl;
+    private final com.baidu.swan.apps.network.b.a aCm;
     private final String mContentType;
 
     public c(File file, String str, com.baidu.swan.apps.network.b.a aVar) {
-        this.aCk = file;
+        this.aCl = file;
         this.mContentType = str;
-        this.aCl = aVar;
+        this.aCm = aVar;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.aCk.length();
+        return this.aCl.length();
     }
 
     @Override // okhttp3.RequestBody
@@ -33,14 +33,14 @@ public class c extends RequestBody {
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Source source = null;
         try {
-            source = Okio.source(this.aCk);
+            source = Okio.source(this.aCl);
             long j = 0;
             while (true) {
                 long read = source.read(bufferedSink.buffer(), 2048L);
                 if (read != -1) {
                     j += read;
                     bufferedSink.flush();
-                    this.aCl.z(j);
+                    this.aCm.z(j);
                 } else {
                     return;
                 }

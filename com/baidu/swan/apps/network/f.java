@@ -7,7 +7,7 @@ public interface f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        public static final MediaType aCn = MediaType.parse("application/json");
-        public static final MediaType aCo = MediaType.parse(URLEncodedUtils.CONTENT_TYPE);
+        public static final MediaType aCo = MediaType.parse("application/json");
+        public static final MediaType aCp = MediaType.parse(URLEncodedUtils.CONTENT_TYPE);
     }
 }

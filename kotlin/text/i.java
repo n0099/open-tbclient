@@ -6,24 +6,24 @@ import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class i implements h {
-    private final Matcher jSA;
-    private final CharSequence jSB;
-    private final MatchResult jSy;
-    private final f jSz;
+    private final f jSA;
+    private final Matcher jSB;
+    private final CharSequence jSC;
+    private final MatchResult jSz;
 
     public i(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.k(matcher, "matcher");
         kotlin.jvm.internal.p.k(charSequence, "input");
-        this.jSA = matcher;
-        this.jSB = charSequence;
-        this.jSy = this.jSA.toMatchResult();
-        this.jSz = new a();
+        this.jSB = matcher;
+        this.jSC = charSequence;
+        this.jSz = this.jSB.toMatchResult();
+        this.jSA = new a();
     }
 
     @Override // kotlin.text.h
     public kotlin.b.c cCE() {
         kotlin.b.c a2;
-        MatchResult matchResult = this.jSy;
+        MatchResult matchResult = this.jSz;
         kotlin.jvm.internal.p.j(matchResult, "matchResult");
         a2 = j.a(matchResult);
         return a2;
@@ -49,7 +49,7 @@ public final class i implements h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return i.this.jSy.groupCount() + 1;
+            return i.this.jSz.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -64,11 +64,11 @@ public final class i implements h {
 
         public e CU(int i) {
             kotlin.b.c a;
-            MatchResult matchResult = i.this.jSy;
+            MatchResult matchResult = i.this.jSz;
             kotlin.jvm.internal.p.j(matchResult, "matchResult");
             a = j.a(matchResult, i);
             if (a.cCz().intValue() >= 0) {
-                String group = i.this.jSy.group(i);
+                String group = i.this.jSz.group(i);
                 kotlin.jvm.internal.p.j(group, "matchResult.group(index)");
                 return new e(group, a);
             }
@@ -79,9 +79,9 @@ public final class i implements h {
     @Override // kotlin.text.h
     public h cCF() {
         h a2;
-        int end = (this.jSy.end() == this.jSy.start() ? 1 : 0) + this.jSy.end();
-        if (end <= this.jSB.length()) {
-            a2 = j.a(this.jSA, end, this.jSB);
+        int end = (this.jSz.end() == this.jSz.start() ? 1 : 0) + this.jSz.end();
+        if (end <= this.jSC.length()) {
+            a2 = j.a(this.jSB, end, this.jSC);
             return a2;
         }
         return null;

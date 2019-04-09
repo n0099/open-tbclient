@@ -31,7 +31,7 @@ public class a {
             return false;
         }
         String path = parse.getPath();
-        String str2 = c.Aa().Ar() != null ? c.Aa().Ar().aTj + "/abtest/config.js" : "/abtest/config.js";
+        String str2 = c.Aa().Ar() != null ? c.Aa().Ar().aTk + "/abtest/config.js" : "/abtest/config.js";
         if (DEBUG) {
             Log.d("SwanCoreConfigHelper", "path:" + path);
             Log.d("SwanCoreConfigHelper", "configCheckPath:" + str2);

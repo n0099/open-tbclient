@@ -128,7 +128,7 @@ public class SwanAppLocalService extends Service {
                     jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put("cost", currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", c.atI);
+                    jSONObject.put("is_preload_started", c.atJ);
                     jSONObject.put("is_preload_ready", c.Aa().Af());
                 } catch (JSONException e) {
                     if (DEBUG) {
@@ -155,13 +155,13 @@ public class SwanAppLocalService extends Service {
             Log.i(TAG, "tryBindRemoteMsgService");
         }
         if (!getRemoteMsgClient().Gp()) {
-            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aEV, 1);
+            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aEW, 1);
         }
     }
 
     public void unbindRemoteMsgService() {
         try {
-            unbindService(getRemoteMsgClient().aEV);
+            unbindService(getRemoteMsgClient().aEW);
         } catch (IllegalArgumentException e) {
             if (DEBUG) {
                 e.printStackTrace();

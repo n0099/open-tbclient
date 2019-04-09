@@ -12,7 +12,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e implements com.baidu.swan.apps.ak.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> aVT = new HashMap();
+    private final Map<c<?>, Set<a>> aVU = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface a extends com.baidu.swan.apps.an.c.a<Set<c<?>>> {
@@ -20,11 +20,11 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* loaded from: classes2.dex */
     private static class b {
-        private static final e aVX = new e();
+        private static final e aVY = new e();
     }
 
     public static e LE() {
-        return b.aVX;
+        return b.aVY;
     }
 
     public e b(com.baidu.swan.apps.ak.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.aVT) {
+        synchronized (this.aVU) {
             for (c<?> cVar : cVarArr) {
-                if (!this.aVT.containsKey(cVar)) {
-                    this.aVT.put(cVar, new HashSet());
+                if (!this.aVU.containsKey(cVar)) {
+                    this.aVU.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,8 +50,8 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.aVT) {
-                HashSet keySet = k(cVarArr) ? this.aVT.keySet() : h.K(cVarArr);
+            synchronized (this.aVU) {
+                HashSet keySet = k(cVarArr) ? this.aVU.keySet() : h.K(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
@@ -64,10 +64,10 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.aVT.get(cVar);
+        Set<a> set = this.aVU.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.aVT.put(cVar, hashSet);
+            this.aVU.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.aVT) {
-                for (c<?> cVar : k(cVarArr) ? this.aVT.keySet() : h.K(cVarArr)) {
+            synchronized (this.aVU) {
+                for (c<?> cVar : k(cVarArr) ? this.aVU.keySet() : h.K(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -98,7 +98,7 @@ public final class e implements com.baidu.swan.apps.ak.b, d {
     protected e j(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.aVT) {
+            synchronized (this.aVU) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }

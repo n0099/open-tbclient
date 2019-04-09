@@ -7,41 +7,41 @@ import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
-    public static final boolean jAj;
     public static final boolean jAk;
     public static final boolean jAl;
-    public static b jAm;
-    private static boolean jAn;
-    private static final byte[] jAo;
+    public static final boolean jAm;
+    public static b jAn;
+    private static boolean jAo;
     private static final byte[] jAp;
     private static final byte[] jAq;
     private static final byte[] jAr;
     private static final byte[] jAs;
+    private static final byte[] jAt;
 
     static {
-        jAj = Build.VERSION.SDK_INT <= 17;
-        jAk = Build.VERSION.SDK_INT >= 14;
-        jAl = cug();
-        jAm = null;
-        jAn = false;
-        jAo = Ft("RIFF");
-        jAp = Ft("WEBP");
-        jAq = Ft("VP8 ");
-        jAr = Ft("VP8L");
-        jAs = Ft("VP8X");
+        jAk = Build.VERSION.SDK_INT <= 17;
+        jAl = Build.VERSION.SDK_INT >= 14;
+        jAm = cug();
+        jAn = null;
+        jAo = false;
+        jAp = Ft("RIFF");
+        jAq = Ft("WEBP");
+        jAr = Ft("VP8 ");
+        jAs = Ft("VP8L");
+        jAt = Ft("VP8X");
     }
 
     public static b cuf() {
         b bVar;
-        if (jAn) {
-            return jAm;
+        if (jAo) {
+            return jAn;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        jAn = true;
+        jAo = true;
         return bVar;
     }
 
@@ -70,27 +70,27 @@ public class c {
     }
 
     public static boolean f(byte[] bArr, int i) {
-        return a(bArr, i + 12, jAs) && ((bArr[i + 20] & 2) == 2);
+        return a(bArr, i + 12, jAt) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean g(byte[] bArr, int i) {
-        return a(bArr, i + 12, jAq);
-    }
-
-    public static boolean h(byte[] bArr, int i) {
         return a(bArr, i + 12, jAr);
     }
 
+    public static boolean h(byte[] bArr, int i) {
+        return a(bArr, i + 12, jAs);
+    }
+
     public static boolean m(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && a(bArr, i + 12, jAs);
+        return i2 >= 21 && a(bArr, i + 12, jAt);
     }
 
     public static boolean i(byte[] bArr, int i) {
-        return a(bArr, i + 12, jAs) && ((bArr[i + 20] & 16) == 16);
+        return a(bArr, i + 12, jAt) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean n(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && a(bArr, i, jAo) && a(bArr, i + 8, jAp);
+        return i2 >= 20 && a(bArr, i, jAp) && a(bArr, i + 8, jAq);
     }
 
     private static boolean a(byte[] bArr, int i, byte[] bArr2) {

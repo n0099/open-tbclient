@@ -11,10 +11,10 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
     private BdTypeRecyclerView Qr;
-    private ArrayList<m> ezS;
+    private ArrayList<m> ezT;
     private b gzA;
     private b gzB;
-    private b gzx;
+    private b gzC;
     private b gzy;
     private b gzz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.gzx = new b(tbPageContext, a.gzg);
         this.gzy = new b(tbPageContext, a.gzh);
-        this.gzz = new b(tbPageContext, a.gzk);
-        this.gzA = new b(tbPageContext, a.gzj);
-        this.gzB = new b(tbPageContext, a.gzi);
-        this.mAdapters.add(this.gzx);
+        this.gzz = new b(tbPageContext, a.gzi);
+        this.gzA = new b(tbPageContext, a.gzl);
+        this.gzB = new b(tbPageContext, a.gzk);
+        this.gzC = new b(tbPageContext, a.gzj);
         this.mAdapters.add(this.gzy);
         this.mAdapters.add(this.gzz);
         this.mAdapters.add(this.gzA);
         this.mAdapters.add(this.gzB);
+        this.mAdapters.add(this.gzC);
         this.Qr.addAdapters(this.mAdapters);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<m> arrayList) {
         this.Qr.setData(arrayList);
-        this.ezS = arrayList;
+        this.ezT = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
+        this.gzC.b(abVar);
         this.gzB.b(abVar);
         this.gzA.b(abVar);
-        this.gzz.b(abVar);
     }
 }

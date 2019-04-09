@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private List<b> avX = new ArrayList();
+    private List<b> avY = new ArrayList();
 
     public synchronized void c(@NonNull b bVar) {
-        this.avX.add(bVar);
+        this.avY.add(bVar);
     }
 
     public synchronized void d(@NonNull b bVar) {
-        this.avX.remove(bVar);
+        this.avY.remove(bVar);
     }
 
     @Override // com.baidu.swan.apps.o.b
     public void BC() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.BC();
             }
         }
@@ -27,8 +27,8 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void BD() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.BD();
             }
         }
@@ -36,8 +36,8 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void onActivityResumed() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.onActivityResumed();
             }
         }
@@ -45,8 +45,8 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void onActivityPaused() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.onActivityPaused();
             }
         }
@@ -54,8 +54,8 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void BE() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.BE();
             }
         }
@@ -63,8 +63,8 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public void BF() {
-        if (this.avX != null && this.avX.size() > 0) {
-            for (b bVar : this.avX) {
+        if (this.avY != null && this.avY.size() > 0) {
+            for (b bVar : this.avY) {
                 bVar.BF();
             }
         }
@@ -72,11 +72,11 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.o.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.avX == null || this.avX.size() <= 0) {
+        if (this.avY == null || this.avY.size() <= 0) {
             return false;
         }
         boolean z = false;
-        for (b bVar : this.avX) {
+        for (b bVar : this.avY) {
             z = z || bVar.onKeyDown(i, keyEvent);
         }
         return z;

@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class i {
-    private long Vn;
-    private long aEs;
-    private int bpq;
-    private JSONObject bpr;
-    private String bps;
-    private boolean bpt = false;
-    private JSONArray bpv;
+    private long Vo;
+    private long aEt;
+    private int bpr;
+    private JSONObject bps;
+    private String bpt;
+    private boolean bpu = false;
+    private JSONArray bpw;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -25,7 +25,7 @@ public class i {
 
     public i(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.bpq = i;
+        this.bpr = i;
         this.mContent = str2;
         this.mOption = i2;
     }
@@ -35,7 +35,7 @@ public class i {
     }
 
     public int Tb() {
-        return this.bpq;
+        return this.bpr;
     }
 
     public String getContent() {
@@ -43,15 +43,15 @@ public class i {
     }
 
     public JSONObject Td() {
-        return this.bpr;
+        return this.bps;
     }
 
     public long Tg() {
-        return this.Vn;
+        return this.Vo;
     }
 
     public long getEndTime() {
-        return this.aEs;
+        return this.aEt;
     }
 
     public String getState() {
@@ -63,7 +63,7 @@ public class i {
     }
 
     public String Tc() {
-        return this.bps;
+        return this.bpt;
     }
 
     public void setId(String str) {
@@ -71,7 +71,7 @@ public class i {
     }
 
     public void fp(int i) {
-        this.bpq = i;
+        this.bpr = i;
     }
 
     public void setContent(String str) {
@@ -79,11 +79,11 @@ public class i {
     }
 
     public void X(long j) {
-        this.Vn = j;
+        this.Vo = j;
     }
 
     public void setEndTime(long j) {
-        this.aEs = j;
+        this.aEt = j;
     }
 
     public void jP(String str) {
@@ -91,12 +91,12 @@ public class i {
     }
 
     public void jQ(String str) {
-        this.bps = str;
+        this.bpt = str;
     }
 
     public void Tf() {
         if (d.SU().jJ(this.mId)) {
-            this.bps = q.Tq().Fn();
+            this.bpt = q.Tq().Fn();
         }
     }
 
@@ -109,17 +109,17 @@ public class i {
     }
 
     public void cV(boolean z) {
-        this.bpt = z;
+        this.bpu = z;
     }
 
     public boolean SY() {
-        return this.bpt;
+        return this.bpu;
     }
 
     public void jR(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.bpv = new JSONArray(str);
+                this.bpw = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -127,6 +127,6 @@ public class i {
     }
 
     public JSONArray Th() {
-        return this.bpv;
+        return this.bpw;
     }
 }

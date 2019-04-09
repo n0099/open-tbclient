@@ -127,21 +127,21 @@ public class h extends b {
             if (!ap.isEmpty(stringExtra)) {
                 this.fua.fuq.startLoad(stringExtra, 10, false);
             }
-            this.fua.dlr.post(new Runnable() { // from class: com.baidu.tieba.frs.e.h.5
+            this.fua.dls.post(new Runnable() { // from class: com.baidu.tieba.frs.e.h.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    final float min = Math.min((rect.width() * 1.0f) / h.this.fua.dlr.getWidth(), (rect.height() * 1.0f) / h.this.fua.dlr.getHeight());
-                    final float centerX = rect.centerX() - ((h.this.fua.dlr.getLeft() + h.this.fua.dlr.getRight()) / 2.0f);
-                    final float centerY = rect.centerY() - ((h.this.fua.dlr.getTop() + h.this.fua.dlr.getBottom()) / 2.0f);
+                    final float min = Math.min((rect.width() * 1.0f) / h.this.fua.dls.getWidth(), (rect.height() * 1.0f) / h.this.fua.dls.getHeight());
+                    final float centerX = rect.centerX() - ((h.this.fua.dls.getLeft() + h.this.fua.dls.getRight()) / 2.0f);
+                    final float centerY = rect.centerY() - ((h.this.fua.dls.getTop() + h.this.fua.dls.getBottom()) / 2.0f);
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                     ofFloat.setDuration(220L);
                     ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.h.5.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            h.this.fua.dlr.setScaleX((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
-                            h.this.fua.dlr.setScaleY((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
-                            h.this.fua.dlr.setTranslationX(centerX - (((Float) valueAnimator.getAnimatedValue()).floatValue() * centerX));
-                            h.this.fua.dlr.setTranslationY(centerY - (((Float) valueAnimator.getAnimatedValue()).floatValue() * centerY));
+                            h.this.fua.dls.setScaleX((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
+                            h.this.fua.dls.setScaleY((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
+                            h.this.fua.dls.setTranslationX(centerX - (((Float) valueAnimator.getAnimatedValue()).floatValue() * centerX));
+                            h.this.fua.dls.setTranslationY(centerY - (((Float) valueAnimator.getAnimatedValue()).floatValue() * centerY));
                         }
                     });
                     ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.h.5.2
@@ -151,10 +151,10 @@ public class h extends b {
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            h.this.fua.dlr.setScaleX(1.0f);
-                            h.this.fua.dlr.setScaleY(1.0f);
-                            h.this.fua.dlr.setTranslationX(0.0f);
-                            h.this.fua.dlr.setTranslationY(0.0f);
+                            h.this.fua.dls.setScaleX(1.0f);
+                            h.this.fua.dls.setScaleY(1.0f);
+                            h.this.fua.dls.setTranslationX(0.0f);
+                            h.this.fua.dls.setTranslationY(0.0f);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener

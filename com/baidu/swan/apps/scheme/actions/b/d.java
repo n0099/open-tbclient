@@ -15,7 +15,7 @@ public class d extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        if (com.baidu.swan.apps.database.favorite.a.ep(this.aPO)) {
+        if (com.baidu.swan.apps.database.favorite.a.ep(this.aPP)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("success", "1");
@@ -45,8 +45,8 @@ public class d extends b {
             return false;
         }
         try {
-            this.aPO = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.aPO);
+            this.aPP = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.aPP);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

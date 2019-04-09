@@ -9,85 +9,85 @@ import com.baidu.swan.apps.res.widget.dialog.e;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class d extends e {
-    private JSONArray aFO;
     private JSONArray aFP;
-    private BdMultiPicker aMd;
-    private BdMultiPicker.b aMe;
-    private boolean aMf;
+    private JSONArray aFQ;
+    private BdMultiPicker aMe;
+    private BdMultiPicker.b aMf;
+    private boolean aMg;
 
     public d(Context context) {
         super(context, a.i.NoTitleDialog);
     }
 
     private void Io() {
-        this.aMd = new BdMultiPicker(getContext());
+        this.aMe = new BdMultiPicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.aMd.setLayoutParams(layoutParams);
-        this.aMd.setMultiWheelData(this.aFO, this.aFP);
-        if (!this.aMf) {
-            this.aMd.setMultiSelectedListener(this.aMe);
+        this.aMe.setLayoutParams(layoutParams);
+        this.aMe.setMultiWheelData(this.aFP, this.aFQ);
+        if (!this.aMg) {
+            this.aMe.setMultiSelectedListener(this.aMf);
         }
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         Io();
-        Ip().ad(this.aMd);
+        Ip().ad(this.aMe);
     }
 
     public void setDataArray(JSONArray jSONArray) {
-        this.aFO = jSONArray;
-    }
-
-    public void setDataIndex(JSONArray jSONArray) {
         this.aFP = jSONArray;
     }
 
+    public void setDataIndex(JSONArray jSONArray) {
+        this.aFQ = jSONArray;
+    }
+
     public void bN(boolean z) {
-        this.aMf = z;
+        this.aMg = z;
     }
 
     public void setMultiSelectedListener(BdMultiPicker.b bVar) {
-        this.aMe = bVar;
+        this.aMf = bVar;
     }
 
     public JSONArray getCurrentIndex() {
-        return this.aMd.getCurrentIndex();
+        return this.aMe.getCurrentIndex();
     }
 
     public void a(int i, JSONArray jSONArray, int i2) {
-        this.aMd.a(i, jSONArray, i2);
+        this.aMe.a(i, jSONArray, i2);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends e.a {
-        public JSONArray aMg;
         public JSONArray aMh;
-        public boolean aMi;
-        public BdMultiPicker.b aMj;
+        public JSONArray aMi;
+        public boolean aMj;
+        public BdMultiPicker.b aMk;
 
         public a(Context context) {
             super(context);
         }
 
         public a j(JSONArray jSONArray) {
-            this.aMg = jSONArray;
-            return this;
-        }
-
-        public a k(JSONArray jSONArray) {
             this.aMh = jSONArray;
             return this;
         }
 
+        public a k(JSONArray jSONArray) {
+            this.aMi = jSONArray;
+            return this;
+        }
+
         public a bO(boolean z) {
-            this.aMi = z;
+            this.aMj = z;
             return this;
         }
 
         public a a(BdMultiPicker.b bVar) {
-            this.aMj = bVar;
+            this.aMk = bVar;
             return this;
         }
 
@@ -99,10 +99,10 @@ public class d extends e {
         @Override // com.baidu.swan.apps.res.widget.dialog.e.a
         public e zq() {
             d dVar = (d) super.zq();
-            dVar.setDataArray(this.aMg);
-            dVar.setDataIndex(this.aMh);
-            dVar.bN(this.aMi);
-            dVar.setMultiSelectedListener(this.aMj);
+            dVar.setDataArray(this.aMh);
+            dVar.setDataIndex(this.aMi);
+            dVar.bN(this.aMj);
+            dVar.setMultiSelectedListener(this.aMk);
             return dVar;
         }
     }

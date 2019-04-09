@@ -16,10 +16,10 @@ import okhttp3.Request;
 /* loaded from: classes2.dex */
 public class j extends com.baidu.swan.apps.ae.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private OkHttpClient aCE;
-    private NetworkBroadcastReceiver aCF;
-    private TelephonyManager aCG;
-    private a aCH;
+    private OkHttpClient aCF;
+    private NetworkBroadcastReceiver aCG;
+    private TelephonyManager aCH;
+    private a aCI;
 
     public j(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
@@ -35,51 +35,51 @@ public class j extends com.baidu.swan.apps.ae.c {
 
     public OkHttpClient EX() {
         com.baidu.swan.apps.ae.a.c IW = Jl().IW();
-        if (this.aCE == null) {
+        if (this.aCF == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            if (IW != null && IW.aOp != null) {
-                builder.connectTimeout(IW.aOp.aOg, TimeUnit.MILLISECONDS);
-                builder.readTimeout(IW.aOp.aOf, TimeUnit.MILLISECONDS);
-                builder.writeTimeout(IW.aOp.aOf, TimeUnit.MILLISECONDS);
+            if (IW != null && IW.aOq != null) {
+                builder.connectTimeout(IW.aOq.aOh, TimeUnit.MILLISECONDS);
+                builder.readTimeout(IW.aOq.aOg, TimeUnit.MILLISECONDS);
+                builder.writeTimeout(IW.aOq.aOg, TimeUnit.MILLISECONDS);
                 builder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.c());
             }
-            this.aCE = builder.build();
+            this.aCF = builder.build();
         }
-        this.aCE.dispatcher().setMaxRequests(10);
-        return this.aCE;
+        this.aCF.dispatcher().setMaxRequests(10);
+        return this.aCF;
     }
 
     public void c(CallbackHandler callbackHandler, String str) {
-        if (this.aCF == null) {
-            this.aCF = new NetworkBroadcastReceiver(callbackHandler, str);
+        if (this.aCG == null) {
+            this.aCG = new NetworkBroadcastReceiver(callbackHandler, str);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            registerReceiver(this.aCF, intentFilter);
-        } else if (this.aCF != null) {
-            this.aCF.updateCallback(callbackHandler, str);
+            registerReceiver(this.aCG, intentFilter);
+        } else if (this.aCG != null) {
+            this.aCG.updateCallback(callbackHandler, str);
         }
         d(callbackHandler, str);
     }
 
     public void d(CallbackHandler callbackHandler, String str) {
-        if (this.aCG == null) {
-            this.aCG = (TelephonyManager) getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
-            this.aCH = new a(callbackHandler, str);
-            this.aCG.listen(this.aCH, 64);
-        } else if (this.aCH != null) {
-            this.aCH.updateCallback(callbackHandler, str);
+        if (this.aCH == null) {
+            this.aCH = (TelephonyManager) getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.aCI = new a(callbackHandler, str);
+            this.aCH.listen(this.aCI, 64);
+        } else if (this.aCI != null) {
+            this.aCI.updateCallback(callbackHandler, str);
         }
     }
 
     public void EY() {
-        if (this.aCG != null && this.aCH != null) {
-            this.aCG.listen(this.aCH, 0);
+        if (this.aCH != null && this.aCI != null) {
+            this.aCH.listen(this.aCI, 0);
         }
     }
 
     public void EZ() {
-        if (this.aCF != null) {
-            unregisterReceiver(this.aCF);
+        if (this.aCG != null) {
+            unregisterReceiver(this.aCG);
         }
         EY();
     }
@@ -87,18 +87,18 @@ public class j extends com.baidu.swan.apps.ae.c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends PhoneStateListener {
-        private WeakReference<CallbackHandler> aCI;
-        private String aCJ;
-        private String aCK = "";
+        private WeakReference<CallbackHandler> aCJ;
+        private String aCK;
+        private String aCL = "";
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.aCI = new WeakReference<>(callbackHandler);
-            this.aCJ = str;
+            this.aCJ = new WeakReference<>(callbackHandler);
+            this.aCK = str;
         }
 
         public void updateCallback(CallbackHandler callbackHandler, String str) {
-            this.aCI = new WeakReference<>(callbackHandler);
-            this.aCJ = str;
+            this.aCJ = new WeakReference<>(callbackHandler);
+            this.aCK = str;
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -108,9 +108,9 @@ public class j extends com.baidu.swan.apps.ae.c {
             }
             if (2 == i) {
                 String l = SwanAppNetworkUtils.l(i2, null);
-                if (!TextUtils.isEmpty(l) && !l.equals(this.aCK)) {
-                    this.aCK = l;
-                    SwanAppNetworkUtils.a(j.this, this.aCI.get(), this.aCJ);
+                if (!TextUtils.isEmpty(l) && !l.equals(this.aCL)) {
+                    this.aCL = l;
+                    SwanAppNetworkUtils.a(j.this, this.aCJ.get(), this.aCK);
                 }
             }
         }

@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0349a hkN;
+    private InterfaceC0349a hkO;
     private int count = 0;
-    private long hkL = 0;
     private long hkM = 0;
-    private long hkO = 500;
+    private long hkN = 0;
+    private long hkP = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.hkL = 0L;
                 a.this.hkM = 0L;
+                a.this.hkN = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.hkN != null) {
-                    a.this.hkN.bII();
+                if (a.this.hkO != null) {
+                    a.this.hkO.bII();
                 }
                 a.this.count = 0;
-                a.this.hkL = 0L;
                 a.this.hkM = 0L;
+                a.this.hkN = 0L;
             }
         }
     };
@@ -38,24 +38,24 @@ public class a implements View.OnTouchListener {
     }
 
     public a(InterfaceC0349a interfaceC0349a) {
-        this.hkN = interfaceC0349a;
+        this.hkO = interfaceC0349a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.hkN == null) {
+            if (this.hkO == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.hkL = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.hkO);
+                this.hkM = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.hkP);
                 return true;
             } else if (this.count == 2) {
-                this.hkM = System.currentTimeMillis();
-                if (this.hkM - this.hkL < this.hkO) {
-                    this.hkN.bIH();
+                this.hkN = System.currentTimeMillis();
+                if (this.hkN - this.hkM < this.hkP) {
+                    this.hkO.bIH();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

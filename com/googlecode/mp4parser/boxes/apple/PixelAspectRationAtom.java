@@ -21,10 +21,10 @@ public class PixelAspectRationAtom extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("PixelAspectRationAtom.java", PixelAspectRationAtom.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "gethSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "", "", "", "int"), 35);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "sethSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "int", "hSpacing", "", "void"), 39);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getvSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "", "", "", "int"), 43);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setvSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "int", "vSpacing", "", "void"), 47);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "gethSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "", "", "", "int"), 35);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "sethSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "int", "hSpacing", "", "void"), 39);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getvSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "", "", "", "int"), 43);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setvSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "int", "vSpacing", "", "void"), 47);
     }
 
     public PixelAspectRationAtom() {

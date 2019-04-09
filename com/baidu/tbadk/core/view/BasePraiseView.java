@@ -32,18 +32,18 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
     protected int agreeType;
-    protected long bDm;
     protected long bDn;
-    protected ScaleAnimation bNO;
-    protected View.OnClickListener bNw;
-    protected int bOf;
-    public int bOg;
+    protected long bDo;
+    protected ScaleAnimation bNP;
+    protected View.OnClickListener bNx;
+    protected int bOg;
     public int bOh;
     public int bOi;
     public int bOj;
     public int bOk;
-    protected TextView bOl;
-    protected ImageView bOm;
+    public int bOl;
+    protected TextView bOm;
+    protected ImageView bOn;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -66,13 +66,13 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         this.mSkinType = 3;
         this.agreeType = 2;
         this.objType = 3;
-        this.bOf = 1;
+        this.bOg = 1;
         this.mFrom = 2;
-        this.bOg = d.j.action_praise_default;
-        this.bOh = d.f.icon_card_like_n;
-        this.bOi = d.f.icon_card_like_s;
-        this.bOj = d.C0277d.cp_cont_j;
-        this.bOk = d.C0277d.cp_cont_h;
+        this.bOh = d.j.action_praise_default;
+        this.bOi = d.f.icon_card_like_n;
+        this.bOj = d.f.icon_card_like_s;
+        this.bOk = d.C0277d.cp_cont_j;
+        this.bOl = d.C0277d.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
@@ -85,19 +85,19 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, d.h.praise_view, this);
-            this.bOl = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
-            this.bOm = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
+            this.bOm = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
+            this.bOn = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aed() {
         this.agreeType = 2;
-        this.bOg = d.j.action_praise_default;
-        this.bOj = d.C0277d.cp_cont_j;
-        this.bOk = d.C0277d.cp_cont_h;
-        this.bOh = d.f.icon_card_like_n;
-        this.bOi = d.f.icon_card_like_s;
+        this.bOh = d.j.action_praise_default;
+        this.bOk = d.C0277d.cp_cont_j;
+        this.bOl = d.C0277d.cp_cont_h;
+        this.bOi = d.f.icon_card_like_n;
+        this.bOj = d.f.icon_card_like_s;
     }
 
     public StateListDrawable W(int i, int i2) {
@@ -118,15 +118,15 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void a(int i, bg bgVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.chu = i;
-        jVar.chv = bgVar;
+        jVar.chv = i;
+        jVar.chw = bgVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
     public void hD(int i) {
-        if (this.bOm != null && i == 0) {
-            this.bOm.startAnimation(getScaleAnimation());
+        if (this.bOn != null && i == 0) {
+            this.bOn.startAnimation(getScaleAnimation());
         }
     }
 
@@ -150,11 +150,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.bNO == null) {
-            this.bNO = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.bNO.setDuration(200L);
+        if (this.bNP == null) {
+            this.bNP = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.bNP.setDuration(200L);
         }
-        return this.bNO;
+        return this.bNP;
     }
 
     public void onChangeSkinType(int i) {
@@ -165,7 +165,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setDisPraiseFrom(int i) {
-        this.bOf = i;
+        this.bOg = i;
     }
 
     public void setFrom(int i) {
@@ -190,12 +190,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
+        this.bOn.setEnabled(z);
         this.bOm.setEnabled(z);
-        this.bOl.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bNw = onClickListener;
+        this.bNx = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -219,11 +219,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.bOm;
+        return this.bOn;
     }
 
     public TextView getTextView() {
-        return this.bOl;
+        return this.bOm;
     }
 
     public void dI(boolean z) {
@@ -240,7 +240,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     private int getObjLocate() {
-        return this.bOf;
+        return this.bOg;
     }
 
     private int getObjType() {

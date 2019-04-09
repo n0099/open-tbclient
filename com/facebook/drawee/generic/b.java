@@ -13,26 +13,26 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    public static final n.b jDu = n.b.jDl;
     public static final n.b jDv = n.b.jDm;
-    private Drawable jDA;
-    private n.b jDB;
-    private Drawable jDC;
-    private n.b jDD;
-    private Drawable jDE;
-    private n.b jDF;
-    private n.b jDG;
-    private Matrix jDH;
-    private PointF jDI;
-    private ColorFilter jDJ;
-    private List<Drawable> jDK;
-    private Drawable jDL;
-    private RoundingParams jDq;
-    private int jDw;
-    private float jDx;
-    private Drawable jDy;
+    public static final n.b jDw = n.b.jDn;
     @Nullable
-    private n.b jDz;
+    private n.b jDA;
+    private Drawable jDB;
+    private n.b jDC;
+    private Drawable jDD;
+    private n.b jDE;
+    private Drawable jDF;
+    private n.b jDG;
+    private n.b jDH;
+    private Matrix jDI;
+    private PointF jDJ;
+    private ColorFilter jDK;
+    private List<Drawable> jDL;
+    private Drawable jDM;
+    private RoundingParams jDr;
+    private int jDx;
+    private float jDy;
+    private Drawable jDz;
     private Drawable mBackground;
     private Resources mResources;
 
@@ -42,24 +42,24 @@ public class b {
     }
 
     private void init() {
-        this.jDw = 300;
-        this.jDx = 0.0f;
-        this.jDy = null;
-        this.jDz = jDu;
-        this.jDA = null;
-        this.jDB = jDu;
-        this.jDC = null;
-        this.jDD = jDu;
-        this.jDE = null;
-        this.jDF = jDu;
+        this.jDx = 300;
+        this.jDy = 0.0f;
+        this.jDz = null;
+        this.jDA = jDv;
+        this.jDB = null;
+        this.jDC = jDv;
+        this.jDD = null;
+        this.jDE = jDv;
+        this.jDF = null;
         this.jDG = jDv;
-        this.jDH = null;
+        this.jDH = jDw;
         this.jDI = null;
         this.jDJ = null;
-        this.mBackground = null;
         this.jDK = null;
+        this.mBackground = null;
         this.jDL = null;
-        this.jDq = null;
+        this.jDM = null;
+        this.jDr = null;
     }
 
     public Resources getResources() {
@@ -67,127 +67,127 @@ public class b {
     }
 
     public b BZ(int i) {
-        this.jDw = i;
+        this.jDx = i;
         return this;
     }
 
     public int cvz() {
-        return this.jDw;
+        return this.jDx;
     }
 
     public b aW(float f) {
-        this.jDx = f;
+        this.jDy = f;
         return this;
     }
 
     public float cvA() {
-        return this.jDx;
+        return this.jDy;
     }
 
     public b n(@Nullable Drawable drawable) {
-        this.jDy = drawable;
+        this.jDz = drawable;
         return this;
     }
 
     @Nullable
     public Drawable cvB() {
-        return this.jDy;
+        return this.jDz;
     }
 
     public b c(@Nullable n.b bVar) {
-        this.jDz = bVar;
+        this.jDA = bVar;
         return this;
     }
 
     @Nullable
     public n.b cvC() {
-        return this.jDz;
+        return this.jDA;
     }
 
     public b o(@Nullable Drawable drawable) {
-        this.jDA = drawable;
+        this.jDB = drawable;
         return this;
     }
 
     @Nullable
     public Drawable cvD() {
-        return this.jDA;
+        return this.jDB;
     }
 
     public b d(@Nullable n.b bVar) {
-        this.jDB = bVar;
+        this.jDC = bVar;
         return this;
     }
 
     @Nullable
     public n.b cvE() {
-        return this.jDB;
+        return this.jDC;
     }
 
     public b p(@Nullable Drawable drawable) {
-        this.jDC = drawable;
+        this.jDD = drawable;
         return this;
     }
 
     @Nullable
     public Drawable cvF() {
-        return this.jDC;
+        return this.jDD;
     }
 
     public b e(@Nullable n.b bVar) {
-        this.jDD = bVar;
+        this.jDE = bVar;
         return this;
     }
 
     @Nullable
     public n.b cvG() {
-        return this.jDD;
+        return this.jDE;
     }
 
     public b q(@Nullable Drawable drawable) {
-        this.jDE = drawable;
+        this.jDF = drawable;
         return this;
     }
 
     @Nullable
     public Drawable cvH() {
-        return this.jDE;
+        return this.jDF;
     }
 
     public b f(@Nullable n.b bVar) {
-        this.jDF = bVar;
+        this.jDG = bVar;
         return this;
     }
 
     @Nullable
     public n.b cvI() {
-        return this.jDF;
+        return this.jDG;
     }
 
     public b g(@Nullable n.b bVar) {
-        this.jDG = bVar;
-        this.jDH = null;
+        this.jDH = bVar;
+        this.jDI = null;
         return this;
     }
 
     @Nullable
     public n.b cvJ() {
-        return this.jDG;
-    }
-
-    @Nullable
-    public Matrix cvK() {
         return this.jDH;
     }
 
     @Nullable
-    public PointF cvL() {
+    public Matrix cvK() {
         return this.jDI;
     }
 
     @Nullable
-    public ColorFilter cvM() {
+    public PointF cvL() {
         return this.jDJ;
+    }
+
+    @Nullable
+    public ColorFilter cvM() {
+        return this.jDK;
     }
 
     public b r(@Nullable Drawable drawable) {
@@ -202,47 +202,47 @@ public class b {
 
     public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.jDK = null;
+            this.jDL = null;
         } else {
-            this.jDK = Arrays.asList(drawable);
+            this.jDL = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
     public List<Drawable> cvN() {
-        return this.jDK;
+        return this.jDL;
     }
 
     public b t(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.jDL = null;
+            this.jDM = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.jDL = stateListDrawable;
+            this.jDM = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
     public Drawable cvO() {
-        return this.jDL;
+        return this.jDM;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.jDq = roundingParams;
+        this.jDr = roundingParams;
         return this;
     }
 
     @Nullable
     public RoundingParams cvP() {
-        return this.jDq;
+        return this.jDr;
     }
 
     private void validate() {
-        if (this.jDK != null) {
-            for (Drawable drawable : this.jDK) {
+        if (this.jDL != null) {
+            for (Drawable drawable : this.jDL) {
                 g.checkNotNull(drawable);
             }
         }

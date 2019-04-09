@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b {
-    public String aBH;
-    public List<c> ayN = new ArrayList();
-    public List<a> ayQ = new ArrayList();
-    public String bhl;
-    public TextureMapView bhm;
+    public String aBI;
+    public List<c> ayO = new ArrayList();
+    public List<a> ayR = new ArrayList();
+    public String bhm;
+    public TextureMapView bhn;
     public Context context;
     public String id;
     public boolean isShowLocation;
@@ -26,18 +26,18 @@ public class b {
             return null;
         }
         b bVar = new b();
-        bVar.bhl = cVar.aBG;
+        bVar.bhm = cVar.aBH;
         bVar.id = cVar.id;
-        bVar.aBH = cVar.aBH;
+        bVar.aBI = cVar.aBI;
         bVar.context = context;
-        bVar.bhm = new TextureMapView(context);
+        bVar.bhn = new TextureMapView(context);
         bVar.isShowLocation = cVar.isShowLocation;
         return bVar;
     }
 
     public c b(Marker marker) {
-        for (c cVar : this.ayN) {
-            if (marker == cVar.bho) {
+        for (c cVar : this.ayO) {
+            if (marker == cVar.bhp) {
                 return cVar;
             }
         }
@@ -46,8 +46,8 @@ public class b {
 
     public List<c> je(String str) {
         ArrayList arrayList = new ArrayList(1);
-        for (c cVar : this.ayN) {
-            if (cVar.bhn != null && TextUtils.equals(str, cVar.bhn.id)) {
+        for (c cVar : this.ayO) {
+            if (cVar.bho != null && TextUtils.equals(str, cVar.bho.id)) {
                 arrayList.add(cVar);
             }
         }
@@ -55,8 +55,8 @@ public class b {
     }
 
     public a as(View view) {
-        for (a aVar : this.ayQ) {
-            if (aVar.bhk == view) {
+        for (a aVar : this.ayR) {
+            if (aVar.bhl == view) {
                 return aVar;
             }
         }
@@ -64,14 +64,14 @@ public class b {
     }
 
     public void clear() {
-        for (c cVar : this.ayN) {
-            this.bhm.removeView(cVar.bhs);
+        for (c cVar : this.ayO) {
+            this.bhn.removeView(cVar.bht);
         }
-        this.ayN.clear();
-        for (a aVar : this.ayQ) {
-            this.bhm.removeView(aVar.bhk);
+        this.ayO.clear();
+        for (a aVar : this.ayR) {
+            this.bhn.removeView(aVar.bhl);
         }
-        this.ayQ.clear();
-        this.bhm.getMap().clear();
+        this.ayR.clear();
+        this.bhn.getMap().clear();
     }
 }

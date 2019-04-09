@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
-    public static int cRb = 0;
+    public static int cRc = 0;
 
     static {
         axW();

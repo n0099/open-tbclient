@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eXo = BdUniqueId.gen();
-    private String eBB;
-    private String eWT;
-    private String eXk;
+    public static final BdUniqueId eXp = BdUniqueId.gen();
+    private String eBC;
+    private String eWU;
     private String eXl;
     private String eXm;
-    private boolean eXn;
+    private String eXn;
+    private boolean eXo;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.eWT = str;
+        this.eWU = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eXo;
+        return eXp;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.eBB = searchForum.avatar;
-            this.eXk = searchForum.post_num;
-            this.eXl = searchForum.concern_num;
-            this.eXm = searchForum.slogan;
+            this.eBC = searchForum.avatar;
+            this.eXl = searchForum.post_num;
+            this.eXm = searchForum.concern_num;
+            this.eXn = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.eXn = searchForum.has_concerned.intValue() != 0;
+            this.eXo = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.eBB;
+        return this.eBC;
     }
 
     public String bby() {
-        return this.eXl;
+        return this.eXm;
     }
 
     public String bbz() {
-        return this.eXk;
+        return this.eXl;
     }
 
     public String getForumName() {
@@ -58,6 +58,6 @@ public class b extends com.baidu.tieba.card.data.b {
     }
 
     public String bbA() {
-        return this.eWT;
+        return this.eWU;
     }
 }

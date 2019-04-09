@@ -14,7 +14,7 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
-    public BdUniqueId cnZ;
+    public BdUniqueId coa;
     private com.baidu.tieba.card.j fLM;
     private ab<com.baidu.tieba.card.data.h> fev;
     private TbPageContext<?> mPageContext;
@@ -25,9 +25,9 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && l.this.fLM != null && l.this.fLM.ehe != null && l.this.fLM.ehe.ehi != null && l.this.fLM.ehe.ehg != null && l.this.fLM.ehe.getView() != null) {
-                    if (view.getId() != l.this.fLM.ehe.ehi.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == l.this.fLM.ehe.getView().getId() || view.getId() == l.this.fLM.ehe.ehg.getId()) && (view.getTag(d.g.rec_god_item_root) instanceof String)) {
+                if (view != null && l.this.fLM != null && l.this.fLM.ehf != null && l.this.fLM.ehf.ehj != null && l.this.fLM.ehf.ehh != null && l.this.fLM.ehf.getView() != null) {
+                    if (view.getId() != l.this.fLM.ehf.ehj.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == l.this.fLM.ehf.getView().getId() || view.getId() == l.this.fLM.ehf.ehh.getId()) && (view.getTag(d.g.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new am("c11005").bJ(VideoPlayActivityConfig.OBJ_ID, (String) view.getTag(d.g.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -44,7 +44,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.fLM = new com.baidu.tieba.card.j(this.mPageContext, this.cnZ);
+        this.fLM = new com.baidu.tieba.card.j(this.mPageContext, this.coa);
         return new com.baidu.tieba.card.a.a(this.fLM);
     }
 

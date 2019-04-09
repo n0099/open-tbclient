@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class k {
-    private long bWS;
-    private int bWT;
+    private long bWT;
+    private int bWU;
     private String mMd5;
 
     public String agk() {
@@ -14,18 +14,18 @@ public class k {
     }
 
     public long getTotalLength() {
-        return this.bWS;
-    }
-
-    public void aO(long j) {
-        this.bWS = j;
-    }
-
-    public int agl() {
         return this.bWT;
     }
 
+    public void aO(long j) {
+        this.bWT = j;
+    }
+
+    public int agl() {
+        return this.bWU;
+    }
+
     public void iw(int i) {
-        this.bWT = i;
+        this.bWU = i;
     }
 }

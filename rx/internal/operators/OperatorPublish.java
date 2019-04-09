@@ -8,56 +8,56 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
 /* loaded from: classes2.dex */
 public final class OperatorPublish<T> extends rx.observables.a<T> {
-    final rx.d<? extends T> jUX;
-    final AtomicReference<a<T>> jXB;
+    final rx.d<? extends T> jUY;
+    final AtomicReference<a<T>> jXC;
 
     @Override // rx.observables.a
     public void f(rx.functions.b<? super rx.k> bVar) {
         a<T> aVar;
         while (true) {
-            aVar = this.jXB.get();
+            aVar = this.jXC.get();
             if (aVar != null && !aVar.isUnsubscribed()) {
                 break;
             }
-            a<T> aVar2 = new a<>(this.jXB);
+            a<T> aVar2 = new a<>(this.jXC);
             aVar2.init();
-            if (this.jXB.compareAndSet(aVar, aVar2)) {
+            if (this.jXC.compareAndSet(aVar, aVar2)) {
                 aVar = aVar2;
                 break;
             }
         }
-        boolean z = !aVar.jXG.get() && aVar.jXG.compareAndSet(false, true);
+        boolean z = !aVar.jXH.get() && aVar.jXH.compareAndSet(false, true);
         bVar.call(aVar);
         if (z) {
-            this.jUX.a((rx.j<? super Object>) aVar);
+            this.jUY.a((rx.j<? super Object>) aVar);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class a<T> extends rx.j<T> implements rx.k {
-        static final InnerProducer[] jXD = new InnerProducer[0];
         static final InnerProducer[] jXE = new InnerProducer[0];
+        static final InnerProducer[] jXF = new InnerProducer[0];
         boolean emitting;
-        final AtomicReference<a<T>> jXB;
-        volatile Object jXC;
-        final AtomicReference<InnerProducer[]> jXF;
-        final AtomicBoolean jXG;
+        final AtomicReference<a<T>> jXC;
+        volatile Object jXD;
+        final AtomicReference<InnerProducer[]> jXG;
+        final AtomicBoolean jXH;
         boolean missed;
         final Queue<Object> queue;
 
         public a(AtomicReference<a<T>> atomicReference) {
             this.queue = ae.cEJ() ? new rx.internal.util.a.q<>(rx.internal.util.g.SIZE) : new rx.internal.util.atomic.c<>(rx.internal.util.g.SIZE);
-            this.jXF = new AtomicReference<>(jXD);
-            this.jXB = atomicReference;
-            this.jXG = new AtomicBoolean();
+            this.jXG = new AtomicReference<>(jXE);
+            this.jXC = atomicReference;
+            this.jXH = new AtomicBoolean();
         }
 
         void init() {
             add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorPublish.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.jXF.getAndSet(a.jXE);
-                    a.this.jXB.compareAndSet(a.this, null);
+                    a.this.jXG.getAndSet(a.jXF);
+                    a.this.jXC.compareAndSet(a.this, null);
                 }
             }));
         }
@@ -78,16 +78,16 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (this.jXC == null) {
-                this.jXC = NotificationLite.O(th);
+            if (this.jXD == null) {
+                this.jXD = NotificationLite.O(th);
                 cDP();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (this.jXC == null) {
-                this.jXC = NotificationLite.cDR();
+            if (this.jXD == null) {
+                this.jXD = NotificationLite.cDR();
                 cDP();
             }
         }
@@ -96,8 +96,8 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             InnerProducer[] innerProducerArr;
             InnerProducer[] innerProducerArr2;
             do {
-                innerProducerArr = this.jXF.get();
-                if (innerProducerArr != jXD && innerProducerArr != jXE) {
+                innerProducerArr = this.jXG.get();
+                if (innerProducerArr != jXE && innerProducerArr != jXF) {
                     int i = -1;
                     int length = innerProducerArr.length;
                     int i2 = 0;
@@ -113,7 +113,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerProducerArr2 = jXD;
+                            innerProducerArr2 = jXE;
                         } else {
                             innerProducerArr2 = new InnerProducer[length - 1];
                             System.arraycopy(innerProducerArr, 0, innerProducerArr2, 0, i);
@@ -125,7 +125,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                 } else {
                     return;
                 }
-            } while (!this.jXF.compareAndSet(innerProducerArr, innerProducerArr2));
+            } while (!this.jXG.compareAndSet(innerProducerArr, innerProducerArr2));
         }
 
         boolean f(Object obj, boolean z) {
@@ -133,9 +133,9 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
             if (obj != null) {
                 if (NotificationLite.bn(obj)) {
                     if (z) {
-                        this.jXB.compareAndSet(this, null);
+                        this.jXC.compareAndSet(this, null);
                         try {
-                            InnerProducer[] andSet = this.jXF.getAndSet(jXE);
+                            InnerProducer[] andSet = this.jXG.getAndSet(jXF);
                             int length = andSet.length;
                             while (i < length) {
                                 andSet[i].child.onCompleted();
@@ -147,9 +147,9 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                     }
                 } else {
                     Throwable bq = NotificationLite.bq(obj);
-                    this.jXB.compareAndSet(this, null);
+                    this.jXC.compareAndSet(this, null);
                     try {
-                        InnerProducer[] andSet2 = this.jXF.getAndSet(jXE);
+                        InnerProducer[] andSet2 = this.jXG.getAndSet(jXF);
                         int length2 = andSet2.length;
                         while (i < length2) {
                             andSet2[i].child.onError(bq);
@@ -180,14 +180,14 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                 boolean z2 = false;
                 while (true) {
                     try {
-                        Object obj = this.jXC;
+                        Object obj = this.jXD;
                         ?? r3 = this.queue;
                         boolean isEmpty = r3.isEmpty();
                         boolean z3 = r3;
                         if (!f(obj, isEmpty)) {
                             try {
                                 if (!isEmpty) {
-                                    InnerProducer[] innerProducerArr = this.jXF.get();
+                                    InnerProducer[] innerProducerArr = this.jXG.get();
                                     int length = innerProducerArr.length;
                                     int i2 = 0;
                                     long j = Long.MAX_VALUE;
@@ -208,7 +208,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                                                 z = z4;
                                                 break;
                                             }
-                                            Object obj2 = this.jXC;
+                                            Object obj2 = this.jXD;
                                             Object poll = this.queue.poll();
                                             isEmpty = poll == null;
                                             if (!f(obj2, isEmpty)) {
@@ -236,7 +236,7 @@ public final class OperatorPublish<T> extends rx.observables.a<T> {
                                         z3 = r32;
                                         if (r32 != 0 && !z) {
                                         }
-                                    } else if (!f(this.jXC, this.queue.poll() == null)) {
+                                    } else if (!f(this.jXD, this.queue.poll() == null)) {
                                         request(1L);
                                     } else {
                                         return;

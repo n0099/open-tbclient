@@ -10,8 +10,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    JSONArray amX;
-    String amY;
+    JSONArray amY;
+    String amZ;
     String appId;
     String appKey;
 
@@ -20,12 +20,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String bR(int i) {
-        if (this.amX == null) {
+        if (this.amY == null) {
             return "";
         }
-        String optString = this.amX.optString(i);
+        String optString = this.amY.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + Config.TRACE_TODAY_VISIT_SPLIT + this.amY;
+            return "http://" + optString + Config.TRACE_TODAY_VISIT_SPLIT + this.amZ;
         }
         return "";
     }
@@ -33,10 +33,10 @@ public class c {
     public static c y(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.amX = jSONObject.getJSONArray("host");
+            cVar.amY = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.amY = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.amZ = jSONObject.getString(ClientCookie.PORT_ATTR);
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {

@@ -7,19 +7,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
-    private ArrayList<String> bzr;
-    private int bzs = 0;
-    private UserData bzq = new UserData();
+    private ArrayList<String> bzs;
+    private int bzt = 0;
+    private UserData bzr = new UserData();
     private AntiData anti = new AntiData();
 
     public ag() {
-        this.bzr = null;
-        this.bzr = new ArrayList<>();
+        this.bzs = null;
+        this.bzs = new ArrayList<>();
         ge(0);
     }
 
     public UserData getUser() {
-        return this.bzq;
+        return this.bzr;
     }
 
     public AntiData getAnti() {
@@ -36,12 +36,12 @@ public class ag {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.bzq.parserJson(jSONObject.optJSONObject("user"));
+            this.bzr.parserJson(jSONObject.optJSONObject("user"));
             this.anti.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.bzr.add(optJSONArray.optString(i, null));
+                    this.bzs.add(optJSONArray.optString(i, null));
                 }
             }
             ge(jSONObject.optInt("retrytime"));
@@ -51,6 +51,6 @@ public class ag {
     }
 
     public void ge(int i) {
-        this.bzs = i;
+        this.bzt = i;
     }
 }

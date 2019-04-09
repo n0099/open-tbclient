@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes2.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
-    private AbsListView.OnScrollListener aIP;
-    private LoadingLayout aJA;
+    private AbsListView.OnScrollListener aIQ;
+    private LoadingLayout aJB;
     private ListView mListView;
 
     public PullToRefreshListView(Context context) {
@@ -38,8 +38,8 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setHasMoreData(boolean z) {
-        if (this.aJA != null) {
-            this.aJA.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
+        if (this.aJB != null) {
+            this.aJB.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
         }
         LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
         if (footerLoadingLayout != null) {
@@ -48,7 +48,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.aIP = onScrollListener;
+        this.aIQ = onScrollListener;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
@@ -64,8 +64,8 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public void startLoading() {
         super.startLoading();
-        if (this.aJA != null) {
-            this.aJA.setState(ILoadingLayout.State.REFRESHING);
+        if (this.aJB != null) {
+            this.aJB.setState(ILoadingLayout.State.REFRESHING);
         }
     }
 
@@ -74,20 +74,20 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (isScrollLoadEnabled() != z) {
             super.setScrollLoadEnabled(z);
             if (z) {
-                if (this.aJA == null) {
-                    this.aJA = new FooterLoadingLayout(getContext());
-                    this.mListView.addFooterView(this.aJA, null, false);
+                if (this.aJB == null) {
+                    this.aJB = new FooterLoadingLayout(getContext());
+                    this.mListView.addFooterView(this.aJB, null, false);
                 }
-                this.aJA.show(true);
-            } else if (this.aJA != null) {
-                this.aJA.show(false);
+                this.aJB.show(true);
+            } else if (this.aJB != null) {
+                this.aJB.show(false);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
-        return isScrollLoadEnabled() ? this.aJA : super.getFooterLoadingLayout();
+        return isScrollLoadEnabled() ? this.aJB : super.getFooterLoadingLayout();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -95,20 +95,20 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (isScrollLoadEnabled() && Hy() && ((i == 0 || i == 2) && isReadyForPullUp())) {
             startLoading();
         }
-        if (this.aIP != null) {
-            this.aIP.onScrollStateChanged(absListView, i);
+        if (this.aIQ != null) {
+            this.aIQ.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.aIP != null) {
-            this.aIP.onScroll(absListView, i, i2, i3);
+        if (this.aIQ != null) {
+            this.aIQ.onScroll(absListView, i, i2, i3);
         }
     }
 
     private boolean Hy() {
-        return this.aJA == null || this.aJA.getState() != ILoadingLayout.State.NO_MORE_DATA;
+        return this.aJB == null || this.aJB.getState() != ILoadingLayout.State.NO_MORE_DATA;
     }
 
     private boolean Hz() {

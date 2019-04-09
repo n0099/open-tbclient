@@ -10,14 +10,14 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected final String aRL;
+    protected final String aRM;
     protected final Activity mActivity;
     protected final String mScope;
 
     public f(Activity activity, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRL = str2;
+        this.aRM = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -30,8 +30,8 @@ public class f extends g<JSONObject> {
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject.put("app_key", Jl.getAppKey());
-            if (!TextUtils.equals("0", this.aRL)) {
-                jSONObject.put("action_type", this.aRL);
+            if (!TextUtils.equals("0", this.aRM)) {
+                jSONObject.put("action_type", this.aRM);
             }
             String vC = com.baidu.swan.apps.u.a.CI().vC();
             if (!TextUtils.isEmpty(vC)) {

@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a iEV;
+    private a iEW;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -30,11 +30,11 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.iEV = aVar;
+        this.iEW = aVar;
     }
 
     public void A(String str, long j) {
-        new b(str, j, this.mFrom, this.iEV, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.iEW, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -43,8 +43,8 @@ public class w {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> iEW;
-        private WeakReference<w> iEX;
+        private WeakReference<a> iEX;
+        private WeakReference<w> iEY;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -54,11 +54,11 @@ public class w {
         public b(String str, long j, String str2, a aVar, w wVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.iEW = null;
-            this.iEX = new WeakReference<>(wVar);
+            this.iEX = null;
+            this.iEY = new WeakReference<>(wVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.iEW = new WeakReference<>(aVar);
+            this.iEX = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -101,10 +101,10 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.iEW != null) {
+            if (this.iEX != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.iEW.get();
+                a aVar2 = this.iEX.get();
                 if (aVar2 != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.acE().adD().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

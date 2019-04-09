@@ -19,12 +19,12 @@ public class FrsMemberStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.eVm));
-                    absDelegateAdapterList.add(new l(null, m.eVy));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.eYo));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.eUP));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.eUS));
-                    absDelegateAdapterList.add(new o(null, p.eVQ));
+                    absDelegateAdapterList.add(new i(null, j.eVn));
+                    absDelegateAdapterList.add(new l(null, m.eVz));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.eYp));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.eUQ));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.eUT));
+                    absDelegateAdapterList.add(new o(null, p.eVR));
                 }
             }
         });
@@ -35,7 +35,7 @@ public class FrsMemberStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof y)) {
                     y yVar = (y) customResponsedMessage.getData();
                     e eVar = new e();
-                    eVar.setTag(yVar.cnZ);
+                    eVar.setTag(yVar.coa);
                     yVar.a(3, eVar);
                 }
             }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class c {
-    private boolean cMn = false;
+    private boolean cMo = false;
     private int mChannel;
 
     public c() {
@@ -83,16 +83,16 @@ public class c {
     }
 
     private void awe() {
-        if (!this.cMn && this.mChannel == 1) {
-            this.cMn = awg();
-            if (!this.cMn) {
+        if (!this.cMo && this.mChannel == 1) {
+            this.cMo = awg();
+            if (!this.cMo) {
                 this.mChannel = 0;
             }
         }
     }
 
     public boolean awf() {
-        return this.cMn;
+        return this.cMo;
     }
 
     public boolean awg() {

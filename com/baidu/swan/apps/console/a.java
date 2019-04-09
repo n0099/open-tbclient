@@ -8,7 +8,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.e;
 /* loaded from: classes2.dex */
 public class a {
-    private static boolean amL;
+    private static boolean amM;
 
     public static void j(Context context, boolean z) {
         final com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
@@ -32,10 +32,10 @@ public class a {
     }
 
     public static boolean wH() {
-        return amL;
+        return amM;
     }
 
     public static void aP(boolean z) {
-        amL = z;
+        amM = z;
     }
 }

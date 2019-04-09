@@ -26,17 +26,17 @@ import com.baidu.tieba.setting.im.more.c;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
-    private c iqe;
-    private a iqf;
-    private ArrayList<k> iqh;
-    private int iqi;
+    private c iqf;
+    private a iqg;
+    private ArrayList<k> iqi;
     private int iqj;
     private int iqk;
     private int iql;
     private int iqm;
-    private e iqn;
-    private boolean iqg = false;
-    private c.a iqo = new c.a() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.1
+    private int iqn;
+    private e iqo;
+    private boolean iqh = false;
+    private c.a iqp = new c.a() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.1
         @Override // com.baidu.tieba.setting.im.more.c.a
         public void bYx() {
             SecretSettingActivity.this.bYv();
@@ -79,7 +79,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             SecretSettingActivity.this.sendMessage(new CustomMessage(2002001, new PrivacyPermissionActivityConfig(SecretSettingActivity.this.getPageContext().getPageActivity())));
         }
     };
-    private HttpMessageListener iqp = new HttpMessageListener(CmdConfigHttp.SET_PRIVATE_CMD, true) { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.2
+    private HttpMessageListener iqq = new HttpMessageListener(CmdConfigHttp.SET_PRIVATE_CMD, true) { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -95,8 +95,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     }
                     SecretSettingActivity.this.showToast(d.j.success);
                     if (!TextUtils.equals(Headers.LOCATION, operation)) {
-                        SecretSettingActivity.this.iqf.bn(operation, type);
-                        SecretSettingActivity.this.iqe.bp(operation, type);
+                        SecretSettingActivity.this.iqg.bn(operation, type);
+                        SecretSettingActivity.this.iqf.bp(operation, type);
                     }
                 }
             }
@@ -107,7 +107,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             SecretSettingActivity.this.hideProgressBar();
             if (responsedMessage != null) {
-                SecretSettingActivity.this.iqg = true;
+                SecretSettingActivity.this.iqh = true;
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     SecretSettingActivity.this.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? SecretSettingActivity.this.getResources().getString(d.j.neterror) : responsedMessage.getErrorString());
                     return;
@@ -120,23 +120,23 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
                 if (aVar != null) {
-                    SecretSettingActivity.this.iqf.b(aVar);
-                    SecretSettingActivity.this.iqf.bYq();
-                    SecretSettingActivity.this.iqe.pv(true);
-                    SecretSettingActivity.this.iqe.d(SecretSettingActivity.this.iqf);
-                    SecretSettingActivity.this.c(SecretSettingActivity.this.iqf);
-                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.iqf.bYt());
+                    SecretSettingActivity.this.iqg.b(aVar);
+                    SecretSettingActivity.this.iqg.bYq();
+                    SecretSettingActivity.this.iqf.pv(true);
+                    SecretSettingActivity.this.iqf.d(SecretSettingActivity.this.iqg);
+                    SecretSettingActivity.this.c(SecretSettingActivity.this.iqg);
+                    TbadkCoreApplication.getInst().setLocationShared(SecretSettingActivity.this.iqg.bYt());
                 }
             }
         }
     };
-    private CustomMessageListener iqq = new CustomMessageListener(2921065) { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.5
+    private CustomMessageListener iqr = new CustomMessageListener(2921065) { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                SecretSettingActivity.this.iqf.yk(((Integer) customResponsedMessage.getData()).intValue());
-                SecretSettingActivity.this.iqe.d(SecretSettingActivity.this.iqf);
+                SecretSettingActivity.this.iqg.yk(((Integer) customResponsedMessage.getData()).intValue());
+                SecretSettingActivity.this.iqf.d(SecretSettingActivity.this.iqg);
             }
         }
     };
@@ -145,69 +145,69 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iqe = new c(this);
-        this.iqf = new a();
-        this.iqe.a(this.iqo);
-        if (this.iqf.bYo()) {
-            this.iqe.pv(true);
-            this.iqe.d(this.iqf);
-            c(this.iqf);
+        this.iqf = new c(this);
+        this.iqg = new a();
+        this.iqf.a(this.iqp);
+        if (this.iqg.bYo()) {
+            this.iqf.pv(true);
+            this.iqf.d(this.iqg);
+            c(this.iqg);
         } else {
-            this.iqe.pv(false);
+            this.iqf.pv(false);
         }
         registerListener(this.mNetMessageListener);
-        registerListener(this.iqp);
         registerListener(this.iqq);
+        registerListener(this.iqr);
         sendMessage(new PrivateInfoNetMessage());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a aVar) {
-        this.iqi = aVar.bYr();
-        this.iqj = aVar.bYp();
-        this.iqk = aVar.bYs();
-        this.iql = aVar.alp();
-        this.iqm = aVar.bYu();
+        this.iqj = aVar.bYr();
+        this.iqk = aVar.bYp();
+        this.iql = aVar.bYs();
+        this.iqm = aVar.alp();
+        this.iqn = aVar.bYu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iqe.onChangeSkinType(i);
+        this.iqf.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.iqe.bYE();
+        this.iqf.bYE();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dO(final String str, String str2) {
-        if (this.iqg) {
+        if (this.iqh) {
             if ("group".equals(str)) {
-                this.iqh = yr(this.iqk);
+                this.iqi = yr(this.iql);
             } else if ("post".equals(str)) {
-                this.iqh = yr(this.iqj);
+                this.iqi = yr(this.iqk);
             } else if ("like".equals(str)) {
-                this.iqh = yr(this.iqi);
+                this.iqi = yr(this.iqj);
             } else if ("live".equals(str)) {
-                this.iqh = ys(this.iql);
+                this.iqi = ys(this.iqm);
             } else if ("reply".equals(str)) {
-                this.iqh = yt(this.iqm);
+                this.iqi = yt(this.iqn);
             }
-            if (this.iqn != null) {
-                this.iqn.dismiss();
+            if (this.iqo != null) {
+                this.iqo.dismiss();
             }
-            this.iqn = new e(getPageContext());
-            this.iqn.lB(str2);
-            this.iqn.a(this.iqh, new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.4
+            this.iqo = new e(getPageContext());
+            this.iqo.lB(str2);
+            this.iqo.a(this.iqi, new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                     SecretSettingActivity.this.showProgressBar();
-                    String tag = ((k) SecretSettingActivity.this.iqh.get(i)).getTag();
+                    String tag = ((k) SecretSettingActivity.this.iqi.get(i)).getTag();
                     int i2 = 0;
                     if ("showAll".equals(tag)) {
                         SecretSettingActivity.this.bo(str, 1);
@@ -225,21 +225,21 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                         SecretSettingActivity.this.bo(str, 6);
                         i2 = 6;
                     }
-                    SecretSettingActivity.this.iqn.refresh(i);
+                    SecretSettingActivity.this.iqo.refresh(i);
                     if ("group".equals(str)) {
-                        SecretSettingActivity.this.iqk = i2;
-                    } else if ("post".equals(str)) {
-                        SecretSettingActivity.this.iqj = i2;
-                    } else if ("like".equals(str)) {
-                        SecretSettingActivity.this.iqi = i2;
-                    } else if ("live".equals(str)) {
                         SecretSettingActivity.this.iql = i2;
-                    } else if ("reply".equals(str)) {
+                    } else if ("post".equals(str)) {
+                        SecretSettingActivity.this.iqk = i2;
+                    } else if ("like".equals(str)) {
+                        SecretSettingActivity.this.iqj = i2;
+                    } else if ("live".equals(str)) {
                         SecretSettingActivity.this.iqm = i2;
+                    } else if ("reply".equals(str)) {
+                        SecretSettingActivity.this.iqn = i2;
                     }
                 }
             }).lB(str2);
-            this.iqn.aba().abb();
+            this.iqo.aba().abb();
         }
     }
 
@@ -285,8 +285,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iqn != null) {
-            this.iqn.dismiss();
+        if (this.iqo != null) {
+            this.iqo.dismiss();
         }
     }
 }

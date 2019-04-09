@@ -9,9 +9,9 @@ import android.widget.ProgressBar;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 public class RotateProgressBar extends ProgressBar {
-    protected Drawable aHj;
-    protected long aHk;
-    protected int aHl;
+    protected Drawable aHk;
+    protected long aHl;
+    protected int aHm;
     protected int mDegree;
 
     public RotateProgressBar(Context context, AttributeSet attributeSet, int i) {
@@ -33,12 +33,12 @@ public class RotateProgressBar extends ProgressBar {
     }
 
     private void init() {
-        this.aHl = 200;
+        this.aHm = 200;
         try {
             Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
             if (declaredField != null) {
                 declaredField.setAccessible(true);
-                this.aHl = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                this.aHm = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,20 +47,20 @@ public class RotateProgressBar extends ProgressBar {
 
     @Override // android.widget.ProgressBar, android.view.View
     protected synchronized void onDraw(Canvas canvas) {
-        Drawable drawable = this.aHj;
+        Drawable drawable = this.aHk;
         if (drawable != null) {
             drawable.draw(canvas);
-            long uptimeMillis = SystemClock.uptimeMillis() - this.aHk;
-            if (uptimeMillis < this.aHl) {
-                postInvalidateDelayed(this.aHl - uptimeMillis);
+            long uptimeMillis = SystemClock.uptimeMillis() - this.aHl;
+            if (uptimeMillis < this.aHm) {
+                postInvalidateDelayed(this.aHm - uptimeMillis);
             } else {
-                this.aHk = SystemClock.uptimeMillis();
+                this.aHl = SystemClock.uptimeMillis();
                 this.mDegree += 30;
                 if (this.mDegree >= 360) {
                     this.mDegree = 0;
                 }
                 drawable.setLevel((int) ((this.mDegree * 10000) / 360.0f));
-                postInvalidateDelayed(this.aHl);
+                postInvalidateDelayed(this.aHm);
             }
         }
     }
@@ -69,7 +69,7 @@ public class RotateProgressBar extends ProgressBar {
     public synchronized void setIndeterminateDrawable(Drawable drawable) {
         super.setIndeterminateDrawable(drawable);
         if (isIndeterminate()) {
-            this.aHj = drawable;
+            this.aHk = drawable;
         }
     }
 
@@ -77,7 +77,7 @@ public class RotateProgressBar extends ProgressBar {
     public synchronized void setIndeterminate(boolean z) {
         super.setIndeterminate(z);
         if (z) {
-            this.aHj = getIndeterminateDrawable();
+            this.aHk = getIndeterminateDrawable();
         }
     }
 

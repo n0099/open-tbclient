@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.baidu.tieba.play.f {
-    protected com.baidu.tbadk.core.data.a Xy;
-    protected RoundCornerFrameLayout Zp;
-    protected com.baidu.tieba.play.operableVideoView.a Zq;
-    private BdUniqueId Zr;
-    private a.b Zs;
+    protected com.baidu.tbadk.core.data.a Xz;
+    protected RoundCornerFrameLayout Zq;
+    protected com.baidu.tieba.play.operableVideoView.a Zr;
+    private BdUniqueId Zs;
+    private a.b Zt;
     private String mFrom;
     private final View.OnClickListener mOnClickListener;
     protected View mRootView;
     protected TextView mTitle;
-    private static final int Zl = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds88);
+    private static final int Zm = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds88);
     private static final int SCREEN_WIDTH = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst());
-    private static final int Zm = SCREEN_WIDTH - Zl;
-    private static final int Zn = Zm / 2;
-    private static final int Zo = Zm / 3;
+    private static final int Zn = SCREEN_WIDTH - Zm;
+    private static final int Zo = Zn / 2;
+    private static final int Zp = Zn / 3;
 
     protected abstract com.baidu.tieba.play.operableVideoView.a ro();
 
@@ -38,33 +38,33 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ac.this.rk() != null) {
-                    ac.this.rk().a(view, ac.this.Xy);
+                    ac.this.rk().a(view, ac.this.Xz);
                 }
             }
         };
-        this.Zs = new a.b() { // from class: com.baidu.card.ac.2
+        this.Zt = new a.b() { // from class: com.baidu.card.ac.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0039a c0039a) {
                 if (c0039a.getActionType() == 1) {
-                    com.baidu.tieba.card.n.a(ac.this.mTitle, ac.this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+                    com.baidu.tieba.card.n.a(ac.this.mTitle, ac.this.Xz.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
                 } else if (c0039a.getActionType() == 2) {
-                    if (ac.this.Zq != null) {
-                        ac.this.Zq.bTV();
+                    if (ac.this.Zr != null) {
+                        ac.this.Zr.bTV();
                     }
                 } else if (c0039a.getActionType() == 3) {
-                    if (ac.this.Zq != null) {
-                        ac.this.Zq.bTW();
+                    if (ac.this.Zr != null) {
+                        ac.this.Zr.bTW();
                     }
                 } else if (c0039a.getActionType() == 6) {
-                    if (ac.this.Zq != null) {
-                        return ac.this.Zq.onBackPress();
+                    if (ac.this.Zr != null) {
+                        return ac.this.Zr.onBackPress();
                     }
                 } else if (c0039a.getActionType() == 7) {
-                    if (ac.this.Zp != null) {
-                        ac.this.Zp.aJ(((Boolean) c0039a.rD()).booleanValue());
+                    if (ac.this.Zq != null) {
+                        ac.this.Zq.aJ(((Boolean) c0039a.rD()).booleanValue());
                     }
-                } else if (c0039a.getActionType() == 8 && ac.this.Zq != null && (c0039a.rD() instanceof Boolean)) {
-                    return ac.this.Zq.kr(((Boolean) c0039a.rD()).booleanValue());
+                } else if (c0039a.getActionType() == 8 && ac.this.Zr != null && (c0039a.rD() instanceof Boolean)) {
+                    return ac.this.Zr.kr(((Boolean) c0039a.rD()).booleanValue());
                 }
                 return false;
             }
@@ -74,12 +74,12 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public void rj() {
-        a(1, this.Zs);
-        a(2, this.Zs);
-        a(3, this.Zs);
-        a(6, this.Zs);
-        a(7, this.Zs);
-        a(8, this.Zs);
+        a(1, this.Zt);
+        a(2, this.Zt);
+        a(3, this.Zt);
+        a(6, this.Zt);
+        a(7, this.Zt);
+        a(8, this.Zt);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,11 +88,11 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.card_video_layout, (ViewGroup) null, true);
             this.mTitle = (TextView) this.mRootView.findViewById(d.g.video_seg_title);
-            this.Zp = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
-            this.Zq = ro();
-            this.Zq.bSV().setBackgroundResource(d.C0277d.transparent);
-            this.Zq.setUniqueId(this.Zr);
-            this.Zq.setFrom(this.mFrom);
+            this.Zq = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
+            this.Zr = ro();
+            this.Zr.bSV().setBackgroundResource(d.C0277d.transparent);
+            this.Zr.setUniqueId(this.Zs);
+            this.Zr.setFrom(this.mFrom);
         }
         return this.mRootView;
     }
@@ -102,20 +102,20 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
-        this.Xy = aVar;
-        if (this.Xy != null && this.Xy.WO() != null && this.Xy.WO().Zf() != null) {
-            this.Zq.setData(aVar.WO());
-            ViewGroup.LayoutParams layoutParams = this.Zp.getLayoutParams();
+        this.Xz = aVar;
+        if (this.Xz != null && this.Xz.WO() != null && this.Xz.WO().Zf() != null) {
+            this.Zr.setData(aVar.WO());
+            ViewGroup.LayoutParams layoutParams = this.Zq.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.Xy.WO().Zf().is_vertical.intValue() == 1) {
-                com.baidu.tieba.play.v bTv = this.Zq.bTv();
+            if (this.Xz.WO().Zf().is_vertical.intValue() == 1) {
+                com.baidu.tieba.play.v bTv = this.Zr.bTv();
                 if (bTv != null) {
-                    int i3 = (Zn / 9) * 16;
-                    int i4 = Zo;
+                    int i3 = (Zo / 9) * 16;
+                    int i4 = Zp;
                     int videoWidth = bTv.getVideoWidth();
                     int videoHeight = bTv.getVideoHeight();
-                    layoutParams.width = Zn;
+                    layoutParams.width = Zo;
                     boolean z2 = i != layoutParams.width;
                     if (videoWidth == 0 || videoHeight == 0) {
                         layoutParams.height = i3;
@@ -124,7 +124,7 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
                         }
                         z = z2;
                     } else {
-                        int i5 = (int) (((1.0f * videoHeight) / videoWidth) * Zn);
+                        int i5 = (int) (((1.0f * videoHeight) / videoWidth) * Zo);
                         if (i5 >= i4) {
                             i4 = i5 > i3 ? i3 : i5;
                         }
@@ -138,97 +138,97 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
                     return;
                 }
             } else {
-                layoutParams.width = Zm;
-                layoutParams.height = (Zm / 16) * 9;
+                layoutParams.width = Zn;
+                layoutParams.height = (Zn / 16) * 9;
                 z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
             }
             if (z) {
-                this.Zp.setLayoutParams(layoutParams);
+                this.Zq.setLayoutParams(layoutParams);
             }
-            au.a(this.mTitle, this.Xy.WO());
+            au.a(this.mTitle, this.Xz.WO());
             if (rk() != null) {
-                this.Zq.setAfterClickListener(this.mOnClickListener);
+                this.Zr.setAfterClickListener(this.mOnClickListener);
             }
         }
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.Xy != null && this.Xy.WO() != null) {
-            com.baidu.tieba.card.n.a(this.mTitle, this.Xy.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
-            this.Zp.onChangeSkinType(i);
-            this.Zp.setBackgroundColor(al.getColor(com.baidu.tbadk.util.e.get()));
+        if (this.Xz != null && this.Xz.WO() != null) {
+            com.baidu.tieba.card.n.a(this.mTitle, this.Xz.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+            this.Zq.onChangeSkinType(i);
+            this.Zq.setBackgroundColor(al.getColor(com.baidu.tbadk.util.e.get()));
         }
     }
 
     public void a(com.baidu.tieba.play.z zVar) {
-        if (this.Zq != null) {
-            this.Zq.b(zVar);
+        if (this.Zr != null) {
+            this.Zr.b(zVar);
         }
     }
 
     public com.baidu.tieba.play.operableVideoView.a rC() {
-        return this.Zq;
+        return this.Zr;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        return this.Zq.isPlaying();
+        return this.Zr.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        return this.Zq.isPlaying();
+        return this.Zr.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isFullScreen() {
-        if (this.Zq == null) {
+        if (this.Zr == null) {
             return false;
         }
-        return this.Zq.isFullScreen();
+        return this.Zr.isFullScreen();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
         if ((this.mContext instanceof com.baidu.tbadk.core.util.e.c) && ((com.baidu.tbadk.core.util.e.c) this.mContext).videoNeedPreload()) {
-            this.Zq.startPlay();
+            this.Zr.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        this.Zq.stopPlay();
+        this.Zr.stopPlay();
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        return this.Zp;
+        return this.Zq;
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.Xy == null || this.Xy.WO() == null) {
+        if (this.Xz == null || this.Xz.WO() == null) {
             return null;
         }
-        return this.Xy.WO().getVideoUrl();
+        return this.Xz.WO().getVideoUrl();
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.Zq != null) {
-            this.Zq.setFrom(str);
+        if (this.Zr != null) {
+            this.Zr.setFrom(str);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.Zr = bdUniqueId;
+        this.Zs = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        return this.Zq.getCurrentPosition();
+        return this.Zr.getCurrentPosition();
     }
 
     public void onResume() {

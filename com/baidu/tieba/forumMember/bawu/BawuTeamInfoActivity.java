@@ -10,10 +10,10 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
-    private g eUs;
-    private e eUt;
-    private e.a eUu;
-    private NoNetworkView.a eUv = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
+    private g eUt;
+    private e eUu;
+    private e.a eUv;
+    private NoNetworkView.a eUw = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void dP(boolean z) {
             if (z) {
@@ -36,38 +36,38 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     }
 
     public void initData() {
-        this.eUt = new e();
-        this.eUu = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
+        this.eUu = new e();
+        this.eUv = new e.a() { // from class: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity.1
             @Override // com.baidu.tieba.forumMember.bawu.e.a
             public void a(ArrayList<i> arrayList, p pVar, boolean z, int i, String str) {
                 if (z) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.eUs.getRootView());
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.eUt.getRootView());
                     if (i == 0) {
-                        BawuTeamInfoActivity.this.eUs.a(arrayList, pVar, true);
+                        BawuTeamInfoActivity.this.eUt.a(arrayList, pVar, true);
                         return;
                     }
                     BawuTeamInfoActivity.this.showToast(str);
-                    if (BawuTeamInfoActivity.this.eUs.baV()) {
-                        BawuTeamInfoActivity.this.eUs.baW();
+                    if (BawuTeamInfoActivity.this.eUt.baV()) {
+                        BawuTeamInfoActivity.this.eUt.baW();
                         return;
                     }
                     return;
                 }
                 if (arrayList != null && arrayList.size() > 0) {
-                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.eUs.getRootView());
-                    BawuTeamInfoActivity.this.eUs.a(arrayList, pVar, false);
+                    BawuTeamInfoActivity.this.hideLoadingView(BawuTeamInfoActivity.this.eUt.getRootView());
+                    BawuTeamInfoActivity.this.eUt.a(arrayList, pVar, false);
                 }
-                BawuTeamInfoActivity.this.eUt.cD(BawuTeamInfoActivity.this.forumId);
+                BawuTeamInfoActivity.this.eUu.cD(BawuTeamInfoActivity.this.forumId);
             }
         };
-        this.eUt.a(this.eUu);
-        this.eUt.cC(this.forumId);
-        showLoadingView(this.eUs.getRootView(), true);
+        this.eUu.a(this.eUv);
+        this.eUu.cC(this.forumId);
+        showLoadingView(this.eUt.getRootView(), true);
     }
 
     public void initUI() {
-        this.eUs = new g(this);
-        this.eUs.f(this.eUv);
+        this.eUt = new g(this);
+        this.eUt.f(this.eUw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -84,26 +84,26 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        showLoadingView(this.eUs.getRootView(), true);
-        this.eUt.cD(this.forumId);
+        showLoadingView(this.eUt.getRootView(), true);
+        this.eUu.cD(this.forumId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eUs.onChangeSkinType(i);
+        this.eUt.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.eUt != null) {
-            this.eUt.destroy();
+        if (this.eUu != null) {
+            this.eUu.destroy();
         }
-        if (this.eUs != null) {
-            this.eUs.onDestroy();
+        if (this.eUt != null) {
+            this.eUt.onDestroy();
         }
     }
 }

@@ -23,33 +23,33 @@ import com.baidu.tieba.imMessageCenter.mention.agree.b;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AgreeMeActivity extends BaseActivity implements BdListView.e {
-    private b gyS;
-    private a gyT;
+    private b gyT;
+    private a gyU;
     private int mSkinType = 3;
-    private a.InterfaceC0327a gyU = new a.InterfaceC0327a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
+    private a.InterfaceC0327a gyV = new a.InterfaceC0327a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0327a
         public void bfb() {
-            if (AgreeMeActivity.this.gyS != null) {
-                AgreeMeActivity.this.gyS.aAZ();
+            if (AgreeMeActivity.this.gyT != null) {
+                AgreeMeActivity.this.gyT.aAZ();
             }
         }
 
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0327a
         public void bfc() {
-            if (AgreeMeActivity.this.gyS != null) {
-                AgreeMeActivity.this.gyS.bfc();
+            if (AgreeMeActivity.this.gyT != null) {
+                AgreeMeActivity.this.gyT.bfc();
             }
         }
     };
-    private b.a gyV = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
+    private b.a gyW = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void R(ArrayList<m> arrayList) {
-            if (AgreeMeActivity.this.gyT != null) {
-                AgreeMeActivity.this.gyT.c(AgreeMeActivity.this.gyS.hasMore, arrayList);
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyT.getRootView());
-                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.gyT.getRootView());
-                if (AgreeMeActivity.this.gyT.dcE != null) {
-                    AgreeMeActivity.this.gyT.dcE.setVisibility(0);
+            if (AgreeMeActivity.this.gyU != null) {
+                AgreeMeActivity.this.gyU.c(AgreeMeActivity.this.gyT.hasMore, arrayList);
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyU.getRootView());
+                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.gyU.getRootView());
+                if (AgreeMeActivity.this.gyU.dcF != null) {
+                    AgreeMeActivity.this.gyU.dcF.setVisibility(0);
                 }
             }
         }
@@ -57,24 +57,24 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
         @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
         public void uE(String str) {
             com.baidu.tbadk.coreExtra.messageCenter.b.ahx().iB(0);
-            if (AgreeMeActivity.this.gyT != null) {
-                AgreeMeActivity.this.gyT.lM(false);
-                if (v.T(AgreeMeActivity.this.gyT.getDatas())) {
-                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyT.getRootView());
-                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.gyT.getRootView(), str, true);
+            if (AgreeMeActivity.this.gyU != null) {
+                AgreeMeActivity.this.gyU.lM(false);
+                if (v.T(AgreeMeActivity.this.gyU.getDatas())) {
+                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyU.getRootView());
+                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.gyU.getRootView(), str, true);
                     AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.h(TbadkCoreApplication.getInst(), d.e.tbds530));
-                    if (AgreeMeActivity.this.gyT.dcE != null) {
-                        AgreeMeActivity.this.gyT.dcE.setVisibility(8);
+                    if (AgreeMeActivity.this.gyU.dcF != null) {
+                        AgreeMeActivity.this.gyU.dcF.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyT.getRootView());
+                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.gyU.getRootView());
                 AgreeMeActivity.this.showToast(str);
             }
         }
     };
-    private s gyQ = new s() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
+    private s gyR = new s() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
         @Override // com.baidu.adp.widget.ListView.s
         public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
@@ -82,7 +82,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
                 AgreeMeActivity.this.a(aVar);
                 if (aVar.bxR() != null) {
                     am T = new am(aVar.bxR()).T("obj_locate", 1);
-                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.gzh) {
+                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.gzi) {
                         T.T("obj_type", 2);
                     } else {
                         T.T("obj_type", 1);
@@ -99,21 +99,21 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(d.h.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        this.gyT = new a(getPageContext(), inflate);
-        this.gyT.a(this.gyU);
-        this.gyT.d(this.gyQ);
-        this.gyS = new b(getPageContext(), this.gyV);
-        showLoadingView(this.gyT.getRootView());
-        this.gyT.lM(false);
-        this.gyS.blo();
+        this.gyU = new a(getPageContext(), inflate);
+        this.gyU.a(this.gyV);
+        this.gyU.d(this.gyR);
+        this.gyT = new b(getPageContext(), this.gyW);
+        showLoadingView(this.gyU.getRootView());
+        this.gyU.lM(false);
+        this.gyT.blo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gyT != null) {
-            this.gyT.onDestroy();
+        if (this.gyU != null) {
+            this.gyU.onDestroy();
         }
     }
 
@@ -122,26 +122,26 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.gyT != null) {
-                this.gyT.changeSkinType(i);
+            if (this.gyU != null) {
+                this.gyU.changeSkinType(i);
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.gyS != null) {
-            this.gyS.aAZ();
+        if (this.gyT != null) {
+            this.gyT.aAZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (j.kY() && this.gyS != null && this.gyT != null) {
-            hideNetRefreshView(this.gyT.getRootView());
-            showLoadingView(this.gyT.getRootView(), true);
-            this.gyS.blo();
+        if (j.kY() && this.gyT != null && this.gyU != null) {
+            hideNetRefreshView(this.gyU.getRootView());
+            showLoadingView(this.gyU.getRootView(), true);
+            this.gyT.blo();
         }
     }
 

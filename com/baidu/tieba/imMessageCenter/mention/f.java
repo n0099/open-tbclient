@@ -4,6 +4,6 @@ public class f extends j implements com.baidu.tbadk.mvc.b.l {
     public void a(j jVar) {
         bxJ().addAll(jVar.bxJ());
         this.page = jVar.page;
-        this.gyd = jVar.gyd;
+        this.gye = jVar.gye;
     }
 }

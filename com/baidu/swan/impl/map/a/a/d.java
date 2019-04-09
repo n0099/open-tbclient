@@ -18,7 +18,7 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.b> {
 
     private boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction start");
-        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(bVar.aBG);
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(bVar.aBH);
         if (!(eg instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
@@ -36,14 +36,14 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.b> {
         if (bVar == null || !bVar.isValid()) {
             return false;
         }
-        BaiduMap map = bVar2.bhm.getMap();
+        BaiduMap map = bVar2.bhn.getMap();
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        Iterator<com.baidu.swan.apps.x.a.a.c> it = bVar.ayJ.iterator();
+        Iterator<com.baidu.swan.apps.x.a.a.c> it = bVar.ayK.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.x.a.a.c next = it.next();
             builder.include(new LatLng(next.latitude, next.longitude));
         }
-        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.ayK[3], bVar.ayK[0], bVar.ayK[1], bVar.ayK[2]));
+        map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build(), bVar.ayL[3], bVar.ayL[0], bVar.ayL[1], bVar.ayL[2]));
         return true;
     }
 

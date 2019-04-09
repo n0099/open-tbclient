@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class s {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aWq;
     private static String aWr;
+    private static String aWs;
 
     public static boolean ck(Context context) {
         if (context == null) {
@@ -72,50 +72,50 @@ public class s {
     }
 
     public static boolean check(String str) {
-        if (aWq != null) {
-            return aWq.equals(str);
+        if (aWr != null) {
+            return aWr.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        aWr = prop;
+        aWs = prop;
         if (!TextUtils.isEmpty(prop)) {
-            aWq = RomTypeUtil.ROM_MIUI;
+            aWr = RomTypeUtil.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            aWr = prop2;
+            aWs = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                aWq = RomTypeUtil.ROM_EMUI;
+                aWr = RomTypeUtil.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                aWr = prop3;
+                aWs = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    aWq = RomTypeUtil.ROM_OPPO;
+                    aWr = RomTypeUtil.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    aWr = prop4;
+                    aWs = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        aWq = RomTypeUtil.ROM_VIVO;
+                        aWr = RomTypeUtil.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        aWr = prop5;
+                        aWs = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            aWq = RomTypeUtil.ROM_SMARTISAN;
+                            aWr = RomTypeUtil.ROM_SMARTISAN;
                         } else {
                             String prop6 = getProp("ro.gn.sv.version");
-                            aWr = prop6;
+                            aWs = prop6;
                             if (!TextUtils.isEmpty(prop6)) {
-                                aWq = RomTypeUtil.ROM_SMARTISAN;
+                                aWr = RomTypeUtil.ROM_SMARTISAN;
                             } else {
                                 String prop7 = getProp("ro.build.rom.id");
-                                aWr = prop7;
+                                aWs = prop7;
                                 if (!TextUtils.isEmpty(prop7)) {
-                                    aWq = "NUBIA";
+                                    aWr = "NUBIA";
                                 } else {
-                                    aWr = Build.DISPLAY;
-                                    if (aWr.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
-                                        aWq = RomTypeUtil.ROM_FLYME;
+                                    aWs = Build.DISPLAY;
+                                    if (aWs.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
+                                        aWr = RomTypeUtil.ROM_FLYME;
                                     } else {
-                                        aWr = "unknown";
-                                        aWq = Build.MANUFACTURER.toUpperCase();
+                                        aWs = "unknown";
+                                        aWr = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -124,7 +124,7 @@ public class s {
                 }
             }
         }
-        return aWq.equals(str);
+        return aWr.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */

@@ -27,8 +27,8 @@ public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private static int VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE = 2;
     private static int VIDEO_ENTER_TYPE_NO_JUMP_VIDEO_MIDDLE_PAGE = 1;
-    private long pushDialogLoopTime = ap.bKO;
-    private long pushDialogShowTime = 5 * ap.bKN;
+    private long pushDialogLoopTime = ap.bKP;
+    private long pushDialogShowTime = 5 * ap.bKO;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;

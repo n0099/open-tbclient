@@ -20,28 +20,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static List<String> bcC = new ArrayList();
-    private String bcB = g.getBasePath();
-    private String bcD;
+    private static List<String> bcD = new ArrayList();
+    private String bcC = g.getBasePath();
+    private String bcE;
     private Context mContext;
 
     static {
-        bcC.add("ascii");
-        bcC.add("base64");
-        bcC.add("binary");
-        bcC.add("hex");
-        bcC.add("utf-8");
-        bcC.add("utf8");
-        bcC.add("latin1");
-        bcC.add("ucs2");
-        bcC.add("ucs-2");
-        bcC.add("utf16le");
-        bcC.add("utf-16le");
+        bcD.add("ascii");
+        bcD.add("base64");
+        bcD.add("binary");
+        bcD.add("hex");
+        bcD.add("utf-8");
+        bcD.add("utf8");
+        bcD.add("latin1");
+        bcD.add("ucs2");
+        bcD.add("ucs-2");
+        bcD.add("utf16le");
+        bcD.add("utf-16le");
     }
 
     public e(Context context, String str) {
         this.mContext = context;
-        this.bcD = str;
+        this.bcE = str;
     }
 
     private String iq(String str) {
@@ -55,8 +55,8 @@ public class e {
             return g.iB(str);
         }
         if (str.startsWith("bdfile://code")) {
-            this.bcD = this.bcD.endsWith(File.separator) ? this.bcD.substring(0, this.bcD.length() - 1) : this.bcD;
-            return this.bcD + str.substring("bdfile://code".length());
+            this.bcE = this.bcE.endsWith(File.separator) ? this.bcE.substring(0, this.bcE.length() - 1) : this.bcE;
+            return this.bcE + str.substring("bdfile://code".length());
         }
         return "";
     }
@@ -214,7 +214,7 @@ public class e {
             if ("binary".equals(str2.toLowerCase())) {
                 str2 = "latin1";
             }
-            if (!bcC.contains(str2.toLowerCase())) {
+            if (!bcD.contains(str2.toLowerCase())) {
                 return v(-1, "fail invalid encoding \"" + str2 + "\"");
             }
         }
@@ -521,7 +521,7 @@ public class e {
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(iE);
-                    aW.bbR = arrayList;
+                    aW.bbS = arrayList;
                     aW.errMsg = "ok";
                 }
                 return aW;
@@ -591,7 +591,7 @@ public class e {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(str2);
-            v.bbR = arrayList;
+            v.bbS = arrayList;
             return v;
         } catch (IOException e3) {
             e = e3;
@@ -608,7 +608,7 @@ public class e {
                 } else {
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.add(str2);
-                    v.bbR = arrayList2;
+                    v.bbS = arrayList2;
                 }
                 return v2;
             } catch (Throwable th3) {
@@ -620,7 +620,7 @@ public class e {
                 if (TextUtils.isEmpty("")) {
                     ArrayList arrayList3 = new ArrayList();
                     arrayList3.add(str2);
-                    v.bbR = arrayList3;
+                    v.bbS = arrayList3;
                 } else {
                     v.errMsg = LivenessStat.TYPE_FACE_MATCH_FAIL;
                     v.errCode = -1;
@@ -666,7 +666,7 @@ public class e {
                     }
                 }
                 c v = v(0, "ok");
-                v.bbR = arrayList;
+                v.bbS = arrayList;
                 return v;
             }
             return y;
@@ -742,7 +742,7 @@ public class e {
                         str3 = "latin1";
                     }
                 }
-                if (!isEmpty && !bcC.contains(str3)) {
+                if (!isEmpty && !bcD.contains(str3)) {
                     return v(-1, "fail Error: Unknown encoding: " + str3);
                 }
                 String iq = iq(iE);
@@ -768,11 +768,11 @@ public class e {
                         str4 = a;
                     }
                     if (TextUtils.isEmpty(str3)) {
-                        v.bbS = bArr;
+                        v.bbT = bArr;
                     } else {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(str4);
-                        v.bbR = arrayList;
+                        v.bbS = arrayList;
                     }
                     return v;
                 } catch (Exception e) {

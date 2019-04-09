@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.f.a;
 /* loaded from: classes4.dex */
 public class ak {
-    private com.baidu.tieba.f.b dLI;
+    private com.baidu.tieba.f.b dLJ;
     private ViewGroup fcE;
     private k fcF;
     private com.baidu.tieba.frs.vc.f fcG;
     private Context mContext;
     private NavigationBar mNavigationBar;
-    private int ctG = 0;
+    private int ctH = 0;
     private int fcH = 0;
     private boolean fcJ = true;
     private boolean fcK = true;
-    private boolean ctH = false;
+    private boolean ctI = false;
     private final Handler.Callback fcL = new Handler.Callback() { // from class: com.baidu.tieba.frs.ak.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -45,7 +45,7 @@ public class ak {
         }
     };
     private final Handler mHandler = new Handler(this.fcL);
-    private a.InterfaceC0284a dLJ = new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.ak.2
+    private a.InterfaceC0284a dLK = new a.InterfaceC0284a() { // from class: com.baidu.tieba.frs.ak.2
         @Override // com.baidu.tieba.f.a.InterfaceC0284a
         public void aR(int i, int i2) {
             if (av(i2)) {
@@ -79,11 +79,11 @@ public class ak {
     private boolean fcI = UtilHelper.canUseStyleImmersiveSticky();
 
     public com.baidu.tieba.f.b beq() {
-        return this.dLI;
+        return this.dLJ;
     }
 
     public void jr(boolean z) {
-        this.ctH = z;
+        this.ctI = z;
     }
 
     public void js(boolean z) {
@@ -97,8 +97,8 @@ public class ak {
         this.fcE = kVar.bdc();
         this.fcG = fVar;
         aCj();
-        this.dLI = new com.baidu.tieba.f.b(context);
-        this.dLI.a(this.dLJ);
+        this.dLJ = new com.baidu.tieba.f.b(context);
+        this.dLJ.a(this.dLK);
     }
 
     public void ber() {
@@ -155,7 +155,7 @@ public class ak {
     }
 
     public void hideFloatingView() {
-        if (this.fcJ && this.fcK && this.fcE != null && this.ctG >= this.fcH) {
+        if (this.fcJ && this.fcK && this.fcE != null && this.ctH >= this.fcH) {
             aqg();
         }
     }

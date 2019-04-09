@@ -165,8 +165,8 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                         if (aVar != null) {
                             for (int i = 0; i < FrsTabController.this.fcb.beo().size(); i++) {
                                 FragmentTabHost.b gZ = FrsTabController.this.foq.gZ(i);
-                                if (gZ != null && gZ.mType != 1 && gZ.mType != FrsTabController.this.foq.getCurrentTabType() && gZ.mType == aVar.getTabId() && aVar.bgS() && gZ.bHX.pr(String.valueOf(gZ.mType)) != null) {
-                                    gZ.bHX.pr(String.valueOf(gZ.mType)).view.setVisibility(0);
+                                if (gZ != null && gZ.mType != 1 && gZ.mType != FrsTabController.this.foq.getCurrentTabType() && gZ.mType == aVar.getTabId() && aVar.bgS() && gZ.bHY.pr(String.valueOf(gZ.mType)) != null) {
+                                    gZ.bHY.pr(String.valueOf(gZ.mType)).view.setVisibility(0);
                                 }
                             }
                         }
@@ -457,7 +457,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
             this.fcc.setArguments(bundle);
             this.fcc.setBaseTag(fol);
         }
-        this.fcc.eYN = false;
+        this.fcc.eYO = false;
         return this.fcc;
     }
 
@@ -527,7 +527,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                     public void run() {
                         Bundle bundle;
                         FrsTabController.this.c(jVar);
-                        FrsTabController.this.fcc.eYN = true;
+                        FrsTabController.this.fcc.eYO = true;
                         if (FrsTabController.this.fcc != null) {
                             bundle = FrsTabController.this.fcc.getArguments();
                         } else {
@@ -577,7 +577,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
         if (bha()) {
             return false;
         }
-        this.fcc.eYN = true;
+        this.fcc.eYO = true;
         bgX();
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("frs_game_login_tip", true)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("frs_login_tip", true);
@@ -642,7 +642,7 @@ public class FrsTabController implements VoiceManager.c, com.baidu.tieba.InjectP
                     this.fcb.uZ(forum.getSpecialForumType());
                 }
             }
-            this.fcc.eYN = false;
+            this.fcc.eYO = false;
             new d(this.fcc).a(this.fcb);
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001616, this.fcb);
             CustomMessage customMessage = new CustomMessage(2001616);

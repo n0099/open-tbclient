@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.UUID;
 /* loaded from: classes2.dex */
 public class a {
-    public static final ParcelUuid aUj = ParcelUuid.fromString("00000000-0000-1000-8000-00805F9B34FB");
+    public static final ParcelUuid aUk = ParcelUuid.fromString("00000000-0000-1000-8000-00805F9B34FB");
 
     public static com.baidu.swan.apps.aj.b.b.a a(BluetoothDevice bluetoothDevice, int i, byte[] bArr) {
         com.baidu.swan.apps.aj.b.b.a aVar = new com.baidu.swan.apps.aj.b.b.a();
         if (bluetoothDevice != null && bArr != null) {
-            aVar.aUi = bluetoothDevice;
-            aVar.aUd = i;
+            aVar.aUj = bluetoothDevice;
+            aVar.aUe = i;
             aVar.name = bluetoothDevice.getName();
             aVar.deviceId = bluetoothDevice.getAddress();
             return a(aVar, bArr);
@@ -91,10 +91,10 @@ public class a {
                         if (arrayList.isEmpty()) {
                             arrayList = null;
                         }
-                        aVar.aUe = arrayList2;
-                        aVar.aUf = arrayList;
-                        aVar.aUg = str;
-                        aVar.aUh = arrayMap;
+                        aVar.aUf = arrayList2;
+                        aVar.aUg = arrayList;
+                        aVar.aUh = str;
+                        aVar.aUi = arrayMap;
                         return aVar;
                     }
                 } catch (Exception e) {
@@ -103,10 +103,10 @@ public class a {
             }
             if (arrayList.isEmpty()) {
             }
-            aVar.aUe = arrayList2;
-            aVar.aUf = arrayList;
-            aVar.aUg = str;
-            aVar.aUh = arrayMap;
+            aVar.aUf = arrayList2;
+            aVar.aUg = arrayList;
+            aVar.aUh = str;
+            aVar.aUi = arrayMap;
             return aVar;
         }
         return aVar;
@@ -148,7 +148,7 @@ public class a {
             } else {
                 j = (bArr[0] & 255) + ((bArr[1] & 255) << 8) + ((bArr[2] & 255) << 16) + ((bArr[3] & 255) << 24);
             }
-            return new ParcelUuid(new UUID(aUj.getUuid().getMostSignificantBits() + (j << 32), aUj.getUuid().getLeastSignificantBits()));
+            return new ParcelUuid(new UUID(aUk.getUuid().getMostSignificantBits() + (j << 32), aUk.getUuid().getLeastSignificantBits()));
         }
         return null;
     }

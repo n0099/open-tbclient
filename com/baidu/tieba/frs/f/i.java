@@ -211,11 +211,11 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bgVar != null) {
             String valueOf = String.valueOf(bgVar.getFid());
-            if (bgVar.bDH == null) {
+            if (bgVar.bDI == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bgVar.bDH.id;
+                str = bgVar.bDI.id;
                 str2 = valueOf;
             }
             if (bgVar.Zk() > 0 && com.baidu.tieba.tbadkCore.util.e.cfp()) {

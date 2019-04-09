@@ -5,27 +5,27 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bfB = new ReentrantLock();
-    private static volatile a bfC;
-    private d baP;
-    private List<c> bbz = new ArrayList(3);
+    private static final ReentrantLock bfC = new ReentrantLock();
+    private static volatile a bfD;
+    private d baQ;
+    private List<c> bbA = new ArrayList(3);
 
     private a() {
     }
 
     public static a Pg() {
-        if (bfC == null) {
+        if (bfD == null) {
             synchronized (a.class) {
-                if (bfC == null) {
-                    bfC = new a();
+                if (bfD == null) {
+                    bfD = new a();
                 }
             }
         }
-        return bfC;
+        return bfD;
     }
 
     public void a(d dVar) {
-        this.baP = dVar;
+        this.baQ = dVar;
         Ph();
     }
 
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.baP = null;
-        this.bbz.clear();
+        this.baQ = null;
+        this.bbA.clear();
     }
 
     private void a(c cVar) {
-        bfB.lock();
+        bfC.lock();
         try {
-            if (this.baP != null) {
-                this.baP.c(cVar);
+            if (this.baQ != null) {
+                this.baQ.c(cVar);
             } else {
-                this.bbz.add(cVar);
+                this.bbA.add(cVar);
             }
         } finally {
-            bfB.unlock();
+            bfC.unlock();
         }
     }
 
     private void Ph() {
-        if (!this.bbz.isEmpty() && this.baP != null) {
-            bfB.lock();
+        if (!this.bbA.isEmpty() && this.baQ != null) {
+            bfC.lock();
             try {
-                for (c cVar : this.bbz) {
-                    this.baP.c(cVar);
+                for (c cVar : this.bbA) {
+                    this.baQ.c(cVar);
                 }
-                this.bbz.clear();
+                this.bbA.clear();
             } finally {
-                bfB.unlock();
+                bfC.unlock();
             }
         }
     }

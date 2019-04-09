@@ -10,8 +10,8 @@ import rx.internal.util.a.ae;
 /* loaded from: classes2.dex */
 public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     final int bufferSize;
-    final rx.functions.f<? super T, ? extends rx.d<? extends R>> jVt;
-    private final int jWH;
+    final rx.functions.f<? super T, ? extends rx.d<? extends R>> jVu;
+    private final int jWI;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -19,7 +19,7 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        b bVar = new b(this.jVt, this.bufferSize, this.jWH, jVar);
+        b bVar = new b(this.jVu, this.bufferSize, this.jWI, jVar);
         bVar.init();
         return bVar;
     }
@@ -54,20 +54,20 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
-        final rx.functions.f<? super T, ? extends rx.d<? extends R>> jVt;
-        private EagerOuterProducer jWJ;
-        final Queue<a<R>> jWI = new LinkedList();
+        final rx.functions.f<? super T, ? extends rx.d<? extends R>> jVu;
+        private EagerOuterProducer jWK;
+        final Queue<a<R>> jWJ = new LinkedList();
         final AtomicInteger wip = new AtomicInteger();
 
         public b(rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2, rx.j<? super R> jVar) {
-            this.jVt = fVar;
+            this.jVu = fVar;
             this.bufferSize = i;
             this.actual = jVar;
             request(i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2);
         }
 
         void init() {
-            this.jWJ = new EagerOuterProducer(this);
+            this.jWK = new EagerOuterProducer(this);
             add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OperatorEagerConcatMap.b.1
                 @Override // rx.functions.a
                 public void call() {
@@ -78,14 +78,14 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
                 }
             }));
             this.actual.add(this);
-            this.actual.setProducer(this.jWJ);
+            this.actual.setProducer(this.jWK);
         }
 
         void cleanup() {
             ArrayList<rx.k> arrayList;
-            synchronized (this.jWI) {
-                arrayList = new ArrayList(this.jWI);
-                this.jWI.clear();
+            synchronized (this.jWJ) {
+                arrayList = new ArrayList(this.jWJ);
+                this.jWJ.clear();
             }
             for (rx.k kVar : arrayList) {
                 kVar.unsubscribe();
@@ -95,12 +95,12 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         @Override // rx.e
         public void onNext(T t) {
             try {
-                rx.d<? extends R> call = this.jVt.call(t);
+                rx.d<? extends R> call = this.jVu.call(t);
                 if (!this.cancelled) {
                     a<R> aVar = new a<>(this, this.bufferSize);
-                    synchronized (this.jWI) {
+                    synchronized (this.jWJ) {
                         if (!this.cancelled) {
-                            this.jWI.add(aVar);
+                            this.jWJ.add(aVar);
                             if (!this.cancelled) {
                                 call.a((rx.j<? super Object>) aVar);
                                 drain();
@@ -129,13 +129,13 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
         void drain() {
             a<R> peek;
             if (this.wip.getAndIncrement() == 0) {
-                EagerOuterProducer eagerOuterProducer = this.jWJ;
+                EagerOuterProducer eagerOuterProducer = this.jWK;
                 rx.j<? super R> jVar = this.actual;
                 int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
-                    synchronized (this.jWI) {
-                        peek = this.jWI.peek();
+                    synchronized (this.jWJ) {
+                        peek = this.jWJ.peek();
                     }
                     boolean z2 = peek == null;
                     if (z) {
@@ -165,8 +165,8 @@ public final class OperatorEagerConcatMap<T, R> implements d.b<R, T> {
                                     jVar.onError(th2);
                                     return;
                                 } else if (z5) {
-                                    synchronized (this.jWI) {
-                                        this.jWI.poll();
+                                    synchronized (this.jWJ) {
+                                        this.jWJ.poll();
                                     }
                                     peek.unsubscribe();
                                     z3 = true;

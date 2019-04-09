@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.storage;
 /* loaded from: classes2.dex */
 public class a {
-    private long aSR;
     private long aSS;
+    private long aST;
     private String mPath;
 
     public String getPath() {
@@ -14,18 +14,18 @@ public class a {
     }
 
     public long getSize() {
-        return this.aSR;
-    }
-
-    public void setSize(long j) {
-        this.aSR = j;
-    }
-
-    public long Kz() {
         return this.aSS;
     }
 
-    public void I(long j) {
+    public void setSize(long j) {
         this.aSS = j;
+    }
+
+    public long Kz() {
+        return this.aST;
+    }
+
+    public void I(long j) {
+        this.aST = j;
     }
 }

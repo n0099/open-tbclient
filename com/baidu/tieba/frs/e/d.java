@@ -10,7 +10,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     private static d fue;
-    private LruCache<String, String> agQ = new LruCache<>(10);
+    private LruCache<String, String> agR = new LruCache<>(10);
     private l<String> fud = com.baidu.tbadk.core.c.a.aaT().lw("tb.recently_vistited_forum_animation");
 
     public static d biw() {
@@ -30,7 +30,7 @@ public class d {
             public void onActivityDestroyed(Activity activity) {
                 if (activity != null && activity.getClass().getName().equals("FrsActivity")) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry entry : d.this.agQ.snapshot().entrySet()) {
+                    for (Map.Entry entry : d.this.agR.snapshot().entrySet()) {
                         sb.append((String) entry.getKey()).append("=").append((String) entry.getValue()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                     if (sb.length() > 1) {
@@ -49,7 +49,7 @@ public class d {
                     for (String str3 : str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                         String[] split = str3.split("=");
                         if (split != null && split.length == 2) {
-                            d.this.agQ.put(split[0], split[1]);
+                            d.this.agR.put(split[0], split[1]);
                         }
                     }
                 }
@@ -58,10 +58,10 @@ public class d {
     }
 
     public void a(String str, e eVar) {
-        this.agQ.put(str, eVar.toString());
+        this.agR.put(str, eVar.toString());
     }
 
     public e vI(String str) {
-        return str == null ? new e(null) : new e(this.agQ.get(str));
+        return str == null ? new e(null) : new e(this.agR.get(str));
     }
 }

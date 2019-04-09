@@ -26,15 +26,14 @@ import com.baidu.tieba.enterForum.recommend.b.f;
 import com.baidu.tieba.enterForum.recommend.message.RequestTestCloseMessage;
 /* loaded from: classes4.dex */
 public class CellForumTestView extends RelativeLayout implements View.OnClickListener {
-    private int cIT;
-    private TbImageView eEH;
-    private ImageView eEI;
+    private int cIU;
+    private TbImageView eEI;
     private ImageView eEJ;
-    private TextView eEK;
+    private ImageView eEK;
     private TextView eEL;
-    private f eEM;
-    private boolean eEN;
-    private float eEO;
+    private TextView eEM;
+    private f eEN;
+    private boolean eEO;
     private float eEP;
     private float eEQ;
     private float eER;
@@ -42,9 +41,10 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     private float eET;
     private float eEU;
     private float eEV;
-    private int eEW;
-    private boolean eEX;
-    private a eEY;
+    private float eEW;
+    private int eEX;
+    private boolean eEY;
+    private a eEZ;
     private int mHeight;
     private int mIndex;
     private int mSkinType;
@@ -53,37 +53,37 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public CellForumTestView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.eEN = false;
+        this.eEO = false;
         init(context);
     }
 
     public CellForumTestView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.eEN = false;
+        this.eEO = false;
         init(context);
     }
 
     public CellForumTestView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.eEN = false;
+        this.eEO = false;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.cell_forum_test_layout, (ViewGroup) this, true);
-        this.eEH = (TbImageView) findViewById(d.g.cell_forum_test_img);
-        this.eEI = (ImageView) findViewById(d.g.cell_forum_test_new);
-        this.eEJ = (ImageView) findViewById(d.g.cell_forum_test_del);
-        this.eEK = (TextView) findViewById(d.g.cell_forum_test_des);
-        this.eEL = (TextView) findViewById(d.g.cell_forum_test_btn);
-        this.eEH.setRadius(l.h(context, d.e.tbds22));
-        this.eEH.setConrers(3);
-        this.eEH.setDefaultBgResource(d.C0277d.cp_atp_a);
-        this.eEH.setDrawCorner(true);
-        this.cIT = l.h(context, d.e.tbds262);
-        this.eEJ.setOnClickListener(this);
+        this.eEI = (TbImageView) findViewById(d.g.cell_forum_test_img);
+        this.eEJ = (ImageView) findViewById(d.g.cell_forum_test_new);
+        this.eEK = (ImageView) findViewById(d.g.cell_forum_test_del);
+        this.eEL = (TextView) findViewById(d.g.cell_forum_test_des);
+        this.eEM = (TextView) findViewById(d.g.cell_forum_test_btn);
+        this.eEI.setRadius(l.h(context, d.e.tbds22));
+        this.eEI.setConrers(3);
+        this.eEI.setDefaultBgResource(d.C0277d.cp_atp_a);
+        this.eEI.setDrawCorner(true);
+        this.cIU = l.h(context, d.e.tbds262);
+        this.eEK.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -92,8 +92,8 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     protected void onMeasure(int i, int i2) {
         this.mWidth = View.MeasureSpec.getSize(i);
         this.mHeight = View.MeasureSpec.getSize(i2);
-        if (!this.eEX) {
-            this.eEH.getLayoutParams().height = this.mHeight - this.cIT;
+        if (!this.eEY) {
+            this.eEI.getLayoutParams().height = this.mHeight - this.cIU;
         }
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.mWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mHeight, 1073741824));
     }
@@ -101,9 +101,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void setIndex(int i) {
         this.mIndex = i;
         if (this.mIndex == 1) {
-            this.eEJ.setVisibility(0);
+            this.eEK.setVisibility(0);
         } else {
-            this.eEJ.setVisibility(8);
+            this.eEK.setVisibility(8);
         }
     }
 
@@ -112,94 +112,94 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     }
 
     public void setDataIndex(int i) {
-        this.eEW = i;
+        this.eEX = i;
     }
 
     public int getDataIndex() {
-        return this.eEW;
+        return this.eEX;
     }
 
     public void setViewLeft(float f) {
-        this.eEO = f;
-    }
-
-    public float getViewLeft() {
-        return this.eEO;
-    }
-
-    public void setViewTop(float f) {
         this.eEP = f;
     }
 
-    public float getViewTop() {
+    public float getViewLeft() {
         return this.eEP;
     }
 
-    public void setViewRight(float f) {
+    public void setViewTop(float f) {
         this.eEQ = f;
     }
 
-    public float getViewRight() {
+    public float getViewTop() {
         return this.eEQ;
     }
 
-    public void setViewBottom(float f) {
+    public void setViewRight(float f) {
         this.eER = f;
     }
 
-    public float getViewBottom() {
+    public float getViewRight() {
         return this.eER;
     }
 
-    public void setMoveLeft(float f) {
+    public void setViewBottom(float f) {
         this.eES = f;
     }
 
-    public float getMoveLeft() {
+    public float getViewBottom() {
         return this.eES;
     }
 
-    public void setMoveTop(float f) {
+    public void setMoveLeft(float f) {
         this.eET = f;
     }
 
-    public float getMoveTop() {
+    public float getMoveLeft() {
         return this.eET;
     }
 
-    public void setMoveRight(float f) {
+    public void setMoveTop(float f) {
         this.eEU = f;
     }
 
-    public float getMoveRight() {
+    public float getMoveTop() {
         return this.eEU;
     }
 
-    public void setMoveBottom(float f) {
+    public void setMoveRight(float f) {
         this.eEV = f;
     }
 
-    public float getMoveBottom() {
+    public float getMoveRight() {
         return this.eEV;
     }
 
+    public void setMoveBottom(float f) {
+        this.eEW = f;
+    }
+
+    public float getMoveBottom() {
+        return this.eEW;
+    }
+
     public void setIsScale(boolean z) {
-        this.eEX = z;
+        this.eEY = z;
     }
 
     public void setForumTestDelClickListener(a aVar) {
-        this.eEY = aVar;
+        this.eEZ = aVar;
     }
 
     public void setData(f fVar) {
         if (fVar != null) {
-            this.eEM = fVar;
-            if (fVar.eED) {
-                this.eEH.startLoad(fVar.eEE, 10, false);
+            this.eEN = fVar;
+            if (fVar.eEE) {
+                this.eEI.startLoad(fVar.eEF, 10, false);
             } else {
-                this.eEH.startLoad(fVar.imageUrl, 10, false);
+                this.eEI.startLoad(fVar.imageUrl, 10, false);
             }
-            this.eEN = false;
+            this.eEO = false;
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("enter_forum_test_id_list", "");
             String[] split = string.split("[|]");
             if (!StringUtils.isNull(string)) {
@@ -213,50 +213,50 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                     if (StringUtils.isNull(str) || !str.equals(String.valueOf(fVar.testId) + "*" + TbadkCoreApplication.getCurrentAccountId())) {
                         i++;
                     } else {
-                        this.eEN = true;
+                        this.eEO = true;
                         break;
                     }
                 }
             }
-            this.eEI.setVisibility(this.eEN ? 8 : 0);
+            this.eEJ.setVisibility(this.eEO ? 8 : 0);
             if (StringUtils.isNull(fVar.title)) {
-                this.eEK.setText(d.j.cell_forum_test_title_default);
+                this.eEL.setText(d.j.cell_forum_test_title_default);
             } else {
-                this.eEK.setText(fVar.title);
+                this.eEL.setText(fVar.title);
             }
-            if (fVar.eED) {
-                this.eEL.setText(d.j.cell_forum_retest_default);
+            if (fVar.eEE) {
+                this.eEM.setText(d.j.cell_forum_retest_default);
             } else {
-                this.eEL.setText(d.j.cell_forum_test_default);
+                this.eEM.setText(d.j.cell_forum_test_default);
             }
         }
     }
 
     public f getData() {
-        return this.eEM;
+        return this.eEN;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eEJ == view) {
+        if (this.eEK == view) {
             if (j.kM() && this.mIndex == 1) {
-                TiebaStatic.log(new am("c13373").k("uid", TbadkCoreApplication.getCurrentAccountId()).k(VideoPlayActivityConfig.OBJ_ID, this.eEM.testId));
-                if (this.eEY != null) {
-                    this.eEY.pg(this.mIndex);
+                TiebaStatic.log(new am("c13373").k("uid", TbadkCoreApplication.getCurrentAccountId()).k(VideoPlayActivityConfig.OBJ_ID, this.eEN.testId));
+                if (this.eEZ != null) {
+                    this.eEZ.pg(this.mIndex);
                 }
                 RequestTestCloseMessage requestTestCloseMessage = new RequestTestCloseMessage();
-                requestTestCloseMessage.setTestId(this.eEM.testId);
+                requestTestCloseMessage.setTestId(this.eEN.testId);
                 requestTestCloseMessage.setFromPage(1L);
                 MessageManager.getInstance().sendMessage(requestTestCloseMessage);
             }
         } else if (bc.cZ(getContext())) {
-            TiebaStatic.log(new am("c13372").k("uid", TbadkCoreApplication.getCurrentAccountId()).k(VideoPlayActivityConfig.OBJ_ID, this.eEM.testId));
-            if (!this.eEN) {
+            TiebaStatic.log(new am("c13372").k("uid", TbadkCoreApplication.getCurrentAccountId()).k(VideoPlayActivityConfig.OBJ_ID, this.eEN.testId));
+            if (!this.eEO) {
                 String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("enter_forum_test_id_list", "");
                 String[] split = string.split("[|]");
                 StringBuilder sb = new StringBuilder();
                 if (split.length < 20) {
-                    sb.append(string).append("|").append(String.valueOf(this.eEM.testId) + "*" + TbadkCoreApplication.getCurrentAccountId());
+                    sb.append(string).append("|").append(String.valueOf(this.eEN.testId) + "*" + TbadkCoreApplication.getCurrentAccountId());
                 } else {
                     int i = 0;
                     for (String str : split) {
@@ -265,12 +265,12 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                         }
                         i++;
                     }
-                    sb.append(String.valueOf(this.eEM.testId) + "*" + TbadkCoreApplication.getCurrentAccountId());
+                    sb.append(String.valueOf(this.eEN.testId) + "*" + TbadkCoreApplication.getCurrentAccountId());
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("enter_forum_test_id_list", sb.toString());
             }
-            this.eEI.setVisibility(8);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.eEM.testId)));
+            this.eEJ.setVisibility(8);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.eEN.testId)));
         }
     }
 
@@ -278,13 +278,13 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            this.eEH.setIsNight(this.mSkinType == 1);
-            al.c(this.eEI, d.f.icon_ba_new);
-            al.c(this.eEJ, d.f.icon_ba_close);
-            al.j(this.eEK, d.C0277d.cp_cont_b);
-            al.k(this.eEK, d.f.forum_test_shade_bg);
-            al.j(this.eEL, d.C0277d.cp_btn_a);
-            al.k(this.eEL, d.f.enter_forum_test_shade_bg);
+            this.eEI.setIsNight(this.mSkinType == 1);
+            al.c(this.eEJ, d.f.icon_ba_new);
+            al.c(this.eEK, d.f.icon_ba_close);
+            al.j(this.eEL, d.C0277d.cp_cont_b);
+            al.k(this.eEL, d.f.forum_test_shade_bg);
+            al.j(this.eEM, d.C0277d.cp_btn_a);
+            al.k(this.eEM, d.f.enter_forum_test_shade_bg);
         }
     }
 

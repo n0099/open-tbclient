@@ -12,7 +12,7 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> jqu;
+    private List<VideoTitleData> jqv;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -23,17 +23,17 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.T(this.jqu)) {
+        if (v.T(this.jqv)) {
             return 0;
         }
-        return this.jqu.size();
+        return this.jqv.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: Bo */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.c(this.jqu, i);
+        return (VideoTitleData) v.c(this.jqv, i);
     }
 
     @Override // android.widget.Adapter
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
     }
 
     public void em(List<VideoTitleData> list) {
-        this.jqu = list;
+        this.jqv = list;
         notifyDataSetChanged();
     }
 }

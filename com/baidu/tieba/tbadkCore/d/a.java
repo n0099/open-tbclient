@@ -14,8 +14,8 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String ctw;
-        public int ekF;
+        public String ctx;
+        public int ekG;
         public String mPid;
     }
 
@@ -35,7 +35,7 @@ public class a {
     }
 
     @Deprecated
-    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         C0390a c0390a = new C0390a("ad_tpoint", "PT", str, "c0122", "ad_plat");
         c0390a.e(str2, str7, str3, str4, str5);
         c0390a.dY("obj_url", str6);
@@ -56,37 +56,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0390a {
-        private final boolean bzi;
-        private final am gEP;
-        private final String iHa;
+        private final boolean bzj;
+        private final am gEQ;
         private final String iHb;
         private final String iHc;
+        private final String iHd;
         private final String key;
         private final String page;
 
         private C0390a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.iHa = str2;
+            this.iHb = str2;
             this.page = str3;
-            this.iHb = str4;
-            this.iHc = str5;
-            this.bzi = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.gEP = ceH();
+            this.iHc = str4;
+            this.iHd = str5;
+            this.bzj = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.gEQ = ceH();
         }
 
         private am ceH() {
             am amVar = new am(this.key);
-            if (!StringUtils.isNull(this.iHa)) {
-                amVar = amVar.bJ("line", this.iHa);
+            if (!StringUtils.isNull(this.iHb)) {
+                amVar = amVar.bJ("line", this.iHb);
             }
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.bJ("page", this.page);
             }
-            if (!StringUtils.isNull(this.iHb)) {
-                amVar = amVar.bJ("locate", this.iHb);
-            }
             if (!StringUtils.isNull(this.iHc)) {
-                return amVar.bJ("task", this.iHc);
+                amVar = amVar.bJ("locate", this.iHc);
+            }
+            if (!StringUtils.isNull(this.iHd)) {
+                return amVar.bJ("task", this.iHd);
             }
             return amVar;
         }
@@ -94,34 +94,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.gEP.bJ("action_type", str);
+                this.gEQ.bJ("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.gEP.bJ(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.gEQ.bJ(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.gEP.bJ(ImageViewerConfig.FORUM_ID, str3);
+                this.gEQ.bJ(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.gEP.bJ(ImageViewerConfig.FORUM_NAME, str4);
+                this.gEQ.bJ(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.gEP.bJ("tid", str5);
+                this.gEQ.bJ("tid", str5);
             }
-            this.gEP.T("obj_cpid", 0).T("obj_good_id", 0).bJ("obj_throw_type", "BY_POST").bJ("client_type", "MOBILE_APP").bJ("user_timestamp", String.valueOf(System.currentTimeMillis())).bJ("os", "android").bJ("os_version", Build.VERSION.RELEASE).bJ("log_ver", "1.1");
-            return this.gEP;
+            this.gEQ.T("obj_cpid", 0).T("obj_good_id", 0).bJ("obj_throw_type", "BY_POST").bJ("client_type", "MOBILE_APP").bJ("user_timestamp", String.valueOf(System.currentTimeMillis())).bJ("os", "android").bJ("os_version", Build.VERSION.RELEASE).bJ("log_ver", "1.1");
+            return this.gEQ;
         }
 
         public C0390a dY(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.gEP.bJ(str, str2);
+                this.gEQ.bJ(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.gEP);
-            if (!this.bzi) {
+            TiebaStatic.log(this.gEQ);
+            if (!this.bzj) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -130,7 +130,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.gEP.delete(str);
+            this.gEQ.delete(str);
         }
     }
 }

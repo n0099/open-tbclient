@@ -24,8 +24,8 @@ public class v extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
             return false;
         }
-        com.baidu.swan.apps.core.a.c.aoH = unitedSchemeEntity.getParam(ImageViewerConfig.ABTEST);
-        com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aoH);
+        com.baidu.swan.apps.core.a.c.aoI = unitedSchemeEntity.getParam(ImageViewerConfig.ABTEST);
+        com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aoI);
         JSONObject c = c(unitedSchemeEntity, "params");
         int optInt = c == null ? 0 : c.optInt("delay", 0);
         if (optInt < 0) {
@@ -33,7 +33,7 @@ public class v extends y {
         }
         if (DEBUG) {
             Log.d("PreloadSwanCoreAction", "delay: " + optInt);
-            Log.d("PreloadSwanCoreAction", "abtest: " + com.baidu.swan.apps.core.a.c.aoH);
+            Log.d("PreloadSwanCoreAction", "abtest: " + com.baidu.swan.apps.core.a.c.aoI);
         }
         com.baidu.swan.apps.an.aa.b(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.v.1
             @Override // java.lang.Runnable

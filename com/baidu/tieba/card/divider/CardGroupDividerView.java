@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int emn = d.C0277d.cp_bg_line_c;
     private static final int emo = d.C0277d.cp_bg_line_c;
-    private View eml;
+    private static final int emp = d.C0277d.cp_bg_line_c;
     private View emm;
-    private int emp;
+    private View emn;
+    private int emq;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -26,35 +26,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.emp = emo;
+        this.emq = emp;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.emp = emo;
+        this.emq = emp;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.emp = emo;
+        this.emq = emp;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(d.h.card_divider_view, (ViewGroup) this, true);
-        this.eml = findViewById(d.g.card_divider_top_margin);
+        this.emm = findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(d.g.card_divider_tv);
-        this.emm = findViewById(d.g.bottom_line);
+        this.emn = findViewById(d.g.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         al.l(this, d.C0277d.cp_bg_line_d);
-        al.l(this.eml, d.C0277d.cp_bg_line_c);
+        al.l(this.emm, d.C0277d.cp_bg_line_c);
         al.j(this.mTitle, d.C0277d.cp_cont_d);
-        al.l(this.emm, this.emp);
+        al.l(this.emn, this.emq);
     }
 
     public void setTitleText(String str) {
@@ -66,11 +66,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.emp = i;
-        al.l(this.emm, this.emp);
+        this.emq = i;
+        al.l(this.emn, this.emq);
     }
 
     public View getBotttomLine() {
-        return this.emm;
+        return this.emn;
     }
 }

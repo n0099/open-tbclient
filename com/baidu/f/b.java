@@ -6,11 +6,11 @@ public class b extends d {
     }
 
     public static b csk() {
-        return a.jwm;
+        return a.jwn;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final b jwm = new b();
+        private static final b jwn = new b();
     }
 }

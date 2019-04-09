@@ -12,7 +12,7 @@ import com.baidu.tieba.d;
 public final class ShareFromPBView extends LinearLayout {
     private TextView fYx;
     private HeadImageView fzN;
-    private ShareFromPBMsgData gtQ;
+    private ShareFromPBMsgData gtR;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -44,15 +44,15 @@ public final class ShareFromPBView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.gtQ = shareFromPBMsgData;
+        this.gtR = shareFromPBMsgData;
         GP();
     }
 
     private void GP() {
-        this.title.setText(this.gtQ.getTitle());
+        this.title.setText(this.gtR.getTitle());
         this.fzN.setDefaultResource(d.f.icon_default_ba_120);
         this.fzN.setAutoChangeStyle(false);
-        this.fzN.startLoad(this.gtQ.getImageUrl(), 10, false);
-        this.fYx.setText(this.gtQ.getContent());
+        this.fzN.startLoad(this.gtR.getImageUrl(), 10, false);
+        this.fYx.setText(this.gtR.getContent());
     }
 }

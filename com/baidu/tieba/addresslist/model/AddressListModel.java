@@ -9,23 +9,23 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a cPY;
+    private a cPZ;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.cPY = a.awP();
+        this.cPZ = a.awP();
     }
 
     public void a(a.InterfaceC0256a interfaceC0256a) {
-        this.cPY.a(interfaceC0256a);
+        this.cPZ.a(interfaceC0256a);
     }
 
     public void b(a.InterfaceC0256a interfaceC0256a) {
-        this.cPY.b(interfaceC0256a);
+        this.cPZ.b(interfaceC0256a);
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> axg() {
-        return this.cPY.awQ();
+        return this.cPZ.awQ();
     }
 
     public void axh() {
@@ -37,21 +37,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void aw(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cPY.at(list);
+        this.cPZ.at(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.cPY.a(aVar);
+        this.cPZ.a(aVar);
     }
 
     public void bz(long j) {
-        this.cPY.bz(j);
+        this.cPZ.bz(j);
     }
 
     public int rh(String str) {
         int i;
         if (c.oc(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPY.awQ();
+            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPZ.awQ();
             if (awQ != null) {
                 for (com.baidu.tbadk.coreExtra.relationship.a aVar : awQ) {
                     if (str.equals(aVar.ajM())) {

@@ -10,21 +10,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b extends c.a {
-    private final long iaZ;
-    private final int iaq;
     private final int iar;
-    private final String iba;
-    private com.baidu.tieba.j.a.e[] ibb;
+    private final int ias;
+    private final long iba;
+    private final String ibb;
+    private com.baidu.tieba.j.a.e[] ibc;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.j.a.e... eVarArr) {
         super(300);
-        this.iaq = i;
+        this.iar = i;
         this.what = i2;
-        this.iar = i3;
-        this.iaZ = j;
-        this.iba = str;
-        this.ibb = eVarArr;
+        this.ias = i3;
+        this.iba = j;
+        this.ibb = str;
+        this.ibc = eVarArr;
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
@@ -32,18 +32,18 @@ public class b extends c.a {
         JSONObject bUo = super.bUo();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, c(this.iaq, this.what, this.iar, this.iaZ).toString()));
-            if (this.ibb != null) {
-                int length = this.ibb.length;
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, c(this.iar, this.what, this.ias, this.iba).toString()));
+            if (this.ibc != null) {
+                int length = this.ibc.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.j.a.e eVar = this.ibb[i];
+                    com.baidu.tieba.j.a.e eVar = this.ibc[i];
                     if (eVar != null) {
                         jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.j.d.yP(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.iba)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.iba));
+            if (!StringUtils.isNull(this.ibb)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.ibb));
             }
             bUo.put("ext", jSONArray);
         } catch (Exception e) {

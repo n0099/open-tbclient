@@ -3,8 +3,8 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class i {
-    private final int bWP;
     private final int bWQ;
+    private final int bWR;
     private final TbPageContext<?> mContext;
 
     public TbPageContext<?> agg() {
@@ -12,14 +12,14 @@ public class i {
     }
 
     public int agh() {
-        return this.bWP;
-    }
-
-    public int agi() {
         return this.bWQ;
     }
 
+    public int agi() {
+        return this.bWR;
+    }
+
     public boolean isAvailable() {
-        return this.mContext != null && this.bWP > 0 && this.bWQ > 0;
+        return this.mContext != null && this.bWQ > 0 && this.bWR > 0;
     }
 }

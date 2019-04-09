@@ -48,61 +48,61 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HttpContext;
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0016a {
-    public static String bMf;
-    private static HttpClient bMg;
-    private static String bMl;
-    private static int bMm;
-    private static long bMn;
-    private HttpGet bMb;
-    private final com.baidu.adp.lib.network.http.e bMe;
-    public boolean bMj;
+    public static String bMg;
+    private static HttpClient bMh;
+    private static String bMm;
+    private static int bMn;
+    private static long bMo;
+    private HttpGet bMc;
+    private final com.baidu.adp.lib.network.http.e bMf;
+    public boolean bMk;
     private final Context mContext;
-    private static int bJx = 5242880;
-    private static volatile String bLZ = null;
-    private static volatile boolean bMa = false;
+    private static int bJy = 5242880;
+    private static volatile String bMa = null;
+    private static volatile boolean bMb = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    public static BasicHttpParams bMh = new BasicHttpParams();
+    public static BasicHttpParams bMi = new BasicHttpParams();
     private boolean mIsGif = false;
-    private boolean bMi = false;
-    private int bMk = 0;
-    private int bMc = 0;
-    private volatile boolean bMd = false;
+    private boolean bMj = false;
+    private int bMl = 0;
+    private int bMd = 0;
+    private volatile boolean bMe = false;
 
     static {
-        HttpConnectionParams.setConnectionTimeout(bMh, UIMsg.m_AppUI.MSG_APP_GPS);
-        HttpConnectionParams.setSoTimeout(bMh, 30000);
-        HttpConnectionParams.setSocketBufferSize(bMh, 1024);
-        HttpConnectionParams.setTcpNoDelay(bMh, true);
-        HttpClientParams.setRedirecting(bMh, true);
-        ConnManagerParams.setMaxConnectionsPerRoute(bMh, new ConnPerRouteBean(15));
-        ConnManagerParams.setTimeout(bMh, 10000L);
-        ConnManagerParams.setMaxTotalConnections(bMh, 15);
-        HttpProtocolParams.setUserAgent(bMh, "bdtb for Android " + TbConfig.getVersion());
+        HttpConnectionParams.setConnectionTimeout(bMi, UIMsg.m_AppUI.MSG_APP_GPS);
+        HttpConnectionParams.setSoTimeout(bMi, 30000);
+        HttpConnectionParams.setSocketBufferSize(bMi, 1024);
+        HttpConnectionParams.setTcpNoDelay(bMi, true);
+        HttpClientParams.setRedirecting(bMi, true);
+        ConnManagerParams.setMaxConnectionsPerRoute(bMi, new ConnPerRouteBean(15));
+        ConnManagerParams.setTimeout(bMi, 10000L);
+        ConnManagerParams.setMaxTotalConnections(bMi, 15);
+        HttpProtocolParams.setUserAgent(bMi, "bdtb for Android " + TbConfig.getVersion());
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme(HttpHost.DEFAULT_SCHEME_NAME, PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        bMg = new DefaultHttpClient(new ThreadSafeClientConnManager(bMh, schemeRegistry), bMh);
-        ((DefaultHttpClient) bMg).setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
+        bMh = new DefaultHttpClient(new ThreadSafeClientConnManager(bMi, schemeRegistry), bMi);
+        ((DefaultHttpClient) bMh).setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
             @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler
             public boolean isRedirectRequested(HttpResponse httpResponse, HttpContext httpContext) {
                 return false;
             }
         });
-        bMl = null;
-        bMm = 0;
-        bMn = System.currentTimeMillis();
+        bMm = null;
+        bMn = 0;
+        bMo = System.currentTimeMillis();
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
         adH();
-        this.bMe = eVar;
+        this.bMf = eVar;
         this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
     public static void adH() {
         synchronized (f.class) {
-            if (!bMa) {
-                bMa = true;
+            if (!bMb) {
+                bMb = true;
                 adI();
             }
         }
@@ -116,7 +116,7 @@ public class f implements a.InterfaceC0016a {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    bLZ = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + Config.TRACE_TODAY_VISIT_SPLIT + string2).getBytes());
+                    bMa = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + Config.TRACE_TODAY_VISIT_SPLIT + string2).getBytes());
                 }
             } catch (Exception e) {
             }
@@ -124,15 +124,15 @@ public class f implements a.InterfaceC0016a {
     }
 
     public void ji() {
-        this.bMd = true;
-        this.bMe.js().Dc = true;
+        this.bMe = true;
+        this.bMf.js().Dc = true;
         closeConnection();
     }
 
     private void closeConnection() {
         try {
-            if (this.bMb != null) {
-                this.bMb.abort();
+            if (this.bMc != null) {
+                this.bMc.abort();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -142,7 +142,7 @@ public class f implements a.InterfaceC0016a {
     private void D(String str, String str2, String str3) {
         boolean z;
         if (e.getInstance() != null) {
-            if (!e.getInstance().bLX) {
+            if (!e.getInstance().bLY) {
                 e.getInstance().init();
             }
             z = true;
@@ -150,20 +150,20 @@ public class f implements a.InterfaceC0016a {
             z = false;
         }
         if (j.kY()) {
-            this.bMj = false;
+            this.bMk = false;
             try {
                 if (j.la()) {
                     URL url = new URL(str);
                     synchronized (f.class) {
-                        if (bMf == null) {
-                            bMf = j.lh();
+                        if (bMg == null) {
+                            bMg = j.lh();
                         }
-                        if (bMf != null && bMf.length() > 0) {
-                            this.bMj = true;
-                            if (mU(bMf) && j.lj()) {
+                        if (bMg != null && bMg.length() > 0) {
+                            this.bMk = true;
+                            if (mU(bMg) && j.lj()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
-                                sb.append(bMf);
+                                sb.append(bMg);
                                 String file = url.getFile();
                                 if (file != null && file.startsWith("?")) {
                                     sb.append("/");
@@ -171,41 +171,41 @@ public class f implements a.InterfaceC0016a {
                                 sb.append(file);
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.bMb = e.getInstance().httpGetFactory(sb.toString(), this.bMk, false);
+                                        this.bMc = e.getInstance().httpGetFactory(sb.toString(), this.bMl, false);
                                     } else {
-                                        this.bMb = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.bMc = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.bMb = new HttpGet(sb.toString());
+                                    this.bMc = new HttpGet(sb.toString());
                                 }
-                                this.bMb.setHeader("X-Online-Host", url.getHost());
+                                this.bMc.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.bMb.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.bMc.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             } else {
-                                Object parameter = bMh.getParameter(ConnRoutePNames.DEFAULT_PROXY);
+                                Object parameter = bMi.getParameter(ConnRoutePNames.DEFAULT_PROXY);
                                 if (parameter == null || !(parameter instanceof HttpHost)) {
-                                    bMh.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(bMf, j.li()));
+                                    bMi.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(bMg, j.li()));
                                 } else {
                                     HttpHost httpHost = (HttpHost) parameter;
-                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(bMf) || httpHost.getPort() != j.li()) {
-                                        bMh.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(bMf, j.li()));
+                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(bMg) || httpHost.getPort() != j.li()) {
+                                        bMi.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(bMg, j.li()));
                                     }
                                 }
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.bMb = e.getInstance().httpGetFactory(str, this.bMk, false);
+                                        this.bMc = e.getInstance().httpGetFactory(str, this.bMl, false);
                                     } else {
-                                        this.bMb = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.bMc = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.bMb = new HttpGet(str);
+                                    this.bMc = new HttpGet(str);
                                 }
-                                if (bLZ != null) {
-                                    this.bMb.setHeader(AUTH.PROXY_AUTH_RESP, bLZ);
+                                if (bMa != null) {
+                                    this.bMc.setHeader(AUTH.PROXY_AUTH_RESP, bMa);
                                 }
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.bMb.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.bMc.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             }
                         }
@@ -214,19 +214,19 @@ public class f implements a.InterfaceC0016a {
                 if (z) {
                     if (str2 == null || str2.length() == 0) {
                         if (j.la()) {
-                            if (!this.bMj || this.bMb == null) {
-                                this.bMb = e.getInstance().httpGetFactory(str, this.bMk, false);
+                            if (!this.bMk || this.bMc == null) {
+                                this.bMc = e.getInstance().httpGetFactory(str, this.bMl, false);
                             }
                         } else {
-                            this.bMb = e.getInstance().httpGetFactory(str, this.bMk, true);
+                            this.bMc = e.getInstance().httpGetFactory(str, this.bMl, true);
                         }
                     } else {
-                        this.bMb = e.getInstance().httpGetFactory(str, str2, str3);
+                        this.bMc = e.getInstance().httpGetFactory(str, str2, str3);
                     }
                 } else {
-                    this.bMb = new HttpGet(str);
+                    this.bMc = new HttpGet(str);
                 }
-                this.bMb.setHeader("needginfo", "1");
+                this.bMc.setHeader("needginfo", "1");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -265,16 +265,16 @@ public class f implements a.InterfaceC0016a {
         if (r4.getValue().equalsIgnoreCase("OK") == false) goto L203;
      */
     /* JADX WARN: Code restructure failed: missing block: B:472:0x0927, code lost:
-        r25.bMi = false;
+        r25.bMj = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:473:0x092c, code lost:
         if (r6 <= 0) goto L211;
      */
     /* JADX WARN: Code restructure failed: missing block: B:475:0x093a, code lost:
-        if (r25.bMe.js().responseCode == 200) goto L210;
+        if (r25.bMf.js().responseCode == 200) goto L210;
      */
     /* JADX WARN: Code restructure failed: missing block: B:477:0x0948, code lost:
-        if (r25.bMe.js().responseCode != 302) goto L211;
+        if (r25.bMf.js().responseCode != 302) goto L211;
      */
     /* JADX WARN: Code restructure failed: missing block: B:478:0x094a, code lost:
         r7 = true;
@@ -301,7 +301,7 @@ public class f implements a.InterfaceC0016a {
         r8.close();
      */
     /* JADX WARN: Code restructure failed: missing block: B:515:0x09ec, code lost:
-        r25.bMi = true;
+        r25.bMj = true;
      */
     /* JADX WARN: Removed duplicated region for block: B:452:0x08ab A[Catch: SocketException -> 0x0532, SocketTimeoutException -> 0x09e9, HttpException -> 0x09f3, all -> 0x0c30, Throwable -> 0x0cf3, IllegalStateException -> 0x0cff, IOException -> 0x0d07, TRY_ENTER, TryCatch #5 {all -> 0x0c30, blocks: (B:238:0x0500, B:240:0x0509, B:242:0x0512, B:244:0x0515, B:246:0x0529, B:247:0x0531, B:250:0x0536, B:252:0x053c, B:254:0x0558, B:256:0x055f, B:339:0x069d, B:341:0x06a8, B:383:0x0750, B:385:0x076a, B:387:0x0779, B:392:0x0786, B:394:0x07af, B:395:0x07bc, B:397:0x07c5, B:399:0x07db, B:400:0x07e1, B:402:0x07e7, B:404:0x07eb, B:406:0x07f7, B:409:0x080c, B:452:0x08ab, B:454:0x08af, B:455:0x08b3, B:457:0x08bc, B:459:0x08c6, B:461:0x08d1, B:464:0x08ea, B:466:0x0905, B:468:0x090e, B:470:0x0918, B:515:0x09ec, B:472:0x0927, B:474:0x092e, B:476:0x093c, B:479:0x094b, B:481:0x0954, B:483:0x0961, B:485:0x0967, B:605:0x0b51, B:209:0x0446, B:175:0x036c, B:141:0x02b0, B:61:0x0145, B:512:0x09c7, B:407:0x0805), top: B:743:0x0500 }] */
     /* JADX WARN: Removed duplicated region for block: B:657:0x0c52  */
@@ -346,7 +346,7 @@ public class f implements a.InterfaceC0016a {
         boolean z14 = false;
         if (e.getInstance() != null) {
             z14 = true;
-            if (!e.getInstance().bLX) {
+            if (!e.getInstance().bLY) {
                 e.getInstance().init();
             }
         }
@@ -357,23 +357,23 @@ public class f implements a.InterfaceC0016a {
         boolean z16 = false;
         int i3 = 0;
         while (true) {
-            if (this.bMd || i3 >= i) {
+            if (this.bMe || i3 >= i) {
                 break;
             }
-            this.bMk = i3;
+            this.bMl = i3;
             currentTimeMillis = System.currentTimeMillis();
             dVar = new com.baidu.adp.lib.network.http.d();
-            this.bMe.a(dVar);
+            this.bMf.a(dVar);
             dVar.CM = -1;
             InputStream inputStream2 = null;
-            c = this.bMe.jr().c(dVar);
+            c = this.bMf.jr().c(dVar);
             try {
                 dVar.CM = -2;
                 long currentTimeMillis2 = System.currentTimeMillis();
                 if (str == null || str.length() == 0) {
                     D(c, null, null);
                     if (z15) {
-                        dVar.CN = e.getInstance().getCachedCdnIp(this.bMk);
+                        dVar.CN = e.getInstance().getCachedCdnIp(this.bMl);
                     }
                 } else {
                     D(c, str, str2);
@@ -398,10 +398,10 @@ public class f implements a.InterfaceC0016a {
                 th = th2;
                 inputStream = null;
             }
-            if (this.bMb == null) {
+            if (this.bMc == null) {
                 throw new SocketException("network not available.");
             }
-            if (this.bMd) {
+            if (this.bMe) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -409,32 +409,32 @@ public class f implements a.InterfaceC0016a {
                     }
                 }
                 closeConnection();
-                this.bMe.b(dVar);
+                this.bMf.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
                     boolean kZ2 = j.kZ();
                     if ((kZ2 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                         long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                         if (kZ2) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                        } else if (j.ld()) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                        } else {
                             z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                        } else if (j.ld()) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                        } else {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().buB);
                         }
                         e.getInstance().result(c, dVar.CN, false, z8, kZ2);
                     }
                 }
             } else {
                 dVar.CM = -8;
-                HttpResponse execute = bMg.execute(this.bMb);
+                HttpResponse execute = bMh.execute(this.bMc);
                 if (execute == null) {
                     throw new SocketException("httpResponse is null.");
                 }
                 if (execute.getStatusLine() == null) {
                     throw new SocketException("httpResponse getStatusLine is null.");
                 }
-                this.bMe.js().responseCode = execute.getStatusLine().getStatusCode();
-                dVar.CL = this.bMe.js().responseCode;
+                this.bMf.js().responseCode = execute.getStatusLine().getStatusCode();
+                dVar.CL = this.bMf.js().responseCode;
                 if (execute.getEntity() == null) {
                     throw new SocketException("httpResponse getEntity is null.");
                 }
@@ -451,7 +451,7 @@ public class f implements a.InterfaceC0016a {
                         if (inputStream != null) {
                         }
                         closeConnection();
-                        this.bMe.b(dVar);
+                        this.bMf.b(dVar);
                         if (str != null) {
                         }
                         kZ = j.kZ();
@@ -482,12 +482,12 @@ public class f implements a.InterfaceC0016a {
                 }
                 if (entity.getContentType() != null) {
                     String obj2 = entity.getContentType().toString();
-                    this.bMe.js().contentType = obj2;
+                    this.bMf.js().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
-                        if (this.bMc < 1) {
+                        if (this.bMd < 1) {
                             closeConnection();
-                            this.bMc++;
-                            this.bMe.js().responseCode = 0;
+                            this.bMd++;
+                            this.bMf.js().responseCode = 0;
                             i3--;
                             if (inputStream != null) {
                                 try {
@@ -496,17 +496,17 @@ public class f implements a.InterfaceC0016a {
                                 }
                             }
                             closeConnection();
-                            this.bMe.b(dVar);
+                            this.bMf.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean kZ3 = j.kZ();
                                 if ((kZ3 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                     long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
                                     if (kZ3) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                    } else if (j.ld()) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                    } else {
                                         z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                    } else if (j.ld()) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                    } else {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                     }
                                     e.getInstance().result(c, dVar.CN, false, z13, kZ3);
                                 }
@@ -521,17 +521,17 @@ public class f implements a.InterfaceC0016a {
                                 }
                             }
                             closeConnection();
-                            this.bMe.b(dVar);
+                            this.bMf.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean kZ4 = j.kZ();
                                 if ((kZ4 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                     long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
                                     if (kZ4) {
-                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                    } else if (j.ld()) {
-                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                    } else {
                                         z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                    } else if (j.ld()) {
+                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                    } else {
+                                        z12 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                     }
                                     e.getInstance().result(c, dVar.CN, false, z12, kZ4);
                                 }
@@ -539,8 +539,8 @@ public class f implements a.InterfaceC0016a {
                         }
                     }
                 }
-                if (((int) entity.getContentLength()) > bJx) {
-                    this.bMe.js().Dd = -11;
+                if (((int) entity.getContentLength()) > bJy) {
+                    this.bMf.js().Dd = -11;
                     dVar.CK = this.mContext.getResources().getString(d.j.data_too_big);
                     if (inputStream != null) {
                         try {
@@ -549,17 +549,17 @@ public class f implements a.InterfaceC0016a {
                         }
                     }
                     closeConnection();
-                    this.bMe.b(dVar);
+                    this.bMf.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean kZ5 = j.kZ();
                         if ((kZ5 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                             long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
                             if (kZ5) {
-                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                            } else if (j.ld()) {
-                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                            } else {
                                 z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                            } else if (j.ld()) {
+                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                            } else {
+                                z9 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().buB);
                             }
                             e.getInstance().result(c, dVar.CN, false, z9, kZ5);
                             return;
@@ -587,14 +587,14 @@ public class f implements a.InterfaceC0016a {
                     if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
                         this.mIsGif = true;
                         i2 = i4;
-                        while (!this.bMd && i2 < bJx && (read = inputStream.read(bArr8)) != -1) {
+                        while (!this.bMe && i2 < bJy && (read = inputStream.read(bArr8)) != -1) {
                             byteArrayOutputStream.write(bArr8, 0, read);
                             i2 = read + i2;
                         }
                         dVar.CM = -9;
-                        if (this.bMd) {
-                            if (i2 >= bJx) {
-                                this.bMe.js().Dd = -11;
+                        if (this.bMe) {
+                            if (i2 >= bJy) {
+                                this.bMf.js().Dd = -11;
                                 dVar.CK = this.mContext.getResources().getString(d.j.data_too_big);
                                 break;
                             }
@@ -617,8 +617,8 @@ public class f implements a.InterfaceC0016a {
                             } catch (IllegalStateException e15) {
                                 bArr7 = bArr6;
                                 e = e15;
-                                this.bMe.js().Dd = -19;
-                                dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                this.bMf.js().Dd = -19;
+                                dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -626,17 +626,17 @@ public class f implements a.InterfaceC0016a {
                                     }
                                 }
                                 closeConnection();
-                                this.bMe.b(dVar);
+                                this.bMf.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
                                     boolean kZ6 = j.kZ();
                                     if ((kZ6 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                         long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
                                         if (kZ6) {
-                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                        } else if (j.ld()) {
-                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                        } else {
                                             z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                        } else if (j.ld()) {
+                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                        } else {
+                                            z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                         }
                                         e.getInstance().result(c, dVar.CN, false, z7, kZ6);
                                     }
@@ -648,8 +648,8 @@ public class f implements a.InterfaceC0016a {
                                 e = e17;
                                 inputStream2 = inputStream;
                                 try {
-                                    this.bMe.js().Dd = -12;
-                                    dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.bMf.js().Dd = -12;
+                                    dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
                                     if (inputStream2 != null) {
                                         try {
                                             inputStream2.close();
@@ -657,17 +657,17 @@ public class f implements a.InterfaceC0016a {
                                         }
                                     }
                                     closeConnection();
-                                    this.bMe.b(dVar);
+                                    this.bMf.b(dVar);
                                     if ((str == null || str.length() == 0) && c != null) {
                                         boolean kZ7 = j.kZ();
                                         if ((kZ7 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                             long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
                                             if (kZ7) {
-                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                            } else if (j.ld()) {
-                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                            } else {
                                                 z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                            } else if (j.ld()) {
+                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                            } else {
+                                                z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                             }
                                             e.getInstance().result(c, dVar.CN, false, z6, kZ7);
                                         }
@@ -684,17 +684,17 @@ public class f implements a.InterfaceC0016a {
                                         }
                                     }
                                     closeConnection();
-                                    this.bMe.b(dVar);
+                                    this.bMf.b(dVar);
                                     if ((str != null || str.length() == 0) && c != null) {
                                         kZ = j.kZ();
                                         if ((kZ ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                             long currentTimeMillis42 = System.currentTimeMillis() - currentTimeMillis;
                                             if (!kZ) {
-                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                            } else if (j.ld()) {
-                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                            } else {
                                                 z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                            } else if (j.ld()) {
+                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                            } else {
+                                                z5 = currentTimeMillis42 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                             }
                                             e.getInstance().result(c, dVar.CN, false, z5, kZ);
                                         }
@@ -704,8 +704,8 @@ public class f implements a.InterfaceC0016a {
                             } catch (SocketTimeoutException e20) {
                                 bArr7 = bArr4;
                                 e = e20;
-                                this.bMe.js().Dd = -13;
-                                dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.bMf.js().Dd = -13;
+                                dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -713,17 +713,17 @@ public class f implements a.InterfaceC0016a {
                                     }
                                 }
                                 closeConnection();
-                                this.bMe.b(dVar);
+                                this.bMf.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
                                     boolean kZ8 = j.kZ();
                                     if ((kZ8 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                         long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
                                         if (kZ8) {
-                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                        } else if (j.ld()) {
-                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                        } else {
                                             z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                        } else if (j.ld()) {
+                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                        } else {
+                                            z4 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                         }
                                         e.getInstance().result(c, dVar.CN, false, z4, kZ8);
                                     }
@@ -733,8 +733,8 @@ public class f implements a.InterfaceC0016a {
                             } catch (IOException e22) {
                                 bArr7 = bArr3;
                                 e = e22;
-                                this.bMe.js().Dd = -19;
-                                dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.bMf.js().Dd = -19;
+                                dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -742,17 +742,17 @@ public class f implements a.InterfaceC0016a {
                                     }
                                 }
                                 closeConnection();
-                                this.bMe.b(dVar);
+                                this.bMf.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
                                     boolean kZ9 = j.kZ();
                                     if ((kZ9 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                         long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
                                         if (kZ9) {
-                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                        } else if (j.ld()) {
-                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                        } else {
                                             z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                        } else if (j.ld()) {
+                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                        } else {
+                                            z3 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                         }
                                         e.getInstance().result(c, dVar.CN, false, z3, kZ9);
                                     }
@@ -762,8 +762,8 @@ public class f implements a.InterfaceC0016a {
                             } catch (HttpException e24) {
                                 bArr7 = bArr2;
                                 e = e24;
-                                this.bMe.js().Dd = -18;
-                                dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
+                                this.bMf.js().Dd = -18;
+                                dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + e.getClass() + "|" + e.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -771,17 +771,17 @@ public class f implements a.InterfaceC0016a {
                                     }
                                 }
                                 closeConnection();
-                                this.bMe.b(dVar);
+                                this.bMf.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
                                     boolean kZ10 = j.kZ();
                                     if ((kZ10 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                         long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
                                         if (kZ10) {
-                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                        } else if (j.ld()) {
-                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                        } else {
                                             z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                        } else if (j.ld()) {
+                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                        } else {
+                                            z2 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                         }
                                         e.getInstance().result(c, dVar.CN, false, z2, kZ10);
                                     }
@@ -791,8 +791,8 @@ public class f implements a.InterfaceC0016a {
                             } catch (Throwable th6) {
                                 bArr7 = bArr;
                                 th = th6;
-                                this.bMe.js().Dd = -10;
-                                dVar.CK = "errorCode:" + String.valueOf(this.bMe.js().Dd) + "|" + th.getClass() + "|" + th.getMessage();
+                                this.bMf.js().Dd = -10;
+                                dVar.CK = "errorCode:" + String.valueOf(this.bMf.js().Dd) + "|" + th.getClass() + "|" + th.getMessage();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -800,23 +800,23 @@ public class f implements a.InterfaceC0016a {
                                     }
                                 }
                                 closeConnection();
-                                this.bMe.b(dVar);
+                                this.bMf.b(dVar);
                                 if ((str == null || str.length() == 0) && c != null) {
                                     boolean kZ11 = j.kZ();
                                     if ((kZ11 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                         long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
                                         if (kZ11) {
-                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                        } else if (j.ld()) {
-                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                        } else {
                                             z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                        } else if (j.ld()) {
+                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                        } else {
+                                            z = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                         }
                                         e.getInstance().result(c, dVar.CN, false, z, kZ11);
                                     }
                                 }
-                                this.bMc = 0;
-                                this.bMe.js().Df = bArr7;
+                                this.bMd = 0;
+                                this.bMf.js().Df = bArr7;
                             }
                         } else {
                             if (inputStream != null) {
@@ -826,17 +826,17 @@ public class f implements a.InterfaceC0016a {
                                 }
                             }
                             closeConnection();
-                            this.bMe.b(dVar);
+                            this.bMf.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean kZ12 = j.kZ();
                                 if ((kZ12 ? (dVar.CN == null && 0 == 0 && i3 < i + (-1)) ? false : true : true) && l.pF(c) && z15) {
                                     long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
                                     if (kZ12) {
-                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                                    } else if (j.ld()) {
-                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                                    } else {
                                         z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                                    } else if (j.ld()) {
+                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                                    } else {
+                                        z10 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().buB);
                                     }
                                     e.getInstance().result(c, dVar.CN, false, z10, kZ12);
                                 }
@@ -847,39 +847,39 @@ public class f implements a.InterfaceC0016a {
                     }
                 }
                 i2 = i4;
-                while (!this.bMd) {
+                while (!this.bMe) {
                     byteArrayOutputStream.write(bArr8, 0, read);
                     i2 = read + i2;
                 }
                 dVar.CM = -9;
-                if (this.bMd) {
+                if (this.bMe) {
                 }
             }
         }
         closeConnection();
-        this.bMe.b(dVar);
+        this.bMf.b(dVar);
         if ((str == null || str.length() == 0) && c != null) {
             boolean kZ13 = j.kZ();
             if ((kZ13 ? dVar.CN != null || z16 || i3 >= i + (-1) : true) && l.pF(c) && z15) {
                 long currentTimeMillis15 = System.currentTimeMillis() - currentTimeMillis;
                 if (kZ13) {
-                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().buz);
-                } else if (j.ld()) {
-                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().buB);
-                } else {
                     z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().buA);
+                } else if (j.ld()) {
+                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().buC);
+                } else {
+                    z11 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().buB);
                 }
                 e.getInstance().result(c, dVar.CN, z16, z11, kZ13);
             }
         }
-        this.bMc = 0;
-        this.bMe.js().Df = bArr7;
+        this.bMd = 0;
+        this.bMf.js().Df = bArr7;
     }
 
     private void mV(String str) {
         int i = 0;
-        if (!TextUtils.isEmpty(str) && !str.equals(bMl) && (System.currentTimeMillis() - bMn) - (1800000 * (bMm / 3)) >= 0) {
-            bMm++;
+        if (!TextUtils.isEmpty(str) && !str.equals(bMm) && (System.currentTimeMillis() - bMo) - (1800000 * (bMn / 3)) >= 0) {
+            bMn++;
             try {
                 char[] charArray = TbadkCoreApplication.getInst().getCuid().toCharArray();
                 StringBuilder sb = new StringBuilder();
@@ -893,7 +893,7 @@ public class f implements a.InterfaceC0016a {
                 }
                 sb.append(".tieba.galileo.baiduyundns.com");
                 final URL url = new URL(sb.toString());
-                bMl = str;
+                bMm = str;
                 new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.a.f.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -916,7 +916,7 @@ public class f implements a.InterfaceC0016a {
     }
 
     public boolean adJ() {
-        return this.bMi;
+        return this.bMj;
     }
 
     @Override // com.baidu.adp.lib.f.a.InterfaceC0016a

@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a jwS;
+    private a jwT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.jwS = aVar;
+        this.jwT = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.jwS.css()) {
-            for (a.InterfaceC0421a interfaceC0421a : this.jwS.css()) {
+        synchronized (this.jwT.css()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jwT.css()) {
                 interfaceC0421a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.jwS.css()) {
-            for (a.InterfaceC0421a interfaceC0421a : this.jwS.css()) {
+        synchronized (this.jwT.css()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jwT.css()) {
                 interfaceC0421a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.jwS.css()) {
-            for (a.InterfaceC0421a interfaceC0421a : this.jwS.css()) {
+        synchronized (this.jwT.css()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jwT.css()) {
                 interfaceC0421a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.jwS.css()) {
-            Iterator<a.InterfaceC0421a> it = this.jwS.css().iterator();
+        synchronized (this.jwT.css()) {
+            Iterator<a.InterfaceC0421a> it = this.jwT.css().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.jwS.css()) {
-            Iterator<a.InterfaceC0421a> it = this.jwS.css().iterator();
+        synchronized (this.jwT.css()) {
+            Iterator<a.InterfaceC0421a> it = this.jwT.css().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.jwS.css()) {
-            Iterator<a.InterfaceC0421a> it = this.jwS.css().iterator();
+        synchronized (this.jwT.css()) {
+            Iterator<a.InterfaceC0421a> it = this.jwT.css().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.jwS.css()) {
-            for (a.InterfaceC0421a interfaceC0421a : this.jwS.css()) {
+        synchronized (this.jwT.css()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jwT.css()) {
                 interfaceC0421a.onActivityDestroyed(activity);
             }
         }

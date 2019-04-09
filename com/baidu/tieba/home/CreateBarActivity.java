@@ -49,7 +49,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     private TextWatcher mTextWatcher = null;
     private String fEY = null;
     private TextView mErrorView = null;
-    private RelativeLayout cMt = null;
+    private RelativeLayout cMu = null;
     private TextView fFa = null;
     private String fFb = null;
     private boolean fFc = false;
@@ -151,7 +151,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(d.j.create_bar));
-        this.cMt = (RelativeLayout) findViewById(d.g.container);
+        this.cMu = (RelativeLayout) findViewById(d.g.container);
         this.fFa = (TextView) findViewById(d.g.text);
         ((LinearLayout.LayoutParams) ((TextView) findViewById(d.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.mErrorView = (TextView) findViewById(d.g.error);
@@ -202,7 +202,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.cMt);
+        getLayoutMode().onModeChanged(this.cMu);
         al.a(this.fFa, i);
         al.b(this.fEQ, i);
         String str = this.fFb + getPageContext().getString(d.j.bar_not_create);

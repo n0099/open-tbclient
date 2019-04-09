@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class i {
-    private Shader alC;
+    private Shader alD;
     private int mColor;
     private String mType = "";
 
@@ -37,7 +37,7 @@ public class i {
     }
 
     public Shader getShader() {
-        return this.alC;
+        return this.alD;
     }
 
     public void h(JSONArray jSONArray) {
@@ -69,11 +69,11 @@ public class i {
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.alC = new LinearGradient(com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("x0")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y0")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("x1")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.alD = new LinearGradient(com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("x0")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y0")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("x1")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.alC = new RadialGradient(com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.alD = new RadialGradient(com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("y")), com.baidu.swan.apps.an.x.ad(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

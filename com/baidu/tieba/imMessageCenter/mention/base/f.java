@@ -16,22 +16,22 @@ public class f {
     private HeadImageView gcB;
     private TextView gcC;
     private MessageRedDotView gcF;
-    private View gzF;
-    private LinearLayout gzG;
-    private ImageView gzH;
+    private View gzG;
+    private LinearLayout gzH;
+    private ImageView gzI;
     private int mIcon;
     private View mLine;
 
     public f(TbPageContext tbPageContext) {
-        this.gzF = LayoutInflater.from(tbPageContext.getContext()).inflate(d.h.reply_and_at_item, (ViewGroup) null, false);
-        this.gzG = (LinearLayout) this.gzF.findViewById(d.g.reply_and_at_item);
-        this.gzH = (ImageView) this.gzF.findViewById(d.g.arrow_view);
-        this.gcB = (HeadImageView) this.gzF.findViewById(d.g.reply_and_at_head);
+        this.gzG = LayoutInflater.from(tbPageContext.getContext()).inflate(d.h.reply_and_at_item, (ViewGroup) null, false);
+        this.gzH = (LinearLayout) this.gzG.findViewById(d.g.reply_and_at_item);
+        this.gzI = (ImageView) this.gzG.findViewById(d.g.arrow_view);
+        this.gcB = (HeadImageView) this.gzG.findViewById(d.g.reply_and_at_head);
         this.gcB.setIsRound(true);
         this.gcB.setDrawBorder(false);
-        this.mLine = this.gzF.findViewById(d.g.line);
-        this.gcF = (MessageRedDotView) this.gzF.findViewById(d.g.new_message);
-        this.gcC = (TextView) this.gzF.findViewById(d.g.desc_view);
+        this.mLine = this.gzG.findViewById(d.g.line);
+        this.gcF = (MessageRedDotView) this.gzG.findViewById(d.g.new_message);
+        this.gcC = (TextView) this.gzG.findViewById(d.g.desc_view);
     }
 
     public void aY(String str, int i) {
@@ -54,9 +54,9 @@ public class f {
 
     public void bxS() {
         al.d(this.gcC, d.C0277d.cp_cont_b, 1);
-        al.k(this.gzF, d.f.addresslist_item_bg);
+        al.k(this.gzG, d.f.addresslist_item_bg);
         al.k(this.mLine, d.C0277d.cp_bg_line_c);
-        al.c(this.gzH, d.f.icon_arrow_gray_right_n);
+        al.c(this.gzI, d.f.icon_arrow_gray_right_n);
         al.c(this.gcB, this.mIcon);
         if (this.gcF != null) {
             this.gcF.onChangeSkinType();
@@ -70,6 +70,6 @@ public class f {
     }
 
     public View getView() {
-        return this.gzF;
+        return this.gzG;
     }
 }

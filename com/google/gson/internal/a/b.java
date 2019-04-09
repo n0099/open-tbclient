@@ -9,10 +9,10 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes2.dex */
 public final class b implements p {
-    private final com.google.gson.internal.b jMy;
+    private final com.google.gson.internal.b jMz;
 
     public b(com.google.gson.internal.b bVar) {
-        this.jMy = bVar;
+        this.jMz = bVar;
     }
 
     @Override // com.google.gson.p
@@ -23,13 +23,13 @@ public final class b implements p {
             return null;
         }
         Type a2 = C$Gson$Types.a(cBD, (Class<?>) cBC);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.jMy.b(aVar));
+        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.jMz.b(aVar));
     }
 
     /* loaded from: classes2.dex */
     private static final class a<E> extends o<Collection<E>> {
-        private final o<E> jNU;
-        private final com.google.gson.internal.e<? extends Collection<E>> jNV;
+        private final o<E> jNV;
+        private final com.google.gson.internal.e<? extends Collection<E>> jNW;
 
         @Override // com.google.gson.o
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
@@ -37,8 +37,8 @@ public final class b implements p {
         }
 
         public a(com.google.gson.d dVar, Type type, o<E> oVar, com.google.gson.internal.e<? extends Collection<E>> eVar) {
-            this.jNU = new m(dVar, oVar, type);
-            this.jNV = eVar;
+            this.jNV = new m(dVar, oVar, type);
+            this.jNW = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public final class b implements p {
                 aVar.nextNull();
                 return null;
             }
-            Collection<E> cBe = this.jNV.cBe();
+            Collection<E> cBe = this.jNW.cBe();
             aVar.beginArray();
             while (aVar.hasNext()) {
-                cBe.add(this.jNU.b(aVar));
+                cBe.add(this.jNV.b(aVar));
             }
             aVar.endArray();
             return cBe;
@@ -65,7 +65,7 @@ public final class b implements p {
             }
             bVar.cBx();
             for (E e : collection) {
-                this.jNU.a(bVar, e);
+                this.jNV.a(bVar, e);
             }
             bVar.cBy();
         }

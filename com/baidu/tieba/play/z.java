@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class z {
-    public String byD;
-    public String ctw;
-    public String ekI;
-    public String ekM;
+    public String byE;
+    public String ctx;
+    public String ekJ;
+    public String ekN;
     public String hYA;
     public String hYB;
     public String hYC;
     public String hYD;
-    public String hYx;
+    public String hYE;
     public String hYy;
     public String hYz;
     public String mFloor;
@@ -29,11 +29,11 @@ public class z {
             if (!StringUtils.isNull(this.mLocate)) {
                 amVar.bJ("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.ctw)) {
-                amVar.bJ("tid", this.ctw);
+            if (!StringUtils.isNull(this.ctx)) {
+                amVar.bJ("tid", this.ctx);
             }
-            if (!StringUtils.isNull(this.ekM)) {
-                amVar.bJ(ImageViewerConfig.FORUM_ID, this.ekM);
+            if (!StringUtils.isNull(this.ekN)) {
+                amVar.bJ(ImageViewerConfig.FORUM_ID, this.ekN);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 amVar.bJ("uid", this.mUid);
@@ -43,35 +43,35 @@ public class z {
             } else {
                 amVar.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
             }
-            if (!StringUtils.isNull(this.hYx)) {
-                amVar.bJ("obj_param1", this.hYx);
+            if (!StringUtils.isNull(this.hYy)) {
+                amVar.bJ("obj_param1", this.hYy);
             } else {
                 amVar.T("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.hYy)) {
-                amVar.bJ("obj_param2", this.hYy);
-            }
             if (!StringUtils.isNull(this.hYz)) {
-                amVar.bJ("obj_param3", this.hYz);
-            }
-            if (!StringUtils.isNull(this.byD)) {
-                amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.byD);
+                amVar.bJ("obj_param2", this.hYz);
             }
             if (!StringUtils.isNull(this.hYA)) {
-                amVar.bJ("ab_tag", this.hYA);
+                amVar.bJ("obj_param3", this.hYA);
+            }
+            if (!StringUtils.isNull(this.byE)) {
+                amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.byE);
+            }
+            if (!StringUtils.isNull(this.hYB)) {
+                amVar.bJ("ab_tag", this.hYB);
             } else {
                 amVar.T("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.hYC)) {
-                amVar.bJ("topic_type", this.hYC);
+            if (!StringUtils.isNull(this.hYD)) {
+                amVar.bJ("topic_type", this.hYD);
             }
-            if (!StringUtils.isNull(this.ekI)) {
-                amVar.bJ("extra", this.ekI);
+            if (!StringUtils.isNull(this.ekJ)) {
+                amVar.bJ("extra", this.ekJ);
             } else {
                 amVar.T("extra", 0);
             }
-            if (!StringUtils.isNull(this.hYD)) {
-                amVar.bJ("is_vertical", this.hYD);
+            if (!StringUtils.isNull(this.hYE)) {
+                amVar.bJ("is_vertical", this.hYE);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 amVar.bJ("obj_floor", this.mFloor);
@@ -84,17 +84,17 @@ public class z {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;
-        zVar.ctw = this.ctw;
-        zVar.ekM = this.ekM;
+        zVar.ctx = this.ctx;
+        zVar.ekN = this.ekN;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.hYx = this.hYx;
         zVar.hYy = this.hYy;
         zVar.hYz = this.hYz;
-        zVar.byD = this.byD;
         zVar.hYA = this.hYA;
+        zVar.byE = this.byE;
         zVar.hYB = this.hYB;
         zVar.hYC = this.hYC;
+        zVar.hYD = this.hYD;
         zVar.mFloor = this.mFloor;
         return zVar;
     }

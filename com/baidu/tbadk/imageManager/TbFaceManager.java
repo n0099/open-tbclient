@@ -15,10 +15,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager cmu = null;
-    public static String cmw = "#[\\(][\\w?~！]+[\\)]";
+    private static TbFaceManager cmv = null;
+    public static String cmx = "#[\\(][\\w?~！]+[\\)]";
     private Context mContext = null;
-    private com.baidu.tbadk.imageManager.a cmv = null;
+    private com.baidu.tbadk.imageManager.a cmw = null;
 
     /* loaded from: classes.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -34,10 +34,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager anl() {
-        if (cmu == null) {
-            cmu = new TbFaceManager();
+        if (cmv == null) {
+            cmv = new TbFaceManager();
         }
-        return cmu;
+        return cmv;
     }
 
     private TbFaceManager() {
@@ -48,7 +48,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.cmv = aVar;
+        this.cmw = aVar;
     }
 
     public com.baidu.adp.widget.ImageView.a pd(String str) {
@@ -67,12 +67,12 @@ public class TbFaceManager {
     }
 
     public int oH(String str) {
-        return this.cmv.oH(str);
+        return this.cmw.oH(str);
     }
 
     public a.C0238a pe(String str) {
         com.baidu.adp.widget.ImageView.a pd;
-        a.C0238a aw = this.cmv.aw(this.mContext, str);
+        a.C0238a aw = this.cmw.aw(this.mContext, str);
         if (aw == null && (pd = pd(str)) != null) {
             return new a.C0238a(pd.getWidth(), pd.getHeight());
         }
@@ -80,15 +80,15 @@ public class TbFaceManager {
     }
 
     public int oI(String str) {
-        return this.cmv.oI(str);
+        return this.cmw.oI(str);
     }
 
     public int amd() {
-        return this.cmv.amd();
+        return this.cmw.amd();
     }
 
     public String oJ(String str) {
-        return this.cmv.oJ(str);
+        return this.cmw.oJ(str);
     }
 
     public SpannableString ax(Context context, String str) {
@@ -101,10 +101,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(cmw).matcher(str);
+        Matcher matcher = Pattern.compile(cmx).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int oI = this.cmv.oI(group);
+            int oI = this.cmw.oI(group);
             if (oI > 0 && (D = D(oI, String.valueOf(oI))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -123,10 +123,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(cmw).matcher(str);
+        Matcher matcher = Pattern.compile(cmx).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int oI = this.cmv.oI(group);
+            int oI = this.cmw.oI(group);
             if (oI > 0) {
                 com.baidu.adp.widget.ImageView.a D = D(oI, String.valueOf(oI));
                 if (D != null) {

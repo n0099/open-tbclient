@@ -7,14 +7,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c<T> implements com.baidu.swan.pms.a.a<T> {
-    private com.baidu.swan.pms.a.a<T> bmu;
-    private T bmw;
+    private com.baidu.swan.pms.a.a<T> bmv;
+    private T bmx;
     public int mRetryCount = 0;
-    private List<com.baidu.swan.pms.a.a<T>> bmv = new ArrayList();
+    private List<com.baidu.swan.pms.a.a<T>> bmw = new ArrayList();
 
     public c(T t, com.baidu.swan.pms.a.a<T> aVar) {
-        this.bmw = t;
-        this.bmu = aVar;
+        this.bmx = t;
+        this.bmv = aVar;
     }
 
     public void a(com.baidu.swan.pms.a.a<T> aVar) {
@@ -26,8 +26,8 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
     @Override // com.baidu.swan.pms.a.a
     public String hp() {
         String str = null;
-        if (this.bmu != null) {
-            str = this.bmu.hp();
+        if (this.bmv != null) {
+            str = this.bmv.hp();
         }
         if (com.baidu.swan.pms.e.DEBUG) {
             Log.d("PMSDownStreamGuard", "getDownloadPath:" + str);
@@ -49,9 +49,9 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
 
     @Override // com.baidu.swan.pms.a.a
     public void G(T t) {
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.G(t);
+                this.bmv.G(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloading error:" + t.toString());
@@ -62,9 +62,9 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
 
     @Override // com.baidu.swan.pms.a.a
     public void F(T t) {
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.F(t);
+                this.bmv.F(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloadStart error:" + t.toString());
@@ -75,9 +75,9 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
 
     @Override // com.baidu.swan.pms.a.a
     public void S(T t) {
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.S(t);
+                this.bmv.S(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloadProgress error:" + t.toString());
@@ -91,27 +91,27 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
         Throwable th;
         int i;
         T t2;
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.T(t);
+                this.bmv.T(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloadStop error:" + t.toString());
                 }
             }
         }
-        if (this.bmv.size() > 0) {
+        if (this.bmw.size() > 0) {
             int i2 = 1;
-            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmv.iterator();
+            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmw.iterator();
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
                     com.baidu.swan.pms.a.a<T> next = it.next();
                     try {
-                        T t3 = this.bmw;
+                        T t3 = this.bmx;
                         if (next instanceof c) {
-                            T t4 = ((c) next).bmw;
-                            a(this.bmw, t4, i3);
+                            T t4 = ((c) next).bmx;
+                            a(this.bmx, t4, i3);
                             i = i3 + 1;
                             t2 = t4;
                         } else {
@@ -144,27 +144,27 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
         Throwable th;
         int i;
         T t2;
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.E(t);
+                this.bmv.E(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloadFinish error:" + t.toString());
                 }
             }
         }
-        if (this.bmv.size() > 0) {
+        if (this.bmw.size() > 0) {
             int i2 = 1;
-            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmv.iterator();
+            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmw.iterator();
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
                     com.baidu.swan.pms.a.a<T> next = it.next();
                     try {
-                        T t3 = this.bmw;
+                        T t3 = this.bmx;
                         if (next instanceof c) {
-                            T t4 = ((c) next).bmw;
-                            a(this.bmw, t4, i3);
+                            T t4 = ((c) next).bmx;
+                            a(this.bmx, t4, i3);
                             i = i3 + 1;
                             t2 = t4;
                         } else {
@@ -197,27 +197,27 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
         Throwable th;
         int i;
         T t2;
-        if (this.bmu != null) {
+        if (this.bmv != null) {
             try {
-                this.bmu.a(t, bVar);
+                this.bmv.a(t, bVar);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.e("PMSDownStreamGuard", "notify onDownloadError error:" + t.toString());
                 }
             }
         }
-        if (this.bmv.size() > 0) {
+        if (this.bmw.size() > 0) {
             int i2 = 1;
-            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmv.iterator();
+            Iterator<com.baidu.swan.pms.a.a<T>> it = this.bmw.iterator();
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
                     com.baidu.swan.pms.a.a<T> next = it.next();
                     try {
-                        T t3 = this.bmw;
+                        T t3 = this.bmx;
                         if (next instanceof c) {
-                            T t4 = ((c) next).bmw;
-                            a(this.bmw, t4, i3);
+                            T t4 = ((c) next).bmx;
+                            a(this.bmx, t4, i3);
                             i = i3 + 1;
                             t2 = t4;
                         } else {
@@ -254,7 +254,7 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
             dVar2.currentSize = dVar.currentSize;
             dVar2.createTime = dVar.createTime;
             dVar2.updateTime = dVar.updateTime;
-            dVar2.acN = i;
+            dVar2.acO = i;
         }
     }
 }

@@ -26,7 +26,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener cMj = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener cMk = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,7 +37,7 @@ public class VideoPlatformStatic {
 
     static {
         avZ();
-        MessageManager.getInstance().registerListener(cMj);
+        MessageManager.getInstance().registerListener(cMk);
         awa();
     }
 

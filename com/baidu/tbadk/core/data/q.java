@@ -6,25 +6,25 @@ import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes3.dex */
 public class q {
-    private String bxV;
-    private int bxW;
-    private ArrayList<s> bxX = new ArrayList<>();
+    private String bxW;
+    private int bxX;
+    private ArrayList<s> bxY = new ArrayList<>();
     private int height;
     private String obj_id;
     private int width;
 
     public ArrayList<s> Xc() {
-        return this.bxX;
+        return this.bxY;
     }
 
     public void l(ArrayList<s> arrayList) {
-        this.bxX = arrayList;
+        this.bxY = arrayList;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.bxW = activityHead.activity_type.intValue();
-            this.bxV = activityHead.activity_title;
+            this.bxX = activityHead.activity_type.intValue();
+            this.bxW = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
@@ -44,7 +44,7 @@ public class q {
         if (headImgs != null) {
             s sVar = new s();
             sVar.b(headImgs);
-            this.bxX.add(sVar);
+            this.bxY.add(sVar);
         }
     }
 }

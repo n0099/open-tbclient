@@ -1,29 +1,29 @@
 package org.aspectj.a.b;
 /* loaded from: classes5.dex */
 abstract class a extends d implements org.aspectj.lang.reflect.a {
-    Class[] jSE;
-    String[] jSF;
-    Class[] jSG;
+    Class[] jSF;
+    String[] jSG;
+    Class[] jSH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, str, cls);
-        this.jSE = clsArr;
-        this.jSF = strArr;
-        this.jSG = clsArr2;
+        this.jSF = clsArr;
+        this.jSG = strArr;
+        this.jSH = clsArr2;
     }
 
     public Class[] getParameterTypes() {
-        if (this.jSE == null) {
-            this.jSE = Da(3);
+        if (this.jSF == null) {
+            this.jSF = Da(3);
         }
-        return this.jSE;
+        return this.jSF;
     }
 
     public Class[] getExceptionTypes() {
-        if (this.jSG == null) {
-            this.jSG = Da(5);
+        if (this.jSH == null) {
+            this.jSH = Da(5);
         }
-        return this.jSG;
+        return this.jSH;
     }
 }

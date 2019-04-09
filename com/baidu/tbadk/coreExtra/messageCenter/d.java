@@ -8,26 +8,26 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 /* loaded from: classes.dex */
 public class d {
-    private static d bZg = new d();
-    public int bZh = 300;
-    public boolean bZi = true;
-    public boolean bZj = false;
-    public boolean bZk = true;
+    private static d bZh = new d();
+    public int bZi = 300;
+    public boolean bZj = true;
+    public boolean bZk = false;
     public boolean bZl = true;
     public boolean bZm = true;
     public boolean bZn = true;
-    public boolean bZo = false;
-    public boolean bZp = true;
+    public boolean bZo = true;
+    public boolean bZp = false;
     public boolean bZq = true;
-    public boolean bZr = false;
-    public String bZs = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String bZt = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean bZr = true;
+    public boolean bZs = false;
+    public String bZt = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String bZu = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private d() {
     }
 
     public static d aie() {
-        return bZg;
+        return bZh;
     }
 
     public void initSetting() {
@@ -39,55 +39,55 @@ public class d {
     }
 
     public boolean aig() {
-        return this.bZh > 0;
+        return this.bZi > 0;
     }
 
     public int aih() {
-        return this.bZh;
-    }
-
-    public boolean aii() {
-        return this.bZj;
-    }
-
-    public boolean aij() {
-        return this.bZk;
-    }
-
-    public boolean aik() {
-        return this.bZn;
-    }
-
-    public boolean ail() {
-        return this.bZl;
-    }
-
-    public boolean aim() {
         return this.bZi;
     }
 
-    public boolean ain() {
-        return this.bZp;
+    public boolean aii() {
+        return this.bZk;
     }
 
-    public boolean aio() {
-        return this.bZq;
+    public boolean aij() {
+        return this.bZl;
     }
 
-    public boolean aip() {
-        return this.bZr;
-    }
-
-    public boolean aiq() {
+    public boolean aik() {
         return this.bZo;
     }
 
-    public String air() {
+    public boolean ail() {
+        return this.bZm;
+    }
+
+    public boolean aim() {
+        return this.bZj;
+    }
+
+    public boolean ain() {
+        return this.bZq;
+    }
+
+    public boolean aio() {
+        return this.bZr;
+    }
+
+    public boolean aip() {
         return this.bZs;
     }
 
-    public String ais() {
+    public boolean aiq() {
+        return this.bZp;
+    }
+
+    public String air() {
         return this.bZt;
+    }
+
+    public String ais() {
+        return this.bZu;
     }
 
     private void ait() {
@@ -95,18 +95,18 @@ public class d {
     }
 
     public void ea(boolean z) {
-        this.bZi = z;
+        this.bZj = z;
         ait();
     }
 
     public void iD(int i) {
         if (i == 0) {
-            this.bZh = i;
+            this.bZi = i;
             b.ahx().setMsgBookmark(0);
             b.ahx().setMsgGiftNum(0);
             b.ahx().setMsgFans(0);
         } else {
-            this.bZh = 300;
+            this.bZi = 300;
         }
         ait();
     }
@@ -121,40 +121,40 @@ public class d {
     }
 
     public boolean aiv() {
-        return this.bZm;
+        return this.bZn;
     }
 
     public void ec(boolean z) {
-        this.bZm = z;
+        this.bZn = z;
         ait();
     }
 
     public void ed(boolean z) {
-        this.bZj = z;
+        this.bZk = z;
     }
 
     public void ee(boolean z) {
-        this.bZr = z;
+        this.bZs = z;
     }
 
     public void nM(String str) {
-        this.bZs = str;
-    }
-
-    public void nN(String str) {
         this.bZt = str;
     }
 
+    public void nN(String str) {
+        this.bZu = str;
+    }
+
     public void ef(boolean z) {
-        this.bZo = z;
+        this.bZp = z;
     }
 
     public void eg(boolean z) {
-        this.bZq = z;
+        this.bZr = z;
     }
 
     public void eh(boolean z) {
-        this.bZp = z;
+        this.bZq = z;
     }
 
     public void ei(boolean z) {
@@ -166,17 +166,17 @@ public class d {
     }
 
     public void ej(boolean z) {
-        this.bZl = z;
+        this.bZm = z;
         ait();
     }
 
     public void ek(boolean z) {
-        this.bZk = z;
+        this.bZl = z;
         ait();
     }
 
     public void el(boolean z) {
-        this.bZn = z;
+        this.bZo = z;
     }
 
     public boolean isSignAlertOn() {
@@ -220,11 +220,11 @@ public class d {
     }
 
     public int aix() {
-        if (!this.bZp && !this.bZo) {
+        if (!this.bZq && !this.bZp) {
             return 0;
         }
-        if (!this.bZp || this.bZo) {
-            if (!this.bZp && this.bZo) {
+        if (!this.bZq || this.bZp) {
+            if (!this.bZq && this.bZp) {
                 return 2;
             }
             return 3;

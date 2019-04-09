@@ -224,7 +224,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             sendHandshake();
             this.writeThread = new Thread(new RunnableC0475a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.jTn];
+            byte[] bArr = new byte[c.jTo];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.k(ByteBuffer.wrap(bArr, 0, read));
@@ -378,11 +378,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.jTo.take();
+                        ByteBuffer take = a.this.engine.jTp.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.jTo) {
+                        for (ByteBuffer byteBuffer : a.this.engine.jTp) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }

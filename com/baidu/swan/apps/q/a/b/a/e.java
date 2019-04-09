@@ -60,7 +60,7 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bH + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bH) {
-                e.this.Jl().Ja().a(e.this.mActivity, e.this.aRI, this);
+                e.this.Jl().Ja().a(e.this.mActivity, e.this.aRJ, this);
                 return false;
             }
             e.this.a(new b());
@@ -93,12 +93,12 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
     /* loaded from: classes4.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (e.this.aRH != null && e.this.aRG != null && e.this.aRG.aQZ) {
-                long j = e.this.aRG.aRa;
+            if (e.this.aRI != null && e.this.aRH != null && e.this.aRH.aRa) {
+                long j = e.this.aRH.aRb;
                 if (e.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                e.this.aRH.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                e.this.aRI.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 

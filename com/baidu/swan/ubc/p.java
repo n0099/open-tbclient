@@ -17,7 +17,6 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class p {
     private String appVersion;
-    private String bpO;
     private String bpP;
     private String bpQ;
     private String bpR;
@@ -28,12 +27,13 @@ public class p {
     private String bpW;
     private String bpX;
     private String bpY;
+    private String bpZ;
     private String content;
     private String operator;
     private String uuid;
-    a bpL = new a();
-    private int bpM = 1;
+    a bpM = new a();
     private int bpN = 1;
+    private int bpO = 1;
     private String net = com.baidu.swan.b.a.Fa();
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,7 +42,7 @@ public class p {
         try {
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
             this.appVersion = packageInfo.versionName;
-            this.bpP = packageInfo.packageName;
+            this.bpQ = packageInfo.packageName;
         } catch (PackageManager.NameNotFoundException e) {
         }
         TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
@@ -50,25 +50,25 @@ public class p {
             this.operator = telephonyManager.getSimOperator();
         }
         this.uuid = q.Tq().getDeviceId(appContext);
-        this.bpV = str;
+        this.bpW = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        String bqa;
+        String bqb;
         int density;
         String deviceType;
         String os = "Android";
         String osVersion = Build.VERSION.RELEASE;
         String brand = Build.MANUFACTURER;
-        int bpZ = Build.VERSION.SDK_INT;
+        int bqa = Build.VERSION.SDK_INT;
         String model = Build.MODEL;
 
         public a() {
             Context appContext = AppRuntime.getAppContext();
             WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.bqa = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.bqb = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
             this.density = appContext.getResources().getDisplayMetrics().densityDpi;
         }
     }
@@ -77,33 +77,33 @@ public class p {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.putOpt("os", this.bpL.os);
-            jSONObject2.putOpt("osversion", this.bpL.osVersion);
-            jSONObject2.putOpt("model", this.bpL.model);
-            jSONObject2.putOpt("deviceType", this.bpL.deviceType);
-            jSONObject2.putOpt("sdk", this.bpL.bpZ + "");
-            jSONObject2.putOpt("brand", this.bpL.brand);
-            jSONObject2.putOpt("screen", this.bpL.bqa);
-            jSONObject2.putOpt("density", this.bpL.density + "");
+            jSONObject2.putOpt("os", this.bpM.os);
+            jSONObject2.putOpt("osversion", this.bpM.osVersion);
+            jSONObject2.putOpt("model", this.bpM.model);
+            jSONObject2.putOpt("deviceType", this.bpM.deviceType);
+            jSONObject2.putOpt("sdk", this.bpM.bqa + "");
+            jSONObject2.putOpt("brand", this.bpM.brand);
+            jSONObject2.putOpt("screen", this.bpM.bqb);
+            jSONObject2.putOpt("density", this.bpM.density + "");
             jSONObject.putOpt("system", jSONObject2);
-            jSONObject.putOpt("officialNo", Integer.valueOf(this.bpM));
-            jSONObject.putOpt("containerNo", Integer.valueOf(this.bpN));
+            jSONObject.putOpt("officialNo", Integer.valueOf(this.bpN));
+            jSONObject.putOpt("containerNo", Integer.valueOf(this.bpO));
             jSONObject.putOpt("appVersion", this.appVersion);
-            jSONObject.putOpt("appBranch", this.bpO);
-            jSONObject.putOpt("appPackageName", this.bpP);
+            jSONObject.putOpt("appBranch", this.bpP);
+            jSONObject.putOpt("appPackageName", this.bpQ);
             jSONObject.putOpt(UserBox.TYPE, this.uuid);
             jSONObject.putOpt("net", this.net);
             jSONObject.putOpt("operator", this.operator);
-            jSONObject.putOpt("smartAppId", this.bpQ);
-            jSONObject.putOpt("smartAppVersion", this.bpR);
-            jSONObject.putOpt("swanCoreVersion", this.bpS);
-            jSONObject.putOpt("swanType", this.bpT);
-            jSONObject.putOpt("swanId", this.bpU);
-            jSONObject.putOpt("bizId", this.bpV);
-            jSONObject.putOpt("eventType", this.bpW);
-            jSONObject.putOpt("eventName", this.bpX);
+            jSONObject.putOpt("smartAppId", this.bpR);
+            jSONObject.putOpt("smartAppVersion", this.bpS);
+            jSONObject.putOpt("swanCoreVersion", this.bpT);
+            jSONObject.putOpt("swanType", this.bpU);
+            jSONObject.putOpt("swanId", this.bpV);
+            jSONObject.putOpt("bizId", this.bpW);
+            jSONObject.putOpt("eventType", this.bpX);
+            jSONObject.putOpt("eventName", this.bpY);
             jSONObject.putOpt("content", this.content);
-            jSONObject.putOpt("propagation", this.bpY);
+            jSONObject.putOpt("propagation", this.bpZ);
         } catch (JSONException e) {
         }
         return jSONObject;

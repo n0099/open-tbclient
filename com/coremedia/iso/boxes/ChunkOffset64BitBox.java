@@ -19,7 +19,7 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ChunkOffset64BitBox.java", ChunkOffset64BitBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getChunkOffsets", "com.coremedia.iso.boxes.ChunkOffset64BitBox", "", "", "", "[J"), 23);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getChunkOffsets", "com.coremedia.iso.boxes.ChunkOffset64BitBox", "", "", "", "[J"), 23);
     }
 
     public ChunkOffset64BitBox() {

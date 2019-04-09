@@ -3,23 +3,23 @@ package com.baidu.swan.games.p.b;
 import com.baidu.swan.menu.h;
 /* loaded from: classes2.dex */
 public class a {
-    private h bfi;
-    private boolean bfj = true;
+    private h bfj;
+    private boolean bfk = true;
 
     private void cz(boolean z) {
-        this.bfj = z;
-        if (this.bfi != null) {
+        this.bfk = z;
+        if (this.bfj != null) {
             if (z) {
-                this.bfi.L(4, 1);
+                this.bfj.L(4, 1);
             } else {
-                this.bfi.eU(4);
+                this.bfj.eU(4);
             }
         }
     }
 
     public void a(h hVar) {
-        this.bfi = hVar;
-        cz(this.bfj);
+        this.bfj = hVar;
+        cz(this.bfk);
     }
 
     public void OT() {

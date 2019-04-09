@@ -29,11 +29,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private static Runnable aQA;
-    public static long aQw;
-    private static ContentObserver aQx;
-    private static PackageManager aQy;
-    private static boolean aQz;
+    private static boolean aQA;
+    private static Runnable aQB;
+    public static long aQx;
+    private static ContentObserver aQy;
+    private static PackageManager aQz;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
@@ -51,10 +51,10 @@ public class c {
     }
 
     public static void cb(Context context) {
-        aQy = context.getPackageManager();
+        aQz = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        aQx = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
+        aQy = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -65,7 +65,7 @@ public class c {
             }
         };
         if (cc(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aQx);
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aQy);
         } else {
             d.a(AppRuntime.getAppContext(), "WRITE_EXTERNAL_STORAGE permission denied").II();
         }
@@ -76,8 +76,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.aQC + ".*")) {
-            if (JN() && aQz) {
+        if (uri.toString().matches(a.aQD + ".*")) {
+            if (JN() && aQA) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -86,7 +86,7 @@ public class c {
             mLastTime = currentTimeMillis;
             try {
                 try {
-                    cursor = mContentResolver.query(uri, a.aAq, null, null, "date_added DESC");
+                    cursor = mContentResolver.query(uri, a.aAr, null, null, "date_added DESC");
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -99,9 +99,9 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
                                 if (a.gL(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
-                                    aQz = true;
+                                    aQA = true;
                                     final b bVar = new b(string, valueOf);
-                                    aQA = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
+                                    aQB = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             c.JO();
@@ -119,17 +119,17 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.aQA, 100L);
+                                            handler.postDelayed(c.aQB, 100L);
                                         }
                                     };
-                                    handler.post(aQA);
+                                    handler.post(aQB);
                                 } else {
-                                    aQz = false;
+                                    aQA = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (aQy != null) {
-                                List<ProviderInfo> queryContentProviders = aQy.queryContentProviders(null, 0, 131072);
+                            if (aQz != null) {
+                                List<ProviderInfo> queryContentProviders = aQz.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -159,7 +159,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean G(long j) {
-        return f.Ec().Ef() && System.currentTimeMillis() - aQw > j;
+        return f.Ec().Ef() && System.currentTimeMillis() - aQx > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -207,26 +207,26 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public Long aQD;
+        public Long aQE;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.aQD = l;
+            this.aQE = l;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public static String[] aAq;
-        public static String aQC;
+        public static String[] aAr;
+        public static String aQD;
 
         static {
-            aQC = null;
-            aAq = null;
-            aQC = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            aAq = new String[]{"_display_name", "_data", "date_added"};
+            aQD = null;
+            aAr = null;
+            aQD = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            aAr = new String[]{"_display_name", "_data", "date_added"};
         }
 
         public static boolean gL(String str) {

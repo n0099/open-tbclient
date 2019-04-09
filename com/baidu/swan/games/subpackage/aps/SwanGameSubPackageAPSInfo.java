@@ -23,8 +23,8 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
     public String appId;
     public String appVersion;
     public String bfA;
-    public int bfv;
-    public String bfw;
+    public String bfB;
+    public int bfw;
     public String bfx;
     public String bfy;
     public String bfz;
@@ -39,12 +39,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         this.appVersion = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.bfv = parcel.readInt();
-        this.bfw = parcel.readString();
+        this.bfw = parcel.readInt();
         this.bfx = parcel.readString();
         this.bfy = parcel.readString();
         this.bfz = parcel.readString();
         this.bfA = parcel.readString();
+        this.bfB = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.appVersion);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.bfv);
-        parcel.writeString(this.bfw);
+        parcel.writeInt(this.bfw);
         parcel.writeString(this.bfx);
         parcel.writeString(this.bfy);
         parcel.writeString(this.bfz);
         parcel.writeString(this.bfA);
+        parcel.writeString(this.bfB);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfv + ",appRootPath:" + this.bfw + ",subPackageRoot:" + this.bfx + ",zipPath:" + this.bfy + ",callbackKey:" + this.bfz + ",subPackagePath:" + this.bfA;
+        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfw + ",appRootPath:" + this.bfx + ",subPackageRoot:" + this.bfy + ",zipPath:" + this.bfz + ",callbackKey:" + this.bfA + ",subPackagePath:" + this.bfB;
     }
 }

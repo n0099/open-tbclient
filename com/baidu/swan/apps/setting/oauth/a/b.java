@@ -11,18 +11,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends g<d> {
-    protected final boolean aRA;
-    protected boolean aRv;
-    protected boolean aRy = false;
-    protected com.baidu.swan.apps.setting.oauth.e aRz;
+    protected com.baidu.swan.apps.setting.oauth.e aRA;
+    protected final boolean aRB;
+    protected boolean aRw;
+    protected boolean aRz = false;
     protected final Activity mActivity;
     protected final String mScope;
 
     public b(Activity activity, boolean z, String str, boolean z2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRv = z;
-        this.aRA = z2;
+        this.aRw = z;
+        this.aRB = z2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,7 +47,7 @@ public class b extends g<d> {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRv));
+            jSONObject3.put("permit", Boolean.toString(this.aRw));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -78,7 +78,7 @@ public class b extends g<d> {
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
-        return new d(this.aRv, str);
+        return new d(this.aRw, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -105,12 +105,12 @@ public class b extends g<d> {
                     if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
                         Log.i("aiapps-oauth", "ListPreparation result: " + (eVar == null ? "null" : eVar));
                     }
-                    b.this.aRz = eVar;
+                    b.this.aRA = eVar;
                     if (eVar == null) {
                         C0173b.this.m(new Exception("no such scope"));
                         return;
                     }
-                    if (eVar.Kh() && !b.this.aRy) {
+                    if (eVar.Kh() && !b.this.aRz) {
                         b.this.a(new c());
                     } else {
                         b.this.a(new a());
@@ -130,7 +130,7 @@ public class b extends g<d> {
 
         @Override // com.baidu.swan.apps.setting.oauth.d
         protected boolean Cf() throws Exception {
-            b.this.aRy = true;
+            b.this.aRz = true;
             if (b.this.Jl().Ja().bk(b.this.mActivity)) {
                 com.baidu.swan.apps.setting.oauth.c.a("LoginPreparation: isLogin true", (Boolean) false);
                 b.this.a(new C0173b());
@@ -169,18 +169,18 @@ public class b extends g<d> {
 
         @Override // com.baidu.swan.apps.setting.oauth.d
         protected boolean Cf() throws Exception {
-            final com.baidu.swan.apps.setting.oauth.e eVar = b.this.aRz;
+            final com.baidu.swan.apps.setting.oauth.e eVar = b.this.aRA;
             if (eVar == null || eVar.forbidden) {
                 b.this.l(new OAuthException("Illegal ScopeInfo", eVar == null ? 10006 : 10005));
                 return true;
-            } else if (b.this.aRA || !b.this.aRv) {
+            } else if (b.this.aRB || !b.this.aRw) {
                 return true;
             } else {
-                if (eVar.aRs < 0) {
+                if (eVar.aRt < 0) {
                     b.this.J(new d(false, null));
                     b.this.finish();
                     return true;
-                } else if (eVar.aRs > 0) {
+                } else if (eVar.aRt > 0) {
                     b.this.J(new d(true, null));
                     b.this.finish();
                     return true;
@@ -191,7 +191,7 @@ public class b extends g<d> {
                             com.baidu.swan.apps.setting.oauth.c.a(b.this.mActivity, b.this.Jl(), eVar, new com.baidu.swan.apps.setting.oauth.a() { // from class: com.baidu.swan.apps.setting.oauth.a.b.a.1.1
                                 @Override // com.baidu.swan.apps.setting.oauth.a
                                 public void bt(boolean z) {
-                                    b.this.aRv = z;
+                                    b.this.aRw = z;
                                     a.this.Ke();
                                 }
                             });
@@ -205,16 +205,16 @@ public class b extends g<d> {
 
     /* loaded from: classes2.dex */
     public static class d {
-        public final boolean aRw;
+        public final boolean aRx;
         public final String code;
 
         private d(boolean z, String str) {
             this.code = str == null ? "" : str;
-            this.aRw = z;
+            this.aRx = z;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.aRw), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.aRx), this.code);
         }
     }
 }

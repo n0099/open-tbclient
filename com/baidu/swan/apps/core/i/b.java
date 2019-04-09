@@ -6,30 +6,30 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String atk;
-    public String ato;
-    public String atq;
+    public String atl;
+    public String atp;
     public String atr;
     public String ats;
+    public String att;
 
     public static com.baidu.swan.apps.m.a.b a(b bVar) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put("appPath", bVar.atk);
-        treeMap.put("pagePath", bVar.atq);
-        treeMap.put("devhook", bVar.ato);
-        if (!TextUtils.isEmpty(bVar.ats)) {
+        treeMap.put("appPath", bVar.atl);
+        treeMap.put("pagePath", bVar.atr);
+        treeMap.put("devhook", bVar.atp);
+        if (!TextUtils.isEmpty(bVar.att)) {
             if (DEBUG) {
-                Log.d("PageReadyEvent", "add initData: " + bVar.ats);
+                Log.d("PageReadyEvent", "add initData: " + bVar.att);
             }
-            treeMap.put("initData", bVar.ats);
+            treeMap.put("initData", bVar.att);
         }
-        if (!TextUtils.isEmpty(bVar.atr)) {
-            treeMap.put("onReachBottomDistance", bVar.atr);
+        if (!TextUtils.isEmpty(bVar.ats)) {
+            treeMap.put("onReachBottomDistance", bVar.ats);
         }
         return new com.baidu.swan.apps.m.a.b("PageReady", treeMap);
     }
 
     public String toString() {
-        return "PageReadyEvent{appPath='" + this.atk + "', pagePath='" + this.atq + "', onReachBottomDistance='" + this.atr + "'}";
+        return "PageReadyEvent{appPath='" + this.atl + "', pagePath='" + this.atr + "', onReachBottomDistance='" + this.ats + "'}";
     }
 }

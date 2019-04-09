@@ -21,23 +21,23 @@ import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
 public class a extends e {
-    private TextView bUa;
+    private TextView bUb;
     private HeadImageView fCM;
-    private com.baidu.tieba.lego.card.c gHm;
-    private CustomMessageListener iiJ;
-    private ApkDownloadView ijt;
-    private String ilL;
-    private TextView imz;
+    private com.baidu.tieba.lego.card.c gHn;
+    private CustomMessageListener iiK;
+    private ApkDownloadView iju;
+    private String ilM;
+    private TextView imA;
 
     public a(View view, String str) {
         super(view, str);
-        this.iiJ = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.e.a.3
+        this.iiK = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.e.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 DownloadData downloadData;
-                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(a.this.ilL) && a.this.ilL.equals(downloadData.getId())) {
-                    a.this.ijt.s(downloadData);
+                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(a.this.ilM) && a.this.ilM.equals(downloadData.getId())) {
+                    a.this.iju.s(downloadData);
                 }
             }
         };
@@ -50,30 +50,30 @@ public class a extends e {
         this.fCM.setDefaultResource(d.f.icon_default_avatar100);
         this.fCM.setDefaultBgResource(d.C0277d.cp_bg_line_e);
         this.fCM.setIsRound(true);
-        this.bUa = (TextView) xZ(d.g.user_name);
-        this.imz = (TextView) xZ(d.g.action);
-        this.ijt = (ApkDownloadView) xZ(d.g.download_view);
-        MessageManager.getInstance().registerListener(this.iiJ);
+        this.bUb = (TextView) xZ(d.g.user_name);
+        this.imA = (TextView) xZ(d.g.action);
+        this.iju = (ApkDownloadView) xZ(d.g.download_view);
+        MessageManager.getInstance().registerListener(this.iiK);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(AdCard.f fVar) {
         super.a(fVar);
-        this.fCM.startLoad(fVar.ihV, 10, false);
-        this.bUa.setText(fVar.userName);
-        this.imz.setText(fVar.buttonText);
-        if (this.imI != null) {
-            View$OnClickListenerC0378a view$OnClickListenerC0378a = new View$OnClickListenerC0378a(this.imI);
+        this.fCM.startLoad(fVar.ihW, 10, false);
+        this.bUb.setText(fVar.userName);
+        this.imA.setText(fVar.buttonText);
+        if (this.imJ != null) {
+            View$OnClickListenerC0378a view$OnClickListenerC0378a = new View$OnClickListenerC0378a(this.imJ);
             this.mRootView.setOnClickListener(view$OnClickListenerC0378a);
-            this.ijt.setOnClickListener(view$OnClickListenerC0378a);
-            int intValue = Integer.valueOf(this.imI.adPosition).intValue();
-            this.ilL = this.imI.bwK;
-            DownloadData c = c(this.imI, intValue);
+            this.iju.setOnClickListener(view$OnClickListenerC0378a);
+            int intValue = Integer.valueOf(this.imJ.adPosition).intValue();
+            this.ilM = this.imJ.bwL;
+            DownloadData c = c(this.imJ, intValue);
             c.setStatus(ApkDownloadView.getStatus(c));
-            this.ijt.setData(c);
+            this.iju.setData(c);
         }
-        this.ijt.q(this.mContext.getUniqueId());
-        this.iiJ.setTag(this.mContext.getUniqueId());
+        this.iju.q(this.mContext.getUniqueId());
+        this.iiK.setTag(this.mContext.getUniqueId());
         onChangeSkinType();
     }
 
@@ -81,19 +81,19 @@ public class a extends e {
     public void onChangeSkinType() {
         super.onChangeSkinType();
         al.l(this.mRootView, d.C0277d.cp_cont_b_alpha80);
-        al.d(this.bUa, d.C0277d.cp_btn_a, 1);
-        al.d(this.imz, d.C0277d.cp_btn_a, 1);
-        al.f(this.imz, d.C0277d.cp_link_tip_a, 1);
-        this.ijt.bxS();
+        al.d(this.bUb, d.C0277d.cp_btn_a, 1);
+        al.d(this.imA, d.C0277d.cp_btn_a, 1);
+        al.f(this.imA, d.C0277d.cp_link_tip_a, 1);
+        this.iju.bxS();
     }
 
     /* renamed from: com.baidu.tieba.recapp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class View$OnClickListenerC0378a implements View.OnClickListener {
-        private AdvertAppInfo ilO;
+        private AdvertAppInfo ilP;
 
         public View$OnClickListenerC0378a(AdvertAppInfo advertAppInfo) {
-            this.ilO = advertAppInfo;
+            this.ilP = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
@@ -102,14 +102,14 @@ public class a extends e {
                 a.this.mContext.showToast(d.j.neterror);
                 return;
             }
-            boolean z = view == a.this.ijt;
-            if (this.ilO != null) {
-                int l = com.baidu.adp.lib.g.b.l(this.ilO.adPosition, -1);
-                int status = ApkDownloadView.getStatus(a.this.c(this.ilO, l));
+            boolean z = view == a.this.iju;
+            if (this.ilP != null) {
+                int l = com.baidu.adp.lib.g.b.l(this.ilP.adPosition, -1);
+                int status = ApkDownloadView.getStatus(a.this.c(this.ilP, l));
                 if ((6 != status && 7 != status) || !j.kY() || j.kZ()) {
-                    a.this.a(this.ilO, l, a.this.ijt, z);
+                    a.this.a(this.ilP, l, a.this.iju, z);
                 } else {
-                    a.this.showDownloadAppDialog(this.ilO, l, true, this.ilO.bwQ != null ? this.ilO.bwQ.bxc : "");
+                    a.this.showDownloadAppDialog(this.ilP, l, true, this.ilP.bwR != null ? this.ilP.bwR.bxd : "");
                 }
             }
         }
@@ -117,11 +117,11 @@ public class a extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadData c(AdvertAppInfo advertAppInfo, int i) {
-        DownloadData downloadData = new DownloadData(advertAppInfo.bwK);
-        downloadData.setUrl(advertAppInfo.bwJ);
-        downloadData.setName(advertAppInfo.bwH);
+        DownloadData downloadData = new DownloadData(advertAppInfo.bwL);
+        downloadData.setUrl(advertAppInfo.bwK);
+        downloadData.setName(advertAppInfo.bwI);
         downloadData.setPosition(i);
-        downloadData.setNotifyId(com.baidu.adp.lib.g.b.l(advertAppInfo.bwG, 0));
+        downloadData.setNotifyId(com.baidu.adp.lib.g.b.l(advertAppInfo.bwH, 0));
         return downloadData;
     }
 
@@ -139,8 +139,8 @@ public class a extends e {
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         a.this.d(advertAppInfo, i);
-                        if (a.this.ijt != null) {
-                            a.this.ijt.p(a.this.c(advertAppInfo, i));
+                        if (a.this.iju != null) {
+                            a.this.iju.p(a.this.c(advertAppInfo, i));
                         }
                         aVar2.dismiss();
                     }
@@ -172,7 +172,7 @@ public class a extends e {
                 default:
                     return;
                 case 3:
-                    g.aR(this.mContext.getPageActivity(), advertAppInfo.bwK);
+                    g.aR(this.mContext.getPageActivity(), advertAppInfo.bwL);
                     return;
                 case 6:
                 case 7:
@@ -187,14 +187,14 @@ public class a extends e {
         if (advertAppInfo != null) {
             if (!s.an(this.mContext.getPageActivity())) {
                 l.showToast(this.mContext.getPageActivity(), d.j.write_external_storage_permission_denied_fun_disable);
-            } else if (this.gHm != null) {
-                this.gHm.b(advertAppInfo, i);
+            } else if (this.gHn != null) {
+                this.gHn.b(advertAppInfo, i);
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
-        this.gHm = cVar;
+        this.gHn = cVar;
     }
 }

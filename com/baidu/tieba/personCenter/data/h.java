@@ -1,8 +1,8 @@
 package com.baidu.tieba.personCenter.data;
 /* loaded from: classes4.dex */
 public class h {
-    public boolean hLP;
-    public String hLR;
+    public boolean hLQ;
+    public String hLS;
     public boolean isShowRedTip = false;
-    public long hLQ = -1;
+    public long hLR = -1;
 }

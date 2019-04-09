@@ -16,48 +16,48 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes2.dex */
 public class g extends g.a implements k {
-    private static volatile Object jZD;
-    private static final boolean jZz;
+    private static final boolean jZA;
+    private static volatile Object jZE;
     private final ScheduledExecutorService executor;
     volatile boolean isUnsubscribed;
-    private static final Object jZE = new Object();
-    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> jZB = new ConcurrentHashMap<>();
-    private static final AtomicReference<ScheduledExecutorService> jZC = new AtomicReference<>();
-    public static final int jZA = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+    private static final Object jZF = new Object();
+    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> jZC = new ConcurrentHashMap<>();
+    private static final AtomicReference<ScheduledExecutorService> jZD = new AtomicReference<>();
+    public static final int jZB = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
 
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
         int cEt = rx.internal.util.f.cEt();
-        jZz = !z && (cEt == 0 || cEt >= 21);
+        jZA = !z && (cEt == 0 || cEt >= 21);
     }
 
     public static void a(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
         while (true) {
-            if (jZC.get() != null) {
+            if (jZD.get() != null) {
                 break;
             }
             ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-            if (jZC.compareAndSet(null, newScheduledThreadPool)) {
+            if (jZD.compareAndSet(null, newScheduledThreadPool)) {
                 newScheduledThreadPool.scheduleAtFixedRate(new Runnable() { // from class: rx.internal.schedulers.g.1
                     @Override // java.lang.Runnable
                     public void run() {
                         g.cEn();
                     }
-                }, jZA, jZA, TimeUnit.MILLISECONDS);
+                }, jZB, jZB, TimeUnit.MILLISECONDS);
                 break;
             }
             newScheduledThreadPool.shutdownNow();
         }
-        jZB.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        jZC.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
     }
 
     public static void a(ScheduledExecutorService scheduledExecutorService) {
-        jZB.remove(scheduledExecutorService);
+        jZC.remove(scheduledExecutorService);
     }
 
     static void cEn() {
         try {
-            Iterator<ScheduledThreadPoolExecutor> it = jZB.keySet().iterator();
+            Iterator<ScheduledThreadPoolExecutor> it = jZC.keySet().iterator();
             while (it.hasNext()) {
                 ScheduledThreadPoolExecutor next = it.next();
                 if (!next.isShutdown()) {
@@ -74,15 +74,15 @@ public class g extends g.a implements k {
 
     public static boolean b(ScheduledExecutorService scheduledExecutorService) {
         Method c;
-        if (jZz) {
+        if (jZA) {
             if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                Object obj = jZD;
-                if (obj == jZE) {
+                Object obj = jZE;
+                if (obj == jZF) {
                     return false;
                 }
                 if (obj == null) {
                     c = c(scheduledExecutorService);
-                    jZD = c != null ? c : jZE;
+                    jZE = c != null ? c : jZF;
                 } else {
                     c = (Method) obj;
                 }

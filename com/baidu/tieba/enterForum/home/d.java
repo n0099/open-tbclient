@@ -12,18 +12,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.tieba.c.a {
-    private EnterForumModel eCp;
-    private a.InterfaceC0273a eDf;
-    private final EnterForumModel.b eCE = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
+    private EnterForumModel eCq;
+    private a.InterfaceC0273a eDg;
+    private final EnterForumModel.b eCF = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (d.this.eDf != null) {
-                if (aVar == null || !aVar.eDG || aVar.eDH == null || aVar.eDH.aVX() == null) {
-                    d.this.eDf.a(null, false, 1, 0);
+            if (d.this.eDg != null) {
+                if (aVar == null || !aVar.eDH || aVar.eDI == null || aVar.eDI.aVX() == null) {
+                    d.this.eDg.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<com.baidu.tieba.enterForum.data.d> aWr = aVar.eDH.aVX().aWr();
+                ArrayList<com.baidu.tieba.enterForum.data.d> aWr = aVar.eDI.aVX().aWr();
                 if (v.S(aWr) > 0) {
                     Iterator<com.baidu.tieba.enterForum.data.d> it = aWr.iterator();
                     while (it.hasNext()) {
@@ -33,40 +33,40 @@ public class d implements com.baidu.tieba.c.a {
                         }
                     }
                 }
-                d.this.eDf.a(arrayList, true, 1, 0);
+                d.this.eDg.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a eDg = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.d.2
+    private com.baidu.adp.framework.listener.a eDh = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.d.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.eCp.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && d.this.eCq.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    d.this.eCp.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    d.this.eCq.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    d.this.eCp.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    d.this.eCq.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public d() {
-        this.eCp = null;
-        this.eCp = new EnterForumModel(null);
-        this.eCp.a(this.eCE);
-        MessageManager.getInstance().registerListener(this.eDg);
+        this.eCq = null;
+        this.eCq = new EnterForumModel(null);
+        this.eCq.a(this.eCF);
+        MessageManager.getInstance().registerListener(this.eDh);
     }
 
     @Override // com.baidu.tieba.c.a
     public void aSg() {
-        if (this.eDf != null && this.eCp != null) {
-            this.eCp.iz(true);
+        if (this.eDg != null && this.eCq != null) {
+            this.eCq.iz(true);
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void a(a.InterfaceC0273a interfaceC0273a) {
-        this.eDf = interfaceC0273a;
+        this.eDg = interfaceC0273a;
     }
 }

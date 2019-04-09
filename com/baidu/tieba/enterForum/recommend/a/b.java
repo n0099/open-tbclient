@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForum.recommend.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.b>> {
-    private ab<com.baidu.tieba.enterForum.recommend.b.c> eEg;
+    private ab<com.baidu.tieba.enterForum.recommend.b.c> eEh;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.eEu);
-        this.eEg = new ab<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.enterForum.recommend.b.c.eEv);
+        this.eEh = new ab<com.baidu.tieba.enterForum.recommend.b.c>() { // from class: com.baidu.tieba.enterForum.recommend.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.enterForum.recommend.b.c cVar) {
@@ -42,7 +42,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
             return null;
         }
         aVar.aRg().a(cVar);
-        aVar.aRg().d(this.eEg);
+        aVar.aRg().d(this.eEh);
         return aVar.getView();
     }
 }

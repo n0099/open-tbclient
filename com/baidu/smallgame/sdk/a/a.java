@@ -6,25 +6,25 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private static int ajd = 1;
-    private static int aje = 2;
-    private static int ajf = 3;
-    private Map<String, String> ajg = new HashMap();
+    private static int aje = 1;
+    private static int ajf = 2;
+    private static int ajg = 3;
     private Map<String, String> ajh = new HashMap();
-    private SharedPreferences aji;
+    private Map<String, String> aji = new HashMap();
+    private SharedPreferences ajj;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.aji = sharedPreferences;
+        this.ajj = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == ajd) {
-            this.ajg.put(str, str2);
-        } else if (i == aje) {
+        if (i == aje) {
             this.ajh.put(str, str2);
         } else if (i == ajf) {
-            if (this.aji != null) {
-                this.aji.edit().putString(str, str2).commit();
+            this.aji.put(str, str2);
+        } else if (i == ajg) {
+            if (this.ajj != null) {
+                this.ajj.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == ajd) {
-            str2 = this.ajg.get(str);
-        } else if (i == aje) {
+        if (i == aje) {
             str2 = this.ajh.get(str);
         } else if (i == ajf) {
-            if (this.aji != null) {
-                str2 = this.aji.getString(str, "");
+            str2 = this.aji.get(str);
+        } else if (i == ajg) {
+            if (this.ajj != null) {
+                str2 = this.ajj.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.ajg.clear();
+        this.ajh.clear();
     }
 }

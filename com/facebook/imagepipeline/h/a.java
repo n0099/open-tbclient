@@ -12,15 +12,15 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class a implements e {
-    private static final byte[] jJg = {-1, -39};
-    private final com.facebook.imagepipeline.memory.c jEG;
-    final Pools.SynchronizedPool<ByteBuffer> jJf;
+    private static final byte[] jJh = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c jEH;
+    final Pools.SynchronizedPool<ByteBuffer> jJg;
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.jEG = cVar;
-        this.jJf = synchronizedPool;
+        this.jEH = cVar;
+        this.jJg = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.jJf.release(ByteBuffer.allocate(16384));
+            this.jJg.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -45,7 +45,7 @@ public class a implements e {
         InputStream inputStream = dVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = dVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !Ci ? new com.facebook.common.f.b(aVar, jJg) : aVar;
+        InputStream bVar = !Ci ? new com.facebook.common.f.b(aVar, jJh) : aVar;
         boolean z = b.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, b);
@@ -59,29 +59,29 @@ public class a implements e {
 
     protected com.facebook.common.references.a<Bitmap> a(InputStream inputStream, BitmapFactory.Options options) {
         g.checkNotNull(inputStream);
-        Bitmap bitmap = this.jEG.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
+        Bitmap bitmap = this.jEH.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
         if (bitmap == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap;
-        ByteBuffer acquire = this.jJf.acquire();
+        ByteBuffer acquire = this.jJg.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
                 options.inTempStorage = allocate.array();
                 Bitmap decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
                 if (bitmap != decodeStream) {
-                    this.jEG.release(bitmap);
+                    this.jEH.release(bitmap);
                     decodeStream.recycle();
                     throw new IllegalStateException();
                 }
-                return com.facebook.common.references.a.a(decodeStream, this.jEG);
+                return com.facebook.common.references.a.a(decodeStream, this.jEH);
             } catch (RuntimeException e) {
-                this.jEG.release(bitmap);
+                this.jEH.release(bitmap);
                 throw e;
             }
         } finally {
-            this.jJf.release(allocate);
+            this.jJg.release(allocate);
         }
     }
 

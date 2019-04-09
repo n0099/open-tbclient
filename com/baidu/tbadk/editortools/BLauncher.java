@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean cig;
+    private boolean cih;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.cig = false;
+        this.cih = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -120,11 +120,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.cig;
+        return this.cih;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.cig = z;
+        this.cih = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

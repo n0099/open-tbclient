@@ -12,27 +12,27 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b bap;
-    private d bas;
+    private static volatile b baq;
+    private d bat;
     private HandlerThread mAudioThread;
     private Handler mHandler;
-    private HashMap<String, Long> bat = new HashMap<>();
-    private String bau = com.baidu.swan.games.audio.e.Nl();
-    private com.baidu.swan.games.audio.a.b baq = new com.baidu.swan.games.audio.a.b(this.bau);
+    private HashMap<String, Long> bau = new HashMap<>();
+    private String bav = com.baidu.swan.games.audio.e.Nl();
+    private com.baidu.swan.games.audio.a.b bas = new com.baidu.swan.games.audio.a.b(this.bav);
 
     private b() {
         createAudioThread();
     }
 
     public static b Nr() {
-        if (bap == null) {
+        if (baq == null) {
             synchronized (AudioManager.class) {
-                if (bap == null) {
-                    bap = new b();
+                if (baq == null) {
+                    baq = new b();
                 }
             }
         }
-        return bap;
+        return baq;
     }
 
     private void createAudioThread() {
@@ -48,28 +48,28 @@ public class b {
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.baq.a(str, aVar);
+        this.bas.a(str, aVar);
     }
 
     public String hZ(String str) throws MalformedURLException {
-        return this.bau + com.baidu.swan.games.audio.e.hW(str);
+        return this.bav + com.baidu.swan.games.audio.e.hW(str);
     }
 
     public synchronized e ia(String str) {
         e aVar;
         long ib = ib(str);
         if (3000 >= ib) {
-            if (this.bas == null) {
-                this.bas = new d();
-            } else if (this.bas.Nw()) {
-                this.bas.release();
-                this.bas = null;
-                this.bas = new d();
+            if (this.bat == null) {
+                this.bat = new d();
+            } else if (this.bat.Nw()) {
+                this.bat.release();
+                this.bat = null;
+                this.bat = new d();
             }
             if (DEBUG) {
                 Log.e("AudioPlayerManager", "create sound pool src = " + str);
             }
-            aVar = this.bas.P(ib);
+            aVar = this.bat.P(ib);
         } else {
             if (DEBUG) {
                 Log.e("AudioPlayerManager", "create media player src = " + str);
@@ -80,8 +80,8 @@ public class b {
     }
 
     private long ib(String str) {
-        if (this.bat.containsKey(str)) {
-            return this.bat.get(str).longValue();
+        if (this.bau.containsKey(str)) {
+            return this.bau.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -89,7 +89,7 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.bat.put(str, Long.valueOf(parseLong));
+                this.bau.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e) {
                 if (DEBUG) {

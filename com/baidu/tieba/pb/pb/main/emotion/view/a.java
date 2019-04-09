@@ -21,18 +21,18 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private List<EmotionImageData> eHx;
-    private Set<String> heh = new HashSet();
-    private EmotionView.a hyF;
-    private int hzI;
-    private PbEmotionBar.a hzJ;
+    private List<EmotionImageData> eHy;
+    private Set<String> hei = new HashSet();
+    private EmotionView.a hyG;
+    private int hzJ;
+    private PbEmotionBar.a hzK;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.T(this.eHx)) {
+        if (v.T(this.eHy)) {
             return 0;
         }
-        return this.eHx.size() + 1;
+        return this.eHy.size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<EmotionImageData> list) {
-        this.eHx = list;
+        this.eHy = list;
     }
 
     @Override // android.widget.Adapter
@@ -55,14 +55,14 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0360a = new C0360a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0360a.hep = (EmotionView) view.findViewById(d.g.iv_emotion);
-            c0360a.hep.aXI();
-            c0360a.hep.setController(this.hyF);
-            c0360a.hep.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0360a.heq = (EmotionView) view.findViewById(d.g.iv_emotion);
+            c0360a.heq.aXI();
+            c0360a.heq.setController(this.hyG);
+            c0360a.heq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hzJ != null && (view2 instanceof EmotionView)) {
-                        a.this.hzJ.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.hzK != null && (view2 instanceof EmotionView)) {
+                        a.this.hzK.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
@@ -72,16 +72,16 @@ public class a extends BaseAdapter {
             c0360a.fjo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hzJ != null) {
+                    if (a.this.hzK != null) {
                         ArrayList arrayList = new ArrayList();
-                        if (!v.T(a.this.eHx)) {
-                            for (EmotionImageData emotionImageData : a.this.eHx) {
+                        if (!v.T(a.this.eHy)) {
+                            for (EmotionImageData emotionImageData : a.this.eHy) {
                                 if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                                     arrayList.add(emotionImageData.getThumbUrl());
                                 }
                             }
                         }
-                        a.this.hzJ.b(null, null, arrayList);
+                        a.this.hzK.b(null, null, arrayList);
                     }
                 }
             });
@@ -90,24 +90,24 @@ public class a extends BaseAdapter {
             c0360a = (C0360a) view.getTag();
         }
         if (i >= 0) {
-            if (i < this.eHx.size()) {
-                c0360a.hep.getLayoutParams().width = this.hzI;
-                c0360a.hep.getLayoutParams().height = this.hzI;
-                c0360a.hep.reset();
-                c0360a.hep.setTag(d.g.iv_emotion, null);
-                EmotionImageData emotionImageData = this.eHx.get(i);
+            if (i < this.eHy.size()) {
+                c0360a.heq.getLayoutParams().width = this.hzJ;
+                c0360a.heq.getLayoutParams().height = this.hzJ;
+                c0360a.heq.reset();
+                c0360a.heq.setTag(d.g.iv_emotion, null);
+                EmotionImageData emotionImageData = this.eHy.get(i);
                 if (emotionImageData != null) {
-                    c0360a.hep.a(emotionImageData);
-                    if (this.heh != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.heh.add(emotionImageData.getThumbUrl() + c0360a.hep.getLoadProcType());
+                    c0360a.heq.a(emotionImageData);
+                    if (this.hei != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.hei.add(emotionImageData.getThumbUrl() + c0360a.heq.getLoadProcType());
                     }
                 }
-                c0360a.hep.setVisibility(0);
+                c0360a.heq.setVisibility(0);
                 c0360a.fjo.setVisibility(8);
-            } else if (i == this.eHx.size()) {
-                c0360a.fjo.getLayoutParams().width = this.hzI;
-                c0360a.fjo.getLayoutParams().height = this.hzI;
-                c0360a.hep.setVisibility(8);
+            } else if (i == this.eHy.size()) {
+                c0360a.fjo.getLayoutParams().width = this.hzJ;
+                c0360a.fjo.getLayoutParams().height = this.hzJ;
+                c0360a.heq.setVisibility(8);
                 c0360a.fjo.setVisibility(0);
             }
         }
@@ -115,25 +115,25 @@ public class a extends BaseAdapter {
     }
 
     public void wz(int i) {
-        if (this.hzI != i) {
-            this.hzI = i;
+        if (this.hzJ != i) {
+            this.hzJ = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.hyF = aVar;
+        this.hyG = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.hzJ = aVar;
+        this.hzK = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     static class C0360a {
         TextView fjo;
-        EmotionView hep;
+        EmotionView heq;
 
         C0360a() {
         }
@@ -145,8 +145,8 @@ public class a extends BaseAdapter {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.heh != null) {
-                    for (String str : a.this.heh) {
+                if (a.this.hei != null) {
+                    for (String str : a.this.hei) {
                         if (!TextUtils.isEmpty(str)) {
                             c.anm().ph(str);
                         }

@@ -18,13 +18,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends y {
-    protected static final Set<String> aCi = com.facebook.common.internal.h.K("localhost", "127.0.0.1");
-    public static final Set<String> aCj = com.facebook.common.internal.h.K("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> aCh;
+    protected static final Set<String> aCj = com.facebook.common.internal.h.K("localhost", "127.0.0.1");
+    public static final Set<String> aCk = com.facebook.common.internal.h.K("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> aCi;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.aCh = new ConcurrentHashMap<>();
+        this.aCi = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y
@@ -38,7 +38,7 @@ public class a extends y {
             return 0L;
         }
         try {
-            j = this.aCh.get(str).longValue();
+            j = this.aCi.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
@@ -46,8 +46,8 @@ public class a extends y {
     }
 
     public final void fo(String str) {
-        if (this.aCh != null && !TextUtils.isEmpty(str)) {
-            this.aCh.remove(str);
+        if (this.aCi != null && !TextUtils.isEmpty(str)) {
+            this.aCi.remove(str);
         }
     }
 
@@ -72,7 +72,7 @@ public class a extends y {
             JC = false;
         }
         if (httpUrl != null) {
-            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCi.contains(httpUrl.host().toLowerCase());
+            return (!JC || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aCj.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -85,7 +85,7 @@ public class a extends y {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !aCj.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !aCk.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);

@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e ggR;
-    private a ggS;
-    private final DialogInterface.OnCancelListener ggT = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.im.db.e.1
+    private static e ggS;
+    private a ggT;
+    private final DialogInterface.OnCancelListener ggU = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.im.db.e.1
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             e.this.bsh();
@@ -39,14 +39,14 @@ public class e {
     }
 
     public static e bsg() {
-        if (ggR == null) {
+        if (ggS == null) {
             synchronized (e.class) {
-                if (ggR == null) {
-                    ggR = new e();
+                if (ggS == null) {
+                    ggS = new e();
                 }
             }
         }
-        return ggR;
+        return ggS;
     }
 
     public void a(String str, int i, b bVar) {
@@ -326,36 +326,36 @@ public class e {
     }
 
     public boolean bsh() {
-        if (this.ggS != null && this.ggS.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            this.ggS.cancel(true);
+        if (this.ggT != null && this.ggT.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            this.ggT.cancel(true);
         }
-        this.ggS = null;
+        this.ggT = null;
         return true;
     }
 
     public boolean bsi() {
-        return this.ggS == null || (this.ggS != null && this.ggS.isCancelled());
+        return this.ggT == null || (this.ggT != null && this.ggT.isCancelled());
     }
 
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, com.baidu.tieba.im.chat.a.b bVar) {
-        this.ggS = new a(i, bVar);
-        this.ggS.setParallel(TiebaIMConfig.getParallel());
-        this.ggS.setPriority(3);
-        this.ggS.execute(imMessageCenterShowItemData);
+        this.ggT = new a(i, bVar);
+        this.ggT.setParallel(TiebaIMConfig.getParallel());
+        this.ggT.setPriority(3);
+        this.ggT.execute(imMessageCenterShowItemData);
     }
 
     public void a(List<ImMessageCenterShowItemData> list, int i, com.baidu.tieba.im.chat.a.b bVar) {
-        this.ggS = new a(i, bVar);
-        this.ggS.setParallel(TiebaIMConfig.getParallel());
-        this.ggS.setPriority(3);
-        this.ggS.execute(list);
+        this.ggT = new a(i, bVar);
+        this.ggT.setParallel(TiebaIMConfig.getParallel());
+        this.ggT.setPriority(3);
+        this.ggT.execute(list);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, c, Integer> {
-        private final com.baidu.tieba.im.chat.a.b ggV;
-        private b ggW = new b() { // from class: com.baidu.tieba.im.db.e.a.1
+        private final com.baidu.tieba.im.chat.a.b ggW;
+        private b ggX = new b() { // from class: com.baidu.tieba.im.db.e.a.1
             @Override // com.baidu.tieba.im.db.e.b
             public void f(int i, String str, int i2) {
                 if (a.this.isCancelled()) {
@@ -378,7 +378,7 @@ public class e {
 
         public a(int i, com.baidu.tieba.im.chat.a.b bVar) {
             this.mCustomGroupType = i;
-            this.ggV = bVar;
+            this.ggW = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -394,12 +394,12 @@ public class e {
                 if (obj instanceof ArrayList) {
                     List<ImMessageCenterShowItemData> list = (List) obj;
                     if (this.mCustomGroupType == 4) {
-                        e.this.b(list, this.ggW);
+                        e.this.b(list, this.ggX);
                     } else if (this.mCustomGroupType == 2) {
-                        e.this.a(list, this.ggW);
+                        e.this.a(list, this.ggX);
                     }
                 } else if (obj instanceof ImMessageCenterShowItemData) {
-                    e.this.a(((ImMessageCenterShowItemData) obj).getFriendId(), this.mCustomGroupType, this.ggW);
+                    e.this.a(((ImMessageCenterShowItemData) obj).getFriendId(), this.mCustomGroupType, this.ggX);
                 }
                 return 0;
             }
@@ -411,9 +411,9 @@ public class e {
             com.baidu.adp.lib.g.e.jH().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.ggV != null) {
-                        a.this.ggV.onProgressUpdate(i, str, i2);
-                        a.this.ggV.onCanceled();
+                    if (a.this.ggW != null) {
+                        a.this.ggW.onProgressUpdate(i, str, i2);
+                        a.this.ggW.onCanceled();
                     }
                 }
             });
@@ -424,13 +424,13 @@ public class e {
             com.baidu.adp.lib.g.e.jH().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (list != null && a.this.ggV != null) {
+                    if (list != null && a.this.ggW != null) {
                         for (c cVar : list) {
                             if (cVar != null) {
-                                a.this.ggV.onProgressUpdate(cVar.progress, cVar.id, cVar.customGroupType);
+                                a.this.ggW.onProgressUpdate(cVar.progress, cVar.id, cVar.customGroupType);
                             }
                         }
-                        a.this.ggV.onCanceled();
+                        a.this.ggW.onCanceled();
                         list.clear();
                     }
                 }
@@ -443,11 +443,11 @@ public class e {
         /* renamed from: a */
         public void onProgressUpdate(c... cVarArr) {
             super.onProgressUpdate(cVarArr);
-            if (cVarArr != null && cVarArr.length > 0 && cVarArr[0] != null && this.ggV != null) {
+            if (cVarArr != null && cVarArr.length > 0 && cVarArr[0] != null && this.ggW != null) {
                 c cVar = cVarArr[0];
                 String str = cVar.id;
                 int i = cVar.customGroupType;
-                this.ggV.onProgressUpdate(cVar.progress, str, i);
+                this.ggW.onProgressUpdate(cVar.progress, str, i);
             }
         }
 
@@ -455,8 +455,8 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.ggV != null) {
-                this.ggV.onPreExecute();
+            if (this.ggW != null) {
+                this.ggW.onPreExecute();
             }
         }
 
@@ -465,11 +465,11 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((a) num);
-            if (this.ggV != null) {
+            if (this.ggW != null) {
                 if (isCancelled()) {
-                    this.ggV.onCanceled();
+                    this.ggW.onCanceled();
                 } else {
-                    this.ggV.onPostExecute();
+                    this.ggW.onPostExecute();
                 }
             }
         }
@@ -478,8 +478,8 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.ggV != null) {
-                this.ggV.onCanceled();
+            if (this.ggW != null) {
+                this.ggW.onCanceled();
             }
         }
     }
@@ -523,7 +523,7 @@ public class e {
         dVar.setMessage(context.getString(d.j.delete_msg_loading));
         dVar.setCanceledOnTouchOutside(false);
         dVar.setCancelable(true);
-        dVar.setOnCancelListener(this.ggT);
+        dVar.setOnCancelListener(this.ggU);
         return dVar;
     }
 }

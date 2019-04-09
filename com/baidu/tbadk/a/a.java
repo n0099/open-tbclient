@@ -1,13 +1,13 @@
 package com.baidu.tbadk.a;
 /* loaded from: classes.dex */
 public class a {
-    public String bsD;
+    public String bsE;
     public String log;
     public String name;
 
     public a(String str, String str2, String str3) {
         this.name = str;
-        this.bsD = str2;
+        this.bsE = str2;
         this.log = str3;
     }
 }

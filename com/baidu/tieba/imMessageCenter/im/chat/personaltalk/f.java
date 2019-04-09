@@ -22,14 +22,14 @@ import com.baidu.tieba.imMessageCenter.RequestQueryUserInfoMessage;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes4.dex */
 public class f {
-    private com.baidu.tbadk.coreExtra.model.a bKA;
+    private com.baidu.tbadk.coreExtra.model.a bKB;
     private DataRes data;
-    private final BlackListModel gvc;
-    private PersonalTalkSettingActivity gvd;
-    private a gve;
+    private final BlackListModel gvd;
+    private PersonalTalkSettingActivity gve;
+    private a gvf;
     private boolean isAttention = false;
-    private boolean gva = false;
     private boolean gvb = false;
+    private boolean gvc = false;
     private BdUniqueId tag = BdUniqueId.gen();
     private com.baidu.adp.framework.listener.c gat = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,9 +39,9 @@ public class f {
                 switch (socketResponsedMessage.getCmd()) {
                     case 104102:
                         if (socketResponsedMessage instanceof ResponsedMessage) {
-                            f.this.gvd.closeLoadingDialog();
+                            f.this.gve.closeLoadingDialog();
                             if (socketResponsedMessage.getError() != 0) {
-                                f.this.gvd.showToast(socketResponsedMessage.getErrorString());
+                                f.this.gve.showToast(socketResponsedMessage.getErrorString());
                             }
                         }
                         if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -49,9 +49,9 @@ public class f {
                             if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                                    f.this.gva = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                                    if (f.this.gve != null) {
-                                        f.this.gve.GP();
+                                    f.this.gvb = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                                    if (f.this.gvf != null) {
+                                        f.this.gvf.GP();
                                         return;
                                     }
                                     return;
@@ -63,18 +63,18 @@ public class f {
                         return;
                     case 205003:
                         if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                            f.this.gvd.hideProgressBar();
-                            f.this.gvd.showToast(socketResponsedMessage.getErrorString());
+                            f.this.gve.hideProgressBar();
+                            f.this.gve.showToast(socketResponsedMessage.getErrorString());
                             return;
                         } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                             ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                             if (responseQueryUserInfoMessage.getResData() != null) {
                                 f.this.data = responseQueryUserInfoMessage.getResData();
                                 f.this.isAttention = f.this.data.hasConcerned.intValue() == 1;
-                                f.this.gva = f.this.data.isBlacklist.intValue() == 1;
-                                f.this.gvd.hideProgressBar();
-                                if (f.this.gve != null) {
-                                    f.this.gve.GP();
+                                f.this.gvb = f.this.data.isBlacklist.intValue() == 1;
+                                f.this.gve.hideProgressBar();
+                                if (f.this.gvf != null) {
+                                    f.this.gvf.GP();
                                     return;
                                 }
                                 return;
@@ -96,22 +96,22 @@ public class f {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (f.this.gvd != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                        f.this.gvd.showToast(updateAttentionMessage.getErrorString());
+                    if (f.this.gve != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                        f.this.gve.showToast(updateAttentionMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 f.this.isAttention = updateAttentionMessage.isAttention();
-                if (f.this.gvd != null) {
+                if (f.this.gve != null) {
                     if (f.this.isAttention) {
-                        f.this.gvd.showToast(d.j.add_success);
+                        f.this.gve.showToast(d.j.add_success);
                     } else {
-                        f.this.gvd.showToast(d.j.remove_succ);
+                        f.this.gve.showToast(d.j.remove_succ);
                     }
                 }
-                if (f.this.gve != null) {
-                    f.this.gve.GP();
+                if (f.this.gvf != null) {
+                    f.this.gvf.GP();
                 }
             }
         }
@@ -123,11 +123,11 @@ public class f {
     }
 
     public boolean bwF() {
-        return this.gvb;
+        return this.gvc;
     }
 
     public void lC(boolean z) {
-        this.gvb = z;
+        this.gvc = z;
     }
 
     public DataRes bwG() {
@@ -135,14 +135,14 @@ public class f {
     }
 
     public boolean bwH() {
-        return this.gva;
+        return this.gvb;
     }
 
     public f(final PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, final long j) {
-        this.gvd = personalTalkSettingActivity;
-        this.gve = aVar;
-        this.bKA = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
-        this.gvc = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.gve = personalTalkSettingActivity;
+        this.gvf = aVar;
+        this.bKB = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
+        this.gvd = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         aa.b(new z<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -157,7 +157,7 @@ public class f {
             /* renamed from: a */
             public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
                 if (personalSettingItemData != null) {
-                    f.this.gvb = personalSettingItemData.isAcceptNotify();
+                    f.this.gvc = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
                 requestQueryUserInfoMessage.setReqUserId(j);
@@ -177,20 +177,20 @@ public class f {
     }
 
     public void lE(boolean z) {
-        this.gvd.showLoadingDialog(null);
+        this.gve.showLoadingDialog(null);
         if (z) {
-            this.gvc.addToBlackList(this.data.id.longValue());
+            this.gvd.addToBlackList(this.data.id.longValue());
         } else {
-            this.gvc.removeFromBlackList(this.data.id.longValue());
+            this.gvd.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.bKA != null) {
-            this.bKA.cancel();
+        if (this.bKB != null) {
+            this.bKB.cancel();
         }
-        if (this.gvc != null) {
-            this.gvc.cancelLoadData();
+        if (this.gvd != null) {
+            this.gvd.cancelLoadData();
         }
     }
 

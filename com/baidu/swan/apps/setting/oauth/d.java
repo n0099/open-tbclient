@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class d {
     private Exception HZ;
-    private b aRo;
+    private b aRp;
 
     protected abstract boolean Cf() throws Exception;
 
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.aRo = bVar;
+        this.aRp = bVar;
         return this;
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.aRo.b(d.this);
+                d.this.aRp.b(d.this);
             }
         });
     }

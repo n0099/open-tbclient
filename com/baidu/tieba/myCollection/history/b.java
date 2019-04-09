@@ -13,20 +13,20 @@ import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView bSS;
-    private TextView dTF;
-    private TextView hbA;
+    private TextView bST;
+    private TextView dTG;
+    private TextView hbB;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.hbA = (TextView) view.findViewById(d.g.title);
-        this.bSS = (TextView) view.findViewById(d.g.content);
-        this.bSS.setSingleLine();
-        this.bSS.setEllipsize(TextUtils.TruncateAt.END);
-        this.dTF = (TextView) view.findViewById(d.g.time);
+        this.hbB = (TextView) view.findViewById(d.g.title);
+        this.bST = (TextView) view.findViewById(d.g.content);
+        this.bST.setSingleLine();
+        this.bST.setEllipsize(TextUtils.TruncateAt.END);
+        this.dTG = (TextView) view.findViewById(d.g.time);
         this.mLine = view.findViewById(d.g.line);
     }
 
@@ -36,34 +36,34 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void ad(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.ad(aVar);
         if (aVar != null) {
-            if (this.hbA != null) {
+            if (this.hbB != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.hbA.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
+                        this.hbB.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.hbA.setText(aVar.getDescription());
+                        this.hbB.setText(aVar.getDescription());
                     }
                 } else if (aVar.bFw() != null) {
                     if (aVar.isShareThread()) {
-                        this.hbA.setText(String.format("%s%s", getString(d.j.pb_history_share_prefix), aVar.bFw()));
+                        this.hbB.setText(String.format("%s%s", getString(d.j.pb_history_share_prefix), aVar.bFw()));
                     } else {
-                        this.hbA.setText(aVar.bFw());
+                        this.hbB.setText(aVar.bFw());
                     }
                 }
             }
-            if (this.bSS != null) {
+            if (this.bST != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.bSS.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
+                    this.bST.setText(String.format(getString(d.j.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.bSS.setText(aVar.getForumName());
+                    this.bST.setText(aVar.getForumName());
                 }
             }
-            if (this.dTF != null) {
+            if (this.dTG != null) {
                 String m = ap.m(new Date(aVar.getTime()));
                 if (m == null) {
                     m = "";
                 }
-                this.dTF.setText(m);
+                this.dTG.setText(m);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         al.k(this.mRootView, d.f.list_item_selector);
         al.k(this.mLine, d.C0277d.cp_bg_line_b);
-        al.d(this.hbA, d.C0277d.cp_cont_b, 1);
-        al.d(this.bSS, d.C0277d.cp_cont_d, 1);
-        al.d(this.dTF, d.C0277d.cp_cont_d, 1);
+        al.d(this.hbB, d.C0277d.cp_cont_b, 1);
+        al.d(this.bST, d.C0277d.cp_cont_d, 1);
+        al.d(this.dTG, d.C0277d.cp_cont_d, 1);
         return true;
     }
 }

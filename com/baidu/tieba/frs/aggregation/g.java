@@ -20,7 +20,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
     public int agreeType;
     public boolean autoPlay;
     public String createTime;
-    public int ekF;
+    public int ekG;
     public String extra;
     public long feB;
     public List<String> feC;
@@ -136,7 +136,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     /* loaded from: classes.dex */
     public static class a {
-        public String TW;
+        public String TX;
         public long feI;
         public long feJ;
         public String feK;
@@ -146,7 +146,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         public long feO;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.feL) || StringUtils.isNull(this.TW)) ? false : true;
+            return (StringUtils.isNull(this.feL) || StringUtils.isNull(this.TX)) ? false : true;
         }
 
         public String toString() {
@@ -254,7 +254,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                         aVar.feI = optJSONObject.optLong("ad_start_time");
                         aVar.feJ = optJSONObject.optLong("ad_end_time");
                         aVar.feK = optJSONObject.optString("pic_url");
-                        aVar.TW = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        aVar.TX = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
                         aVar.feL = optJSONObject.optString("card_title");
                         aVar.feM = optJSONObject.optString("button_title");
                         aVar.feN = optJSONObject.optLong("effect_time");

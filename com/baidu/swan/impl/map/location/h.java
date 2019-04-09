@@ -10,11 +10,11 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.an.x;
 /* loaded from: classes5.dex */
 public class h {
-    private static final int biv = x.ad(58.0f);
-    private View bir;
+    private static final int biw = x.ad(58.0f);
     private View bis;
-    private boolean bit;
-    private a biu;
+    private View bit;
+    private boolean biu;
+    private a biv;
     private View mListContainer;
 
     /* loaded from: classes5.dex */
@@ -27,20 +27,20 @@ public class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(View view, FrameLayout frameLayout, View view2) {
         this.mListContainer = view;
-        this.bir = frameLayout;
-        this.bis = view2;
+        this.bis = frameLayout;
+        this.bit = view2;
     }
 
     public void cJ(final boolean z) {
-        if (this.biu != null) {
-            this.biu.cH(z);
+        if (this.biv != null) {
+            this.biv.cH(z);
         }
-        this.bit = z;
-        final int i = z ? -biv : biv;
+        this.biu = z;
+        final int i = z ? -biw : biw;
         float[] fArr = z ? new float[]{0.0f, i} : new float[]{-i, 0.0f};
         float[] fArr2 = z ? new float[]{0.0f, i * 2} : new float[]{(-i) * 2, 0.0f};
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofFloat(this.bir, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.bis, "translationY", fArr2));
+        animatorSet.playTogether(ObjectAnimator.ofFloat(this.bis, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.bit, "translationY", fArr2));
         animatorSet.setDuration(200L);
         animatorSet.start();
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.impl.map.location.h.1
@@ -51,8 +51,8 @@ public class h {
                 if (!z) {
                     h.this.eP(i);
                 }
-                if (h.this.biu != null) {
-                    h.this.biu.cG(z);
+                if (h.this.biv != null) {
+                    h.this.biv.cG(z);
                 }
             }
         });
@@ -69,6 +69,6 @@ public class h {
     }
 
     public boolean Qy() {
-        return this.bit;
+        return this.biu;
     }
 }

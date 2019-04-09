@@ -4,9 +4,9 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 /* loaded from: classes2.dex */
 public class DraweeEventTracker {
-    private static final DraweeEventTracker jBh = new DraweeEventTracker();
-    private static boolean jBi = true;
-    private final Queue<Event> jBg = new ArrayBlockingQueue(20);
+    private static final DraweeEventTracker jBi = new DraweeEventTracker();
+    private static boolean jBj = true;
+    private final Queue<Event> jBh = new ArrayBlockingQueue(20);
 
     /* loaded from: classes2.dex */
     public enum Event {
@@ -40,19 +40,19 @@ public class DraweeEventTracker {
     }
 
     public static DraweeEventTracker cuK() {
-        return jBi ? new DraweeEventTracker() : jBh;
+        return jBj ? new DraweeEventTracker() : jBi;
     }
 
     public void a(Event event) {
-        if (jBi) {
-            if (this.jBg.size() + 1 > 20) {
-                this.jBg.poll();
+        if (jBj) {
+            if (this.jBh.size() + 1 > 20) {
+                this.jBh.poll();
             }
-            this.jBg.add(event);
+            this.jBh.add(event);
         }
     }
 
     public String toString() {
-        return this.jBg.toString();
+        return this.jBh.toString();
     }
 }

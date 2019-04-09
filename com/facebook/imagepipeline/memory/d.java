@@ -7,9 +7,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 class d<V> {
-    public final int aVe;
-    final Queue jIB;
-    private int jIC;
+    public final int aVf;
+    final Queue jIC;
+    private int jID;
     public final int mItemSize;
 
     public d(int i, int i2, int i3) {
@@ -17,50 +17,50 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.aVe = i2;
-        this.jIB = new LinkedList();
-        this.jIC = i3;
+        this.aVf = i2;
+        this.jIC = new LinkedList();
+        this.jID = i3;
     }
 
     public boolean cyW() {
-        return this.jIC + cyX() > this.aVe;
+        return this.jID + cyX() > this.aVf;
     }
 
     int cyX() {
-        return this.jIB.size();
+        return this.jIC.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.jIC++;
+            this.jID++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.jIB.poll();
+        return (V) this.jIC.poll();
     }
 
     public void cyY() {
-        this.jIC++;
+        this.jID++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        com.facebook.common.internal.g.checkState(this.jIC > 0);
-        this.jIC--;
+        com.facebook.common.internal.g.checkState(this.jID > 0);
+        this.jID--;
         aX(v);
     }
 
     void aX(V v) {
-        this.jIB.add(v);
+        this.jIC.add(v);
     }
 
     public void cyZ() {
-        com.facebook.common.internal.g.checkState(this.jIC > 0);
-        this.jIC--;
+        com.facebook.common.internal.g.checkState(this.jID > 0);
+        this.jID--;
     }
 }

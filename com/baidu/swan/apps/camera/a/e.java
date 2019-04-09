@@ -26,7 +26,7 @@ public class e extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(bVar2.aBG);
+        final CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(bVar2.aBH);
         if (dr == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
@@ -108,7 +108,7 @@ public class e extends a {
         } catch (Exception e3) {
             e = e3;
             cameraPreview.wu();
-            com.baidu.swan.apps.camera.a.wm().c(bVar2.aBG, bVar2.akL, false);
+            com.baidu.swan.apps.camera.a.wm().c(bVar2.aBH, bVar2.akM, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

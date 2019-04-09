@@ -32,7 +32,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
         AdvertAppInfo aQU = dVar.aQU();
         if (aQU != null) {
-            com.baidu.tbadk.core.data.c.c(aQU.advertAppContext, aQU.bwL, aQU.bwQ.bxd == -1001);
+            com.baidu.tbadk.core.data.c.c(aQU.advertAppContext, aQU.bwM, aQU.bwR.bxe == -1001);
         }
         return bVar.getView();
     }

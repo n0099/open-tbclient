@@ -9,14 +9,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends g<C0171a> {
-    protected final boolean aRv;
+    protected final boolean aRw;
     protected final Activity mActivity;
     protected final String mScope;
 
     public a(Activity activity, boolean z, String str) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRv = z;
+        this.aRw = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -34,7 +34,7 @@ public class a extends g<C0171a> {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRv));
+            jSONObject3.put("permit", Boolean.toString(this.aRw));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -70,7 +70,7 @@ public class a extends g<C0171a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0171a(this.aRv, str, jSONObject2);
+        return new C0171a(this.aRw, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,18 +83,18 @@ public class a extends g<C0171a> {
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0171a {
-        public final boolean aRw;
-        public final JSONObject aRx;
+        public final boolean aRx;
+        public final JSONObject aRy;
         public final String code;
 
         private C0171a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.aRw = z;
-            this.aRx = jSONObject;
+            this.aRx = z;
+            this.aRy = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.aRw), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.aRx), this.code);
         }
     }
 }

@@ -29,7 +29,7 @@ import com.baidu.swan.games.utils.so.SoLoader;
 /* loaded from: classes2.dex */
 public class a extends d implements e.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bcL;
+    private com.baidu.swan.games.e.a bcM;
 
     static {
         SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
@@ -42,17 +42,17 @@ public class a extends d implements e.a {
     @Override // com.baidu.swan.apps.o.d
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.swan.games.m.a.OA().h(this.avY);
+        com.baidu.swan.games.m.a.OA().h(this.avZ);
         if (bundle == null) {
             BJ();
         }
-        v(this.ajx);
+        v(this.ajy);
     }
 
     @Override // com.baidu.swan.apps.o.d
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        com.baidu.swan.apps.w.e.Ea().bL(this.avY);
+        com.baidu.swan.apps.w.e.Ea().bL(this.avZ);
     }
 
     @Override // com.baidu.swan.apps.o.d
@@ -62,12 +62,12 @@ public class a extends d implements e.a {
 
     private void v(com.baidu.swan.apps.v.b.b bVar) {
         if (bVar != null) {
-            com.baidu.swan.apps.w.e.Ea().f(this.avY);
+            com.baidu.swan.apps.w.e.Ea().f(this.avZ);
             com.baidu.swan.apps.w.e.Ea().a(bVar, new com.baidu.swan.apps.install.b() { // from class: com.baidu.swan.games.g.a.1
                 @Override // com.baidu.swan.apps.install.b
                 public void a(int i, com.baidu.swan.apps.install.a aVar) {
                     a.b bVar2 = (a.b) aVar;
-                    if (bVar2 != null && !TextUtils.isEmpty(bVar2.bdF)) {
+                    if (bVar2 != null && !TextUtils.isEmpty(bVar2.bdG)) {
                         a.this.a(bVar2);
                     }
                 }
@@ -83,13 +83,13 @@ public class a extends d implements e.a {
                 if (a.DEBUG) {
                     Log.d("SwanGameFrame", "onLoadedSuccess");
                 }
-                DuMixGameSurfaceView cx = com.baidu.swan.games.glsurface.a.Oq().cx(a.this.avY);
+                DuMixGameSurfaceView cx = com.baidu.swan.games.glsurface.a.Oq().cx(a.this.avZ);
                 cx.setRenderMode(1);
                 com.baidu.swan.games.glsurface.a.Oq().f(cx);
-                a.this.bcL = f.a(new g.a().eC(2).im("master").Ob(), new b(bVar.bdF, bVar.bdH == null ? null : bVar.bdH.bfa), new C0191a(cx));
-                a.this.bcL.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
-                a.this.bcL.setContext(a.this.avY);
-                cx.setV8Engine(a.this.bcL);
+                a.this.bcM = f.a(new g.a().eC(2).im("master").Ob(), new b(bVar.bdG, bVar.bdI == null ? null : bVar.bdI.bfc), new C0191a(cx));
+                a.this.bcM.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
+                a.this.bcM.setContext(a.this.avZ);
+                cx.setV8Engine(a.this.bcM);
                 a.this.Oj();
             }
         });
@@ -100,17 +100,17 @@ public class a extends d implements e.a {
         super.onNewIntent(intent);
         com.baidu.swan.apps.v.b.b G = com.baidu.swan.apps.v.b.b.G(intent);
         if (!f(G)) {
-            this.avY.B(intent);
+            this.avZ.B(intent);
             BI();
             g(G);
             BG();
             com.baidu.swan.apps.w.e.release();
-            v(this.ajx);
+            v(this.ajy);
             BH();
         } else {
-            this.ajx = G;
+            this.ajy = G;
         }
-        com.baidu.swan.apps.ae.b.n(this.ajx);
+        com.baidu.swan.apps.ae.b.n(this.ajy);
         BJ();
         com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
         if (IV != null) {
@@ -121,34 +121,34 @@ public class a extends d implements e.a {
 
     @Override // com.baidu.swan.apps.o.d
     protected void BS() {
-        this.avZ.a(this);
+        this.awa.a(this);
     }
 
     @Override // com.baidu.swan.apps.core.c.e.a
     public void yT() {
-        com.baidu.swan.games.m.a.OA().h(this.avY);
+        com.baidu.swan.games.m.a.OA().h(this.avZ);
     }
 
     @Override // com.baidu.swan.apps.o.d
     public void onDestroy() {
         com.baidu.swan.games.m.a.OA().ES();
-        com.baidu.swan.apps.w.e.Ea().bM(this.avY);
+        com.baidu.swan.apps.w.e.Ea().bM(this.avZ);
         com.baidu.swan.apps.w.e.release();
         com.baidu.swan.games.s.a.Pg().release();
-        if (this.bcL != null) {
-            this.bcL.finish();
+        if (this.bcM != null) {
+            this.bcM.finish();
         }
         SwanInspectorEndpoint.Ox().close();
         super.onDestroy();
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.bcL;
+        return this.bcM;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Oj() {
-        this.avZ.yR().A(0, 0).yX().b(h.zf()).yZ();
+        this.awa.yR().A(0, 0).yX().b(h.zf()).yZ();
     }
 
     @Override // com.baidu.swan.apps.o.d
@@ -161,7 +161,7 @@ public class a extends d implements e.a {
                     case 100:
                         com.baidu.swan.apps.process.messaging.client.a.Go().sendMessage(4);
                         a.this.BK();
-                        a.this.l(a.this.bcL);
+                        a.this.l(a.this.bcM);
                         a.this.reset();
                         return true;
                     case 102:
@@ -176,7 +176,7 @@ public class a extends d implements e.a {
                         }
                         a.this.BK();
                         a.this.Oh();
-                        a.this.l(a.this.bcL);
+                        a.this.l(a.this.bcM);
                         return true;
                     case 106:
                         a.this.reset();
@@ -217,12 +217,12 @@ public class a extends d implements e.a {
 
     /* loaded from: classes2.dex */
     private class b extends com.baidu.swan.games.e.d.a {
-        private com.baidu.swan.games.inspector.a bcR;
+        private com.baidu.swan.games.inspector.a bcS;
         private String mBasePath;
 
         public b(String str, com.baidu.swan.games.inspector.a aVar) {
             this.mBasePath = str;
-            this.bcR = aVar;
+            this.bcS = aVar;
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
@@ -237,8 +237,8 @@ public class a extends d implements e.a {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            new com.baidu.swan.games.binding.a().a(aVar, a.this.avY);
-            new com.baidu.swan.games.binding.b().a(aVar, a.this.avY);
+            new com.baidu.swan.games.binding.a().a(aVar, a.this.avZ);
+            new com.baidu.swan.games.binding.b().a(aVar, a.this.avZ);
             com.baidu.swan.apps.performance.f.fz("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_swan_game_js_start"));
         }
 
@@ -250,10 +250,10 @@ public class a extends d implements e.a {
     /* renamed from: com.baidu.swan.games.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private class C0191a implements V8ThreadDelegatePolicy {
-        private DuMixGameSurfaceView arg;
+        private DuMixGameSurfaceView arh;
 
         C0191a(DuMixGameSurfaceView duMixGameSurfaceView) {
-            this.arg = duMixGameSurfaceView;
+            this.arh = duMixGameSurfaceView;
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
@@ -261,7 +261,7 @@ public class a extends d implements e.a {
             if (a.DEBUG) {
                 Log.d("SwanGameFrame", "startV8Engine");
             }
-            this.arg.queueEvent(new Runnable() { // from class: com.baidu.swan.games.g.a.a.1
+            this.arh.queueEvent(new Runnable() { // from class: com.baidu.swan.games.g.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.DEBUG) {
@@ -274,7 +274,7 @@ public class a extends d implements e.a {
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public void doDelegateRunnable(Runnable runnable) {
-            this.arg.queueEvent(runnable);
+            this.arh.queueEvent(runnable);
         }
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
@@ -283,7 +283,7 @@ public class a extends d implements e.a {
 
         @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
         public Thread getThread() {
-            return this.arg.getThread();
+            return this.arh.getThread();
         }
     }
 
@@ -301,19 +301,19 @@ public class a extends d implements e.a {
 
     @Override // com.baidu.swan.apps.o.d
     protected void BG() {
-        if (this.awf == null) {
-            this.awf = new com.baidu.swan.apps.view.b(this.avY);
+        if (this.awg == null) {
+            this.awg = new com.baidu.swan.apps.view.b(this.avZ);
         }
-        this.awf.h(true, this.ajx != null && this.ajx.orientation == 1);
+        this.awg.h(true, this.ajy != null && this.ajy.orientation == 1);
     }
 
     @Override // com.baidu.swan.apps.o.d
     public void onBackPressed() {
-        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.avZ.yQ());
+        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.awa.yQ());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "back";
         a(fVar);
-        com.baidu.swan.apps.core.c.b yN = this.avZ.yN();
+        com.baidu.swan.apps.core.c.b yN = this.awa.yN();
         if (yN == null || !yN.vX()) {
             if (BT()) {
                 com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
@@ -323,13 +323,13 @@ public class a extends d implements e.a {
                 }
                 return;
             }
-            this.avZ.ea("navigateBack").A(e.aqP, e.aqO).yV().commit();
+            this.awa.ea("navigateBack").A(e.aqQ, e.aqP).yV().commit();
         }
     }
 
     @Override // com.baidu.swan.apps.o.d
     public boolean isLandScape() {
-        return this.ajx != null && this.ajx.orientation == 1;
+        return this.ajy != null && this.ajy.orientation == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

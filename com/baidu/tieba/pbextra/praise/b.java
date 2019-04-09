@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b {
-    private View cRW;
-    private HeadImageView hJk;
-    private TextView hJl;
+    private View cRX;
+    private HeadImageView hJl;
     private TextView hJm;
-    private ImageView hJn;
+    private TextView hJn;
+    private ImageView hJo;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.cRW = null;
-        this.hJk = null;
+        this.cRX = null;
         this.hJl = null;
         this.hJm = null;
         this.hJn = null;
-        this.cRW = LayoutInflater.from(context).inflate(d.h.zan_list_item, (ViewGroup) null);
-        this.hJk = (HeadImageView) this.cRW.findViewById(d.g.zan_list_item_head);
-        this.hJl = (TextView) this.cRW.findViewById(d.g.zan_list_item_name);
-        this.hJm = (TextView) this.cRW.findViewById(d.g.zan_list_item_time);
-        this.hJn = (ImageView) this.cRW.findViewById(d.g.zan_list_item_line_bottom);
-        this.hJn.setVisibility(0);
-        this.cRW.setTag(this);
+        this.hJo = null;
+        this.cRX = LayoutInflater.from(context).inflate(d.h.zan_list_item, (ViewGroup) null);
+        this.hJl = (HeadImageView) this.cRX.findViewById(d.g.zan_list_item_head);
+        this.hJm = (TextView) this.cRX.findViewById(d.g.zan_list_item_name);
+        this.hJn = (TextView) this.cRX.findViewById(d.g.zan_list_item_time);
+        this.hJo = (ImageView) this.cRX.findViewById(d.g.zan_list_item_line_bottom);
+        this.hJo.setVisibility(0);
+        this.cRX.setTag(this);
     }
 
     public View getView() {
-        return this.cRW;
+        return this.cRX;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.hJl.setText(str);
-        this.hJk.setImageDrawable(null);
-        this.hJm.setText(ap.ao(j));
-        this.hJk.startLoad(str2, 28, false);
+        this.hJm.setText(str);
+        this.hJl.setImageDrawable(null);
+        this.hJn.setText(ap.ao(j));
+        this.hJl.startLoad(str2, 28, false);
     }
 }

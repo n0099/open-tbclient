@@ -5,14 +5,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes5.dex */
 public class b extends d {
-    protected TextView gsQ;
+    protected TextView gsR;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.gsQ = null;
+        this.gsR = null;
         setContentView(d.h.update_group_info_activity);
         uo(d.j.group_update_info);
-        this.gsQ = (TextView) this.gsR.findViewById(d.g.edit_count);
+        this.gsR = (TextView) this.gsS.findViewById(d.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -22,14 +22,14 @@ public class b extends d {
             int length = obj.length();
             y(length, length, 15, 300);
             int i = 300 - length;
-            this.gsQ.setText(String.valueOf(i));
+            this.gsR.setText(String.valueOf(i));
             if (i <= 50) {
-                this.gsQ.setVisibility(0);
+                this.gsR.setVisibility(0);
             } else {
-                this.gsQ.setVisibility(8);
+                this.gsR.setVisibility(8);
             }
             if (i == 0) {
-                this.gsQ.setTextColor(this.gsR.getResources().getColor(d.C0277d.common_color_10170));
+                this.gsR.setTextColor(this.gsS.getResources().getColor(d.C0277d.common_color_10170));
             } else {
                 bqS();
             }
@@ -37,8 +37,8 @@ public class b extends d {
     }
 
     private void bqS() {
-        this.gsR.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.gsR.getLayoutMode().onModeChanged(this.gsQ);
+        this.gsS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.gsS.getLayoutMode().onModeChanged(this.gsR);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

@@ -22,28 +22,28 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<MoreActivity> {
     private TbSettingTextTipView isA;
-    private SettingTextVersionView isB;
-    private TbSettingTextTipView isC;
+    private TbSettingTextTipView isB;
+    private SettingTextVersionView isC;
     private TbSettingTextTipView isD;
-    private TbSettingTextNewDotView isE;
-    private TextView isF;
-    private RelativeLayout isG;
-    private View isH;
+    private TbSettingTextTipView isE;
+    private TbSettingTextNewDotView isF;
+    private TextView isG;
+    private RelativeLayout isH;
     private View isI;
     private View isJ;
     private View isK;
     private View isL;
     private View isM;
     private View isN;
-    private RelativeLayout isO;
-    private BdSwitchView isP;
-    private MoreActivity isp;
-    private d isq;
-    private com.baidu.tbadk.core.dialog.g isr;
-    private i iss;
-    private SettingTextNormalImageView ist;
-    private SettingTextImageView isu;
-    private TbSettingTextTipView isv;
+    private View isO;
+    private RelativeLayout isP;
+    private BdSwitchView isQ;
+    private MoreActivity isq;
+    private d isr;
+    private com.baidu.tbadk.core.dialog.g iss;
+    private i ist;
+    private SettingTextNormalImageView isu;
+    private SettingTextImageView isv;
     private TbSettingTextTipView isw;
     private TbSettingTextTipView isx;
     private TbSettingTextTipView isy;
@@ -52,16 +52,16 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
 
     public e(MoreActivity moreActivity, d dVar) {
         super(moreActivity.getPageContext());
-        this.isJ = null;
         this.isK = null;
         this.isL = null;
         this.isM = null;
         this.isN = null;
         this.isO = null;
         this.isP = null;
-        this.isp = moreActivity;
-        this.isq = dVar;
-        this.isp.setContentView(d.h.more_activity);
+        this.isQ = null;
+        this.isq = moreActivity;
+        this.isr = dVar;
+        this.isq.setContentView(d.h.more_activity);
         akn();
         bZC();
     }
@@ -69,38 +69,38 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     public void bZA() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.isu.setVisibility(8);
+            this.isv.setVisibility(8);
         } else {
-            this.isu.setVisibility(0);
+            this.isv.setVisibility(0);
         }
     }
 
     public void at(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.isu != null) {
-                this.isu.caB();
+            if (this.isv != null) {
+                this.isv.caB();
                 return;
             }
             return;
         }
-        this.isu.caC();
-        this.isu.setIcon(str, z);
+        this.isv.caC();
+        this.isv.setIcon(str, z);
     }
 
     public void bZB() {
-        if (this.isB != null) {
-            this.isB.refresh();
+        if (this.isC != null) {
+            this.isC.refresh();
         }
-        if (this.isE != null) {
-            this.isE.refresh();
+        if (this.isF != null) {
+            this.isF.refresh();
         }
     }
 
     public void bZC() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.isP.oa();
+            this.isQ.oa();
         } else {
-            this.isP.ob();
+            this.isQ.ob();
         }
     }
 
@@ -127,104 +127,104 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     }
 
     public void bYE() {
-        this.isu.recycle();
         this.isv.recycle();
         this.isw.recycle();
         this.isx.recycle();
-        this.isz.recycle();
+        this.isy.recycle();
         this.isA.recycle();
         this.isB.recycle();
         this.isC.recycle();
         this.isD.recycle();
+        this.isE.recycle();
     }
 
     public void onChangeSkinType(int i) {
         jf(i);
-        if (this.iss != null) {
-            this.isp.getLayoutMode().setNightMode(i == 1);
-            this.isp.getLayoutMode().onModeChanged(this.iss.abf());
+        if (this.ist != null) {
+            this.isq.getLayoutMode().setNightMode(i == 1);
+            this.isq.getLayoutMode().onModeChanged(this.ist.abf());
         }
     }
 
     public void jf(int i) {
-        al.l(this.isG, d.C0277d.cp_bg_line_d);
+        al.l(this.isH, d.C0277d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.isu.jf(i);
-        this.isp.getLayoutMode().setNightMode(i == 1);
-        this.isp.getLayoutMode().onModeChanged(this.isG);
+        this.isv.jf(i);
+        this.isq.getLayoutMode().setNightMode(i == 1);
+        this.isq.getLayoutMode().onModeChanged(this.isH);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         bZB();
-        this.isP.setBackgroundRes(al.hp(d.f.bg_switch_open), al.hp(d.f.bg_switch_close), al.hp(d.f.btn_handle));
-        al.l(this.isH, d.C0277d.cp_bg_line_d);
-        this.ist.setLocalIcon(al.ht(d.f.icon_mine_list_baidu));
-        if (this.iss != null) {
-            this.iss.onChangeSkinType();
+        this.isQ.setBackgroundRes(al.hp(d.f.bg_switch_open), al.hp(d.f.bg_switch_close), al.hp(d.f.btn_handle));
+        al.l(this.isI, d.C0277d.cp_bg_line_d);
+        this.isu.setLocalIcon(al.ht(d.f.icon_mine_list_baidu));
+        if (this.ist != null) {
+            this.ist.onChangeSkinType();
         }
     }
 
     private void akn() {
         View.OnClickListener clickListener = getClickListener();
-        this.isG = (RelativeLayout) this.isp.findViewById(d.g.parent);
-        this.isH = this.isp.findViewById(d.g.scroll);
-        this.isp.findViewById(d.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.isp.findViewById(d.g.view_navigation_bar);
-        this.isI = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.isp.getPageContext().getString(d.j.setup));
+        this.isH = (RelativeLayout) this.isq.findViewById(d.g.parent);
+        this.isI = this.isq.findViewById(d.g.scroll);
+        this.isq.findViewById(d.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.isq.findViewById(d.g.view_navigation_bar);
+        this.isJ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.isq.getPageContext().getString(d.j.setup));
         this.mNavigationBar.showBottomLine();
-        this.ist = (SettingTextNormalImageView) this.isp.findViewById(d.g.accountSafeSetting);
-        this.isu = (SettingTextImageView) this.isp.findViewById(d.g.personInfo);
-        this.isv = (TbSettingTextTipView) this.isp.findViewById(d.g.interest_label_setting);
-        this.isv.setTopLineVisibility(true);
-        this.isw = (TbSettingTextTipView) this.isp.findViewById(d.g.accountManager);
+        this.isu = (SettingTextNormalImageView) this.isq.findViewById(d.g.accountSafeSetting);
+        this.isv = (SettingTextImageView) this.isq.findViewById(d.g.personInfo);
+        this.isw = (TbSettingTextTipView) this.isq.findViewById(d.g.interest_label_setting);
         this.isw.setTopLineVisibility(true);
-        this.isx = (TbSettingTextTipView) this.isp.findViewById(d.g.browseSetting);
-        this.isx.setBottomLineVisibility(true);
-        this.isy = (TbSettingTextTipView) this.isp.findViewById(d.g.adSetting);
+        this.isx = (TbSettingTextTipView) this.isq.findViewById(d.g.accountManager);
+        this.isx.setTopLineVisibility(true);
+        this.isy = (TbSettingTextTipView) this.isq.findViewById(d.g.browseSetting);
         this.isy.setBottomLineVisibility(true);
-        this.isz = (TbSettingTextTipView) this.isp.findViewById(d.g.messageSetting);
+        this.isz = (TbSettingTextTipView) this.isq.findViewById(d.g.adSetting);
         this.isz.setBottomLineVisibility(true);
-        this.isx.setBottomLineVisibility(true);
-        this.isA = (TbSettingTextTipView) this.isp.findViewById(d.g.secretSetting);
+        this.isA = (TbSettingTextTipView) this.isq.findViewById(d.g.messageSetting);
         this.isA.setBottomLineVisibility(true);
-        this.isB = (SettingTextVersionView) this.isp.findViewById(d.g.versionInfo);
-        this.isC = (TbSettingTextTipView) this.isp.findViewById(d.g.feedBack);
-        this.isC.setTopLineVisibility(true);
-        this.isC.setBottomLineVisibility(true);
-        this.isD = (TbSettingTextTipView) this.isp.findViewById(d.g.recommend);
+        this.isy.setBottomLineVisibility(true);
+        this.isB = (TbSettingTextTipView) this.isq.findViewById(d.g.secretSetting);
+        this.isB.setBottomLineVisibility(true);
+        this.isC = (SettingTextVersionView) this.isq.findViewById(d.g.versionInfo);
+        this.isD = (TbSettingTextTipView) this.isq.findViewById(d.g.feedBack);
+        this.isD.setTopLineVisibility(true);
+        this.isD.setBottomLineVisibility(true);
+        this.isE = (TbSettingTextTipView) this.isq.findViewById(d.g.recommend);
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.isD.setVisibility(8);
-            this.isD.setBottomLineVisibility(false);
+            this.isE.setVisibility(8);
+            this.isE.setBottomLineVisibility(false);
         } else {
-            this.isD.setVisibility(0);
-            this.isD.setBottomLineVisibility(true);
+            this.isE.setVisibility(0);
+            this.isE.setBottomLineVisibility(true);
         }
-        this.isE = (TbSettingTextNewDotView) this.isp.findViewById(d.g.systemhelpsetting);
-        this.isF = (TextView) this.isp.findViewById(d.g.quit);
-        this.isO = (RelativeLayout) this.isp.findViewById(d.g.eyeshield_mode);
-        this.isP = (BdSwitchView) this.isp.findViewById(d.g.item_switch);
-        l.b(this.isp.getPageContext().getPageActivity(), this.isP, 10, 10, 10, 10);
-        this.isJ = this.isp.findViewById(d.g.divide_view2);
-        this.isK = this.isp.findViewById(d.g.divide_view1);
-        this.isL = this.isp.findViewById(d.g.divide_view3);
-        this.isM = this.isp.findViewById(d.g.divide_view4);
-        this.isN = this.isp.findViewById(d.g.divide_view5);
+        this.isF = (TbSettingTextNewDotView) this.isq.findViewById(d.g.systemhelpsetting);
+        this.isG = (TextView) this.isq.findViewById(d.g.quit);
+        this.isP = (RelativeLayout) this.isq.findViewById(d.g.eyeshield_mode);
+        this.isQ = (BdSwitchView) this.isq.findViewById(d.g.item_switch);
+        l.b(this.isq.getPageContext().getPageActivity(), this.isQ, 10, 10, 10, 10);
+        this.isK = this.isq.findViewById(d.g.divide_view2);
+        this.isL = this.isq.findViewById(d.g.divide_view1);
+        this.isM = this.isq.findViewById(d.g.divide_view3);
+        this.isN = this.isq.findViewById(d.g.divide_view4);
+        this.isO = this.isq.findViewById(d.g.divide_view5);
         bZB();
         bZA();
-        this.isu.caB();
+        this.isv.caB();
         jf(TbadkCoreApplication.getInst().getSkinType());
-        this.isK.setVisibility(0);
         this.isL.setVisibility(0);
         this.isM.setVisibility(0);
         this.isN.setVisibility(0);
+        this.isO.setVisibility(0);
         U(clickListener);
         if (!bZD()) {
-            this.isx.setTip(this.isp.getResources().getString(d.j.browsing_settings_tip_no_night));
-            this.isJ.setVisibility(8);
-            this.isO.setVisibility(8);
+            this.isy.setTip(this.isq.getResources().getString(d.j.browsing_settings_tip_no_night));
+            this.isK.setVisibility(8);
+            this.isP.setVisibility(8);
             return;
         }
-        this.isJ.setVisibility(0);
-        this.isO.setVisibility(0);
+        this.isK.setVisibility(0);
+        this.isP.setVisibility(0);
     }
 
     private boolean bZD() {
@@ -232,20 +232,20 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     }
 
     private void zm() {
-        this.iss = new i(getPageContext().getPageActivity());
-        this.iss.setTitleText(getPageContext().getString(d.j.quit_account_tip));
+        this.ist = new i(getPageContext().getPageActivity());
+        this.ist.setTitleText(getPageContext().getString(d.j.quit_account_tip));
         ArrayList arrayList = new ArrayList();
-        final com.baidu.tbadk.core.dialog.f fVar = new com.baidu.tbadk.core.dialog.f(getPageContext().getString(d.j.quite_current_account), this.iss);
+        final com.baidu.tbadk.core.dialog.f fVar = new com.baidu.tbadk.core.dialog.f(getPageContext().getString(d.j.quite_current_account), this.ist);
         fVar.setTextColor(d.C0277d.cp_cont_h);
         arrayList.add(fVar);
-        this.isp.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.isp.getLayoutMode().onModeChanged(this.iss.abf());
+        this.isq.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.isq.getLayoutMode().onModeChanged(this.ist.abf());
         i.c cVar = new i.c() { // from class: com.baidu.tieba.setting.more.e.1
             @Override // com.baidu.tbadk.core.dialog.i.c
             public void a(i iVar, int i, View view) {
                 if (i == fVar.getId()) {
                     e.this.atv();
-                    e.this.isq.yu(12);
+                    e.this.isr.yu(12);
                 }
             }
         };
@@ -255,18 +255,17 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
                 e.this.atv();
             }
         };
-        this.iss.P(arrayList);
-        this.iss.a(cVar);
-        this.iss.a(aVar);
-        this.isr = new com.baidu.tbadk.core.dialog.g(this.mContext);
-        this.isr.setCanceledOnTouchOutside(true);
-        this.isr.setContentView(this.iss.abh());
+        this.ist.P(arrayList);
+        this.ist.a(cVar);
+        this.ist.a(aVar);
+        this.iss = new com.baidu.tbadk.core.dialog.g(this.mContext);
+        this.iss.setCanceledOnTouchOutside(true);
+        this.iss.setContentView(this.ist.abh());
     }
 
     private void U(View.OnClickListener onClickListener) {
-        this.ist.setOnClickListener(onClickListener);
-        this.isI.setOnClickListener(onClickListener);
         this.isu.setOnClickListener(onClickListener);
+        this.isJ.setOnClickListener(onClickListener);
         this.isv.setOnClickListener(onClickListener);
         this.isw.setOnClickListener(onClickListener);
         this.isx.setOnClickListener(onClickListener);
@@ -278,60 +277,61 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         this.isD.setOnClickListener(onClickListener);
         this.isE.setOnClickListener(onClickListener);
         this.isF.setOnClickListener(onClickListener);
-        this.isP.setOnSwitchStateChangeListener(this.isp);
+        this.isG.setOnClickListener(onClickListener);
+        this.isQ.setOnSwitchStateChangeListener(this.isq);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == e.this.isI) {
-                    e.this.isq.yu(0);
-                } else if (view == e.this.isu) {
-                    e.this.isq.yu(1);
+                if (view == e.this.isJ) {
+                    e.this.isr.yu(0);
                 } else if (view == e.this.isv) {
-                    e.this.isq.yu(15);
+                    e.this.isr.yu(1);
                 } else if (view == e.this.isw) {
-                    e.this.isq.yu(2);
+                    e.this.isr.yu(15);
                 } else if (view == e.this.isx) {
-                    e.this.isq.yu(3);
-                } else if (view == e.this.isz) {
-                    e.this.isq.yu(4);
-                } else if (view == e.this.isA) {
-                    e.this.isq.yu(9);
-                } else if (view == e.this.isB) {
-                    e.this.isq.yu(6);
-                } else if (view == e.this.isC) {
-                    e.this.isq.yu(7);
-                } else if (view == e.this.isD) {
-                    e.this.isq.yu(8);
-                } else if (view == e.this.isE) {
-                    e.this.isq.yu(5);
-                } else if (view == e.this.isF) {
-                    e.this.isq.yu(10);
-                } else if (view == e.this.ist) {
-                    e.this.isq.yu(13);
+                    e.this.isr.yu(2);
                 } else if (view == e.this.isy) {
-                    e.this.isq.yu(16);
+                    e.this.isr.yu(3);
+                } else if (view == e.this.isA) {
+                    e.this.isr.yu(4);
+                } else if (view == e.this.isB) {
+                    e.this.isr.yu(9);
+                } else if (view == e.this.isC) {
+                    e.this.isr.yu(6);
+                } else if (view == e.this.isD) {
+                    e.this.isr.yu(7);
+                } else if (view == e.this.isE) {
+                    e.this.isr.yu(8);
+                } else if (view == e.this.isF) {
+                    e.this.isr.yu(5);
+                } else if (view == e.this.isG) {
+                    e.this.isr.yu(10);
+                } else if (view == e.this.isu) {
+                    e.this.isr.yu(13);
+                } else if (view == e.this.isz) {
+                    e.this.isr.yu(16);
                 }
             }
         };
     }
 
     public void bZE() {
-        if (this.isr == null) {
+        if (this.iss == null) {
             zm();
         }
-        this.isr.showDialog();
+        this.iss.showDialog();
     }
 
     public void atv() {
-        if (this.isr != null) {
-            this.isr.dismiss();
+        if (this.iss != null) {
+            this.iss.dismiss();
         }
     }
 
     public BdSwitchView bZF() {
-        return this.isP;
+        return this.isQ;
     }
 }

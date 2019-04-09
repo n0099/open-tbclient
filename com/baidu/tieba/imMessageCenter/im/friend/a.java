@@ -13,45 +13,45 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<BlackListItemData> aFL;
-    private View.OnClickListener dGE = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+    private ArrayList<BlackListItemData> aFM;
+    private View.OnClickListener dGF = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.gvu.a(view, (BlackListItemData) tag);
+                a.this.gvv.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity gvu;
+    private IMBlackListActivity gvv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.gvu = iMBlackListActivity;
+        this.gvv = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
-        this.aFL = arrayList;
+        this.aFM = arrayList;
     }
 
     public void b(BlackListItemData blackListItemData) {
-        if (this.aFL != null) {
-            this.aFL.remove(blackListItemData);
+        if (this.aFM != null) {
+            this.aFM.remove(blackListItemData);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aFL != null) {
-            return this.aFL.size();
+        if (this.aFM != null) {
+            return this.aFM.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aFL != null) {
-            return this.aFL.get(i);
+        if (this.aFM != null) {
+            return this.aFM.get(i);
         }
         return null;
     }
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
 
     private C0324a bwL() {
         C0324a c0324a = new C0324a();
-        c0324a.rootView = LayoutInflater.from(this.gvu.getPageContext().getContext()).inflate(d.h.im_black_list_item, (ViewGroup) null);
-        c0324a.gvw = (HeadImageView) c0324a.rootView.findViewById(d.g.header_view);
-        c0324a.gvw.setIsRound(true);
-        c0324a.eeA = (TextView) c0324a.rootView.findViewById(d.g.user_name);
-        c0324a.gvx = (Button) c0324a.rootView.findViewById(d.g.remove_button);
+        c0324a.rootView = LayoutInflater.from(this.gvv.getPageContext().getContext()).inflate(d.h.im_black_list_item, (ViewGroup) null);
+        c0324a.gvx = (HeadImageView) c0324a.rootView.findViewById(d.g.header_view);
+        c0324a.gvx.setIsRound(true);
+        c0324a.eeB = (TextView) c0324a.rootView.findViewById(d.g.user_name);
+        c0324a.gvy = (Button) c0324a.rootView.findViewById(d.g.remove_button);
         c0324a.rootView.setTag(c0324a);
-        c0324a.gvx.setOnClickListener(this.dGE);
+        c0324a.gvy.setOnClickListener(this.dGF);
         return c0324a;
     }
 
@@ -96,16 +96,16 @@ public class a extends BaseAdapter {
             c0324a = (C0324a) obj;
         }
         a(c0324a, blackListItemData.brU());
-        c0324a.eeA.setText(blackListItemData.ajN());
-        c0324a.gvx.setTag(blackListItemData);
-        this.gvu.getLayoutMode().onModeChanged(c0324a.rootView);
+        c0324a.eeB.setText(blackListItemData.ajN());
+        c0324a.gvy.setTag(blackListItemData);
+        this.gvv.getLayoutMode().onModeChanged(c0324a.rootView);
         return c0324a;
     }
 
     private void a(C0324a c0324a, String str) {
         if (str != null) {
-            c0324a.gvw.setTag(str);
-            c0324a.gvw.startLoad(str, 12, false);
+            c0324a.gvx.setTag(str);
+            c0324a.gvx.startLoad(str, 12, false);
         }
     }
 
@@ -113,9 +113,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0324a {
-        public TextView eeA;
-        public HeadImageView gvw;
-        public Button gvx;
+        public TextView eeB;
+        public HeadImageView gvx;
+        public Button gvy;
         public View rootView;
 
         private C0324a() {

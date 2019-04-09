@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
-    private c jLC;
-    private int jLD;
-    private boolean jLE;
+    private c jLD;
+    private int jLE;
+    private boolean jLF;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -27,9 +27,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.jLD = -1;
-        this.jLE = false;
-        this.jLC = cVar;
+        this.jLE = -1;
+        this.jLF = false;
+        this.jLD = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -72,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.jLE) {
+                    if (this.jLF) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.jLD = this.jLC.addTrack(outputFormat);
-                    if (!this.jLC.start()) {
-                        synchronized (this.jLC) {
-                            while (!this.jLC.isStarted()) {
+                    this.jLE = this.jLD.addTrack(outputFormat);
+                    if (!this.jLD.start()) {
+                        synchronized (this.jLD) {
+                            while (!this.jLD.isStarted()) {
                                 try {
-                                    this.jLC.wait(100L);
+                                    this.jLD.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.jLE = true;
+                    this.jLF = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.jLE) {
+                        if (!this.jLF) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.jLC.writeSampleData(this.jLD, byteBuffer, this.mBufferInfo);
+                        this.jLD.writeSampleData(this.jLE, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.jLC != null) {
-                this.jLC.stop();
-                this.jLC = null;
+            if (this.jLD != null) {
+                this.jLD.stop();
+                this.jLD = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

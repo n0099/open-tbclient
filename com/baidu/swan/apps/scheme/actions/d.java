@@ -30,8 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends y {
-    private String aPl;
     private String aPm;
+    private String aPn;
     private String mCallback;
     private int mCount;
 
@@ -69,15 +69,15 @@ public class d extends y {
             com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
             this.mCount = 9;
         }
-        this.aPl = m(dm.optJSONArray("sizeType"));
-        this.aPm = n(dm.optJSONArray("sourceType"));
-        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.aPl + ",sourceType: " + this.aPm);
-        if (TextUtils.equals(this.aPm, "album")) {
+        this.aPm = m(dm.optJSONArray("sizeType"));
+        this.aPn = n(dm.optJSONArray("sourceType"));
+        com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.aPm + ",sourceType: " + this.aPn);
+        if (TextUtils.equals(this.aPn, "album")) {
             com.baidu.swan.apps.u.a.CL().a(context, this.mCount, new a() { // from class: com.baidu.swan.apps.scheme.actions.d.1
                 @Override // com.baidu.swan.apps.scheme.actions.d.a
                 public void g(ArrayList<String> arrayList) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        if (TextUtils.equals(d.this.aPl, "compressed")) {
+                        if (TextUtils.equals(d.this.aPm, "compressed")) {
                             d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                             return;
                         } else {
@@ -176,7 +176,7 @@ public class d extends y {
                         if (i == -1) {
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(c.getAbsolutePath());
-                            if (TextUtils.equals(d.this.aPl, "compressed")) {
+                            if (TextUtils.equals(d.this.aPm, "compressed")) {
                                 d.this.b(unitedSchemeEntity, callbackHandler, bVar, arrayList);
                                 return true;
                             }

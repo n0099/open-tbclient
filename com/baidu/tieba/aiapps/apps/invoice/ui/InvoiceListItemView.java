@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class InvoiceListItemView extends FrameLayout {
-    private View cUA;
-    private ImageView cUB;
-    private TextView cUC;
-    private ImageView cUD;
-    private TextView cUE;
-    private PartingLineView cUz;
+    private PartingLineView cUA;
+    private View cUB;
+    private ImageView cUC;
+    private TextView cUD;
+    private ImageView cUE;
+    private TextView cUF;
     private Context mContext;
     private View mTopView;
 
@@ -37,22 +37,22 @@ public class InvoiceListItemView extends FrameLayout {
     private void initView(Context context) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(d.h.invoice_item_view, (ViewGroup) this, true);
-        this.cUz = (PartingLineView) findViewById(d.g.parting_line_view);
-        this.cUz.setBgNormalColor(d.C0277d.invoice_bg_normal_color);
-        this.cUz.setBgPressedColor(d.C0277d.invoice_bg_pressed_color);
-        this.cUz.setBorderColor(d.C0277d.invoice_bg_border_color);
-        this.cUz.setDividerLineColor(d.C0277d.invoice_bg_divider_line_color);
-        this.cUA = LayoutInflater.from(context).inflate(d.h.invoice_item_bottom_view, (ViewGroup) null);
-        this.cUB = (ImageView) this.cUA.findViewById(d.g.invoice_current_use_img);
-        this.cUC = (TextView) this.cUA.findViewById(d.g.invoice_current_use_txt);
-        this.cUD = (ImageView) this.cUA.findViewById(d.g.invoice_edit_img);
-        this.cUE = (TextView) this.cUA.findViewById(d.g.invoice_edit);
-        this.cUB.setImageDrawable(getResources().getDrawable(d.f.invoice_default_select));
-        this.cUC.setTextColor(getResources().getColor(d.C0277d.invoice_bottom_text));
-        this.cUD.setImageDrawable(getResources().getDrawable(d.f.invoice_edit_img));
-        this.cUE.setTextColor(getResources().getColor(d.C0277d.invoice_bottom_text));
-        this.cUB.setVisibility(4);
+        this.cUA = (PartingLineView) findViewById(d.g.parting_line_view);
+        this.cUA.setBgNormalColor(d.C0277d.invoice_bg_normal_color);
+        this.cUA.setBgPressedColor(d.C0277d.invoice_bg_pressed_color);
+        this.cUA.setBorderColor(d.C0277d.invoice_bg_border_color);
+        this.cUA.setDividerLineColor(d.C0277d.invoice_bg_divider_line_color);
+        this.cUB = LayoutInflater.from(context).inflate(d.h.invoice_item_bottom_view, (ViewGroup) null);
+        this.cUC = (ImageView) this.cUB.findViewById(d.g.invoice_current_use_img);
+        this.cUD = (TextView) this.cUB.findViewById(d.g.invoice_current_use_txt);
+        this.cUE = (ImageView) this.cUB.findViewById(d.g.invoice_edit_img);
+        this.cUF = (TextView) this.cUB.findViewById(d.g.invoice_edit);
+        this.cUC.setImageDrawable(getResources().getDrawable(d.f.invoice_default_select));
+        this.cUD.setTextColor(getResources().getColor(d.C0277d.invoice_bottom_text));
+        this.cUE.setImageDrawable(getResources().getDrawable(d.f.invoice_edit_img));
+        this.cUF.setTextColor(getResources().getColor(d.C0277d.invoice_bottom_text));
         this.cUC.setVisibility(4);
+        this.cUD.setVisibility(4);
         setClickable(true);
     }
 
@@ -61,8 +61,8 @@ public class InvoiceListItemView extends FrameLayout {
         ((TextView) this.mTopView.findViewById(d.g.invoice_company_title_txt)).setTextColor(getResources().getColor(d.C0277d.invoice_top_title_color));
         ((TextView) this.mTopView.findViewById(d.g.tax_number_txt)).setTextColor(getResources().getColor(d.C0277d.invoice_top_tax_number_color));
         ((CommonTagView) this.mTopView.findViewById(d.g.common_tag_company)).setTextColor(getResources().getColor(d.C0277d.invoice_top_tag_color));
-        if (this.cUz != null) {
-            this.cUz.setContentView(this.mTopView, this.cUA);
+        if (this.cUA != null) {
+            this.cUA.setContentView(this.mTopView, this.cUB);
         }
     }
 
@@ -70,8 +70,8 @@ public class InvoiceListItemView extends FrameLayout {
         this.mTopView = LayoutInflater.from(this.mContext).inflate(d.h.invoice_item_top_personage_view, (ViewGroup) null);
         ((TextView) this.mTopView.findViewById(d.g.invoice_personal_title_txt)).setTextColor(getResources().getColor(d.C0277d.invoice_top_title_color));
         ((CommonTagView) this.mTopView.findViewById(d.g.invoice_personal_tag)).setTextColor(getResources().getColor(d.C0277d.invoice_top_tag_color));
-        if (this.cUz != null) {
-            this.cUz.setContentView(this.mTopView, this.cUA);
+        if (this.cUA != null) {
+            this.cUA.setContentView(this.mTopView, this.cUB);
         }
     }
 
@@ -97,11 +97,11 @@ public class InvoiceListItemView extends FrameLayout {
 
     public void setEditClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
+            if (this.cUF != null) {
+                this.cUF.setOnClickListener(onClickListener);
+            }
             if (this.cUE != null) {
                 this.cUE.setOnClickListener(onClickListener);
-            }
-            if (this.cUD != null) {
-                this.cUD.setOnClickListener(onClickListener);
             }
         }
     }
@@ -114,11 +114,11 @@ public class InvoiceListItemView extends FrameLayout {
 
     public void fV(boolean z) {
         int i = z ? 0 : 4;
-        if (this.cUB != null) {
-            this.cUB.setVisibility(i);
-        }
         if (this.cUC != null) {
             this.cUC.setVisibility(i);
+        }
+        if (this.cUD != null) {
+            this.cUD.setVisibility(i);
         }
     }
 
@@ -129,8 +129,8 @@ public class InvoiceListItemView extends FrameLayout {
     }
 
     private void fW(boolean z) {
-        if (this.cUz != null) {
-            this.cUz.fX(z);
+        if (this.cUA != null) {
+            this.cUA.fX(z);
         }
     }
 }

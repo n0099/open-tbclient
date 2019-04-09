@@ -14,22 +14,22 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
-    public static String aDq;
     public static String aDr;
-    public static volatile c aDs;
+    public static String aDs;
+    public static volatile c aDt;
 
     private c() {
     }
 
     public static c Fr() {
-        if (aDs == null) {
+        if (aDt == null) {
             synchronized (c.class) {
-                if (aDs == null) {
-                    aDs = new c();
+                if (aDt == null) {
+                    aDt = new c();
                 }
             }
         }
-        return aDs;
+        return aDt;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {

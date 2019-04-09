@@ -50,28 +50,28 @@ public final class AppleLosslessSpecificBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleLosslessSpecificBox.java", AppleLosslessSpecificBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getMaxSamplePerFrame", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 34);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setMaxSamplePerFrame", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "maxSamplePerFrame", "", "void"), 38);
-        ajc$tjp_10 = bVar.a("method-execution", bVar.c("1", "getKModifier", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 74);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.c("1", "setKModifier", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "kModifier", "", "void"), 78);
-        ajc$tjp_12 = bVar.a("method-execution", bVar.c("1", "getChannels", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 82);
-        ajc$tjp_13 = bVar.a("method-execution", bVar.c("1", "setChannels", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "channels", "", "void"), 86);
-        ajc$tjp_14 = bVar.a("method-execution", bVar.c("1", "getUnknown2", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 90);
-        ajc$tjp_15 = bVar.a("method-execution", bVar.c("1", "setUnknown2", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "unknown2", "", "void"), 94);
-        ajc$tjp_16 = bVar.a("method-execution", bVar.c("1", "getMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 98);
-        ajc$tjp_17 = bVar.a("method-execution", bVar.c("1", "setMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "maxCodedFrameSize", "", "void"), 102);
-        ajc$tjp_18 = bVar.a("method-execution", bVar.c("1", "getBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 106);
-        ajc$tjp_19 = bVar.a("method-execution", bVar.c("1", "setBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "bitRate", "", "void"), 110);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getUnknown1", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 42);
-        ajc$tjp_20 = bVar.a("method-execution", bVar.c("1", "getSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 114);
-        ajc$tjp_21 = bVar.a("method-execution", bVar.c("1", "setSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "sampleRate", "", "void"), 118);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setUnknown1", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "unknown1", "", "void"), 46);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "getSampleSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 50);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "setSampleSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "sampleSize", "", "void"), 54);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "getHistoryMult", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 58);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.c("1", "setHistoryMult", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "historyMult", "", "void"), 62);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.c("1", "getInitialHistory", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 66);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.c("1", "setInitialHistory", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "initialHistory", "", "void"), 70);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getMaxSamplePerFrame", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 34);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setMaxSamplePerFrame", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "maxSamplePerFrame", "", "void"), 38);
+        ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getKModifier", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 74);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setKModifier", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "kModifier", "", "void"), 78);
+        ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "getChannels", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 82);
+        ajc$tjp_13 = bVar.a("method-execution", bVar.b("1", "setChannels", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "channels", "", "void"), 86);
+        ajc$tjp_14 = bVar.a("method-execution", bVar.b("1", "getUnknown2", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 90);
+        ajc$tjp_15 = bVar.a("method-execution", bVar.b("1", "setUnknown2", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "unknown2", "", "void"), 94);
+        ajc$tjp_16 = bVar.a("method-execution", bVar.b("1", "getMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 98);
+        ajc$tjp_17 = bVar.a("method-execution", bVar.b("1", "setMaxCodedFrameSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "maxCodedFrameSize", "", "void"), 102);
+        ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "getBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 106);
+        ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setBitRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "bitRate", "", "void"), 110);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getUnknown1", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 42);
+        ajc$tjp_20 = bVar.a("method-execution", bVar.b("1", "getSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "long"), 114);
+        ajc$tjp_21 = bVar.a("method-execution", bVar.b("1", "setSampleRate", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "sampleRate", "", "void"), 118);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setUnknown1", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "unknown1", "", "void"), 46);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getSampleSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 50);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setSampleSize", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "sampleSize", "", "void"), 54);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getHistoryMult", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 58);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setHistoryMult", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "historyMult", "", "void"), 62);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getInitialHistory", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "", "", "", "int"), 66);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setInitialHistory", "com.coremedia.iso.boxes.apple.AppleLosslessSpecificBox", "int", "initialHistory", "", "void"), 70);
     }
 
     public long getMaxSamplePerFrame() {

@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.exy);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.a.exz);
         this.mForumId = str;
         this.mForumName = str2;
         this.mPageContext = tbPageContext;

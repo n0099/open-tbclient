@@ -25,7 +25,7 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
-    private static AtomicLong aPp = new AtomicLong(System.currentTimeMillis());
+    private static AtomicLong aPq = new AtomicLong(System.currentTimeMillis());
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/downloadFile");
@@ -70,7 +70,7 @@ public class f extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         com.baidu.swan.apps.network.a.b bVar2 = new com.baidu.swan.apps.network.a.b();
         bVar2.n(a(optJSONObject, true));
         final String valueOf = String.valueOf(System.currentTimeMillis());
-        this.aCh.put(valueOf, 0L);
+        this.aCi.put(valueOf, 0L);
         com.baidu.swan.apps.network.a.a aVar = new com.baidu.swan.apps.network.a.a();
         aVar.a(new a.InterfaceC0146a() { // from class: com.baidu.swan.apps.scheme.actions.f.1
             @Override // com.baidu.swan.apps.network.a.a.InterfaceC0146a
@@ -103,7 +103,7 @@ public class f extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
                             }
                         }
                     }
-                    f.this.aCh.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+                    f.this.aCi.put(valueOf, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         });
@@ -182,9 +182,9 @@ public class f extends com.baidu.swan.apps.network.a implements com.baidu.swan.a
         String header = response.header("Content-Type", null);
         String str3 = "";
         if (!TextUtils.isEmpty(header)) {
-            str3 = com.baidu.swan.apps.an.k.aWo.containsKey(header) ? com.baidu.swan.apps.an.k.aWo.get(header) : str;
+            str3 = com.baidu.swan.apps.an.k.aWp.containsKey(header) ? com.baidu.swan.apps.an.k.aWp.get(header) : str;
         }
-        String str4 = String.valueOf(aPp.getAndIncrement()) + (TextUtils.isEmpty(str3) ? "" : "." + str3);
+        String str4 = String.valueOf(aPq.getAndIncrement()) + (TextUtils.isEmpty(str3) ? "" : "." + str3);
         if (z) {
             return com.baidu.swan.games.f.g.iB("bdfile://tmp" + File.separator + str4);
         }

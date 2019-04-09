@@ -40,16 +40,16 @@ import java.util.Map;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a grR = null;
-    public static volatile Long grS = 0L;
-    public static volatile long grT = 0;
-    private a.c grW;
-    private VoiceSendModel grX;
-    private WeakReference<a.InterfaceC0239a<ChatMessage>> grY;
+    private static volatile a grS = null;
+    public static volatile Long grT = 0L;
+    public static volatile long grU = 0;
+    private a.c grX;
+    private VoiceSendModel grY;
+    private WeakReference<a.InterfaceC0239a<ChatMessage>> grZ;
     private d mSendCallback;
-    private final LinkedList<ChatMessage> grU = new LinkedList<>();
-    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> grV = new HashMap<>();
-    VoiceSendModel.b grZ = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
+    private final LinkedList<ChatMessage> grV = new LinkedList<>();
+    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> grW = new HashMap<>();
+    VoiceSendModel.b gsa = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
         @Override // com.baidu.tieba.im.sendmessage.VoiceSendModel.b
         public void a(String str, ChatMessage chatMessage) {
             try {
@@ -135,9 +135,9 @@ public class a {
     }
 
     private void init() {
-        this.grX = new VoiceSendModel(null);
-        this.grX.a(this.grZ);
-        this.grW = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
+        this.grY = new VoiceSendModel(null);
+        this.grY.a(this.gsa);
+        this.grX = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
             @Override // com.baidu.tbadk.img.a.c
             public synchronized void a(String str, ImageUploadResult imageUploadResult) {
                 com.baidu.tbadk.img.a aVar;
@@ -147,7 +147,7 @@ public class a {
                 int i2 = 0;
                 synchronized (this) {
                     synchronized (a.class) {
-                        aVar = (com.baidu.tbadk.img.a) a.this.grV.remove(str);
+                        aVar = (com.baidu.tbadk.img.a) a.this.grW.remove(str);
                     }
                     if (aVar != null && (chatMessage = (ChatMessage) aVar.ans()) != null) {
                         if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
@@ -288,24 +288,24 @@ public class a {
     }
 
     public void c(ChatMessage chatMessage, String str) {
-        com.baidu.tbadk.img.a<ChatMessage> aVar = this.grV.get(str);
+        com.baidu.tbadk.img.a<ChatMessage> aVar = this.grW.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
             aVar2.ant();
             aVar2.aa(chatMessage);
-            if (this.grY != null && this.grY.get() != null) {
-                aVar2.a(this.grY.get());
+            if (this.grZ != null && this.grZ.get() != null) {
+                aVar2.a(this.grZ.get());
             }
-            aVar2.a(this.grW);
+            aVar2.a(this.grX);
             if (chatMessage instanceof CommonGroupChatMessage) {
                 aVar2.setGroupId(((CommonGroupChatMessage) chatMessage).getGroupId());
             } else if (chatMessage instanceof PersonalChatMessage) {
-                aVar2.setGroupId(String.valueOf(grS));
-            } else if (chatMessage instanceof OfficialChatMessage) {
                 aVar2.setGroupId(String.valueOf(grT));
+            } else if (chatMessage instanceof OfficialChatMessage) {
+                aVar2.setGroupId(String.valueOf(grU));
             }
             synchronized (a.class) {
-                this.grV.put(str, aVar2);
+                this.grW.put(str, aVar2);
             }
             aVar = aVar2;
         }
@@ -320,14 +320,14 @@ public class a {
             chatMessage.getClientLogID();
             chatMessage.getCmd();
         }
-        this.grX.b(voiceMsgData.getVoice_md5(), chatMessage);
+        this.grY.b(voiceMsgData.getVoice_md5(), chatMessage);
     }
 
     public boolean n(ChatMessage chatMessage) {
-        if (this.grV == null || chatMessage == null) {
+        if (this.grW == null || chatMessage == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.grV.entrySet()) {
+        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.grW.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
             if (value != null && value.ans() != null) {
                 ChatMessage ans = value.ans();
@@ -335,14 +335,14 @@ public class a {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
                     if (chatMessage.getToUserId() == ans.getToUserId()) {
-                        if (this.grY != null && this.grY.get() != null) {
-                            value.a(this.grY.get());
+                        if (this.grZ != null && this.grZ.get() != null) {
+                            value.a(this.grZ.get());
                         }
                         return true;
                     }
                 } else if (chatMessage.getGroupId() != null && ans.getGroupId() != null && chatMessage.getGroupId().equals(ans.getGroupId())) {
-                    if (this.grY != null && this.grY.get() != null) {
-                        value.a(this.grY.get());
+                    if (this.grZ != null && this.grZ.get() != null) {
+                        value.a(this.grZ.get());
                     }
                     return true;
                 }
@@ -353,20 +353,20 @@ public class a {
 
     private void o(ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.grU.add(chatMessage);
+            this.grV.add(chatMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(ChatMessage chatMessage) {
-        int a = a(chatMessage, this.grU);
+        int a = a(chatMessage, this.grV);
         if (a >= 0) {
-            this.grU.remove(a);
+            this.grV.remove(a);
         }
     }
 
     public boolean q(ChatMessage chatMessage) {
-        return a(chatMessage, this.grU) != -1;
+        return a(chatMessage, this.grV) != -1;
     }
 
     private int a(ChatMessage chatMessage, LinkedList<ChatMessage> linkedList) {
@@ -390,22 +390,22 @@ public class a {
     }
 
     public static a bvU() {
-        if (grR == null) {
+        if (grS == null) {
             synchronized (a.class) {
-                if (grR == null) {
-                    grR = new a();
+                if (grS == null) {
+                    grS = new a();
                 }
             }
         }
-        return grR;
+        return grS;
     }
 
     public static void dj(long j) {
-        grS = Long.valueOf(j);
+        grT = Long.valueOf(j);
     }
 
     public static void dk(long j) {
-        grT = j;
+        grU = j;
     }
 
     public void b(final String str, final c cVar) {
@@ -608,6 +608,6 @@ public class a {
     }
 
     public void setImageUploadUIProgressCallback(a.InterfaceC0239a<ChatMessage> interfaceC0239a) {
-        this.grY = new WeakReference<>(interfaceC0239a);
+        this.grZ = new WeakReference<>(interfaceC0239a);
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private r eEc;
+    private r eEd;
     private c fNZ;
     private a fPB;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
@@ -16,9 +16,9 @@ public class b {
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eEc = rVar;
+        this.eEd = rVar;
         initAdapters();
-        this.eEc.addAdapters(this.mAdapters);
+        this.eEd.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
@@ -30,13 +30,13 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        if (this.eEc != null) {
-            this.eEc.getListAdapter().notifyDataSetChanged();
+        if (this.eEd != null) {
+            this.eEd.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eEc.setData(list);
+        this.eEd.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

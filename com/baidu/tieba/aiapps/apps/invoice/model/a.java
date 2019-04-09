@@ -5,5 +5,5 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     @com.google.gson.a.c(IntentConfig.LIST)
-    public List<InvoiceInfo> cTt;
+    public List<InvoiceInfo> cTu;
 }

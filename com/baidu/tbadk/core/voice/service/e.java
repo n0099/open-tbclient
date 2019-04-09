@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object bVV = new Object();
-    private static e bVW = null;
-    private boolean bVX = false;
-    private boolean bVY = true;
+    private static Object bVW = new Object();
+    private static e bVX = null;
+    private boolean bVY = false;
+    private boolean bVZ = true;
     private int errorNo = -1;
 
     private e() {
     }
 
     public static e afD() {
-        if (bVW == null) {
-            synchronized (bVV) {
-                if (bVW == null) {
-                    bVW = new e();
+        if (bVX == null) {
+            synchronized (bVW) {
+                if (bVX == null) {
+                    bVX = new e();
                 }
             }
         }
-        return bVW;
+        return bVX;
     }
 
     public void setStreamType(int i) {
@@ -32,8 +32,8 @@ public class e extends MediaPlayer implements c {
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean nB(String str) {
         this.errorNo = -1;
-        if (!this.bVX) {
-            this.bVY = true;
+        if (!this.bVY) {
+            this.bVZ = true;
             reset();
             try {
                 setDataSource(str);
@@ -59,22 +59,22 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.bVX = true;
+        this.bVY = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void afz() {
         start();
-        this.bVY = false;
+        this.bVZ = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void afv() {
-        if (!this.bVY) {
+        if (!this.bVZ) {
             stop();
-            this.bVY = true;
-            this.bVX = false;
+            this.bVZ = true;
+            this.bVY = false;
         }
     }
 
@@ -86,8 +86,8 @@ public class e extends MediaPlayer implements c {
     @Override // com.baidu.tbadk.core.voice.service.c
     public void afB() {
         reset();
-        this.bVX = false;
-        this.bVY = true;
+        this.bVY = false;
+        this.bVZ = true;
         this.errorNo = -1;
     }
 
@@ -98,7 +98,7 @@ public class e extends MediaPlayer implements c {
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean afC() {
-        return this.bVX;
+        return this.bVY;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c

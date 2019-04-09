@@ -11,7 +11,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.eEB);
+        super(tbPageContext.getPageActivity(), e.eEC);
         this.mPageContext = tbPageContext;
     }
 

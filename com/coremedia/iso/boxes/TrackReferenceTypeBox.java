@@ -21,8 +21,8 @@ public class TrackReferenceTypeBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TrackReferenceTypeBox.java", TrackReferenceTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getTrackIds", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "[J"), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "java.lang.String"), 65);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getTrackIds", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "[J"), 40);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "java.lang.String"), 65);
     }
 
     public TrackReferenceTypeBox(String str) {

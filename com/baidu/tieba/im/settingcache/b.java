@@ -10,13 +10,13 @@ import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b gsu = new b();
+    private static b gsv = new b();
 
     private b() {
     }
 
     public static b bvX() {
-        return gsu;
+        return gsv;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +28,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.gss) {
-            ChatSetting chatSetting = this.gss.get(str3);
+        synchronized (this.gst) {
+            ChatSetting chatSetting = this.gst.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -101,8 +101,8 @@ public class b extends a {
             l<String> bvW = bvW();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.gss) {
-                this.gss.put(str, groupSettingItemData);
+            synchronized (this.gst) {
+                this.gst.put(str, groupSettingItemData);
             }
             bvW.e(str, jsonStrWithObject);
         }
@@ -121,8 +121,8 @@ public class b extends a {
                 return;
             }
             final String str = uid + "@" + gid;
-            synchronized (this.gss) {
-                this.gss.put(str, groupSettingItemData);
+            synchronized (this.gst) {
+                this.gst.put(str, groupSettingItemData);
             }
             aa.b(new z<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -139,8 +139,8 @@ public class b extends a {
     public void b(String str, String str2, k<Void> kVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + "@" + str2;
-            synchronized (this.gss) {
-                this.gss.remove(str3);
+            synchronized (this.gst) {
+                this.gst.remove(str3);
             }
             aa.b(new z<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */

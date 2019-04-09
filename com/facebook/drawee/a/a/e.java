@@ -9,13 +9,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.imagepipeline.f.e> {
-    private final g jAM;
-    private final com.facebook.imagepipeline.d.g jAX;
+    private final g jAN;
+    private final com.facebook.imagepipeline.d.g jAY;
 
     public e(Context context, g gVar, com.facebook.imagepipeline.d.g gVar2, Set<com.facebook.drawee.controller.c> set) {
         super(context, set);
-        this.jAX = gVar2;
-        this.jAM = gVar;
+        this.jAY = gVar2;
+        this.jAN = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,12 +39,12 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
             dVar.a(cvf(), cve(), cuD(), cuW());
             return dVar;
         }
-        return this.jAM.b(cvf(), cve(), cuD(), cuW());
+        return this.jAN.b(cvf(), cve(), cuD(), cuW());
     }
 
     private com.facebook.cache.common.b cuD() {
         ImageRequest cuX = cuX();
-        com.facebook.imagepipeline.c.f cxf = this.jAX.cxf();
+        com.facebook.imagepipeline.c.f cxf = this.jAY.cxf();
         if (cxf == null || cuX == null) {
             return null;
         }
@@ -58,7 +58,7 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        return this.jAX.a(imageRequest, obj, a(cacheLevel));
+        return this.jAY.a(imageRequest, obj, a(cacheLevel));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

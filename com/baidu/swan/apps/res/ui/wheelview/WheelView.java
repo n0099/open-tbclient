@@ -12,39 +12,39 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.x;
 /* loaded from: classes2.dex */
 public class WheelView extends BdGallery {
-    private static final int[] aKR = {-1, -1140850689, ViewCompat.MEASURED_SIZE_MASK};
-    private static final int[] aKS = {-15132391, -1155983079, 1644825};
-    private Drawable aKT;
-    private Rect aKU;
-    private Drawable aKV;
+    private static final int[] aKS = {-1, -1140850689, ViewCompat.MEASURED_SIZE_MASK};
+    private static final int[] aKT = {-15132391, -1155983079, 1644825};
+    private Drawable aKU;
+    private Rect aKV;
     private Drawable aKW;
-    private int aKX;
+    private Drawable aKX;
+    private int aKY;
     private int mShadowHeight;
 
     public WheelView(Context context) {
         super(context);
-        this.aKT = null;
-        this.aKU = new Rect();
-        this.aKV = null;
+        this.aKU = null;
+        this.aKV = new Rect();
         this.aKW = null;
+        this.aKX = null;
         initialize(context);
     }
 
     public WheelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aKT = null;
-        this.aKU = new Rect();
-        this.aKV = null;
+        this.aKU = null;
+        this.aKV = new Rect();
         this.aKW = null;
+        this.aKX = null;
         initialize(context);
     }
 
     public WheelView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aKT = null;
-        this.aKU = new Rect();
-        this.aKV = null;
+        this.aKU = null;
+        this.aKV = new Rect();
         this.aKW = null;
+        this.aKX = null;
         initialize(context);
     }
 
@@ -55,28 +55,28 @@ public class WheelView extends BdGallery {
         setGravity(1);
         setUnselectedAlpha(1.0f);
         setWillNotDraw(false);
-        this.aKT = getContext().getResources().getDrawable(a.e.aiapps_wheel_val);
+        this.aKU = getContext().getResources().getDrawable(a.e.aiapps_wheel_val);
         if (com.baidu.swan.apps.u.a.CR().Dq()) {
-            this.aKV = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKS);
-            this.aKW = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKS);
+            this.aKW = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKT);
+            this.aKX = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKT);
         } else {
-            this.aKV = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKR);
-            this.aKW = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKR);
+            this.aKW = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, aKS);
+            this.aKX = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, aKS);
         }
         setSoundEffectsEnabled(false);
-        this.aKX = x.dip2px(getContext(), 50.0f);
+        this.aKY = x.dip2px(getContext(), 50.0f);
     }
 
     public void setSelectorDrawable(Drawable drawable) {
-        if (this.aKT != drawable) {
-            this.aKT = drawable;
+        if (this.aKU != drawable) {
+            this.aKU = drawable;
             invalidate();
         }
     }
 
     public void setShadowDrawable(Drawable drawable, Drawable drawable2) {
-        this.aKV = drawable;
-        this.aKW = drawable2;
+        this.aKW = drawable;
+        this.aKX = drawable2;
         invalidate();
     }
 
@@ -118,9 +118,9 @@ public class WheelView extends BdGallery {
     }
 
     private void s(Canvas canvas) {
-        if (this.aKU != null && !this.aKU.isEmpty() && this.aKT != null) {
-            this.aKT.setBounds(this.aKU);
-            this.aKT.draw(canvas);
+        if (this.aKV != null && !this.aKV.isEmpty() && this.aKU != null) {
+            this.aKU.setBounds(this.aKV);
+            this.aKU.draw(canvas);
         }
     }
 
@@ -137,33 +137,33 @@ public class WheelView extends BdGallery {
 
     private void v(Canvas canvas) {
         if (this.mShadowHeight <= 0) {
-            this.mShadowHeight = (int) (2.0d * this.aKU.height());
-            this.mShadowHeight = Math.min(this.mShadowHeight, this.aKU.top);
+            this.mShadowHeight = (int) (2.0d * this.aKV.height());
+            this.mShadowHeight = Math.min(this.mShadowHeight, this.aKV.top);
         }
         int i = this.mShadowHeight;
-        if (this.aKV != null) {
-            this.aKV.setBounds(0, 0, getWidth(), i);
-            this.aKV.draw(canvas);
-        }
         if (this.aKW != null) {
-            this.aKW.setBounds(0, getHeight() - i, getWidth(), getHeight());
+            this.aKW.setBounds(0, 0, getWidth(), i);
             this.aKW.draw(canvas);
+        }
+        if (this.aKX != null) {
+            this.aKX.setBounds(0, getHeight() - i, getWidth(), getHeight());
+            this.aKX.draw(canvas);
         }
     }
 
     private void Ih() {
         int centerOfGallery = getCenterOfGallery();
         View childAt = getChildAt(0);
-        int measuredWidth = childAt != null ? childAt.getMeasuredWidth() : this.aKX;
+        int measuredWidth = childAt != null ? childAt.getMeasuredWidth() : this.aKY;
         int i = centerOfGallery - (measuredWidth / 2);
-        this.aKU.set(i, getPaddingTop(), measuredWidth + i, getHeight() - getPaddingBottom());
+        this.aKV.set(i, getPaddingTop(), measuredWidth + i, getHeight() - getPaddingBottom());
     }
 
     private void Ii() {
         int centerOfGallery = getCenterOfGallery();
         View childAt = getChildAt(0);
-        int measuredHeight = childAt != null ? childAt.getMeasuredHeight() : this.aKX;
+        int measuredHeight = childAt != null ? childAt.getMeasuredHeight() : this.aKY;
         int i = centerOfGallery - (measuredHeight / 2);
-        this.aKU.set(getPaddingLeft(), i, getWidth() - getPaddingRight(), measuredHeight + i);
+        this.aKV.set(getPaddingLeft(), i, getWidth() - getPaddingRight(), measuredHeight + i);
     }
 }

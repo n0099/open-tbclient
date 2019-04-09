@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.bg;
 public class b extends com.baidu.tieba.card.data.b implements m {
     public static final BdUniqueId fGM = BdUniqueId.gen();
     public static final BdUniqueId fGN = BdUniqueId.gen();
-    public bg eNy;
+    public bg eNz;
     public c fGO;
     public int fGP;
     public boolean isLinkThread = false;

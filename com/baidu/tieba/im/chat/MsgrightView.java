@@ -70,7 +70,7 @@ public class MsgrightView extends g {
     public void b(View view, ChatMessage chatMessage) {
         super.b(view, chatMessage);
         if (chatMessage == null) {
-            this.eKM.setVisibility(8);
+            this.eKN.setVisibility(8);
             this.mProgress.setVisibility(8);
             this.gcc.setVisibility(8);
             this.gce.setVisibility(8);

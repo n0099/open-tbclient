@@ -45,7 +45,7 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRv));
+            jSONObject3.put("permit", Boolean.toString(this.aRw));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
             e.printStackTrace();
         }
         ay("data", jSONObject.toString());
-        if (this.aRv) {
+        if (this.aRw) {
             Kk();
             return true;
         }
@@ -92,12 +92,12 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
                     if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
                         Log.i("aiapps-oauth", "ListPreparation result: " + (eVar == null ? "null" : eVar));
                     }
-                    b.this.aRz = eVar;
+                    b.this.aRA = eVar;
                     if (eVar == null) {
                         a.this.m(new Exception("no such scope"));
                         return;
                     }
-                    if (eVar.Kh() && !b.this.aRy) {
+                    if (eVar.Kh() && !b.this.aRz) {
                         b.this.a(new C0157b());
                     } else {
                         b.this.a(new b.a());
@@ -118,7 +118,7 @@ public class b extends com.baidu.swan.apps.setting.oauth.a.b {
 
         @Override // com.baidu.swan.apps.setting.oauth.d
         protected boolean Cf() throws Exception {
-            b.this.aRy = true;
+            b.this.aRz = true;
             if (!b.this.Jl().Ja().bk(b.this.mActivity)) {
                 b.this.Jl().Ja().a(b.this.mActivity, null, this);
                 return false;

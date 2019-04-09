@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.acT > 0.0f) {
-                int B = B(aVar.acT, f);
+            if (aVar.acU > 0.0f) {
+                int B = B(aVar.acU, f);
                 ((CriusTbClipImageView) view).setRadius(B, B, B, B);
             } else {
-                ((CriusTbClipImageView) view).setRadius(B(aVar.acU, f), B(aVar.acV, f), B(aVar.acW, f), B(aVar.acX, f));
+                ((CriusTbClipImageView) view).setRadius(B(aVar.acV, f), B(aVar.acW, f), B(aVar.acX, f), B(aVar.acY, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -59,7 +59,7 @@ public class q implements com.baidu.c.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.acS;
+            builder.thumbnail_url = aVar.acT;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);

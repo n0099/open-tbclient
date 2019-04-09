@@ -8,37 +8,37 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MoreDeskView extends CommonTabHost {
-    private SparseIntArray ciZ;
-    LinkedList<g> cix;
-    private boolean cja;
+    LinkedList<g> ciy;
+    private SparseIntArray cja;
+    private boolean cjb;
 
     public MoreDeskView(Context context) {
         super(context);
-        this.ciZ = new SparseIntArray();
-        this.cja = true;
+        this.cja = new SparseIntArray();
+        this.cjb = true;
         setBackgroundColorId(d.C0277d.cp_bg_line_d);
         setToolId(2);
     }
 
     public MoreDeskView(Context context, boolean z) {
         super(context);
-        this.ciZ = new SparseIntArray();
-        this.cja = true;
+        this.cja = new SparseIntArray();
+        this.cjb = true;
         setBackgroundColorId(d.C0277d.cp_bg_line_d);
         setToolId(2);
-        this.cja = z;
+        this.cjb = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void k(LinkedList<g> linkedList) {
-        this.cix = linkedList;
+        this.ciy = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.l
     public void init() {
         setShowDelete(false);
         h hVar = new h();
-        hVar.k(this.cix);
+        hVar.k(this.ciy);
         b(hVar);
     }
 
@@ -52,7 +52,7 @@ public class MoreDeskView extends CommonTabHost {
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.ciZ.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.cja.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -64,13 +64,13 @@ public class MoreDeskView extends CommonTabHost {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.l(str, 1);
             }
         }
-        this.ciZ.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.cja.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
     private void amb() {
         int i = 0;
-        for (int i2 = 0; i2 < this.ciZ.size(); i2++) {
-            i += this.ciZ.valueAt(i2);
+        for (int i2 = 0; i2 < this.cja.size(); i2++) {
+            i += this.cja.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

@@ -18,27 +18,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends c implements com.baidu.swan.apps.media.a {
-    private SwanAppNAViewContainer akt;
-    private com.baidu.tieba.aiapps.apps.media.video.c cVN;
-    private boolean cVO;
-    private com.baidu.swan.apps.model.a.a.a cVP;
-    private ConfigurationChangedListenFragment cVQ;
-    private boolean cVR;
+    private SwanAppNAViewContainer aku;
+    private com.baidu.tieba.aiapps.apps.media.video.c cVO;
+    private boolean cVP;
+    private com.baidu.swan.apps.model.a.a.a cVQ;
+    private ConfigurationChangedListenFragment cVR;
+    private boolean cVS;
     private boolean isFullScreen;
 
     public a(Activity activity, boolean z) {
         super(activity, (View) null, z);
-        this.cVN = new com.baidu.tieba.aiapps.apps.media.video.c();
-        this.cVO = false;
+        this.cVO = new com.baidu.tieba.aiapps.apps.media.video.c();
+        this.cVP = false;
         this.isFullScreen = false;
-        this.cVR = false;
+        this.cVS = false;
         b.a(this);
         a(new c.InterfaceC0368c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
             @Override // com.baidu.tieba.play.c.InterfaceC0368c
             public void qj() {
                 if (!a.this.isFullScreen) {
                     a.this.isFullScreen = true;
-                    if (a.this.akt != null) {
+                    if (a.this.aku != null) {
                         boolean ql = a.this.ql();
                         if (ql) {
                             a.this.pausePlay();
@@ -51,7 +51,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                         viewGroup.addView(a.this.bSV());
                         a.this.fZ(true);
                         if (ql) {
-                            a.this.gHJ.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
+                            a.this.gHK.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     a.this.bAH();
@@ -66,7 +66,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             public void qk() {
                 if (a.this.isFullScreen) {
                     a.this.isFullScreen = false;
-                    if (a.this.akt != null) {
+                    if (a.this.aku != null) {
                         boolean ql = a.this.ql();
                         if (ql) {
                             a.this.pausePlay();
@@ -75,14 +75,14 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                         if (viewGroup != null) {
                             viewGroup.removeView(a.this.bSV());
                         }
-                        a.this.akt.MI();
-                        a.this.akt.a(a.this.bSV(), a.this.cVP);
+                        a.this.aku.MI();
+                        a.this.aku.a(a.this.bSV(), a.this.cVQ);
                         if (a.this.mActivity.getResources().getConfiguration().orientation == 2) {
                             a.this.mActivity.setRequestedOrientation(1);
                         }
                         a.this.fZ(false);
                         if (ql) {
-                            a.this.gHJ.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
+                            a.this.gHK.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     a.this.bAH();
@@ -97,24 +97,24 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             @Override // com.baidu.tieba.play.c.o
             public void onStarted() {
                 d.a(a.this.Eg(), a.this.getSlaveId(), "play", new JSONObject());
-                a.this.cVR = true;
+                a.this.cVS = true;
             }
 
             @Override // com.baidu.tieba.play.c.o
             public void onPaused() {
                 d.a(a.this.Eg(), a.this.getSlaveId(), "pause", new JSONObject());
-                a.this.cVR = false;
+                a.this.cVS = false;
             }
 
             @Override // com.baidu.tieba.play.c.o
             public void onPlayEnd() {
                 d.a(a.this.Eg(), a.this.getSlaveId(), "ended", new JSONObject());
-                a.this.cVR = false;
+                a.this.cVS = false;
             }
 
             @Override // com.baidu.tieba.play.c.o
             public void azE() {
-                a.this.cVR = false;
+                a.this.cVS = false;
             }
 
             @Override // com.baidu.tieba.play.c.o
@@ -131,11 +131,11 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             @Override // com.baidu.tieba.play.c.o
             public void azF() {
                 d.a(a.this.Eg(), a.this.getSlaveId(), "play", new JSONObject());
-                a.this.cVR = true;
+                a.this.cVS = true;
             }
         });
-        this.cVQ = new ConfigurationChangedListenFragment();
-        this.cVQ.a(new ConfigurationChangedListenFragment.a() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.3
+        this.cVR = new ConfigurationChangedListenFragment();
+        this.cVR.a(new ConfigurationChangedListenFragment.a() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.3
             @Override // com.baidu.tieba.aiapps.apps.media.video.view.ConfigurationChangedListenFragment.a
             public void onConfigurationChanged(Configuration configuration) {
                 if (a.this.bSB()) {
@@ -144,16 +144,16 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                 }
             }
         });
-        activity.getFragmentManager().beginTransaction().add(this.cVQ, "onCon").commitAllowingStateLoss();
+        activity.getFragmentManager().beginTransaction().add(this.cVR, "onCon").commitAllowingStateLoss();
         oP(false);
     }
 
     public com.baidu.tieba.aiapps.apps.media.video.c azC() {
-        return this.cVN;
+        return this.cVO;
     }
 
     public void a(com.baidu.tieba.aiapps.apps.media.video.c cVar) {
-        this.cVN = cVar;
+        this.cVO = cVar;
         azD();
     }
 
@@ -173,8 +173,8 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                     height = aO;
                 }
             } else {
-                width = this.cVP.aBI.getWidth();
-                height = this.cVP.aBI.getHeight();
+                width = this.cVQ.aBJ.getWidth();
+                height = this.cVQ.aBJ.getHeight();
             }
             jSONObject.putOpt("fullscreen", z ? "1" : "0");
             jSONObject.putOpt("width", String.valueOf(width));
@@ -185,28 +185,28 @@ public class a extends c implements com.baidu.swan.apps.media.a {
     }
 
     private void azD() {
-        if (this.cVN.cVB) {
+        if (this.cVO.cVC) {
             setVolume(0);
         }
-        getVideoView().setLooping(this.cVN.mLoop);
-        if (this.cVN.cVh) {
+        getVideoView().setLooping(this.cVO.mLoop);
+        if (this.cVO.cVi) {
             bSE();
         }
-        oZ(!this.cVN.cVI);
-        if (!StringUtils.isNull(this.cVN.cVC)) {
-            setThumbnail(this.cVN.cVC);
+        oZ(!this.cVO.cVJ);
+        if (!StringUtils.isNull(this.cVO.cVD)) {
+            setThumbnail(this.cVO.cVD);
         }
-        bSV().setVisibility(this.cVN.hidden ? 8 : 0);
+        bSV().setVisibility(this.cVO.hidden ? 8 : 0);
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String Eg() {
-        return this.cVN == null ? "" : this.cVN.azv;
+        return this.cVO == null ? "" : this.cVO.azw;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.cVN == null ? "" : this.cVN.aBG;
+        return this.cVO == null ? "" : this.cVO.aBH;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -219,20 +219,20 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         if (!z) {
             if (getVideoView().isPlaying()) {
                 pausePlay();
-                this.cVO = true;
+                this.cVP = true;
                 return;
             }
             return;
         }
-        if (this.cVO) {
+        if (this.cVP) {
             bAH();
         }
-        this.cVO = false;
+        this.cVP = false;
     }
 
     public void e(SwanAppNAViewContainer swanAppNAViewContainer) {
-        this.akt = swanAppNAViewContainer;
-        this.cVP = this.akt.getModel().EK();
+        this.aku = swanAppNAViewContainer;
+        this.cVQ = this.aku.getModel().EK();
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -240,15 +240,15 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         if (!z) {
             if (getVideoView().isPlaying()) {
                 pausePlay();
-                this.cVO = true;
+                this.cVP = true;
                 return;
             }
             return;
         }
-        if (this.cVO) {
+        if (this.cVP) {
             bAH();
         }
-        this.cVO = false;
+        this.cVP = false;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -270,10 +270,10 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         if (viewGroup != null) {
             bnN();
             viewGroup.removeView(bSV());
-            this.akt.MI();
+            this.aku.MI();
         }
-        if (this.dbf != null) {
-            this.dbf.stopPlayback();
+        if (this.dbg != null) {
+            this.dbg.stopPlayback();
         }
         bSA();
         b.b(this);
@@ -283,12 +283,12 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         if (z != this.isFullScreen) {
             setFullScreenToDestroySurface();
             if (bSC()) {
-                if (this.UT) {
+                if (this.UU) {
                     bSF();
                 } else {
                     bSE();
                 }
-                oR(this.UT);
+                oR(this.UU);
                 return;
             }
             bAy();
@@ -299,15 +299,15 @@ public class a extends c implements com.baidu.swan.apps.media.a {
     public void cf(String str, String str2) {
         if (!j.kM()) {
             bnN();
-            e.jH().removeCallbacks(this.gIv);
-            this.ekr.setVisibility(0);
+            e.jH().removeCallbacks(this.gIw);
+            this.eks.setVisibility(0);
             return;
         }
         super.cf(str, str2);
     }
 
     public boolean hasStart() {
-        return this.cVR;
+        return this.cVS;
     }
 
     @Override // com.baidu.swan.apps.media.a

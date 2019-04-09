@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class n {
-    private long aEs;
-    private String cMZ;
-    private String hgo;
-    private String iGP;
-    private List<String> iGQ;
+    private long aEt;
+    private String cNa;
+    private String hgp;
+    private String iGQ;
+    private List<String> iGR;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.aEs = redpacketRain.end_time.longValue() * 1000;
-            this.cMZ = redpacketRain.jump_url;
-            this.iGP = redpacketRain.float_url;
-            this.iGQ = redpacketRain.dynamic_img;
-            this.hgo = redpacketRain.activity_id;
+            this.aEt = redpacketRain.end_time.longValue() * 1000;
+            this.cNa = redpacketRain.jump_url;
+            this.iGQ = redpacketRain.float_url;
+            this.iGR = redpacketRain.dynamic_img;
+            this.hgp = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class n {
     }
 
     public long getEndTime() {
-        return this.aEs;
+        return this.aEt;
     }
 
     public String awv() {
-        return this.cMZ;
+        return this.cNa;
     }
 
     public String ceD() {
-        return this.iGP;
-    }
-
-    public List<String> ceE() {
         return this.iGQ;
     }
 
+    public List<String> ceE() {
+        return this.iGR;
+    }
+
     public String ceF() {
-        return this.hgo;
+        return this.hgp;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class n {
     }
 
     public void setEndTime(long j) {
-        this.aEs = j;
+        this.aEt = j;
     }
 
     public void Cz(String str) {
-        this.cMZ = str;
+        this.cNa = str;
     }
 
     public void CA(String str) {
-        this.iGP = str;
+        this.iGQ = str;
     }
 
     public void dS(List<String> list) {
-        this.iGQ = list;
+        this.iGR = list;
     }
 
     public void CB(String str) {
-        this.hgo = str;
+        this.hgp = str;
     }
 
     public int getType() {

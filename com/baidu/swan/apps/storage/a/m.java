@@ -36,7 +36,7 @@ public class m extends y {
             return false;
         }
         IY.KD().putString(optString, optString2);
-        com.baidu.swan.apps.ak.e.aVS.update();
+        com.baidu.swan.apps.ak.e.aVT.update();
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         return true;
     }

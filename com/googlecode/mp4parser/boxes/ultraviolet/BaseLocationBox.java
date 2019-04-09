@@ -27,13 +27,13 @@ public class BaseLocationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("BaseLocationBox.java", BaseLocationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.c("1", "getBaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 44);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.c("1", "setBaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "baseLocation", "", "void"), 48);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.c("1", "getPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 52);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.c("1", "setPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "purchaseLocation", "", "void"), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.c("1", "equals", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.Object", Config.OS, "", "boolean"), 86);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.c("1", "hashCode", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "int"), 100);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.c("1", "toString", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 107);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 44);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "baseLocation", "", "void"), 48);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 52);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "purchaseLocation", "", "void"), 56);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.Object", Config.OS, "", "boolean"), 86);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "int"), 100);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 107);
     }
 
     public BaseLocationBox() {

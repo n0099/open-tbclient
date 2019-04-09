@@ -14,7 +14,7 @@ public class c extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
 
     private boolean d(Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2, JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("map", "GetScaleAction start");
-        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(cVar.aBG);
+        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(cVar.aBH);
         if (!(eg instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
@@ -25,7 +25,7 @@ public class c extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
             return false;
         }
         try {
-            jSONObject.put("scale", jd.bhm.getMap().getMapStatus().zoom);
+            jSONObject.put("scale", jd.bhn.getMap().getMapStatus().zoom);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int Td;
     private final int Te;
     private final int Tf;
-    private final String Tg;
-    private HashMap Th;
+    private final int Tg;
+    private final String Th;
+    private HashMap Ti;
     private int floor;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.Td = i;
-        this.Te = i2;
-        this.Tf = i3;
-        this.Tg = str;
+        this.Te = i;
+        this.Tf = i2;
+        this.Tg = i3;
+        this.Th = str;
         this.tabName = str2;
         this.floor = i4;
     }
@@ -27,12 +27,12 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public int pM() {
-        return this.Td;
+        return this.Te;
     }
 
     @Override // com.baidu.afd.g
     public int pN() {
-        return this.Te;
+        return this.Tf;
     }
 
     @Override // com.baidu.afd.g
@@ -42,11 +42,11 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public Map<String, String> pP() {
-        return this.Th;
+        return this.Ti;
     }
 
     @Override // com.baidu.afd.g
     public void l(HashMap hashMap) {
-        this.Th = hashMap;
+        this.Ti = hashMap;
     }
 }

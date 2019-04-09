@@ -7,11 +7,11 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 /* loaded from: classes2.dex */
 public class c extends d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.v.b.c ajB;
+    private com.baidu.swan.apps.v.b.c ajC;
 
     public c(com.baidu.swan.apps.v.b.c cVar) {
         super(cVar.mAppId);
-        this.ajB = cVar;
+        this.ajC = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.e
@@ -35,7 +35,7 @@ public class c extends d {
     @Override // com.baidu.swan.pms.a.e
     public void zy() {
         super.zy();
-        if (this.ask != null) {
+        if (this.asl != null) {
             zI();
             l("checkForUpdate", false);
         }
@@ -43,9 +43,9 @@ public class c extends d {
 
     @Override // com.baidu.swan.apps.core.pms.d
     protected void zz() {
-        this.aoT.add(new UbcFlowEvent("na_start_update_db"));
+        this.aoU.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.ak.a zH = zH();
-        this.aoT.add(new UbcFlowEvent("na_end_update_db"));
+        this.aoU.add(new UbcFlowEvent("na_end_update_db"));
         if (zH == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "异步更新-> DB 存储成功");
@@ -76,7 +76,7 @@ public class c extends d {
     }
 
     private void l(String str, boolean z) {
-        String str2 = this.ajB != null ? this.ajB.mAppId : null;
+        String str2 = this.ajC != null ? this.ajC.mAppId : null;
         if (!TextUtils.isEmpty(str2)) {
             i.d(str, str2, z);
         }

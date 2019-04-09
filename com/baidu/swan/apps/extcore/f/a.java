@@ -22,11 +22,11 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
     }
 
     public long Bw() {
-        return f.KJ().getLong(this.avw.Bs(), 0L);
+        return f.KJ().getLong(this.avx.Bs(), 0L);
     }
 
     public void u(long j) {
-        f.KJ().putLong(this.avw.Bs(), j);
+        f.KJ().putLong(this.avx.Bs(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
@@ -38,10 +38,10 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
     public ExtensionCore Bx() {
         ExtensionCore extensionCore = new ExtensionCore();
         long Bw = Bw();
-        extensionCore.avO = Bw;
-        extensionCore.avP = com.baidu.swan.apps.extcore.g.a.v(Bw);
-        extensionCore.avQ = t(Bw).getPath();
-        extensionCore.avN = 1;
+        extensionCore.avP = Bw;
+        extensionCore.avQ = com.baidu.swan.apps.extcore.g.a.v(Bw);
+        extensionCore.avR = t(Bw).getPath();
+        extensionCore.avO = 1;
         return extensionCore;
     }
 
@@ -50,15 +50,15 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.avR)) {
+        if (TextUtils.isEmpty(aVar.avS)) {
             Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             return false;
         }
-        C0142a o = o(aVar.versionName, aVar.avR, aVar.sign);
+        C0142a o = o(aVar.versionName, aVar.avS, aVar.sign);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + o);
         }
-        eG(aVar.avR);
+        eG(aVar.avS);
         return o.isOk();
     }
 
@@ -96,8 +96,8 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return arrayList;
         }
         for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Gu().Gv()) {
-            if (bVar.aFh && bVar.aFe != null && (As = bVar.aFe.As()) != null && !arrayList.contains(Long.valueOf(As.avO))) {
-                arrayList.add(Long.valueOf(As.avO));
+            if (bVar.aFi && bVar.aFf != null && (As = bVar.aFf.As()) != null && !arrayList.contains(Long.valueOf(As.avP))) {
+                arrayList.add(Long.valueOf(As.avP));
             }
         }
         if (DEBUG) {

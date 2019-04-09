@@ -99,8 +99,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.video = videoAggregationVideoData;
             this.forumId = String.valueOf(bgVar.getFid());
             this.threadId = bgVar.getId();
-            if (bgVar.bDH != null) {
-                this.forumId = bgVar.bDH.id;
+            if (bgVar.bDI != null) {
+                this.forumId = bgVar.bDI.id;
             }
             this.firstPostId = bgVar.Yz();
             this.createTime = String.valueOf(bgVar.getCreateTime());

@@ -13,47 +13,47 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
-    private String bym;
-    private InterfaceC0409a joL;
-    private com.baidu.tieba.write.a.a joM;
+    private String byn;
+    private InterfaceC0409a joM;
+    private com.baidu.tieba.write.a.a joN;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener joN = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener joO = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.jH().removeCallbacks(a.this.cNL);
-                if (a.this.joL != null) {
+                e.jH().removeCallbacks(a.this.cNM);
+                if (a.this.joM != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.jol = false;
-                        aVar.linkUrl = a.this.bym;
-                        aVar.jom = 1;
-                        a.this.joM = aVar;
+                        aVar.jom = false;
+                        aVar.linkUrl = a.this.byn;
+                        aVar.jon = 1;
+                        a.this.joN = aVar;
                     } else {
-                        a.this.joM = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.joM.jol) {
-                            a.this.joM.linkUrl = a.this.bym;
-                            a.this.joM.jom = 1;
+                        a.this.joN = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.joN.jom) {
+                            a.this.joN.linkUrl = a.this.byn;
+                            a.this.joN.jon = 1;
                         }
                     }
-                    a.this.joL.a(a.this.joM);
+                    a.this.joM.a(a.this.joN);
                 }
             }
         }
     };
-    private Runnable cNL = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable cNM = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.cpx();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.jol = false;
-            aVar.linkUrl = a.this.bym;
-            aVar.jom = 1;
-            a.this.joM = aVar;
-            if (a.this.joL != null) {
-                a.this.joL.a(a.this.joM);
+            aVar.jom = false;
+            aVar.linkUrl = a.this.byn;
+            aVar.jon = 1;
+            a.this.joN = aVar;
+            if (a.this.joM != null) {
+                a.this.joM.a(a.this.joN);
             }
         }
     };
@@ -66,12 +66,12 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.joN.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.joN);
+        this.joO.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.joO);
     }
 
     public void Es(String str) {
-        this.bym = str;
+        this.byn = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);
         httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -80,25 +80,25 @@ public class a {
         tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(UIMsg.m_AppUI.MSG_APP_GPS));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.jH().removeCallbacks(this.cNL);
-        e.jH().postDelayed(this.cNL, 15000L);
+        e.jH().removeCallbacks(this.cNM);
+        e.jH().postDelayed(this.cNM, 15000L);
     }
 
     public void cpx() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
-        e.jH().removeCallbacks(this.cNL);
+        e.jH().removeCallbacks(this.cNM);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.joN);
-        e.jH().removeCallbacks(this.cNL);
+        MessageManager.getInstance().unRegisterListener(this.joO);
+        e.jH().removeCallbacks(this.cNM);
     }
 
     public void a(InterfaceC0409a interfaceC0409a) {
-        this.joL = interfaceC0409a;
+        this.joM = interfaceC0409a;
     }
 
     public com.baidu.tieba.write.a.a cpy() {
-        return this.joM;
+        return this.joN;
     }
 }

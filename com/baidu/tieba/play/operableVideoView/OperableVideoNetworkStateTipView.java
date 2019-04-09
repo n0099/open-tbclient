@@ -16,11 +16,11 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.video.g;
 /* loaded from: classes.dex */
 public class OperableVideoNetworkStateTipView extends LinearLayout {
-    private String ctw;
-    private LinearLayout hZT;
-    private TextView hZU;
+    private String ctx;
+    private LinearLayout hZU;
     private TextView hZV;
-    private View.OnClickListener hZW;
+    private TextView hZW;
+    private View.OnClickListener hZX;
     private View.OnClickListener mOnClickListener;
 
     public OperableVideoNetworkStateTipView(Context context) {
@@ -33,10 +33,10 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
                         com.baidu.tbadk.browser.a.a(true, OperableVideoNetworkStateTipView.this.getContext(), OperableVideoNetworkStateTipView.this.getResources().getString(d.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                     } else if (view.getId() == d.g.play) {
                         OperableVideoNetworkStateTipView.this.setHasAgreeToPlay(true);
-                        if (OperableVideoNetworkStateTipView.this.hZW != null) {
-                            OperableVideoNetworkStateTipView.this.hZW.onClick(view);
+                        if (OperableVideoNetworkStateTipView.this.hZX != null) {
+                            OperableVideoNetworkStateTipView.this.hZX.onClick(view);
                         }
-                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctw));
+                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctx));
                     }
                 }
             }
@@ -54,10 +54,10 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
                         com.baidu.tbadk.browser.a.a(true, OperableVideoNetworkStateTipView.this.getContext(), OperableVideoNetworkStateTipView.this.getResources().getString(d.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                     } else if (view.getId() == d.g.play) {
                         OperableVideoNetworkStateTipView.this.setHasAgreeToPlay(true);
-                        if (OperableVideoNetworkStateTipView.this.hZW != null) {
-                            OperableVideoNetworkStateTipView.this.hZW.onClick(view);
+                        if (OperableVideoNetworkStateTipView.this.hZX != null) {
+                            OperableVideoNetworkStateTipView.this.hZX.onClick(view);
                         }
-                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctw));
+                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctx));
                     }
                 }
             }
@@ -75,10 +75,10 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
                         com.baidu.tbadk.browser.a.a(true, OperableVideoNetworkStateTipView.this.getContext(), OperableVideoNetworkStateTipView.this.getResources().getString(d.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                     } else if (view.getId() == d.g.play) {
                         OperableVideoNetworkStateTipView.this.setHasAgreeToPlay(true);
-                        if (OperableVideoNetworkStateTipView.this.hZW != null) {
-                            OperableVideoNetworkStateTipView.this.hZW.onClick(view);
+                        if (OperableVideoNetworkStateTipView.this.hZX != null) {
+                            OperableVideoNetworkStateTipView.this.hZX.onClick(view);
                         }
-                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctw));
+                        TiebaStatic.log(new am("c13257").T("obj_locate", 2).bJ("tid", OperableVideoNetworkStateTipView.this.ctx));
                     }
                 }
             }
@@ -92,22 +92,22 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
 
     private void init() {
         inflate(getContext(), getLayoutR(), this);
-        this.hZT = (LinearLayout) findViewById(d.g.play);
-        this.hZU = (TextView) findViewById(d.g.play_txt);
-        this.hZV = (TextView) findViewById(d.g.free_flow);
-        this.hZV.setOnClickListener(this.mOnClickListener);
-        this.hZT.setOnClickListener(this.mOnClickListener);
+        this.hZU = (LinearLayout) findViewById(d.g.play);
+        this.hZV = (TextView) findViewById(d.g.play_txt);
+        this.hZW = (TextView) findViewById(d.g.free_flow);
+        this.hZW.setOnClickListener(this.mOnClickListener);
+        this.hZU.setOnClickListener(this.mOnClickListener);
         setOnClickListener(this.mOnClickListener);
     }
 
     public void setVideoLength(long j) {
         if (j > 0) {
-            this.hZU.setText(String.format(getResources().getString(d.j.video_data), ap.aE(j)));
+            this.hZV.setText(String.format(getResources().getString(d.j.video_data), ap.aE(j)));
         }
     }
 
     public void setTid(String str) {
-        this.ctw = str;
+        this.ctx = str;
     }
 
     public boolean bUk() {
@@ -123,11 +123,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.hZW = onClickListener;
+        this.hZX = onClickListener;
     }
 
     public void ad(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hZV.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hZW.getLayoutParams();
         if (z && !z2) {
             setOrientation(1);
             layoutParams.leftMargin = 0;
@@ -146,6 +146,6 @@ public class OperableVideoNetworkStateTipView extends LinearLayout {
             layoutParams.leftMargin = (int) getResources().getDimension(d.e.tbds104);
             layoutParams.topMargin = 0;
         }
-        this.hZV.setLayoutParams(layoutParams);
+        this.hZW.setLayoutParams(layoutParams);
     }
 }

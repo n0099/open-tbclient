@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public final class k extends o<Time> {
-    public static final p jNR = new p() { // from class: com.google.gson.internal.a.k.1
+    public static final p jNS = new p() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
             if (aVar.cBC() == Time.class) {
@@ -21,7 +21,7 @@ public final class k extends o<Time> {
             return null;
         }
     };
-    private final DateFormat jOy = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat jOz = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
@@ -33,7 +33,7 @@ public final class k extends o<Time> {
             time = null;
         } else {
             try {
-                time = new Time(this.jOy.parse(aVar.nextString()).getTime());
+                time = new Time(this.jOz.parse(aVar.nextString()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -44,6 +44,6 @@ public final class k extends o<Time> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.FH(time == null ? null : this.jOy.format((Date) time));
+        bVar.FH(time == null ? null : this.jOz.format((Date) time));
     }
 }

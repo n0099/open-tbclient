@@ -16,11 +16,11 @@ import com.baidu.tieba.channel.message.ResponseChannelFansListMessage;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
-    private boolean ddg;
-    private boolean dfV;
-    private long emM;
-    private a eom;
-    private c eon;
+    private boolean ddh;
+    private boolean dfW;
+    private long emN;
+    private a eon;
+    private c eoo;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -32,8 +32,8 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
 
     public ChannelFansListModel(e<ChannelFansActivity> eVar, long j) {
         super(eVar);
-        this.ddg = true;
-        this.dfV = false;
+        this.ddh = true;
+        this.dfW = false;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST) { // from class: com.baidu.tieba.channel.model.ChannelFansListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -42,26 +42,26 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelFansListModel.this.a((ResponseChannelFansListMessage) httpResponsedMessage);
                     }
-                    if (ChannelFansListModel.this.eom != null) {
-                        ChannelFansListModel.this.eom.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.ddg, ChannelFansListModel.this.eon);
+                    if (ChannelFansListModel.this.eon != null) {
+                        ChannelFansListModel.this.eon.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelFansListModel.this.ddh, ChannelFansListModel.this.eoo);
                     }
-                    ChannelFansListModel.this.ddg = false;
+                    ChannelFansListModel.this.ddh = false;
                 }
             }
         };
-        this.emM = j;
+        this.emN = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseChannelFansListMessage responseChannelFansListMessage) {
         if (responseChannelFansListMessage != null) {
-            if (this.eon == null) {
-                this.eon = new c();
+            if (this.eoo == null) {
+                this.eoo = new c();
             }
             c data = responseChannelFansListMessage.getData();
             if (data != null) {
-                this.eon.getItems().addAll(data.getItems());
-                this.eon.setHasMore(data.hasMore());
+                this.eoo.getItems().addAll(data.getItems());
+                this.eoo.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
@@ -87,14 +87,14 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
     private void aRA() {
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
-            if (!this.dfV) {
+            if (!this.dfW) {
                 this.mPageNum = 1;
-                this.eon = null;
+                this.eoo = null;
             } else {
                 this.mPageNum++;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_FANS_LIST);
-            httpMessage.addParam("channel_id", this.emM);
+            httpMessage.addParam("channel_id", this.emN);
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPageNum);
             httpMessage.addParam("ps", 20);
             sendMessage(httpMessage);
@@ -111,10 +111,10 @@ public class ChannelFansListModel extends BdBaseModel<ChannelFansActivity> {
     }
 
     public void hW(boolean z) {
-        this.dfV = z;
+        this.dfW = z;
     }
 
     public void a(a aVar) {
-        this.eom = aVar;
+        this.eon = aVar;
     }
 }

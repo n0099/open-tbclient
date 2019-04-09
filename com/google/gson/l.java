@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class l extends i {
-    private static final Class<?>[] jMN = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] jMO = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public l(Boolean bool) {
@@ -86,7 +86,7 @@ public final class l extends i {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : jMN) {
+        for (Class<?> cls2 : jMO) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }

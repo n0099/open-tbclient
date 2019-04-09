@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 /* loaded from: classes.dex */
 public abstract class a implements m {
-    public static final BdUniqueId bVm = BdUniqueId.gen();
+    public static final BdUniqueId bVn = BdUniqueId.gen();
 
     public abstract Object afp();
 
@@ -12,6 +12,6 @@ public abstract class a implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return bVm;
+        return bVn;
     }
 }

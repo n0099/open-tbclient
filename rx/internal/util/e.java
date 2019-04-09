@@ -1,7 +1,7 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class e<T> {
-    T[] kam;
+    T[] kan;
     final float loadFactor;
     int mask;
     int maxSize;
@@ -16,12 +16,12 @@ public final class e<T> {
         int Dk = rx.internal.util.a.h.Dk(i);
         this.mask = Dk - 1;
         this.maxSize = (int) (Dk * f);
-        this.kam = (T[]) new Object[Dk];
+        this.kan = (T[]) new Object[Dk];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.kam;
+        T[] tArr = this.kan;
         int i = this.mask;
         int Dg = Dg(t.hashCode()) & i;
         T t3 = tArr[Dg];
@@ -48,7 +48,7 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.kam;
+        T[] tArr = this.kan;
         int i = this.mask;
         int Dg = Dg(t.hashCode()) & i;
         T t3 = tArr[Dg];
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.kam = (T[]) new Object[0];
+        this.kan = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.kam;
+        T[] tArr = this.kan;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -126,7 +126,7 @@ public final class e<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.kam = tArr2;
+                this.kan = tArr2;
                 return;
             }
         }
@@ -142,6 +142,6 @@ public final class e<T> {
     }
 
     public T[] cEr() {
-        return this.kam;
+        return this.kan;
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class i extends g {
     public long cqA;
-    public boolean cqB;
-    public long cqC;
+    public long cqB;
+    public boolean cqC;
     public long cqD;
-    public boolean cqE;
-    public long cqF;
+    public long cqE;
+    public boolean cqF;
     public long cqG;
     public long cqH;
     public long cqI;
-    public long cqp;
+    public long cqJ;
     public long cqq;
     public long cqr;
     public long cqs;
@@ -34,56 +34,56 @@ public class i extends g {
     public i() {
         this.wu = 0L;
         this.wv = 0L;
-        this.cqw = 0L;
-        this.cqy = 0L;
+        this.cqx = 0L;
         this.cqz = 0L;
         this.cqA = 0L;
-        this.cqC = 0L;
+        this.cqB = 0L;
         this.cqD = 0L;
-        this.cqE = false;
+        this.cqE = 0L;
+        this.cqF = false;
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.wu = 0L;
         this.wv = 0L;
-        this.cqw = 0L;
-        this.cqy = 0L;
+        this.cqx = 0L;
         this.cqz = 0L;
         this.cqA = 0L;
-        this.cqC = 0L;
+        this.cqB = 0L;
         this.cqD = 0L;
-        this.cqE = false;
+        this.cqE = 0L;
+        this.cqF = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.cqB = z;
-            if (this.cqB) {
-                this.cqA = responsedMessage.getDownSize();
-                this.cqF = responsedMessage.getOrginalMessage().getClientLogID();
+            this.cqC = z;
+            if (this.cqC) {
+                this.cqB = responsedMessage.getDownSize();
+                this.cqG = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.cqC = responsedMessage.performanceData.yv;
-                this.cqD = responsedMessage.performanceData.yw;
+                this.cqD = responsedMessage.performanceData.yv;
+                this.cqE = responsedMessage.performanceData.yw;
                 this.socketErrNo = responsedMessage.performanceData.yt;
                 this.socketCostTime = responsedMessage.performanceData.yu;
             } else {
-                this.cqz = responsedMessage.getDownSize();
+                this.cqA = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.cqp = j;
-            this.cqq = j2;
-            this.cqx = j3;
+            this.cqq = j;
+            this.cqr = j2;
+            this.cqy = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.cqr = responsedMessage.performanceData.yl;
-            this.cqs = responsedMessage.performanceData.ym;
-            this.cqt = responsedMessage.performanceData.yn;
+            this.cqs = responsedMessage.performanceData.yl;
+            this.cqt = responsedMessage.performanceData.ym;
+            this.cqu = responsedMessage.performanceData.yn;
             this.wu = responsedMessage.performanceData.yo;
             this.wv = responsedMessage.performanceData.yp;
-            this.cqu = responsedMessage.performanceData.yq;
-            this.cqv = responsedMessage.performanceData.yr;
-            this.cqw = responsedMessage.performanceData.ys;
-            this.cqw += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.cqv = responsedMessage.performanceData.yq;
+            this.cqw = responsedMessage.performanceData.yr;
+            this.cqx = responsedMessage.performanceData.ys;
+            this.cqx += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.cqE = z2;
-            this.cqy = j4;
+            this.cqF = z2;
+            this.cqz = j4;
         }
     }
 

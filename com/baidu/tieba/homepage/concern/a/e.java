@@ -20,9 +20,9 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b>> implements com.baidu.tieba.a.f {
-    private String YA;
-    public BdUniqueId cnZ;
-    private ab eEg;
+    private String YB;
+    public BdUniqueId coa;
+    private ab eEh;
     private com.baidu.tieba.homepage.concern.view.b fGu;
     private ab<k> fGv;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> fdJ;
@@ -96,7 +96,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 return tbImageView;
             }
         }, 12, 0);
-        this.eEg = new ab<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.3
+        this.eEh = new ab<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, k kVar) {
@@ -138,8 +138,8 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
         bVar.setConstrainLayoutPool(this.fdJ);
         bVar.setConstrainImagePool(this.fdK);
         bVar.d(this.fGv);
-        if (this.cnZ != null) {
-            bVar.k(this.cnZ);
+        if (this.coa != null) {
+            bVar.k(this.coa);
         }
         if (!isPreloadSizeReady(1) || !isPreloadSizeReady(2)) {
             bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.e.4
@@ -167,15 +167,15 @@ public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
         kVar.oo(i + 1);
         t.aQD().b(kVar.tG("c12351"));
         if (aVar.aRg() instanceof com.baidu.tieba.a.e) {
-            aVar.aRg().setPage(this.YA);
+            aVar.aRg().setPage(this.YB);
         }
         aVar.aRg().a(kVar);
-        aVar.aRg().d(this.eEg);
+        aVar.aRg().d(this.eEh);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
     public void qM(String str) {
-        this.YA = str;
+        this.YB = str;
     }
 }

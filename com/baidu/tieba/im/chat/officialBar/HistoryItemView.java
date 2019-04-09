@@ -13,7 +13,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout bRq;
+    LinearLayout bRr;
     TbRichTextView gcK;
     TextView gcL;
     ChatImageWithTailView gcM;
@@ -36,11 +36,11 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.bRq = (LinearLayout) findViewById(d.g.history_container);
+        this.bRr = (LinearLayout) findViewById(d.g.history_container);
         this.gcL = (TextView) findViewById(d.g.history_send_time);
         this.gcK = (TbRichTextView) findViewById(d.g.history_txt);
         this.gcM = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        al.k(this.bRq, d.f.selector_history_multi_single_bg);
+        al.k(this.bRr, d.f.selector_history_multi_single_bg);
         al.d(this.gcL, d.C0277d.common_color_10067, 1);
         this.gcK.setTextColor(al.getColor(d.C0277d.cp_cont_c));
         this.gcM.setIsSupportNight(true);
@@ -59,8 +59,8 @@ public class HistoryItemView extends LinearLayout {
     }
 
     public void bU(View view) {
-        this.bRq.setBackgroundDrawable(null);
-        this.bRq.removeAllViews();
-        this.bRq.addView(view);
+        this.bRr.setBackgroundDrawable(null);
+        this.bRr.removeAllViews();
+        this.bRr.addView(view);
     }
 }

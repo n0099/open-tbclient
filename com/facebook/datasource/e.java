@@ -8,11 +8,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class e<T> implements i<b<T>> {
-    private final List<i<b<T>>> jAC;
+    private final List<i<b<T>>> jAD;
 
     private e(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.jAC = list;
+        this.jAD = list;
     }
 
     public static <T> e<T> et(List<i<b<T>>> list) {
@@ -27,7 +27,7 @@ public class e<T> implements i<b<T>> {
     }
 
     public int hashCode() {
-        return this.jAC.hashCode();
+        return this.jAD.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -37,11 +37,11 @@ public class e<T> implements i<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.jAC, ((e) obj).jAC);
+        return com.facebook.common.internal.f.equal(this.jAD, ((e) obj).jAD);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aA(this).q(IntentConfig.LIST, this.jAC).toString();
+        return com.facebook.common.internal.f.aA(this).q(IntentConfig.LIST, this.jAD).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,8 +49,8 @@ public class e<T> implements i<b<T>> {
     /* loaded from: classes2.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> jAD = null;
         private b<T> jAE = null;
+        private b<T> jAF = null;
 
         public a() {
             if (!cuo()) {
@@ -82,10 +82,10 @@ public class e<T> implements i<b<T>> {
                 if (!super.ze()) {
                     return false;
                 }
-                b<T> bVar = this.jAD;
-                this.jAD = null;
-                b<T> bVar2 = this.jAE;
+                b<T> bVar = this.jAE;
                 this.jAE = null;
+                b<T> bVar2 = this.jAF;
+                this.jAF = null;
                 l(bVar2);
                 l(bVar);
                 return true;
@@ -106,10 +106,10 @@ public class e<T> implements i<b<T>> {
         @Nullable
         private synchronized i<b<T>> cup() {
             i<b<T>> iVar;
-            if (isClosed() || this.mIndex >= e.this.jAC.size()) {
+            if (isClosed() || this.mIndex >= e.this.jAD.size()) {
                 iVar = null;
             } else {
-                List list = e.this.jAC;
+                List list = e.this.jAD;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 iVar = (i) list.get(i);
@@ -122,7 +122,7 @@ public class e<T> implements i<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.jAD = bVar;
+                this.jAE = bVar;
                 z = true;
             }
             return z;
@@ -130,10 +130,10 @@ public class e<T> implements i<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.jAD) {
+            if (isClosed() || bVar != this.jAE) {
                 z = false;
             } else {
-                this.jAD = null;
+                this.jAE = null;
                 z = true;
             }
             return z;
@@ -141,16 +141,16 @@ public class e<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> cuq() {
-            return this.jAE;
+            return this.jAF;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.jAD && bVar != this.jAE) {
-                    if (this.jAE == null || z) {
-                        bVar2 = this.jAE;
-                        this.jAE = bVar;
+                if (bVar == this.jAE && bVar != this.jAF) {
+                    if (this.jAF == null || z) {
+                        bVar2 = this.jAF;
+                        this.jAF = bVar;
                     }
                     l(bVar2);
                 }

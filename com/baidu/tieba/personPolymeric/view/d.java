@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView hSC;
-    private TextView hSE;
-    private TbImageView hSR;
-    private com.baidu.tieba.personPolymeric.c.e hSS;
+    private TextView hSD;
+    private TextView hSF;
+    private TbImageView hSS;
+    private com.baidu.tieba.personPolymeric.c.e hST;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.hSR = (TbImageView) this.mRootView.findViewById(d.g.card_person_auth_icon);
-        this.hSE = (TextView) this.mRootView.findViewById(d.g.card_person_auth_bar_name);
-        this.hSC = (TextView) this.mRootView.findViewById(d.g.card_person_auth_des);
+        this.hSS = (TbImageView) this.mRootView.findViewById(d.g.card_person_auth_icon);
+        this.hSF = (TextView) this.mRootView.findViewById(d.g.card_person_auth_bar_name);
+        this.hSD = (TextView) this.mRootView.findViewById(d.g.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             al.k(this.mRootView, d.C0277d.cp_bg_line_d);
-            al.d(this.hSE, d.C0277d.cp_cont_b, 1);
-            al.d(this.hSC, d.C0277d.cp_cont_d, 1);
-            if (this.hSS.iconUrl == null) {
-                al.c(this.hSR, d.f.icon_shen_mine);
+            al.d(this.hSF, d.C0277d.cp_cont_b, 1);
+            al.d(this.hSD, d.C0277d.cp_cont_d, 1);
+            if (this.hST.iconUrl == null) {
+                al.c(this.hSS, d.f.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.hSS = eVar;
+            this.hST = eVar;
             if (eVar.iconUrl != null) {
-                this.hSR.startLoad(eVar.iconUrl, 10, false);
+                this.hSS.startLoad(eVar.iconUrl, 10, false);
             }
-            this.hSE.setText(eVar.hRH);
-            this.hSC.setText(eVar.des);
+            this.hSF.setText(eVar.hRI);
+            this.hSD.setText(eVar.des);
         }
     }
 

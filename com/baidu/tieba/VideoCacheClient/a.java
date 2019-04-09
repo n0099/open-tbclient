@@ -17,12 +17,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cMb;
+    private static a cMc;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cnK = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cnL = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -120,7 +120,7 @@ public class a {
                 if (!a.this.mNeedFinish) {
                     String avS = a.this.avS();
                     if (avS != null && !avS.isEmpty()) {
-                        File file = new File(c.cLQ + b.qA(avS) + "/header_downloaded");
+                        File file = new File(c.cLR + b.qA(avS) + "/header_downloaded");
                         if (file.exists()) {
                             d.as(a.TAG, "header exists " + avS);
                         } else {
@@ -290,21 +290,21 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cnK);
+    private Thread mThread = new Thread(this.cnL);
 
     private a() {
         this.mThread.start();
     }
 
     public static a avR() {
-        if (cMb == null) {
+        if (cMc == null) {
             synchronized (a.class) {
-                if (cMb == null) {
-                    cMb = new a();
+                if (cMc == null) {
+                    cMc = new a();
                 }
             }
         }
-        return cMb;
+        return cMc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

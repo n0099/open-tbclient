@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int hev = 3;
+    private static int hew = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -60,32 +60,32 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView bTa;
-        public BarImageView hex;
-        public View jpO;
+        public TextView bTb;
+        public BarImageView hey;
+        public View jpP;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bTa = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.hex = (BarImageView) view.findViewById(d.g.forum_avatar);
-                this.jpO = view.findViewById(d.g.divider_line);
+                this.bTb = (TextView) view.findViewById(d.g.transmit_forum_name);
+                this.hey = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.jpP = view.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bTa.setText(transmitForumData.forumName);
-                this.hex.startLoad(transmitForumData.avatar, 10, false);
+                this.bTb.setText(transmitForumData.forumName);
+                this.hey.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void aeH() {
-            if (b.hev != this.mSkinType) {
-                al.j(this.bTa, d.C0277d.cp_cont_b);
-                al.l(this.jpO, d.C0277d.cp_bg_line_c);
+            if (b.hew != this.mSkinType) {
+                al.j(this.bTb, d.C0277d.cp_cont_b);
+                al.l(this.jpP, d.C0277d.cp_bg_line_c);
             }
-            this.mSkinType = b.hev;
+            this.mSkinType = b.hew;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (hev != i) {
+        if (hew != i) {
             notifyDataSetChanged();
         }
-        hev = i;
+        hew = i;
     }
 }

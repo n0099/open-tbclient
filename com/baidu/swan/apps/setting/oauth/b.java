@@ -11,11 +11,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final g<ResultDataT> aRd = new g<>();
-    private final Set<com.baidu.swan.apps.an.c.a<g<ResultDataT>>> aQG = new HashSet();
-    private final LinkedList<d> aRe = new LinkedList<>();
-    private boolean aRf = false;
+    public final g<ResultDataT> aRe = new g<>();
+    private final Set<com.baidu.swan.apps.an.c.a<g<ResultDataT>>> aQH = new HashSet();
+    private final LinkedList<d> aRf = new LinkedList<>();
     private boolean aRg = false;
+    private boolean aRh = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract ResultDataT C(JSONObject jSONObject) throws JSONException;
@@ -32,7 +32,7 @@ public abstract class b<ResultDataT> {
                 return true;
             }
         }.a(this).Kd();
-        this.aRf = true;
+        this.aRg = true;
     }
 
     private void JY() {
@@ -45,7 +45,7 @@ public abstract class b<ResultDataT> {
                 return true;
             }
         }.a(this).Kd();
-        this.aRg = true;
+        this.aRh = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,19 +58,19 @@ public abstract class b<ResultDataT> {
     }
 
     public b<ResultDataT> c(com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar) {
-        if (this.aRd.aRt.isCallbackAvailable()) {
-            this.aQG.add(aVar);
+        if (this.aRe.aRu.isCallbackAvailable()) {
+            this.aQH.add(aVar);
         }
         return this;
     }
 
     private void JZ() {
-        for (final com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar : this.aQG) {
+        for (final com.baidu.swan.apps.an.c.a<g<ResultDataT>> aVar : this.aQH) {
             c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (aVar != null) {
-                        aVar.D(b.this.aRd);
+                        aVar.D(b.this.aRe);
                     }
                 }
             });
@@ -87,18 +87,18 @@ public abstract class b<ResultDataT> {
     }
 
     public TaskState Kb() {
-        return this.aRd.aRt;
+        return this.aRe.aRu;
     }
 
     public void qf() {
-        this.aRd.aRt = TaskState.INIT;
-        this.aRf = false;
+        this.aRe.aRu = TaskState.INIT;
         this.aRg = false;
+        this.aRh = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.aRe.offer(dVar);
+        this.aRf.offer(dVar);
         return this;
     }
 
@@ -116,11 +116,11 @@ public abstract class b<ResultDataT> {
             if (DEBUG) {
                 c.a("IllegalState on prepare", (Boolean) false);
             }
-        } else if (!this.aRf) {
-            JX();
-        } else if (!this.aRe.isEmpty()) {
-            this.aRe.poll().Kd();
         } else if (!this.aRg) {
+            JX();
+        } else if (!this.aRf.isEmpty()) {
+            this.aRf.poll().Kd();
+        } else if (!this.aRh) {
             JY();
         } else {
             exec();
@@ -133,11 +133,11 @@ public abstract class b<ResultDataT> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void J(ResultDataT resultdatat) {
-        this.aRd.mData = resultdatat;
+        this.aRe.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.aRd.aRt = taskState;
+        this.aRe.aRu = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -148,16 +148,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void l(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.aRd.aRu = (OAuthException) exc;
+            this.aRe.aRv = (OAuthException) exc;
         } else if (exc != null) {
-            this.aRd.aRu = new OAuthException(exc, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
+            this.aRe.aRv = new OAuthException(exc, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
         }
-        if (!this.aRd.isOk() && DEBUG && exc != null) {
+        if (!this.aRe.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.a(toString(), (Boolean) false);
         JZ();
-        this.aQG.clear();
+        this.aQH.clear();
     }
 }

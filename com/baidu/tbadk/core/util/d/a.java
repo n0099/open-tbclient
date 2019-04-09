@@ -163,19 +163,19 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.Im
                 if (K != null) {
                     j = K.length;
                 }
-                com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMC, "NetworkError", jC.jM(), iVar.adM(), j, adR());
+                com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMD, "NetworkError", jC.jM(), iVar.adM(), j, adR());
                 return null;
             }
         }
         if (K == null && !iVar.js().Dc) {
-            com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMC, "ByteIsNull", jC.jM(), iVar.adM(), 0L, adR());
+            com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMD, "ByteIsNull", jC.jM(), iVar.adM(), 0L, adR());
             return null;
         }
         if (K.length > 1) {
             j.adT().h(K.length, jC.jM());
-            com.baidu.tbadk.core.util.s.a(jC, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.bMC, "InputToByteSucc", jC.jM(), iVar.adM(), K.length, adR());
+            com.baidu.tbadk.core.util.s.a(jC, str, true, str3, isFromCDN, Boolean.valueOf(z), iVar.bMD, "InputToByteSucc", jC.jM(), iVar.adM(), K.length, adR());
         } else {
-            com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMC, "bytes<1", jC.jM(), iVar.adM(), K.length, adR());
+            com.baidu.tbadk.core.util.s.a(jC, str, false, str3, isFromCDN, Boolean.valueOf(z), iVar.bMD, "bytes<1", jC.jM(), iVar.adM(), K.length, adR());
         }
         com.baidu.adp.lib.stats.a jC2 = com.baidu.tbadk.core.util.s.jC();
         jC2.jL();
@@ -240,7 +240,7 @@ public abstract class a implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.Im
     protected com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (m(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            if (!iVar.bMH) {
+            if (!iVar.bMI) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.mL(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.R(true);

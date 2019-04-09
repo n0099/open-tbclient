@@ -19,8 +19,8 @@ import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
 /* loaded from: classes4.dex */
 public class a implements BottomMenuView.a {
-    private int bhB;
-    private ForumData ckL;
+    private int bhC;
+    private ForumData ckM;
     private ImageView ffA;
     private BottomMenuView ffB;
     private List<BottomMenu> ffC;
@@ -35,14 +35,14 @@ public class a implements BottomMenuView.a {
         this.ffA = (ImageView) view.findViewById(d.g.normal_write_icon);
         this.ffB = (BottomMenuView) view.findViewById(d.g.bottom_menu_view);
         this.ffB.setOnMenuItemClickListener(this);
-        this.bhB = l.h(tbPageContext.getPageActivity(), d.e.tbds160);
+        this.bhC = l.h(tbPageContext.getPageActivity(), d.e.tbds160);
         this.ffD = l.h(tbPageContext.getPageActivity(), d.e.tbds44);
         this.ffE = l.h(tbPageContext.getPageActivity(), d.e.ds4);
     }
 
     public void a(List<BottomMenu> list, ForumData forumData) {
         this.ffC = list;
-        this.ckL = forumData;
+        this.ckM = forumData;
         boolean z = v.S(list) > 0;
         jz(z);
         if (z) {
@@ -59,7 +59,7 @@ public class a implements BottomMenuView.a {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
             layoutParams.addRule(14, 0);
-            layoutParams.bottomMargin = this.bhB;
+            layoutParams.bottomMargin = this.bhC;
             layoutParams.rightMargin = this.ffD;
             return;
         }
@@ -85,7 +85,7 @@ public class a implements BottomMenuView.a {
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
         if (bottomMenu != null && v.S(bottomMenu.submenu) == 0) {
             ba.adA().c(this.mPageContext, new String[]{bottomMenu.url});
-            TiebaStatic.log(new am("c13117").bJ(ImageViewerConfig.FORUM_ID, this.ckL != null ? this.ckL.getId() : "").bJ(ImageViewerConfig.FORUM_NAME, this.ckL != null ? this.ckL.getName() : "").k("uid", currentAccountId).bJ("obj_param1", bottomMenu.name));
+            TiebaStatic.log(new am("c13117").bJ(ImageViewerConfig.FORUM_ID, this.ckM != null ? this.ckM.getId() : "").bJ(ImageViewerConfig.FORUM_NAME, this.ckM != null ? this.ckM.getName() : "").k("uid", currentAccountId).bJ("obj_param1", bottomMenu.name));
             return;
         }
         TiebaStatic.log(new am("c13118").k("uid", currentAccountId));
@@ -95,7 +95,7 @@ public class a implements BottomMenuView.a {
     public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
         if (subBottomMenu != null) {
             ba.adA().c(this.mPageContext, new String[]{subBottomMenu.url});
-            TiebaStatic.log(new am("c13117").bJ(ImageViewerConfig.FORUM_ID, this.ckL != null ? this.ckL.getId() : "").bJ(ImageViewerConfig.FORUM_NAME, this.ckL != null ? this.ckL.getName() : "").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ("obj_param1", subBottomMenu.name));
+            TiebaStatic.log(new am("c13117").bJ(ImageViewerConfig.FORUM_ID, this.ckM != null ? this.ckM.getId() : "").bJ(ImageViewerConfig.FORUM_NAME, this.ckM != null ? this.ckM.getName() : "").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ("obj_param1", subBottomMenu.name));
         }
     }
 }

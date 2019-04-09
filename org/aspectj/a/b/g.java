@@ -4,12 +4,12 @@ import com.baidu.mobstat.Config;
 /* loaded from: classes5.dex */
 class g implements org.aspectj.lang.reflect.d {
     String fileName;
-    Class jSY;
+    Class jSZ;
     int line;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Class cls, String str, int i) {
-        this.jSY = cls;
+        this.jSZ = cls;
         this.fileName = str;
         this.line = i;
     }

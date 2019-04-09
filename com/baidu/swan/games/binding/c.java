@@ -15,19 +15,19 @@ import com.baidu.swan.games.n.e;
 /* loaded from: classes2.dex */
 public final class c extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d baH;
-    private com.baidu.swan.games.n.d baI;
-    private com.baidu.swan.games.n.b baJ;
-    private JsObject baK;
-    private e baL;
-    private com.baidu.swan.games.j.a baM;
-    private com.baidu.swan.games.j.b baN;
-    private com.baidu.swan.games.q.a baO;
-    private com.baidu.swan.games.s.d baP;
-    private com.baidu.swan.games.a.d baQ;
-    private com.baidu.swan.games.network.websocket.a baR;
-    private com.baidu.swan.games.c.d baS;
-    private com.baidu.swan.games.e.b bac;
+    private d baI;
+    private com.baidu.swan.games.n.d baJ;
+    private com.baidu.swan.games.n.b baK;
+    private JsObject baL;
+    private e baM;
+    private com.baidu.swan.games.j.a baN;
+    private com.baidu.swan.games.j.b baO;
+    private com.baidu.swan.games.q.a baP;
+    private com.baidu.swan.games.s.d baQ;
+    private com.baidu.swan.games.a.d baR;
+    private com.baidu.swan.games.network.websocket.a baS;
+    private com.baidu.swan.games.c.d baT;
+    private com.baidu.swan.games.e.b bad;
     @V8JavascriptField
     public final String domain;
     @V8JavascriptField
@@ -36,55 +36,55 @@ public final class c extends EventTargetImpl {
     public c(com.baidu.swan.games.e.b bVar) {
         super(bVar);
         this.domain = "main";
-        this.baK = null;
         this.baL = null;
         this.baM = null;
         this.baN = null;
-        this.baP = null;
+        this.baO = null;
         this.baQ = null;
         this.baR = null;
         this.baS = null;
-        this.bac = bVar;
+        this.baT = null;
+        this.bad = bVar;
         this.env = new com.baidu.swan.games.f.a();
         Nx();
     }
 
     private void Nx() {
-        this.baN = new com.baidu.swan.games.j.b(this.bac);
+        this.baO = new com.baidu.swan.games.j.b(this.bad);
     }
 
     public void a(JsObject jsObject) {
-        this.baK = jsObject;
+        this.baL = jsObject;
     }
 
     @JavascriptInterface
     public void setPreferredFramesPerSecond(short s) {
         if (s >= 1 && s <= 60) {
-            this.bac.setPreferredFramesPerSecond(s);
+            this.bad.setPreferredFramesPerSecond(s);
         }
     }
 
     @JavascriptInterface
     public e getOpenDataContext() {
-        if (this.baL == null) {
-            this.baL = new e(this.bac);
-            this.baL.canvas = this.baK;
-            this.baK = null;
+        if (this.baM == null) {
+            this.baM = new e(this.bad);
+            this.baM.canvas = this.baL;
+            this.baL = null;
         }
-        return this.baL;
+        return this.baM;
     }
 
     @JavascriptInterface
     public d getFileSystemManager() {
-        if (this.baH == null) {
-            this.baH = new d((com.baidu.swan.games.e.a) this.bac);
+        if (this.baI == null) {
+            this.baI = new d((com.baidu.swan.games.e.a) this.bad);
         }
-        return this.baH;
+        return this.baI;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.subpackage.d loadSubpackage(JsObject jsObject) {
-        com.baidu.swan.games.subpackage.d dVar = new com.baidu.swan.games.subpackage.d(this.bac);
+        com.baidu.swan.games.subpackage.d dVar = new com.baidu.swan.games.subpackage.d(this.bad);
         dVar.k(jsObject);
         return dVar;
     }
@@ -92,7 +92,7 @@ public final class c extends EventTargetImpl {
     @JavascriptInterface
     public void exit(JsObject jsObject) {
         if (DEBUG) {
-            this.bac.NV().log("exit from java side.");
+            this.bad.NV().log("exit from java side.");
         }
         if (jsObject != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
@@ -117,77 +117,77 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public com.baidu.swan.games.n.d getOpenData() {
-        if (this.baI == null) {
-            this.baI = new com.baidu.swan.games.n.d((com.baidu.swan.games.e.a) this.bac);
+        if (this.baJ == null) {
+            this.baJ = new com.baidu.swan.games.n.d((com.baidu.swan.games.e.a) this.bad);
         }
-        return this.baI;
+        return this.baJ;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        if (this.baJ == null) {
-            this.baJ = new com.baidu.swan.games.n.b(this.bac);
+        if (this.baK == null) {
+            this.baK = new com.baidu.swan.games.n.b(this.bad);
         }
-        this.baJ.checkIsUserAdvisedToRest(jsObject);
+        this.baK.checkIsUserAdvisedToRest(jsObject);
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.a.d createRewardedVideoAd(JsObject jsObject) {
-        if (this.baQ == null) {
-            this.baQ = com.baidu.swan.apps.u.a.CX().a(this.bac, jsObject);
-            if (this.baQ == null) {
-                this.baQ = new com.baidu.swan.games.a.b();
+        if (this.baR == null) {
+            this.baR = com.baidu.swan.apps.u.a.CX().a(this.bad, jsObject);
+            if (this.baR == null) {
+                this.baR = new com.baidu.swan.games.a.b();
             }
         }
-        return this.baQ;
+        return this.baR;
     }
 
     @JavascriptInterface
     public com.baidu.swan.games.view.button.userinfo.b createUserInfoButton(JsObject jsObject) {
-        return new com.baidu.swan.games.view.button.userinfo.b(jsObject, this.bac);
+        return new com.baidu.swan.games.view.button.userinfo.b(jsObject, this.bad);
     }
 
     @JavascriptInterface
     public void showKeyboard(JsObject jsObject) {
-        if (this.baM == null) {
-            this.baM = new com.baidu.swan.games.j.a(this.bac, this.baN);
+        if (this.baN == null) {
+            this.baN = new com.baidu.swan.games.j.a(this.bad, this.baO);
         }
-        this.baM.showKeyboard(jsObject);
+        this.baN.showKeyboard(jsObject);
     }
 
     @JavascriptInterface
     public void showKeyboard() {
-        if (this.baM == null) {
-            this.baM = new com.baidu.swan.games.j.a(this.bac, this.baN);
+        if (this.baN == null) {
+            this.baN = new com.baidu.swan.games.j.a(this.bad, this.baO);
         }
-        this.baM.showKeyboard(null);
+        this.baN.showKeyboard(null);
     }
 
     @JavascriptInterface
     public void updateKeyboard(JsObject jsObject) {
-        if (this.baM != null) {
-            this.baM.updateKeyboard(jsObject);
+        if (this.baN != null) {
+            this.baN.updateKeyboard(jsObject);
         }
     }
 
     @JavascriptInterface
     public void updateKeyboard() {
-        if (this.baM != null) {
-            this.baM.updateKeyboard(null);
+        if (this.baN != null) {
+            this.baN.updateKeyboard(null);
         }
     }
 
     @JavascriptInterface
     public void hideKeyboard(JsObject jsObject) {
-        if (this.baM != null) {
-            this.baM.hideKeyboard(jsObject);
+        if (this.baN != null) {
+            this.baN.hideKeyboard(jsObject);
         }
     }
 
     @JavascriptInterface
     public void hideKeyboard() {
-        if (this.baM != null) {
-            this.baM.hideKeyboard(null);
+        if (this.baN != null) {
+            this.baN.hideKeyboard(null);
         }
     }
 
@@ -198,7 +198,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public Object getStorageSync(String str) {
-        return com.baidu.swan.games.q.a.d.a(this.bac, "getStorageSync", Ny().iX(str));
+        return com.baidu.swan.games.q.a.d.a(this.bad, "getStorageSync", Ny().iX(str));
     }
 
     @JavascriptInterface
@@ -208,12 +208,12 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
-        com.baidu.swan.games.q.a.d.a(this.bac, "setStorageSync", Ny().a(str, jsSerializeValue));
+        com.baidu.swan.games.q.a.d.a(this.bad, "setStorageSync", Ny().a(str, jsSerializeValue));
     }
 
     @JavascriptInterface
     public void setStorageSync(String str) {
-        com.baidu.swan.games.q.a.d.a(this.bac, "setStorageSync", Ny().a(str, (JsSerializeValue) null));
+        com.baidu.swan.games.q.a.d.a(this.bad, "setStorageSync", Ny().a(str, (JsSerializeValue) null));
     }
 
     @JavascriptInterface
@@ -223,7 +223,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void removeStorageSync(String str) {
-        com.baidu.swan.games.q.a.d.a(this.bac, "removeStorageSync", Ny().iY(str));
+        com.baidu.swan.games.q.a.d.a(this.bad, "removeStorageSync", Ny().iY(str));
     }
 
     @JavascriptInterface
@@ -233,7 +233,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void clearStorageSync() {
-        com.baidu.swan.games.q.a.d.a(this.bac, "clearStorageSync", Ny().Pa());
+        com.baidu.swan.games.q.a.d.a(this.bad, "clearStorageSync", Ny().Pa());
     }
 
     @JavascriptInterface
@@ -248,44 +248,44 @@ public final class c extends EventTargetImpl {
 
     @NonNull
     private com.baidu.swan.games.q.a Ny() {
-        if (this.baO == null) {
-            this.baO = new com.baidu.swan.games.q.a(this.bac);
-        }
-        return this.baO;
-    }
-
-    @JavascriptInterface
-    public f createInnerAudioContext() {
-        return new f(this.bac);
-    }
-
-    @JavascriptInterface
-    public com.baidu.swan.games.a.c createBannerAd(JsObject jsObject) {
-        return com.baidu.swan.apps.u.a.CX().b(this.bac, jsObject);
-    }
-
-    @JavascriptInterface
-    public com.baidu.swan.games.s.d getUpdateManager(JsObject jsObject) {
         if (this.baP == null) {
-            this.baP = new com.baidu.swan.games.s.d(jsObject);
+            this.baP = new com.baidu.swan.games.q.a(this.bad);
         }
         return this.baP;
     }
 
     @JavascriptInterface
-    public com.baidu.swan.games.network.websocket.c connectSocket(JsObject jsObject) {
-        if (this.baR == null) {
-            this.baR = new com.baidu.swan.games.network.websocket.a(this.bac);
+    public f createInnerAudioContext() {
+        return new f(this.bad);
+    }
+
+    @JavascriptInterface
+    public com.baidu.swan.games.a.c createBannerAd(JsObject jsObject) {
+        return com.baidu.swan.apps.u.a.CX().b(this.bad, jsObject);
+    }
+
+    @JavascriptInterface
+    public com.baidu.swan.games.s.d getUpdateManager(JsObject jsObject) {
+        if (this.baQ == null) {
+            this.baQ = new com.baidu.swan.games.s.d(jsObject);
         }
-        return this.baR.connectSocket(jsObject);
+        return this.baQ;
+    }
+
+    @JavascriptInterface
+    public com.baidu.swan.games.network.websocket.c connectSocket(JsObject jsObject) {
+        if (this.baS == null) {
+            this.baS = new com.baidu.swan.games.network.websocket.a(this.bad);
+        }
+        return this.baS.connectSocket(jsObject);
     }
 
     @JavascriptInterface
     public void setEnableDebug(JsObject jsObject) {
-        if (this.baS == null) {
-            this.baS = new com.baidu.swan.games.c.d(this.bac);
+        if (this.baT == null) {
+            this.baT = new com.baidu.swan.games.c.d(this.bad);
         }
-        this.baS.setEnableDebug(jsObject);
+        this.baT.setEnableDebug(jsObject);
     }
 
     @JavascriptInterface
@@ -295,6 +295,6 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void openCustomerServiceConversation(JsObject jsObject) {
-        com.baidu.swan.games.d.a.a((c) this.bac.NT(), jsObject);
+        com.baidu.swan.games.d.a.a((c) this.bad.NT(), jsObject);
     }
 }

@@ -31,7 +31,7 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.frs.live.c;
 /* loaded from: classes4.dex */
 public class a {
-    private aq dfL;
+    private aq dfM;
     private FrsFragment fat;
     private TextView fkQ;
     private FrameLayout fpY;
@@ -51,8 +51,8 @@ public class a {
                 a.this.fqc = frsLiveTipResponseMessage.remindText;
                 a.this.fqd = frsLiveTipResponseMessage.infoCoreData;
                 a.this.fqe = frsLiveTipResponseMessage.listCoreData;
-                if (a.this.dfL != null) {
-                    a.this.dfL.bex();
+                if (a.this.dfM != null) {
+                    a.this.dfM.bex();
                 }
                 if (a.this.fqb != 0) {
                     a.this.bhs();
@@ -144,13 +144,13 @@ public class a {
         FrameLayout frameLayout;
         if (this.fat != null && (bcs = this.fat.bcs()) != null && bcs.getListView() != null && (frameLayout = (FrameLayout) bcs.bdK()) != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.h(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (this.dfL == null) {
-                this.dfL = new aq();
+            if (this.dfM == null) {
+                this.dfM = new aq();
             }
             if (this.fqb == 2) {
-                this.dfL.a(this.fpY, frameLayout, layoutParams, UIMsg.m_AppUI.MSG_APP_GPS);
+                this.dfM.a(this.fpY, frameLayout, layoutParams, UIMsg.m_AppUI.MSG_APP_GPS);
             } else if (this.fqb == 1) {
-                this.dfL.a(this.fpY, frameLayout, layoutParams);
+                this.dfM.a(this.fpY, frameLayout, layoutParams);
                 TiebaStatic.log(new am("c12539"));
             }
         }
@@ -165,8 +165,8 @@ public class a {
             if (this.fqb == 1) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP;
                 TiebaStatic.log(new am("c12540"));
-                if (this.dfL != null) {
-                    this.dfL.hideTip();
+                if (this.dfM != null) {
+                    this.dfM.hideTip();
                 }
             } else if (this.fqb == 2) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP;
@@ -195,8 +195,8 @@ public class a {
         if (this.fqb == 2) {
             bhv();
         }
-        if (this.dfL != null) {
-            this.dfL.hideTip();
+        if (this.dfM != null) {
+            this.dfM.hideTip();
         }
     }
 
@@ -238,8 +238,8 @@ public class a {
     }
 
     public void onDestory() {
-        if (this.dfL != null) {
-            this.dfL.bex();
+        if (this.dfM != null) {
+            this.dfM.bex();
         }
         e.jH().removeCallbacks(this.fqh);
         if (this.fqf != null) {

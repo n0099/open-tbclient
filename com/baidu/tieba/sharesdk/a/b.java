@@ -14,23 +14,23 @@ import com.tencent.tauth.UiError;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.sharesdk.a.a {
-    protected int iuW;
-    protected Tencent ivc;
-    IUiListener ivd;
-    private final com.baidu.adp.lib.f.b<f.a> ive;
+    protected int iuX;
+    protected Tencent ivd;
+    IUiListener ive;
+    private final com.baidu.adp.lib.f.b<f.a> ivf;
 
     public b(Context context) {
         super(context);
-        this.iuW = 8;
-        this.ive = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
+        this.iuX = 8;
+        this.ivf = new com.baidu.adp.lib.f.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar != null && aVar.bMV != null && !TextUtils.isEmpty(aVar.path)) {
-                    b.this.a(aVar.path, b.this.ivd);
+                if (aVar != null && aVar.bMW != null && !TextUtils.isEmpty(aVar.path)) {
+                    b.this.a(aVar.path, b.this.ive);
                 } else {
                     b.this.yF(2);
                 }
@@ -43,12 +43,12 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 b.this.yF(3);
             }
         };
-        this.ivc = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.ivd = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.ivc == null) {
+        if (shareEntity == null || this.ivd == null) {
             yF(2);
             if (bVar != null) {
                 bVar.cf(0, 2);
@@ -59,16 +59,16 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
                 bVar.cf(0, 2);
             }
         } else {
-            this.ivd = new a(bVar);
+            this.ive = new a(bVar);
             String Xk = shareEntity.Xk();
             if (od(shareEntity.caN())) {
-                a(shareEntity.caN(), this.ivd);
+                a(shareEntity.caN(), this.ive);
             } else if (shareEntity.caP() != 0 && !TextUtils.isEmpty(Xk) && (Xk.startsWith("http://") || Xk.startsWith("https://"))) {
-                com.baidu.adp.lib.f.c.jB().a(Xk, 34, this.ive, 0, 0, getPageId(), new Object[0]);
+                com.baidu.adp.lib.f.c.jB().a(Xk, 34, this.ivf, 0, 0, getPageId(), new Object[0]);
             } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                a(shareEntity, this.ivd);
+                a(shareEntity, this.ive);
             } else if (q(shareEntity.getImageUri())) {
-                a(shareEntity.getImageUri().getPath(), this.ivd);
+                a(shareEntity.getImageUri().getPath(), this.ive);
             } else {
                 b(shareEntity, bVar);
             }
@@ -83,7 +83,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             bundle.putInt("req_type", 1);
             bundle.putString("imageUrl", shareEntity.Xk());
-            this.ivc.shareToQQ((Activity) this.context, bundle, iUiListener);
+            this.ivd.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -94,7 +94,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             bundle.putString("imageLocalUrl", str);
             bundle.putInt("req_type", 5);
             bundle.putInt("cflag", 2);
-            this.ivc.shareToQQ((Activity) this.context, bundle, iUiListener);
+            this.ivd.shareToQQ((Activity) this.context, bundle, iUiListener);
         }
     }
 
@@ -123,13 +123,13 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
             intent2.setFlags(268435456);
             if (com.baidu.tieba.sharesdk.c.a.i(this.context, intent2)) {
                 if (bVar != null) {
-                    bVar.cf(this.iuW, 1);
+                    bVar.cf(this.iuX, 1);
                     return;
                 }
                 return;
             }
             if (bVar != null) {
-                bVar.cf(this.iuW, 2);
+                bVar.cf(this.iuX, 2);
             }
             yF(2);
         }
@@ -137,34 +137,34 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
 
     /* loaded from: classes6.dex */
     protected class a implements IUiListener {
-        private com.baidu.tieba.sharesdk.b.b ivg;
+        private com.baidu.tieba.sharesdk.b.b ivh;
 
         public a(com.baidu.tieba.sharesdk.b.b bVar) {
-            this.ivg = bVar;
+            this.ivh = bVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
-            if (this.ivg != null) {
-                this.ivg.cf(b.this.iuW, 1);
+            if (this.ivh != null) {
+                this.ivh.cf(b.this.iuX, 1);
             }
             b.this.yF(1);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            if (this.ivg != null) {
-                this.ivg.cf(b.this.iuW, 2);
+            if (this.ivh != null) {
+                this.ivh.cf(b.this.iuX, 2);
             }
             b.this.aB(2, uiError != null ? uiError.errorMessage : null);
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            if (this.ivg != null) {
-                this.ivg.cf(b.this.iuW, 3);
+            if (this.ivh != null) {
+                this.ivh.cf(b.this.iuX, 3);
             }
-            if (b.this.iuW != 8 && b.this.iuW == 4) {
+            if (b.this.iuX != 8 && b.this.iuX == 4) {
                 b.this.yF(3);
             }
         }

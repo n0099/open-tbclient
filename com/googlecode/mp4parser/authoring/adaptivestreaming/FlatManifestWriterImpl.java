@@ -100,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.jQl));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.jQm));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -462,7 +462,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.jQl = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.jQm = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,43 +494,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public class a {
-        private byte jQh;
         private byte jQi;
-        private EC3SpecificBox.Entry jQj;
+        private byte jQj;
+        private EC3SpecificBox.Entry jQk;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.jQh = b;
-            this.jQi = b2;
-            this.jQj = entry;
+            this.jQi = b;
+            this.jQj = b2;
+            this.jQk = entry;
         }
 
         public byte cBQ() {
-            return this.jQh;
-        }
-
-        public byte cBR() {
             return this.jQi;
         }
 
+        public byte cBR() {
+            return this.jQj;
+        }
+
         public a cBS() {
-            switch (this.jQj.chan_loc) {
+            switch (this.jQk.chan_loc) {
                 case 0:
-                    this.jQh = (byte) (this.jQh | 3);
+                    this.jQi = (byte) (this.jQi | 3);
                     break;
                 case 1:
-                    this.jQh = (byte) (this.jQh | 12);
+                    this.jQi = (byte) (this.jQi | 12);
                     break;
                 case 2:
-                    this.jQi = (byte) (this.jQi | 128);
+                    this.jQj = (byte) (this.jQj | 128);
                     break;
                 case 3:
-                    this.jQi = (byte) (this.jQi | 8);
+                    this.jQj = (byte) (this.jQj | 8);
                     break;
                 case 6:
-                    this.jQi = (byte) (this.jQi | 5);
+                    this.jQj = (byte) (this.jQj | 5);
                     break;
                 case 7:
-                    this.jQi = (byte) (this.jQi | 2);
+                    this.jQj = (byte) (this.jQj | 2);
                     break;
             }
             return this;

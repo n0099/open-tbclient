@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes5.dex */
 public abstract class c {
-    String iZX;
-    a iZY;
+    String iZY;
+    a iZZ;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -11,15 +11,15 @@ public abstract class c {
 
     /* loaded from: classes5.dex */
     public static class b {
-        public int aAR;
-        public String iZZ;
-        public int jaa;
+        public int aAS;
+        public String jaa;
+        public int jab;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.iZX = str;
+        this.iZY = str;
     }
 }

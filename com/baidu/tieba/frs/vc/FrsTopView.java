@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsTopView extends LinearLayout {
-    private s faa;
+    private s fab;
     private al fgs;
     private FrsTabViewPager fwn;
     private TbTabLayout fwo;
@@ -127,10 +127,10 @@ public class FrsTopView extends LinearLayout {
                 bjx();
                 com.baidu.tieba.frs.view.e eVar = this.fwq.get(i2);
                 if (eVar != null) {
-                    if (this.faa == null) {
-                        this.faa = new a();
+                    if (this.fab == null) {
+                        this.fab = new a();
                     }
-                    eVar.c(this.faa);
+                    eVar.c(this.fab);
                     eVar.setData(this.topThreadList.subList(i2 * 2, Math.min((i2 * 2) + 2, this.topThreadList.size())));
                 }
                 i = i2 + 1;
@@ -276,9 +276,9 @@ public class FrsTopView extends LinearLayout {
                             if (tid.startsWith("pb:")) {
                                 bgVar.setId(tid.substring(3));
                             }
-                            if (bdUniqueId.getId() == bg.bCD.getId()) {
+                            if (bdUniqueId.getId() == bg.bCE.getId()) {
                                 com.baidu.tieba.frs.f.h.a(bgVar.Yu());
-                            } else if (bdUniqueId.getId() == bg.bBk.getId()) {
+                            } else if (bdUniqueId.getId() == bg.bBl.getId()) {
                                 am amVar = new am("c12940");
                                 amVar.bJ("obj_type", "2");
                                 amVar.bJ("tid", bgVar.getTid());
@@ -326,11 +326,11 @@ public class FrsTopView extends LinearLayout {
         PbActivityConfig createFromThreadCfg;
         if (baseFragmentActivity != null && bgVar != null) {
             String valueOf = String.valueOf(bgVar.getFid());
-            if (bgVar.bDH == null) {
+            if (bgVar.bDI == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bgVar.bDH.id;
+                str = bgVar.bDI.id;
                 str2 = valueOf;
             }
             if (bgVar.Zk() > 0 && com.baidu.tieba.tbadkCore.util.e.cfp()) {

@@ -13,100 +13,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class i {
-    private String gBC;
-    private int gBD;
+    private String gBD;
     private int gBE;
     private int gBF;
-    private long gBB = 0;
-    private HashMap<String, Boolean> gBA = new HashMap<>();
+    private int gBG;
+    private long gBC = 0;
+    private HashMap<String, Boolean> gBB = new HashMap<>();
 
     public void uC(int i) {
-        this.gBE = i;
-    }
-
-    public int byE() {
-        return this.gBE;
-    }
-
-    public void uD(int i) {
         this.gBF = i;
     }
 
-    public int byF() {
+    public int byE() {
         return this.gBF;
+    }
+
+    public void uD(int i) {
+        this.gBG = i;
+    }
+
+    public int byF() {
+        return this.gBG;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.gBC = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.gBD = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.gBC = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.gBD = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.gBD = intExtra;
             this.gBE = intExtra;
             this.gBF = intExtra;
+            this.gBG = intExtra;
         }
     }
 
     public void Y(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.gBC);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.gBD);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.gBA) {
-            if (System.nanoTime() - this.gBB > 300000000 && list != null && i < list.size()) {
-                this.gBA.put(list.get(i), true);
+        synchronized (this.gBB) {
+            if (System.nanoTime() - this.gBC > 300000000 && list != null && i < list.size()) {
+                this.gBB.put(list.get(i), true);
             }
-            this.gBB = System.nanoTime();
-            if (list != null && i2 < list.size() && this.gBA.get(list.get(i2)) == null) {
-                this.gBA.put(list.get(i2), false);
+            this.gBC = System.nanoTime();
+            if (list != null && i2 < list.size() && this.gBB.get(list.get(i2)) == null) {
+                this.gBB.put(list.get(i2), false);
             }
         }
-        if (this.gBA.size() >= 100) {
+        if (this.gBB.size() >= 100) {
             byG();
         }
     }
 
     public void byG() {
-        if (this.gBA != null) {
-            synchronized (this.gBA) {
-                if (this.gBA.size() > 0) {
+        if (this.gBB != null) {
+            synchronized (this.gBB) {
+                if (this.gBB.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.gBA.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.gBB.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.gBA.size(), this.gBC, this.gBD + 1, this.gBE + 1);
-                    this.gBA.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.gBB.size(), this.gBD, this.gBE + 1, this.gBF + 1);
+                    this.gBB.clear();
                 }
             }
         }
     }
 
     public void ap(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.gBB > 300000000) {
-            this.gBA.put(str, true);
+        if (i == 1 && System.nanoTime() - this.gBC > 300000000) {
+            this.gBB.put(str, true);
         }
     }
 
     public void d(int i, String str, String str2, String str3) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.gBF == this.gBE) {
-            sb.append(this.gBF + 1);
-            if (this.gBE == i - 1) {
+        if (this.gBG == this.gBF) {
+            sb.append(this.gBG + 1);
+            if (this.gBF == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.gBF; i2 <= this.gBE; i2++) {
-                if (i2 == this.gBE) {
+            for (int i2 = this.gBG; i2 <= this.gBF; i2++) {
+                if (i2 == this.gBF) {
                     sb.append(i2 + 1);
-                    if (this.gBE == i - 1) {
+                    if (this.gBF == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -130,9 +130,9 @@ public class i {
         amVar.T("pic_count", i);
         amVar.bJ("obj_floors", sb.toString());
         amVar.bJ("obj_isads", sb2.toString());
-        int i3 = (this.gBE - this.gBF) + 1;
+        int i3 = (this.gBF - this.gBG) + 1;
         if (i3 == 1) {
-            if (this.gBE == i - 1) {
+            if (this.gBF == i - 1) {
                 amVar.bJ(VideoPlayActivityConfig.OBJ_ID, str);
             } else {
                 amVar.bJ(VideoPlayActivityConfig.OBJ_ID, "");
@@ -143,7 +143,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.gBE == i - 1) {
+            if (this.gBF == i - 1) {
                 sb3.append(str);
             }
             amVar.bJ("obj_ids", str);

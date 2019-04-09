@@ -26,7 +26,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static class C0353a {
-        TbImageView Uz;
+        TbImageView UB;
     }
 
     public a(Context context) {
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof C0353a)) {
             view = LayoutInflater.from(this.context).inflate(d.h.chosen_pb_image_item, (ViewGroup) null);
             c0353a = new C0353a();
-            c0353a.Uz = (TbImageView) view.findViewById(d.g.pb_chosen_list_image);
+            c0353a.UB = (TbImageView) view.findViewById(d.g.pb_chosen_list_image);
             view.setTag(c0353a);
         } else {
             c0353a = (C0353a) view.getTag();
@@ -122,11 +122,11 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.hDw) || "1".equals(eVar.hDw)) {
-                c0353a.Uz.setVisibility(8);
+            if (StringUtils.isNull(eVar.hDx) || "1".equals(eVar.hDx)) {
+                c0353a.UB.setVisibility(8);
             } else {
-                c0353a.Uz.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0353a.Uz.getLayoutParams();
+                c0353a.UB.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0353a.UB.getLayoutParams();
                 int i2 = this.maxWidth;
                 int wG = eVar.wG(i2);
                 if (layoutParams == null) {
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
                     layoutParams.height = wG;
                     layoutParams.width = i2;
                 }
-                c0353a.Uz.setLayoutParams(layoutParams);
-                c0353a.Uz.startLoad(eVar.Nv(), 17, false);
+                c0353a.UB.setLayoutParams(layoutParams);
+                c0353a.UB.startLoad(eVar.Nv(), 17, false);
             }
         }
         return view;

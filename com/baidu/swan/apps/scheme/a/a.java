@@ -22,10 +22,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aQu = new HashSet();
+    private static final Set<String> aQv = new HashSet();
 
     static {
-        aQu.add("_baiduboxapp");
+        aQv.add("_baiduboxapp");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -72,11 +72,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         com.baidu.swan.apps.v.b.c cVar = new com.baidu.swan.apps.v.b.c();
         cVar.mAppId = g;
-        cVar.axK = uri.toString();
+        cVar.axL = uri.toString();
         if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(h)) {
-            cVar.axL = b + "?" + h;
+            cVar.axM = b + "?" + h;
         } else if (!TextUtils.isEmpty(b)) {
-            cVar.axL = b;
+            cVar.axM = b;
         }
         String valueOf = String.valueOf(System.currentTimeMillis());
         com.baidu.swan.apps.statistic.b.c.c(new com.baidu.swan.apps.statistic.b.a(IntentConfig.START, valueOf, ""));
@@ -99,7 +99,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 str = optJSONObject.optString("searchid");
                 try {
                     str2 = optJSONObject.optString("url");
-                    cVar.axU = optJSONObject.optString("clkid");
+                    cVar.axV = optJSONObject.optString("clkid");
                 } catch (JSONException e3) {
                     e = e3;
                     if (DEBUG) {
@@ -175,6 +175,6 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String h(Uri uri) {
-        return y.c(uri.getEncodedQuery(), aQu);
+        return y.c(uri.getEncodedQuery(), aQv);
     }
 }

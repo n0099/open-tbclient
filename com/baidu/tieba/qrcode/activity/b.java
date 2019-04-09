@@ -24,27 +24,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b implements QRCodeView.a {
-    private final com.baidu.tieba.qrcode.activity.a idO;
-    private C0372b idP;
+    private final com.baidu.tieba.qrcode.activity.a idP;
+    private C0372b idQ;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.idO = aVar;
+        this.idP = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
     public void Bh(String str) {
-        this.idO.bVM();
+        this.idP.bVM();
         if (StringUtils.isNull(str)) {
-            this.idO.bVK();
+            this.idP.bVK();
         } else if (!Bi(str)) {
             if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
                 Bj(str);
             } else {
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
                 if (runTask == null || !(runTask.getData() instanceof Boolean) || !((Boolean) runTask.getData()).booleanValue()) {
-                    this.idO.bVN();
+                    this.idP.bVN();
                     return;
                 }
             }
@@ -85,18 +85,18 @@ public class b implements QRCodeView.a {
 
     public void Bk(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.idP != null) {
-                this.idP.cancel();
+            if (this.idQ != null) {
+                this.idQ.cancel();
             }
-            this.idP = new C0372b();
-            this.idP.execute(str);
+            this.idQ = new C0372b();
+            this.idQ.execute(str);
         }
     }
 
     public void onDestroy() {
-        if (this.idP != null) {
-            this.idP.cancel();
-            this.idP = null;
+        if (this.idQ != null) {
+            this.idQ.cancel();
+            this.idQ = null;
         }
     }
 
@@ -110,7 +110,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.idO.bVL();
+            b.this.idP.bVL();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +128,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0372b) str);
-            b.this.idO.bVM();
+            b.this.idP.bVM();
             b.this.Bh(str);
         }
     }

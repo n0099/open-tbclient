@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public abstract class j {
-    private static final HashMap<String, j> ahZ = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> aia = new ConcurrentHashMap<>();
+    private static final HashMap<String, j> aia = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> aib = new ConcurrentHashMap<>();
 
     public abstract IBinder tZ();
 
     /* loaded from: classes.dex */
     private static class a {
-        public IBinder aib;
+        public IBinder aic;
         public boolean exported;
 
         private a() {
@@ -24,17 +24,17 @@ public abstract class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        j jVar = ahZ.get(str);
+        j jVar = aia.get(str);
         if (jVar != null) {
             jVar.ua();
             return jVar.tZ();
         }
-        a aVar = aia.get(str);
+        a aVar = aib.get(str);
         if (aVar != null) {
             if (!aVar.exported && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.aib;
+            return aVar.aic;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class j {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return aia.remove(str) != null;
+        return aib.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,13 +52,13 @@ public abstract class j {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (ahZ.get(str) != null) {
+        if (aia.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.aib = iBinder;
+        aVar.aic = iBinder;
         aVar.exported = z;
-        aia.put(str, aVar);
+        aib.put(str, aVar);
     }
 
     public void ua() {

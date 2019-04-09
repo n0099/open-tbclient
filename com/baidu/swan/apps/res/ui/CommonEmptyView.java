@@ -15,10 +15,10 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class CommonEmptyView extends RelativeLayout {
-    public TextView aGj;
     public TextView aGk;
     public TextView aGl;
-    public FrameLayout aGm;
+    public TextView aGm;
+    public FrameLayout aGn;
     public ImageView mIcon;
     public TextView mTitle;
 
@@ -40,10 +40,10 @@ public class CommonEmptyView extends RelativeLayout {
         setBackground(context.getResources().getDrawable(a.c.aiapps_empty_layout_backgroud));
         this.mIcon = (ImageView) findViewById(a.f.emptyview_image);
         this.mTitle = (TextView) findViewById(a.f.emptyview_title);
-        this.aGj = (TextView) findViewById(a.f.emptyview_subtitle);
-        this.aGk = (TextView) findViewById(a.f.emptyview_link);
-        this.aGl = (TextView) findViewById(a.f.emptyview_btn);
-        this.aGm = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
+        this.aGk = (TextView) findViewById(a.f.emptyview_subtitle);
+        this.aGl = (TextView) findViewById(a.f.emptyview_link);
+        this.aGm = (TextView) findViewById(a.f.emptyview_btn);
+        this.aGn = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
         setPageResources();
     }
 
@@ -60,15 +60,15 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setSubTitle(String str) {
-        this.aGj.setVisibility(0);
-        this.aGj.setText(str);
-        this.aGj.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.aGk.setVisibility(0);
+        this.aGk.setText(str);
+        this.aGk.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setSubTitle(int i) {
-        this.aGj.setVisibility(0);
-        this.aGj.setText(i);
-        this.aGj.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        this.aGk.setVisibility(0);
+        this.aGk.setText(i);
+        this.aGk.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
     }
 
     public void setIcon(Drawable drawable) {
@@ -80,34 +80,34 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setButtonText(String str) {
-        this.aGl.setText(str);
+        this.aGm.setText(str);
     }
 
     public void setButtonText(int i) {
-        this.aGl.setText(i);
+        this.aGm.setText(i);
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
-        this.aGl.setVisibility(0);
-        this.aGl.setOnClickListener(onClickListener);
+        this.aGm.setVisibility(0);
+        this.aGm.setOnClickListener(onClickListener);
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
-        this.aGk.setVisibility(0);
-        this.aGk.setOnClickListener(onClickListener);
+        this.aGl.setVisibility(0);
+        this.aGl.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.aGm != null && this.aGm.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aGm.getLayoutParams();
+        if (this.aGn != null && this.aGn.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aGn.getLayoutParams();
             if (configuration.orientation == 1) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_portrait);
             } else if (configuration.orientation == 2) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(a.d.aiapps_empty_view_bottom_margin_landscape);
             }
-            this.aGm.setLayoutParams(layoutParams);
+            this.aGn.setLayoutParams(layoutParams);
         }
     }
 
@@ -129,19 +129,19 @@ public class CommonEmptyView extends RelativeLayout {
         if (this.mTitle != null) {
             this.mTitle.setTextColor(getResources().getColor(a.c.aiapps_emptyview_title_text_color));
         }
-        if (this.aGk != null) {
-            this.aGk.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
-        }
         if (this.aGl != null) {
-            this.aGl.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
-            this.aGl.setTextColor(getResources().getColorStateList(a.c.aiapps_emptyview_btn_text_color));
+            this.aGl.setTextColor(getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
-        if (this.aGj != null) {
-            this.aGj.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
+        if (this.aGm != null) {
+            this.aGm.setBackground(getResources().getDrawable(a.e.aiapps_emptyview_btn_bg));
+            this.aGm.setTextColor(getResources().getColorStateList(a.c.aiapps_emptyview_btn_text_color));
+        }
+        if (this.aGk != null) {
+            this.aGk.setTextColor(getContext().getResources().getColor(a.c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
-        this.aGl.setTextColor(colorStateList);
+        this.aGm.setTextColor(colorStateList);
     }
 }

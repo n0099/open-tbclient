@@ -16,10 +16,10 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class c {
-    private static String aNn = null;
     private static String aNo = null;
     private static String aNp = null;
-    private static boolean aMX = com.baidu.swan.apps.b.DEBUG;
+    private static String aNq = null;
+    private static boolean aMY = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean bU(Context context) {
         return (bV(context) || ID()) || bW(context);
@@ -34,13 +34,13 @@ public class c {
 
     private static boolean IC() {
         String[] split;
-        if (aNo == null) {
-            aNo = getProp("ro.build.version.incremental");
+        if (aNp == null) {
+            aNp = getProp("ro.build.version.incremental");
         }
-        if (aMX) {
-            Log.d("ToastUtils", "sMiuiVersion = " + aNo);
+        if (aMY) {
+            Log.d("ToastUtils", "sMiuiVersion = " + aNp);
         }
-        if (!TextUtils.isEmpty(aNo) && (split = aNo.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(aNp) && (split = aNp.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (TextUtils.isEmpty(substring)) {
                 return false;
@@ -59,23 +59,23 @@ public class c {
     }
 
     private static boolean IE() {
-        if (aNn == null) {
-            aNn = getProp("ro.miui.ui.version.name");
+        if (aNo == null) {
+            aNo = getProp("ro.miui.ui.version.name");
         }
-        if (aMX) {
-            Log.d("ToastUtils", "OsName = " + aNn);
+        if (aMY) {
+            Log.d("ToastUtils", "OsName = " + aNo);
         }
-        return !TextUtils.isEmpty(aNn);
+        return !TextUtils.isEmpty(aNo);
     }
 
     public static boolean IF() {
-        if (aNp == null) {
-            aNp = getProp("ro.build.version.opporom");
+        if (aNq == null) {
+            aNq = getProp("ro.build.version.opporom");
         }
-        if (aMX) {
-            Log.d("ToastUtils", "OsName = " + aNp);
+        if (aMY) {
+            Log.d("ToastUtils", "OsName = " + aNq);
         }
-        return !TextUtils.isEmpty(aNp);
+        return !TextUtils.isEmpty(aNq);
     }
 
     private static boolean bW(Context context) {

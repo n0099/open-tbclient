@@ -5,16 +5,16 @@ import java.util.List;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 /* loaded from: classes2.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> jRX;
+    private final Class<?> jRY;
 
     public m(Class<?> cls) {
         p.k(cls, "jClass");
-        this.jRX = cls;
+        this.jRY = cls;
     }
 
     @Override // kotlin.jvm.internal.l
     public Class<?> cCr() {
-        return this.jRX;
+        return this.jRY;
     }
 
     @Override // kotlin.reflect.a

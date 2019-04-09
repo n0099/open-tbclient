@@ -5,23 +5,23 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int bNk;
-    protected volatile HashMap<Long, Integer> iIx = new HashMap<>();
+    protected volatile int bNl;
+    protected volatile HashMap<Long, Integer> iIy = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.bNk = i;
+        this.bNl = i;
     }
 
     public void CL(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.iIx.size() >= this.bNk) {
+                if (this.iIy.size() >= this.bNl) {
                     cfm();
                 }
                 this.mWeight++;
-                this.iIx.put(valueOf, Integer.valueOf(this.mWeight));
+                this.iIy.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -34,7 +34,7 @@ public class d {
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.iIx.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.iIy.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.iIx.remove(l2);
+                this.iIy.remove(l2);
             } else {
-                this.iIx.clear();
+                this.iIy.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.iIx.get(valueOf) != null;
+                z = this.iIy.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class d {
 
     public boolean CN(String str) {
         try {
-            return this.iIx.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.iIy.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -79,7 +79,7 @@ public class d {
 
     public void cfl() {
         synchronized (this) {
-            this.iIx.clear();
+            this.iIy.clear();
         }
     }
 }

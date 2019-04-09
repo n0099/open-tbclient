@@ -10,23 +10,23 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class ImageRequest {
     @Nullable
-    private final com.facebook.imagepipeline.common.c jER;
-    private final com.facebook.imagepipeline.common.d jES;
-    private final com.facebook.imagepipeline.common.a jET;
+    private final com.facebook.imagepipeline.common.c jES;
+    private final com.facebook.imagepipeline.common.d jET;
+    private final com.facebook.imagepipeline.common.a jEU;
     @Nullable
-    private final com.facebook.imagepipeline.g.b jGx;
-    private final boolean jHc;
-    private final RequestLevel jJo;
-    private final b jKG;
-    private final CacheChoice jLm;
-    private final Uri jLn;
-    private final int jLo;
+    private final com.facebook.imagepipeline.g.b jGy;
+    private final boolean jHd;
+    private final RequestLevel jJp;
+    private final b jKH;
+    private final CacheChoice jLn;
+    private final Uri jLo;
+    private final int jLp;
     @Nullable
-    private final a jLp;
-    private File jLq;
-    private final boolean jLr;
-    private final Priority jLs;
-    private final boolean jLt;
+    private final a jLq;
+    private File jLr;
+    private final boolean jLs;
+    private final Priority jLt;
+    private final boolean jLu;
 
     /* loaded from: classes2.dex */
     public enum CacheChoice {
@@ -43,117 +43,117 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.jLm = imageRequestBuilder.cAm();
-        this.jLn = imageRequestBuilder.cAn();
-        this.jLo = N(this.jLn);
-        this.jLp = imageRequestBuilder.cAp();
-        this.jHc = imageRequestBuilder.cxB();
-        this.jLr = imageRequestBuilder.cAz();
-        this.jET = imageRequestBuilder.cAs();
-        this.jER = imageRequestBuilder.cAq();
-        this.jES = imageRequestBuilder.cAr() == null ? com.facebook.imagepipeline.common.d.cwS() : imageRequestBuilder.cAr();
-        this.jLs = imageRequestBuilder.cAA();
-        this.jJo = imageRequestBuilder.czC();
-        this.jLt = imageRequestBuilder.cAv();
-        this.jKG = imageRequestBuilder.cAx();
-        this.jGx = imageRequestBuilder.cAy();
+        this.jLn = imageRequestBuilder.cAm();
+        this.jLo = imageRequestBuilder.cAn();
+        this.jLp = N(this.jLo);
+        this.jLq = imageRequestBuilder.cAp();
+        this.jHd = imageRequestBuilder.cxB();
+        this.jLs = imageRequestBuilder.cAz();
+        this.jEU = imageRequestBuilder.cAs();
+        this.jES = imageRequestBuilder.cAq();
+        this.jET = imageRequestBuilder.cAr() == null ? com.facebook.imagepipeline.common.d.cwS() : imageRequestBuilder.cAr();
+        this.jLt = imageRequestBuilder.cAA();
+        this.jJp = imageRequestBuilder.czC();
+        this.jLu = imageRequestBuilder.cAv();
+        this.jKH = imageRequestBuilder.cAx();
+        this.jGy = imageRequestBuilder.cAy();
     }
 
     public CacheChoice cAm() {
-        return this.jLm;
-    }
-
-    public Uri cAn() {
         return this.jLn;
     }
 
-    public int cAo() {
+    public Uri cAn() {
         return this.jLo;
+    }
+
+    public int cAo() {
+        return this.jLp;
     }
 
     @Nullable
     public a cAp() {
-        return this.jLp;
+        return this.jLq;
     }
 
     public int getPreferredWidth() {
-        if (this.jER != null) {
-            return this.jER.width;
+        if (this.jES != null) {
+            return this.jES.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.jER != null) {
-            return this.jER.height;
+        if (this.jES != null) {
+            return this.jES.height;
         }
         return 2048;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.c cAq() {
-        return this.jER;
-    }
-
-    public com.facebook.imagepipeline.common.d cAr() {
         return this.jES;
     }
 
-    public com.facebook.imagepipeline.common.a cAs() {
+    public com.facebook.imagepipeline.common.d cAr() {
         return this.jET;
     }
 
+    public com.facebook.imagepipeline.common.a cAs() {
+        return this.jEU;
+    }
+
     public boolean cAt() {
-        return this.jHc;
+        return this.jHd;
     }
 
     public boolean cAu() {
-        return this.jLr;
-    }
-
-    public Priority czE() {
         return this.jLs;
     }
 
-    public RequestLevel czC() {
-        return this.jJo;
-    }
-
-    public boolean cAv() {
+    public Priority czE() {
         return this.jLt;
     }
 
+    public RequestLevel czC() {
+        return this.jJp;
+    }
+
+    public boolean cAv() {
+        return this.jLu;
+    }
+
     public synchronized File cAw() {
-        if (this.jLq == null) {
-            this.jLq = new File(this.jLn.getPath());
+        if (this.jLr == null) {
+            this.jLr = new File(this.jLo.getPath());
         }
-        return this.jLq;
+        return this.jLr;
     }
 
     @Nullable
     public b cAx() {
-        return this.jKG;
+        return this.jKH;
     }
 
     @Nullable
     public com.facebook.imagepipeline.g.b cAy() {
-        return this.jGx;
+        return this.jGy;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            return f.equal(this.jLn, imageRequest.jLn) && f.equal(this.jLm, imageRequest.jLm) && f.equal(this.jLp, imageRequest.jLp) && f.equal(this.jLq, imageRequest.jLq);
+            return f.equal(this.jLo, imageRequest.jLo) && f.equal(this.jLn, imageRequest.jLn) && f.equal(this.jLq, imageRequest.jLq) && f.equal(this.jLr, imageRequest.jLr);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.jLm, this.jLn, this.jLp, this.jLq);
+        return f.hashCode(this.jLn, this.jLo, this.jLq, this.jLr);
     }
 
     public String toString() {
-        return f.aA(this).q("uri", this.jLn).q("cacheChoice", this.jLm).q("decodeOptions", this.jET).q("postprocessor", this.jKG).q("priority", this.jLs).q("resizeOptions", this.jER).q("rotationOptions", this.jES).q("mediaVariations", this.jLp).toString();
+        return f.aA(this).q("uri", this.jLo).q("cacheChoice", this.jLn).q("decodeOptions", this.jEU).q("postprocessor", this.jKH).q("priority", this.jLt).q("resizeOptions", this.jES).q("rotationOptions", this.jET).q("mediaVariations", this.jLq).toString();
     }
 
     /* loaded from: classes2.dex */

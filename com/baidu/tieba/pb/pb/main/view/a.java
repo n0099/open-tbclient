@@ -6,25 +6,25 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes4.dex */
 public class a {
-    public final View csD;
-    public final View hAw;
-    private PbActivity hoJ;
+    public final View csE;
+    public final View hAx;
+    private PbActivity hoK;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.csD && a.this.hoJ != null) {
-                a.this.hoJ.finish();
+            if (view == a.this.csE && a.this.hoK != null) {
+                a.this.hoK.finish();
             }
         }
     };
     public final TextView mTitleView;
 
     public a(PbActivity pbActivity) {
-        this.hoJ = pbActivity;
-        this.csD = this.hoJ.findViewById(d.g.manga_navigation_bar_back);
-        this.mTitleView = (TextView) this.hoJ.findViewById(d.g.manga_navigation_bar_title);
-        this.hAw = this.hoJ.findViewById(d.g.manga_browser_navigation_bar);
-        this.csD.setOnClickListener(this.mClickListener);
+        this.hoK = pbActivity;
+        this.csE = this.hoK.findViewById(d.g.manga_navigation_bar_back);
+        this.mTitleView = (TextView) this.hoK.findViewById(d.g.manga_navigation_bar_title);
+        this.hAx = this.hoK.findViewById(d.g.manga_browser_navigation_bar);
+        this.csE.setOnClickListener(this.mClickListener);
     }
 
     public void setTitle(String str) {
@@ -32,6 +32,6 @@ public class a {
     }
 
     public void show() {
-        this.hAw.setVisibility(0);
+        this.hAx.setVisibility(0);
     }
 }

@@ -5297,6 +5297,7 @@ public final class R {
         public static final int mime = 0x7f07001a;
         public static final int refresh_load = 0x7f07001c;
         public static final int shake_tone = 0x7f07002a;
+        public static final int sweep = 0x7f07002b;
     }
 
     /* loaded from: classes2.dex */

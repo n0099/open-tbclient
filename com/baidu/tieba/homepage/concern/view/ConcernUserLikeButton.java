@@ -13,27 +13,27 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes4.dex */
 public class ConcernUserLikeButton extends CommonUserLikeButton {
-    private boolean bUr;
+    private boolean bUs;
     private boolean fHt;
     private int fHu;
 
     public ConcernUserLikeButton(Context context) {
         super(context);
-        this.bUr = false;
+        this.bUs = false;
         this.fHt = false;
         this.fHu = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUr = false;
+        this.bUs = false;
         this.fHt = false;
         this.fHu = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bUr = false;
+        this.bUs = false;
         this.fHt = false;
         this.fHu = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
@@ -48,7 +48,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUp) {
+        if (this.bUq) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.j(this, d.C0277d.cp_cont_e);
             setBackgroundDrawable(null);
@@ -57,7 +57,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
         setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_concern_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         setCompoundDrawablePadding(this.fHu);
         al.j(this, d.f.btn_concern_like_focus_color);
-        if (this.bUr) {
+        if (this.bUs) {
             al.k(this, d.f.btn_transparent_focus_border_bg);
         } else {
             al.k(this, d.f.btn_focus_border_bg);
@@ -76,15 +76,15 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void dU(boolean z) {
-        this.bUp = z;
+        this.bUq = z;
         if (z) {
             setClickable(false);
-            setText(this.bUn);
+            setText(this.bUo);
             setPadding(0, 0, 0, 0);
             this.fHt = true;
         } else {
             setClickable(true);
-            setText(this.bUo);
+            setText(this.bUp);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds10), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds6), 0);
             this.fHt = false;
         }

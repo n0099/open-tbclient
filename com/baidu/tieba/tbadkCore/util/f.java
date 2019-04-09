@@ -17,33 +17,33 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static a iIA;
-    private static AtomicBoolean iIB;
-    private static int iIC;
-    private static boolean iID;
-    private static int iIE;
-    private static List<Integer> iIF;
-    private static WeakReference<a> iIz;
+    private static WeakReference<a> iIA;
+    private static a iIB;
+    private static AtomicBoolean iIC;
+    private static int iID;
+    private static boolean iIE;
+    private static int iIF;
+    private static List<Integer> iIG;
 
     static {
         cfq();
         cfr();
-        iIB = new AtomicBoolean(false);
-        iIC = 0;
-        iID = true;
-        iIE = 0;
-        iIF = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 2121002);
+        iIC = new AtomicBoolean(false);
+        iID = 0;
+        iIE = true;
+        iIF = 0;
+        iIG = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 2121002);
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!iIF.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!iIG.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!iIF.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!iIG.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -52,17 +52,17 @@ public class f {
     private static boolean b(int i, String str, a aVar) {
         AuthVerifyData createDataForAuthWidget;
         boolean z;
-        if (iIB.compareAndSet(false, true)) {
-            if (iIz == null || iIz.get() == null) {
+        if (iIC.compareAndSet(false, true)) {
+            if (iIA == null || iIA.get() == null) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 if (aVar != null) {
                     aVar.setFrom(valueOf);
-                    iIz = new WeakReference<>(aVar);
+                    iIA = new WeakReference<>(aVar);
                 }
                 if (i == 3250022) {
                     final AuthVerifyData createDataForModifyPwd = AuthVerifyData.createDataForModifyPwd(valueOf);
-                    if (iIz != null && iIz.get() != null) {
-                        iIz.get().onFail();
+                    if (iIA != null && iIA.get() != null) {
+                        iIA.get().onFail();
                     }
                     final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(TbadkCoreApplication.getInst().getCurrentActivity());
                     aVar2.gC(d.j.anti_account_modifypwd_tip);
@@ -98,14 +98,14 @@ public class f {
                 }
                 z = true;
             } else {
-                iIC++;
-                if (iID && iIE < 3 && iIC > 0 && iIC / 3 == 0) {
+                iID++;
+                if (iIE && iIF < 3 && iID > 0 && iID / 3 == 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921373));
-                    iIE++;
+                    iIF++;
                 }
                 z = false;
             }
-            iIB.set(false);
+            iIC.set(false);
             return z;
         }
         return false;
@@ -131,7 +131,7 @@ public class f {
                     tY(((AuthVerifyData.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof AuthVerifyData.b) {
-                    tZ(((AuthVerifyData.b) cVar).bfz);
+                    tZ(((AuthVerifyData.b) cVar).bfA);
                     return;
                 } else {
                     aVW();
@@ -147,13 +147,13 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reset() {
-        if (iIz != null) {
-            iIz.clear();
+        if (iIA != null) {
+            iIA.clear();
         }
-        iIz = null;
         iIA = null;
-        iIE = 0;
-        iIC = 0;
+        iIB = null;
+        iIF = 0;
+        iID = 0;
     }
 
     public static void cfq() {
@@ -165,8 +165,8 @@ public class f {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof AuthVerifyData) {
                         AuthVerifyData authVerifyData = (AuthVerifyData) data;
-                        if (f.iIz != null && f.iIz.get() != null) {
-                            a aVar = (a) f.iIz.get();
+                        if (f.iIA != null && f.iIA.get() != null) {
+                            a aVar = (a) f.iIA.get();
                             if (TextUtils.equals(aVar.from, authVerifyData.getFrom())) {
                                 aVar.b(authVerifyData.getResult());
                             }

@@ -29,50 +29,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private final ScheduledExecutorService brk;
-    private final SparseArray<LinkedList<com.baidu.tbadk.BdToken.b>> brl;
-    private final SparseArray<ConcurrentLinkedQueue<h>> brm;
-    private final LinkedList<com.baidu.tbadk.BdToken.b> brn;
-    private a bro;
-    private Boolean brp;
-    private AtomicBoolean brq;
-    private o brr;
-    private CustomMessageListener brs;
-    private com.baidu.adp.framework.listener.a brt;
-    private CustomMessageListener bru;
+    private final ScheduledExecutorService brl;
+    private final SparseArray<LinkedList<com.baidu.tbadk.BdToken.b>> brm;
+    private final SparseArray<ConcurrentLinkedQueue<h>> brn;
+    private final LinkedList<com.baidu.tbadk.BdToken.b> bro;
+    private a brp;
+    private Boolean brq;
+    private AtomicBoolean brr;
+    private o brs;
+    private CustomMessageListener brt;
+    private com.baidu.adp.framework.listener.a bru;
+    private CustomMessageListener brv;
 
     public static final c TX() {
-        return e.brx;
+        return e.bry;
     }
 
     /* loaded from: classes.dex */
     private static class e {
-        private static final c brx = new c();
+        private static final c bry = new c();
     }
 
     private c() {
-        this.brk = Executors.newSingleThreadScheduledExecutor();
-        this.brl = new SparseArray<>();
+        this.brl = Executors.newSingleThreadScheduledExecutor();
         this.brm = new SparseArray<>();
-        this.brn = new LinkedList<>();
-        this.bro = new a();
-        this.brp = false;
-        this.brq = new AtomicBoolean(false);
-        this.brs = new CustomMessageListener(2921391) { // from class: com.baidu.tbadk.BdToken.c.1
+        this.brn = new SparseArray<>();
+        this.bro = new LinkedList<>();
+        this.brp = new a();
+        this.brq = false;
+        this.brr = new AtomicBoolean(false);
+        this.brt = new CustomMessageListener(2921391) { // from class: com.baidu.tbadk.BdToken.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.this.brp = true;
-                if (!c.this.brn.isEmpty()) {
-                    Iterator it = c.this.brn.iterator();
+                c.this.brq = true;
+                if (!c.this.bro.isEmpty()) {
+                    Iterator it = c.this.bro.iterator();
                     while (it.hasNext()) {
                         c.this.b((com.baidu.tbadk.BdToken.b) it.next());
                     }
-                    c.this.brn.clear();
+                    c.this.bro.clear();
                 }
             }
         };
-        this.brt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.c.2
+        this.bru = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.c.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 com.baidu.tbadk.BdToken.completeTask.a data;
@@ -84,11 +84,11 @@ public class c {
                     } else {
                         return;
                     }
-                    if (c.this.brr == null) {
-                        c.this.brr = new o();
+                    if (c.this.brs == null) {
+                        c.this.brs = new o();
                     }
-                    c.this.brr.a(data);
-                    c.this.brr.show();
+                    c.this.brs.a(data);
+                    c.this.brs.show();
                     CompleteTaskReqMsg completeTaskReqMsg = (CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra();
                     if (completeTaskReqMsg.getTaskType() == 1) {
                         JSONObject jSONObject = null;
@@ -123,7 +123,7 @@ public class c {
                 }
             }
         };
-        this.bru = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.c.3
+        this.brv = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -168,8 +168,8 @@ public class c {
     }
 
     public void b(com.baidu.tbadk.BdToken.b bVar) {
-        if (!this.brp.booleanValue()) {
-            this.brn.add(bVar);
+        if (!this.brq.booleanValue()) {
+            this.bro.add(bVar);
         } else if (!e(bVar)) {
             d(bVar);
             new b().execute(bVar);
@@ -177,12 +177,12 @@ public class c {
     }
 
     public void TY() {
-        this.brq.compareAndSet(true, false);
-        this.bro.fz(0);
-        this.bro.setTid(0L);
-        this.bro.setFid(0L);
-        if (this.brr != null) {
-            this.brr.clearData();
+        this.brr.compareAndSet(true, false);
+        this.brp.fz(0);
+        this.brp.setTid(0L);
+        this.brp.setFid(0L);
+        if (this.brs != null) {
+            this.brs.clearData();
         }
     }
 
@@ -190,11 +190,11 @@ public class c {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && j != 0 && this.brp.booleanValue() && (linkedList = this.brl.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brm.get(i);
+        if (i != 0 && j != 0 && this.brq.booleanValue() && (linkedList = this.brm.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brn.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.brm.put(i, concurrentLinkedQueue3);
+                this.brn.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -203,7 +203,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqC) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqD) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -221,7 +221,7 @@ public class c {
                         kVar.ac(0L);
                         kVar.cX(false);
                         for (int i2 : next.TO()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brm.get(i2);
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brn.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -231,11 +231,11 @@ public class c {
                     z2 = z;
                 }
             }
-            this.bro.fz(i);
-            this.bro.setTid(j);
-            this.brq.compareAndSet(false, true);
-            synchronized (this.brq) {
-                this.brq.notify();
+            this.brp.fz(i);
+            this.brp.setTid(j);
+            this.brr.compareAndSet(false, true);
+            synchronized (this.brr) {
+                this.brr.notify();
             }
         }
     }
@@ -244,11 +244,11 @@ public class c {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && j != 0 && this.brp.booleanValue() && (linkedList = this.brl.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brm.get(i);
+        if (i != 0 && j != 0 && this.brq.booleanValue() && (linkedList = this.brm.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brn.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.brm.put(i, concurrentLinkedQueue3);
+                this.brn.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -257,7 +257,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqD) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqE) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -275,7 +275,7 @@ public class c {
                         jVar.ac(0L);
                         jVar.cX(false);
                         for (int i2 : next.TO()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brm.get(i2);
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brn.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -285,11 +285,11 @@ public class c {
                     z2 = z;
                 }
             }
-            this.bro.fz(i);
-            this.bro.setFid(j);
-            this.brq.compareAndSet(false, true);
-            synchronized (this.brq) {
-                this.brq.notify();
+            this.brp.fz(i);
+            this.brp.setFid(j);
+            this.brr.compareAndSet(false, true);
+            synchronized (this.brr) {
+                this.brr.notify();
             }
         }
     }
@@ -298,11 +298,11 @@ public class c {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && this.brp.booleanValue() && (linkedList = this.brl.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brm.get(i);
+        if (i != 0 && this.brq.booleanValue() && (linkedList = this.brm.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.brn.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.brm.put(i, concurrentLinkedQueue3);
+                this.brn.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -311,7 +311,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqF) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqG) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -329,7 +329,7 @@ public class c {
                         iVar.ac(0L);
                         iVar.cX(false);
                         for (int i2 : next.TO()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brm.get(i2);
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.brn.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -339,10 +339,10 @@ public class c {
                     z2 = z;
                 }
             }
-            this.bro.fz(i);
-            this.brq.compareAndSet(false, true);
-            synchronized (this.brq) {
-                this.brq.notify();
+            this.brp.fz(i);
+            this.brr.compareAndSet(false, true);
+            synchronized (this.brr) {
+                this.brr.notify();
             }
         }
     }
@@ -358,10 +358,10 @@ public class c {
     }
 
     private void Ua() {
-        this.brs.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(this.brs);
+        this.brt.setPriority(Integer.MIN_VALUE);
         MessageManager.getInstance().registerListener(this.brt);
         MessageManager.getInstance().registerListener(this.bru);
+        MessageManager.getInstance().registerListener(this.brv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -371,18 +371,18 @@ public class c {
     }
 
     private void jL() {
-        this.brk.scheduleWithFixedDelay(this.bro, 0L, 1L, TimeUnit.SECONDS);
+        this.brl.scheduleWithFixedDelay(this.brp, 0L, 1L, TimeUnit.SECONDS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tbadk.BdToken.b bVar) {
         int[] TO;
         for (int i : bVar.TO()) {
-            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brl.get(i);
+            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brm.get(i);
             if (linkedList == null) {
                 LinkedList<com.baidu.tbadk.BdToken.b> linkedList2 = new LinkedList<>();
                 linkedList2.add(bVar);
-                this.brl.put(i, linkedList2);
+                this.brm.put(i, linkedList2);
             } else {
                 linkedList.add(bVar);
             }
@@ -395,7 +395,7 @@ public class c {
             return true;
         }
         for (int i : TO) {
-            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brl.get(i);
+            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brm.get(i);
             if (linkedList == null) {
                 return false;
             }
@@ -411,8 +411,8 @@ public class c {
     }
 
     private void f(com.baidu.tbadk.BdToken.b bVar) {
-        for (int i = 0; i < this.brm.size(); i++) {
-            ConcurrentLinkedQueue<h> valueAt = this.brm.valueAt(i);
+        for (int i = 0; i < this.brn.size(); i++) {
+            ConcurrentLinkedQueue<h> valueAt = this.brn.valueAt(i);
             if (valueAt != null && !valueAt.isEmpty()) {
                 Iterator<h> it = valueAt.iterator();
                 while (it.hasNext()) {
@@ -423,8 +423,8 @@ public class c {
                 }
             }
         }
-        for (int i2 = 0; i2 < this.brl.size(); i2++) {
-            LinkedList<com.baidu.tbadk.BdToken.b> valueAt2 = this.brl.valueAt(i2);
+        for (int i2 = 0; i2 < this.brm.size(); i2++) {
+            LinkedList<com.baidu.tbadk.BdToken.b> valueAt2 = this.brm.valueAt(i2);
             if (valueAt2 != null && !valueAt2.isEmpty()) {
                 Iterator<com.baidu.tbadk.BdToken.b> it2 = valueAt2.iterator();
                 while (it2.hasNext()) {
@@ -519,8 +519,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements Runnable {
-        private volatile long brc;
-        private volatile int brw;
+        private volatile long brd;
+        private volatile int brx;
         private volatile long mFid;
 
         private a() {
@@ -529,18 +529,18 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            if (this.brw == 0 || !c.this.brq.get()) {
-                synchronized (c.this.brq) {
+            if (this.brx == 0 || !c.this.brr.get()) {
+                synchronized (c.this.brr) {
                     try {
-                        c.this.brq.wait();
+                        c.this.brr.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            ConcurrentLinkedQueue concurrentLinkedQueue = (ConcurrentLinkedQueue) c.this.brm.get(this.brw);
+            ConcurrentLinkedQueue concurrentLinkedQueue = (ConcurrentLinkedQueue) c.this.brn.get(this.brx);
             if (concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
-                c.this.brq.compareAndSet(true, false);
+                c.this.brr.compareAndSet(true, false);
                 return;
             }
             LinkedList linkedList = new LinkedList();
@@ -549,7 +549,7 @@ public class c {
             while (it.hasNext()) {
                 h hVar = (h) it.next();
                 if (hVar instanceof k) {
-                    if (this.brc != 0 && ((k) hVar).getTid() == this.brc && !hVar.isCompleted()) {
+                    if (this.brd != 0 && ((k) hVar).getTid() == this.brd && !hVar.isCompleted()) {
                         hVar.fA(1);
                         if (hVar.Up() >= hVar.Uo().TP()) {
                             hVar.cX(true);
@@ -590,7 +590,7 @@ public class c {
                 }
             }
             if (z2) {
-                c.this.brq.compareAndSet(true, false);
+                c.this.brr.compareAndSet(true, false);
             }
             if (linkedList != null && !linkedList.isEmpty()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, linkedList));
@@ -598,11 +598,11 @@ public class c {
         }
 
         public synchronized void fz(int i) {
-            this.brw = i;
+            this.brx = i;
         }
 
         public synchronized void setTid(long j) {
-            this.brc = j;
+            this.brd = j;
         }
 
         public synchronized void setFid(long j) {

@@ -23,18 +23,18 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 this.mData = new a();
                 this.mData.showType = completeTaskResIdl.data.show_type.intValue();
-                this.mData.bsC = completeTaskResIdl.data.ahead_type.intValue();
+                this.mData.bsD = completeTaskResIdl.data.ahead_type.intValue();
                 this.mData.message = completeTaskResIdl.data.message;
                 this.mData.btnText = completeTaskResIdl.data.btn_text;
-                this.mData.brU = completeTaskResIdl.data.btn_confirm;
-                this.mData.brV = completeTaskResIdl.data.btn_cancel;
+                this.mData.brV = completeTaskResIdl.data.btn_confirm;
+                this.mData.brW = completeTaskResIdl.data.btn_cancel;
                 this.mData.duration = completeTaskResIdl.data.toast_duration.intValue();
                 this.mData.imgUrl = completeTaskResIdl.data.img_url;
                 this.mData.url = completeTaskResIdl.data.url;
                 this.mData.schema = completeTaskResIdl.data.schema;
                 this.mData.token = completeTaskResIdl.data.token;
                 this.mData.activityId = completeTaskResIdl.data.activity_id.intValue();
-                this.mData.bsB = completeTaskResIdl.data.mission_id.intValue();
+                this.mData.bsC = completeTaskResIdl.data.mission_id.intValue();
             }
         }
     }

@@ -17,14 +17,14 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
-    private WriteImageGridView jui;
-    private f juj;
+    private WriteImageGridView juj;
+    private f juk;
     private TbPageContext<WriteActivity> mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private com.baidu.tbadk.img.b cjE = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b cjF = new com.baidu.tbadk.img.b();
     private String mFrom = AlbumActivityConfig.FROM_WRITE;
     private String mForumId = "";
-    private f.a juk = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a jul = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
         public void Bq(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -32,8 +32,8 @@ public class g {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.hz().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.juj.a(g.this.mWriteImagesInfo);
-                g.this.juj.notifyDataSetChanged();
+                g.this.juk.a(g.this.mWriteImagesInfo);
+                g.this.juk.notifyDataSetChanged();
                 if (v.T(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
                     ((WriteActivity) g.this.mContext.getOrignalPage()).cbp();
                 }
@@ -64,24 +64,24 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.jui = (WriteImageGridView) view.findViewById(d.g.write_image_grid_view);
-        this.juj = new f(view.getContext(), this.cjE, null, this.juk);
-        this.jui.setAdapter((ListAdapter) this.juj);
+        this.juj = (WriteImageGridView) view.findViewById(d.g.write_image_grid_view);
+        this.juk = new f(view.getContext(), this.cjF, null, this.jul);
+        this.juj.setAdapter((ListAdapter) this.juk);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.juj.a(this.mWriteImagesInfo);
-        this.juj.notifyDataSetChanged();
+        this.juk.a(this.mWriteImagesInfo);
+        this.juk.notifyDataSetChanged();
     }
 
     public void destroy() {
-        this.cjE.anw();
+        this.cjF.anw();
     }
 
     public void rc(boolean z) {
-        this.juj.rc(z);
+        this.juk.rc(z);
     }
 }

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes5.dex */
 public class b implements i {
-    private String eUj;
-    private ArrayList<BawuRoleInfoPub> eUh = new ArrayList<>();
+    private String eUk;
+    private ArrayList<BawuRoleInfoPub> eUi = new ArrayList<>();
     private boolean isLast = false;
-    private boolean eUi = false;
+    private boolean eUj = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
     public int baR() {
@@ -15,11 +15,11 @@ public class b implements i {
     }
 
     public ArrayList<BawuRoleInfoPub> baS() {
-        return this.eUh;
+        return this.eUi;
     }
 
     public void P(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.eUh = arrayList;
+        this.eUi = arrayList;
     }
 
     public boolean isLast() {
@@ -31,18 +31,18 @@ public class b implements i {
     }
 
     public boolean baT() {
-        return this.eUi;
-    }
-
-    public void iM(boolean z) {
-        this.eUi = z;
-    }
-
-    public String baU() {
         return this.eUj;
     }
 
+    public void iM(boolean z) {
+        this.eUj = z;
+    }
+
+    public String baU() {
+        return this.eUk;
+    }
+
     public void uJ(String str) {
-        this.eUj = str;
+        this.eUk = str;
     }
 }

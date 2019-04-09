@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     public String aBA;
-    public String aBv;
+    public String aBB;
     public String aBw;
     public String aBx;
     public String aBy;
@@ -32,45 +32,45 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     };
 
     public SwanAppBearInfo() {
-        this.aBv = "";
         this.aBw = "";
         this.aBx = "";
         this.aBy = "";
         this.aBz = "";
         this.aBA = "";
+        this.aBB = "";
     }
 
     private SwanAppBearInfo(Parcel parcel) {
-        this.aBv = "";
         this.aBw = "";
         this.aBx = "";
         this.aBy = "";
         this.aBz = "";
         this.aBA = "";
-        this.aBv = parcel.readString();
+        this.aBB = "";
         this.aBw = parcel.readString();
         this.aBx = parcel.readString();
         this.aBy = parcel.readString();
         this.aBz = parcel.readString();
         this.aBA = parcel.readString();
+        this.aBB = parcel.readString();
     }
 
     public SwanAppBearInfo(String str) {
-        this.aBv = "";
         this.aBw = "";
         this.aBx = "";
         this.aBy = "";
         this.aBz = "";
         this.aBA = "";
+        this.aBB = "";
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aBv = jSONObject.optString("office_id");
-                this.aBz = jSONObject.optString("sign");
-                this.aBy = jSONObject.optString("url");
-                this.aBx = jSONObject.optString("avatar");
-                this.aBw = jSONObject.optString("name");
-                this.aBA = jSONObject.optString("v_type");
+                this.aBw = jSONObject.optString("office_id");
+                this.aBA = jSONObject.optString("sign");
+                this.aBz = jSONObject.optString("url");
+                this.aBy = jSONObject.optString("avatar");
+                this.aBx = jSONObject.optString("name");
+                this.aBB = jSONObject.optString("v_type");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -80,7 +80,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aBv);
+        return !TextUtils.isEmpty(this.aBw);
     }
 
     @Override // android.os.Parcelable
@@ -90,11 +90,11 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.aBv);
         parcel.writeString(this.aBw);
         parcel.writeString(this.aBx);
         parcel.writeString(this.aBy);
         parcel.writeString(this.aBz);
         parcel.writeString(this.aBA);
+        parcel.writeString(this.aBB);
     }
 }

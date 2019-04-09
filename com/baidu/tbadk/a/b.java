@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bsE;
+    private static b bsF;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
@@ -22,14 +22,14 @@ public class b {
     }
 
     public static b UA() {
-        if (bsE == null) {
+        if (bsF == null) {
             synchronized (b.class) {
-                if (bsE == null) {
-                    bsE = new b();
+                if (bsF == null) {
+                    bsF = new b();
                 }
             }
         }
-        return bsE;
+        return bsF;
     }
 
     private static String UB() {
@@ -46,8 +46,8 @@ public class b {
 
     private String bq(String str, String str2) {
         a kl = kl(str);
-        if (kl != null && !TextUtils.isEmpty(kl.bsD)) {
-            return kl.bsD;
+        if (kl != null && !TextUtils.isEmpty(kl.bsE)) {
+            return kl.bsE;
         }
         return str2;
     }

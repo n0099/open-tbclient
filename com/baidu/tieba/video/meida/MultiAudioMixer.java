@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public abstract class MultiAudioMixer {
-    private b jaf;
+    private b jag;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -26,7 +26,7 @@ public abstract class MultiAudioMixer {
     }
 
     public void a(b bVar) {
-        this.jaf = bVar;
+        this.jag = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.jaf != null) {
-                        this.jaf.Av(1);
+                    if (this.jag != null) {
+                        this.jag.Av(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] b2 = b(bArr);
-            if (b2 != null && this.jaf != null) {
-                this.jaf.T(b2);
+            if (b2 != null && this.jag != null) {
+                this.jag.T(b2);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.jaf != null) {
-            this.jaf.ckI();
+        if (this.jag != null) {
+            this.jag.ckI();
         }
     }
 

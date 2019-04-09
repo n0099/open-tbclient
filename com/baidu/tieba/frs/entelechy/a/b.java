@@ -45,12 +45,12 @@ public class b extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.s, a> imp
             String cdI = sVar.cdI();
             if (cdI != null) {
                 aVar.fgB.setText(cdI);
-            } else if (this.eYh != null && this.eYh.getForum() != null && this.eYh.getForum().getName() != null) {
+            } else if (this.eYi != null && this.eYi.getForum() != null && this.eYi.getForum().getName() != null) {
                 TextView textView = aVar.fgB;
                 Context context = this.mContext;
                 int i2 = d.j.get_fortune_hint_format;
                 Object[] objArr = new Object[1];
-                objArr[0] = this.eYh == null ? "" : this.eYh.getForum().getName();
+                objArr[0] = this.eYi == null ? "" : this.eYi.getForum().getName();
                 textView.setText(context.getString(i2, objArr));
             }
             aVar.fgA.setTag(Integer.valueOf(i));
@@ -77,7 +77,7 @@ public class b extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.s, a> imp
         }
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (this.eYh == null || this.eYh.getUserData() == null || !this.eYh.getUserData().isBawu()) {
+        if (this.eYi == null || this.eYi.getUserData() == null || !this.eYi.getUserData().isBawu()) {
             z = false;
         }
         if (z) {
@@ -112,12 +112,12 @@ public class b extends com.baidu.tieba.frs.h<com.baidu.tieba.tbadkCore.s, a> imp
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eYi != null) {
+        if (this.eYj != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
             if (getItem(intValue) instanceof bg) {
-                View p = p(this.eEc.getListView(), intValue);
-                this.eYi.a(id, intValue, view, p, (bg) getItem(intValue));
+                View p = p(this.eEd.getListView(), intValue);
+                this.eYj.a(id, intValue, view, p, (bg) getItem(intValue));
             }
         }
     }

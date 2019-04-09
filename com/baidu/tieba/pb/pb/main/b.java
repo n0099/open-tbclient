@@ -8,7 +8,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double hmg = 0.5d;
+    private static double hmh = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
@@ -21,9 +21,9 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         ar(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
         as(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
         kH(com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
-        this.cCp = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds749);
-        this.cCq = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10);
-        this.cCr = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds26);
+        this.cCq = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds749);
+        this.cCr = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds10);
+        this.cCs = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds26);
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -64,18 +64,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.cCf || cBQ <= 1.0f) {
+        if (!this.cCg || cBR <= 1.0f) {
             i3 = i;
         } else {
-            if (i * cBQ <= i3 * hmg) {
-                i3 = (int) (i * cBQ);
+            if (i * cBR <= i3 * hmh) {
+                i3 = (int) (i * cBR);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.cCd = ImageView.ScaleType.MATRIX;
+                this.cCe = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.cCd = ImageView.ScaleType.CENTER_CROP;
+                this.cCe = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

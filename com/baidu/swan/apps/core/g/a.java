@@ -12,18 +12,18 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a asD;
-    private Map<String, c> asE;
+    private static volatile a asE;
+    private Map<String, c> asF;
 
     public static a zN() {
-        if (asD == null) {
+        if (asE == null) {
             synchronized (a.class) {
-                if (asD == null) {
-                    asD = new a();
+                if (asE == null) {
+                    asE = new a();
                 }
             }
         }
-        return asD;
+        return asE;
     }
 
     public void af(String str, String str2) {
@@ -35,11 +35,11 @@ public class a {
                     Log.i("SwanAppPreHandleHelper", "pre handle configData : " + B);
                 }
                 com.baidu.swan.apps.ae.a.c gl = com.baidu.swan.apps.ae.a.c.gl(B);
-                if (this.asE == null) {
-                    this.asE = new HashMap();
+                if (this.asF == null) {
+                    this.asF = new HashMap();
                 }
                 if (gl != null) {
-                    this.asE.put(str, gl);
+                    this.asF.put(str, gl);
                 }
             }
         }
@@ -47,20 +47,20 @@ public class a {
 
     @Nullable
     public com.baidu.swan.apps.ae.a.c ed(String str) {
-        if (this.asE == null || TextUtils.isEmpty(str)) {
+        if (this.asF == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.asE.get(str);
+        return this.asF.get(str);
     }
 
     private void zO() {
-        this.asE = null;
-        asD = null;
+        this.asF = null;
+        asE = null;
     }
 
     public static void release() {
-        if (asD != null) {
-            asD.zO();
+        if (asE != null) {
+            asE.zO();
         }
     }
 }

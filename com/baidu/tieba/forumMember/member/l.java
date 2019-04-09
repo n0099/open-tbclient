@@ -80,12 +80,12 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                     }
                 }
                 nVar.iN(this.mSkinType == 1);
-                al.l(nVar.eVM, d.C0277d.cp_bg_line_d);
+                al.l(nVar.eVN, d.C0277d.cp_bg_line_d);
                 al.d(nVar.mTitleView, d.C0277d.cp_cont_b, 1);
-                al.d(nVar.eVI, d.C0277d.cp_cont_f, 1);
                 al.d(nVar.eVJ, d.C0277d.cp_cont_f, 1);
                 al.d(nVar.eVK, d.C0277d.cp_cont_f, 1);
                 al.d(nVar.eVL, d.C0277d.cp_cont_f, 1);
+                al.d(nVar.eVM, d.C0277d.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
             }
         }

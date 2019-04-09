@@ -9,23 +9,23 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ImageRequestBuilder {
     @Nullable
-    private com.facebook.imagepipeline.g.b jGx;
-    private Uri jLn = null;
-    private ImageRequest.RequestLevel jJo = ImageRequest.RequestLevel.FULL_FETCH;
+    private com.facebook.imagepipeline.g.b jGy;
+    private Uri jLo = null;
+    private ImageRequest.RequestLevel jJp = ImageRequest.RequestLevel.FULL_FETCH;
     @Nullable
-    private com.facebook.imagepipeline.common.c jER = null;
+    private com.facebook.imagepipeline.common.c jES = null;
     @Nullable
-    private com.facebook.imagepipeline.common.d jES = null;
-    private com.facebook.imagepipeline.common.a jET = com.facebook.imagepipeline.common.a.cwI();
-    private ImageRequest.CacheChoice jLm = ImageRequest.CacheChoice.DEFAULT;
-    private boolean jHc = h.cxh().cxB();
-    private boolean jLr = false;
-    private Priority jLs = Priority.HIGH;
+    private com.facebook.imagepipeline.common.d jET = null;
+    private com.facebook.imagepipeline.common.a jEU = com.facebook.imagepipeline.common.a.cwI();
+    private ImageRequest.CacheChoice jLn = ImageRequest.CacheChoice.DEFAULT;
+    private boolean jHd = h.cxh().cxB();
+    private boolean jLs = false;
+    private Priority jLt = Priority.HIGH;
     @Nullable
-    private b jKG = null;
-    private boolean jLu = true;
+    private b jKH = null;
+    private boolean jLv = true;
     @Nullable
-    private a jLp = null;
+    private a jLq = null;
 
     public static ImageRequestBuilder O(Uri uri) {
         return new ImageRequestBuilder().P(uri);
@@ -36,70 +36,70 @@ public class ImageRequestBuilder {
 
     public ImageRequestBuilder P(Uri uri) {
         g.checkNotNull(uri);
-        this.jLn = uri;
+        this.jLo = uri;
         return this;
     }
 
     public Uri cAn() {
-        return this.jLn;
+        return this.jLo;
     }
 
     @Nullable
     public a cAp() {
-        return this.jLp;
+        return this.jLq;
     }
 
     public ImageRequest.RequestLevel czC() {
-        return this.jJo;
+        return this.jJp;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.c cAq() {
-        return this.jER;
+        return this.jES;
     }
 
     public ImageRequestBuilder a(@Nullable com.facebook.imagepipeline.common.d dVar) {
-        this.jES = dVar;
+        this.jET = dVar;
         return this;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.d cAr() {
-        return this.jES;
-    }
-
-    public com.facebook.imagepipeline.common.a cAs() {
         return this.jET;
     }
 
+    public com.facebook.imagepipeline.common.a cAs() {
+        return this.jEU;
+    }
+
     public ImageRequest.CacheChoice cAm() {
-        return this.jLm;
+        return this.jLn;
     }
 
     public boolean cxB() {
-        return this.jHc;
+        return this.jHd;
     }
 
     public boolean cAz() {
-        return this.jLr;
+        return this.jLs;
     }
 
     public boolean cAv() {
-        return this.jLu && com.facebook.common.util.d.s(this.jLn);
+        return this.jLv && com.facebook.common.util.d.s(this.jLo);
     }
 
     public Priority cAA() {
-        return this.jLs;
+        return this.jLt;
     }
 
     @Nullable
     public b cAx() {
-        return this.jKG;
+        return this.jKH;
     }
 
     @Nullable
     public com.facebook.imagepipeline.g.b cAy() {
-        return this.jGx;
+        return this.jGy;
     }
 
     public ImageRequest cAB() {
@@ -115,23 +115,23 @@ public class ImageRequestBuilder {
     }
 
     protected void validate() {
-        if (this.jLn == null) {
+        if (this.jLo == null) {
             throw new BuilderException("Source must be set!");
         }
-        if (com.facebook.common.util.d.y(this.jLn)) {
-            if (!this.jLn.isAbsolute()) {
+        if (com.facebook.common.util.d.y(this.jLo)) {
+            if (!this.jLo.isAbsolute()) {
                 throw new BuilderException("Resource URI path must be absolute.");
             }
-            if (this.jLn.getPath().isEmpty()) {
+            if (this.jLo.getPath().isEmpty()) {
                 throw new BuilderException("Resource URI must not be empty");
             }
             try {
-                Integer.parseInt(this.jLn.getPath().substring(1));
+                Integer.parseInt(this.jLo.getPath().substring(1));
             } catch (NumberFormatException e) {
                 throw new BuilderException("Resource URI path must be a resource id.");
             }
         }
-        if (com.facebook.common.util.d.x(this.jLn) && !this.jLn.isAbsolute()) {
+        if (com.facebook.common.util.d.x(this.jLo) && !this.jLo.isAbsolute()) {
             throw new BuilderException("Asset URI path must be absolute.");
         }
     }

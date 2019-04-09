@@ -14,23 +14,23 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivity> {
     private long channelId;
-    private ChannelAddVideoModel emu;
-    private a emv;
-    private ChannelAddVideoModel.b emw = new ChannelAddVideoModel.b() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.1
+    private ChannelAddVideoModel emv;
+    private a emw;
+    private ChannelAddVideoModel.b emx = new ChannelAddVideoModel.b() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.1
         @Override // com.baidu.tieba.channel.model.ChannelAddVideoModel.b
         public void a(int i, String str, boolean z, com.baidu.tieba.channel.data.a aVar) {
             ChannelAddVideoActivity.this.closeLoadingDialog();
             if (i == 0) {
-                ChannelAddVideoActivity.this.emv.a(aVar);
+                ChannelAddVideoActivity.this.emw.a(aVar);
                 return;
             }
             ChannelAddVideoActivity.this.showToast(str);
             if (z) {
-                ChannelAddVideoActivity.this.emv.a(aVar);
+                ChannelAddVideoActivity.this.emw.a(aVar);
             }
         }
     };
-    private ChannelAddVideoModel.a emx = new ChannelAddVideoModel.a() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.2
+    private ChannelAddVideoModel.a emy = new ChannelAddVideoModel.a() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.2
         @Override // com.baidu.tieba.channel.model.ChannelAddVideoModel.a
         public void ad(int i, String str) {
             if (i != 0) {
@@ -45,21 +45,21 @@ public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivit
             ChannelAddVideoActivity.this.finish();
         }
     };
-    private BdListView.e dlj = new BdListView.e() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.3
+    private BdListView.e dlk = new BdListView.e() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (ChannelAddVideoActivity.this.emu.isHasMore()) {
-                ChannelAddVideoActivity.this.emu.hW(true);
-                ChannelAddVideoActivity.this.emu.aRz();
+            if (ChannelAddVideoActivity.this.emv.isHasMore()) {
+                ChannelAddVideoActivity.this.emv.hW(true);
+                ChannelAddVideoActivity.this.emv.aRz();
             }
         }
     };
-    private NoNetworkView.a emy = new NoNetworkView.a() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.4
+    private NoNetworkView.a emz = new NoNetworkView.a() { // from class: com.baidu.tieba.channel.activity.ChannelAddVideoActivity.4
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void dP(boolean z) {
             if (z) {
-                ChannelAddVideoActivity.this.emu.hW(false);
-                ChannelAddVideoActivity.this.emu.LoadData();
+                ChannelAddVideoActivity.this.emv.hW(false);
+                ChannelAddVideoActivity.this.emv.LoadData();
             }
         }
     };
@@ -74,38 +74,38 @@ public class ChannelAddVideoActivity extends BaseActivity<ChannelAddVideoActivit
     }
 
     private void fb() {
-        this.emu = new ChannelAddVideoModel(getPageContext());
-        this.emu.aAX();
-        this.emu.a(this.emw);
-        this.emu.a(this.emx);
-        this.emu.hW(false);
+        this.emv = new ChannelAddVideoModel(getPageContext());
+        this.emv.aAX();
+        this.emv.a(this.emx);
+        this.emv.a(this.emy);
+        this.emv.hW(false);
     }
 
     private void initView() {
-        this.emv = new a(this);
-        this.emv.c(this.emy);
-        this.emv.b(this.dlj);
-        this.emu.hW(false);
-        this.emu.aRz();
+        this.emw = new a(this);
+        this.emw.c(this.emz);
+        this.emw.b(this.dlk);
+        this.emv.hW(false);
+        this.emv.aRz();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.emv.onDestroy();
-        this.emu.removeListener();
+        this.emw.onDestroy();
+        this.emv.removeListener();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.emv.onChangeSkinType(i);
+        this.emw.onChangeSkinType(i);
     }
 
     public void bo(List<Long> list) {
-        this.emu.a(this.channelId, list);
+        this.emv.a(this.channelId, list);
     }
 
     public long getChannelId() {

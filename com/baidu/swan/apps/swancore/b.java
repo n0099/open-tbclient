@@ -67,15 +67,15 @@ public final class b {
             swanCoreVersion = dJ(i);
         }
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString version: " + swanCoreVersion.aTg);
+            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString version: " + swanCoreVersion.aTh);
         }
-        if (swanCoreVersion.aTg > 0) {
-            return J(swanCoreVersion.aTg);
+        if (swanCoreVersion.aTh > 0) {
+            return J(swanCoreVersion.aTh);
         }
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + com.baidu.swan.apps.swancore.d.a.dQ(i).aTm);
+            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + com.baidu.swan.apps.swancore.d.a.dQ(i).aTn);
         }
-        return com.baidu.swan.apps.swancore.d.a.dQ(i).aTm;
+        return com.baidu.swan.apps.swancore.d.a.dQ(i).aTn;
     }
 
     public static SwanCoreVersion dI(int i) {
@@ -98,20 +98,20 @@ public final class b {
         }
         boolean z = i == 0;
         if (DEBUG && KM() && z) {
-            swanCoreVersion.aTj = z ? com.baidu.swan.apps.swancore.c.a.Bo().getPath() : com.baidu.swan.games.h.a.b.Bo().getPath();
-            swanCoreVersion.aTi = 2;
-            swanCoreVersion.aTg = com.baidu.swan.apps.swancore.c.a.KQ();
+            swanCoreVersion.aTk = z ? com.baidu.swan.apps.swancore.c.a.Bo().getPath() : com.baidu.swan.games.h.a.b.Bo().getPath();
+            swanCoreVersion.aTj = 2;
+            swanCoreVersion.aTh = com.baidu.swan.apps.swancore.c.a.KQ();
             Log.d("SwanAppSwanCoreManager", "DebugSwanCoreMode");
             return swanCoreVersion;
         }
         if (dP >= dZ) {
-            swanCoreVersion.aTj = com.baidu.swan.apps.swancore.d.a.f(dP, i).getPath();
-            swanCoreVersion.aTi = 0;
-            swanCoreVersion.aTg = dP;
+            swanCoreVersion.aTk = com.baidu.swan.apps.swancore.d.a.f(dP, i).getPath();
+            swanCoreVersion.aTj = 0;
+            swanCoreVersion.aTh = dP;
         } else {
-            swanCoreVersion.aTj = com.baidu.swan.apps.swancore.e.a.h(dZ, i).getPath();
-            swanCoreVersion.aTi = 1;
-            swanCoreVersion.aTg = dZ;
+            swanCoreVersion.aTk = com.baidu.swan.apps.swancore.e.a.h(dZ, i).getPath();
+            swanCoreVersion.aTj = 1;
+            swanCoreVersion.aTh = dZ;
         }
         return swanCoreVersion;
     }

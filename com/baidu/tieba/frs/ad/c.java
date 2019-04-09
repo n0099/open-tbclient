@@ -9,8 +9,8 @@ import tbclient.Media;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId fdD = BdUniqueId.gen();
-    private String bwH;
     private String bwI;
+    private String bwJ;
     private String fdE;
     private String fdF;
     private List<MediaData> fdG;
@@ -20,9 +20,9 @@ public class c extends com.baidu.tieba.card.data.b {
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
             this.fdE = adInfo.portrait;
-            this.bwH = adInfo.ad_name;
+            this.bwI = adInfo.ad_name;
             this.fdF = adInfo.ad_desc;
-            this.bwI = adInfo.ad_url;
+            this.bwJ = adInfo.ad_url;
             this.fdH = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
                 this.fdG = new ArrayList();
@@ -44,7 +44,7 @@ public class c extends com.baidu.tieba.card.data.b {
     }
 
     public String beC() {
-        return this.bwH;
+        return this.bwI;
     }
 
     public String beD() {
@@ -52,7 +52,7 @@ public class c extends com.baidu.tieba.card.data.b {
     }
 
     public String apM() {
-        return this.bwI;
+        return this.bwJ;
     }
 
     public List<MediaData> beE() {

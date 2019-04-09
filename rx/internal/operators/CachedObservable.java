@@ -9,30 +9,30 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.internal.util.c implements rx.e<T> {
-        static final ReplayProducer<?>[] jVa = new ReplayProducer[0];
-        final rx.d<? extends T> jUX;
-        final rx.subscriptions.d jUY;
-        volatile ReplayProducer<?>[] jUZ;
-        volatile boolean jVb;
-        boolean jVc;
+        static final ReplayProducer<?>[] jVb = new ReplayProducer[0];
+        final rx.d<? extends T> jUY;
+        final rx.subscriptions.d jUZ;
+        volatile ReplayProducer<?>[] jVa;
+        volatile boolean jVc;
+        boolean jVd;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.jUY) {
-                ReplayProducer<?>[] replayProducerArr = this.jUZ;
+            synchronized (this.jUZ) {
+                ReplayProducer<?>[] replayProducerArr = this.jVa;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.jUZ = replayProducerArr2;
+                this.jVa = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.jUY) {
-                ReplayProducer<?>[] replayProducerArr = this.jUZ;
+            synchronized (this.jUZ) {
+                ReplayProducer<?>[] replayProducerArr = this.jVa;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -46,13 +46,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.jUZ = jVa;
+                        this.jVa = jVb;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.jUZ = replayProducerArr2;
+                    this.jVa = replayProducerArr2;
                 }
             }
         }
@@ -74,14 +74,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.jUY.f(jVar);
-            this.jUX.a((rx.j<? super Object>) jVar);
-            this.jVb = true;
+            this.jUZ.f(jVar);
+            this.jUY.a((rx.j<? super Object>) jVar);
+            this.jVc = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.jVc) {
+            if (!this.jVd) {
                 add(NotificationLite.bm(t));
                 cDP();
             }
@@ -89,26 +89,26 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.jVc) {
-                this.jVc = true;
+            if (!this.jVd) {
+                this.jVd = true;
                 add(NotificationLite.O(th));
-                this.jUY.unsubscribe();
+                this.jUZ.unsubscribe();
                 cDP();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.jVc) {
-                this.jVc = true;
+            if (!this.jVd) {
+                this.jVd = true;
                 add(NotificationLite.cDR());
-                this.jUY.unsubscribe();
+                this.jUZ.unsubscribe();
                 cDP();
             }
         }
 
         void cDP() {
-            for (ReplayProducer<?> replayProducer : this.jUZ) {
+            for (ReplayProducer<?> replayProducer : this.jVa) {
                 replayProducer.replay();
             }
         }

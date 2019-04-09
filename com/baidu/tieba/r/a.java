@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a iNI;
-    private InterfaceC0374a iNJ = chg();
+    private static a iNJ;
+    private InterfaceC0374a iNK = chg();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,37 +38,37 @@ public class a {
     }
 
     public static a chh() {
-        if (iNI == null) {
+        if (iNJ == null) {
             synchronized (a.class) {
-                if (iNI == null) {
-                    iNI = new a();
+                if (iNJ == null) {
+                    iNJ = new a();
                 }
             }
         }
-        return iNI;
+        return iNJ;
     }
 
     public void d(Application application) {
-        if (this.iNJ != null) {
-            this.iNJ.d(application);
+        if (this.iNK != null) {
+            this.iNK.d(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.onPause(activity);
+        if (this.iNK != null) {
+            this.iNK.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.onResume(activity);
+        if (this.iNK != null) {
+            this.iNK.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.behaviorRecordEvent(motionEvent, activity);
+        if (this.iNK != null) {
+            this.iNK.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

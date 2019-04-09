@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c extends v.a {
-    View.OnClickListener dIo;
+    View.OnClickListener dIp;
     private RelativeLayout fiZ;
     private LinearLayout fja;
     private TbImageView fjb;
@@ -45,7 +45,7 @@ public class c extends v.a {
     public c(TbPageContext tbPageContext, View view, BdUniqueId bdUniqueId) {
         super(view);
         this.mSkinType = 3;
-        this.dIo = new View.OnClickListener() { // from class: com.baidu.tieba.frs.a.a.c.1
+        this.dIp = new View.OnClickListener() { // from class: com.baidu.tieba.frs.a.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (bc.cZ(c.this.mContext.getPageActivity()) && l.lo()) {
@@ -144,8 +144,8 @@ public class c extends v.a {
     }
 
     public void bfW() {
-        this.fiZ.setOnClickListener(this.dIo);
-        this.fja.setOnClickListener(this.dIo);
+        this.fiZ.setOnClickListener(this.dIp);
+        this.fja.setOnClickListener(this.dIp);
     }
 
     public void onChangeSkinType(int i) {

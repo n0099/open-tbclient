@@ -5,36 +5,36 @@ import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes3.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> jwK;
+    private Stack<WeakReference<Activity>> jwL;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.jwK = new Stack<>();
+        this.jwL = new Stack<>();
     }
 
     public final Stack<WeakReference<Activity>> cst() {
-        return this.jwK;
+        return this.jwL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.jwK.add(weakReference);
+        this.jwL.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.jwK != null) {
+        if (this.jwL != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.jwK.size()) {
+                if (i2 >= this.jwL.size()) {
                     break;
                 }
-                if (this.jwK.get(i2).get() == activity) {
-                    this.jwK.remove(this.jwK.get(i2));
+                if (this.jwL.get(i2).get() == activity) {
+                    this.jwL.remove(this.jwL.get(i2));
                 }
                 i = i2 + 1;
             }
@@ -45,8 +45,8 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String csu() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.jwK.size(); i++) {
-            Activity activity = this.jwK.get(i).get();
+        for (int i = 0; i < this.jwL.size(); i++) {
+            Activity activity = this.jwL.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append("->");
@@ -58,6 +58,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        private static final d jwL = new d((byte) 0);
+        private static final d jwM = new d((byte) 0);
     }
 }

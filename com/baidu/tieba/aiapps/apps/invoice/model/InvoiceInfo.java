@@ -20,15 +20,15 @@ public class InvoiceInfo implements Parcelable {
         }
     };
     @com.google.gson.a.c("tax_number")
-    public String cTu;
-    @com.google.gson.a.c("company_address")
     public String cTv;
-    @com.google.gson.a.c("telephone")
+    @com.google.gson.a.c("company_address")
     public String cTw;
-    @com.google.gson.a.c("bank_name")
+    @com.google.gson.a.c("telephone")
     public String cTx;
-    @com.google.gson.a.c("bank_account")
+    @com.google.gson.a.c("bank_name")
     public String cTy;
+    @com.google.gson.a.c("bank_account")
+    public String cTz;
     @com.google.gson.a.c("id")
     public long mId;
     @com.google.gson.a.c("is_default")
@@ -44,28 +44,28 @@ public class InvoiceInfo implements Parcelable {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.cTu = str2;
-        this.cTv = str3;
-        this.cTw = str4;
-        this.cTx = str5;
-        this.cTy = str6;
+        this.cTv = str2;
+        this.cTw = str3;
+        this.cTx = str4;
+        this.cTy = str5;
+        this.cTz = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.cTw = str2;
+        this.cTx = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.cTu = parcel.readString();
         this.cTv = parcel.readString();
         this.cTw = parcel.readString();
         this.cTx = parcel.readString();
         this.cTy = parcel.readString();
+        this.cTz = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -79,11 +79,11 @@ public class InvoiceInfo implements Parcelable {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.cTu);
         parcel.writeString(this.cTv);
         parcel.writeString(this.cTw);
         parcel.writeString(this.cTx);
         parcel.writeString(this.cTy);
+        parcel.writeString(this.cTz);
         parcel.writeInt(this.mIsDefault);
     }
 

@@ -28,7 +28,7 @@ import java.util.Date;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.swan.apps.core.d.a arB;
+    private com.baidu.swan.apps.core.d.a arC;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -62,26 +62,26 @@ public class b {
     }
 
     public void a(final a aVar, String str, String str2) {
-        this.arB = new com.baidu.swan.apps.core.d.a(this.mContext, str, str2);
-        this.arB.a(new a.b() { // from class: com.baidu.swan.apps.core.d.b.1
+        this.arC = new com.baidu.swan.apps.core.d.a(this.mContext, str, str2);
+        this.arC.a(new a.b() { // from class: com.baidu.swan.apps.core.d.b.1
             @Override // com.baidu.swan.apps.core.d.a.b
             public void i(String str3, String str4, String str5, String str6) {
                 if (aVar != null) {
                     aVar.X(str5, str6);
                 }
-                b.this.arB = null;
+                b.this.arC = null;
             }
         });
-        this.arB.a(new a.InterfaceC0132a() { // from class: com.baidu.swan.apps.core.d.b.10
+        this.arC.a(new a.InterfaceC0132a() { // from class: com.baidu.swan.apps.core.d.b.10
             @Override // com.baidu.swan.apps.core.d.a.InterfaceC0132a
             public void onCancel() {
                 if (aVar != null) {
                     aVar.xz();
                 }
-                b.this.arB = null;
+                b.this.arC = null;
             }
         });
-        this.arB.show();
+        this.arC.show();
     }
 
     public void a(final c cVar, final SslErrorHandler sslErrorHandler, final SslError sslError) {
@@ -89,17 +89,17 @@ public class b {
             sslErrorHandler.cancel();
         } else {
             new c.a(this.mContext).cm(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new a.c() { // from class: com.baidu.swan.apps.core.d.b.15
-                private long[] apQ = null;
+                private long[] apR = null;
 
                 @Override // com.baidu.swan.apps.res.widget.dialog.a.c
                 public void U(View view) {
-                    if (this.apQ == null) {
-                        this.apQ = new long[5];
+                    if (this.apR == null) {
+                        this.apR = new long[5];
                     }
-                    System.arraycopy(this.apQ, 1, this.apQ, 0, this.apQ.length - 1);
-                    this.apQ[this.apQ.length - 1] = SystemClock.uptimeMillis();
-                    if (this.apQ[0] >= SystemClock.uptimeMillis() - 3000) {
-                        this.apQ = null;
+                    System.arraycopy(this.apR, 1, this.apR, 0, this.apR.length - 1);
+                    this.apR[this.apR.length - 1] = SystemClock.uptimeMillis();
+                    if (this.apR[0] >= SystemClock.uptimeMillis() - 3000) {
+                        this.apR = null;
                         b.this.eb(sslError.toString());
                     }
                 }

@@ -8,15 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ak extends k<com.baidu.tieba.pb.data.h, al> {
-    private BdUniqueId huS;
     private BdUniqueId huT;
+    private BdUniqueId huU;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.huS = BdUniqueId.gen();
         this.huT = BdUniqueId.gen();
+        this.huU = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,13 +24,13 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bC */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.hoJ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
-        alVar.Sj = false;
+        al alVar = new al(this.hoK.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        alVar.Sk = false;
         alVar.L(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.h.hkt) {
-            alVar.i(this.huS);
-        } else if (getType() == com.baidu.tieba.pb.data.h.hku) {
-            alVar.o(this.huT);
+        if (getType() == com.baidu.tieba.pb.data.h.hku) {
+            alVar.i(this.huT);
+        } else if (getType() == com.baidu.tieba.pb.data.h.hkv) {
+            alVar.o(this.huU);
         }
         return alVar;
     }
@@ -48,8 +48,8 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.huS);
         MessageManager.getInstance().unRegisterListener(this.huT);
+        MessageManager.getInstance().unRegisterListener(this.huU);
     }
 
     public void t(View.OnClickListener onClickListener) {

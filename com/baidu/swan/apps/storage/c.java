@@ -15,19 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.ae.c {
-    private e aQE;
-    public final String aQF;
-    public final File aSV;
-    private final c.a<Long> aSY;
+    private e aQF;
+    public final String aQG;
+    public final File aSW;
+    private final c.a<Long> aSZ;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static int aSW = 1024;
+    public static int aSX = 1024;
     public static int INVALID_INDEX = -1;
-    public static int aSX = 1;
+    public static int aSY = 1;
 
     public c(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
-        this.aSY = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.aSZ = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
             /* renamed from: KH */
@@ -36,9 +36,9 @@ public class c extends com.baidu.swan.apps.ae.c {
             }
         };
         this.name = b.d(bVar);
-        this.aQF = "aiapp_" + this.name;
-        this.aSV = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.aQF + ".xml");
-        com.baidu.swan.apps.ak.e.aVS.a(this.aSY);
+        this.aQG = "aiapp_" + this.name;
+        this.aSW = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.aQG + ".xml");
+        com.baidu.swan.apps.ak.e.aVT.a(this.aSZ);
     }
 
     public boolean KC() {
@@ -46,10 +46,10 @@ public class c extends com.baidu.swan.apps.ae.c {
     }
 
     public e KD() {
-        if (this.aQE == null) {
-            this.aQE = new e(this.aQF);
+        if (this.aQF == null) {
+            this.aQF = new e(this.aQG);
         }
-        return this.aQE;
+        return this.aQF;
     }
 
     public void clear(boolean z) {
@@ -60,7 +60,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         }
         com.baidu.swan.c.b.deleteFile(b.gY(com.baidu.swan.apps.ae.b.Jg()));
         com.baidu.swan.c.b.deleteFile(b.gX(com.baidu.swan.apps.ae.b.Jg()));
-        com.baidu.swan.apps.ak.e.aVS.update();
+        com.baidu.swan.apps.ak.e.aVT.update();
     }
 
     public int hb(@NonNull String str) {
@@ -83,7 +83,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         if (lastIndexOf == INVALID_INDEX || length <= lastIndexOf) {
             return null;
         }
-        return str.substring(aSX + lastIndexOf, length);
+        return str.substring(aSY + lastIndexOf, length);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [228=5, 230=4, 231=4, 232=4, 236=4, 238=4, 239=4, 240=4] */
@@ -116,7 +116,7 @@ public class c extends com.baidu.swan.apps.ae.c {
                 try {
                     fileOutputStream = new FileOutputStream(aE);
                     try {
-                        byte[] bArr = new byte[aSW];
+                        byte[] bArr = new byte[aSX];
                         while (true) {
                             int read = fileInputStream.read(bArr);
                             if (read == -1) {
@@ -306,19 +306,19 @@ public class c extends com.baidu.swan.apps.ae.c {
     }
 
     public long KF() {
-        if (this.aSV == null) {
+        if (this.aSW == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.aSV.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.aSV.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.aSV.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.aSV.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.aSW.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.aSW.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.aSW.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.aSW.length());
         }
-        return this.aSV.length();
+        return this.aSW.length();
     }
 
     public long KG() {
