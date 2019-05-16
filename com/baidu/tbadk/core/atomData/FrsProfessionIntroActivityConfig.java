@@ -15,7 +15,7 @@ public class FrsProfessionIntroActivityConfig extends IntentConfig {
     public FrsProfessionIntroActivityConfig(Context context, String str) {
         super(context);
         getIntent().putExtra(KEY_PATTEN_BACKGROUND, str);
-        setRequestCode(20541);
+        setRequestCode(25041);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

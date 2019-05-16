@@ -501,7 +501,7 @@ public final class g {
         HashSet hashSet = new HashSet();
         StringBuilder sb = new StringBuilder();
         a(apkInfo, str, hashSet, sb, true, false);
-        String str3 = Config.TRACE_TODAY_VISIT_SPLIT + System.getProperty("java.library.path");
+        String str3 = ":" + System.getProperty("java.library.path");
         if (Build.VERSION.SDK_INT >= 25) {
             str3 = "";
         }
@@ -516,7 +516,7 @@ public final class g {
             } catch (Throwable th) {
                 com.baidu.sofire.b.e.a();
             }
-            str4 = str6 != null ? str5 + Config.TRACE_TODAY_VISIT_SPLIT + str6 + str3 : str5 + str3;
+            str4 = str6 != null ? str5 + ":" + str6 + str3 : str5 + str3;
         } else {
             try {
                 if (Build.VERSION.SDK_INT >= 8 && hashSet.contains(Build.CPU_ABI2)) {

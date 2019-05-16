@@ -12,57 +12,57 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e qL;
-    private final m<PointF, PointF> qM;
-    private final g qN;
-    private final b qO;
-    private final d qP;
+    private final e ol;
+    private final m<PointF, PointF> om;
+    private final g on;
+    private final b oo;
+    private final d oq;
     @Nullable
-    private final b qQ;
+    private final b or;
     @Nullable
-    private final b qR;
+    private final b ot;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.qL = eVar;
-        this.qM = mVar;
-        this.qN = gVar;
-        this.qO = bVar;
-        this.qP = dVar;
-        this.qQ = bVar2;
-        this.qR = bVar3;
+        this.ol = eVar;
+        this.om = mVar;
+        this.on = gVar;
+        this.oo = bVar;
+        this.oq = dVar;
+        this.or = bVar2;
+        this.ot = bVar3;
     }
 
-    public e dQ() {
-        return this.qL;
+    public e cK() {
+        return this.ol;
     }
 
-    public m<PointF, PointF> dR() {
-        return this.qM;
+    public m<PointF, PointF> cL() {
+        return this.om;
     }
 
-    public g dS() {
-        return this.qN;
+    public g cM() {
+        return this.on;
     }
 
-    public b dT() {
-        return this.qO;
+    public b cN() {
+        return this.oo;
     }
 
-    public d dU() {
-        return this.qP;
-    }
-
-    @Nullable
-    public b dV() {
-        return this.qQ;
+    public d cO() {
+        return this.oq;
     }
 
     @Nullable
-    public b dW() {
-        return this.qR;
+    public b cP() {
+        return this.or;
     }
 
-    public p dX() {
+    @Nullable
+    public b cQ() {
+        return this.ot;
+    }
+
+    public p cR() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l dY() {
-            return new l(new e(), new e(), g.a.dN(), b.a.dI(), d.a.dK(), b.a.dI(), b.a.dI());
+        public static l cS() {
+            return new l(new e(), new e(), g.a.cH(), b.a.cC(), d.a.cE(), b.a.cC(), b.a.cC());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
@@ -95,7 +95,7 @@ public class l implements com.airbnb.lottie.model.content.b {
             if (optJSONObject2 != null) {
                 mVar = e.h(optJSONObject2, eVar);
             } else {
-                ad("position");
+                M("position");
                 mVar = null;
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
@@ -111,7 +111,7 @@ public class l implements com.airbnb.lottie.model.content.b {
             if (optJSONObject4 != null) {
                 bVar = b.a.a(optJSONObject4, eVar, false);
             } else {
-                ad("rotation");
+                M("rotation");
                 bVar = null;
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject(Config.OS);
@@ -126,7 +126,7 @@ public class l implements com.airbnb.lottie.model.content.b {
             return new l(eVar2, mVar, gVar, bVar, dVar, a, optJSONObject7 != null ? b.a.a(optJSONObject7, eVar, false) : null);
         }
 
-        private static void ad(String str) {
+        private static void M(String str) {
             throw new IllegalArgumentException("Missing transform for " + str);
         }
     }

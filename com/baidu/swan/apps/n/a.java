@@ -8,18 +8,18 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
-    private String avW;
+public class a extends z {
+    private String awt;
 
     public a(j jVar) {
         super(jVar, "/swan/getFormId");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             if (DEBUG) {
@@ -38,8 +38,8 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         }
-        this.avW = c.optString("cb");
-        if (TextUtils.isEmpty(this.avW)) {
+        this.awt = c.optString("cb");
+        if (TextUtils.isEmpty(this.awt)) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "mCallBack is null");
             }
@@ -63,10 +63,10 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            com.baidu.swan.apps.u.a.CZ().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
+            com.baidu.swan.apps.u.a.Ee().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
                 @Override // com.baidu.swan.apps.ad.a
                 public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.avW, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+                    callbackHandler.handleSchemeDispatchCallback(a.this.awt, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

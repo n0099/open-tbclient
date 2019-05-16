@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class SystemBarTintManager {
@@ -29,7 +28,7 @@ public class SystemBarTintManager {
     static {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
-                Method declaredMethod = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES).getDeclaredMethod("get", String.class);
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
                 sNavBarOverride = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {

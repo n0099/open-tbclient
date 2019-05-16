@@ -1,114 +1,87 @@
 package com.baidu.android.pushservice.message.a;
 
-import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.RingtoneManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushService;
-import com.baidu.android.pushservice.message.PublicMsg;
-import com.coloros.mcssdk.PushManager;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.Locale;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.i.l;
+import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
 /* loaded from: classes3.dex */
-public class f {
-    @SuppressLint({"NewApi"})
-    public static void a(Context context, PublicMsg publicMsg, String str) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
-        Intent intent = new Intent(context, PushService.class);
-        intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
-        intent.setData(Uri.parse("content://" + str));
-        intent.putExtra("public_msg", publicMsg);
-        Intent intent2 = new Intent(context, PushService.class);
-        intent2.setAction("com.baidu.pushservice.action.publicmsg.DELETE_V2");
-        intent2.setData(Uri.parse("content://" + str));
-        intent2.putExtra("public_msg", publicMsg);
-        intent.setClass(context, PushService.class);
-        intent2.setClass(context, PushService.class);
-        Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
-        notificationManager.notify(com.baidu.android.pushservice.j.m.a(str), Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
+public class f extends b {
+    public f(Context context) {
+        super(context);
     }
 
-    public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i, byte[] bArr, byte[] bArr2) {
-        Intent intent = new Intent();
-        intent.putExtra("public_msg", publicMsg);
-        intent.putExtra("pushService_package_name", context.getPackageName());
-        intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
-        intent.putExtra("message_id", str);
-        intent.putExtra("app_id", str2);
-        intent.putExtra("baidu_message_type", i);
-        if (com.baidu.android.pushservice.j.m.m(context, publicMsg.mPkgName) > 45) {
-            intent.putExtra("baidu_message_body", bArr2);
-            intent.putExtra("baidu_message_secur_info", bArr);
+    @Override // com.baidu.android.pushservice.message.a.b
+    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+        int i;
+        String b = kVar.b();
+        String e = kVar.e();
+        int f = kVar.f();
+        byte[] g = kVar.g();
+        String c = kVar.c();
+        String str = new String(bArr);
+        com.baidu.android.pushservice.a.d a = com.baidu.android.pushservice.a.d.a(this.a, b);
+        if (TextUtils.isEmpty(c) || !l.c(this.a, c)) {
+            c = a.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a.a.c() : a.a() == com.baidu.android.pushservice.a.c.SDK_CLIENT ? a.b.c() : null;
         }
-        com.baidu.android.pushservice.j.m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
-    }
-
-    public static void a(Context context, String str) {
-        try {
-            Intent intent = new Intent(com.baidu.android.pushservice.PushConstants.ACTION_METHOD);
-            intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-            intent.putExtra("app_id", str);
-            com.baidu.android.pushservice.j.l.a(context, intent);
-        } catch (Exception e) {
+        switch (a.a()) {
+            case PUSH_CLIENT:
+                String a2 = a(c);
+                byte[] a3 = l.a(this.a, e, bArr, g, a2);
+                try {
+                    this.a.getPackageManager().getPackageInfo(a2, 128);
+                    Intent intent = new Intent();
+                    intent.putExtra(Constants.APP_ID, b);
+                    intent.putExtra("msg_id", e);
+                    intent.putExtra("message", bArr);
+                    intent.putExtra("message_string", str);
+                    intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                    intent.putExtra("baidu_message_type", f);
+                    intent.putExtra("baidu_message_body", bArr);
+                    intent.putExtra("baidu_message_secur_info", a3);
+                    i = l.a(this.a, intent, PushConstants.ACTION_MESSAGE, a2);
+                    l.b(">>> Deliver message to client: " + a.a.c() + " result: " + i, this.a);
+                    break;
+                } catch (PackageManager.NameNotFoundException e2) {
+                    e.a(this.a, b);
+                    l.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
+                    i = 7;
+                    break;
+                }
+            case SDK_CLIENT:
+                try {
+                    byte[] a4 = l.a(this.a, e, bArr, g, c);
+                    this.a.getPackageManager().getPackageInfo(c, 128);
+                    Intent intent2 = new Intent();
+                    intent2.setPackage(c);
+                    intent2.putExtra("message", bArr);
+                    intent2.putExtra("message_string", str);
+                    intent2.putExtra("baidu_message_type", f);
+                    intent2.putExtra("baidu_message_body", bArr);
+                    intent2.putExtra("baidu_message_secur_info", a4);
+                    intent2.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                    l.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", c);
+                    i = 0;
+                    break;
+                } catch (PackageManager.NameNotFoundException e3) {
+                    com.baidu.android.pushservice.a.h.a(this.a).a((com.baidu.android.pushservice.a.a) a.b, false);
+                    i = 8;
+                    break;
+                }
+            default:
+                if (Build.VERSION.SDK_INT < 24) {
+                    e.a(this.a, b);
+                }
+                l.b(">>> Don't found app  in OldPrivateMessage " + str, this.a);
+                i = 7;
+                break;
         }
-    }
-
-    public static void a(Context context, String str, PublicMsg publicMsg, String str2, int i, byte[] bArr, byte[] bArr2) {
-        Intent intent = new Intent();
-        intent.putExtra("public_msg", publicMsg);
-        intent.putExtra("notify_type", "rich_media");
-        intent.putExtra("app_id", str);
-        intent.putExtra("message_id", str2);
-        intent.putExtra("pushService_package_name", context.getPackageName());
-        intent.putExtra("baidu_message_type", i);
-        intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
-        if (com.baidu.android.pushservice.j.m.m(context, publicMsg.mPkgName) > 45) {
-            intent.putExtra("baidu_message_body", bArr2);
-            intent.putExtra("baidu_message_secur_info", bArr);
-        }
-        com.baidu.android.pushservice.j.m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
-    }
-
-    public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
-        Intent intent = new Intent();
-        intent.setData(Uri.parse(str4));
-        intent.setAction("android.intent.action.VIEW");
-        intent.addFlags(268435456);
-        PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-        com.baidu.android.pushservice.c cVar = new com.baidu.android.pushservice.c(str3);
-        cVar.b(16);
-        cVar.c(3);
-        cVar.a(str);
-        cVar.b(str2);
-        cVar.a(com.baidu.android.pushservice.j.m.q(context, intent.getPackage()));
-        cVar.a(context, activity, str5);
-    }
-
-    public static boolean a(Context context, PublicMsg publicMsg) {
-        boolean z;
-        if (publicMsg.mNetType == 1) {
-            NetworkInfo c = com.baidu.android.pushservice.j.h.c(context);
-            if (!(c != null && "wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
-                return false;
-            }
-        }
-        if (TextUtils.isEmpty(publicMsg.mSupportAppname)) {
-            return true;
-        }
-        try {
-            z = context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null;
-        } catch (PackageManager.NameNotFoundException e) {
-            z = false;
-        }
-        return (publicMsg.mIsSupportApp && z) || !(publicMsg.mIsSupportApp || z);
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
+        gVar.a(i);
+        return gVar;
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    private TbImageView ijl;
-    private View ijm;
-    private TextView ijn;
+    private TbImageView iBX;
+    private View iBY;
+    private TextView iBZ;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -22,50 +22,50 @@ public class AdCardSinglePicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getLayout() {
-        return d.h.card_ad;
+        return R.layout.card_ad;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getCustomLayout() {
-        return d.h.card_ad_single_pic;
+        return R.layout.card_ad_single_pic;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void cD(View view) {
-        this.ijl = (TbImageView) view.findViewById(d.g.ad_img);
-        this.ijl.setRadius(this.mContext.getResources().getDimensionPixelSize(d.e.tbds20));
-        this.ijl.setConrers(15);
-        this.ijl.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(d.e.tbds1));
-        this.ijl.setBorderColor(0);
-        this.ijm = view.findViewById(d.g.channel_ad);
-        this.ijn = (TextView) view.findViewById(d.g.advert_source_img);
+    protected void cL(View view) {
+        this.iBX = (TbImageView) view.findViewById(R.id.ad_img);
+        this.iBX.setRadius(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.iBX.setConrers(15);
+        this.iBX.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.iBX.setBorderColor(0);
+        this.iBY = view.findViewById(R.id.channel_ad);
+        this.iBZ = (TextView) view.findViewById(R.id.advert_source_img);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.iih.setVisibility(8);
+            this.iAT.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
-        boolean a = a(this.ijl, adCard);
+        boolean a = a(this.iBX, adCard);
         if (!TextUtils.isEmpty(str) && a) {
-            this.iih.setVisibility(0);
-            this.ijl.startLoad(str, 17, false);
+            this.iAT.setVisibility(0);
+            this.iBX.startLoad(str, 17, false);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (!StringUtils.isNull(adCard.adSource, true)) {
-                this.ijn.setText(adCard.adSource);
-                this.ijm.setVisibility(0);
-            } else if (advertAppInfo != null && advertAppInfo.bwR != null && !TextUtils.isEmpty(advertAppInfo.bwR.adSource)) {
-                this.ijn.setText(advertAppInfo.bwR.adSource);
-                this.ijm.setVisibility(0);
+                this.iBZ.setText(adCard.adSource);
+                this.iBY.setVisibility(0);
+            } else if (advertAppInfo != null && advertAppInfo.bEc != null && !TextUtils.isEmpty(advertAppInfo.bEc.adSource)) {
+                this.iBZ.setText(advertAppInfo.bEc.adSource);
+                this.iBY.setVisibility(0);
             } else {
-                this.ijm.setVisibility(8);
+                this.iBY.setVisibility(8);
             }
-            a(this.ijl, adCard.threadPicList[0].ihS);
+            a(this.iBX, adCard.threadPicList[0].iAE);
             return;
         }
-        this.iih.setVisibility(8);
+        this.iAT.setVisibility(8);
     }
 
     protected boolean a(TbImageView tbImageView, AdCard adCard) {

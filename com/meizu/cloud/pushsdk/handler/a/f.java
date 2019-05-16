@@ -10,26 +10,15 @@ public class f extends a<Boolean> {
         super(context, aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public Boolean c(Intent intent) {
-        boolean booleanExtra = intent.getBooleanExtra(PushConstants.EXTRA_APP_IS_UNREGISTER_SUCCESS, false);
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_REGISTRATION_ERROR);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
-        if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
-            c().getSharedPreferences(PushConstants.PUSH_ID_PREFERENCE_NAME, 0).edit().putString(PushConstants.KEY_PUSH_ID, "").commit();
-            return true;
-        }
-        return false;
+    @Override // com.meizu.cloud.pushsdk.handler.c
+    public int a() {
+        return 32;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(Boolean bool, com.meizu.cloud.pushsdk.notification.e eVar) {
+    public void a(Boolean bool, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (b() != null) {
             b().a(c(), bool.booleanValue());
         }
@@ -41,8 +30,19 @@ public class f extends a<Boolean> {
         return PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REQUEST_UNREGISTRATION_INTENT.equals(intent.getAction()) && TextUtils.isEmpty(intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED)));
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 32;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: j */
+    public Boolean c(Intent intent) {
+        boolean booleanExtra = intent.getBooleanExtra(PushConstants.EXTRA_APP_IS_UNREGISTER_SUCCESS, false);
+        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_REGISTRATION_ERROR);
+        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
+        com.meizu.cloud.a.a.i("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
+        if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
+            com.meizu.cloud.pushsdk.util.b.f(c(), "", c().getPackageName());
+            return true;
+        }
+        return false;
     }
 }

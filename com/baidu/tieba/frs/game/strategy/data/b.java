@@ -5,15 +5,15 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
-    public static final BdUniqueId fjL = BdUniqueId.gen();
+    public static final BdUniqueId fAg = BdUniqueId.gen();
     private bg threadData;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fjL;
+        return fAg;
     }
 
-    public bg WO() {
+    public bg abv() {
         return this.threadData;
     }
 

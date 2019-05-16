@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public JSONObject aAm;
-    private CallbackHandler ayJ;
+    public JSONObject aBj;
+    private CallbackHandler azH;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.ayJ = callbackHandler;
-        this.aAm = jSONObject;
+        this.azH = callbackHandler;
+        this.aBj = jSONObject;
     }
 
-    public void eY(String str) {
+    public void fj(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.aAm = new JSONObject(str);
+            this.aBj = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void eZ(String str) {
+    public void fk(String str) {
         f(str, null);
     }
 
     public void f(String str, JSONObject jSONObject) {
-        if (this.aAm != null) {
+        if (this.aBj != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.ayJ.handleSchemeDispatchCallback(this.aAm.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.azH.handleSchemeDispatchCallback(this.aBj.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean Ex() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.ayJ);
+    public boolean Gt() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.azH);
     }
 }

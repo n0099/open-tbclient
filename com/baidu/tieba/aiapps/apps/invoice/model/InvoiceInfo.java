@@ -2,40 +2,33 @@ package com.baidu.tieba.aiapps.apps.invoice.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class InvoiceInfo implements Parcelable {
+public class InvoiceInfo implements Parcelable, c {
     public static final Parcelable.Creator<InvoiceInfo> CREATOR = new Parcelable.Creator<InvoiceInfo>() { // from class: com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: C */
+        /* renamed from: F */
         public InvoiceInfo createFromParcel(Parcel parcel) {
             return new InvoiceInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: lM */
+        /* renamed from: mz */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
     };
-    @com.google.gson.a.c("tax_number")
-    public String cTv;
-    @com.google.gson.a.c("company_address")
-    public String cTw;
-    @com.google.gson.a.c("telephone")
-    public String cTx;
-    @com.google.gson.a.c("bank_name")
-    public String cTy;
-    @com.google.gson.a.c("bank_account")
-    public String cTz;
-    @com.google.gson.a.c("id")
+    public String dbN;
+    public String dbO;
+    public String dbP;
+    public String dbQ;
+    public String dbR;
     public long mId;
-    @com.google.gson.a.c("is_default")
     public int mIsDefault;
-    @com.google.gson.a.c("title")
     public String mTitle;
-    @com.google.gson.a.c("type")
     public int mType;
 
     public InvoiceInfo() {
@@ -44,28 +37,28 @@ public class InvoiceInfo implements Parcelable {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.cTv = str2;
-        this.cTw = str3;
-        this.cTx = str4;
-        this.cTy = str5;
-        this.cTz = str6;
+        this.dbN = str2;
+        this.dbO = str3;
+        this.dbP = str4;
+        this.dbQ = str5;
+        this.dbR = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.cTx = str2;
+        this.dbP = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.cTv = parcel.readString();
-        this.cTw = parcel.readString();
-        this.cTx = parcel.readString();
-        this.cTy = parcel.readString();
-        this.cTz = parcel.readString();
+        this.dbN = parcel.readString();
+        this.dbO = parcel.readString();
+        this.dbP = parcel.readString();
+        this.dbQ = parcel.readString();
+        this.dbR = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -79,11 +72,11 @@ public class InvoiceInfo implements Parcelable {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.cTv);
-        parcel.writeString(this.cTw);
-        parcel.writeString(this.cTx);
-        parcel.writeString(this.cTy);
-        parcel.writeString(this.cTz);
+        parcel.writeString(this.dbN);
+        parcel.writeString(this.dbO);
+        parcel.writeString(this.dbP);
+        parcel.writeString(this.dbQ);
+        parcel.writeString(this.dbR);
         parcel.writeInt(this.mIsDefault);
     }
 
@@ -97,5 +90,38 @@ public class InvoiceInfo implements Parcelable {
 
     public boolean equals(Object obj) {
         return (obj instanceof InvoiceInfo) && ((InvoiceInfo) obj).mId == this.mId;
+    }
+
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("id", this.mId);
+            jSONObject.put("type", this.mType);
+            jSONObject.put("title", this.mTitle);
+            jSONObject.put("tax_number", this.dbN);
+            jSONObject.put("company_address", this.dbO);
+            jSONObject.put("telephone", this.dbP);
+            jSONObject.put("bank_name", this.dbQ);
+            jSONObject.put("bank_account", this.dbR);
+            jSONObject.put("is_default", this.mIsDefault);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject;
+    }
+
+    @Override // com.baidu.tieba.aiapps.apps.invoice.model.c
+    public void bh(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.mId = jSONObject.optLong("id");
+            this.mType = jSONObject.optInt("type");
+            this.mTitle = jSONObject.optString("title");
+            this.dbN = jSONObject.optString("tax_number");
+            this.dbO = jSONObject.optString("company_address");
+            this.dbP = jSONObject.optString("telephone");
+            this.dbQ = jSONObject.optString("bank_name");
+            this.dbR = jSONObject.optString("bank_account");
+            this.mIsDefault = jSONObject.optInt("is_default");
+        }
     }
 }

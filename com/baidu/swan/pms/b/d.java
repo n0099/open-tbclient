@@ -1,9 +1,11 @@
 package com.baidu.swan.pms.b;
 
 import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.pms.a.f;
 import com.baidu.swan.pms.d;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.model.PMSPkgStatus;
-import com.baidu.swan.pms.model.g;
+import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.model.i;
 import java.util.List;
 import okhttp3.Response;
@@ -11,16 +13,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class d<T> extends ResponseCallback<String> {
-    protected com.baidu.swan.pms.a.e bmj;
-    protected com.baidu.swan.pms.b.d.c bmk;
+    protected f bsl;
+    protected com.baidu.swan.pms.b.d.e bsm;
 
-    protected abstract String RK();
+    protected abstract com.baidu.swan.pms.model.a V(T t);
 
-    protected abstract com.baidu.swan.pms.model.b a(c cVar);
+    protected abstract String Vx();
 
-    public d(com.baidu.swan.pms.a.e eVar, com.baidu.swan.pms.b.d.c cVar) {
-        this.bmj = eVar;
-        this.bmk = cVar;
+    protected abstract boolean W(T t);
+
+    protected abstract T aD(JSONObject jSONObject);
+
+    public d(f fVar, com.baidu.swan.pms.b.d.e eVar) {
+        this.bsl = fVar;
+        this.bsm = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,95 +37,110 @@ public abstract class d<T> extends ResponseCallback<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
-    /* renamed from: I */
+    /* renamed from: x */
     public void onSuccess(String str, int i) {
         if (i != 200) {
-            com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2104, "metadata : network error. http code=" + i);
-            this.bmj.a(bVar);
-            a(bVar, str);
+            com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=" + i);
+            this.bsl.a(aVar);
+            a(aVar, str);
             return;
         }
-        c jm = c.jm(str);
-        if (jm == null) {
-            com.baidu.swan.pms.model.b bVar2 = new com.baidu.swan.pms.model.b(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.d.d.dm(str).toString());
-            this.bmj.a(bVar2);
-            a(bVar2, str);
-        } else if (jm.getErrorCode() != 0) {
-            com.baidu.swan.pms.model.b bVar3 = new com.baidu.swan.pms.model.b(jm.getErrorCode(), d.a.fd(jm.getErrorCode()));
-            this.bmj.a(bVar3);
-            a(bVar3, str);
+        c kl = c.kl(str);
+        if (kl == null) {
+            com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.e.d.cZ(str).toString());
+            this.bsl.a(aVar2);
+            a(aVar2, str);
+        } else if (kl.getErrorCode() != 0) {
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(kl.getErrorCode(), d.a.fC(kl.getErrorCode()));
+            this.bsl.a(aVar3);
+            a(aVar3, str);
         } else {
-            a(a(jm), str);
+            T aD = aD(kl.Vw());
+            if (aD == null) {
+                com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(2102, "response data empty");
+                this.bsl.a(aVar4);
+                a(aVar4, str);
+            } else if (!W(aD)) {
+                com.baidu.swan.pms.model.a aVar5 = new com.baidu.swan.pms.model.a(2103, str);
+                this.bsl.a(aVar5);
+                a(aVar5, str);
+            } else {
+                a(V(aD), str);
+            }
         }
     }
 
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
     public void onFail(Exception exc) {
-        com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b(2101, exc.getMessage());
-        this.bmj.a(bVar);
-        a(bVar, exc.getMessage());
+        com.baidu.swan.pms.model.a aVar = new com.baidu.swan.pms.model.a(2101, exc.getMessage());
+        this.bsl.a(aVar);
+        a(aVar, exc.getMessage());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(g gVar, com.baidu.swan.pms.d.e eVar) {
-        if (gVar != null) {
-            eVar.a(gVar, PMSPkgStatus.WAIT);
+    public void a(com.baidu.swan.pms.model.f fVar, com.baidu.swan.pms.e.e eVar) {
+        if (fVar != null) {
+            eVar.a(fVar, PMSPkgStatus.WAIT);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(List<i> list, com.baidu.swan.pms.d.e eVar) {
+    public void a(List<h> list, com.baidu.swan.pms.e.e eVar) {
         if (list != null && !list.isEmpty()) {
-            for (i iVar : list) {
-                eVar.a(iVar, PMSPkgStatus.WAIT);
+            for (h hVar : list) {
+                eVar.a(hVar, PMSPkgStatus.WAIT);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.d.e eVar2) {
-        if (eVar != null) {
-            eVar2.a(eVar, PMSPkgStatus.WAIT);
+    public void a(com.baidu.swan.pms.model.d dVar, com.baidu.swan.pms.e.e eVar) {
+        if (dVar != null) {
+            eVar.a(dVar, PMSPkgStatus.WAIT);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.swan.pms.model.c cVar, com.baidu.swan.pms.d.e eVar) {
-        if (cVar != null) {
-            eVar.a(cVar, PMSPkgStatus.WAIT);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void i(com.baidu.swan.pms.model.a aVar) {
-        com.baidu.swan.pms.a.d zG;
-        if (aVar != null && (zG = this.bmj.zG()) != null) {
-            zG.c(aVar);
-        }
-    }
-
-    private void a(com.baidu.swan.pms.model.b bVar, String str) {
-        int i = 0;
-        JSONObject jSONObject = new JSONObject();
-        String str2 = "unknown";
+    public void a(com.baidu.swan.pms.model.b bVar, com.baidu.swan.pms.e.e eVar) {
         if (bVar != null) {
+            eVar.a(bVar, PMSPkgStatus.WAIT);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(i iVar, com.baidu.swan.pms.e.e eVar) {
+        if (iVar != null) {
+            eVar.a(iVar, PMSPkgStatus.WAIT);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void i(PMSAppInfo pMSAppInfo) {
+        com.baidu.swan.pms.a.e AK;
+        if (pMSAppInfo != null && (AK = this.bsl.AK()) != null) {
+            AK.b(pMSAppInfo);
+        }
+    }
+
+    private void a(com.baidu.swan.pms.model.a aVar, String str) {
+        int i;
+        int i2 = 0;
+        JSONObject jSONObject = new JSONObject();
+        if (aVar != null) {
             try {
-                if (bVar.errorNo != 0) {
-                    i = bVar.errorNo;
+                if (aVar.errorNo != 0) {
+                    i2 = aVar.errorNo;
                     jSONObject.put("response", str);
                 }
             } catch (JSONException e) {
+                i = i2;
                 e.printStackTrace();
             }
         }
-        if (this.bmk instanceof com.baidu.swan.pms.b.d.a) {
-            jSONObject.put("appId", ((com.baidu.swan.pms.b.d.a) this.bmk).getBundleId());
+        if (this.bsm instanceof com.baidu.swan.pms.b.d.b) {
+            jSONObject.put("appId", ((com.baidu.swan.pms.b.d.b) this.bsm).getBundleId());
         }
-        if (this.bmk.Si() == 0) {
-            str2 = "swan";
-        } else if (this.bmk.Si() == 1) {
-            str2 = "swangame";
-        }
-        com.baidu.swan.pms.e.Ru().a(str2, "cs_protocol", RK(), i, jSONObject);
+        i = i2;
+        com.baidu.swan.pms.c.a.a(this.bsm.AP(), "cs_protocol", Vx(), i, jSONObject);
     }
 }

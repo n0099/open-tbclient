@@ -26,4 +26,22 @@ public class ForumSearchActivityConfig extends IntentConfig {
             getIntent().putExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD, originalThreadInfo);
         }
     }
+
+    public void setMoreForumImg(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_img", str);
+        }
+    }
+
+    public void setMoreForumTitle(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_title", str);
+        }
+    }
+
+    public void setMoreForumUrl(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_url", str);
+        }
+    }
 }

@@ -1,58 +1,64 @@
 package com.baidu.android.pushservice.j;
 
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.android.pushservice.h.o;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import android.annotation.SuppressLint;
+import com.baidu.android.common.security.RSAUtil;
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes3.dex */
-public class g {
-    public static void a(Context context, Intent intent, Intent intent2) {
-        long j;
-        String stringExtra = intent.getStringExtra("message_id");
-        ArrayList<com.baidu.android.pushservice.h.h> arrayList = new ArrayList();
-        HashMap hashMap = new HashMap();
-        if (intent2 != null) {
-            long longExtra = intent.getLongExtra("bd.message.rate.GET", 0L);
-            long longExtra2 = intent.getLongExtra("bd.message.rate.REDIRECTION", 0L);
-            long longExtra3 = intent2.getLongExtra("bd.message.rate.BACK", 0L);
-            long longExtra4 = intent2.getLongExtra("bd.message.rate.END", 0L);
-            hashMap.put("030801", Long.valueOf(longExtra2 - longExtra));
-            hashMap.put("030802", Long.valueOf(longExtra3 - longExtra2));
-            hashMap.put("030803", Long.valueOf(longExtra4 - longExtra3));
-            j = longExtra4 - longExtra;
-        } else {
-            long longExtra5 = intent.getLongExtra("bd.message.rate.GET", 0L);
-            long longExtra6 = intent.getLongExtra("bd.message.rate.REDIRECTION", 0L);
-            long longExtra7 = intent.getLongExtra("bd.message.rate.TIMEOUT", 0L);
-            long j2 = longExtra7 - longExtra5;
-            hashMap.put("030801", Long.valueOf(longExtra6 - longExtra5));
-            hashMap.put("030803", Long.valueOf(longExtra7 - longExtra6));
-            hashMap.put("030805", Long.valueOf(j2));
-            j = j2;
+public final class g {
+    public static boolean a(byte[] bArr, String str, String str2) {
+        try {
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str2.getBytes())));
+            Signature signature = Signature.getInstance("SHA1WithRSA");
+            signature.initVerify(generatePublic);
+            signature.update(bArr);
+            return signature.verify(b.a(str.getBytes()));
+        } catch (Exception e) {
+            return false;
         }
-        com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-        hVar.d = "030804";
-        hVar.b = stringExtra;
-        hVar.c = j + "";
-        hVar.f = "100%";
-        hVar.i = j + "";
-        hVar.e = System.currentTimeMillis();
-        arrayList.add(hVar);
-        for (Map.Entry entry : hashMap.entrySet()) {
-            com.baidu.android.pushservice.h.h hVar2 = new com.baidu.android.pushservice.h.h();
-            hVar2.d = (String) entry.getKey();
-            hVar2.b = stringExtra;
-            hVar2.c = j + "";
-            hVar2.i = entry.getValue() + "";
-            hVar2.f = new DecimalFormat("#.##").format((((Long) entry.getValue()).longValue() / j) * 100.0d) + "%";
-            hVar2.e = System.currentTimeMillis();
-            arrayList.add(hVar2);
+    }
+
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
+    public static byte[] a(byte[] bArr, String str) throws Exception {
+        PrivateKey generatePrivate = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(b.a(str.getBytes())));
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(2, generatePrivate);
+        return cipher.doFinal(bArr);
+    }
+
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
+    public static byte[] b(byte[] bArr, String str) throws Exception {
+        PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str.getBytes())));
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(1, generatePublic);
+        return cipher.doFinal(bArr);
+    }
+
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
+    public static byte[] c(byte[] bArr, String str) throws Exception {
+        PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str.getBytes())));
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(1, generatePublic);
+        int length = bArr.length;
+        byte[] bArr2 = new byte[(((length + 117) - 1) / 117) * 128];
+        int i = 0;
+        int i2 = 0;
+        while (i2 < length) {
+            int i3 = length - i2;
+            if (117 < i3) {
+                i3 = 117;
+            }
+            byte[] bArr3 = new byte[i3];
+            System.arraycopy(bArr, i2, bArr3, 0, i3);
+            i2 += i3;
+            System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i, 128);
+            i += 128;
         }
-        for (com.baidu.android.pushservice.h.h hVar3 : arrayList) {
-            o.a(context, hVar3);
-        }
+        return bArr2;
     }
 }

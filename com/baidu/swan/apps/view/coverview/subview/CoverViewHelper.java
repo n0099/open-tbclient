@@ -6,8 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.o;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.console.c;
 import org.json.JSONArray;
@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CoverViewHelper {
     private static final boolean DEBUG = b.DEBUG;
-    protected com.baidu.swan.apps.view.coverview.a aZl;
-    private a aZm = new a();
+    protected com.baidu.swan.apps.view.coverview.a bbZ;
+    private a bca = new a();
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,13 +31,13 @@ public class CoverViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void am(final View view) {
-        if (!com.baidu.swan.apps.view.container.b.b.MO()) {
+    public void ap(final View view) {
+        if (!com.baidu.swan.apps.view.container.b.b.Px()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.coverview.subview.CoverViewHelper.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (CoverViewHelper.this.aZl != null) {
-                        CoverViewHelper.this.aZl.a(2, view, null);
+                    if (CoverViewHelper.this.bbZ != null) {
+                        CoverViewHelper.this.bbZ.a(2, view, null);
                     }
                 }
             });
@@ -46,8 +46,8 @@ public class CoverViewHelper {
                 @SuppressLint({"ClickableViewAccessibility"})
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 1) {
-                        CoverViewHelper.this.aZm.x = motionEvent.getRawX();
-                        CoverViewHelper.this.aZm.y = motionEvent.getRawY();
+                        CoverViewHelper.this.bca.x = motionEvent.getRawX();
+                        CoverViewHelper.this.bca.y = motionEvent.getRawY();
                         return false;
                     }
                     return false;
@@ -57,24 +57,24 @@ public class CoverViewHelper {
     }
 
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        if (this.aZl != aVar) {
-            this.aZl = aVar;
+        if (this.bbZ != aVar) {
+            this.bbZ = aVar;
         }
     }
 
-    public com.baidu.swan.apps.view.coverview.a MR() {
-        return this.aZl;
+    public com.baidu.swan.apps.view.coverview.a PA() {
+        return this.bbZ;
     }
 
     public void a(@NonNull View view, @NonNull JSONObject jSONObject) {
         JSONArray optJSONArray = jSONObject.optJSONArray("padding");
         if (optJSONArray != null && optJSONArray.length() == 4) {
-            view.setPadding(x.ad((float) optJSONArray.optDouble(3, 0.0d)), x.ad((float) optJSONArray.optDouble(0, 0.0d)), x.ad((float) optJSONArray.optDouble(1, 0.0d)), x.ad((float) optJSONArray.optDouble(2, 0.0d)));
+            view.setPadding(z.ad((float) optJSONArray.optDouble(3, 0.0d)), z.ad((float) optJSONArray.optDouble(0, 0.0d)), z.ad((float) optJSONArray.optDouble(1, 0.0d)), z.ad((float) optJSONArray.optDouble(2, 0.0d)));
         }
     }
 
     public void b(@NonNull View view, @NonNull JSONObject jSONObject) {
-        float a2 = n.a(jSONObject, "opacity", -1.0f);
+        float a2 = o.a(jSONObject, "opacity", -1.0f);
         if (a2 >= 0.0f && a2 <= 1.0f) {
             view.setAlpha(a2);
         }
@@ -97,16 +97,16 @@ public class CoverViewHelper {
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(i);
-        gradientDrawable.setCornerRadius(an(jSONObject));
+        gradientDrawable.setCornerRadius(ap(jSONObject));
         gradientDrawable.setStroke(optInt, i2);
         view.setBackground(gradientDrawable);
     }
 
-    public int an(@NonNull JSONObject jSONObject) {
-        return x.ad(jSONObject.optInt("borderRadius"));
+    public int ap(@NonNull JSONObject jSONObject) {
+        return z.ad(jSONObject.optInt("borderRadius"));
     }
 
     public a getClickPosition() {
-        return this.aZm;
+        return this.bca;
     }
 }

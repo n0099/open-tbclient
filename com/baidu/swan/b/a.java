@@ -4,13 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.runtime.BuildConfig;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = BuildConfig.DEBUG;
-
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         ConnectivityManager connectivityManager;
         Context appContext = AppRuntime.getAppContext();
@@ -20,7 +16,7 @@ public class a {
         return null;
     }
 
-    public static String Fa() {
+    public static String Hf() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
@@ -29,15 +25,12 @@ public class a {
             return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return l(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
         }
         return "unknown";
     }
 
-    public static String l(int i, String str) {
-        if (DEBUG) {
-            Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
-        }
+    public static String o(int i, String str) {
         switch (i) {
             case 1:
             case 2:

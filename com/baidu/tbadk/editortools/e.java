@@ -1,12 +1,12 @@
 package com.baidu.tbadk.editortools;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e extends k {
     public e() {
         super((String) null, 1, 0);
-        this.cjl = d.f.btn_pb_import;
-        this.name = TbadkCoreApplication.getInst().getString(d.j.switch_to_keyboard);
+        this.crt = R.drawable.btn_pb_import;
+        this.name = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
     }
 }

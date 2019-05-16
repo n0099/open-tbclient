@@ -3,8 +3,8 @@ package com.facebook.c;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public static final c jEz = new c("UNKNOWN", null);
-    private final String jEA;
+    public static final c jXm = new c("UNKNOWN", null);
+    private final String jXn;
     private final String mName;
 
     /* loaded from: classes2.dex */
@@ -12,12 +12,12 @@ public class c {
         int getHeaderSize();
 
         @Nullable
-        c j(byte[] bArr, int i);
+        c l(byte[] bArr, int i);
     }
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.jEA = str2;
+        this.jXn = str2;
     }
 
     public String toString() {

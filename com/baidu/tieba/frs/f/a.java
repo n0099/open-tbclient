@@ -12,19 +12,19 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<m> list, boolean z, int i) {
-        if (!v.T(list)) {
+        if (!v.aa(list)) {
             com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 5);
-            bVar2.ao(list);
+            bVar2.av(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.qg(forumData.getFirst_class());
-                bVar2.qh(forumData.getSecond_class());
+                bVar2.rp(forumData.getFirst_class());
+                bVar2.rq(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.qi(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.rr(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
-            bVar2.fC(z);
+            bVar2.fZ(z);
             bVar2.setPageNum(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
         }
@@ -39,11 +39,11 @@ public class a {
     public static void a(com.baidu.tieba.tbadkCore.data.f fVar, List<m> list, List<m> list2) {
         int[] iArr;
         int indexOf;
-        if (fVar != null && v.S(list) > 0 && v.S(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.iFo) {
+        if (fVar != null && v.Z(list) > 0 && v.Z(list2) > 0) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.iYb) {
                 m mVar = (m) v.c(list, i);
                 if (mVar != null && (indexOf = list2.indexOf(mVar)) >= 0) {
-                    fVar.cn(i, indexOf);
+                    fVar.cu(i, indexOf);
                 }
             }
         }

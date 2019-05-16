@@ -1,37 +1,79 @@
 package com.baidu.tieba.aiapps.apps.i;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
+import android.location.Address;
+import android.net.http.Headers;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.d.a;
+import com.baidu.swan.apps.u.b.n;
 /* loaded from: classes4.dex */
-public class a {
-    public final String cVV;
-    public final Map<String, String> cVW = new HashMap();
-    public final long delta;
-    public final long serverTime;
-
-    public static a azG() {
-        return new a(0L);
+public class a implements n {
+    @Override // com.baidu.swan.apps.u.b.n
+    public void a(final String str, boolean z, boolean z2, final n.a aVar) {
+        if (aVar != null) {
+            com.baidu.adp.lib.d.a.hO().a(!z, z2, new a.InterfaceC0015a() { // from class: com.baidu.tieba.aiapps.apps.i.a.1
+                @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
+                public void b(int i, String str2, Address address) {
+                    if ("bd09ll".equals(str)) {
+                        aVar.a(a.this.a(str, address));
+                        return;
+                    }
+                    CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
+                    if (customMessageTask == null) {
+                        aVar.onFailed(-1);
+                        return;
+                    }
+                    try {
+                        CustomMessageTask.CustomRunnable<?> runnable = customMessageTask.getRunnable();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("coorType", str);
+                        bundle.putParcelable(Headers.LOCATION, address);
+                        CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
+                        if (run == null) {
+                            aVar.onFailed(-1);
+                        } else {
+                            aVar.a(a.this.a(str, (Address) run.getData()));
+                        }
+                    } catch (Exception e) {
+                        aVar.onFailed(-1);
+                    }
+                }
+            });
+        }
     }
 
-    private a(long j) {
-        this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cVV = Long.toHexString(rG(this.serverTime + "#" + this.delta));
-        this.cVW.put("timestamp", Long.toString(this.serverTime));
-        this.cVW.put("delta", Long.toString(this.delta));
-        this.cVW.put("rasign", this.cVV);
+    @Override // com.baidu.swan.apps.u.b.n
+    public com.baidu.swan.apps.scheme.actions.e.b Ex() {
+        return null;
     }
 
-    private long rG(String str) {
-        CRC32 crc32 = new CRC32();
-        crc32.reset();
-        crc32.update(str.getBytes());
-        return crc32.getValue();
+    @Override // com.baidu.swan.apps.u.b.n
+    public void Ey() {
     }
 
-    public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cVV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.baidu.swan.apps.scheme.actions.e.b a(String str, Address address) {
+        if (address == null) {
+            return null;
+        }
+        Bundle extras = address.getExtras();
+        float f = 0.0f;
+        double d = 0.0d;
+        String str2 = "";
+        String str3 = "";
+        String str4 = "";
+        String str5 = "";
+        if (extras != null) {
+            f = extras.getFloat("speed");
+            d = extras.getDouble("altitude");
+            str2 = extras.getString("cityCode");
+            str3 = extras.getString("province");
+            str4 = extras.getString("street");
+            str5 = extras.getString("streetNumber");
+        }
+        return new com.baidu.swan.apps.scheme.actions.e.b(str, address.getLongitude(), address.getLatitude(), f, 0.0d, d, address.getCountryName(), address.getCountryCode(), address.getLocality(), str2, str3, "", str4, str5);
     }
 }

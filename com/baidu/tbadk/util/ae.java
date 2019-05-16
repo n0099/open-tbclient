@@ -15,7 +15,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ae {
-    public static String bU(String str, String str2) {
+    public static String ce(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -33,7 +33,7 @@ public class ae {
         return "";
     }
 
-    public static String bV(String str, String str2) {
+    public static String cf(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -66,7 +66,7 @@ public class ae {
         return str3;
     }
 
-    public static Bundle pR(String str) {
+    public static Bundle ra(String str) {
         URL url;
         String query;
         String[] split;
@@ -96,17 +96,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String ctS;
+        public String cCc;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.ctS = "";
+            this.cCc = "";
             this.BDUSS = str;
-            this.ctS = str2;
+            this.cCc = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctS != null ? this.ctS.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cCc != null ? this.cCc.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +122,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.ctS == null ? aVar.ctS == null : this.ctS.equals(aVar.ctS);
+                return this.cCc == null ? aVar.cCc == null : this.cCc.equals(aVar.cCc);
             }
             return false;
         }
@@ -146,7 +146,7 @@ public class ae {
         }
     }
 
-    public static String pS(String str) {
+    public static String rb(String str) {
         if (!ap.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {

@@ -18,7 +18,7 @@ public class MarioSDK {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void ur();
+        void vb();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -71,7 +71,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.ur();
+            bVar.vb();
         }
         return marioSDK;
     }
@@ -118,7 +118,7 @@ public class MarioSDK {
         if (aVar.mFirstFrameListener != null) {
             aVar2.setFirstFrameListener(aVar.mFirstFrameListener);
         }
-        aVar2.setRenderMode(aVar.aiI);
+        aVar2.setRenderMode(aVar.aiV);
         if (aVar.mRenderer == null) {
             return aVar2;
         }
@@ -128,7 +128,7 @@ public class MarioSDK {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private int aiI;
+        private int aiV;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private GLSurfaceView.Renderer mRenderer;
         private SurfaceHolder mSurfaceHolder;

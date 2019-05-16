@@ -326,7 +326,7 @@ public final class BitMatrix implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitMatrix m24clone() {
+    public BitMatrix m27clone() {
         return new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone());
     }
 }

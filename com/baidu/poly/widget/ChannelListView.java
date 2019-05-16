@@ -18,18 +18,18 @@ import java.util.Arrays;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ChannelListView extends FrameLayout implements View.OnClickListener {
-    private View TJ;
-    private ViewGroup ahA;
-    private Bundle ahB;
-    private ProgressButton ahC;
-    private a.c ahD;
-    private PayChannel[] ahE;
-    private boolean ahF;
-    private boolean ahG;
-    private int ahH;
-    private a ahI;
-    private View ahy;
-    private TipView ahz;
+    private View Rt;
+    private View ahP;
+    private TipView ahQ;
+    private ViewGroup ahR;
+    private Bundle ahS;
+    private ProgressButton ahT;
+    private a.c ahU;
+    private PayChannel[] ahV;
+    private boolean ahW;
+    private boolean ahX;
+    private int ahY;
+    private a ahZ;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -65,7 +65,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 payChannel.setSelected(false);
             }
             if (payChannel.isEnable()) {
-                this.ahH++;
+                this.ahY++;
             }
         }
         if (i == 0) {
@@ -88,63 +88,63 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     }
 
     public ChannelListView j(Bundle bundle) {
-        this.ahB = bundle;
-        tM();
+        this.ahS = bundle;
+        ux();
         return this;
     }
 
     public ChannelListView a(a.c cVar) {
-        this.ahD = cVar;
+        this.ahU = cVar;
         return this;
     }
 
     public ChannelListView a(a aVar) {
-        this.ahI = aVar;
+        this.ahZ = aVar;
         return this;
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(b.d.view_channel_list, this);
-        this.TJ = findViewById(b.c.bg_view);
-        this.ahy = findViewById(b.c.popup_view);
-        this.ahz = (TipView) findViewById(b.c.tip_view);
-        this.ahA = (ViewGroup) findViewById(b.c.channel_list_view);
-        this.ahC = (ProgressButton) findViewById(b.c.pay_button);
-        findViewById(b.c.close_button).setOnClickListener(this);
-        this.ahC.setOnClickListener(this);
+        LayoutInflater.from(getContext()).inflate(b.e.view_channel_list, this);
+        this.Rt = findViewById(b.d.bg_view);
+        this.ahP = findViewById(b.d.popup_view);
+        this.ahQ = (TipView) findViewById(b.d.tip_view);
+        this.ahR = (ViewGroup) findViewById(b.d.channel_list_view);
+        this.ahT = (ProgressButton) findViewById(b.d.pay_button);
+        findViewById(b.d.close_button).setOnClickListener(this);
+        this.ahT.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tL() {
-        this.ahz.setVisibility(8);
-        this.TJ.setVisibility(0);
-        this.ahy.setVisibility(0);
-        this.TJ.setAlpha(0.0f);
-        this.TJ.animate().alpha(0.65f).setDuration(240L).start();
-        this.ahy.setAlpha(0.0f);
-        this.ahy.setScaleX(0.75f);
-        this.ahy.setScaleY(0.75f);
-        this.ahy.animate().alpha(1.0f).scaleX(1.0f).scaleY(1.0f).setDuration(240L).start();
-        this.ahC.setAlpha(this.ahH == 0 ? 0.2f : 1.0f);
-        this.ahC.setEnable(this.ahH != 0);
+    public void uw() {
+        this.ahQ.setVisibility(8);
+        this.Rt.setVisibility(0);
+        this.ahP.setVisibility(0);
+        this.Rt.setAlpha(0.0f);
+        this.Rt.animate().alpha(0.65f).setDuration(240L).start();
+        this.ahP.setAlpha(0.0f);
+        this.ahP.setScaleX(0.75f);
+        this.ahP.setScaleY(0.75f);
+        this.ahP.animate().alpha(1.0f).scaleX(1.0f).scaleY(1.0f).setDuration(240L).start();
+        this.ahT.setAlpha(this.ahY == 0 ? 0.2f : 1.0f);
+        this.ahT.setEnable(this.ahY != 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(String str, boolean z) {
-        this.ahz.setVisibility(0);
-        this.ahz.setText(str);
-        this.ahz.setLoading(z);
+    public void g(String str, boolean z) {
+        this.ahQ.setVisibility(0);
+        this.ahQ.setText(str);
+        this.ahQ.setLoading(z);
     }
 
-    private void tM() {
-        com.baidu.poly.a.a.a.tv().c(this.ahB, new com.baidu.poly.a.a<PayChannel[]>() { // from class: com.baidu.poly.widget.ChannelListView.1
+    private void ux() {
+        com.baidu.poly.a.a.a.ug().b(this.ahS, new com.baidu.poly.a.a<PayChannel[]>() { // from class: com.baidu.poly.widget.ChannelListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: c */
             public void onSuccess(PayChannel[] payChannelArr) {
-                ChannelListView.this.ahE = ChannelListView.a(ChannelListView.this.ahB.getStringArray("blockedPayChannels"), payChannelArr);
-                if (ChannelListView.this.ahE.length == 1) {
-                    ChannelListView.this.a(ChannelListView.this.ahE[0], new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.widget.ChannelListView.1.1
+                ChannelListView.this.ahV = ChannelListView.a(ChannelListView.this.ahS.getStringArray("blockedPayChannels"), payChannelArr);
+                if (ChannelListView.this.ahV.length == 1) {
+                    ChannelListView.this.a(ChannelListView.this.ahV[0], new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.widget.ChannelListView.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.poly.a.a
                         /* renamed from: k */
@@ -154,8 +154,8 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                     });
                     return;
                 }
-                ChannelListView.this.b(ChannelListView.this.a(ChannelListView.this.ahE));
-                ChannelListView.this.tL();
+                ChannelListView.this.b(ChannelListView.this.a(ChannelListView.this.ahV));
+                ChannelListView.this.uw();
             }
 
             @Override // com.baidu.poly.a.a
@@ -164,8 +164,8 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 if (str == null) {
                     str = "网络不给力，请稍后重试";
                 }
-                channelListView.h(str, false);
-                ChannelListView.this.ahD.onFail("request channel fail");
+                channelListView.g(str, false);
+                ChannelListView.this.ahU.onFail("request channel fail");
                 ChannelListView.this.postDelayed(new Runnable() { // from class: com.baidu.poly.widget.ChannelListView.1.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -176,44 +176,44 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         });
     }
 
-    public ChannelListView tN() {
+    public ChannelListView uy() {
         if (!(getContext() instanceof Activity)) {
             throw new IllegalStateException("can not attach to context " + getContext());
         }
         View decorView = ((Activity) getContext()).getWindow().getDecorView();
         if (decorView instanceof ViewGroup) {
             ((ViewGroup) decorView).addView(this);
-            h("收银台努力加载中...", true);
+            g("收银台努力加载中...", true);
         }
-        this.ahF = true;
+        this.ahW = true;
         return this;
     }
 
     public void detach() {
-        this.TJ.animate().alpha(0.0f).setDuration(240L).start();
-        this.ahy.animate().alpha(0.0f).setDuration(240L).start();
+        this.Rt.animate().alpha(0.0f).setDuration(240L).start();
+        this.ahP.animate().alpha(0.0f).setDuration(240L).start();
         postDelayed(new Runnable() { // from class: com.baidu.poly.widget.ChannelListView.2
             @Override // java.lang.Runnable
             public void run() {
                 if (ChannelListView.this.getParent() instanceof ViewGroup) {
                     ((ViewGroup) ChannelListView.this.getParent()).removeView(ChannelListView.this);
                 }
-                ChannelListView.this.ahF = false;
+                ChannelListView.this.ahW = false;
             }
         }, 240L);
-        if (this.ahI != null) {
-            this.ahI.onClose();
+        if (this.ahZ != null) {
+            this.ahZ.onClose();
         }
     }
 
     public void b(final PayChannel[] payChannelArr) {
         if (payChannelArr != null) {
-            this.ahA.removeAllViews();
+            this.ahR.removeAllViews();
             for (final PayChannel payChannel : payChannelArr) {
                 ChannelItemView channelItemView = new ChannelItemView(getContext());
                 channelItemView.setChannelInfo(payChannel, new ChannelItemView.a() { // from class: com.baidu.poly.widget.ChannelListView.3
                     @Override // com.baidu.poly.widget.ChannelItemView.a
-                    public void tK() {
+                    public void uv() {
                         PayChannel[] payChannelArr2 = payChannelArr;
                         int length = payChannelArr2.length;
                         for (int i = 0; i < length; i++) {
@@ -223,30 +223,29 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                         ChannelListView.this.b(payChannelArr);
                     }
                 });
-                this.ahA.addView(channelItemView);
+                this.ahR.addView(channelItemView);
             }
         }
     }
 
-    public boolean tO() {
-        return this.ahF;
+    public boolean uz() {
+        return this.ahW;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PayChannel[] payChannelArr;
-        if (view.getId() == b.c.close_button) {
-            if (this.ahD != null) {
-                this.ahD.onCancel("支付取消");
+        if (view.getId() == b.d.close_button) {
+            if (this.ahU != null) {
+                this.ahU.onCancel("支付取消");
             }
             detach();
-        } else if (view.getId() == b.c.pay_button && this.ahH != 0) {
-            this.ahC.startLoading();
-            this.ahG = true;
-            for (PayChannel payChannel : this.ahE) {
+        } else if (view.getId() == b.d.pay_button && this.ahY != 0) {
+            this.ahT.startLoading();
+            this.ahX = true;
+            for (PayChannel payChannel : this.ahV) {
                 if (payChannel.isSelected()) {
                     a(payChannel);
-                    detach();
                 }
             }
         }
@@ -258,37 +257,37 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PayChannel payChannel, com.baidu.poly.a.a<Map<String, String>> aVar) {
-        com.baidu.poly.d.b.tG().a(this.ahB, payChannel.getPayChannel(), new a.c() { // from class: com.baidu.poly.widget.ChannelListView.4
+        com.baidu.poly.d.b.ur().a(this.ahS, payChannel, new a.c() { // from class: com.baidu.poly.widget.ChannelListView.4
             @Override // com.baidu.poly.a.c
             public void onResult(int i, String str) {
                 ChannelListView.this.detach();
-                ChannelListView.this.ahG = false;
-                ChannelListView.this.ahD.onResult(i, str);
+                ChannelListView.this.ahX = false;
+                ChannelListView.this.ahU.onResult(i, str);
             }
 
             @Override // com.baidu.poly.a.c
             public void onFail(String str) {
-                ChannelListView.this.h(str != null ? str : "网络不给力，请稍后重试", false);
+                ChannelListView.this.g(str != null ? str : "网络不给力，请稍后重试", false);
                 ChannelListView.this.detach();
-                ChannelListView.this.ahG = false;
+                ChannelListView.this.ahX = false;
                 if (TextUtils.isEmpty(str)) {
-                    ChannelListView.this.ahD.onResult(0, "网络不给力，请稍后重试");
+                    ChannelListView.this.ahU.onResult(0, "网络不给力，请稍后重试");
                 } else {
-                    ChannelListView.this.ahD.onResult(0, str);
+                    ChannelListView.this.ahU.onResult(0, str);
                 }
             }
 
             @Override // com.baidu.poly.a.c
             public void onCancel(String str) {
                 ChannelListView.this.detach();
-                ChannelListView.this.ahG = false;
-                ChannelListView.this.ahD.onResult(0, str);
+                ChannelListView.this.ahX = false;
+                ChannelListView.this.ahU.onResult(0, str);
             }
         }, aVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.ahG || super.dispatchTouchEvent(motionEvent);
+        return this.ahX || super.dispatchTouchEvent(motionEvent);
     }
 }

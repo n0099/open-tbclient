@@ -17,75 +17,74 @@ import com.baidu.adp.lib.g.g;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
-import java.util.ArrayList;
+import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c implements View.OnClickListener, a {
-    private static final int iTB = l.h(TbadkCoreApplication.getInst(), d.e.tbds130);
-    private static final int iTC = l.h(TbadkCoreApplication.getInst(), d.e.tbds48);
-    private static final int iTD = l.h(TbadkCoreApplication.getInst(), d.e.tbds34);
-    private static final int inh = l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
-    private LinearLayout bFz;
-    private boolean iTA;
-    private b iTz;
-    private TextView ivq;
+    private LinearLayout bMZ;
+    private TextView iOe;
+    private b jmu;
+    private boolean jmv;
     private Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private TextView mTitle;
+    private static final int jmw = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds130);
+    private static final int jmx = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+    private static final int jmy = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds34);
+    private static final int iFS = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
 
     public c(Context context) {
         this.mContext = context;
-        this.bFz = new LinearLayout(context);
-        this.bFz.setOrientation(1);
+        this.bMZ = new LinearLayout(context);
+        this.bMZ.setOrientation(1);
         this.mTitle = new TextView(context);
-        this.mTitle.setTextSize(0, iTD);
-        this.mTitle.setPadding(iTC, 0, iTC, 0);
+        this.mTitle.setTextSize(0, jmy);
+        this.mTitle.setPadding(jmx, 0, jmx, 0);
         this.mTitle.setGravity(17);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (TextUtils.isEmpty(sharePanelText)) {
-            this.mTitle.setText(d.j.transmit_share_not_add_experience);
+            this.mTitle.setText(R.string.transmit_share_not_add_experience);
         } else {
             this.mTitle.setText(sharePanelText);
         }
-        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, iTB));
-        this.bFz.addView(this.mTitle);
-        this.iTz = new b(context);
+        this.mTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, jmw));
+        this.bMZ.addView(this.mTitle);
+        this.jmu = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.iTt;
-        layoutParams.rightMargin = ShareGridLayout.iTt;
-        this.bFz.addView(this.iTz.cil(), layoutParams);
-        this.ivq = new TextView(context);
-        this.ivq.setTextSize(0, inh);
-        this.ivq.setGravity(17);
-        this.ivq.setText(d.j.cancel);
-        this.ivq.setLayoutParams(new LinearLayout.LayoutParams(-1, iTB));
-        this.ivq.setOnClickListener(this);
-        this.bFz.addView(this.ivq);
-        this.iTz.a(this);
+        layoutParams.leftMargin = ShareGridLayout.jmm;
+        layoutParams.rightMargin = ShareGridLayout.jmm;
+        this.bMZ.addView(this.jmu.cqo(), layoutParams);
+        this.iOe = new TextView(context);
+        this.iOe.setTextSize(0, iFS);
+        this.iOe.setGravity(17);
+        this.iOe.setText(R.string.cancel);
+        this.iOe.setLayoutParams(new LinearLayout.LayoutParams(-1, jmw));
+        this.iOe.setOnClickListener(this);
+        this.bMZ.addView(this.iOe);
+        this.jmu.a(this);
     }
 
-    public void a(ArrayList<TransmitForumData> arrayList, com.baidu.tbadk.coreExtra.c.d dVar, int i) {
-        if (!TextUtils.isEmpty(dVar.cbB)) {
-            dVar.content = dVar.cbB;
+    public void f(ShareDialogConfig shareDialogConfig) {
+        if (!TextUtils.isEmpty(shareDialogConfig.shareItem.cjC)) {
+            shareDialogConfig.shareItem.content = shareDialogConfig.shareItem.cjC;
         }
-        this.iTz.a(dVar, arrayList, i, this.iTA);
+        this.jmu.a(shareDialogConfig, this.jmv);
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
     }
 
-    public void qw(boolean z) {
-        this.iTA = z;
+    public void rl(boolean z) {
+        this.jmv = z;
     }
 
     public void show() {
-        caZ();
-        this.mDialog = new AlertDialog.Builder(this.mContext, d.k.DialogTheme).create();
+        cje();
+        this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.transmitShare.c.1
             @Override // android.content.DialogInterface.OnDismissListener
@@ -94,8 +93,8 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (c.this.iTz != null) {
-                    c.this.iTz.release();
+                if (c.this.jmu != null) {
+                    c.this.jmu.release();
                 }
             }
         });
@@ -103,42 +102,42 @@ public class c implements View.OnClickListener, a {
             g.a(this.mDialog, (Activity) this.mContext);
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.bFz.setBackgroundResource(d.f.transmit_share_dialog_background_1);
+            this.bMZ.setBackgroundResource(R.drawable.transmit_share_dialog_background_1);
         } else {
-            this.bFz.setBackgroundResource(d.f.transmit_share_dialog_background);
+            this.bMZ.setBackgroundResource(R.drawable.transmit_share_dialog_background);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
-            window.setWindowAnimations(d.k.share_dialog_style);
+            window.setWindowAnimations(R.style.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setContentView(this.bFz);
+            window.setContentView(this.bMZ);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                window.setBackgroundDrawableResource(d.f.transmit_share_dialog_background_1);
+                window.setBackgroundDrawableResource(R.drawable.transmit_share_dialog_background_1);
             } else {
-                window.setBackgroundDrawableResource(d.f.transmit_share_dialog_background);
+                window.setBackgroundDrawableResource(R.drawable.transmit_share_dialog_background);
             }
-            aDA();
+            aJN();
         }
     }
 
-    private void caZ() {
+    private void cje() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            al.k(this.bFz, d.f.transmit_share_dialog_background_1);
+            al.k(this.bMZ, R.drawable.transmit_share_dialog_background_1);
         } else {
-            al.k(this.bFz, d.f.transmit_share_dialog_background);
+            al.k(this.bMZ, R.drawable.transmit_share_dialog_background);
         }
-        al.j(this.mTitle, d.C0277d.cp_cont_c);
+        al.j(this.mTitle, R.color.cp_cont_c);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (TextUtils.isEmpty(sharePanelText)) {
-            this.mTitle.setText(d.j.transmit_share_not_add_experience);
+            this.mTitle.setText(R.string.transmit_share_not_add_experience);
         } else {
             this.mTitle.setText(sharePanelText);
         }
-        al.d(this.ivq, d.C0277d.cp_cont_j, 1);
+        al.f(this.iOe, R.color.cp_cont_j, 1);
     }
 
-    private void aDA() {
+    private void aJN() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001450, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.transmitShare.c.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -161,7 +160,7 @@ public class c implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ivq) {
+        if (view == this.iOe) {
             k("share_cancel", new Object[0]);
             dismiss();
         }
@@ -172,7 +171,7 @@ public class c implements View.OnClickListener, a {
     }
 
     @Override // com.baidu.tieba.transmitShare.a
-    public void cJ(View view) {
+    public void cR(View view) {
         dismiss();
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
-import com.baidu.android.pushservice.j.m;
-import com.baidu.android.pushservice.k.a;
-import com.baidu.android.pushservice.k.b;
+import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.j.a;
+import com.baidu.android.pushservice.j.b;
 /* loaded from: classes3.dex */
 public class BaiduAppSSOJni {
     private static final String TAG = "BaiduAppSSOJni";
@@ -51,7 +51,7 @@ public class BaiduAppSSOJni {
         } catch (Exception e) {
             return null;
         } catch (UnsatisfiedLinkError e2) {
-            m.b("UnsatisfiedLinkError getDecrypted ", context);
+            l.b("UnsatisfiedLinkError getDecrypted ", context);
             return null;
         }
     }
@@ -81,7 +81,7 @@ public class BaiduAppSSOJni {
         } catch (Exception e) {
             return null;
         } catch (UnsatisfiedLinkError e2) {
-            m.b("UnsatisfiedLinkError getEncrypted " + bArr, context);
+            l.b("UnsatisfiedLinkError getEncrypted " + bArr, context);
             return null;
         }
     }

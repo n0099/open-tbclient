@@ -8,39 +8,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a KT;
-    private c KU;
-    private ArrayList<b> KV = new ArrayList<>();
-    private C0021a KW;
+    private static a IF;
+    private c IG;
+    private ArrayList<b> IH = new ArrayList<>();
+    private C0021a II;
 
     /* loaded from: classes.dex */
     public interface c {
-        void J(String str, String str2);
+        void D(String str, String str2);
     }
 
     private a() {
     }
 
-    public static a nb() {
-        if (KT == null) {
+    public static a lV() {
+        if (IF == null) {
             synchronized (a.class) {
-                if (KT == null) {
-                    KT = new a();
+                if (IF == null) {
+                    IF = new a();
                 }
             }
         }
-        return KT;
+        return IF;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.KU = cVar;
+            this.IG = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.KV.iterator();
+                    Iterator<b> it2 = this.IH.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,19 +51,19 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.KV.add(next);
+                        this.IH.add(next);
                     }
                 }
             }
-            nc();
+            lW();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nc() {
-        if (this.KV.size() != 0 && this.KW == null) {
-            this.KW = new C0021a(this.KV.get(0));
-            this.KW.execute(new String[0]);
+    public void lW() {
+        if (this.IH.size() != 0 && this.II == null) {
+            this.II = new C0021a(this.IH.get(0));
+            this.II.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0021a extends BdAsyncTask<String, Integer, Boolean> {
-        private b KX;
+        private b IJ;
 
         public C0021a(b bVar) {
-            this.KX = bVar;
+            this.IJ = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.KX != null) {
-                return Boolean.valueOf(bR(this.KX.apkPath));
+            if (this.IJ != null) {
+                return Boolean.valueOf(bB(this.IJ.apkPath));
             }
             return false;
         }
@@ -92,45 +92,45 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0021a) bool);
-            a.this.KW = null;
-            if (a.this.KV.size() > 0) {
-                Iterator it = a.this.KV.iterator();
+            a.this.II = null;
+            if (a.this.IH.size() > 0) {
+                Iterator it = a.this.IH.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.KX, bVar)) {
-                        a.this.KV.remove(bVar);
+                    if (a.this.a(this.IJ, bVar)) {
+                        a.this.IH.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.KU != null) {
-                a.this.KU.J(this.KX.packageName, this.KX.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.IG != null) {
+                a.this.IG.D(this.IJ.packageName, this.IJ.apkPath);
             }
-            a.this.nc();
+            a.this.lW();
         }
 
-        private boolean bR(String str) {
+        private boolean bB(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
-                f.r(new File(str));
-                com.baidu.adp.plugin.b.a.mS().f("plugin_del_unuse", "delete_unuse", str, null);
+                f.l(new File(str));
+                com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.mS().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
                 File file = new File(str.substring(0, length - 4));
                 if (file.exists() && file.isDirectory()) {
                     try {
-                        f.r(file);
-                        com.baidu.adp.plugin.b.a.mS().f("plugin_del_unuse", "delete_unuse", str, null);
+                        f.l(file);
+                        com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.mS().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

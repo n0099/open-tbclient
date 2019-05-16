@@ -22,14 +22,18 @@ public class SchemeRouter {
         return invokeScheme(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
     }
 
-    public static boolean invokeScheme(Context context, Uri uri, String str) {
+    public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
         if (context == null) {
             context = SchemeConfig.getAppContext();
         }
         UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(uri, str);
         unitedSchemeEntity.setOnlyVerify(false);
-        return unitedSchemeMainDispatcher.dispatch(context, unitedSchemeEntity);
+        return unitedSchemeMainDispatcher.dispatch(context, unitedSchemeEntity, callbackHandler);
+    }
+
+    public static boolean invokeScheme(Context context, Uri uri, String str) {
+        return invokeScheme(context, uri, str, null);
     }
 
     public static boolean invokeNextScheme(Context context, Intent intent) {

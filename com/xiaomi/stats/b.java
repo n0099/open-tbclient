@@ -2,7 +2,7 @@ package com.xiaomi.stats;
 
 import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes3.dex */
-class b extends XMPushService.h {
+class b extends XMPushService.i {
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +12,12 @@ class b extends XMPushService.h {
         this.b = aVar;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         this.b.c();
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public String b() {
         return "Handling bind stats";
     }

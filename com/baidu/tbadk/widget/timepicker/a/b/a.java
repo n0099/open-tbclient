@@ -6,90 +6,90 @@ import com.baidu.tbadk.widget.timepicker.a.f.b;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tbadk.widget.timepicker.a.c.a cEt = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
+    private com.baidu.tbadk.widget.timepicker.a.c.a cMC = new com.baidu.tbadk.widget.timepicker.a.c.a(2);
 
     public a(Context context, e eVar) {
-        this.cEt.context = context;
-        this.cEt.cEu = eVar;
+        this.cMC.context = context;
+        this.cMC.cMD = eVar;
     }
 
     public a b(boolean[] zArr) {
-        this.cEt.cEB = zArr;
+        this.cMC.cMK = zArr;
         return this;
     }
 
-    public a kP(int i) {
-        this.cEt.cFb = i;
+    public a lE(int i) {
+        this.cMC.cNk = i;
         return this;
     }
 
-    public a kQ(int i) {
-        this.cEt.cFf = i;
+    public a lF(int i) {
+        this.cMC.cNo = i;
         return this;
     }
 
     public a a(Calendar calendar) {
-        this.cEt.cEC = calendar;
+        this.cMC.cML = calendar;
         return this;
     }
 
     public a a(int i, com.baidu.tbadk.widget.timepicker.a.d.a aVar) {
-        this.cEt.cET = i;
-        this.cEt.cEw = aVar;
+        this.cMC.cNc = i;
+        this.cMC.cMF = aVar;
         return this;
     }
 
-    public a at(float f) {
-        this.cEt.cFj = f;
+    public a av(float f) {
+        this.cMC.cNs = f;
         return this;
     }
 
-    public a kR(int i) {
-        this.cEt.cFi = i;
+    public a lG(int i) {
+        this.cMC.cNr = i;
         return this;
     }
 
-    public a kS(int i) {
-        this.cEt.coh = i;
+    public a lH(int i) {
+        this.cMC.cwo = i;
         return this;
     }
 
-    public a kT(int i) {
-        this.cEt.cFh = i;
+    public a lI(int i) {
+        this.cMC.cNq = i;
         return this;
     }
 
-    public a kU(int i) {
-        this.cEt.cFg = i;
+    public a lJ(int i) {
+        this.cMC.cNp = i;
         return this;
     }
 
     public a b(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.cEt.cEH = str;
-        this.cEt.cEI = str2;
-        this.cEt.cEJ = str3;
-        this.cEt.cEK = str4;
-        this.cEt.cEL = str5;
-        this.cEt.cEM = str6;
+        this.cMC.cMQ = str;
+        this.cMC.cMR = str2;
+        this.cMC.cMS = str3;
+        this.cMC.cMT = str4;
+        this.cMC.cMU = str5;
+        this.cMC.cMV = str6;
         return this;
     }
 
     public a e(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.cEt.cEN = i;
-        this.cEt.cEO = i2;
-        this.cEt.cEP = i3;
-        this.cEt.cEQ = i4;
-        this.cEt.cER = i5;
-        this.cEt.cES = i6;
+        this.cMC.cMW = i;
+        this.cMC.cMX = i2;
+        this.cMC.cMY = i3;
+        this.cMC.cMZ = i4;
+        this.cMC.cNa = i5;
+        this.cMC.cNb = i6;
         return this;
     }
 
-    public a fv(boolean z) {
-        this.cEt.cFm = z;
+    public a fS(boolean z) {
+        this.cMC.cNv = z;
         return this;
     }
 
-    public b atr() {
-        return new b(this.cEt);
+    public b ayw() {
+        return new b(this.cMC);
     }
 }

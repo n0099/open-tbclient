@@ -5,11 +5,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public static final String bsS = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String bsT = String.valueOf(2147483646);
+    public static final String bzV = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String bzW = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo bsU;
-    private List<MediaFileInfo> bsV;
+    private MediaFileInfo bzX;
+    private List<MediaFileInfo> bzY;
     private int count;
     private String name;
 
@@ -17,7 +17,7 @@ public class a {
         return this.albumId;
     }
 
-    public void kn(String str) {
+    public void lq(String str) {
         this.albumId = str;
     }
 
@@ -33,34 +33,34 @@ public class a {
         return this.count;
     }
 
-    public void ko(String str) {
-        this.count = com.baidu.adp.lib.g.b.l(str, 0);
+    public void lr(String str) {
+        this.count = com.baidu.adp.lib.g.b.f(str, 0);
     }
 
-    public void UJ() {
+    public void Zn() {
         this.count++;
     }
 
-    public ImageFileInfo UK() {
-        if (this.bsU instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.bsU;
+    public ImageFileInfo Zo() {
+        if (this.bzX instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.bzX;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.bsU = mediaFileInfo;
+        this.bzX = mediaFileInfo;
     }
 
-    public MediaFileInfo UL() {
-        return this.bsU;
+    public MediaFileInfo Zp() {
+        return this.bzX;
     }
 
-    public List<MediaFileInfo> UM() {
-        return this.bsV;
+    public List<MediaFileInfo> Zq() {
+        return this.bzY;
     }
 
-    public void H(List<MediaFileInfo> list) {
-        this.bsV = list;
+    public void O(List<MediaFileInfo> list) {
+        this.bzY = list;
     }
 }

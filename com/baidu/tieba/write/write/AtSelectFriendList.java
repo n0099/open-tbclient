@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.HorizontalCustomScrollView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AtSelectFriendList extends HorizontalCustomScrollView {
-    private int bIm;
-    private final View.OnClickListener dIp;
-    private int gvA;
-    private int gvB;
-    private HeadImageView gvC;
-    private a jrP;
+    private int bPW;
+    private final View.OnClickListener dSO;
+    private int gMN;
+    private int gMO;
+    private HeadImageView gMP;
+    private a jKR;
     private final Context mContext;
     private int mItemHeight;
     private LinearLayout mLayout;
@@ -31,19 +31,19 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     public AtSelectFriendList(Context context) {
         super(context);
-        this.bIm = -1;
+        this.bPW = -1;
         this.mItemHeight = -1;
-        this.gvA = -1;
-        this.gvB = 4;
-        this.dIp = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
+        this.gMN = -1;
+        this.gMO = 4;
+        this.dSO = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AtSelectFriendList.this.mLayout.removeView(view);
-                if (!AtSelectFriendList.this.bwP()) {
-                    AtSelectFriendList.this.bwN();
+                if (!AtSelectFriendList.this.bEx()) {
+                    AtSelectFriendList.this.bEv();
                 }
-                if (AtSelectFriendList.this.jrP != null) {
-                    AtSelectFriendList.this.jrP.b(view, view.getTag());
+                if (AtSelectFriendList.this.jKR != null) {
+                    AtSelectFriendList.this.jKR.b(view, view.getTag());
                 }
             }
         };
@@ -53,19 +53,19 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     public AtSelectFriendList(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bIm = -1;
+        this.bPW = -1;
         this.mItemHeight = -1;
-        this.gvA = -1;
-        this.gvB = 4;
-        this.dIp = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
+        this.gMN = -1;
+        this.gMO = 4;
+        this.dSO = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AtSelectFriendList.this.mLayout.removeView(view);
-                if (!AtSelectFriendList.this.bwP()) {
-                    AtSelectFriendList.this.bwN();
+                if (!AtSelectFriendList.this.bEx()) {
+                    AtSelectFriendList.this.bEv();
                 }
-                if (AtSelectFriendList.this.jrP != null) {
-                    AtSelectFriendList.this.jrP.b(view, view.getTag());
+                if (AtSelectFriendList.this.jKR != null) {
+                    AtSelectFriendList.this.jKR.b(view, view.getTag());
                 }
             }
         };
@@ -75,18 +75,18 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setMaxCount(int i) {
-        this.gvB = i;
+        this.gMO = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setItemOPerationHandler(a aVar) {
-        this.jrP = aVar;
+        this.jKR = aVar;
     }
 
     private void initialize() {
-        this.bIm = this.mContext.getResources().getDimensionPixelSize(d.e.ds80);
-        this.mItemHeight = this.mContext.getResources().getDimensionPixelSize(d.e.ds80);
-        this.gvA = this.mContext.getResources().getDimensionPixelSize(d.e.ds12);
+        this.bPW = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
+        this.mItemHeight = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
+        this.gMN = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12);
         this.mLayout = new LinearLayout(this.mContext);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -94,49 +94,49 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         this.mLayout.setLayoutParams(layoutParams);
         this.mLayout.setHorizontalScrollBarEnabled(true);
         this.mLayout.setOrientation(0);
-        bwN();
+        bEv();
         addView(this.mLayout);
         setSmoothScrollingEnabled(true);
         setFocusable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwN() {
-        if (this.gvC == null) {
-            this.gvC = bwR();
-            this.gvC.setDrawBorder(false);
+    public void bEv() {
+        if (this.gMP == null) {
+            this.gMP = bEz();
+            this.gMP.setDrawBorder(false);
         }
-        this.gvC.setImageBitmap(al.hp(d.f.icon_add_pop));
-        this.mLayout.addView(this.gvC);
+        this.gMP.setImageBitmap(al.id(R.drawable.icon_add_pop));
+        this.mLayout.addView(this.gMP);
     }
 
-    private void bwO() {
-        if (bwP()) {
-            this.mLayout.removeView(this.gvC);
+    private void bEw() {
+        if (bEx()) {
+            this.mLayout.removeView(this.gMP);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bwP() {
+    public boolean bEx() {
         int childCount = this.mLayout.getChildCount();
-        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.gvC;
+        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.gMP;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(MetaData metaData) {
-        if (getItemLength() < this.gvB) {
-            HeadImageView bwR = bwR();
-            bwR.setIsRound(false);
-            bwR.startLoad(metaData.getPortrait(), 12, false);
-            if (bwP()) {
-                bwR.setTag(metaData);
-                bwR.setOnClickListener(this.dIp);
-                this.mLayout.addView(bwR, getItemLength());
-                scrollTo(getItemLength() * (this.bIm + this.gvA), 0);
+        if (getItemLength() < this.gMO) {
+            HeadImageView bEz = bEz();
+            bEz.setIsRound(false);
+            bEz.startLoad(metaData.getPortrait(), 12, false);
+            if (bEx()) {
+                bEz.setTag(metaData);
+                bEz.setOnClickListener(this.dSO);
+                this.mLayout.addView(bEz, getItemLength());
+                scrollTo(getItemLength() * (this.bPW + this.gMN), 0);
                 this.mLayout.requestLayout();
             }
-            if (getItemLength() >= this.gvB) {
-                bwO();
+            if (getItemLength() >= this.gMO) {
+                bEw();
             }
         }
     }
@@ -147,7 +147,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         int childCount = this.mLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.gvC && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
+            if (childAt != this.gMP && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
                 MetaData metaData2 = (MetaData) tag;
                 if ((metaData2.getUserName() != null && metaData2.getUserName().equals(metaData.getUserName())) || (metaData2.getName_show() != null && metaData2.getName_show().equals(metaData.getName_show()))) {
                     metaData.setChecked(true);
@@ -166,7 +166,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.gvC && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
+            if (childAt != this.gMP && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
                 arrayList.add(name_show);
             }
         }
@@ -178,17 +178,17 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         View findViewWithTag = this.mLayout.findViewWithTag(metaData);
         if (findViewWithTag != null) {
             this.mLayout.removeView(findViewWithTag);
-            if (!bwP()) {
-                bwN();
+            if (!bEx()) {
+                bEv();
             }
         }
     }
 
-    private HeadImageView bwR() {
+    private HeadImageView bEz() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bIm, this.mItemHeight);
-        layoutParams.setMargins(this.gvA, 0, 0, 0);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bPW, this.mItemHeight);
+        layoutParams.setMargins(this.gMN, 0, 0, 0);
         headImageView.setLayoutParams(layoutParams);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         return headImageView;
@@ -196,6 +196,6 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getItemLength() {
-        return bwP() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
+        return bEx() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
     }
 }

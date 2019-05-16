@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.notification;
 /* loaded from: classes3.dex */
 public class PushNotificationBuilder {
+    protected String clickPackageName;
     protected int mLargIcon;
     protected int mNotificationDefaults;
     protected int mNotificationFlags;
@@ -8,48 +9,56 @@ public class PushNotificationBuilder {
     protected int mStatusbarIcon;
     protected long[] mVibratePattern;
 
-    public int getmNotificationDefaults() {
-        return this.mNotificationDefaults;
-    }
-
-    public void setmNotificationDefaults(int i) {
-        this.mNotificationDefaults = i;
-    }
-
-    public int getmNotificationFlags() {
-        return this.mNotificationFlags;
-    }
-
-    public void setmNotificationFlags(int i) {
-        this.mNotificationFlags = i;
-    }
-
-    public int getmStatusbarIcon() {
-        return this.mStatusbarIcon;
-    }
-
-    public void setmStatusbarIcon(int i) {
-        this.mStatusbarIcon = i;
+    public String getClickPackageName() {
+        return this.clickPackageName;
     }
 
     public int getmLargIcon() {
         return this.mLargIcon;
     }
 
-    public void setmLargIcon(int i) {
-        this.mLargIcon = i;
+    public int getmNotificationDefaults() {
+        return this.mNotificationDefaults;
+    }
+
+    public int getmNotificationFlags() {
+        return this.mNotificationFlags;
     }
 
     public String getmNotificationsound() {
         return this.mNotificationsound;
     }
 
-    public void setmNotificationsound(String str) {
-        this.mNotificationsound = str;
+    public int getmStatusbarIcon() {
+        return this.mStatusbarIcon;
     }
 
     public long[] getmVibratePattern() {
         return this.mVibratePattern;
+    }
+
+    public void setClickPackageName(String str) {
+        this.clickPackageName = str;
+    }
+
+    public void setmLargIcon(int i) {
+        this.mLargIcon = i;
+    }
+
+    public void setmNotificationDefaults(int i) {
+        this.mNotificationDefaults = i;
+    }
+
+    public void setmNotificationFlags(int i) {
+        this.mNotificationFlags = i;
+    }
+
+    public void setmNotificationsound(String str) {
+        this.mNotificationsound = str;
+    }
+
+    public void setmStatusbarIcon(int i) {
+        this.mStatusbarIcon = i;
     }
 
     public void setmVibratePattern(long[] jArr) {

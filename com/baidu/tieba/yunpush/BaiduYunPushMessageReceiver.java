@@ -23,7 +23,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            b.getInstance().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.agM().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }
@@ -54,7 +54,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     */
     public void onMessage(Context context, String str, String str2) {
         String str3;
-        int l;
+        int f;
         JSONObject jSONObject;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -72,13 +72,13 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                                 str4 = jSONObject.getString("task_id");
                             }
                         }
-                        l = com.baidu.adp.lib.g.b.l(str4, TbConfig.NOTIFY_YUN_PUSH);
-                        if (l < 2500) {
-                            l += TbConfig.NOTIFY_YUN_PUSH;
+                        f = com.baidu.adp.lib.g.b.f(str4, TbConfig.NOTIFY_YUN_PUSH);
+                        if (f < 2500) {
+                            f += TbConfig.NOTIFY_YUN_PUSH;
                         }
                         Intent parseUri = Intent.parseUri(str3, 1);
                         parseUri.setFlags(276824064);
-                        NotificationHelper.showNotification(context, l, string, string2, string2, PendingIntent.getActivity(context, l, parseUri, 134217728), false);
+                        NotificationHelper.showNotification(context, f, string, string2, string2, PendingIntent.getActivity(context, f, parseUri, 134217728), false);
                     }
                 }
                 str3 = null;
@@ -88,12 +88,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     if (!jSONObject.isNull("task_id")) {
                     }
                 }
-                l = com.baidu.adp.lib.g.b.l(str42, TbConfig.NOTIFY_YUN_PUSH);
-                if (l < 2500) {
+                f = com.baidu.adp.lib.g.b.f(str42, TbConfig.NOTIFY_YUN_PUSH);
+                if (f < 2500) {
                 }
                 Intent parseUri2 = Intent.parseUri(str3, 1);
                 parseUri2.setFlags(276824064);
-                NotificationHelper.showNotification(context, l, string, string2, string2, PendingIntent.getActivity(context, l, parseUri2, 134217728), false);
+                NotificationHelper.showNotification(context, f, string, string2, string2, PendingIntent.getActivity(context, f, parseUri2, 134217728), false);
             } catch (Exception e) {
             }
         }

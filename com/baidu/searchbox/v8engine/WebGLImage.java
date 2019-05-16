@@ -1,12 +1,10 @@
 package com.baidu.searchbox.v8engine;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.text.TextUtils;
 import android.util.Base64;
-import android.webkit.ValueCallback;
+import com.baidu.searchbox.v8engine.bean.ImageBean;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
@@ -15,7 +13,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
+import org.apache.http.HttpHost;
 @NotProguard
 /* loaded from: classes2.dex */
 public class WebGLImage extends EventTargetImpl {
@@ -23,25 +21,37 @@ public class WebGLImage extends EventTargetImpl {
     private static HandlerThread sBackgroundThread = null;
     private static Handler sHandler = null;
     private String mBasePath;
+    private String mBeforeSrc;
+    private Bitmap mBitmap;
     private long mEnginePtr;
     private String mErrorMsg;
     private int mHeight;
+    private int mImageId;
+    private WebGLImageType mImageType;
     private long mNativePtr;
-    ValueCallback<String> mNetFileCallback;
-    private String mPath;
     private String mSrc;
     private int mWidth;
-    public boolean shouldCache;
 
-    private native void nativeDecodeImage(long j, boolean z, String str);
+    /* loaded from: classes2.dex */
+    public enum WebGLImageType {
+        HTTP,
+        BDFILE,
+        BASE64,
+        LOCAL,
+        CACHE
+    }
 
-    private native void nativeOnLoadFailed(long j, String str);
+    private native void nativeOnLoadFailed(long j, String str, int i);
 
-    private native void nativeOnLoadSuccess(long j, String str, int i, int i2);
+    private native void nativeOnLoadSuccess(long j, int i);
 
     private static native boolean nativeReadPixels(long j, Bitmap bitmap, int i, int i2, int i3, int i4);
 
-    public native boolean nativeLoadAsset(long j, Bitmap bitmap, String str);
+    public native boolean nativeLoadAsset(long j, Bitmap bitmap);
+
+    public long getEnginePtr() {
+        return this.mEnginePtr;
+    }
 
     private WebGLImage(long j, long j2, String str) {
         super(V8Engine.getInstance(j2));
@@ -51,23 +61,6 @@ public class WebGLImage extends EventTargetImpl {
         this.mNativePtr = 0L;
         this.mEnginePtr = 0L;
         this.mBasePath = "";
-        this.shouldCache = true;
-        this.mNetFileCallback = new ValueCallback<String>() { // from class: com.baidu.searchbox.v8engine.WebGLImage.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.webkit.ValueCallback
-            public void onReceiveValue(final String str2) {
-                WebGLImageLoader.runInIOThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.1.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (TextUtils.isEmpty(str2)) {
-                            WebGLImage.this.onLoadFailed("get file from net error");
-                        } else {
-                            WebGLImage.this.onLoadSuccess(str2, false);
-                        }
-                    }
-                });
-            }
-        };
         this.mNativePtr = j;
         this.mEnginePtr = j2;
         this.mBasePath = str;
@@ -78,14 +71,72 @@ public class WebGLImage extends EventTargetImpl {
     }
 
     public void detach() {
+        int i;
+        boolean z = false;
         this.mNativePtr = 0L;
+        synchronized (WebGLImageLoader.class) {
+            ImageBean.ImageBitmapBean decrease = WebGLImageLoader.sReferenceMap.decrease(this.mSrc);
+            if (decrease != null) {
+                i = decrease.getBitmapByteCount();
+                if (WebGLImageLoader.sBitmapLruCache.get(this.mSrc) == null) {
+                    z = decrease.resetIfNoUsed();
+                }
+            } else {
+                i = 0;
+            }
+        }
+        if (z) {
+            V8Engine.nativeNotifyGCMemoryFree(i);
+        }
+    }
+
+    public WebGLImageType getImageType() {
+        return this.mImageType;
+    }
+
+    public Bitmap getBitmap() {
+        return this.mBitmap;
+    }
+
+    private void initWebGLImageType() {
+        if (this.mSrc.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+            this.mImageType = WebGLImageType.HTTP;
+        } else if (this.mSrc.startsWith("bdfile://")) {
+            this.mImageType = WebGLImageType.BDFILE;
+        } else if (this.mSrc.startsWith("data:")) {
+            this.mImageType = WebGLImageType.BASE64;
+        } else {
+            this.mImageType = WebGLImageType.LOCAL;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String beforeSrc() {
+        return this.mBeforeSrc;
     }
 
     public void setSrc(String str) {
-        if (str != null && !this.mSrc.equals(str)) {
-            this.mSrc = str;
-            WebGLImageLoader.LoadImage(this);
+        if (str != null) {
+            this.mBeforeSrc = this.mSrc;
+            this.mSrc = str.trim();
+            initWebGLImageType();
+            ImageBean.ImageBitmapBean isWebGLImageInCache = WebGLImageLoader.isWebGLImageInCache(this);
+            if (isWebGLImageInCache != null) {
+                this.mBitmap = isWebGLImageInCache.getBitmap();
+            }
+            if (this.mBitmap != null) {
+                this.mImageType = WebGLImageType.CACHE;
+            }
+            WebGLImageLoader.loadImage(this);
         }
+    }
+
+    public void setImageId(int i) {
+        this.mImageId = i;
+    }
+
+    public int getImageId() {
+        return this.mImageId;
     }
 
     public int width() {
@@ -108,114 +159,65 @@ public class WebGLImage extends EventTargetImpl {
         return this.mBasePath;
     }
 
-    public boolean loadAsset() {
-        try {
-            InputStream open = V8Engine.getAppContext().getAssets().open(this.mSrc);
-            Bitmap decodeStream = BitmapFactory.decodeStream(open);
-            this.mWidth = decodeStream.getWidth();
-            this.mHeight = decodeStream.getHeight();
-            boolean nativeLoadAsset = this.mNativePtr != 0 ? nativeLoadAsset(this.mNativePtr, decodeStream, this.mSrc) : false;
-            open.close();
-            return nativeLoadAsset;
-        } catch (Exception e) {
-            Log.e("V8", e.getMessage(), e);
-            return false;
-        }
+    public boolean loadBitmapData(Bitmap bitmap) {
+        return this.mNativePtr != 0 && nativeLoadAsset(this.mNativePtr, bitmap);
     }
 
-    public boolean loadDataURL() {
-        try {
-            byte[] decode = Base64.decode(this.mSrc.substring(this.mSrc.indexOf(";base64,") + 8), 0);
-            Bitmap decodeByteArray = BitmapFactory.decodeByteArray(decode, 0, decode.length);
-            this.mWidth = decodeByteArray.getWidth();
-            this.mHeight = decodeByteArray.getHeight();
-            if (this.mNativePtr != 0) {
-                return nativeLoadAsset(this.mNativePtr, decodeByteArray, this.mSrc);
-            }
-            return false;
-        } catch (Exception e) {
-            Log.e("V8", e.getMessage(), e);
-            return false;
-        }
-    }
-
-    public void loadImageFromCacheSuccess(String str, int i, int i2, boolean z) {
-        this.mPath = str;
-        this.mWidth = i;
-        this.mHeight = i2;
-        dispatchSuccessEvent(str, z);
-    }
-
-    public void onLoadSuccess(String str, boolean z) {
-        this.mPath = str;
-        if (!z) {
-            try {
-                if (this.mNativePtr != 0) {
-                    nativeDecodeImage(this.mNativePtr, this.shouldCache, this.mPath);
-                }
-            } catch (Exception e) {
-                Log.e("V8", e.getMessage(), e);
-            }
-        }
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(str, options);
-        this.mWidth = options.outWidth;
-        this.mHeight = options.outHeight;
-        dispatchSuccessEvent(str, z);
-    }
-
-    private void dispatchSuccessEvent(String str, boolean z) {
+    public void onLoadSuccess(int i) {
         V8Engine v8Engine;
+        JSEvent jSEvent = new JSEvent(TrackLoadSettingsAtom.TYPE, this, null);
+        dispatchEvent(jSEvent);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
         } catch (Exception e) {
             Log.e("V8", e.getMessage(), e);
         }
         if (v8Engine != null) {
-            postImageJSCallback(v8Engine, true);
-            Log.d(TAG, "onLoadSuccess: " + str + " isAsset: " + z);
-            dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
+            postImageJSCallback(v8Engine, jSEvent, i);
+            Log.d(TAG, "onLoadSuccess: " + this.mSrc);
             return;
         }
         throw new Exception("can't get the v8engine instance.");
     }
 
-    public void onLoadFailed(String str) {
+    public void onLoadFailed(int i, String str) {
         V8Engine v8Engine;
         this.mErrorMsg = str;
+        JSEvent jSEvent = new JSEvent("error", this, null);
+        dispatchEvent(jSEvent);
         try {
             v8Engine = V8Engine.getInstance(this.mEnginePtr);
         } catch (Exception e) {
             Log.e("V8", e.getMessage(), e);
         }
         if (v8Engine != null) {
-            postImageJSCallback(v8Engine, false);
+            postImageJSCallback(v8Engine, jSEvent, i);
             Log.d(TAG, "onLoadFailed: " + str);
-            dispatchEvent(new JSEvent("error", str));
             return;
         }
         throw new Exception("can't get the v8engine instance.");
     }
 
-    private void postImageJSCallback(V8Engine v8Engine, final boolean z) {
-        v8Engine.postSuspendableTaskOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
+    private void postImageJSCallback(V8Engine v8Engine, final JSEvent jSEvent, final int i) {
+        v8Engine.postSuspendableTaskOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.1
             @Override // java.lang.Runnable
             public void run() {
-                WebGLImage.this.invokeCallback(z);
+                WebGLImage.this.invokeCallback(jSEvent, i);
             }
         });
     }
 
-    public void invokeCallback(boolean z) {
-        V8Engine v8Engine = V8Engine.getInstance(this.mEnginePtr);
-        if (v8Engine != null && v8Engine.isPaused()) {
-            postImageJSCallback(v8Engine, z);
-        } else if (this.mNativePtr != 0) {
-            if (z) {
-                nativeOnLoadSuccess(this.mNativePtr, this.mPath, this.mWidth, this.mHeight);
-            } else {
-                nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg);
+    public void invokeCallback(JSEvent jSEvent, int i) {
+        if (jSEvent != null && jSEvent.type != null) {
+            V8Engine v8Engine = V8Engine.getInstance(this.mEnginePtr);
+            if (v8Engine != null && v8Engine.isPaused()) {
+                postImageJSCallback(v8Engine, jSEvent, i);
+            } else if (this.mNativePtr != 0) {
+                if (jSEvent.type.equals(TrackLoadSettingsAtom.TYPE)) {
+                    nativeOnLoadSuccess(this.mNativePtr, i);
+                } else {
+                    nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg, i);
+                }
             }
         }
     }
@@ -275,7 +277,7 @@ public class WebGLImage extends EventTargetImpl {
         }
         try {
             fileOutputStream.write(bArr);
-            String str2 = WebGLImageLoader.BDFILE + createTempFile.getName();
+            String str2 = "bdfile://" + createTempFile.getName();
             if (fileOutputStream != null) {
                 fileOutputStream.close();
             }
@@ -290,7 +292,7 @@ public class WebGLImage extends EventTargetImpl {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [298=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [300=4] */
     private static void saveBitmapData(byte[] bArr, String str) {
         FileOutputStream fileOutputStream;
         try {
@@ -341,7 +343,7 @@ public class WebGLImage extends EventTargetImpl {
             Bitmap readCanvas = readCanvas(j, 0, 0, i, i2);
             f = (f <= 0.0f || f > 1.0f) ? 0.92f : 0.92f;
             String validFileType = getValidFileType(str);
-            return WebGLImageLoader.DATA_URL + (FileUtils.IMAGE_FILE_START + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 0);
+            return "data:" + (FileUtils.IMAGE_FILE_START + validFileType) + ";base64," + Base64.encodeToString(compressCanvas(readCanvas, i, i2, validFileType, f), 0);
         } catch (Throwable th) {
             Log.e("V8", th.getMessage(), th);
             return null;
@@ -385,7 +387,7 @@ public class WebGLImage extends EventTargetImpl {
             sHandler = new Handler(sBackgroundThread.getLooper());
         }
         final Bitmap readCanvas = (i < 0 || i2 < 0 || i3 <= 0 || i4 <= 0 || i5 <= 0 || i6 <= 0) ? null : readCanvas(j, i, i2, i3, i4);
-        sHandler.post(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.3
+        sHandler.post(new Runnable() { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
             /* JADX DEBUG: Another duplicated slice has different insns count: {[CONST_STR, CONST_STR, INVOKE, IGET]}, finally: {[CONST_STR, CONST_STR, INVOKE, IGET, IGET, INVOKE, IF] complete} */
             @Override // java.lang.Runnable
             public void run() {

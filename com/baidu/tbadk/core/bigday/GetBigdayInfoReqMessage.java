@@ -20,8 +20,8 @@ public class GetBigdayInfoReqMessage extends NetMessage {
             if (z) {
                 s.bindCommonParamsToProtobufData(builder, true);
             }
-            builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst().getContext()));
-            builder.scr_w = Integer.valueOf(l.aO(TbadkCoreApplication.getInst().getContext()));
+            builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst().getContext()));
+            builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst().getContext()));
             GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

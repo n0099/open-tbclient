@@ -11,8 +11,8 @@ public class h<TResult> {
         return this.kp.bi();
     }
 
-    public boolean g(TResult tresult) {
-        return this.kp.g((g<TResult>) tresult);
+    public boolean h(TResult tresult) {
+        return this.kp.h(tresult);
     }
 
     public boolean g(Exception exc) {
@@ -25,8 +25,8 @@ public class h<TResult> {
         }
     }
 
-    public void h(TResult tresult) {
-        if (!g((h<TResult>) tresult)) {
+    public void i(TResult tresult) {
+        if (!h((h<TResult>) tresult)) {
             throw new IllegalStateException("Cannot set the result of a completed task.");
         }
     }

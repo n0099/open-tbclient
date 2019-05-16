@@ -15,7 +15,7 @@ public class e<INFO> implements c<INFO> {
         this.mListeners.add(cVar);
     }
 
-    public synchronized void cvi() {
+    public synchronized void cDe() {
         this.mListeners.clear();
     }
 
@@ -24,11 +24,11 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void u(String str, Object obj) {
+    public synchronized void x(String str, Object obj) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.mListeners.get(i).u(str, obj);
+                this.mListeners.get(i).x(str, obj);
             } catch (Exception e) {
                 l("InternalListener exception in onSubmit", e);
             }
@@ -48,11 +48,11 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void v(String str, @Nullable INFO info) {
+    public void y(String str, @Nullable INFO info) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.mListeners.get(i).v(str, info);
+                this.mListeners.get(i).y(str, info);
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateImageSet", e);
             }
@@ -84,11 +84,11 @@ public class e<INFO> implements c<INFO> {
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void Fv(String str) {
+    public synchronized void GQ(String str) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.mListeners.get(i).Fv(str);
+                this.mListeners.get(i).GQ(str);
             } catch (Exception e) {
                 l("InternalListener exception in onRelease", e);
             }

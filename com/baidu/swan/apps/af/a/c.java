@@ -35,7 +35,7 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.gx(r));
+                        c.a(aVar, c.gR(r));
                     }
                 }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.1
                     @Override // rx.e
@@ -54,12 +54,12 @@ public class c {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.e
-                    /* renamed from: gz */
+                    /* renamed from: gT */
                     public void onNext(String str2) {
                     }
                 });
             } else {
-                a(aVar, gx(r));
+                a(aVar, gR(r));
             }
         }
     }
@@ -83,7 +83,7 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.gx(r), str2);
+                        c.a(aVar, c.gR(r), str2);
                     }
                 }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.3
                     @Override // rx.e
@@ -102,12 +102,12 @@ public class c {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.e
-                    /* renamed from: gz */
+                    /* renamed from: gT */
                     public void onNext(String str3) {
                     }
                 });
             } else {
-                a(aVar, gx(r), str2);
+                a(aVar, gR(r), str2);
             }
         }
     }
@@ -128,7 +128,7 @@ public class c {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.gx(r));
+                    c.a(aVar, c.gR(r));
                 }
             }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.5
                 @Override // rx.e
@@ -147,21 +147,21 @@ public class c {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.e
-                /* renamed from: gz */
+                /* renamed from: gT */
                 public void onNext(String str) {
                 }
             });
         } else {
-            a(aVar, gx(r));
+            a(aVar, gR(r));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String gx(String str) {
+    public static String gR(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.t.a.eM(str);
+        return com.baidu.swan.apps.t.a.eB(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,7 +193,7 @@ public class c {
             return;
         }
         try {
-            aVar.l(new JSONObject(str), str2);
+            aVar.k(new JSONObject(str), str2);
             if (DEBUG) {
                 Log.e("WebSafeWhiteListMgr", "read WebSafeData by loading file:token=" + aVar.token + ", data=" + aVar.data);
             }
@@ -234,7 +234,7 @@ public class c {
         return z;
     }
 
-    public static boolean g(String str, JSONObject jSONObject) {
+    public static boolean h(String str, JSONObject jSONObject) {
         boolean z = false;
         if (TextUtils.isEmpty(str) || jSONObject == null) {
             if (DEBUG) {
@@ -261,7 +261,7 @@ public class c {
         return z;
     }
 
-    public static boolean b(String str, JSONArray jSONArray) {
+    public static boolean a(String str, JSONArray jSONArray) {
         boolean z = false;
         if (jSONArray == null) {
             if (DEBUG) {
@@ -334,7 +334,7 @@ public class c {
             }
         }
 
-        public void l(JSONObject jSONObject, String str) {
+        public void k(JSONObject jSONObject, String str) {
             JSONArray optJSONArray;
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONObject("data").optJSONArray(str)) != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();

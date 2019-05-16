@@ -17,17 +17,18 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.baidu.adp.lib.g.g;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
-import com.baidu.tieba.enterForum.data.i;
+import com.baidu.tbadk.util.i;
+import com.baidu.tieba.R;
+import com.baidu.tieba.enterForum.data.k;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private View.OnClickListener cPX;
-    private ViewGroup eGo;
-    private InterfaceC0283a eGp;
-    private View eGq;
-    private TextView eGr;
-    private TextView eGs;
+    private View.OnClickListener cYi;
+    private ViewGroup eWp;
+    private InterfaceC0301a eWq;
+    private View eWr;
+    private TextView eWs;
+    private TextView eWt;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -35,29 +36,29 @@ public class a extends PopupWindow {
 
     /* renamed from: com.baidu.tieba.enterForum.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0283a {
-        void lH(int i);
+    public interface InterfaceC0301a {
+        void mu(int i);
     }
 
     public a(Context context) {
         super(context);
-        this.cPX = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.cYi = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.eGr) {
-                    if (a.this.eGp != null) {
-                        a.this.eGp.lH(1);
+                if (view == a.this.eWs) {
+                    if (a.this.eWq != null) {
+                        a.this.eWq.mu(1);
                     }
-                } else if (view == a.this.eGs && a.this.eGp != null) {
-                    a.this.eGp.lH(2);
+                } else if (view == a.this.eWt && a.this.eWq != null) {
+                    a.this.eWq.mu(2);
                 }
-                a.this.aXr();
+                a.this.beG();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.aXr();
+                a.this.beG();
             }
         };
         this.mContext = context;
@@ -70,122 +71,124 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View aXq() {
+    private View beF() {
         createContentView();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.eGo = frameLayout2;
+        this.eWp = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.eGq);
-        this.eGo.setOnClickListener(this.mOnClickListener);
-        al.l(this.mLine, d.C0277d.cp_bg_line_a);
-        al.k(this.eGq, d.f.enter_forum_sort_select_bg);
+        frameLayout.addView(this.eWr);
+        this.eWp.setOnClickListener(this.mOnClickListener);
+        al.l(this.mLine, R.color.cp_bg_line_a);
+        al.k(this.eWr, R.drawable.enter_forum_sort_select_bg);
         return frameLayout;
     }
 
     private void createContentView() {
-        this.eGq = LayoutInflater.from(this.mContext).inflate(d.h.layout_sort_select, (ViewGroup) null);
-        this.eGr = (TextView) this.eGq.findViewById(d.g.sort_type_level_text);
-        this.mLine = this.eGq.findViewById(d.g.sort_select_line);
-        this.eGs = (TextView) this.eGq.findViewById(d.g.sort_type_update_text);
-        this.eGr.setOnClickListener(this.cPX);
-        this.eGs.setOnClickListener(this.cPX);
+        this.eWr = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+        this.eWs = (TextView) this.eWr.findViewById(R.id.sort_type_level_text);
+        this.mLine = this.eWr.findViewById(R.id.sort_select_line);
+        this.eWt = (TextView) this.eWr.findViewById(R.id.sort_type_update_text);
+        this.eWs.setOnClickListener(this.cYi);
+        this.eWt.setOnClickListener(this.cYi);
     }
 
-    public void setData(List<i> list, int i) {
+    public void setData(List<k> list, int i) {
         if (list != null) {
-            View aXq = aXq();
-            for (i iVar : list) {
-                if (iVar.sortType == 1) {
-                    this.eGr.setText(iVar.eBL);
+            View beF = beF();
+            for (k kVar : list) {
+                if (kVar.sortType == 1) {
+                    this.eWs.setText(kVar.eRw);
                 } else {
-                    this.eGs.setText(iVar.eBL);
+                    this.eWt.setText(kVar.eRw);
                 }
                 if (i == 1) {
-                    al.j(this.eGr, d.C0277d.cp_link_tip_a);
-                    al.j(this.eGs, d.C0277d.cp_cont_j);
+                    al.j(this.eWs, R.color.cp_link_tip_a);
+                    al.j(this.eWt, R.color.cp_cont_j);
                 } else {
-                    al.j(this.eGs, d.C0277d.cp_link_tip_a);
-                    al.j(this.eGr, d.C0277d.cp_cont_j);
+                    al.j(this.eWt, R.color.cp_link_tip_a);
+                    al.j(this.eWs, R.color.cp_cont_j);
                 }
             }
-            setContentView(aXq);
+            setContentView(beF);
         }
     }
 
-    public void a(InterfaceC0283a interfaceC0283a) {
-        this.eGp = interfaceC0283a;
+    public void a(InterfaceC0301a interfaceC0301a) {
+        this.eWq = interfaceC0301a;
     }
 
-    public void bg(View view) {
+    public void bm(View view) {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
-                    aXt();
+                    beH();
                     return;
                 }
                 return;
             }
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
-            if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(d.e.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(d.e.tbds20))) {
-                aXt();
+            if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
+                beH();
             }
         }
     }
 
-    public void pj(int i) {
+    public void qp(int i) {
         this.mStatusBarHeight = i;
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        aXr();
+        beG();
     }
 
-    public void aXr() {
-        aXu();
+    public void beG() {
+        beI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXs() {
+    public void Me() {
         super.dismiss();
     }
 
-    private void aXt() {
+    private void beH() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.eGq.startAnimation(translateAnimation);
-        this.eGo.startAnimation(alphaAnimation);
+        this.eWr.startAnimation(translateAnimation);
+        this.eWp.startAnimation(alphaAnimation);
     }
 
-    private void aXu() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
-        translateAnimation.setDuration(350L);
-        translateAnimation.setFillAfter(true);
-        translateAnimation.setInterpolator(new AccelerateInterpolator());
-        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-        alphaAnimation.setDuration(350L);
-        alphaAnimation.setInterpolator(new LinearInterpolator());
-        alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.enterForum.view.a.3
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
+    private void beI() {
+        if (!i.isFastDoubleClick()) {
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
+            translateAnimation.setDuration(350L);
+            translateAnimation.setFillAfter(true);
+            translateAnimation.setInterpolator(new AccelerateInterpolator());
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(350L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.enterForum.view.a.3
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                a.this.aXs();
-            }
-        });
-        this.eGq.startAnimation(translateAnimation);
-        this.eGo.startAnimation(alphaAnimation);
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    a.this.Me();
+                }
+            });
+            this.eWr.startAnimation(translateAnimation);
+            this.eWp.startAnimation(alphaAnimation);
+        }
     }
 }

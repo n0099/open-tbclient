@@ -7,30 +7,30 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.video.record.i;
 /* loaded from: classes5.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.a {
-    private ImageView jdL;
-    private ImageView jdM;
-    private ImageView jdN;
-    private ImageView jdO;
-    private LinearLayout jdP;
-    private LinearLayout jdQ;
-    private LinearLayout jdR;
-    private LinearLayout jdS;
-    private a jdT;
-    private View jdU;
+    private ImageView jwF;
+    private ImageView jwG;
+    private ImageView jwH;
+    private ImageView jwI;
+    private LinearLayout jwJ;
+    private LinearLayout jwK;
+    private LinearLayout jwL;
+    private LinearLayout jwM;
+    private a jwN;
+    private View jwO;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void clE();
+        void ctH();
 
-        void clF();
+        void ctI();
 
-        void clG();
+        void ctJ();
 
-        void clH();
+        void ctK();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -49,38 +49,38 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     private void initView() {
-        inflate(getContext(), d.h.layout_video_effect_button, this);
-        this.jdP = (LinearLayout) findViewById(d.g.layout_music);
-        this.jdQ = (LinearLayout) findViewById(d.g.layout_sticker);
-        this.jdR = (LinearLayout) findViewById(d.g.layout_beauty);
-        this.jdS = (LinearLayout) findViewById(d.g.layout_filter);
-        this.jdL = (ImageView) findViewById(d.g.img_music);
-        this.jdM = (ImageView) findViewById(d.g.img_sticker);
-        this.jdN = (ImageView) findViewById(d.g.img_beauty);
-        this.jdO = (ImageView) findViewById(d.g.img_filter);
-        this.jdL.setOnClickListener(this);
-        this.jdM.setOnClickListener(this);
-        this.jdN.setOnClickListener(this);
-        this.jdO.setOnClickListener(this);
+        inflate(getContext(), R.layout.layout_video_effect_button, this);
+        this.jwJ = (LinearLayout) findViewById(R.id.layout_music);
+        this.jwK = (LinearLayout) findViewById(R.id.layout_sticker);
+        this.jwL = (LinearLayout) findViewById(R.id.layout_beauty);
+        this.jwM = (LinearLayout) findViewById(R.id.layout_filter);
+        this.jwF = (ImageView) findViewById(R.id.img_music);
+        this.jwG = (ImageView) findViewById(R.id.img_sticker);
+        this.jwH = (ImageView) findViewById(R.id.img_beauty);
+        this.jwI = (ImageView) findViewById(R.id.img_filter);
+        this.jwF.setOnClickListener(this);
+        this.jwG.setOnClickListener(this);
+        this.jwH.setOnClickListener(this);
+        this.jwI.setOnClickListener(this);
     }
 
     public void reset() {
-        this.jdU = null;
+        this.jwO = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.jdP.setVisibility(i2);
+                this.jwJ.setVisibility(i2);
                 return;
             case 1:
-                this.jdQ.setVisibility(i2);
+                this.jwK.setVisibility(i2);
                 return;
             case 2:
-                this.jdR.setVisibility(i2);
+                this.jwL.setVisibility(i2);
                 return;
             case 3:
-                this.jdS.setVisibility(i2);
+                this.jwM.setVisibility(i2);
                 return;
             default:
                 return;
@@ -90,16 +90,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public void setViewChoosed(int i, boolean z) {
         switch (i) {
             case 0:
-                this.jdL.setSelected(z);
+                this.jwF.setSelected(z);
                 return;
             case 1:
-                this.jdM.setSelected(z);
+                this.jwG.setSelected(z);
                 return;
             case 2:
-                this.jdN.setSelected(z);
+                this.jwH.setSelected(z);
                 return;
             case 3:
-                this.jdO.setSelected(z);
+                this.jwI.setSelected(z);
                 return;
             default:
                 return;
@@ -108,37 +108,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jdT != null) {
+        if (this.jwN != null) {
             int id = view.getId();
-            this.jdU = view;
+            this.jwO = view;
             am amVar = new am("c12495");
-            if (id == d.g.img_music) {
-                this.jdT.clE();
-                amVar.T("obj_type", 6);
-            } else if (id == d.g.img_sticker) {
-                this.jdT.clF();
-                amVar.T("obj_type", 4);
-            } else if (id == d.g.img_beauty) {
-                this.jdT.clG();
-                amVar.T("obj_type", 3);
-            } else if (id == d.g.img_filter) {
-                this.jdT.clH();
-                amVar.T("obj_type", 2);
+            if (id == R.id.img_music) {
+                this.jwN.ctH();
+                amVar.P("obj_type", 6);
+            } else if (id == R.id.img_sticker) {
+                this.jwN.ctI();
+                amVar.P("obj_type", 4);
+            } else if (id == R.id.img_beauty) {
+                this.jwN.ctJ();
+                amVar.P("obj_type", 3);
+            } else if (id == R.id.img_filter) {
+                this.jwN.ctK();
+                amVar.P("obj_type", 2);
             }
             TiebaStatic.log(amVar);
         }
     }
 
     public void setListener(a aVar) {
-        this.jdT = aVar;
+        this.jwN = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.i.a
-    public void AB(int i) {
+    public void BJ(int i) {
         if (i == 1) {
-            this.jdL.setImageResource(d.f.icon_video_music);
+            this.jwF.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.jdL.setImageResource(d.f.icon_video_music_disable);
+            this.jwF.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 }

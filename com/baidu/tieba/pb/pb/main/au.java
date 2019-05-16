@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class au {
     private TbPageContext mPageContext;
@@ -33,12 +33,12 @@ public class au {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.m.a(this.mUrl, this.mData, au.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.m.acb();
+                    return com.baidu.tbadk.core.util.m.agZ();
                 case -1:
                 default:
-                    return au.this.mPageContext.getString(d.j.save_fail);
+                    return au.this.mPageContext.getString(R.string.save_fail);
                 case 0:
-                    return au.this.mPageContext.getString(d.j.save_image_to_album);
+                    return au.this.mPageContext.getString(R.string.save_image_to_album);
             }
         }
 

@@ -5,7 +5,7 @@ public interface af {
 
     void a(ai aiVar);
 
-    void aDC();
+    void aJP();
 
     void init();
 }

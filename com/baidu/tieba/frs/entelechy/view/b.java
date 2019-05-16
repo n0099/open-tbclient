@@ -19,56 +19,56 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends a {
-    private bg XT;
-    private com.baidu.tbadk.core.view.userLike.c ehk;
-    public TextView fio;
-    public EntelechyUserLikeButton fip;
-    private CommonUserLikeButton.a fiq;
-    private View.OnClickListener fir;
+    private bg VK;
+    private com.baidu.tbadk.core.view.userLike.c ewX;
+    public TextView fyK;
+    public EntelechyUserLikeButton fyL;
+    private CommonUserLikeButton.a fyM;
+    private View.OnClickListener fyN;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         this.mSkinType = 3;
-        this.fiq = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
+        this.fyM = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-            public void il(int i) {
-                b.this.qz(i);
+            public void iZ(int i) {
+                b.this.rH(i);
             }
         };
-        this.fir = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
+        this.fyN = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.XT != null && b.this.XT.YO() != null && !StringUtils.isNull(b.this.XT.YO().getName_show()) && !StringUtils.isNull(b.this.XT.YO().getUserId()) && b.this.XT.YT() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.XT.YO().getUserId(), b.this.XT.YO().getName_show(), b.this.XT.YT(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (b.this.VK != null && b.this.VK.adv() != null && !StringUtils.isNull(b.this.VK.adv().getName_show()) && !StringUtils.isNull(b.this.VK.adv().getUserId()) && b.this.VK.adA() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.VK.adv().getUserId(), b.this.VK.adv().getName_show(), b.this.VK.adA(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.fio = new TextView(tbPageContext.getPageActivity());
-        this.fio.setIncludeFontPadding(false);
-        this.fio.setTextSize(0, l.h(tbPageContext.getPageActivity(), d.e.ds24));
+        this.fyK = new TextView(tbPageContext.getPageActivity());
+        this.fyK.setIncludeFontPadding(false);
+        this.fyK.setTextSize(0, l.g(tbPageContext.getPageActivity(), R.dimen.ds24));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = l.h(tbPageContext.getPageActivity(), d.e.ds6);
-        this.fio.setLayoutParams(layoutParams);
-        this.fio.setOnClickListener(this.fir);
-        this.drz.addView(this.fio, 1);
-        this.fip = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
-        this.fip.setFanNumCallBack(this.fiq);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.h(this.mPageContext.getPageActivity(), d.e.ds56));
+        layoutParams.topMargin = l.g(tbPageContext.getPageActivity(), R.dimen.ds6);
+        this.fyK.setLayoutParams(layoutParams);
+        this.fyK.setOnClickListener(this.fyN);
+        this.dCd.addView(this.fyK, 1);
+        this.fyL = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.fyL.setFanNumCallBack(this.fyM);
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.g(this.mPageContext.getPageActivity(), R.dimen.ds56));
         layoutParams2.addRule(11);
-        layoutParams2.addRule(3, d.g.header_divider);
-        layoutParams2.rightMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds32);
-        layoutParams2.topMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds24);
-        this.fip.setLayoutParams(layoutParams2);
-        ((ViewGroup) getView()).addView(this.fip);
-        this.ehk = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fip);
-        this.ehk.setFromType("1");
-        this.ehk.i(bdUniqueId);
+        layoutParams2.addRule(3, R.id.header_divider);
+        layoutParams2.rightMargin = l.g(this.mPageContext.getPageActivity(), R.dimen.ds32);
+        layoutParams2.topMargin = l.g(this.mPageContext.getPageActivity(), R.dimen.ds24);
+        this.fyL.setLayoutParams(layoutParams2);
+        ((ViewGroup) getView()).addView(this.fyL);
+        this.ewX = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fyL);
+        this.ewX.setFromType("1");
+        this.ewX.i(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,32 +77,32 @@ public class b extends a {
     public void a(bg bgVar) {
         super.a(bgVar);
         if (bgVar != null) {
-            this.XT = bgVar;
-            if (bgVar.YO() != null) {
-                this.ehk.a(bgVar.YO());
-                qz(bgVar.YO().getFansNum());
-                if (!this.XT.YR()) {
-                    this.fip.setVisibility(8);
-                } else if (this.XT.YO().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.XT.YO().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.fip.setVisibility(8);
+            this.VK = bgVar;
+            if (bgVar.adv() != null) {
+                this.ewX.a(bgVar.adv());
+                rH(bgVar.adv().getFansNum());
+                if (!this.VK.ady()) {
+                    this.fyL.setVisibility(8);
+                } else if (this.VK.adv().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.VK.adv().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.fyL.setVisibility(8);
                     return;
-                } else if (this.XT.YO().getGodUserData() != null && this.XT.YO().getGodUserData().getIsLike()) {
-                    if (this.XT.YO().getGodUserData().getIsFromNetWork()) {
-                        this.fip.setVisibility(8);
+                } else if (this.VK.adv().getGodUserData() != null && this.VK.adv().getGodUserData().getIsLike()) {
+                    if (this.VK.adv().getGodUserData().getIsFromNetWork()) {
+                        this.fyL.setVisibility(8);
                     } else {
-                        this.fip.setVisibility(0);
-                        this.fip.f(true, 1);
+                        this.fyL.setVisibility(0);
+                        this.fyL.f(true, 1);
                     }
                 } else {
-                    this.fip.setVisibility(0);
+                    this.fyL.setVisibility(0);
                 }
             }
-            int i = ((RelativeLayout.LayoutParams) this.drA.getLayoutParams()).height;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fip.getLayoutParams();
-            if (bgVar.Zj() != null) {
-                layoutParams.topMargin = i + l.h(this.mPageContext.getPageActivity(), d.e.ds4);
+            int i = ((RelativeLayout.LayoutParams) this.dCe.getLayoutParams()).height;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fyL.getLayoutParams();
+            if (bgVar.adQ() != null) {
+                layoutParams.topMargin = i + l.g(this.mPageContext.getPageActivity(), R.dimen.ds4);
             } else {
-                layoutParams.topMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds24);
+                layoutParams.topMargin = l.g(this.mPageContext.getPageActivity(), R.dimen.ds24);
             }
         }
     }
@@ -111,8 +111,8 @@ public class b extends a {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
         if (this.mSkinType != i) {
-            al.j(this.fio, d.C0277d.cp_cont_d);
-            this.fip.onChangeSkinType(i);
+            al.j(this.fyK, R.color.cp_cont_d);
+            this.fyL.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -123,20 +123,20 @@ public class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qz(int i) {
-        if (this.fio != null) {
-            String string = this.mPageContext.getResources().getString(d.j.fans_default_name_god_user);
-            if (this.XT != null && !StringUtils.isNull(this.XT.YT()) && this.XT.YT().equals(this.mForumName)) {
-                if (this.XT.YR()) {
-                    String format = String.format(string, ap.as(i));
-                    this.fio.setVisibility(0);
-                    this.fio.setText(format);
+    public void rH(int i) {
+        if (this.fyK != null) {
+            String string = this.mPageContext.getResources().getString(R.string.fans_default_name_god_user);
+            if (this.VK != null && !StringUtils.isNull(this.VK.adA()) && this.VK.adA().equals(this.mForumName)) {
+                if (this.VK.ady()) {
+                    String format = String.format(string, ap.aG(i));
+                    this.fyK.setVisibility(0);
+                    this.fyK.setText(format);
                     return;
                 }
-                this.fio.setVisibility(8);
+                this.fyK.setVisibility(8);
                 return;
             }
-            this.fio.setText(this.mPageContext.getResources().getString(d.j.default_personalized_name));
+            this.fyK.setText(this.mPageContext.getResources().getString(R.string.default_personalized_name));
         }
     }
 }

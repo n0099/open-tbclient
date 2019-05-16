@@ -8,7 +8,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.g.g;
-import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -126,7 +125,7 @@ public class e {
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = l.getBSSID().replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                    String replace = l.getBSSID().replace(":", "");
                     int rssi = l.getRssi();
                     String n = f.a().n();
                     if (rssi < 0) {
@@ -199,7 +198,7 @@ public class e {
                                 }
                                 String str3 = this.a.get(i3).BSSID;
                                 if (str3 != null) {
-                                    String replace2 = str3.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                                    String replace2 = str3.replace(":", "");
                                     stringBuffer2.append(replace2);
                                     int i8 = this.a.get(i3).level;
                                     if (i8 < 0) {
@@ -470,7 +469,7 @@ public class e {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(this.a.get(i2).BSSID.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""));
+                stringBuffer.append(this.a.get(i2).BSSID.replace(":", ""));
                 int i3 = this.a.get(i2).level;
                 if (i3 < 0) {
                     i3 = -i3;
@@ -518,7 +517,7 @@ public class e {
                 } else {
                     stringBuffer.append("|");
                 }
-                stringBuffer.append(this.a.get(i6).BSSID.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""));
+                stringBuffer.append(this.a.get(i6).BSSID.replace(":", ""));
                 stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 stringBuffer.append(b(this.a.get(i6).SSID));
                 i2 = i3 + 1;

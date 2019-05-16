@@ -13,30 +13,30 @@ import com.baidu.card.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.a;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class SmartAppBottomLayout extends LinearLayout implements i<a> {
-    private ImageView aaK;
-    private TextView aaL;
+    private ImageView YC;
+    private TextView YD;
     private int mSkinType;
     private View mView;
 
     public SmartAppBottomLayout(Context context) {
         this(context, null);
-        aX(context);
+        ap(context);
     }
 
     public SmartAppBottomLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        aX(context);
+        ap(context);
     }
 
-    private void aX(Context context) {
-        this.mView = LayoutInflater.from(context).inflate(d.h.smart_app_bottom_layout, (ViewGroup) this, true);
+    private void ap(Context context) {
+        this.mView = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aaK = (ImageView) this.mView.findViewById(d.g.ai_smart_app_icon);
-        this.aaL = (TextView) this.mView.findViewById(d.g.ai_smart_app_text);
+        this.YC = (ImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
+        this.YD = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public class SmartAppBottomLayout extends LinearLayout implements i<a> {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            al.j(this.aaL, d.C0277d.cp_cont_d);
-            al.c(this.aaK, d.f.icon_avatar_smallapp_tie);
+            al.j(this.YD, R.color.cp_cont_d);
+            al.c(this.YC, (int) R.drawable.icon_avatar_smallapp_tie);
         }
     }
 }

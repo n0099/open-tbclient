@@ -5,39 +5,39 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.b.e;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<e> {
-    private View eGe;
+    private View eVY;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eGe = getView().findViewById(d.g.card_recommend_list_placeholder);
+        this.eVY = getView().findViewById(R.id.card_recommend_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.l(getView(), d.C0277d.cp_bg_line_c);
+            al.l(getView(), R.color.cp_bg_line_c);
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.recommend_forum_placeholder_layout;
+        return R.layout.recommend_forum_placeholder_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(e eVar) {
         if (eVar != null) {
-            ViewGroup.LayoutParams layoutParams = this.eGe.getLayoutParams();
-            layoutParams.height = l.h(this.mContext, eVar.eED);
-            this.eGe.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.eVY.getLayoutParams();
+            layoutParams.height = l.g(this.mContext, eVar.eUx);
+            this.eVY.setLayoutParams(layoutParams);
         }
     }
 

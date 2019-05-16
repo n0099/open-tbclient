@@ -80,7 +80,7 @@ public class af {
             File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
             byte[] bArr = null;
             try {
-                if (file.exists() && (bArr = N(file)) != null) {
+                if (file.exists() && (bArr = H(file)) != null) {
                     wire.parseFrom(bArr, cls);
                 }
                 if (bArr == null) {
@@ -118,7 +118,7 @@ public class af {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4, 174=4] */
-    private static byte[] N(java.io.File r6) {
+    private static byte[] H(java.io.File r6) {
         /*
             r0 = 0
             if (r6 != 0) goto L4
@@ -146,12 +146,12 @@ public class af {
         L24:
             java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L4c
             com.baidu.adp.lib.util.BdLog.e(r1)     // Catch: java.lang.Throwable -> L4c
-            com.baidu.adp.lib.util.n.i(r3)
+            com.baidu.adp.lib.util.n.g(r3)
             com.baidu.adp.lib.util.n.b(r2)
             goto L3
         L32:
             byte[] r0 = r2.toByteArray()     // Catch: java.lang.Throwable -> L23
-            com.baidu.adp.lib.util.n.i(r3)
+            com.baidu.adp.lib.util.n.g(r3)
             com.baidu.adp.lib.util.n.b(r2)
             goto L3
         L3d:
@@ -160,7 +160,7 @@ public class af {
             r3 = r0
             r0 = r1
         L41:
-            com.baidu.adp.lib.util.n.i(r3)
+            com.baidu.adp.lib.util.n.g(r3)
             com.baidu.adp.lib.util.n.b(r2)
             throw r0
         L48:
@@ -181,7 +181,7 @@ public class af {
             r2 = r0
             goto L24
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.af.N(java.io.File):byte[]");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.af.H(java.io.File):byte[]");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */

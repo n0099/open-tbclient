@@ -3,14 +3,13 @@ package com.baidu.swan.games.a;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes2.dex */
-public class b implements d {
-    @Override // com.baidu.swan.games.a.d
+public interface b {
     @JavascriptInterface
-    public void loadAd(JsObject jsObject) {
-    }
+    void destroy();
 
-    @Override // com.baidu.swan.games.a.d
     @JavascriptInterface
-    public void showAd(JsObject jsObject) {
-    }
+    void hide();
+
+    @JavascriptInterface
+    void showAd(JsObject jsObject);
 }

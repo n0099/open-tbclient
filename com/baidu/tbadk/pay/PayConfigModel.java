@@ -11,27 +11,27 @@ import com.baidu.tbadk.clientConfig.ClientConfigNetMessage;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes3.dex */
 public class PayConfigModel extends BdBaseModel {
-    private a cpW;
-    private final com.baidu.adp.framework.listener.a cpX;
+    private a cyc;
+    private final com.baidu.adp.framework.listener.a cyd;
 
     public PayConfigModel(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.cpX = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
+        this.cyd = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
                     if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                         String errorString = responsedMessage.getErrorString();
-                        String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
+                        String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
-                        if (PayConfigModel.this.cpW != null) {
-                            PayConfigModel.this.cpW.onError(string);
+                        if (PayConfigModel.this.cyc != null) {
+                            PayConfigModel.this.cyc.onError(string);
                         }
                     } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         PayConfigModel.this.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
@@ -41,24 +41,24 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
         };
-        this.cpW = aVar;
-        registerListener(this.cpX);
+        this.cyc = aVar;
+        registerListener(this.cyd);
     }
 
     public PayConfigModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.cpX = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
+        this.cyd = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
                     if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                         String errorString = responsedMessage.getErrorString();
-                        String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
+                        String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
-                        if (PayConfigModel.this.cpW != null) {
-                            PayConfigModel.this.cpW.onError(string);
+                        if (PayConfigModel.this.cyc != null) {
+                            PayConfigModel.this.cyc.onError(string);
                         }
                     } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         PayConfigModel.this.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
@@ -68,8 +68,8 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
         };
-        this.cpW = aVar;
-        registerListener(this.cpX);
+        this.cyc = aVar;
+        registerListener(this.cyd);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -82,10 +82,10 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void aoS() {
-        if (!c.aoT().aoU()) {
-            if (this.cpW != null) {
-                this.cpW.aoQ();
+    public void atW() {
+        if (!c.atX().atY()) {
+            if (this.cyc != null) {
+                this.cyc.atU();
                 return;
             }
             return;
@@ -96,7 +96,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cpX);
+        MessageManager.getInstance().unRegisterListener(this.cyd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,19 +107,19 @@ public class PayConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.cpW != null) {
-                this.cpW.onError(TbadkCoreApplication.getInst().getString(d.j.data_load_error));
+            if (this.cyc != null) {
+                this.cyc.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.cpW != null) {
-                this.cpW.aoR();
+            if (this.cyc != null) {
+                this.cyc.atV();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.cpW != null) {
-                this.cpW.aoQ();
+            if (this.cyc != null) {
+                this.cyc.atU();
             }
-        } else if (this.cpW != null) {
-            this.cpW.onError("");
+        } else if (this.cyc != null) {
+            this.cyc.onError("");
         }
     }
 }

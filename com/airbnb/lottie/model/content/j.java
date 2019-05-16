@@ -134,7 +134,7 @@ public class j implements b {
             case '\n':
                 return PolystarShape.a.s(jSONObject, eVar);
             case 11:
-                return MergePaths.a.l(jSONObject);
+                return MergePaths.a.g(jSONObject);
             case '\f':
                 return g.a.u(jSONObject, eVar);
             default:

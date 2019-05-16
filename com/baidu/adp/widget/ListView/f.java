@@ -4,39 +4,45 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Scroller;
+import com.baidu.adp.widget.ListView.c;
 /* loaded from: classes.dex */
 public class f {
-    private int Pm;
-    private com.baidu.adp.widget.b.a Pn;
-    private boolean Po;
-    a Pp;
+    private int MV;
+    private com.baidu.adp.widget.b.a MW;
+    private c.a MX;
+    private boolean MY;
+    a MZ;
     int mDuration;
     View mView;
-    private int Pl = 1;
+    private int MU = 1;
     Handler mHandler = new Handler();
-    Runnable Pq = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
+    Runnable Na = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.Pp == null) {
+            if (f.this.MZ == null) {
                 return;
             }
-            f.this.Pp.oS();
+            f.this.MZ.nM();
         }
     };
 
     public f(Context context, int i, int i2, int i3) {
-        this.Po = true;
+        this.MY = true;
         int abs = Math.abs(i - i2);
-        this.Pm = i2;
-        if (abs < this.Pl) {
-            this.Po = false;
+        this.MV = i2;
+        if (abs < this.MU) {
+            this.MY = false;
         }
-        this.Pp = new a(context);
+        this.MZ = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.Pn = aVar;
+        this.MW = aVar;
+    }
+
+    public void a(c.a aVar) {
+        this.MX = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -48,9 +54,9 @@ public class f {
             this.mScroller = new Scroller(context);
         }
 
-        private void oR() {
+        private void nL() {
             if (f.this.mHandler != null) {
-                f.this.mHandler.removeCallbacks(f.this.Pq);
+                f.this.mHandler.removeCallbacks(f.this.Na);
             }
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
@@ -78,16 +84,16 @@ public class f {
                     }
                 }
                 if (z) {
-                    f.this.mHandler.removeCallbacks(f.this.Pq);
-                    f.this.mHandler.post(f.this.Pq);
+                    f.this.mHandler.removeCallbacks(f.this.Na);
+                    f.this.mHandler.post(f.this.Na);
                 }
             }
         }
 
-        public void r(int i, int i2) {
+        public void p(int i, int i2) {
             if (f.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                oR();
+                nL();
                 this.mLastFlingY = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 f.this.mView.post(this);
@@ -95,8 +101,8 @@ public class f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void oS() {
-            f.this.mHandler.removeCallbacks(f.this.Pq);
+        public void nM() {
+            f.this.mHandler.removeCallbacks(f.this.Na);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
                 this.mScroller.forceFinished(true);
@@ -104,29 +110,34 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.Pn != null) {
-                f.this.Pn.onOver();
+            if (f.this.MW != null) {
+                f.this.MW.onOver();
             }
         }
     }
 
     public void B(View view) {
-        if (this.Po && this.Pp != null) {
+        if (this.MY && this.MZ != null) {
             this.mView = view;
-            this.Pp.r(Math.abs(this.Pm), this.mDuration);
-            this.mHandler.postDelayed(this.Pq, this.mDuration);
+            this.MZ.p(Math.abs(this.MV), this.mDuration);
+            this.mHandler.postDelayed(this.Na, this.mDuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean move(int i) {
-        boolean z = true;
+        boolean z;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.Pm) {
-            paddingTop = this.Pm;
+        if (paddingTop > this.MV) {
+            z = true;
+        } else {
+            paddingTop = this.MV;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());
+        if (this.MX != null) {
+            this.MX.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.MV, this.mView.getPaddingBottom());
+        }
         return z;
     }
 }

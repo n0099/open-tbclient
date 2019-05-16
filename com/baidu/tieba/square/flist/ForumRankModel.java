@@ -11,14 +11,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes5.dex */
 public class ForumRankModel extends BdBaseModel {
-    private a iAV;
+    private a iTJ;
     private String id;
     private String stType;
 
     public ForumRankModel(Bundle bundle) {
         super(null);
         this.id = null;
-        this.iAV = null;
+        this.iTJ = null;
         this.stType = null;
         this.id = bundle.getString("id");
         this.stType = bundle.getString("st_type");
@@ -27,13 +27,13 @@ public class ForumRankModel extends BdBaseModel {
     public ForumRankModel(Intent intent) {
         super(null);
         this.id = null;
-        this.iAV = null;
+        this.iTJ = null;
         this.stType = null;
         this.id = intent.getStringExtra("id");
         this.stType = intent.getStringExtra("st_type");
     }
 
-    public void aa(Bundle bundle) {
+    public void ab(Bundle bundle) {
         bundle.putString("id", this.id);
         bundle.putString("st_type", this.stType);
     }
@@ -44,17 +44,17 @@ public class ForumRankModel extends BdBaseModel {
         if (this.id == null) {
             return false;
         }
-        if (this.iAV == null) {
-            this.iAV = new a();
-            this.iAV.execute(new Void[0]);
+        if (this.iTJ == null) {
+            this.iTJ = new a();
+            this.iTJ.execute(new Void[0]);
         }
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iAV != null) {
-            this.iAV.cancel();
+        if (this.iTJ != null) {
+            this.iTJ.cancel();
             return false;
         }
         return false;
@@ -71,28 +71,28 @@ public class ForumRankModel extends BdBaseModel {
         /* renamed from: l */
         public ForumRankData doInBackground(Void... voidArr) {
             ForumRankData forumRankData;
-            l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.forum_rank");
-            String str = lw != null ? lw.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
+            l<String> mB = com.baidu.tbadk.core.c.a.afD().mB("tb.forum_rank");
+            String str = mB != null ? mB.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
             if (!StringUtils.isNull(str) && (forumRankData = (ForumRankData) OrmObject.objectWithJsonStr(str, ForumRankData.class)) != null) {
                 publishProgress(forumRankData);
             }
             x xVar = new x(TbConfig.SERVER_ADDRESS + "c/f/forum/forumsquarelist");
-            xVar.x("list_id", ForumRankModel.this.id);
-            xVar.x("st_type", ForumRankModel.this.stType);
-            String acg = xVar.acg();
-            if (StringUtils.isNull(acg)) {
+            xVar.o("list_id", ForumRankModel.this.id);
+            xVar.o("st_type", ForumRankModel.this.stType);
+            String ahe = xVar.ahe();
+            if (StringUtils.isNull(ahe)) {
                 return null;
             }
-            if (lw != null) {
-                lw.a("forum_rank_cache_key_" + ForumRankModel.this.id, acg, 86400000L);
+            if (mB != null) {
+                mB.a("forum_rank_cache_key_" + ForumRankModel.this.id, ahe, 86400000L);
             }
-            return (ForumRankData) OrmObject.objectWithJsonStr(acg, ForumRankData.class);
+            return (ForumRankData) OrmObject.objectWithJsonStr(ahe, ForumRankData.class);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.iAV = null;
+            ForumRankModel.this.iTJ = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.iAV = null;
+            ForumRankModel.this.iTJ = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.m(forumRankData);
             }

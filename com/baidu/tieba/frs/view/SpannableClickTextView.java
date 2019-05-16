@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes4.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean foe;
+    private boolean fEz;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.foe) {
+        if (this.fEz) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.foe = false;
+        this.fEz = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.bki());
+        setMovementMethod(a.brA());
     }
 
     /* loaded from: classes4.dex */
     private static class a extends LinkMovementMethod {
-        private static a fAc;
+        private static a fQZ;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).foe = true;
+                        ((SpannableClickTextView) textView).fEz = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a bki() {
-            if (fAc == null) {
-                fAc = new a();
+        public static a brA() {
+            if (fQZ == null) {
+                fQZ = new a();
             }
-            return fAc;
+            return fQZ;
         }
     }
 }

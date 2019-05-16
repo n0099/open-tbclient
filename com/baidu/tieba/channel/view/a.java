@@ -16,165 +16,165 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.channel.activity.ChannelAddVideoActivity;
-import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
-    private BdListView Pj;
-    private NoNetworkView dbr;
-    private ChannelAddVideoActivity enc;
-    private View eoA;
-    private View eoB;
-    private com.baidu.tieba.channel.a.a eoC;
-    private TextView eoD;
-    private ViewStub eoE;
-    private TextView eoF;
-    private int eoG;
-    private View.OnClickListener eoH;
-    private AdapterView.OnItemClickListener eoI;
-    private TextView eoz;
+    private BdListView MS;
+    private NoNetworkView dlW;
+    private ChannelAddVideoActivity eCN;
+    private TextView eEh;
+    private View eEi;
+    private com.baidu.tieba.channel.a.a eEj;
+    private TextView eEk;
+    private ViewStub eEl;
+    private TextView eEm;
+    private int eEn;
+    private View.OnClickListener eEo;
+    private AdapterView.OnItemClickListener eEp;
+    private View epY;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private RelativeLayout mRootView;
 
     static /* synthetic */ int d(a aVar) {
-        int i = aVar.eoG;
-        aVar.eoG = i + 1;
+        int i = aVar.eEn;
+        aVar.eEn = i + 1;
         return i;
     }
 
     static /* synthetic */ int e(a aVar) {
-        int i = aVar.eoG;
-        aVar.eoG = i - 1;
+        int i = aVar.eEn;
+        aVar.eEn = i - 1;
         return i;
     }
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
         super(channelAddVideoActivity.getPageContext());
-        this.eoG = 0;
-        this.eoH = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.a.1
+        this.eEn = 0;
+        this.eEo = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eoG > 20 || a.this.eoG <= 0) {
-                    a.this.enc.showToast(d.j.hundred_once_at_most);
+                if (a.this.eEn > 20 || a.this.eEn <= 0) {
+                    a.this.eCN.showToast(R.string.hundred_once_at_most);
                     return;
                 }
-                List<com.baidu.tieba.channel.data.b> data = a.this.eoC.getData();
+                List<com.baidu.tieba.channel.data.b> data = a.this.eEj.getData();
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.channel.data.b bVar : data) {
-                    if (bVar.aRn()) {
+                    if (bVar.aYw()) {
                         arrayList.add(Long.valueOf(bVar.getThreadId()));
                     }
                 }
-                TiebaStatic.log(new am("c11937").k(VideoPlayActivityConfig.OBJ_ID, a.this.enc.getChannelId()).T("obj_locate", 5));
-                a.this.enc.bo(arrayList);
+                TiebaStatic.log(new am("c11937").l(VideoPlayActivityConfig.OBJ_ID, a.this.eCN.getChannelId()).P("obj_locate", 5));
+                a.this.eCN.bw(arrayList);
             }
         };
-        this.eoI = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.a.2
+        this.eEp = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.channel.data.b item = a.this.eoC.getItem(i);
+                com.baidu.tieba.channel.data.b item = a.this.eEj.getItem(i);
                 if (item != null) {
-                    item.hV(!item.aRn());
-                    a.this.eoC.notifyDataSetChanged();
-                    if (item.aRn()) {
+                    item.iA(!item.aYw());
+                    a.this.eEj.notifyDataSetChanged();
+                    if (item.aYw()) {
                         a.d(a.this);
                     } else {
                         a.e(a.this);
                     }
-                    if (a.this.eoG > 0) {
-                        a.this.eoD.setTextColor(a.this.enc.getResources().getColor(d.C0277d.cp_link_tip_a));
-                        a.this.eoD.setEnabled(true);
+                    if (a.this.eEn > 0) {
+                        a.this.eEk.setTextColor(a.this.eCN.getResources().getColor(R.color.cp_link_tip_a));
+                        a.this.eEk.setEnabled(true);
                         return;
                     }
-                    a.this.eoD.setTextColor(a.this.enc.getResources().getColor(d.C0277d.cp_cont_d));
-                    a.this.eoD.setEnabled(false);
+                    a.this.eEk.setTextColor(a.this.eCN.getResources().getColor(R.color.cp_cont_d));
+                    a.this.eEk.setEnabled(false);
                 }
             }
         };
-        this.enc = channelAddVideoActivity;
-        this.enc.setIsAddSwipeBackLayout(true);
-        this.enc.setSwipeBackEnabled(true);
-        this.enc.setUseStyleImmersiveSticky(true);
+        this.eCN = channelAddVideoActivity;
+        this.eCN.setIsAddSwipeBackLayout(true);
+        this.eCN.setSwipeBackEnabled(true);
+        this.eCN.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     private void initViews() {
-        this.enc.setContentView(d.h.channel_add_video_layout);
-        this.mRootView = (RelativeLayout) this.enc.findViewById(d.g.parent);
-        this.dbr = (NoNetworkView) this.mRootView.findViewById(d.g.no_network_view);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.navigation_bar);
-        this.eoE = (ViewStub) this.mRootView.findViewById(d.g.no_data_viewstub);
+        this.eCN.setContentView(R.layout.channel_add_video_layout);
+        this.mRootView = (RelativeLayout) this.eCN.findViewById(R.id.parent);
+        this.dlW = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
+        this.eEl = (ViewStub) this.mRootView.findViewById(R.id.no_data_viewstub);
         this.mNavigationBar.showBottomLine(false);
-        this.mNavigationBar.setCenterTextTitle(this.enc.getResources().getString(d.j.add_video_title));
+        this.mNavigationBar.setCenterTextTitle(this.eCN.getResources().getString(R.string.add_video_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eoD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(d.j.add_video), this.eoH);
-        this.eoD.setTextColor(this.enc.getResources().getColor(d.C0277d.cp_cont_d));
-        this.eoD.setEnabled(false);
-        this.Pj = (BdListView) this.mRootView.findViewById(d.g.listview);
-        this.eoC = new com.baidu.tieba.channel.a.a(this.enc);
-        this.Pj.setOnItemClickListener(this.eoI);
-        this.Pj.setAdapter((ListAdapter) this.eoC);
-        this.eoA = LayoutInflater.from(this.enc.getPageContext().getPageActivity()).inflate(d.h.channel_add_video_toast_layout, (ViewGroup) null, false);
-        this.Pj.addHeaderView(this.eoA);
-        this.eoB = LayoutInflater.from(this.enc.getPageContext().getPageActivity()).inflate(d.h.channel_list_footer, (ViewGroup) null, false);
-        this.mProgressBar = (ProgressBar) this.eoB.findViewById(d.g.list_more_progress);
-        this.eoz = (TextView) this.eoB.findViewById(d.g.list_more_title);
-        this.Pj.addFooterView(this.eoB);
+        this.eEk = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.add_video), this.eEo);
+        this.eEk.setTextColor(this.eCN.getResources().getColor(R.color.cp_cont_d));
+        this.eEk.setEnabled(false);
+        this.MS = (BdListView) this.mRootView.findViewById(R.id.listview);
+        this.eEj = new com.baidu.tieba.channel.a.a(this.eCN);
+        this.MS.setOnItemClickListener(this.eEp);
+        this.MS.setAdapter((ListAdapter) this.eEj);
+        this.eEi = LayoutInflater.from(this.eCN.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_toast_layout, (ViewGroup) null, false);
+        this.MS.addHeaderView(this.eEi);
+        this.epY = LayoutInflater.from(this.eCN.getPageContext().getPageActivity()).inflate(R.layout.channel_list_footer, (ViewGroup) null, false);
+        this.mProgressBar = (ProgressBar) this.epY.findViewById(R.id.list_more_progress);
+        this.eEh = (TextView) this.epY.findViewById(R.id.list_more_title);
+        this.MS.addFooterView(this.epY);
     }
 
     public void onDestroy() {
-        if (this.eoC != null) {
-            this.eoC = null;
+        if (this.eEj != null) {
+            this.eEj = null;
         }
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.dbr.a(aVar);
+        this.dlW.a(aVar);
     }
 
     public void a(com.baidu.tieba.channel.data.a aVar) {
         if (aVar == null || aVar.getItems() == null || aVar.getItems().size() <= 0) {
-            this.eoC.setData(null);
-            this.Pj.setVisibility(8);
-            this.eoE.setVisibility(0);
-            this.eoF = (TextView) this.mRootView.findViewById(d.g.no_data_tip);
-            this.eoF.setText(this.enc.getResources().getString(d.j.add_video_no_data));
+            this.eEj.setData(null);
+            this.MS.setVisibility(8);
+            this.eEl.setVisibility(0);
+            this.eEm = (TextView) this.mRootView.findViewById(R.id.no_data_tip);
+            this.eEm.setText(this.eCN.getResources().getString(R.string.add_video_no_data));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
-        hY(aVar.hasMore());
-        this.eoC.setData(aVar.getItems());
-        this.eoC.notifyDataSetChanged();
-        this.Pj.setVisibility(0);
+        iD(aVar.hasMore());
+        this.eEj.setData(aVar.getItems());
+        this.eEj.notifyDataSetChanged();
+        this.MS.setVisibility(0);
     }
 
-    public void hY(boolean z) {
-        this.eoB.setVisibility(0);
+    public void iD(boolean z) {
+        this.epY.setVisibility(0);
         if (z) {
             this.mProgressBar.setVisibility(0);
-            this.eoz.setText(getPageContext().getString(d.j.subcribe_channel_list_hasmore));
+            this.eEh.setText(getPageContext().getString(R.string.subcribe_channel_list_hasmore));
             return;
         }
         this.mProgressBar.setVisibility(8);
-        this.eoz.setText(getPageContext().getString(d.j.channel_subscribe_list_no_more));
+        this.eEh.setText(getPageContext().getString(R.string.channel_subscribe_list_no_more));
     }
 
     public void onChangeSkinType(int i) {
-        this.enc.getLayoutMode().setNightMode(i == 1);
-        this.enc.getLayoutMode().onModeChanged(this.mRootView);
-        this.enc.getLayoutMode().onModeChanged(this.eoB);
-        this.enc.getLayoutMode().onModeChanged(this.eoA);
+        this.eCN.getLayoutMode().setNightMode(i == 1);
+        this.eCN.getLayoutMode().onModeChanged(this.mRootView);
+        this.eCN.getLayoutMode().onModeChanged(this.epY);
+        this.eCN.getLayoutMode().onModeChanged(this.eEi);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dbr.onChangeSkinType(getPageContext(), i);
-        if (this.eoC != null) {
-            this.eoC.notifyDataSetChanged();
+        this.dlW.onChangeSkinType(getPageContext(), i);
+        if (this.eEj != null) {
+            this.eEj.notifyDataSetChanged();
         }
     }
 
     public void b(BdListView.e eVar) {
-        this.Pj.setOnSrollToBottomListener(eVar);
+        this.MS.setOnSrollToBottomListener(eVar);
     }
 }

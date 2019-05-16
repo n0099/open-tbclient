@@ -5,7 +5,7 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes2.dex */
 public interface f {
-    String bs(Context context);
+    String aL(Context context);
 
     Request d(Context context, Map<String, String> map);
 
@@ -23,43 +23,47 @@ public interface f {
 
     boolean isDebug();
 
-    String vA();
+    String wA();
 
-    void vB();
+    String wB();
 
-    String vC();
+    String wC();
 
-    String vD();
+    String wD();
 
-    String vE();
+    String wE();
 
-    String vF();
+    String wF();
 
-    String vG();
+    String wk();
 
-    String vH();
+    boolean wl();
 
-    String vI();
+    String wm();
 
-    String vJ();
+    String wn();
 
-    String vK();
+    String wo();
 
-    String vL();
+    String wp();
 
-    String vM();
+    void wq();
 
-    String vN();
+    String wr();
 
-    String vO();
+    String ws();
 
-    String vv();
+    String wt();
 
-    boolean vw();
+    String wu();
 
-    String vx();
+    String wv();
 
-    String vy();
+    String ww();
 
-    String vz();
+    String wx();
+
+    String wy();
+
+    String wz();
 }

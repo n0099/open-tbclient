@@ -5,17 +5,17 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c {
-    public static boolean g(byte[] bArr, String str) {
+    public static boolean h(byte[] bArr, String str) {
         if (bArr == null) {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.jr().setUrl(str);
-        eVar.jr().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.jr().d("", bArr);
-        new com.baidu.adp.lib.network.http.c(eVar).g(3, -1, -1);
-        int i = eVar.js().responseCode;
-        byte[] bArr2 = eVar.js().Df;
+        eVar.ik().setUrl(str);
+        eVar.ik().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.ik().d("", bArr);
+        new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
+        int i = eVar.il().responseCode;
+        byte[] bArr2 = eVar.il().AO;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static byte[] ea(List<String> list) {
+    public static byte[] ek(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] bG(JSONObject jSONObject) {
+    public static byte[] bS(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

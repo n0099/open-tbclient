@@ -1,91 +1,300 @@
 package com.xiaomi.push.service;
-/* loaded from: classes3.dex */
-public abstract class am {
-    public static String a = "1";
-    public static String b = "2";
-    public static String c = "3";
-    public static String d = "com.xiaomi.push.OPEN_CHANNEL";
-    public static String e = "com.xiaomi.push.SEND_MESSAGE";
-    public static String f = "com.xiaomi.push.SEND_IQ";
-    public static String g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
-    public static String h = "com.xiaomi.push.SEND_PRES";
-    public static String i = "com.xiaomi.push.CLOSE_CHANNEL";
-    public static String j = "com.xiaomi.push.FORCE_RECONN";
-    public static String k = "com.xiaomi.push.RESET_CONN";
-    public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
-    public static String m = "com.xiaomi.push.SEND_STATS";
-    public static String n = "com.xiaomi.push.CHANGE_HOST";
-    public static String o = "com.xiaomi.push.PING_TIMER";
-    public static String p = "ext_user_id";
-    public static String q = "ext_chid";
-    public static String r = "ext_sid";
-    public static String s = "ext_token";
-    public static String t = "ext_auth_method";
-    public static String u = "ext_security";
-    public static String v = "ext_kick";
-    public static String w = "ext_client_attr";
-    public static String x = "ext_cloud_attr";
-    public static String y = "ext_pkg_name";
-    public static String z = "ext_notify_id";
-    public static String A = "ext_notify_type";
-    public static String B = "ext_session";
-    public static String C = "sig";
-    public static String D = "ext_notify_title";
-    public static String E = "ext_notify_description";
-    public static String F = "title";
-    public static String G = "description";
-    public static String H = "notifyId";
 
-    public static String a(int i2) {
-        switch (i2) {
-            case 0:
-                return "ERROR_OK";
-            case 1:
-                return "ERROR_SERVICE_NOT_INSTALLED";
-            case 2:
-                return "ERROR_NETWORK_NOT_AVAILABLE";
-            case 3:
-                return "ERROR_NETWORK_FAILED";
-            case 4:
-                return "ERROR_ACCESS_DENIED";
-            case 5:
-                return "ERROR_AUTH_FAILED";
-            case 6:
-                return "ERROR_MULTI_LOGIN";
-            case 7:
-                return "ERROR_SERVER_ERROR";
-            case 8:
-                return "ERROR_RECEIVE_TIMEOUT";
-            case 9:
-                return "ERROR_READ_ERROR";
-            case 10:
-                return "ERROR_SEND_ERROR";
-            case 11:
-                return "ERROR_RESET";
-            case 12:
-                return "ERROR_NO_CLIENT";
-            case 13:
-                return "ERROR_SERVER_STREAM";
-            case 14:
-                return "ERROR_THREAD_BLOCK";
-            case 15:
-                return "ERROR_SERVICE_DESTROY";
-            case 16:
-                return "ERROR_SESSION_CHANGED";
-            case 17:
-                return "ERROR_READ_TIMEOUT";
-            case 18:
-                return "ERROR_CONNECTIING_TIMEOUT";
-            case 19:
-                return "ERROR_USER_BLOCKED";
-            case 20:
-                return "ERROR_REDIRECT";
-            case 21:
-                return "ERROR_BIND_TIMEOUT";
-            case 22:
-                return "ERROR_PING_TIMEOUT";
-            default:
-                return String.valueOf(i2);
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
+import java.net.URL;
+/* loaded from: classes3.dex */
+public class am {
+
+    /* loaded from: classes3.dex */
+    public static class a {
+        byte[] a;
+        int b;
+
+        public a(byte[] bArr, int i) {
+            this.a = bArr;
+            this.b = i;
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public Bitmap a;
+        public long b;
+
+        public b(Bitmap bitmap, long j) {
+            this.a = bitmap;
+            this.b = j;
+        }
+    }
+
+    private static int a(Context context, InputStream inputStream) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(inputStream, null, options);
+        if (options.outWidth == -1 || options.outHeight == -1) {
+            com.xiaomi.channel.commonutils.logger.b.a("decode dimension failed for bitmap.");
+            return 1;
+        }
+        int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
+        if (options.outWidth <= round || options.outHeight <= round) {
+            return 1;
+        }
+        return Math.min(options.outWidth / round, options.outHeight / round);
+    }
+
+    public static Bitmap a(Context context, String str) {
+        InputStream inputStream;
+        InputStream inputStream2;
+        Throwable th;
+        Bitmap bitmap = null;
+        Uri parse = Uri.parse(str);
+        try {
+            inputStream = context.getContentResolver().openInputStream(parse);
+            try {
+                int a2 = a(context, inputStream);
+                inputStream2 = context.getContentResolver().openInputStream(parse);
+                try {
+                    try {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inSampleSize = a2;
+                        bitmap = BitmapFactory.decodeStream(inputStream2, null, options);
+                        com.xiaomi.channel.commonutils.file.b.a(inputStream2);
+                    } catch (IOException e) {
+                        e = e;
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
+                        com.xiaomi.channel.commonutils.file.b.a(inputStream2);
+                        com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                        return bitmap;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.xiaomi.channel.commonutils.file.b.a(inputStream2);
+                    com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                    throw th;
+                }
+            } catch (IOException e2) {
+                e = e2;
+                inputStream2 = null;
+            } catch (Throwable th3) {
+                inputStream2 = null;
+                th = th3;
+                com.xiaomi.channel.commonutils.file.b.a(inputStream2);
+                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                throw th;
+            }
+        } catch (IOException e3) {
+            e = e3;
+            inputStream = null;
+            inputStream2 = null;
+        } catch (Throwable th4) {
+            inputStream = null;
+            inputStream2 = null;
+            th = th4;
+        }
+        com.xiaomi.channel.commonutils.file.b.a(inputStream);
+        return bitmap;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:60:0x010f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static a a(String str, boolean z) {
+        InputStream inputStream;
+        HttpURLConnection httpURLConnection;
+        HttpURLConnection httpURLConnection2;
+        InputStream inputStream2;
+        a aVar;
+        HttpURLConnection httpURLConnection3 = null;
+        try {
+            HttpURLConnection httpURLConnection4 = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection4.setConnectTimeout(8000);
+                httpURLConnection4.setReadTimeout(20000);
+                httpURLConnection4.connect();
+                int contentLength = httpURLConnection4.getContentLength();
+                if (!z || contentLength <= 102400) {
+                    int responseCode = httpURLConnection4.getResponseCode();
+                    if (responseCode != 200) {
+                        com.xiaomi.channel.commonutils.logger.b.a("Invalid Http Response Code " + responseCode + " received");
+                        com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
+                        if (httpURLConnection4 != null) {
+                            httpURLConnection4.disconnect();
+                        }
+                        aVar = null;
+                    } else {
+                        inputStream = httpURLConnection4.getInputStream();
+                        try {
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            int i = z ? 102400 : 2048000;
+                            byte[] bArr = new byte[1024];
+                            while (i > 0) {
+                                int read = inputStream.read(bArr, 0, 1024);
+                                if (read == -1) {
+                                    break;
+                                }
+                                i -= read;
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            if (i <= 0) {
+                                com.xiaomi.channel.commonutils.logger.b.a("length 102400 exhausted.");
+                                a aVar2 = new a(null, 102400);
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                                if (httpURLConnection4 != null) {
+                                    httpURLConnection4.disconnect();
+                                }
+                                aVar = aVar2;
+                            } else {
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                a aVar3 = new a(byteArray, byteArray.length);
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                                if (httpURLConnection4 != null) {
+                                    httpURLConnection4.disconnect();
+                                }
+                                aVar = aVar3;
+                            }
+                        } catch (SocketTimeoutException e) {
+                            inputStream2 = inputStream;
+                            httpURLConnection2 = httpURLConnection4;
+                            try {
+                                com.xiaomi.channel.commonutils.logger.b.d("Connect timeout to " + str);
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream2);
+                                if (httpURLConnection2 != null) {
+                                    httpURLConnection2.disconnect();
+                                }
+                                return null;
+                            } catch (Throwable th) {
+                                inputStream = inputStream2;
+                                HttpURLConnection httpURLConnection5 = httpURLConnection2;
+                                th = th;
+                                httpURLConnection3 = httpURLConnection5;
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                                if (httpURLConnection3 != null) {
+                                }
+                                throw th;
+                            }
+                        } catch (IOException e2) {
+                            httpURLConnection = httpURLConnection4;
+                            e = e2;
+                            try {
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                return null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                httpURLConnection3 = httpURLConnection;
+                                com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                                if (httpURLConnection3 != null) {
+                                    httpURLConnection3.disconnect();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            httpURLConnection3 = httpURLConnection4;
+                            th = th3;
+                            com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                            if (httpURLConnection3 != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                } else {
+                    com.xiaomi.channel.commonutils.logger.b.a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                    com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
+                    if (httpURLConnection4 != null) {
+                        httpURLConnection4.disconnect();
+                    }
+                    aVar = null;
+                }
+                return aVar;
+            } catch (SocketTimeoutException e3) {
+                inputStream2 = null;
+                httpURLConnection2 = aVar;
+            } catch (IOException e4) {
+                inputStream = null;
+                a aVar4 = aVar;
+                e = e4;
+                httpURLConnection = aVar4;
+            } catch (Throwable th4) {
+                inputStream = null;
+                httpURLConnection3 = aVar;
+                th = th4;
+            }
+        } catch (SocketTimeoutException e5) {
+            httpURLConnection2 = null;
+            inputStream2 = null;
+        } catch (IOException e6) {
+            e = e6;
+            httpURLConnection = null;
+            inputStream = null;
+        } catch (Throwable th5) {
+            th = th5;
+            inputStream = null;
+        }
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0052: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:25:0x0052 */
+    public static b a(Context context, String str, boolean z) {
+        ByteArrayInputStream byteArrayInputStream;
+        ByteArrayInputStream byteArrayInputStream2;
+        ByteArrayInputStream byteArrayInputStream3 = null;
+        b bVar = new b(null, 0L);
+        try {
+            try {
+                a a2 = a(str, z);
+                if (a2 == null) {
+                    com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
+                } else {
+                    bVar.b = a2.b;
+                    byte[] bArr = a2.a;
+                    if (bArr != null) {
+                        if (z) {
+                            byteArrayInputStream = new ByteArrayInputStream(bArr);
+                            try {
+                                int a3 = a(context, byteArrayInputStream);
+                                BitmapFactory.Options options = new BitmapFactory.Options();
+                                options.inSampleSize = a3;
+                                bVar.a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                                byteArrayInputStream3 = byteArrayInputStream;
+                            } catch (Exception e) {
+                                e = e;
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
+                                com.xiaomi.channel.commonutils.file.b.a(byteArrayInputStream);
+                                return bVar;
+                            }
+                        } else {
+                            bVar.a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                        }
+                    }
+                    com.xiaomi.channel.commonutils.file.b.a(byteArrayInputStream3);
+                }
+            } catch (Throwable th) {
+                th = th;
+                byteArrayInputStream3 = byteArrayInputStream2;
+                com.xiaomi.channel.commonutils.file.b.a(byteArrayInputStream3);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            byteArrayInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            com.xiaomi.channel.commonutils.file.b.a(byteArrayInputStream3);
+            throw th;
+        }
+        return bVar;
     }
 }

@@ -21,7 +21,7 @@ public abstract class h {
     }
 
     @Deprecated
-    public <T> Throwable T(Throwable th) {
+    public <T> Throwable S(Throwable th) {
         return th;
     }
 

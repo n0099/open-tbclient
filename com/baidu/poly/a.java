@@ -8,13 +8,13 @@ import com.baidu.poly.widget.ChannelListView;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 /* loaded from: classes2.dex */
 public class a {
-    private ChannelListView agl;
+    private ChannelListView agu;
     private Context context;
 
     /* loaded from: classes2.dex */
     public static class b {
-        public static int agr = 1;
-        public static int ags = 2;
+        public static int agA = 1;
+        public static int agB = 2;
         public static int PREVIEW = 3;
     }
 
@@ -24,23 +24,26 @@ public class a {
         }
         this.context = context;
         dVar = dVar == null ? new e() : dVar;
-        cVar = cVar == null ? com.baidu.poly.b.a.bg(context) : cVar;
+        cVar = cVar == null ? com.baidu.poly.b.a.aA(context) : cVar;
         com.baidu.poly.a.a.a.a(dVar, i);
         com.baidu.poly.b.b.a(cVar);
         com.baidu.poly.d.b.b(aVar);
+        if (i == b.agA) {
+            com.baidu.poly.util.b.enable(false);
+        }
     }
 
     public void a(Bundle bundle, c cVar) {
         if (bundle == null) {
             throw new NullPointerException("arguments can not be null");
         }
-        if (this.agl == null || !this.agl.tO()) {
-            this.agl = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
+        if (this.agu == null || !this.agu.uz()) {
+            this.agu = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
                 @Override // com.baidu.poly.widget.ChannelListView.a
                 public void onClose() {
-                    a.this.agl = null;
+                    a.this.agu = null;
                 }
-            }).tN();
+            }).uy();
         }
     }
 
@@ -50,10 +53,10 @@ public class a {
         return bundle;
     }
 
-    public boolean tt() {
-        if (this.agl != null) {
-            this.agl.detach();
-            this.agl = null;
+    public boolean ue() {
+        if (this.agu != null) {
+            this.agu.detach();
+            this.agu = null;
             return true;
         }
         return false;
@@ -73,24 +76,24 @@ public class a {
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0078a {
-        private d agn;
-        private com.baidu.poly.b.c ago;
-        private com.baidu.poly.d.a agp;
-        private int agq = b.agr;
+    public static class C0080a {
+        private d agw;
+        private com.baidu.poly.b.c agx;
+        private com.baidu.poly.d.a agy;
+        private int agz = b.agA;
 
-        public C0078a a(com.baidu.poly.d.a aVar) {
-            this.agp = aVar;
+        public C0080a a(com.baidu.poly.d.a aVar) {
+            this.agy = aVar;
             return this;
         }
 
-        public C0078a bD(int i) {
-            this.agq = i;
+        public C0080a bD(int i) {
+            this.agz = i;
             return this;
         }
 
-        public a bf(Context context) {
-            return new a(context, this.agn, this.ago, this.agp, this.agq);
+        public a az(Context context) {
+            return new a(context, this.agw, this.agx, this.agy, this.agz);
         }
     }
 }

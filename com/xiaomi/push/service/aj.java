@@ -1,34 +1,40 @@
 package com.xiaomi.push.service;
-/* loaded from: classes3.dex */
-/* synthetic */ class aj {
-    static final /* synthetic */ int[] a;
-    static final /* synthetic */ int[] b = new int[com.xiaomi.xmpush.thrift.g.values().length];
 
-    static {
-        try {
-            b[com.xiaomi.xmpush.thrift.g.INT.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            b[com.xiaomi.xmpush.thrift.g.LONG.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            b[com.xiaomi.xmpush.thrift.g.STRING.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            b[com.xiaomi.xmpush.thrift.g.BOOLEAN.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        a = new int[com.xiaomi.xmpush.thrift.f.values().length];
-        try {
-            a[com.xiaomi.xmpush.thrift.f.MISC_CONFIG.ordinal()] = 1;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            a[com.xiaomi.xmpush.thrift.f.PLUGIN_CONFIG.ordinal()] = 2;
-        } catch (NoSuchFieldError e6) {
+import android.content.SharedPreferences;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+/* loaded from: classes3.dex */
+public class aj {
+    private static Object a = new Object();
+    private static Map<String, Queue<String>> b = new HashMap();
+
+    public static boolean a(XMPushService xMPushService, String str, String str2) {
+        synchronized (a) {
+            SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
+            Queue<String> queue = b.get(str);
+            if (queue == null) {
+                String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                queue = new LinkedList<>();
+                for (String str3 : split) {
+                    queue.add(str3);
+                }
+                b.put(str, queue);
+            }
+            if (queue.contains(str2)) {
+                return true;
+            }
+            queue.add(str2);
+            if (queue.size() > 25) {
+                queue.poll();
+            }
+            String a2 = com.xiaomi.channel.commonutils.string.d.a(queue, Constants.ACCEPT_TIME_SEPARATOR_SP);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putString(str, a2);
+            edit.commit();
+            return false;
         }
     }
 }

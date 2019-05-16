@@ -1,41 +1,41 @@
 package com.baidu.swan.apps.scheme.actions.g;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.c.d;
-import com.baidu.swan.apps.core.c.e;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
-        super(jVar, "/swan/startPullDownRefresh");
+        super(jVar, "/swan/hideNavigationBarLoading");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy == null) {
-            c.e("startPullDownRefresh", "manager is null");
+        if (DEBUG) {
+            Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+        }
+        e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi == null) {
+            com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!(uy.yN() instanceof d)) {
-            c.e("startPullDownRefresh", "top fragment error");
+        }
+        com.baidu.swan.apps.core.d.b zK = vi.zK();
+        if (zK == null) {
+            com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        } else if (!zK.zk()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            com.baidu.swan.apps.console.c.e("navigationLoading", "hide navigation loading progressbar fail");
             return false;
         } else {
-            d dVar = (d) uy.yN();
-            if (dVar.vV() == null) {
-                c.e("startPullDownRefresh", "view is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            c.i("startPullDownRefresh", "start pull refresh");
-            dVar.vV().doPullRefreshing(true, 100L);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }

@@ -1,240 +1,99 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
-import com.xiaomi.push.service.XMPushService;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
+import com.baidu.mapapi.UIMsg;
+import com.xiaomi.network.Host;
+import com.xiaomi.push.protobuf.a;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.net.Socket;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class ak {
-    private static ak a;
-    private ConcurrentHashMap<String, HashMap<String, b>> b = new ConcurrentHashMap<>();
-    private List<a> c = new ArrayList();
+    private static final Pattern a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+    private static long b = 0;
+    private static ThreadPoolExecutor c = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
+    public static void a() {
+        a.C0485a d;
+        long currentTimeMillis = System.currentTimeMillis();
+        if ((c.getActiveCount() <= 0 || currentTimeMillis - b >= 1800000) && com.xiaomi.stats.f.a().c() && (d = bh.a().d()) != null && d.m() > 0) {
+            b = currentTimeMillis;
+            a(d.l(), true);
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public String j;
-        public com.xiaomi.push.service.b k;
-        public Context l;
-        private XMPushService p;
-        c m = c.unbind;
-        private int n = 0;
-        private List<a> o = new ArrayList();
-        private XMPushService.b q = new XMPushService.b(this);
+    public static void a(List<String> list, boolean z) {
+        c.execute(new al(list, z));
+    }
 
-        /* loaded from: classes3.dex */
-        public interface a {
-            void a(c cVar, c cVar2, int i);
+    public static void b() {
+        String c2 = c("/proc/self/net/tcp");
+        if (!TextUtils.isEmpty(c2)) {
+            com.xiaomi.channel.commonutils.logger.b.a("dump tcp for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.a(c2);
         }
-
-        public b() {
+        String c3 = c("/proc/self/net/tcp6");
+        if (TextUtils.isEmpty(c3)) {
+            return;
         }
+        com.xiaomi.channel.commonutils.logger.b.a("dump tcp6 for uid = " + Process.myUid());
+        com.xiaomi.channel.commonutils.logger.b.a(c3);
+    }
 
-        public b(XMPushService xMPushService) {
-            this.p = xMPushService;
-            a(new al(this));
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean b(String str) {
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: begin to connect to " + str);
+            Socket socket = new Socket();
+            socket.connect(Host.b(str, 5222), UIMsg.m_AppUI.MSG_APP_GPS);
+            socket.setTcpNoDelay(true);
+            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: connect to " + str + " in " + (System.currentTimeMillis() - currentTimeMillis));
+            socket.close();
+            return true;
+        } catch (Throwable th) {
+            com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
+            return false;
         }
+    }
 
-        public long a() {
-            return 1000 * (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.n + 1) * 15));
-        }
-
-        public String a(int i) {
-            switch (i) {
-                case 1:
-                    return "OPEN";
-                case 2:
-                    return "CLOSE";
-                case 3:
-                    return "KICK";
-                default:
-                    return "unknown";
-            }
-        }
-
-        public void a(a aVar) {
-            synchronized (this.o) {
-                this.o.add(aVar);
-            }
-        }
-
-        public void a(c cVar, int i, int i2, String str, String str2) {
-            synchronized (this.o) {
-                for (a aVar : this.o) {
-                    aVar.a(this.m, cVar, i2);
+    private static String c(String str) {
+        BufferedReader bufferedReader;
+        Throwable th;
+        String str2 = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(new File(str)));
+            try {
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append("\n");
+                    sb.append(readLine);
                 }
+                str2 = sb.toString();
+            } catch (Exception e) {
+            } catch (Throwable th2) {
+                th = th2;
+                com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
+                throw th;
             }
-            if (this.m != cVar) {
-                com.xiaomi.channel.commonutils.logger.b.a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", this.m, cVar, a(i), am.a(i2), str, str2, this.h));
-                this.m = cVar;
-            }
-            if (this.k == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("status changed while the client dispatcher is missing");
-            } else if (i == 2) {
-                this.k.a(this.l, this, i2);
-            } else if (i == 3) {
-                this.k.a(this.l, this, str2, str);
-            } else if (i == 1) {
-                boolean z = cVar == c.binded;
-                if (!z && "wait".equals(str2)) {
-                    this.n++;
-                } else if (z) {
-                    this.n = 0;
-                }
-                this.k.a(this.l, this, z, i2, str);
-            }
+        } catch (Exception e2) {
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            bufferedReader = null;
+            th = th3;
         }
-
-        public void b(a aVar) {
-            synchronized (this.o) {
-                this.o.remove(aVar);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public enum c {
-        unbind,
-        binding,
-        binded
-    }
-
-    private ak() {
-    }
-
-    public static synchronized ak a() {
-        ak akVar;
-        synchronized (ak.class) {
-            if (a == null) {
-                a = new ak();
-            }
-            akVar = a;
-        }
-        return akVar;
-    }
-
-    private String d(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        int indexOf = str.indexOf("@");
-        return indexOf > 0 ? str.substring(0, indexOf) : str;
-    }
-
-    public synchronized void a(Context context) {
-        for (HashMap<String, b> hashMap : this.b.values()) {
-            for (b bVar : hashMap.values()) {
-                bVar.a(c.unbind, 1, 3, null, null);
-            }
-        }
-    }
-
-    public synchronized void a(Context context, int i) {
-        for (HashMap<String, b> hashMap : this.b.values()) {
-            for (b bVar : hashMap.values()) {
-                bVar.a(c.unbind, 2, i, null, null);
-            }
-        }
-    }
-
-    public synchronized void a(a aVar) {
-        this.c.add(aVar);
-    }
-
-    public synchronized void a(b bVar) {
-        HashMap<String, b> hashMap = this.b.get(bVar.h);
-        if (hashMap == null) {
-            hashMap = new HashMap<>();
-            this.b.put(bVar.h, hashMap);
-        }
-        hashMap.put(d(bVar.b), bVar);
-        for (a aVar : this.c) {
-            aVar.a();
-        }
-    }
-
-    public synchronized void a(String str) {
-        HashMap<String, b> hashMap = this.b.get(str);
-        if (hashMap != null) {
-            hashMap.clear();
-            this.b.remove(str);
-        }
-        for (a aVar : this.c) {
-            aVar.a();
-        }
-    }
-
-    public synchronized void a(String str, String str2) {
-        HashMap<String, b> hashMap = this.b.get(str);
-        if (hashMap != null) {
-            hashMap.remove(d(str2));
-            if (hashMap.isEmpty()) {
-                this.b.remove(str);
-            }
-        }
-        for (a aVar : this.c) {
-            aVar.a();
-        }
-    }
-
-    public synchronized b b(String str, String str2) {
-        HashMap<String, b> hashMap;
-        hashMap = this.b.get(str);
-        return hashMap == null ? null : hashMap.get(d(str2));
-    }
-
-    public synchronized ArrayList<b> b() {
-        ArrayList<b> arrayList;
-        arrayList = new ArrayList<>();
-        for (HashMap<String, b> hashMap : this.b.values()) {
-            arrayList.addAll(hashMap.values());
-        }
-        return arrayList;
-    }
-
-    public synchronized List<String> b(String str) {
-        ArrayList arrayList;
-        arrayList = new ArrayList();
-        for (HashMap<String, b> hashMap : this.b.values()) {
-            for (b bVar : hashMap.values()) {
-                if (str.equals(bVar.a)) {
-                    arrayList.add(bVar.h);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public synchronized int c() {
-        return this.b.size();
-    }
-
-    public synchronized Collection<b> c(String str) {
-        return !this.b.containsKey(str) ? new ArrayList<>() : ((HashMap) this.b.get(str).clone()).values();
-    }
-
-    public synchronized void d() {
-        this.b.clear();
-    }
-
-    public synchronized void e() {
-        this.c.clear();
+        com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
+        return str2;
     }
 }

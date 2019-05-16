@@ -3,8 +3,8 @@ package rx.b;
 import rx.j;
 /* loaded from: classes2.dex */
 public final class f {
-    public static <T> j<T> cEO() {
-        return b(a.cEN());
+    public static <T> j<T> cMu() {
+        return b(a.cMt());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

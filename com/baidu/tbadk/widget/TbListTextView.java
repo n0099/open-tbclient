@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean cvE;
+    private boolean cDN;
 
     public TbListTextView(Context context) {
         super(context);
-        this.cvE = true;
+        this.cDN = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cvE = true;
+        this.cDN = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cvE = true;
+        this.cDN = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.cvE = z;
+        this.cDN = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.cvE) {
+        if (!this.cDN) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.cvF) {
+        if (b.cDO) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             ak(i, i2);
@@ -77,12 +77,12 @@ public class TbListTextView extends TextView {
         ArrayList arrayList2 = new ArrayList(spans.length);
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (b(spannableStringBuilder, spanStart - 1)) {
+            if (a(spannableStringBuilder, spanStart - 1)) {
                 spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (b(spannableStringBuilder, spanEnd)) {
+            if (a(spannableStringBuilder, spanEnd)) {
                 spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
@@ -93,10 +93,10 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.aqZ();
+        return a.awf();
     }
 
-    private boolean b(CharSequence charSequence, int i) {
+    private boolean a(CharSequence charSequence, int i) {
         return charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ';
     }
 
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.cvH) {
+        for (Object obj : aVar.cDQ) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.cvG) {
+        for (Object obj2 : aVar.cDP) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -140,22 +140,22 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean cvF;
-        public final List<Object> cvG;
-        public final List<Object> cvH;
+        public final boolean cDO;
+        public final List<Object> cDP;
+        public final List<Object> cDQ;
 
         public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a aqZ() {
+        public static a awf() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.cvF = z;
-            this.cvG = list;
-            this.cvH = list2;
+            this.cDO = z;
+            this.cDP = list;
+            this.cDQ = list2;
         }
     }
 }

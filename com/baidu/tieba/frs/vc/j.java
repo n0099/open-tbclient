@@ -7,60 +7,60 @@ import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes4.dex */
 public class j {
-    private TextView bFL;
-    private NavigationBarCoverTip bss;
-    private FrsFragment fqE;
-    private int fwC;
+    private TextView bNl;
+    private FrsFragment fGZ;
+    private NavigationBarCoverTip fNs;
+    private int fNt;
 
     public j(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.fqE = frsFragment;
-        this.bss = navigationBarCoverTip;
+        this.fGZ = frsFragment;
+        this.fNs = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.fwC = 0;
-        this.bFL = new TextView(this.fqE.getActivity());
-        this.bFL.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fqE.getResources().getDimensionPixelSize(d.e.tbds112)));
+        this.fNt = 0;
+        this.bNl = new TextView(this.fGZ.getActivity());
+        this.bNl.setLayoutParams(new LinearLayout.LayoutParams(-1, this.fGZ.getResources().getDimensionPixelSize(R.dimen.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bFL.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), this.fqE.getResources().getDimensionPixelSize(d.e.ds1), this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.bFL.setGravity(3);
+            this.bNl.setPadding(this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds34), this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds1), this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.bNl.setGravity(3);
         } else {
-            this.bFL.setPadding(this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0, this.fqE.getResources().getDimensionPixelSize(d.e.ds34), 0);
-            this.bFL.setGravity(19);
+            this.bNl.setPadding(this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.bNl.setGravity(19);
         }
-        this.bFL.setTextSize(0, this.fqE.getResources().getDimensionPixelSize(d.e.ds28));
-        this.bFL.setLineSpacing(this.fqE.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
-        this.bFL.setMaxLines(2);
-        this.bFL.setEllipsize(TextUtils.TruncateAt.END);
+        this.bNl.setTextSize(0, this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds28));
+        this.bNl.setLineSpacing(this.fGZ.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.bNl.setMaxLines(2);
+        this.bNl.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void uX(String str) {
+    public void wr(String str) {
         String str2;
-        if (!ap.isEmpty(str) && this.bss != null && this.fqE.isPrimary() && this.fwC <= 0) {
-            this.fwC++;
+        if (!ap.isEmpty(str) && this.fNs != null && this.fGZ.isPrimary() && this.fNt <= 0) {
+            this.fNt++;
             if (str.length() < 20) {
-                str2 = this.fqE.getResources().getString(d.j.forum_ueg_tip) + "\n" + str;
+                str2 = this.fGZ.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
             } else if (str.length() < 34) {
-                str2 = this.fqE.getResources().getString(d.j.forum_ueg_tip) + str;
+                str2 = this.fGZ.getResources().getString(R.string.forum_ueg_tip) + str;
             } else {
-                str2 = this.fqE.getResources().getString(d.j.forum_ueg_tip) + str.substring(0, 34);
+                str2 = this.fGZ.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
             }
-            this.bFL.setText(str2);
-            al.j(this.bFL, d.C0277d.cp_btn_a);
-            al.l(this.bss, d.C0277d.cp_link_tip_a_alpha95);
-            this.bss.a(this.fqE.getActivity(), this.bFL, UIMsg.m_AppUI.MSG_APP_GPS);
+            this.bNl.setText(str2);
+            al.j(this.bNl, R.color.cp_btn_a);
+            al.l(this.fNs, R.color.cp_link_tip_a_alpha95);
+            this.fNs.a(this.fGZ.getActivity(), this.bNl, UIMsg.m_AppUI.MSG_APP_GPS);
         }
     }
 
     public void onDestory() {
-        if (this.bss != null) {
-            this.bss.onDestroy();
+        if (this.fNs != null) {
+            this.fNs.onDestroy();
         }
     }
 }

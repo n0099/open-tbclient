@@ -397,7 +397,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable aKn = null;
+        private Parcelable aMg = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -408,9 +408,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.aKn != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.aKn);
-                this.aKn = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.aMg != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.aMg);
+                this.aMg = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -422,7 +422,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.aKn = AdapterView.this.onSaveInstanceState();
+                this.aMg = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;

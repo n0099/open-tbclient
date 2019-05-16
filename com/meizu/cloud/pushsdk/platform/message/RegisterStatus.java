@@ -15,30 +15,31 @@ public class RegisterStatus extends BasicPushStatus {
         super(str);
     }
 
-    @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
-    public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
-            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
-        }
-        if (!jSONObject.isNull("expireTime")) {
-            setExpireTime(jSONObject.getInt("expireTime"));
-        }
+    public int getExpireTime() {
+        return this.expireTime;
     }
 
     public String getPushId() {
         return this.pushId;
     }
 
-    public void setPushId(String str) {
-        this.pushId = str;
-    }
-
-    public int getExpireTime() {
-        return this.expireTime;
+    @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
+    public void parseValueData(JSONObject jSONObject) throws JSONException {
+        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
+            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
+        }
+        if (jSONObject.isNull("expireTime")) {
+            return;
+        }
+        setExpireTime(jSONObject.getInt("expireTime"));
     }
 
     public void setExpireTime(int i) {
         this.expireTime = i;
+    }
+
+    public void setPushId(String str) {
+        this.pushId = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus

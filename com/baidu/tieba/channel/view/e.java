@@ -3,7 +3,7 @@ package com.baidu.tieba.channel.view;
 public interface e<T> {
     void a(boolean z, b bVar);
 
-    void am(T t);
+    void ao(T t);
 
     void onChangeSkinType(int i);
 }

@@ -6,13 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> gBM;
-    public int gBK = 0;
+    public ArrayList<ArrayList<String>> gTd;
+    public int gTb = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String gBL = null;
-    boolean gBN = false;
-    public String gBO = null;
+    public String gTc = null;
+    boolean gTe = false;
+    public String gTf = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -20,19 +20,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.gBK = optJSONObject.optInt("errorno");
+                    this.gTb = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.gBN = true;
+                    this.gTe = true;
                 } else {
-                    this.gBN = false;
+                    this.gTe = false;
                 }
-                this.gBO = jSONObject.optString("cdn_domain");
+                this.gTf = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.gBL = optJSONObject2.optString("img_md5");
+                    this.gTc = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -55,7 +55,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.gBM = arrayList;
+                        this.gTd = arrayList;
                     }
                 }
             } catch (Exception e) {

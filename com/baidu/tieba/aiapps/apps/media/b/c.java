@@ -20,7 +20,7 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.w.e.Ea().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
+        com.baidu.swan.apps.w.e.FV().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
     }
 
     public static void J(String str, String str2, String str3) {
@@ -36,6 +36,6 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.w.e.Ea().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
+        com.baidu.swan.apps.w.e.FV().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
     }
 }

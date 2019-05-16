@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel hbr;
+    private MarkModel hsI;
 
     public b(BaseActivity baseActivity) {
-        this.hbr = null;
-        this.hbr = new MarkModel(baseActivity);
+        this.hsI = null;
+        this.hsI = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.hbr = null;
-        this.hbr = new MarkModel(baseFragmentActivity);
+        this.hsI = null;
+        this.hsI = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void cZ(boolean z) {
-        this.hbr.cZ(z);
+    public void ds(boolean z) {
+        this.hsI.ds(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String UX() {
-        return this.hbr.UX();
+    public String ZB() {
+        return this.hsI.ZB();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0221a interfaceC0221a) {
-        this.hbr.a(interfaceC0221a);
+    public void a(a.InterfaceC0236a interfaceC0236a) {
+        this.hsI.a(interfaceC0236a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void UZ() {
-        this.hbr.UZ();
+    public void ZD() {
+        this.hsI.ZD();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void Va() {
-        this.hbr.Va();
+    public void ZE() {
+        this.hsI.ZE();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData Vb() {
-        return this.hbr.Vb();
+    public MarkData ZF() {
+        return this.hsI.ZF();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.hbr.a(markData);
+        this.hsI.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean UY() {
-        return this.hbr.UY();
+    public boolean ZC() {
+        return this.hsI.ZC();
     }
 }

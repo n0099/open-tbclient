@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class g extends b {
-    public String cnx = "";
+    public String cvE = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -22,16 +22,16 @@ public class g extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.anm().jL(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.loadResizedBitmap(this.cnx, l.aO(TbadkCoreApplication.getInst()), l.aQ(TbadkCoreApplication.getInst()));
+        com.baidu.tbadk.imageManager.c.asp().kz(BitmapHelper.getBitmapSize(bitmap) * 2);
+        return BitmapHelper.loadResizedBitmap(this.cvE, l.af(TbadkCoreApplication.getInst()), l.ah(TbadkCoreApplication.getInst()));
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap po(String str) throws Exception {
-        return b(BitmapHelper.loadResizedBitmap(str, l.aO(TbadkCoreApplication.getInst()), l.aQ(TbadkCoreApplication.getInst())), true);
+    public Bitmap qw(String str) throws Exception {
+        return b(BitmapHelper.loadResizedBitmap(str, l.af(TbadkCoreApplication.getInst()), l.ah(TbadkCoreApplication.getInst())), true);
     }
 
     public void setPath(String str) {
-        this.cnx = str;
+        this.cvE = str;
     }
 }

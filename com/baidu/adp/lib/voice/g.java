@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public interface g extends e {
-    void aF(int i);
+    void ay(int i);
 
-    void lB();
+    void kv();
 }

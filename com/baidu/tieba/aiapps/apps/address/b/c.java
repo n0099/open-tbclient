@@ -13,59 +13,59 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cSp;
-    private boolean aIf;
-    private List<d> cSm = new ArrayList();
-    private Map<d, List<d>> cSn = new HashMap();
-    private Map<d, List<d>> cSo = new HashMap();
+    private static volatile c daK;
+    private boolean aJY;
+    private List<d> daH = new ArrayList();
+    private Map<d, List<d>> daI = new HashMap();
+    private Map<d, List<d>> daJ = new HashMap();
 
-    public static c ayr() {
-        if (cSp == null) {
+    public static c aDz() {
+        if (daK == null) {
             synchronized (c.class) {
-                if (cSp == null) {
-                    cSp = new c();
+                if (daK == null) {
+                    daK = new c();
                 }
             }
         }
-        return cSp;
+        return daK;
     }
 
     public void initData() {
-        C(ayw());
-        this.aIf = true;
+        D(aDE());
+        this.aJY = true;
     }
 
-    public boolean ays() {
-        return this.aIf;
+    public boolean aDA() {
+        return this.aJY;
     }
 
-    public List<d> ayt() {
-        return this.cSm;
+    public List<d> aDB() {
+        return this.daH;
     }
 
-    public Map<d, List<d>> ayu() {
-        return this.cSn;
+    public Map<d, List<d>> aDC() {
+        return this.daI;
     }
 
-    public Map<d, List<d>> ayv() {
-        return this.cSo;
+    public Map<d, List<d>> aDD() {
+        return this.daJ;
     }
 
-    private void C(JSONArray jSONArray) {
-        d aU;
+    private void D(JSONArray jSONArray) {
+        d bg;
         if (jSONArray != null && jSONArray.length() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    if (optJSONObject != null && (aU = d.aU(optJSONObject)) != null) {
-                        this.cSm.add(aU);
-                        if (aU.ayA()) {
-                            this.cSn.put(aU, aU.aeH);
-                            for (d dVar : aU.aeH) {
-                                if (dVar.ayA()) {
-                                    this.cSo.put(dVar, dVar.aeH);
+                    if (optJSONObject != null && (bg = d.bg(optJSONObject)) != null) {
+                        this.daH.add(bg);
+                        if (bg.aDI()) {
+                            this.daI.put(bg, bg.acx);
+                            for (d dVar : bg.acx) {
+                                if (dVar.aDI()) {
+                                    this.daJ.put(dVar, dVar.acx);
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray ayw() {
+    private JSONArray aDE() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

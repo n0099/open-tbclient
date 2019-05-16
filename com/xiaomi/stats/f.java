@@ -4,7 +4,7 @@ import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.xiaomi.channel.commonutils.stats.a;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.at;
+import com.xiaomi.push.service.bh;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
@@ -24,17 +24,17 @@ public class f {
         static final f a = new f();
     }
 
-    private com.xiaomi.push.thrift.b a(a.C0460a c0460a) {
-        if (c0460a.a == 0) {
-            if (c0460a.c instanceof com.xiaomi.push.thrift.b) {
-                return (com.xiaomi.push.thrift.b) c0460a.c;
+    private com.xiaomi.push.thrift.b a(a.C0479a c0479a) {
+        if (c0479a.a == 0) {
+            if (c0479a.c instanceof com.xiaomi.push.thrift.b) {
+                return (com.xiaomi.push.thrift.b) c0479a.c;
             }
             return null;
         }
         com.xiaomi.push.thrift.b f = f();
         f.a(com.xiaomi.push.thrift.a.CHANNEL_STATS_COUNTER.a());
-        f.c(c0460a.a);
-        f.c(c0460a.b);
+        f.c(c0479a.a);
+        f.c(c0479a.b);
         return f;
     }
 
@@ -45,8 +45,8 @@ public class f {
     private com.xiaomi.push.thrift.c b(int i) {
         ArrayList arrayList = new ArrayList();
         com.xiaomi.push.thrift.c cVar = new com.xiaomi.push.thrift.c(this.a, arrayList);
-        if (!com.xiaomi.channel.commonutils.network.d.f(this.e.a)) {
-            cVar.a(com.xiaomi.channel.commonutils.android.e.f(this.e.a));
+        if (!com.xiaomi.channel.commonutils.network.d.e(this.e.a)) {
+            cVar.a(com.xiaomi.channel.commonutils.android.d.l(this.e.a));
         }
         org.apache.thrift.transport.b bVar = new org.apache.thrift.transport.b(i);
         org.apache.thrift.protocol.e a2 = new k.a().a(bVar);
@@ -54,7 +54,7 @@ public class f {
             cVar.b(a2);
         } catch (org.apache.thrift.f e) {
         }
-        LinkedList<a.C0460a> c = this.f.c();
+        LinkedList<a.C0479a> c = this.f.c();
         while (c.size() > 0) {
             try {
                 com.xiaomi.push.thrift.b a3 = a(c.getLast());
@@ -111,7 +111,7 @@ public class f {
     public synchronized void a(XMPushService xMPushService) {
         this.e = new e(xMPushService);
         this.a = "";
-        at.a().a(new g(this));
+        bh.a().a(new g(this));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -134,7 +134,7 @@ public class f {
         cVar = null;
         if (d()) {
             int i = FormCard.WIDTH_DEFAULT_SIZE;
-            if (!com.xiaomi.channel.commonutils.network.d.f(this.e.a)) {
+            if (!com.xiaomi.channel.commonutils.network.d.e(this.e.a)) {
                 i = 375;
             }
             cVar = b(i);
@@ -150,9 +150,6 @@ public class f {
         bVar.a = (byte) 0;
         bVar.c = 1;
         bVar.d((int) (System.currentTimeMillis() / 1000));
-        if (this.e.b != null) {
-            bVar.e(this.e.b.f());
-        }
         return bVar;
     }
 }

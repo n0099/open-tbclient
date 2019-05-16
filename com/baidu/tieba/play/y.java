@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y hYv = null;
-    private LinkedHashMap<String, Integer> hYw = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private static y irb = null;
+    private LinkedHashMap<String, Integer> irc = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.hYw.clear();
+                y.this.irc.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class y {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static y bTR() {
-        if (hYv == null) {
+    public static y cbS() {
+        if (irb == null) {
             synchronized (y.class) {
-                if (hYv == null) {
-                    hYv = new y();
+                if (irb == null) {
+                    irb = new y();
                 }
             }
         }
-        return hYv;
+        return irb;
     }
 
-    public void bj(String str, int i) {
-        if (i != 0 || !this.hYw.containsKey(str)) {
-            this.hYw.put(str, Integer.valueOf(i));
+    public void bf(String str, int i) {
+        if (i != 0 || !this.irc.containsKey(str)) {
+            this.irc.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.hYw.remove(str);
+            this.irc.remove(str);
         }
     }
 
-    public int AS(String str) {
-        Integer num = this.hYw.get(str);
+    public int Ck(String str) {
+        Integer num = this.irc.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.hYw.clear();
+        this.irc.clear();
     }
 }

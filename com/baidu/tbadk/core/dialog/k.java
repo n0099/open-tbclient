@@ -1,44 +1,133 @@
 package com.baidu.tbadk.core.dialog;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.R;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private boolean checked;
-    private String desc;
-    private String tag;
-    private String tip;
+    private List<? extends j> aOH;
+    private TextView bBh;
+    private Context bNd;
+    private ViewGroup bNe;
+    private LinearLayout bNf;
+    private View bNg;
+    private TextView bNh;
+    private c bNi;
+    private a bNj;
+    private String titleText;
 
-    public k() {
+    /* loaded from: classes.dex */
+    public interface a {
+        void onClick();
     }
 
-    public k(String str, String str2, boolean z) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
+    /* loaded from: classes.dex */
+    public interface b {
+        void onClick();
     }
 
-    public k(String str, String str2, boolean z, String str3) {
-        this.tip = str;
-        this.desc = str2;
-        this.checked = z;
-        this.tag = str3;
+    /* loaded from: classes.dex */
+    public interface c {
+        void a(k kVar, int i, View view);
     }
 
-    public String abi() {
-        return this.tip;
+    public k(Context context) {
+        if (context != null) {
+            this.bNd = context;
+            this.bNe = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.bNf = (LinearLayout) this.bNe.findViewById(R.id.content_view);
+            this.bBh = (TextView) this.bNe.findViewById(R.id.title);
+            this.bNg = this.bNe.findViewById(R.id.title_divide_line);
+            this.bNg.setVisibility(8);
+            this.aOH = new ArrayList();
+            this.bNh = (TextView) this.bNe.findViewById(R.id.dialog_bottom_cancel_button);
+        }
     }
 
-    public String getDesc() {
-        return this.desc;
+    public Context getContext() {
+        return this.bNd;
     }
 
-    public boolean isChecked() {
-        return this.checked;
+    public ViewGroup afX() {
+        return this.bNf;
     }
 
-    public void setChecked(boolean z) {
-        this.checked = z;
+    public View getRootView() {
+        return this.bNe;
     }
 
-    public String getTag() {
-        return this.tag;
+    public void setTitleText(String str) {
+        this.titleText = str;
+    }
+
+    public void a(c cVar) {
+        this.bNi = cVar;
+    }
+
+    public c afY() {
+        return this.bNi;
+    }
+
+    public void W(List<? extends j> list) {
+        if (list != null) {
+            this.aOH = list;
+            this.bNf.removeAllViews();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < list.size()) {
+                    j jVar = list.get(i2);
+                    if (jVar != null) {
+                        this.bNf.addView(jVar.getView());
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void a(a aVar) {
+        this.bNj = aVar;
+    }
+
+    public void onChangeSkinType() {
+        al.k(this.bBh, R.color.cp_bg_line_d);
+        al.j(this.bBh, R.color.cp_cont_c);
+        al.l(this.bNg, R.color.cp_bg_line_c);
+        al.k(this.bNh, R.color.cp_bg_line_d);
+        al.j(this.bNh, R.color.cp_cont_j);
+        if (this.aOH != null) {
+            for (j jVar : this.aOH) {
+                jVar.onChangeSkinType();
+            }
+        }
+    }
+
+    public View afZ() {
+        if (!StringUtils.isNull(this.titleText)) {
+            this.bBh.setText(this.titleText);
+        } else {
+            this.bBh.setVisibility(8);
+        }
+        if (this.bNj != null) {
+            this.bNh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    k.this.bNj.onClick();
+                }
+            });
+        }
+        onChangeSkinType();
+        return this.bNe;
     }
 }

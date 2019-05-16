@@ -9,9 +9,11 @@ import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
 /* loaded from: classes.dex */
 public class CompleteTaskReqMsg extends NetMessage {
+    public static final int TASK_TYPE_DEFAULT = 0;
     public static final int TASK_TYPE_SHARE = 2;
     public static final int TASK_TYPE_TIMER = 1;
     public String completeId;
+    public Object extra;
     private int mTaskType;
 
     public CompleteTaskReqMsg(int i) {

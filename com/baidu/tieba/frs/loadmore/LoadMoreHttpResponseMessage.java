@@ -39,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.S(threadListResIdl.data.user_list) > 0) {
+                if (v.Z(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -55,7 +55,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 Message<?> orginalMessage2 = getOrginalMessage();
                 boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
-                if (v.S(threadListResIdl.data.thread_list) > 0) {
+                if (v.Z(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
@@ -64,11 +64,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bgVar.setUserMap(this.userMap);
                             bgVar.a(list2.get(i3));
                             bgVar.setCurrentPage(3);
-                            bgVar.ZE();
-                            bgVar.bDJ = isBrandForum;
-                            if (!TextUtils.isEmpty(bgVar.ZQ())) {
+                            bgVar.ael();
+                            bgVar.bLa = isBrandForum;
+                            if (!TextUtils.isEmpty(bgVar.aex())) {
                                 ad adVar = new ad();
-                                adVar.lb(bgVar.ZQ());
+                                adVar.mg(bgVar.aex());
                                 this.threadList.add(adVar);
                             } else {
                                 this.threadList.add(bgVar);

@@ -14,7 +14,7 @@ public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && isSuccess()) {
             this.mData = new com.baidu.tieba.easterEgg.a.a();
-            this.mData.be(jSONObject);
+            this.mData.bp(jSONObject);
         }
     }
 

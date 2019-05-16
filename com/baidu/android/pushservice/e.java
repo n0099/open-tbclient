@@ -1,563 +1,758 @@
 package com.baidu.android.pushservice;
 
 import android.content.Context;
-import android.os.Environment;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.o;
-import com.baidu.android.pushservice.j.m;
-import com.baidu.android.pushservice.jni.PushSocket;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.pushservice.PushManager;
+import com.baidu.android.pushservice.b.d;
+import com.baidu.android.pushservice.i.j;
+import com.baidu.android.pushservice.i.k;
+import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.coloros.mcssdk.callback.PushCallback;
+import com.coloros.mcssdk.mode.SubscribeResult;
 import java.util.HashMap;
-import java.util.Properties;
-import java.util.Set;
-import org.apache.http.HttpStatus;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class e {
-    private static int c = -1;
-    private static Boolean e = false;
-    private static volatile e n;
-    private String B;
-    com.baidu.android.pushservice.message.d b;
-    private b h;
-    private a i;
-    private Context l;
-    private boolean o;
-    private int q;
-    private Thread r;
-    private int w;
-    private boolean d = false;
-    private boolean f = false;
-    private HashMap<Long, com.baidu.android.pushservice.e.a> g = new HashMap<>();
-    private boolean j = false;
-    private int k = 0;
-    Handler a = new Handler();
-    private boolean m = true;
-    private String p = h.c();
-    private Runnable s = new Runnable() { // from class: com.baidu.android.pushservice.e.2
-        @Override // java.lang.Runnable
-        public void run() {
-            e.this.i();
-        }
-    };
-    private Runnable t = new Runnable() { // from class: com.baidu.android.pushservice.e.3
-        @Override // java.lang.Runnable
-        public void run() {
-            com.baidu.android.pushservice.g.a.c("PushConnection", " -- Send Timeout --", e.this.l.getApplicationContext());
-            if (e.this.o) {
-                e.this.o = false;
-            }
-            e.this.a(false);
-            e.this.j();
-            m.b("PushConnection Send Timeout " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-        }
-    };
-    private long u = 0;
-    private int[] v = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};
-    private int x = 0;
-    private final int y = 3;
-    private int z = 0;
-    private final int A = 30;
+public class e {
+    public static Handler j;
+    public static int a = -1;
+    public static String b = null;
+    public static String c = null;
+    public static String d = null;
+    public static String e = null;
+    public static String f = null;
+    public static String g = null;
+    public static String h = null;
+    public static String i = null;
+    private static final ConcurrentLinkedQueue<Runnable> k = new ConcurrentLinkedQueue<>();
+    private static int l = 0;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    class a extends Thread {
-        a() {
-            setName("PushService-PushConnection-readThread");
+    public static class a extends Handler {
+        public a(Context context) {
+            super(context.getMainLooper());
         }
 
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            byte[] bArr;
-            while (!e.this.f) {
-                try {
-                    bArr = PushSocket.a(e.this.l, e.c);
-                } catch (Exception e) {
-                    bArr = null;
-                    if (com.baidu.android.pushservice.a.b() > 0) {
-                        o.a(e.this.l, "039908", PushSocket.getLastSocketError(), m.a(e));
-                    }
-                    com.baidu.android.pushservice.g.a.b("PushConnection", "Get message exception", e.this.l.getApplicationContext());
-                    o.a(e.this.l, e);
-                }
-                e.this.a.removeCallbacks(e.this.t);
-                if (e.this.o) {
-                    e.this.o = false;
-                    e.this.a(true);
-                }
-                if (bArr == null || bArr.length == 0) {
-                    int lastSocketError = PushSocket.getLastSocketError();
-                    com.baidu.android.pushservice.g.a.a("PushConnection", "Receive err,errno:" + lastSocketError, e.this.l.getApplicationContext());
-                    e.this.a("039913", lastSocketError);
-                    e.this.j();
-                    m.b("PushConnection Receive err " + e.this.l.getPackageName() + " lastSocketError " + lastSocketError + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-                } else {
-                    try {
-                        com.baidu.android.pushservice.message.e a = e.this.b.a(bArr, bArr.length);
-                        if (a != null) {
-                            try {
-                                e.this.b.b(a);
-                            } catch (Exception e2) {
-                                com.baidu.android.pushservice.g.a.b("PushConnection", "Handle message exception " + m.a(e2), e.this.l.getApplicationContext());
-                                m.b("PushConnection Handle message exception " + e.this.l.getPackageName() + m.a(e2) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-                                if (com.baidu.android.pushservice.a.b() > 0) {
-                                    o.a(e.this.l, "039910", PushSocket.getLastSocketError(), m.a(e2));
-                                }
-                                e.this.j();
-                            }
-                        }
-                        e.this.k = 0;
-                    } catch (Exception e3) {
-                        com.baidu.android.pushservice.g.a.c("PushConnection", "Read message exception " + m.a(e3), e.this.l.getApplicationContext());
-                        if (com.baidu.android.pushservice.a.b() > 0) {
-                            o.a(e.this.l, "039909", PushSocket.getLastSocketError(), m.a(e3));
-                        }
-                        e.this.j();
-                        m.b("PushConnection Read message exception " + e.this.l.getPackageName() + m.a(e3) + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-                    }
-                }
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message.what != 65553 || e.j == null || e.k == null || e.k.isEmpty()) {
+                return;
             }
+            e.j.removeCallbacks((b) e.k.poll());
         }
-    }
-
-    /* loaded from: classes3.dex */
-    class b extends Thread {
-        b() {
-            setName("PushService-PushConnection-SendThread");
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            com.baidu.android.pushservice.message.e removeFirst;
-            int i;
-            while (!e.this.f) {
-                synchronized (e.this.b.a()) {
-                    if (e.this.b.a().size() == 0) {
-                        try {
-                            e.this.b.a().wait();
-                        } catch (InterruptedException e) {
-                        }
-                    }
-                    removeFirst = e.this.b.a().size() > 0 ? e.this.b.a().removeFirst() : null;
-                }
-                if (e.this.f) {
-                    return;
-                }
-                if (removeFirst != null && removeFirst.a() != null) {
-                    if (removeFirst.b()) {
-                        if (removeFirst.c()) {
-                            e.this.o = true;
-                        } else {
-                            e.this.o = false;
-                        }
-                        e.this.a.removeCallbacks(e.this.t);
-                        e.this.a.postDelayed(e.this.t, 60000L);
-                    }
-                    try {
-                        i = PushSocket.sendMsg(e.c, removeFirst.a(), removeFirst.a().length);
-                    } catch (Exception e2) {
-                        i = -1;
-                    }
-                    if (i == -1) {
-                        e.this.j();
-                        m.b("PushConnection sendMsg err " + e.this.l.getPackageName() + " lastSocketError " + PushSocket.getLastSocketError() + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-                    }
-                }
-            }
-        }
-    }
-
-    private e(Context context) {
-        this.q = 0;
-        this.w = 0;
-        this.l = context;
-        int g = g();
-        if (g >= 0 && g < this.v.length) {
-            this.w = g;
-        }
-        m();
-        g.a(this.l).a(this.v[this.w]);
-        this.B = com.baidu.android.pushservice.j.h.d(this.l);
-        this.q = h.a(this.l);
-    }
-
-    public static e a(Context context) {
-        if (n == null) {
-            n = new e(context);
-        }
-        return n;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final String str, final int i) {
-        com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("insertAgentBehavior", (short) 95) { // from class: com.baidu.android.pushservice.e.5
-            @Override // com.baidu.android.pushservice.i.c
-            public void a() {
-                try {
-                    com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-                    hVar.d = str;
-                    hVar.e = System.currentTimeMillis();
-                    hVar.f = com.baidu.android.pushservice.h.a.b.b(e.this.l);
-                    hVar.g = i;
-                    if (str.equals("030303")) {
-                        hVar.i = m.w(e.this.l);
-                    } else if (str.equals("030301")) {
-                        hVar.i = m.x(e.this.l);
-                    }
-                    o.b(e.this.l, hVar);
-                } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.c("PushConnection", "insertAgent exception", e.this.l.getApplicationContext());
+    /* loaded from: classes3.dex */
+    public static class b implements Runnable {
+        private Context a;
+
+        public b(Context context) {
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str = null;
+            long currentTimeMillis = System.currentTimeMillis() - j.a(this.a);
+            if (com.baidu.android.pushservice.b.d.e(this.a)) {
+                str = j.c(this.a);
+                if (currentTimeMillis > -1702967296) {
+                    str = "";
                 }
+            } else if (com.baidu.android.pushservice.b.d.f(this.a)) {
+                str = j.b(this.a);
+                if (currentTimeMillis > 86400000) {
+                    str = "";
+                }
+            } else if (com.baidu.android.pushservice.b.d.d(this.a)) {
+                str = j.d(this.a);
+                if (currentTimeMillis > 172800000) {
+                    str = "";
+                }
+            }
+            if (!TextUtils.isEmpty(str)) {
+                e.a(this.a, str);
+                return;
+            }
+            if (!e.k.isEmpty()) {
+                e.k.poll();
+            }
+            e.i(this.a);
+        }
+    }
+
+    public static Intent a(Context context) {
+        if (k(context)) {
+            return null;
+        }
+        int b2 = a != -1 ? a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        String a2 = !TextUtils.isEmpty(b) ? b : com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
+        if (TextUtils.isEmpty(a2)) {
+            com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
+            j(context);
+            return null;
+        }
+        Intent c2 = k.c(context);
+        if (b2 == 0) {
+            c2.putExtra("secret_key", a2);
+            return c2;
+        }
+        return null;
+    }
+
+    public static Intent a(Context context, int i2) {
+        Intent a2 = a(context);
+        if (a2 == null) {
+            return null;
+        }
+        a2.putExtra("method", PushConstants.METHOD_BIND);
+        a2.putExtra("bind_status", i2);
+        a2.putExtra("push_sdk_version", (int) com.baidu.android.pushservice.a.a());
+        a2.setFlags(a2.getFlags() | 32);
+        if (Build.VERSION.SDK_INT >= 19) {
+            a2.putExtra("bind_notify_status", com.baidu.android.pushservice.i.h.a(context) + "");
+            return a2;
+        }
+        return a2;
+    }
+
+    public static String a(Intent intent) {
+        String[] split;
+        if (intent != null) {
+            try {
+                Uri data = intent.getData();
+                String stringExtra = intent.getStringExtra("bdpush_hwprisigninfo");
+                if (!TextUtils.isEmpty(stringExtra) || data == null) {
+                    return stringExtra;
+                }
+                String fragment = data.getFragment();
+                if (TextUtils.isEmpty(fragment) || (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) == null || split.length <= 0) {
+                    return stringExtra;
+                }
+                for (int i2 = 0; i2 < split.length; i2++) {
+                    if (split[i2].startsWith("S.bdpush_hwprisigninfo")) {
+                        return split[i2].substring("S.bdpush_hwprisigninfo".length() + 1);
+                    }
+                }
+                return stringExtra;
+            } catch (Exception e2) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static String a(String str, String str2, String str3, String str4, String str5) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("appid", str2);
+        jSONObject.put("channel_id", str3);
+        if (!TextUtils.isEmpty(str4)) {
+            jSONObject.put("new_channel_id", str4);
+        }
+        jSONObject.put("user_id", str5);
+        JSONObject jSONObject2 = new JSONObject();
+        jSONObject2.put("request_id", str);
+        jSONObject2.put("response_params", jSONObject);
+        return jSONObject2.toString();
+    }
+
+    public static void a(final Context context, int i2, String str) {
+        if (k(context)) {
+            return;
+        }
+        SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0);
+        boolean z = sharedPreferences.getBoolean("bind_status", false);
+        String string = sharedPreferences.getString("request_id", "");
+        String string2 = sharedPreferences.getString("appid", "");
+        String string3 = sharedPreferences.getString("channel_id", "");
+        String string4 = sharedPreferences.getString("new_channel_id", "");
+        String string5 = sharedPreferences.getString("user_id", "");
+        boolean l2 = com.baidu.android.pushservice.b.d.l(context);
+        boolean k2 = com.baidu.android.pushservice.b.d.k(context);
+        boolean c2 = com.baidu.android.pushservice.b.d.c(context);
+        com.baidu.android.pushservice.a.b(context, true);
+        if (!l2) {
+            l.a(context, true, true);
+        } else if (!k2 || c2) {
+            l.a(context, true, z);
+        } else {
+            l.a(context, true, false);
+        }
+        if (!k2) {
+            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("getMsgInfo", (short) 99) { // from class: com.baidu.android.pushservice.e.1
+                @Override // com.baidu.android.pushservice.h.c
+                public void a() {
+                    com.baidu.android.pushservice.c.d.a(context);
+                }
+            });
+        }
+        l.b("startWork from" + context.getPackageName() + " at time of " + System.currentTimeMillis(), context);
+        String str2 = null;
+        try {
+            str2 = a(string, string2, string3, string4, string5);
+        } catch (JSONException e2) {
+            com.baidu.android.pushservice.f.a.b("PushManagerHandler", "error " + e2.getMessage(), context.getApplicationContext());
+        }
+        boolean b2 = b(context);
+        boolean c3 = c(context, i2, str);
+        if (!z || !c3 || str2 == null || b2) {
+            a(context, i2, str, false);
+            o(context);
+            return;
+        }
+        Intent intent = new Intent();
+        intent.putExtra("method", PushConstants.METHOD_BIND);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+        intent.putExtra("content", str2.getBytes());
+        intent.putExtra("bind_status", 0);
+        com.baidu.android.pushservice.f.a.a("PushManagerHandler", "new startWork> sendResult to " + context.getPackageName() + " ,method:" + PushConstants.METHOD_BIND + " ,errorCode : 0 ,content : " + str2, context.getApplicationContext());
+        l.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());
+        o(context);
+    }
+
+    public static void a(final Context context, final int i2, final String str, final boolean z) {
+        com.baidu.android.pushservice.b.d.a(context.getApplicationContext()).a(new d.a() { // from class: com.baidu.android.pushservice.e.3
+            @Override // com.baidu.android.pushservice.b.d.a
+            public void a() {
+                if (i2 == 0) {
+                    com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+                    com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
+                }
+                int unused = e.l = 0;
+                e.b(context, z, i2);
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void i() {
-        if (this.d || e.booleanValue()) {
-            com.baidu.android.pushservice.g.a.c("PushConnection", "Connect return. mConnected:" + this.d + " mConnectting:" + e, this.l.getApplicationContext());
-        } else if (j.a(this.l).e()) {
-            m.b("PushConnection connectImpl from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
-            e = true;
-            c = -1;
-            Runnable runnable = new Runnable() { // from class: com.baidu.android.pushservice.e.1
-                @Override // java.lang.Runnable
-                public void run() {
+    public static void a(Context context, String str) {
+        boolean z = true;
+        try {
+            if (j != null && !k.isEmpty()) {
+                j.sendEmptyMessage(65553);
+            } else if (!com.baidu.android.pushservice.b.d.g(context) && !com.baidu.android.pushservice.b.d.h(context)) {
+                return;
+            }
+            Intent a2 = a(context, 0);
+            if (a2 == null) {
+                return;
+            }
+            int b2 = com.baidu.android.pushservice.b.d.a(context).b();
+            if (TextUtils.isEmpty(str)) {
+                i(context);
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            if (b2 == 5) {
+                jSONObject2.put("platform", 0);
+            } else if (b2 == 6) {
+                jSONObject2.put("platform", 1);
+            } else if (b2 == 7) {
+                jSONObject2.put("platform", 3);
+            } else if (b2 == 8) {
+                jSONObject2.put("platform", 4);
+            } else if (b2 == 9) {
+                jSONObject2.put("platform", 5);
+            } else {
+                z = false;
+            }
+            if (z) {
+                jSONObject2.put("token", str);
+                jSONObject.put("info", jSONObject2);
+                j.a(context, b2, str);
+            }
+            a2.putExtra("push_proxy", jSONObject.toString());
+            a(context, a2);
+        } catch (Exception e2) {
+            i(context);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void a(Context context, String str, boolean z, int i2, long j2) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.switch_sync", 0).edit();
+        edit.putString("base_url", str);
+        edit.putBoolean("switch_enable", z);
+        edit.putInt("sync_type", i2);
+        edit.putLong("target_time", j2);
+        edit.apply();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void a(final Context context, final String str, final boolean z, final int i2, final PushManager.SyncCallback syncCallback) {
+        final String p = p(context);
+        if (!TextUtils.isEmpty(p)) {
+            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("uploadPushEnabledStatus", (short) 100) { // from class: com.baidu.android.pushservice.e.4
+                @Override // com.baidu.android.pushservice.h.c
+                public void a() {
                     try {
-                        int unused = e.c = PushSocket.createSocket(e.this.p, e.this.q);
+                        JSONArray jSONArray = new JSONArray();
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("setting_type", 1);
+                        jSONObject.put("msg_setting", z ? 1 : 0);
+                        jSONObject.put("sys_default_setting", i2);
+                        jSONArray.put(jSONObject);
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("uid", com.baidu.android.pushservice.j.e.a(context));
+                        hashMap.put("bccs_apikey", p);
+                        hashMap.put("data", jSONArray.toString());
+                        com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(str + "/boxmessage?type=message&action=setting", "POST", hashMap);
+                        if (a2.b() != 200) {
+                            if (syncCallback != null) {
+                                syncCallback.onSyncResult(-1);
+                                return;
+                            }
+                            return;
+                        }
+                        int i3 = new JSONObject(com.baidu.android.pushservice.g.a.b.a(a2.a())).getInt("errno");
+                        if (syncCallback != null) {
+                            syncCallback.onSyncResult(i3);
+                        }
+                        if (i3 == 0) {
+                            e.q(context);
+                        }
                     } catch (Exception e2) {
+                        if (syncCallback != null) {
+                            syncCallback.onSyncResult(-1);
+                        }
                     }
-                    if (com.baidu.android.pushservice.a.b() > 0) {
-                        com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-                        hVar.d = "039907";
-                        hVar.e = System.currentTimeMillis();
-                        hVar.f = com.baidu.android.pushservice.h.a.b.b(e.this.l);
-                        if (e.c >= 0) {
-                            hVar.g = 0;
+                }
+            });
+        } else if (syncCallback != null) {
+            syncCallback.onSyncResult(-1);
+        }
+    }
+
+    public static void a(Context context, final boolean z) {
+        final Context applicationContext = context.getApplicationContext();
+        if (TextUtils.isEmpty(h)) {
+            h = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_OPPO_PROXY_APPKEY_KEY");
+        }
+        if (TextUtils.isEmpty(i)) {
+            i = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
+        }
+        if (!TextUtils.isEmpty(h) && !TextUtils.isEmpty(i)) {
+            l.a(applicationContext, h, i, new PushCallback() { // from class: com.baidu.android.pushservice.e.2
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetAliases(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetNotificationStatus(int i2, int i3) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetPushStatus(int i2, int i3) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetTags(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onGetUserAccounts(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onRegister(int i2, String str) {
+                    if (z) {
+                        if (i2 != 0) {
+                            e.i(applicationContext);
+                        } else if (TextUtils.isEmpty(str)) {
+                            e.i(applicationContext);
                         } else {
-                            hVar.g = e.c;
+                            e.a(applicationContext, str);
                         }
-                        o.b(e.this.l, hVar);
                     }
-                    if (e.c == -1 || e.c == -2) {
-                        int i = 132;
-                        try {
-                            i = PushSocket.getLastSocketError();
-                        } catch (Exception e3) {
-                        }
-                        com.baidu.android.pushservice.g.a.b("PushConnection", "Create socket err, errno: " + i + "socketfd: " + e.c, e.this.l.getApplicationContext());
-                        if (h.c().equals(e.this.p)) {
-                            e.this.a("030301", i);
-                        } else {
-                            e.this.a("030303", 10002);
-                        }
-                        if (e.c == -2) {
-                            String a2 = h.a(e.this.l, e.this.m);
-                            e.this.m = false;
-                            if (!TextUtils.isEmpty(a2)) {
-                                e.this.p = a2;
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetAliases(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetPushTime(int i2, String str) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetTags(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onSetUserAccounts(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnRegister(int i2) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetAliases(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetTags(int i2, List<SubscribeResult> list) {
+                }
+
+                @Override // com.coloros.mcssdk.callback.PushCallback
+                public void onUnsetUserAccounts(int i2, List<SubscribeResult> list) {
+                }
+            });
+        } else if (z) {
+            j(applicationContext);
+        }
+    }
+
+    public static boolean a(Context context, Intent intent) {
+        return h.a(context).a(intent);
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        try {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                String B = l.B(context, context.getPackageName());
+                if (B == null) {
+                    return true;
+                }
+                String a2 = com.baidu.android.pushservice.j.f.a(l.a(B.getBytes(), str2.getBytes()), false);
+                if (!TextUtils.isEmpty(a2)) {
+                    if (BaiduAppSSOJni.verify(a2.getBytes(), str, 0)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e2) {
+        } catch (UnsatisfiedLinkError e3) {
+            return true;
+        }
+        return false;
+    }
+
+    public static String b(Intent intent) {
+        int b2;
+        String[] split;
+        String[] split2;
+        int i2 = 0;
+        if (intent != null) {
+            try {
+                Uri data = intent.getData();
+                String stringExtra = intent.getStringExtra("bdpush_hwprisigninfo");
+                String stringExtra2 = intent.getStringExtra("bdpush_hwmsgid");
+                if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
+                    if (data != null) {
+                        return stringExtra2 + data.toString();
+                    }
+                    return null;
+                } else if (data != null) {
+                    String fragment = data.getFragment();
+                    if (!TextUtils.isEmpty(fragment) && (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length > 0) {
+                        while (true) {
+                            if (i2 < split.length) {
+                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
+                                    stringExtra2 = split2[1];
+                                    intent.putExtra("bdpush_hwmsgid", stringExtra2);
+                                    break;
+                                }
+                                i2++;
+                            } else {
+                                break;
                             }
                         }
-                        if (e.c == -1 && i == 110) {
-                            e.this.q = 80;
-                        }
-                        Boolean unused2 = e.e = false;
-                        e.this.j();
-                        m.b("PushConnection Create socket err " + e.this.l.getPackageName() + " lastSocketError " + i + " socketfd " + e.c + System.currentTimeMillis(), e.this.l.getApplicationContext());
-                        return;
                     }
-                    com.baidu.android.pushservice.g.a.a("PushConnection", "create Socket ok", e.this.l.getApplicationContext());
-                    m.b("create Socket ok socketfd" + e.c, e.this.l);
-                    e.this.b = new com.baidu.android.pushservice.message.f(e.this.l.getApplicationContext());
-                    e.this.d = true;
-                    if (e.this.i != null) {
-                        e.this.i.interrupt();
+                    String uri = data.toString();
+                    if (TextUtils.isEmpty(uri) || !uri.contains("#Intent;") || (b2 = l.b(uri)) <= 0) {
+                        return null;
                     }
-                    if (e.this.h != null) {
-                        e.this.h.interrupt();
-                    }
-                    e.this.f = false;
-                    e.this.i = new a();
-                    e.this.i.start();
-                    e.this.h = new b();
-                    e.this.h.start();
-                    e.this.b.a(e.c);
-                    if (!h.c().equals(e.this.p)) {
-                        e.this.a("030302", 0);
-                    }
-                    Boolean unused3 = e.e = false;
-                    e.this.m = true;
-                    e.this.p = h.c();
-                    h.c(e.this.l);
-                }
-            };
-            if (this.r != null) {
-                this.r.interrupt();
-            }
-            this.r = new Thread(runnable);
-            this.r.setName("PushService-PushService-connect");
-            this.r.start();
-        } else {
-            com.baidu.android.pushservice.g.a.a("PushConnection", "re-token", this.l.getApplicationContext());
-            g.a(this.l).d();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        com.baidu.android.pushservice.g.a.c("PushConnection", "disconnectedByPeer, mStoped == " + this.j, this.l.getApplicationContext());
-        m.b("PushConnection destroy from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
-        k();
-        if (this.j) {
-            return;
-        }
-        this.k++;
-        if (this.k < 3) {
-            this.a.removeCallbacks(this.s);
-            int i = (this.k - 1) * 30 * 1000;
-            if (this.k == 1) {
-                i = 3000;
-            }
-            if (com.baidu.android.pushservice.a.d(this.l)) {
-                if (this.l.getPackageName().equals(m.v(this.l))) {
-                    com.baidu.android.pushservice.a.c(this.l, false);
-                }
-            }
-            this.a.postDelayed(this.s, i);
-            com.baidu.android.pushservice.g.a.c("PushConnection", "Schedule retry-- retry times: " + this.k + " time delay: " + i, this.l.getApplicationContext());
-        }
-    }
-
-    private void k() {
-        com.baidu.android.pushservice.g.a.c("PushConnection", "destroy", this.l.getApplicationContext());
-        if (this.a != null) {
-            this.a.removeCallbacks(this.t);
-        }
-        this.f = true;
-        this.d = false;
-        if (this.b != null) {
-            try {
-                synchronized (this.b.a()) {
-                    this.b.a().notifyAll();
+                    return stringExtra2 + uri.substring(0, b2);
+                } else {
+                    return null;
                 }
             } catch (Exception e2) {
-                o.a(this.l, e2);
+                return null;
             }
         }
-        PushSocket.a(c);
-        if (this.b != null) {
-            this.b.b();
-        }
+        return null;
     }
 
-    private void l() {
-        Set<Long> keySet = this.g.keySet();
-        long currentTimeMillis = System.currentTimeMillis();
-        i c2 = g.a(this.l).c();
-        if (c2 != null) {
-            for (Long l : keySet) {
-                long longValue = l.longValue();
-                if (longValue < currentTimeMillis) {
-                    c2.a(this.g.get(Long.valueOf(longValue)));
-                    this.g.remove(Long.valueOf(longValue));
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0110 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.FileInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void m() {
-        FileInputStream fileInputStream;
-        File file = new File(Environment.getExternalStorageDirectory(), "baidu/pushservice/pushservice.cfg");
-        ?? exists = file.exists();
-        if (exists == 0) {
+    public static void b(Context context, int i2) {
+        Intent a2 = a(context, i2);
+        if (a2 == null) {
             return;
         }
-        Properties properties = new Properties();
-        try {
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    properties.load(fileInputStream);
-                    String property = properties.getProperty("rtcseed");
-                    if (property != null && property.length() > 0) {
-                        JSONArray jSONArray = new JSONArray(property);
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            this.v[i] = jSONArray.getInt(i);
-                            this.w = 0;
-                            this.x = 0;
-                            this.z = 0;
-                        }
-                    }
-                    String property2 = properties.getProperty("originseed");
-                    if (property2 != null && property2.length() > 0) {
-                        this.w = Integer.parseInt(property2);
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            com.baidu.android.pushservice.g.a.b("PushConnection", "error " + e2.getMessage(), this.l.getApplicationContext());
-                        }
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    com.baidu.android.pushservice.g.a.b("PushConnection", "getTestConfig exception " + e.getMessage(), this.l.getApplicationContext());
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e4) {
-                            com.baidu.android.pushservice.g.a.b("PushConnection", "error " + e4.getMessage(), this.l.getApplicationContext());
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (exists != 0) {
-                    try {
-                        exists.close();
-                    } catch (IOException e5) {
-                        com.baidu.android.pushservice.g.a.b("PushConnection", "error " + e5.getMessage(), this.l.getApplicationContext());
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e6) {
-            e = e6;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            exists = 0;
-            if (exists != 0) {
-            }
-            throw th;
-        }
+        com.baidu.android.pushservice.f.a.a("PushManagerHandler", "a bind intent send", context.getApplicationContext());
+        a(context, a2);
+        l.b("Bind by selfEventHandler", context);
     }
 
-    public void a(boolean z) {
-        String d = com.baidu.android.pushservice.j.h.d(this.l);
-        if (TextUtils.equals(this.B, d)) {
-            int e2 = e();
+    public static void b(Context context, int i2, String str) {
+        String str2 = "errorCode:" + i2 + ",errorMsg:" + str;
+        com.baidu.android.pushservice.f.a.b("PushManagerHandler", str2, context.getApplicationContext());
+        com.baidu.android.pushservice.c.c.a(context, 0L);
+        if (l.C(context)) {
+            SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName() + ".push_sync", 5).edit();
+            edit.putLong("priority2", 0L);
+            edit.commit();
+        }
+        SharedPreferences.Editor edit2 = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
+        edit2.putBoolean("bind_status", false);
+        edit2.commit();
+        Intent intent = new Intent();
+        intent.putExtra("method", PushConstants.METHOD_BIND);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i2);
+        intent.putExtra("content", str2.getBytes());
+        intent.putExtra("bind_status", 0);
+        l.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());
+    }
+
+    public static void b(Context context, Intent intent) {
+        if (a(context, intent)) {
+            return;
+        }
+        context.sendBroadcast(intent);
+    }
+
+    public static void b(Context context, boolean z) {
+        l.b("startWork at time of " + System.currentTimeMillis(), context);
+        if (!z) {
+            if (com.baidu.android.pushservice.b.d.l(context)) {
+                l.a(context, true, true);
+            } else {
+                k.a(context);
+            }
+        }
+        b(context, 0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Context context, boolean z, int i2) {
+        boolean c2 = com.baidu.android.pushservice.b.d.c(context);
+        if (com.baidu.android.pushservice.b.d.f(context)) {
             if (!z) {
-                this.x = 0;
-                this.z = 0;
-                if (!com.baidu.android.pushservice.j.h.a(this.l)) {
-                    this.w++;
-                } else if (this.w > 0) {
-                    this.w--;
-                    f();
+                if (c2) {
+                    l.a(context, true, true);
+                } else {
+                    com.baidu.android.pushservice.a.b(context, false);
+                    l.a(context, true, false);
                 }
-            } else if (com.baidu.android.pushservice.j.h.a(this.l)) {
-                f();
-                this.x++;
-                if (this.x >= 3) {
-                    this.x = 0;
-                    if (this.w < this.v.length - 1) {
-                        this.x = 0;
-                        this.w++;
-                    }
-                }
-                if (this.z >= 30) {
-                    this.z = 0;
-                    com.baidu.android.pushservice.h.h hVar = new com.baidu.android.pushservice.h.h();
-                    hVar.d = "030101";
-                    hVar.e = System.currentTimeMillis();
-                    hVar.f = com.baidu.android.pushservice.h.a.b.b(this.l);
-                    hVar.a = e();
-                    o.a(this.l, hVar);
-                }
-            } else {
-                this.w++;
             }
-            m.b("RTC stat change from " + e2 + " to " + e(), this.l);
+            e(context);
+        } else if (com.baidu.android.pushservice.b.d.e(context)) {
+            if (!z) {
+                if (c2) {
+                    l.a(context, true, true);
+                } else {
+                    com.baidu.android.pushservice.a.b(context, false);
+                    l.a(context, true, false);
+                }
+            }
+            c(context);
+        } else if (com.baidu.android.pushservice.b.d.g(context) && com.baidu.android.pushservice.b.d.j(context)) {
+            if (!z) {
+                if (c2) {
+                    l.a(context, true, true);
+                } else {
+                    com.baidu.android.pushservice.a.b(context, false);
+                    l.a(context, true, false);
+                }
+            }
+            a(context, true);
+        } else if (com.baidu.android.pushservice.b.d.d(context)) {
+            if (!z) {
+                if (c2) {
+                    l.a(context, true, true);
+                } else {
+                    com.baidu.android.pushservice.a.b(context, false);
+                    l.a(context, true, false);
+                }
+            }
+            d(context);
+        } else if (com.baidu.android.pushservice.b.d.i(context)) {
+            l.a(context.getApplicationContext(), z);
         } else {
-            this.w = g();
-            this.x = 0;
-            m.b("RTC stat change " + e() + " because of network changing", this.l);
-        }
-        this.B = d;
-        g.a(this.l).a(e());
-    }
-
-    public boolean a() {
-        return this.d;
-    }
-
-    public void b() {
-        this.k = 0;
-        this.j = false;
-        i();
-    }
-
-    public void c() {
-        com.baidu.android.pushservice.g.a.c("PushConnection", "---stop---", this.l.getApplicationContext());
-        m.b("PushConnection stop from " + this.l.getPackageName() + " at Time " + System.currentTimeMillis(), this.l);
-        this.f = true;
-        this.j = true;
-        this.a.removeCallbacks(this.s);
-        k();
-        n = null;
-    }
-
-    public void d() {
-        if (this.b != null) {
-            if (System.currentTimeMillis() - this.u > 120000) {
-                com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("heartbeat", (short) 98) { // from class: com.baidu.android.pushservice.e.4
-                    @Override // com.baidu.android.pushservice.i.c
-                    public void a() {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        int i = (int) ((currentTimeMillis / 60000) % 5);
-                        int i2 = ((int) (currentTimeMillis / 1000)) % 60;
-                        if (i == 0 && i2 < 15) {
-                            try {
-                                Thread.sleep((long) (Math.random() * 60.0d * 1000.0d));
-                            } catch (InterruptedException e2) {
-                            }
-                        }
-                        e.this.b.c();
-                        e.this.u = System.currentTimeMillis();
-                        com.baidu.android.pushservice.g.a.c("PushConnection", "sendHeartbeatMessage", e.this.l.getApplicationContext());
-                    }
-                });
+            com.baidu.android.pushservice.f.a.a("PushManagerHandler", "login type = " + i2, context.getApplicationContext());
+            if (i2 != 0) {
+                com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Wrong login type, please check!", context.getApplicationContext());
             } else {
-                com.baidu.android.pushservice.g.a.c("PushConnection", "sendHeartbeatMessage ingnored， because too frequent.", this.l.getApplicationContext());
+                b(context, z);
             }
         }
-        l();
     }
 
-    public int e() {
-        if (this.w < 0) {
-            this.w = 0;
-        } else if (this.w >= this.v.length) {
-            this.w = this.v.length - 1;
+    public static boolean b(Context context) {
+        int i2;
+        try {
+            if (l.C(context)) {
+                SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 5);
+                sharedPreferences.edit();
+                i2 = sharedPreferences.getInt("version2", 0);
+            } else {
+                i2 = -1;
+            }
+            if (i2 == -1) {
+                i2 = com.baidu.android.pushservice.c.c.c(context);
+            }
+            return i2 != com.baidu.android.pushservice.a.a();
+        } catch (Exception e2) {
+            return true;
         }
-        return this.v[this.w];
     }
 
-    public void f() {
-        if (com.baidu.android.pushservice.j.h.b(this.l)) {
-            com.baidu.android.pushservice.j.j.a(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", this.w);
-        } else {
-            com.baidu.android.pushservice.j.j.a(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", this.w);
+    public static void c(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        if (TextUtils.isEmpty(d)) {
+            d = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_PROXY_APPID_KEY");
+        }
+        if (TextUtils.isEmpty(e)) {
+            e = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_PROXY_APPKEY_KEY");
+        }
+        if (TextUtils.isEmpty(d) || TextUtils.isEmpty(e)) {
+            j(applicationContext);
+            return;
+        }
+        l.d(applicationContext, d, e);
+        m(applicationContext);
+    }
+
+    private static boolean c(Context context, int i2, String str) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0);
+        Long valueOf = Long.valueOf(sharedPreferences.getLong("currbindtime", 0L));
+        String string = sharedPreferences.getString("secret_key", "");
+        Long valueOf2 = Long.valueOf(sharedPreferences.getLong("version_code", 0L));
+        if (Long.valueOf(System.currentTimeMillis()).longValue() - valueOf.longValue() <= 43200000) {
+            return i2 == 0 && str.equals(string) && ((long) l.d(context, context.getPackageName())) == valueOf2.longValue();
+        }
+        sharedPreferences.edit().clear().commit();
+        return false;
+    }
+
+    public static void d(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        if (TextUtils.isEmpty(f)) {
+            f = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_MEIZU_PROXY_APPID_KEY");
+        }
+        if (TextUtils.isEmpty(g)) {
+            g = com.baidu.android.pushservice.i.i.a(applicationContext, "BD_MEIZU_PROXY_APPKEY_KEY");
+        }
+        if (TextUtils.isEmpty(f) || TextUtils.isEmpty(g)) {
+            j(applicationContext);
+            return;
+        }
+        l.e(applicationContext, f, g);
+        m(applicationContext);
+    }
+
+    public static void e(Context context) {
+        l.z(context);
+        m(context);
+    }
+
+    public static void f(Context context) {
+        Intent a2 = a(context);
+        if (a2 == null) {
+            return;
+        }
+        a2.putExtra("method", "method_unbind");
+        b(context, a2);
+    }
+
+    public static void g(Context context) {
+        if (j == null || k.isEmpty()) {
+            return;
+        }
+        j.sendEmptyMessage(65553);
+        j(context);
+    }
+
+    public static void h(Context context) {
+        g(context);
+    }
+
+    public static void i(Context context) {
+        try {
+            if (n(context)) {
+                return;
+            }
+            com.baidu.android.pushservice.f.a.b("PushManagerHandler", "errorCode:10011", context.getApplicationContext());
+            Intent intent = new Intent();
+            intent.putExtra("method", PushConstants.METHOD_BIND);
+            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 10011);
+            intent.putExtra("content", "errorCode:10011".getBytes());
+            intent.putExtra("bind_status", 0);
+            l.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());
+        } catch (Throwable th) {
         }
     }
 
-    public int g() {
-        if (com.baidu.android.pushservice.j.h.a(this.l)) {
-            return com.baidu.android.pushservice.j.h.b(this.l) ? com.baidu.android.pushservice.j.j.b(this.l, "com.baidu.pushservice.CUR_PERIOD_WIFI", 0) : com.baidu.android.pushservice.j.j.b(this.l, "com.baidu.pushservice.CUR_PERIOD_MOBILE", 0);
+    public static void j(Context context) {
+        Intent intent = new Intent();
+        String a2 = PushConstants.a(30602);
+        intent.setAction(PushConstants.ACTION_RECEIVE);
+        intent.putExtra("method", PushConstants.METHOD_BIND);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 30602);
+        intent.putExtra("content", a2.getBytes());
+        intent.setFlags(32);
+        l.b(context, intent, intent.getAction(), context.getPackageName());
+    }
+
+    public static boolean k(Context context) {
+        return context == null;
+    }
+
+    private static void m(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        if (k.size() > 100) {
+            return;
         }
-        return 0;
+        b bVar = new b(applicationContext);
+        k.add(bVar);
+        if (j == null) {
+            j = new a(applicationContext);
+        }
+        j.postDelayed(bVar, 6000L);
+    }
+
+    private static boolean n(Context context) {
+        if (l >= 3 || TextUtils.isEmpty(b)) {
+            return false;
+        }
+        l++;
+        b(context, true, a);
+        return true;
+    }
+
+    private static void o(Context context) {
+        if (context.getPackageName().startsWith("com.baidu")) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.switch_sync", 0);
+            String string = sharedPreferences.getString("base_url", "");
+            boolean z = sharedPreferences.getBoolean("switch_enable", true);
+            int i2 = sharedPreferences.getInt("sync_type", 1);
+            long j2 = sharedPreferences.getLong("target_time", 0L);
+            if (TextUtils.isEmpty(string) || j2 == 0 || System.currentTimeMillis() < j2) {
+                return;
+            }
+            a(context, string, z, i2, (PushManager.SyncCallback) null);
+        }
+    }
+
+    private static String p(Context context) {
+        return TextUtils.isEmpty(b) ? com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE") : b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void q(Context context) {
+        context.getSharedPreferences("com.baidu.pushservice.switch_sync", 0).edit().clear().apply();
     }
 }

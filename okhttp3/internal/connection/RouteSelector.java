@@ -1,6 +1,5 @@
 package okhttp3.internal.connection;
 
-import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -120,7 +119,7 @@ public final class RouteSelector {
             str = hostString;
         }
         if (port < 1 || port > 65535) {
-            throw new SocketException("No route to " + str + Config.TRACE_TODAY_VISIT_SPLIT + port + "; port is out of range");
+            throw new SocketException("No route to " + str + ":" + port + "; port is out of range");
         }
         if (proxy.type() == Proxy.Type.SOCKS) {
             this.inetSocketAddresses.add(InetSocketAddress.createUnresolved(str, port));

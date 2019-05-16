@@ -1,100 +1,72 @@
 package com.baidu.tieba.ueg;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import tbclient.BlockPopInfo;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.x;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c {
-    private static BlockPopInfo iTO;
-    private static BlockPopInfo iTP;
-    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                c.d(null);
-                c.e(null);
-            }
-        }
-    };
-    private TbPageContext mContext;
+public class c extends BdAsyncTask<String, String, Integer> {
+    private String jmJ;
+    private a jmK;
 
-    public c(TbPageContext tbPageContext) {
-        this.mContext = tbPageContext;
-        this.mContext.registerListener(this.mAccountChangedListener);
+    /* loaded from: classes.dex */
+    public interface a {
+        void bGl();
+
+        void bGm();
+
+        void bGn();
+
+        void onError(String str);
     }
 
-    private boolean a(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.b(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, d.f.icon_toast_game_error, 3000).abe();
-            return true;
-        } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1)) {
-            if (blockPopInfo.ahead_type.intValue() == 1) {
-                String str = blockPopInfo.block_info;
-                String str2 = blockPopInfo.ok_info;
-                if (ap.isEmpty(str) || ap.isEmpty(str2)) {
-                    BdToast.b(this.mContext.getPageActivity(), this.mContext.getString(d.j.hanpen_error), d.f.icon_toast_game_error, 3000).abe();
-                    return true;
+    public c(String str, a aVar) {
+        this.jmJ = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.jmK = aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: z */
+    public Integer doInBackground(String... strArr) {
+        int i = -1;
+        try {
+            x xVar = new x(this.jmJ);
+            xVar.ahC().aiB().mIsNeedAddCommenParam = false;
+            xVar.ahC().aiB().mIsUseCurrentBDUSS = false;
+            JSONArray optJSONArray = new JSONObject(new String(xVar.ahf())).optJSONArray("result");
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                return i;
+            }
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    return Integer.valueOf(optJSONObject.optInt("main", -1));
                 }
-                b(blockPopInfo);
-                return true;
-            } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                c(blockPopInfo);
-                return true;
+            }
+            return i;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return i;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
+        if (this.jmK != null && num != null) {
+            if (num.intValue() == -1) {
+                this.jmK.onError(null);
+            } else if (num.intValue() == 1) {
+                this.jmK.bGl();
+            } else if (num.intValue() == 2 || num.intValue() == 0) {
+                this.jmK.bGm();
             } else {
-                return true;
+                this.jmK.bGn();
             }
-        } else {
-            return false;
         }
-    }
-
-    public boolean cin() {
-        return a(iTO);
-    }
-
-    public boolean cio() {
-        return a(iTP);
-    }
-
-    private void b(final BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.lz(blockPopInfo.block_info);
-            aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.c.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                }
-            });
-            aVar.a(blockPopInfo.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.c.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    c.this.c(blockPopInfo);
-                }
-            });
-            aVar.b(this.mContext).aaW();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            AntiHelper.aV(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
-        }
-    }
-
-    public static void d(BlockPopInfo blockPopInfo) {
-        iTO = blockPopInfo;
-    }
-
-    public static void e(BlockPopInfo blockPopInfo) {
-        iTP = blockPopInfo;
     }
 }

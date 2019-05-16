@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
-import com.baidu.tbadk.s.u;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.t.x;
+import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.a.b;
 import com.baidu.tieba.passaccount.a.c;
 /* loaded from: classes3.dex */
@@ -19,43 +19,43 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.remind_activity_layout);
-        ((NavigationBar) findViewById(d.g.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ((Button) findViewById(d.g.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
+        setContentView(R.layout.remind_activity_layout);
+        ((NavigationBar) findViewById(R.id.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ((Button) findViewById(R.id.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.bHi().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                c.bOS().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void d(boolean z, boolean z2, String str) {
-                        b.bHb().s(z2, str);
+                        b.bOL().r(z2, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
-                    public void q(boolean z, String str) {
-                        b.bHb().s(z, str);
+                    public void p(boolean z, String str) {
+                        b.bOL().r(z, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onUnavailable() {
-                        b.bHb().s(false, null);
+                        b.bOL().r(false, null);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onFail() {
-                        b.bHb().s(false, null);
+                        b.bOL().r(false, null);
                     }
                 });
             }
         });
-        findViewById(d.g.feed_back_container).setVisibility(u.jK() ? 0 : 8);
-        ((TextView) findViewById(d.g.feed_back_text)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.2
+        findViewById(R.id.feed_back_container).setVisibility(x.iE() ? 0 : 8);
+        ((TextView) findViewById(R.id.feed_back_text)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.passaccount.app.RemindActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ba.adA().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+                ba.aiz().a(RemindActivity.this.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
             }
         });
     }
@@ -68,7 +68,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finishActivity(boolean z) {
         super.finish();
         if (!z) {
-            b.bHb().a((AuthVerifyData.c) null);
+            b.bOL().a((AuthVerifyData.c) null);
         }
     }
 }

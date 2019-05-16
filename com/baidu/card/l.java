@@ -9,19 +9,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.view.ThreadLinkView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class l extends b<com.baidu.tbadk.core.data.a> {
-    private ThreadLinkView XM;
-    private TextView XN;
-    private com.baidu.tbadk.core.data.a Xz;
+    private ThreadLinkView VD;
+    private TextView VE;
+    private com.baidu.tbadk.core.data.a Vq;
     private View mRootView;
 
     public l(Context context) {
         super(context);
-        this.mRootView = LayoutInflater.from(context).inflate(d.h.card_link_layout, (ViewGroup) null, true);
-        this.XM = (ThreadLinkView) this.mRootView.findViewById(d.g.link_thread_root);
-        this.XN = (TextView) this.mRootView.findViewById(d.g.link_seg_title);
+        this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+        this.VD = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
+        this.VE = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,27 +34,27 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.WO() == null) {
+        if (aVar == null || aVar.abv() == null) {
             getView().setVisibility(8);
             return;
         }
-        this.Xz = aVar;
-        bg WO = aVar.WO();
-        com.baidu.tieba.card.n.b(WO, this.XN);
-        this.XM.setData(WO);
+        this.Vq = aVar;
+        bg abv = aVar.abv();
+        com.baidu.tieba.card.n.a(abv, this.VE);
+        this.VD.setData(abv);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.XM.onChangeSkinType();
-        if (this.Xz != null && this.Xz.WO() != null) {
-            com.baidu.tieba.card.n.a(this.XN, this.Xz.WO().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
+        this.VD.onChangeSkinType();
+        if (this.Vq != null && this.Vq.abv() != null) {
+            com.baidu.tieba.card.n.a(this.VE, this.Vq.abv().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.XM.setTag(bdUniqueId);
+        this.VD.setTag(bdUniqueId);
     }
 }

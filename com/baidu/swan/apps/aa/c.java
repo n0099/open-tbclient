@@ -1,75 +1,51 @@
 package com.baidu.swan.apps.aa;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.core.c.g;
-import com.baidu.swan.apps.res.widget.b.d;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.swan.apps.b.c.f;
+import com.baidu.swan.apps.core.d.g;
 /* loaded from: classes2.dex */
-public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String TAG = c.class.getSimpleName();
-    public static String aDr;
-    public static String aDs;
-    public static volatile c aDt;
-
-    private c() {
+public class c extends g {
+    @Override // com.baidu.swan.apps.core.d.g
+    protected void a(FrameLayout frameLayout) {
+        frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(a.g.aiapps_wx_pay_loading_layout, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
     }
 
-    public static c Fr() {
-        if (aDt == null) {
-            synchronized (c.class) {
-                if (aDt == null) {
-                    aDt = new c();
+    @Override // com.baidu.swan.apps.core.d.g
+    protected f wN() {
+        return com.baidu.swan.apps.core.j.c.Bi().Bj().aJ(getContext());
+    }
+
+    @Override // com.baidu.swan.apps.core.d.g
+    protected com.baidu.swan.apps.core.f.c xb() {
+        return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.c.1
+            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
+            public boolean dQ(String str) {
+                if (str == null || !str.startsWith("weixin://wap/pay")) {
+                    return super.dQ(str);
                 }
+                com.baidu.swan.apps.console.c.d("SwanAppWxPayFragment", " weixin  url:   " + str);
+                g.Ab();
+                return false;
             }
-        }
-        return aDt;
+        };
     }
 
-    public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        String b = b(unitedSchemeEntity, "params");
-        if (TextUtils.isEmpty(b)) {
-            com.baidu.swan.apps.console.c.i(TAG, "wxPay: url is empty");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
-        } else if (!com.baidu.swan.apps.u.a.CM().bK(context)) {
-            d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).II();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-            return false;
-        } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.ap(b, b))) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        } else {
-            com.baidu.swan.apps.console.c.i(TAG, "open wxPay page success");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            return true;
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.swan.apps.core.d.g, com.baidu.swan.apps.core.d.b
+    public void M(View view) {
+        super.M(view);
+        this.aqh.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        this.aqh.setRightZoneVisibility(false);
+        ba(false);
     }
 
-    private static String b(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        String str2 = unitedSchemeEntity.getParams().get(str);
-        if (TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        try {
-            return new JSONObject(str2).optString("src");
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            return null;
-        }
+    @Override // com.baidu.swan.apps.core.d.b
+    protected boolean xc() {
+        return true;
     }
 }

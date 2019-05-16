@@ -8,69 +8,69 @@ import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonLikeButton extends AppCompatTextView implements b {
-    protected String bUo;
-    protected String bUp;
-    protected boolean bUq;
-    private View.OnClickListener bUr;
-    private boolean bUs;
+    protected String cci;
+    protected String ccj;
+    protected boolean cck;
+    private View.OnClickListener ccl;
+    private boolean ccm;
 
     public CommonLikeButton(Context context) {
         super(context);
-        this.bUo = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUp = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUq = false;
-        this.bUs = false;
+        this.cci = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.ccj = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.cck = false;
+        this.ccm = false;
         init();
     }
 
     public CommonLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUo = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUp = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUq = false;
-        this.bUs = false;
+        this.cci = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.ccj = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.cck = false;
+        this.ccm = false;
         init();
     }
 
     public CommonLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bUo = TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed);
-        this.bUp = TbadkCoreApplication.getInst().getString(d.j.attention);
-        this.bUq = false;
-        this.bUs = false;
+        this.cci = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.ccj = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.cck = false;
+        this.ccm = false;
         init();
     }
 
     protected void init() {
         setSingleLine();
         setIncludeFontPadding(false);
-        setTextSize(0, l.h(getContext(), d.e.tbds34));
+        setTextSize(0, l.g(getContext(), R.dimen.tbds34));
         setGravity(17);
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.b
-    public void dU(boolean z) {
+    public void er(boolean z) {
         setVisibility(0);
-        this.bUq = z;
+        this.cck = z;
         if (z) {
             setClickable(false);
-            setText(this.bUo);
+            setText(this.cci);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.bUp);
-            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10), 0);
+            setText(this.ccj);
+            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.b
-    public void aR(View view) {
-        if (this.bUr != null) {
-            this.bUr.onClick(view);
+    public void aX(View view) {
+        if (this.ccl != null) {
+            this.ccl.onClick(view);
         }
     }
 
@@ -80,27 +80,27 @@ public class CommonLikeButton extends AppCompatTextView implements b {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bUq) {
+        if (this.cck) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.j(this, d.C0277d.cp_cont_d);
+            al.j(this, R.color.cp_cont_d);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.j(this, d.C0277d.btn_forum_focus_color);
-        if (this.bUs) {
-            al.k(this, d.f.btn_transparent_focus_border_bg);
+        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.j(this, R.color.btn_forum_focus_color);
+        if (this.ccm) {
+            al.k(this, R.drawable.btn_transparent_focus_border_bg);
         } else {
-            al.k(this, d.f.btn_focus_border_bg);
+            al.k(this, R.drawable.btn_focus_border_bg);
         }
     }
 
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
-        this.bUr = onClickListener;
+        this.ccl = onClickListener;
     }
 
     public void setBackGroundIsTransMode(boolean z) {
-        this.bUs = z;
-        al.k(this, d.f.btn_transparent_focus_border_bg);
+        this.ccm = z;
+        al.k(this, R.drawable.btn_transparent_focus_border_bg);
     }
 }

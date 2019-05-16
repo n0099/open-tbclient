@@ -3,30 +3,30 @@ package com.baidu.swan.menu.viewpager;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b<T> {
-    private ArrayList<T> blt = new ArrayList<>();
-    private final int blu;
+    private ArrayList<T> brv = new ArrayList<>();
+    private final int brw;
 
     public b(int i) {
-        this.blu = i;
+        this.brw = i;
     }
 
-    public synchronized void R(T t) {
+    public synchronized void S(T t) {
         if (t != null) {
-            if (this.blt.size() >= this.blu) {
-                this.blt.remove(this.blt.size() - 1);
+            if (this.brv.size() >= this.brw) {
+                this.brv.remove(this.brv.size() - 1);
             }
-            this.blt.add(t);
+            this.brv.add(t);
         }
     }
 
     public synchronized T get() {
         T t;
         while (true) {
-            if (this.blt.size() <= 0) {
+            if (this.brv.size() <= 0) {
                 t = null;
                 break;
             }
-            t = this.blt.remove(this.blt.size() - 1);
+            t = this.brv.remove(this.brv.size() - 1);
             if (t != null) {
                 break;
             }

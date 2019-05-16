@@ -33,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).bwH)) {
-                sb.append(this.advertAppList.get(i).bwH);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).bDS)) {
+                sb.append(this.advertAppList.get(i).bDS);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> bWD = com.baidu.tieba.recapp.r.bWF().bWD();
-        if (bWD != null) {
-            bWD.clear();
+        List<AppData> ceH = com.baidu.tieba.recapp.r.ceJ().ceH();
+        if (ceH != null) {
+            ceH.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,19 +78,19 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (bWD != null) {
-                            bWD.add(advertAppInfo.bwY);
+                        if (ceH != null) {
+                            ceH.add(advertAppInfo.bEj);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.bWF().bWE();
+            com.baidu.tieba.recapp.r.ceJ().ceI();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
                 public int compare(AdvertAppInfo advertAppInfo2, AdvertAppInfo advertAppInfo3) {
-                    return (advertAppInfo2 != null ? com.baidu.adp.lib.g.b.l(advertAppInfo2.adPosition, 0) : 0) - (advertAppInfo3 != null ? com.baidu.adp.lib.g.b.l(advertAppInfo3.adPosition, 0) : 0);
+                    return (advertAppInfo2 != null ? com.baidu.adp.lib.g.b.f(advertAppInfo2.adPosition, 0) : 0) - (advertAppInfo3 != null ? com.baidu.adp.lib.g.b.f(advertAppInfo3.adPosition, 0) : 0);
                 }
             });
             List<FeedForumInfo> list2 = bannerList.feed_forum;
@@ -106,7 +106,7 @@ public class BannerListData implements Serializable {
             if (bannerList.hot_topic != null) {
                 ay ayVar = new ay();
                 ayVar.a(bannerList.hot_topic);
-                this.recomTopicData = ayVar.XY();
+                this.recomTopicData = ayVar.acF();
             }
         }
     }

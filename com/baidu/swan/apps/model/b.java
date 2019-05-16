@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.model;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.an.y;
+import com.baidu.swan.apps.an.aa;
 /* loaded from: classes2.dex */
 public final class b {
-    public String axM;
+    public String ayL;
     public String mBaseUrl;
     public String mParams;
 
-    public static b ap(String str, String str2) {
+    public static b aq(String str, String str2) {
         b bVar = new b();
-        bVar.axM = y.hG(str);
-        bVar.mParams = y.hH(str);
+        bVar.ayL = aa.ik(str);
+        bVar.mParams = aa.il(str);
         bVar.mBaseUrl = str2;
         return bVar;
     }
@@ -21,12 +21,12 @@ public final class b {
             return null;
         }
         if (TextUtils.isEmpty(bVar.mParams)) {
-            return bVar.axM;
+            return bVar.ayL;
         }
-        return bVar.axM + "?" + bVar.mParams;
+        return bVar.ayL + "?" + bVar.mParams;
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.axM + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "'}";
+        return "SwanAppPageParam{mPage='" + this.ayL + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "'}";
     }
 }

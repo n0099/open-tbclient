@@ -1,24 +1,52 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import java.lang.reflect.Method;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public final class l implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        Context context2;
-        context = MiPushClient.sContext;
-        com.xiaomi.push.service.module.c a = com.xiaomi.push.service.module.d.a(context).a(com.xiaomi.push.service.module.e.MODULE_CDATA);
-        if (a != null) {
-            try {
-                Method method = a.a().loadClass("com.xiaomi.push.mpcd.MpcdPlugin").getMethod("main", Context.class);
-                context2 = MiPushClient.sContext;
-                method.invoke(null, context2);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a("plugin load fail");
-            }
+public class l {
+    private static HashMap<f, a> a = new HashMap<>();
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class a {
+        public String a;
+        public String b;
+
+        public a(String str, String str2) {
+            this.a = str;
+            this.b = str2;
+        }
+    }
+
+    static {
+        a(f.ASSEMBLE_PUSH_HUAWEI, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(f.ASSEMBLE_PUSH_FCM, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(f.ASSEMBLE_PUSH_COS, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+    }
+
+    public static a a(f fVar) {
+        return a.get(fVar);
+    }
+
+    private static void a(f fVar, a aVar) {
+        if (aVar != null) {
+            a.put(fVar, aVar);
+        }
+    }
+
+    public static com.xiaomi.xmpush.thrift.g b(f fVar) {
+        return com.xiaomi.xmpush.thrift.g.AggregatePushSwitch;
+    }
+
+    public static be c(f fVar) {
+        switch (fVar) {
+            case ASSEMBLE_PUSH_HUAWEI:
+                return be.UPLOAD_HUAWEI_TOKEN;
+            case ASSEMBLE_PUSH_FCM:
+                return be.UPLOAD_FCM_TOKEN;
+            case ASSEMBLE_PUSH_COS:
+                return be.UPLOAD_COS_TOKEN;
+            default:
+                return null;
         }
     }
 }

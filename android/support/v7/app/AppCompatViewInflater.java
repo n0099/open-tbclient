@@ -28,6 +28,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -183,7 +184,7 @@ public class AppCompatViewInflater {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [183=5, 184=5] */
     private View createViewFromTag(Context context, String str, AttributeSet attributeSet) {
         if (str.equals("view")) {
-            str = attributeSet.getAttributeValue(null, "class");
+            str = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
         }
         try {
             this.mConstructorArgs[0] = context;

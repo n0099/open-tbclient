@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public interface a {
-    void AH(String str);
+    void BZ(String str);
 
-    void AI(String str);
+    void Ca(String str);
 
     void a(BaseFragmentActivity baseFragmentActivity, e eVar, BdUniqueId bdUniqueId, long j, boolean z, boolean z2);
 
@@ -15,17 +15,17 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f bRG();
+    f bZH();
 
-    void bRH();
+    void bZI();
 
-    void iY(boolean z);
-
-    void oG(boolean z);
+    void jI(boolean z);
 
     void onChangeSkinType(int i);
 
     void onDestroy();
 
     void onResume();
+
+    void pv(boolean z);
 }

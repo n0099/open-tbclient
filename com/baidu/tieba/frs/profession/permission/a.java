@@ -7,29 +7,29 @@ import tbclient.ZoneRight.DataReq;
 import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes.dex */
 public class a implements h {
+    public int fIm;
+    public int fIn;
+    public int fIo;
     public String forum_id;
-    public int frR;
-    public int frS;
-    public int frT;
     public long thread_id;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> anV() {
+    public HashMap<String, Object> asY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> anW() {
+    public HashMap<String, String> asZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object eW(boolean z) {
+    public Object fs(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         s.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.forum_id = Long.valueOf(com.baidu.adp.lib.g.b.d(this.forum_id, 0L));
+        builder.forum_id = Long.valueOf(com.baidu.adp.lib.g.b.c(this.forum_id, 0L));
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.req_type = Integer.valueOf(this.frS == 1 ? 2 : 1);
+        builder.req_type = Integer.valueOf(this.fIn == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

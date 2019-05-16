@@ -8,28 +8,28 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a {
-    public static final Map<String, String> jzr = ImmutableMap.of("mkv", "video/x-matroska");
+    public static final Map<String, String> jSh = ImmutableMap.of("mkv", "video/x-matroska");
 
-    public static boolean Fp(@Nullable String str) {
+    public static boolean GK(@Nullable String str) {
         return str != null && str.startsWith(FileUtils.VIDEO_FILE_START);
     }
 
     @Nullable
-    public static String Fq(String str) {
-        String Fr = Fr(str);
-        if (Fr == null) {
+    public static String GL(String str) {
+        String GM = GM(str);
+        if (GM == null) {
             return null;
         }
-        String lowerCase = Fr.toLowerCase(Locale.US);
+        String lowerCase = GM.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return jzr.get(lowerCase);
+            return jSh.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }
 
     @Nullable
-    private static String Fr(String str) {
+    private static String GM(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
             return null;

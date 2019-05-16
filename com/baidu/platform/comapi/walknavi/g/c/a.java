@@ -63,7 +63,7 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0072a b2 = b(i);
+            C0074a b2 = b(i);
             i3 = b2.a;
             i2 = b2.b;
         }
@@ -73,8 +73,8 @@ public class a {
         a = i3;
     }
 
-    private C0072a b(int i) {
-        C0072a c0072a = new C0072a();
+    private C0074a b(int i) {
+        C0074a c0074a = new C0074a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -83,12 +83,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0072a.a = c(b[i3]);
-                c0072a.b = i2 / b[i3];
+                c0074a.a = c(b[i3]);
+                c0074a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0072a;
+        return c0074a;
     }
 
     private int c(int i) {
@@ -136,46 +136,46 @@ public class a {
 
     public int a(int i) {
         if (i == 0 || i == 1 || i == 2) {
-            return R.drawable.aiapps_openlocation_go_my_point_bg_shape;
+            return R.drawable.aiapps_location_item_select;
         }
         if (i == 3) {
-            return R.drawable.aiapps_openlocation_path_selector;
+            return R.drawable.aiapps_location_loading;
         }
         if (i == 4) {
-            return R.drawable.aiapps_person_header_new_dot;
+            return R.drawable.aiapps_location_my_point_bg;
         }
         if (i == 5) {
-            return R.drawable.aiapps_new_dot;
+            return R.drawable.aiapps_loading_light_image_view;
         }
         if (i == 6) {
-            return R.drawable.aiapps_open_app_button_normal;
+            return R.drawable.aiapps_location_go_my_point_selected;
         }
         if (i == 7) {
-            return R.drawable.aiapps_open_app_buttion_selector;
+            return R.drawable.aiapps_location_go_my_point;
         }
         if (i == 8) {
-            return R.drawable.aiapps_menu_add_bookmarkdir_pressed;
+            return R.drawable.aiapps_loading_dark_image_view;
         }
         if (i == 9) {
-            return R.drawable.aiapps_no_recommend;
+            return R.drawable.aiapps_loading_progress_animation;
         }
         if (i == 10) {
-            return R.drawable.aiapps_night_mode_toast_icon;
+            return R.drawable.aiapps_loading_progress;
         }
         if (i == 11) {
-            return R.drawable.aiapps_person_center_dot;
+            return R.drawable.aiapps_location_my_point;
         }
         if (i == 12) {
-            return R.drawable.aiapps_menu_add_bookmarkdir;
+            return R.drawable.aiapps_loading_bg;
         }
         if (i == 13) {
-            return R.drawable.aiapps_menu_add_bookmark_pressed;
+            return R.drawable.aiapps_loading;
         }
         if (i == 14) {
-            return R.drawable.aiapps_open_app_button_pressed;
+            return R.drawable.aiapps_location_item_bg;
         }
         if (i == 15) {
-            return R.drawable.aiapps_normal_toast_view_bg;
+            return R.drawable.aiapps_location_ding;
         }
         return -1;
     }
@@ -183,11 +183,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0072a {
+    public class C0074a {
         public int a;
         public int b;
 
-        C0072a() {
+        C0074a() {
         }
     }
 }

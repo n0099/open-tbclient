@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int bVa;
-    private List<m> bVh;
-    private List<m> bVi;
-    private boolean bVj;
-    private boolean bVk;
-    private int bVl = 2;
-    private int bVm = 1;
+    private int ccV;
+    private List<m> cdc;
+    private List<m> cdd;
+    private boolean cde;
+    private boolean cdf;
+    private int cdg = 2;
+    private int cdh = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.bVa = 2;
-        this.bVh = list;
-        this.bVk = z;
-        this.bVa = i;
-        W(list);
+        this.ccV = 2;
+        this.cdc = list;
+        this.cdf = z;
+        this.ccV = i;
+        ad(list);
     }
 
-    public void W(List<m> list) {
-        if (list != null && list.size() >= this.bVl && list.size() <= this.bVa) {
-            this.bVj = true;
-        } else if (list.size() > this.bVa && this.bVk) {
-            this.bVj = true;
+    public void ad(List<m> list) {
+        if (list != null && list.size() >= this.cdg && list.size() <= this.ccV) {
+            this.cde = true;
+        } else if (list.size() > this.ccV && this.cdf) {
+            this.cde = true;
         } else {
-            this.bVj = false;
+            this.cde = false;
         }
-        this.bVi = afl();
+        this.cdd = akk();
     }
 
-    private List<m> afl() {
+    private List<m> akk() {
         ArrayList arrayList = new ArrayList();
-        if (this.bVh != null) {
-            if (this.bVj) {
-                if (this.bVh.size() > this.bVa && this.bVh.size() >= this.bVm) {
-                    arrayList.addAll(this.bVh.subList(0, this.bVa));
-                    arrayList.addAll(0, this.bVh.subList(this.bVa - this.bVm, this.bVa));
-                    arrayList.addAll(this.bVh.subList(0, this.bVm));
+        if (this.cdc != null) {
+            if (this.cde) {
+                if (this.cdc.size() > this.ccV && this.cdc.size() >= this.cdh) {
+                    arrayList.addAll(this.cdc.subList(0, this.ccV));
+                    arrayList.addAll(0, this.cdc.subList(this.ccV - this.cdh, this.ccV));
+                    arrayList.addAll(this.cdc.subList(0, this.cdh));
                 } else {
-                    arrayList.addAll(this.bVh);
-                    arrayList.addAll(0, this.bVh.subList(this.bVh.size() - this.bVm, this.bVh.size()));
-                    arrayList.addAll(this.bVh.subList(0, this.bVm));
+                    arrayList.addAll(this.cdc);
+                    arrayList.addAll(0, this.cdc.subList(this.cdc.size() - this.cdh, this.cdc.size()));
+                    arrayList.addAll(this.cdc.subList(0, this.cdh));
                 }
-            } else if (this.bVh != null && this.bVh.size() > 0 && this.bVh.size() >= this.bVm) {
-                arrayList.addAll(this.bVh.subList(0, this.bVm));
+            } else if (this.cdc != null && this.cdc.size() > 0 && this.cdc.size() >= this.cdh) {
+                arrayList.addAll(this.cdc.subList(0, this.cdh));
             }
         }
         return arrayList;
     }
 
-    public int io(int i) {
-        if (this.bVj) {
-            int size = this.bVi.size();
+    public int jc(int i) {
+        if (this.cde) {
+            int size = this.cdd.size();
             if (i == 0) {
-                return (size - 1) - this.bVm;
+                return (size - 1) - this.cdh;
             }
-            if (i == size - this.bVm) {
-                return this.bVm;
+            if (i == size - this.cdh) {
+                return this.cdh;
             }
             return i;
         }
         return i;
     }
 
-    public int ip(int i) {
-        if (this.bVj) {
-            return i - this.bVm;
+    public int jd(int i) {
+        if (this.cde) {
+            return i - this.cdh;
         }
         return i;
     }
 
-    public int afm() {
-        if (this.bVh == null) {
+    public int akl() {
+        if (this.cdc == null) {
             return 0;
         }
-        return this.bVh.size();
+        return this.cdc.size();
     }
 
-    public int afn() {
-        if (this.bVj) {
-            return this.bVm;
+    public int akm() {
+        if (this.cde) {
+            return this.cdh;
         }
         return 0;
     }
 
-    public void iq(int i) {
-        this.bVa = i;
-        W(this.bVh);
+    public void je(int i) {
+        this.ccV = i;
+        ad(this.cdc);
     }
 
-    public void ir(int i) {
-        this.bVl = i;
-        W(this.bVh);
+    public void jf(int i) {
+        this.cdg = i;
+        ad(this.cdc);
     }
 
-    public List<m> afo() {
-        return this.bVi;
+    public List<m> akn() {
+        return this.cdd;
     }
 
-    public void is(int i) {
-        this.bVm = i;
-        W(this.bVh);
+    public void jg(int i) {
+        this.cdh = i;
+        ad(this.cdc);
     }
 }

@@ -5,13 +5,12 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
 import com.baidu.platform.comapi.walknavi.d.a.g.h;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.tencent.connect.common.Constants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
@@ -63,11 +62,11 @@ public final class e {
         jSONObject2.put("gles_version", ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getDeviceConfigurationInfo().reqGlEsVersion >> 16);
         jSONObject2.put("osType", "android");
         jSONObject2.put("engine_version", com.baidu.platform.comapi.walknavi.d.a.g.b.a());
-        jSONObject2.put("app_id", com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
+        jSONObject2.put(Constants.APP_ID, com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
         jSONObject2.put("device_id", Build.MODEL);
         jSONObject2.put("system_version", Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a.toString());
-        jSONObject2.put("publish_id", Constants.VIA_SHARE_TYPE_INFO);
+        jSONObject2.put("publish_id", com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO);
         if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
             jSONObject2.put("update_check", 1);
         }
@@ -110,7 +109,7 @@ public final class e {
                     jSONObject.put("os_cpu_max_freq", h.f());
                     jSONObject.put("os_cpu_cur_freq", h.g());
                     jSONObject.put("os_cpu_abi", Build.CPU_ABI);
-                    jSONObject.put("os_native_heapsize", (int) (Runtime.getRuntime().maxMemory() / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED));
+                    jSONObject.put("os_native_heapsize", (int) (Runtime.getRuntime().maxMemory() / 1048576));
                     jSONObject.put("os_native_sensor", defaultSensor != null);
                     if (Build.VERSION.SDK_INT < 21) {
                         jSONObject.put("os_cpu_supported_abis", Build.CPU_ABI);

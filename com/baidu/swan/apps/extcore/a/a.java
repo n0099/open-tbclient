@@ -7,17 +7,17 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.ae.b;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
         super(jVar, "/swan/publishThread");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
         if (DEBUG) {
             Log.d("ExtCore-PublishThread", "handle: publishThread");
@@ -28,7 +28,7 @@ public class a extends y {
             return false;
         }
         final String optString = c.optString("data", "");
-        aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.a.a.1
+        ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 Toast.makeText(context, optString, 1).show();

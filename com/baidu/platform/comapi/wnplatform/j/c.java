@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
@@ -235,8 +234,8 @@ public class c extends a implements SensorEventListener {
                             StringBuilder sb = new StringBuilder();
                             sb.append("head:" + this.r.d);
                             sb.append("pitch:" + this.r.e);
-                            com.baidu.platform.comapi.wnplatform.d.a.b(WebGLImageLoader.DATA_URL + sb.toString());
-                            com.baidu.platform.comapi.walknavi.b.a().b(WebGLImageLoader.DATA_URL + sb.toString());
+                            com.baidu.platform.comapi.wnplatform.d.a.b("data:" + sb.toString());
+                            com.baidu.platform.comapi.walknavi.b.a().b("data:" + sb.toString());
                         }
                     }
                 } catch (ArrayIndexOutOfBoundsException e3) {

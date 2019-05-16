@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private FrameLayout bfK;
-    private boolean bfL;
+    private FrameLayout bkY;
+    private boolean bkZ;
 
     public b(@NonNull FrameLayout frameLayout) {
-        this.bfK = frameLayout;
+        this.bkY = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
@@ -20,42 +20,46 @@ public class b {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
         layoutParams.topMargin = bVar.getTop();
-        this.bfK.addView(view, layoutParams);
+        this.bkY.addView(view, layoutParams);
         return true;
     }
 
-    public boolean ai(View view) {
-        if (!an(view)) {
+    public boolean al(View view) {
+        if (!aq(view)) {
             return false;
         }
-        this.bfK.removeView(view);
+        this.bkY.removeView(view);
         return true;
     }
 
     public boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        if (!an(view)) {
+        if (!aq(view)) {
             return false;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
         layoutParams.leftMargin = bVar.getLeft();
         layoutParams.topMargin = bVar.getTop();
-        this.bfK.updateViewLayout(view, layoutParams);
+        this.bkY.updateViewLayout(view, layoutParams);
         return true;
     }
 
-    public void cB(boolean z) {
-        this.bfL = z;
+    public boolean isLandScape() {
+        return this.bkZ;
     }
 
-    public boolean an(View view) {
-        return view != null && view.getParent() == this.bfK && this.bfK.indexOfChild(view) >= 0;
+    public void cS(boolean z) {
+        this.bkZ = z;
+    }
+
+    public boolean aq(View view) {
+        return view != null && view.getParent() == this.bkY && this.bkY.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.bfK.getContext();
+        return this.bkY.getContext();
     }
 
-    public FrameLayout Pm() {
-        return this.bfK;
+    public FrameLayout SF() {
+        return this.bkY;
     }
 }

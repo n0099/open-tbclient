@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a nx(String str) {
+    public static a oH(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.it(aVar.error_code);
-        } else if (!m.lO(m.acd() + "voice")) {
+            aVar.error_msg = a.jh(aVar.error_code);
+        } else if (!m.mW(m.ahb() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.it(aVar.error_code);
+            aVar.error_msg = a.jh(aVar.error_code);
         } else {
-            String j = s.j(m.mj(str));
-            if (j == null) {
+            String h = s.h(m.nr(str));
+            if (h == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.it(aVar.error_code);
+                aVar.error_msg = a.jh(aVar.error_code);
             } else {
-                String b = m.b(j, 1, true);
-                if (m.bI(str, b)) {
+                String b = m.b(h, 1, true);
+                if (m.bS(str, b)) {
                     aVar.path = b;
-                    aVar.md5 = j;
+                    aVar.md5 = h;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.it(aVar.error_code);
+                    aVar.error_msg = a.jh(aVar.error_code);
                 }
             }
         }
@@ -33,12 +33,12 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return m.bI(str, m.b(str2, 1, true));
+        return m.bS(str, m.b(str2, 1, true));
     }
 
-    public static synchronized void afs() {
+    public static synchronized void akr() {
         synchronized (b.class) {
-            File file = new File(m.acd() + "voice");
+            File file = new File(m.ahb() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

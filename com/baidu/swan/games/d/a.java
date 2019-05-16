@@ -9,16 +9,16 @@ public class a {
     public static void a(c cVar, JsObject jsObject) {
         boolean z = false;
         b bVar = new b();
-        com.baidu.swan.games.binding.model.c cVar2 = com.baidu.swan.games.binding.model.c.b(jsObject) == null ? new com.baidu.swan.games.binding.model.c() : com.baidu.swan.games.binding.model.c.b(jsObject);
+        com.baidu.swan.games.binding.model.c cVar2 = com.baidu.swan.games.binding.model.c.c(jsObject) == null ? new com.baidu.swan.games.binding.model.c() : com.baidu.swan.games.binding.model.c.c(jsObject);
         if (cVar == null) {
             bVar.errMsg = "openCustomerServiceConversation:fail";
             com.baidu.swan.games.utils.a.a(cVar2, false, bVar);
             return;
         }
-        if (com.baidu.swan.games.glsurface.a.b.Os()) {
-            com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-            if (IV != null) {
-                if (SchemeRouter.invoke(com.baidu.swan.apps.u.a.Cw(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + IV.getAppKey() + "\"}"))) {
+        if (com.baidu.swan.games.glsurface.a.b.Rr()) {
+            com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+            if (Lq != null) {
+                if (SchemeRouter.invoke(com.baidu.swan.apps.u.a.DB(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode("{\"appKey\":\"" + Lq.getAppKey() + "\"}"))) {
                     bVar.errMsg = "openCustomerServiceConversation:ok";
                     z = true;
                 } else {

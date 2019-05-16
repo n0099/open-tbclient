@@ -13,57 +13,57 @@ import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsed
 import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes5.dex */
 public class a<T> {
-    private BaseActivity<T> cNd;
-    private com.baidu.adp.framework.listener.a eDK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005) { // from class: com.baidu.tieba.forumMember.tbtitle.model.a.1
+    private BaseActivity<T> cVo;
+    private com.baidu.adp.framework.listener.a eTE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005) { // from class: com.baidu.tieba.forumMember.tbtitle.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
                 GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                a.this.eWs.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                a.this.fmw.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
             } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
                 GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                a.this.eWs.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                a.this.fmw.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
             }
         }
     };
-    private CustomMessageListener eUz = new CustomMessageListener(2003007) { // from class: com.baidu.tieba.forumMember.tbtitle.model.a.2
+    private CustomMessageListener fkJ = new CustomMessageListener(2003007) { // from class: com.baidu.tieba.forumMember.tbtitle.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
                 GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-                a.this.eWs.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
+                a.this.fmw.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
             }
         }
     };
-    private InterfaceC0287a eWs;
+    private InterfaceC0305a fmw;
 
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0287a {
+    public interface InterfaceC0305a {
         void a(DataRes dataRes, boolean z, int i, String str);
     }
 
-    public a(InterfaceC0287a interfaceC0287a, BaseActivity<T> baseActivity) {
-        this.eWs = interfaceC0287a;
-        this.cNd = baseActivity;
-        bbk();
+    public a(InterfaceC0305a interfaceC0305a, BaseActivity<T> baseActivity) {
+        this.fmw = interfaceC0305a;
+        this.cVo = baseActivity;
+        biA();
     }
 
-    public void pK(int i) {
+    public void qQ(int i) {
         GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
         getLevelInfoRequestMessage.setForumId(i);
-        this.cNd.sendMessage(getLevelInfoRequestMessage);
+        this.cVo.sendMessage(getLevelInfoRequestMessage);
     }
 
-    public void pL(int i) {
+    public void qR(int i) {
         GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
         getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
-        this.cNd.sendMessage(getLevelInfoReadCacheRequestMessage);
+        this.cVo.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
-    private void bbk() {
-        this.cNd.registerListener(this.eUz);
-        this.cNd.registerListener(this.eDK);
+    private void biA() {
+        this.cVo.registerListener(this.fkJ);
+        this.cVo.registerListener(this.eTE);
     }
 }

@@ -13,12 +13,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractRunnableC0056a implements Runnable {
-        private AbstractRunnableC0056a() {
+    public static abstract class AbstractRunnableC0055a implements Runnable {
+        private AbstractRunnableC0055a() {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ AbstractRunnableC0056a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0055a(b bVar) {
             this();
         }
 

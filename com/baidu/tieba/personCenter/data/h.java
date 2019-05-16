@@ -1,8 +1,14 @@
 package com.baidu.tieba.personCenter.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes4.dex */
-public class h {
-    public boolean hLQ;
-    public String hLS;
-    public boolean isShowRedTip = false;
-    public long hLR = -1;
+public class h extends com.baidu.tieba.card.data.b {
+    public static BdUniqueId idT = BdUniqueId.gen();
+    public UserData userData;
+
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return idT;
+    }
 }

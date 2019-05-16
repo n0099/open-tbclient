@@ -1,100 +1,46 @@
 package com.meizu.cloud.pushsdk.notification.b;
 
-import com.baidu.mobstat.Config;
-import com.xiaomi.mipush.sdk.Constants;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import android.app.Notification;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.widget.RemoteViews;
+import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 /* loaded from: classes3.dex */
-public class a {
-    public static void a(String str, String str2) {
-        File file;
-        try {
-            new File(str2).mkdirs();
-            String[] list = new File(str).list();
-            for (int i = 0; i < list.length; i++) {
-                if (str.endsWith(File.separator)) {
-                    file = new File(str + list[i]);
-                } else {
-                    file = new File(str + File.separator + list[i]);
-                }
-                if (file.isFile()) {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(str2 + "/" + file.getName().toString());
-                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    fileInputStream.close();
-                } else if (file.isDirectory()) {
-                    a(str + "/" + list[i], str2 + "/" + list[i]);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+public class a extends c {
+    public a(Context context, PushNotificationBuilder pushNotificationBuilder) {
+        super(context, pushNotificationBuilder);
     }
 
-    public static boolean a(String str) {
-        File file = new File(str);
-        if (file.isFile() && file.exists()) {
-            return file.delete();
+    private void b(RemoteViews remoteViews, MessageV3 messageV3) {
+        if (messageV3.getmNotificationStyle() == null || a()) {
+            return;
         }
-        return false;
+        if (TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl())) {
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), 8);
+            return;
+        }
+        Bitmap a = a(messageV3.getmNotificationStyle().getExpandableImageUrl());
+        if (a == null) {
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), 8);
+            return;
+        }
+        remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), 0);
+        remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), a);
     }
 
-    public static File[] b(String str, final String str2) {
-        File file = new File(str);
-        File[] fileArr = new File[0];
-        if (file != null && file.isDirectory()) {
-            return file.listFiles(new FileFilter() { // from class: com.meizu.cloud.pushsdk.notification.b.a.1
-                @Override // java.io.FileFilter
-                public boolean accept(File file2) {
-                    try {
-                        return Long.valueOf(str2).longValue() > Long.valueOf(file2.getName().split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)[1]).longValue();
-                    } catch (Exception e) {
-                        com.meizu.cloud.a.a.e("FileUtil", "filters file error " + e.getMessage());
-                        return true;
-                    }
-                }
-            });
+    @Override // com.meizu.cloud.pushsdk.notification.a
+    protected void b(Notification notification, MessageV3 messageV3) {
+        if (MinSdkChecker.isSupportNotificationBuild()) {
+            RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.a(this.a));
+            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.d(this.a), messageV3.getTitle());
+            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.e(this.a), messageV3.getContent());
+            remoteViews.setLong(com.meizu.cloud.pushsdk.notification.c.c.f(this.a), "setTime", System.currentTimeMillis());
+            a(remoteViews, messageV3);
+            b(remoteViews, messageV3);
+            notification.bigContentView = remoteViews;
         }
-        return fileArr;
-    }
-
-    public static boolean b(String str) {
-        if (!str.endsWith(File.separator)) {
-            str = str + File.separator;
-        }
-        File file = new File(str);
-        if (file.exists() && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            boolean z = true;
-            for (int i = 0; i < listFiles.length; i++) {
-                if (listFiles[i].isFile()) {
-                    z = a(listFiles[i].getAbsolutePath());
-                    if (!z) {
-                        break;
-                    }
-                } else {
-                    z = b(listFiles[i].getAbsolutePath());
-                    if (!z) {
-                        break;
-                    }
-                }
-            }
-            if (z) {
-                return file.delete();
-            }
-            return false;
-        }
-        return false;
     }
 }

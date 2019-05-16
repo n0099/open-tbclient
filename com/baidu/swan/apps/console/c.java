@@ -7,14 +7,14 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.e;
 /* loaded from: classes2.dex */
 public class c {
-    private static boolean amP = false;
+    private static boolean anb = false;
 
-    public static void aR(boolean z) {
-        amP = z;
+    public static void aT(boolean z) {
+        anb = z;
     }
 
-    public static boolean wK() {
-        return amP;
+    public static boolean xC() {
+        return anb;
     }
 
     public static void d(String str, String str2) {
@@ -53,12 +53,12 @@ public class c {
     }
 
     private static void j(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && amP) {
+        if (!TextUtils.isEmpty(str3) && anb) {
             StringBuilder sb = new StringBuilder();
-            String a = e.a(e.LO(), "yyyy-MM-dd HH:mm:ss");
+            String a = e.a(e.Ov(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            com.baidu.swan.apps.w.e.Ea().DG().W(str, sb.toString());
+            com.baidu.swan.apps.w.e.FV().FB().R(str, sb.toString());
         }
     }
 

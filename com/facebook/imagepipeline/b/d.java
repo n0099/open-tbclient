@@ -4,11 +4,11 @@ import com.facebook.imagepipeline.memory.i;
 import com.facebook.imagepipeline.memory.q;
 /* loaded from: classes2.dex */
 public class d implements com.facebook.common.g.a {
-    private final b jEL;
-    private final i jEM;
+    private final b jXy;
+    private final i jXz;
 
     public d(q qVar) {
-        this.jEM = qVar.czs();
-        this.jEL = new b(qVar.czv());
+        this.jXz = qVar.cHo();
+        this.jXy = new b(qVar.cHr());
     }
 }

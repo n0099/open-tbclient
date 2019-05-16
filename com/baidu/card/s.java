@@ -5,31 +5,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.aj;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class s extends c implements i<aj>, j {
-    private static final int Yi = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds115);
-    NEGFeedBackView Yj;
+    private static final int VZ = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+    NEGFeedBackView Wa;
 
     public s(TbPageContext tbPageContext) {
-        bw(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Yi, Yi);
+        bp(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(VZ, VZ);
         layoutParams.addRule(11);
-        layoutParams.topMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds32);
+        layoutParams.topMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds32);
         a(layoutParams);
-        this.Yj = new NEGFeedBackView(tbPageContext);
-        I(this.Yj);
+        this.Wa = new NEGFeedBackView(tbPageContext);
+        I(this.Wa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.c
-    /* renamed from: rp */
+    /* renamed from: qk */
     public NEGFeedBackView getDecorView() {
-        return this.Yj;
+        return this.Wa;
     }
 
     public void a(NEGFeedBackView.a aVar) {
-        this.Yj.setEventCallback(aVar);
+        this.Wa.setEventCallback(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,16 +37,16 @@ public class s extends c implements i<aj>, j {
     /* renamed from: a */
     public void C(aj ajVar) {
         if (ajVar == null) {
-            this.Yj.setVisibility(8);
+            this.Wa.setVisibility(8);
             return;
         }
-        this.Yj.setData(ajVar);
-        this.Yj.setFirstRowSingleColumn(true);
-        this.Yj.setVisibility(0);
+        this.Wa.setData(ajVar);
+        this.Wa.setFirstRowSingleColumn(true);
+        this.Wa.setVisibility(0);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Yj.onChangeSkinType();
+        this.Wa.onChangeSkinType();
     }
 }

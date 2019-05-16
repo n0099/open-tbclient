@@ -3,7 +3,7 @@ package com.baidu.swan.apps.d;
 import android.content.Context;
 import android.util.Log;
 import android.webkit.DownloadListener;
-import com.baidu.swan.apps.an.y;
+import com.baidu.swan.apps.an.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -12,11 +12,11 @@ public class c extends com.baidu.swan.apps.view.c {
 
     public c(Context context) {
         super(context);
-        this.aof.setDownloadListener(new a());
+        this.aor.setDownloadListener(new a());
     }
 
-    @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
-    public String wc() {
+    @Override // com.baidu.swan.apps.core.i.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
+    public String wT() {
         return "ai_apps_ad_landing";
     }
 
@@ -34,7 +34,7 @@ public class c extends com.baidu.swan.apps.view.c {
             try {
                 jSONObject.put("url", str);
                 jSONObject.put("userAgent", str2);
-                jSONObject.put("contentDisposition", y.hK(str3));
+                jSONObject.put("contentDisposition", aa.io(str3));
                 jSONObject.put("mimeType", str4);
                 jSONObject.put("contentLength", j);
             } catch (JSONException e) {
@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.apps.view.c {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.apps.u.a.CG().g(c.this.mContext, jSONObject);
+            com.baidu.swan.apps.u.a.DL().e(c.this.mContext, jSONObject);
         }
     }
 }

@@ -1,65 +1,65 @@
 package com.baidu.swan.apps.model.a.a;
 /* loaded from: classes2.dex */
 public class b {
-    protected boolean aBL;
-    protected boolean aBM;
-    private boolean aBN;
+    protected boolean aDq;
+    protected boolean aDr;
+    private boolean aDs;
     protected int height;
     protected int left;
     protected int top;
     protected int width;
 
     public b() {
-        this.aBL = false;
-        this.aBM = false;
+        this.aDq = false;
+        this.aDr = false;
     }
 
     public b(b bVar) {
-        this.aBL = false;
-        this.aBM = false;
+        this.aDq = false;
+        this.aDr = false;
         if (bVar != null) {
             this.left = bVar.left;
             this.top = bVar.top;
             this.width = bVar.width;
             this.height = bVar.height;
-            this.aBL = bVar.aBL;
-            this.aBM = bVar.aBM;
-            this.aBN = bVar.aBN;
+            this.aDq = bVar.aDq;
+            this.aDr = bVar.aDr;
+            this.aDs = bVar.aDs;
         }
     }
 
     public b(int i, int i2, int i3, int i4) {
-        this.aBL = false;
-        this.aBM = false;
+        this.aDq = false;
+        this.aDr = false;
         this.left = i;
         this.top = i2;
         this.width = i3;
         this.height = i4;
     }
 
-    public static b EM() {
+    public static b GK() {
         b bVar = new b();
-        bVar.bq(true);
-        bVar.br(true);
+        bVar.by(true);
+        bVar.bz(true);
         bVar.setWidth(-1);
         bVar.setHeight(-1);
         return bVar;
     }
 
-    public void bq(boolean z) {
-        this.aBL = z;
+    public void by(boolean z) {
+        this.aDq = z;
     }
 
-    public void br(boolean z) {
-        this.aBM = z;
+    public void bz(boolean z) {
+        this.aDr = z;
     }
 
     public boolean isFixed() {
-        return this.aBN;
+        return this.aDs;
     }
 
-    public void bs(boolean z) {
-        this.aBN = z;
+    public void bA(boolean z) {
+        this.aDs = z;
     }
 
     public int getLeft() {
@@ -96,8 +96,8 @@ public class b {
 
     public boolean isValid() {
         boolean z = false;
-        boolean z2 = this.aBL || this.width >= 0;
-        if (this.aBM || this.height >= 0) {
+        boolean z2 = this.aDq || this.width >= 0;
+        if (this.aDr || this.height >= 0) {
             z = true;
         }
         return z2 & z;
@@ -109,12 +109,12 @@ public class b {
         }
         if (obj instanceof b) {
             b bVar = (b) obj;
-            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aBN == bVar.aBN;
+            return this.left == bVar.left && this.top == bVar.top && this.height == bVar.height && this.width == bVar.width && this.aDs == bVar.aDs;
         }
         return false;
     }
 
     public String toString() {
-        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aBL + ", HAuto=" + this.aBM + ", fixed=" + this.aBN + '}';
+        return "Position{l=" + this.left + ", t=" + this.top + ", w=" + this.width + ", h=" + this.height + ", WAuto=" + this.aDq + ", HAuto=" + this.aDr + ", fixed=" + this.aDs + '}';
     }
 }

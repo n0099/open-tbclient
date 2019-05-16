@@ -14,10 +14,10 @@ public interface IRefreshable {
     public interface a {
         void a(State state);
 
-        void pF();
+        void oA();
 
-        void pG();
+        void oB();
 
-        void pH();
+        void oC();
     }
 }

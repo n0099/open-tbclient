@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
+    final T defaultValue;
     final int index;
-    final boolean jWM;
-    final T jWN;
+    final boolean kpc;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -36,8 +36,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.jWM) {
-                        jVar.onNext(OperatorElementAt.this.jWN);
+                    if (OperatorElementAt.this.kpc) {
+                        jVar.onNext(OperatorElementAt.this.defaultValue);
                         jVar.onCompleted();
                         return;
                     }

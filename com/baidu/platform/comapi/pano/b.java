@@ -5,13 +5,13 @@ import com.baidu.platform.comapi.pano.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class b extends HttpClient.ProtoResultCallback {
-    final /* synthetic */ a.InterfaceC0065a a;
+    final /* synthetic */ a.InterfaceC0067a a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, a.InterfaceC0065a interfaceC0065a) {
+    public b(a aVar, a.InterfaceC0067a interfaceC0067a) {
         this.b = aVar;
-        this.a = interfaceC0065a;
+        this.a = interfaceC0067a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
@@ -22,8 +22,8 @@ public class b extends HttpClient.ProtoResultCallback {
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         c a;
-        a.InterfaceC0065a interfaceC0065a = this.a;
+        a.InterfaceC0067a interfaceC0067a = this.a;
         a = this.b.a(str);
-        interfaceC0065a.a((a.InterfaceC0065a) a);
+        interfaceC0067a.a((a.InterfaceC0067a) a);
     }
 }

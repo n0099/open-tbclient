@@ -48,19 +48,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.Td() != null) {
-                jSONObject.put("content", hVar.Td().toString());
+            } else if (hVar.WX() != null) {
+                jSONObject.put("content", hVar.WX().toString());
             }
-            if (!TextUtils.isEmpty(hVar.Tc())) {
-                jSONObject.put(ImageViewerConfig.ABTEST, hVar.Tc());
+            if (!TextUtils.isEmpty(hVar.WW())) {
+                jSONObject.put(ImageViewerConfig.ABTEST, hVar.WW());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.SY()) {
+            if (hVar.WS()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.SU().jO(hVar.getId()));
+            jSONObject.put("idtype", d.WI().kM(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -114,13 +114,13 @@ public class b {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(t tVar, boolean z) {
+    public boolean a(v vVar, boolean z) {
         BufferedReader bufferedReader;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdir();
         }
-        boolean b = z ? false : b(tVar);
+        boolean b = z ? false : b(vVar);
         File file2 = new File(file, z ? "filereal" : "filedata");
         if (file2.exists()) {
             try {
@@ -135,7 +135,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                            tVar.jW("1");
+                            vVar.kV("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -146,7 +146,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        tVar.aI(jSONObject);
+                        vVar.aU(jSONObject);
                         b = true;
                     } catch (Exception e) {
                         if (bufferedReader != null) {
@@ -167,7 +167,7 @@ public class b {
                         throw th;
                     }
                 }
-                tVar.g(j, j2);
+                vVar.g(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -185,7 +185,7 @@ public class b {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
-    private boolean b(t tVar) {
+    private boolean b(v vVar) {
         File[] listFiles;
         BufferedReader bufferedReader;
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcdir", "proc");
@@ -207,7 +207,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                tVar.jW("1");
+                                vVar.kV("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -218,7 +218,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            tVar.aI(jSONObject);
+                            vVar.aU(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
@@ -243,7 +243,7 @@ public class b {
                         throw th;
                     }
                 } while (i < 10);
-                tVar.g(j, j2);
+                vVar.g(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -263,7 +263,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cT(boolean z) {
+    public void dk(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

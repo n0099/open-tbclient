@@ -44,7 +44,6 @@ import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
 import com.baidu.sapi2.base.debug.Log;
@@ -844,7 +843,7 @@ public final class SapiWebView extends WebView {
                 } else {
                     if (SapiWebView.this.at != null) {
                         Uri parse = Uri.parse(str);
-                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : Config.TRACE_TODAY_VISIT_SPLIT + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
+                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : ":" + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
                             SapiAccountManager.getInstance().getAccountService().a(SapiWebView.this.at, str);
                             return true;
                         }

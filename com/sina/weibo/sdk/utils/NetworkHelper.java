@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
+import com.baidu.poly.bean.PayChannel;
 /* loaded from: classes2.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
@@ -13,7 +14,7 @@ public class NetworkHelper {
         sb.append("__");
         sb.append("weibo");
         sb.append("__");
-        sb.append("sdk");
+        sb.append(PayChannel.ACTION_TYPE_SDK);
         sb.append("__");
         try {
             sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", "_"));

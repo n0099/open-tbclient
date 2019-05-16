@@ -22,39 +22,39 @@ import android.view.WindowManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.apps.w.f;
-import com.baidu.swan.ubc.q;
+import com.baidu.swan.ubc.s;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private static boolean aQA;
-    private static Runnable aQB;
-    public static long aQx;
-    private static ContentObserver aQy;
-    private static PackageManager aQz;
+    public static long aTl;
+    private static ContentObserver aTm;
+    private static PackageManager aTn;
+    private static boolean aTo;
+    private static Runnable aTp;
     private static ContentResolver mContentResolver;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ag.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
 
-    static /* synthetic */ int JO() {
+    static /* synthetic */ int Mo() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean JN() {
+    private static boolean Mn() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
-    public static void cb(Context context) {
-        aQz = context.getPackageManager();
+    public static void bB(Context context) {
+        aTn = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        aQy = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
+        aTm = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ag.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 super.onChange(z, uri);
@@ -64,10 +64,10 @@ public class c {
                 c.a(handler, uri);
             }
         };
-        if (cc(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aQy);
+        if (bC(context)) {
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, aTm);
         } else {
-            d.a(AppRuntime.getAppContext(), "WRITE_EXTERNAL_STORAGE permission denied").II();
+            d.a(AppRuntime.getAppContext(), "WRITE_EXTERNAL_STORAGE permission denied").Ld();
         }
     }
 
@@ -76,8 +76,8 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (uri.toString().matches(a.aQD + ".*")) {
-            if (JN() && aQA) {
+        if (uri.toString().matches(a.aTr + ".*")) {
+            if (Mn() && aTo) {
                 mLastTime = System.currentTimeMillis();
                 return;
             }
@@ -86,7 +86,7 @@ public class c {
             mLastTime = currentTimeMillis;
             try {
                 try {
-                    cursor = mContentResolver.query(uri, a.aAr, null, null, "date_added DESC");
+                    cursor = mContentResolver.query(uri, a.aBo, null, null, "date_added DESC");
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -98,18 +98,18 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + valueOf);
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
-                                if (a.gL(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
-                                    aQA = true;
+                                if (a.hf(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
+                                    aTo = true;
                                     final b bVar = new b(string, valueOf);
-                                    aQB = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
+                                    aTp = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
                                         @Override // java.lang.Runnable
                                         public void run() {
-                                            c.JO();
+                                            c.Mo();
                                             if (c.DEBUG) {
                                                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                             }
-                                            if (c.gJ(string) || c.mCount > 10) {
-                                                if (c.gJ(string) && c.G(2000L) && !c.gI(string)) {
+                                            if (c.hd(string) || c.mCount > 10) {
+                                                if (c.hd(string) && c.T(2000L) && !c.hc(string)) {
                                                     for (com.baidu.swan.apps.ag.a aVar : c.mCallbacks) {
                                                         if (aVar != null) {
                                                             aVar.a(bVar);
@@ -119,51 +119,51 @@ public class c {
                                                 }
                                                 return;
                                             }
-                                            handler.postDelayed(c.aQB, 100L);
+                                            handler.postDelayed(c.aTp, 100L);
                                         }
                                     };
-                                    handler.post(aQB);
+                                    handler.post(aTp);
                                 } else {
-                                    aQA = false;
+                                    aTo = false;
                                 }
                             }
                         } catch (RuntimeException e) {
-                            if (aQz != null) {
-                                List<ProviderInfo> queryContentProviders = aQz.queryContentProviders(null, 0, 131072);
+                            if (aTn != null) {
+                                List<ProviderInfo> queryContentProviders = aTn.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
                                 hashMap.put("ext", queryContentProviders.toString());
-                                q.onEvent("460", hashMap);
+                                s.onEvent("460", hashMap);
                             }
-                            com.baidu.swan.c.b.c(cursor);
+                            com.baidu.swan.c.a.c(cursor);
                             return;
                         }
                     }
-                    com.baidu.swan.c.b.c(cursor);
+                    com.baidu.swan.c.a.c(cursor);
                 } catch (Throwable th) {
                     closeable = currentTimeMillis;
                     th = th;
-                    com.baidu.swan.c.b.c(closeable);
+                    com.baidu.swan.c.a.c(closeable);
                     throw th;
                 }
             } catch (RuntimeException e2) {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.swan.c.b.c(closeable);
+                com.baidu.swan.c.a.c(closeable);
                 throw th;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean G(long j) {
-        return f.Ec().Ef() && System.currentTimeMillis() - aQx > j;
+    public static boolean T(long j) {
+        return f.FY().Gb() && System.currentTimeMillis() - aTl > j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gI(String str) {
+    public static boolean hc(String str) {
         Point point = new Point();
         ((WindowManager) AppRuntime.getAppContext().getSystemService("window")).getDefaultDisplay().getSize(point);
         int navigationBarHeight = (int) ((point.y + getNavigationBarHeight()) * 1.2d);
@@ -184,12 +184,12 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gJ(String str) {
+    public static boolean hd(String str) {
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
 
-    private static boolean cc(Context context) {
+    private static boolean bC(Context context) {
         return Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0;
     }
 
@@ -207,29 +207,29 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public Long aQE;
+        public Long aTs;
         public String mImagePath;
 
         public b(String str, Long l) {
             this.mImagePath = str;
-            this.aQE = l;
+            this.aTs = l;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public static String[] aAr;
-        public static String aQD;
+        public static String[] aBo;
+        public static String aTr;
 
         static {
-            aQD = null;
-            aAr = null;
-            aQD = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            aAr = new String[]{"_display_name", "_data", "date_added"};
+            aTr = null;
+            aBo = null;
+            aTr = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            aBo = new String[]{"_display_name", "_data", "date_added"};
         }
 
-        public static boolean gL(String str) {
+        public static boolean hf(String str) {
             if (str == null) {
                 return false;
             }

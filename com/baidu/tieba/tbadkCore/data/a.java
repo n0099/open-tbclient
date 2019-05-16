@@ -5,16 +5,16 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private String iFe;
-    private String iFf;
-    private String iFg;
+    private String iXR;
+    private String iXS;
+    private String iXT;
     private int mHeight;
     private int mImageType;
     private String mTitle;
     private int mWidth;
 
-    public String cdN() {
-        return this.iFe;
+    public String clS() {
+        return this.iXR;
     }
 
     public int getImageWidth() {
@@ -25,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String cdO() {
-        return this.iFf;
+    public String clT() {
+        return this.iXS;
     }
 
     public String getTitle() {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.iFg;
+        return this.iXT;
     }
 
     public void a(ActHot actHot) {
@@ -43,8 +43,8 @@ public class a {
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.mWidth = com.baidu.adp.lib.g.b.l(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.l(split[1], 1);
+                    this.mWidth = com.baidu.adp.lib.g.b.f(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.f(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -55,10 +55,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.iFe = actHot.img_src;
-            this.iFf = actHot.link;
+            this.iXR = actHot.img_src;
+            this.iXS = actHot.link;
             this.mTitle = actHot.author_name;
-            this.iFg = actHot.img_des;
+            this.iXT = actHot.img_des;
             this.mImageType = actHot.img_type.intValue();
         }
     }

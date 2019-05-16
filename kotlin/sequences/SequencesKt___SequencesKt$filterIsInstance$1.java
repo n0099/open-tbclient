@@ -21,7 +21,7 @@ public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda i
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {
-        p.aL(3, "R");
+        p.aO(3, "R");
         return obj instanceof Object;
     }
 }

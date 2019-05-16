@@ -1,5 +1,9 @@
 package com.baidu.swan.menu;
+
+import java.util.List;
 /* loaded from: classes2.dex */
 public interface c {
-    void a(MainMenuView mainMenuView);
+    boolean a(j jVar);
+
+    void d(int i, List<j> list);
 }

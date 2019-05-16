@@ -16,11 +16,11 @@ public class e extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String VG() {
+    public String aam() {
         return "TBHY_COMMON_IS_GAME_INSTALL";
     }
 
-    @o(abG = false, value = "isGameInstall")
+    @o(agy = false, value = "isGameInstall")
     private JSONObject isGameInstall(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;

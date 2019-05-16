@@ -13,7 +13,7 @@ public class a {
         return 0;
     }
 
-    public static void bh(String str) {
+    public static void aR(String str) {
         if (str == null) {
             str = "";
         }

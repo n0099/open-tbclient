@@ -212,7 +212,7 @@ public class BaiduMap {
         int i = 0;
         int i2 = 0;
         for (String str2 : str.replaceAll("^\\{", "").replaceAll("\\}$", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            String[] split = str2.replaceAll("\"", "").split(Config.TRACE_TODAY_VISIT_SPLIT);
+            String[] split = str2.replaceAll("\"", "").split(":");
             if (Config.EVENT_HEAT_X.equals(split[0])) {
                 i2 = Integer.valueOf(split[1]).intValue();
             }

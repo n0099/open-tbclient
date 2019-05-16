@@ -8,9 +8,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class e<K, V> {
-    e<K, V>.b bow;
-    e<K, V>.c box;
-    e<K, V>.C0214e boy;
+    e<K, V>.b bux;
+    e<K, V>.c buy;
+    e<K, V>.C0228e buz;
 
     protected abstract void colClear();
 
@@ -360,8 +360,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    final class C0214e implements Collection<V> {
-        C0214e() {
+    final class C0228e implements Collection<V> {
+        C0228e() {
         }
 
         @Override // java.util.Collection
@@ -546,23 +546,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.bow == null) {
-            this.bow = new b();
+        if (this.bux == null) {
+            this.bux = new b();
         }
-        return this.bow;
+        return this.bux;
     }
 
     public Set<K> getKeySet() {
-        if (this.box == null) {
-            this.box = new c();
+        if (this.buy == null) {
+            this.buy = new c();
         }
-        return this.box;
+        return this.buy;
     }
 
     public Collection<V> getValues() {
-        if (this.boy == null) {
-            this.boy = new C0214e();
+        if (this.buz == null) {
+            this.buz = new C0228e();
         }
-        return this.boy;
+        return this.buz;
     }
 }

@@ -19,56 +19,56 @@ public class e {
             com.baidu.swan.apps.console.c.e("map", "initMapView model is invalid");
             return;
         }
-        BaiduMap map = bVar.bhn.getMap();
+        BaiduMap map = bVar.bns.getMap();
         com.baidu.swan.impl.map.b.b bVar3 = new com.baidu.swan.impl.map.b.b(bVar);
-        bVar.bhn.getMap().setOnMapClickListener(bVar3);
-        bVar.bhn.getMap().setOnMarkerClickListener(bVar3);
-        bVar.bhn.getMap().setOnMapLoadedCallback(bVar3);
-        bVar.bhn.getMap().setOnMapRenderCallbadk(bVar3);
-        bVar.bhn.getMap().setOnMapStatusChangeListener(bVar3);
-        bVar.bhn.getMap().setOnMyLocationClickListener(bVar3);
-        map.getUiSettings().setScrollGesturesEnabled(cVar.ayV);
-        map.getUiSettings().setRotateGesturesEnabled(cVar.ayW);
-        map.getUiSettings().setZoomGesturesEnabled(cVar.ayU);
-        bVar.bhn.showZoomControls(cVar.ayU);
-        map.setBuildingsEnabled(cVar.ayZ);
-        map.getUiSettings().setOverlookingGesturesEnabled(cVar.ayY);
-        if (cVar.ayM != null && cVar.ayM.isValid()) {
-            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar.ayM);
-            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar.ayM.latitude, cVar.ayM.longitude)));
+        bVar.bns.getMap().setOnMapClickListener(bVar3);
+        bVar.bns.getMap().setOnMarkerClickListener(bVar3);
+        bVar.bns.getMap().setOnMapLoadedCallback(bVar3);
+        bVar.bns.getMap().setOnMapRenderCallbadk(bVar3);
+        bVar.bns.getMap().setOnMapStatusChangeListener(bVar3);
+        bVar.bns.getMap().setOnMyLocationClickListener(bVar3);
+        map.getUiSettings().setScrollGesturesEnabled(cVar.azT);
+        map.getUiSettings().setRotateGesturesEnabled(cVar.azU);
+        map.getUiSettings().setZoomGesturesEnabled(cVar.azS);
+        bVar.bns.showZoomControls(cVar.azS);
+        map.setBuildingsEnabled(cVar.azX);
+        map.getUiSettings().setOverlookingGesturesEnabled(cVar.azW);
+        if (cVar.azK != null && cVar.azK.isValid()) {
+            com.baidu.swan.apps.console.c.i("map", "initMapView coordinate is " + cVar.azK);
+            map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar.azK.latitude, cVar.azK.longitude)));
         }
-        float f = map.getMapStatus() != null ? map.getMapStatus().zoom : (float) cVar.ayN;
+        float f = map.getMapStatus() != null ? map.getMapStatus().zoom : (float) cVar.azL;
         if (!z) {
-            f = (float) cVar.ayN;
+            f = (float) cVar.azL;
         }
         map.setMapStatus(MapStatusUpdateFactory.zoomTo(f));
-        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar.ayN);
+        com.baidu.swan.apps.console.c.i("map", "initMapView scale is " + cVar.azL);
         bVar.isShowLocation = cVar.isShowLocation;
         if (cVar.isShowLocation) {
             a(context, bVar2);
         } else {
-            bVar2.cC(false);
+            bVar2.cT(false);
         }
-        map.getUiSettings().setCompassEnabled(cVar.ayX);
-        if (cVar.ayO != null && cVar.ayO.size() > 0) {
-            for (com.baidu.swan.apps.x.a.a.d dVar : cVar.ayO) {
+        map.getUiSettings().setCompassEnabled(cVar.azV);
+        if (cVar.azM != null && cVar.azM.size() > 0) {
+            for (com.baidu.swan.apps.x.a.a.d dVar : cVar.azM) {
                 f.b(bVar, dVar);
                 com.baidu.swan.apps.console.c.i("map", "initMapView createMarker id " + dVar.id);
             }
         }
-        if (cVar.ayR != null && cVar.ayR.size() > 0) {
-            for (com.baidu.swan.apps.x.a.a.b bVar4 : cVar.ayR) {
+        if (cVar.azP != null && cVar.azP.size() > 0) {
+            for (com.baidu.swan.apps.x.a.a.b bVar4 : cVar.azP) {
                 b.a(bVar, bVar4, bVar3);
                 com.baidu.swan.apps.console.c.i("map", "initMapView createControl id " + bVar4.id);
             }
         }
-        if (cVar.ayP != null && cVar.ayP.size() > 0) {
-            for (com.baidu.swan.apps.x.a.a.f fVar : cVar.ayP) {
+        if (cVar.azN != null && cVar.azN.size() > 0) {
+            for (com.baidu.swan.apps.x.a.a.f fVar : cVar.azN) {
                 if (!fVar.isValid()) {
                     com.baidu.swan.apps.console.c.e("map", "polyline is invalid");
                 } else {
-                    ArrayList arrayList = new ArrayList(fVar.azq.size());
-                    Iterator<com.baidu.swan.apps.x.a.a.c> it = fVar.azq.iterator();
+                    ArrayList arrayList = new ArrayList(fVar.aAo.size());
+                    Iterator<com.baidu.swan.apps.x.a.a.c> it = fVar.aAo.iterator();
                     while (it.hasNext()) {
                         com.baidu.swan.apps.x.a.a.c next = it.next();
                         arrayList.add(new LatLng(next.latitude, next.longitude));
@@ -76,35 +76,35 @@ public class e {
                     if (arrayList.size() < 2 || arrayList.contains(null)) {
                         com.baidu.swan.apps.console.c.e("map", "polyline count can't less than 2 or your polyline points contains null");
                     } else {
-                        map.addOverlay(new PolylineOptions().points(arrayList).color(fVar.color).width((int) fVar.width).dottedLine(fVar.azs));
+                        map.addOverlay(new PolylineOptions().points(arrayList).color(fVar.color).width((int) fVar.width).dottedLine(fVar.aAq));
                         com.baidu.swan.apps.console.c.i("map", "initMapView createPoly");
                     }
                 }
             }
         }
-        if (cVar.ayQ != null && cVar.ayQ.size() > 0) {
-            for (com.baidu.swan.apps.x.a.a.a aVar : cVar.ayQ) {
+        if (cVar.azO != null && cVar.azO.size() > 0) {
+            for (com.baidu.swan.apps.x.a.a.a aVar : cVar.azO) {
                 if (aVar.isValid()) {
-                    map.addOverlay(new CircleOptions().center(new LatLng(aVar.ayM.latitude, aVar.ayM.longitude)).stroke(new Stroke((int) aVar.azg, aVar.color)).fillColor(aVar.fillColor).radius(aVar.radius));
+                    map.addOverlay(new CircleOptions().center(new LatLng(aVar.azK.latitude, aVar.azK.longitude)).stroke(new Stroke((int) aVar.aAe, aVar.color)).fillColor(aVar.fillColor).radius(aVar.radius));
                     com.baidu.swan.apps.console.c.i("map", "initMapView createCircle");
                 }
             }
         }
-        if (cVar.ayS != null && cVar.ayS.size() > 0) {
+        if (cVar.azQ != null && cVar.azQ.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (com.baidu.swan.apps.x.a.a.c cVar2 : cVar.ayS) {
+            for (com.baidu.swan.apps.x.a.a.c cVar2 : cVar.azQ) {
                 builder.include(new LatLng(cVar2.latitude, cVar2.longitude));
             }
             map.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
             com.baidu.swan.apps.console.c.i("map", "initMapView includePoints");
         }
-        if (cVar.ayT != null && !cVar.ayT.isEmpty()) {
-            for (com.baidu.swan.apps.x.a.a.e eVar : cVar.ayT) {
+        if (cVar.azR != null && !cVar.azR.isEmpty()) {
+            for (com.baidu.swan.apps.x.a.a.e eVar : cVar.azR) {
                 if (!eVar.isValid()) {
                     com.baidu.swan.apps.console.c.e("map", "polygon is invalid");
                 } else {
-                    ArrayList arrayList2 = new ArrayList(eVar.azq.size());
-                    Iterator<com.baidu.swan.apps.x.a.a.c> it2 = eVar.azq.iterator();
+                    ArrayList arrayList2 = new ArrayList(eVar.aAo.size());
+                    Iterator<com.baidu.swan.apps.x.a.a.c> it2 = eVar.aAo.iterator();
                     while (it2.hasNext()) {
                         com.baidu.swan.apps.x.a.a.c next2 = it2.next();
                         arrayList2.add(new LatLng(next2.latitude, next2.longitude));
@@ -112,7 +112,7 @@ public class e {
                     if (arrayList2.size() < 3 || arrayList2.contains(null)) {
                         com.baidu.swan.apps.console.c.e("map", "polygons count can't less than 3 or your polygons points contains null");
                     } else {
-                        map.addOverlay(new PolygonOptions().points(arrayList2).stroke(new Stroke(eVar.strokeWidth, eVar.strokeColor)).fillColor(eVar.fillColor).zIndex(eVar.azr));
+                        map.addOverlay(new PolygonOptions().points(arrayList2).stroke(new Stroke(eVar.strokeWidth, eVar.strokeColor)).fillColor(eVar.fillColor).zIndex(eVar.aAp));
                         com.baidu.swan.apps.console.c.i("map", "initMapView createPolygons");
                     }
                 }
@@ -128,7 +128,7 @@ public class e {
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.a.b.e.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
-                com.baidu.swan.impl.map.b.this.cC(true);
+                com.baidu.swan.impl.map.b.this.cT(true);
                 com.baidu.swan.apps.console.c.i("map", "location permission success");
             }
 

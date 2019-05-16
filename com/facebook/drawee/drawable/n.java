@@ -9,14 +9,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b jDh = i.jDp;
-        public static final b jDi = h.jDp;
-        public static final b jDj = f.jDp;
-        public static final b jDk = g.jDp;
-        public static final b jDl = c.jDp;
-        public static final b jDm = e.jDp;
-        public static final b jDn = d.jDp;
-        public static final b jDo = j.jDp;
+        public static final b jVU = i.jWc;
+        public static final b jVV = h.jWc;
+        public static final b jVW = f.jWc;
+        public static final b jVX = g.jWc;
+        public static final b jVY = c.jWc;
+        public static final b jVZ = e.jWc;
+        public static final b jWa = d.jWc;
+        public static final b jWb = j.jWc;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -27,7 +27,7 @@ public class n {
     }
 
     @Nullable
-    public static m m(Drawable drawable) {
+    public static m l(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -35,15 +35,15 @@ public class n {
             return (m) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return m(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return l(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
             int numberOfLayers = aVar.getNumberOfLayers();
             for (int i2 = 0; i2 < numberOfLayers; i2++) {
-                m m = m(aVar.getDrawable(i2));
-                if (m != null) {
-                    return m;
+                m l = l(aVar.getDrawable(i2));
+                if (l != null) {
+                    return l;
                 }
             }
         }
@@ -63,7 +63,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b jDp = new i();
+        public static final b jWc = new i();
 
         private i() {
         }
@@ -81,7 +81,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b jDp = new h();
+        public static final b jWc = new h();
 
         private h() {
         }
@@ -100,7 +100,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b jDp = new f();
+        public static final b jWc = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b jDp = new g();
+        public static final b jWc = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b jDp = new c();
+        public static final b jWc = new c();
 
         private c() {
         }
@@ -157,7 +157,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b jDp = new e();
+        public static final b jWc = new e();
 
         private e() {
         }
@@ -177,7 +177,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b jDp = new d();
+        public static final b jWc = new d();
 
         private d() {
         }
@@ -205,7 +205,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b jDp = new j();
+        public static final b jWc = new j();
 
         private j() {
         }

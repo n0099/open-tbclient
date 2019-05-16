@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.core.i.c;
+import com.baidu.swan.apps.core.j.c;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.storage.b.f;
 import org.json.JSONException;
@@ -18,15 +18,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            ExtensionCore As = c.Aa().As();
+            ExtensionCore BB = c.Bi().BB();
             String str = "";
-            if (As != null && !TextUtils.isEmpty(As.avR)) {
-                str = As.avR;
+            if (BB != null && !TextUtils.isEmpty(BB.awo)) {
+                str = BB.awo;
             }
             jSONObject.put("sdkExtension", str);
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = f.KJ().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ac.a.a.Gg()) {
+            String string = f.Ni().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ac.a.a.Iq()) {
                 jSONObject.put("ctsServerAddress", new JSONObject(string));
             }
             jSONObject.put("platform", "android");

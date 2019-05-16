@@ -20,9 +20,8 @@ public class TypefaceCompat {
     private static final LruCache<String, Typeface> sTypefaceCache;
     private static final TypefaceCompatImpl sTypefaceCompatImpl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public interface TypefaceCompatImpl {
+    interface TypefaceCompatImpl {
         Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i);
 
         Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i);

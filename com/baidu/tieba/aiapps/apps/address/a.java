@@ -6,9 +6,10 @@ import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.swan.apps.an.n;
+import com.baidu.swan.apps.an.o;
 import com.baidu.swan.apps.setting.oauth.c;
 import com.baidu.swan.apps.u.b.f;
+import com.vivo.push.PushClientConstants;
 /* loaded from: classes4.dex */
 public class a implements f {
     @Override // com.baidu.swan.apps.u.b.f
@@ -19,7 +20,7 @@ public class a implements f {
             bundle.putString("openSource", "aiapp");
             bundle.putString("appId", str);
             bundle.putString("appKey", str2);
-            bundle.putString("pkgName", c.getAppContext().getPackageName());
+            bundle.putString(PushClientConstants.TAG_PKG_NAME, c.getAppContext().getPackageName());
             bundle.putString("keyHash", c.getKeyHash());
             Intent intent = new Intent(context, DeliveryListActivity.class);
             intent.putExtras(bundle);
@@ -28,7 +29,7 @@ public class a implements f {
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                     public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                         if (i == -1) {
-                            bVar.w(n.dm(intent2.getStringExtra("data")));
+                            bVar.r(o.cZ(intent2.getStringExtra("data")));
                         } else if (i == 0) {
                             bVar.bO(1);
                         } else {

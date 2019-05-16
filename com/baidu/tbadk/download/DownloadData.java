@@ -27,7 +27,7 @@ public class DownloadData implements Serializable, Cloneable {
     private String action;
     private String app_icon;
     private String check;
-    private transient c cia;
+    private transient c cqi;
     private String description;
     private DownloadStaticsData downloadStaticsData;
     private int errorCode;
@@ -99,7 +99,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.cia = null;
+        this.cqi = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -115,7 +115,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.cia = null;
+        this.cqi = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -132,7 +132,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.cia = null;
+        this.cqi = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -150,7 +150,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.cia = null;
+        this.cqi = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -159,7 +159,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.cia = cVar;
+        this.cqi = cVar;
         this.status = 5;
     }
 
@@ -260,11 +260,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public c getCallback() {
-        return this.cia;
+        return this.cqi;
     }
 
     public void setCallback(c cVar) {
-        this.cia = cVar;
+        this.cqi = cVar;
     }
 
     public String getStatusMsg() {

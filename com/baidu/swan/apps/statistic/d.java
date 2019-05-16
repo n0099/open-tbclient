@@ -1,89 +1,27 @@
 package com.baidu.swan.apps.statistic;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.apps.statistic.a;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.swan.apps.process.b.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+public final class d {
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static int aUY = 0;
 
-    @Override // com.baidu.swan.apps.process.b.a.a
-    public void t(@NonNull Bundle bundle) {
-        JSONObject jSONObject;
-        com.baidu.swan.apps.database.a eh;
-        String string = bundle.getString("key_swan_appid", "");
-        String string2 = bundle.getString("key_report_info", "");
-        if (TextUtils.isEmpty(string2)) {
-            string2 = "";
+    public static String dK(int i) {
+        switch (i) {
+            case -1:
+                return "";
+            case 0:
+                return "swan";
+            case 1:
+                return "swangame";
+            default:
+                return "swan";
         }
-        try {
-            jSONObject = new JSONObject(string2);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.e("VersionBusinessUbc", "execCall: ", e);
-            }
-            e.printStackTrace();
-            jSONObject = null;
-        }
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        if (!TextUtils.isEmpty(string) && (eh = SwanAppDbControl.bE(AppRuntime.getAppContext()).eh(string)) != null) {
-            try {
-                jSONObject.put("appDbInfo", eh.toShortString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (DEBUG) {
-            Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
-        }
-        new a.C0174a(10002).gP(jSONObject.toString()).Ko();
-        finish();
     }
 
-    public static void i(String str, @Nullable JSONObject jSONObject) {
-        Intent intent;
-        if (TextUtils.isEmpty(str)) {
-            JSONObject jSONObject2 = new JSONObject();
-            if (str == null) {
-                str = "null";
-            }
-            try {
-                jSONObject2.put("version", str);
-                com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-                if (IV != null) {
-                    com.baidu.swan.apps.v.b.b uA = IV.uA();
-                    jSONObject2.put("launchInfo", uA == null ? "null" : uA.toShortString());
-                    com.baidu.swan.apps.v.b.b bVar = null;
-                    if (IV.getActivity() != null && (intent = IV.getActivity().getIntent()) != null) {
-                        bVar = com.baidu.swan.apps.v.b.b.G(intent);
-                    }
-                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.toShortString());
-                }
-                jSONObject2.put("stackTrace", aa.Ml());
-                if (jSONObject != null) {
-                    jSONObject2.put("reportExtInfo", jSONObject);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            com.baidu.swan.apps.process.messaging.client.a Go = com.baidu.swan.apps.process.messaging.client.a.Go();
-            if (Go != null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("key_swan_appid", com.baidu.swan.apps.ae.b.Jg());
-                bundle.putString("key_report_info", jSONObject2.toString());
-                Go.a(bundle, d.class);
-            }
-        }
+    public static int MO() {
+        return aUY;
+    }
+
+    public static void dL(int i) {
+        aUY = i;
     }
 }

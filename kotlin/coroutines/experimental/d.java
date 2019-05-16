@@ -11,7 +11,7 @@ public interface d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> cCp();
+        c<?> cJV();
     }
 
     /* loaded from: classes2.dex */

@@ -6,6 +6,8 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.os.Process;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -17,56 +19,49 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static b spHelper = null;
-    private static ContentResolver mContentResolver = null;
-    public static boolean IS_CHECK_COMMON_SHAREDPRE = true;
-    private static HashMap<String, String> mProcessMap = null;
-    private String mProcess = null;
-    private SharedPreferences mSP = null;
-    private String mFile = null;
-    private String cachedPrefix = null;
+    private static b bPm;
+    private static HashMap<String, String> bPp;
+    private static ContentResolver mContentResolver;
+    private String avl;
+    private String bPn;
+    private SharedPreferences mSP;
+    private String bPq = null;
+    private ConcurrentHashMap<String, Object> bPo = new ConcurrentHashMap<>();
 
     protected b() {
-        mProcessMap = new HashMap<>();
-        mProcessMap.put(a.bHw, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.bHx, "remote_settings");
-        mProcessMap.put(a.bHy, "bdservice_settings");
-        mProcessMap.put(a.bHz, a.bHC);
-        mProcessMap.put(a.bHA, a.bHD);
-        mProcessMap.put(a.bHB, a.bHE);
+        bPp = new HashMap<>();
+        bPp.put(a.bPb, TbConfig.SETTINGFILE);
+        bPp.put(a.bPc, "remote_settings");
+        bPp.put(a.bPd, "bdservice_settings");
+        bPp.put(a.bPe, a.bPh);
+        bPp.put(a.bPf, a.bPi);
+        bPp.put(a.bPg, a.bPj);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
-    public static void clearInstance() {
-        if (mProcessMap != null) {
-            mProcessMap.clear();
-        }
-        spHelper = null;
-    }
-
-    public static synchronized b getInstance() {
+    public static synchronized b agM() {
         b bVar;
         synchronized (b.class) {
-            if (spHelper == null) {
-                spHelper = new b();
+            if (bPm == null) {
+                bPm = new b();
             }
-            bVar = spHelper;
+            bVar = bPm;
         }
         return bVar;
     }
 
     public boolean isContains(String str) {
-        if (!checkIsCommon(str)) {
-            this.mSP = getSharedPreferences();
-            return this.mSP.contains(str);
+        if (mQ(str)) {
+            return false;
         }
-        return false;
+        return this.bPo.containsKey(str) || getSharedPreferences().contains(str);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (checkIsCommon(str)) {
+        if (mQ(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -78,42 +73,16 @@ public class b {
             }
             return z;
         }
+        Object obj = this.bPo.get(str);
+        if (obj instanceof Boolean) {
+            return ((Boolean) obj).booleanValue();
+        }
         this.mSP = getSharedPreferences();
         return this.mSP.getBoolean(str, z);
     }
 
-    public boolean getBooleanFromCommon(String str, boolean z) {
-        String value = getValue(str);
-        if (value != null) {
-            try {
-                return Boolean.parseBoolean(value);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return z;
-            }
-        }
-        return z;
-    }
-
-    public float getFloat(String str, float f) {
-        if (checkIsCommon(str)) {
-            String value = getValue(str);
-            if (value != null) {
-                try {
-                    return Float.parseFloat(value);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return f;
-                }
-            }
-            return f;
-        }
-        this.mSP = getSharedPreferences();
-        return this.mSP.getFloat(str, f);
-    }
-
     public int getInt(String str, int i) {
-        if (checkIsCommon(str)) {
+        if (mQ(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -125,12 +94,16 @@ public class b {
             }
             return i;
         }
+        Object obj = this.bPo.get(str);
+        if (obj instanceof Integer) {
+            return ((Integer) obj).intValue();
+        }
         this.mSP = getSharedPreferences();
         return this.mSP.getInt(str, i);
     }
 
     public long getLong(String str, long j) {
-        if (checkIsCommon(str)) {
+        if (mQ(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -142,8 +115,12 @@ public class b {
             }
             return j;
         }
+        Object obj = this.bPo.get(str);
+        if (obj instanceof Long) {
+            return ((Long) obj).longValue();
+        }
+        this.mSP = getSharedPreferences();
         try {
-            this.mSP = getSharedPreferences();
             return this.mSP.getLong(str, j);
         } catch (ClassCastException e2) {
             BdLog.e(e2);
@@ -152,108 +129,135 @@ public class b {
     }
 
     public String getString(String str, String str2) {
-        if (checkIsCommon(str)) {
+        if (mQ(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
+        }
+        Object obj = this.bPo.get(str);
+        if (obj instanceof String) {
+            return (String) obj;
         }
         this.mSP = getSharedPreferences();
         return this.mSP.getString(str, str2);
     }
 
-    public void putMap(Map map) {
+    public void commit() {
         SharedPreferences.Editor edit;
-        this.mSP = getSharedPreferences();
-        if (this.mSP != null && (edit = this.mSP.edit()) != null) {
-            for (Map.Entry entry : map.entrySet()) {
-                if (entry != null) {
-                    String valueOf = String.valueOf(entry.getKey());
-                    Object value = entry.getValue();
-                    if (value instanceof String) {
-                        edit.putString(valueOf, (String) value);
-                    } else if (value instanceof Integer) {
-                        edit.putInt(valueOf, ((Integer) value).intValue());
-                    } else if (value instanceof Long) {
-                        edit.putLong(valueOf, ((Long) value).longValue());
-                    } else if (value instanceof Boolean) {
-                        edit.putBoolean(valueOf, ((Boolean) value).booleanValue());
-                    } else if (value instanceof Float) {
-                        edit.putFloat(valueOf, ((Float) value).floatValue());
+        if (!this.bPo.isEmpty()) {
+            this.mSP = getSharedPreferences();
+            if (this.mSP != null && (edit = this.mSP.edit()) != null) {
+                for (Map.Entry<String, Object> entry : this.bPo.entrySet()) {
+                    if (entry != null) {
+                        String valueOf = String.valueOf(entry.getKey());
+                        Object value = entry.getValue();
+                        if (value instanceof String) {
+                            edit.putString(valueOf, (String) value);
+                        } else if (value instanceof Integer) {
+                            edit.putInt(valueOf, ((Integer) value).intValue());
+                        } else if (value instanceof Long) {
+                            edit.putLong(valueOf, ((Long) value).longValue());
+                        } else if (value instanceof Boolean) {
+                            edit.putBoolean(valueOf, ((Boolean) value).booleanValue());
+                        } else if (value instanceof Float) {
+                            edit.putFloat(valueOf, ((Float) value).floatValue());
+                        }
                     }
                 }
+                if (Build.VERSION.SDK_INT >= 9) {
+                    edit.apply();
+                } else {
+                    edit.commit();
+                }
+                this.bPo.clear();
             }
-            if (Build.VERSION.SDK_INT >= 9) {
-                edit.apply();
-            } else {
-                edit.commit();
-            }
+        }
+    }
+
+    private void n(String str, Object obj) {
+        if (str != null && obj != null) {
+            this.bPo.put(str, obj);
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tbadk.core.sharedPref.b.1
+                @Override // android.os.MessageQueue.IdleHandler
+                public boolean queueIdle() {
+                    b.this.commit();
+                    return false;
+                }
+            });
         }
     }
 
     public void putBoolean(String str, boolean z) {
-        if (checkIsCommon(str)) {
-            putValue(str, z);
-            return;
+        if (mQ(str)) {
+            K(str, z);
+        } else if (l.kh()) {
+            n(str, Boolean.valueOf(z));
+        } else {
+            this.mSP = getSharedPreferences();
+            SharedPreferences.Editor edit = this.mSP.edit();
+            edit.putBoolean(str, z);
+            edit.commit();
         }
-        this.mSP = getSharedPreferences();
-        EditorHelper.putBoolean(this.mSP, str, z);
-    }
-
-    public void putBooleanFromCommon(String str, boolean z) {
-        putValue(str, z);
     }
 
     public void putString(String str, String str2) {
-        if (checkIsCommon(str)) {
-            putValue(str, str2);
-            return;
+        if (mQ(str)) {
+            bM(str, str2);
+        } else if ("null".equals(str2)) {
+            remove(str);
+        } else if (l.kh()) {
+            n(str, str2);
+        } else {
+            this.mSP = getSharedPreferences();
+            SharedPreferences.Editor edit = this.mSP.edit();
+            edit.putString(str, str2);
+            edit.commit();
         }
-        this.mSP = getSharedPreferences();
-        EditorHelper.putString(this.mSP, str, str2);
-    }
-
-    public void putFloat(String str, float f) {
-        if (checkIsCommon(str)) {
-            putValue(str, f);
-            return;
-        }
-        this.mSP = getSharedPreferences();
-        EditorHelper.putFloat(this.mSP, str, f);
     }
 
     public void putInt(String str, int i) {
-        if (checkIsCommon(str)) {
-            putValue(str, i);
-            return;
+        if (mQ(str)) {
+            N(str, i);
+        } else if (l.kh()) {
+            n(str, Integer.valueOf(i));
+        } else {
+            this.mSP = getSharedPreferences();
+            SharedPreferences.Editor edit = this.mSP.edit();
+            edit.putInt(str, i);
+            edit.commit();
         }
-        this.mSP = getSharedPreferences();
-        EditorHelper.putInt(this.mSP, str, i);
     }
 
     public void putLong(String str, long j) {
-        if (checkIsCommon(str)) {
-            putValue(str, j);
-            return;
+        if (mQ(str)) {
+            k(str, j);
+        } else if (l.kh()) {
+            n(str, Long.valueOf(j));
+        } else {
+            this.mSP = getSharedPreferences();
+            SharedPreferences.Editor edit = this.mSP.edit();
+            edit.putLong(str, j);
+            edit.commit();
         }
-        this.mSP = getSharedPreferences();
-        EditorHelper.putLong(this.mSP, str, j);
     }
 
     public void remove(String str) {
-        if (checkIsCommon(str)) {
+        if (mQ(str)) {
             removeValue(str);
-            return;
+        } else if (this.bPo.containsKey(str)) {
+            this.bPo.remove(str);
+        } else {
+            this.mSP = getSharedPreferences();
+            EditorHelper.remove(this.mSP, str);
         }
-        this.mSP = getSharedPreferences();
-        EditorHelper.remove(this.mSP, str);
     }
 
-    private boolean checkIsCommon(String str) {
-        if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
+    private boolean mQ(String str) {
+        if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.bHF.length;
+        int length = a.bPk.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.bHF[i])) {
+            if (str.equals(a.bPk[i])) {
                 return true;
             }
         }
@@ -261,139 +265,102 @@ public class b {
     }
 
     private String getValue(String str) {
-        return getValue(Uri.parse(getContentPrefix() + str));
+        return o(Uri.parse(agN() + str));
     }
 
-    private void putValue(String str, String str2) {
-        Uri parse = Uri.parse(getContentPrefix() + str);
+    private void bM(String str, String str2) {
+        Uri parse = Uri.parse(agN() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
-        setValue(parse, contentValues);
+        a(parse, contentValues);
     }
 
-    private void putValue(String str, int i) {
-        Uri parse = Uri.parse(getContentPrefix() + str);
+    private void N(String str, int i) {
+        Uri parse = Uri.parse(agN() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
-        setValue(parse, contentValues);
+        a(parse, contentValues);
     }
 
-    private void putValue(String str, float f) {
-        Uri parse = Uri.parse(getContentPrefix() + str);
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(str, String.valueOf(f));
-        setValue(parse, contentValues);
-    }
-
-    private void putValue(String str, long j) {
-        Uri parse = Uri.parse(getContentPrefix() + str);
+    private void k(String str, long j) {
+        Uri parse = Uri.parse(agN() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
-        setValue(parse, contentValues);
+        a(parse, contentValues);
     }
 
-    private void putValue(String str, boolean z) {
-        Uri parse = Uri.parse(getContentPrefix() + str);
+    private void K(String str, boolean z) {
+        Uri parse = Uri.parse(agN() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
-        setValue(parse, contentValues);
+        a(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        deleteValue(Uri.parse(getContentPrefix() + str));
+        p(Uri.parse(agN() + str));
     }
 
     public synchronized SharedPreferences getSharedPreferences() {
-        if (this.mFile == null || this.mFile.length() == 0) {
-            if (this.mProcess == null || this.mProcess.length() == 0) {
-                this.mProcess = getProcessName();
+        if (this.bPn == null || this.bPn.length() == 0) {
+            if (this.avl == null || this.avl.length() == 0) {
+                this.avl = getProcessName();
             }
-            if (mProcessMap.containsKey(this.mProcess)) {
-                this.mFile = mProcessMap.get(this.mProcess);
+            if (bPp.containsKey(this.avl)) {
+                this.bPn = bPp.get(this.avl);
             } else {
-                this.mFile = TbConfig.SETTINGFILE;
+                this.bPn = TbConfig.SETTINGFILE;
             }
         }
-        return TbadkCoreApplication.getInst().getSharedPreferences(this.mFile, 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(this.bPn, 0);
     }
 
     private String getProcessName() {
+        String str = a.bPb;
         ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
             if (runningAppProcesses != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= runningAppProcesses.size()) {
-                        break;
-                    } else if (runningAppProcesses.get(i2).pid != myPid) {
-                        i = i2 + 1;
-                    } else {
-                        return runningAppProcesses.get(i2).processName;
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
                     }
                 }
             }
         }
-        return a.bHw;
+        return str;
     }
 
-    public void migrateToNewVersion() {
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0);
-        String string = sharedPreferences.getString("lase_version", "");
-        String version = TbConfig.getVersion();
-        if (string != null && string.length() != 0 && version != null && version.length() != 0 && !string.equals(version) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(version) <= 0) {
-            getInstance().putInt("skin_" + TbadkCoreApplication.getCurrentAccount(), sharedPreferences.getInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
-            String string2 = sharedPreferences.getString("from_id", null);
-            if (string2 != null && string2.length() > 0) {
-                getInstance().putString("from_id", string2);
-            }
-            String string3 = sharedPreferences.getString("install_other_app_file_name", null);
-            if (string3 != null && string3.length() > 0) {
-                getInstance().putString("install_other_app_file_name", string3);
-            }
-            String string4 = sharedPreferences.getString("cuid", null);
-            if (string4 != null && string4.length() > 0) {
-                getInstance().putString("cuid", string4);
-            }
-            String string5 = sharedPreferences.getString("client_id", null);
-            if (string5 != null && string5.length() > 0) {
-                getInstance().putString("client_id", string5);
-            }
-        }
-    }
-
-    protected String getContentPrefix() {
-        if (this.cachedPrefix == null) {
+    protected String agN() {
+        if (this.bPq == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {
-                this.cachedPrefix = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.bPq = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.cachedPrefix = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.bPq = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.cachedPrefix;
+        return this.bPq;
     }
 
-    protected void setValue(final Uri uri, final ContentValues contentValues) {
-        if (l.ln()) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
+    protected void a(final Uri uri, final ContentValues contentValues) {
+        if (l.kh()) {
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    b.this.setValueInner(uri, contentValues);
+                    b.this.b(uri, contentValues);
                     return null;
                 }
             }.execute(new Void[0]);
         } else {
-            setValueInner(uri, contentValues);
+            b(uri, contentValues);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setValueInner(Uri uri, ContentValues contentValues) {
+    public void b(Uri uri, ContentValues contentValues) {
         try {
             mContentResolver.insert(uri, contentValues);
         } catch (Exception e) {
@@ -401,7 +368,7 @@ public class b {
         }
     }
 
-    protected String getValue(Uri uri) {
+    protected String o(Uri uri) {
         try {
             return mContentResolver.getType(uri);
         } catch (SecurityException e) {
@@ -410,24 +377,24 @@ public class b {
         }
     }
 
-    protected void deleteValue(final Uri uri) {
-        if (l.ln()) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
+    protected void p(final Uri uri) {
+        if (l.kh()) {
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    b.this.deleteValueInner(uri);
+                    b.this.q(uri);
                     return null;
                 }
             }.execute(new Void[0]);
         } else {
-            deleteValueInner(uri);
+            q(uri);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteValueInner(Uri uri) {
+    public void q(Uri uri) {
         try {
             mContentResolver.delete(uri, null, null);
         } catch (SecurityException e) {

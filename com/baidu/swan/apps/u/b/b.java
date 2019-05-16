@@ -3,11 +3,11 @@ package com.baidu.swan.apps.u.b;
 import android.content.res.Resources;
 /* loaded from: classes2.dex */
 public abstract class b {
-    public abstract boolean Dq();
+    public abstract boolean Ev();
 
-    public abstract void be(boolean z);
+    public abstract void bl(boolean z);
 
-    public abstract void bf(boolean z);
+    public abstract void bm(boolean z);
 
     public void a(Object obj, com.baidu.swan.apps.ai.a aVar) {
     }
@@ -15,10 +15,10 @@ public abstract class b {
     public void H(Object obj) {
     }
 
-    public Resources Dp() {
+    public Resources Eu() {
         return null;
     }
 
-    public void bg(boolean z) {
+    public void bn(boolean z) {
     }
 }

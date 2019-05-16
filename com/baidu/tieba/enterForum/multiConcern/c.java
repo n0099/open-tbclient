@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends BaseAdapter {
@@ -20,11 +20,11 @@ public class c extends BaseAdapter {
     /* loaded from: classes4.dex */
     public static class a {
         public View dividerLine;
-        public TbImageView eDV;
-        public TextView eDW;
-        public TextView eDX;
-        public TextView eDY;
-        public View eDZ;
+        public TbImageView eTP;
+        public TextView eTQ;
+        public TextView eTR;
+        public TextView eTS;
+        public View eTT;
     }
 
     public c(Context context) {
@@ -37,12 +37,12 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.S(this.mDatas);
+        return v.Z(this.mDatas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pe */
+    /* renamed from: qj */
     public b getItem(int i) {
         return (b) v.c(this.mDatas, i);
     }
@@ -61,31 +61,31 @@ public class c extends BaseAdapter {
             aVar = (a) view.getTag();
             view2 = view;
         } else {
-            View inflate = LayoutInflater.from(this.mContext).inflate(d.h.item_recommend_forum_by_tag, viewGroup, false);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.eDV = (TbImageView) inflate.findViewById(d.g.imageview_forum);
-            aVar.eDW = (TextView) inflate.findViewById(d.g.textview_forum_name);
-            aVar.eDX = (TextView) inflate.findViewById(d.g.textview_forum_concern_count);
-            aVar.eDY = (TextView) inflate.findViewById(d.g.textview_forum_thread_count);
-            aVar.eDZ = inflate.findViewById(d.g.view_check_state);
-            aVar.dividerLine = inflate.findViewById(d.g.view_bottom_line);
+            aVar.eTP = (TbImageView) inflate.findViewById(R.id.imageview_forum);
+            aVar.eTQ = (TextView) inflate.findViewById(R.id.textview_forum_name);
+            aVar.eTR = (TextView) inflate.findViewById(R.id.textview_forum_concern_count);
+            aVar.eTS = (TextView) inflate.findViewById(R.id.textview_forum_thread_count);
+            aVar.eTT = inflate.findViewById(R.id.view_check_state);
+            aVar.dividerLine = inflate.findViewById(R.id.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.eDV.startLoad(item.avatar, 10, false);
-            aVar.eDW.setText(item.forumName);
-            aVar.eDX.setText(String.format(this.mContext.getString(d.j.concern), ap.as(item.followNum)));
-            aVar.eDY.setText(String.format(this.mContext.getString(d.j.forum_thread_number), ap.as(item.threadNum)));
+            aVar.eTP.startLoad(item.avatar, 10, false);
+            aVar.eTQ.setText(item.forumName);
+            aVar.eTR.setText(String.format(this.mContext.getString(R.string.concern), ap.aG(item.followNum)));
+            aVar.eTS.setText(String.format(this.mContext.getString(R.string.forum_thread_number), ap.aG(item.threadNum)));
             if (item.isSelected) {
-                al.k(aVar.eDZ, d.f.icon_list_confirm_s);
+                al.k(aVar.eTT, R.drawable.icon_list_confirm_s);
             } else {
-                al.k(aVar.eDZ, d.f.icon_jinba_confirm_n);
+                al.k(aVar.eTT, R.drawable.icon_jinba_confirm_n);
             }
-            al.j(aVar.eDW, d.C0277d.cp_cont_b);
-            al.j(aVar.eDX, d.C0277d.cp_cont_f);
-            al.j(aVar.eDY, d.C0277d.cp_cont_f);
-            al.l(aVar.dividerLine, d.C0277d.cp_bg_line_c);
+            al.j(aVar.eTQ, R.color.cp_cont_b);
+            al.j(aVar.eTR, R.color.cp_cont_f);
+            al.j(aVar.eTS, R.color.cp_cont_f);
+            al.l(aVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view2;
     }

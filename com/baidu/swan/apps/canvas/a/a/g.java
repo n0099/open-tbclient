@@ -6,12 +6,12 @@ import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class g extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.alo = true;
+        bVar.alA = true;
         canvas.clipPath(bVar.mPath, Region.Op.INTERSECT);
     }
 }

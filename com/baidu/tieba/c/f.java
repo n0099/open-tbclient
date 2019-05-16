@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
@@ -15,7 +16,6 @@ import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
@@ -37,18 +37,18 @@ import java.util.ArrayList;
 import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    bg XT;
-    private NavigationBarCoverTip erL;
-    private View erM;
-    private TextView erN;
-    private TextView erO;
-    private com.baidu.tbadk.core.view.b erP;
-    private boolean erQ = false;
-    private boolean erR = false;
-    private final com.baidu.adp.framework.listener.a erS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.c.f.1
+    bg VK;
+    private NavigationBarCoverTip eHr;
+    private View eHs;
+    private TextView eHt;
+    private TextView eHu;
+    private com.baidu.tbadk.core.view.b eHv;
+    private boolean eHw = false;
+    private boolean eHx = false;
+    private final com.baidu.adp.framework.listener.a eHy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.c.f.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            f.this.aMt();
+            f.this.aSD();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 f.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -66,82 +66,82 @@ public class f implements View.OnClickListener {
     public f(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.mActivity = tbPageContext.getPageActivity();
         this.mPageContext = tbPageContext;
-        this.erL = navigationBarCoverTip;
-        this.erS.setTag(tbPageContext.getUniqueId());
-        this.erS.getHttpMessageListener().setSelfListener(true);
-        this.erS.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.erS);
+        this.eHr = navigationBarCoverTip;
+        this.eHy.setTag(tbPageContext.getUniqueId());
+        this.eHy.getHttpMessageListener().setSelfListener(true);
+        this.eHy.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.eHy);
     }
 
-    public void ie(boolean z) {
-        this.erQ = z;
+    public void iJ(boolean z) {
+        this.eHw = z;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData != null && this.erL != null) {
-            this.postId = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getPostId(), 0L);
-            this.threadId = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getThreadId(), 0L);
+        if (postWriteCallBackData != null && this.eHr != null) {
+            this.postId = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
+            this.threadId = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
             if (this.postId != 0 && this.threadId != 0) {
-                this.erR = false;
-                if (this.erM == null) {
-                    this.erM = View.inflate(this.mActivity, d.h.write_thread_share_guide, null);
-                    this.erN = (TextView) this.erM.findViewById(d.g.write_thread_success_tips);
-                    this.erO = (TextView) this.erM.findViewById(d.g.share_icon);
+                this.eHx = false;
+                if (this.eHs == null) {
+                    this.eHs = View.inflate(this.mActivity, R.layout.write_thread_share_guide, null);
+                    this.eHt = (TextView) this.eHs.findViewById(R.id.write_thread_success_tips);
+                    this.eHu = (TextView) this.eHs.findViewById(R.id.share_icon);
                 }
-                al.j(this.erN, d.C0277d.cp_btn_a);
-                al.j(this.erO, d.C0277d.cp_btn_a);
-                al.k(this.erO, d.f.share_now_bg);
-                al.l(this.erL, d.C0277d.cp_link_tip_a_alpha95);
-                this.erO.setOnClickListener(this);
-                this.erL.a(this.mActivity, this.erM, UIMsg.m_AppUI.MSG_APP_GPS);
+                al.j(this.eHt, R.color.cp_btn_a);
+                al.j(this.eHu, R.color.cp_btn_a);
+                al.k(this.eHu, R.drawable.share_now_bg);
+                al.l(this.eHr, R.color.cp_link_tip_a_alpha95);
+                this.eHu.setOnClickListener(this);
+                this.eHr.a(this.mActivity, this.eHs, UIMsg.m_AppUI.MSG_APP_GPS);
             }
         }
     }
 
     private void showLoadingDialog() {
-        if (this.erP == null) {
-            this.erP = new com.baidu.tbadk.core.view.b(this.mPageContext);
+        if (this.eHv == null) {
+            this.eHv = new com.baidu.tbadk.core.view.b(this.mPageContext);
         }
-        this.erP.dJ(true);
+        this.eHv.ef(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMt() {
-        if (this.erP != null) {
-            this.erP.dJ(false);
+    public void aSD() {
+        if (this.eHv != null) {
+            this.eHv.ef(false);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.erR) {
-            this.erR = true;
-            if (!j.kY()) {
-                this.mPageContext.showToast(d.j.neterror);
-                this.erL.hideTip();
+        if (!this.eHx) {
+            this.eHx = true;
+            if (!j.jS()) {
+                this.mPageContext.showToast(R.string.neterror);
+                this.eHr.hideTip();
                 return;
             }
-            int aO = l.aO(TbadkCoreApplication.getInst());
-            int aQ = l.aQ(TbadkCoreApplication.getInst());
+            int af = l.af(TbadkCoreApplication.getInst());
+            int ah = l.ah(TbadkCoreApplication.getInst());
             float f = this.mActivity.getResources().getDisplayMetrics().density;
-            int i = ar.adm().ado() ? 2 : 1;
+            int i = ar.ail().ain() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
             requestGetMyPostNetMessage.setTag(this.mPageContext.getUniqueId());
-            requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, aO, aQ, f, i);
+            requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, af, ah, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             showLoadingDialog();
-            this.erL.hideTip();
-            aeS();
+            this.eHr.hideTip();
+            ajR();
         }
     }
 
-    private void aeS() {
+    private void ajR() {
         am amVar = new am("c12386");
-        amVar.k("tid", this.threadId);
-        amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-        amVar.T("obj_locate", 7);
+        amVar.l("tid", this.threadId);
+        amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
+        amVar.P("obj_locate", 7);
         if (!ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-            amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
+            amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
         }
         TiebaStatic.log(amVar);
     }
@@ -149,53 +149,57 @@ public class f implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, GetMyPostResIdl getMyPostResIdl) {
         if (i != 0 || getMyPostResIdl == null || getMyPostResIdl.data == null || getMyPostResIdl.data.thread_info == null) {
-            this.mPageContext.showToast(d.j.neterror);
+            this.mPageContext.showToast(R.string.neterror);
             return;
         }
-        this.XT = new bg();
-        this.XT.a(getMyPostResIdl.data.thread_info);
-        aeU();
+        this.VK = new bg();
+        this.VK.a(getMyPostResIdl.data.thread_info);
+        ajT();
     }
 
-    private void aeU() {
-        if (this.XT != null && this.mActivity != null) {
-            String valueOf = String.valueOf(this.XT.getFid());
-            String YT = this.XT.YT();
-            String title = this.XT.getTitle();
-            String tid = this.XT.getTid();
-            String str = "http://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
-            String r = r(this.XT);
-            Uri parse = r == null ? null : Uri.parse(r);
-            String str2 = this.XT.getAbstract();
-            String format = MessageFormat.format(this.mActivity.getResources().getString(d.j.share_content_tpl), title, str2);
-            com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
-            dVar.title = title;
-            dVar.content = format;
-            dVar.cbB = str2;
-            dVar.linkUrl = str;
-            dVar.bDZ = 5;
-            dVar.cbt = this.erQ;
-            dVar.extData = tid;
-            dVar.cbE = 3;
-            dVar.fid = valueOf;
-            dVar.cbv = YT;
-            dVar.tid = tid;
-            dVar.cbp = true;
-            dVar.cbD = getShareObjSource();
-            dVar.cbI = s(this.XT);
-            if (parse != null) {
-                dVar.imageUri = parse;
+    private void ajT() {
+        if (this.VK != null && this.mActivity != null) {
+            String valueOf = String.valueOf(this.VK.getFid());
+            String adA = this.VK.adA();
+            String title = this.VK.getTitle();
+            if (TextUtils.isEmpty(title)) {
+                title = this.VK.getAbstract();
             }
-            dVar.originalThreadInfo = OriginalThreadInfo.parseFromThreadData(this.XT);
-            TbadkCoreApplication.getInst().setShareItem(dVar);
+            String tid = this.VK.getTid();
+            String str = "http://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
+            String r = r(this.VK);
+            Uri parse = r == null ? null : Uri.parse(r);
+            String str2 = this.VK.getAbstract();
+            String format = MessageFormat.format(this.mActivity.getResources().getString(R.string.share_content_tpl), title, str2);
+            com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
+            eVar.title = title;
+            eVar.content = format;
+            eVar.cjC = str2;
+            eVar.linkUrl = str;
+            eVar.bLs = 5;
+            eVar.cjt = this.eHw;
+            eVar.extData = tid;
+            eVar.cjF = 3;
+            eVar.fid = valueOf;
+            eVar.cjw = adA;
+            eVar.tid = tid;
+            eVar.cjp = true;
+            eVar.cjE = getShareObjSource();
+            eVar.cjJ = s(this.VK);
+            if (parse != null) {
+                eVar.imageUri = parse;
+            }
+            eVar.originalThreadInfo = OriginalThreadInfo.parseFromThreadData(this.VK);
+            TbadkCoreApplication.getInst().setShareItem(eVar);
+            eVar.cjT = this.VK.getShareImageUrl();
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", dVar.cbE);
-            bundle.putInt("obj_type", dVar.cbI);
-            bundle.putString(ImageViewerConfig.FORUM_ID, dVar.fid);
-            bundle.putString("tid", dVar.tid);
-            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.bDZ);
-            dVar.D(bundle);
-            e.aSr().a(new ShareDialogConfig((Context) this.mActivity, dVar, true, true));
+            bundle.putInt("obj_param1", eVar.cjF);
+            bundle.putInt("obj_type", eVar.cjJ);
+            bundle.putString("fid", eVar.fid);
+            bundle.putString("tid", eVar.tid);
+            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.bLs);
+            eVar.E(bundle);
+            e.aZz().a(new ShareDialogConfig((Context) this.mActivity, eVar, true, true));
         }
     }
 
@@ -204,13 +208,13 @@ public class f implements View.OnClickListener {
     }
 
     private String r(bg bgVar) {
-        if (bgVar == null || bgVar.YY() == null) {
+        if (bgVar == null || bgVar.adF() == null) {
             return null;
         }
-        ArrayList<MediaData> YY = bgVar.YY();
-        int size = YY.size();
+        ArrayList<MediaData> adF = bgVar.adF();
+        int size = adF.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = YY.get(i);
+            MediaData mediaData = adF.get(i);
             if (mediaData != null && mediaData.getType() == 3) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -225,20 +229,20 @@ public class f implements View.OnClickListener {
 
     private int s(bg bgVar) {
         if (bgVar != null) {
-            if (bgVar.YQ()) {
+            if (bgVar.adx()) {
                 return 4;
             }
-            if (bgVar.YL() == 1) {
+            if (bgVar.ads() == 1) {
                 return 3;
             }
-            return bgVar.aaa() ? 2 : 1;
+            return bgVar.aeH() ? 2 : 1;
         }
         return 0;
     }
 
     public void onDestroy() {
-        if (this.erL != null) {
-            this.erL.onDestroy();
+        if (this.eHr != null) {
+            this.eHr.onDestroy();
         }
     }
 }

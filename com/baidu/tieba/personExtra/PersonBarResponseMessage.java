@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
-    private a data;
+    private b data;
     private int errCode;
     private String resultString;
 
@@ -19,14 +19,14 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public PersonBarResponseMessage(int i) {
         super(i);
         this.errCode = 0;
-        this.data = new a();
+        this.data = new b();
     }
 
-    public void setPersonBarData(a aVar) {
-        this.data = aVar;
+    public void setPersonBarData(b bVar) {
+        this.data = bVar;
     }
 
-    public a getPersonBarData() {
+    public b getPersonBarData() {
         return this.data;
     }
 

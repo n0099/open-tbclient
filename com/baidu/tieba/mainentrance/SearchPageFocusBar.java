@@ -11,12 +11,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout gNe;
-    private TextView gNf;
-    private TextView gNg;
+    private RelativeLayout hex;
+    private TextView hey;
+    private TextView hez;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -37,14 +37,14 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(d.h.home_search_focusbar, this);
-        this.gNe = (RelativeLayout) findViewById(d.g.focusbar_container);
-        this.gNg = (TextView) findViewById(d.g.focusbar_hint);
-        al.d(this.gNg, d.C0277d.cp_cont_c, 1);
-        this.gNg.setVisibility(8);
-        this.gNf = (TextView) findViewById(d.g.focusbar_show);
-        al.d(this.gNf, d.C0277d.cp_link_tip_a, 1);
-        this.gNf.setVisibility(8);
+        LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
+        this.hex = (RelativeLayout) findViewById(R.id.focusbar_container);
+        this.hez = (TextView) findViewById(R.id.focusbar_hint);
+        al.f(this.hez, R.color.cp_cont_c, 1);
+        this.hez.setVisibility(8);
+        this.hey = (TextView) findViewById(R.id.focusbar_show);
+        al.f(this.hey, R.color.cp_link_tip_a, 1);
+        this.hey.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

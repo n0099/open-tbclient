@@ -1,59 +1,74 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import com.baidu.android.pushservice.message.PublicMsg;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.message.CrossPushMessage;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a extends c {
+public class a extends b {
     public a(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.android.pushservice.message.a.c
+    private static boolean a() {
+        return Build.VERSION.SDK_INT <= 26 && (l.g() || l.h());
+    }
+
+    private static boolean a(Context context, String str) {
+        Intent parseUri;
+        PackageManager packageManager;
+        List<ResolveInfo> list = null;
+        try {
+            parseUri = Intent.parseUri("baidupush://bdpush/cross", 0);
+            parseUri.setPackage(str);
+            packageManager = context.getPackageManager();
+        } catch (Exception e) {
+        }
+        if (packageManager == null) {
+            return false;
+        }
+        list = packageManager.queryIntentActivities(parseUri, 0);
+        return (list == null || list.isEmpty()) ? false : true;
+    }
+
+    @Override // com.baidu.android.pushservice.message.a.b
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
-        com.baidu.android.pushservice.message.g gVar;
-        long b = kVar.b();
-        long c = kVar.c();
-        long d = kVar.d();
-        l a = l.a(kVar.i());
-        String h = kVar.h();
-        String e = kVar.e();
-        long j = c - b;
-        long j2 = d - b;
-        PublicMsg publicMsg = new PublicMsg();
-        com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
-        if (kVar.a() && (j > 0 || j2 <= 0)) {
-            if (j2 <= 0) {
-                publicMsg.handleAlarmMessage(this.a, "010704", h, e);
-                com.baidu.android.pushservice.d.a.d(this.a, kVar.h());
-                return gVar2;
-            }
-            kVar.b((j * 1000) + System.currentTimeMillis());
-            kVar.c((j2 * 1000) + System.currentTimeMillis());
-            com.baidu.android.pushservice.j.m.a(this.a, kVar, bArr);
-            gVar2.a(1);
-            return gVar2;
-        }
-        if (a.equals(l.MSG_TYPE_ALARM_NOTIFICATION)) {
-            a = l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION;
-        } else if (a.equals(l.MSG_TYPE_ALARM_MESSAGE)) {
-            a = l.MSG_TYPE_PRIVATE_MESSAGE;
-        }
-        c a2 = new k(this.a).a(a);
-        if (a2 != null) {
-            com.baidu.android.pushservice.message.g a3 = a2.a(kVar, bArr);
-            com.baidu.android.pushservice.d.a.d(this.a, kVar.h());
-            if (a.equals(l.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION)) {
-                publicMsg.handleAlarmMessage(this.a, "010701", h, e);
-                gVar = a3;
-            } else {
-                if (a.equals(l.MSG_TYPE_PRIVATE_MESSAGE)) {
-                    publicMsg.handleAlarmMessage(this.a, "010702", h, e);
+        int i = 1;
+        if (a()) {
+            String b = kVar.b();
+            String e = kVar.e();
+            kVar.f();
+            byte[] g = kVar.g();
+            CrossPushMessage a = i.a(e, b, bArr);
+            if (this.a.getPackageName().equals(a.mPkgName) && !TextUtils.isEmpty(a.a)) {
+                if (!l.c(this.a, a.a)) {
+                    i = 8;
+                } else if (a(this.a, a.a)) {
+                    com.baidu.android.pushservice.a.d.a(this.a, b);
+                    switch (r1.a()) {
+                        case PUSH_CLIENT:
+                            e.a(this.a, a, b, l.a(this.a, e, bArr, g, a.mPkgName), bArr);
+                            break;
+                        default:
+                            i = 7;
+                            break;
+                    }
+                } else {
+                    i = 20;
                 }
-                gVar = a3;
+            } else {
+                i = 2;
             }
         } else {
-            gVar = gVar2;
+            i = 20;
         }
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
+        gVar.a(i);
         return gVar;
     }
 }

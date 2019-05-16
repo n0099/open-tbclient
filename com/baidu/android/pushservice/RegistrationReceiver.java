@@ -4,18 +4,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.l;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.k;
+import com.baidu.android.pushservice.i.l;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
-    static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
+    static void a(Context context, com.baidu.android.pushservice.a.f fVar) {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra("package_name", fVar.c());
-        intent.putExtra("app_id", fVar.a());
+        intent.putExtra(Constants.PACKAGE_NAME, fVar.c());
+        intent.putExtra(Constants.APP_ID, fVar.a());
         intent.putExtra("user_id", fVar.f);
-        l.a(context, intent);
+        k.a(context, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -27,7 +28,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        com.baidu.android.pushservice.b.b.a(context).a("r_v2", stringExtra);
+        com.baidu.android.pushservice.a.b.a(context).a("r_v2", stringExtra);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -39,7 +40,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        com.baidu.android.pushservice.b.h.a(context).a("com.baidu.push.sdkr", stringExtra);
+        com.baidu.android.pushservice.a.h.a(context).a("com.baidu.push.sdkr", stringExtra);
     }
 
     @Override // android.content.BroadcastReceiver
@@ -49,8 +50,8 @@ public class RegistrationReceiver extends BroadcastReceiver {
             intent.getByteArrayExtra("baidu_message_secur_info");
             if (!"android.intent.action.PACKAGE_REMOVED".equals(action)) {
                 if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(action)) {
-                    com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("register_sync", (short) 99) { // from class: com.baidu.android.pushservice.RegistrationReceiver.1
-                        @Override // com.baidu.android.pushservice.i.c
+                    com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("register_sync", (short) 99) { // from class: com.baidu.android.pushservice.RegistrationReceiver.1
+                        @Override // com.baidu.android.pushservice.h.c
                         public void a() {
                             if (!intent.hasExtra("r_sync_type")) {
                                 RegistrationReceiver.c(context, intent);
@@ -70,27 +71,23 @@ public class RegistrationReceiver extends BroadcastReceiver {
                             }
                         }
                     });
-                    return;
                 } else {
-                    l.b(context, intent);
-                    return;
+                    k.b(context, intent);
                 }
-            }
-            try {
-                String u = m.u(context);
-                if (TextUtils.isEmpty(u) || context.getPackageName().equals(u)) {
+            } else if (l.E(context)) {
+            } else {
+                try {
                     String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                    boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
-                    if (!booleanExtra) {
-                        PushSettings.b(context, schemeSpecificPart);
+                    if (l.i(context, schemeSpecificPart)) {
+                        boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
+                        com.baidu.android.pushservice.a.f c = com.baidu.android.pushservice.a.b.a(context).c(schemeSpecificPart);
+                        if (booleanExtra || c == null || context.getPackageName().equals(c.c())) {
+                            return;
+                        }
+                        a(context, c);
                     }
-                    com.baidu.android.pushservice.b.f c = com.baidu.android.pushservice.b.b.a(context).c(schemeSpecificPart);
-                    if (booleanExtra || c == null || context.getPackageName().equals(c.c())) {
-                        return;
-                    }
-                    a(context, c);
+                } catch (Exception e) {
                 }
-            } catch (Exception e) {
             }
         } catch (Exception e2) {
         }

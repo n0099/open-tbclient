@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.c;
 /* loaded from: classes2.dex */
 public final class a {
-    private static String aVZ;
+    private static String aYZ;
 
-    public static String hy(String str) {
-        return String.format("%s %s", str, LG());
+    public static String ia(String str) {
+        return String.format("%s %s", str, Om());
     }
 
-    public static String LG() {
-        if (TextUtils.isEmpty(aVZ)) {
-            aVZ = c.uL();
+    public static String Om() {
+        if (TextUtils.isEmpty(aYZ)) {
+            aYZ = c.vv();
         }
-        return aVZ;
+        return aYZ;
     }
 }

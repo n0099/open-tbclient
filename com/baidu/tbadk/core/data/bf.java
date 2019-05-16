@@ -3,16 +3,18 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bf extends a implements com.baidu.adp.widget.ListView.m {
-    public boolean bAJ = false;
-    public boolean bAK = false;
-    public boolean bAL = false;
-    public boolean bAM = false;
-    public boolean bAN = false;
-    public boolean bAO = false;
-    public boolean bAP = false;
-    public boolean bAQ = false;
-    public int bAR = 0;
-    public int bAS = 0;
+    public boolean bHV = false;
+    public boolean bHW = false;
+    public boolean bHX = false;
+    public boolean bHY = false;
+    public boolean bHZ = false;
+    public boolean bIa = false;
+    public boolean bIb = false;
+    public boolean bIc = false;
+    public boolean bId = false;
+    public boolean bIe = false;
+    public int bIf = 0;
+    public int bIg = 0;
     public bg threadData;
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -20,106 +22,109 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
         if (this.threadData == null) {
             return null;
         }
-        if (this.threadData.aaC()) {
-            if (this.threadData.Zf() != null) {
-                return bg.bBh;
+        if (this.threadData.afj()) {
+            if (this.threadData.adM() != null) {
+                return bg.bIw;
             }
-            return bg.bAU;
+            return bg.bIi;
         }
-        int YJ = this.threadData.YJ();
-        if (this.threadData.Zf() != null && this.threadData.aat()) {
-            return bg.bBv;
+        int adq = this.threadData.adq();
+        if (this.threadData.adM() != null && this.threadData.afa()) {
+            return bg.bIL;
         }
         if (this.threadData.threadType == 63) {
             bg bgVar = this.threadData;
-            return bg.bBp;
+            return bg.bIE;
         } else if (this.threadData.threadType == 64) {
             bg bgVar2 = this.threadData;
-            return bg.bBq;
-        } else if (this.threadData.Zh() != null && this.threadData.threadType == 60) {
-            return bg.bBk;
+            return bg.bIF;
+        } else if (this.threadData.adO() != null && this.threadData.threadType == 60) {
+            return bg.bIz;
         } else {
-            if (this.threadData.Zh() != null && this.threadData.threadType == 49) {
-                return bg.bBi;
+            if (this.threadData.adO() != null && this.threadData.threadType == 49) {
+                return bg.bIx;
             }
             if (this.threadData.threadType == 51) {
-                return bg.bBj;
+                return bg.bIy;
             }
-            if (YJ == 2 || YJ == 1) {
-                return bg.bAT;
+            if (adq == 2 || adq == 1) {
+                return bg.bIh;
             }
-            if (this.threadData.Zf() != null && this.threadData.ZU() && !this.threadData.ZL()) {
-                return bg.bBu;
-            }
-            if (this.threadData.YR() && this.threadData.Zf() != null && !this.threadData.ZL()) {
-                return bg.bBm;
+            if (this.threadData.adM() != null && this.threadData.aeB() && !this.threadData.aes()) {
+                return bg.bIK;
             }
             if (this.threadData.isShareThread) {
-                return bg.bBl;
+                return bg.bIA;
             }
-            if (this.threadData.ZN()) {
+            if (this.threadData.aeu()) {
                 bg bgVar3 = this.threadData;
-                return bg.bBr.get() ? bg.bCE : bg.bAU;
-            } else if (this.threadData.Zz() && this.threadData.Zy() == 1) {
+                return bg.bIH.get() ? bg.bJU : bg.bIi;
+            } else if (this.threadData.aeg() && this.threadData.aef() == 1) {
                 bg bgVar4 = this.threadData;
-                return bg.bBr.get() ? bg.bCM : bg.bAU;
+                return bg.bIH.get() ? bg.bKc : bg.bIi;
             } else if (this.threadData.isLinkThread()) {
-                return bg.bBf;
+                return bg.bIu;
             } else {
-                if (this.threadData.YR()) {
-                    return bg.bBg;
-                }
-                if (this.threadData.aas()) {
-                    return this.threadData.Yx() != null ? bg.bBo : bg.bBn;
-                } else if (this.bAJ) {
-                    return bg.bAY;
+                if (this.threadData.aeZ()) {
+                    return this.threadData.ade() != null ? bg.bID : bg.bIC;
+                } else if (this.bHV) {
+                    return bg.bIm;
                 } else {
-                    if (this.bAK) {
-                        return bg.bAZ;
+                    if (this.bHW) {
+                        return bg.bIn;
                     }
-                    if (this.bAL) {
-                        return bg.bBa;
+                    if (this.bHX) {
+                        return bg.bIo;
                     }
-                    if (this.bAM) {
-                        return bg.bBb;
+                    if (this.bHY) {
+                        return bg.bIp;
                     }
-                    if (this.bAN) {
-                        return bg.bBc;
+                    if (this.bHZ) {
+                        return bg.bIq;
                     }
-                    if (this.bAO) {
-                        return bg.bBd;
+                    if (this.bIa) {
+                        return bg.bIr;
                     }
-                    if (this.bAP) {
-                        return bg.bBe;
+                    if (this.bIb) {
+                        return bg.bIs;
                     }
-                    if (this.bAQ) {
-                        return bg.bBh;
+                    if (this.bIc) {
+                        return bg.bIw;
                     }
-                    return bg.bAU;
+                    if (this.threadData.ady()) {
+                        if (this.bId) {
+                            return bg.bIB;
+                        }
+                        return bg.bIv;
+                    } else if (this.bIe) {
+                        return bg.bIG;
+                    } else {
+                        return bg.bIi;
+                    }
                 }
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bg WO() {
+    public bg abv() {
         return this.threadData;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public aj WQ() {
-        if (this.threadData.bzy == null || this.threadData.bzy.size() <= 0) {
+    public aj abx() {
+        if (this.threadData.bGK == null || this.threadData.bGK.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
-        ajVar.setTid(WO().getTid());
-        ajVar.setFid(WO().getFid());
-        ajVar.b(this.threadData.bzy);
+        ajVar.setTid(abv().getTid());
+        ajVar.setFid(abv().getFid());
+        ajVar.b(this.threadData.bGK);
         return ajVar;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String WP() {
-        return this.threadData.bDd;
+    public String abw() {
+        return this.threadData.bKt;
     }
 }

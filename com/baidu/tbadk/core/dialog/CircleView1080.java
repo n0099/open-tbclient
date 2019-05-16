@@ -6,14 +6,14 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int bFm = 360;
-    private static int bFn = 100;
-    private int amd;
-    private Paint bFp;
-    private RectF bFr;
+    private static int bME = 360;
+    private static int bMF = 100;
+    private int amp;
+    private Paint bMH;
+    private RectF bMJ;
     private int mValue;
     private int mWidth;
 
@@ -41,19 +41,19 @@ public class CircleView1080 extends View {
     }
 
     public void init() {
-        this.mWidth = getResources().getDimensionPixelSize(d.e.tbds122);
-        this.amd = getResources().getDimensionPixelSize(d.e.tbds6);
-        this.bFp = new Paint();
-        this.bFp.setStrokeWidth(this.amd);
-        this.bFp.setColor(getResources().getColor(d.C0277d.cp_cont_g));
-        this.bFp.setStyle(Paint.Style.STROKE);
-        this.bFp.setAntiAlias(true);
-        this.bFp.setStrokeCap(Paint.Cap.ROUND);
-        this.bFr = new RectF(this.amd / 2, this.amd / 2, this.mWidth + (this.amd / 2), this.mWidth + (this.amd / 2));
+        this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
+        this.amp = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.bMH = new Paint();
+        this.bMH.setStrokeWidth(this.amp);
+        this.bMH.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.bMH.setStyle(Paint.Style.STROKE);
+        this.bMH.setAntiAlias(true);
+        this.bMH.setStrokeCap(Paint.Cap.ROUND);
+        this.bMJ = new RectF(this.amp / 2, this.amp / 2, this.mWidth + (this.amp / 2), this.mWidth + (this.amp / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.bFr, 270.0f, (bFm * this.mValue) / bFn, false, this.bFp);
+        canvas.drawArc(this.bMJ, 270.0f, (bME * this.mValue) / bMF, false, this.bMH);
     }
 }

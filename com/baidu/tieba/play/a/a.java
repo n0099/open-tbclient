@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String HR;
-    private List<String> hYF;
-    private long hYG;
+    private String FC;
+    private List<String> irl;
+    private long irm;
     private long mStartTime = System.currentTimeMillis();
 
-    public a AT(String str) {
+    public a Cl(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.hYG = jSONObject.optLong("ttl");
+            this.irm = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.HR = optJSONObject.keys().next();
+                this.FC = optJSONObject.keys().next();
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.HR);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.FC);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.hYF = new ArrayList();
+                this.irl = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.hYF.add((String) optJSONArray.get(i2));
+                        this.irl.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,15 +51,15 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> bTT() {
-        return this.hYF;
+    public List<String> cbU() {
+        return this.irl;
     }
 
     public String getHost() {
-        return this.HR;
+        return this.FC;
     }
 
-    public boolean dK(long j) {
-        return j - this.mStartTime > this.hYG * 1000;
+    public boolean ei(long j) {
+        return j - this.mStartTime > this.irm * 1000;
     }
 }

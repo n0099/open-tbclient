@@ -221,7 +221,7 @@ public class cc {
 
     private static String a(byte b2) {
         String str;
-        return ("00" + Integer.toHexString(b2) + Config.TRACE_TODAY_VISIT_SPLIT).substring(str.length() - 3);
+        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
     }
 
     public static String c(int i, Context context) {
@@ -280,11 +280,11 @@ public class cc {
             for (byte b2 : bArr2) {
                 stringBuffer.append(a(b2));
             }
-            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
         }
         String b3 = b(i, context);
         if (b3 != null) {
-            return b3.replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            return b3.replaceAll(":", "");
         }
         return b3;
     }
@@ -331,7 +331,7 @@ public class cc {
                     throw th;
                 }
             }
-            str = stringBuffer.toString().trim().replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            str = stringBuffer.toString().trim().replaceAll(":", "");
             if (inputStreamReader != null) {
                 try {
                     inputStreamReader.close();

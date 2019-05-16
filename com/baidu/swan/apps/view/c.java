@@ -3,43 +3,43 @@ package com.baidu.swan.apps.view;
 import android.content.Context;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import com.baidu.swan.apps.core.h.d;
-import com.baidu.swan.apps.core.h.e;
+import com.baidu.swan.apps.core.i.d;
+import com.baidu.swan.apps.core.i.e;
 /* loaded from: classes2.dex */
 public class c extends d {
     public c(Context context) {
         super(context);
         a(new b());
         a(new a());
-        this.aof.setOnWebViewHookHandler(this);
+        this.aor.setOnWebViewHookHandler(this);
     }
 
-    @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.h.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
+    @Override // com.baidu.swan.apps.core.i.d, com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        this.asY = MG();
+        this.atm = Pp();
         super.loadUrl(str);
     }
 
-    protected boolean MG() {
+    protected boolean Pp() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.core.container.c
-    public void xv() {
-        if (this.asU != null) {
-            this.asU.goBack();
+    public void yn() {
+        if (this.ati != null) {
+            this.ati.goBack();
         }
     }
 
     /* loaded from: classes2.dex */
-    private class b extends d.C0135d {
+    private class b extends d.C0138d {
         private b() {
             super();
         }
 
-        @Override // com.baidu.swan.apps.core.h.d.C0135d, android.webkit.WebViewClient
+        @Override // com.baidu.swan.apps.core.i.d.C0138d, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return (c.this.asU != null && c.this.asU.ec(str)) || e.ad(webView.getContext(), str);
+            return (c.this.ati != null && c.this.ati.dQ(str)) || e.P(webView.getContext(), str);
         }
     }
 
@@ -51,8 +51,8 @@ public class c extends d {
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
-            if (c.this.asU != null) {
-                c.this.asU.dn(str);
+            if (c.this.ati != null) {
+                c.this.ati.da(str);
             }
         }
     }

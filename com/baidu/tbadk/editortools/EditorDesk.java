@@ -7,53 +7,53 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends FrameLayout {
-    private l ciA;
-    private boolean ciB;
-    private boolean ciC;
-    private EditorTools ciD;
-    private Runnable ciE;
-    private int cip;
-    private LinkedList<g> ciy;
-    private LinkedList<l> ciz;
+    private LinkedList<g> cqF;
+    private LinkedList<l> cqG;
+    private l cqH;
+    private boolean cqI;
+    private boolean cqJ;
+    private EditorTools cqK;
+    private Runnable cqL;
+    private int cqw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
-        this.cip = d.C0277d.cp_bg_line_d;
-        this.ciA = null;
-        this.ciB = true;
-        this.ciC = false;
-        this.ciE = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.cqw = R.color.cp_bg_line_d;
+        this.cqH = null;
+        this.cqI = true;
+        this.cqJ = false;
+        this.cqL = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.ciA != null) {
-                    EditorDesk.this.ciA.qT();
+                if (EditorDesk.this.cqH != null) {
+                    EditorDesk.this.cqH.pO();
                 }
             }
         };
-        this.ciy = new LinkedList<>();
-        this.ciz = new LinkedList<>();
-        this.ciD = editorTools;
+        this.cqF = new LinkedList<>();
+        this.cqG = new LinkedList<>();
+        this.cqK = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar) {
-        this.ciy.add(gVar);
+        this.cqF.add(gVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(l lVar) {
-        this.ciz.add(lVar);
+        this.cqG.add(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alQ() {
-        Iterator<l> it = this.ciz.iterator();
+    public void aqT() {
+        Iterator<l> it = this.cqG.iterator();
         while (it.hasNext()) {
             l next = it.next();
             if (next.getToolId() == 2) {
@@ -62,7 +62,7 @@ public class EditorDesk extends FrameLayout {
             if (next instanceof View) {
                 View view = (View) next;
                 view.setVisibility(8);
-                addView(view, -1, getContext().getResources().getDimensionPixelSize(d.e.ds460));
+                addView(view, -1, getContext().getResources().getDimensionPixelSize(R.dimen.ds460));
             }
             next.init();
         }
@@ -71,41 +71,41 @@ public class EditorDesk extends FrameLayout {
 
     private void b(l lVar) {
         if (lVar instanceof MoreDeskView) {
-            ((MoreDeskView) lVar).k(this.ciy);
+            ((MoreDeskView) lVar).k(this.cqF);
             lVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.ciA = null;
-        this.ciy.clear();
-        this.ciz.clear();
+        this.cqH = null;
+        this.cqF.clear();
+        this.cqG.clear();
     }
 
-    protected void qT() {
+    protected void pO() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.ciA != null) {
-            this.ciA.hide();
+        if (this.cqH != null) {
+            this.cqH.hide();
         }
-        this.ciA = null;
+        this.cqH = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jq(int i) {
-        if (ju(i)) {
-            if (alT()) {
-                this.ciB = true;
+    public void ke(int i) {
+        if (ki(i)) {
+            if (aqW()) {
+                this.cqI = true;
             } else {
-                this.ciB = false;
+                this.cqI = false;
             }
-            boolean z = this.ciC;
-            Iterator<l> it = this.ciz.iterator();
+            boolean z = this.cqJ;
+            Iterator<l> it = this.cqG.iterator();
             while (it.hasNext()) {
                 l next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -113,31 +113,31 @@ public class EditorDesk extends FrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.ciC = true;
+                    this.cqJ = true;
                 }
                 if (next.getToolId() == i) {
-                    this.ciA = next;
-                    if (this.ciB) {
-                        next.qT();
+                    this.cqH = next;
+                    if (this.cqI) {
+                        next.pO();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.ciB && (getContext() instanceof Activity)) {
-                if (this.ciD != null) {
-                    this.ciD.alX();
+            if (!this.cqI && (getContext() instanceof Activity)) {
+                if (this.cqK != null) {
+                    this.cqK.ara();
                 } else {
                     com.baidu.adp.lib.util.l.b(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.g.e.jH().postDelayed(this.ciE, 250L);
+                com.baidu.adp.lib.g.e.iB().postDelayed(this.cqL, 250L);
             }
-            qT();
+            pO();
         }
     }
 
-    private boolean ju(int i) {
-        Iterator<l> it = this.ciz.iterator();
+    private boolean ki(int i) {
+        Iterator<l> it = this.cqG.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -146,8 +146,8 @@ public class EditorDesk extends FrameLayout {
         return false;
     }
 
-    public g js(int i) {
-        Iterator<g> it = this.ciy.iterator();
+    public g kg(int i) {
+        Iterator<g> it = this.cqF.iterator();
         while (it.hasNext()) {
             g next = it.next();
             if (next.getToolId() == i) {
@@ -158,14 +158,14 @@ public class EditorDesk extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cip > 0) {
-            al.f(this, this.cip, i);
+        if (this.cqw > 0) {
+            al.h(this, this.cqw, i);
         }
-        Iterator<g> it = this.ciy.iterator();
+        Iterator<g> it = this.cqF.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<l> it2 = this.ciz.iterator();
+        Iterator<l> it2 = this.cqG.iterator();
         while (it2.hasNext()) {
             l next = it2.next();
             if (next != null) {
@@ -174,12 +174,12 @@ public class EditorDesk extends FrameLayout {
         }
     }
 
-    public boolean alS() {
-        return getVisibility() == 0 && alT();
+    public boolean aqV() {
+        return getVisibility() == 0 && aqW();
     }
 
-    private boolean alT() {
-        Iterator<l> it = this.ciz.iterator();
+    private boolean aqW() {
+        Iterator<l> it = this.cqG.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -190,20 +190,20 @@ public class EditorDesk extends FrameLayout {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.cip = i;
+        this.cqw = i;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            dW(true);
+            et(true);
         }
         super.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        dW(true);
+        et(true);
         return super.onInterceptTouchEvent(motionEvent);
     }
 
@@ -212,7 +212,7 @@ public class EditorDesk extends FrameLayout {
         return true;
     }
 
-    private void dW(boolean z) {
+    private void et(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

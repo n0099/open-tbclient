@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.editortools.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
     public static l r(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
-        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.h.editor_tool_container_image, (ViewGroup) null);
+        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
         if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
             return null;
@@ -31,18 +31,18 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        al.d(multiImgToolView.getMutiImageTips(), d.C0277d.cp_cont_c, 1);
+        al.f(multiImgToolView.getMutiImageTips(), R.color.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, final l lVar) {
         ImageView imageView = new ImageView(context);
-        al.c(imageView, d.f.btn_add_photo_selector);
+        al.c(imageView, (int) R.drawable.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
-        imageView.setContentDescription(context.getString(d.j.add));
+        imageView.setContentDescription(context.getString(R.string.add));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
+        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(R.dimen.ds30) + dip2px, context.getResources().getDimensionPixelSize(R.dimen.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

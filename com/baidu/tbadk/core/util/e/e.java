@@ -2,46 +2,46 @@ package com.baidu.tbadk.core.util.e;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.s.bm;
+import com.baidu.tbadk.t.bu;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e bNk;
-    private int bNl = 3;
+    private static e bUV;
+    private int bUW = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static e adW() {
-        if (bNk == null) {
+    public static e aiV() {
+        if (bUV == null) {
             synchronized (e.class) {
-                if (bNk == null) {
-                    bNk = new e();
+                if (bUV == null) {
+                    bUV = new e();
                 }
             }
         }
-        return bNk;
+        return bUV;
     }
 
     private e() {
         g.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_sync_switch_json", ""));
+            parseJson(com.baidu.tbadk.core.sharedPref.b.agM().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public boolean isOpen() {
-        if (bm.jK()) {
-            return !this.isWifi || j.kZ();
+        if (bu.iE()) {
+            return !this.isWifi || j.jT();
         }
         g.log("PreLoadVideoSwitchManager isOpen switch close ");
         return false;
     }
 
-    public int adX() {
-        return this.bNl;
+    public int aiW() {
+        return this.bUW;
     }
 
     public int getSize() {
@@ -51,12 +51,12 @@ public class e {
         return this.mSize;
     }
 
-    public void ni(String str) {
+    public void os(String str) {
         g.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
                 parseJson(str);
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_sync_switch_json", str);
+                com.baidu.tbadk.core.sharedPref.b.agM().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -66,10 +66,10 @@ public class e {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.bNl = jSONObject.optInt("num", 3);
+            this.bUW = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
             this.mSize = jSONObject.optInt("size", 512000);
-            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.bNl + " size: " + this.mSize + " isWifi " + this.isWifi);
+            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.bUW + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

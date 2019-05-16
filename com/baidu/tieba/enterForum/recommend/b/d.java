@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eEy = BdUniqueId.gen();
-    private int eEA = 0;
-    private List<c> eEB;
-    private int eEz;
+    public static final BdUniqueId eUs = BdUniqueId.gen();
+    private int eUt;
+    private int eUu = 0;
+    private List<c> eUv;
     private List<b> forumList;
     private String title;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eEy;
+        return eUs;
     }
 
     public String getTitle() {
@@ -25,79 +25,79 @@ public class d extends com.baidu.tieba.card.data.b {
         this.title = str;
     }
 
-    public int aXc() {
-        return this.eEz;
+    public int beq() {
+        return this.eUt;
     }
 
-    public void pf(int i) {
-        this.eEz = i;
+    public void qk(int i) {
+        this.eUt = i;
     }
 
     public List<b> getForumList() {
         return this.forumList;
     }
 
-    public void bx(List<b> list) {
+    public void bF(List<b> list) {
         this.forumList = list;
     }
 
-    public List<c> aXd() {
-        return this.eEB;
+    public List<c> ber() {
+        return this.eUv;
     }
 
-    private void by(List<c> list) {
-        this.eEB = list;
+    private void bG(List<c> list) {
+        this.eUv = list;
     }
 
-    public List<c> aXe() {
+    public List<c> bes() {
         if (getForumList().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.eEz == 2) {
-            if (aXf() != null) {
-                arrayList.add(aXf());
+        if (this.eUt == 2) {
+            if (bet() != null) {
+                arrayList.add(bet());
             }
         } else {
-            c aXf = aXf();
-            c aXf2 = aXf();
-            if (aXf != null) {
-                arrayList.add(aXf);
+            c bet = bet();
+            c bet2 = bet();
+            if (bet != null) {
+                arrayList.add(bet);
             }
-            if (aXf2 != null) {
-                arrayList.add(aXf2);
+            if (bet2 != null) {
+                arrayList.add(bet2);
             }
         }
-        by(arrayList);
+        bG(arrayList);
         return arrayList;
     }
 
-    private c aXf() {
+    private c bet() {
         if (getForumList().size() <= 0) {
             return null;
         }
-        b aXg = aXg();
-        b aXg2 = aXg();
-        if (aXg == null && aXg2 == null) {
+        b beu = beu();
+        b beu2 = beu();
+        if (beu == null && beu2 == null) {
             return null;
         }
         c cVar = new c();
-        cVar.b(aXg);
-        cVar.a(aXg2);
+        cVar.b(beu);
+        cVar.a(beu2);
         return cVar;
     }
 
-    private b aXg() {
+    private b beu() {
         b bVar;
-        if (this.eEA < getForumList().size()) {
-            bVar = getForumList().get(this.eEA);
-        } else if (this.eEz < getForumList().size()) {
-            this.eEA = 0;
-            bVar = getForumList().get(this.eEA);
+        if (this.eUu < getForumList().size()) {
+            bVar = getForumList().get(this.eUu);
+        } else if (this.eUt < getForumList().size()) {
+            this.eUu = 0;
+            bVar = getForumList().get(this.eUu);
         } else {
             return null;
         }
-        this.eEA++;
+        this.eUu++;
         return bVar;
     }
 }

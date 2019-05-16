@@ -14,7 +14,7 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cJ */
+        /* renamed from: cO */
         public SwanAppPreHandleInfo[] newArray(int i) {
             return new SwanAppPreHandleInfo[i];
         }

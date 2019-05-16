@@ -1,27 +1,33 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.protobuf.b;
-import java.util.Map;
+import com.xiaomi.push.service.XMPushService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-class bd extends com.xiaomi.smack.b {
-    final /* synthetic */ XMPushService a;
+public class bd extends XMPushService.i {
+    private XMPushService b;
+    private com.xiaomi.slim.b c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bd(XMPushService xMPushService, Map map, int i, String str, com.xiaomi.smack.e eVar) {
-        super(map, i, str, eVar);
-        this.a = xMPushService;
+    public bd(XMPushService xMPushService, com.xiaomi.slim.b bVar) {
+        super(4);
+        this.b = null;
+        this.b = xMPushService;
+        this.c = bVar;
     }
 
-    @Override // com.xiaomi.smack.b
-    public byte[] a() {
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
         try {
-            b.C0466b c0466b = new b.C0466b();
-            c0466b.a(at.a().c());
-            return c0466b.c();
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a("getOBBString err: " + e.toString());
-            return null;
+            if (this.c != null) {
+                this.b.a(this.c);
+            }
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.b.a(10, e);
         }
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "send a message.";
     }
 }

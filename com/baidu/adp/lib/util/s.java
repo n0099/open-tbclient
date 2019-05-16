@@ -11,14 +11,14 @@ public class s {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return u(messageDigest.digest());
+            return m(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String u(byte[] bArr) {
+    public static String m(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -30,7 +30,7 @@ public class s {
         return sb.toString();
     }
 
-    public static String j(InputStream inputStream) {
+    public static String h(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
@@ -43,17 +43,17 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = u(messageDigest.digest());
+                str = m(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
-                n.i(inputStream);
+                n.g(inputStream);
             }
         }
         return str;
     }
 
-    public static String bC(String str) {
+    public static String bm(String str) {
         if (str == null) {
             return null;
         }

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.data.y;
 import com.baidu.tbadk.core.data.z;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -38,6 +38,7 @@ import tbclient.FrsPage.ActivityConfig;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.FrsPage.ColorEgg;
 import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumActiveInfo;
 import tbclient.FrsPage.ForumHeadIcon;
 import tbclient.FrsPage.FrsPageResIdl;
 import tbclient.FrsPage.NavTabInfo;
@@ -70,6 +71,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
     protected boolean fortuneBag;
     protected String fortuneDesc;
     protected ForumData forum;
+    public ForumActiveInfo forumActiveInfo;
     public ForumArIno forumArIno;
     private ForumHeadIcon forumHeadIcon;
     private String gameName;
@@ -97,7 +99,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
     private int photoLivePos;
     private at privateForumTotalData;
     public List<RecmForumInfo> recm_forum_list;
-    private com.baidu.tieba.tbadkCore.data.n redpacketRainData;
+    private com.baidu.tieba.tbadkCore.data.o redpacketRainData;
     private ax schoolRecommendInfo;
     public SmartApp smartApp;
     public List<String> smartAppAvatar;
@@ -106,6 +108,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
     protected ArrayList<com.baidu.adp.widget.ListView.m> threadList;
     protected List<Long> threadListIds;
     private UserData userData;
+    public List<User> userList;
     private HashMap<String, MetaData> userMap;
     private com.baidu.tieba.frs.q userRecommend;
     private WorldcupSkin worldcupSkin;
@@ -175,9 +178,9 @@ public class j implements com.baidu.tbadk.mvc.b.c {
         if (dataRes != null) {
             try {
                 initData();
-                if (!com.baidu.tbadk.core.util.v.T(dataRes.color_egg)) {
+                if (!com.baidu.tbadk.core.util.v.aa(dataRes.color_egg)) {
                     for (ColorEgg colorEgg : dataRes.color_egg) {
-                        if (colorEgg != null && !com.baidu.tbadk.core.util.v.T(colorEgg.holiday_words)) {
+                        if (colorEgg != null && !com.baidu.tbadk.core.util.v.aa(colorEgg.holiday_words)) {
                             com.baidu.tbadk.core.data.p pVar = new com.baidu.tbadk.core.data.p();
                             if (pVar.a(colorEgg)) {
                                 this.color_eggs.add(pVar);
@@ -196,7 +199,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                     this.mActivityHeadData.a(dataRes.brand_forum_info.head_imgs);
                     this.brandAdData = new com.baidu.tieba.frs.b();
                     this.brandAdData.a(dataRes.brand_forum_info);
-                    if (!com.baidu.tbadk.core.util.v.T(dataRes.brand_forum_info.relation_forum)) {
+                    if (!com.baidu.tbadk.core.util.v.aa(dataRes.brand_forum_info.relation_forum)) {
                         this.oriForumInfoList = new ArrayList();
                         for (OriForumInfo oriForumInfo : dataRes.brand_forum_info.relation_forum) {
                             if (oriForumInfo != null) {
@@ -204,7 +207,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                             }
                         }
                     }
-                } else if (dataRes.activityhead != null && !com.baidu.tbadk.core.util.v.T(dataRes.activityhead.head_imgs)) {
+                } else if (dataRes.activityhead != null && !com.baidu.tbadk.core.util.v.aa(dataRes.activityhead.head_imgs)) {
                     this.mActivityHeadData = new com.baidu.tbadk.core.data.q();
                     this.mActivityHeadData.a(dataRes.activityhead);
                 } else if (dataRes.private_forum_info != null && dataRes.private_forum_info.head_imgs != null && !ap.isEmpty(dataRes.private_forum_info.head_imgs.img_url)) {
@@ -223,6 +226,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
+                this.userList = dataRes.user_list;
                 setIsNewUrl(dataRes.is_new_url.intValue());
                 this.fortuneBag = dataRes.fortune_bag.intValue() == 1;
                 this.fortuneDesc = dataRes.fortune_desc;
@@ -241,7 +245,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 this.threadListIds = dataRes.thread_id_list;
                 this.anti.parserProtobuf(dataRes.anti);
                 if (dataRes.anti != null) {
-                    com.baidu.tieba.ueg.c.e(dataRes.anti.block_pop_info);
+                    com.baidu.tieba.ueg.d.e(dataRes.anti.block_pop_info);
                 }
                 this.chatGroup.a(dataRes.group);
                 this.page.a(dataRes.page);
@@ -261,11 +265,11 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 if (this.mEntelechyTabInfo != null && com.baidu.tbadk.core.util.v.c(this.mEntelechyTabInfo.tab, 0) != null) {
                     this.defaultShowTab = ((FrsTabInfo) com.baidu.tbadk.core.util.v.c(this.mEntelechyTabInfo.tab, 0)).tab_id.intValue();
                 }
-                if (this.mEntelechyTabInfo != null && !com.baidu.tbadk.core.util.v.T(this.mEntelechyTabInfo.head)) {
+                if (this.mEntelechyTabInfo != null && !com.baidu.tbadk.core.util.v.aa(this.mEntelechyTabInfo.head)) {
                     this.mNewChapterInfo = this.mEntelechyTabInfo.head.get(0);
                 }
                 this.alaLiveCount = dataRes.ala_live_count.intValue();
-                zk(dataRes.frs_tab_default.intValue());
+                As(dataRes.frs_tab_default.intValue());
                 this.photoLivePos = dataRes.twzhibo_pos.intValue();
                 this.isShowRedTip = dataRes.trends_redpoint.intValue() == 1;
                 convertThreadInfoToThreadData(dataRes.thread_list, longValue);
@@ -295,37 +299,37 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
                     this.cardVideoInfo = new bg();
-                    this.cardVideoInfo.dl(true);
-                    this.cardVideoInfo.gw(this.photoLivePos);
+                    this.cardVideoInfo.dG(true);
+                    this.cardVideoInfo.hi(this.photoLivePos);
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
-                    this.cardVideoInfo.ZE();
-                    this.cardVideoInfo.bDJ = this.isBrandForum;
+                    this.cardVideoInfo.ael();
+                    this.cardVideoInfo.bLa = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && longValue != 0) {
                         this.cardVideoInfo.setFid(longValue);
                     }
-                    this.cardVideoInfo.o(this.color_eggs);
-                    this.cardVideoInfo.dk(!this.cardVideoInfo.Yt());
-                    if (this.cardVideoInfo.YO() != null && this.cardVideoInfo.YO().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.YO().getUserId())) != null && metaData.getPendantData() != null) {
+                    this.cardVideoInfo.r(this.color_eggs);
+                    this.cardVideoInfo.dF(!this.cardVideoInfo.ada());
+                    if (this.cardVideoInfo.adv() != null && this.cardVideoInfo.adv().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.adv().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
-                        lVar.aR(metaData.getPendantData().alu());
-                        lVar.lg(metaData.getPendantData().Xk());
-                        this.cardVideoInfo.YO().setPendantData(lVar);
+                        lVar.bg(metaData.getPendantData().aqx());
+                        lVar.ml(metaData.getPendantData().abS());
+                        this.cardVideoInfo.adv().setPendantData(lVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new f();
-                    this.mFrsInsertLiveData.iDF = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.iWs = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < dataRes.ala_live_insert.ala_live_list.size(); i3++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i3) != null) {
                             bg bgVar = new bg();
                             bgVar.a(dataRes.ala_live_insert.ala_live_list.get(i3));
-                            bgVar.bDJ = this.isBrandForum;
+                            bgVar.bLa = this.isBrandForum;
                             arrayList.add(bgVar);
                         }
                     }
-                    this.mFrsInsertLiveData.iDE = arrayList;
+                    this.mFrsInsertLiveData.iWr = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new g();
@@ -334,11 +338,11 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         if (dataRes.ala_stage_list.get(i4) != null) {
                             bg bgVar2 = new bg();
                             bgVar2.a(dataRes.ala_stage_list.get(i4));
-                            bgVar2.bDJ = this.isBrandForum;
+                            bgVar2.bLa = this.isBrandForum;
                             arrayList2.add(bgVar2);
                         }
                     }
-                    this.mFrsStageLiveData.iDH = arrayList2;
+                    this.mFrsStageLiveData.iWu = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -355,17 +359,17 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.bXv().BG(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cfz().Dc(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
                         bg bgVar3 = new bg();
                         if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                            bgVar3.gw(this.mCardShipinPos.get(i5).intValue());
+                            bgVar3.hi(this.mCardShipinPos.get(i5).intValue());
                         }
-                        bgVar3.dl(true);
+                        bgVar3.dG(true);
                         bgVar3.a(dataRes.card_shipin_new.get(i5));
-                        bgVar3.bDJ = this.isBrandForum;
+                        bgVar3.bLa = this.isBrandForum;
                         this.mCardShipinNew.add(bgVar3);
                     }
                 }
@@ -400,7 +404,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 this.mWindowToast = dataRes.window_toast;
                 this.activityConfig = dataRes.activity_config;
                 this.worldcupSkin = dataRes.worldcup_skin;
-                this.redpacketRainData = new com.baidu.tieba.tbadkCore.data.n();
+                this.redpacketRainData = new com.baidu.tieba.tbadkCore.data.o();
                 this.redpacketRainData.a(dataRes.redpacketrain);
                 this.isFrsVideoAutoPlay = dataRes.video_auto_play.intValue() == 1;
                 this.smartAppAvatar = dataRes.smart_app_avatar;
@@ -409,6 +413,8 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 if (dataRes.private_forum_info != null) {
                     this.privateForumTotalData.a(dataRes.private_forum_info);
                 }
+                this.forumActiveInfo = dataRes.private_forum_active_info;
+                this.userList = dataRes.user_list;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -435,7 +441,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
         return this.recm_forum_list;
     }
 
-    private void zk(int i) {
+    private void As(int i) {
         this.frsDefaultTabId = 1;
         if (this.mEntelechyTabInfo != null && this.mEntelechyTabInfo.tab != null && this.mEntelechyTabInfo.tab.size() > 0) {
             for (FrsTabInfo frsTabInfo : this.mEntelechyTabInfo.tab) {
@@ -448,25 +454,25 @@ public class j implements com.baidu.tbadk.mvc.b.c {
     }
 
     public void convertThreadInfoToThreadData(List<ThreadInfo> list, long j) {
-        if (!com.baidu.tbadk.core.util.v.T(list)) {
+        if (!com.baidu.tbadk.core.util.v.aa(list)) {
             for (ThreadInfo threadInfo : list) {
                 if (threadInfo != null) {
                     bg bgVar = new bg();
                     bgVar.setUserMap(this.userMap);
                     bgVar.a(threadInfo);
                     bgVar.setCurrentPage(3);
-                    bgVar.ZE();
+                    bgVar.ael();
                     if (bgVar.getFid() == 0 && j != 0) {
                         bgVar.setFid(j);
                     }
-                    if (StringUtils.isNull(bgVar.YT())) {
-                        bgVar.lk(this.forum.getName());
+                    if (StringUtils.isNull(bgVar.adA())) {
+                        bgVar.mp(this.forum.getName());
                     }
-                    bgVar.o(this.color_eggs);
-                    bgVar.bDJ = this.forum.isBrandForum;
-                    if (!TextUtils.isEmpty(bgVar.ZQ())) {
+                    bgVar.r(this.color_eggs);
+                    bgVar.bLa = this.forum.isBrandForum;
+                    if (!TextUtils.isEmpty(bgVar.aex())) {
                         ad adVar = new ad();
-                        adVar.lb(bgVar.ZQ());
+                        adVar.mg(bgVar.aex());
                         this.threadList.add(adVar);
                     } else {
                         this.threadList.add(bgVar);
@@ -487,66 +493,110 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 arrayList.add(next);
             } else if (next instanceof bg) {
                 bg bgVar = (bg) next;
-                int[] ap = ap(bgVar);
-                if (bgVar.getType() == bg.bAU && !bgVar.Zv()) {
+                int[] imageWidthAndHeight = imageWidthAndHeight(bgVar);
+                if (bgVar.getType() == bg.bIi && !bgVar.aec()) {
                     bf bfVar = new bf();
                     bfVar.threadData = bgVar;
                     bfVar.position = i;
-                    bfVar.bAJ = true;
+                    bfVar.bHV = true;
                     arrayList.add(bfVar);
                     bf bfVar2 = new bf();
                     bfVar2.threadData = bgVar;
                     bfVar2.position = i;
-                    if (bgVar.ZM() == 1) {
-                        bfVar2.bAM = true;
-                        bfVar2.bAR = ap[0];
-                        bfVar2.bAS = ap[1];
-                    } else if (bgVar.ZM() >= 2) {
-                        bfVar2.bAN = true;
+                    if (bgVar.aet() == 1) {
+                        bfVar2.bHY = true;
+                        bfVar2.bIf = imageWidthAndHeight[0];
+                        bfVar2.bIg = imageWidthAndHeight[1];
+                    } else if (bgVar.aet() >= 2) {
+                        bfVar2.bHZ = true;
                     } else {
-                        bfVar2.bAK = true;
+                        bfVar2.bHW = true;
                     }
                     arrayList.add(bfVar2);
-                    if (bgVar.aam() != null) {
+                    if (bgVar.aeh() != null) {
                         bf bfVar3 = new bf();
-                        bfVar3.bAP = true;
+                        bfVar3.bIe = true;
                         bfVar3.threadData = bgVar;
                         bfVar3.position = i;
                         arrayList.add(bfVar3);
                     }
-                    bf bfVar4 = new bf();
-                    bfVar4.bAO = true;
-                    bfVar4.threadData = bgVar;
-                    bfVar4.position = i;
-                    arrayList.add(bfVar4);
-                } else if (bgVar.getType() == bg.bBh && !bgVar.Zv()) {
+                    if (bgVar.aeT() != null) {
+                        bf bfVar4 = new bf();
+                        bfVar4.bIb = true;
+                        bfVar4.threadData = bgVar;
+                        bfVar4.position = i;
+                        arrayList.add(bfVar4);
+                    }
                     bf bfVar5 = new bf();
+                    bfVar5.bIa = true;
                     bfVar5.threadData = bgVar;
                     bfVar5.position = i;
-                    bfVar5.bAJ = true;
                     arrayList.add(bfVar5);
+                } else if (bgVar.getType() == bg.bIw && !bgVar.aec()) {
                     bf bfVar6 = new bf();
                     bfVar6.threadData = bgVar;
                     bfVar6.position = i;
-                    bfVar6.bAQ = true;
+                    bfVar6.bHV = true;
                     arrayList.add(bfVar6);
-                    if (bgVar.aam() != null) {
-                        bf bfVar7 = new bf();
-                        bfVar7.bAP = true;
-                        bfVar7.threadData = bgVar;
-                        bfVar7.position = i;
-                        arrayList.add(bfVar7);
+                    bf bfVar7 = new bf();
+                    bfVar7.threadData = bgVar;
+                    bfVar7.position = i;
+                    bfVar7.bIc = true;
+                    arrayList.add(bfVar7);
+                    if (bgVar.aeh() != null) {
+                        bf bfVar8 = new bf();
+                        bfVar8.bIe = true;
+                        bfVar8.threadData = bgVar;
+                        bfVar8.position = i;
+                        arrayList.add(bfVar8);
                     }
-                    bf bfVar8 = new bf();
-                    bfVar8.bAO = true;
-                    bfVar8.threadData = bgVar;
-                    bfVar8.position = i;
-                    arrayList.add(bfVar8);
+                    if (bgVar.aeT() != null) {
+                        bf bfVar9 = new bf();
+                        bfVar9.bIb = true;
+                        bfVar9.threadData = bgVar;
+                        bfVar9.position = i;
+                        arrayList.add(bfVar9);
+                    }
+                    bf bfVar10 = new bf();
+                    bfVar10.bIa = true;
+                    bfVar10.threadData = bgVar;
+                    bfVar10.position = i;
+                    arrayList.add(bfVar10);
+                } else if (bgVar.adM() != null && !bgVar.aes() && bgVar.ady()) {
+                    bf bfVar11 = new bf();
+                    bfVar11.threadData = bgVar;
+                    bfVar11.position = i;
+                    bfVar11.bHV = true;
+                    arrayList.add(bfVar11);
+                    bf bfVar12 = new bf();
+                    bfVar12.threadData = bgVar;
+                    bfVar12.position = i;
+                    bfVar12.bId = true;
+                    arrayList.add(bfVar12);
+                    if (bgVar.aeh() != null) {
+                        bf bfVar13 = new bf();
+                        bfVar13.bIe = true;
+                        bfVar13.threadData = bgVar;
+                        bfVar13.position = i;
+                        arrayList.add(bfVar13);
+                    }
+                    if (bgVar.aeT() != null) {
+                        bf bfVar14 = new bf();
+                        bfVar14.bIb = true;
+                        bfVar14.threadData = bgVar;
+                        bfVar14.position = i;
+                        arrayList.add(bfVar14);
+                    }
+                    bf bfVar15 = new bf();
+                    bfVar15.bIa = true;
+                    bfVar15.threadData = bgVar;
+                    bfVar15.position = i;
+                    arrayList.add(bfVar15);
                 } else {
-                    bf bfVar9 = new bf();
-                    bfVar9.threadData = bgVar;
-                    bfVar9.position = i;
-                    arrayList.add(bfVar9);
+                    bf bfVar16 = new bf();
+                    bfVar16.threadData = bgVar;
+                    bfVar16.position = i;
+                    arrayList.add(bfVar16);
                 }
             } else {
                 arrayList.add(next);
@@ -557,23 +607,23 @@ public class j implements com.baidu.tbadk.mvc.b.c {
         return arrayList;
     }
 
-    private int[] ap(bg bgVar) {
+    public int[] imageWidthAndHeight(bg bgVar) {
         int i;
         int[] iArr = new int[2];
-        int size = View.MeasureSpec.getSize(com.baidu.adp.lib.util.l.aS(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds44) * 2);
-        int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds10);
+        int size = View.MeasureSpec.getSize(com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+        int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
         int i2 = (int) ((size - (dimensionPixelSize * 2)) / 3.0f);
-        ArrayList<MediaData> YY = bgVar.YY();
-        if (com.baidu.tbadk.core.i.Wv().Wz() && com.baidu.tbadk.core.util.v.S(YY) != 0) {
+        ArrayList<MediaData> adF = bgVar.adF();
+        if (com.baidu.tbadk.core.i.abb().abf() && com.baidu.tbadk.core.util.v.Z(adF) != 0) {
             LinkedList linkedList = new LinkedList();
-            for (int i3 = 0; i3 < YY.size(); i3++) {
-                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(YY, i3);
+            for (int i3 = 0; i3 < adF.size(); i3++) {
+                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.v.c(adF, i3);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
         }
-        MediaData mediaData2 = (MediaData) com.baidu.tbadk.core.util.v.c(YY, 0);
+        MediaData mediaData2 = (MediaData) com.baidu.tbadk.core.util.v.c(adF, 0);
         if (mediaData2 != null && mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
             if (mediaData2.picWidth * 2 <= mediaData2.picHeight) {
                 i = ((int) (i2 * 1.5f)) + dimensionPixelSize;
@@ -1043,12 +1093,12 @@ public class j implements com.baidu.tbadk.mvc.b.c {
         return this.worldcupSkin;
     }
 
-    public com.baidu.tieba.tbadkCore.data.n getRedpacketRainData() {
+    public com.baidu.tieba.tbadkCore.data.o getRedpacketRainData() {
         return this.redpacketRainData;
     }
 
-    public void setRedpacketRainData(com.baidu.tieba.tbadkCore.data.n nVar) {
-        this.redpacketRainData = nVar;
+    public void setRedpacketRainData(com.baidu.tieba.tbadkCore.data.o oVar) {
+        this.redpacketRainData = oVar;
     }
 
     public at getPrivateForumTotalInfo() {

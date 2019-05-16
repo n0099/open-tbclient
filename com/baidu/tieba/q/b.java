@@ -4,7 +4,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
@@ -16,50 +15,50 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> iDk;
+    private Map<BdUniqueId, ArrayList<am>> iVY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.iDk == null) {
-            this.iDk = new LinkedHashMap();
+        if (this.iVY == null) {
+            this.iVY = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void s(BdUniqueId bdUniqueId) {
+    public void u(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDk.put(bdUniqueId, null);
+            this.iVY.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void t(BdUniqueId bdUniqueId) {
+    public void v(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDk.remove(bdUniqueId);
+            this.iVY.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDk.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iVY.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.iDk.put(bdUniqueId, arrayList);
+                this.iVY.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean u(BdUniqueId bdUniqueId) {
-        return this.iDk.containsKey(bdUniqueId);
+    public boolean w(BdUniqueId bdUniqueId) {
+        return this.iVY.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cdo() {
-        if (this.iDk.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDk.entrySet()) {
+    public void cls() {
+        if (this.iVY.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iVY.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,18 +70,18 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDk.get(bdUniqueId);
-            if (v.S(arrayList) != 0) {
-                aB(arrayList);
+            ArrayList<am> arrayList = this.iVY.get(bdUniqueId);
+            if (v.Z(arrayList) != 0) {
+                aF(arrayList);
                 arrayList.clear();
             }
         }
     }
 
-    private void aB(ArrayList<am> arrayList) {
-        if (arrayList != null && v.S(arrayList) != 0) {
+    private void aF(ArrayList<am> arrayList) {
+        if (arrayList != null && v.Z(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (v.S(arrayList) == 1) {
+            if (v.Z(arrayList) == 1) {
                 TiebaStatic.log((am) v.c(arrayList, 0));
             } else {
                 HashMap hashMap = new HashMap();
@@ -105,7 +104,7 @@ public class b {
                 boolean z = false;
                 for (Map.Entry entry : hashMap.entrySet()) {
                     List list = (List) entry.getValue();
-                    if (v.S(list) != 0) {
+                    if (v.Z(list) != 0) {
                         am amVar2 = (am) list.get(0);
                         StringBuilder sb = new StringBuilder();
                         StringBuilder sb2 = new StringBuilder();
@@ -116,6 +115,7 @@ public class b {
                         StringBuilder sb7 = new StringBuilder();
                         StringBuilder sb8 = new StringBuilder();
                         StringBuilder sb9 = new StringBuilder();
+                        StringBuilder sb10 = new StringBuilder();
                         int i3 = 0;
                         while (i3 < list.size()) {
                             List<Object> params = ((am) list.get(i3)).getParams();
@@ -131,7 +131,7 @@ public class b {
                             sb5.append("|");
                             sb6.append(m(params, "thread_type"));
                             sb6.append("|");
-                            sb7.append(m(params, ImageViewerConfig.FORUM_ID));
+                            sb7.append(m(params, "fid"));
                             sb7.append("|");
                             String m = m(params, "post_type");
                             boolean z2 = !StringUtils.isNull(m) ? true : z;
@@ -139,6 +139,8 @@ public class b {
                             sb8.append("|");
                             sb9.append(m(params, "obj_isofficial"));
                             sb9.append("|");
+                            sb10.append(m(params, "obj_adlocate"));
+                            sb10.append("|");
                             i3++;
                             z = z2;
                         }
@@ -169,25 +171,29 @@ public class b {
                         if (sb9.length() > 0) {
                             sb9.deleteCharAt(sb9.length() - 1);
                         }
+                        if (sb10.length() > 0) {
+                            sb10.deleteCharAt(sb10.length() - 1);
+                        }
                         amVar2.delete("obj_floor");
                         amVar2.delete("obj_isad");
                         amVar2.delete(VideoPlayActivityConfig.OBJ_ID);
                         amVar2.delete("tid");
                         amVar2.delete(Info.kBaiduPIDKey);
                         amVar2.delete("thread_type");
-                        amVar2.delete(ImageViewerConfig.FORUM_ID);
+                        amVar2.delete("fid");
                         amVar2.delete("post_type");
                         amVar2.delete("obj_isofficial");
-                        amVar2.bJ("obj_floors", sb.toString());
-                        amVar2.bJ("obj_isads", sb2.toString());
-                        amVar2.bJ("obj_ids", sb3.toString());
-                        amVar2.bJ("tids", sb4.toString());
-                        amVar2.bJ("pids", sb5.toString());
-                        amVar2.bJ("thread_types", sb6.toString());
-                        amVar2.bJ("fids", sb7.toString());
-                        amVar2.bJ("obj_isofficials", sb9.toString());
+                        amVar2.bT("obj_floors", sb.toString());
+                        amVar2.bT("obj_isads", sb2.toString());
+                        amVar2.bT("obj_ids", sb3.toString());
+                        amVar2.bT("tids", sb4.toString());
+                        amVar2.bT("pids", sb5.toString());
+                        amVar2.bT("thread_types", sb6.toString());
+                        amVar2.bT("fids", sb7.toString());
+                        amVar2.bT("obj_isofficials", sb9.toString());
+                        amVar2.bT("obj_adlocates", sb10.toString());
                         if (z) {
-                            amVar2.bJ("post_types", sb8.toString());
+                            amVar2.bT("post_types", sb8.toString());
                         }
                         TiebaStatic.log(amVar2);
                     }
@@ -204,7 +210,7 @@ public class b {
 
     private String m(List<Object> list, String str) {
         int indexOf;
-        if (v.S(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
+        if (v.Z(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
             String valueOf = String.valueOf(list.get(indexOf + 1));
             return StringUtils.isNull(valueOf, true) ? "" : valueOf;
         }

@@ -8,14 +8,14 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
     public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.eUY, eVar.getUniqueId());
+        super(eVar.getPageActivity(), b.fli, eVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
                     if (a.this.mSkinType == 1) {
                         str = str + "?isNightModel=1";
                     }
-                    CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.mContext, a.this.mContext.getString(d.j.complaint_bar_lord), str, true));
+                    CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.mContext, a.this.mContext.getString(R.string.complaint_bar_lord), str, true));
                     customMessage.setTag(a.this.mPageId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
@@ -37,7 +37,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ax */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.h.item_complaint_bar_lord_view, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,16 +56,16 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
-            al.k(cVar.eCh, d.f.frs_member_manito_bg);
-            al.l(cVar.bEU, d.C0277d.cp_bg_line_b);
-            al.d(cVar.mTitleView, d.C0277d.cp_cont_b, 1);
-            al.c(cVar.ead, d.f.icon_arrow12_gray66_right);
+            al.k(cVar.epV, R.drawable.frs_member_manito_bg);
+            al.l(cVar.bMo, R.color.cp_bg_line_b);
+            al.f(cVar.mTitleView, R.color.cp_cont_b, 1);
+            al.c(cVar.ekC, (int) R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.eUZ);
-        cVar.eCh.setTag(bVar.mUrl);
-        cVar.eCh.setOnClickListener(this.mClickListener);
+        cVar.mTitleView.setText(bVar.flj);
+        cVar.epV.setTag(bVar.mUrl);
+        cVar.epV.setOnClickListener(this.mClickListener);
     }
 }

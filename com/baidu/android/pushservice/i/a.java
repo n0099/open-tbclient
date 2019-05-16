@@ -1,70 +1,164 @@
 package com.baidu.android.pushservice.i;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.RunnableFuture;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.os.Environment;
+import android.provider.Settings;
+import android.text.TextUtils;
+import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a extends ThreadPoolExecutor {
+public class a {
+    private static final Object a = new Object();
 
-    /* renamed from: com.baidu.android.pushservice.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    protected class C0035a<V> extends FutureTask<V> implements Comparable<C0035a<V>> {
-        private Object b;
-
-        public C0035a(Runnable runnable, V v) {
-            super(runnable, v);
-            this.b = runnable;
+    public static String a(Context context, String str) {
+        if (context == null) {
+            return "";
         }
-
-        public C0035a(Callable<V> callable) {
-            super(callable);
-            this.b = callable;
+        String str2 = null;
+        try {
+            str2 = Settings.System.getString(context.getContentResolver(), str);
+        } catch (Exception e) {
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        /* renamed from: a */
-        public int compareTo(C0035a<V> c0035a) {
-            if (this == c0035a) {
-                return 0;
+        if (TextUtils.isEmpty(str2)) {
+            try {
+                Object b = b(context, str);
+                return (b == null || !(b instanceof String)) ? str2 : String.valueOf(b);
+            } catch (Exception e2) {
+                return str2;
             }
-            if (c0035a == null) {
-                return -1;
-            }
-            if (this.b == null || c0035a.b == null || !(this.b instanceof c) || !(c0035a.b instanceof c)) {
-                return 0;
-            }
-            return ((c) c0035a.b).d() - ((c) this.b).d();
         }
+        return str2;
     }
 
-    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
-        super(i, i2, j, timeUnit, bVar);
-    }
-
-    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
-        if (getQueue().size() >= 19) {
-            if (getPoolSize() >= getMaximumPoolSize()) {
-                getQueue().clear();
+    private static JSONObject a(Context context) {
+        FileInputStream fileInputStream;
+        JSONObject jSONObject = new JSONObject();
+        FileInputStream fileInputStream2 = null;
+        try {
+            File file = new File(Environment.getExternalStorageDirectory(), "baidu/pushservice/files");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(file, ".info");
+            if (file2.exists()) {
+                fileInputStream = new FileInputStream(file2);
+                try {
+                    byte[] bArr = new byte[fileInputStream.available()];
+                    fileInputStream.read(bArr);
+                    jSONObject = new JSONObject(BaiduAppSSOJni.getDecrypted(context, "", new String(bArr, "utf-8")));
+                } catch (Exception e) {
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException e2) {
+                        }
+                    }
+                    return jSONObject;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException e3) {
+                        }
+                    }
+                    throw th;
+                }
             } else {
-                Runnable poll = getQueue().poll();
-                getQueue().offer(runnable);
-                runnable = poll;
+                fileInputStream = null;
+            }
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e4) {
+                }
+            }
+        } catch (Exception e5) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        return jSONObject;
+    }
+
+    public static void a(Context context, String str, String str2) {
+        if (context == null) {
+            return;
+        }
+        boolean z = false;
+        try {
+            z = Settings.System.putString(context.getContentResolver(), str, str2);
+        } catch (Exception e) {
+        }
+        if (z) {
+            return;
+        }
+        a(context, str, (Object) str2);
+    }
+
+    private static boolean a(Context context, String str, Object obj) {
+        FileOutputStream fileOutputStream;
+        if (!l.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            return false;
+        }
+        synchronized (a) {
+            JSONObject a2 = a(context);
+            FileOutputStream fileOutputStream2 = null;
+            if (a2.opt(str) != null) {
+                a2.remove(str);
+            }
+            try {
+                a2.put(str, obj);
+                File file = new File(Environment.getExternalStorageDirectory(), "baidu/pushservice/files");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                File file2 = new File(file, ".info");
+                String encrypted = BaiduAppSSOJni.getEncrypted(context, "", a2.toString());
+                if (TextUtils.isEmpty(encrypted)) {
+                    com.baidu.android.pushservice.e.b.a(null);
+                    return false;
+                }
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                file2.createNewFile();
+                FileOutputStream fileOutputStream3 = new FileOutputStream(file2);
+                try {
+                    fileOutputStream3.write(encrypted.getBytes());
+                    com.baidu.android.pushservice.e.b.a(fileOutputStream3);
+                    return true;
+                } catch (Exception e) {
+                    fileOutputStream = fileOutputStream3;
+                    com.baidu.android.pushservice.e.b.a(fileOutputStream);
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream2 = fileOutputStream3;
+                    com.baidu.android.pushservice.e.b.a(fileOutputStream2);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
         }
-        super.execute(runnable);
     }
 
-    @Override // java.util.concurrent.AbstractExecutorService
-    protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
-        return new C0035a(runnable, t);
-    }
-
-    @Override // java.util.concurrent.AbstractExecutorService
-    protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
-        return new C0035a(callable);
+    private static Object b(Context context, String str) {
+        Object opt;
+        if (l.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            synchronized (a) {
+                opt = a(context).opt(str);
+            }
+            return opt;
+        }
+        return null;
     }
 }

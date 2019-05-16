@@ -7,10 +7,10 @@ public class y extends a {
     private int mFontSize;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 0) {
-                this.mFontSize = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(0));
+                this.mFontSize = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(0));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -22,7 +22,7 @@ public class y extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mFontSize > 0) {
-            bVar.aln.setTextSize(this.mFontSize);
+            bVar.alz.setTextSize(this.mFontSize);
         }
     }
 }

@@ -3,22 +3,22 @@ package com.airbnb.lottie;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class l {
-    private final Map<String, String> of;
-    private boolean og;
+    private final Map<String, String> lH;
+    private boolean lI;
 
-    public String Z(String str) {
+    public String I(String str) {
         return str;
     }
 
-    public final String aa(String str) {
-        if (this.og && this.of.containsKey(str)) {
-            return this.of.get(str);
+    public final String J(String str) {
+        if (this.lI && this.lH.containsKey(str)) {
+            return this.lH.get(str);
         }
-        String Z = Z(str);
-        if (this.og) {
-            this.of.put(str, Z);
-            return Z;
+        String I = I(str);
+        if (this.lI) {
+            this.lH.put(str, I);
+            return I;
         }
-        return Z;
+        return I;
     }
 }

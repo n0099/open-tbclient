@@ -8,15 +8,15 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
+    private final Type mz;
     private final String name;
-    private final Type oX;
-    private final m<PointF, PointF> qM;
-    private final com.airbnb.lottie.model.a.b qO;
-    private final com.airbnb.lottie.model.a.b ro;
-    private final com.airbnb.lottie.model.a.b rp;
-    private final com.airbnb.lottie.model.a.b rq;
-    private final com.airbnb.lottie.model.a.b rr;
-    private final com.airbnb.lottie.model.a.b rs;
+    private final com.airbnb.lottie.model.a.b oP;
+    private final com.airbnb.lottie.model.a.b oQ;
+    private final com.airbnb.lottie.model.a.b oR;
+    private final com.airbnb.lottie.model.a.b oS;
+    private final com.airbnb.lottie.model.a.b oT;
+    private final m<PointF, PointF> om;
+    private final com.airbnb.lottie.model.a.b oo;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -42,50 +42,51 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.oX = type;
-        this.ro = bVar;
-        this.qM = mVar;
-        this.qO = bVar2;
-        this.rp = bVar3;
-        this.rq = bVar4;
-        this.rr = bVar5;
-        this.rs = bVar6;
+        this.mz = type;
+        this.oP = bVar;
+        this.om = mVar;
+        this.oo = bVar2;
+        this.oQ = bVar3;
+        this.oR = bVar4;
+        this.oS = bVar5;
+        this.oT = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type ep() {
-        return this.oX;
+    public Type dj() {
+        return this.mz;
     }
 
-    public com.airbnb.lottie.model.a.b eq() {
-        return this.ro;
+    public com.airbnb.lottie.model.a.b dk() {
+        return this.oP;
     }
 
-    public m<PointF, PointF> dR() {
-        return this.qM;
+    public m<PointF, PointF> cL() {
+        return this.om;
     }
 
-    public com.airbnb.lottie.model.a.b dT() {
-        return this.qO;
+    public com.airbnb.lottie.model.a.b cN() {
+        return this.oo;
     }
 
-    public com.airbnb.lottie.model.a.b er() {
-        return this.rp;
+    public com.airbnb.lottie.model.a.b dl() {
+        return this.oQ;
     }
 
-    public com.airbnb.lottie.model.a.b es() {
-        return this.rq;
+    public com.airbnb.lottie.model.a.b dm() {
+        return this.oR;
     }
 
-    public com.airbnb.lottie.model.a.b et() {
-        return this.rr;
+    public com.airbnb.lottie.model.a.b dn() {
+        return this.oS;
     }
 
-    public com.airbnb.lottie.model.a.b eu() {
-        return this.rs;
+    /* renamed from: do  reason: not valid java name */
+    public com.airbnb.lottie.model.a.b m6do() {
+        return this.oT;
     }
 
     @Override // com.airbnb.lottie.model.content.b

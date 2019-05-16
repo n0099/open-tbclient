@@ -8,13 +8,14 @@ import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.lego.card.view.i;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com.baidu.tieba.lego.card.view.h {
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
     private d adFacadeData;
     public boolean autoPlay;
     public AdCard.c operateData;
@@ -64,8 +65,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.ihR)) {
-            this.operateData.ihR = this.userName;
+        if (TextUtils.isEmpty(this.operateData.iAD)) {
+            this.operateData.iAD = this.userName;
         }
     }
 
@@ -74,7 +75,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         return false;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.h
+    @Override // com.baidu.tieba.lego.card.view.i
     public void setAutoPlay(boolean z) {
         this.autoPlay = z;
     }
@@ -83,7 +84,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         return this.autoPlay;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.h
+    @Override // com.baidu.tieba.lego.card.view.i
     public void setWaitConfirm(boolean z) {
         this.waitConfirm = z;
     }
@@ -131,9 +132,9 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
             }
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put(WebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
-            jSONObject.put("operate", this.operateData.bFv());
-            if (this.adFacadeData != null && this.adFacadeData.pS() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.pS().ext);
+            jSONObject.put("operate", this.operateData.bNf());
+            if (this.adFacadeData != null && this.adFacadeData.oN() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.oN().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();

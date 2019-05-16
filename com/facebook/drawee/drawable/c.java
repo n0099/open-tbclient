@@ -5,5 +5,5 @@ import android.graphics.drawable.Drawable;
 public interface c {
     Drawable getDrawable();
 
-    Drawable i(Drawable drawable);
+    Drawable h(Drawable drawable);
 }

@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes.dex */
 public class q {
-    public static final boolean aqa() {
+    public static final boolean avf() {
         Message message;
         int i = 0;
         Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");
@@ -18,7 +18,7 @@ public class q {
         boolean z = false;
         while (message2 != null && message2.obj != null && !z && i < 10) {
             i++;
-            boolean u = u(message2);
+            boolean y = y(message2);
             Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
             if (c2 != null && (c2 instanceof Message)) {
                 message = (Message) c2;
@@ -26,12 +26,12 @@ public class q {
                 message = null;
             }
             message2 = message;
-            z = u;
+            z = y;
         }
         return z;
     }
 
-    private static final boolean u(Message message) {
+    private static final boolean y(Message message) {
         Object c;
         ComponentName component;
         if (message == null) {

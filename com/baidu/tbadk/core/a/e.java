@@ -5,27 +5,27 @@ import com.baidu.tbadk.data.PersonPrivateData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    public static HashMap<String, Integer> bvL = new HashMap<>();
+    public static HashMap<String, Integer> bCO = new HashMap<>();
 
-    public static int ga(int i) {
+    public static int gM(int i) {
         String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
-        if (bvL.containsKey(str)) {
-            return bvL.get(str).intValue();
+        if (bCO.containsKey(str)) {
+            return bCO.get(str).intValue();
         }
-        bvL.put(str, 1);
+        bCO.put(str, 1);
         return 1;
     }
 
-    public static void R(int i, int i2) {
-        bvL.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
+    public static void Q(int i, int i2) {
+        bCO.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
     }
 
     public static void a(PersonPrivateData personPrivateData) {
         if (personPrivateData != null) {
             String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-            int alo = personPrivateData.alo();
-            if (!bvL.containsKey(str)) {
-                bvL.put(str, Integer.valueOf(alo));
+            int aqr = personPrivateData.aqr();
+            if (!bCO.containsKey(str)) {
+                bCO.put(str, Integer.valueOf(aqr));
             }
         }
     }

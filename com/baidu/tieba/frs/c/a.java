@@ -9,7 +9,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes4.dex */
 public class a extends h<ICardInfo, b> {
-    private ICardInfo fpW;
+    private ICardInfo fGr;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -20,7 +20,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aW */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.bzE().a(this.mPageContext, this.fpW, 1);
+        e a = com.baidu.tieba.lego.card.b.bHo().a(this.mPageContext, this.fGr, 1);
         if (a == null) {
             return null;
         }
@@ -36,7 +36,7 @@ public class a extends h<ICardInfo, b> {
         super.onFillViewHolder(i, view, viewGroup, iCardInfo, bVar);
         View view2 = bVar.getView();
         if (view2 != null && iCardInfo != null) {
-            ((e) view2).am(iCardInfo);
+            ((e) view2).ao(iCardInfo);
         }
         return view2;
     }
@@ -45,7 +45,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.fpW = iCardInfo;
+        this.fGr = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

@@ -156,8 +156,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0077a implements FilenameFilter {
-        C0077a() {
+    public static class C0079a implements FilenameFilter {
+        C0079a() {
         }
 
         @Override // java.io.FilenameFilter
@@ -167,7 +167,7 @@ public class a {
     }
 
     private static void d() {
-        File[] listFiles = new File(d).listFiles(new C0077a());
+        File[] listFiles = new File(d).listFiles(new C0079a());
         if (listFiles != null && listFiles.length > 0) {
             for (File file : listFiles) {
                 file.delete();

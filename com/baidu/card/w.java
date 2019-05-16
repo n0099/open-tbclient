@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class w extends c implements i<bg> {
-    private TbImageView Ym;
+    private TbImageView We;
     private TbPageContext mPageContext;
     private int mType = 0;
-    private boolean Yn = true;
+    private boolean Wf = true;
 
     public w(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        bw(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.ds180), com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.ds50));
+        bp(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
-        layoutParams.topMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds30);
-        layoutParams.rightMargin = com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), d.e.tbds30);
+        layoutParams.topMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.rightMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         a(layoutParams);
-        this.Ym = new TbImageView(tbPageContext.getPageActivity());
-        I(this.Ym);
+        this.We = new TbImageView(tbPageContext.getPageActivity());
+        I(this.We);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,23 +40,23 @@ public class w extends c implements i<bg> {
     }
 
     public void b(bg bgVar) {
-        MetaData YO;
-        if (bgVar != null && this.Ym != null && (YO = bgVar.YO()) != null) {
-            final ThemeCardInUserData themeCard = YO.getThemeCard();
+        MetaData adv;
+        if (bgVar != null && this.We != null && (adv = bgVar.adv()) != null) {
+            final ThemeCardInUserData themeCard = adv.getThemeCard();
             if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                this.Ym.setVisibility(8);
+                this.We.setVisibility(8);
                 return;
             }
-            if (this.Yn && (this.Ym.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Ym.getLayoutParams();
-                layoutParams.rightMargin = com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), d.e.tbds106);
-                this.Ym.setLayoutParams(layoutParams);
+            if (this.Wf && (this.We.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.We.getLayoutParams();
+                layoutParams.rightMargin = com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.tbds106);
+                this.We.setLayoutParams(layoutParams);
             }
-            this.Ym.setVisibility(0);
+            this.We.setVisibility(0);
             this.mType = 1;
-            this.Ym.setImageDrawable(null);
-            this.Ym.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.Ym.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.w.1
+            this.We.setImageDrawable(null);
+            this.We.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.We.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.w.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(w.this.mPageContext.getPageActivity(), themeCard.getCardId())));
@@ -65,11 +65,11 @@ public class w extends c implements i<bg> {
         }
     }
 
-    public void aH(boolean z) {
-        this.Yn = z;
+    public void az(boolean z) {
+        this.Wf = z;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.Ym.setPageId(bdUniqueId);
+        this.We.setPageId(bdUniqueId);
     }
 }

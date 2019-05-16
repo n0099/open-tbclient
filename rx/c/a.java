@@ -14,12 +14,12 @@ public abstract class a {
     }
 
     @Deprecated
-    public Throwable T(Throwable th) {
+    public Throwable S(Throwable th) {
         return th;
     }
 
     @Deprecated
-    public b.InterfaceC0479b a(b.InterfaceC0479b interfaceC0479b) {
-        return interfaceC0479b;
+    public b.InterfaceC0500b a(b.InterfaceC0500b interfaceC0500b) {
+        return interfaceC0500b;
     }
 }

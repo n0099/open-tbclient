@@ -1,41 +1,49 @@
 package com.baidu.android.pushservice.message.a;
-
-import android.content.Context;
 /* loaded from: classes3.dex */
-public class k {
-    private Context a;
+public enum k {
+    MSG_TYPE_INVALID(-1),
+    MSG_TYPE_SINGLE_PRIVATE(0),
+    MSG_TYPE_MULTI_PRIVATE(1),
+    MSG_TYPE_SINGLE_PUBLIC(2),
+    MSG_TYPE_MULTI_PUBLIC(3),
+    MSG_TYPE_MULTI_PRIVATE_NOTIFICATION(5),
+    MSG_TYPE_PRIVATE_MESSAGE(6),
+    MSG_TYPE_CROSS_PUSH(20),
+    MSG_TYPE_INNERBIND(101),
+    MSG_TYPE_APPSTAT_COMMAND(104);
+    
+    private int k;
 
-    public k(Context context) {
-        this.a = context;
+    k(int i) {
+        this.k = i;
     }
 
-    public c a(l lVar) {
-        switch (lVar) {
-            case MSG_TYPE_SINGLE_PRIVATE:
-            case MSG_TYPE_MULTI_PRIVATE:
-                return new g(this.a);
-            case MSG_TYPE_PRIVATE_MESSAGE:
-                return new h(this.a);
-            case MSG_TYPE_SINGLE_PUBLIC:
-            case MSG_TYPE_MULTI_PUBLIC:
-                return new i(this.a);
-            case MSG_TYPE_MULTI_PRIVATE_NOTIFICATION:
-                return new e(this.a);
-            case MSG_TYPE_RICH_MEDIA:
-                return new m(this.a);
-            case MSG_TYPE_BAIDU_SUPPER:
-                return new b(this.a);
-            case MSG_TYPE_INNERBIND:
-                return new d(this.a);
-            case MSG_TYPE_ALARM_MESSAGE:
-            case MSG_TYPE_ALARM_NOTIFICATION:
-            case MSG_TYPE_ALARM_AD_NOTIFICATION:
-                return new a(this.a);
-            case MSG_TYPE_ULTRON_COMMAND:
-                return new n(this.a);
+    public static k a(int i) {
+        switch (i) {
+            case 0:
+                return MSG_TYPE_SINGLE_PRIVATE;
+            case 1:
+                return MSG_TYPE_MULTI_PRIVATE;
+            case 2:
+                return MSG_TYPE_SINGLE_PUBLIC;
+            case 3:
+                return MSG_TYPE_MULTI_PUBLIC;
+            case 5:
+                return MSG_TYPE_MULTI_PRIVATE_NOTIFICATION;
+            case 6:
+                return MSG_TYPE_PRIVATE_MESSAGE;
+            case 20:
+                return MSG_TYPE_CROSS_PUSH;
+            case 101:
+                return MSG_TYPE_INNERBIND;
+            case 104:
+                return MSG_TYPE_APPSTAT_COMMAND;
             default:
-                com.baidu.android.pushservice.j.m.b(">>> Unknown msg_type : " + lVar, this.a);
-                return null;
+                return MSG_TYPE_INVALID;
         }
+    }
+
+    public int a() {
+        return this.k;
     }
 }

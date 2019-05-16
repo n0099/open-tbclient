@@ -1,33 +1,17 @@
 package com.baidu.android.pushservice.h;
 
-import android.text.TextUtils;
-import com.sina.weibo.sdk.statistic.LogBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.PriorityBlockingQueue;
 /* loaded from: classes3.dex */
-public class b extends l {
-    public String a;
-    public String b;
-    public String c;
-
-    public b() {
-    }
-
-    public b(l lVar) {
-        super(lVar);
-    }
-
-    public JSONObject a() throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put("action_name", this.d);
-        jSONObject.put("timestamp", this.e);
-        jSONObject.put("network_status", this.f);
-        jSONObject.put("msg_result", this.a);
-        jSONObject.put("request_id", this.b);
-        jSONObject.put("err_code", this.g);
-        if (!TextUtils.isEmpty(this.c)) {
-            jSONObject.put(LogBuilder.KEY_CHANNEL, this.c);
+public class b<E> extends PriorityBlockingQueue<E> {
+    @Override // java.util.concurrent.PriorityBlockingQueue, java.util.Queue, java.util.concurrent.BlockingQueue
+    public boolean offer(E e) {
+        try {
+            if (size() >= 20) {
+                return false;
+            }
+            return super.offer(e);
+        } catch (Exception e2) {
+            return false;
         }
-        return jSONObject;
     }
 }

@@ -6,42 +6,42 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DisableScrollLayout extends FrameLayout {
-    private int aIP;
-    private double bPi;
-    private double bPj;
-    private boolean bPk;
+    private int aKI;
+    private double bWW;
+    private double bWX;
+    private boolean bWY;
 
     public DisableScrollLayout(Context context) {
         super(context);
-        this.bPi = 0.0d;
-        this.bPj = 0.0d;
-        this.bPk = true;
+        this.bWW = 0.0d;
+        this.bWX = 0.0d;
+        this.bWY = true;
     }
 
     public DisableScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bPi = 0.0d;
-        this.bPj = 0.0d;
-        this.bPk = true;
+        this.bWW = 0.0d;
+        this.bWX = 0.0d;
+        this.bWY = true;
     }
 
     public void setHeaderViewHeight(int i) {
-        this.aIP = i;
+        this.aKI = i;
     }
 
-    public void dM(boolean z) {
-        this.bPk = z;
+    public void ei(boolean z) {
+        this.bWY = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.bPi = motionEvent.getX();
-            this.bPj = motionEvent.getY();
+            this.bWW = motionEvent.getX();
+            this.bWX = motionEvent.getY();
         }
-        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.aIP) {
+        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.aKI) {
             double y = motionEvent.getY();
-            if (Math.abs(motionEvent.getX() - this.bPi) > Math.abs(y - this.bPj) || (y > this.bPj && !this.bPk)) {
+            if (Math.abs(motionEvent.getX() - this.bWW) > Math.abs(y - this.bWX) || (y > this.bWX && !this.bWY)) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);

@@ -18,7 +18,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.a.j;
 import com.baidu.location.a.n;
 import com.baidu.location.a.q;
-import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -323,7 +322,7 @@ public class f {
             }
             String bssid = connectionInfo.getBSSID();
             if (bssid != null) {
-                String replace = bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                String replace = bssid.replace(":", "");
                 if ("000000000000".equals(replace)) {
                     return null;
                 }
@@ -345,7 +344,7 @@ public class f {
         if (l == null || l.getBSSID() == null) {
             return null;
         }
-        String replace = l.getBSSID().replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+        String replace = l.getBSSID().replace(":", "");
         int rssi = l.getRssi();
         String n = a().n();
         if (rssi < 0) {

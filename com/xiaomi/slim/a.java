@@ -2,11 +2,11 @@ package com.xiaomi.slim;
 
 import android.text.TextUtils;
 import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.ak;
+import com.xiaomi.push.service.as;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 class a {
-    public static void a(ak.b bVar, String str, com.xiaomi.smack.a aVar) {
+    public static void a(as.b bVar, String str, com.xiaomi.smack.a aVar) {
         String a;
         b.c cVar = new b.c();
         if (!TextUtils.isEmpty(bVar.c)) {

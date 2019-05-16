@@ -32,7 +32,7 @@ public class i extends a {
         super(jVar, "/swan/canvas/update");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         boolean z = false;
         com.baidu.swan.apps.canvas.c.a c = c(unitedSchemeEntity);
@@ -40,8 +40,8 @@ public class i extends a {
             unitedSchemeEntity.result = bP(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
         } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aBH);
-            if (a != null && com.baidu.swan.apps.canvas.a.wv().b(a, c)) {
+            AbsoluteLayout a = a(unitedSchemeEntity, c.aDm);
+            if (a != null && com.baidu.swan.apps.canvas.a.xn().b(a, c)) {
                 z = true;
             }
             a(unitedSchemeEntity, callbackHandler, z);

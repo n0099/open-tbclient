@@ -291,7 +291,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.fZ().getResources();
+            Resources resources = g.eS().getResources();
             if (resources != null) {
                 return resources;
             }

@@ -1,274 +1,93 @@
 package com.xiaomi.push.service;
-
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.service.av;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
-public class aw {
-    private static aw a = new aw();
-    private static ExecutorService b = Executors.newSingleThreadExecutor();
-    private Context c;
-    private String e;
-    private Map<String, b> d = new HashMap();
-    private final ArrayList<av.b> f = new ArrayList<>();
+public abstract class aw {
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f = "com.xiaomi.push.SEND_IQ";
+    public static String g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String h = "com.xiaomi.push.SEND_PRES";
+    public static String i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String j = "com.xiaomi.push.FORCE_RECONN";
+    public static String k = "com.xiaomi.push.RESET_CONN";
+    public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
+    public static String m = "com.xiaomi.push.SEND_STATS";
+    public static String n = "com.xiaomi.push.CHANGE_HOST";
+    public static String o = "com.xiaomi.push.PING_TIMER";
+    public static String p = "ext_user_id";
+    public static String q = "ext_user_res";
+    public static String r = "ext_chid";
+    public static String s = "ext_sid";
+    public static String t = "ext_token";
+    public static String u = "ext_auth_method";
+    public static String v = "ext_security";
+    public static String w = "ext_kick";
+    public static String x = "ext_client_attr";
+    public static String y = "ext_cloud_attr";
+    public static String z = "ext_pkg_name";
+    public static String A = "ext_notify_id";
+    public static String B = "ext_notify_type";
+    public static String C = "ext_session";
+    public static String D = "sig";
+    public static String E = "ext_notify_title";
+    public static String F = "ext_notify_description";
+    public static String G = "ext_messenger";
+    public static String H = "title";
+    public static String I = "description";
+    public static String J = "notifyId";
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        b a;
-        String b;
-
-        public a() {
+    public static String a(int i2) {
+        switch (i2) {
+            case 0:
+                return "ERROR_OK";
+            case 1:
+                return "ERROR_SERVICE_NOT_INSTALLED";
+            case 2:
+                return "ERROR_NETWORK_NOT_AVAILABLE";
+            case 3:
+                return "ERROR_NETWORK_FAILED";
+            case 4:
+                return "ERROR_ACCESS_DENIED";
+            case 5:
+                return "ERROR_AUTH_FAILED";
+            case 6:
+                return "ERROR_MULTI_LOGIN";
+            case 7:
+                return "ERROR_SERVER_ERROR";
+            case 8:
+                return "ERROR_RECEIVE_TIMEOUT";
+            case 9:
+                return "ERROR_READ_ERROR";
+            case 10:
+                return "ERROR_SEND_ERROR";
+            case 11:
+                return "ERROR_RESET";
+            case 12:
+                return "ERROR_NO_CLIENT";
+            case 13:
+                return "ERROR_SERVER_STREAM";
+            case 14:
+                return "ERROR_THREAD_BLOCK";
+            case 15:
+                return "ERROR_SERVICE_DESTROY";
+            case 16:
+                return "ERROR_SESSION_CHANGED";
+            case 17:
+                return "ERROR_READ_TIMEOUT";
+            case 18:
+                return "ERROR_CONNECTIING_TIMEOUT";
+            case 19:
+                return "ERROR_USER_BLOCKED";
+            case 20:
+                return "ERROR_REDIRECT";
+            case 21:
+                return "ERROR_BIND_TIMEOUT";
+            case 22:
+                return "ERROR_PING_TIMEOUT";
+            default:
+                return String.valueOf(i2);
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            aw.this.d.put(this.b, this.a);
-            aw.this.c("Add uploader, provider is " + this.b);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(ArrayList<av.b> arrayList);
-
-        boolean a(av.b bVar);
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        private Context b;
-
-        public c() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (aw.this.c != null) {
-                com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not init TinyDataManager repeatly.");
-                return;
-            }
-            aw.this.c = this.b;
-            aw.this.a(new av.a(this.b), "SHORT_UPLOADER_FROM_SELF");
-            aw.this.c("Init");
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    private class d implements Runnable {
-        String a;
-
-        public d(String str) {
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            aw.this.c(this.a);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    private class e implements Runnable {
-        String a;
-
-        private e() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (!TextUtils.isEmpty(aw.this.e)) {
-                com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:channel is not null, please do not set repeatly.");
-                return;
-            }
-            aw.this.e = this.a;
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= aw.this.f.size()) {
-                    aw.this.c("Set channel to " + this.a);
-                    return;
-                }
-                av.b bVar = (av.b) aw.this.f.get(i2);
-                if (!bVar.c.f && bVar.c.a == null) {
-                    bVar.c.a = this.a;
-                }
-                i = i2 + 1;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-        av.b a;
-
-        private f() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            boolean z = true;
-            if (this.a.c.f) {
-                this.a.c.a = "push_sdk_channel";
-            } else {
-                this.a.c.a = aw.this.e;
-            }
-            this.a.a = av.a();
-            b c = aw.this.c();
-            String str2 = null;
-            boolean z2 = false;
-            if (c == null) {
-                str2 = "uploader is null";
-                z2 = true;
-            }
-            if (!z2 && aw.this.b()) {
-                str2 = "TinyDataManager need init";
-                z2 = true;
-            }
-            if (!z2 && this.a.c.a == null) {
-                str2 = "request channel is null";
-                z2 = true;
-            }
-            if (z2 || c.a(this.a)) {
-                z = z2;
-                str = str2;
-            } else {
-                str = "uploader refuse upload";
-            }
-            if (z) {
-                com.xiaomi.channel.commonutils.logger.b.c(this.a.toString() + " is added to pending list. Pending Reason is " + str);
-                aw.this.f.add(this.a);
-                return;
-            }
-            com.xiaomi.channel.commonutils.logger.b.c(this.a.toString() + " is uploaded immediately.");
-            ArrayList<av.b> arrayList = new ArrayList<>();
-            arrayList.add(this.a);
-            c.a(arrayList);
-        }
-    }
-
-    private aw() {
-    }
-
-    public static aw a() {
-        return a;
-    }
-
-    private void a(av.b bVar) {
-        f fVar = new f();
-        fVar.a = bVar;
-        b.execute(fVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public b c() {
-        b bVar = this.d.get("UPLOADER_FROM_MIPUSHCLIENT");
-        if (bVar != null) {
-            return bVar;
-        }
-        b bVar2 = this.d.get("UPLOADER_FROM_XMPUSHSERVICE");
-        if (bVar2 == null) {
-            return null;
-        }
-        return bVar2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean c(String str) {
-        b c2;
-        com.xiaomi.channel.commonutils.logger.b.c("TinyDataManager is checking and uploading tiny data, reason is " + str + ", the size of pending list is " + this.f.size());
-        if (b() || (c2 = c()) == null) {
-            return false;
-        }
-        ArrayList<av.b> arrayList = new ArrayList<>();
-        Iterator<av.b> it = this.f.iterator();
-        while (it.hasNext()) {
-            av.b next = it.next();
-            if (next.c.a != null && c2.a(next)) {
-                arrayList.add(next);
-            }
-        }
-        if (arrayList.size() != 0) {
-            c2.a(arrayList);
-            Iterator<av.b> it2 = arrayList.iterator();
-            while (it2.hasNext()) {
-                av.b next2 = it2.next();
-                com.xiaomi.channel.commonutils.logger.b.c("Pending Data " + next2.toString() + " uploaded by TinyDataManager, reason is " + str);
-                this.f.remove(next2);
-            }
-        }
-        return true;
-    }
-
-    public void a(Context context) {
-        if (context == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:context is null, TinyDataManager.init(Context, TinyDataUploader) failed.");
-            return;
-        }
-        c cVar = new c();
-        cVar.b = context;
-        b.execute(cVar);
-    }
-
-    public void a(b bVar, String str) {
-        if (bVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null uploader to TinyDataManager.");
-        } else if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
-        } else {
-            a aVar = new a();
-            aVar.b = str;
-            aVar.a = bVar;
-            b.execute(aVar);
-        }
-    }
-
-    public void a(String str) {
-        if (!TextUtils.isEmpty(this.e)) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:channel is not null, please do not set repeatly.");
-            return;
-        }
-        e eVar = new e();
-        eVar.a = str;
-        b.execute(eVar);
-    }
-
-    public boolean a(int i, String str, String str2, long j, String str3) {
-        return a(i, str, str2, j, str3, true);
-    }
-
-    public boolean a(int i, String str, String str2, long j, String str3, boolean z) {
-        if (av.a(str, str2, j, str3)) {
-            return false;
-        }
-        av.b bVar = new av.b();
-        bVar.b = i;
-        bVar.c.g = str;
-        bVar.c.c = str2;
-        bVar.c.d = j;
-        bVar.c.b = str3;
-        bVar.c.f = z;
-        bVar.c.e = System.currentTimeMillis();
-        a(bVar);
-        return true;
-    }
-
-    public boolean a(String str, String str2, long j, String str3) {
-        return a(0, str, str2, j, str3);
-    }
-
-    public void b(String str) {
-        b.execute(new d(str));
-    }
-
-    public boolean b() {
-        return this.c == null;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.o.n;
+import com.baidu.tbadk.p.n;
 /* loaded from: classes.dex */
 public class AlaJumpStatStatic {
     static {
@@ -47,7 +47,7 @@ public class AlaJumpStatStatic {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.f("startTime", Long.valueOf(System.currentTimeMillis() - n.apn().apm()));
+        statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - n.auq().aup()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));
@@ -55,9 +55,9 @@ public class AlaJumpStatStatic {
             try {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) alaLiveRoomActivityConfig.getIntent().getSerializableExtra("live_info_core");
                 if (alaLiveInfoCoreData != null) {
-                    statsItem.f("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
+                    statsItem.c("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
                     statsItem.append("hostUname", alaLiveInfoCoreData.userName);
-                    statsItem.f("liveid", Long.valueOf(alaLiveInfoCoreData.liveID));
+                    statsItem.c("liveid", Long.valueOf(alaLiveInfoCoreData.liveID));
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

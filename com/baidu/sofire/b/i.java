@@ -3,7 +3,6 @@ package com.baidu.sofire.b;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import com.baidu.mobstat.Config;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
@@ -26,7 +25,7 @@ public final class i {
             switch (c) {
                 case 1:
                     String str3 = str + "\r\n{libpath=" + d.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.g.a().d(str2).libPath.split(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                    for (String str4 : com.baidu.sofire.core.g.a().d(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {
@@ -40,7 +39,7 @@ public final class i {
                                 while (i < length) {
                                     File file2 = listFiles[i];
                                     i++;
-                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + Config.TRACE_TODAY_VISIT_SPLIT + o.a(file2) + "}\r\n";
+                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + o.a(file2) + "}\r\n";
                                 }
                             }
                         }

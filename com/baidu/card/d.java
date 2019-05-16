@@ -7,10 +7,10 @@ import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class d extends b<com.baidu.tbadk.core.data.a> {
-    private a XA;
-    private CardUserInfoLayout Xx;
-    private int Xy;
-    private com.baidu.tbadk.core.data.a Xz;
+    private CardUserInfoLayout Vo;
+    private int Vp;
+    private com.baidu.tbadk.core.data.a Vq;
+    private a Vr;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -19,82 +19,82 @@ public class d extends b<com.baidu.tbadk.core.data.a> {
 
     public d(Context context) {
         super(context);
-        this.Xy = 1285;
-        this.Xx = new CardUserInfoLayout(context);
-        this.Xx.setShowFlag(this.Xy);
-        this.Xx.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
+        this.Vp = 1285;
+        this.Vo = new CardUserInfoLayout(context);
+        this.Vo.setShowFlag(this.Vp);
+        this.Vo.setUserAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.XA != null) {
-                    d.this.XA.a(d.this.Xz, view);
+                if (d.this.Vr != null) {
+                    d.this.Vr.a(d.this.Vq, view);
                 }
-                if (d.this.rk() != null) {
-                    d.this.rk().a(view, d.this.Xz);
+                if (d.this.qf() != null) {
+                    d.this.qf().a(view, d.this.Vq);
                 }
             }
         });
     }
 
     @Override // com.baidu.card.b
-    public void bv(int i) {
-        this.Xx.setShowFlag(this.Xy);
+    public void bo(int i) {
+        this.Vo.setShowFlag(this.Vp);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Xx;
+        return this.Vo;
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Xx.onChangeSkinType(tbPageContext, i);
+        this.Vo.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.card.b
-    public void bt(int i) {
-        this.Xy |= i;
-        bv(this.Xy);
+    public void bm(int i) {
+        this.Vp |= i;
+        bo(this.Vp);
     }
 
     @Override // com.baidu.card.b
-    public void bu(int i) {
-        this.Xy &= i ^ (-1);
-        bv(this.Xy);
+    public void bn(int i) {
+        this.Vp &= i ^ (-1);
+        bo(this.Vp);
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.Xx.setPageUniqueId(bdUniqueId);
+        this.Vo.setPageUniqueId(bdUniqueId);
     }
 
     public void a(a aVar) {
-        this.XA = aVar;
+        this.Vr = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Xz = aVar;
-        this.Xx.setData(aVar.WO());
+        this.Vq = aVar;
+        this.Vo.setData(aVar.abv());
     }
 
-    public void aD(boolean z) {
-        if (this.Xx != null && this.Xx.getAvatar() != null) {
-            this.Xx.getAvatar().setClickable(z);
+    public void av(boolean z) {
+        if (this.Vo != null && this.Vo.getAvatar() != null) {
+            this.Vo.getAvatar().setClickable(z);
         }
     }
 
-    public void aE(boolean z) {
-        if (this.Xx != null && this.Xx.getUserName() != null) {
-            this.Xx.getUserName().setClickable(z);
+    public void aw(boolean z) {
+        if (this.Vo != null && this.Vo.getUserName() != null) {
+            this.Vo.getUserName().setClickable(z);
         }
     }
 
-    public void aF(boolean z) {
-        if (this.Xx != null && this.Xx.getAvatar() != null) {
-            this.Xx.getAvatar().aF(z);
+    public void ax(boolean z) {
+        if (this.Vo != null && this.Vo.getAvatar() != null) {
+            this.Vo.getAvatar().ax(z);
         }
     }
 }

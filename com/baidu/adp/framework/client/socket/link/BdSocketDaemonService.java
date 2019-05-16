@@ -23,7 +23,7 @@ public class BdSocketDaemonService extends BdBaseService {
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             if (BdSocketDaemonService.sCallBack != null) {
-                BdSocketDaemonService.sCallBack.hf();
+                BdSocketDaemonService.sCallBack.fY();
             } else {
                 BdSocketLinkService.startService(false, "restart");
             }

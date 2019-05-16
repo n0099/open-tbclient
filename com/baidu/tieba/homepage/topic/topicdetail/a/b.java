@@ -7,37 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private r eEd;
-    private c fNX;
-    private a fNY;
-    private com.baidu.tieba.homepage.topic.topictab.a.c fNZ;
+    private r eTX;
+    private c gfg;
+    private a gfh;
+    private com.baidu.tieba.homepage.topic.topictab.a.c gfi;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eEd = rVar;
+        this.eTX = rVar;
         initAdapters();
-        this.eEd.addAdapters(this.mAdapters);
+        this.eTX.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.fNX = new c(this.mPageContext);
-        this.fNY = new a(this.mPageContext);
-        this.fNZ = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
-        this.mAdapters.add(this.fNX);
-        this.mAdapters.add(this.fNY);
-        this.mAdapters.add(this.fNZ);
+        this.gfg = new c(this.mPageContext);
+        this.gfh = new a(this.mPageContext);
+        this.gfi = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
+        this.mAdapters.add(this.gfg);
+        this.mAdapters.add(this.gfh);
+        this.mAdapters.add(this.gfi);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eEd != null) {
-            this.eEd.getListAdapter().notifyDataSetChanged();
+        if (this.eTX != null) {
+            this.eTX.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eEd.setData(list);
+        this.eTX.setData(list);
     }
 }

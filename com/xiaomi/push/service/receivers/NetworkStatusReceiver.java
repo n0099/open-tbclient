@@ -5,11 +5,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.channel.commonutils.logger.b;
-import com.xiaomi.channel.commonutils.network.d;
+import com.xiaomi.mipush.sdk.COSPushHelper;
+import com.xiaomi.mipush.sdk.HWPushHelper;
 import com.xiaomi.mipush.sdk.MiPushClient;
-import com.xiaomi.mipush.sdk.p;
-import com.xiaomi.mipush.sdk.u;
-import com.xiaomi.push.service.aw;
+import com.xiaomi.mipush.sdk.ap;
+import com.xiaomi.mipush.sdk.az;
+import com.xiaomi.mipush.sdk.d;
+import com.xiaomi.push.service.be;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -36,27 +38,40 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!u.a(context).c() && com.xiaomi.mipush.sdk.a.a(context).i() && !com.xiaomi.mipush.sdk.a.a(context).n()) {
+        if (!az.a(context).c() && d.a(context).j() && !d.a(context).n()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                 intent.setAction("com.xiaomi.push.network_status_changed");
-                context.startService(intent);
+                be.a(context).a(intent);
             } catch (Exception e2) {
                 b.a(e2);
             }
         }
-        if (d.d(context) && u.a(context).g()) {
-            u.a(context).d();
-            aw.a().b("NewWork Changed");
+        if (com.xiaomi.channel.commonutils.network.d.c(context) && az.a(context).g()) {
+            az.a(context).d();
         }
-        if (d.d(context)) {
-            if ("disable_syncing".equals(p.a(context).a())) {
+        if (com.xiaomi.channel.commonutils.network.d.c(context)) {
+            if ("syncing".equals(ap.a(context).a(com.xiaomi.mipush.sdk.be.DISABLE_PUSH))) {
                 MiPushClient.disablePush(context);
             }
-            if ("enable_syncing".equals(p.a(context).a())) {
+            if ("syncing".equals(ap.a(context).a(com.xiaomi.mipush.sdk.be.ENABLE_PUSH))) {
                 MiPushClient.enablePush(context);
             }
+            if ("syncing".equals(ap.a(context).a(com.xiaomi.mipush.sdk.be.UPLOAD_HUAWEI_TOKEN))) {
+                MiPushClient.syncAssemblePushToken(context);
+            }
+            if ("syncing".equals(ap.a(context).a(com.xiaomi.mipush.sdk.be.UPLOAD_FCM_TOKEN))) {
+                MiPushClient.syncAssembleFCMPushToken(context);
+            }
+            if ("syncing".equals(ap.a(context).a(com.xiaomi.mipush.sdk.be.UPLOAD_COS_TOKEN))) {
+                MiPushClient.syncAssembleCOSPushToken(context);
+            }
+            if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
+                HWPushHelper.setConnectTime(context);
+                HWPushHelper.registerHuaWeiAssemblePush(context);
+            }
+            COSPushHelper.doInNetworkChange(context);
         }
     }
 

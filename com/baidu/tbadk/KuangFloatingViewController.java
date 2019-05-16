@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.t.c;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
@@ -46,7 +46,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.adb().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.ahZ().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -63,7 +63,7 @@ public class KuangFloatingViewController {
 
     public boolean init() {
         if (this.mFloatingView == null) {
-            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(d.h.floating_view_from_kuang, (ViewGroup) null);
+            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_kuang, (ViewGroup) null);
             this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -72,16 +72,16 @@ public class KuangFloatingViewController {
                     if (currentActivity != null) {
                         currentActivity.moveTaskToBack(true);
                     }
-                    TiebaStatic.log(new am("c12264").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+                    TiebaStatic.log(new am("c12264").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
                     Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                     if (launchIntentForPackage != null) {
                         launchIntentForPackage.addFlags(268435456);
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
-                        TiebaStatic.log(new am("C12265").T("obj_type", 1));
+                        TiebaStatic.log(new am("C12265").P("obj_type", 1));
                     }
                 }
             });
-            this.mFloatingView.findViewById(d.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+            this.mFloatingView.findViewById(R.id.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     KuangFloatingViewController.this.hideFloatingView();
@@ -90,17 +90,17 @@ public class KuangFloatingViewController {
         } else if (this.mFloatingView.getParent() != null) {
             return false;
         }
-        ((TextView) this.mFloatingView.findViewById(d.g.info)).setText(this.mInfo);
+        ((TextView) this.mFloatingView.findViewById(R.id.info)).setText(this.mInfo);
         return true;
     }
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Ag(2002);
+        layoutParams.type = c.Bo(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.h(TbadkCoreApplication.getInst(), d.e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.g(TbadkCoreApplication.getInst(), R.dimen.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;

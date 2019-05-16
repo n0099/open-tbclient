@@ -58,14 +58,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void a(View view) {
-        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh3);
-        this.h = (ImageButton) view.findViewById(R.raw.sapi_camera_found_face);
-        this.j = (LinearLayout) view.findViewById(2131165228);
-        this.k = (TextView) view.findViewById(2131165230);
-        this.i = (ImageButton) view.findViewById(R.raw.sapi_camera_too_near);
-        this.o = (TextView) view.findViewById(R.raw.sapi_camera_nod);
-        this.p = view.findViewById(R.raw.sapi_camera_blink);
-        this.q = (TextView) view.findViewById(2131165229);
+        this.l = (RelativeLayout) view.findViewById(R.raw.icon_refresh2);
+        this.h = (ImageButton) view.findViewById(R.raw.rim_video_too_near);
+        this.j = (LinearLayout) view.findViewById(R.raw.scan_refresh);
+        this.k = (TextView) view.findViewById(R.raw.sweep);
+        this.i = (ImageButton) view.findViewById(R.raw.sapi_camera_special_recg);
+        this.o = (TextView) view.findViewById(R.raw.sapi_camera_blink);
+        this.p = view.findViewById(R.raw.rim_video_too_far);
+        this.q = (TextView) view.findViewById(R.raw.shake_tone);
         b(view);
         this.h.setOnClickListener(this);
         this.j.setOnClickListener(this);
@@ -106,23 +106,23 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void b(View view) {
-        this.n = (CustomScrollView) view.findViewById(R.raw.sapi_camera_special_recg);
+        this.n = (CustomScrollView) view.findViewById(R.raw.sapi_camera_photo_done);
         view.post(new b(this));
         this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_bar_view_list_nav_layout, null);
         this.n.addContentView(this.s);
         this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, false);
-        this.t = (ImageView) this.s.findViewById(R.raw.index);
-        this.u = (ImageView) this.s.findViewById(R.raw.index_1);
-        this.v = (TextView) this.s.findViewById(R.raw.lottie_video_guide);
-        this.w = (TextView) this.s.findViewById(R.raw.message);
-        this.x = (TextView) this.s.findViewById(R.raw.message_1);
-        this.y = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
-        this.z = (TextView) this.s.findViewById(R.raw.lottie_refresh_dark);
-        this.A = (TextView) this.s.findViewById(R.raw.mime);
-        this.B = (TextView) this.s.findViewById(R.raw.mime_1);
-        this.C = (TextView) this.s.findViewById(R.raw.refresh_load);
-        this.D = (TextView) this.s.findViewById(R.raw.lottie_refresh_light);
-        this.r = this.s.findViewById(R.raw.icon_refresh3_1);
+        this.t = (ImageView) this.s.findViewById(R.raw.icon_refresh3_1);
+        this.u = (ImageView) this.s.findViewById(R.raw.imageviewer_drag);
+        this.v = (TextView) this.s.findViewById(R.raw.lottie_refresh_dark);
+        this.w = (TextView) this.s.findViewById(R.raw.lottie_refresh_light);
+        this.x = (TextView) this.s.findViewById(R.raw.lottie_video_guide);
+        this.y = (TextView) this.s.findViewById(R.raw.index);
+        this.z = (TextView) this.s.findViewById(R.raw.index_1);
+        this.A = (TextView) this.s.findViewById(R.raw.message);
+        this.B = (TextView) this.s.findViewById(R.raw.message_1);
+        this.C = (TextView) this.s.findViewById(R.raw.mime);
+        this.D = (TextView) this.s.findViewById(R.raw.lotti_video_loading);
+        this.r = this.s.findViewById(R.raw.icon_refresh2_1);
         this.r.setOnClickListener(new c(this));
         this.n.setOnScrollChangeListener(new d(this));
     }
@@ -130,9 +130,9 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0064a(this.n, true).execute(new Integer[0]);
+            new AsyncTaskC0066a(this.n, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0064a(this.n, false).execute(new Integer[0]);
+            new AsyncTaskC0066a(this.n, false).execute(new Integer[0]);
         }
     }
 
@@ -166,14 +166,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_keyboard_non_number_item_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_keyboard_non_number_item_selector));
+        if (i == R.drawable.aiapps_follow_vip_blue) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_follow_vip_blue));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_loading_bg) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_loading_bg));
+        } else if (i == R.drawable.aiapps_game_keyboard_sendbuton_bg) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_game_keyboard_sendbuton_bg));
             this.e = 2;
-        } else if (i == R.drawable.aiapps_keyboard_number_item_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_keyboard_number_item_selector));
+        } else if (i == R.drawable.aiapps_follow_vip_golden) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_follow_vip_golden));
             this.e = 3;
         }
     }
@@ -226,7 +226,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.raw.sapi_camera_found_face) {
+        if (id == R.raw.rim_video_too_near) {
             if (!this.f) {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("status", "overview");
             }
@@ -244,7 +244,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
                 default:
                     return;
             }
-        } else if (id == 2131165228) {
+        } else if (id == R.raw.scan_refresh) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.overview");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
@@ -256,7 +256,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == 2131165230) {
+        } else if (id == R.raw.sweep) {
             this.f = this.f ? false : true;
             com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.continue");
             com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -269,7 +269,7 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
             if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
                 com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
             }
-        } else if (id == R.raw.sapi_camera_too_near) {
+        } else if (id == R.raw.sapi_camera_special_recg) {
             this.g.a(false, R.string.abc_action_bar_home_description_format);
         }
     }
@@ -277,12 +277,12 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class AsyncTaskC0064a extends AsyncTask<Integer, Integer, String> {
+    public class AsyncTaskC0066a extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0064a(ScrollView scrollView, boolean z) {
+        public AsyncTaskC0066a(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

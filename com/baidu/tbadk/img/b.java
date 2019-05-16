@@ -8,14 +8,14 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
-    private Queue<a> cmS = new ConcurrentLinkedQueue();
-    private volatile C0240b cmT;
+    private Queue<a> cva = new ConcurrentLinkedQueue();
+    private volatile C0255b cvb;
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.anm().pj(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.asp().qr(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -25,11 +25,11 @@ public class b {
                 return null;
             }
             a aVar = new a();
-            aVar.cmV = bVar;
-            aVar.cmU = imageFileInfo;
-            aVar.cmW = z;
-            this.cmS.add(aVar);
-            anv();
+            aVar.cvd = bVar;
+            aVar.cvc = imageFileInfo;
+            aVar.cve = z;
+            this.cva.add(aVar);
+            asy();
             return null;
         }
         return a2;
@@ -39,29 +39,29 @@ public class b {
         return a(imageFileInfo, bVar, z, false);
     }
 
-    protected void anv() {
-        if (this.cmT == null && !this.cmS.isEmpty()) {
-            this.cmT = new C0240b(this.cmS);
-            this.cmT.execute(new Void[0]);
+    protected void asy() {
+        if (this.cvb == null && !this.cva.isEmpty()) {
+            this.cvb = new C0255b(this.cva);
+            this.cvb.execute(new Void[0]);
         }
     }
 
-    public void anw() {
-        this.cmS = new ConcurrentLinkedQueue();
-        if (this.cmT != null) {
-            this.cmT.cancel(true);
-            this.cmT = null;
+    public void asz() {
+        this.cva = new ConcurrentLinkedQueue();
+        if (this.cvb != null) {
+            this.cvb.cancel(true);
+            this.cvb = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0240b extends BdAsyncTask<Void, a, a> {
-        final Queue<a> cna;
+    public class C0255b extends BdAsyncTask<Void, a, a> {
+        final Queue<a> cvi;
 
-        public C0240b(Queue<a> queue) {
-            this.cna = queue;
+        public C0255b(Queue<a> queue) {
+            this.cvi = queue;
             super.setPriority(2);
         }
 
@@ -73,22 +73,22 @@ public class b {
             Bitmap bitmap;
             int i;
             while (true) {
-                a poll = this.cna.poll();
+                a poll = this.cvi.poll();
                 if (poll == null) {
                     break;
                 } else if (isCancelled()) {
-                    this.cna.add(poll);
+                    this.cvi.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.ImageView.a pj = com.baidu.tbadk.imageManager.c.anm().pj(poll.cmU.toCachedKey(poll.cmW));
-                    if (pj != null) {
-                        poll.cmX = pj;
-                        poll.cmY = true;
+                    com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(poll.cvc.toCachedKey(poll.cve));
+                    if (qr != null) {
+                        poll.cvf = qr;
+                        poll.cvg = true;
                     } else {
-                        Bitmap b = b.this.b(poll.cmU, poll.cmW);
+                        Bitmap b = b.this.b(poll.cvc, poll.cve);
                         if (b != null) {
                             try {
-                                i = BitmapHelper.readPictureDegree(poll.cmU.getFilePath());
+                                i = BitmapHelper.readPictureDegree(poll.cvc.getFilePath());
                                 if (i != 0) {
                                     try {
                                         bitmap = BitmapHelper.rotateBitmapBydegree(b, i);
@@ -110,9 +110,9 @@ public class b {
                                 i = 0;
                             }
                             if (i != 0 && bitmap != null) {
-                                poll.cmX = new com.baidu.adp.widget.ImageView.a(bitmap, poll.cmU.isGif(), poll.cmU.getFilePath());
+                                poll.cvf = new com.baidu.adp.widget.ImageView.a(bitmap, poll.cvc.isGif(), poll.cvc.getFilePath());
                             } else {
-                                poll.cmX = new com.baidu.adp.widget.ImageView.a(b, poll.cmU.isGif(), poll.cmU.getFilePath());
+                                poll.cvf = new com.baidu.adp.widget.ImageView.a(b, poll.cvc.isGif(), poll.cvc.getFilePath());
                             }
                         }
                     }
@@ -128,8 +128,8 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
-            b.this.cmT = null;
-            b.this.anv();
+            b.this.cvb = null;
+            b.this.asy();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,12 +139,12 @@ public class b {
         public void onProgressUpdate(a... aVarArr) {
             if (aVarArr != null) {
                 for (a aVar : aVarArr) {
-                    com.baidu.adp.widget.ImageView.a aVar2 = aVar.cmX;
-                    if (aVar2 != null && !aVar.cmY) {
-                        com.baidu.tbadk.imageManager.c.anm().c(aVar.cmU.toCachedKey(aVar.cmW), aVar2);
+                    com.baidu.adp.widget.ImageView.a aVar2 = aVar.cvf;
+                    if (aVar2 != null && !aVar.cvg) {
+                        com.baidu.tbadk.imageManager.c.asp().c(aVar.cvc.toCachedKey(aVar.cve), aVar2);
                     }
-                    if (aVar.cmV != null) {
-                        aVar.cmV.a(aVar2, aVar.cmU.toCachedKey(aVar.cmW), aVar.cmY);
+                    if (aVar.cvd != null) {
+                        aVar.cvd.a(aVar2, aVar.cvc.toCachedKey(aVar.cve), aVar.cvg);
                     }
                 }
             }
@@ -154,12 +154,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            b.this.cmT = null;
+            b.this.cvb = null;
             while (true) {
-                a poll = this.cna.poll();
+                a poll = this.cvi.poll();
                 if (poll != null) {
-                    if (poll.cmV != null) {
-                        poll.cmV.a(null, poll.cmU.toCachedKey(poll.cmW), false);
+                    if (poll.cvd != null) {
+                        poll.cvd.a(null, poll.cvc.toCachedKey(poll.cve), false);
                     }
                 } else {
                     return;
@@ -181,14 +181,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.anx().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.asA().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.anx().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.asA().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -201,11 +201,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        ImageFileInfo cmU;
-        com.baidu.tbadk.imageManager.b cmV;
-        boolean cmW;
-        com.baidu.adp.widget.ImageView.a cmX;
-        boolean cmY;
+        ImageFileInfo cvc;
+        com.baidu.tbadk.imageManager.b cvd;
+        boolean cve;
+        com.baidu.adp.widget.ImageView.a cvf;
+        boolean cvg;
 
         private a() {
         }

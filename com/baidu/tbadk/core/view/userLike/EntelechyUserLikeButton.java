@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public EntelechyUserLikeButton(Context context) {
@@ -25,34 +25,34 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.h(getContext(), d.e.ds26));
-        setCompoundDrawablePadding(l.h(getContext(), d.e.ds6));
+        setTextSize(0, l.g(getContext(), R.dimen.ds26));
+        setCompoundDrawablePadding(l.g(getContext(), R.dimen.ds6));
         setGravity(5);
         setGravity(16);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void f(boolean z, int i) {
-        this.bUq = z;
+        this.cck = z;
         if (z) {
             setClickable(false);
-            setText(this.bUo);
+            setText(this.cci);
         } else {
             setClickable(true);
-            setText(this.bUp);
+            setText(this.ccj);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUq) {
+        if (this.cck) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.j(this, d.C0277d.cp_cont_d);
+            al.j(this, R.color.cp_cont_d);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.j(this, d.C0277d.btn_forum_focus_color);
+        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.j(this, R.color.btn_forum_focus_color);
     }
 }

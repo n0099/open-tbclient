@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* loaded from: classes4.dex */
 public class FrsGameStrategyActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,7 +16,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FrsGameStrategyMainFragment frsGameStrategyMainFragment = new FrsGameStrategyMainFragment();
         Bundle bundle2 = new Bundle();
-        bundle2.putString(ImageViewerConfig.FORUM_ID, getIntent().getStringExtra(ImageViewerConfig.FORUM_ID));
+        bundle2.putString("fid", getIntent().getStringExtra("fid"));
         bundle2.putString("name", getIntent().getStringExtra("name"));
         bundle2.putString("key_from", "from_single_act");
         frsGameStrategyMainFragment.setArguments(bundle2);
@@ -26,9 +25,9 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         beginTransaction.commit();
     }
 
-    public static void n(Context context, String str, String str2) {
+    public static void q(Context context, String str, String str2) {
         Intent intent = new Intent(context, FrsGameStrategyActivity.class);
-        intent.putExtra(ImageViewerConfig.FORUM_ID, str);
+        intent.putExtra("fid", str);
         intent.putExtra("name", str2);
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);

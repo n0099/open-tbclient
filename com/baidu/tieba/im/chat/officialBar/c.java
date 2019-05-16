@@ -13,10 +13,10 @@ public class c {
     /* loaded from: classes3.dex */
     public static class a {
         public String fid;
-        public String gcY;
-        public long gdf;
-        public String gdg;
-        public int gdh;
+        public String gun;
+        public long guu;
+        public String guv;
+        public int guw;
         public long picId;
         public String src;
         public long taskId;
@@ -26,7 +26,7 @@ public class c {
         public int userType;
     }
 
-    public static List<a> g(String str, String str2, long j) {
+    public static List<a> h(String str, String str2, long j) {
         return a(str, str2, null, 0L, j);
     }
 
@@ -58,14 +58,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.gcY = optString5;
+                aVar.gun = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.gdf = j;
-                    aVar.gdg = userData.getUserId();
-                    aVar.gdh = userData.getUserType();
+                    aVar.guu = j;
+                    aVar.guv = userData.getUserId();
+                    aVar.guw = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

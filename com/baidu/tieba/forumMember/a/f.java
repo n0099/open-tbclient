@@ -3,27 +3,27 @@ package com.baidu.tieba.forumMember.a;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.view.GodHeadImageView;
 /* loaded from: classes5.dex */
 public class f extends v.a {
-    public TextView dfp;
+    public TextView bmf;
     public View dividerLine;
-    public GodHeadImageView eUV;
-    public TextView eUW;
-    public TextView eni;
+    public TextView eCS;
+    public GodHeadImageView flf;
+    public TextView flg;
     public int mSkinType;
 
     public f(View view) {
         super(view);
         this.mSkinType = 3;
-        this.eUV = (GodHeadImageView) view.findViewById(d.g.item_head);
-        this.eUV.setShapeType(0);
-        this.eUV.setShowType(1);
-        this.eUV.setRadius(14);
-        this.dfp = (TextView) view.findViewById(d.g.item_manito_name);
-        this.eni = (TextView) view.findViewById(d.g.item_manito_intro);
-        this.eUW = (TextView) view.findViewById(d.g.item_manito_fans);
-        this.dividerLine = view.findViewById(d.g.divider_line);
+        this.flf = (GodHeadImageView) view.findViewById(R.id.item_head);
+        this.flf.setShapeType(0);
+        this.flf.setShowType(1);
+        this.flf.setRadius(14);
+        this.bmf = (TextView) view.findViewById(R.id.item_manito_name);
+        this.eCS = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.flg = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.dividerLine = view.findViewById(R.id.divider_line);
     }
 }

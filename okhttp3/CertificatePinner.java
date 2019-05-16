@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.mobstat.Config;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -80,7 +79,7 @@ public final class CertificatePinner {
                 X509Certificate x509Certificate2 = (X509Certificate) list.get(i3);
                 append.append("\n    ").append(pin(x509Certificate2)).append(": ").append(x509Certificate2.getSubjectDN().getName());
             }
-            append.append("\n  Pinned certificates for ").append(str).append(Config.TRACE_TODAY_VISIT_SPLIT);
+            append.append("\n  Pinned certificates for ").append(str).append(":");
             int size4 = findMatchingPins.size();
             for (int i4 = 0; i4 < size4; i4++) {
                 append.append("\n    ").append(findMatchingPins.get(i4));

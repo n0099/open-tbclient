@@ -18,33 +18,33 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.postsearch.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends BaseAdapter {
-    private static final int icG = TbadkCoreApplication.getInst().getListItemRule().ags();
+    private static final int ivl = TbadkCoreApplication.getInst().getListItemRule().alr();
     private TbPageContext<?> mContext;
-    private int dRB = -1;
+    private int eca = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public int dN(List<b.a> list) {
+    public int dX(List<b.a> list) {
         if (list == null) {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= icG) {
+        if (size <= ivl) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - icG;
-        xz(i);
+        int i = size - ivl;
+        yG(i);
         this.mData.addAll(list);
         return i;
     }
@@ -53,7 +53,7 @@ public class e extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void xz(int i) {
+    private void yG(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -93,13 +93,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.h.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.icJ = (TextView) view.findViewById(d.g.title_text);
-            aVar.icK = (TextView) view.findViewById(d.g.content_text);
-            aVar.icL = (TextView) view.findViewById(d.g.label_text);
-            aVar.dSc = (TextView) view.findViewById(d.g.user_name);
-            aVar.icM = (TextView) view.findViewById(d.g.time_text);
+            aVar.ivo = (TextView) view.findViewById(R.id.title_text);
+            aVar.ivp = (TextView) view.findViewById(R.id.content_text);
+            aVar.ivq = (TextView) view.findViewById(R.id.label_text);
+            aVar.ecB = (TextView) view.findViewById(R.id.user_name);
+            aVar.ivr = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -109,24 +109,24 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.icJ.setText(Html.fromHtml(ap.bK(aVar3.title, str)));
-            aVar2.icK.setText(Html.fromHtml(ap.bK(aVar3.content, str)));
-            aVar2.dSc.setText(aVar3.name_show);
-            aVar2.icM.setText(ap.ao(aVar3.time));
-            aVar2.icL.setVisibility(0);
-            if (aVar3.is_floor == 1) {
-                aVar2.icL.setText(d.j.floor_text);
-            } else if (aVar3.ich == 1) {
-                aVar2.icL.setText(d.j.reply_post);
+            aVar2.ivo.setText(Html.fromHtml(ap.bU(aVar3.title, str)));
+            aVar2.ivp.setText(Html.fromHtml(ap.bU(aVar3.content, str)));
+            aVar2.ecB.setText(aVar3.name_show);
+            aVar2.ivr.setText(ap.aC(aVar3.time));
+            aVar2.ivq.setVisibility(0);
+            if (aVar3.iuL == 1) {
+                aVar2.ivq.setText(R.string.floor_text);
+            } else if (aVar3.iuM == 1) {
+                aVar2.ivq.setText(R.string.reply_post);
             } else {
-                aVar2.icL.setVisibility(8);
+                aVar2.ivq.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.mContext != null) {
                         e.this.a(aVar3);
-                        if (aVar3.is_floor == 1) {
+                        if (aVar3.iuL == 1) {
                             SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.mContext.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
                             e.this.mContext.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
@@ -139,39 +139,39 @@ public class e extends BaseAdapter {
                     }
                 }
             });
-            al.l(view, d.C0277d.cp_bg_line_d);
-            com.baidu.tbadk.r.a.a(this.mContext, view);
+            al.l(view, R.color.cp_bg_line_d);
+            com.baidu.tbadk.s.a.a(this.mContext, view);
         }
         return view;
     }
 
     public void setTabType(int i) {
-        this.dRB = i;
+        this.eca = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
-        am bJ = new am("c12405").bJ(ImageViewerConfig.FORUM_NAME, aVar.fname).bJ("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.dRB > 0) {
-            bJ.T(MyBookrackActivityConfig.TAB_ID, this.dRB);
+        am bT = new am("c12405").bT(ImageViewerConfig.FORUM_NAME, aVar.fname).bT("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.eca > 0) {
+            bT.P(MyBookrackActivityConfig.TAB_ID, this.eca);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.ich == 1) {
-                bJ.k(Info.kBaiduPIDKey, aVar.pid);
+            if (aVar.iuL == 1 || aVar.iuM == 1) {
+                bT.l(Info.kBaiduPIDKey, aVar.pid);
             } else {
-                bJ.k("tid", aVar.tid);
+                bT.l("tid", aVar.tid);
             }
         }
-        TiebaStatic.log(bJ);
+        TiebaStatic.log(bT);
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        TextView dSc;
-        TextView icJ;
-        TextView icK;
-        TextView icL;
-        TextView icM;
+        TextView ecB;
+        TextView ivo;
+        TextView ivp;
+        TextView ivq;
+        TextView ivr;
 
         private a() {
         }

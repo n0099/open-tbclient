@@ -5,24 +5,24 @@ import android.graphics.BitmapRegionDecoder;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class a {
-    private final int[] czv = new int[2];
+    private final int[] cHE = new int[2];
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public BitmapRegionDecoder N(byte[] bArr) throws IOException {
+    public BitmapRegionDecoder H(byte[] bArr) throws IOException {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
         BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-        this.czv[0] = newInstance.getWidth();
-        this.czv[1] = newInstance.getHeight();
+        this.cHE[0] = newInstance.getWidth();
+        this.cHE[1] = newInstance.getHeight();
         return newInstance;
     }
 
-    public int[] arR() {
-        return this.czv;
+    public int[] afo() {
+        return this.cHE;
     }
 }

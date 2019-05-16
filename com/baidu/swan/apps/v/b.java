@@ -4,53 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b axD;
-    private List<a> axE = new ArrayList();
+    private static volatile b ayr;
+    private List<a> ays = new ArrayList();
 
     /* loaded from: classes2.dex */
     public interface a {
-        boolean uH();
+        boolean vr();
 
-        boolean uI();
+        boolean vs();
     }
 
     private b() {
     }
 
-    public static b Dv() {
-        if (axD == null) {
+    public static b ED() {
+        if (ayr == null) {
             synchronized (b.class) {
-                if (axD == null) {
-                    axD = new b();
+                if (ayr == null) {
+                    ayr = new b();
                 }
             }
         }
-        return axD;
+        return ayr;
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.axE.contains(aVar)) {
-            this.axE.add(aVar);
+        if (aVar != null && !this.ays.contains(aVar)) {
+            this.ays.add(aVar);
         }
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.axE.remove(aVar);
+            this.ays.remove(aVar);
         }
     }
 
-    public void Dw() {
-        for (a aVar : this.axE) {
-            if (aVar != null && aVar.uH()) {
+    public void EE() {
+        for (a aVar : this.ays) {
+            if (aVar != null && aVar.vr()) {
                 return;
             }
         }
     }
 
-    public void Dx() {
-        for (a aVar : this.axE) {
-            if (aVar != null && aVar.uI()) {
+    public void EF() {
+        for (a aVar : this.ays) {
+            if (aVar != null && aVar.vs()) {
                 return;
             }
         }

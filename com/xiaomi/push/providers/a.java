@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 public class a extends SQLiteOpenHelper {
     private static int b = 1;
     public static final Object a = new Object();
-    private static final String[] c = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
+    private static final String[] c = {Constants.PACKAGE_NAME, "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
 
     public a(Context context) {
         super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, b);

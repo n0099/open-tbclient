@@ -15,27 +15,27 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cr */
+        /* renamed from: cs */
         public SwanAppDeleteInfo[] newArray(int i) {
             return new SwanAppDeleteInfo[i];
         }
     };
-    public int avc;
+    public int avu;
     public String mAppId;
 
     public SwanAppDeleteInfo(String str) {
         this.mAppId = str;
-        this.avc = 0;
+        this.avu = 0;
     }
 
     public SwanAppDeleteInfo(String str, int i) {
         this.mAppId = str;
-        this.avc = i;
+        this.avu = i;
     }
 
     private SwanAppDeleteInfo(Parcel parcel) {
         this.mAppId = parcel.readString();
-        this.avc = parcel.readInt();
+        this.avu = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -46,10 +46,10 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mAppId);
-        parcel.writeInt(this.avc);
+        parcel.writeInt(this.avu);
     }
 
     public String toString() {
-        return "mAppId:" + this.mAppId + ",mCheckHisAndFavor:" + this.avc;
+        return "mAppId:" + this.mAppId + ",mCheckHisAndFavor:" + this.avu;
     }
 }

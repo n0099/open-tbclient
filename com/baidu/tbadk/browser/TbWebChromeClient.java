@@ -2,6 +2,7 @@ package com.baidu.tbadk.browser;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JsPromptResult;
@@ -12,6 +13,7 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
@@ -99,6 +101,11 @@ public class TbWebChromeClient extends WebChromeClient {
         super.onReceivedTitle(webView, str);
         if (this.mActivity != null) {
             this.mActivity.refreshTitle(str);
+        }
+        if (Build.VERSION.SDK_INT < 23 && !StringUtils.isNull(str)) {
+            if ((str.contains("404") || str.contains("500") || str.contains("Error")) && this.mActivity != null) {
+                this.mActivity.onReceivedTitle();
+            }
         }
     }
 }

@@ -4,51 +4,51 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h {
-    private com.baidu.tbadk.m.h dck;
-    private d ibB;
-    BdTypeListView ibO;
+    private com.baidu.tbadk.m.h dmN;
+    private d iuf;
+    BdTypeListView ius;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener gkJ = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener gBW = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (com.baidu.adp.lib.util.j.kM()) {
-                if (h.this.dck != null) {
-                    h.this.dck.dettachView(h.this.mRootView);
-                    h.this.dck = null;
+            if (com.baidu.adp.lib.util.j.jG()) {
+                if (h.this.dmN != null) {
+                    h.this.dmN.dettachView(h.this.mRootView);
+                    h.this.dmN = null;
                 }
-                if (h.this.ibB != null) {
-                    h.this.ibB.bUw();
+                if (h.this.iuf != null) {
+                    h.this.iuf.ccx();
                 }
             }
         }
     };
 
-    public BdTypeListView bUI() {
-        return this.ibO;
+    public BdTypeListView ccI() {
+        return this.ius;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.ibO = (BdTypeListView) view.findViewById(d.g.list);
+        this.ius = (BdTypeListView) view.findViewById(R.id.list);
     }
 
-    public d bUJ() {
-        return this.ibB;
+    public d ccJ() {
+        return this.iuf;
     }
 
     public void b(d dVar) {
-        this.ibB = dVar;
+        this.iuf = dVar;
     }
 
-    public void ah(String str, boolean z) {
-        f.a(this.dck, this.gkJ, this.mContext, this.mRootView, str, z);
-        this.ibO.setVisibility(8);
+    public void aj(String str, boolean z) {
+        f.a(this.dmN, this.gBW, this.mContext, this.mRootView, str, z);
+        this.ius.setVisibility(8);
     }
 }

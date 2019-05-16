@@ -1,7 +1,30 @@
 package com.google.gson;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 /* loaded from: classes2.dex */
-public interface n<T> {
-    i a(T t, Type type, m mVar);
+public abstract class n<T> {
+    public abstract void a(com.google.gson.stream.a aVar, T t) throws IOException;
+
+    public final n<T> cIS() {
+        return new n<T>() { // from class: com.google.gson.n.1
+            @Override // com.google.gson.n
+            public void a(com.google.gson.stream.a aVar, T t) throws IOException {
+                if (t == null) {
+                    aVar.cJq();
+                } else {
+                    n.this.a(aVar, t);
+                }
+            }
+        };
+    }
+
+    public final h be(T t) {
+        try {
+            com.google.gson.internal.a.e eVar = new com.google.gson.internal.a.e();
+            a(eVar, t);
+            return eVar.cJk();
+        } catch (IOException e) {
+            throw new JsonIOException(e);
+        }
+    }
 }

@@ -4,14 +4,13 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 /* loaded from: classes6.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b izd;
-    private a ize;
+    private b iRQ;
+    private a iRR;
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
@@ -20,14 +19,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public interface a {
         void b(SignData signData);
 
-        void dQ(String str, String str2);
+        void ee(String str, String str2);
     }
 
     public SignSingleModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.izd = null;
+        this.iRQ = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -40,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void ccC() {
-        if (this.izd != null) {
-            this.izd.cancel();
-            this.izd = null;
+    public void ckG() {
+        if (this.iRQ != null) {
+            this.iRQ.cancel();
+            this.iRQ = null;
         }
     }
 
-    public void dR(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.izd == null) {
+    public void ef(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.iRQ == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.izd = new b();
-            this.izd.setPriority(2);
-            this.izd.execute(new Object[0]);
+            this.iRQ = new b();
+            this.iRQ.setPriority(2);
+            this.iRQ.execute(new Object[0]);
         }
     }
 
@@ -75,24 +74,24 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: F */
         public SignData doInBackground(Object... objArr) {
             Exception e;
             SignData signData;
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                this.mNetwork.x("kw", SignSingleModel.this.mForumName);
-                this.mNetwork.x(ImageViewerConfig.FORUM_ID, SignSingleModel.this.mForumId);
-                this.mNetwork.x("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.acE().adC().mIsNeedTbs = true;
-                this.mNetwork.dB(true);
-                String acg = this.mNetwork.acg();
-                if (!this.mNetwork.acH() || !this.mNetwork.acE().adD().isRequestSuccess()) {
+                this.mNetwork.o("kw", SignSingleModel.this.mForumName);
+                this.mNetwork.o("fid", SignSingleModel.this.mForumId);
+                this.mNetwork.o("authsid", SignSingleModel.this.mAuthSid);
+                this.mNetwork.ahC().aiB().mIsNeedTbs = true;
+                this.mNetwork.dX(true);
+                String ahe = this.mNetwork.ahe();
+                if (!this.mNetwork.ahF() || !this.mNetwork.ahC().aiC().isRequestSuccess()) {
                     signData = null;
                 } else {
                     SignData signData2 = new SignData();
                     try {
-                        signData2.parserJson(acg);
+                        signData2.parserJson(ahe);
                         signData2.forumId = SignSingleModel.this.mForumId;
                         signData2.forumName = SignSingleModel.this.mForumName;
                         signData = signData2;
@@ -104,7 +103,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                     }
                 }
                 try {
-                    this.tokenData = AuthTokenData.parse(acg);
+                    this.tokenData = AuthTokenData.parse(ahe);
                 } catch (Exception e3) {
                     e = e3;
                     BdLog.e(e.getMessage());
@@ -120,11 +119,11 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.ji();
+                this.mNetwork.ia();
             }
-            SignSingleModel.this.izd = null;
+            SignSingleModel.this.iRQ = null;
             super.cancel(true);
-            SignSingleModel.this.ize.dQ(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.iRR.ee(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,18 +131,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.izd = null;
+            SignSingleModel.this.iRQ = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.ize.b(signData);
+                SignSingleModel.this.iRR.b(signData);
                 return;
             }
-            SignSingleModel.this.mErrorCode = this.mNetwork.acI();
+            SignSingleModel.this.mErrorCode = this.mNetwork.ahG();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.ize.dQ(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.iRR.ee(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.ize = aVar;
+        this.iRR = aVar;
     }
 }

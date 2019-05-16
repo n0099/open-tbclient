@@ -1,151 +1,144 @@
 package com.baidu.swan.apps.extcore.e;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.w;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.extcore.model.b.a;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.process.messaging.service.a;
 import com.baidu.swan.apps.storage.b.f;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Arrays;
 /* loaded from: classes2.dex */
-public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baidu.swan.apps.extcore.b.a<T> {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CopyOnWriteArrayList<com.baidu.swan.apps.extcore.c.a> avT;
+public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baidu.swan.apps.extcore.b.a<T> {
+    private static final boolean DEBUG = b.DEBUG;
 
     public a(@NonNull T t) {
         super(t);
-        this.avT = new CopyOnWriteArrayList<>();
     }
 
-    public long Bw() {
-        return f.KJ().getLong(this.avx.Bs(), 0L);
+    public long Cy() {
+        return f.Ni().getLong(this.avQ.Cu(), 0L);
     }
 
-    public void u(long j) {
-        f.KJ().putLong(this.avx.Bs(), j);
+    public void D(long j) {
+        f.Ni().putLong(this.avQ.Cu(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File Bj() {
-        return new File(super.Bj(), "preset");
+    public File Cm() {
+        return new File(super.Cm(), "remote");
     }
 
     @NonNull
-    public ExtensionCore Bx() {
+    public ExtensionCore Cz() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long Bw = Bw();
-        extensionCore.avP = Bw;
-        extensionCore.avQ = com.baidu.swan.apps.extcore.g.a.v(Bw);
-        extensionCore.avR = t(Bw).getPath();
-        extensionCore.avO = 0;
+        long Cy = Cy();
+        extensionCore.awm = Cy;
+        extensionCore.awn = com.baidu.swan.apps.extcore.f.a.E(Cy);
+        extensionCore.awo = C(Cy).getPath();
+        extensionCore.awl = 1;
         return extensionCore;
     }
 
     /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/swan/apps/extcore/model/a;>(TT;)Z */
     public boolean b(@NonNull com.baidu.swan.apps.extcore.model.a aVar) {
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "doUpdate: preset");
+            Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.avS)) {
-            Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
+        if (TextUtils.isEmpty(aVar.awp)) {
+            Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             return false;
         }
-        long eI = com.baidu.swan.apps.extcore.g.a.eI(aVar.versionName);
-        if (com.baidu.swan.c.b.bm(aVar.avS, t(eI).getPath())) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(eI));
-            com.baidu.swan.apps.extcore.g.a.a(Bj(), arrayList);
-            u(eI);
-            com.baidu.swan.apps.extcore.g.a.bb(false);
-            return true;
-        } else if (DEBUG) {
-            Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(new Exception()));
-            return false;
-        } else {
-            return false;
+        C0147a o = o(aVar.versionName, aVar.awp, aVar.sign);
+        if (DEBUG) {
+            Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + o);
         }
+        ev(aVar.awp);
+        return o.isOk();
     }
 
-    private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.g.a.BA()) {
-            if (DEBUG) {
-                Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
-                return false;
+    private C0147a o(String str, @NonNull String str2, String str3) {
+        if (DEBUG) {
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
+        }
+        long ex = com.baidu.swan.apps.extcore.f.a.ex(str);
+        if (ex == 0) {
+            return C0147a.ew("invalid version code : " + str);
+        }
+        if (!w.b(new File(str2), str3)) {
+            return C0147a.ew("sign failed.");
+        }
+        if (!com.baidu.swan.c.a.bs(str2, C(ex).getPath())) {
+            return C0147a.ew("unzip bundle failed.");
+        }
+        com.baidu.swan.apps.extcore.f.a.a(Cm(), d(Cy(), ex));
+        D(ex);
+        if (DEBUG) {
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + ex);
+        }
+        return C0147a.CB();
+    }
+
+    private ArrayList<Long> d(long j, long j2) {
+        ExtensionCore BB;
+        ArrayList<Long> arrayList = new ArrayList<>();
+        if (j != 0) {
+            arrayList.add(Long.valueOf(j));
+        }
+        arrayList.add(Long.valueOf(j2));
+        if (SwanAppMessengerService.getServiceObject() == null) {
+            return arrayList;
+        }
+        for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.IK().IL()) {
+            if (bVar.aHb && bVar.aGY != null && (BB = bVar.aGY.BB()) != null && !arrayList.contains(Long.valueOf(BB.awm))) {
+                arrayList.add(Long.valueOf(BB.awm));
             }
-            return false;
         }
-        b eE = b.eE(this.avx.Bv());
-        long Bw = Bw();
-        long eI = com.baidu.swan.apps.extcore.g.a.eI(eE.avQ);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + Bw + " newVer: " + eI);
+            Log.d("ExtCore-RemoteControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
-        return Bw < eI;
+        return arrayList;
     }
 
-    public void b(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "tryUpdateAsync: start");
-        }
-        if (!isNeedUpdate()) {
-            Log.d("ExtCore-PresetControl", "tryUpdateAsync: finish with isNeedUpdate " + isNeedUpdate());
-            c(aVar);
-            return;
-        }
-        if (this.avT.isEmpty()) {
-            new Thread(new Runnable() { // from class: com.baidu.swan.apps.extcore.e.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (a.DEBUG) {
-                        Log.d("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                    }
-                    b eE = b.eE(a.this.avx.Bv());
-                    com.baidu.swan.apps.extcore.model.a aVar2 = new com.baidu.swan.apps.extcore.model.a();
-                    aVar2.versionName = eE.avQ;
-                    aVar2.avS = a.this.avx.Bu();
-                    a.this.b(aVar2);
-                    a.this.By();
-                }
-            }, "updateExtensionCoreAsync").start();
-        }
-        if (aVar != null) {
-            this.avT.add(aVar);
+    private void ev(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.swan.c.a.deleteFile(str);
         }
     }
 
-    public void Bk() {
-        if (isNeedUpdate()) {
-            b eE = b.eE(this.avx.Bv());
-            com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
-            aVar.versionName = eE.avQ;
-            aVar.avS = this.avx.Bu();
-            b(aVar);
-            By();
-        }
-    }
+    /* renamed from: com.baidu.swan.apps.extcore.e.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0147a {
+        public String message;
+        public int statusCode = 0;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void By() {
-        Iterator<com.baidu.swan.apps.extcore.c.a> it = this.avT.iterator();
-        while (it.hasNext()) {
-            c(it.next());
+        public boolean isOk() {
+            return this.statusCode == 0;
         }
-        this.avT.clear();
-    }
 
-    private void c(@Nullable final com.baidu.swan.apps.extcore.c.a aVar) {
-        if (aVar != null) {
-            aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.e.a.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    aVar.uK();
-                }
-            });
+        public static C0147a CB() {
+            return m(0, "");
+        }
+
+        public static C0147a ew(String str) {
+            return m(1, str);
+        }
+
+        public static C0147a m(int i, String str) {
+            C0147a c0147a = new C0147a();
+            c0147a.statusCode = i;
+            c0147a.message = str;
+            return c0147a;
+        }
+
+        public String toString() {
+            return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.statusCode + ", message='" + this.message + "'}";
         }
     }
 }

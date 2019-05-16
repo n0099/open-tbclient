@@ -3,11 +3,11 @@ package com.airbnb.lottie;
 import android.graphics.Typeface;
 /* loaded from: classes2.dex */
 public class b {
-    public Typeface S(String str) {
+    public Typeface B(String str) {
         return null;
     }
 
-    public String T(String str) {
+    public String C(String str) {
         return null;
     }
 }

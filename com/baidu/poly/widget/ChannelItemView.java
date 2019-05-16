@@ -13,15 +13,15 @@ import com.baidu.poly.b;
 import com.baidu.poly.bean.PayChannel;
 /* loaded from: classes2.dex */
 public class ChannelItemView extends RelativeLayout implements View.OnClickListener {
-    private ImageView aht;
-    private TextView ahu;
-    private TextView ahv;
-    private ImageView ahw;
-    private a ahx;
+    private ImageView ahK;
+    private TextView ahL;
+    private TextView ahM;
+    private ImageView ahN;
+    private a ahO;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void tK();
+        void uv();
     }
 
     public ChannelItemView(Context context) {
@@ -38,11 +38,11 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     }
 
     private void initView(Context context) {
-        LayoutInflater.from(context).inflate(b.d.view_channel_list_item, (ViewGroup) this, true);
-        this.aht = (ImageView) findViewById(b.c.channel_icon_view);
-        this.ahu = (TextView) findViewById(b.c.channel_name_view);
-        this.ahv = (TextView) findViewById(b.c.channel_desc_view);
-        this.ahw = (ImageView) findViewById(b.c.channel_select_view);
+        LayoutInflater.from(context).inflate(b.e.view_channel_list_item, (ViewGroup) this, true);
+        this.ahK = (ImageView) findViewById(b.d.channel_icon_view);
+        this.ahL = (TextView) findViewById(b.d.channel_name_view);
+        this.ahM = (TextView) findViewById(b.d.channel_desc_view);
+        this.ahN = (ImageView) findViewById(b.d.channel_select_view);
         setOnClickListener(this);
     }
 
@@ -52,30 +52,39 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         String icon = payChannel.getIcon();
         boolean isSelected = payChannel.isSelected();
         boolean isEnable = payChannel.isEnable();
-        com.baidu.poly.b.b.ty().b(this.aht, icon);
-        this.ahu.setText(displayName);
+        com.baidu.poly.b.b.uj().b(this.ahK, icon);
+        this.ahL.setText(displayName);
         if (isSelected) {
-            this.ahw.setImageResource(b.C0082b.channel_checked);
+            this.ahN.setImageResource(b.c.channel_checked);
+        } else {
+            this.ahN.setImageResource(b.c.unchecked);
         }
         if (isEnable) {
-            this.ahx = aVar;
+            this.ahO = aVar;
         } else {
-            this.aht.setAlpha(0.4f);
-            this.ahu.setAlpha(0.4f);
-            this.ahv.setAlpha(0.4f);
-            this.ahw.setVisibility(8);
+            this.ahK.setAlpha(0.4f);
+            this.ahL.setAlpha(0.4f);
+            this.ahM.setAlpha(0.4f);
+            this.ahN.setVisibility(8);
         }
         if (!TextUtils.isEmpty(payText)) {
-            this.ahv.setText(payText);
-        } else {
-            this.ahv.setVisibility(8);
+            if ("度小满支付".equals(displayName)) {
+                this.ahM.setTextColor(getResources().getColor(b.C0084b.duxiaomancolor));
+            }
+            this.ahM.setText(payText);
+            return;
         }
+        this.ahM.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ahL.getLayoutParams();
+        layoutParams.addRule(15);
+        layoutParams.topMargin = 0;
+        this.ahL.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ahx != null) {
-            this.ahx.tK();
+        if (this.ahO != null) {
+            this.ahO.uv();
         }
     }
 }

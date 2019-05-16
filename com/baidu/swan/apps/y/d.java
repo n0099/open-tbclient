@@ -10,6 +10,7 @@ class d extends a {
 
     @Override // com.baidu.swan.apps.y.a
     public boolean a(Bitmap bitmap, Rect rect) {
+        boolean z;
         if (bitmap == null) {
             return false;
         }
@@ -17,6 +18,19 @@ class d extends a {
             rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
         }
         int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+        boolean z2 = pixel == -1 || pixel == -657931;
+        if (!z2 && this.aDu != null) {
+            for (Integer num : this.aDu) {
+                if (num.intValue() == pixel) {
+                    z = true;
+                    break;
+                }
+            }
+        }
+        z = z2;
+        if (!z) {
+            return false;
+        }
         int i = rect.left;
         while (true) {
             i++;
@@ -28,7 +42,6 @@ class d extends a {
                         if (pixel != bitmap.getPixel(i, i2)) {
                             if (com.baidu.swan.apps.b.DEBUG) {
                                 Log.d(TAG, "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + ")");
-                                return false;
                             }
                             return false;
                         }
@@ -36,9 +49,9 @@ class d extends a {
                 }
             } else {
                 if (DEBUG) {
-                    Log.d(TAG, ((pixel == -1 || pixel == -657931) ? "" : "非") + "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                    Log.d(TAG, "白屏, 图片大小 " + rect.width() + " x " + rect.height());
                 }
-                return pixel == -1 || pixel == -657931;
+                return true;
             }
         }
     }

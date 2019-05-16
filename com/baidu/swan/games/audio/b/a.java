@@ -1,13 +1,12 @@
 package com.baidu.swan.games.audio.b;
 
 import android.media.MediaPlayer;
-import java.io.IOException;
 /* loaded from: classes2.dex */
-public class a implements e {
+public class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private MediaPlayer azW;
-    private MediaPlayer.OnPreparedListener bam;
-    private boolean ban;
+    private MediaPlayer aAT;
+    private MediaPlayer.OnPreparedListener ber;
+    private boolean bes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
@@ -15,20 +14,19 @@ public class a implements e {
     }
 
     private void create() {
-        Eq();
+        Gm();
     }
 
-    private synchronized MediaPlayer Eq() {
-        if (this.azW == null) {
-            this.azW = new MediaPlayer();
-            this.azW.setAudioStreamType(3);
-            this.azW.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.games.audio.b.a.1
+    private synchronized MediaPlayer Gm() {
+        if (this.aAT == null) {
+            this.aAT = new MediaPlayer();
+            this.aAT.setAudioStreamType(3);
+            this.aAT.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.games.audio.b.a.1
                 @Override // android.media.MediaPlayer.OnPreparedListener
                 public void onPrepared(MediaPlayer mediaPlayer) {
                     try {
-                        a.this.play();
-                        if (a.this.bam != null) {
-                            a.this.bam.onPrepared(a.this.azW);
+                        if (a.this.ber != null) {
+                            a.this.ber.onPrepared(a.this.aAT);
                         }
                     } catch (Exception e) {
                         if (a.DEBUG) {
@@ -38,42 +36,42 @@ public class a implements e {
                 }
             });
         }
-        return this.azW;
+        return this.aAT;
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
-    public void setSrc(String str) throws IOException {
-        if (Nq()) {
-            this.azW.setDataSource(str);
-            this.azW.prepareAsync();
+    @Override // com.baidu.swan.games.audio.b.c
+    public void setSrc(String str) throws Exception {
+        if (Qk()) {
+            this.aAT.setDataSource(str);
+            this.aAT.prepareAsync();
         }
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
-    public void ct(boolean z) {
-        if (Nq()) {
-            this.azW.setLooping(z);
+    @Override // com.baidu.swan.games.audio.b.c
+    public void cJ(boolean z) {
+        if (Qk()) {
+            this.aAT.setLooping(z);
         }
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setVolume(float f) {
-        if (Nq()) {
-            this.azW.setVolume(f, f);
+        if (Qk()) {
+            this.aAT.setVolume(f, f);
         }
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.bam = onPreparedListener;
+        this.ber = onPreparedListener;
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnCompletionListener(final MediaPlayer.OnCompletionListener onCompletionListener) {
-        Eq().setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.games.audio.b.a.2
+        Gm().setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.games.audio.b.a.2
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                if (a.this.azW != null && !a.this.azW.isLooping()) {
+                if (a.this.aAT != null && !a.this.aAT.isLooping()) {
                     a.this.destroy();
                 }
                 if (onCompletionListener != null) {
@@ -83,98 +81,98 @@ public class a implements e {
         });
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        Eq().setOnInfoListener(onInfoListener);
+        Gm().setOnInfoListener(onInfoListener);
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        Eq().setOnErrorListener(onErrorListener);
+        Gm().setOnErrorListener(onErrorListener);
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnSeekCompleteListener(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        Eq().setOnSeekCompleteListener(onSeekCompleteListener);
+        Gm().setOnSeekCompleteListener(onSeekCompleteListener);
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
+    @Override // com.baidu.swan.games.audio.b.c
     public void setOnBufferingUpdateListener(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
-        Eq().setOnBufferingUpdateListener(onBufferingUpdateListener);
+        Gm().setOnBufferingUpdateListener(onBufferingUpdateListener);
     }
 
-    @Override // com.baidu.swan.games.audio.b.e
-    public boolean Np() {
-        return this.ban;
+    @Override // com.baidu.swan.games.audio.b.c
+    public boolean Qj() {
+        return this.bes;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void play() {
-        if (Nq()) {
-            this.azW.start();
+        if (Qk()) {
+            this.aAT.start();
         }
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void pause() {
-        if (Nq()) {
-            this.azW.pause();
+        if (Qk()) {
+            this.aAT.pause();
         }
     }
 
     @Override // com.baidu.swan.games.audio.a
-    public void seek(int i) {
-        if (Nq()) {
-            this.azW.seekTo(i);
+    public void seek(float f) {
+        if (Qk()) {
+            this.aAT.seekTo((int) f);
         }
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void stop() {
-        if (Nq()) {
-            this.azW.stop();
+        if (Qk()) {
+            this.aAT.stop();
         }
     }
 
     @Override // com.baidu.swan.games.audio.a
     public void destroy() {
-        if (this.azW != null) {
-            synchronized (this.azW) {
+        if (this.aAT != null) {
+            synchronized (this.aAT) {
                 unregisterListener();
-                this.azW.release();
-                this.azW = null;
+                this.aAT.release();
+                this.aAT = null;
             }
         }
-        this.ban = true;
+        this.bes = true;
     }
 
-    private boolean Nq() {
-        return (this.azW == null || this.ban) ? false : true;
+    private boolean Qk() {
+        return (this.aAT == null || this.bes) ? false : true;
     }
 
     private void unregisterListener() {
-        if (this.azW != null) {
-            this.azW.setOnPreparedListener(null);
-            this.azW.setOnCompletionListener(null);
-            this.azW.setOnInfoListener(null);
-            this.azW.setOnErrorListener(null);
-            this.azW.setOnSeekCompleteListener(null);
-            this.azW.setOnBufferingUpdateListener(null);
+        if (this.aAT != null) {
+            this.aAT.setOnPreparedListener(null);
+            this.aAT.setOnCompletionListener(null);
+            this.aAT.setOnInfoListener(null);
+            this.aAT.setOnErrorListener(null);
+            this.aAT.setOnSeekCompleteListener(null);
+            this.aAT.setOnBufferingUpdateListener(null);
         }
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        return Eq().getDuration();
+        return Gm().getDuration();
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        return Eq().getCurrentPosition();
+        return Gm().getCurrentPosition();
     }
 
     @Override // com.baidu.swan.games.audio.a
     public boolean isPaused() {
-        return !Eq().isPlaying();
+        return !Gm().isPlaying();
     }
 }

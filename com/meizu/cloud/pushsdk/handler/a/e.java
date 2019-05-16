@@ -12,6 +12,22 @@ public class e extends a<MessageV3> {
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
+    public int a() {
+        return 8;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
+        if (b() == null || messageV3 == null || TextUtils.isEmpty(messageV3.getThroughMessage())) {
+            return;
+        }
+        b().b(c(), messageV3.getThroughMessage());
+        b().a(c(), messageV3.getThroughMessage(), com.meizu.cloud.pushsdk.handler.a.b.d.a().a(messageV3.getTaskId()).b(messageV3.getSeqId()).c(messageV3.getPushTimestamp()).d(messageV3.getDeviceId()).a().b());
+    }
+
+    @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "start ThroughMessageHandler match");
         if (a(1, g(intent))) {
@@ -31,9 +47,20 @@ public class e extends a<MessageV3> {
         return false;
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 8;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: c */
+    public void b(MessageV3 messageV3) {
+        if (messageV3 == null || TextUtils.isEmpty(messageV3.getDeviceId()) || TextUtils.isEmpty(messageV3.getTaskId())) {
+            return;
+        }
+        String b = b(messageV3.getThroughMessage());
+        if (TextUtils.isEmpty(b)) {
+            com.meizu.cloud.pushsdk.util.c.d(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        } else {
+            com.meizu.cloud.pushsdk.util.c.d(c(), b, messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,24 +80,5 @@ public class e extends a<MessageV3> {
         messageV3.setPushTimestamp(h(intent));
         messageV3.setUploadDataPackageName(g(intent));
         return messageV3;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.e eVar) {
-        if (b() != null && messageV3 != null && !TextUtils.isEmpty(messageV3.getThroughMessage())) {
-            b().b(c(), messageV3.getThroughMessage());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: a */
-    public void b(MessageV3 messageV3) {
-        if (messageV3 != null && !TextUtils.isEmpty(messageV3.getDeviceId()) && !TextUtils.isEmpty(messageV3.getTaskId())) {
-            com.meizu.cloud.pushsdk.util.c.d(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
-        }
     }
 }

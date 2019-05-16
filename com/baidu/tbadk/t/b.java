@@ -1,11 +1,32 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
-public interface b {
-    void Q(String str, boolean z);
+public class b extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void R(int i) {
+    }
 
-    void Vr();
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "ad_baichuan_open";
+    }
 
-    void apI();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hy() {
+        return null;
+    }
 
-    void pA(String str);
+    @Override // com.baidu.adp.lib.b.a
+    protected int hz() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hA() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hB() {
+        return 10;
+    }
 }

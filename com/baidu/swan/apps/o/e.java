@@ -2,7 +2,7 @@ package com.baidu.swan.apps.o;
 
 import android.content.Intent;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.an.m;
+import com.baidu.swan.apps.an.n;
 /* loaded from: classes2.dex */
 public class e {
     public static d b(SwanAppActivity swanAppActivity, int i) {
@@ -16,7 +16,7 @@ public class e {
         }
     }
 
-    public static int F(Intent intent) {
-        return m.a(intent, "aiapps_app_frame_type", 0);
+    public static int E(Intent intent) {
+        return n.a(intent, "aiapps_app_frame_type", 0);
     }
 }

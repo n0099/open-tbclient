@@ -6,38 +6,37 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.MainMenuView;
-import com.baidu.swan.menu.c;
 /* loaded from: classes2.dex */
-public class b implements c {
-    private FrameLayout aSd = null;
+public class b implements com.baidu.swan.menu.b {
+    private FrameLayout aUR = null;
 
-    @Override // com.baidu.swan.menu.c
+    @Override // com.baidu.swan.menu.b
     public void a(MainMenuView mainMenuView) {
         if (mainMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.u.a.CR().Dq()) {
+            if (com.baidu.swan.apps.u.a.DW().Ev()) {
                 j(mainMenuView);
             } else {
                 k(mainMenuView);
             }
-            mainMenuView.setCoverView(this.aSd);
+            mainMenuView.setCoverView(this.aUR);
         }
     }
 
     private void j(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.aSd == null) {
-                this.aSd = new FrameLayout(viewGroup.getContext());
-                this.aSd.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.aUR == null) {
+                this.aUR = new FrameLayout(viewGroup.getContext());
+                this.aUR.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.aSd);
-            viewGroup.addView(this.aSd, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.aUR);
+            viewGroup.addView(this.aUR, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     private void k(ViewGroup viewGroup) {
-        if (viewGroup != null && this.aSd != null) {
-            viewGroup.removeView(this.aSd);
-            this.aSd = null;
+        if (viewGroup != null && this.aUR != null) {
+            viewGroup.removeView(this.aUR);
+            this.aUR = null;
         }
     }
 }

@@ -17,13 +17,14 @@ import java.io.FileNotFoundException;
 import java.net.URI;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class x extends y {
+public class x extends z {
     public x(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/saveImageToPhotosAlbum");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        String a;
         final File file;
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e("SaveImage", "illegal swanApp");
@@ -40,13 +41,17 @@ public class x extends y {
         try {
             File file2 = null;
             if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                String aC = com.baidu.swan.apps.storage.b.aC(optString, bVar.id);
-                if (!TextUtils.isEmpty(aC)) {
-                    file2 = new File(aC);
+                String aE = com.baidu.swan.apps.storage.b.aE(optString, bVar.id);
+                if (!TextUtils.isEmpty(aE)) {
+                    file2 = new File(aE);
                 }
                 file = file2;
             } else {
-                String a = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
+                if (com.baidu.swan.apps.ac.a.a.l(bVar.vk())) {
+                    a = com.baidu.swan.apps.storage.b.hz(optString);
+                } else {
+                    a = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
+                }
                 if (TextUtils.isEmpty(a)) {
                     file = null;
                 } else {
@@ -68,9 +73,9 @@ public class x extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.IZ().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
+                bVar.Lu().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.c.a
+                    @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
                     public void D(Boolean bool) {
                         if (!bool.booleanValue()) {
@@ -81,7 +86,7 @@ public class x extends y {
                         com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.x.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (TextUtils.isEmpty(x.this.f(context, file))) {
+                                if (TextUtils.isEmpty(x.this.e(context, file))) {
                                     com.baidu.swan.apps.console.c.e("SaveImage", "can not save to album");
                                     callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                                     return;
@@ -106,7 +111,7 @@ public class x extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String f(Context context, File file) {
+    public String e(Context context, File file) {
         try {
             String insertImage = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
             if (!TextUtils.isEmpty(insertImage)) {
@@ -135,7 +140,6 @@ public class x extends y {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [221=4] */
     private static String a(Uri uri, Context context) {
         Cursor cursor;
         String string;
@@ -152,18 +156,18 @@ public class x extends y {
                         if (DEBUG) {
                             e.printStackTrace();
                         }
-                        com.baidu.swan.c.b.c(cursor);
+                        com.baidu.swan.c.a.c(cursor);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.swan.c.b.c(cursor);
+                    com.baidu.swan.c.a.c(cursor);
                     throw th;
                 }
             } else {
                 string = null;
             }
-            com.baidu.swan.c.b.c(cursor);
+            com.baidu.swan.c.a.c(cursor);
             return string;
         } catch (SQLException e2) {
             e = e2;
@@ -171,7 +175,7 @@ public class x extends y {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.swan.c.b.c(cursor);
+            com.baidu.swan.c.a.c(cursor);
             throw th;
         }
     }

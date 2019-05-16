@@ -2,87 +2,56 @@ package com.baidu.swan.pms.b;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.swan.pms.b.d.f;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
-    public static HashMap<String, String> a(com.baidu.swan.pms.b.d.a aVar) {
-        com.baidu.swan.pms.model.a aVar2 = null;
-        if (aVar == null) {
-            return null;
-        }
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("bundle_id", aVar.getBundleId());
-        hashMap.put("category", String.valueOf(aVar.Si()));
-        if (aVar.Sd() == -1) {
-            aVar2 = com.baidu.swan.pms.database.a.Ry().jj(aVar.getBundleId());
-            if (aVar2 != null) {
-                aVar.fh(aVar2.versionCode);
-            } else {
-                aVar.fh(0);
-            }
-        }
-        hashMap.put("pkg_ver", String.valueOf(aVar.Sd()));
-        if (aVar.Se() == -1) {
-            if (aVar2 == null) {
-                aVar2 = com.baidu.swan.pms.database.a.Ry().jj(aVar.getBundleId());
-            }
-            if (aVar2 != null) {
-                aVar.U(aVar2.blQ);
-            } else {
-                aVar.U(0L);
-            }
-        }
-        hashMap.put("app_sign", String.valueOf(aVar.Se()));
-        if (TextUtils.isEmpty(aVar.Sf())) {
-            aVar.jr(fe(aVar.Si()));
-        }
-        if (!TextUtils.isEmpty(aVar.Sf())) {
-            hashMap.put("framework_ver", aVar.Sf());
-        }
-        if (TextUtils.isEmpty(aVar.Sg())) {
-            aVar.jq(com.baidu.swan.pms.e.Ru().Di());
-        }
-        hashMap.put("sdk_ver", aVar.Sg());
-        if (TextUtils.isEmpty(aVar.Sh())) {
-            aVar.js(ff(aVar.Si()));
-        }
-        if (!TextUtils.isEmpty(aVar.Sh())) {
-            hashMap.put("extension_ver", aVar.Sh());
-        }
-        if (!TextUtils.isEmpty(aVar.getPath())) {
-            hashMap.put("path", aVar.getPath());
-        }
-        if (!TextUtils.equals(aVar.getFrom(), LivenessStat.TYPE_STRING_DEFAULT)) {
-            hashMap.put("from", aVar.getFrom());
-        }
-        return hashMap;
-    }
-
     public static HashMap<String, String> a(com.baidu.swan.pms.b.d.b bVar) {
+        PMSAppInfo pMSAppInfo = null;
         if (bVar == null) {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", bVar.getBundleId());
-        hashMap.put("category", String.valueOf(bVar.Si()));
-        hashMap.put("pkg_ver", String.valueOf(bVar.Sd()));
-        hashMap.put("sub_id", bVar.Sj());
-        if (TextUtils.isEmpty(bVar.Sg())) {
-            bVar.jx(com.baidu.swan.pms.e.Ru().Di());
+        hashMap.put("category", String.valueOf(bVar.AP()));
+        if (bVar.VR() == -1) {
+            pMSAppInfo = com.baidu.swan.pms.database.a.Vl().ki(bVar.getBundleId());
+            if (pMSAppInfo != null) {
+                bVar.fH(pMSAppInfo.versionCode);
+            } else {
+                bVar.fH(0);
+            }
         }
-        hashMap.put("sdk_ver", bVar.Sg());
-        if (TextUtils.isEmpty(bVar.Sf())) {
-            bVar.jw(fe(bVar.Si()));
+        hashMap.put("pkg_ver", String.valueOf(bVar.VR()));
+        if (bVar.VS() == -1) {
+            if (pMSAppInfo == null) {
+                pMSAppInfo = com.baidu.swan.pms.database.a.Vl().ki(bVar.getBundleId());
+            }
+            if (pMSAppInfo != null) {
+                bVar.ag(pMSAppInfo.brS);
+            } else {
+                bVar.ag(0L);
+            }
         }
-        if (!TextUtils.isEmpty(bVar.Sf())) {
-            hashMap.put("framework_ver", bVar.Sf());
+        hashMap.put("app_sign", String.valueOf(bVar.VS()));
+        if (TextUtils.isEmpty(bVar.VT())) {
+            bVar.kp(fE(bVar.AP()));
         }
-        if (TextUtils.isEmpty(bVar.Sh())) {
-            bVar.jy(ff(bVar.Si()));
+        if (!TextUtils.isEmpty(bVar.VT())) {
+            hashMap.put("framework_ver", bVar.VT());
         }
-        if (!TextUtils.isEmpty(bVar.Sh())) {
-            hashMap.put("extension_ver", bVar.Sh());
-            return hashMap;
+        if (TextUtils.isEmpty(bVar.VU())) {
+            bVar.kq(fF(bVar.AP()));
+        }
+        if (!TextUtils.isEmpty(bVar.VU())) {
+            hashMap.put("extension_ver", bVar.VU());
+        }
+        if (!TextUtils.isEmpty(bVar.getPath())) {
+            hashMap.put("path", bVar.getPath());
+        }
+        if (!TextUtils.equals(bVar.getFrom(), LivenessStat.TYPE_STRING_DEFAULT)) {
+            hashMap.put("from", bVar.getFrom());
         }
         return hashMap;
     }
@@ -92,43 +61,78 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        if (TextUtils.isEmpty(dVar.Sg())) {
-            dVar.jz(com.baidu.swan.pms.e.Ru().Di());
+        hashMap.put("bundle_id", dVar.getBundleId());
+        hashMap.put("category", String.valueOf(dVar.AP()));
+        hashMap.put("pkg_ver", String.valueOf(dVar.VR()));
+        hashMap.put("sub_id", dVar.VX());
+        if (TextUtils.isEmpty(dVar.VT())) {
+            dVar.kt(fE(dVar.AP()));
         }
-        hashMap.put("sdk_ver", dVar.Sg());
-        hashMap.put("category", String.valueOf(dVar.Si()));
-        if (TextUtils.isEmpty(dVar.Sf())) {
-            dVar.jA(fe(dVar.Si()));
+        if (!TextUtils.isEmpty(dVar.VT())) {
+            hashMap.put("framework_ver", dVar.VT());
         }
-        if (!TextUtils.isEmpty(dVar.Sf())) {
-            hashMap.put("framework_ver", dVar.Sf());
+        if (TextUtils.isEmpty(dVar.VU())) {
+            dVar.ku(fF(dVar.AP()));
         }
-        if (TextUtils.isEmpty(dVar.Sh())) {
-            dVar.jB(ff(dVar.Si()));
-        }
-        if (!TextUtils.isEmpty(dVar.Sh())) {
-            hashMap.put("extension_ver", dVar.Sh());
+        if (!TextUtils.isEmpty(dVar.VU())) {
+            hashMap.put("extension_ver", dVar.VU());
             return hashMap;
         }
         return hashMap;
     }
 
-    private static String fe(int i) {
+    public static HashMap<String, String> a(com.baidu.swan.pms.b.d.c cVar) {
+        if (cVar == null) {
+            return null;
+        }
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("bundle_id", cVar.VV());
+        hashMap.put("category", String.valueOf(cVar.AP()));
+        if (TextUtils.isEmpty(cVar.VW())) {
+            cVar.ks(String.valueOf(-1));
+        }
+        hashMap.put("plugin_ver", cVar.VW());
+        return hashMap;
+    }
+
+    public static HashMap<String, String> a(f fVar) {
+        if (fVar == null) {
+            return null;
+        }
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("category", String.valueOf(fVar.AP()));
+        if (TextUtils.isEmpty(fVar.VT())) {
+            fVar.kw(fE(fVar.AP()));
+        }
+        if (!TextUtils.isEmpty(fVar.VT())) {
+            hashMap.put("framework_ver", fVar.VT());
+        }
+        if (TextUtils.isEmpty(fVar.VU())) {
+            fVar.kx(fF(fVar.AP()));
+        }
+        if (!TextUtils.isEmpty(fVar.VU())) {
+            hashMap.put("extension_ver", fVar.VU());
+            return hashMap;
+        }
+        return hashMap;
+    }
+
+    private static String fE(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Ru().Dl();
+            return com.baidu.swan.pms.e.Vg().Eq();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Ru().Dj();
+            return com.baidu.swan.pms.e.Vg().Eo();
         }
         return null;
     }
 
-    private static String ff(int i) {
+    private static String fF(int i) {
         if (i == 1) {
-            return com.baidu.swan.pms.e.Ru().Dm();
+            return com.baidu.swan.pms.e.Vg().Er();
         }
         if (i == 0) {
-            return com.baidu.swan.pms.e.Ru().Dk();
+            return com.baidu.swan.pms.e.Vg().Ep();
         }
         return null;
     }

@@ -3,14 +3,14 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean aIf;
-    private int aIg;
-    private boolean aIh;
-    private boolean aIi;
+    public boolean aJY;
+    private int aJZ;
+    private boolean aKa;
+    private boolean aKb;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, (AttributeSet) null);
@@ -22,35 +22,35 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIf = false;
-        this.aIg = -1;
-        this.aIi = false;
+        this.aJY = false;
+        this.aJZ = -1;
+        this.aKb = false;
     }
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
-        this.aIf = false;
-        this.aIg = -1;
-        this.aIi = false;
-        this.aIh = z;
+        this.aJY = false;
+        this.aJZ = -1;
+        this.aKb = false;
+        this.aKa = z;
     }
 
-    public void ue() {
-        if (!this.aIf) {
-            this.aIf = true;
-            this.aIi = com.baidu.swan.apps.u.a.CR().Dq();
-            Hm();
+    public void uP() {
+        if (!this.aJY) {
+            this.aJY = true;
+            this.aKb = com.baidu.swan.apps.u.a.DW().Ev();
+            JC();
             setTextSize(1, 11.0f);
-            setCompoundDrawablePadding(x.dip2px(getContext(), 5.0f));
-            cL(0);
+            setCompoundDrawablePadding(z.dip2px(getContext(), 5.0f));
+            cQ(0);
         }
     }
 
-    public void Hl() {
-        boolean Dq = com.baidu.swan.apps.u.a.CR().Dq();
-        if (this.aIi != Dq) {
-            Hm();
-            this.aIi = Dq;
+    public void JB() {
+        boolean Ev = com.baidu.swan.apps.u.a.DW().Ev();
+        if (this.aKb != Ev) {
+            JC();
+            this.aKb = Ev;
         }
     }
 
@@ -62,12 +62,12 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Hl();
+        JB();
     }
 
-    public void Hm() {
+    public void JC() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
-        a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, x.dip2px(getContext(), 11.0f), x.dip2px(getContext(), 11.0f));
+        a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, z.dip2px(getContext(), 11.0f), z.dip2px(getContext(), 11.0f));
     }
 }

@@ -4,7 +4,7 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class b implements Cloneable {
     public static String b = "wcc-ml-test10.bj";
-    public static final String c = com.xiaomi.channel.commonutils.misc.c.b;
+    public static final String c = com.xiaomi.channel.commonutils.misc.d.b;
     public static String d = null;
     private String a;
     private String e;
@@ -18,8 +18,11 @@ public class b implements Cloneable {
         a(map, i, str, eVar);
     }
 
+    public static final void a(String str) {
+        d = str;
+    }
+
     private void a(Map<String, Integer> map, int i, String str, e eVar) {
-        this.e = b();
         this.f = i;
         this.a = str;
         this.j = eVar;
@@ -27,10 +30,6 @@ public class b implements Cloneable {
 
     public static final String b() {
         return d != null ? d : com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : com.xiaomi.channel.commonutils.misc.a.b() ? c : "app.chat.xiaomi.net";
-    }
-
-    public void a(String str) {
-        this.i = str;
     }
 
     public void a(boolean z) {
@@ -42,11 +41,15 @@ public class b implements Cloneable {
     }
 
     public void b(String str) {
-        this.e = str;
+        this.i = str;
     }
 
     public String c() {
         return this.i;
+    }
+
+    public void c(String str) {
+        this.e = str;
     }
 
     public int d() {
@@ -54,6 +57,9 @@ public class b implements Cloneable {
     }
 
     public String e() {
+        if (this.e == null) {
+            this.e = b();
+        }
         return this.e;
     }
 

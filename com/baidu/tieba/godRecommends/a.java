@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.data.MetaData;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
@@ -30,7 +30,7 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<MetaData> list) {
-        if (!v.T(list)) {
+        if (!v.aa(list)) {
             this.mList.clear();
             this.mList.addAll(list);
             notifyDataSetChanged();
@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rZ */
+    /* renamed from: th */
     public MetaData getItem(int i) {
         if (i < this.mList.size()) {
             return this.mList.get(i);
@@ -63,101 +63,101 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0301a c0301a;
+        C0319a c0319a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.god_recommend_list_item, (ViewGroup) null);
-            C0301a c0301a2 = new C0301a();
-            c0301a2.dUE = (ClickableHeaderImageView) view.findViewById(d.g.photo);
-            c0301a2.eeB = (TextView) view.findViewById(d.g.user_name);
-            c0301a2.fDI = (TextView) view.findViewById(d.g.god_info);
-            c0301a2.fDJ = (TextView) view.findViewById(d.g.fans_and_thread_count);
-            c0301a2.eTD = (TextView) view.findViewById(d.g.attention_btn);
-            c0301a2.dTe = view.findViewById(d.g.bottom_line);
-            view.setTag(c0301a2);
-            c0301a = c0301a2;
+            view = LayoutInflater.from(this.mContext).inflate(R.layout.god_recommend_list_item, (ViewGroup) null);
+            C0319a c0319a2 = new C0319a();
+            c0319a2.efd = (ClickableHeaderImageView) view.findViewById(R.id.photo);
+            c0319a2.epd = (TextView) view.findViewById(R.id.user_name);
+            c0319a2.fUF = (TextView) view.findViewById(R.id.god_info);
+            c0319a2.fUG = (TextView) view.findViewById(R.id.fans_and_thread_count);
+            c0319a2.fjO = (TextView) view.findViewById(R.id.attention_btn);
+            c0319a2.edD = view.findViewById(R.id.bottom_line);
+            view.setTag(c0319a2);
+            c0319a = c0319a2;
         } else {
-            c0301a = (C0301a) view.getTag();
+            c0319a = (C0319a) view.getTag();
         }
-        a(c0301a);
+        a(c0319a);
         MetaData item = getItem(i);
         if (item != null) {
             String portrait = item.getPortrait();
-            d(c0301a.eTD, item.getGodUserData().getIsLike());
-            c0301a.dUE.setGodIconMargin(0);
-            c0301a.dUE.setClickable(false);
-            c0301a.dUE.startLoad(portrait, 28, false);
-            c0301a.dUE.setIsBigV(true);
-            c0301a.dUE.setShowV(true);
-            c0301a.eeB.setText(item.getName_show());
+            d(c0319a.fjO, item.getGodUserData().getIsLike());
+            c0319a.efd.setGodIconMargin(0);
+            c0319a.efd.setClickable(false);
+            c0319a.efd.startLoad(portrait, 28, false);
+            c0319a.efd.setIsBigV(true);
+            c0319a.efd.setShowV(true);
+            c0319a.epd.setText(item.getName_show());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0301a.fDI.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0319a.fUF.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0301a.fDI.setText(UtilHelper.getFixedBarText(this.mContext.getString(d.j.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0319a.fUF.setText(UtilHelper.getFixedBarText(this.mContext.getString(R.string.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0301a.fDI.setVisibility(8);
+                    c0319a.fUF.setVisibility(8);
                     break;
             }
-            c0301a.fDJ.setText(ap.az(item.getFansNum()) + this.mContext.getString(d.j.fans_default_name) + " " + ap.az(item.getLikeNum()) + this.mContext.getString(d.j.zan));
+            c0319a.fUG.setText(ap.aN(item.getFansNum()) + this.mContext.getString(R.string.fans_default_name) + " " + ap.aN(item.getLikeNum()) + this.mContext.getString(R.string.zan));
         }
         if (i == getCount() - 1) {
-            c0301a.dTe.setVisibility(8);
+            c0319a.edD.setVisibility(8);
         } else {
-            c0301a.dTe.setVisibility(0);
+            c0319a.edD.setVisibility(0);
         }
         if (this.mOnClickListener != null && item != null) {
-            c0301a.eTD.setTag(item);
-            c0301a.eTD.setOnClickListener(this.mOnClickListener);
+            c0319a.fjO.setTag(item);
+            c0319a.fjO.setOnClickListener(this.mOnClickListener);
         }
         return view;
     }
 
-    private void a(C0301a c0301a) {
-        if (c0301a != null) {
+    private void a(C0319a c0319a) {
+        if (c0319a != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (c0301a.mSkinType != skinType) {
-                al.j(c0301a.eeB, d.C0277d.cp_cont_h);
-                al.j(c0301a.fDI, d.C0277d.cp_cont_d);
-                al.j(c0301a.fDJ, d.C0277d.cp_cont_d);
-                al.l(c0301a.dTe, d.C0277d.cp_bg_line_b);
+            if (c0319a.mSkinType != skinType) {
+                al.j(c0319a.epd, R.color.cp_cont_h);
+                al.j(c0319a.fUF, R.color.cp_cont_d);
+                al.j(c0319a.fUG, R.color.cp_cont_d);
+                al.l(c0319a.edD, R.color.cp_bg_line_b);
             }
-            c0301a.mSkinType = skinType;
+            c0319a.mSkinType = skinType;
         }
     }
 
     private void d(TextView textView, boolean z) {
         if (z) {
             textView.setClickable(false);
-            al.d(textView, d.C0277d.cp_cont_d, 1);
-            textView.setText(TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed));
+            al.f(textView, R.color.cp_cont_d, 1);
+            textView.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setPadding(0, 0, 0, 0);
             return;
         }
-        al.d(textView, d.C0277d.btn_forum_focus_color, 1);
-        textView.setText(TbadkCoreApplication.getInst().getString(d.j.attention));
-        al.k(textView, d.f.btn_transparent_focus_border_bg);
-        textView.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.f(textView, R.color.btn_forum_focus_color, 1);
+        textView.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+        al.k(textView, R.drawable.btn_transparent_focus_border_bg);
+        textView.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         textView.setClickable(true);
-        textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10), 0);
+        textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.godRecommends.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0301a {
-        public View dTe;
-        public ClickableHeaderImageView dUE;
-        public TextView eTD;
-        public TextView eeB;
-        public TextView fDI;
-        public TextView fDJ;
+    public static class C0319a {
+        public View edD;
+        public ClickableHeaderImageView efd;
+        public TextView epd;
+        public TextView fUF;
+        public TextView fUG;
+        public TextView fjO;
         public int mSkinType;
 
-        private C0301a() {
+        private C0319a() {
             this.mSkinType = 3;
         }
     }

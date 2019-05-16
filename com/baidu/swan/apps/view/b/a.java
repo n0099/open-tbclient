@@ -9,19 +9,19 @@ import android.widget.FrameLayout;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.apps.res.widget.dialog.e;
+import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
-public class a implements e.c {
-    private FrameLayout aSd = null;
+public class a implements g.c {
+    private FrameLayout aUR = null;
 
-    @Override // com.baidu.swan.apps.res.widget.dialog.e.c
-    public void a(e eVar, e.b bVar) {
-        if (eVar != null && bVar != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            b(eVar);
-            ViewGroup viewGroup = (ViewGroup) eVar.findViewById(16908290);
+    @Override // com.baidu.swan.apps.res.widget.dialog.g.c
+    public void a(g gVar, g.b bVar) {
+        if (gVar != null && bVar != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            b(gVar);
+            ViewGroup viewGroup = (ViewGroup) gVar.findViewById(16908290);
             if (viewGroup != null) {
-                if (com.baidu.swan.apps.u.a.CR().Dq()) {
-                    d(viewGroup, bVar.aLA);
+                if (com.baidu.swan.apps.u.a.DW().Ev()) {
+                    d(viewGroup, bVar.aNt);
                 } else {
                     k(viewGroup);
                 }
@@ -29,13 +29,13 @@ public class a implements e.c {
         }
     }
 
-    private void b(e eVar) {
-        Context context = eVar.getContext();
-        if (eVar.getContext() instanceof ContextWrapper) {
-            context = ((ContextWrapper) eVar.getContext()).getBaseContext();
+    private void b(g gVar) {
+        Context context = gVar.getContext();
+        if (gVar.getContext() instanceof ContextWrapper) {
+            context = ((ContextWrapper) gVar.getContext()).getBaseContext();
         }
         if (context instanceof Activity) {
-            com.baidu.swan.apps.an.b.a((Activity) context, eVar);
+            com.baidu.swan.apps.an.b.a((Activity) context, gVar);
         }
     }
 
@@ -44,23 +44,23 @@ public class a implements e.c {
             view.post(new Runnable() { // from class: com.baidu.swan.apps.view.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.aSd == null) {
-                        a.this.aSd = new FrameLayout(viewGroup.getContext());
-                        a.this.aSd.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+                    if (a.this.aUR == null) {
+                        a.this.aUR = new FrameLayout(viewGroup.getContext());
+                        a.this.aUR.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
                     }
-                    viewGroup.removeView(a.this.aSd);
+                    viewGroup.removeView(a.this.aUR);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(view.getWidth(), view.getHeight());
                     layoutParams.gravity = 17;
-                    viewGroup.addView(a.this.aSd, layoutParams);
+                    viewGroup.addView(a.this.aUR, layoutParams);
                 }
             });
         }
     }
 
     private void k(ViewGroup viewGroup) {
-        if (viewGroup != null && this.aSd != null) {
-            viewGroup.removeView(this.aSd);
-            this.aSd = null;
+        if (viewGroup != null && this.aUR != null) {
+            viewGroup.removeView(this.aUR);
+            this.aUR = null;
         }
     }
 }

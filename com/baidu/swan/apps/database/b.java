@@ -2,11 +2,11 @@ package com.baidu.swan.apps.database;
 /* loaded from: classes2.dex */
 public final class b {
     private String appID;
-    private String auo;
-    private String aup;
-    private String auq;
-    public String aur;
-    public int aus;
+    private String auE;
+    private String auF;
+    private String auG;
+    public String auH;
+    public int auI;
 
     public b(String str) {
         this.appID = str;
@@ -20,31 +20,31 @@ public final class b {
         this.appID = str;
     }
 
-    public String AF() {
-        return this.auo;
+    public String BM() {
+        return this.auE;
     }
 
-    public void ek(String str) {
-        this.auo = str;
+    public void dZ(String str) {
+        this.auE = str;
     }
 
-    public String AG() {
-        return this.auq;
+    public String BN() {
+        return this.auG;
     }
 
-    public void el(String str) {
-        this.auq = str;
+    public void ea(String str) {
+        this.auG = str;
     }
 
-    public void em(String str) {
-        this.aur = str;
+    public void eb(String str) {
+        this.auH = str;
     }
 
-    public void en(String str) {
-        this.aup = str;
+    public void ec(String str) {
+        this.auF = str;
     }
 
-    public void cp(int i) {
-        this.aus = i;
+    public void cr(int i) {
+        this.auI = i;
     }
 }

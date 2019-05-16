@@ -8,41 +8,41 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes4.dex */
 public class b {
-    private List<a> fHR;
+    private List<a> fYM;
     private List<m> mDataList = new ArrayList();
 
-    public List<a> blB() {
-        return this.fHR;
+    public List<a> bsX() {
+        return this.fYM;
     }
 
     public List<m> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> cs(List<GodBanner> list) {
-        if (this.fHR == null) {
-            this.fHR = new ArrayList();
+    public List<a> cA(List<GodBanner> list) {
+        if (this.fYM == null) {
+            this.fYM = new ArrayList();
         }
-        this.fHR.clear();
-        if (v.T(list)) {
+        this.fYM.clear();
+        if (v.aa(list)) {
             return null;
         }
         for (GodBanner godBanner : list) {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
-                aVar.lg(godBanner.pic_url);
-                aVar.wc(godBanner.link_url);
+                aVar.ml(godBanner.pic_url);
+                aVar.xr(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.fHR.add(aVar);
-                if (v.S(this.fHR) == 5) {
+                this.fYM.add(aVar);
+                if (v.Z(this.fYM) == 5) {
                     break;
                 }
             }
         }
-        return this.fHR;
+        return this.fYM;
     }
 
-    public boolean aoF() {
-        return v.T(this.fHR) && v.T(this.mDataList);
+    public boolean atJ() {
+        return v.aa(this.fYM) && v.aa(this.mDataList);
     }
 }

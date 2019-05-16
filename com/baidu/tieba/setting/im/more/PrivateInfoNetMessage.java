@@ -15,7 +15,7 @@ public class PrivateInfoNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         ReqData.Builder builder = new ReqData.Builder();
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L));
+        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         if (z) {
             s.bindCommonParamsToProtobufData(builder, true);
         }

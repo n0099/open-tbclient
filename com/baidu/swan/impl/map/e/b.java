@@ -5,23 +5,23 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class b {
-    public static Bitmap F(String str, boolean z) {
+    public static Bitmap G(String str, boolean z) {
         Bitmap bitmap = null;
-        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-        if (IV != null) {
-            String a = com.baidu.swan.apps.storage.b.a(str, IV, IV.getVersion());
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq != null) {
+            String a = com.baidu.swan.apps.storage.b.a(str, Lq, Lq.getVersion());
             if (!TextUtils.isEmpty(a)) {
-                bitmap = jh(a);
+                bitmap = kg(a);
             }
         }
         if (bitmap == null && z) {
-            Bitmap decodeResource = BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), d.f.pin_red);
+            Bitmap decodeResource = BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.pin_red);
             com.baidu.swan.apps.console.c.w("map", "file not exist, use default");
             return decodeResource;
         }
@@ -49,11 +49,11 @@ public class b {
         return bitmap2;
     }
 
-    private static Bitmap jh(String str) {
+    private static Bitmap kg(String str) {
         try {
             FileInputStream fileInputStream = new FileInputStream(new File(str));
             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, new BitmapFactory.Options());
-            com.baidu.swan.c.b.c(fileInputStream);
+            com.baidu.swan.c.a.c(fileInputStream);
             return decodeStream;
         } catch (IOException | OutOfMemoryError e) {
             e.printStackTrace();

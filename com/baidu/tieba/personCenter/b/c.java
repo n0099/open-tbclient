@@ -3,34 +3,34 @@ package com.baidu.tieba.personCenter.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personCenter.data.e;
+import com.baidu.tieba.personCenter.data.f;
 /* loaded from: classes4.dex */
 public class c {
-    a hLt;
+    a idw;
     private BdTypeListView mListView;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mListView = bdTypeListView;
-        this.hLt = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.idw = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    public void b(e eVar) {
-        this.mListView.setData(eVar.fsA);
+    public void b(f fVar) {
+        this.mListView.setData(fVar.fIW);
     }
 
     public void notifyDataSetChanged() {
-        this.hLt.onChangeSkinType();
+        this.idw.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.hLt.onChangeSkinType();
+        this.idw.onChangeSkinType();
     }
 
-    public void bQp() {
-        this.hLt.bQp();
+    public void bYi() {
+        this.idw.bYi();
     }
 
-    public void bQq() {
-        this.hLt.bQq();
+    public void bYj() {
+        this.idw.bYj();
     }
 }

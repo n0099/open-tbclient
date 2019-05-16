@@ -70,10 +70,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<j, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        int l;
+        int f;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().Xd(), true) && !this.responseData.getBookInfo().Xd().equals("0") && this.responseData.getBookInfo().Xe() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.getBookInfo().Xd(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().abL(), true) && !this.responseData.getBookInfo().abL().equals("0") && this.responseData.getBookInfo().abM() == 3 && (f = com.baidu.adp.lib.g.b.f(this.responseData.getBookInfo().abL(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(f))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -83,11 +83,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<j, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String d = d.cdq().d("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String c = d.clu().c("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cdq().n(d, bArr);
+                d.clu().n(c, bArr);
             } else {
-                d.cdq().c(d, bArr, true);
+                d.clu().c(c, bArr, true);
             }
         }
     }

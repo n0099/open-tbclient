@@ -84,7 +84,7 @@ public abstract class HttpUtils {
     }
 
     public static String a(Context context, String str, List<com.xiaomi.channel.commonutils.network.c> list, HttpProcessor httpProcessor, boolean z) {
-        if (d.d(context)) {
+        if (d.c(context)) {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 Fallback fallback = null;

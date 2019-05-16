@@ -7,16 +7,16 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class e extends y {
+public class e extends z {
     public e(j jVar) {
         super(jVar, "/swan/getSwanId");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e("getSwanId", "illegal swanApp");
@@ -52,9 +52,9 @@ public class e extends y {
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10002, "network_error").toString(), str);
             return;
         }
-        com.baidu.swan.apps.ae.e.Jm().aOd.get().uO().uS().u((Activity) context).c(new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
+        com.baidu.swan.apps.ae.e.LH().aQg.get().vy().vZ().u((Activity) context).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
             public void D(com.baidu.swan.apps.setting.oauth.g<JSONObject> gVar) {
                 if (gVar.isOk() && gVar.mData != null) {
@@ -66,6 +66,6 @@ public class e extends y {
                 com.baidu.swan.apps.console.c.e("getSwanId", "getSwanId failed: internal_error");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), str);
             }
-        }).Ka();
+        }).MA();
     }
 }

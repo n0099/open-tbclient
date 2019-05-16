@@ -3,31 +3,31 @@ package com.facebook.common.b;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 public abstract class e<T> implements Runnable {
-    protected final AtomicInteger jzg = new AtomicInteger(0);
+    protected final AtomicInteger jRW = new AtomicInteger(0);
 
     protected abstract T getResult() throws Exception;
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.jzg.compareAndSet(0, 1)) {
+        if (this.jRW.compareAndSet(0, 1)) {
             try {
                 T result = getResult();
-                this.jzg.set(3);
+                this.jRW.set(3);
                 try {
                     onSuccess(result);
                 } finally {
-                    az(result);
+                    aB(result);
                 }
             } catch (Exception e) {
-                this.jzg.set(4);
+                this.jRW.set(4);
                 onFailure(e);
             }
         }
     }
 
     public void cancel() {
-        if (this.jzg.compareAndSet(0, 2)) {
-            ctB();
+        if (this.jRW.compareAndSet(0, 2)) {
+            cBy();
         }
     }
 
@@ -37,9 +37,9 @@ public abstract class e<T> implements Runnable {
     protected void onFailure(Exception exc) {
     }
 
-    protected void ctB() {
+    protected void cBy() {
     }
 
-    protected void az(T t) {
+    protected void aB(T t) {
     }
 }

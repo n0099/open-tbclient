@@ -5,8 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int bZP;
-    private int[] bZQ;
+    private int chL;
+    private int[] chM;
     private int continuousFailCount;
     private int restartTimeInterval;
 
@@ -20,34 +20,34 @@ public class c {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.bZP = jSONObject.optInt("conn_conf");
+            this.chL = jSONObject.optInt("conn_conf");
             this.continuousFailCount = jSONObject.optInt("continuous_fail_count");
             this.restartTimeInterval = jSONObject.optInt("restart_time_interval");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.bZQ = new int[optJSONArray.length()];
+                this.chM = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.bZQ[i] = optJSONArray.optInt(i);
+                    this.chM[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.bZQ = new int[0];
+            this.chM = new int[0];
         }
     }
 
-    public int aiD() {
-        return this.bZP;
+    public int anE() {
+        return this.chL;
     }
 
-    public int aiE() {
+    public int anF() {
         return this.continuousFailCount;
     }
 
-    public int aiF() {
+    public int anG() {
         return this.restartTimeInterval;
     }
 
-    public int[] aiG() {
-        return this.bZQ;
+    public int[] anH() {
+        return this.chM;
     }
 }

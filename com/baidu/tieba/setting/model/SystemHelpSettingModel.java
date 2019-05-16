@@ -13,43 +13,43 @@ import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.m;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private a iqW;
-    private b iqX;
-    private BaseActivity.LoadDataCallBack iqY;
+    private a iJK;
+    private b iJL;
+    private BaseActivity.LoadDataCallBack iJM;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.iqW = null;
-        this.iqX = null;
+        this.iJK = null;
+        this.iJL = null;
         this.mContext = null;
-        this.iqY = null;
+        this.iJM = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bYJ() {
-        if (this.iqW == null) {
-            this.iqW = new a();
-            this.iqW.execute(new String[0]);
+    public void aXk() {
+        if (this.iJK == null) {
+            this.iJK = new a();
+            this.iJK.execute(new String[0]);
         }
     }
 
-    public void bYK() {
+    public void cgO() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void bYL() {
-        if (this.iqX == null) {
-            this.iqX = new b();
-            this.iqX.execute(new String[0]);
+    public void cgP() {
+        if (this.iJL == null) {
+            this.iJL = new b();
+            this.iJL.execute(new String[0]);
         }
     }
 
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.iqW = null;
-            if (SystemHelpSettingModel.this.iqY != null) {
-                SystemHelpSettingModel.this.iqY.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.iJK = null;
+            if (SystemHelpSettingModel.this.iJM != null) {
+                SystemHelpSettingModel.this.iJM.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -78,12 +78,12 @@ public class SystemHelpSettingModel extends BdBaseModel {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().gd();
-            com.baidu.tbadk.core.voice.a.b.afs();
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().eV();
+            com.baidu.tbadk.core.voice.a.b.akr();
             try {
-                m.mp("image");
-                m.mp(TbConfig.IMAGE_CACHE_DIR_NAME);
-                ao.adh().adi();
+                m.nx("image");
+                m.nx(TbConfig.IMAGE_CACHE_DIR_NAME);
+                ao.aig().aih();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -104,12 +104,12 @@ public class SystemHelpSettingModel extends BdBaseModel {
         public String doInBackground(String... strArr) {
             com.baidu.adp.lib.Disk.b bVar = new com.baidu.adp.lib.Disk.b();
             String a = bVar.a("image", true, false, true);
-            String acd = m.acd();
-            String str = acd + "voice";
-            long iD = m.iD(acd + TbConfig.TMP_DATABASE_NAME) + m.J(a, false) + m.J(str, false) + m.J(bVar.a(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
-            float f = 0.0f + ((float) iD);
-            if (iD >= 10485.76d) {
-                return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(d.j.mebibyte);
+            String ahb = m.ahb();
+            String str = ahb + "voice";
+            long jn = m.jn(ahb + TbConfig.TMP_DATABASE_NAME) + m.M(a, false) + m.M(str, false) + m.M(bVar.a(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
+            float f = 0.0f + ((float) jn);
+            if (jn >= 10485.76d) {
+                return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(R.string.mebibyte);
             }
             return "";
         }
@@ -119,9 +119,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.iqX = null;
-            if (SystemHelpSettingModel.this.iqY != null) {
-                SystemHelpSettingModel.this.iqY.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.iJL = null;
+            if (SystemHelpSettingModel.this.iJM != null) {
+                SystemHelpSettingModel.this.iJM.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -137,6 +137,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.iqY = loadDataCallBack;
+        this.iJM = loadDataCallBack;
     }
 }

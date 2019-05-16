@@ -1,15 +1,40 @@
 package com.baidu.swan.apps.core.f;
 
-import android.app.Activity;
+import android.net.Uri;
+import android.util.Log;
+import java.util.HashSet;
+import java.util.Set;
+import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
-public interface a {
-    void a(com.baidu.swan.apps.core.c cVar);
+public class a implements c {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final Set<String> arX = new HashSet();
 
-    void destroy();
+    static {
+        arX.add("https");
+        arX.add(HttpHost.DEFAULT_SCHEME_NAME);
+        arX.add("sms");
+        arX.add("tel");
+    }
 
-    void loadUrl(String str);
+    @Override // com.baidu.swan.apps.core.f.c
+    public void da(String str) {
+    }
 
-    void v(Activity activity);
+    @Override // com.baidu.swan.apps.core.f.c
+    public void goBack() {
+    }
 
-    com.baidu.swan.apps.core.container.a zr();
+    @Override // com.baidu.swan.apps.core.f.c
+    public boolean dQ(String str) {
+        Uri parse;
+        if (str == null || (parse = Uri.parse(str)) == null) {
+            return true;
+        }
+        boolean contains = arX.contains(parse.getScheme());
+        if (DEBUG) {
+            Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
+        }
+        return !contains;
+    }
 }

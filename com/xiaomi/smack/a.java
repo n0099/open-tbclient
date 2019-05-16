@@ -2,8 +2,8 @@ package com.xiaomi.smack;
 
 import android.util.Pair;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ak;
-import com.xiaomi.push.service.am;
+import com.xiaomi.push.service.as;
+import com.xiaomi.push.service.aw;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.Collection;
@@ -17,32 +17,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class a {
     public static boolean a;
     private static final AtomicInteger o = new AtomicInteger(0);
-    protected int f;
-    protected b m;
-    protected XMPushService n;
+    protected b l;
+    protected XMPushService m;
     protected int b = 0;
     protected long c = -1;
     protected volatile long d = 0;
     protected volatile long e = 0;
     private LinkedList<Pair<Integer, Long>> p = new LinkedList<>();
     private final Collection<d> q = new CopyOnWriteArrayList();
-    protected final Map<f, C0469a> g = new ConcurrentHashMap();
-    protected final Map<f, C0469a> h = new ConcurrentHashMap();
-    protected com.xiaomi.smack.debugger.a i = null;
+    protected final Map<f, C0490a> f = new ConcurrentHashMap();
+    protected final Map<f, C0490a> g = new ConcurrentHashMap();
+    protected com.xiaomi.smack.debugger.a h = null;
+    protected String i = "";
     protected String j = "";
-    protected String k = "";
     private int r = 2;
-    protected final int l = o.getAndIncrement();
+    protected final int k = o.getAndIncrement();
     private long s = 0;
+    protected long n = 0;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.xiaomi.smack.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0469a {
+    public static class C0490a {
         private f a;
         private com.xiaomi.smack.filter.a b;
 
-        public C0469a(f fVar, com.xiaomi.smack.filter.a aVar) {
+        public C0490a(f fVar, com.xiaomi.smack.filter.a aVar) {
             this.a = fVar;
             this.b = aVar;
         }
@@ -69,8 +68,8 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(XMPushService xMPushService, b bVar) {
-        this.m = bVar;
-        this.n = xMPushService;
+        this.l = bVar;
+        this.m = xMPushService;
         i();
     }
 
@@ -93,13 +92,13 @@ public abstract class a {
 
     public void a(int i, int i2, Exception exc) {
         if (i != this.r) {
-            com.xiaomi.channel.commonutils.logger.b.a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.r), a(i), am.a(i2)));
+            com.xiaomi.channel.commonutils.logger.b.a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.r), a(i), aw.a(i2)));
         }
-        if (com.xiaomi.channel.commonutils.network.d.d(this.n)) {
+        if (com.xiaomi.channel.commonutils.network.d.c(this.m)) {
             b(i);
         }
         if (i == 1) {
-            this.n.a(10);
+            this.m.a(10);
             if (this.r != 0) {
                 com.xiaomi.channel.commonutils.logger.b.a("try set connected while not connecting.");
             }
@@ -116,7 +115,7 @@ public abstract class a {
                 dVar2.b(this);
             }
         } else if (i == 2) {
-            this.n.a(10);
+            this.m.a(10);
             if (this.r == 0) {
                 for (d dVar3 : this.q) {
                     dVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
@@ -130,7 +129,7 @@ public abstract class a {
         }
     }
 
-    public abstract void a(ak.b bVar);
+    public abstract void a(as.b bVar);
 
     public void a(d dVar) {
         if (dVar == null || this.q.contains(dVar)) {
@@ -143,7 +142,7 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.g.put(fVar, new C0469a(fVar, aVar));
+        this.f.put(fVar, new C0490a(fVar, aVar));
     }
 
     public abstract void a(com.xiaomi.smack.packet.d dVar);
@@ -151,7 +150,7 @@ public abstract class a {
     public synchronized void a(String str) {
         if (this.r == 0) {
             com.xiaomi.channel.commonutils.logger.b.a("setChallenge hash = " + com.xiaomi.channel.commonutils.string.c.a(str).substring(0, 8));
-            this.j = str;
+            this.i = str;
             a(1, 0, null);
         } else {
             com.xiaomi.channel.commonutils.logger.b.a("ignore setChallenge because connection was disconnected");
@@ -161,12 +160,6 @@ public abstract class a {
     public abstract void a(String str, String str2);
 
     public abstract void a(com.xiaomi.slim.b[] bVarArr);
-
-    public abstract void a(com.xiaomi.smack.packet.d[] dVarArr);
-
-    public boolean a() {
-        return false;
-    }
 
     public synchronized boolean a(long j) {
         return this.s >= j;
@@ -184,25 +177,25 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.h.put(fVar, new C0469a(fVar, aVar));
+        this.g.put(fVar, new C0490a(fVar, aVar));
     }
 
     public abstract void b(boolean z);
 
-    public b c() {
-        return this.m;
+    public boolean b() {
+        return false;
     }
 
-    public String d() {
-        return this.m.e();
+    public b d() {
+        return this.l;
     }
 
     public String e() {
-        return this.m.c();
+        return this.l.e();
     }
 
-    public int f() {
-        return this.f;
+    public String f() {
+        return this.l.c();
     }
 
     public long g() {
@@ -216,7 +209,7 @@ public abstract class a {
     protected void i() {
         String str;
         Class<?> cls = null;
-        if (this.m.f() && this.i == null) {
+        if (this.l.f() && this.h == null) {
             try {
                 str = System.getProperty("smack.debuggerClass");
             } catch (Throwable th) {
@@ -230,11 +223,11 @@ public abstract class a {
                 }
             }
             if (cls == null) {
-                this.i = new com.xiaomi.measite.smack.a(this);
+                this.h = new com.xiaomi.measite.smack.a(this);
                 return;
             }
             try {
-                this.i = (com.xiaomi.smack.debugger.a) cls.getConstructor(a.class, Writer.class, Reader.class).newInstance(this);
+                this.h = (com.xiaomi.smack.debugger.a) cls.getConstructor(a.class, Writer.class, Reader.class).newInstance(this);
             } catch (Exception e2) {
                 throw new IllegalArgumentException("Can't initialize the configured debugger!", e2);
             }
@@ -265,7 +258,11 @@ public abstract class a {
         return System.currentTimeMillis() - this.s < ((long) g.b());
     }
 
-    public void p() {
+    public synchronized boolean p() {
+        return System.currentTimeMillis() - this.n < ((long) (g.b() << 1));
+    }
+
+    public void q() {
         synchronized (this.p) {
             this.p.clear();
         }

@@ -9,14 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout bRr;
-    TbRichTextView gcK;
-    TextView gcL;
-    ChatImageWithTailView gcM;
+    LinearLayout bZi;
+    TbRichTextView gtZ;
+    TextView gua;
+    ChatImageWithTailView gub;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -33,34 +33,34 @@ public class HistoryItemView extends LinearLayout {
 
     private void initView() {
         setOrientation(1);
-        LayoutInflater.from(this.mContext).inflate(d.h.official_history_item, (ViewGroup) this, true);
+        LayoutInflater.from(this.mContext).inflate(R.layout.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.bRr = (LinearLayout) findViewById(d.g.history_container);
-        this.gcL = (TextView) findViewById(d.g.history_send_time);
-        this.gcK = (TbRichTextView) findViewById(d.g.history_txt);
-        this.gcM = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        al.k(this.bRr, d.f.selector_history_multi_single_bg);
-        al.d(this.gcL, d.C0277d.common_color_10067, 1);
-        this.gcK.setTextColor(al.getColor(d.C0277d.cp_cont_c));
-        this.gcM.setIsSupportNight(true);
+        this.bZi = (LinearLayout) findViewById(R.id.history_container);
+        this.gua = (TextView) findViewById(R.id.history_send_time);
+        this.gtZ = (TbRichTextView) findViewById(R.id.history_txt);
+        this.gub = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        al.k(this.bZi, R.drawable.selector_history_multi_single_bg);
+        al.f(this.gua, R.color.common_color_10067, 1);
+        this.gtZ.setTextColor(al.getColor(R.color.cp_cont_c));
+        this.gub.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gcL.setText(str);
+        this.gua.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gcK;
+        return this.gtZ;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gcM;
+        return this.gub;
     }
 
-    public void bU(View view) {
-        this.bRr.setBackgroundDrawable(null);
-        this.bRr.removeAllViews();
-        this.bRr.addView(view);
+    public void cb(View view) {
+        this.bZi.setBackgroundDrawable(null);
+        this.bZi.removeAllViews();
+        this.bZi.addView(view);
     }
 }

@@ -15,12 +15,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static final String TYPE = "sbgp";
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_5 = null;
     List<Entry> entries;
     private String groupingType;
     private String groupingTypeParameter;

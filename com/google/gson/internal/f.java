@@ -1,41 +1,69 @@
 package com.google.gson.internal;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.h;
+import com.google.gson.internal.a.m;
+import java.io.IOException;
+import java.io.Writer;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final Map<Class<?>, Class<?>> jNK;
-    private static final Map<Class<?>, Class<?>> jNL;
-
-    static {
-        HashMap hashMap = new HashMap(16);
-        HashMap hashMap2 = new HashMap(16);
-        a(hashMap, hashMap2, Boolean.TYPE, Boolean.class);
-        a(hashMap, hashMap2, Byte.TYPE, Byte.class);
-        a(hashMap, hashMap2, Character.TYPE, Character.class);
-        a(hashMap, hashMap2, Double.TYPE, Double.class);
-        a(hashMap, hashMap2, Float.TYPE, Float.class);
-        a(hashMap, hashMap2, Integer.TYPE, Integer.class);
-        a(hashMap, hashMap2, Long.TYPE, Long.class);
-        a(hashMap, hashMap2, Short.TYPE, Short.class);
-        a(hashMap, hashMap2, Void.TYPE, Void.class);
-        jNK = Collections.unmodifiableMap(hashMap);
-        jNL = Collections.unmodifiableMap(hashMap2);
+    public static void b(h hVar, com.google.gson.stream.a aVar) throws IOException {
+        m.kih.a(aVar, hVar);
     }
 
-    private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
-        map.put(cls, cls2);
-        map2.put(cls2, cls);
+    public static Writer a(Appendable appendable) {
+        return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    public static boolean k(Type type) {
-        return jNK.containsKey(type);
-    }
+    /* loaded from: classes2.dex */
+    private static final class a extends Writer {
+        private final Appendable kgu;
+        private final C0458a kgv = new C0458a();
 
-    public static <T> Class<T> B(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) jNK.get(a.checkNotNull(cls));
-        return cls2 == null ? cls : cls2;
+        a(Appendable appendable) {
+            this.kgu = appendable;
+        }
+
+        @Override // java.io.Writer
+        public void write(char[] cArr, int i, int i2) throws IOException {
+            this.kgv.chars = cArr;
+            this.kgu.append(this.kgv, i, i + i2);
+        }
+
+        @Override // java.io.Writer
+        public void write(int i) throws IOException {
+            this.kgu.append((char) i);
+        }
+
+        @Override // java.io.Writer, java.io.Flushable
+        public void flush() {
+        }
+
+        @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+        public void close() {
+        }
+
+        /* renamed from: com.google.gson.internal.f$a$a  reason: collision with other inner class name */
+        /* loaded from: classes2.dex */
+        static class C0458a implements CharSequence {
+            char[] chars;
+
+            C0458a() {
+            }
+
+            @Override // java.lang.CharSequence
+            public int length() {
+                return this.chars.length;
+            }
+
+            @Override // java.lang.CharSequence
+            public char charAt(int i) {
+                return this.chars[i];
+            }
+
+            @Override // java.lang.CharSequence
+            public CharSequence subSequence(int i, int i2) {
+                return new String(this.chars, i, i2 - i);
+            }
+        }
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.performance.c;
 /* loaded from: classes2.dex */
 public interface e {
-    void B(long j);
+    long Ie();
 
-    void C(long j);
+    void N(long j);
 
-    long FW();
+    void O(long j);
 
     String getType();
 }

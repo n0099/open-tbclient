@@ -12,20 +12,20 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0331a {
-        public String gGq;
-        public Rect gGr;
+    public static class C0349a {
+        public String gXK;
+        public Rect gXL;
         public String picUrl;
         public Rect rect;
 
-        public C0331a() {
+        public C0349a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.gGq = "";
-            this.gGr = new Rect(0, 0, 0, 0);
+            this.gXK = "";
+            this.gXL = new Rect(0, 0, 0, 0);
         }
 
-        private C0331a(JSONObject jSONObject) {
+        private C0349a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
             this.rect = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
@@ -34,8 +34,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean bzJ() {
-            return (TextUtils.isEmpty(this.gGq) || this.gGr.isEmpty()) ? false : true;
+        public boolean bHt() {
+            return (TextUtils.isEmpty(this.gXK) || this.gXL.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -55,19 +55,19 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0331a xW(String str) {
+        public static C0349a zm(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0331a();
+                return new C0349a();
             }
             try {
-                return new C0331a(new JSONObject(str));
+                return new C0349a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0331a();
+                return new C0349a();
             }
         }
 
-        public void xX(String str) {
+        public void zn(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.gGq = jSONObject.optString("pic_url");
-                                this.gGr = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.gXK = jSONObject.optString("pic_url");
+                                this.gXL = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

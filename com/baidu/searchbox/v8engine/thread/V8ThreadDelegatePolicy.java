@@ -5,6 +5,8 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public interface V8ThreadDelegatePolicy {
     void doDelegateRunnable(Runnable runnable);
 
+    void doDelegateRunnable(Runnable runnable, long j);
+
     Thread getThread();
 
     void shutdown();

@@ -9,9 +9,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean DX;
-    private ArrayList<BasicNameValuePair> DY;
-    private StringBuilder DZ;
+    boolean BG;
+    private ArrayList<BasicNameValuePair> BH;
+    private StringBuilder BI;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -20,11 +20,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.DX = false;
+        this.BG = false;
         this.mType = null;
-        this.DZ = new StringBuilder(100);
+        this.BI = new StringBuilder(100);
         this.mType = str;
-        this.DX = false;
+        this.BG = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.DX = false;
+        this.BG = false;
         this.mType = null;
-        this.DZ = new StringBuilder(100);
+        this.BI = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.DY == null) {
-                this.DY = new ArrayList<>();
+            if (this.BH == null) {
+                this.BH = new ArrayList<>();
             }
-            this.DY.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.BH.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.DZ.length() > 0) {
-            sb.append((CharSequence) this.DZ);
+        if (this.BI.length() > 0) {
+            sb.append((CharSequence) this.BI);
         }
-        if (this.DY != null) {
-            Iterator<BasicNameValuePair> it = this.DY.iterator();
+        if (this.BH != null) {
+            Iterator<BasicNameValuePair> it = this.BH.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +62,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(aX(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(aH(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(aX(next.getValue()));
+                        sb.append(aH(next.getValue()));
                     }
                 }
             }
@@ -73,7 +73,7 @@ public class a {
         return sb.toString();
     }
 
-    public void f(Object... objArr) {
+    public void c(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
@@ -88,29 +88,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.DZ.length() > 0) {
-                this.DZ.append('&');
+            if (this.BI.length() > 0) {
+                this.BI.append('&');
             }
-            this.DZ.append(str);
-            this.DZ.append("=");
+            this.BI.append(str);
+            this.BI.append("=");
             try {
-                this.DZ.append(URLEncoder.encode(aX(str2), "utf-8"));
+                this.BI.append(URLEncoder.encode(aH(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.DZ.append(aX(str2));
+                this.BI.append(aH(str2));
             }
         }
     }
 
-    public void jL() {
+    public void iF() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long jM() {
+    public long iG() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aX(String str) {
+    public static String aH(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

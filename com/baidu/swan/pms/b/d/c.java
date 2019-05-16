@@ -1,19 +1,25 @@
 package com.baidu.swan.pms.b.d;
-
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 /* loaded from: classes2.dex */
-public abstract class c {
-    protected int bna;
-    protected String mFrom = LivenessStat.TYPE_STRING_DEFAULT;
+public class c extends e {
+    private String bsY;
+    private String bsZ;
 
-    public abstract int Si();
+    public c(String str, String str2, int i) {
+        super(i);
+        this.bsY = str;
+        this.bsZ = str2;
+    }
 
-    public c jv(String str) {
-        this.mFrom = str;
+    public c ks(String str) {
+        this.bsZ = str;
         return this;
     }
 
-    public String getFrom() {
-        return this.mFrom;
+    public String VV() {
+        return this.bsY;
+    }
+
+    public String VW() {
+        return this.bsZ;
     }
 }

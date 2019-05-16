@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class l extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Y(int i) {
+    protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -11,22 +11,22 @@ public class l extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] iG() {
+    protected String[] hy() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iH() {
+    protected int hz() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iI() {
+    protected int hA() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
+    protected int hB() {
         return 10;
     }
 }

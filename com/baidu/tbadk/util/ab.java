@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ab {
-    public static TextView ctN;
+    public static TextView cBW;
 
     public static int d(char c) {
         if (e(c)) {
@@ -22,7 +22,7 @@ public class ab {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int pN(String str) {
+    public static int qW(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -37,7 +37,7 @@ public class ab {
         return i;
     }
 
-    public static int pO(String str) {
+    public static int qX(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -48,13 +48,13 @@ public class ab {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += pN(substring);
+                i += qW(substring);
             }
         }
         return i;
     }
 
-    public static int pP(String str) {
+    public static int qY(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -68,13 +68,13 @@ public class ab {
         return i;
     }
 
-    public static String af(String str, int i) {
+    public static String ab(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pP(substring) > i) {
+            if (qY(substring) > i) {
                 break;
             }
             i2++;
@@ -83,11 +83,11 @@ public class ab {
         return str2;
     }
 
-    public static String ag(String str, int i) {
+    public static String ac(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (pN(str) > i) {
+        if (qW(str) > i) {
             return p(str, 0, i - 2) + "...";
         }
         return str;
@@ -125,7 +125,7 @@ public class ab {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String W(String str, int i) {
+    public static String S(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();
@@ -153,13 +153,13 @@ public class ab {
         return sb.toString();
     }
 
-    public static String ah(String str, int i) {
+    public static String ad(String str, int i) {
         int codePointCount = str.codePointCount(0, str.length());
         int i2 = 1;
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pO(substring) > i) {
+            if (qX(substring) > i) {
                 break;
             }
             i2++;
@@ -170,10 +170,10 @@ public class ab {
 
     public static Pair<Integer, Integer> q(String str, int i, int i2) {
         try {
-            if (ctN == null) {
-                ctN = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (cBW == null) {
+                cBW = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = ctN;
+            TextView textView = cBW;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

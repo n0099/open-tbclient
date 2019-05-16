@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 public interface y {
     void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    String aQF();
+    String aXO();
 
     void setFrom(String str);
 }

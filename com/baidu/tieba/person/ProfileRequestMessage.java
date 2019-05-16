@@ -143,13 +143,13 @@ public class ProfileRequestMessage extends NetMessage {
             builder.has_plist = get_has_plist();
             builder.is_from_usercenter = is_from_usercenter();
             builder.page = getPage();
-            double aR = l.aR(TbadkCoreApplication.getInst().getApp());
-            int aO = l.aO(TbadkCoreApplication.getInst().getApp());
-            int aQ = l.aQ(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.Wv().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(aO);
-            builder.scr_h = Integer.valueOf(aQ);
-            builder.scr_dip = Double.valueOf(aR);
+            double ai = l.ai(TbadkCoreApplication.getInst().getApp());
+            int af = l.af(TbadkCoreApplication.getInst().getApp());
+            int ah = l.ah(TbadkCoreApplication.getInst().getApp());
+            int viewImageQuality = i.abb().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(af);
+            builder.scr_h = Integer.valueOf(ah);
+            builder.scr_dip = Double.valueOf(ai);
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 s.bindCommonParamsToProtobufData(builder, true);

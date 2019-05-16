@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -53,11 +54,8 @@ public class MessageV3 implements Parcelable {
     private String uriPackageName;
     private String webUrl;
 
-    /* loaded from: classes3.dex */
-    public enum CLICK_TYPE_DEFINE {
-        CLICK_TYPE_LAUNCHER_ACTIVITY,
-        CLICK_TYPE_ACTIVITY,
-        CLICK_TYPE_WEB
+    public MessageV3() {
+        this.paramsMap = new HashMap();
     }
 
     public MessageV3(Parcel parcel) {
@@ -84,197 +82,18 @@ public class MessageV3 implements Parcelable {
         this.mTimeDisplaySetting = (TimeDisplaySetting) parcel.readParcelable(TimeDisplaySetting.class.getClassLoader());
     }
 
-    public MessageV3() {
-        this.paramsMap = new HashMap();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.taskId);
-        parcel.writeString(this.seqId);
-        parcel.writeString(this.deviceId);
-        parcel.writeString(this.title);
-        parcel.writeString(this.content);
-        parcel.writeString(this.packageName);
-        parcel.writeInt(this.clickType);
-        parcel.writeByte((byte) (this.isDiscard ? 1 : 0));
-        parcel.writeString(this.activity);
-        parcel.writeString(this.webUrl);
-        parcel.writeString(this.uriPackageName);
-        parcel.writeString(this.uploadDataPackageName);
-        parcel.writeString(this.pushTimestamp);
-        parcel.writeMap(this.paramsMap);
-        parcel.writeString(this.throughMessage);
-        parcel.writeString(this.notificationMessage);
-        parcel.writeParcelable(this.mAdvanceSetting, i);
-        parcel.writeParcelable(this.mAppIconSetting, i);
-        parcel.writeParcelable(this.mNotificationStyle, i);
-        parcel.writeParcelable(this.mTimeDisplaySetting, i);
-    }
-
-    public String getDeviceId() {
-        return this.deviceId;
-    }
-
-    public void setDeviceId(String str) {
-        this.deviceId = str;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String str) {
-        this.taskId = str;
-    }
-
-    public AdvanceSetting getmAdvanceSetting() {
-        return this.mAdvanceSetting;
-    }
-
-    public void setmAdvanceSetting(AdvanceSetting advanceSetting) {
-        this.mAdvanceSetting = advanceSetting;
-    }
-
-    public AppIconSetting getmAppIconSetting() {
-        return this.mAppIconSetting;
-    }
-
-    public void setmAppIconSetting(AppIconSetting appIconSetting) {
-        this.mAppIconSetting = appIconSetting;
-    }
-
-    public NotificationStyle getmNotificationStyle() {
-        return this.mNotificationStyle;
-    }
-
-    public void setmNotificationStyle(NotificationStyle notificationStyle) {
-        this.mNotificationStyle = notificationStyle;
-    }
-
-    public TimeDisplaySetting getmTimeDisplaySetting() {
-        return this.mTimeDisplaySetting;
-    }
-
-    public void setmTimeDisplaySetting(TimeDisplaySetting timeDisplaySetting) {
-        this.mTimeDisplaySetting = timeDisplaySetting;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public String getPackageName() {
-        return this.packageName;
-    }
-
-    public void setPackageName(String str) {
-        this.packageName = str;
-    }
-
-    public int getClickType() {
-        return this.clickType;
-    }
-
-    public void setClickType(int i) {
-        this.clickType = i;
-    }
-
-    public boolean isDiscard() {
-        return this.isDiscard;
-    }
-
-    public void setIsDiscard(boolean z) {
-        this.isDiscard = z;
-    }
-
-    public String getActivity() {
-        return this.activity;
-    }
-
-    public void setActivity(String str) {
-        this.activity = str;
-    }
-
-    public String getWebUrl() {
-        return this.webUrl;
-    }
-
-    public void setWebUrl(String str) {
-        this.webUrl = str;
-    }
-
-    public String getUriPackageName() {
-        return this.uriPackageName;
-    }
-
-    public void setUriPackageName(String str) {
-        this.uriPackageName = str;
-    }
-
-    public String getPushTimestamp() {
-        return this.pushTimestamp;
-    }
-
-    public void setPushTimestamp(String str) {
-        this.pushTimestamp = str;
-    }
-
-    public Map<String, String> getParamsMap() {
-        return this.paramsMap;
-    }
-
-    public void setParamsMap(Map<String, String> map) {
-        this.paramsMap = map;
-    }
-
-    public String getThroughMessage() {
-        return this.throughMessage;
-    }
-
-    public void setThroughMessage(String str) {
-        this.throughMessage = str;
-    }
-
-    public String getNotificationMessage() {
-        return this.notificationMessage;
-    }
-
-    public void setNotificationMessage(String str) {
-        this.notificationMessage = str;
-    }
-
-    public String getSeqId() {
-        return this.seqId;
-    }
-
-    public void setSeqId(String str) {
-        this.seqId = str;
-    }
-
-    public String getUploadDataPackageName() {
-        return this.uploadDataPackageName;
-    }
-
-    public void setUploadDataPackageName(String str) {
-        this.uploadDataPackageName = str;
+    public static Map<String, String> getParamsMap(JSONObject jSONObject) {
+        HashMap hashMap = new HashMap();
+        try {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                hashMap.put(next, jSONObject.getString(next));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return hashMap;
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
@@ -314,21 +133,13 @@ public class MessageV3 implements Parcelable {
             }
         }
         messageV3.setParamsMap(mPushMessage.getParams());
+        String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
+        com.meizu.cloud.a.a.e(TAG, "MessageV2 extra json is " + jSONObject);
+        if (!TextUtils.isEmpty(jSONObject)) {
+            messageV3.setNotificationMessage(jSONObject);
+        }
         com.meizu.cloud.a.a.i(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
-    }
-
-    public static MessageV3 parse(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        MessageV3 parse = parse(str, str4, str5, str6, str7);
-        parse.setUploadDataPackageName(str2);
-        parse.setPushTimestamp(str3);
-        return parse;
-    }
-
-    public static MessageV3 parse(String str, String str2, String str3, String str4, String str5) {
-        MessageV3 parse = parse(str, str2, str3, str5);
-        parse.setSeqId(str4);
-        return parse;
     }
 
     public static MessageV3 parse(String str, String str2, String str3, String str4) {
@@ -388,21 +199,209 @@ public class MessageV3 implements Parcelable {
         return messageV3;
     }
 
-    public static Map<String, String> getParamsMap(JSONObject jSONObject) {
-        HashMap hashMap = new HashMap();
-        try {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                hashMap.put(next, jSONObject.getString(next));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return hashMap;
+    public static MessageV3 parse(String str, String str2, String str3, String str4, String str5) {
+        MessageV3 parse = parse(str, str2, str3, str5);
+        parse.setSeqId(str4);
+        return parse;
+    }
+
+    public static MessageV3 parse(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        MessageV3 parse = parse(str, str4, str5, str6, str7);
+        parse.setUploadDataPackageName(str2);
+        parse.setPushTimestamp(str3);
+        return parse;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String getActivity() {
+        return this.activity;
+    }
+
+    public int getClickType() {
+        return this.clickType;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getDeviceId() {
+        return this.deviceId;
+    }
+
+    public String getNotificationMessage() {
+        return this.notificationMessage;
+    }
+
+    public String getPackageName() {
+        return this.packageName;
+    }
+
+    public Map<String, String> getParamsMap() {
+        return this.paramsMap;
+    }
+
+    public String getPushTimestamp() {
+        return this.pushTimestamp;
+    }
+
+    public String getSeqId() {
+        return this.seqId;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public String getThroughMessage() {
+        return this.throughMessage;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getUploadDataPackageName() {
+        return this.uploadDataPackageName;
+    }
+
+    public String getUriPackageName() {
+        return this.uriPackageName;
+    }
+
+    public String getWebUrl() {
+        return this.webUrl;
+    }
+
+    public AdvanceSetting getmAdvanceSetting() {
+        return this.mAdvanceSetting;
+    }
+
+    public AppIconSetting getmAppIconSetting() {
+        return this.mAppIconSetting;
+    }
+
+    public NotificationStyle getmNotificationStyle() {
+        return this.mNotificationStyle;
+    }
+
+    public TimeDisplaySetting getmTimeDisplaySetting() {
+        return this.mTimeDisplaySetting;
+    }
+
+    public boolean isDiscard() {
+        return this.isDiscard;
+    }
+
+    public void setActivity(String str) {
+        this.activity = str;
+    }
+
+    public void setClickType(int i) {
+        this.clickType = i;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public void setDeviceId(String str) {
+        this.deviceId = str;
+    }
+
+    public void setIsDiscard(boolean z) {
+        this.isDiscard = z;
+    }
+
+    public void setNotificationMessage(String str) {
+        this.notificationMessage = str;
+    }
+
+    public void setPackageName(String str) {
+        this.packageName = str;
+    }
+
+    public void setParamsMap(Map<String, String> map) {
+        this.paramsMap = map;
+    }
+
+    public void setPushTimestamp(String str) {
+        this.pushTimestamp = str;
+    }
+
+    public void setSeqId(String str) {
+        this.seqId = str;
+    }
+
+    public void setTaskId(String str) {
+        this.taskId = str;
+    }
+
+    public void setThroughMessage(String str) {
+        this.throughMessage = str;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setUploadDataPackageName(String str) {
+        this.uploadDataPackageName = str;
+    }
+
+    public void setUriPackageName(String str) {
+        this.uriPackageName = str;
+    }
+
+    public void setWebUrl(String str) {
+        this.webUrl = str;
+    }
+
+    public void setmAdvanceSetting(AdvanceSetting advanceSetting) {
+        this.mAdvanceSetting = advanceSetting;
+    }
+
+    public void setmAppIconSetting(AppIconSetting appIconSetting) {
+        this.mAppIconSetting = appIconSetting;
+    }
+
+    public void setmNotificationStyle(NotificationStyle notificationStyle) {
+        this.mNotificationStyle = notificationStyle;
+    }
+
+    public void setmTimeDisplaySetting(TimeDisplaySetting timeDisplaySetting) {
+        this.mTimeDisplaySetting = timeDisplaySetting;
     }
 
     public String toString() {
         return "MessageV3{taskId='" + this.taskId + "', seqId='" + this.seqId + "', deviceId='" + this.deviceId + "', title='" + this.title + "', content='" + this.content + "', packageName='" + this.packageName + "', clickType=" + this.clickType + ", isDiscard=" + this.isDiscard + ", activity='" + this.activity + "', webUrl='" + this.webUrl + "', uriPackageName='" + this.uriPackageName + "', pushTimestamp='" + this.pushTimestamp + "', uploadDataPackageName='" + this.uploadDataPackageName + "', paramsMap=" + this.paramsMap + ", throughMessage='" + this.throughMessage + "', notificationMessage='" + this.notificationMessage + "', mAdvanceSetting=" + this.mAdvanceSetting + ", mAppIconSetting=" + this.mAppIconSetting + ", mNotificationStyle=" + this.mNotificationStyle + ", mTimeDisplaySetting=" + this.mTimeDisplaySetting + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.taskId);
+        parcel.writeString(this.seqId);
+        parcel.writeString(this.deviceId);
+        parcel.writeString(this.title);
+        parcel.writeString(this.content);
+        parcel.writeString(this.packageName);
+        parcel.writeInt(this.clickType);
+        parcel.writeByte((byte) (this.isDiscard ? 1 : 0));
+        parcel.writeString(this.activity);
+        parcel.writeString(this.webUrl);
+        parcel.writeString(this.uriPackageName);
+        parcel.writeString(this.uploadDataPackageName);
+        parcel.writeString(this.pushTimestamp);
+        parcel.writeMap(this.paramsMap);
+        parcel.writeString(this.throughMessage);
+        parcel.writeString(this.notificationMessage);
+        parcel.writeParcelable(this.mAdvanceSetting, i);
+        parcel.writeParcelable(this.mAppIconSetting, i);
+        parcel.writeParcelable(this.mNotificationStyle, i);
+        parcel.writeParcelable(this.mTimeDisplaySetting, i);
     }
 }

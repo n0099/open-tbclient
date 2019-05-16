@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bWj = null;
-    private boolean bWi;
-    private int bWk;
+    private static volatile a cee = null;
+    private boolean ced;
+    private int cef;
 
     private a() {
-        this.bWi = false;
-        this.bWk = 0;
+        this.ced = false;
+        this.cef = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            dVar.T(true);
+            dVar.L(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.hA()) {
+            if (dVar.gu()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.bWk = Integer.parseInt(content);
+                    this.cef = Integer.parseInt(content);
                 }
-                if (this.bWk == 1 || this.bWk == 2) {
-                    this.bWi = true;
+                if (this.cef == 1 || this.cef == 2) {
+                    this.ced = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a afG() {
-        if (bWj == null) {
+    public static a akF() {
+        if (cee == null) {
             synchronized (a.class) {
-                if (bWj == null) {
-                    bWj = new a();
+                if (cee == null) {
+                    cee = new a();
                 }
             }
         }
-        return bWj;
+        return cee;
     }
 
-    public boolean afH() {
-        return this.bWi;
+    public boolean akG() {
+        return this.ced;
     }
 
-    public int afI() {
-        return this.bWk;
+    public int akH() {
+        return this.cef;
     }
 
-    public String afJ() {
-        return this.bWi ? "pub_env=" + this.bWk + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String akI() {
+        return this.ced ? "pub_env=" + this.cef + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

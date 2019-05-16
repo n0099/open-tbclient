@@ -5,9 +5,9 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> jWw;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> jWx;
-    private final boolean jWy;
+    private final rx.functions.e<Resource> koM;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> koN;
+    private final boolean koO;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,11 +17,11 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     public void call(rx.j<? super T> jVar) {
         rx.d<? extends T> b;
         try {
-            Resource call = this.jWw.call();
+            Resource call = this.koM.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.jWx.call(call);
-            if (this.jWy) {
+            rx.d<? extends T> call2 = this.koN.call(call);
+            if (this.koO) {
                 b = call2.a(disposeAction);
             } else {
                 b = call2.b(disposeAction);

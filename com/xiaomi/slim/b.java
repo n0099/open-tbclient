@@ -3,7 +3,7 @@ package com.xiaomi.slim;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.aq;
+import com.xiaomi.push.service.bb;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -64,27 +64,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b b(ByteBuffer byteBuffer) {
         try {
-            if (byteBuffer.getShort(0) == -15618 && byteBuffer.getShort(2) == 4) {
-                short s = byteBuffer.getShort(6);
-                short s2 = byteBuffer.getShort(8);
-                int i = byteBuffer.getInt(10);
-                b.a aVar = new b.a();
-                aVar.b(byteBuffer.array(), 14, s2);
-                byte[] bArr = new byte[i];
-                byteBuffer.position(s2 + 14);
-                byteBuffer.get(bArr, 0, i);
-                return new b(aVar, s, bArr);
-            }
-            throw new IOException("Malformed Input");
+            ByteBuffer slice = byteBuffer.slice();
+            short s = slice.getShort(0);
+            short s2 = slice.getShort(2);
+            int i = slice.getInt(4);
+            b.a aVar = new b.a();
+            aVar.b(slice.array(), slice.arrayOffset() + 8, s2);
+            byte[] bArr = new byte[i];
+            slice.position(s2 + 8);
+            slice.get(bArr, 0, i);
+            return new b(aVar, s, bArr);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("read Blob err :" + e.getMessage());
             throw new IOException("Malformed Input");
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int c(ByteBuffer byteBuffer) {
-        return byteBuffer.getShort(8) + byteBuffer.getInt(10);
     }
 
     public static synchronized String g() {
@@ -98,40 +91,22 @@ public class b {
         return sb;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static int n() {
-        return 14;
-    }
-
     public String a() {
         return this.d.l();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ByteBuffer a(ByteBuffer byteBuffer) {
-        int l = l();
-        if (byteBuffer == null || byteBuffer.remaining() < l) {
-            if (byteBuffer != null) {
-                l += byteBuffer.capacity();
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(l);
-            if (byteBuffer != null) {
-                allocate.put(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.position());
-            }
-            byteBuffer = allocate;
+        if (byteBuffer == null) {
+            byteBuffer = ByteBuffer.allocate(l());
         }
-        ByteBuffer slice = byteBuffer.slice();
-        slice.putShort((short) -15618);
-        slice.putShort((short) 4);
-        slice.putShort((short) 1);
-        slice.putShort(this.e);
-        slice.putShort((short) this.d.a());
-        slice.putInt(this.g.length);
-        int position = slice.position();
-        this.d.a(slice.array(), slice.arrayOffset() + position, this.d.a());
-        slice.position(position + this.d.a());
-        slice.put(this.g);
-        byteBuffer.position(slice.position() + byteBuffer.position());
+        byteBuffer.putShort(this.e);
+        byteBuffer.putShort((short) this.d.a());
+        byteBuffer.putInt(this.g.length);
+        int position = byteBuffer.position();
+        this.d.a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.d.a());
+        byteBuffer.position(position + this.d.a());
+        byteBuffer.put(this.g);
         return byteBuffer;
     }
 
@@ -179,7 +154,7 @@ public class b {
             return;
         }
         this.d.c(1);
-        this.g = aq.a(aq.a(str, h()), bArr);
+        this.g = bb.a(bb.a(str, h()), bArr);
     }
 
     public String b() {
@@ -218,7 +193,7 @@ public class b {
 
     public byte[] d(String str) {
         if (this.d.u() == 1) {
-            return aq.a(aq.a(str, h()), this.g);
+            return bb.a(bb.a(str, h()), this.g);
         }
         if (this.d.u() == 0) {
             return this.g;
@@ -264,7 +239,7 @@ public class b {
     }
 
     public int l() {
-        return n() + this.d.b() + this.g.length;
+        return this.d.b() + 8 + this.g.length;
     }
 
     public short m() {

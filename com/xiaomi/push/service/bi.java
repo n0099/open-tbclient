@@ -1,30 +1,53 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.av;
-import com.xiaomi.push.service.aw;
-import java.util.ArrayList;
+import android.util.Base64;
+import com.xiaomi.channel.commonutils.misc.k;
+import com.xiaomi.network.HttpUtils;
+import com.xiaomi.push.protobuf.a;
+import com.xiaomi.push.service.bh;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class bi implements aw.b {
-    final /* synthetic */ XMPushService a;
+public class bi extends k.b {
+    boolean a = false;
+    final /* synthetic */ bh b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(XMPushService xMPushService) {
-        this.a = xMPushService;
+    public bi(bh bhVar) {
+        this.b = bhVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str) {
-        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
+    public void b() {
+        try {
+            a.C0485a b = a.C0485a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.n.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
+            if (b != null) {
+                this.b.c = b;
+                this.a = true;
+                this.b.i();
+            }
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch config failure: " + e.getMessage());
+        }
     }
 
-    @Override // com.xiaomi.push.service.aw.b
-    public void a(ArrayList<av.b> arrayList) {
-        this.a.a(new bj(this, 4, arrayList));
-    }
-
-    @Override // com.xiaomi.push.service.aw.b
-    public boolean a(av.b bVar) {
-        return a(this.a.getPackageName()) != null;
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
+    public void c() {
+        List list;
+        List list2;
+        bh.a[] aVarArr;
+        a.C0485a c0485a;
+        this.b.d = null;
+        if (this.a) {
+            synchronized (this.b) {
+                list = this.b.b;
+                list2 = this.b.b;
+                aVarArr = (bh.a[]) list.toArray(new bh.a[list2.size()]);
+            }
+            for (bh.a aVar : aVarArr) {
+                c0485a = this.b.c;
+                aVar.a(c0485a);
+            }
+        }
     }
 }

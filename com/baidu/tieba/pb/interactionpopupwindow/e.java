@@ -14,33 +14,33 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.pb.b;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes.dex */
 public class e extends b<CustomDialogData> implements View.OnClickListener {
-    private TextView bEL;
-    private TextView bEM;
-    private f dxr;
-    private CustomDialogData hkY;
-    private TbImageView hkZ;
-    private TextView hla;
-    private TextView hlb;
-    private View hlc;
-    private View hld;
-    private LinearLayout hle;
+    private TextView bMf;
+    private TextView bMg;
+    private f dHR;
+    private TextView hCA;
+    private TextView hCB;
+    private View hCC;
+    private View hCD;
+    private LinearLayout hCE;
+    private CustomDialogData hCy;
+    private TbImageView hCz;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(f fVar) {
-        this.dxr = fVar;
+        this.dHR = fVar;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
     public int getLayout() {
-        return d.h.custom_dailog_view;
+        return R.layout.custom_dailog_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,69 +48,69 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     /* renamed from: b */
     public void a(CustomDialogData customDialogData) {
         if (customDialogData != null) {
-            this.hkY = customDialogData;
+            this.hCy = customDialogData;
             CustomDialogData.Head head = customDialogData.head;
             if (!TextUtils.isEmpty(head.imageUrl)) {
-                this.hkZ.startLoad(head.imageUrl, 10, false);
+                this.hCz.startLoad(head.imageUrl, 10, false);
             }
             if (!TextUtils.isEmpty(head.text)) {
-                this.hla.setText(head.text);
+                this.hCA.setText(head.text);
             }
             if (!TextUtils.isEmpty(customDialogData.body)) {
-                this.hlb.setText(customDialogData.body);
+                this.hCB.setText(customDialogData.body);
             }
             if (customDialogData.leftButton != null && !StringUtils.isNull(customDialogData.leftButton.text)) {
-                this.bEM.setText(customDialogData.leftButton.text);
+                this.bMg.setText(customDialogData.leftButton.text);
             }
             if (customDialogData.rightButton != null && !StringUtils.isNull(customDialogData.rightButton.text)) {
-                this.bEL.setText(customDialogData.rightButton.text);
+                this.bMf.setText(customDialogData.rightButton.text);
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
     public void initView() {
-        this.hkZ = (TbImageView) getViewGroup().findViewById(d.g.dialog_image);
-        this.hla = (TextView) getViewGroup().findViewById(d.g.dialog_title);
-        this.hlb = (TextView) getViewGroup().findViewById(d.g.dialog_body);
-        this.bEL = (TextView) getViewGroup().findViewById(d.g.yes);
-        this.bEM = (TextView) getViewGroup().findViewById(d.g.no);
-        this.hlc = getViewGroup().findViewById(d.g.bdDialog_divider_line);
-        this.hld = getViewGroup().findViewById(d.g.divider_yes_no_button);
-        this.hle = (LinearLayout) getViewGroup().findViewById(d.g.real_view);
-        this.bEL.setOnClickListener(this);
-        this.bEM.setOnClickListener(this);
-        al.k(this.bEL, d.f.dialog_single_button_bg_selector);
-        al.j(this.bEL, d.C0277d.cp_link_tip_a);
-        al.j(this.bEM, d.C0277d.cp_link_tip_a);
-        al.j(this.hla, d.C0277d.cp_cont_b);
-        al.j(this.hlb, d.C0277d.common_color_10122);
-        al.l(this.hlc, d.C0277d.cp_bg_line_a);
-        al.l(this.hld, d.C0277d.cp_bg_line_a);
-        al.k(this.hle, d.f.dialog_background);
+        this.hCz = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+        this.hCA = (TextView) getViewGroup().findViewById(R.id.dialog_title);
+        this.hCB = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+        this.bMf = (TextView) getViewGroup().findViewById(R.id.yes);
+        this.bMg = (TextView) getViewGroup().findViewById(R.id.no);
+        this.hCC = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+        this.hCD = getViewGroup().findViewById(R.id.divider_yes_no_button);
+        this.hCE = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+        this.bMf.setOnClickListener(this);
+        this.bMg.setOnClickListener(this);
+        al.k(this.bMf, R.drawable.dialog_single_button_bg_selector);
+        al.j(this.bMf, R.color.cp_link_tip_a);
+        al.j(this.bMg, R.color.cp_link_tip_a);
+        al.j(this.hCA, R.color.cp_cont_b);
+        al.j(this.hCB, R.color.common_color_10122);
+        al.l(this.hCC, R.color.cp_bg_line_a);
+        al.l(this.hCD, R.color.cp_bg_line_a);
+        al.k(this.hCE, R.drawable.dialog_background);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bEL) {
-            if (this.hkY != null && this.hkY.rightButton != null && !StringUtils.isNull(this.hkY.rightButton.action)) {
-                ba.adA().c(getTbPageContext(), new String[]{this.hkY.rightButton.action});
+        if (view == this.bMf) {
+            if (this.hCy != null && this.hCy.rightButton != null && !StringUtils.isNull(this.hCy.rightButton.action)) {
+                ba.aiz().c(getTbPageContext(), new String[]{this.hCy.rightButton.action});
             }
-            if (this.dxr != null) {
-                this.dxr.dismiss();
+            if (this.dHR != null) {
+                this.dHR.dismiss();
             }
-            am amVar = new am(b.a.hhL);
-            amVar.T("obj_locate", 2);
+            am amVar = new am(b.a.hzd);
+            amVar.P("obj_locate", 2);
             TiebaStatic.log(amVar);
-        } else if (view == this.bEM) {
-            if (this.hkY != null && this.hkY.leftButton != null && !StringUtils.isNull(this.hkY.leftButton.action)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.hkY.leftButton.action, true)));
+        } else if (view == this.bMg) {
+            if (this.hCy != null && this.hCy.leftButton != null && !StringUtils.isNull(this.hCy.leftButton.action)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.hCy.leftButton.action, true)));
             }
-            if (this.dxr != null) {
-                this.dxr.dismiss();
+            if (this.dHR != null) {
+                this.dHR.dismiss();
             }
-            am amVar2 = new am(b.a.hhL);
-            amVar2.T("obj_locate", 1);
+            am amVar2 = new am(b.a.hzd);
+            amVar2.P("obj_locate", 1);
             TiebaStatic.log(amVar2);
         }
     }

@@ -21,88 +21,18 @@ public class MPushMessage implements Serializable {
     private Map<String, String> extra = new HashMap();
     private Map<String, String> params = new HashMap();
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public String getNotifyType() {
-        return this.notifyType;
-    }
-
-    public void setNotifyType(String str) {
-        this.notifyType = str;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> map) {
-        this.extra = map;
-    }
-
-    public String getClickType() {
-        return this.clickType;
-    }
-
-    public void setClickType(String str) {
-        this.clickType = str;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String str) {
-        this.taskId = str;
-    }
-
-    public String getPushType() {
-        return this.pushType;
-    }
-
-    public void setPushType(String str) {
-        this.pushType = str;
-    }
-
-    public String getIsDiscard() {
-        return this.isDiscard;
-    }
-
-    public void setIsDiscard(String str) {
-        this.isDiscard = str;
-    }
-
-    public String getPackageName() {
-        return this.packageName;
-    }
-
-    public void setPackageName(String str) {
-        this.packageName = str;
-    }
-
-    public Map<String, String> getParams() {
-        return this.params;
-    }
-
-    public void setParams(Map<String, String> map) {
-        this.params = map;
-    }
-
-    public String toString() {
-        return "MPushMessage{taskId='" + this.taskId + "', pushType='" + this.pushType + "', packageName='" + this.packageName + "', title='" + this.title + "', content='" + this.content + "', notifyType='" + this.notifyType + "', clickType='" + this.clickType + "', isDiscard='" + this.isDiscard + "', extra=" + this.extra + ", params=" + this.params + '}';
+    private static Map<String, String> getParamsMap(JSONObject jSONObject) {
+        HashMap hashMap = new HashMap();
+        try {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                hashMap.put(next, jSONObject.getString(next));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return hashMap;
     }
 
     public static MPushMessage parsePushMessage(String str, String str2, String str3, String str4) {
@@ -150,17 +80,87 @@ public class MPushMessage implements Serializable {
         return mPushMessage;
     }
 
-    private static Map<String, String> getParamsMap(JSONObject jSONObject) {
-        HashMap hashMap = new HashMap();
-        try {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                hashMap.put(next, jSONObject.getString(next));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return hashMap;
+    public String getClickType() {
+        return this.clickType;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public Map<String, String> getExtra() {
+        return this.extra;
+    }
+
+    public String getIsDiscard() {
+        return this.isDiscard;
+    }
+
+    public String getNotifyType() {
+        return this.notifyType;
+    }
+
+    public String getPackageName() {
+        return this.packageName;
+    }
+
+    public Map<String, String> getParams() {
+        return this.params;
+    }
+
+    public String getPushType() {
+        return this.pushType;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setClickType(String str) {
+        this.clickType = str;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public void setExtra(Map<String, String> map) {
+        this.extra = map;
+    }
+
+    public void setIsDiscard(String str) {
+        this.isDiscard = str;
+    }
+
+    public void setNotifyType(String str) {
+        this.notifyType = str;
+    }
+
+    public void setPackageName(String str) {
+        this.packageName = str;
+    }
+
+    public void setParams(Map<String, String> map) {
+        this.params = map;
+    }
+
+    public void setPushType(String str) {
+        this.pushType = str;
+    }
+
+    public void setTaskId(String str) {
+        this.taskId = str;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public String toString() {
+        return "MPushMessage{taskId='" + this.taskId + "', pushType='" + this.pushType + "', packageName='" + this.packageName + "', title='" + this.title + "', content='" + this.content + "', notifyType='" + this.notifyType + "', clickType='" + this.clickType + "', isDiscard='" + this.isDiscard + "', extra=" + this.extra + ", params=" + this.params + '}';
     }
 }

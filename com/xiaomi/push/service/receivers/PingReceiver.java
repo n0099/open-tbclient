@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.am;
+import com.xiaomi.push.service.aw;
+import com.xiaomi.push.service.be;
 /* loaded from: classes3.dex */
 public class PingReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        com.xiaomi.push.service.timers.a.a(false);
         b.c(intent.getPackage() + " is the package name");
-        if (!am.o.equals(intent.getAction())) {
+        if (!aw.o.equals(intent.getAction())) {
             b.a("cancel the old ping timer");
             com.xiaomi.push.service.timers.a.a();
         } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
@@ -22,7 +22,7 @@ public class PingReceiver extends BroadcastReceiver {
                 Intent intent2 = new Intent(context, XMPushService.class);
                 intent2.putExtra("time_stamp", System.currentTimeMillis());
                 intent2.setAction("com.xiaomi.push.timer");
-                context.startService(intent2);
+                be.a(context).a(intent2);
             } catch (Exception e) {
                 b.a(e);
             }

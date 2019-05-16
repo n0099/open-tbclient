@@ -1,47 +1,47 @@
 package com.baidu.swan.apps.ae;
 /* loaded from: classes2.dex */
 public class a<ImplemenT> {
-    private ImplemenT aNL;
-    private com.baidu.swan.apps.an.c.b<ImplemenT> aNM;
+    private ImplemenT aPO;
+    private com.baidu.swan.apps.an.d.b<ImplemenT> aPP;
 
-    public a<ImplemenT> a(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
-        this.aNM = bVar;
+    public a<ImplemenT> a(com.baidu.swan.apps.an.d.b<ImplemenT> bVar) {
+        this.aPP = bVar;
         return this;
     }
 
-    protected a<ImplemenT> IS() {
+    protected a<ImplemenT> Ln() {
         return b(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a<ImplemenT> b(com.baidu.swan.apps.an.c.b<ImplemenT> bVar) {
+    public a<ImplemenT> b(com.baidu.swan.apps.an.d.b<ImplemenT> bVar) {
         if (bVar == null) {
-            bVar = this.aNM;
+            bVar = this.aPP;
         }
         if (bVar != null) {
-            ImplemenT uR = bVar.uR();
-            if (uR == null) {
-                uR = this.aNL;
+            ImplemenT vB = bVar.vB();
+            if (vB == null) {
+                vB = this.aPO;
             }
-            this.aNL = uR;
+            this.aPO = vB;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a<ImplemenT> IT() {
-        this.aNL = null;
+    public a<ImplemenT> Lo() {
+        this.aPO = null;
         return this;
     }
 
     public ImplemenT get() {
-        if (!IU()) {
-            IS();
+        if (!Lp()) {
+            Ln();
         }
-        return this.aNL;
+        return this.aPO;
     }
 
-    public boolean IU() {
-        return this.aNL != null;
+    public boolean Lp() {
+        return this.aPO != null;
     }
 }

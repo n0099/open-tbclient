@@ -7,6 +7,6 @@ public class f extends com.baidu.swan.apps.setting.oauth.a.f {
 
     public f(Activity activity, String str, String str2) {
         super(activity, str, str2);
-        Kk();
+        MK();
     }
 }

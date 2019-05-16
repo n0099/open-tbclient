@@ -9,42 +9,42 @@ import java.util.zip.GZIPOutputStream;
 /* loaded from: classes2.dex */
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final byte[] Ft;
-    private static final byte[] Fu;
-    private static final byte[] Fv;
-    private static final byte[] Fw;
-    private static final byte[] Fx;
-    private static final byte[] Fy;
+    private static final byte[] Dd;
+    private static final byte[] De;
+    private static final byte[] Df;
+    private static final byte[] Dg;
+    private static final byte[] Dh;
+    private static final byte[] Di;
 
     static {
         $assertionsDisabled = !a.class.desiredAssertionStatus();
-        Ft = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        Fu = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        Fv = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        Fw = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        Fx = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
-        Fy = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        Dd = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        De = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        Df = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+        Dg = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        Dh = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
+        Di = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
-    private static final byte[] aw(int i) {
+    private static final byte[] ap(int i) {
         if ((i & 16) == 16) {
-            return Fv;
+            return Df;
         }
         if ((i & 32) == 32) {
-            return Fx;
+            return Dh;
         }
-        return Ft;
+        return Dd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final byte[] ax(int i) {
+    public static final byte[] aq(int i) {
         if ((i & 16) == 16) {
-            return Fw;
+            return Dg;
         }
         if ((i & 32) == 32) {
-            return Fy;
+            return Di;
         }
-        return Fu;
+        return De;
     }
 
     private a() {
@@ -57,26 +57,26 @@ public class a {
     }
 
     private static byte[] c(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
-        byte[] aw = aw(i4);
+        byte[] ap = ap(i4);
         int i5 = (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0);
         switch (i2) {
             case 1:
-                bArr2[i3] = aw[i5 >>> 18];
-                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
+                bArr2[i3] = ap[i5 >>> 18];
+                bArr2[i3 + 1] = ap[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = 61;
                 bArr2[i3 + 3] = 61;
                 break;
             case 2:
-                bArr2[i3] = aw[i5 >>> 18];
-                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = aw[(i5 >>> 6) & 63];
+                bArr2[i3] = ap[i5 >>> 18];
+                bArr2[i3 + 1] = ap[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = ap[(i5 >>> 6) & 63];
                 bArr2[i3 + 3] = 61;
                 break;
             case 3:
-                bArr2[i3] = aw[i5 >>> 18];
-                bArr2[i3 + 1] = aw[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = aw[(i5 >>> 6) & 63];
-                bArr2[i3 + 3] = aw[i5 & 63];
+                bArr2[i3] = ap[i5 >>> 18];
+                bArr2[i3 + 1] = ap[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = ap[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = ap[i5 & 63];
                 break;
         }
         return bArr2;
@@ -108,7 +108,7 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [695=5, 696=4, 697=4] */
     public static byte[] encodeBytesToBytes(byte[] bArr, int i, int i2, int i3) throws IOException {
-        C0476a c0476a;
+        C0497a c0497a;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
         GZIPOutputStream gZIPOutputStream;
@@ -162,9 +162,9 @@ public class a {
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                c0476a = new C0476a(byteArrayOutputStream, i3 | 1);
+                c0497a = new C0497a(byteArrayOutputStream, i3 | 1);
                 try {
-                    gZIPOutputStream = new GZIPOutputStream(c0476a);
+                    gZIPOutputStream = new GZIPOutputStream(c0497a);
                 } catch (IOException e) {
                     e = e;
                     byteArrayOutputStream2 = byteArrayOutputStream;
@@ -173,19 +173,19 @@ public class a {
                 }
             } catch (IOException e2) {
                 e = e2;
-                c0476a = null;
+                c0497a = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
             } catch (Throwable th2) {
                 th = th2;
-                c0476a = null;
+                c0497a = null;
             }
         } catch (IOException e3) {
             e = e3;
-            c0476a = null;
+            c0497a = null;
             byteArrayOutputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
-            c0476a = null;
+            c0497a = null;
             byteArrayOutputStream = null;
         }
         try {
@@ -196,7 +196,7 @@ public class a {
             } catch (Exception e4) {
             }
             try {
-                c0476a.close();
+                c0497a.close();
             } catch (Exception e5) {
             }
             try {
@@ -218,7 +218,7 @@ public class a {
                 } catch (Exception e8) {
                 }
                 try {
-                    c0476a.close();
+                    c0497a.close();
                 } catch (Exception e9) {
                 }
                 try {
@@ -231,7 +231,7 @@ public class a {
             th = th5;
             gZIPOutputStream2 = gZIPOutputStream;
             gZIPOutputStream2.close();
-            c0476a.close();
+            c0497a.close();
             byteArrayOutputStream.close();
             throw th;
         }
@@ -251,17 +251,17 @@ public class a {
         if (i2 < 0 || i2 + 2 >= bArr2.length) {
             throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
         }
-        byte[] ax = ax(i3);
+        byte[] aq = aq(i3);
         if (bArr[i + 2] == 61) {
-            bArr2[i2] = (byte) ((((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12)) >>> 16);
+            bArr2[i2] = (byte) ((((aq[bArr[i]] & 255) << 18) | ((aq[bArr[i + 1]] & 255) << 12)) >>> 16);
             return 1;
         } else if (bArr[i + 3] == 61) {
-            int i4 = ((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12) | ((ax[bArr[i + 2]] & 255) << 6);
+            int i4 = ((aq[bArr[i]] & 255) << 18) | ((aq[bArr[i + 1]] & 255) << 12) | ((aq[bArr[i + 2]] & 255) << 6);
             bArr2[i2] = (byte) (i4 >>> 16);
             bArr2[i2 + 1] = (byte) (i4 >>> 8);
             return 2;
         } else {
-            int i5 = ((ax[bArr[i]] & 255) << 18) | ((ax[bArr[i + 1]] & 255) << 12) | ((ax[bArr[i + 2]] & 255) << 6) | (ax[bArr[i + 3]] & 255);
+            int i5 = ((aq[bArr[i]] & 255) << 18) | ((aq[bArr[i + 1]] & 255) << 12) | ((aq[bArr[i + 2]] & 255) << 6) | (aq[bArr[i + 3]] & 255);
             bArr2[i2] = (byte) (i5 >> 16);
             bArr2[i2 + 1] = (byte) (i5 >> 8);
             bArr2[i2 + 2] = (byte) i5;
@@ -271,67 +271,67 @@ public class a {
 
     /* renamed from: org.java_websocket.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0476a extends FilterOutputStream {
-        private int FA;
-        private int FB;
-        private boolean FC;
-        private byte[] FD;
-        private boolean FE;
-        private int FF;
-        private byte[] FG;
-        private boolean Fz;
+    public static class C0497a extends FilterOutputStream {
+        private boolean Dj;
+        private int Dk;
+        private int Dl;
+        private boolean Dm;
+        private byte[] Dn;
+        private boolean Do;
+        private int Dp;
+        private byte[] Dq;
         private byte[] buffer;
         private int position;
 
-        public C0476a(OutputStream outputStream, int i) {
+        public C0497a(OutputStream outputStream, int i) {
             super(outputStream);
-            this.FC = (i & 8) != 0;
-            this.Fz = (i & 1) != 0;
-            this.FA = this.Fz ? 3 : 4;
-            this.buffer = new byte[this.FA];
+            this.Dm = (i & 8) != 0;
+            this.Dj = (i & 1) != 0;
+            this.Dk = this.Dj ? 3 : 4;
+            this.buffer = new byte[this.Dk];
             this.position = 0;
-            this.FB = 0;
-            this.FE = false;
-            this.FD = new byte[4];
-            this.FF = i;
-            this.FG = a.ax(i);
+            this.Dl = 0;
+            this.Do = false;
+            this.Dn = new byte[4];
+            this.Dp = i;
+            this.Dq = a.aq(i);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(int i) throws IOException {
-            if (this.FE) {
+            if (this.Do) {
                 this.out.write(i);
-            } else if (this.Fz) {
+            } else if (this.Dj) {
                 byte[] bArr = this.buffer;
                 int i2 = this.position;
                 this.position = i2 + 1;
                 bArr[i2] = (byte) i;
-                if (this.position >= this.FA) {
-                    this.out.write(a.d(this.FD, this.buffer, this.FA, this.FF));
-                    this.FB += 4;
-                    if (this.FC && this.FB >= 76) {
+                if (this.position >= this.Dk) {
+                    this.out.write(a.d(this.Dn, this.buffer, this.Dk, this.Dp));
+                    this.Dl += 4;
+                    if (this.Dm && this.Dl >= 76) {
                         this.out.write(10);
-                        this.FB = 0;
+                        this.Dl = 0;
                     }
                     this.position = 0;
                 }
-            } else if (this.FG[i & 127] > -5) {
+            } else if (this.Dq[i & 127] > -5) {
                 byte[] bArr2 = this.buffer;
                 int i3 = this.position;
                 this.position = i3 + 1;
                 bArr2[i3] = (byte) i;
-                if (this.position >= this.FA) {
-                    this.out.write(this.FD, 0, a.c(this.buffer, 0, this.FD, 0, this.FF));
+                if (this.position >= this.Dk) {
+                    this.out.write(this.Dn, 0, a.c(this.buffer, 0, this.Dn, 0, this.Dp));
                     this.position = 0;
                 }
-            } else if (this.FG[i & 127] != -5) {
+            } else if (this.Dq[i & 127] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
             }
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(byte[] bArr, int i, int i2) throws IOException {
-            if (this.FE) {
+            if (this.Do) {
                 this.out.write(bArr, i, i2);
                 return;
             }
@@ -342,8 +342,8 @@ public class a {
 
         public void flushBase64() throws IOException {
             if (this.position > 0) {
-                if (this.Fz) {
-                    this.out.write(a.d(this.FD, this.buffer, this.position, this.FF));
+                if (this.Dj) {
+                    this.out.write(a.d(this.Dn, this.buffer, this.position, this.Dp));
                     this.position = 0;
                     return;
                 }

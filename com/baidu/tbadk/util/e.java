@@ -1,49 +1,49 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static LinkedList<Integer> KM;
+    private static LinkedList<Integer> Ix;
 
     public static int get() {
-        return ai(null);
+        return ap(null);
     }
 
-    public static int ai(List<Integer> list) {
-        if (KM == null) {
-            apP();
+    public static int ap(List<Integer> list) {
+        if (Ix == null) {
+            auT();
         }
-        Integer aj = aj(list);
-        return aj != null ? aj.intValue() : d.C0277d.cp_atp_a;
+        Integer aq = aq(list);
+        return aq != null ? aq.intValue() : R.color.cp_atp_a;
     }
 
-    private static void apP() {
-        KM = new LinkedList<>();
-        KM.offer(Integer.valueOf(d.C0277d.cp_atp_a));
-        KM.offer(Integer.valueOf(d.C0277d.cp_atp_b));
-        KM.offer(Integer.valueOf(d.C0277d.cp_atp_c));
-        KM.offer(Integer.valueOf(d.C0277d.cp_atp_d));
-        KM.offer(Integer.valueOf(d.C0277d.cp_atp_e));
+    private static void auT() {
+        Ix = new LinkedList<>();
+        Ix.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        Ix.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        Ix.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        Ix.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        Ix.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
-    private static Integer aj(List<Integer> list) {
-        Integer peek = KM.peek();
+    private static Integer aq(List<Integer> list) {
+        Integer peek = Ix.peek();
         if (list == null || list.size() == 0) {
-            KM.offer(KM.poll());
+            Ix.offer(Ix.poll());
             return peek;
         } else if (list.size() > 4) {
-            KM.offer(KM.poll());
+            Ix.offer(Ix.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= KM.size()) {
+                if (i >= Ix.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = KM.get(i);
+                Integer num = Ix.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -53,8 +53,8 @@ public class e {
                 }
                 i++;
             }
-            Integer remove = KM.remove(i);
-            KM.offer(remove);
+            Integer remove = Ix.remove(i);
+            Ix.offer(remove);
             return remove;
         }
     }

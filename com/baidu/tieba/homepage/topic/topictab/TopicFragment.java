@@ -27,71 +27,73 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes4.dex */
 public class TopicFragment extends BaseFragment implements h.c, ae, a {
-    private TopicListView fPA;
-    private TopicModel fPz;
+    private boolean fWR = false;
+    private TopicModel ggG;
+    private TopicListView ggH;
 
     public TopicFragment() {
     }
 
     public TopicFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.fPz = new TopicModel(pageContext);
-        this.fPA = new TopicListView(pageContext);
+        this.ggG = new TopicModel(pageContext);
+        this.ggH = new TopicListView(pageContext);
+        this.ggH.bnP();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fPz.setPresenter(this);
-        this.fPz.setUniqueId(getUniqueId());
-        this.fPA.setPresenter(this);
-        this.fPA.setListPullRefreshListener(this);
-        this.fPA.setPageUniqueId(getUniqueId());
+        this.ggG.setPresenter(this);
+        this.ggG.setUniqueId(getUniqueId());
+        this.ggH.setPresenter(this);
+        this.ggH.setListPullRefreshListener(this);
+        this.ggH.setPageUniqueId(getUniqueId());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.fPA.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.fPA.getParent()).removeView(this.fPA);
+        if (this.ggH.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.ggH.getParent()).removeView(this.ggH);
         }
-        return this.fPA;
+        if (this.fWR) {
+            this.ggH.bnP();
+            this.fWR = false;
+        }
+        return this.ggH;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
+            this.ggH.setViewForeground();
             TiebaStatic.log(new am("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.fPA.cE(false);
-        this.fPz.bnn();
+        this.ggH.cV(false);
+        this.ggG.buP();
     }
 
-    public void aCq() {
-        this.fPA.aCq();
-    }
-
-    @Override // com.baidu.tieba.frs.ae
-    public void aBr() {
-        this.fPA.reload();
+    public void aID() {
+        this.ggH.aID();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBs() {
+    public void aHI() {
+        this.ggH.reload();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBt() {
+    public void aHJ() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void setHeaderViewHeight(int i) {
-        this.fPA.setHeaderViewHeight(i);
+    public void aHK() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -103,13 +105,13 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aeH() {
+    public void ajG() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.fPA.onChangeSkinType();
+        this.ggH.onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -117,33 +119,34 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
-    public void dR(boolean z) {
-        this.fPz.bnn();
+    public void en(boolean z) {
+        this.ggG.buP();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
-        if (j.kY()) {
-            this.fPA.aBq();
-            this.fPA.cE(false);
-            this.fPz.bnn();
+        if (j.jS()) {
+            this.ggH.aHH();
+            this.ggH.cV(false);
+            this.ggG.buP();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void i(int i, List<m> list) {
-        this.fPA.hideLoadingView();
-        this.fPA.aBJ();
-        if (i != 0 || v.T(list)) {
-            this.fPA.iD(false);
+        this.ggH.hideLoadingView();
+        this.ggH.aHZ();
+        if (i != 0 || v.aa(list)) {
+            this.ggH.jk(false);
             return;
         }
-        this.fPA.aBq();
-        this.fPA.aOs();
-        this.fPA.setData(list);
+        this.ggH.aHH();
+        this.ggH.aUE();
+        this.ggH.setData(list);
+        this.ggH.aIF();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -157,7 +160,7 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a
     public String getCurrentPageKey() {
         return "a021";
     }
@@ -165,13 +168,14 @@ public class TopicFragment extends BaseFragment implements h.c, ae, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.fPA.destroy();
-        this.fPz.onDestroy();
+        this.ggH.destroy();
+        this.ggG.onDestroy();
+        this.fWR = true;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.fPA != null) {
-            this.fPA.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.ggH != null) {
+            this.ggH.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 }

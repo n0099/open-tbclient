@@ -1,321 +1,77 @@
 package com.baidu.swan.games.audio;
 
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.v8engine.JsFunction;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.net.MalformedURLException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class f extends EventTargetImpl implements a, b {
-    @V8JavascriptField
-    public boolean autoplay;
-    String azw;
-    private com.baidu.swan.games.e.b bad;
-    private AudioPlayer bae;
-    @V8JavascriptField
-    public int buffered;
-    @V8JavascriptField
-    public double currentTime;
-    @V8JavascriptField
-    public long duration;
-    @V8JavascriptField
-    public boolean loop;
-    @V8JavascriptField
-    public boolean obeyMuteSwitch;
-    @V8JavascriptField
-    public boolean paused;
-    @V8JavascriptField
-    public String src;
-    @V8JavascriptField
-    public int startTime;
-    @V8JavascriptField
-    public float volume;
-
-    public f(com.baidu.swan.games.e.b bVar) {
-        super(bVar);
-        this.src = "";
-        this.volume = 1.0f;
-        this.obeyMuteSwitch = true;
-        this.paused = true;
-        this.bad = bVar;
-        No();
+public class f {
+    public static d a(g gVar) {
+        d dVar = new d();
+        dVar.aAu = gVar.aAu;
+        dVar.aAD = gVar.autoplay;
+        dVar.mLoop = gVar.loop;
+        dVar.mUrl = gVar.src;
+        dVar.bed = gVar.startTime;
+        dVar.aAE = gVar.obeyMuteSwitch;
+        dVar.aAF = gVar.volume;
+        dVar.aAA = Qe().toString();
+        return dVar;
     }
 
-    private void init() {
-        if (this.bae != null) {
-            d dVar = new d(this, e.Nk());
-            dVar.a(this);
-            this.bae.a(dVar);
-        }
-    }
-
-    private void No() {
-        String valueOf = String.valueOf(c.Ne());
-        this.azw = valueOf;
-        this.bae = hX(valueOf);
-        init();
-    }
-
-    private void prepare() {
-        com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.1
-            @Override // java.lang.Runnable
-            public void run() {
-                f.this.bae.b(e.a(f.this));
-                if (f.this.autoplay) {
-                    f.this.bae.play();
-                }
+    public static JSONObject Qe() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("onCanplay", "canplay");
+            jSONObject.put("onPlay", "play");
+            jSONObject.put("onEnded", "ended");
+            jSONObject.put("onPause", "pause");
+            jSONObject.put("onSeeking", "seeking");
+            jSONObject.put("onSeeked", "seeked");
+            jSONObject.put("onStop", IntentConfig.STOP);
+            jSONObject.put("onError", "error");
+            jSONObject.put("onTimeUpdate", "timeupdate");
+            jSONObject.put("onBufferingUpdate", "buffered");
+            jSONObject.put("onWaiting", "waiting");
+        } catch (Exception e) {
+            if (com.baidu.swan.apps.b.DEBUG) {
+                e.printStackTrace();
             }
-        });
+        }
+        return jSONObject;
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    @JavascriptInterface
-    public void play() {
-        if (this.bae != null) {
-            com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    f.this.bae.play();
-                }
-            });
-        }
+    public static boolean ai(float f) {
+        return f <= 1.0f && f >= 0.0f;
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    @JavascriptInterface
-    public void pause() {
-        if (this.bae != null) {
-            com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    f.this.bae.pause();
-                }
-            });
-        }
+    public static String iI(String str) throws MalformedURLException {
+        return "/" + com.baidu.swan.apps.ae.b.LB() + "/" + String.valueOf(str.hashCode());
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    @JavascriptInterface
-    public void seek(final int i) {
-        if (this.bae != null) {
-            com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.4
-                @Override // java.lang.Runnable
-                public void run() {
-                    f.this.bae.seekTo(i);
-                }
-            });
+    public static String Qf() {
+        String Qg = Qg();
+        if (!Qh() || TextUtils.isEmpty(Qg)) {
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
+        return Qg;
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    @JavascriptInterface
-    public void stop() {
-        if (this.bae != null) {
-            com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.5
-                @Override // java.lang.Runnable
-                public void run() {
-                    f.this.bae.stop();
-                }
-            });
+    private static String Qg() {
+        String str = com.baidu.swan.games.f.g.getBasePath() + "/usr";
+        File file = new File(str);
+        if (!file.exists() && !file.mkdirs()) {
+            Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
+            return "";
         }
+        return str;
     }
 
-    @Override // com.baidu.swan.games.audio.a
-    @JavascriptInterface
-    public void destroy() {
-        if (this.bae != null) {
-            com.baidu.swan.games.audio.b.b.Nr().Ns().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.6
-                @Override // java.lang.Runnable
-                public void run() {
-                    f.this.bae.release();
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public int getDuration() {
-        if (this.bae != null) {
-            return this.bae.getDuration();
-        }
-        return 0;
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public int getCurrentTime() {
-        if (this.bae != null) {
-            return this.bae.getCurrentPosition();
-        }
-        return 0;
-    }
-
-    @Override // com.baidu.swan.games.audio.a
-    public boolean isPaused() {
-        if (this.bae != null) {
-            this.bae.isPaused();
-            return true;
-        }
-        return true;
-    }
-
-    public int Ng() {
-        if (this.bae != null) {
-            return this.bae.Ng();
-        }
-        return 0;
-    }
-
-    private static AudioPlayer hX(String str) {
-        return new AudioPlayer(str);
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("Aigame AudioContext", str);
-        }
-        char c = 65535;
-        switch (str.hashCode()) {
-            case -2129294769:
-                if (str.equals("startTime")) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case -810883302:
-                if (str.equals("volume")) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case 114148:
-                if (str.equals("src")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 3327652:
-                if (str.equals("loop")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case 1439562083:
-                if (str.equals("autoplay")) {
-                    c = 4;
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-            case 1:
-                this.bae.a(e.a(this));
-                return;
-            case 2:
-                if (e.ag(this.volume)) {
-                    this.bae.a(e.a(this));
-                    return;
-                } else {
-                    this.volume = this.bae.getVolume();
-                    return;
-                }
-            case 3:
-                prepare();
-                return;
-            case 4:
-                if (this.autoplay) {
-                    play();
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    @Override // com.baidu.swan.games.audio.b
-    public void f(String str, JSONObject jSONObject) {
-        char c = 65535;
-        switch (str.hashCode()) {
-            case -1522036513:
-                if (str.equals("buffered")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case 3443508:
-                if (str.equals("play")) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case 3540994:
-                if (str.equals(IntentConfig.STOP)) {
-                    c = 6;
-                    break;
-                }
-                break;
-            case 96651962:
-                if (str.equals("ended")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 96784904:
-                if (str.equals("error")) {
-                    c = 4;
-                    break;
-                }
-                break;
-            case 106440182:
-                if (str.equals("pause")) {
-                    c = 5;
-                    break;
-                }
-                break;
-            case 1762557398:
-                if (str.equals("timeupdate")) {
-                    c = 1;
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-                this.buffered = Ng();
-                return;
-            case 1:
-                if (jSONObject != null) {
-                    this.duration = getDuration() / 1000;
-                    this.currentTime = getCurrentTime() / 1000.0d;
-                    return;
-                }
-                return;
-            case 2:
-                this.paused = false;
-                return;
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-                this.paused = true;
-                return;
-            default:
-                return;
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
-    @JavascriptInterface
-    public void removeEventListener(String str) {
-        Map<String, List<JsFunction>> targetMap = getTargetMap();
-        if (targetMap != null && targetMap.containsKey(str)) {
-            targetMap.remove(str);
-        }
+    private static boolean Qh() {
+        return "mounted".equals(Environment.getExternalStorageState());
     }
 }

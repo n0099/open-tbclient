@@ -5,98 +5,126 @@ import android.content.SharedPreferences;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes3.dex */
 public class b {
-    private static SharedPreferences h(Context context, String str) {
-        return context.getSharedPreferences(str, 4);
-    }
-
-    public static void a(Context context, String str, String str2, String str3) {
-        h(context, str).edit().putString(str2, str3).commit();
+    public static String a(Context context, String str) {
+        return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID);
     }
 
     public static String a(Context context, String str, String str2) {
-        return h(context, str).getString(str2, null);
+        return k(context, str).getString(str2, "");
     }
 
-    public static void a(Context context, String str, String str2, int i) {
-        h(context, str).edit().putInt(str2, i).commit();
-    }
-
-    public static int b(Context context, String str, String str2) {
-        return h(context, str).getInt(str2, 0);
-    }
-
-    public static void a(Context context, String str, String str2, boolean z) {
-        h(context, str).edit().putBoolean(str2, z).commit();
-    }
-
-    public static boolean c(Context context, String str, String str2) {
-        return h(context, str).getBoolean(str2, true);
-    }
-
-    public static String a(Context context) {
-        return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, PushConstants.KEY_PUSH_ID);
-    }
-
-    public static void a(Context context, String str) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, PushConstants.KEY_PUSH_ID, str);
-    }
-
-    public static void a(Context context, int i) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
-    }
-
-    public static int b(Context context) {
-        return b(context, PushConstants.PUSH_ID_PREFERENCE_NAME, PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
-    }
-
-    public static String c(Context context) {
-        return h(context, "mz_push_preference").getString(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY, null);
-    }
-
-    public static void b(Context context, String str) {
-        a(context, "mz_push_preference", PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY, str);
+    public static void a(Context context, int i, String str) {
+        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
     }
 
     public static void a(Context context, String str, int i) {
         a(context, "mz_push_preference", str + ".notification_id", i);
     }
 
-    public static int c(Context context, String str) {
-        return h(context, "mz_push_preference").getInt(str + ".notification_id", 0);
+    public static void a(Context context, String str, String str2, int i) {
+        k(context, str).edit().putInt(str2, i).apply();
     }
 
-    public static void b(Context context, String str, int i) {
-        a(context, "mz_push_preference", str + ".notification_push_task_id", i);
+    public static void a(Context context, String str, String str2, String str3) {
+        k(context, str).edit().putString(str2, str3).apply();
     }
 
-    public static int d(Context context, String str) {
-        return h(context, "mz_push_preference").getInt(str + ".notification_push_task_id", 0);
+    public static void a(Context context, String str, String str2, boolean z) {
+        k(context, str).edit().putBoolean(str2, z).apply();
     }
 
     public static void a(Context context, String str, boolean z) {
         a(context, "mz_push_preference", "switch_notification_message_" + str, z);
     }
 
-    public static boolean e(Context context, String str) {
-        return c(context, "mz_push_preference", "switch_notification_message_" + str);
+    public static int b(Context context, String str) {
+        return b(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
+    }
+
+    public static int b(Context context, String str, String str2) {
+        return k(context, str).getInt(str2, 0);
+    }
+
+    public static void b(Context context, String str, int i) {
+        a(context, "mz_push_preference", str + ".notification_push_task_id", i);
+    }
+
+    public static void b(Context context, String str, String str2, int i) {
+        a(context, "mz_push_preference", str + "." + str2, i);
     }
 
     public static void b(Context context, String str, boolean z) {
         a(context, "mz_push_preference", "switch_through_message_" + str, z);
     }
 
-    public static boolean f(Context context, String str) {
-        return c(context, "mz_push_preference", "switch_through_message_" + str);
+    public static int c(Context context, String str) {
+        return k(context, "mz_push_preference").getInt(str + ".notification_id", 0);
     }
 
     public static void c(Context context, String str, int i) {
         a(context, "mz_push_preference", str + ".message_seq", i);
     }
 
-    public static int g(Context context, String str) {
+    public static boolean c(Context context, String str, String str2) {
+        return k(context, str).getBoolean(str2, true);
+    }
+
+    public static int d(Context context, String str) {
+        return k(context, "mz_push_preference").getInt(str + ".notification_push_task_id", 0);
+    }
+
+    public static boolean d(Context context, String str, String str2) {
+        return k(context, str).edit().remove(str2).commit();
+    }
+
+    public static boolean e(Context context, String str) {
+        return c(context, "mz_push_preference", "switch_notification_message_" + str);
+    }
+
+    public static boolean e(Context context, String str, String str2) {
+        return k(context, str).contains(str2);
+    }
+
+    public static void f(Context context, String str, String str2) {
+        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str2 + "_" + PushConstants.KEY_PUSH_ID, str);
+    }
+
+    public static boolean f(Context context, String str) {
+        return e(context, "mz_push_preference", "switch_notification_message_" + str);
+    }
+
+    public static String g(Context context, String str) {
+        return a(context, "mz_push_preference", "push_alias_" + str);
+    }
+
+    public static void g(Context context, String str, String str2) {
+        a(context, "mz_push_preference", "push_alias_" + str, str2);
+    }
+
+    public static int h(Context context, String str, String str2) {
+        return b(context, "mz_push_preference", str + "." + str2);
+    }
+
+    public static boolean h(Context context, String str) {
+        return c(context, "mz_push_preference", "switch_through_message_" + str);
+    }
+
+    public static boolean i(Context context, String str) {
+        return e(context, "mz_push_preference", "switch_through_message_" + str);
+    }
+
+    public static boolean i(Context context, String str, String str2) {
+        return d(context, "mz_push_preference", str + "." + str2);
+    }
+
+    public static int j(Context context, String str) {
         int b = b(context, "mz_push_preference", str + ".message_seq") + 1;
         c(context, str, b);
         com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b);
         return b;
+    }
+
+    private static SharedPreferences k(Context context, String str) {
+        return context.getSharedPreferences(str, 0);
     }
 }

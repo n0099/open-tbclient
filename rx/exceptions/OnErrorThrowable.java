@@ -41,16 +41,16 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable M = a.M(th);
-        return M instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) M).getValue()) : new OnErrorThrowable(th);
+        Throwable L = a.L(th);
+        return L instanceof OnNextValue ? new OnErrorThrowable(th, ((OnNextValue) L).getValue()) : new OnErrorThrowable(th);
     }
 
     public static Throwable addValueAsLastCause(Throwable th, Object obj) {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable M = a.M(th);
-        if (!(M instanceof OnNextValue) || ((OnNextValue) M).getValue() != obj) {
+        Throwable L = a.L(th);
+        if (!(L instanceof OnNextValue) || ((OnNextValue) L).getValue() != obj) {
             a.a(th, new OnNextValue(obj));
         }
         return th;
@@ -64,9 +64,9 @@ public final class OnErrorThrowable extends RuntimeException {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes2.dex */
         public static final class a {
-            static final Set<Class<?>> jUS = cDL();
+            static final Set<Class<?>> kni = cLr();
 
-            private static Set<Class<?>> cDL() {
+            private static Set<Class<?>> cLr() {
                 HashSet hashSet = new HashSet();
                 hashSet.add(Boolean.class);
                 hashSet.add(Character.class);
@@ -100,7 +100,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj == null) {
                 return "null";
             }
-            if (a.jUS.contains(obj.getClass())) {
+            if (a.kni.contains(obj.getClass())) {
                 return obj.toString();
             }
             if (obj instanceof String) {
@@ -109,8 +109,8 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String bz = f.cES().cET().bz(obj);
-            return bz != null ? bz : obj.getClass().getName() + ".class";
+            String bB = f.cMy().cMz().bB(obj);
+            return bB != null ? bB : obj.getClass().getName() + ".class";
         }
     }
 }

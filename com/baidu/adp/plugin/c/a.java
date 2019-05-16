@@ -14,27 +14,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a KR = null;
-    private HashMap<String, ArrayList<Message<?>>> KQ = null;
+    private static volatile a IC = null;
+    private HashMap<String, ArrayList<Message<?>>> IB = null;
 
-    public static a mY() {
-        if (KR == null) {
+    public static a lS() {
+        if (IC == null) {
             synchronized (a.class) {
-                if (KR == null) {
-                    KR = new a();
+                if (IC == null) {
+                    IC = new a();
                 }
             }
         }
-        return KR;
+        return IC;
     }
 
     public void init() {
-        this.KQ = new HashMap<>();
-        na();
-        mZ();
+        this.IB = new HashMap<>();
+        lU();
+        lT();
     }
 
-    private void mZ() {
+    private void lT() {
         MessageManager.getInstance().registerListener(2000997, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -43,36 +43,36 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.KP == 0 && a.this.KQ.size() > 0 && (arrayList = (ArrayList) a.this.KQ.get(aVar.KO)) != null && arrayList.size() > 0) {
+                    if (aVar.IA == 0 && a.this.IB.size() > 0 && (arrayList = (ArrayList) a.this.IB.get(aVar.Iz)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.KQ.remove(aVar.KO);
+                    a.this.IB.remove(aVar.Iz);
                 }
             }
         });
     }
 
-    private void na() {
+    private void lU() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String aJ = c.nL().aJ(message.getCmd());
-                if (TextUtils.isEmpty(aJ) || c.nL().ck(aJ)) {
+                String aC = c.mG().aC(message.getCmd());
+                if (TextUtils.isEmpty(aC) || c.mG().bU(aC)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aJ)) {
-                    a.this.a(aJ, message);
-                    return PluginCenter.getInstance().launch(aJ).Jy;
-                } else if (PluginCenter.getInstance().isLoaded(aJ)) {
+                if (!PluginCenter.getInstance().hasInstance(aC)) {
+                    a.this.a(aC, message);
+                    return PluginCenter.getInstance().launch(aC).Hi;
+                } else if (PluginCenter.getInstance().isLoaded(aC)) {
                     return false;
                 } else {
-                    a.this.a(aJ, message);
+                    a.this.a(aC, message);
                     return true;
                 }
             }
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.KQ.get(str);
+            ArrayList<Message<?>> arrayList = this.IB.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.KQ.put(str, arrayList);
+                this.IB.put(str, arrayList);
             }
             arrayList.add(message);
         }

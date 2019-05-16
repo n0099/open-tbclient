@@ -13,7 +13,7 @@ public interface a {
 
     void play();
 
-    void seek(int i);
+    void seek(float f);
 
     void stop();
 }

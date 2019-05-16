@@ -1,12 +1,12 @@
 package com.xiaomi.smack.util;
 
 import android.content.Context;
-import com.xiaomi.channel.commonutils.misc.h;
+import com.xiaomi.channel.commonutils.misc.k;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class h extends h.b {
+public final class h extends k.b {
     final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class h extends h.b {
         this.a = context;
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void b() {
         Object obj;
         ArrayList arrayList;

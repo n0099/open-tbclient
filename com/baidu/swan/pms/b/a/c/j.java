@@ -7,73 +7,71 @@ import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.GetRequest;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okio.BufferedSource;
 /* loaded from: classes2.dex */
 public class j<T> {
-    private e bmC;
-    private AtomicBoolean bmE;
-    private f bmN;
-    private T bmx;
+    private e bsD;
+    private AtomicBoolean bsE;
+    private f<T> bsM;
+    private T bsy;
 
     public j(f<T> fVar) {
-        this.bmN = fVar;
-        this.bmC = fVar.bmC;
-        this.bmx = fVar.bmx;
-        this.bmE = fVar.bmE;
+        this.bsM = fVar;
+        this.bsD = fVar.bsD;
+        this.bsy = fVar.bsy;
+        this.bsE = fVar.bsE;
     }
 
-    public void Sc() {
-        if (this.bmE.get()) {
+    public void VQ() {
+        if (this.bsE.get()) {
             if (com.baidu.swan.pms.e.DEBUG) {
-                Log.d("PMSTaskProcessor", "stopped:" + this.bmC.bmB.downloadUrl);
+                Log.d("PMSTaskProcessor", "stopped:" + this.bsD.bsC.downloadUrl);
             }
-            this.bmN.RX();
+            this.bsM.VL();
         } else if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.ONTIME_NOTIFICATION, "download : network error");
-        } else if (!this.bmN.Sa()) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(2204, "download : path not writable");
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+        } else if (!this.bsM.VO()) {
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(2204, "download : path not writable");
         } else {
-            GetRequest.GetRequestBuilder url = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.bmC.bmB.downloadUrl);
-            this.bmN.RV();
+            GetRequest.GetRequestBuilder url = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.bsD.bsC.downloadUrl);
+            this.bsM.VJ();
             Response response = null;
             try {
                 try {
                     response = url.build().executeSync();
                     int code = response.code();
-                    int d = d(response, code);
-                    if (this.bmC.bmA.errorNo != d) {
-                        this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+                    int e = e(response, code);
+                    if (this.bsD.bsB.errorNo != e) {
+                        this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
                         if (com.baidu.swan.pms.e.DEBUG) {
-                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + d + "!=" + this.bmC.bmA.errorNo + " HTTP-Code:" + code);
+                            Log.w("PMSTaskProcessor", "mismatch errorCode:" + e + "!=" + this.bsD.bsB.errorNo + " HTTP-Code:" + code);
                         }
                     }
                     if (response != null) {
                         try {
                             response.close();
-                        } catch (Exception e) {
+                        } catch (Exception e2) {
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("PMSTaskProcessor", "close http error." + e.toString());
+                                Log.d("PMSTaskProcessor", "close http error." + e2.toString());
                             }
                         }
                     }
-                } catch (Exception e2) {
+                } catch (Exception e3) {
                     if (com.baidu.swan.pms.e.DEBUG) {
-                        Log.e("PMSTaskProcessor", e2.toString());
-                        e2.printStackTrace();
+                        Log.e("PMSTaskProcessor", e3.toString());
+                        e3.printStackTrace();
                     }
-                    this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+                    this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
                     if (response != null) {
                         try {
                             response.close();
-                        } catch (Exception e3) {
+                        } catch (Exception e4) {
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("PMSTaskProcessor", "close http error." + e3.toString());
+                                Log.d("PMSTaskProcessor", "close http error." + e4.toString());
                             }
                         }
                     }
@@ -82,9 +80,9 @@ public class j<T> {
                 if (response != null) {
                     try {
                         response.close();
-                    } catch (Exception e4) {
+                    } catch (Exception e5) {
                         if (com.baidu.swan.pms.e.DEBUG) {
-                            Log.d("PMSTaskProcessor", "close http error." + e4.toString());
+                            Log.d("PMSTaskProcessor", "close http error." + e5.toString());
                         }
                     }
                 }
@@ -93,166 +91,106 @@ public class j<T> {
         }
     }
 
-    private int d(Response response, int i) {
+    private int e(Response response, int i) {
         if (com.baidu.swan.pms.e.DEBUG) {
-            Log.d("PMSTaskProcessor", "download " + this.bmC.bmB.downloadUrl + "response code:" + response.code());
+            Log.d("PMSTaskProcessor", "download " + this.bsD.bsC.downloadUrl + "response code:" + response.code());
         }
-        this.bmC.bmA = null;
+        this.bsD.bsB = null;
         if (i < 200 || i > 300) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(2104, "metadata : network error. http code=");
-            return this.bmC.bmA.errorNo;
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(2104, "metadata : network error. http code=");
+            return this.bsD.bsB.errorNo;
         }
         ResponseBody body = response.body();
         if (body != null) {
             long contentLength = body.contentLength();
             if (com.baidu.swan.pms.e.DEBUG) {
-                Log.d("PMSTaskProcessor", "currentSize:" + this.bmC.bmB.currentSize + ",totalBytes:" + this.bmC.bmB.size + ",Content-Length:" + contentLength);
+                Log.d("PMSTaskProcessor", "currentSize:" + this.bsD.bsC.currentSize + ",totalBytes:" + this.bsD.bsC.size + ",Content-Length:" + contentLength);
             }
-            if (contentLength > 0 && contentLength != this.bmC.bmB.size) {
-                this.bmC.bmA = new com.baidu.swan.pms.model.b(2104, com.baidu.swan.pms.d.c.o(",file length not match:server=", "" + this.bmC.bmB.size, "local=", "" + contentLength));
-                return this.bmC.bmA.errorNo;
-            } else if (!this.bmN.T(this.bmC.bmB.size)) {
-                this.bmC.bmA = new com.baidu.swan.pms.model.b(2205, "download : no space error");
-                return this.bmC.bmA.errorNo;
+            if (contentLength > 0 && contentLength != this.bsD.bsC.size) {
+                this.bsD.bsB = new com.baidu.swan.pms.model.a(2209, com.baidu.swan.pms.e.c.n(",file length not match:server=", "" + this.bsD.bsC.size, "local=", "" + contentLength));
+                return this.bsD.bsB.errorNo;
+            } else if (!this.bsM.af(this.bsD.bsC.size)) {
+                this.bsD.bsB = new com.baidu.swan.pms.model.a(2205, "download : no space error");
+                return this.bsD.bsB.errorNo;
             } else {
                 try {
                     if (a(body, contentLength)) {
-                        this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
-                        return this.bmC.bmA.errorNo;
+                        this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
+                        return this.bsD.bsB.errorNo;
                     }
                 } catch (IOException e) {
                     if (com.baidu.swan.pms.e.DEBUG) {
                         e.printStackTrace();
                     }
-                    this.bmC.bmA = new com.baidu.swan.pms.model.b(2206, "download : disk write error");
-                    return this.bmC.bmA.errorNo;
+                    this.bsD.bsB = new com.baidu.swan.pms.model.a(2206, "download : disk write error");
+                    return this.bsD.bsB.errorNo;
                 }
             }
         }
-        if (this.bmC.bmA == null) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.ONTIME_NOTIFICATION, "download : network error");
+        if (this.bsD.bsB == null) {
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
         }
-        return this.bmC.bmA.errorNo;
+        return this.bsD.bsB.errorNo;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [243=4] */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
     private boolean a(ResponseBody responseBody, long j) throws IOException {
-        FileOutputStream fileOutputStream;
-        InputStream inputStream = null;
-        boolean z = false;
+        BufferedSource bufferedSource = null;
+        c<T> cVar = this.bsM.bsF;
         try {
-            InputStream byteStream = responseBody.byteStream();
-            try {
-                fileOutputStream = new FileOutputStream(this.bmN.bmD, false);
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = null;
-                inputStream = byteStream;
+            T t = this.bsy;
+            bufferedSource = responseBody.source();
+            if (cVar.a(t, bufferedSource, this.bsM.axB, j)) {
+                this.bsD.bsC.currentSize = j;
+                this.bsM.VK();
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean ko = ko(this.bsD.bsC.filePath);
+                if (com.baidu.swan.pms.e.DEBUG) {
+                    Log.i("PMSTaskProcessor", "performDownload checkMD5Cost=" + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                if (ko) {
+                    this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
+                    return true;
+                }
             }
-            try {
-                if (a(byteStream, fileOutputStream, j) && jp(this.bmC.bmB.filePath)) {
-                    this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
-                    z = true;
-                    if (byteStream != null) {
-                        try {
-                            byteStream.close();
-                        } catch (Exception e) {
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e2) {
-                        }
-                    }
-                } else {
-                    if (byteStream != null) {
-                        try {
-                            byteStream.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = byteStream;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e6) {
-                    }
-                }
-                throw th;
+            if (bufferedSource != null && bufferedSource.isOpen()) {
+                bufferedSource.close();
             }
-        } catch (Throwable th3) {
-            th = th3;
-            fileOutputStream = null;
+            return false;
+        } finally {
+            if (bufferedSource != null && bufferedSource.isOpen()) {
+                bufferedSource.close();
+            }
         }
     }
 
-    public boolean a(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
-        byte[] bArr = new byte[262144];
-        int i = 0;
-        int length = bArr.length;
-        long j2 = 0;
-        while (!this.bmE.get() && i != -1) {
-            if (j > 0) {
-                if (j2 >= j) {
-                    break;
-                } else if (length + j2 > j) {
-                    length = (int) (j - j2);
-                }
-            }
-            i = inputStream.read(bArr, 0, length);
-            if (i > 0) {
-                outputStream.write(bArr, 0, i);
-                j2 += i;
-                this.bmC.bmB.currentSize = j2;
-                this.bmN.RW();
-            }
-        }
-        return j2 == j;
-    }
-
-    private boolean jo(String str) {
+    private boolean kn(String str) {
         File file = new File(str);
         if (!file.exists()) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(2208, String.format("download file not found:%s", com.baidu.swan.pms.d.c.o("local file save failed:", str)));
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.e.c.n("local file save failed:", str)));
             return false;
-        } else if (file.length() != this.bmC.bmB.size) {
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.DELAY_NOTIFICATION, String.format("download : package MD5 verify failed.", com.baidu.swan.pms.d.c.o(",file length not match:server=", "" + this.bmC.bmB.size, "local=", "" + file.length())));
+        } else if (file.length() != this.bsD.bsC.size) {
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, String.format("download : package MD5 verify failed.", com.baidu.swan.pms.e.c.n(",file length not match:server=", "" + this.bsD.bsC.size, "local=", "" + file.length())));
             return false;
         } else {
             return true;
         }
     }
 
-    private boolean jp(String str) {
-        if (jo(str)) {
-            String str2 = this.bmC.bmB.md5 != null ? this.bmC.bmB.md5 : null;
-            String c = str != null ? com.baidu.swan.pms.d.b.c(new File(str), true) : null;
-            if (str2 == null || c == null) {
-                this.bmC.bmA = new com.baidu.swan.pms.model.b(2208, String.format("download file not found:%s", com.baidu.swan.pms.d.c.o("server:", str2, ",local", c)));
+    private boolean ko(String str) {
+        new File(str);
+        if (kn(str)) {
+            String str2 = this.bsD.bsC.md5 != null ? this.bsD.bsC.md5 : null;
+            String b = str != null ? com.baidu.swan.pms.e.b.b(new File(str), true) : null;
+            if (str2 == null || b == null) {
+                this.bsD.bsB = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.e.c.n("server:", str2, ",local", b)));
                 return false;
             }
             String upperCase = str2.toUpperCase();
-            if (upperCase.equals(c)) {
+            if (upperCase.equals(b)) {
                 return true;
             }
-            this.bmC.bmA = new com.baidu.swan.pms.model.b(PushConstants.DELAY_NOTIFICATION, "download : package MD5 verify failed." + com.baidu.swan.pms.d.c.o("server:", upperCase, ",local", c));
+            this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.DELAY_NOTIFICATION, "download : package MD5 verify failed." + com.baidu.swan.pms.e.c.n("server:", upperCase, ",local", b));
             return false;
         }
         return false;

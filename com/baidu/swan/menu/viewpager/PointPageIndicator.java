@@ -10,85 +10,85 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class PointPageIndicator extends View {
-    protected Drawable bln;
-    protected Drawable blo;
-    protected Rect blp;
-    protected Rect blq;
-    private int blr;
-    private int bls;
+    protected Drawable brp;
+    protected Drawable brq;
+    protected Rect brr;
+    protected Rect brs;
+    private int brt;
+    private int bru;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.bln = null;
-        this.blo = null;
-        this.blp = new Rect();
-        this.blq = new Rect();
-        this.blr = 0;
+        this.brp = null;
+        this.brq = null;
+        this.brr = new Rect();
+        this.brs = new Rect();
+        this.brt = 0;
         this.mPosition = 0;
-        this.bls = 0;
+        this.bru = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bln = null;
-        this.blo = null;
-        this.blp = new Rect();
-        this.blq = new Rect();
-        this.blr = 0;
+        this.brp = null;
+        this.brq = null;
+        this.brr = new Rect();
+        this.brs = new Rect();
+        this.brt = 0;
         this.mPosition = 0;
-        this.bls = 0;
+        this.bru = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bln = null;
-        this.blo = null;
-        this.blp = new Rect();
-        this.blq = new Rect();
-        this.blr = 0;
+        this.brp = null;
+        this.brq = null;
+        this.brr = new Rect();
+        this.brs = new Rect();
+        this.brt = 0;
         this.mPosition = 0;
-        this.bls = 0;
+        this.bru = 0;
         init(context);
     }
 
     private void init(Context context) {
     }
 
-    public PointPageIndicator eZ(int i) {
-        if (this.bls != i) {
-            this.bls = i;
+    public PointPageIndicator fy(int i) {
+        if (this.bru != i) {
+            this.bru = i;
             invalidate();
         }
         return this;
     }
 
-    public PointPageIndicator fa(int i) {
-        this.blr = i;
+    public PointPageIndicator fz(int i) {
+        this.brt = i;
         return this;
     }
 
-    public PointPageIndicator fb(int i) {
+    public PointPageIndicator fA(int i) {
         this.mPosition = i;
         invalidate();
         return this;
     }
 
-    public PointPageIndicator N(int i, int i2) {
+    public PointPageIndicator L(int i, int i2) {
         Resources resources = getResources();
         return b(resources.getDrawable(i), resources.getDrawable(i2));
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.bln = drawable;
-        this.blo = drawable2;
+        this.brp = drawable;
+        this.brq = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.blp.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.brr.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.blq.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.brs.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.bls > 0) {
-            int i = this.bls;
-            int i2 = this.blr;
+        if (this.bru > 0) {
+            int i = this.bru;
+            int i2 = this.brt;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.blp;
-            Rect rect2 = this.blq;
-            Drawable drawable = this.bln;
-            Drawable drawable2 = this.blo;
+            Rect rect = this.brr;
+            Rect rect2 = this.brs;
+            Drawable drawable = this.brp;
+            Drawable drawable2 = this.brq;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

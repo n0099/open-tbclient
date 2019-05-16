@@ -1,101 +1,45 @@
 package com.xiaomi.push.service;
 
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.mapapi.UIMsg;
-import com.xiaomi.network.Host;
-import com.xiaomi.push.protobuf.a;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.net.Socket;
-import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import android.content.Context;
+import com.xiaomi.push.service.XMPushService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class ae {
-    private static final Pattern a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-    private static long b = 0;
-    private static ThreadPoolExecutor c = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
+public final class ae extends XMPushService.i {
+    final /* synthetic */ XMPushService b;
+    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
+    final /* synthetic */ boolean d;
+    final /* synthetic */ boolean e;
+    final /* synthetic */ boolean f;
+    final /* synthetic */ boolean g;
 
-    public static void a() {
-        a.C0465a d;
-        long currentTimeMillis = System.currentTimeMillis();
-        if ((c.getActiveCount() <= 0 || currentTimeMillis - b >= 1800000) && com.xiaomi.stats.f.a().c() && (d = at.a().d()) != null && d.m() > 0) {
-            b = currentTimeMillis;
-            a(d.l(), true);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar, boolean z, boolean z2, boolean z3, boolean z4) {
+        super(i);
+        this.b = xMPushService;
+        this.c = afVar;
+        this.d = z;
+        this.e = z2;
+        this.f = z3;
+        this.g = z4;
     }
 
-    public static void a(List<String> list, boolean z) {
-        c.execute(new af(list, z));
-    }
-
-    public static void b() {
-        String c2 = c("/proc/self/net/tcp");
-        if (!TextUtils.isEmpty(c2)) {
-            com.xiaomi.channel.commonutils.logger.b.a("dump tcp for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.a(c2);
-        }
-        String c3 = c("/proc/self/net/tcp6");
-        if (TextUtils.isEmpty(c3)) {
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.a("dump tcp6 for uid = " + Process.myUid());
-        com.xiaomi.channel.commonutils.logger.b.a(c3);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean b(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
         try {
-            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: begin to connect to " + str);
-            Socket socket = new Socket();
-            socket.connect(Host.b(str, 5222), UIMsg.m_AppUI.MSG_APP_GPS);
-            socket.setTcpNoDelay(true);
-            com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: connect to " + str + " in " + (System.currentTimeMillis() - currentTimeMillis));
-            socket.close();
-            return true;
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.d("ConnectivityTest: could not connect to:" + str + " exception: " + th.getClass().getSimpleName() + " description: " + th.getMessage());
-            return false;
-        }
-    }
-
-    private static String c(String str) {
-        BufferedReader bufferedReader;
-        Throwable th;
-        String str2 = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(new File(str)));
-        } catch (Exception e) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            bufferedReader = null;
-            th = th2;
-        }
-        try {
-            StringBuilder sb = new StringBuilder();
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    break;
-                }
-                sb.append("\n");
-                sb.append(readLine);
+            com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c, this.d, this.e, this.f);
+            if (this.g) {
+                a.m().a("permission_to_location", ba.b);
             }
-            str2 = sb.toString();
-            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
-            return str2;
-        } catch (Throwable th3) {
-            th = th3;
-            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
-            throw th;
+            af.a(this.b, a);
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.b.a(10, e);
         }
-        return str2;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "send wrong message ack for message.";
     }
 }

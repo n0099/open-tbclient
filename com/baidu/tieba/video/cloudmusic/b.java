@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes5.dex */
 public class b implements c.a {
-    private final CloudMusicModel iVp;
-    private final c.b iVq;
+    private final CloudMusicModel jom;
+    private final c.b jon;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.iVp = cloudMusicModel;
-        this.iVq = bVar;
+        this.jom = cloudMusicModel;
+        this.jon = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void ciY() {
-        this.iVq.qy(true);
-        this.iVp.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void crb() {
+        this.jon.rn(true);
+        this.jom.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
-            public void ax(CloudMusicData cloudMusicData) {
-                b.this.iVq.qy(false);
+            public void az(CloudMusicData cloudMusicData) {
+                b.this.jon.rn(false);
                 if (cloudMusicData != null) {
-                    b.this.iVq.qz(false);
+                    b.this.jon.ro(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.iVq.qz(true);
+                        b.this.jon.ro(true);
                         return;
                     } else {
-                        b.this.iVq.a(cloudMusicData);
+                        b.this.jon.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.iVq.qz(true);
+                b.this.jon.ro(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void beW() {
-        this.iVp.cancelLoadData();
+    public void bmo() {
+        this.jom.cancelLoadData();
     }
 }

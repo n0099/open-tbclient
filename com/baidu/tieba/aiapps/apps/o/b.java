@@ -1,130 +1,190 @@
 package com.baidu.tieba.aiapps.apps.o;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.aiapps.apps.p.c;
+import java.io.IOException;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b {
-    public static void putBoolean(String str, boolean z) {
-        if (ProcessUtils.isMainProcess()) {
-            a.azS().putBoolean(str, z);
-        } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.d(1, str, String.valueOf(z)));
-        }
+public class b extends z {
+    public b(j jVar) {
+        super(jVar, "/swan/navigateToProgram");
     }
 
-    public static boolean getBoolean(String str, boolean z) {
-        if (ProcessUtils.isMainProcess()) {
-            return a.azS().getBoolean(str, z);
+    @Override // com.baidu.swan.apps.scheme.actions.z
+    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (ap.equals(optParamsAsJo.optString("appKey"), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && ap.equals(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
+            c.at(context, unitedSchemeEntity.getParam("params"));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.d(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
+        if (DEBUG) {
+            Log.d("NavigateToSmartProgram", "paramsJson: " + optParamsAsJo);
+        }
+        if (optParamsAsJo == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        final String LB = com.baidu.swan.apps.ae.b.LB();
+        final String optString = optParamsAsJo.optString("appKey");
+        final String optString2 = optParamsAsJo.optString("path");
+        final String optString3 = optParamsAsJo.optString("from");
+        final String optString4 = optParamsAsJo.optString("extraData");
+        if (TextUtils.isEmpty(LB.trim()) || TextUtils.isEmpty(optString.trim())) {
+            com.baidu.swan.apps.console.c.i("NavigateToSmartProgram", "mAppId or appId is empty");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        if (DEBUG) {
+            Log.d("NavigateToSmartProgram", "mAppId: " + LB);
+            Log.d("NavigateToSmartProgram", "appId: " + optString);
+        }
+        final String optString5 = optParamsAsJo.optString("cb");
+        if (TextUtils.isEmpty(optString5)) {
+            com.baidu.swan.apps.console.c.i("NavigateToSmartProgram", "cb is empty");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("ma_id", LB);
+            jSONObject.put("navigate_to_ma_id", optString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        final boolean[] zArr = new boolean[1];
+        bVar.Lw().a(new Request.Builder().url("http://mbd.baidu.com/ma/game/rest/navigate_to_program").post(FormBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build(), new Callback() { // from class: com.baidu.tieba.aiapps.apps.o.b.1
+            @Override // okhttp3.Callback
+            public void onFailure(Call call, IOException iOException) {
+                callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+
+            @Override // okhttp3.Callback
+            public void onResponse(Call call, Response response) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(response.body().string());
+                    if (b.DEBUG) {
+                        Log.d("NavigateToSmartProgram", "response data:" + jSONObject2.toString());
+                    }
+                    String optString6 = jSONObject2.optString("errno");
+                    if (!optString6.equals("0")) {
+                        if (b.DEBUG) {
+                            Log.d("NavigateToSmartProgram", "Response.errno:" + optString6);
+                        }
+                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                        return;
+                    }
+                    String optString7 = jSONObject2.optString("data");
+                    if (optString7.equals("")) {
+                        if (b.DEBUG) {
+                            Log.d("NavigateToSmartProgram", "data is null");
+                        }
+                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                        return;
+                    }
+                    JSONObject jSONObject3 = new JSONObject(optString7);
+                    String string = jSONObject3.getString("is_swangame");
+                    if (string.equals("1")) {
+                        zArr[0] = true;
+                    } else if (string.equals("0")) {
+                        zArr[0] = false;
+                    }
+                    if (b.DEBUG) {
+                        Log.d("NavigateToSmartProgram", "is_swangame:" + string);
+                    }
+                    if (jSONObject3.optString("navigate_ok", "0").equals("0")) {
+                        if (b.DEBUG) {
+                            Log.d("NavigateToSmartProgram", "navigateOk is false");
+                        }
+                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                        return;
+                    }
+                    Uri a = b.this.a(zArr[0], optString, optString2, "", optString3, optString4, LB);
+                    if (a != null) {
+                        if (b.DEBUG) {
+                            Log.d("NavigateToSmartProgram", "uri:" + a.toString());
+                        }
+                        if (SchemeRouter.invokeScheme(context, a, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                            if (b.DEBUG) {
+                                Log.d("NavigateToSmartProgram", "success");
+                            }
+                            callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                            return;
+                        }
+                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                        if (b.DEBUG) {
+                            Log.d("NavigateToSmartProgram", SmsLoginView.StatEvent.LOGIN_FAILURE);
+                            return;
+                        }
+                        return;
+                    }
+                    callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                } catch (Exception e2) {
+                    if (b.DEBUG) {
+                        Log.d("NavigateToSmartProgram", e2.getStackTrace().toString());
+                    }
+                    callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                }
+            }
+        });
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class a extends com.baidu.swan.c.d {
-        private a() {
-            super("night_mode_prefs_name");
+    public Uri a(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        /* renamed from: com.baidu.tieba.aiapps.apps.o.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static final class C0271a {
-            private static final a cWE = new a();
+        if (TextUtils.isEmpty(str5)) {
+            str5 = "{}";
         }
-
-        public static a azS() {
-            return C0271a.cWE;
+        int i = z ? 1 : 0;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", str4);
+            jSONObject.put("ext", "{}");
+            jSONObject.put("extraData", str5);
+            jSONObject.put("srcAppId", str6);
+            jSONObject.put("srcAppPage", Md());
+        } catch (JSONException e) {
+            if (DEBUG) {
+                throw new RuntimeException(e);
+            }
+            e.printStackTrace();
         }
+        String jSONObject2 = jSONObject.toString();
+        if (TextUtils.isEmpty(jSONObject2)) {
+            jSONObject2 = "";
+        }
+        return com.baidu.swan.apps.v.d.a.a(i, str, str2, jSONObject2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class e {
-        final int aTb;
-        final String aTc;
-        final String aTd;
-
-        e(int i, String str, String str2) {
-            this.aTb = i;
-            this.aTc = str;
-            this.aTd = str2;
+    private String Md() {
+        e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi == null || vi.zL() == null) {
+            return "";
         }
-
-        static e I(Bundle bundle) {
-            if (bundle.isEmpty()) {
-                return null;
-            }
-            return new e(bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
-        }
-
-        static Bundle d(int i, String str, String str2) {
-            Bundle bundle = new Bundle();
-            bundle.putString("bundle_prefs_key", str);
-            bundle.putInt("bundle_data_type_key", i);
-            bundle.putString("bundle_data_value_key", str2);
-            return bundle;
-        }
-
-        public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aTb + ", mPrefName='" + this.aTc + "', mDataValue='" + this.aTd + "'}";
-        }
-    }
-
-    /* renamed from: com.baidu.tieba.aiapps.apps.o.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static abstract class AbstractC0272b extends ProviderDelegation {
-        protected abstract Bundle a(e eVar);
-
-        private AbstractC0272b() {
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public final Bundle execCall(Bundle bundle) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
-            }
-            return a(e.I(bundle));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class d extends AbstractC0272b {
-        private d() {
-            super();
-        }
-
-        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
-        protected Bundle a(e eVar) {
-            switch (eVar.aTb) {
-                case 1:
-                    a.azS().putBoolean(eVar.aTc, Boolean.parseBoolean(eVar.aTd));
-                    break;
-            }
-            return Bundle.EMPTY;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class c extends AbstractC0272b {
-        private c() {
-            super();
-        }
-
-        @Override // com.baidu.tieba.aiapps.apps.o.b.AbstractC0272b
-        protected Bundle a(e eVar) {
-            Bundle bundle = new Bundle();
-            switch (eVar.aTb) {
-                case 1:
-                    bundle.putBoolean("result_value", a.azS().getBoolean(eVar.aTc, Boolean.parseBoolean(eVar.aTd)));
-                    break;
-            }
-            return bundle;
-        }
+        return vi.zL().zy() + "?" + vi.zL().zz();
     }
 }

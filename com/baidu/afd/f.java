@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e f(JSONObject jSONObject, String str) throws ParseError {
+    public static e e(JSONObject jSONObject, String str) throws ParseError {
         if (jSONObject == null) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -23,10 +23,10 @@ public class f {
         if (optJSONArray == null || optJSONArray.length() == 0) {
             throw new ParseError(1, "res missing key ad");
         }
-        return g(optJSONArray.optJSONObject(0), str);
+        return f(optJSONArray.optJSONObject(0), str);
     }
 
-    private static e g(JSONObject jSONObject, String str) throws ParseError {
+    private static e f(JSONObject jSONObject, String str) throws ParseError {
         String str2;
         if (jSONObject == null) {
             throw new ParseError(1, "ad has no element");
@@ -77,7 +77,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.Q(str2, str);
+                return a.K(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -97,8 +97,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.To = z;
-                eVar.Tp = com.baidu.tieba.lego.card.b.xU(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.QZ = z;
+                eVar.Ra = com.baidu.tieba.lego.card.b.zk(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

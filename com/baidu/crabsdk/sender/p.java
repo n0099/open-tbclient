@@ -7,11 +7,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class p implements Runnable {
-    final /* synthetic */ Context acE;
+    final /* synthetic */ Context aas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(Context context) {
-        this.acE = context;
+        this.aas = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b6 A[Catch: Exception -> 0x00ba, TRY_LEAVE, TryCatch #4 {Exception -> 0x00ba, blocks: (B:34:0x00b1, B:36:0x00b6), top: B:53:0x00b1, outer: #7 }] */
@@ -28,8 +28,8 @@ public final class p implements Runnable {
         DataOutputStream dataOutputStream2 = null;
         try {
             try {
-                String sb = g.sb();
-                com.baidu.crabsdk.c.a.v("sync json is " + sb);
+                String qW = g.qW();
+                com.baidu.crabsdk.c.a.v("sync json is " + qW);
                 httpURLConnection = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection.setRequestMethod("POST");
@@ -42,14 +42,14 @@ public final class p implements Runnable {
                     httpURLConnection.setReadTimeout(3000);
                     dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     try {
-                        dataOutputStream.writeBytes(sb);
+                        dataOutputStream.writeBytes(qW);
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() == 200) {
                             com.baidu.crabsdk.b.m.clear();
-                            com.baidu.crabsdk.c.a.cv("#### ^@^ sync ok!");
+                            com.baidu.crabsdk.c.a.cf("#### ^@^ sync ok!");
                         } else {
-                            com.baidu.crabsdk.c.a.cv("#### T^T sync failed!");
+                            com.baidu.crabsdk.c.a.cf("#### T^T sync failed!");
                         }
                         httpURLConnection.disconnect();
                         try {
@@ -63,7 +63,7 @@ public final class p implements Runnable {
                     } catch (Exception e2) {
                         dataOutputStream2 = dataOutputStream;
                         try {
-                            com.baidu.crabsdk.c.a.cv("sync connect to server error!");
+                            com.baidu.crabsdk.c.a.cf("sync connect to server error!");
                             if (dataOutputStream2 != null) {
                                 try {
                                     dataOutputStream2.close();

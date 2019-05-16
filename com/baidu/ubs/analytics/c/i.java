@@ -101,9 +101,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String csD = csD();
-                if (csD != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(csD);
+                String cAA = cAA();
+                if (cAA != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(cAA);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -119,7 +119,7 @@ public final class i {
         }
     }
 
-    private static String csD() {
+    private static String cAA() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -213,26 +213,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.cso().getContext());
+            aw(com.baidu.ubs.analytics.d.cAl().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.cso().getContext());
+            aw(com.baidu.ubs.analytics.d.cAl().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.cso().getContext());
+            aw(com.baidu.ubs.analytics.d.cAl().getContext());
         }
         return B;
     }
 
-    private static void p(Context context) {
+    private static void aw(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

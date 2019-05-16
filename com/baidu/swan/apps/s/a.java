@@ -8,16 +8,16 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
         super(jVar, "/swan/chooseInvoiceTitle");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar) {
         c.i("chooseInvoiceTitle", "发票调起");
         if (bVar == null) {
@@ -44,9 +44,9 @@ public class a extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.IZ().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
+                bVar.Lu().a((Activity) context, "mapp_choose_invoice", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.s.a.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.c.a
+                    @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
                     public void D(Boolean bool) {
                         if (bool.booleanValue()) {
@@ -66,9 +66,9 @@ public class a extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, com.baidu.swan.apps.ae.b bVar, final String str) {
-        com.baidu.swan.apps.u.a.CD().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
+        com.baidu.swan.apps.u.a.DI().a(context, bVar.id, bVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.s.a.2
             @Override // com.baidu.swan.apps.s.b
-            public void w(JSONObject jSONObject) {
+            public void r(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "选择成功");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }

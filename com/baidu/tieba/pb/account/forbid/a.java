@@ -6,14 +6,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class a {
-    private static final String hif = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String hzx = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -23,58 +22,58 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0351a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0369a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0351a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String HW;
-        private String cbd;
-        private String cbh;
-        private String hig;
-        private WeakReference<b> hih;
+    private static class C0369a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String FG;
+        private String cjb;
+        private String cjf;
+        private String hzy;
+        private WeakReference<b> hzz;
         private String mForumId;
         private String mForumName;
         private String mPostId;
         private String mThreadId;
         private String mUserName;
 
-        public C0351a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0369a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.hig = str6;
-            this.cbh = str8;
-            this.cbd = str9;
-            this.HW = str7;
+            this.hzy = str6;
+            this.cjf = str8;
+            this.cjb = str9;
+            this.FG = str7;
             this.mPostId = str5;
-            this.hih = new WeakReference<>(bVar);
+            this.hzz = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: A */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.hif);
-            xVar.x(Config.TRACE_VISIT_RECENT_DAY, this.hig);
-            xVar.x("un", this.mUserName);
-            xVar.x(ImageViewerConfig.FORUM_ID, this.mForumId);
-            xVar.x("word", this.mForumName);
-            xVar.x("z", this.mThreadId);
-            xVar.x("reason", this.HW);
-            xVar.x("ntn", "banid");
-            xVar.x("post_id", this.mPostId);
-            xVar.x("nick_name", this.cbh);
-            xVar.x(IntentConfig.PORTRAIT, this.cbd);
-            xVar.acE().adC().mIsNeedTbs = true;
-            String acg = xVar.acg();
-            if (xVar.acE().adD().isRequestSuccess()) {
+            x xVar = new x(a.hzx);
+            xVar.o(Config.TRACE_VISIT_RECENT_DAY, this.hzy);
+            xVar.o("un", this.mUserName);
+            xVar.o("fid", this.mForumId);
+            xVar.o("word", this.mForumName);
+            xVar.o("z", this.mThreadId);
+            xVar.o("reason", this.FG);
+            xVar.o("ntn", "banid");
+            xVar.o("post_id", this.mPostId);
+            xVar.o("nick_name", this.cjf);
+            xVar.o(IntentConfig.PORTRAIT, this.cjb);
+            xVar.ahC().aiB().mIsNeedTbs = true;
+            String ahe = xVar.ahe();
+            if (xVar.ahC().aiC().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(acg, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(ahe, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -83,7 +82,7 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = xVar.acI();
+            forbidResultData2.error_code = xVar.ahG();
             forbidResultData2.error_msg = xVar.getErrorString();
             return forbidResultData2;
         }
@@ -94,7 +93,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.hih.get();
+            b bVar = this.hzz.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ap.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

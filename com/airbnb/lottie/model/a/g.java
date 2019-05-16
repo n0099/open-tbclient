@@ -16,8 +16,8 @@ public class g extends o<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> dF() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pN) : new com.airbnb.lottie.a.b.k(this.pz);
+    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> cz() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nm) : new com.airbnb.lottie.a.b.k(this.mW);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,12 +25,12 @@ public class g extends o<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> {
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g j(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a dZ = n.a(jSONObject, 1.0f, eVar, k.a.qx).dZ();
-            return new g(dZ.pz, (com.airbnb.lottie.model.k) dZ.pN);
+            n.a cT = n.a(jSONObject, 1.0f, eVar, k.a.nW).cT();
+            return new g(cT.mW, (com.airbnb.lottie.model.k) cT.nm);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static g dN() {
+        public static g cH() {
             return new g();
         }
     }

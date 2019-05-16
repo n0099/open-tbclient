@@ -10,31 +10,31 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.b.b;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 /* loaded from: classes2.dex */
-public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.extcore.f.a.a> {
+public class a extends b<com.baidu.swan.apps.extcore.d.a.a, com.baidu.swan.apps.extcore.e.a.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a avu;
+    private static volatile a avN;
 
-    public static a Bh() {
-        if (avu == null) {
+    public static a Ck() {
+        if (avN == null) {
             synchronized (a.class) {
-                if (avu == null) {
-                    avu = new a();
+                if (avN == null) {
+                    avN = new a();
                 }
             }
         }
-        return avu;
+        return avN;
     }
 
     private a() {
-        super(new com.baidu.swan.apps.extcore.e.a.a(), new com.baidu.swan.apps.extcore.f.a.a());
+        super(new com.baidu.swan.apps.extcore.d.a.a(), new com.baidu.swan.apps.extcore.e.a.a());
     }
 
     @Nullable
-    public ExtensionCore As() {
+    public ExtensionCore BB() {
         if (ProcessUtils.isMainProcess()) {
-            return Bl();
+            return Co();
         }
-        Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0140a.class, null).mResult;
+        Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0145a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
         ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
         if (DEBUG) {
@@ -46,21 +46,21 @@ public class a extends b<com.baidu.swan.apps.extcore.e.a.a, com.baidu.swan.apps.
 
     /* renamed from: com.baidu.swan.apps.extcore.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0140a extends ProviderDelegation {
+    public static class C0145a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", Bi());
+            bundle2.putParcelable("aiapps_extension_core", Cl());
             return bundle2;
         }
 
-        private ExtensionCore Bi() {
-            ExtensionCore Bl = a.Bh().Bl();
-            if (!Bl.isAvailable()) {
-                a.Bh().Bk();
-                return a.Bh().Bl();
+        private ExtensionCore Cl() {
+            ExtensionCore Co = a.Ck().Co();
+            if (!Co.isAvailable()) {
+                a.Ck().Cn();
+                return a.Ck().Co();
             }
-            return Bl;
+            return Co;
         }
     }
 }

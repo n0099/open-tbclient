@@ -64,6 +64,7 @@ public class EventTargetImpl implements EventTarget {
                             jsFunction.call(EventTargetImpl.this, jsObject, false);
                         }
                     }
+                    jsObject.release();
                 } finally {
                     EventTargetImpl.this.mLock.unlock();
                 }
@@ -124,7 +125,7 @@ public class EventTargetImpl implements EventTarget {
         removeEventListener(str, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [239=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [240=4] */
     @Override // com.baidu.searchbox.v8engine.event.EventTarget
     @JavascriptInterface
     public void removeEventListener(String str, JsFunction jsFunction) {

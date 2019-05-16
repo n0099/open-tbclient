@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class BesAdViewContainer extends RelativeLayout {
-    private a jhl;
+    private a jAf;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,17 +22,17 @@ public class BesAdViewContainer extends RelativeLayout {
     }
 
     public a getListener() {
-        return this.jhl;
+        return this.jAf;
     }
 
     public void setListener(a aVar) {
-        this.jhl = aVar;
+        this.jAf = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1 && this.jhl != null) {
-            this.jhl.a(this);
+        if (motionEvent.getAction() == 1 && this.jAf != null) {
+            this.jAf.a(this);
         }
         return super.dispatchTouchEvent(motionEvent);
     }

@@ -6,8 +6,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
-    private boolean cCU;
-    private boolean cCV;
+    private boolean cLc;
+    private boolean cLd;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -18,8 +18,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.cCU = false;
-        this.cCV = true;
+        this.cLc = false;
+        this.cLd = true;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -27,8 +27,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.cCU = false;
-        this.cCV = true;
+        this.cLc = false;
+        this.cLd = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -48,7 +48,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.cCU = true;
+            this.cLc = true;
         }
     }
 
@@ -60,7 +60,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.mHeight;
     }
 
-    public String asZ() {
+    public String aye() {
         return this.cdn_src;
     }
 
@@ -68,7 +68,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.link;
     }
 
-    public boolean asQ() {
-        return this.cCV;
+    public boolean axV() {
+        return this.cLd;
     }
 }

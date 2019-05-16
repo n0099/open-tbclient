@@ -8,7 +8,7 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f Qb() {
+    public static f TN() {
         return new f();
     }
 
@@ -18,17 +18,17 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.e> {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.z(a(eVar)).Qg();
+        com.baidu.swan.impl.map.c.a.A(a(eVar)).TS();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }
 
     private Bundle a(com.baidu.swan.apps.x.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.aBH);
-        bundle.putDouble("latitude", eVar.ayM.latitude);
-        bundle.putDouble("longitude", eVar.ayM.longitude);
-        bundle.putDouble("scale", eVar.ayN);
+        bundle.putString("slaveId", eVar.aDm);
+        bundle.putDouble("latitude", eVar.azK.latitude);
+        bundle.putDouble("longitude", eVar.azK.longitude);
+        bundle.putDouble("scale", eVar.azL);
         bundle.putString("name", eVar.name);
         bundle.putString("address", eVar.address);
         return bundle;

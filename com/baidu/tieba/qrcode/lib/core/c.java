@@ -6,24 +6,24 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes5.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a iec;
+    private a iwL;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
 
     /* loaded from: classes5.dex */
     public interface a {
-        String a(byte[] bArr, int i, int i2, boolean z);
+        String b(byte[] bArr, int i, int i2, boolean z);
     }
 
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.iec = aVar;
+        this.iwL = aVar;
         this.orientation = i;
     }
 
-    public c bVT() {
+    public c cdW() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -32,7 +32,7 @@ public class c extends AsyncTask<Void, Void, String> {
         return this;
     }
 
-    public void hZ() {
+    public void gT() {
         if (getStatus() != AsyncTask.Status.FINISHED) {
             cancel(true);
         }
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.iec = null;
+        this.iwL = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.iec != null) {
-                    return this.iec.a(bArr, i2, i, false);
+                if (this.iwL != null) {
+                    return this.iwL.b(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.iec.a(bArr, i2, i, true);
+                    return this.iwL.b(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

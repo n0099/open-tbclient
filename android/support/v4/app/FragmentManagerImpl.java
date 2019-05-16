@@ -40,7 +40,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.ScaleAnimation;
-import com.baidu.mobstat.Config;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
@@ -375,7 +375,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             printWriter.print(str);
             printWriter.print("Active Fragments in ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
-            printWriter.println(Config.TRACE_TODAY_VISIT_SPLIT);
+            printWriter.println(":");
             for (int i = 0; i < size5; i++) {
                 Fragment valueAt = this.mActive.valueAt(i);
                 printWriter.print(str);
@@ -2676,7 +2676,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         Fragment fragment;
         if ("fragment".equals(str)) {
-            String attributeValue = attributeSet.getAttributeValue(null, "class");
+            String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, FragmentTag.Fragment);
             String string = attributeValue == null ? obtainStyledAttributes.getString(0) : attributeValue;
             int resourceId = obtainStyledAttributes.getResourceId(1, -1);

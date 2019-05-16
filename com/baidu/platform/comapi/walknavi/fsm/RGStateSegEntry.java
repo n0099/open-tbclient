@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 public class RGStateSegEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().Q().c(R.drawable.aiapps_keyboard_number_item_selector);
+        b.a().Q().c(R.drawable.aiapps_follow_vip_golden);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState

@@ -3,31 +3,31 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
+    public static byte vf = 4;
+    private static byte vg = Byte.MIN_VALUE;
+    private static byte vh = 64;
+    private static byte vi = 8;
+    private static byte vj = 4;
     private int command;
-    private int xE;
-    public static byte xw = 4;
-    private static byte xx = Byte.MIN_VALUE;
-    private static byte xy = 64;
-    private static byte xz = 8;
-    private static byte xA = 4;
-    private boolean xB = false;
-    private boolean xC = false;
-    private boolean xD = false;
-    private boolean xF = false;
+    private int vn;
+    private boolean vk = false;
+    private boolean vl = false;
+    private boolean vm = false;
+    private boolean vo = false;
 
-    public static int gV() {
+    public static int fO() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + gV());
-        byte b = z ? (byte) (xx | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + fO());
+        byte b = z ? (byte) (vg | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | xy);
+            b = (byte) (b | vh);
         }
-        byte b2 = (byte) (b | xz);
+        byte b2 = (byte) (b | vi);
         if (z3) {
-            b2 = (byte) (b2 | xA);
+            b2 = (byte) (b2 | vj);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -39,48 +39,48 @@ public class a {
         return allocate.array();
     }
 
-    public static a n(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, gV());
+    public static a f(byte[] bArr) {
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fO());
         a aVar = new a();
         byte b = wrap.get();
-        if ((xx & b) != 0) {
-            aVar.xB = true;
+        if ((vg & b) != 0) {
+            aVar.vk = true;
         }
-        if ((xy & b) != 0) {
-            aVar.xC = true;
+        if ((vh & b) != 0) {
+            aVar.vl = true;
         }
-        if ((xz & b) != 0) {
-            aVar.xD = true;
+        if ((vi & b) != 0) {
+            aVar.vm = true;
         }
-        if ((b & xA) != 0) {
-            aVar.xF = true;
+        if ((b & vj) != 0) {
+            aVar.vo = true;
         }
         aVar.command = wrap.getInt();
-        aVar.xE = wrap.getInt();
+        aVar.vn = wrap.getInt();
         return aVar;
     }
 
-    public boolean gW() {
-        return this.xC;
+    public boolean fP() {
+        return this.vl;
     }
 
     public int getCommand() {
         return this.command;
     }
 
-    public boolean gX() {
-        return this.xB;
+    public boolean fQ() {
+        return this.vk;
     }
 
-    public int gY() {
-        return this.xE;
+    public int fR() {
+        return this.vn;
     }
 
-    public boolean gZ() {
-        return this.xD;
+    public boolean fS() {
+        return this.vm;
     }
 
-    public boolean ha() {
-        return this.xF;
+    public boolean fT() {
+        return this.vo;
     }
 }

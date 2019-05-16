@@ -7,32 +7,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private SparseArray<List<b>> Zv = new SparseArray<>();
+    private SparseArray<List<b>> Xn = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface b {
-        boolean a(C0039a c0039a);
+        boolean a(C0038a c0038a);
     }
 
     public void c(int i, b bVar) {
-        if (this.Zv == null) {
-            this.Zv = new SparseArray<>();
+        if (this.Xn == null) {
+            this.Xn = new SparseArray<>();
         }
-        List<b> list = this.Zv.get(i);
+        List<b> list = this.Xn.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.Zv.put(i, list);
+            this.Xn.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.Zv.remove(i);
+            this.Xn.remove(i);
             return;
         }
-        List<b> list = this.Zv.get(i);
-        if (!v.T(list)) {
+        List<b> list = this.Xn.get(i);
+        if (!v.aa(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
                 if (it.next() == bVar) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0039a c0039a) {
-        List<b> list = this.Zv.get(c0039a.Zw);
-        if (v.T(list)) {
+    public boolean b(C0038a c0038a) {
+        List<b> list = this.Xn.get(c0038a.Xo);
+        if (v.aa(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0039a)) {
+            if (bVar != null && bVar.a(c0038a)) {
                 return true;
             }
         }
@@ -57,29 +57,29 @@ public class a {
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0039a {
-        private int Zw;
-        private Object Zx;
+    public static class C0038a {
+        private int Xo;
+        private Object Xp;
 
-        public C0039a(int i, Object obj) {
-            this.Zw = i;
-            this.Zx = obj;
+        public C0038a(int i, Object obj) {
+            this.Xo = i;
+            this.Xp = obj;
         }
 
-        public C0039a(int i) {
-            this.Zw = i;
+        public C0038a(int i) {
+            this.Xo = i;
         }
 
         public int getActionType() {
-            return this.Zw;
+            return this.Xo;
         }
 
         public void setExtraData(Object obj) {
-            this.Zx = obj;
+            this.Xp = obj;
         }
 
-        public Object rD() {
-            return this.Zx;
+        public Object qy() {
+            return this.Xp;
         }
     }
 }

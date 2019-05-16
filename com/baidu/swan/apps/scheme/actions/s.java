@@ -8,12 +8,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class s extends y {
+public class s extends z {
     public s(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/performancePanel");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
@@ -38,7 +38,7 @@ public class s extends y {
                 if (DEBUG) {
                     Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                 }
-                com.baidu.swan.apps.performance.c.d.FX().d(optString, optString2, optLong);
+                com.baidu.swan.apps.performance.c.d.If().e(optString, optString2, optLong);
             }
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

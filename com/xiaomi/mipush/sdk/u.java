@@ -1,341 +1,186 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.http.Headers;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
+import android.telephony.NeighboringCellInfo;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.xiaomi.push.service.am;
-import com.xiaomi.push.service.ao;
-import com.xiaomi.xmpush.thrift.ae;
-import com.xiaomi.xmpush.thrift.af;
-import com.xiaomi.xmpush.thrift.aq;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.xiaomi.channel.commonutils.misc.h;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class u {
-    private static u b;
-    private static final ArrayList<a> e = new ArrayList<>();
-    private boolean a;
+public class u extends h.a {
+    private final int a = -1;
+    private final int b = 3600;
     private Context c;
-    private Handler f;
-    private Intent g = null;
-    private Integer h = null;
-    private String d = null;
+    private int d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public static class a<T extends org.apache.thrift.a<T, ?>> {
-        T a;
-        com.xiaomi.xmpush.thrift.a b;
-        boolean c;
+    public u(Context context, int i) {
+        this.c = context;
+        this.d = i;
+    }
 
-        a() {
+    private static Location a(Location location, Location location2) {
+        return location == null ? location2 : (location2 == null || location.getTime() > location2.getTime()) ? location : location2;
+    }
+
+    public static void a(Context context, boolean z) {
+        com.xiaomi.xmpush.thrift.p b = b(context);
+        byte[] a = com.xiaomi.xmpush.thrift.at.a(b);
+        com.xiaomi.xmpush.thrift.ai aiVar = new com.xiaomi.xmpush.thrift.ai(LivenessStat.TYPE_STRING_DEFAULT, false);
+        aiVar.c(com.xiaomi.xmpush.thrift.r.GeoUpdateLoc.aa);
+        aiVar.a(a);
+        aiVar.a(new HashMap());
+        aiVar.j().put(Constants.EXTRA_KEY_INITIAL_WIFI_UPLOAD, String.valueOf(z));
+        boolean b2 = com.xiaomi.push.service.j.b(context);
+        if (b2) {
+            aiVar.j().put(Constants.EXTRA_KEY_XMSF_GEO_IS_WORK, String.valueOf(b2));
         }
+        com.xiaomi.channel.commonutils.logger.b.c("reportLocInfo locInfo timestamp:" + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.c() != null ? b.c() : "null") + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.b != null ? b.b.toString() : null) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(b.a != null ? b.a.toString() : null));
+        az.a(context).a((az) aiVar, com.xiaomi.xmpush.thrift.a.Notification, true, (com.xiaomi.xmpush.thrift.u) null);
+        g(context);
     }
 
-    private u(Context context) {
-        this.a = false;
-        this.f = null;
-        this.c = context.getApplicationContext();
-        this.a = h();
-        this.f = new v(this, Looper.getMainLooper());
+    private boolean a(long j) {
+        return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.c.getSharedPreferences("mipush_extra", 4).getLong("last_upload_lbs_data_timestamp", -1L))) > ((float) j) * 0.9f;
     }
 
-    public static u a(Context context) {
-        if (b == null) {
-            b = new u(context);
+    protected static boolean a(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        String packageName = context.getPackageName();
+        return (packageManager.checkPermission("android.permission.ACCESS_COARSE_LOCATION", packageName) == 0) || (packageManager.checkPermission("android.permission.ACCESS_FINE_LOCATION", packageName) == 0);
+    }
+
+    private static com.xiaomi.xmpush.thrift.p b(Context context) {
+        com.xiaomi.xmpush.thrift.p pVar = new com.xiaomi.xmpush.thrift.p();
+        if (!com.xiaomi.channel.commonutils.android.f.g()) {
+            pVar.a(c(context));
+            pVar.b(d(context));
+            pVar.a(e(context));
         }
-        return b;
+        return pVar;
     }
 
-    private void a(Intent intent) {
+    private boolean b() {
+        if (com.xiaomi.channel.commonutils.network.d.e(this.c)) {
+            return true;
+        }
+        return com.xiaomi.channel.commonutils.network.d.f(this.c) && a((long) Math.max(60, com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.UploadNOWIFIGeoLocFrequency.a(), 3600)));
+    }
+
+    private static List<com.xiaomi.xmpush.thrift.y> c(Context context) {
+        v vVar = new v();
         try {
-            this.c.startService(intent);
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str, boolean z) {
-        ae aeVar;
-        if (com.xiaomi.mipush.sdk.a.a(this.c).b() && com.xiaomi.channel.commonutils.network.d.d(this.c)) {
-            ae aeVar2 = new ae();
-            Intent i = i();
-            if (TextUtils.isEmpty(str)) {
-                str = MiPushClient.generatePacketID();
-                aeVar2.a(str);
-                aeVar = new ae(str, true);
-                synchronized (p.class) {
-                    p.a(this.c).a(str);
-                }
-            } else {
-                aeVar2.a(str);
-                aeVar = new ae(str, true);
+            List<ScanResult> scanResults = ((WifiManager) context.getSystemService("wifi")).getScanResults();
+            if (com.xiaomi.channel.commonutils.misc.c.a(scanResults)) {
+                return null;
             }
-            if (z) {
-                aeVar2.c(com.xiaomi.xmpush.thrift.o.DisablePushMessage.N);
-                aeVar.c(com.xiaomi.xmpush.thrift.o.DisablePushMessage.N);
-                i.setAction("com.xiaomi.mipush.DISABLE_PUSH_MESSAGE");
-            } else {
-                aeVar2.c(com.xiaomi.xmpush.thrift.o.EnablePushMessage.N);
-                aeVar.c(com.xiaomi.xmpush.thrift.o.EnablePushMessage.N);
-                i.setAction("com.xiaomi.mipush.ENABLE_PUSH_MESSAGE");
-            }
-            aeVar2.b(com.xiaomi.mipush.sdk.a.a(this.c).c());
-            aeVar2.d(this.c.getPackageName());
-            a(aeVar2, com.xiaomi.xmpush.thrift.a.Notification, false, null);
-            aeVar.b(com.xiaomi.mipush.sdk.a.a(this.c).c());
-            aeVar.d(this.c.getPackageName());
-            byte[] a2 = aq.a(q.a(this.c, aeVar, com.xiaomi.xmpush.thrift.a.Notification, false, this.c.getPackageName(), com.xiaomi.mipush.sdk.a.a(this.c).c()));
-            if (a2 != null) {
-                i.putExtra("mipush_payload", a2);
-                i.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-                i.putExtra("mipush_app_id", com.xiaomi.mipush.sdk.a.a(this.c).c());
-                i.putExtra("mipush_app_token", com.xiaomi.mipush.sdk.a.a(this.c).d());
-                a(i);
-            }
-            Message obtain = Message.obtain();
-            int i2 = z ? 1 : 0;
-            obtain.obj = str;
-            obtain.arg1 = i2;
-            this.f.sendMessageDelayed(obtain, 5000L);
-        }
-    }
-
-    private boolean h() {
-        try {
-            PackageInfo packageInfo = this.c.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
-            if (packageInfo == null) {
-                return false;
-            }
-            return packageInfo.versionCode >= 105;
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    private Intent i() {
-        Intent intent = new Intent();
-        String packageName = this.c.getPackageName();
-        if (!c() || "com.xiaomi.xmsf".equals(packageName)) {
-            l();
-            intent.setComponent(new ComponentName(this.c, "com.xiaomi.push.service.XMPushService"));
-            intent.putExtra("mipush_app_package", packageName);
-        } else {
-            intent.setPackage("com.xiaomi.xmsf");
-            intent.setClassName("com.xiaomi.xmsf", j());
-            intent.putExtra("mipush_app_package", packageName);
-            k();
-        }
-        return intent;
-    }
-
-    private String j() {
-        return this.c.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 106 ? "com.xiaomi.push.service.XMPushService" : "com.xiaomi.xmsf.push.service.XMPushService";
-    }
-
-    private void k() {
-        try {
-            this.c.getPackageManager().setComponentEnabledSetting(new ComponentName(this.c, "com.xiaomi.push.service.XMPushService"), 2, 1);
-        } catch (Throwable th) {
-        }
-    }
-
-    private void l() {
-        try {
-            this.c.getPackageManager().setComponentEnabledSetting(new ComponentName(this.c, "com.xiaomi.push.service.XMPushService"), 1, 1);
-        } catch (Throwable th) {
-        }
-    }
-
-    private boolean m() {
-        String packageName = this.c.getPackageName();
-        return packageName.contains("miui") || packageName.contains("xiaomi") || (this.c.getApplicationInfo().flags & 1) != 0;
-    }
-
-    public void a() {
-        a(i());
-    }
-
-    public void a(int i) {
-        Intent i2 = i();
-        i2.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
-        i2.putExtra(am.y, this.c.getPackageName());
-        i2.putExtra(am.z, i);
-        a(i2);
-    }
-
-    public final void a(af afVar, boolean z) {
-        this.g = null;
-        Intent i = i();
-        byte[] a2 = aq.a(q.a(this.c, afVar, com.xiaomi.xmpush.thrift.a.Registration));
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.a("register fail, because msgBytes is null.");
-            return;
-        }
-        i.setAction("com.xiaomi.mipush.REGISTER_APP");
-        i.putExtra("mipush_app_id", com.xiaomi.mipush.sdk.a.a(this.c).c());
-        i.putExtra("mipush_payload", a2);
-        i.putExtra("mipush_session", this.d);
-        i.putExtra("mipush_env_chanage", z);
-        i.putExtra("mipush_env_type", com.xiaomi.mipush.sdk.a.a(this.c).m());
-        if (com.xiaomi.channel.commonutils.network.d.d(this.c) && g()) {
-            a(i);
-        } else {
-            this.g = i;
-        }
-    }
-
-    public final void a(com.xiaomi.xmpush.thrift.am amVar) {
-        Intent i = i();
-        byte[] a2 = aq.a(q.a(this.c, amVar, com.xiaomi.xmpush.thrift.a.UnRegistration));
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.a("unregister fail, because msgBytes is null.");
-            return;
-        }
-        i.setAction("com.xiaomi.mipush.UNREGISTER_APP");
-        i.putExtra("mipush_app_id", com.xiaomi.mipush.sdk.a.a(this.c).c());
-        i.putExtra("mipush_payload", a2);
-        a(i);
-    }
-
-    public void a(String str, String str2) {
-        Intent i = i();
-        i.setAction("com.xiaomi.mipush.CLEAR_NOTIFICATION");
-        i.putExtra(am.y, this.c.getPackageName());
-        i.putExtra(am.D, str);
-        i.putExtra(am.E, str2);
-        a(i);
-    }
-
-    public final <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, com.xiaomi.xmpush.thrift.r rVar) {
-        a(t, aVar, !aVar.equals(com.xiaomi.xmpush.thrift.a.Registration), rVar);
-    }
-
-    public <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, boolean z) {
-        a aVar2 = new a();
-        aVar2.a = t;
-        aVar2.b = aVar;
-        aVar2.c = z;
-        synchronized (e) {
-            e.add(aVar2);
-            if (e.size() > 10) {
-                e.remove(0);
-            }
-        }
-    }
-
-    public final <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, boolean z, com.xiaomi.xmpush.thrift.r rVar) {
-        a(t, aVar, z, true, rVar, true);
-    }
-
-    public final <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, boolean z, com.xiaomi.xmpush.thrift.r rVar, boolean z2) {
-        a(t, aVar, z, true, rVar, z2);
-    }
-
-    public final <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, boolean z, boolean z2, com.xiaomi.xmpush.thrift.r rVar, boolean z3) {
-        a(t, aVar, z, z2, rVar, z3, this.c.getPackageName(), com.xiaomi.mipush.sdk.a.a(this.c).c());
-    }
-
-    public final <T extends org.apache.thrift.a<T, ?>> void a(T t, com.xiaomi.xmpush.thrift.a aVar, boolean z, boolean z2, com.xiaomi.xmpush.thrift.r rVar, boolean z3, String str, String str2) {
-        if (!com.xiaomi.mipush.sdk.a.a(this.c).i()) {
-            if (z2) {
-                a((u) t, aVar, z);
-                return;
-            } else {
-                com.xiaomi.channel.commonutils.logger.b.a("drop the message before initialization.");
-                return;
-            }
-        }
-        Intent i = i();
-        com.xiaomi.xmpush.thrift.ab a2 = q.a(this.c, t, aVar, z, str, str2);
-        if (rVar != null) {
-            a2.a(rVar);
-        }
-        byte[] a3 = aq.a(a2);
-        if (a3 == null) {
-            com.xiaomi.channel.commonutils.logger.b.a("send message fail, because msgBytes is null.");
-            return;
-        }
-        i.setAction("com.xiaomi.mipush.SEND_MESSAGE");
-        i.putExtra("mipush_payload", a3);
-        i.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", z3);
-        a(i);
-    }
-
-    public final void a(boolean z) {
-        a(z, (String) null);
-    }
-
-    public final void a(boolean z, String str) {
-        if (z) {
-            p.a(this.c).f("disable_syncing");
-        } else {
-            p.a(this.c).f("enable_syncing");
-        }
-        a(str, z);
-    }
-
-    public final void b() {
-        Intent i = i();
-        i.setAction("com.xiaomi.mipush.DISABLE_PUSH");
-        a(i);
-    }
-
-    public void b(int i) {
-        Intent i2 = i();
-        i2.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
-        i2.putExtra(am.y, this.c.getPackageName());
-        i2.putExtra(am.A, i);
-        i2.putExtra(am.C, com.xiaomi.channel.commonutils.string.c.b(this.c.getPackageName() + i));
-        a(i2);
-    }
-
-    public boolean c() {
-        return this.a && 1 == com.xiaomi.mipush.sdk.a.a(this.c).m();
-    }
-
-    public void d() {
-        if (this.g != null) {
-            a(this.g);
-            this.g = null;
-        }
-    }
-
-    public void e() {
-        synchronized (e) {
-            Iterator<a> it = e.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                a(next.a, next.b, next.c, false, null, true);
-            }
-            e.clear();
-        }
-    }
-
-    public void f() {
-        Intent i = i();
-        i.setAction("com.xiaomi.mipush.SET_NOTIFICATION_TYPE");
-        i.putExtra(am.y, this.c.getPackageName());
-        i.putExtra(am.C, com.xiaomi.channel.commonutils.string.c.b(this.c.getPackageName()));
-        a(i);
-    }
-
-    public boolean g() {
-        if (c() && m()) {
-            if (this.h == null) {
-                this.h = Integer.valueOf(ao.a(this.c).b());
-                if (this.h.intValue() == 0) {
-                    this.c.getContentResolver().registerContentObserver(ao.a(this.c).c(), false, new w(this, new Handler(Looper.getMainLooper())));
+            Collections.sort(scanResults, vVar);
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < Math.min(30, scanResults.size()); i++) {
+                ScanResult scanResult = scanResults.get(i);
+                if (scanResult != null) {
+                    com.xiaomi.xmpush.thrift.y yVar = new com.xiaomi.xmpush.thrift.y();
+                    yVar.a(TextUtils.isEmpty(scanResult.BSSID) ? "" : scanResult.BSSID);
+                    yVar.a(scanResult.level);
+                    yVar.b(scanResult.SSID);
+                    arrayList.add(yVar);
                 }
             }
-            return this.h.intValue() != 0;
+            return arrayList;
+        } catch (Throwable th) {
+            return null;
         }
-        return true;
+    }
+
+    private static List<com.xiaomi.xmpush.thrift.c> d(Context context) {
+        try {
+            List neighboringCellInfo = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNeighboringCellInfo();
+            int i = 0;
+            ArrayList arrayList = null;
+            while (i < neighboringCellInfo.size()) {
+                NeighboringCellInfo neighboringCellInfo2 = (NeighboringCellInfo) neighboringCellInfo.get(i);
+                ArrayList arrayList2 = new ArrayList();
+                if (neighboringCellInfo2.getLac() > 0 || neighboringCellInfo2.getCid() > 0) {
+                    com.xiaomi.xmpush.thrift.c cVar = new com.xiaomi.xmpush.thrift.c();
+                    cVar.a(neighboringCellInfo2.getCid());
+                    cVar.b((neighboringCellInfo2.getRssi() * 2) - 113);
+                    arrayList2.add(cVar);
+                }
+                i++;
+                arrayList = arrayList2;
+            }
+            return arrayList;
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
+    private static com.xiaomi.xmpush.thrift.l e(Context context) {
+        Location f;
+        if (a(context) && (f = f(context)) != null) {
+            com.xiaomi.xmpush.thrift.o oVar = new com.xiaomi.xmpush.thrift.o();
+            oVar.b(f.getLatitude());
+            oVar.a(f.getLongitude());
+            com.xiaomi.xmpush.thrift.l lVar = new com.xiaomi.xmpush.thrift.l();
+            lVar.a(f.getAccuracy());
+            lVar.a(oVar);
+            lVar.a(f.getProvider());
+            lVar.a(new Date().getTime() - f.getTime());
+            return lVar;
+        }
+        return null;
+    }
+
+    private static Location f(Context context) {
+        Location location;
+        Location location2;
+        Location location3;
+        LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+        try {
+            location = locationManager.getLastKnownLocation("network");
+        } catch (Exception e) {
+            location = null;
+        }
+        try {
+            location2 = locationManager.getLastKnownLocation("gps");
+        } catch (Exception e2) {
+            location2 = null;
+        }
+        try {
+            location3 = locationManager.getLastKnownLocation("passive");
+        } catch (Exception e3) {
+            location3 = null;
+        }
+        return a(location3, a(location, location2));
+    }
+
+    private static void g(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
+        edit.putLong("last_upload_lbs_data_timestamp", System.currentTimeMillis() / 1000);
+        edit.commit();
+    }
+
+    @Override // com.xiaomi.channel.commonutils.misc.h.a
+    public int a() {
+        return 11;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (com.xiaomi.push.service.j.e(this.c) && com.xiaomi.push.service.an.a(this.c).a(com.xiaomi.xmpush.thrift.g.UploadGeoAppLocSwitch.a(), true) && com.xiaomi.channel.commonutils.network.d.d(this.c) && b() && com.xiaomi.channel.commonutils.misc.f.a(this.c, String.valueOf(11), this.d)) {
+            a(this.c, false);
+        }
     }
 }

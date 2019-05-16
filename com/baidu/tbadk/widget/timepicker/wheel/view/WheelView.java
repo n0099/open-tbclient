@@ -15,8 +15,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tbadk.widget.timepicker.wheel.a.a;
 import com.baidu.tbadk.widget.timepicker.wheel.c.b;
-import com.baidu.tbadk.widget.timepicker.wheel.d.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
+import com.baidu.tieba.c;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -24,43 +24,43 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class WheelView extends View {
-    private int cFg;
-    private int cFh;
-    private int cFi;
-    private float cFj;
-    private boolean cFm;
-    private DividerType cFo;
-    private float cGA;
-    private int cGB;
-    private int cGC;
-    private int cGD;
-    private int cGE;
-    private int cGF;
-    private int cGG;
-    private int cGH;
-    private float cGI;
-    private int cGJ;
-    private int cGK;
-    private int cGL;
-    private float cGM;
-    private final float cGN;
-    private GestureDetector cGj;
-    private b cGk;
-    private boolean cGl;
-    private ScheduledExecutorService cGm;
-    private ScheduledFuture<?> cGn;
-    private Paint cGo;
-    private Paint cGp;
-    private Paint cGq;
-    private a cGr;
-    private int cGs;
-    private int cGt;
-    private int cGu;
-    private float cGv;
-    private Typeface cGw;
-    private boolean cGx;
-    private float cGy;
-    private float cGz;
+    private int cNp;
+    private int cNq;
+    private int cNr;
+    private float cNs;
+    private boolean cNv;
+    private DividerType cNx;
+    private a cOA;
+    private int cOB;
+    private int cOC;
+    private int cOD;
+    private float cOE;
+    private Typeface cOF;
+    private boolean cOG;
+    private float cOH;
+    private float cOI;
+    private float cOJ;
+    private int cOK;
+    private int cOL;
+    private int cOM;
+    private int cON;
+    private int cOO;
+    private int cOP;
+    private int cOQ;
+    private float cOR;
+    private int cOS;
+    private int cOT;
+    private int cOU;
+    private float cOV;
+    private final float cOW;
+    private GestureDetector cOs;
+    private b cOt;
+    private boolean cOu;
+    private ScheduledExecutorService cOv;
+    private ScheduledFuture<?> cOw;
+    private Paint cOx;
+    private Paint cOy;
+    private Paint cOz;
     private float centerY;
     private Context context;
     private Handler handler;
@@ -90,199 +90,199 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cGl = false;
-        this.cFm = true;
-        this.cGm = Executors.newSingleThreadScheduledExecutor();
-        this.cGw = Typeface.MONOSPACE;
-        this.cFj = 1.6f;
-        this.cGF = 7;
+        this.cOu = false;
+        this.cNv = true;
+        this.cOv = Executors.newSingleThreadScheduledExecutor();
+        this.cOF = Typeface.MONOSPACE;
+        this.cNs = 1.6f;
+        this.cOO = 7;
         this.mOffset = 0;
-        this.cGI = 0.0f;
+        this.cOR = 0.0f;
         this.startTime = 0L;
         this.mGravity = 17;
-        this.cGK = 0;
-        this.cGL = 0;
-        this.cGN = 0.5f;
-        this.textSize = getResources().getDimensionPixelSize(d.e.pickerview_textsize);
+        this.cOT = 0;
+        this.cOU = 0;
+        this.cOW = 0.5f;
+        this.textSize = getResources().getDimensionPixelSize(R.dimen.pickerview_textsize);
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
-            this.cGM = 2.4f;
+            this.cOV = 2.4f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.cGM = 3.6f;
+            this.cOV = 3.6f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.cGM = 4.5f;
+            this.cOV = 4.5f;
         } else if (2.0f <= f && f < 3.0f) {
-            this.cGM = 6.0f;
+            this.cOV = 6.0f;
         } else if (f >= 3.0f) {
-            this.cGM = f * 2.5f;
+            this.cOV = f * 2.5f;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.pickerview, 0, 0);
-            this.mGravity = obtainStyledAttributes.getInt(d.l.pickerview_wheelview_gravity, 17);
-            this.cFg = obtainStyledAttributes.getColor(d.l.pickerview_wheelview_textColorOut, -5723992);
-            this.cFh = obtainStyledAttributes.getColor(d.l.pickerview_wheelview_textColorCenter, -14013910);
-            this.cFi = obtainStyledAttributes.getColor(d.l.pickerview_wheelview_dividerColor, -2763307);
-            this.textSize = obtainStyledAttributes.getDimensionPixelOffset(d.l.pickerview_wheelview_textSize, this.textSize);
-            this.cFj = obtainStyledAttributes.getFloat(d.l.pickerview_wheelview_lineSpacingMultiplier, this.cFj);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.pickerview, 0, 0);
+            this.mGravity = obtainStyledAttributes.getInt(0, 17);
+            this.cNp = obtainStyledAttributes.getColor(5, -5723992);
+            this.cNq = obtainStyledAttributes.getColor(2, -14013910);
+            this.cNr = obtainStyledAttributes.getColor(3, -2763307);
+            this.textSize = obtainStyledAttributes.getDimensionPixelOffset(1, this.textSize);
+            this.cNs = obtainStyledAttributes.getFloat(4, this.cNs);
             obtainStyledAttributes.recycle();
         }
-        atK();
-        dm(context);
+        ayP();
+        cS(context);
     }
 
-    private void atK() {
-        if (this.cFj < 1.0f) {
-            this.cFj = 1.0f;
-        } else if (this.cFj > 4.0f) {
-            this.cFj = 4.0f;
+    private void ayP() {
+        if (this.cNs < 1.0f) {
+            this.cNs = 1.0f;
+        } else if (this.cNs > 4.0f) {
+            this.cNs = 4.0f;
         }
     }
 
-    private void dm(Context context) {
+    private void cS(Context context) {
         this.context = context;
         this.handler = new com.baidu.tbadk.widget.timepicker.wheel.d.b(this);
-        this.cGj = new GestureDetector(context, new com.baidu.tbadk.widget.timepicker.wheel.c.a(this));
-        this.cGj.setIsLongpressEnabled(false);
-        this.cGx = true;
-        this.cGA = 0.0f;
-        this.cGB = -1;
-        atL();
+        this.cOs = new GestureDetector(context, new com.baidu.tbadk.widget.timepicker.wheel.c.a(this));
+        this.cOs.setIsLongpressEnabled(false);
+        this.cOG = true;
+        this.cOJ = 0.0f;
+        this.cOK = -1;
+        ayQ();
     }
 
-    private void atL() {
-        this.cGo = new Paint();
-        this.cGo.setColor(this.cFg);
-        this.cGo.setAntiAlias(true);
-        this.cGo.setTypeface(this.cGw);
-        this.cGo.setTextSize(this.textSize);
-        this.cGp = new Paint();
-        this.cGp.setColor(this.cFh);
-        this.cGp.setAntiAlias(true);
-        this.cGp.setTextScaleX(1.1f);
-        this.cGp.setTypeface(this.cGw);
-        this.cGp.setTextSize(this.textSize);
-        this.cGq = new Paint();
-        this.cGq.setColor(this.cFi);
-        this.cGq.setAntiAlias(true);
+    private void ayQ() {
+        this.cOx = new Paint();
+        this.cOx.setColor(this.cNp);
+        this.cOx.setAntiAlias(true);
+        this.cOx.setTypeface(this.cOF);
+        this.cOx.setTextSize(this.textSize);
+        this.cOy = new Paint();
+        this.cOy.setColor(this.cNq);
+        this.cOy.setAntiAlias(true);
+        this.cOy.setTextScaleX(1.1f);
+        this.cOy.setTypeface(this.cOF);
+        this.cOy.setTextSize(this.textSize);
+        this.cOz = new Paint();
+        this.cOz.setColor(this.cNr);
+        this.cOz.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void atM() {
-        if (this.cGr != null) {
-            atN();
-            int i = (int) (this.cGv * (this.cGF - 1));
-            this.cGG = (int) ((i * 2) / 3.141592653589793d);
+    private void ayR() {
+        if (this.cOA != null) {
+            ayS();
+            int i = (int) (this.cOE * (this.cOO - 1));
+            this.cOP = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
-            this.cGH = View.MeasureSpec.getSize(this.cGJ);
-            this.cGy = (this.cGG - this.cGv) / 2.0f;
-            this.cGz = (this.cGG + this.cGv) / 2.0f;
-            this.centerY = (this.cGz - ((this.cGv - this.cGt) / 2.0f)) - this.cGM;
-            if (this.cGB == -1) {
-                if (this.cGx) {
-                    this.cGB = (this.cGr.getItemsCount() + 1) / 2;
+            this.cOQ = View.MeasureSpec.getSize(this.cOS);
+            this.cOH = (this.cOP - this.cOE) / 2.0f;
+            this.cOI = (this.cOP + this.cOE) / 2.0f;
+            this.centerY = (this.cOI - ((this.cOE - this.cOC) / 2.0f)) - this.cOV;
+            if (this.cOK == -1) {
+                if (this.cOG) {
+                    this.cOK = (this.cOA.getItemsCount() + 1) / 2;
                 } else {
-                    this.cGB = 0;
+                    this.cOK = 0;
                 }
             }
-            this.cGD = this.cGB;
+            this.cOM = this.cOK;
         }
     }
 
-    private void atN() {
+    private void ayS() {
         Rect rect = new Rect();
-        for (int i = 0; i < this.cGr.getItemsCount(); i++) {
-            String ag = ag(this.cGr.getItem(i));
-            this.cGp.getTextBounds(ag, 0, ag.length(), rect);
+        for (int i = 0; i < this.cOA.getItemsCount(); i++) {
+            String ai = ai(this.cOA.getItem(i));
+            this.cOy.getTextBounds(ai, 0, ai.length(), rect);
             int width = rect.width();
-            if (width > this.cGs) {
-                this.cGs = width;
+            if (width > this.cOB) {
+                this.cOB = width;
             }
-            this.cGp.getTextBounds("星期", 0, 2, rect);
-            this.cGt = rect.height() + 2;
+            this.cOy.getTextBounds("星期", 0, 2, rect);
+            this.cOC = rect.height() + 2;
         }
-        this.cGv = this.cFj * this.cGt;
+        this.cOE = this.cNs * this.cOC;
     }
 
     public void a(ACTION action) {
-        atO();
+        ayT();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
-            this.mOffset = (int) (((this.cGA % this.cGv) + this.cGv) % this.cGv);
-            if (this.mOffset > this.cGv / 2.0f) {
-                this.mOffset = (int) (this.cGv - this.mOffset);
+            this.mOffset = (int) (((this.cOJ % this.cOE) + this.cOE) % this.cOE);
+            if (this.mOffset > this.cOE / 2.0f) {
+                this.mOffset = (int) (this.cOE - this.mOffset);
             } else {
                 this.mOffset = -this.mOffset;
             }
         }
-        this.cGn = this.cGm.scheduleWithFixedDelay(new c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.cOw = this.cOv.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
-    public final void au(float f) {
-        atO();
-        this.cGn = this.cGm.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+    public final void aw(float f) {
+        ayT();
+        this.cOw = this.cOv.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void atO() {
-        if (this.cGn != null && !this.cGn.isCancelled()) {
-            this.cGn.cancel(true);
-            this.cGn = null;
+    public void ayT() {
+        if (this.cOw != null && !this.cOw.isCancelled()) {
+            this.cOw.cancel(true);
+            this.cOw = null;
         }
     }
 
     public final void setCyclic(boolean z) {
-        this.cGx = z;
+        this.cOG = z;
     }
 
     public final void setTypeface(Typeface typeface) {
-        this.cGw = typeface;
-        this.cGo.setTypeface(this.cGw);
-        this.cGp.setTypeface(this.cGw);
+        this.cOF = typeface;
+        this.cOx.setTypeface(this.cOF);
+        this.cOy.setTypeface(this.cOF);
     }
 
     public final void setTextSize(float f) {
         if (f > 0.0f) {
             this.textSize = (int) (this.context.getResources().getDisplayMetrics().density * f);
-            this.cGo.setTextSize(this.textSize);
-            this.cGp.setTextSize(this.textSize);
+            this.cOx.setTextSize(this.textSize);
+            this.cOy.setTextSize(this.textSize);
         }
     }
 
     public final void setCurrentItem(int i) {
-        this.cGC = i;
-        this.cGB = i;
-        this.cGA = 0.0f;
+        this.cOL = i;
+        this.cOK = i;
+        this.cOJ = 0.0f;
         invalidate();
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.cGk = bVar;
+        this.cOt = bVar;
     }
 
     public final void setAdapter(a aVar) {
-        this.cGr = aVar;
-        atM();
+        this.cOA = aVar;
+        ayR();
         invalidate();
     }
 
     public final a getAdapter() {
-        return this.cGr;
+        return this.cOA;
     }
 
     public final int getCurrentItem() {
-        if (this.cGr == null) {
+        if (this.cOA == null) {
             return 0;
         }
-        if (this.cGx && (this.cGC < 0 || this.cGC >= this.cGr.getItemsCount())) {
-            return Math.max(0, Math.min(Math.abs(Math.abs(this.cGC) - this.cGr.getItemsCount()), this.cGr.getItemsCount() - 1));
+        if (this.cOG && (this.cOL < 0 || this.cOL >= this.cOA.getItemsCount())) {
+            return Math.max(0, Math.min(Math.abs(Math.abs(this.cOL) - this.cOA.getItemsCount()), this.cOA.getItemsCount() - 1));
         }
-        return Math.max(0, Math.min(this.cGC, this.cGr.getItemsCount() - 1));
+        return Math.max(0, Math.min(this.cOL, this.cOA.getItemsCount() - 1));
     }
 
-    public final void atP() {
-        if (this.cGk != null) {
+    public final void ayU() {
+        if (this.cOt != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    WheelView.this.cGk.lc(WheelView.this.getCurrentItem());
+                    WheelView.this.cOt.lR(WheelView.this.getCurrentItem());
                 }
             }, 200L);
         }
@@ -290,173 +290,173 @@ public class WheelView extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        String ag;
+        String ai;
         int i;
-        if (this.cGr != null) {
-            this.cGB = Math.min(Math.max(0, this.cGB), this.cGr.getItemsCount() - 1);
-            Object[] objArr = new Object[this.cGF];
-            this.cGE = (int) (this.cGA / this.cGv);
+        if (this.cOA != null) {
+            this.cOK = Math.min(Math.max(0, this.cOK), this.cOA.getItemsCount() - 1);
+            Object[] objArr = new Object[this.cOO];
+            this.cON = (int) (this.cOJ / this.cOE);
             try {
-                this.cGD = this.cGB + (this.cGE % this.cGr.getItemsCount());
+                this.cOM = this.cOK + (this.cON % this.cOA.getItemsCount());
             } catch (ArithmeticException e) {
                 Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
             }
-            if (!this.cGx) {
-                if (this.cGD < 0) {
-                    this.cGD = 0;
+            if (!this.cOG) {
+                if (this.cOM < 0) {
+                    this.cOM = 0;
                 }
-                if (this.cGD > this.cGr.getItemsCount() - 1) {
-                    this.cGD = this.cGr.getItemsCount() - 1;
+                if (this.cOM > this.cOA.getItemsCount() - 1) {
+                    this.cOM = this.cOA.getItemsCount() - 1;
                 }
             } else {
-                if (this.cGD < 0) {
-                    this.cGD = this.cGr.getItemsCount() + this.cGD;
+                if (this.cOM < 0) {
+                    this.cOM = this.cOA.getItemsCount() + this.cOM;
                 }
-                if (this.cGD > this.cGr.getItemsCount() - 1) {
-                    this.cGD -= this.cGr.getItemsCount();
+                if (this.cOM > this.cOA.getItemsCount() - 1) {
+                    this.cOM -= this.cOA.getItemsCount();
                 }
             }
-            float f = this.cGA % this.cGv;
-            for (int i2 = 0; i2 < this.cGF; i2++) {
-                int i3 = this.cGD - ((this.cGF / 2) - i2);
-                if (this.cGx) {
-                    objArr[i2] = this.cGr.getItem(ld(i3));
+            float f = this.cOJ % this.cOE;
+            for (int i2 = 0; i2 < this.cOO; i2++) {
+                int i3 = this.cOM - ((this.cOO / 2) - i2);
+                if (this.cOG) {
+                    objArr[i2] = this.cOA.getItem(lS(i3));
                 } else if (i3 < 0) {
                     objArr[i2] = "";
-                } else if (i3 > this.cGr.getItemsCount() - 1) {
+                } else if (i3 > this.cOA.getItemsCount() - 1) {
                     objArr[i2] = "";
                 } else {
-                    objArr[i2] = this.cGr.getItem(i3);
+                    objArr[i2] = this.cOA.getItem(i3);
                 }
             }
-            if (this.cFo == DividerType.WRAP) {
-                float f2 = TextUtils.isEmpty(this.label) ? ((this.cGH - this.cGs) / 2) - 12 : ((this.cGH - this.cGs) / 4) - 12;
+            if (this.cNx == DividerType.WRAP) {
+                float f2 = TextUtils.isEmpty(this.label) ? ((this.cOQ - this.cOB) / 2) - 12 : ((this.cOQ - this.cOB) / 4) - 12;
                 if (f2 <= 0.0f) {
                     f2 = 10.0f;
                 }
-                float f3 = this.cGH - f2;
-                canvas.drawLine(f2, this.cGy, f3, this.cGy, this.cGq);
-                canvas.drawLine(f2, this.cGz, f3, this.cGz, this.cGq);
+                float f3 = this.cOQ - f2;
+                canvas.drawLine(f2, this.cOH, f3, this.cOH, this.cOz);
+                canvas.drawLine(f2, this.cOI, f3, this.cOI, this.cOz);
             } else {
-                canvas.drawLine(0.0f, this.cGy, this.cGH, this.cGy, this.cGq);
-                canvas.drawLine(0.0f, this.cGz, this.cGH, this.cGz, this.cGq);
+                canvas.drawLine(0.0f, this.cOH, this.cOQ, this.cOH, this.cOz);
+                canvas.drawLine(0.0f, this.cOI, this.cOQ, this.cOI, this.cOz);
             }
-            if (!TextUtils.isEmpty(this.label) && this.cFm) {
-                canvas.drawText(this.label, (this.cGH - c(this.cGp, this.label)) - this.cGM, this.centerY, this.cGp);
+            if (!TextUtils.isEmpty(this.label) && this.cNv) {
+                canvas.drawText(this.label, (this.cOQ - c(this.cOy, this.label)) - this.cOV, this.centerY, this.cOy);
             }
-            for (int i4 = 0; i4 < this.cGF; i4++) {
+            for (int i4 = 0; i4 < this.cOO; i4++) {
                 canvas.save();
-                double d = ((this.cGv * i4) - f) / this.radius;
+                double d = ((this.cOE * i4) - f) / this.radius;
                 float f4 = (float) (90.0d - ((d / 3.141592653589793d) * 180.0d));
                 if (f4 >= 90.0f || f4 <= -90.0f) {
                     canvas.restore();
                 } else {
                     float pow = (float) Math.pow(Math.abs(f4) / 90.0f, 2.2d);
-                    if (!this.cFm && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(ag(objArr[i4]))) {
-                        ag = ag(objArr[i4]) + this.label;
+                    if (!this.cNv && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(ai(objArr[i4]))) {
+                        ai = ai(objArr[i4]) + this.label;
                     } else {
-                        ag = ag(objArr[i4]);
+                        ai = ai(objArr[i4]);
                     }
-                    qd(ag);
-                    qe(ag);
-                    qf(ag);
-                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.cGt) / 2.0d));
+                    rm(ai);
+                    rn(ai);
+                    ro(ai);
+                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.cOC) / 2.0d));
                     canvas.translate(0.0f, cos);
-                    if (cos <= this.cGy && this.cGt + cos >= this.cGy) {
+                    if (cos <= this.cOH && this.cOC + cos >= this.cOH) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.cGH, this.cGy - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.cOQ, this.cOH - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(ag, this.cGL, this.cGt, this.cGo);
+                        canvas.drawText(ai, this.cOU, this.cOC, this.cOx);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.cGy - cos, this.cGH, (int) this.cGv);
+                        canvas.clipRect(0.0f, this.cOH - cos, this.cOQ, (int) this.cOE);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(ag, this.cGK, this.cGt - this.cGM, this.cGp);
+                        canvas.drawText(ai, this.cOT, this.cOC - this.cOV, this.cOy);
                         canvas.restore();
-                    } else if (cos <= this.cGz && this.cGt + cos >= this.cGz) {
+                    } else if (cos <= this.cOI && this.cOC + cos >= this.cOI) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.cGH, this.cGz - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.cOQ, this.cOI - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(ag, this.cGK, this.cGt - this.cGM, this.cGp);
+                        canvas.drawText(ai, this.cOT, this.cOC - this.cOV, this.cOy);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.cGz - cos, this.cGH, (int) this.cGv);
+                        canvas.clipRect(0.0f, this.cOI - cos, this.cOQ, (int) this.cOE);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(ag, this.cGL, this.cGt, this.cGo);
+                        canvas.drawText(ai, this.cOU, this.cOC, this.cOx);
                         canvas.restore();
-                    } else if (cos >= this.cGy && cos + this.cGt <= this.cGz) {
-                        canvas.drawText(ag, this.cGK, this.cGt - this.cGM, this.cGp);
-                        this.cGC = this.cGD - ((this.cGF / 2) - i4);
+                    } else if (cos >= this.cOH && cos + this.cOC <= this.cOI) {
+                        canvas.drawText(ai, this.cOT, this.cOC - this.cOV, this.cOy);
+                        this.cOL = this.cOM - ((this.cOO / 2) - i4);
                     } else {
                         canvas.save();
-                        canvas.clipRect(0, 0, this.cGH, (int) this.cGv);
+                        canvas.clipRect(0, 0, this.cOQ, (int) this.cOE);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        Paint paint = this.cGo;
-                        if (this.cGu == 0) {
+                        Paint paint = this.cOx;
+                        if (this.cOD == 0) {
                             i = 0;
                         } else {
-                            i = this.cGu > 0 ? 1 : -1;
+                            i = this.cOD > 0 ? 1 : -1;
                         }
                         paint.setTextSkewX((f4 > 0.0f ? -1 : 1) * i * 0.5f * pow);
-                        this.cGo.setAlpha((int) ((1.0f - pow) * 255.0f));
-                        canvas.drawText(ag, this.cGL + (this.cGu * pow), this.cGt, this.cGo);
+                        this.cOx.setAlpha((int) ((1.0f - pow) * 255.0f));
+                        canvas.drawText(ai, this.cOU + (this.cOD * pow), this.cOC, this.cOx);
                         canvas.restore();
                     }
                     canvas.restore();
-                    this.cGp.setTextSize(this.textSize);
+                    this.cOy.setTextSize(this.textSize);
                 }
             }
         }
     }
 
-    private void qd(String str) {
+    private void rm(String str) {
         Rect rect = new Rect();
-        this.cGp.getTextBounds(str, 0, str.length(), rect);
+        this.cOy.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;
-        for (int width = rect.width(); width > this.cGH; width = rect.width()) {
+        for (int width = rect.width(); width > this.cOQ; width = rect.width()) {
             i--;
-            this.cGp.setTextSize(i);
-            this.cGp.getTextBounds(str, 0, str.length(), rect);
+            this.cOy.setTextSize(i);
+            this.cOy.getTextBounds(str, 0, str.length(), rect);
         }
-        this.cGo.setTextSize(i);
+        this.cOx.setTextSize(i);
     }
 
-    private int ld(int i) {
+    private int lS(int i) {
         if (i < 0) {
-            return ld(this.cGr.getItemsCount() + i);
+            return lS(this.cOA.getItemsCount() + i);
         }
-        if (i > this.cGr.getItemsCount() - 1) {
-            return ld(i - this.cGr.getItemsCount());
+        if (i > this.cOA.getItemsCount() - 1) {
+            return lS(i - this.cOA.getItemsCount());
         }
         return i;
     }
 
-    private String ag(Object obj) {
+    private String ai(Object obj) {
         if (obj == null) {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).atJ();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).ayO();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
 
-    private void qe(String str) {
+    private void rn(String str) {
         Rect rect = new Rect();
-        this.cGp.getTextBounds(str, 0, str.length(), rect);
+        this.cOy.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.cGK = 0;
+                this.cOT = 0;
                 return;
             case 5:
-                this.cGK = (this.cGH - rect.width()) - ((int) this.cGM);
+                this.cOT = (this.cOQ - rect.width()) - ((int) this.cOV);
                 return;
             case 17:
-                if (this.cGl || this.label == null || this.label.equals("") || !this.cFm) {
-                    this.cGK = (int) ((this.cGH - rect.width()) * 0.5d);
+                if (this.cOu || this.label == null || this.label.equals("") || !this.cNv) {
+                    this.cOT = (int) ((this.cOQ - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.cGK = (int) ((this.cGH - rect.width()) * 0.25d);
+                    this.cOT = (int) ((this.cOQ - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -464,22 +464,22 @@ public class WheelView extends View {
         }
     }
 
-    private void qf(String str) {
+    private void ro(String str) {
         Rect rect = new Rect();
-        this.cGo.getTextBounds(str, 0, str.length(), rect);
+        this.cOx.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.cGL = 0;
+                this.cOU = 0;
                 return;
             case 5:
-                this.cGL = (this.cGH - rect.width()) - ((int) this.cGM);
+                this.cOU = (this.cOQ - rect.width()) - ((int) this.cOV);
                 return;
             case 17:
-                if (this.cGl || this.label == null || this.label.equals("") || !this.cFm) {
-                    this.cGL = (int) ((this.cGH - rect.width()) * 0.5d);
+                if (this.cOu || this.label == null || this.label.equals("") || !this.cNv) {
+                    this.cOU = (int) ((this.cOQ - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.cGL = (int) ((this.cGH - rect.width()) * 0.25d);
+                    this.cOU = (int) ((this.cOQ - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -489,28 +489,28 @@ public class WheelView extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.cGJ = i;
-        atM();
-        setMeasuredDimension(this.cGH, this.cGG);
+        this.cOS = i;
+        ayR();
+        setMeasuredDimension(this.cOQ, this.cOP);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        boolean onTouchEvent = this.cGj.onTouchEvent(motionEvent);
-        float f = (-this.cGB) * this.cGv;
-        float itemsCount = ((this.cGr.getItemsCount() - 1) - this.cGB) * this.cGv;
+        boolean onTouchEvent = this.cOs.onTouchEvent(motionEvent);
+        float f = (-this.cOK) * this.cOE;
+        float itemsCount = ((this.cOA.getItemsCount() - 1) - this.cOK) * this.cOE;
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                atO();
-                this.cGI = motionEvent.getRawY();
+                ayT();
+                this.cOR = motionEvent.getRawY();
                 break;
             case 1:
             default:
                 if (!onTouchEvent) {
                     float y = motionEvent.getY();
-                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.cGv / 2.0f)) / this.cGv)) - (this.cGF / 2)) * this.cGv) - (((this.cGA % this.cGv) + this.cGv) % this.cGv));
+                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.cOE / 2.0f)) / this.cOE)) - (this.cOO / 2)) * this.cOE) - (((this.cOJ % this.cOE) + this.cOE) % this.cOE));
                     if (System.currentTimeMillis() - this.startTime > 120) {
                         a(ACTION.DAGGLE);
                         break;
@@ -521,11 +521,11 @@ public class WheelView extends View {
                 }
                 break;
             case 2:
-                float rawY = this.cGI - motionEvent.getRawY();
-                this.cGI = motionEvent.getRawY();
-                this.cGA += rawY;
-                if (!this.cGx && ((this.cGA - (this.cGv * 0.25f) < f && rawY < 0.0f) || (this.cGA + (0.25f * this.cGv) > itemsCount && rawY > 0.0f))) {
-                    this.cGA -= rawY;
+                float rawY = this.cOR - motionEvent.getRawY();
+                this.cOR = motionEvent.getRawY();
+                this.cOJ += rawY;
+                if (!this.cOG && ((this.cOJ - (this.cOE * 0.25f) < f && rawY < 0.0f) || (this.cOJ + (0.25f * this.cOE) > itemsCount && rawY > 0.0f))) {
+                    this.cOJ -= rawY;
                     z = true;
                     break;
                 }
@@ -538,8 +538,8 @@ public class WheelView extends View {
     }
 
     public int getItemsCount() {
-        if (this.cGr != null) {
-            return this.cGr.getItemsCount();
+        if (this.cOA != null) {
+            return this.cOA.getItemsCount();
         }
         return 0;
     }
@@ -548,8 +548,8 @@ public class WheelView extends View {
         this.label = str;
     }
 
-    public void fz(boolean z) {
-        this.cFm = z;
+    public void fW(boolean z) {
+        this.cNv = z;
     }
 
     public void setGravity(int i) {
@@ -573,60 +573,60 @@ public class WheelView extends View {
     }
 
     public void setIsOptions(boolean z) {
-        this.cGl = z;
+        this.cOu = z;
     }
 
     public void setTextColorOut(int i) {
-        this.cFg = i;
-        this.cGo.setColor(this.cFg);
+        this.cNp = i;
+        this.cOx.setColor(this.cNp);
     }
 
     public void setTextColorCenter(int i) {
-        this.cFh = i;
-        this.cGp.setColor(this.cFh);
+        this.cNq = i;
+        this.cOy.setColor(this.cNq);
     }
 
     public void setTextXOffset(int i) {
-        this.cGu = i;
+        this.cOD = i;
         if (i != 0) {
-            this.cGp.setTextScaleX(1.0f);
+            this.cOy.setTextScaleX(1.0f);
         }
     }
 
     public void setDividerColor(int i) {
-        this.cFi = i;
-        this.cGq.setColor(i);
+        this.cNr = i;
+        this.cOz.setColor(i);
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.cFo = dividerType;
+        this.cNx = dividerType;
     }
 
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
-            this.cFj = f;
-            atK();
+            this.cNs = f;
+            ayP();
         }
     }
 
-    public boolean atQ() {
-        return this.cGx;
+    public boolean ayV() {
+        return this.cOG;
     }
 
     public float getTotalScrollY() {
-        return this.cGA;
+        return this.cOJ;
     }
 
     public void setTotalScrollY(float f) {
-        this.cGA = f;
+        this.cOJ = f;
     }
 
     public float getItemHeight() {
-        return this.cGv;
+        return this.cOE;
     }
 
     public int getInitPosition() {
-        return this.cGB;
+        return this.cOK;
     }
 
     @Override // android.view.View

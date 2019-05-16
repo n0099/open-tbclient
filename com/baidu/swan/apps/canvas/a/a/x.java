@@ -4,24 +4,24 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class x extends a {
-    private i alY;
+    private i amk;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.alY = new i(jSONArray);
+            this.amk = new i(jSONArray);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.alY != null && this.alY.isValid()) {
-            if (this.alY.wz()) {
-                bVar.mFillPaint.setShader(this.alY.getShader());
+        if (this.amk != null && this.amk.isValid()) {
+            if (this.amk.xr()) {
+                bVar.mFillPaint.setShader(this.amk.getShader());
                 return;
             }
-            bVar.aln.setColor(this.alY.getColor());
-            bVar.mFillPaint.setColor(this.alY.getColor());
+            bVar.alz.setColor(this.amk.getColor());
+            bVar.mFillPaint.setColor(this.amk.getColor());
             bVar.mFillPaint.setShader(null);
         }
     }

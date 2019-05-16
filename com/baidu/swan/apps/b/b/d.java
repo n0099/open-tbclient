@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import okhttp3.OkHttpClient;
 /* loaded from: classes2.dex */
 public interface d {
-    p a(@NonNull com.baidu.swan.apps.core.i.c cVar);
+    p a(@NonNull com.baidu.swan.apps.core.j.c cVar);
 
-    b uS();
+    b vZ();
 
-    a uT();
+    a wa();
 
-    OkHttpClient uU();
+    OkHttpClient wb();
 }

@@ -13,32 +13,23 @@ public abstract class BasicPushStatus implements Serializable {
     public String code;
     public String message;
 
-    public abstract void parseValueData(JSONObject jSONObject) throws JSONException;
-
     public BasicPushStatus() {
     }
 
     public BasicPushStatus(String str) {
         JSONObject parse = parse(str);
-        if (parse != null && SUCCESS_CODE.equals(this.code) && !parse.isNull(UBC.CONTENT_KEY_VALUE)) {
-            try {
-                parseValueData(parse.getJSONObject(UBC.CONTENT_KEY_VALUE));
-            } catch (JSONException e) {
-                a.e(TAG, "parse value data error " + e.getMessage() + " json " + str);
-            }
+        if (parse == null || !SUCCESS_CODE.equals(this.code) || parse.isNull(UBC.CONTENT_KEY_VALUE)) {
+            return;
+        }
+        try {
+            parseValueData(parse.getJSONObject(UBC.CONTENT_KEY_VALUE));
+        } catch (JSONException e) {
+            a.e(TAG, "parse value data error " + e.getMessage() + " json " + str);
         }
     }
 
     public String getCode() {
         return this.code;
-    }
-
-    public void setCode(String str) {
-        this.code = str;
-    }
-
-    public void setMessage(String str) {
-        this.message = str;
     }
 
     public String getMessage() {
@@ -58,10 +49,10 @@ public abstract class BasicPushStatus implements Serializable {
                     if (!jSONObject.isNull("code")) {
                         setCode(jSONObject.getString("code"));
                     }
-                    if (!jSONObject.isNull("message")) {
-                        setMessage(jSONObject.getString("message"));
+                    if (jSONObject.isNull("message")) {
                         return jSONObject;
                     }
+                    setMessage(jSONObject.getString("message"));
                     return jSONObject;
                 } catch (JSONException e2) {
                     e = e2;
@@ -74,6 +65,16 @@ public abstract class BasicPushStatus implements Serializable {
             jSONObject = null;
             e = e3;
         }
+    }
+
+    public abstract void parseValueData(JSONObject jSONObject) throws JSONException;
+
+    public void setCode(String str) {
+        this.code = str;
+    }
+
+    public void setMessage(String str) {
+        this.message = str;
     }
 
     public String toString() {

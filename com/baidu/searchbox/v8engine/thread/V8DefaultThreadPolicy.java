@@ -44,6 +44,13 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnable(Runnable runnable, long j) {
+        if (this.mHandler != null) {
+            this.mHandler.postDelayed(runnable, j);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
     public void shutdown() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler.getLooper().quitSafely();

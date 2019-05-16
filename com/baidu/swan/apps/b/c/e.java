@@ -7,9 +7,9 @@ import com.baidu.swan.apps.b.c.d;
 public interface e<T extends d> extends TypedCallbackHandler {
     void a(com.baidu.swan.apps.core.c cVar);
 
-    void a(com.baidu.swan.apps.core.e.b bVar);
+    void a(com.baidu.swan.apps.core.f.b bVar);
 
-    void b(com.baidu.swan.apps.core.e.b bVar);
+    void b(com.baidu.swan.apps.core.f.b bVar);
 
     void destroy();
 
@@ -23,9 +23,9 @@ public interface e<T extends d> extends TypedCallbackHandler {
 
     void v(Activity activity);
 
-    T wb();
+    T wS();
 
-    String wc();
+    String wT();
 
-    String wd();
+    String wU();
 }

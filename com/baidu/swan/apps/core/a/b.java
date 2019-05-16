@@ -1,9 +1,7 @@
 package com.baidu.swan.apps.core.a;
 
 import android.annotation.SuppressLint;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -13,15 +11,13 @@ import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppErrorActivity;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.j;
-import com.baidu.swan.apps.an.l;
+import com.baidu.swan.apps.an.m;
 import com.baidu.swan.apps.core.a.a.a;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.apps.install.c;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.apps.install.e;
 import com.baidu.swan.games.i.a;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.tencent.connect.common.Constants;
@@ -39,24 +35,20 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean dG(String str) {
+    public static boolean dt(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return new File(xC(), str + ".aiapps").exists();
+        return new File(yu(), str + ".aiapps").exists();
     }
 
-    static File xC() {
-        return c.d.Cs();
+    static File yu() {
+        return e.d.Du();
     }
 
     @SuppressLint({"MobilebdThread"})
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.database.a aVar, String str) {
-        com.baidu.swan.apps.v.b.b a2 = a(aVar, cVar);
-        if (!com.baidu.swan.apps.storage.b.f.KJ().getBoolean("used_aiapps", false)) {
-            com.baidu.swan.apps.storage.b.f.KJ().putBoolean("used_aiapps", true);
-        }
-        c(context, a2, str);
+        c(context, a(aVar, cVar), str);
     }
 
     public static void a(final Context context, final com.baidu.b.a.b.a.a aVar, final com.baidu.swan.apps.v.b.c cVar, final String str, final a aVar2) {
@@ -66,52 +58,52 @@ public class b {
         j.c(new Runnable() { // from class: com.baidu.swan.apps.core.a.b.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.ae.a.c Y;
+                com.baidu.swan.apps.ae.a.c T;
                 int i;
                 int i2 = 1;
-                SwanAppDbControl bE = SwanAppDbControl.bE(context);
-                int i3 = b.dG(aVar.packageName) ? 0 : 1;
+                SwanAppDbControl aX = SwanAppDbControl.aX(context);
+                int i3 = b.dt(aVar.packageName) ? 0 : 1;
                 String str2 = cVar.mAppId;
-                com.baidu.swan.apps.database.a a2 = b.a(bE.eh(str2), cVar, aVar, i3, str);
-                String valueOf = String.valueOf(aVar.acI);
+                com.baidu.swan.apps.database.a a2 = b.a(aX.dV(str2), cVar, aVar, i3, str);
+                String valueOf = String.valueOf(aVar.version);
                 if (a2.category == 1) {
-                    com.baidu.swan.games.o.a.a Z = b.Z(str2, valueOf);
-                    if (Z == null || Z.beT != 1) {
+                    com.baidu.swan.games.p.a.a U = b.U(str2, valueOf);
+                    if (U == null || U.bjk != 1) {
                         i2 = 0;
                     }
                     i = i2;
-                    Y = null;
+                    T = null;
                 } else {
-                    Y = b.Y(str2, valueOf);
+                    T = b.T(str2, valueOf);
                     i = 0;
                 }
                 a2.orientation = i;
-                a2.aun = false;
-                bE.c(a2);
+                a2.auD = false;
+                aX.c(a2);
                 if (aVar2 != null) {
-                    aVar2.a(a2, Y);
+                    aVar2.a(a2, T);
                 }
                 if (i3 != 0) {
-                    com.baidu.swan.apps.ak.e.LE().b(new com.baidu.swan.apps.ak.a().L(3L).M(6L).hx("aiapps zip not exist "));
+                    com.baidu.swan.apps.ak.e.Ok().b(new com.baidu.swan.apps.ak.a().Y(3L).Z(6L).hZ("aiapps zip not exist "));
                 }
             }
         }, "update SwanApp DB");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static com.baidu.swan.apps.ae.a.c Y(String str, String str2) {
+    public static com.baidu.swan.apps.ae.a.c T(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        return com.baidu.swan.apps.ae.a.c.gl(com.baidu.swan.c.b.B(new File(c.d.ah(str, str2), "app.json")));
+        return com.baidu.swan.apps.ae.a.c.gG(com.baidu.swan.c.a.v(new File(e.d.ae(str, str2), "app.json")));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static com.baidu.swan.games.o.a.a Z(String str, String str2) {
+    public static com.baidu.swan.games.p.a.a U(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        return com.baidu.swan.games.o.a.a.iV(com.baidu.swan.c.b.B(new File(a.c.ah(str, str2), "game.json")));
+        return com.baidu.swan.games.p.a.a.jJ(com.baidu.swan.c.a.v(new File(a.d.ae(str, str2), "game.json")));
     }
 
     private static com.baidu.swan.apps.v.b.b a(com.baidu.swan.apps.database.a aVar, com.baidu.swan.apps.v.b.c cVar) {
@@ -119,56 +111,32 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        bVar.axH = aVar.name;
-        bVar.axI = aVar.iconUrl;
-        bVar.mAppId = cVar.mAppId;
-        bVar.axK = cVar.mFrom;
-        bVar.axM = cVar.axM;
-        bVar.axW = cVar.axW;
-        bVar.mAppKey = aVar.appKey;
-        bVar.mDescription = aVar.description;
-        bVar.mErrorCode = aVar.errorCode;
-        bVar.axN = aVar.errorDetail;
-        bVar.mErrorMsg = aVar.errorMsg;
-        bVar.axO = aVar.atZ;
-        bVar.axP = aVar.aua;
-        bVar.axQ = aVar.aub;
-        bVar.axR = aVar.auc;
-        bVar.axS = aVar.aud;
-        bVar.axT = new SwanAppBearInfo(aVar.aue);
-        bVar.mVersion = aVar.version;
-        bVar.axU = cVar.DA();
-        bVar.axL = cVar.axL;
-        bVar.mType = aVar.type;
-        bVar.axX = cVar.axX;
-        bVar.axY = aVar.aug;
-        bVar.axZ = aVar.auh;
-        bVar.aya = aVar.aui;
-        bVar.atv = cVar.atv;
-        bVar.atw = cVar.atw;
-        bVar.auj = aVar.auj;
-        bVar.aul = aVar.aul;
-        bVar.axV = cVar.axV;
-        bVar.ayd = cVar.ayd;
+        bVar.e(com.baidu.swan.apps.database.a.f(aVar));
+        bVar.eI(cVar.mFrom);
+        bVar.setPage(cVar.ayL);
+        bVar.setDebug(cVar.ayM);
+        bVar.eK(aVar.auq);
+        bVar.eL(aVar.aur);
+        bVar.p(cVar.EK());
+        bVar.eJ(cVar.ayP);
+        bVar.eN(cVar.ayQ);
+        bVar.eO(aVar.auw);
+        bVar.eP(aVar.aux);
+        bVar.eQ(aVar.auy);
+        bVar.a(cVar.atK);
+        bVar.a(cVar.atL);
+        bVar.eM(cVar.ayO);
+        bVar.cE(cVar.ayF);
         if (aVar.category == 1) {
-            bVar.ayb = 1;
-        } else {
-            bVar.ayb = 0;
+            bVar.cr(1);
+            return bVar;
         }
-        bVar.orientation = aVar.orientation;
+        bVar.cr(0);
         return bVar;
     }
 
     private static void b(Context context, com.baidu.swan.apps.v.b.b bVar, String str) {
         SwanAppLauncherActivity.a(context, bVar, str);
-    }
-
-    private static void a(Context context, com.baidu.swan.apps.v.b.b bVar) {
-        Intent c = com.baidu.swan.apps.v.b.b.c(context, bVar);
-        if (c != null) {
-            c.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
-            context.startActivity(c);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,10 +146,10 @@ public class b {
         if (aVar2 == null) {
             return aVar3;
         }
-        aVar3.version = String.valueOf(aVar2.acI);
-        aVar3.auj = aVar2.acM;
+        aVar3.version = String.valueOf(aVar2.version);
+        aVar3.auz = aVar2.aaz;
         try {
-            JSONObject jSONObject = new JSONObject(aVar2.acK);
+            JSONObject jSONObject = new JSONObject(aVar2.aax);
             if (DEBUG) {
                 Log.i("LaunchSwanApp", jSONObject.toString());
             }
@@ -192,24 +160,24 @@ public class b {
             aVar3.errorCode = jSONObject.optInt("error_code");
             aVar3.errorDetail = jSONObject.optString("error_detail");
             aVar3.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            aVar3.aua = jSONObject.optString("max_swan_version");
-            aVar3.aub = jSONObject.optString("min_swan_version");
+            aVar3.auq = jSONObject.optString("max_swan_version");
+            aVar3.aur = jSONObject.optString("min_swan_version");
             aVar3.type = jSONObject.optInt("type");
             aVar3.sign = jSONObject.optString("sign");
-            aVar3.atZ = jSONObject.optString("resume_date");
-            aVar3.auc = jSONObject.optString("service_category");
-            aVar3.aud = jSONObject.optString("subject_info");
+            aVar3.aup = jSONObject.optString("resume_date");
+            aVar3.aus = jSONObject.optString("service_category");
+            aVar3.aut = jSONObject.optString("subject_info");
             JSONObject optJSONObject = jSONObject.optJSONObject("bear_info");
-            aVar3.aue = optJSONObject == null ? "" : optJSONObject.toString();
+            aVar3.auu = optJSONObject == null ? "" : optJSONObject.toString();
             aVar3.iconUrl = str;
-            aVar3.auf = i;
-            aVar3.version = String.valueOf(aVar2.acI);
-            aVar3.aui = jSONObject.optString("cur_swan_version");
-            aVar3.aul = jSONObject.optString("version_code");
+            aVar3.auv = i;
+            aVar3.version = String.valueOf(aVar2.version);
+            aVar3.auy = jSONObject.optString("cur_swan_version");
+            aVar3.auB = jSONObject.optString("version_code");
             if (jSONObject.has("max_age")) {
-                aVar3.aum = jSONObject.optLong("max_age", 432000L);
+                aVar3.auC = jSONObject.optLong("max_age", 432000L);
             }
-            if (cVar.ayb == 1) {
+            if (cVar.ayS == 1) {
                 aVar3.category = 1;
             } else {
                 aVar3.category = 0;
@@ -218,14 +186,14 @@ public class b {
             if (optJSONObject2 != null) {
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("call_app_config");
                 if (optJSONObject3 != null) {
-                    aVar3.aug = optJSONObject3.optString("invoke_url");
-                    aVar3.auh = optJSONObject3.optString("download_url");
+                    aVar3.auw = optJSONObject3.optString("invoke_url");
+                    aVar3.aux = optJSONObject3.optString("download_url");
                 }
                 com.baidu.swan.apps.af.a.c.a(aVar3.appId, "", optJSONObject2.optJSONArray("web_view_domains"));
-                com.baidu.swan.apps.af.a.c.b("", optJSONObject2.optJSONArray("web_action"));
+                com.baidu.swan.apps.af.a.c.a("", optJSONObject2.optJSONArray("web_action"));
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("domains");
                 if (optJSONObject4 != null) {
-                    com.baidu.swan.apps.af.a.c.g(aVar3.appId, optJSONObject4);
+                    com.baidu.swan.apps.af.a.c.h(aVar3.appId, optJSONObject4);
                 }
             }
             return aVar3;
@@ -239,10 +207,10 @@ public class b {
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.database.a aVar, boolean z, String str) {
         int a2 = a(cVar, aVar);
         if (a2 != 0) {
-            com.baidu.swan.apps.v.b.Dv().Dx();
             com.baidu.swan.apps.ak.a bW = bW(a2);
-            com.baidu.swan.apps.ak.e.LE().b(bW);
+            com.baidu.swan.apps.ak.e.Ok().b(bW);
             a(context, cVar, bW);
+            com.baidu.swan.apps.v.b.ED().EF();
             return;
         }
         c(context, a(aVar, cVar), str);
@@ -252,10 +220,10 @@ public class b {
         com.baidu.swan.apps.ak.a aVar = new com.baidu.swan.apps.ak.a();
         switch (i) {
             case 1:
-                aVar.L(4L).M(3L).hx("no aiapps info in database");
+                aVar.Y(4L).Z(3L).hZ("no aiapps info in database");
                 break;
             case 2:
-                aVar.L(1L).M(27L).hx("category not match");
+                aVar.Y(1L).Z(27L).hZ("category not match");
                 break;
         }
         return aVar;
@@ -265,87 +233,100 @@ public class b {
         if (aVar == null || TextUtils.isEmpty(aVar.appId)) {
             return 1;
         }
-        if ((cVar.ayb == 0 && aVar.category != 0) || (cVar.ayb == 1 && aVar.category != 1)) {
+        if ((cVar.ayS == 0 && aVar.category != 0) || (cVar.ayS == 1 && aVar.category != 1)) {
             return 2;
         }
         return 0;
     }
 
-    private static void a(Context context, com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.ak.a aVar) {
+    private static void a(Context context, @NonNull com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.apps.ak.a aVar) {
         if (aVar == null) {
-            aVar = new com.baidu.swan.apps.ak.a().L(4L).M(3L).hx("no aiapps info in database");
-            com.baidu.swan.apps.ak.e.LE().b(aVar);
+            aVar = new com.baidu.swan.apps.ak.a().Y(4L).Z(3L).hZ("no aiapps info in database");
+            com.baidu.swan.apps.ak.e.Ok().b(aVar);
         }
-        if (aVar.Lx() == 1104) {
-            a(context, cVar.mAppId, aVar);
-        } else {
-            if (aVar.Lw() == 4 && aVar.Lx() == 3) {
-                if (cVar.ayb == 1) {
-                    com.baidu.b.a.c.a.T("51", cVar.mAppId);
-                } else {
-                    com.baidu.b.a.c.a.T(Constants.VIA_REPORT_TYPE_QQFAVORITES, cVar.mAppId);
-                }
+        if ((context instanceof SwanAppLauncherActivity) && SwanAppLauncherActivity.aC(context)) {
+            if (DEBUG) {
+                Log.d("LaunchSwanApp", "launcher activity closed, ignore launch err");
+                return;
             }
-            com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.ayb);
+            return;
         }
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dB(cVar.ayb);
+        fVar.mFrom = com.baidu.swan.apps.statistic.e.dM(cVar.ayS);
         fVar.mType = "launch";
-        fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
-        fVar.d(cVar);
-        fVar.aB("errcode", String.valueOf(aVar.LA()));
-        fVar.aB("msg", aVar.Lz().toString());
-        com.baidu.swan.apps.statistic.c.onEvent(fVar);
-        if (!aVar.LB()) {
-            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gS(com.baidu.swan.apps.statistic.c.dB(cVar.ayb)).a(aVar).c(cVar).gT(cVar.mAppId).gU(cVar.mFrom));
-            aVar.LC();
+        if (aVar.Od() == 1104) {
+            a(context, cVar.mAppId, aVar);
+            fVar.mValue = "success";
+            fVar.k("status", "1");
+        } else {
+            if (aVar.Oc() == 4 && aVar.Od() == 3) {
+                if (cVar.ayS == 1) {
+                    com.baidu.b.a.c.a.N("51", cVar.mAppId);
+                } else {
+                    com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, cVar.mAppId);
+                }
+            }
+            com.baidu.swan.apps.v.a.c cVar2 = new com.baidu.swan.apps.v.a.c();
+            cVar2.mAppId = cVar.mAppId;
+            com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.ayS, cVar2);
+            fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
+            fVar.k("errcode", String.valueOf(aVar.Og()));
+            fVar.k("msg", aVar.Of().toString());
         }
-        com.baidu.swan.apps.storage.b.f.KJ().putLong(cVar.mAppId, 0L);
+        fVar.d(cVar);
+        fVar.k("errcode", String.valueOf(aVar.Og()));
+        fVar.k("msg", aVar.Of().toString());
+        fVar.ak(com.baidu.swan.apps.statistic.e.hn(cVar.ayP));
+        com.baidu.swan.apps.statistic.e.onEvent(fVar);
+        if (!aVar.Oh()) {
+            com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hp(com.baidu.swan.apps.statistic.e.dM(cVar.ayS)).a(aVar).c(cVar).hq(cVar.mAppId).hr(cVar.mFrom));
+            aVar.Oi();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull Context context, @NonNull com.baidu.swan.apps.v.b.c cVar, int i, String str) {
-        com.baidu.swan.apps.performance.b.FH().ar(str, "aiapp_aps_check_start_timestamp");
+        com.baidu.swan.apps.performance.b.HP().as(str, "aiapp_aps_check_start_timestamp");
         ArrayList arrayList = new ArrayList();
-        com.baidu.swan.apps.core.a.a.a xK = new a.C0126a().bY(i).aU(false).xK();
-        if (cVar.ayb == 0) {
-            arrayList.add(new g(context, cVar, xK, str));
+        com.baidu.swan.apps.core.a.a.a yC = new a.C0129a().bY(i).aW(false).yC();
+        if (cVar.ayS == 0) {
+            arrayList.add(new g(context, cVar, yC, str));
         } else {
-            arrayList.add(new com.baidu.swan.games.b.b(context, cVar, xK, str));
+            arrayList.add(new com.baidu.swan.games.b.b(context, cVar, yC, str));
         }
         com.baidu.b.a.a.init(AppRuntime.getAppContext(), true);
-        com.baidu.b.a.c.a.a(context.getApplicationContext(), com.baidu.swan.apps.u.a.CT().Dr());
-        com.baidu.b.a.c.a.c(arrayList, true);
+        com.baidu.b.a.c.a.a(context.getApplicationContext(), com.baidu.swan.apps.u.a.DY().Ew());
+        com.baidu.b.a.c.a.b(arrayList, true);
     }
 
     private static void c(Context context, com.baidu.swan.apps.v.b.b bVar, String str) {
-        if (bVar.mErrorCode == 0) {
+        if (bVar.EN() == 0) {
             b(context, bVar, str);
             return;
         }
-        com.baidu.swan.apps.v.b.Dv().Dx();
-        a(context, bVar);
+        com.baidu.swan.apps.v.b.ED().EF();
+        com.baidu.swan.apps.v.d.a(context, bVar);
     }
 
-    public static void a(String str, l.a aVar) {
+    public static void a(String str, m.a aVar) {
         a(str, (com.baidu.swan.apps.v.b.c) null, aVar);
     }
 
-    public static void a(final String str, final com.baidu.swan.apps.v.b.c cVar, final l.a aVar) {
-        Uri hM = aa.hM(str);
-        if (hM == null) {
-            com.baidu.swan.apps.ak.a hx = new com.baidu.swan.apps.ak.a().L(4L).M(10L).hx("download icon fail: icon url is null");
-            com.baidu.swan.apps.ak.e.LE().b(hx);
-            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gS(com.baidu.swan.apps.statistic.c.dB(cVar != null ? cVar.ayb : 0)).a(hx).c(cVar));
+    public static void a(final String str, final com.baidu.swan.apps.v.b.c cVar, final m.a aVar) {
+        Uri iq = ac.iq(str);
+        if (iq == null) {
+            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(4L).Z(10L).hZ("download icon fail: icon url is null");
+            com.baidu.swan.apps.ak.e.Ok().b(hZ);
+            com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hp(com.baidu.swan.apps.statistic.e.dM(cVar != null ? cVar.ayS : 0)).a(hZ).c(cVar));
             aVar.d(str, null);
             return;
         }
-        com.facebook.drawee.a.a.c.cuy().e(ImageRequestBuilder.O(hM).cAB(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.a.b.2
+        com.facebook.drawee.a.a.c.cCu().e(ImageRequestBuilder.U(iq).cIx(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.a.b.2
             @Override // com.facebook.imagepipeline.e.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
                 if (bitmap == null || bitmap.isRecycled()) {
-                    b.a(str, cVar, l.a.this, "download icon fail: bitmap is null or is recycled");
+                    b.a(str, cVar, m.a.this, "download icon fail: bitmap is null or is recycled");
                     return;
                 }
                 try {
@@ -354,34 +335,34 @@ public class b {
                     } else {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
-                    l.a.this.d(str, copy);
+                    m.a.this.d(str, copy);
                 } catch (Exception e) {
-                    b.a(str, cVar, l.a.this, "download icon fail: " + e.getMessage());
+                    b.a(str, cVar, m.a.this, "download icon fail: " + e.getMessage());
                 }
             }
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
-                b.a(str, cVar, l.a.this, "download icon fail: onFailureImpl");
+                b.a(str, cVar, m.a.this, "download icon fail: onFailureImpl");
             }
 
             @Override // com.facebook.datasource.a, com.facebook.datasource.d
             public void b(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
                 super.b(bVar);
-                b.a(str, cVar, l.a.this, "download icon fail: onCancellation");
+                b.a(str, cVar, m.a.this, "download icon fail: onCancellation");
             }
-        }, com.facebook.common.b.f.ctC());
+        }, com.facebook.common.b.f.cBz());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(String str, com.baidu.swan.apps.v.b.c cVar, l.a aVar, String str2) {
-        com.baidu.swan.apps.ak.a hx = new com.baidu.swan.apps.ak.a().L(4L).M(10L).hx(str2);
-        com.baidu.swan.apps.ak.e.LE().b(hx);
-        com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().a(hx).gS(com.baidu.swan.apps.statistic.c.dB(cVar != null ? cVar.ayb : 0)).c(cVar));
+    public static void a(String str, com.baidu.swan.apps.v.b.c cVar, m.a aVar, String str2) {
+        com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(4L).Z(10L).hZ(str2);
+        com.baidu.swan.apps.ak.e.Ok().b(hZ);
+        com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().a(hZ).hp(com.baidu.swan.apps.statistic.e.dM(cVar != null ? cVar.ayS : 0)).c(cVar));
         aVar.d(str, null);
     }
 
     private static void a(Context context, String str, com.baidu.swan.apps.ak.a aVar) {
-        com.baidu.swan.apps.u.a.Dc().h(str, aVar.Lx());
+        com.baidu.swan.apps.u.a.Eh().h(str, aVar.Od());
     }
 }

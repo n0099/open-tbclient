@@ -3,7 +3,6 @@ package com.baidu.mapsdkplatform.comapi.util;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.mobstat.Config;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +16,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0058a {
+    public static class C0057a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
@@ -49,7 +48,7 @@ public class a {
         for (int i = 0; i < str2.length(); i++) {
             stringBuffer.append(str2.charAt(i));
             if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
-                stringBuffer.append(Config.TRACE_TODAY_VISIT_SPLIT);
+                stringBuffer.append(":");
             }
         }
         return stringBuffer.toString();
@@ -57,7 +56,7 @@ public class a {
 
     static String a(X509Certificate x509Certificate) {
         try {
-            return C0058a.a(a(x509Certificate.getEncoded()));
+            return C0057a.a(a(x509Certificate.getEncoded()));
         } catch (CertificateEncodingException e) {
             return null;
         }

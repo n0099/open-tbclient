@@ -29,14 +29,13 @@ public class b extends Fallback {
         if (this.i != null) {
             arrayList.addAll(this.i.a(true));
         }
-        synchronized (HostManager.mReservedHosts) {
-            ArrayList<String> arrayList2 = HostManager.mReservedHosts.get(this.b);
-            if (arrayList2 != null) {
-                ArrayList<String> a = this.i != null ? this.i.a(false) : arrayList;
-                Iterator<String> it = arrayList2.iterator();
+        synchronized (HostManager.sReservedHosts) {
+            Fallback fallback = HostManager.sReservedHosts.get(this.b);
+            if (fallback != null) {
+                Iterator<String> it = fallback.a(true).iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (a.indexOf(next) == -1) {
+                    if (arrayList.indexOf(next) == -1) {
                         arrayList.add(next);
                     }
                 }

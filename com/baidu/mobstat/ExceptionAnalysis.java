@@ -57,7 +57,7 @@ public class ExceptionAnalysis {
             String str = "";
             if (!TextUtils.isEmpty(th2)) {
                 try {
-                    str = th2.length() > 1 ? th2.split(Config.TRACE_TODAY_VISIT_SPLIT)[0] : th2;
+                    str = th2.length() > 1 ? th2.split(":")[0] : th2;
                 } catch (Exception e) {
                     str = "";
                 }

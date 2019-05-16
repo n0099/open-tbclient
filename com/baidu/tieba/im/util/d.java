@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.util;
 /* loaded from: classes.dex */
 public class d {
-    public static long dl(long j) {
+    public static long dI(long j) {
         return 1 + j;
     }
 
-    public static long dm(long j) {
+    public static long dJ(long j) {
         return 100 * j;
     }
 
-    public static long dn(long j) {
+    public static long dK(long j) {
         return j / 100;
     }
 }

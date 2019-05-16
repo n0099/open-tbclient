@@ -22,56 +22,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    private l far;
-    private CustomMessageListener frr = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.frs.mc.e.3
+    private CustomMessageListener fHM = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.frs.mc.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.i(customResponsedMessage);
         }
     };
-    private CustomMessageListener frt = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.frs.mc.e.4
+    private CustomMessageListener fHN = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.frs.mc.e.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.this.h(customResponsedMessage);
         }
     };
-    private CustomMessageListener fru = new CustomMessageListener(2016553) { // from class: com.baidu.tieba.frs.mc.e.5
+    private CustomMessageListener fHO = new CustomMessageListener(2016553) { // from class: com.baidu.tieba.frs.mc.e.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            e.this.vz(e.this.g(customResponsedMessage));
-            e.this.far.bcs().bdI().notifyDataSetChanged();
+            e.this.wS(e.this.g(customResponsedMessage));
+            e.this.fqG.bjM().bkZ().notifyDataSetChanged();
         }
     };
-    private CustomMessageListener frv = new CustomMessageListener(2016331) { // from class: com.baidu.tieba.frs.mc.e.7
+    private CustomMessageListener fHP = new CustomMessageListener(2016331) { // from class: com.baidu.tieba.frs.mc.e.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && e.this.far != null && e.this.far.bcn() != null && e.this.far.bcn().bhm() != null) {
+            if (customResponsedMessage != null && e.this.fqG != null && e.this.fqG.bjH() != null && e.this.fqG.bjH().boF() != null) {
                 String str = (String) customResponsedMessage.getData();
-                e.this.i(str, e.this.far.bcn().bhm().getForum().getBannerListData().getAllAdvertList());
-                e.this.j(str, e.this.far.bcs().getListView().getData());
-                e.this.j(str, e.this.far.bco().bhC().getDataList());
-                e.this.far.bcn().vy(str);
-                if (e.this.far.bcs() != null && e.this.far.bcs().bdI() != null) {
-                    e.this.far.bcs().bdI().notifyDataSetChanged();
+                e.this.h(str, e.this.fqG.bjH().boF().getForum().getBannerListData().getAllAdvertList());
+                e.this.i(str, e.this.fqG.bjM().getListView().getData());
+                e.this.i(str, e.this.fqG.bjI().boV().getDataList());
+                e.this.fqG.bjH().wR(str);
+                if (e.this.fqG.bjM() != null && e.this.fqG.bjM().bkZ() != null) {
+                    e.this.fqG.bjM().bkZ().notifyDataSetChanged();
                 }
             }
         }
     };
+    private l fqG;
 
     public e(l lVar, BdUniqueId bdUniqueId) {
-        this.far = lVar;
-        this.frt.setTag(bdUniqueId);
-        this.frv.setTag(bdUniqueId);
-        this.frr.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.frr);
-        MessageManager.getInstance().registerListener(this.frt);
-        MessageManager.getInstance().registerListener(this.frv);
-        this.fru.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.fru);
+        this.fqG = lVar;
+        this.fHN.setTag(bdUniqueId);
+        this.fHP.setTag(bdUniqueId);
+        this.fHM.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fHM);
+        MessageManager.getInstance().registerListener(this.fHN);
+        MessageManager.getInstance().registerListener(this.fHP);
+        this.fHO.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fHO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,10 +84,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.far != null && this.far.bcn() != null && this.far.bcn().bhm() != null) {
+        if (this.fqG != null && this.fqG.bjH() != null && this.fqG.bjH().boF() != null) {
             final String g = g(customResponsedMessage);
-            if (!StringUtils.isNull(g) && this.far.bcs() != null && this.far.bcs().bdI() != null) {
-                final View childAt = this.far.bcs().getListView().getChildAt(a(g, this.far.bcs().getListView()));
+            if (!StringUtils.isNull(g) && this.fqG.bjM() != null && this.fqG.bjM().bkZ() != null) {
+                final View childAt = this.fqG.bjM().getListView().getChildAt(a(g, this.fqG.bjM().getListView()));
                 if (childAt != null) {
                     a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.1
                         @Override // android.view.animation.Animation.AnimationListener
@@ -100,30 +100,30 @@ public class e {
 
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            if (e.this.far != null && e.this.far.bcs() != null && e.this.far.bcs().getListView() != null && e.this.far.bcs().bdI() != null) {
-                                e.this.far.bcs().getListView().removeView(childAt);
-                                e.this.vz(g);
-                                e.this.far.bcs().bdI().notifyDataSetChanged();
+                            if (e.this.fqG != null && e.this.fqG.bjM() != null && e.this.fqG.bjM().getListView() != null && e.this.fqG.bjM().bkZ() != null) {
+                                e.this.fqG.bjM().getListView().removeView(childAt);
+                                e.this.wS(g);
+                                e.this.fqG.bjM().bkZ().notifyDataSetChanged();
                             }
                         }
                     });
                     return;
                 }
-                vz(g);
-                this.far.bcs().bdI().notifyDataSetChanged();
+                wS(g);
+                this.fqG.bjM().bkZ().notifyDataSetChanged();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.far != null && this.far.bcn() != null && this.far.bcn().bhm() != null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.fqG != null && this.fqG.bjH() != null && this.fqG.bjH().boF() != null) {
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             final String optString = jSONObject.optString("type");
             if (!StringUtils.isNull(optString)) {
                 final String optString2 = jSONObject.optString("tid");
-                if (this.far.bcs() != null && this.far.bcs().bdI() != null) {
-                    final View childAt = this.far.bcs().getListView().getChildAt(a(optString, optString2, this.far.bcs().getListView()));
+                if (this.fqG.bjM() != null && this.fqG.bjM().bkZ() != null) {
+                    final View childAt = this.fqG.bjM().getListView().getChildAt(a(optString, optString2, this.fqG.bjM().getListView()));
                     if (childAt != null) {
                         a(childAt, new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.mc.e.2
                             @Override // android.view.animation.Animation.AnimationListener
@@ -136,53 +136,53 @@ public class e {
 
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationEnd(Animation animation) {
-                                e.this.cM(optString, optString2);
+                                e.this.cZ(optString, optString2);
                                 childAt.setVisibility(8);
-                                if (e.this.far.bcs() != null && e.this.far.bcs().bdI() != null) {
-                                    e.this.far.bcs().bdI().notifyDataSetChanged();
+                                if (e.this.fqG.bjM() != null && e.this.fqG.bjM().bkZ() != null) {
+                                    e.this.fqG.bjM().bkZ().notifyDataSetChanged();
                                 }
                             }
                         });
                         return;
                     }
-                    cM(optString, optString2);
-                    this.far.bcs().bdI().notifyDataSetChanged();
+                    cZ(optString, optString2);
+                    this.fqG.bjM().bkZ().notifyDataSetChanged();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cM(String str, String str2) {
-        ArrayList<m> threadList = this.far.bcn().bhm().getThreadList();
+    public void cZ(String str, String str2) {
+        ArrayList<m> threadList = this.fqG.bjH().boF().getThreadList();
         b(str, str2, threadList);
-        b(str, str2, this.far.bcs().getListView().getData());
+        b(str, str2, this.fqG.bjM().getListView().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.far.bcn().vw(str2);
+            this.fqG.bjH().wP(str2);
         } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-            this.far.bcn().vx(str2);
+            this.fqG.bjH().wQ(str2);
         }
         if (threadList != null && threadList.size() < 5) {
-            this.far.aAZ();
+            this.fqG.aHq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vz(String str) {
+    public void wS(String str) {
         if (!StringUtils.isNull(str)) {
-            ArrayList<m> threadList = this.far.bcn().bhm().getThreadList();
-            h(str, threadList);
-            h(str, this.far.bcs().getListView().getData());
-            h(str, this.far.bco().getDataList());
-            this.far.bcn().vx(str);
+            ArrayList<m> threadList = this.fqG.bjH().boF().getThreadList();
+            g(str, threadList);
+            g(str, this.fqG.bjM().getListView().getData());
+            g(str, this.fqG.bjI().getDataList());
+            this.fqG.bjH().wQ(str);
             if (threadList != null && threadList.size() < 5) {
-                this.far.aAZ();
+                this.fqG.aHq();
             }
         }
     }
 
     private void b(String str, String str2, List<m> list) {
-        if (v.S(list) != 0) {
+        if (v.Z(list) != 0) {
             ArrayList arrayList = new ArrayList();
             for (m mVar : list) {
                 if (str.equals("ala_frs_stage_live_feed_back_type")) {
@@ -204,8 +204,8 @@ public class e {
         }
     }
 
-    private void h(String str, List<m> list) {
-        if (v.S(list) != 0) {
+    private void g(String str, List<m> list) {
+        if (v.Z(list) != 0) {
             ArrayList arrayList = new ArrayList();
             for (m mVar : list) {
                 if (mVar instanceof bf) {
@@ -288,12 +288,12 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i(String str, List<AdvertAppInfo> list) {
+    public void h(String str, List<AdvertAppInfo> list) {
         if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                if (next != null && str.equals(next.bwH)) {
+                if (next != null && str.equals(next.bDS)) {
                     it.remove();
                 }
             }
@@ -301,14 +301,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j(String str, List<m> list) {
+    public void i(String str, List<m> list) {
         if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<m> it = list.iterator();
             while (it.hasNext()) {
                 m next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
-                    Object aud = ((com.baidu.tieba.InjectPlugin.a) next).aud();
-                    if ((aud instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aud).bwH)) {
+                    Object azi = ((com.baidu.tieba.InjectPlugin.a) next).azi();
+                    if ((azi instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) azi).bDS)) {
                         it.remove();
                     }
                 }

@@ -2,6 +2,7 @@ package com.coremedia.iso;
 
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.UserBox;
+import com.vivo.push.util.NotifyAdapterUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
@@ -116,7 +117,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             }
         }
         if (property == null) {
-            property = this.mapping.getProperty("default");
+            property = this.mapping.getProperty(NotifyAdapterUtil.PRIMARY_CHANNEL);
         }
         if (property == null) {
             throw new RuntimeException("No box object found for " + str);

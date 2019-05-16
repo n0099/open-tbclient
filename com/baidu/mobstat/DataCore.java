@@ -374,7 +374,7 @@ public class DataCore {
         String str = "";
         String str2 = "";
         String d = al.a().d(context);
-        if (!TextUtils.isEmpty(d) && d.contains(Config.TRACE_TODAY_VISIT_SPLIT) && (split = d.split(Config.TRACE_TODAY_VISIT_SPLIT)) != null && split.length == 2) {
+        if (!TextUtils.isEmpty(d) && d.contains(":") && (split = d.split(":")) != null && split.length == 2) {
             str = split[0];
             str2 = split[1];
         }
@@ -390,7 +390,7 @@ public class DataCore {
         String a2 = cd.a(j);
         int i3 = (TextUtils.isEmpty(str) || a2.equals(str)) ? i + i2 : i;
         if (i != 0) {
-            al.a().a(context, a2 + Config.TRACE_TODAY_VISIT_SPLIT + i3);
+            al.a().a(context, a2 + ":" + i3);
         }
         a(jSONObject, Config.TRACE_VISIT_SESSION_TODAY_COUNT, Integer.valueOf(i3));
         if (TextUtils.isEmpty(str)) {

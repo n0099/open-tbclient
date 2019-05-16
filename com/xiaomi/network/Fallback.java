@@ -1,8 +1,8 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.xiaomi.channel.commonutils.string.d;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,16 +28,17 @@ public class Fallback {
     private long n = 86400000;
 
     public Fallback(String str) {
+        this.a = "";
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
         this.i = System.currentTimeMillis();
         this.j.add(new c(str, -1));
-        this.a = HostManager.getInstance().getActiveNetworkLabel();
+        this.a = HostManager.getActiveNetworkLabel();
         this.b = str;
     }
 
-    private synchronized void c(String str) {
+    private synchronized void d(String str) {
         Iterator<c> it = this.j.iterator();
         while (it.hasNext()) {
             if (TextUtils.equals(it.next().a, str)) {
@@ -93,7 +94,7 @@ public class Fallback {
                 if (z) {
                     arrayList.add(cVar.a);
                 } else {
-                    int indexOf = cVar.a.indexOf(Config.TRACE_TODAY_VISIT_SPLIT);
+                    int indexOf = cVar.a.indexOf(":");
                     if (indexOf != -1) {
                         arrayList.add(cVar.a.substring(0, indexOf));
                     } else {
@@ -118,7 +119,7 @@ public class Fallback {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(c cVar) {
-        c(cVar.a);
+        d(cVar.a);
         this.j.add(cVar);
     }
 
@@ -185,15 +186,15 @@ public class Fallback {
     }
 
     public boolean a() {
-        return TextUtils.equals(this.a, HostManager.getInstance().getActiveNetworkLabel());
+        return TextUtils.equals(this.a, HostManager.getActiveNetworkLabel());
     }
 
     public boolean a(Fallback fallback) {
         return TextUtils.equals(this.a, fallback.a);
     }
 
-    public void b(String str) {
-        this.m = str;
+    public synchronized void b(String str) {
+        a(new c(str));
     }
 
     public void b(String str, long j, long j2) {
@@ -206,6 +207,10 @@ public class Fallback {
 
     public boolean b() {
         return System.currentTimeMillis() - this.i < this.n;
+    }
+
+    public void c(String str) {
+        this.m = str;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -226,7 +231,7 @@ public class Fallback {
         } else if (TextUtils.isEmpty(this.e)) {
             str = "hardcode_isp";
         } else {
-            this.k = HostManager.join(new String[]{this.e, this.c, this.d, this.g, this.f}, "_");
+            this.k = d.a(new String[]{this.e, this.c, this.d, this.g, this.f}, "_");
             str = this.k;
         }
         return str;

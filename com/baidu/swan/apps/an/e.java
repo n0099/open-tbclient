@@ -7,23 +7,23 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final Set<Integer> aWe = new HashSet();
-    private static final Set<Integer> aWf = new HashSet();
-    private static final Set<Integer> aWg = new HashSet();
+    private static final Set<Integer> aZf = new HashSet();
+    private static final Set<Integer> aZg = new HashSet();
+    private static final Set<Integer> aZh = new HashSet();
 
     static {
-        aWe.add(2);
-        aWe.add(3);
-        aWe.add(4);
-        aWe.add(5);
-        aWe.add(6);
-        aWf.add(7);
-        aWf.add(1);
-        aWg.addAll(aWe);
-        aWg.addAll(aWf);
+        aZf.add(2);
+        aZf.add(3);
+        aZf.add(4);
+        aZf.add(5);
+        aZf.add(6);
+        aZg.add(7);
+        aZg.add(1);
+        aZh.addAll(aZf);
+        aZh.addAll(aZg);
     }
 
-    public static Date LO() {
+    public static Date Ov() {
         return new Date();
     }
 
@@ -43,7 +43,7 @@ public final class e {
         }
     }
 
-    public static Date aJ(String str, String str2) {
+    public static Date aM(String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -59,7 +59,7 @@ public final class e {
         }
     }
 
-    public static Date d(String str, String[] strArr) {
+    public static Date e(String str, String[] strArr) {
         Date date = null;
         if (!TextUtils.isEmpty(str) && strArr != null) {
             for (String str2 : strArr) {

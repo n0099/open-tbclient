@@ -1,5 +1,5 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public interface q<T> extends n<T> {
-    int u(int i, int i2);
+    int s(int i, int i2);
 }

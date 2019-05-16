@@ -13,19 +13,19 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FRSRefreshButton extends ImageView {
-    private static final int cuY = al.getColor(d.C0277d.white_alpha100);
+    private static final int cDh = al.getColor(R.color.white_alpha100);
+    private boolean cDi;
+    private Paint cDj;
+    private float[] cDk;
+    private float[] cDl;
+    private boolean cDm;
+    private LinearGradient cDn;
+    private PorterDuffXfermode cDo;
+    private PorterDuffXfermode cDp;
     private int color;
-    private boolean cuZ;
-    private Paint cva;
-    private float[] cvb;
-    private float[] cvc;
-    private boolean cvd;
-    private LinearGradient cve;
-    private PorterDuffXfermode cvf;
-    private PorterDuffXfermode cvg;
     private int endColor;
     private Drawable mIcon;
     private int mIconId;
@@ -45,32 +45,32 @@ public class FRSRefreshButton extends ImageView {
 
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cuZ = true;
-        this.cvb = new float[4];
-        this.cvc = new float[4];
-        this.cvd = true;
-        this.color = cuY;
-        this.cvf = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.cvg = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.cDi = true;
+        this.cDk = new float[4];
+        this.cDl = new float[4];
+        this.cDm = true;
+        this.color = cDh;
+        this.cDo = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.cDp = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
-        aqS();
+        avY();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setAntiAlias(true);
-        this.cva = new Paint();
-        this.cva.setColor(al.getColor(d.C0277d.cp_btn_a));
-        this.cva.setStrokeCap(Paint.Cap.ROUND);
-        this.cva.setAntiAlias(true);
+        this.cDj = new Paint();
+        this.cDj.setColor(al.getColor(R.color.cp_btn_a));
+        this.cDj.setStrokeCap(Paint.Cap.ROUND);
+        this.cDj.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void aqS() {
+    private void avY() {
     }
 
     @Override // android.view.View
@@ -117,28 +117,28 @@ public class FRSRefreshButton extends ImageView {
             this.mPath.cubicTo(f - f3, height2, width, f2 + f4, width, f2);
             this.mPath.cubicTo(width, f2 - f4, f - f3, height, f, height);
             this.mPath.close();
-            if (this.cuZ) {
-                this.cuZ = false;
+            if (this.cDi) {
+                this.cDi = false;
             }
-            if (this.cvd) {
+            if (this.cDm) {
                 float width3 = canvas.getWidth() * 0.0226f;
                 double radians = Math.toRadians(getRotation() - 45.0f);
                 this.mPaint.setShadowLayer(canvas.getWidth() * 0.054f, (float) (width3 * Math.cos(radians)), ((float) (Math.sin(radians) * width3)) * (-1.0f), Color.parseColor("#14000000"));
             }
-            if (this.cve != null) {
-                this.mPaint.setShader(this.cve);
+            if (this.cDn != null) {
+                this.mPaint.setShader(this.cDn);
             }
-            this.mPaint.setColor(al.getColor(d.C0277d.cp_bg_line_d));
+            this.mPaint.setColor(al.getColor(R.color.cp_bg_line_d));
             float width4 = canvas.getWidth() * 0.032f;
             canvas.drawPath(this.mPath, this.mPaint);
-            this.cvb[0] = ((3.0f * f) + width) / 4.0f;
-            this.cvb[1] = ((3.0f * f2) + height) / 4.0f;
-            this.cvb[2] = ((3.0f * f) + width2) / 4.0f;
-            this.cvb[3] = ((3.0f * f2) + height2) / 4.0f;
-            this.cvc[0] = (width2 + (3.0f * f)) / 4.0f;
-            this.cvc[1] = (height + (3.0f * f2)) / 4.0f;
-            this.cvc[2] = ((3.0f * f) + width) / 4.0f;
-            this.cvc[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.cDk[0] = ((3.0f * f) + width) / 4.0f;
+            this.cDk[1] = ((3.0f * f2) + height) / 4.0f;
+            this.cDk[2] = ((3.0f * f) + width2) / 4.0f;
+            this.cDk[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.cDl[0] = (width2 + (3.0f * f)) / 4.0f;
+            this.cDl[1] = (height + (3.0f * f2)) / 4.0f;
+            this.cDl[2] = ((3.0f * f) + width) / 4.0f;
+            this.cDl[3] = ((3.0f * f2) + height2) / 4.0f;
             z(canvas);
         }
         canvas.restoreToCount(saveCount2);
@@ -146,7 +146,7 @@ public class FRSRefreshButton extends ImageView {
 
     private void z(Canvas canvas) {
         if (this.mIcon == null) {
-            this.cva.setAlpha(255);
+            this.cDj.setAlpha(255);
             return;
         }
         if (Build.VERSION.SDK_INT < 19 || this.mIcon.getAlpha() > 0) {
@@ -168,11 +168,11 @@ public class FRSRefreshButton extends ImageView {
             if (this.mIcon != null) {
                 this.mIcon.setAlpha(255);
             }
-            this.cva.setAlpha(0);
+            this.cDj.setAlpha(0);
             this.mIconId = i;
         } else {
             this.mIcon = null;
-            this.cva.setAlpha(255);
+            this.cDj.setAlpha(255);
         }
         postInvalidate();
     }
@@ -183,9 +183,9 @@ public class FRSRefreshButton extends ImageView {
             int i = (int) (255.0f * f2 * 2.0f);
             if (f2 > 0.0f) {
                 this.mIcon.setAlpha(i);
-                this.cva.setAlpha(0);
+                this.cDj.setAlpha(0);
             } else {
-                this.cva.setAlpha(-i);
+                this.cDj.setAlpha(-i);
                 this.mIcon.setAlpha(0);
             }
             invalidate();
@@ -199,27 +199,27 @@ public class FRSRefreshButton extends ImageView {
     }
 
     private void A(Canvas canvas) {
-        this.mPaint.setXfermode(this.cvf);
+        this.mPaint.setXfermode(this.cDo);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.cvg);
+        this.mPaint.setXfermode(this.cDp);
     }
 
     public void setStartAndEndColor(String str, String str2) {
         this.startColor = com.baidu.tieba.lego.card.d.a.parseColor(str);
         this.endColor = com.baidu.tieba.lego.card.d.a.parseColor(str2);
-        this.cuZ = true;
+        this.cDi = true;
         invalidate();
     }
 
     public void setStartAndEndColor(int i, int i2) {
         this.startColor = i;
         this.endColor = i2;
-        this.cuZ = true;
+        this.cDi = true;
         invalidate();
     }
 
     public void setNeedShadow(boolean z) {
-        this.cvd = z;
+        this.cDm = z;
     }
 
     public void setColor(int i) {
@@ -232,14 +232,14 @@ public class FRSRefreshButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aqS();
-            this.color = al.getColor(this.mSkinType, d.C0277d.cp_bg_line_d);
-            this.mPaint.setColor(al.getColor(d.C0277d.cp_bg_line_d));
-            this.cuZ = true;
+            avY();
+            this.color = al.getColor(this.mSkinType, R.color.cp_bg_line_d);
+            this.mPaint.setColor(al.getColor(R.color.cp_bg_line_d));
+            this.cDi = true;
             if (this.mIconId > 0) {
                 this.mIcon = al.getDrawable(this.mIconId);
             }
-            this.cva.setColor(al.getColor(d.C0277d.cp_btn_a));
+            this.cDj.setColor(al.getColor(R.color.cp_btn_a));
             invalidate();
         }
     }

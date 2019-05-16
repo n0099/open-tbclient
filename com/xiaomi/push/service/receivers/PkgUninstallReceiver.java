@@ -6,8 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-import com.xiaomi.push.service.h;
+import com.xiaomi.push.service.ba;
+import com.xiaomi.push.service.be;
+import com.xiaomi.push.service.j;
 /* loaded from: classes3.dex */
 public class PkgUninstallReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -22,10 +23,10 @@ public class PkgUninstallReceiver extends BroadcastReceiver {
         }
         try {
             Intent intent2 = new Intent(context, XMPushService.class);
-            intent2.setAction(ap.a);
+            intent2.setAction(ba.a);
             intent2.putExtra("uninstall_pkg_name", data.getEncodedSchemeSpecificPart());
-            context.startService(intent2);
-            h.a(context.getApplicationContext(), data.getEncodedSchemeSpecificPart());
+            be.a(context).a(intent2);
+            j.a(context.getApplicationContext(), data.getEncodedSchemeSpecificPart());
         } catch (Exception e) {
             b.a(e);
         }

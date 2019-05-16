@@ -14,28 +14,28 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0364a c0364a = new C0364a();
-            c0364a.hJO = str;
-            c0364a.hJP = bVar;
-            c0364a.execute("");
+            C0383a c0383a = new C0383a();
+            c0383a.ibN = str;
+            c0383a.ibO = bVar;
+            c0383a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0364a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String hJO;
-        public b hJP;
+    private static class C0383a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String ibN;
+        public b ibO;
 
-        private C0364a() {
+        private C0383a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: q */
+        /* renamed from: p */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").P(m.lQ(this.hJO), false);
+            return new com.baidu.tbadk.img.f("user_pics").R(m.mY(this.ibN), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.hJP != null) {
+            if (this.ibO != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.hJP.a(i, str, imageUploadResult);
+                this.ibO.a(i, str, imageUploadResult);
             }
         }
     }

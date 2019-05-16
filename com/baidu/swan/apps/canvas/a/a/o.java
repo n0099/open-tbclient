@@ -5,14 +5,14 @@ import android.graphics.Typeface;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class o extends a {
-    String alP = "sans-serif";
-    float alQ = com.baidu.swan.apps.an.x.ad(10.0f);
-    boolean alR = false;
+    String amb = "sans-serif";
+    float amc = com.baidu.swan.apps.an.z.ad(10.0f);
+    boolean amd = false;
     boolean mItalic = false;
-    boolean alS = true;
+    boolean ame = true;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
         String[] split;
         try {
             if (jSONArray.length() > 0) {
@@ -22,9 +22,9 @@ public class o extends a {
                     } else if (str.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str.contains("bold")) {
-                        this.alR = true;
+                        this.amd = true;
                     } else if (str.contains("normal")) {
-                        this.alS = true;
+                        this.ame = true;
                     } else if (Character.isDigit(str.charAt(0))) {
                         int length = str.length();
                         int i = 0;
@@ -38,9 +38,9 @@ public class o extends a {
                                 i++;
                             }
                         }
-                        this.alQ = com.baidu.swan.apps.an.x.ad(Float.parseFloat(str.substring(0, i)));
+                        this.amc = com.baidu.swan.apps.an.z.ad(Float.parseFloat(str.substring(0, i)));
                     } else {
-                        this.alP = str;
+                        this.amb = str;
                     }
                 }
             }
@@ -54,14 +54,14 @@ public class o extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         int i = 0;
-        if (this.alR && this.mItalic) {
+        if (this.amd && this.mItalic) {
             i = 3;
-        } else if (this.alR) {
+        } else if (this.amd) {
             i = 1;
         } else if (this.mItalic) {
             i = 2;
         }
-        bVar.aln.setTypeface(Typeface.create(this.alP, i));
-        bVar.aln.setTextSize(this.alQ);
+        bVar.alz.setTypeface(Typeface.create(this.amb, i));
+        bVar.alz.setTextSize(this.amc);
     }
 }

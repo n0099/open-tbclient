@@ -18,12 +18,12 @@ public class a extends c {
         Bitmap a;
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
-            if (messageV3.getmNotificationStyle() != null && !a() && !TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) && (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) != null) {
-                bigPictureStyle.setBigContentTitle(messageV3.getTitle());
-                bigPictureStyle.setSummaryText(messageV3.getContent());
-                bigPictureStyle.bigPicture(a);
-                builder.setStyle(bigPictureStyle);
+            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
+                return;
             }
+            bigPictureStyle.setBigContentTitle(messageV3.getTitle());
+            bigPictureStyle.bigPicture(a);
+            builder.setStyle(bigPictureStyle);
         }
     }
 }

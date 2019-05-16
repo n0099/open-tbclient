@@ -20,7 +20,7 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: bo */
     public e.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mPageContext);
-        return new a(msgReplyCardView.fY(), msgReplyCardView);
+        return new a(msgReplyCardView.eR(), msgReplyCardView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,10 +29,10 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView bqd = aVar.bqd();
-        bqd.a(this.mPageContext, chatMessage, viewGroup);
-        bqd.a(this.gbi);
-        bqd.setPosition(i);
+        MsgReplyCardView bxP = aVar.bxP();
+        bxP.a(this.mPageContext, chatMessage, viewGroup);
+        bxP.a(this.gsy);
+        bxP.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

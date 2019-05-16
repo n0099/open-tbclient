@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State jRt = State.NotReady;
-    private T jRu;
+    private State kjL = State.NotReady;
+    private T kjM;
 
-    protected abstract void cCg();
+    protected abstract void cJN();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.jRt, State.Failed)) {
-            switch (this.jRt) {
+        if (!kotlin.jvm.internal.p.h(this.kjL, State.Failed)) {
+            switch (this.kjL) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cCf();
+                    return cJM();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.jRt = State.NotReady;
-            return this.jRu;
+            this.kjL = State.NotReady;
+            return this.kjM;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cCf() {
-        this.jRt = State.Failed;
-        cCg();
-        return kotlin.jvm.internal.p.h(this.jRt, State.Ready);
+    private final boolean cJM() {
+        this.kjL = State.Failed;
+        cJN();
+        return kotlin.jvm.internal.p.h(this.kjL, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bf(T t) {
-        this.jRu = t;
-        this.jRt = State.Ready;
+    public final void bh(T t) {
+        this.kjM = t;
+        this.kjL = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.jRt = State.Done;
+        this.kjL = State.Done;
     }
 }

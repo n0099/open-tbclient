@@ -6,7 +6,7 @@ public class a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.c.ac
             /* renamed from: e */
-            public int aP(com.facebook.imagepipeline.f.b bVar) {
+            public int aR(com.facebook.imagepipeline.f.b bVar) {
                 return bVar.getSizeInBytes();
             }
         }, new d(), iVar, fVar, z);

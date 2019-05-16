@@ -8,7 +8,6 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.a.h;
 import com.baidu.tbadk.coreExtra.data.d;
@@ -32,7 +31,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.afW()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.akV()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
@@ -45,15 +44,15 @@ public class ShowStatisticUploadRequest extends HttpMessage {
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
         ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(1, str, str2, str4);
-        init.addParam(ImageViewerConfig.FORUM_ID, str3);
+        init.addParam("fid", str3);
         if (list != null && list.size() > 0) {
             JSONArray jSONArray = new JSONArray();
             for (a.b bVar : list) {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.ctx);
-                        jSONObject.put("locate", bVar.ekG);
+                        jSONObject.put("tid", bVar.bVL);
+                        jSONObject.put("locate", bVar.eAu);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -67,7 +66,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
         ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(2, str, str2, str5);
-        init.addParam(ImageViewerConfig.FORUM_ID, str3);
+        init.addParam("fid", str3);
         if (list != null && list.size() > 0) {
             JSONArray jSONArray = new JSONArray();
             for (a.b bVar : list) {
@@ -76,7 +75,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     try {
                         jSONObject.put(Info.kBaiduPIDKey, bVar.mPid);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.ekG);
+                        jSONObject.put("locate", bVar.eAu);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);

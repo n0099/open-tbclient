@@ -5,123 +5,123 @@ import java.util.HashMap;
 import java.util.UUID;
 /* loaded from: classes5.dex */
 public class j implements com.baidu.tieba.j.h {
-    private String gXV;
-    private String gXW;
-    private HashMap<String, com.baidu.tieba.j.f> ibR;
+    private String hpm;
+    private String hpn;
+    private HashMap<String, com.baidu.tieba.j.f> iuv;
 
     /* loaded from: classes5.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h ibS = new j();
+        private static final com.baidu.tieba.j.h iuw = new j();
     }
 
-    public static com.baidu.tieba.j.h bUK() {
-        return a.ibS;
+    public static com.baidu.tieba.j.h ccK() {
+        return a.iuw;
     }
 
     private j() {
-        this.ibR = new HashMap<>();
+        this.iuv = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bEd() {
-        this.gXV = UUID.randomUUID().toString();
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void as(int i, String str) {
-        bUL().k(this.gXV, i, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void at(int i, String str) {
-        bUL().l(this.gXV, i, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void au(int i, String str) {
-        bUL().m(this.gXV, i, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void bEe() {
-        bUL().yR(this.gXV);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void g(int i, int i2, String str) {
-        bUL().e(this.gXV, i, i2, str);
-    }
-
-    @Override // com.baidu.tieba.j.h
-    public void bEf() {
-        bUL().yS(this.gXV);
-        dh(this.gXV);
+    public void bLO() {
+        this.hpm = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
     public void av(int i, String str) {
-        bUL().n(this.gXV, i, str);
+        ccL().o(this.hpm, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void yV(String str) {
-        if (!StringUtils.isNull(this.gXW)) {
-            if (yT(this.gXW) || yU(this.gXW)) {
-                dh(this.gXW);
+    public void aw(int i, String str) {
+        ccL().p(this.hpm, i, str);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void ax(int i, String str) {
+        ccL().q(this.hpm, i, str);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void bLP() {
+        ccL().Ah(this.hpm);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void h(int i, int i2, String str) {
+        ccL().e(this.hpm, i, i2, str);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void bLQ() {
+        ccL().Ai(this.hpm);
+        cU(this.hpm);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void ay(int i, String str) {
+        ccL().r(this.hpm, i, str);
+    }
+
+    @Override // com.baidu.tieba.j.h
+    public void Al(String str) {
+        if (!StringUtils.isNull(this.hpn)) {
+            if (Aj(this.hpn) || Ak(this.hpn)) {
+                cU(this.hpn);
             } else {
-                com.baidu.tieba.j.d.yQ(this.gXW);
-                this.ibR.remove(this.gXV);
+                com.baidu.tieba.j.d.Ag(this.hpn);
+                this.iuv.remove(this.hpm);
             }
-            bEd();
-            bUL().dq(this.gXW, str);
-            this.gXW = null;
+            bLO();
+            ccL().dC(this.hpn, str);
+            this.hpn = null;
         }
     }
 
     @Override // com.baidu.tieba.j.h
-    public void bEg() {
-        this.gXW = this.gXV;
+    public void bLR() {
+        this.hpn = this.hpm;
     }
 
     @Override // com.baidu.tieba.j.h
-    public void yW(String str) {
-        bUL().dr(this.gXV, str);
-        if (yT(this.gXV) || yU(this.gXV)) {
-            dh(this.gXV);
+    public void Am(String str) {
+        ccL().dD(this.hpm, str);
+        if (Aj(this.hpm) || Ak(this.hpm)) {
+            cU(this.hpm);
         } else {
-            com.baidu.tieba.j.d.yQ(this.gXV);
-            this.ibR.remove(this.gXV);
+            com.baidu.tieba.j.d.Ag(this.hpm);
+            this.iuv.remove(this.hpm);
         }
-        this.gXV = null;
+        this.hpm = null;
     }
 
-    public boolean yT(String str) {
-        return bUL().yT(str);
+    public boolean Aj(String str) {
+        return ccL().Aj(str);
     }
 
-    public boolean yU(String str) {
-        return bUL().yU(str);
+    public boolean Ak(String str) {
+        return ccL().Ak(str);
     }
 
-    public void dh(String str) {
-        com.baidu.tieba.j.f fVar = this.ibR.get(str);
+    public void cU(String str) {
+        com.baidu.tieba.j.f fVar = this.iuv.get(str);
         if (fVar != null) {
-            fVar.dh(str);
-            this.ibR.remove(str);
+            fVar.cU(str);
+            this.iuv.remove(str);
         }
     }
 
-    private com.baidu.tieba.j.f bUL() {
-        com.baidu.tieba.j.f fVar = this.ibR.get(this.gXV);
+    private com.baidu.tieba.j.f ccL() {
+        com.baidu.tieba.j.f fVar = this.iuv.get(this.hpm);
         if (fVar == null) {
-            return bUM();
+            return ccM();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f bUM() {
-        i iVar = new i(this.gXV);
-        this.ibR.put(this.gXV, iVar);
+    private com.baidu.tieba.j.f ccM() {
+        i iVar = new i(this.hpm);
+        this.iuv.put(this.hpm, iVar);
         return iVar;
     }
 }

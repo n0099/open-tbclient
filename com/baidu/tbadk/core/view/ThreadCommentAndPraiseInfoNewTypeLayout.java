@@ -30,17 +30,17 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(bg bgVar) {
         super.updatePraiseNum(bgVar);
-        if (this.bNv != null && this.bSA) {
-            if (this.bNv.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bNv.getLayoutParams();
+        if (this.bVg != null && this.cas) {
+            if (this.bVg.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bVg.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.bNv.setLayoutParams(layoutParams);
+                this.bVg.setLayoutParams(layoutParams);
             }
-            ImageView imageView = this.bNv.bOn;
+            ImageView imageView = this.bVg.bWb;
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams2.leftMargin = this.bSc;
+            layoutParams2.leftMargin = this.bZU;
             imageView.setLayoutParams(layoutParams2);
         }
     }
@@ -49,14 +49,14 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(bg bgVar) {
         super.p(bgVar);
-        if (this.bSj != null && this.bSE) {
-            this.bSj.setVisibility(0);
-            if (this.bSj.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSj.getLayoutParams();
+        if (this.cab != null && this.caw) {
+            this.cab.setVisibility(0);
+            if (this.cab.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cab.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.bSc;
+                layoutParams.leftMargin = this.bZU;
                 layoutParams.weight = 0.0f;
-                this.bSj.setLayoutParams(layoutParams);
+                this.cab.setLayoutParams(layoutParams);
             }
         }
     }
@@ -65,12 +65,12 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void o(bg bgVar) {
         super.o(bgVar);
-        if (this.bSm != null && this.bSG && this.bSm.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSm.getLayoutParams();
+        if (this.cae != null && this.cay && this.cae.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cae.getLayoutParams();
             layoutParams.width = -2;
-            layoutParams.leftMargin = this.bSc;
+            layoutParams.leftMargin = this.bZU;
             layoutParams.weight = 0.0f;
-            this.bSm.setLayoutParams(layoutParams);
+            this.cae.setLayoutParams(layoutParams);
         }
     }
 
@@ -78,14 +78,14 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void q(bg bgVar) {
         super.q(bgVar);
-        if (this.bSt != null && this.bSH) {
-            this.bSt.setVisibility(0);
-            if (this.bSt.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSt.getLayoutParams();
+        if (this.cal != null && this.caz) {
+            this.cal.setVisibility(0);
+            if (this.cal.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cal.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.bSc;
+                layoutParams.leftMargin = this.bZU;
                 layoutParams.weight = 0.0f;
-                this.bSt.setLayoutParams(layoutParams);
+                this.cal.setLayoutParams(layoutParams);
             }
         }
     }

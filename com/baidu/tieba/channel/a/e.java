@@ -12,11 +12,11 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.channel.data.h;
-import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<h, a> {
-    private com.baidu.tieba.channel.view.b enr;
+    private com.baidu.tieba.channel.view.b eDb;
     private boolean mIsHost;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,7 +29,7 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aq */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(d.h.channel_home_common_video_item, viewGroup, false));
+        return new a(LayoutInflater.from(this.mContext).inflate(R.layout.channel_home_common_video_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,43 +45,43 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
     }
 
     private void a(a aVar, final h hVar, final int i) {
-        aVar.enu.setText(hVar.getTitle());
-        aVar.UC.startLoad(hVar.getThumbnailUrl(), 10, false);
-        aVar.enx.setText(this.mContext.getResources().getString(d.j.channel_home_play_count, ap.as(hVar.aRw())));
-        aVar.eny.setText(com.baidu.tieba.channel.c.c.ce(hVar.getCreateTime()));
-        aVar.enz.setText(ap.hu(hVar.getVideoDuration() * 1000));
+        aVar.eDe.setText(hVar.getTitle());
+        aVar.Sn.startLoad(hVar.getThumbnailUrl(), 10, false);
+        aVar.eDg.setText(this.mContext.getResources().getString(R.string.channel_home_play_count, ap.aG(hVar.aYF())));
+        aVar.eDh.setText(com.baidu.tieba.channel.c.c.cB(hVar.getCreateTime()));
+        aVar.eDi.setText(ap.ii(hVar.getVideoDuration() * 1000));
         if (this.mIsHost) {
-            aVar.enG.setVisibility(0);
-            aVar.enG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.1
+            aVar.eDp.setVisibility(0);
+            aVar.eDp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.enr != null) {
-                        e.this.enr.a(9, view, hVar, i);
+                    if (e.this.eDb != null) {
+                        e.this.eDb.a(9, view, hVar, i);
                     }
                 }
             });
         } else {
-            aVar.enG.setVisibility(8);
+            aVar.eDp.setVisibility(8);
         }
         aVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.enr != null) {
-                    e.this.enr.a(2, view, hVar, i);
+                if (e.this.eDb != null) {
+                    e.this.eDb.a(2, view, hVar, i);
                 }
             }
         });
     }
 
     private void a(a aVar, h hVar) {
-        al.j(aVar.enu, d.C0277d.cp_cont_b);
-        al.j(aVar.enx, d.C0277d.cp_cont_c);
-        al.j(aVar.enz, d.C0277d.cp_cont_g);
-        al.j(aVar.eny, d.C0277d.cp_cont_c);
+        al.j(aVar.eDe, R.color.cp_cont_b);
+        al.j(aVar.eDg, R.color.cp_cont_c);
+        al.j(aVar.eDi, R.color.cp_cont_g);
+        al.j(aVar.eDh, R.color.cp_cont_c);
     }
 
     public void a(com.baidu.tieba.channel.view.b bVar) {
-        this.enr = bVar;
+        this.eDb = bVar;
     }
 
     public void setIsHost(boolean z) {
@@ -90,45 +90,45 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
 
     /* loaded from: classes6.dex */
     public static class a extends v.a {
-        public TbImageView UC;
-        public ImageView enG;
-        public TextView enu;
-        public TextView enx;
-        public TextView eny;
-        public TextView enz;
+        public TbImageView Sn;
+        public TextView eDe;
+        public TextView eDg;
+        public TextView eDh;
+        public TextView eDi;
+        public ImageView eDp;
         public View mRootView;
 
         public a(View view) {
             super(view);
-            bA(view);
+            bH(view);
         }
 
-        private void bA(View view) {
+        private void bH(View view) {
             if (view != null) {
                 this.mRootView = view;
                 this.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.channel.a.e.a.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view2, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == 0) {
-                            al.l(a.this.mRootView, d.C0277d.cp_bg_line_c);
+                            al.l(a.this.mRootView, R.color.cp_bg_line_c);
                             return false;
                         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                            a.this.mRootView.setBackgroundResource(d.C0277d.transparent);
+                            a.this.mRootView.setBackgroundResource(R.color.transparent);
                             return false;
                         } else {
                             return false;
                         }
                     }
                 });
-                this.UC = (TbImageView) view.findViewById(d.g.channel_home_video_cover);
-                this.enu = (TextView) view.findViewById(d.g.channel_home_video_title);
-                this.enx = (TextView) view.findViewById(d.g.channel_home_big_video_count);
-                this.eny = (TextView) view.findViewById(d.g.channel_home_big_video_time);
-                this.enz = (TextView) view.findViewById(d.g.channel_home_big_video_duration);
-                this.enG = (ImageView) view.findViewById(d.g.channel_host_common_video_more_btn);
-                this.UC.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.UC.setDefaultResource(d.f.pic_bg_video_frs);
-                this.UC.setDefaultErrorResource(d.f.pic_bg_video_frs);
+                this.Sn = (TbImageView) view.findViewById(R.id.channel_home_video_cover);
+                this.eDe = (TextView) view.findViewById(R.id.channel_home_video_title);
+                this.eDg = (TextView) view.findViewById(R.id.channel_home_big_video_count);
+                this.eDh = (TextView) view.findViewById(R.id.channel_home_big_video_time);
+                this.eDi = (TextView) view.findViewById(R.id.channel_home_big_video_duration);
+                this.eDp = (ImageView) view.findViewById(R.id.channel_host_common_video_more_btn);
+                this.Sn.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.Sn.setDefaultResource(R.drawable.pic_bg_video_frs);
+                this.Sn.setDefaultErrorResource(R.drawable.pic_bg_video_frs);
             }
         }
     }

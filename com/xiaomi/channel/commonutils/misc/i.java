@@ -1,28 +1,31 @@
 package com.xiaomi.channel.commonutils.misc;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.SharedPreferences;
 import com.xiaomi.channel.commonutils.misc.h;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-class i extends Handler {
-    final /* synthetic */ h a;
+public class i extends h.b {
+    final /* synthetic */ String a;
+    final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(h hVar, Looper looper) {
-        super(looper);
-        this.a = hVar;
+    public i(h hVar, h.a aVar, String str) {
+        super(aVar);
+        this.b = hVar;
+        this.a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        h.b bVar = (h.b) message.obj;
-        if (message.what == 0) {
-            bVar.a();
-        } else if (message.what == 1) {
-            bVar.c();
-        }
-        super.handleMessage(message);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    public void a() {
+        super.a();
+    }
+
+    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    void b() {
+        SharedPreferences sharedPreferences;
+        sharedPreferences = this.b.e;
+        sharedPreferences.edit().putLong(this.a, System.currentTimeMillis()).commit();
     }
 }

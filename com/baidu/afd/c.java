@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int Te;
-    private final int Tf;
-    private final int Tg;
-    private final String Th;
-    private HashMap Ti;
-    private int floor;
+    private final int QN;
+    private final int QO;
+    private final int QP;
+    private final String QR;
+    private int QS;
+    private HashMap QT;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.Te = i;
-        this.Tf = i2;
-        this.Tg = i3;
-        this.Th = str;
+        this.QN = i;
+        this.QO = i2;
+        this.QP = i3;
+        this.QR = str;
         this.tabName = str2;
-        this.floor = i4;
+        this.QS = i4;
     }
 
     public static g a(int i, int i2, int i3, String str, String str2, int i4) {
@@ -26,27 +26,27 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int pM() {
-        return this.Te;
+    public int oH() {
+        return this.QN;
     }
 
     @Override // com.baidu.afd.g
-    public int pN() {
-        return this.Tf;
+    public int oI() {
+        return this.QO;
     }
 
     @Override // com.baidu.afd.g
-    public int pO() {
-        return this.floor;
+    public int oJ() {
+        return this.QS;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> pP() {
-        return this.Ti;
+    public Map<String, String> oK() {
+        return this.QT;
     }
 
     @Override // com.baidu.afd.g
-    public void l(HashMap hashMap) {
-        this.Ti = hashMap;
+    public void k(HashMap hashMap) {
+        this.QT = hashMap;
     }
 }

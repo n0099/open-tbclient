@@ -828,6 +828,6 @@ public final class g {
     }
 
     private static String i(String str) {
-        return (str == null || !str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) ? str : "";
+        return (str == null || !str.contains(":")) ? str : "";
     }
 }

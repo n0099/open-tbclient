@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView cUc;
-    private EditText cUd;
-    private View cUe;
-    private String cUf;
-    private boolean cUg;
+    private View cSY;
+    private String dcA;
+    private boolean dcB;
+    private TextView dcy;
+    private EditText dcz;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -37,109 +37,115 @@ public class InvoiceInfoItemView extends RelativeLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        inflate(context, d.h.invoice_info_item_view, this);
-        this.mRootView = (RelativeLayout) findViewById(d.g.item_root_view);
-        this.mRootView.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_edit_view_bg));
-        this.cUc = (TextView) findViewById(d.g.invoice_info_desc);
-        this.cUd = (EditText) findViewById(d.g.invoice_info_content);
-        this.cUe = findViewById(d.g.divider_line);
-        this.cUc.setTextColor(getResources().getColor(d.C0277d.invoice_info_desc));
-        this.cUd.setTextColor(getResources().getColor(d.C0277d.invoice_info_content));
-        this.cUd.setHintTextColor(getResources().getColor(d.C0277d.invoice_info_content_hint));
-        this.cUe.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_info_item_divider_line));
+        inflate(context, R.layout.invoice_info_item_view, this);
+        this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
+        this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
+        this.dcy = (TextView) findViewById(R.id.invoice_info_desc);
+        this.dcz = (EditText) findViewById(R.id.invoice_info_content);
+        this.cSY = findViewById(R.id.divider_line);
+        this.dcy.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.dcz.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.dcz.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.cSY.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.cUg = aVar.cUg;
-            this.cUc.setText(aVar.aVJ);
-            this.cUd.setHint(aVar.cUi);
-            if (!aVar.cUj) {
-                this.cUd.setSingleLine();
+            this.dcB = aVar.dcB;
+            this.dcy.setText(aVar.aYJ);
+            this.dcz.setHint(aVar.dcD);
+            if (!aVar.dcE) {
+                this.dcz.setSingleLine();
             } else {
-                aVar.cUh |= 131072;
+                aVar.dcC |= 131072;
             }
-            this.cUd.setInputType(aVar.cUh);
-            if (!TextUtils.isEmpty(aVar.cUk)) {
-                this.cUd.setKeyListener(DigitsKeyListener.getInstance(aVar.cUk));
+            this.dcz.setInputType(aVar.dcC);
+            if (!TextUtils.isEmpty(aVar.dcF)) {
+                this.dcz.setKeyListener(DigitsKeyListener.getInstance(aVar.dcF));
             }
-            this.cUf = aVar.cUf;
+            this.dcA = aVar.dcA;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.cUd != null) {
-            return this.cUd.getText().toString().trim();
+        if (this.dcz != null) {
+            return this.dcz.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.cUd != null) {
-            this.cUd.setText(charSequence);
+        if (this.dcz != null) {
+            this.dcz.setText(charSequence);
         }
     }
 
-    public boolean azi() {
-        return this.cUg;
+    public boolean aEw() {
+        return this.dcB;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.cUd != null && textWatcher != null) {
-            this.cUd.addTextChangedListener(textWatcher);
+        if (this.dcz != null && textWatcher != null) {
+            this.dcz.addTextChangedListener(textWatcher);
+        }
+    }
+
+    public void removeTextChangedListener(TextWatcher textWatcher) {
+        if (this.dcz != null) {
+            this.dcz.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String aVJ;
-        private String cUf;
-        private boolean cUg = false;
-        private int cUh = 1;
-        private String cUi;
-        private boolean cUj;
-        private String cUk;
+        private String aYJ;
+        private String dcA;
+        private boolean dcB = false;
+        private int dcC = 1;
+        private String dcD;
+        private boolean dcE;
+        private String dcF;
         private String mErrorMessage;
 
-        public a fT(boolean z) {
-            this.cUg = z;
+        public a gq(boolean z) {
+            this.dcB = z;
             return this;
         }
 
-        public a rA(String str) {
-            this.aVJ = str;
+        public a sK(String str) {
+            this.aYJ = str;
             return this;
         }
 
-        public a lN(int i) {
-            this.cUh = i;
+        public a mA(int i) {
+            this.dcC = i;
             return this;
         }
 
-        public a rB(String str) {
-            this.cUi = str;
+        public a sL(String str) {
+            this.dcD = str;
             return this;
         }
 
-        public a rC(String str) {
-            this.cUf = str;
+        public a sM(String str) {
+            this.dcA = str;
             return this;
         }
 
-        public a rD(String str) {
+        public a sN(String str) {
             this.mErrorMessage = str;
             return this;
         }
 
-        public a fU(boolean z) {
-            this.cUj = z;
+        public a gr(boolean z) {
+            this.dcE = z;
             return this;
         }
 
-        public a rE(String str) {
-            this.cUk = str;
+        public a sO(String str) {
+            this.dcF = str;
             return this;
         }
     }

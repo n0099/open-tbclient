@@ -9,11 +9,23 @@ public class PushSwitchStatus extends BasicPushStatus {
     private boolean switchNotificationMessage;
     private boolean switchThroughMessage;
 
+    public PushSwitchStatus() {
+    }
+
     public PushSwitchStatus(String str) {
         super(str);
     }
 
-    public PushSwitchStatus() {
+    public String getPushId() {
+        return this.pushId;
+    }
+
+    public boolean isSwitchNotificationMessage() {
+        return this.switchNotificationMessage;
+    }
+
+    public boolean isSwitchThroughMessage() {
+        return this.switchThroughMessage;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
@@ -24,33 +36,22 @@ public class PushSwitchStatus extends BasicPushStatus {
         if (!jSONObject.isNull("barTypeSwitch")) {
             setSwitchNotificationMessage(jSONObject.getInt("barTypeSwitch") == 1);
         }
-        if (!jSONObject.isNull("directTypeSwitch")) {
-            setSwitchThroughMessage(jSONObject.getInt("directTypeSwitch") == 1);
+        if (jSONObject.isNull("directTypeSwitch")) {
+            return;
         }
+        setSwitchThroughMessage(jSONObject.getInt("directTypeSwitch") == 1);
     }
 
-    public boolean isSwitchNotificationMessage() {
-        return this.switchNotificationMessage;
+    public void setPushId(String str) {
+        this.pushId = str;
     }
 
     public void setSwitchNotificationMessage(boolean z) {
         this.switchNotificationMessage = z;
     }
 
-    public boolean isSwitchThroughMessage() {
-        return this.switchThroughMessage;
-    }
-
     public void setSwitchThroughMessage(boolean z) {
         this.switchThroughMessage = z;
-    }
-
-    public String getPushId() {
-        return this.pushId;
-    }
-
-    public void setPushId(String str) {
-        this.pushId = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus

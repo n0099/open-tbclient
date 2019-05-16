@@ -13,7 +13,7 @@ public class a {
 
     static {
         boolean z = false;
-        a = c.a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        a = d.a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
         b = a.contains("2A2FE0D7");
         c = b || "DEBUG".equalsIgnoreCase(a);
         d = "LOGABLE".equalsIgnoreCase(a);

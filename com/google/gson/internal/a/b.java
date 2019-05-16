@@ -1,73 +1,55 @@
 package com.google.gson.internal.a;
 
 import com.google.gson.internal.C$Gson$Types;
+import com.google.gson.n;
 import com.google.gson.o;
-import com.google.gson.p;
-import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes2.dex */
-public final class b implements p {
-    private final com.google.gson.internal.b jMz;
+public final class b implements o {
+    private final com.google.gson.internal.b kfj;
 
     public b(com.google.gson.internal.b bVar) {
-        this.jMz = bVar;
+        this.kfj = bVar;
     }
 
-    @Override // com.google.gson.p
-    public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cBD = aVar.cBD();
-        Class<? super T> cBC = aVar.cBC();
-        if (!Collection.class.isAssignableFrom(cBC)) {
+    @Override // com.google.gson.o
+    public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
+        Type cJs = aVar.cJs();
+        Class<? super T> cJr = aVar.cJr();
+        if (!Collection.class.isAssignableFrom(cJr)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(cBD, (Class<?>) cBC);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.jMz.b(aVar));
+        Type a2 = C$Gson$Types.a(cJs, (Class<?>) cJr);
+        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.kfj.b(aVar));
     }
 
     /* loaded from: classes2.dex */
-    private static final class a<E> extends o<Collection<E>> {
-        private final o<E> jNV;
-        private final com.google.gson.internal.e<? extends Collection<E>> jNW;
+    private static final class a<E> extends n<Collection<E>> {
+        private final n<E> kgD;
+        private final com.google.gson.internal.d<? extends Collection<E>> kgE;
 
-        @Override // com.google.gson.o
-        public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
-            a(bVar, (Collection) ((Collection) obj));
+        @Override // com.google.gson.n
+        public /* bridge */ /* synthetic */ void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
+            a(aVar, (Collection) ((Collection) obj));
         }
 
-        public a(com.google.gson.d dVar, Type type, o<E> oVar, com.google.gson.internal.e<? extends Collection<E>> eVar) {
-            this.jNV = new m(dVar, oVar, type);
-            this.jNW = eVar;
+        public a(com.google.gson.d dVar, Type type, n<E> nVar, com.google.gson.internal.d<? extends Collection<E>> dVar2) {
+            this.kgD = new l(dVar, nVar, type);
+            this.kgE = dVar2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.gson.o
-        /* renamed from: i */
-        public Collection<E> b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBq() == JsonToken.NULL) {
-                aVar.nextNull();
-                return null;
-            }
-            Collection<E> cBe = this.jNW.cBe();
-            aVar.beginArray();
-            while (aVar.hasNext()) {
-                cBe.add(this.jNV.b(aVar));
-            }
-            aVar.endArray();
-            return cBe;
-        }
-
-        public void a(com.google.gson.stream.b bVar, Collection<E> collection) throws IOException {
+        public void a(com.google.gson.stream.a aVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.cBB();
+                aVar.cJq();
                 return;
             }
-            bVar.cBx();
+            aVar.cJm();
             for (E e : collection) {
-                this.jNV.a(bVar, e);
+                this.kgD.a(aVar, e);
             }
-            bVar.cBy();
+            aVar.cJn();
         }
     }
 }

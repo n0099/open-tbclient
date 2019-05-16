@@ -6,44 +6,44 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class b {
-    private static ArrayList<a> azv = new ArrayList<>();
+    private static ArrayList<a> aAt = new ArrayList<>();
 
     public static void r(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = azv.size() - 1; size >= 0; size--) {
-                a aVar = azv.get(size);
+            for (int size = aAt.size() - 1; size >= 0; size--) {
+                a aVar = aAt.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
-                    aVar.bk(z);
+                    aVar.bt(z);
                 }
             }
         }
     }
 
-    public static void bm(boolean z) {
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
+    public static void bv(boolean z) {
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
             if (aVar != null) {
-                aVar.bk(z);
+                aVar.bt(z);
             }
         }
     }
 
-    public static void bl(boolean z) {
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
+    public static void bu(boolean z) {
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
             if (aVar != null) {
-                aVar.bl(z);
+                aVar.bu(z);
             }
         }
     }
 
-    public static a eR(String str) {
+    public static a fc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.Eg())) {
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.Gc())) {
                 return aVar;
             }
         }
@@ -54,9 +54,9 @@ public final class b {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.Eh())) || TextUtils.equals(str3, aVar.Eg())))) {
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.Gd())) || TextUtils.equals(str3, aVar.Gc())))) {
                 return aVar;
             }
         }
@@ -64,27 +64,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !azv.contains(aVar)) {
-            azv.add(aVar);
+        if (aVar != null && !aAt.contains(aVar)) {
+            aAt.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            azv.remove(aVar);
+            aAt.remove(aVar);
         }
     }
 
-    public static void Ej() {
-        azv.clear();
+    public static void Gf() {
+        aAt.clear();
     }
 
-    public static boolean eS(String str) {
+    public static boolean fd(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -92,10 +92,10 @@ public final class b {
         return false;
     }
 
-    public static void eT(String str) {
+    public static void fe(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = azv.size() - 1; size >= 0; size--) {
-                a aVar = azv.get(size);
+            for (int size = aAt.size() - 1; size >= 0; size--) {
+                a aVar = aAt.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -104,15 +104,15 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = azv.size() - 1; size >= 0; size--) {
-            a aVar = azv.get(size);
+        for (int size = aAt.size() - 1; size >= 0; size--) {
+            a aVar = aAt.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
     }
 
-    public static ArrayList<a> Ek() {
-        return azv;
+    public static ArrayList<a> Gg() {
+        return aAt;
     }
 }

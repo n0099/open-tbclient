@@ -17,28 +17,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.view.GoOnAnimView;
 import com.baidu.tieba.tblauncherInterestGuide.view.RightSlideViewPager;
 /* loaded from: classes4.dex */
 public class NewUserGuideIntroduceFragment extends BaseFragment {
-    private NewUserGuideActivity iNb;
-    private ImageView iNc;
-    private ImageView iNd;
-    private ImageView iNe;
-    private GoOnAnimView iNf;
+    private NewUserGuideActivity jfU;
+    private ImageView jfV;
+    private ImageView jfW;
+    private ImageView jfX;
+    private GoOnAnimView jfY;
     private ViewGroup mRootView;
     private boolean isInit = false;
-    private Bitmap iNa = null;
+    private Bitmap jfT = null;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideIntroduceFragment.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    NewUserGuideIntroduceFragment.this.cgZ();
+                    NewUserGuideIntroduceFragment.this.cpd();
                     return;
                 case 1:
-                    NewUserGuideIntroduceFragment.this.cgY();
+                    NewUserGuideIntroduceFragment.this.cpc();
                     return;
                 default:
                     return;
@@ -49,38 +49,38 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iNb = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.jfU = (NewUserGuideActivity) getBaseFragmentActivity();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
-            ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(d.h.guide_introduce, (ViewGroup) null);
+            ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.guide_introduce, (ViewGroup) null);
             this.isInit = true;
-            this.mRootView = (ViewGroup) viewGroup2.findViewById(d.g.root_view);
-            this.iNc = (ImageView) viewGroup2.findViewById(d.g.image_tip_1);
-            this.iNd = (ImageView) viewGroup2.findViewById(d.g.image_tip_2);
-            this.iNe = (ImageView) viewGroup2.findViewById(d.g.image_tip_3);
-            this.iNa = BitmapHelper.getResBitmap(this.iNb.getPageContext().getPageActivity(), d.f.pic_bg_startpage);
-            if (this.iNa != null) {
-                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.iNb.getResources(), this.iNa));
+            this.mRootView = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
+            this.jfV = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
+            this.jfW = (ImageView) viewGroup2.findViewById(R.id.image_tip_2);
+            this.jfX = (ImageView) viewGroup2.findViewById(R.id.image_tip_3);
+            this.jfT = BitmapHelper.getResBitmap(this.jfU.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
+            if (this.jfT != null) {
+                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.jfU.getResources(), this.jfT));
             }
-            this.iNf = (GoOnAnimView) viewGroup2.findViewById(d.g.tip_go_on);
+            this.jfY = (GoOnAnimView) viewGroup2.findViewById(R.id.tip_go_on);
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(0, 750L);
             this.mHandler.sendEmptyMessageDelayed(1, 70L);
-            this.iNf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideIntroduceFragment.2
+            this.jfY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideIntroduceFragment.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (NewUserGuideIntroduceFragment.this.iNb != null) {
-                        if (NewUserGuideIntroduceFragment.this.iNb.cgV().chc()) {
-                            NewUserGuideIntroduceFragment.this.iNb.cgX();
+                    if (NewUserGuideIntroduceFragment.this.jfU != null) {
+                        if (NewUserGuideIntroduceFragment.this.jfU.coZ().cpg()) {
+                            NewUserGuideIntroduceFragment.this.jfU.cpb();
                             return;
                         }
-                        RightSlideViewPager cgU = NewUserGuideIntroduceFragment.this.iNb.cgU();
-                        if (cgU != null) {
-                            cgU.setCurrentItem(1, true);
+                        RightSlideViewPager coY = NewUserGuideIntroduceFragment.this.jfU.coY();
+                        if (coY != null) {
+                            coY.setCurrentItem(1, true);
                         }
                     }
                 }
@@ -92,20 +92,20 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.iNb.cgX();
+            this.jfU.cpb();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgY() {
-        this.iNc.setImageResource(d.f.pic_startpage1_one);
-        this.iNd.setImageResource(d.f.pic_startpage1_two);
-        this.iNe.setImageResource(d.f.pic_startpage1_three);
-        a(this.iNc, true, 0L);
-        a(this.iNd, false, 100L);
-        a(this.iNe, true, 250L);
+    public void cpc() {
+        this.jfV.setImageResource(R.drawable.pic_startpage1_one);
+        this.jfW.setImageResource(R.drawable.pic_startpage1_two);
+        this.jfX.setImageResource(R.drawable.pic_startpage1_three);
+        a(this.jfV, true, 0L);
+        a(this.jfW, false, 100L);
+        a(this.jfX, true, 250L);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -114,35 +114,35 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         stop();
     }
 
-    public void cgZ() {
-        if (this.iNf != null) {
-            this.iNf.onStart();
+    public void cpd() {
+        if (this.jfY != null) {
+            this.jfY.onStart();
         }
     }
 
-    public void cha() {
-        if (this.iNf != null) {
-            this.iNf.onStop();
+    public void cpe() {
+        if (this.jfY != null) {
+            this.jfY.onStop();
         }
     }
 
     private void stop() {
         if (this.isInit) {
             this.mRootView.setBackgroundDrawable(null);
-            if (this.iNa != null) {
-                if (!this.iNa.isRecycled()) {
-                    this.iNa.recycle();
+            if (this.jfT != null) {
+                if (!this.jfT.isRecycled()) {
+                    this.jfT.recycle();
                 }
-                this.iNa = null;
+                this.jfT = null;
             }
-            this.iNc.clearAnimation();
-            this.iNc.setImageDrawable(null);
-            this.iNd.clearAnimation();
-            this.iNd.setImageDrawable(null);
-            this.iNe.clearAnimation();
-            this.iNe.setImageDrawable(null);
-            if (this.iNf != null) {
-                this.iNf.onDestroy();
+            this.jfV.clearAnimation();
+            this.jfV.setImageDrawable(null);
+            this.jfW.clearAnimation();
+            this.jfW.setImageDrawable(null);
+            this.jfX.clearAnimation();
+            this.jfX.setImageDrawable(null);
+            if (this.jfY != null) {
+                this.jfY.onDestroy();
             }
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);

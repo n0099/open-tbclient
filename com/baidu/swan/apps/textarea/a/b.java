@@ -6,20 +6,20 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.textarea.c.b;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b extends y {
+public class b extends z {
     private HashMap<String, String> mCallbackMap;
 
     public b(j jVar) {
         super(jVar, "/swan/openTextarea");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -37,7 +37,7 @@ public class b extends y {
             this.mCallbackMap = new HashMap<>();
         }
         this.mCallbackMap.put(optString, optString3);
-        if (!com.baidu.swan.apps.textarea.c.a.Lu().hr(optString2).a(new b.a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+        if (!com.baidu.swan.apps.textarea.c.a.NZ().hT(optString2).a(new b.a() { // from class: com.baidu.swan.apps.textarea.a.b.1
             @Override // com.baidu.swan.apps.textarea.c.b.a
             public void d(String str, JSONObject jSONObject) {
                 b.this.a(str, callbackHandler, 0, jSONObject);

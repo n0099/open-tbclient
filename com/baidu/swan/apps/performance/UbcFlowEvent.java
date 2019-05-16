@@ -7,9 +7,9 @@ public class UbcFlowEvent {
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String aEo = "NA";
-    private RecordType aEp = RecordType.KEEP;
-    private boolean aEq = false;
+    private String aGg = "NA";
+    private RecordType aGh = RecordType.KEEP;
+    private boolean aGi = false;
 
     /* loaded from: classes2.dex */
     public enum RecordType {
@@ -23,7 +23,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent A(long j) {
+    public UbcFlowEvent M(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -31,7 +31,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long FR() {
+    public long HZ() {
         return this.mTime;
     }
 
@@ -39,34 +39,34 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent fL(String str) {
-        this.aEo = str;
+    public UbcFlowEvent ga(String str) {
+        this.aGg = str;
         return this;
     }
 
-    public String FS() {
-        return this.aEo;
+    public String Ia() {
+        return this.aGg;
     }
 
-    public boolean FT() {
-        return this.aEq;
+    public boolean Ib() {
+        return this.aGi;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.aEp = recordType;
+        this.aGh = recordType;
         return this;
     }
 
-    public RecordType FU() {
-        return this.aEp;
+    public RecordType Ic() {
+        return this.aGh;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(FR());
+        objArr[0] = Long.valueOf(HZ());
         objArr[1] = this.id;
-        objArr[2] = FT() ? "(justLocalRecord)" : "";
+        objArr[2] = Ib() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 }

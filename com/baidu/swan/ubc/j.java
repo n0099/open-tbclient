@@ -1,41 +1,132 @@
 package com.baidu.swan.ubc;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public interface j {
-    String Dj();
+public class j {
+    private long Tb;
+    private long aGl;
+    private int bvC;
+    private JSONObject bvD;
+    private String bvE;
+    private boolean bvF = false;
+    private JSONArray bvI;
+    private String mCategory;
+    private String mContent;
+    private String mId;
+    private int mOption;
+    private String mState;
 
-    String Fn();
+    public j() {
+    }
 
-    boolean Fo();
+    public j(String str, int i, String str2, int i2) {
+        this.mId = str;
+        this.bvC = i;
+        this.mContent = str2;
+        this.mOption = i2;
+    }
 
-    void a(String str, int i, JSONArray jSONArray);
+    public String getId() {
+        return this.mId;
+    }
 
-    void a(String str, String str2, int i, String str3, int i2);
+    public int WV() {
+        return this.bvC;
+    }
 
-    void a(String str, String str2, int i, String str3, long j, int i2);
+    public String getContent() {
+        return this.mContent;
+    }
 
-    void b(String str, Object obj, int i);
+    public JSONObject WX() {
+        return this.bvD;
+    }
 
-    void c(String str, int i, String str2);
+    public long Xb() {
+        return this.Tb;
+    }
 
-    boolean fv(String str);
+    public long getEndTime() {
+        return this.aGl;
+    }
 
-    String getAppId();
+    public String getState() {
+        return this.mState;
+    }
 
-    String getAppVersion();
+    public int getOption() {
+        return this.mOption;
+    }
 
-    String getDeviceId(Context context);
+    public String WW() {
+        return this.bvE;
+    }
 
-    SQLiteDatabase getReadableDatabase();
+    public void setId(String str) {
+        this.mId = str;
+    }
 
-    SQLiteDatabase getWritableDatabase();
+    public void fY(int i) {
+        this.bvC = i;
+    }
 
-    k uX();
+    public void setContent(String str) {
+        this.mContent = str;
+    }
 
-    int us();
+    public void ah(long j) {
+        this.Tb = j;
+    }
 
-    void y(String str, int i);
+    public void setEndTime(long j) {
+        this.aGl = j;
+    }
+
+    public void kO(String str) {
+        this.mState = str;
+    }
+
+    public void kP(String str) {
+        this.bvE = str;
+    }
+
+    public void WZ() {
+        if (d.WI().kH(this.mId)) {
+            this.bvE = s.Xr().Hs();
+        }
+    }
+
+    public void setCategory(String str) {
+        this.mCategory = str;
+    }
+
+    public String getCategory() {
+        return this.mCategory;
+    }
+
+    public void dm(boolean z) {
+        this.bvF = z;
+    }
+
+    public boolean WS() {
+        return this.bvF;
+    }
+
+    public void kQ(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                this.bvI = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public JSONArray Xc() {
+        return this.bvI;
+    }
 }

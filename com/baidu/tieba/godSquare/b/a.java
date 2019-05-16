@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.c;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.f;
-import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c ehk;
-    public ClickableHeaderImageView fAm;
-    private Drawable fEA;
-    private MetaData fEB;
-    private f fEC;
-    public CommonUserLikeButton fEw;
-    private TextView fEx;
-    private TextView fEy;
-    private TextView fEz;
+    private c ewX;
+    public ClickableHeaderImageView fRj;
+    public CommonUserLikeButton fVt;
+    private TextView fVu;
+    private TextView fVv;
+    private TextView fVw;
+    private Drawable fVx;
+    private MetaData fVy;
+    private f fVz;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,17 +35,17 @@ public class a extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.fAm = (ClickableHeaderImageView) getView().findViewById(d.g.god_header_view);
-        this.fAm.setGodIconMargin(d.e.ds4);
-        this.fAm.setAfterClickListener(this);
-        this.fEy = (TextView) getView().findViewById(d.g.god_name);
-        this.fEz = (TextView) getView().findViewById(d.g.god_describe);
-        this.fEw = (CommonUserLikeButton) getView().findViewById(d.g.god_like_btn);
-        this.ehk = new c(tbPageContext, this.fEw);
-        this.fEw.setAfterOnClickListener(this);
-        this.mBottomLine = getView().findViewById(d.g.bottom_line);
-        this.fEx = (TextView) getView().findViewById(d.g.god_rank);
-        this.fEA = this.mPageContext.getResources().getDrawable(d.f.transparent_bg);
+        this.fRj = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.fRj.setGodIconMargin(R.dimen.ds4);
+        this.fRj.setAfterClickListener(this);
+        this.fVv = (TextView) getView().findViewById(R.id.god_name);
+        this.fVw = (TextView) getView().findViewById(R.id.god_describe);
+        this.fVt = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.ewX = new c(tbPageContext, this.fVt);
+        this.fVt.setAfterOnClickListener(this);
+        this.mBottomLine = getView().findViewById(R.id.bottom_line);
+        this.fVu = (TextView) getView().findViewById(R.id.god_rank);
+        this.fVx = this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg);
     }
 
     public void i(BdUniqueId bdUniqueId) {
@@ -56,69 +56,69 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(getView(), d.f.home_thread_card_item_bg);
-            al.j(this.fEy, d.C0277d.cp_cont_b);
-            al.j(this.fEz, d.C0277d.cp_cont_d);
-            al.l(this.mBottomLine, d.C0277d.cp_bg_line_b);
-            al.j(this.fEx, d.C0277d.cp_cont_d);
+            al.k(getView(), R.drawable.home_thread_card_item_bg);
+            al.j(this.fVv, R.color.cp_cont_b);
+            al.j(this.fVw, R.color.cp_cont_d);
+            al.l(this.mBottomLine, R.color.cp_bg_line_b);
+            al.j(this.fVu, R.color.cp_cont_d);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.card_god_square_hot_god;
+        return R.layout.card_god_square_hot_god;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.bBK != null && fVar.bBK.getGodUserData() != null) {
-            this.fEC = fVar;
-            this.fEB = fVar.bBK;
-            sd(fVar.rank);
-            this.fAm.setData(fVar.bBK);
-            this.fEy.setText(fVar.bBK.getName_show());
-            this.fEz.setText(fVar.bBK.getGodUserData().getIntro());
-            this.ehk.a(fVar.bBK);
+        if (fVar != null && fVar.bJa != null && fVar.bJa.getGodUserData() != null) {
+            this.fVz = fVar;
+            this.fVy = fVar.bJa;
+            tl(fVar.rank);
+            this.fRj.setData(fVar.bJa);
+            this.fVv.setText(fVar.bJa.getName_show());
+            this.fVw.setText(fVar.bJa.getGodUserData().getIntro());
+            this.ewX.a(fVar.bJa);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void sd(int i) {
+    private void tl(int i) {
         String str;
         switch (i) {
             case 1:
-                this.fEx.setText("");
-                al.k(this.fEx, d.f.icon_grade_round_no1);
+                this.fVu.setText("");
+                al.k(this.fVu, R.drawable.icon_grade_round_no1);
                 return;
             case 2:
-                this.fEx.setText("");
-                al.k(this.fEx, d.f.icon_grade_round_no2);
+                this.fVu.setText("");
+                al.k(this.fVu, R.drawable.icon_grade_round_no2);
                 return;
             case 3:
-                this.fEx.setText("");
-                al.k(this.fEx, d.f.icon_grade_round_no3);
+                this.fVu.setText("");
+                al.k(this.fVu, R.drawable.icon_grade_round_no3);
                 return;
             default:
-                this.fEx.setBackgroundDrawable(this.fEA);
+                this.fVu.setBackgroundDrawable(this.fVx);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.fEx.setText(str);
+                this.fVu.setText(str);
                 return;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (aQf() != null) {
-            aQf().a(view, this.fEC);
+        if (aXo() != null) {
+            aXo().a(view, this.fVz);
         }
-        if (view == getView() && this.fEB != null && !StringUtils.isNull(this.fEB.getName_show()) && !StringUtils.isNull(this.fEB.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(this.fEB.getUserId(), 0L), false, this.fEB.isBigV())));
+        if (view == getView() && this.fVy != null && !StringUtils.isNull(this.fVy.getName_show()) && !StringUtils.isNull(this.fVy.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(this.fVy.getUserId(), 0L), false, this.fVy.isBigV())));
         }
     }
 }

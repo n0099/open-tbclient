@@ -3,26 +3,26 @@ package com.baidu.b.a.b.a;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    public String acK;
+    public String aax;
     public String channelId;
     public String md5;
     public String name;
     public String packageName;
-    public long acI = -1;
-    public long acJ = 0;
+    public long version = -1;
+    public long aaw = 0;
     public int rollback = 0;
-    public int KP = -1;
+    public int IA = -1;
     public int type = 0;
     public String filePath = "";
     public byte[] fileData = null;
-    public int acL = 0;
-    public long acM = 0;
+    public int aay = 0;
+    public long aaz = 0;
     public long currentSize = 0;
     public long createTime = 0;
     public long updateTime = 0;
-    public long acN = 0;
-    public int acO = 0;
-    public String acP = sg();
+    public long aaA = 0;
+    public int aaB = 0;
+    public String aaC = rb();
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof a)) {
@@ -32,10 +32,10 @@ public class a {
     }
 
     public boolean a(a aVar) {
-        return this.channelId.equals(aVar.channelId) && this.packageName.equals(aVar.packageName) && this.acI == aVar.acI && this.md5.equals(aVar.md5);
+        return this.channelId.equals(aVar.channelId) && this.packageName.equals(aVar.packageName) && this.version == aVar.version && this.md5.equals(aVar.md5);
     }
 
-    public static String sg() {
+    public static String rb() {
         long currentTimeMillis = System.currentTimeMillis();
         return String.valueOf(currentTimeMillis) + String.valueOf(new Random(currentTimeMillis).nextInt());
     }

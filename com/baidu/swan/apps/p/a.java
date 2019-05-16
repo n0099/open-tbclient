@@ -10,87 +10,89 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.res.widget.dialog.c;
 import com.baidu.swan.apps.storage.b.e;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e awm;
+    private e awJ;
     private SharedPreferences.Editor mEditor;
 
+    /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0153a {
+        void zp();
+    }
+
     private a() {
-        this.awm = new e("aiapps_guide_dialog_sp");
-        this.mEditor = this.awm.edit();
+        this.awJ = new e("aiapps_guide_dialog_sp");
+        this.mEditor = this.awJ.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0148a {
-        private static final a awp = new a();
+    public static final class b {
+        private static final a awN = new a();
     }
 
-    public static a BX() {
-        return C0148a.awp;
+    public static a CZ() {
+        return b.awN;
     }
 
     private boolean z(@NonNull Activity activity) {
-        boolean BY = BY();
+        boolean Da = Da();
         if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "is first in " + BY);
+            Log.e("SwanAppGuideDialogManager", "is first in " + Da);
         }
-        if (BY) {
+        if (Da) {
             return true;
         }
         int B = B(activity);
-        int bF = bF(activity);
+        int aZ = aZ(activity);
         if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "version =" + B + " curVerCode" + bF);
+            Log.e("SwanAppGuideDialogManager", "version =" + B + " curVerCode" + aZ);
         }
-        return bF > B;
+        return aZ > B;
     }
 
-    private int bF(@NonNull Context context) {
-        PackageInfo al = aa.al(context, context.getPackageName());
-        if (al != null) {
-            return al.versionCode;
+    private int aZ(@NonNull Context context) {
+        PackageInfo X = ac.X(context, context.getPackageName());
+        if (X != null) {
+            return X.versionCode;
         }
         return -1;
     }
 
     public boolean b(@NonNull WeakReference<Activity> weakReference) {
-        com.baidu.swan.apps.ae.b IV;
+        com.baidu.swan.apps.ae.b Lq;
         if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         Activity activity = weakReference.get();
-        if (!TextUtils.equals("0", Ca()) && (IV = com.baidu.swan.apps.ae.b.IV()) != null && !IV.Jf().getBoolean("boolean_var_key_fav_guide_show", false)) {
-            String BZ = BZ();
-            if (z(activity) && !TextUtils.isEmpty(BZ) && d(activity, BZ)) {
-                A(activity);
-                return true;
-            }
-            return false;
+        if (!TextUtils.equals("0", Dc()) && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null && !Lq.LA().getBoolean("boolean_var_key_fav_guide_show", false)) {
+            return z(activity) && !TextUtils.isEmpty(Db());
         }
         return false;
     }
 
     private void A(@NonNull Activity activity) {
-        bd(false);
-        cw(bF(activity));
+        bi(false);
+        cx(aZ(activity));
     }
 
-    private void bd(boolean z) {
+    private void bi(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
-    private boolean BY() {
-        return this.awm.getBoolean("new_first_in", true);
+    private boolean Da() {
+        return this.awJ.getBoolean("new_first_in", true);
     }
 
-    private void cw(int i) {
+    private void cx(int i) {
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "versionCode " + i);
         }
@@ -98,40 +100,41 @@ public class a {
     }
 
     private int B(Activity activity) {
-        return this.awm.getInt("up_first_in", bF(activity));
+        return this.awJ.getInt("up_first_in", aZ(activity));
     }
 
-    public String BZ() {
-        return this.awm.getString("url", "");
+    public String Db() {
+        return this.awJ.getString("url", "");
     }
 
-    public String Ca() {
-        return this.awm.getString("switch", "1");
+    public String Dc() {
+        return this.awJ.getString("switch", "1");
     }
 
-    private boolean d(@NonNull final Activity activity, String str) {
-        if (activity == null || activity.isFinishing()) {
+    public boolean a(@NonNull Activity activity, String str, final InterfaceC0153a interfaceC0153a) {
+        if (activity == null || activity.isFinishing() || !SwanAppNetworkUtils.isNetworkConnected(activity)) {
             return false;
         }
-        final com.baidu.swan.apps.res.widget.dialog.b bVar = new com.baidu.swan.apps.res.widget.dialog.b(activity, a.i.NoTitleDialog);
-        com.baidu.swan.apps.an.b.a(activity, bVar);
-        bVar.setContentView(a.g.aiapps_entry_guide_layout);
-        bVar.findViewById(a.f.root).setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
-        bVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.CR().Dq() ? 0 : 8);
-        ((SimpleDraweeView) bVar.findViewById(a.f.aiapps_guide_image)).setImageURI(str);
-        bVar.findViewById(a.f.aiapps_split_line).setBackgroundColor(activity.getResources().getColor(a.c.aiapps_entry_guide_split_line3));
-        TextView textView = (TextView) bVar.findViewById(a.f.aiapps_bottom_button);
-        textView.setOnTouchListener(new b());
+        final c cVar = new c(activity, a.i.SwanFavoriteGuideDialog);
+        com.baidu.swan.apps.an.b.a(activity, cVar);
+        cVar.setContentView(a.g.aiapps_entry_guide_layout);
+        cVar.findViewById(a.f.root).setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
+        cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.DW().Ev() ? 0 : 8);
+        ((SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image)).setImageURI(str);
+        cVar.findViewById(a.f.aiapps_split_line).setBackgroundColor(activity.getResources().getColor(a.c.aiapps_entry_guide_split_line3));
+        TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
+        textView.setOnTouchListener(new com.baidu.swan.apps.p.b());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.p.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                bVar.dismiss();
-                if (activity != null) {
-                    activity.moveTaskToBack(true);
+                cVar.dismiss();
+                if (interfaceC0153a != null) {
+                    interfaceC0153a.zp();
                 }
             }
         });
-        bVar.show();
+        cVar.show();
+        A(activity);
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "dialog has shown");
         }

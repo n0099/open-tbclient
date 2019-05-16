@@ -6,11 +6,11 @@ import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.an.n;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.an.o;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.u.b.u;
-import com.baidu.swan.ubc.q;
+import com.baidu.swan.ubc.s;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,7 +73,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     protected void loadJavaScript(final String str) {
         if (this.mWebView != null) {
-            aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
+            ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.1
                 @Override // java.lang.Runnable
                 public void run() {
                     String str2 = str;
@@ -93,21 +93,21 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject dm = n.dm(str2);
+        JSONObject cZ = o.cZ(str2);
         try {
-            dm.put(KEY_SHARE_SNAPSHOT, z);
-            dm.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            cZ.put(KEY_SHARE_SNAPSHOT, z);
+            cZ.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.Cx().a(context, dm, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.u.a.DC().a(context, cZ, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Ds() {
+            public void EA() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void Dt() {
+            public void EB() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -132,7 +132,11 @@ public class SwanAppUtilsJavaScriptInterface {
                         l = Long.valueOf(optString);
                     }
                     if (l.longValue() >= UBC_MIN_VERSION) {
-                        q.onEvent(jSONObject.optString("actionId"), jSONObject.optString(UBC.CONTENT_KEY_VALUE));
+                        String optString2 = jSONObject.optString("actionId");
+                        String optString3 = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
+                        if (s.Xr() != null) {
+                            s.Xr().b(optString2, optString3, 0);
+                        }
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();

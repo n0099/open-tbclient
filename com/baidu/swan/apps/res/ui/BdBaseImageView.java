@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.swan.apps.an.q;
+import com.baidu.swan.apps.an.s;
 /* loaded from: classes2.dex */
 public class BdBaseImageView extends ImageView {
     private int mColorFilter;
@@ -40,8 +40,8 @@ public class BdBaseImageView extends ImageView {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (shouldDecorate()) {
-            q.a(getContext(), getDrawable());
-            this.mColorFilter = q.cj(getContext());
+            s.a(getContext(), getDrawable());
+            this.mColorFilter = s.bL(getContext());
             this.mFlagShouldDecorate = false;
         }
         super.draw(canvas);
@@ -50,17 +50,17 @@ public class BdBaseImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
         if (hasDecorateColorFilter()) {
-            q.a(getContext(), getDrawable(), i);
+            s.a(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
     }
 
     private boolean shouldDecorate() {
-        return this.mFlagShouldDecorate || this.mColorFilter != q.cj(getContext());
+        return this.mFlagShouldDecorate || this.mColorFilter != s.bL(getContext());
     }
 
     private boolean hasDecorateColorFilter() {
-        return Color.alpha(q.cj(getContext())) != 0;
+        return Color.alpha(s.bL(getContext())) != 0;
     }
 }

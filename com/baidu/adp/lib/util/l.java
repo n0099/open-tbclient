@@ -27,121 +27,135 @@ import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class l {
-    private static float Gr;
-    static int Gs;
-    static int Gt;
-    private static String Gw;
-    static boolean Gq = false;
-    private static Toast Gu = null;
-    private static a Gv = null;
+    private static float Ed;
+    static int Ee;
+    static int Ef;
+    private static String Ei;
+    public static boolean Ec = false;
+    private static Toast Eg = null;
+    private static a Eh = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.Gu != null) {
-                l.Gu.cancel();
+            if (l.Eg != null) {
+                l.Eg.cancel();
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void bB(String str);
+        void bl(String str);
 
-        View lu();
+        View ko();
     }
 
-    public static void aP(Context context) {
+    public static void ag(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            Gs = displayMetrics.heightPixels;
-            Gt = displayMetrics.widthPixels;
+            Ee = displayMetrics.heightPixels;
+            Ef = displayMetrics.widthPixels;
         } else {
-            Gs = displayMetrics.widthPixels;
-            Gt = displayMetrics.heightPixels;
+            Ee = displayMetrics.widthPixels;
+            Ef = displayMetrics.heightPixels;
         }
-        Gr = displayMetrics.density;
-        Gq = true;
+        Ed = displayMetrics.density;
+        Ec = true;
     }
 
-    public static int aO(Context context) {
-        if (!Gq) {
-            aP(context);
+    public static int af(Context context) {
+        if (!Ec) {
+            ag(context);
         }
-        return Gs;
+        return Ee;
     }
 
-    public static int aQ(Context context) {
-        if (!Gq) {
-            aP(context);
+    public static int ah(Context context) {
+        if (!Ec) {
+            ag(context);
         }
-        return Gt;
+        return Ef;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!Gq) {
-            aP(context);
+        if (!Ec) {
+            ag(context);
         }
-        return (int) ((Gr * f) + 0.5f);
+        return (int) ((Ed * f) + 0.5f);
     }
 
-    public static float aR(Context context) {
-        if (!Gq) {
-            aP(context);
+    public static float ai(Context context) {
+        if (!Ec) {
+            ag(context);
         }
-        return Gr;
+        return Ed;
     }
 
-    public static void e(Context context, String str, int i) {
+    public static void d(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (Gu == null) {
-                if (Gv == null || Gv.lu() == null) {
-                    Gu = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                } else {
-                    Gu = new Toast(BdBaseApplication.getInst().getApp());
-                    Gu.setDuration(0);
-                    Gv.bB(str);
-                    Gu.setView(Gv.lu());
-                }
-                Gu.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else {
-                if (!str.equals(Gw)) {
-                    if (Gv == null || Gv.lu() == null) {
-                        Gu.setText(str);
+            if (Eg == null) {
+                if (Eh == null || Eh.ko() == null) {
+                    if (i == 3500) {
+                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 1);
                     } else {
-                        Gv.bB(str);
+                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                    }
+                    Eg.setText(str);
+                } else {
+                    Eg = new Toast(BdBaseApplication.getInst().getApp());
+                    if (i == 3500) {
+                        Eg.setDuration(1);
+                    } else {
+                        Eg.setDuration(0);
+                    }
+                    Eh.bl(str);
+                    Eg.setView(Eh.ko());
+                }
+                Eg.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else {
+                if (!str.equals(Ei)) {
+                    if (Eh == null || Eh.ko() == null) {
+                        Eg.setText(str);
+                    } else {
+                        Eh.bl(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                Gu.setGravity(17, 0, dip2px);
+                if (i == 3500) {
+                    Eg.setDuration(1);
+                } else {
+                    Eg.setDuration(0);
+                }
+                Eg.setGravity(17, 0, dip2px);
             }
-            Gw = str;
+            Ei = str;
             mHandler.postDelayed(mRunnable, i);
-            Gu.show();
+            Eg.show();
         }
     }
 
     public static void showToast(Context context, String str) {
-        e(context, str, 2000);
+        d(context, str, 2000);
     }
 
     public static void showToast(Context context, int i) {
         showToast(context, context.getResources().getString(i));
     }
 
-    public static void S(Context context, String str) {
-        e(context, str, 3500);
+    public static void E(Context context, String str) {
+        d(context, str, 3500);
     }
 
-    public static void g(Context context, int i) {
-        S(context, context.getResources().getString(i));
+    public static void f(Context context, int i) {
+        E(context, context.getResources().getString(i));
     }
 
     public static void b(Context context, View view) {
@@ -198,7 +212,7 @@ public class l {
         return i;
     }
 
-    public static int[] aS(Context context) {
+    public static int[] aj(Context context) {
         int[] iArr = new int[2];
         if (context == null) {
             return iArr;
@@ -221,14 +235,14 @@ public class l {
         return null;
     }
 
-    public static boolean s(byte[] bArr) {
+    public static boolean k(byte[] bArr) {
         if (bArr == null || bArr.length < 3) {
             return false;
         }
         return bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
-    public static boolean t(byte[] bArr) {
+    public static boolean l(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -299,7 +313,7 @@ public class l {
         return ellipsize.toString();
     }
 
-    public static int[] c(int i, int i2, int i3, int i4) {
+    public static int[] b(int i, int i2, int i3, int i4) {
         int i5;
         int i6;
         if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
@@ -323,11 +337,11 @@ public class l {
         return iArr;
     }
 
-    public static int h(Context context, int i) {
+    public static int g(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static boolean T(Context context, String str) {
+    public static boolean F(Context context, String str) {
         List<PackageInfo> installedPackages;
         if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
             return false;
@@ -340,9 +354,9 @@ public class l {
         return false;
     }
 
-    public static void lm() {
+    public static void kg() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (ln() ? false : true) {
+            if (kh() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -359,12 +373,12 @@ public class l {
         }
     }
 
-    public static boolean ln() {
+    public static boolean kh() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean lo() {
-        return j.kY();
+    public static boolean ki() {
+        return j.jS();
     }
 
     public static void b(Context context, final View view, int i, int i2, int i3, int i4) {
@@ -387,7 +401,7 @@ public class l {
         });
     }
 
-    public static String lp() {
+    public static String kj() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -420,7 +434,7 @@ public class l {
         return str;
     }
 
-    public static String lq() {
+    public static String kk() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -453,34 +467,34 @@ public class l {
         return str;
     }
 
-    public static boolean lr() {
-        String bA;
+    public static boolean kl() {
+        String bk;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (bA = bA(str)) != null && bA.length() >= 3) {
-            int l = com.baidu.adp.lib.g.b.l(bA(bA.substring(0, 1)), 0);
-            int l2 = com.baidu.adp.lib.g.b.l(bA(bA.substring(1, 2)), 0);
-            if (l > 3) {
+        if (str != null && str.contains("Flyme") && (bk = bk(str)) != null && bk.length() >= 3) {
+            int f = com.baidu.adp.lib.g.b.f(bk(bk.substring(0, 1)), 0);
+            int f2 = com.baidu.adp.lib.g.b.f(bk(bk.substring(1, 2)), 0);
+            if (f > 3) {
                 return true;
             }
-            if (l == 3 && l2 >= 5) {
+            if (f == 3 && f2 >= 5) {
                 return true;
             }
         }
         return false;
     }
 
-    public static String bA(String str) {
+    public static String bk(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a ls() {
-        return Gv;
+    public static a km() {
+        return Eh;
     }
 
     public static void a(a aVar) {
-        Gv = aVar;
+        Eh = aVar;
     }
 }

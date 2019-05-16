@@ -1,72 +1,89 @@
 package com.baidu.swan.games.c;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class f extends com.baidu.swan.apps.core.b.d {
+public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
-    private View bbj;
+    private static volatile boolean anb = false;
+    private static volatile boolean bfe = false;
+    private static volatile List<com.baidu.swan.apps.m.a.b> bff = new ArrayList();
 
-    public f(Context context) {
-        super(context);
+    private f() {
     }
 
-    @Override // com.baidu.swan.apps.core.b.d
-    protected void xQ() {
-        wb().setVisibility(8);
-        wb().setBackgroundColor(0);
-        e.NA();
-        NC();
-        String NM = com.baidu.swan.games.c.a.b.ND().NM();
-        if (DEBUG) {
-            Log.d(TAG, "url:" + NM);
+    public static void aT(boolean z) {
+        anb = z;
+        com.baidu.swan.apps.console.c.aT(z);
+    }
+
+    public static void Qr() {
+        synchronized (f.class) {
+            bff = new ArrayList();
         }
-        loadUrl(NM);
+        bfe = false;
     }
 
-    private void NC() {
-        a(new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.games.c.f.1
-            @Override // com.baidu.swan.apps.core.c
-            public void dF(String str) {
-                super.dF(str);
-                if (f.DEBUG) {
-                    Log.e(f.TAG, "onPageFinished");
+    public static void Qs() {
+        if (anb && !bfe) {
+            synchronized (f.class) {
+                if (bff != null) {
+                    for (int i = 0; i < bff.size(); i++) {
+                        com.baidu.swan.apps.w.e.FV().a("console", bff.get(i));
+                    }
+                    bff.clear();
+                    bff = null;
                 }
-                e.NB();
             }
-        });
-    }
-
-    @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.a
-    public void L(View view) {
-        this.bbj = view;
-    }
-
-    @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.a
-    public void W(String str, String str2) {
-        e.aR(str, str2);
-    }
-
-    @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.a
-    public void aM(boolean z) {
-        if (wb().getVisibility() != (z ? 0 : 8)) {
-            if (DEBUG) {
-                Log.i(TAG, "setConsoleVisible:" + z);
-            }
-            if (z) {
-                com.baidu.swan.apps.w.e.Ea().a("console", b.cu(true));
-            }
-            if (this.bbj != null) {
-                this.bbj.setVisibility(z ? 4 : 0);
-            }
-            super.aM(z);
+            bfe = true;
         }
     }
 
-    @Override // com.baidu.swan.apps.core.b.d, com.baidu.swan.apps.b.c.e
-    public String wd() {
-        return "console";
+    private static String eR(int i) {
+        switch (i) {
+            case 1:
+                return TbConfig.TMP_LOG_DIR_NAME;
+            case 2:
+            case 6:
+                return "debug";
+            case 3:
+                return "info";
+            case 4:
+                return "error";
+            case 5:
+                return "warn";
+            default:
+                return TbConfig.TMP_LOG_DIR_NAME;
+        }
+    }
+
+    public static void u(int i, String str) {
+        aT(eR(i), str);
+    }
+
+    public static void aT(String str, String str2) {
+        if (anb) {
+            a(c.aR(str, str2));
+        }
+    }
+
+    public static void aU(String str, String str2) {
+        if (anb) {
+            a(c.aS(str, str2));
+        }
+    }
+
+    private static void a(com.baidu.swan.apps.m.a.b bVar) {
+        if (!bfe) {
+            synchronized (f.class) {
+                if (bff != null) {
+                    bff.add(bVar);
+                    return;
+                }
+            }
+        }
+        com.baidu.swan.apps.w.e.FV().a("console", bVar);
     }
 }

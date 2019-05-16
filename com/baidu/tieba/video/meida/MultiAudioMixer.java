@@ -8,30 +8,30 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public abstract class MultiAudioMixer {
-    private b jag;
+    private b jtb;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void Av(int i);
+        void BD(int i);
 
-        void T(byte[] bArr) throws IOException;
+        void R(byte[] bArr) throws IOException;
 
-        void ckI();
+        void csL();
     }
 
     abstract byte[] b(byte[][] bArr);
 
-    public static MultiAudioMixer ckH() {
+    public static MultiAudioMixer csK() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.jag = bVar;
+        this.jtb = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [88=6] */
-    public void f(File[] fileArr) {
+    public void e(File[] fileArr) {
         boolean z;
         int i = 0;
         int length = fileArr.length;
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.jag != null) {
-                        this.jag.Av(1);
+                    if (this.jtb != null) {
+                        this.jtb.BD(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] b2 = b(bArr);
-            if (b2 != null && this.jag != null) {
-                this.jag.T(b2);
+            if (b2 != null && this.jtb != null) {
+                this.jtb.R(b2);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,8 +99,8 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.jag != null) {
-            this.jag.ckI();
+        if (this.jtb != null) {
+            this.jtb.csL();
         }
     }
 

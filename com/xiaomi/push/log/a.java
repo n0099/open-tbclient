@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.service.at;
+import com.xiaomi.network.HostManager;
+import com.xiaomi.push.service.bh;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -78,7 +79,7 @@ class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0086 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0086 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v17, types: [java.lang.String] */
     private void b(File file) {
@@ -92,9 +93,9 @@ class a {
                     StringBuilder sb = new StringBuilder();
                     sb.append("model :").append(Build.MODEL);
                     sb.append("; os :").append(Build.VERSION.INCREMENTAL);
-                    sb.append("; uid :").append(at.e());
+                    sb.append("; uid :").append(bh.e());
                     sb.append("; lng :").append(Locale.getDefault().toString());
-                    sb.append("; sdk :").append(26);
+                    sb.append("; sdk :").append(37);
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
@@ -105,8 +106,9 @@ class a {
                         try {
                             bufferedReader2 = bufferedReader;
                             if (!it.hasNext()) {
-                                com.xiaomi.channel.commonutils.file.a.a(bufferedWriter);
-                                com.xiaomi.channel.commonutils.file.a.a(bufferedReader2);
+                                bufferedWriter.write(HostManager.getInstance().dump());
+                                com.xiaomi.channel.commonutils.file.b.a(bufferedWriter);
+                                com.xiaomi.channel.commonutils.file.b.a(bufferedReader2);
                                 return;
                             }
                             bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
@@ -117,21 +119,21 @@ class a {
                             e = e;
                             bufferedReader = bufferedReader2;
                             com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedWriter);
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedWriter);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
                             return;
                         } catch (IOException e2) {
                             e = e2;
                             bufferedReader = bufferedReader2;
                             com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedWriter);
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedWriter);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
                             return;
                         } catch (Throwable th) {
                             th = th;
                             bufferedReader = bufferedReader2;
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedWriter);
-                            com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedWriter);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
                             throw th;
                         }
                     }
@@ -197,7 +199,7 @@ class a {
             com.xiaomi.channel.commonutils.logger.b.c("LOG: filter cost = " + (System.currentTimeMillis() - currentTimeMillis));
             if (file4.exists()) {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.file.a.a(file3, file4);
+                com.xiaomi.channel.commonutils.file.b.a(file3, file4);
                 com.xiaomi.channel.commonutils.logger.b.c("LOG: zip cost = " + (System.currentTimeMillis() - currentTimeMillis2));
                 file4.delete();
                 if (file3.exists()) {

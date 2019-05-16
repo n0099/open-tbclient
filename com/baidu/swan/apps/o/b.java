@@ -3,13 +3,13 @@ package com.baidu.swan.apps.o;
 import android.view.KeyEvent;
 /* loaded from: classes2.dex */
 public interface b {
-    void BC();
+    void CE();
 
-    void BD();
+    void CF();
 
-    void BE();
+    void CG();
 
-    void BF();
+    void CH();
 
     void onActivityPaused();
 

@@ -25,33 +25,33 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.write.i;
 import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class MainTabActivityStatic {
-    private static int iMe = 0;
-    private static boolean iMf = false;
+    private static int jeX = 0;
+    private static boolean jeY = false;
 
     static {
-        bbQ();
-        cgC();
-        cgB();
-        cgD();
-        cgE();
+        bjj();
+        coG();
+        coF();
+        coH();
+        coI();
         MessageManager.getInstance().registerListener(new CustomMessageListener(2002004) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    com.baidu.tbadk.core.e.b.cM((Activity) data);
+                    com.baidu.tbadk.core.e.b.cr((Activity) data);
                 }
             }
         });
-        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -60,10 +60,10 @@ public class MainTabActivityStatic {
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                     if (str.contains("jump_enter_forum=1")) {
-                        com.baidu.tbadk.core.e.b.c(tbPageContext.getPageActivity(), 1, true);
+                        com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 1, true);
                         return 1;
                     } else if (str.contains("jump_chosen_post=1")) {
-                        com.baidu.tbadk.core.e.b.c(tbPageContext.getPageActivity(), 2, true);
+                        com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 2, true);
                         return 1;
                     }
                 }
@@ -75,15 +75,15 @@ public class MainTabActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001626) {
-                    MainTabActivityStatic.c(customResponsedMessage);
+                    MainTabActivityStatic.d(customResponsedMessage);
                 }
             }
         });
         MessageManager.getInstance().registerStickyMode(2001626);
-        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
+        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Map<String, String> mO;
+                Map<String, String> nW;
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -92,17 +92,17 @@ public class MainTabActivityStatic {
                     String str = "";
                     String str2 = "";
                     String str3 = "";
-                    String mP = ba.mP(lowerCase);
-                    if (!StringUtils.isNull(mP) && (mO = ba.mO(mP)) != null) {
-                        String str4 = mO.get("title");
+                    String nX = ba.nX(lowerCase);
+                    if (!StringUtils.isNull(nX) && (nW = ba.nW(nX)) != null) {
+                        String str4 = nW.get("title");
                         str = !StringUtils.isNull(str4) ? URLDecoder.decode(str4) : str4;
-                        str2 = mO.get(ImageViewerConfig.FORUM_ID);
-                        str3 = mO.get(ImageViewerConfig.FORUM_NAME);
+                        str2 = nW.get("fid");
+                        str3 = nW.get(ImageViewerConfig.FORUM_NAME);
                         if (!StringUtils.isNull(str3)) {
                             str3 = URLDecoder.decode(str3);
                         }
                     }
-                    if (bc.cZ(tbPageContext.getPageActivity())) {
+                    if (bc.cE(tbPageContext.getPageActivity())) {
                         if (!StringUtils.isNull(str3) && !StringUtils.isNull(str2)) {
                             ForumWriteData forumWriteData = new ForumWriteData(str2, str3, null, null);
                             forumWriteData.writeCallFrom = "0";
@@ -112,8 +112,8 @@ public class MainTabActivityStatic {
                             forumWriteData2.writeCallFrom = "0";
                             i.a(tbPageContext, str, forumWriteData2);
                         }
-                        TiebaStatic.log(new am("c12611").T("obj_locate", 4).T("obj_type", 2));
-                        TiebaStatic.log(new am("c12292").bJ("obj_locate", "3"));
+                        TiebaStatic.log(new am("c12611").P("obj_locate", 4).P("obj_type", 2));
+                        TiebaStatic.log(new am("c12292").bT("obj_locate", "3"));
                     }
                     return 0;
                 }
@@ -123,14 +123,14 @@ public class MainTabActivityStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void c(ResponsedMessage<?> responsedMessage) {
+    public static void d(ResponsedMessage<?> responsedMessage) {
         NewsRemindMessage newsRemindMessage;
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != iMe || b != iMf) {
-                iMe = a;
-                iMf = b;
+            if (a != jeX || b != jeY) {
+                jeX = a;
+                jeY = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }
@@ -150,7 +150,7 @@ public class MainTabActivityStatic {
         return newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
     }
 
-    private static void bbQ() {
+    private static void bjj() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015002, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -164,7 +164,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgB() {
+    private static void coF() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -179,7 +179,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgC() {
+    private static void coG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -193,8 +193,8 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cgD() {
-        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
+    private static void coH() {
+        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -204,13 +204,13 @@ public class MainTabActivityStatic {
                 if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
                     return 3;
                 }
-                tbPageContext.showToast(d.j.vr_plugin_not_available);
+                tbPageContext.showToast((int) R.string.vr_plugin_not_available);
                 return 1;
             }
         });
     }
 
-    private static void cgE() {
+    private static void coI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SCHEMA_UPLOAD, TbConfig.SERVER_ADDRESS + "c/s/schemastat");
         tbHttpMessageTask.setResponsedClass(HttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

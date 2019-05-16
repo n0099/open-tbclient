@@ -10,34 +10,34 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private BdTypeRecyclerView Qr;
-    private ArrayList<m> ezT;
-    private b gzA;
-    private b gzB;
-    private b gzC;
-    private b gzy;
-    private b gzz;
+    private BdTypeRecyclerView NZ;
+    private ArrayList<m> ePw;
+    private b gQK;
+    private b gQL;
+    private b gQM;
+    private b gQN;
+    private b gQO;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.Qr = bdTypeRecyclerView;
+            this.NZ = bdTypeRecyclerView;
             p(tbPageContext);
         }
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.gzy = new b(tbPageContext, a.gzh);
-        this.gzz = new b(tbPageContext, a.gzi);
-        this.gzA = new b(tbPageContext, a.gzl);
-        this.gzB = new b(tbPageContext, a.gzk);
-        this.gzC = new b(tbPageContext, a.gzj);
-        this.mAdapters.add(this.gzy);
-        this.mAdapters.add(this.gzz);
-        this.mAdapters.add(this.gzA);
-        this.mAdapters.add(this.gzB);
-        this.mAdapters.add(this.gzC);
-        this.Qr.addAdapters(this.mAdapters);
+        this.gQK = new b(tbPageContext, a.gQt);
+        this.gQL = new b(tbPageContext, a.gQu);
+        this.gQM = new b(tbPageContext, a.gQx);
+        this.gQN = new b(tbPageContext, a.gQw);
+        this.gQO = new b(tbPageContext, a.gQv);
+        this.mAdapters.add(this.gQK);
+        this.mAdapters.add(this.gQL);
+        this.mAdapters.add(this.gQM);
+        this.mAdapters.add(this.gQN);
+        this.mAdapters.add(this.gQO);
+        this.NZ.addAdapters(this.mAdapters);
     }
 
     public void onDestory() {
@@ -46,12 +46,12 @@ public class e {
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.Qr.setData(arrayList);
-        this.ezT = arrayList;
+        this.NZ.setData(arrayList);
+        this.ePw = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.Qr.getAdapter().notifyDataSetChanged();
+        this.NZ.getAdapter().notifyDataSetChanged();
     }
 
     public void d(s sVar) {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
-        this.gzC.b(abVar);
-        this.gzB.b(abVar);
-        this.gzA.b(abVar);
+        this.gQO.b(abVar);
+        this.gQN.b(abVar);
+        this.gQM.b(abVar);
     }
 }

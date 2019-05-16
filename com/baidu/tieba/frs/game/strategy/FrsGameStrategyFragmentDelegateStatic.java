@@ -11,7 +11,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ab;
 /* loaded from: classes4.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
@@ -20,18 +20,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c anH;
+                c asK;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
                     ab abVar = (ab) customResponsedMessage.getData();
                     FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
                     abVar.b(frsGameStrategyFragmentDelegateStatic);
-                    if (abVar.getContext() != null && (anH = frsGameStrategyFragmentDelegateStatic.anH()) != null) {
+                    if (abVar.getContext() != null && (asK = frsGameStrategyFragmentDelegateStatic.asK()) != null) {
                         Bundle bundle = new Bundle();
                         bundle.putString("name", abVar.getForumName());
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                        anH.cog.setArguments(bundle);
+                        asK.cwn.setArguments(bundle);
                     }
                 }
             }
@@ -44,18 +44,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c anG() {
+    public c asJ() {
         c cVar = new c();
-        cVar.cog = new FrsGameStrategyMainFragment();
+        cVar.cwn = new FrsGameStrategyMainFragment();
         cVar.type = 3;
-        cVar.f5com = c.coj;
+        cVar.cwt = c.cwq;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator di(Context context) {
-        this.cnS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.cnS.setTextSize(2.0f);
-        return this.cnS;
+    public TbFragmentTabIndicator cO(Context context) {
+        this.cvZ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cvZ.setTextSize(2.0f);
+        return this.cvZ;
     }
 }

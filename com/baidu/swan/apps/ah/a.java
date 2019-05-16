@@ -18,40 +18,41 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Toast;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.an.l;
-import com.baidu.swan.apps.an.p;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.an.m;
+import com.baidu.swan.apps.an.r;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.widget.b.d;
-import com.baidu.swan.apps.res.widget.dialog.e;
+import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void d(Context context, final com.baidu.swan.apps.v.b.b bVar) {
-        Uri hM;
-        if (!TextUtils.isEmpty(bVar.axI) && (hM = aa.hM(bVar.axI)) != null) {
+        Uri iq;
+        String iconUrl = bVar.getIconUrl();
+        if (!TextUtils.isEmpty(iconUrl) && (iq = ac.iq(iconUrl)) != null) {
             q(bVar);
             final c cVar = new c();
-            cVar.mAppId = bVar.mAppId;
-            cVar.mFrom = bVar.axK;
-            cVar.axX = bVar.axX;
-            cVar.axM = bVar.axM;
-            cVar.axV = bVar.axV;
-            cVar.axW = bVar.axW;
-            cVar.aya = bVar.aya;
-            cVar.ayb = bVar.ayb;
-            cVar.ayi = bVar.orientation;
-            cVar.axL = c.d(bVar.mAppId, bVar.axK, bVar.ayb);
-            if (l.i(hM)) {
-                a(context, bVar, cVar, l.b(hM, context));
+            cVar.mAppId = bVar.getAppId();
+            cVar.mFrom = bVar.EW();
+            cVar.ayQ = bVar.Fc();
+            cVar.ayL = bVar.getPage();
+            cVar.ayO = bVar.Fb();
+            cVar.ayM = bVar.isDebug();
+            cVar.ayR = bVar.Ff();
+            cVar.ayS = bVar.Fg();
+            cVar.ayT = bVar.getOrientation();
+            cVar.ayP = c.c(bVar.getAppId(), bVar.EW(), bVar.Fg());
+            if (m.i(iq)) {
+                a(context, bVar, cVar, m.b(iq, context));
             } else {
-                com.baidu.swan.apps.core.a.b.a(bVar.axI, new l.a() { // from class: com.baidu.swan.apps.ah.a.1
-                    @Override // com.baidu.swan.apps.an.l.a
+                com.baidu.swan.apps.core.a.b.a(iconUrl, new m.a() { // from class: com.baidu.swan.apps.ah.a.1
+                    @Override // com.baidu.swan.apps.an.m.a
                     public void d(String str, Bitmap bitmap) {
-                        if (com.baidu.swan.apps.ae.b.IV() != null) {
-                            a.a(com.baidu.swan.apps.ae.b.IV().getActivity(), com.baidu.swan.apps.v.b.b.this, cVar, bitmap);
+                        if (com.baidu.swan.apps.ae.b.Lq() != null) {
+                            a.a(com.baidu.swan.apps.ae.b.Lq().getActivity(), com.baidu.swan.apps.v.b.b.this, cVar, bitmap);
                         }
                     }
                 });
@@ -66,39 +67,39 @@ public final class a {
                 Toast.makeText(context, a.h.aiapps_common_emptyview_detail_text, 0).show();
                 return;
             }
-            if (com.baidu.swan.apps.an.a.LM()) {
-                a(context, bVar.mAppId, bVar.axH, bitmap, c.c(context, cVar));
+            if (com.baidu.swan.apps.an.a.Ot()) {
+                a(context, bVar.getAppId(), bVar.BM(), bitmap, c.c(context, cVar));
             } else {
-                context.sendBroadcast(a(bVar.axH, bitmap, c.c(context, cVar)));
+                context.sendBroadcast(a(bVar.BM(), bitmap, c.c(context, cVar)));
             }
-            cd(context);
+            bD(context);
         }
     }
 
     private static void q(com.baidu.swan.apps.v.b.b bVar) {
-        bVar.axM = null;
-        bVar.axK = "1230000000000000";
+        bVar.setPage(null);
+        bVar.eI("1230000000000000");
     }
 
-    private static void cd(Context context) {
+    private static void bD(Context context) {
         if (!(context instanceof Activity)) {
             if (DEBUG) {
                 throw new IllegalArgumentException("context must be activity.");
             }
             return;
         }
-        e.a aVar = new e.a(context);
-        e zq = aVar.zq();
-        aVar.cm(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, zq)).Iq().b(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ah.a.2
+        g.a aVar = new g.a(context);
+        g Aq = aVar.Aq();
+        aVar.cm(a.h.aiapps_add_shortcut_note_dialog_title).a(a(context, Aq)).KG().b(a.h.aiapps_add_shortcut_note_dialog_button, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.ah.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
             }
-        }).bS(com.baidu.swan.apps.u.a.CR().Dq()).a(new com.baidu.swan.apps.view.b.a());
-        zq.setCancelable(false);
-        zq.show();
+        }).cc(com.baidu.swan.apps.u.a.DW().Ev()).a(new com.baidu.swan.apps.view.b.a());
+        Aq.setCancelable(false);
+        Aq.show();
     }
 
-    private static SpannableStringBuilder a(final Context context, final e eVar) {
+    private static SpannableStringBuilder a(final Context context, final g gVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         String string = context.getString(a.h.aiapps_add_shortcut_note_dialog_content);
         String string2 = context.getString(a.h.aiapps_add_shortcut_permission_setting);
@@ -108,8 +109,8 @@ public final class a {
         spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.baidu.swan.apps.ah.a.3
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                e.this.dismiss();
-                p.cf(context);
+                g.this.dismiss();
+                r.bH(context);
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -144,6 +145,6 @@ public final class a {
                 return;
             }
         }
-        d.l(context, a.h.aiapps_shortcut_not_supported_text).II();
+        d.k(context, a.h.aiapps_shortcut_not_supported_text).Ld();
     }
 }

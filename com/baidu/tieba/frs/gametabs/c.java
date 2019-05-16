@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
     public c(int i, String str) {
-        this.cnR.type = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.cnR.cog;
-        specialFrsWebFragment.qS(i);
+        this.cvY.type = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) this.cvY.cwn;
+        specialFrsWebFragment.sa(i);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();
@@ -29,18 +29,18 @@ public class c extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c anG() {
+    public com.baidu.tbadk.mainTab.c asJ() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.cog = new SpecialFrsWebFragment();
+        cVar.cwn = new SpecialFrsWebFragment();
         cVar.type = 101;
-        cVar.f5com = com.baidu.tbadk.mainTab.c.coj;
+        cVar.cwt = com.baidu.tbadk.mainTab.c.cwq;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator di(Context context) {
-        this.cnS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.cnS.setTextSize(2.0f);
-        return this.cnS;
+    public TbFragmentTabIndicator cO(Context context) {
+        this.cvZ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cvZ.setTextSize(2.0f);
+        return this.cvZ;
     }
 }

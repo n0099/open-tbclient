@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.channel.data.ChannelInfo;
-import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView eoY;
-    private b eoZ;
+    private TextView eEF;
+    private b eEG;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,30 +34,30 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.eoZ = bVar;
+        this.eEG = bVar;
         this.mContext = getContext();
-        LayoutInflater.from(this.mContext).inflate(d.h.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.eoY = (TextView) findViewById(d.g.channel_home_header_desc_text);
+        LayoutInflater.from(this.mContext).inflate(R.layout.channel_home_header_desc_view, (ViewGroup) this, true);
+        this.eEF = (TextView) findViewById(R.id.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
         if (channelInfo != null) {
             String description = channelInfo.getDescription();
             if (TextUtils.isEmpty(description)) {
-                description = this.mContext.getResources().getString(d.j.channel_home_default_desc);
+                description = this.mContext.getResources().getString(R.string.channel_home_default_desc);
             }
             SpannableString spannableString = new SpannableString(description + "^");
-            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds24);
-            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(d.e.ds16);
-            Drawable drawable = this.mContext.getResources().getDrawable(d.f.icon_channel_edit);
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds16);
+            Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.eoY.setText(spannableString);
-            this.eoY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.eEF.setText(spannableString);
+            this.eEF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ChannelHomeDescView.this.eoZ != null) {
-                        ChannelHomeDescView.this.eoZ.a(11, view, null, -1);
+                    if (ChannelHomeDescView.this.eEG != null) {
+                        ChannelHomeDescView.this.eEG.a(11, view, null, -1);
                     }
                 }
             });
@@ -67,19 +67,19 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
-    public void am(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.aRq() != null) {
-            ChannelInfo aRq = dVar.aRq();
+    public void ao(com.baidu.tieba.channel.data.d dVar) {
+        if (dVar != null && dVar.aYz() != null) {
+            ChannelInfo aYz = dVar.aYz();
             if (this.mIsHost) {
-                d(aRq);
+                d(aYz);
                 return;
             }
-            if (TextUtils.isEmpty(aRq.getDescription())) {
-                this.eoY.setText(this.mContext.getResources().getString(d.j.channel_home_default_desc_guest));
+            if (TextUtils.isEmpty(aYz.getDescription())) {
+                this.eEF.setText(this.mContext.getResources().getString(R.string.channel_home_default_desc_guest));
             } else {
-                this.eoY.setText(aRq.getDescription());
+                this.eEF.setText(aYz.getDescription());
             }
-            this.eoY.setOnClickListener(null);
+            this.eEF.setOnClickListener(null);
         }
     }
 

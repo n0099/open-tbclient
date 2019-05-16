@@ -9,11 +9,11 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class PostPraiseView extends BasePraiseView<PostData> {
-    private CustomMessageListener bRA;
+    private CustomMessageListener bZr;
     private Context mContext;
 
     public PostPraiseView(Context context) {
@@ -22,17 +22,17 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRA = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
+        this.bZr = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.PostPraiseView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 PostData postData;
                 if ((customResponsedMessage.getData() instanceof PostData) && PostPraiseView.this.mData != 0 && !TextUtils.isEmpty(((PostData) PostPraiseView.this.mData).getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && ((PostData) PostPraiseView.this.mData).getId().equals(postData.getId())) {
-                    ((PostData) PostPraiseView.this.mData).af(postData.aah());
-                    ((PostData) PostPraiseView.this.mData).ag(postData.aai());
-                    ((PostData) PostPraiseView.this.mData).pZ(postData.beU());
-                    ((PostData) PostPraiseView.this.mData).gz(postData.aak());
-                    PostPraiseView.this.GP();
+                    ((PostData) PostPraiseView.this.mData).ar(postData.aeO());
+                    ((PostData) PostPraiseView.this.mData).as(postData.aeP());
+                    ((PostData) PostPraiseView.this.mData).qO(postData.bmm());
+                    ((PostData) PostPraiseView.this.mData).hl(postData.aeR());
+                    PostPraiseView.this.Jf();
                 }
             }
         };
@@ -50,73 +50,73 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((PostData) this.mData).aah();
+        return ((PostData) this.mData).aeO();
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void GP() {
+    public void Jf() {
         String string;
         Context context = getContext();
         long num = getNum();
-        context.getString(this.bOh);
-        if (!com.baidu.tbadk.util.a.apJ().afK()) {
+        context.getString(this.bVV);
+        if (!com.baidu.tbadk.util.a.auN().akJ()) {
         }
         if (num > 0) {
-            string = ap.az(num);
+            string = ap.aN(num);
         } else {
-            string = getContext().getString(d.j.action_praise_default);
+            string = getContext().getString(R.string.action_praise_default);
         }
-        this.bOm.setText(string);
-        this.bOm.setContentDescription(context.getString(this.bOh) + num);
-        if (this.mData != 0 && ((PostData) this.mData).beU() && aeg()) {
-            this.bOn.setImageDrawable(W(this.bOj, this.bOi));
-            this.bOm.setTextColor(createColorStateList(this.bOl, this.bOk));
+        this.bWa.setText(string);
+        this.bWa.setContentDescription(context.getString(this.bVV) + num);
+        if (this.mData != 0 && ((PostData) this.mData).bmm() && ajf()) {
+            this.bWb.setImageDrawable(W(this.bVX, this.bVW));
+            this.bWa.setTextColor(createColorStateList(this.bVZ, this.bVY));
             return;
         }
-        this.bOn.setImageDrawable(W(this.bOi, this.bOj));
-        this.bOm.setTextColor(createColorStateList(this.bOk, this.bOl));
+        this.bWb.setImageDrawable(W(this.bVW, this.bVX));
+        this.bWa.setTextColor(createColorStateList(this.bVY, this.bVZ));
     }
 
-    public int aef() {
+    public int aje() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).beU() && aeg()) {
-            ((PostData) this.mData).gz(2);
-            ((PostData) this.mData).pZ(false);
-            ((PostData) this.mData).af(((PostData) this.mData).aah() - 1);
-            ((PostData) this.mData).ag(((PostData) this.mData).aai());
+        if (((PostData) this.mData).bmm() && ajf()) {
+            ((PostData) this.mData).hl(2);
+            ((PostData) this.mData).qO(false);
+            ((PostData) this.mData).ar(((PostData) this.mData).aeO() - 1);
+            ((PostData) this.mData).as(((PostData) this.mData).aeP());
             i = 1;
         } else {
-            if (((PostData) this.mData).beU() && ((PostData) this.mData).aak() == 5) {
-                ((PostData) this.mData).ag(((PostData) this.mData).aai() - 1);
+            if (((PostData) this.mData).bmm() && ((PostData) this.mData).aeR() == 5) {
+                ((PostData) this.mData).as(((PostData) this.mData).aeP() - 1);
             }
-            ((PostData) this.mData).pZ(true);
-            ((PostData) this.mData).af(((PostData) this.mData).aah() + 1);
-            ((PostData) this.mData).gz(2);
-            com.baidu.tieba.n.a.bWn().x(getTbPageContext());
+            ((PostData) this.mData).qO(true);
+            ((PostData) this.mData).ar(((PostData) this.mData).aeO() + 1);
+            ((PostData) this.mData).hl(2);
+            com.baidu.tieba.n.a.cer().x(getTbPageContext());
             i = 0;
         }
         return i;
     }
 
-    public int aF(View view) {
+    public int aL(View view) {
         int i = -1;
-        if (!com.baidu.tbadk.util.i.isFastDoubleClick() && bc.cZ(getContext()) && this.mData != 0) {
-            i = aef();
-            GP();
-            hD(i);
-            hC(i);
-            if (this.bNx != null) {
-                this.bNx.onClick(view);
+        if (!com.baidu.tbadk.util.i.isFastDoubleClick() && bc.cE(getContext()) && this.mData != 0) {
+            i = aje();
+            Jf();
+            ir(i);
+            iq(i);
+            if (this.bVi != null) {
+                this.bVi.onClick(view);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }
         return i;
     }
 
-    public boolean aeg() {
-        return this.mData != 0 && (((PostData) this.mData).aak() == 2 || ((PostData) this.mData).aak() == 1);
+    public boolean ajf() {
+        return this.mData != 0 && (((PostData) this.mData).aeR() == 2 || ((PostData) this.mData).aeR() == 1);
     }
 }

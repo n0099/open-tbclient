@@ -4,55 +4,55 @@ import android.content.Context;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public final class b {
-    private static b aaU;
-    private c aaV;
+    private static b YM;
+    private c YN;
     private boolean af = false;
 
     private b(Context context) {
-        this.aaV = c.ba(context);
+        this.YN = c.as(context);
     }
 
-    public static b aY(Context context) {
-        return aZ(context);
+    public static b aq(Context context) {
+        return ar(context);
     }
 
-    private static b aZ(Context context) {
-        if (aaU == null) {
+    private static b ar(Context context) {
+        if (YM == null) {
             synchronized (b.class) {
-                if (aaU == null) {
-                    aaU = new b(context);
+                if (YM == null) {
+                    YM = new b(context);
                 }
             }
         }
-        return aaU;
+        return YM;
     }
 
-    public static b rK() {
-        return aaU;
+    public static b qF() {
+        return YM;
     }
 
     public final void start() {
         if (this.af) {
-            com.baidu.crabsdk.c.a.cv("Block monitoring has already started!");
+            com.baidu.crabsdk.c.a.cf("Block monitoring has already started!");
             return;
         }
         this.af = true;
         try {
-            Looper.getMainLooper().setMessageLogging(this.aaV.aaW);
-            com.baidu.crabsdk.c.a.cv("Start main-thread block monitoring!");
+            Looper.getMainLooper().setMessageLogging(this.YN.YO);
+            com.baidu.crabsdk.c.a.cf("Start main-thread block monitoring!");
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("setMessageLogging error!!", e);
+            com.baidu.crabsdk.c.a.a("setMessageLogging error!!", e);
         }
     }
 
     public final void stop() {
         if (!this.af) {
-            com.baidu.crabsdk.c.a.cv("Block monitoring is not enabled!");
+            com.baidu.crabsdk.c.a.cf("Block monitoring is not enabled!");
             return;
         }
         this.af = false;
         Looper.getMainLooper().setMessageLogging(null);
-        this.aaV.aaX.stop();
-        com.baidu.crabsdk.c.a.cv("Stop main-thread block monitoring!");
+        this.YN.YP.stop();
+        com.baidu.crabsdk.c.a.cf("Stop main-thread block monitoring!");
     }
 }

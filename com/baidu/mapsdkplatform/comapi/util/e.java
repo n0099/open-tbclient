@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Environment;
 import android.os.storage.StorageManager;
-import com.baidu.mobstat.Config;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -182,8 +181,8 @@ public final class e {
                         String nextLine2 = scanner.nextLine();
                         if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', ' ').split(" ")) != null && split.length > 0) {
                             String str = split[2];
-                            if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
-                                str = str.substring(0, str.indexOf(Config.TRACE_TODAY_VISIT_SPLIT));
+                            if (str.contains(":")) {
+                                str = str.substring(0, str.indexOf(":"));
                             }
                             arrayList2.add(str);
                         }

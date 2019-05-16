@@ -24,53 +24,53 @@ import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 /* loaded from: classes2.dex */
 public final class b {
-    private final Map<Type, com.google.gson.e<?>> jMR;
+    private final Map<Type, com.google.gson.e<?>> kfB;
 
     public b(Map<Type, com.google.gson.e<?>> map) {
-        this.jMR = map;
+        this.kfB = map;
     }
 
-    public <T> e<T> b(com.google.gson.b.a<T> aVar) {
-        final Type cBD = aVar.cBD();
-        Class<? super T> cBC = aVar.cBC();
-        final com.google.gson.e<?> eVar = this.jMR.get(cBD);
+    public <T> d<T> b(com.google.gson.b.a<T> aVar) {
+        final Type cJs = aVar.cJs();
+        Class<? super T> cJr = aVar.cJr();
+        final com.google.gson.e<?> eVar = this.kfB.get(cJs);
         if (eVar != null) {
-            return new e<T>() { // from class: com.google.gson.internal.b.1
+            return new d<T>() { // from class: com.google.gson.internal.b.1
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
-                @Override // com.google.gson.internal.e
-                public T cBe() {
-                    return eVar.b(cBD);
+                @Override // com.google.gson.internal.d
+                public T cIY() {
+                    return eVar.b(cJs);
                 }
             };
         }
-        final com.google.gson.e<?> eVar2 = this.jMR.get(cBC);
+        final com.google.gson.e<?> eVar2 = this.kfB.get(cJr);
         if (eVar2 != null) {
-            return new e<T>() { // from class: com.google.gson.internal.b.7
+            return new d<T>() { // from class: com.google.gson.internal.b.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
-                @Override // com.google.gson.internal.e
-                public T cBe() {
-                    return eVar2.b(cBD);
+                @Override // com.google.gson.internal.d
+                public T cIY() {
+                    return eVar2.b(cJs);
                 }
             };
         }
-        e<T> x = x(cBC);
-        if (x == null) {
-            e<T> c = c(cBD, cBC);
-            return c == null ? d(cBD, cBC) : c;
+        d<T> w = w(cJr);
+        if (w == null) {
+            d<T> c = c(cJs, cJr);
+            return c == null ? d(cJs, cJr) : c;
         }
-        return x;
+        return w;
     }
 
-    private <T> e<T> x(Class<? super T> cls) {
+    private <T> d<T> w(Class<? super T> cls) {
         try {
             final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
                 declaredConstructor.setAccessible(true);
             }
-            return new e<T>() { // from class: com.google.gson.internal.b.8
+            return new d<T>() { // from class: com.google.gson.internal.b.8
                 /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
-                @Override // com.google.gson.internal.e
-                public T cBe() {
+                @Override // com.google.gson.internal.d
+                public T cIY() {
                     try {
                         return declaredConstructor.newInstance(null);
                     } catch (IllegalAccessException e) {
@@ -87,22 +87,22 @@ public final class b {
         }
     }
 
-    private <T> e<T> c(final Type type, Class<? super T> cls) {
+    private <T> d<T> c(final Type type, Class<? super T> cls) {
         if (Collection.class.isAssignableFrom(cls)) {
             if (SortedSet.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.9
+                return new d<T>() { // from class: com.google.gson.internal.b.9
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.TreeSet] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new TreeSet();
                     }
                 };
             }
             if (EnumSet.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.10
+                return new d<T>() { // from class: com.google.gson.internal.b.10
                     /* JADX WARN: Type inference failed for: r0v9, types: [T, java.util.EnumSet] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         if (type instanceof ParameterizedType) {
                             Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
                             if (type2 instanceof Class) {
@@ -115,71 +115,71 @@ public final class b {
                 };
             }
             if (Set.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.11
+                return new d<T>() { // from class: com.google.gson.internal.b.11
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.LinkedHashSet] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new LinkedHashSet();
                     }
                 };
             }
             if (Queue.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.12
+                return new d<T>() { // from class: com.google.gson.internal.b.12
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.ArrayDeque] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new ArrayDeque();
                     }
                 };
             }
-            return new e<T>() { // from class: com.google.gson.internal.b.13
+            return new d<T>() { // from class: com.google.gson.internal.b.13
                 /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.ArrayList] */
-                @Override // com.google.gson.internal.e
-                public T cBe() {
+                @Override // com.google.gson.internal.d
+                public T cIY() {
                     return new ArrayList();
                 }
             };
         } else if (Map.class.isAssignableFrom(cls)) {
             if (ConcurrentNavigableMap.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.14
+                return new d<T>() { // from class: com.google.gson.internal.b.14
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.concurrent.ConcurrentSkipListMap, T] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new ConcurrentSkipListMap();
                     }
                 };
             }
             if (ConcurrentMap.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.2
+                return new d<T>() { // from class: com.google.gson.internal.b.2
                     /* JADX WARN: Type inference failed for: r0v0, types: [T, java.util.concurrent.ConcurrentHashMap] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new ConcurrentHashMap();
                     }
                 };
             }
             if (SortedMap.class.isAssignableFrom(cls)) {
-                return new e<T>() { // from class: com.google.gson.internal.b.3
+                return new d<T>() { // from class: com.google.gson.internal.b.3
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.TreeMap, T] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new TreeMap();
                     }
                 };
             }
-            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).cBC())) {
-                return new e<T>() { // from class: com.google.gson.internal.b.4
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).cJr())) {
+                return new d<T>() { // from class: com.google.gson.internal.b.4
                     /* JADX WARN: Type inference failed for: r0v0, types: [java.util.LinkedHashMap, T] */
-                    @Override // com.google.gson.internal.e
-                    public T cBe() {
+                    @Override // com.google.gson.internal.d
+                    public T cIY() {
                         return new LinkedHashMap();
                     }
                 };
             }
-            return new e<T>() { // from class: com.google.gson.internal.b.5
+            return new d<T>() { // from class: com.google.gson.internal.b.5
                 /* JADX WARN: Type inference failed for: r0v0, types: [T, com.google.gson.internal.LinkedTreeMap] */
-                @Override // com.google.gson.internal.e
-                public T cBe() {
+                @Override // com.google.gson.internal.d
+                public T cIY() {
                     return new LinkedTreeMap();
                 }
             };
@@ -188,15 +188,15 @@ public final class b {
         }
     }
 
-    private <T> e<T> d(final Type type, final Class<? super T> cls) {
-        return new e<T>() { // from class: com.google.gson.internal.b.6
-            private final h jMV = h.cBp();
+    private <T> d<T> d(final Type type, final Class<? super T> cls) {
+        return new d<T>() { // from class: com.google.gson.internal.b.6
+            private final g kfF = g.cJj();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
-            @Override // com.google.gson.internal.e
-            public T cBe() {
+            @Override // com.google.gson.internal.d
+            public T cIY() {
                 try {
-                    return this.jMV.newInstance(cls);
+                    return this.kfF.newInstance(cls);
                 } catch (Exception e) {
                     throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Register an InstanceCreator with Gson for this type may fix this problem.", e);
                 }
@@ -205,6 +205,6 @@ public final class b {
     }
 
     public String toString() {
-        return this.jMR.toString();
+        return this.kfB.toString();
     }
 }

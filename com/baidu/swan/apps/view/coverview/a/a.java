@@ -56,9 +56,9 @@ public class a extends b {
     }
 
     @Override // com.baidu.swan.apps.view.coverview.a.b
-    protected com.baidu.swan.apps.view.coverview.b.a am(JSONObject jSONObject) {
+    protected com.baidu.swan.apps.view.coverview.b.a ao(JSONObject jSONObject) {
         com.baidu.swan.apps.view.coverview.b.b bVar = new com.baidu.swan.apps.view.coverview.b.b();
-        bVar.aZi = CoverViewHelper.Type.IMAGE;
+        bVar.bbW = CoverViewHelper.Type.IMAGE;
         try {
             bVar.parseFromJson(jSONObject);
         } catch (JSONException e) {

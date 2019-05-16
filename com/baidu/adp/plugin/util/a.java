@@ -21,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0024a {
-        public boolean My;
+        public boolean Kj;
         public String mErrMsg;
     }
 
@@ -70,7 +70,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.N((String) obj, (String) obj2);
+                                return a.H((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -123,14 +123,14 @@ public class a {
                 declaredMethod.invoke(z2, str2, null);
                 Object d = d(B(z2), B(z3));
                 if (d instanceof File[]) {
-                    Arrays.sort((File[]) d, nU());
+                    Arrays.sort((File[]) d, mP());
                     list = d;
                 } else {
                     boolean z4 = d instanceof List;
                     list = d;
                     if (z4) {
                         List list4 = (List) d;
-                        Collections.sort(list4, nU());
+                        Collections.sort(list4, mP());
                         list = list4;
                     }
                 }
@@ -144,14 +144,14 @@ public class a {
                 a(z2, z2.getClass(), "dexElements", z ? d(A(z2), A(z3)) : d(A(z3), A(z2)));
                 Object d2 = d(B(z2), B(z3));
                 if (d2 instanceof File[]) {
-                    Arrays.sort((File[]) d2, nU());
+                    Arrays.sort((File[]) d2, mP());
                     list3 = d2;
                 } else {
                     boolean z5 = d2 instanceof List;
                     list3 = d2;
                     if (z5) {
                         List list5 = (List) d2;
-                        Collections.sort(list5, nU());
+                        Collections.sort(list5, mP());
                         list3 = list5;
                     }
                 }
@@ -165,14 +165,14 @@ public class a {
                 a(z2, z2.getClass(), "dexElements", z ? d(A(z2), A(z3)) : d(A(z3), A(z2)));
                 Object d3 = d(B(z2), B(z3));
                 if (d3 instanceof File[]) {
-                    Arrays.sort((File[]) d3, nU());
+                    Arrays.sort((File[]) d3, mP());
                     list2 = d3;
                 } else {
                     boolean z6 = d3 instanceof List;
                     list2 = d3;
                     if (z6) {
                         List list6 = (List) d3;
-                        Collections.sort(list6, nU());
+                        Collections.sort(list6, mP());
                         list2 = list6;
                     }
                 }
@@ -276,7 +276,7 @@ public class a {
 
     private static C0024a a(boolean z, Throwable th) {
         C0024a c0024a = new C0024a();
-        c0024a.My = z;
+        c0024a.Kj = z;
         c0024a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0024a;
     }
@@ -313,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> nU() {
+    private static final Comparator<File> mP() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -321,13 +321,13 @@ public class a {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.N(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.H(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int N(String str, String str2) {
+    public static final int H(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

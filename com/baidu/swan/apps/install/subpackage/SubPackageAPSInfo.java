@@ -15,17 +15,18 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cA */
+        /* renamed from: cB */
         public SubPackageAPSInfo[] newArray(int i) {
             return new SubPackageAPSInfo[i];
         }
     };
-    public String asO;
-    public int axq;
-    public String axr;
-    public String axs;
-    public String axt;
-    public String axu;
+    public String atc;
+    public int ayd;
+    public String aye;
+    public String ayf;
+    public String ayg;
+    public String ayh;
+    public boolean ayi;
     public String mAppId;
     public String mAppVersion;
     public String mKey;
@@ -39,12 +40,13 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
         this.mAppVersion = parcel.readString();
         this.mKey = parcel.readString();
         this.mResultCode = parcel.readInt();
-        this.axq = parcel.readInt();
-        this.axr = parcel.readString();
-        this.axs = parcel.readString();
-        this.axt = parcel.readString();
-        this.asO = parcel.readString();
-        this.axu = parcel.readString();
+        this.ayd = parcel.readInt();
+        this.aye = parcel.readString();
+        this.ayf = parcel.readString();
+        this.ayg = parcel.readString();
+        this.atc = parcel.readString();
+        this.ayh = parcel.readString();
+        this.ayi = parcel.readInt() == 1;
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +60,16 @@ public class SubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.mAppVersion);
         parcel.writeString(this.mKey);
         parcel.writeInt(this.mResultCode);
-        parcel.writeInt(this.axq);
-        parcel.writeString(this.axr);
-        parcel.writeString(this.axs);
-        parcel.writeString(this.axt);
-        parcel.writeString(this.asO);
-        parcel.writeString(this.axu);
+        parcel.writeInt(this.ayd);
+        parcel.writeString(this.aye);
+        parcel.writeString(this.ayf);
+        parcel.writeString(this.ayg);
+        parcel.writeString(this.atc);
+        parcel.writeString(this.ayh);
+        parcel.writeInt(this.ayi ? 1 : 0);
     }
 
     public String toString() {
-        return "mAppId:" + this.mAppId + ",mAppVersion:" + this.mAppVersion + ",mKey:" + this.mKey + ",mResultCode:" + this.mResultCode + ",mSwanAppProcessId:" + this.axq + ",mAppRootPath:" + this.axr + ",mSubPackageName:" + this.axs + ",mZipPath:" + this.axt + ",mWebViewId:" + this.asO + ",mCallbackKey:" + this.axu;
+        return "mAppId:" + this.mAppId + ",mAppVersion:" + this.mAppVersion + ",mKey:" + this.mKey + ",mResultCode:" + this.mResultCode + ",mSwanAppProcessId:" + this.ayd + ",mAppRootPath:" + this.aye + ",mSubPackageName:" + this.ayf + ",mZipPath:" + this.ayg + ",mWebViewId:" + this.atc + ",mCallbackKey:" + this.ayh + ",mForceDownload:" + this.ayi;
     }
 }

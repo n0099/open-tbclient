@@ -9,12 +9,11 @@ import android.graphics.RectF;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
-    private static final int cuY = d.C0277d.black_alpha4;
-    private Shape bFP;
+    private Shape bNp;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -39,9 +38,9 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         this.mStrokePaint = new Paint();
         this.mStrokePaint.setAntiAlias(true);
-        this.mStrokePaint.setColor(getResources().getColor(cuY));
+        this.mStrokePaint.setColor(getResources().getColor(R.color.black_alpha4));
         this.mStrokePaint.setStyle(Paint.Style.FILL);
-        this.mStrokePaint.setShadowLayer(getResources().getDimension(d.e.tbds5), 0.0f, getResources().getDimension(d.e.tbds4), getResources().getColor(cuY));
+        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(R.color.black_alpha4));
         this.mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.mRectF = new RectF();
     }
@@ -54,20 +53,20 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.bFP == null) {
+            if (this.bNp == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(d.e.tbds5) ? getResources().getDimension(d.e.tbds5) : getPaddingLeft();
-                float dimension2 = ((float) getPaddingRight()) <= getResources().getDimension(d.e.tbds5) ? getResources().getDimension(d.e.tbds5) : getPaddingRight();
+                float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
+                float dimension2 = ((float) getPaddingRight()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingRight();
                 float paddingTop = getPaddingTop() <= 0 ? 1.0f : getPaddingTop();
                 float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.bFP = new RoundRectShape(fArr, rectF, fArr2);
+                this.bNp = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.bFP.resize(getWidth(), getHeight());
+            this.bNp.resize(getWidth(), getHeight());
         }
     }
 
@@ -76,8 +75,8 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.bFP != null) {
-            this.bFP.draw(canvas, this.mPaint);
+        if (this.bNp != null) {
+            this.bNp.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         canvas.restoreToCount(saveCount);

@@ -7,18 +7,18 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.install.c;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.install.e;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
         super(jVar, "/swan/debugGameCore");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             JSONObject c = c(unitedSchemeEntity, "params");
@@ -31,23 +31,23 @@ public class a extends y {
                 Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 return false;
             }
-            com.baidu.swan.games.i.a.c(optString, new c.b() { // from class: com.baidu.swan.games.h.a.a.1
-                @Override // com.baidu.swan.apps.install.c.b
-                public void cu(int i) {
+            com.baidu.swan.games.i.a.c(optString, new e.b() { // from class: com.baidu.swan.games.h.a.a.1
+                @Override // com.baidu.swan.apps.install.e.b
+                public void cv(int i) {
                 }
 
-                @Override // com.baidu.swan.apps.install.c.b
+                @Override // com.baidu.swan.apps.install.e.b
                 public void onSuccess() {
-                    File Bq = b.Bq();
-                    File Bo = b.Bo();
-                    if (Bq.exists() && com.baidu.swan.c.b.bl(Bq.getPath(), Bo.getPath())) {
+                    File Ct = b.Ct();
+                    File Cr = b.Cr();
+                    if (Ct.exists() && com.baidu.swan.c.a.bs(Ct.getPath(), Cr.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();
                     }
                 }
 
-                @Override // com.baidu.swan.apps.install.c.b
+                @Override // com.baidu.swan.apps.install.e.b
                 public void onFailed() {
                     Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();
                 }

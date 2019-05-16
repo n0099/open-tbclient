@@ -1,21 +1,21 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ak;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 /* loaded from: classes3.dex */
-class bf implements ak.a {
-    final /* synthetic */ XMPushService a;
+class bf extends Handler {
+    final /* synthetic */ be a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(XMPushService xMPushService) {
-        this.a = xMPushService;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bf(be beVar, Looper looper) {
+        super(looper);
+        this.a = beVar;
     }
 
-    @Override // com.xiaomi.push.service.ak.a
-    public void a() {
-        this.a.n();
-        if (ak.a().c() <= 0) {
-            this.a.a(new XMPushService.f(12, null));
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
     }
 }

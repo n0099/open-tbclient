@@ -4,39 +4,39 @@ public interface l<T> {
 
     /* loaded from: classes.dex */
     public interface a<T> {
-        void g(String str, T t);
+        void h(String str, T t);
     }
 
     /* loaded from: classes.dex */
     public static class b<T> {
-        public long AJ;
-        public long AY;
         public String key;
         public T value;
+        public long yH;
+        public long yu;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String iA();
+        String hs();
 
-        k<T> iB();
+        k<T> ht();
 
-        void iC();
+        void hu();
     }
 
     void a(String str, a<T> aVar);
 
     void a(String str, T t, long j);
 
-    b<T> aF(String str);
+    b<T> ap(String str);
 
-    void aG(String str);
+    void aq(String str);
 
     void b(String str, T t, long j);
 
-    void e(String str, T t);
-
     void f(String str, T t);
+
+    void g(String str, T t);
 
     T get(String str);
 

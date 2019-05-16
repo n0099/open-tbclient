@@ -11,7 +11,6 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,7 +55,7 @@ public final class g {
                 if (TextUtils.isEmpty(d) && TextUtils.isEmpty(e)) {
                     return "";
                 }
-                byte[] bytes = (d + Config.TRACE_TODAY_VISIT_SPLIT + e).getBytes();
+                byte[] bytes = (d + ":" + e).getBytes();
                 for (int i = 0; i < bytes.length; i++) {
                     bytes[i] = (byte) (bytes[i] ^ 246);
                 }

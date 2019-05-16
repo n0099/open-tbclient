@@ -4,128 +4,128 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int cho;
-    private int chr;
-    private int ipZ;
-    private int iqa;
-    private boolean iqb;
-    private int iqc;
-    private SimpleUser iqd;
-    private int iqe;
+    private int cpw;
+    private int cpz;
+    private int iIN;
+    private int iIO;
+    private boolean iIP;
+    private int iIQ;
+    private SimpleUser iIR;
+    private int iIS;
 
-    public boolean bYo() {
-        com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
+    public boolean cgt() {
+        com.baidu.tbadk.core.sharedPref.b agM = com.baidu.tbadk.core.sharedPref.b.agM();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.ipZ = bVar.getInt("post" + currentAccount, 0);
-        this.iqa = bVar.getInt("like" + currentAccount, 0);
-        this.cho = bVar.getInt("group" + currentAccount, 0);
-        this.chr = bVar.getInt("live" + currentAccount, 0);
-        this.iqc = bVar.getInt("reply" + currentAccount, 1);
-        this.iqb = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.ipZ == 0 && this.iqa == 0 && this.cho == 0 && this.chr == 0 && this.iqc == 1) ? false : true;
+        this.iIN = agM.getInt("post" + currentAccount, 0);
+        this.iIO = agM.getInt("like" + currentAccount, 0);
+        this.cpw = agM.getInt("group" + currentAccount, 0);
+        this.cpz = agM.getInt("live" + currentAccount, 0);
+        this.iIQ = agM.getInt("reply" + currentAccount, 1);
+        this.iIP = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.iIN == 0 && this.iIO == 0 && this.cpw == 0 && this.cpz == 0 && this.iIQ == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.ipZ = aVar.ipZ;
-            this.iqa = aVar.iqa;
-            this.cho = aVar.cho;
-            this.iqb = aVar.iqb;
-            this.chr = aVar.chr;
-            this.iqe = aVar.iqe;
-            this.iqc = aVar.iqc;
+            this.iIN = aVar.iIN;
+            this.iIO = aVar.iIO;
+            this.cpw = aVar.cpw;
+            this.iIP = aVar.iIP;
+            this.cpz = aVar.cpz;
+            this.iIS = aVar.iIS;
+            this.iIQ = aVar.iIQ;
         }
     }
 
-    public int bYp() {
-        return this.ipZ;
+    public int cgu() {
+        return this.iIN;
     }
 
-    public void bn(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
+    public void bj(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.agM().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void bYq() {
+    public void cgv() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.ipZ);
-        bVar.putInt("like" + currentAccount, this.iqa);
-        bVar.putInt("group" + currentAccount, this.cho);
-        bVar.putInt("live" + currentAccount, this.chr);
-        bVar.putInt("reply" + currentAccount, this.iqc);
-        TbadkCoreApplication.getInst().setLocationShared(this.iqb);
+        com.baidu.tbadk.core.sharedPref.b agM = com.baidu.tbadk.core.sharedPref.b.agM();
+        agM.putInt("post" + currentAccount, this.iIN);
+        agM.putInt("like" + currentAccount, this.iIO);
+        agM.putInt("group" + currentAccount, this.cpw);
+        agM.putInt("live" + currentAccount, this.cpz);
+        agM.putInt("reply" + currentAccount, this.iIQ);
+        TbadkCoreApplication.getInst().setLocationShared(this.iIP);
     }
 
-    public void yk(int i) {
-        this.ipZ = i;
+    public void zr(int i) {
+        this.iIN = i;
     }
 
-    public int bYr() {
-        return this.iqa;
+    public int cgw() {
+        return this.iIO;
     }
 
-    public void yl(int i) {
+    public void zs(int i) {
         if (i <= 3 && i >= 1) {
-            this.iqa = i;
+            this.iIO = i;
         }
     }
 
-    public int alp() {
-        return this.chr;
+    public int aqs() {
+        return this.cpz;
     }
 
-    public void ym(int i) {
+    public void zt(int i) {
         if (i <= 3 && i >= 1) {
-            this.chr = i;
+            this.cpz = i;
         }
     }
 
-    public int bYs() {
-        return this.cho;
+    public int cgx() {
+        return this.cpw;
     }
 
-    public void yn(int i) {
+    public void zu(int i) {
         if (i <= 3 && i >= 1) {
-            this.cho = i;
+            this.cpw = i;
         }
     }
 
-    public boolean bYt() {
-        return this.iqb;
+    public boolean cgy() {
+        return this.iIP;
     }
 
-    public void yo(int i) {
+    public void zv(int i) {
         switch (i) {
             case 1:
-                this.iqb = true;
+                this.iIP = true;
                 return;
             default:
-                this.iqb = false;
+                this.iIP = false;
                 return;
         }
     }
 
-    public SimpleUser awz() {
-        return this.iqd;
+    public SimpleUser aBF() {
+        return this.iIR;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.iqd = simpleUser;
+        this.iIR = simpleUser;
     }
 
-    public void yp(int i) {
-        this.iqe = i;
+    public void zw(int i) {
+        this.iIS = i;
     }
 
-    public void yq(int i) {
+    public void zx(int i) {
         if (i == 0) {
-            this.iqc = 1;
+            this.iIQ = 1;
         } else {
-            this.iqc = i;
+            this.iIQ = i;
         }
     }
 
-    public int bYu() {
-        return this.iqc;
+    public int cgz() {
+        return this.iIQ;
     }
 }

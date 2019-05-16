@@ -27,6 +27,8 @@ import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebStorage;
@@ -36,10 +38,10 @@ import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.ab.a;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.b.c.e;
 import com.baidu.swan.apps.core.container.SystemWebViewImpl;
-import com.baidu.swan.apps.core.d.b;
+import com.baidu.swan.apps.core.e.b;
 import com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
@@ -54,22 +56,22 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, com.baidu.swan.apps.core.container.b, com.baidu.swan.apps.core.container.c, com.baidu.swan.apps.res.ui.pullrefresh.a<SystemWebViewImpl> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected SystemWebViewImpl aof;
-    private WebViewClient aog;
-    private WebChromeClient aoh;
-    private com.baidu.swan.apps.core.d.b aoi;
-    protected j aoj;
-    private SwanAppGlobalJsBridge aok;
-    private SwanAppJsBridge aol;
-    protected SwanAppUtilsJavaScriptInterface aom;
-    private com.baidu.swan.apps.core.c aon;
+    protected SystemWebViewImpl aor;
+    private WebViewClient aos;
+    private WebChromeClient aot;
+    private com.baidu.swan.apps.core.e.b aou;
+    protected j aov;
+    private SwanAppGlobalJsBridge aow;
+    private SwanAppJsBridge aox;
+    protected SwanAppUtilsJavaScriptInterface aoy;
+    private com.baidu.swan.apps.core.c aoz;
     protected Activity mActivity;
     protected Context mContext;
     private UnitedSchemeMainDispatcher mMainDispatcher;
     private String mUserAgent;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private final a aoo = new a();
-    private List<com.baidu.swan.apps.core.e.b> aop = new ArrayList();
+    private final a aoA = new a();
+    private List<com.baidu.swan.apps.core.f.b> aoB = new ArrayList();
 
     public b(Context context) {
         init(context);
@@ -78,95 +80,95 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
 
     @DebugTrace
     private void init(Context context) {
-        a(this.aoo);
-        bx(context);
+        a(this.aoA);
+        aQ(context);
         a(context, this);
-        xp();
-        xq();
-        xr();
+        yh();
+        yi();
+        yj();
         initSettings();
-        xt();
+        yl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(a aVar) {
     }
 
-    private void bx(Context context) {
+    private void aQ(Context context) {
         this.mContext = context;
-        this.aof = new SystemWebViewImpl(context);
-        if (this.aoo.aot) {
-            this.aof.setBackgroundColor(0);
+        this.aor = new SystemWebViewImpl(context);
+        if (this.aoA.aoF) {
+            this.aor.setBackgroundColor(0);
         }
-        this.aof.setScrollBarStyle(0);
-        this.aof.setLongClickable(true);
-        this.aoi = new com.baidu.swan.apps.core.d.b(this.mContext);
-        this.aof.setWebViewClient(new c());
-        this.aof.setWebChromeClient(new C0128b());
-        this.aof.setOverScrollMode(2);
-        this.aof.setOnCommonEventHandler(this);
+        this.aor.setScrollBarStyle(0);
+        this.aor.setLongClickable(true);
+        this.aou = new com.baidu.swan.apps.core.e.b(this.mContext);
+        this.aor.setWebViewClient(new c());
+        this.aor.setWebChromeClient(new C0131b());
+        this.aor.setOverScrollMode(2);
+        this.aor.setOnCommonEventHandler(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.a
-    /* renamed from: by */
-    public SystemWebViewImpl bz(Context context) {
-        if (this.aof == null) {
-            bx(context);
+    /* renamed from: aR */
+    public SystemWebViewImpl aS(Context context) {
+        if (this.aor == null) {
+            aQ(context);
         }
-        return this.aof;
+        return this.aor;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Context context, e eVar) {
-        this.aom = new SwanAppUtilsJavaScriptInterface(context, this.aof);
-        this.aom.setSource("swan_");
-        this.aom.setForceShareLight(true);
-        this.aof.addJavascriptInterface(this.aom, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.aoy = new SwanAppUtilsJavaScriptInterface(context, this.aor);
+        this.aoy.setSource("swan_");
+        this.aoy.setForceShareLight(true);
+        this.aor.addJavascriptInterface(this.aoy, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    private void xp() {
+    private void yh() {
         if (this.mMainDispatcher == null) {
             this.mMainDispatcher = new UnitedSchemeMainDispatcher();
         }
     }
 
-    protected void xq() {
+    protected void yi() {
         if (this.mMainDispatcher == null) {
             throw new IllegalStateException("initSwanAppDispatcher() must be called after initDispatcher()");
         }
-        this.aoj = com.baidu.swan.apps.scheme.e.a(this.mMainDispatcher);
+        this.aov = com.baidu.swan.apps.scheme.e.a(this.mMainDispatcher);
     }
 
-    private void xr() {
-        this.aof.addJavascriptInterface(new SwanAppNativeSwanJsBridge(), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        xs();
+    private void yj() {
+        this.aor.addJavascriptInterface(new SwanAppNativeSwanJsBridge(), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        yk();
     }
 
-    private void xs() {
-        this.aok = new SwanAppGlobalJsBridge(this.mContext, this.mMainDispatcher, this);
-        this.aof.addJavascriptInterface(this.aok, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        this.aol = new SwanAppJsBridge(this.mContext, this.mMainDispatcher, this);
-        this.aof.addJavascriptInterface(this.aol, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+    private void yk() {
+        this.aow = new SwanAppGlobalJsBridge(this.mContext, this.mMainDispatcher, this);
+        this.aor.addJavascriptInterface(this.aow, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.aox = new SwanAppJsBridge(this.mContext, this.mMainDispatcher, this);
+        this.aor.addJavascriptInterface(this.aox, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     public void v(Activity activity) {
-        if (this.aok != null) {
-            this.aok.setActivityRef(activity);
+        if (this.aow != null) {
+            this.aow.setActivityRef(activity);
         }
-        if (this.aol != null) {
-            this.aol.setActivityRef(activity);
+        if (this.aox != null) {
+            this.aox.setActivityRef(activity);
         }
-        if (this.aom != null) {
-            this.aom.setActivity(activity);
+        if (this.aoy != null) {
+            this.aoy.setActivity(activity);
         }
         this.mActivity = activity;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
     private void initSettings() {
-        WebSettings settings = this.aof.getSettings();
+        WebSettings settings = this.aor.getSettings();
         settings.setLightTouchEnabled(false);
         settings.setNeedInitialFocus(false);
         settings.setJavaScriptEnabled(true);
@@ -190,9 +192,9 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         settings.setGeolocationDatabasePath(path2);
         settings.setDatabasePath(path);
         settings.setAppCachePath(path3);
-        String hy = com.baidu.swan.apps.al.a.hy(settings.getUserAgentString());
-        if (!TextUtils.equals(hy, this.mUserAgent)) {
-            this.mUserAgent = hy;
+        String ia = com.baidu.swan.apps.al.a.ia(settings.getUserAgentString());
+        if (!TextUtils.equals(ia, this.mUserAgent)) {
+            this.mUserAgent = ia;
             settings.setUserAgentString(this.mUserAgent);
             if (DEBUG) {
                 Log.i("SwanAppSysWebViewManager", "set ua:" + this.mUserAgent);
@@ -208,11 +210,11 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void xt() {
+    public void yl() {
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public String wc() {
+    public String wT() {
         return "ai_apps";
     }
 
@@ -222,7 +224,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     }
 
     public void loadJavaScript(final String str) {
-        aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.b.1
+        ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.b.1
             @Override // java.lang.Runnable
             public void run() {
                 String str2 = str;
@@ -232,7 +234,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 if (b.DEBUG) {
                     Log.d("SwanAppSysWebViewManager", "webview load js:" + str2);
                 }
-                b.this.aof.evaluateJavascript(str2, null);
+                b.this.aor.evaluateJavascript(str2, null);
             }
         });
     }
@@ -243,14 +245,14 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.b.c.e
-    /* renamed from: xu */
-    public SystemWebViewImpl wb() {
-        return this.aof;
+    /* renamed from: ym */
+    public SystemWebViewImpl wS() {
+        return this.aor;
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        this.aof.loadUrl(str);
+        this.aor.loadUrl(str);
     }
 
     @CallSuper
@@ -261,14 +263,14 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     @Override // com.baidu.swan.apps.b.c.e
     @CallSuper
     public void onResume() {
-        this.aof.onResume();
+        this.aor.onResume();
         h.b(this);
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     @CallSuper
     public void onPause() {
-        this.aof.onPause();
+        this.aor.onPause();
         h.c(this);
     }
 
@@ -278,48 +280,48 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     }
 
     public void goBack() {
-        this.aof.goBack();
+        this.aor.goBack();
     }
 
     @Override // com.baidu.swan.apps.core.container.c
-    public void xv() {
+    public void yn() {
     }
 
     @Override // com.baidu.swan.apps.core.container.c
-    public boolean aT(boolean z) {
+    public boolean aV(boolean z) {
         return z;
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     public void destroy() {
         this.mHandler.removeCallbacks(null);
-        this.aof.destroy();
-        this.aop.clear();
+        this.aor.destroy();
+        this.aoB.clear();
         onDestroy();
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     public void a(com.baidu.swan.apps.core.c cVar) {
-        this.aon = cVar;
+        this.aoz = cVar;
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public void a(com.baidu.swan.apps.core.e.b bVar) {
-        if (bVar != null && !this.aop.contains(bVar)) {
-            this.aop.add(bVar);
+    public void a(com.baidu.swan.apps.core.f.b bVar) {
+        if (bVar != null && !this.aoB.contains(bVar)) {
+            this.aoB.add(bVar);
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.e
-    public void b(com.baidu.swan.apps.core.e.b bVar) {
-        if (bVar != null && this.aop.contains(bVar)) {
-            this.aop.remove(bVar);
+    public void b(com.baidu.swan.apps.core.f.b bVar) {
+        if (bVar != null && this.aoB.contains(bVar)) {
+            this.aoB.remove(bVar);
         }
     }
 
     @Override // com.baidu.swan.apps.core.container.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.aof.canGoBack()) {
+        if (i == 4 && this.aor.canGoBack()) {
             goBack();
             return true;
         }
@@ -328,8 +330,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
 
     @Override // com.baidu.swan.apps.core.container.b
     public void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.aop != null) {
-            for (com.baidu.swan.apps.core.e.b bVar : this.aop) {
+        if (this.aoB != null) {
+            for (com.baidu.swan.apps.core.f.b bVar : this.aoB) {
                 if (bVar != null) {
                     bVar.onScrollChanged(i, i2, i3, i4);
                 }
@@ -348,11 +350,11 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     }
 
     public final void a(WebViewClient webViewClient) {
-        this.aog = webViewClient;
+        this.aos = webViewClient;
     }
 
     public final void a(WebChromeClient webChromeClient) {
-        this.aoh = webChromeClient;
+        this.aot = webChromeClient;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -370,21 +372,21 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                     Log.d("SwanAppSysWebViewManager", "handleSchemeDispatchCallback callback: " + str);
                     Log.d("SwanAppSysWebViewManager", "handleSchemeDispatchCallback params: " + str2);
                 }
-                if (b.this.aof.isDestroyed()) {
+                if (b.this.aor.isDestroyed()) {
                     if (b.DEBUG) {
                         Log.e("SwanAppSysWebViewManager", "handleSchemeDispatchCallback webview is destroyed.");
                         return;
                     }
                     return;
                 }
-                b.this.aof.evaluateJavascript("javascript:" + str + "(" + quote + ")", null);
+                b.this.aor.evaluateJavascript("javascript:" + str + "(" + quote + ")", null);
             }
         });
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
     public String getCurrentPageUrl() {
-        return wb().getUrl();
+        return wS().getUrl();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
@@ -403,8 +405,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::doUpdateVisitedHistory");
             }
-            if (b.this.aog != null) {
-                b.this.aog.doUpdateVisitedHistory(webView, str, z);
+            if (b.this.aos != null) {
+                b.this.aos.doUpdateVisitedHistory(webView, str, z);
             } else {
                 super.doUpdateVisitedHistory(webView, str, z);
             }
@@ -415,8 +417,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onFormResubmission");
             }
-            if (b.this.aog != null) {
-                b.this.aog.onFormResubmission(webView, message, message2);
+            if (b.this.aos != null) {
+                b.this.aos.onFormResubmission(webView, message, message2);
             } else {
                 super.onFormResubmission(webView, message, message2);
             }
@@ -427,8 +429,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onLoadResource：" + str);
             }
-            if (b.this.aog != null) {
-                b.this.aog.onLoadResource(webView, str);
+            if (b.this.aos != null) {
+                b.this.aos.onLoadResource(webView, str);
             } else {
                 super.onLoadResource(webView, str);
             }
@@ -439,8 +441,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedLoginRequest");
             }
-            if (b.this.aog != null) {
-                b.this.aog.onReceivedLoginRequest(webView, str, str2, str3);
+            if (b.this.aos != null) {
+                b.this.aos.onReceivedLoginRequest(webView, str, str2, str3);
             } else {
                 super.onReceivedLoginRequest(webView, str, str2, str3);
             }
@@ -451,8 +453,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onScaleChanged");
             }
-            if (b.this.aog != null) {
-                b.this.aog.onScaleChanged(webView, f, f2);
+            if (b.this.aos != null) {
+                b.this.aos.onScaleChanged(webView, f, f2);
             } else {
                 super.onScaleChanged(webView, f, f2);
             }
@@ -463,8 +465,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onUnhandledKeyEvent");
             }
-            if (b.this.aog != null) {
-                b.this.aog.onUnhandledKeyEvent(webView, keyEvent);
+            if (b.this.aos != null) {
+                b.this.aos.onUnhandledKeyEvent(webView, keyEvent);
             } else {
                 super.onUnhandledKeyEvent(webView, keyEvent);
             }
@@ -476,17 +478,17 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::shouldInterceptRequest url: " + str);
             }
-            if (b.this.aog != null) {
-                shouldInterceptRequest = b.this.aog.shouldInterceptRequest(webView, str);
+            if (b.this.aos != null) {
+                shouldInterceptRequest = b.this.aos.shouldInterceptRequest(webView, str);
             } else {
                 shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
             }
             InputStream inputStream = null;
-            if (com.baidu.swan.apps.swancore.b.a.hi(str)) {
+            if (com.baidu.swan.apps.swancore.b.a.hJ(str)) {
                 if (b.DEBUG) {
                     Log.d("SwanAppSysWebViewManager", "start create config response stream");
                 }
-                inputStream = com.baidu.swan.apps.swancore.b.a.KN();
+                inputStream = com.baidu.swan.apps.swancore.b.a.Nm();
             }
             return inputStream == null ? shouldInterceptRequest : new WebResourceResponse("application/javascript", HTTP.UTF_8, inputStream);
         }
@@ -496,7 +498,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::shouldOverrideKeyEvent");
             }
-            if (b.this.aog == null || !b.this.aog.shouldOverrideKeyEvent(webView, keyEvent)) {
+            if (b.this.aos == null || !b.this.aos.shouldOverrideKeyEvent(webView, keyEvent)) {
                 return super.shouldOverrideKeyEvent(webView, keyEvent);
             }
             return true;
@@ -508,8 +510,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedClientCertRequest");
             }
-            if (b.this.aog != null) {
-                b.this.aog.onReceivedClientCertRequest(webView, clientCertRequest);
+            if (b.this.aos != null) {
+                b.this.aos.onReceivedClientCertRequest(webView, clientCertRequest);
             } else {
                 super.onReceivedClientCertRequest(webView, clientCertRequest);
             }
@@ -520,8 +522,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::shouldOverrideUrlLoading url: " + str);
             }
-            if (b.this.aog != null) {
-                return b.this.aog.shouldOverrideUrlLoading(webView, str);
+            if (b.this.aos != null) {
+                return b.this.aos.shouldOverrideUrlLoading(webView, str);
             }
             return true;
         }
@@ -531,8 +533,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onPageStarted url: " + str);
             }
-            if (b.this.aog != null) {
-                b.this.aog.onPageStarted(webView, str, bitmap);
+            if (b.this.aos != null) {
+                b.this.aos.onPageStarted(webView, str, bitmap);
             } else {
                 super.onPageStarted(webView, str, bitmap);
             }
@@ -543,11 +545,11 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onPageFinished url: " + str);
             }
-            if (b.this.aon != null) {
-                b.this.aon.dF(str);
+            if (b.this.aoz != null) {
+                b.this.aoz.ds(str);
             }
-            if (b.this.aog != null) {
-                b.this.aog.onPageFinished(webView, str);
+            if (b.this.aos != null) {
+                b.this.aos.onPageFinished(webView, str);
             } else {
                 super.onPageFinished(webView, str);
             }
@@ -556,12 +558,25 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             if (b.DEBUG) {
-                Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedError");
+                Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedError errorCode: " + i + " ,failingUrl:" + str2);
             }
-            if (b.this.aog != null) {
-                b.this.aog.onReceivedError(webView, i, str, str2);
+            if (b.this.aos != null) {
+                b.this.aos.onReceivedError(webView, i, str, str2);
             } else {
                 super.onReceivedError(webView, i, str, str2);
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        @RequiresApi(api = 23)
+        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+            if (b.DEBUG) {
+                Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedError url: " + webResourceRequest.getUrl() + " ,error:" + webResourceError.getErrorCode());
+            }
+            if (b.this.aos != null) {
+                b.this.aos.onReceivedError(webView, webResourceRequest, webResourceError);
+            } else {
+                super.onReceivedError(webView, webResourceRequest, webResourceError);
             }
         }
 
@@ -570,20 +585,20 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onReceivedSslError");
             }
-            if (b.this.aof.isShown()) {
-                b.this.aoi.a(new b.c() { // from class: com.baidu.swan.apps.core.b.c.1
-                    @Override // com.baidu.swan.apps.core.d.b.c
-                    public void xx() {
+            if (b.this.aor.isShown()) {
+                b.this.aou.a(new b.c() { // from class: com.baidu.swan.apps.core.b.c.1
+                    @Override // com.baidu.swan.apps.core.e.b.c
+                    public void yp() {
                         sslErrorHandler.proceed();
                     }
 
-                    @Override // com.baidu.swan.apps.core.d.b.c
+                    @Override // com.baidu.swan.apps.core.e.b.c
                     public void onReject() {
                         sslErrorHandler.cancel();
                     }
 
-                    @Override // com.baidu.swan.apps.core.d.b.c
-                    public void xy() {
+                    @Override // com.baidu.swan.apps.core.e.b.c
+                    public void yq() {
                         c.this.onReceivedSslError(webView, sslErrorHandler, sslError);
                     }
                 }, sslErrorHandler, sslError);
@@ -611,21 +626,21 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                     Log.d("SwanAppSysWebViewManager", "OnReceivedHttpAuthRequest Reuse Http Auth Username & PassWord");
                 }
                 httpAuthHandler.proceed(str3, str4);
-            } else if (b.this.aof.isShown()) {
+            } else if (b.this.aor.isShown()) {
                 if (b.DEBUG) {
                     Log.d("SwanAppSysWebViewManager", "OnReceivedHttpAuthRequest show Http Auth dialog ");
                 }
-                b.this.aoi.a(new b.a() { // from class: com.baidu.swan.apps.core.b.c.2
-                    @Override // com.baidu.swan.apps.core.d.b.a
-                    public void X(String str5, String str6) {
+                b.this.aou.a(new b.a() { // from class: com.baidu.swan.apps.core.b.c.2
+                    @Override // com.baidu.swan.apps.core.e.b.a
+                    public void S(String str5, String str6) {
                         if (webView != null) {
                             webView.setHttpAuthUsernamePassword(str, str2, str5, str6);
                         }
                         httpAuthHandler.proceed(str5, str6);
                     }
 
-                    @Override // com.baidu.swan.apps.core.d.b.a
-                    public void xz() {
+                    @Override // com.baidu.swan.apps.core.e.b.a
+                    public void yr() {
                         httpAuthHandler.cancel();
                     }
                 }, str, str2);
@@ -638,8 +653,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0128b extends WebChromeClient {
-        private C0128b() {
+    public class C0131b extends WebChromeClient {
+        private C0131b() {
         }
 
         @Override // android.webkit.WebChromeClient
@@ -647,8 +662,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "chromeclient::onHideCustomView");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onHideCustomView();
+            if (b.this.aot != null) {
+                b.this.aot.onHideCustomView();
             } else {
                 super.onHideCustomView();
             }
@@ -659,8 +674,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "chromeclient::onShowCustomView");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onShowCustomView(view, customViewCallback);
+            if (b.this.aot != null) {
+                b.this.aot.onShowCustomView(view, customViewCallback);
             } else {
                 super.onShowCustomView(view, customViewCallback);
             }
@@ -671,8 +686,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "chromeclient::onShowCustomView");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onShowCustomView(view, i, customViewCallback);
+            if (b.this.aot != null) {
+                b.this.aot.onShowCustomView(view, i, customViewCallback);
             } else {
                 super.onShowCustomView(view, i, customViewCallback);
             }
@@ -683,8 +698,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onCloseWindow");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onCloseWindow(webView);
+            if (b.this.aot != null) {
+                b.this.aot.onCloseWindow(webView);
             } else {
                 super.onCloseWindow(webView);
             }
@@ -695,7 +710,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onConsoleMessage");
             }
-            if (b.this.aoh == null || !b.this.aoh.onConsoleMessage(consoleMessage)) {
+            if (b.this.aot == null || !b.this.aot.onConsoleMessage(consoleMessage)) {
                 return super.onConsoleMessage(consoleMessage);
             }
             return true;
@@ -706,7 +721,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onCreateWindow");
             }
-            if (b.this.aoh == null || !b.this.aoh.onCreateWindow(webView, z, z2, message)) {
+            if (b.this.aot == null || !b.this.aot.onCreateWindow(webView, z, z2, message)) {
                 return super.onCreateWindow(webView, z, z2, message);
             }
             return true;
@@ -717,8 +732,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onExceededDatabaseQuota");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            if (b.this.aot != null) {
+                b.this.aot.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
             } else {
                 super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
             }
@@ -729,7 +744,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsBeforeUnload：" + str);
             }
-            if (b.this.aoh == null || !b.this.aoh.onJsBeforeUnload(webView, str, str2, jsResult)) {
+            if (b.this.aot == null || !b.this.aot.onJsBeforeUnload(webView, str, str2, jsResult)) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -740,7 +755,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsTimeout  ");
             }
-            if (b.this.aoh == null || !b.this.aoh.onJsTimeout()) {
+            if (b.this.aot == null || !b.this.aot.onJsTimeout()) {
                 return super.onJsTimeout();
             }
             return true;
@@ -751,8 +766,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+            if (b.this.aot != null) {
+                b.this.aot.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
             } else {
                 super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
             }
@@ -763,8 +778,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onReceivedIcon(webView, bitmap);
+            if (b.this.aot != null) {
+                b.this.aot.onReceivedIcon(webView, bitmap);
             } else {
                 super.onReceivedIcon(webView, bitmap);
             }
@@ -775,8 +790,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onReceivedTouchIconUrl");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onReceivedTouchIconUrl(webView, str, z);
+            if (b.this.aot != null) {
+                b.this.aot.onReceivedTouchIconUrl(webView, str, z);
             } else {
                 super.onReceivedTouchIconUrl(webView, str, z);
             }
@@ -787,8 +802,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onRequestFocus");
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onRequestFocus(webView);
+            if (b.this.aot != null) {
+                b.this.aot.onRequestFocus(webView);
             } else {
                 super.onRequestFocus(webView);
             }
@@ -797,13 +812,13 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         @Override // android.webkit.WebChromeClient
         @RequiresApi(api = 21)
         public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            return b.this.aoh != null ? b.this.aoh.onShowFileChooser(webView, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams);
+            return b.this.aot != null ? b.this.aot.onShowFileChooser(webView, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams);
         }
 
         @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i) {
-            if (b.this.aoh != null) {
-                b.this.aoh.onProgressChanged(webView, i);
+            if (b.this.aot != null) {
+                b.this.aot.onProgressChanged(webView, i);
             } else {
                 super.onProgressChanged(webView, i);
             }
@@ -814,8 +829,8 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onReceivedTitleInFact : " + str);
             }
-            if (b.this.aoh != null) {
-                b.this.aoh.onReceivedTitle(webView, str);
+            if (b.this.aot != null) {
+                b.this.aot.onReceivedTitle(webView, str);
             } else {
                 super.onReceivedTitle(webView, str);
             }
@@ -826,18 +841,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsPrompt");
             }
-            return b.this.aoi.a(str, str2, str3, new b.InterfaceC0133b() { // from class: com.baidu.swan.apps.core.b.b.1
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void xw() {
+            return b.this.aou.a(str, str2, str3, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.b.b.1
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void yo() {
                     jsPromptResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void dE(String str4) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void dr(String str4) {
                     jsPromptResult.confirm(str4);
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
                 public void onCancel() {
                     jsPromptResult.cancel();
                 }
@@ -849,18 +864,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsAlert");
             }
-            return b.this.aoi.a(str, str2, new b.InterfaceC0133b() { // from class: com.baidu.swan.apps.core.b.b.2
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void xw() {
+            return b.this.aou.a(str, str2, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.b.b.2
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void yo() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void dE(String str3) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void dr(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -872,18 +887,18 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onJsConfirm");
             }
-            return b.this.aoi.b(str, str2, new b.InterfaceC0133b() { // from class: com.baidu.swan.apps.core.b.b.3
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void xw() {
+            return b.this.aou.b(str, str2, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.b.b.3
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void yo() {
                     jsResult.cancel();
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
-                public void dE(String str3) {
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
+                public void dr(String str3) {
                     jsResult.confirm();
                 }
 
-                @Override // com.baidu.swan.apps.core.d.b.InterfaceC0133b
+                @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
                 public void onCancel() {
                     jsResult.cancel();
                 }
@@ -902,13 +917,13 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
             if (b.DEBUG) {
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebChromeClient::onGeolocationPermissionsShowPrompt");
             }
-            com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-            if (IV == null || IV.getActivity() == null) {
+            com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+            if (Lq == null || Lq.getActivity() == null) {
                 b.this.b(str, callback);
             } else {
-                IV.IZ().a(IV.getActivity(), "mapp_location", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.core.b.b.4
+                Lq.Lu().a(Lq.getActivity(), "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.core.b.b.4
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.c.a
+                    @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
                     public void D(Boolean bool) {
                         if (b.DEBUG) {
@@ -944,11 +959,11 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"NewApi"})
     public void c(final String str, final GeolocationPermissions.Callback callback) {
-        if (aa.Mm()) {
+        if (ac.OU()) {
             a(str, callback);
         } else {
-            com.baidu.swan.apps.w.e.Ea().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.core.b.3
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
+            com.baidu.swan.apps.w.e.FV().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0109a() { // from class: com.baidu.swan.apps.core.b.3
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0109a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         if (b.DEBUG) {
@@ -975,7 +990,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public class a {
-        public boolean aot = false;
+        public boolean aoF = false;
 
         protected a() {
         }

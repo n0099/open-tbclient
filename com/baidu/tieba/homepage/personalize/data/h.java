@@ -9,14 +9,14 @@ import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes4.dex */
 public class h {
-    public static boolean fNj = false;
+    public static boolean ges = false;
 
-    public static DataRes bmS() {
-        l<byte[]> bu = com.baidu.tbadk.core.c.a.aaT().bu("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (bu == null) {
+    public static DataRes buu() {
+        l<byte[]> bD = com.baidu.tbadk.core.c.a.afD().bD("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (bD == null) {
             return null;
         }
-        byte[] bArr = bu.get("0");
+        byte[] bArr = bD.get("0");
         if (bArr == null || bArr.length == 0) {
             return null;
         }
@@ -28,14 +28,14 @@ public class h {
         }
     }
 
-    public static void bmT() {
-        l<byte[]> bu = com.baidu.tbadk.core.c.a.aaT().bu("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-        if (bu != null) {
-            bu.a("0", new byte[0], 0L);
+    public static void buv() {
+        l<byte[]> bD = com.baidu.tbadk.core.c.a.afD().bD("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+        if (bD != null) {
+            bD.a("0", new byte[0], 0L);
         }
     }
 
-    public static boolean f(ResponsedMessage responsedMessage) {
+    public static boolean g(ResponsedMessage responsedMessage) {
         if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest)) {
             return false;
         }

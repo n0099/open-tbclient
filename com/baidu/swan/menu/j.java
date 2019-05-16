@@ -1,73 +1,81 @@
 package com.baidu.swan.menu;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.swan.menu.viewpager.SlideableGridView;
-import java.util.List;
+import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
-class j extends SlideableGridView.a {
-    private static final boolean DEBUG = a.DEBUG;
-    private int bjT;
-    private List<k> bkR;
-    private Context mContext;
-    private boolean bjU = true;
-    private int bkS = 10;
+public class j {
+    public boolean MH;
+    public int bqV;
+    private int bqW = 0;
+    public e bqX;
+    public int mIconResId;
+    public int mId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(Context context) {
-        this.mContext = context;
+    public j(int i, int i2, int i3, boolean z) {
+        this.bqV = -1;
+        this.mIconResId = -1;
+        this.MH = true;
+        this.mId = i;
+        this.bqV = i2;
+        this.mIconResId = i3;
+        this.MH = z;
+    }
+
+    public int getItemId() {
+        return this.mId;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setData(List<k> list) {
-        this.bkR = list;
-    }
-
-    public void cN(boolean z) {
-        this.bjU = z;
+    public void setTitle(int i) {
+        this.bqV = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMenuStyle(int i) {
-        this.bjT = i;
+    public void setIcon(int i) {
+        this.mIconResId = i;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public int getPageCount() {
-        if (this.bkR == null) {
-            return 0;
-        }
-        if (this.bkR.size() % this.bkS == 0) {
-            return this.bkR.size() / this.bkS;
-        }
-        return (this.bkR.size() / this.bkS) + 1;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(e eVar) {
+        this.bqX = eVar;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public int eW(int i) {
-        if (this.bkR == null) {
-            return 0;
-        }
-        return i < this.bkR.size() / this.bkS ? this.bkS : this.bkR.size() % this.bkS;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean isEnable() {
+        return this.MH;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public View a(int i, int i2, View view, ViewGroup viewGroup) {
-        View lVar = view == null ? new l(this.mContext) : view;
-        ((l) lVar).setMenuStyle(this.bjT);
-        ((l) lVar).e(this.bkR.get((this.bkS * i) + i2));
-        return lVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e UR() {
+        return this.bqX;
     }
 
-    @Override // com.baidu.swan.menu.viewpager.SlideableGridView.a
-    public void a(int i, int i2, View view) {
-        if (this.bkR != null) {
-            k kVar = this.bkR.get((this.bkS * i) + i2);
-            f Rf = kVar.Rf();
-            if (Rf != null) {
-                Rf.a(view, kVar);
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String getTitle(Context context) {
+        if (this.bqV <= 0) {
+            return null;
         }
+        return context.getResources().getString(this.bqV);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Drawable cb(Context context) {
+        if (this.mIconResId <= 0) {
+            return null;
+        }
+        return context.getResources().getDrawable(this.mIconResId);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int US() {
+        return this.bqW;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static j d(j jVar) {
+        if (jVar == null) {
+            return null;
+        }
+        return new j(jVar.mId, jVar.bqV, jVar.mIconResId, jVar.MH);
     }
 }

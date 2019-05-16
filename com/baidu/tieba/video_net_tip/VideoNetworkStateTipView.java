@@ -13,13 +13,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.video.g;
 /* loaded from: classes.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
-    private TextView hZV;
-    private TextView hZW;
-    private TextView jfh;
+    private TextView isB;
+    private TextView isC;
+    private TextView jyb;
     private Runnable mHideRunnable;
     private int mSkinType;
 
@@ -60,37 +60,37 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), d.h.video_network_state_tip, this);
-        this.hZV = (TextView) findViewById(d.g.play);
-        this.hZW = (TextView) findViewById(d.g.free_flow);
-        this.hZW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
+        inflate(getContext(), R.layout.video_network_state_tip, this);
+        this.isB = (TextView) findViewById(R.id.play);
+        this.isC = (TextView) findViewById(R.id.free_flow);
+        this.isC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.a(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(d.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                a.a(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         });
-        this.jfh = (TextView) findViewById(d.g.play_tips);
+        this.jyb = (TextView) findViewById(R.id.play_tips);
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean bUk() {
-        return (hasAgreeToPlay() || g.ciN().ciO() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.la()) ? false : true;
+    public boolean ccl() {
+        return (hasAgreeToPlay() || g.cqQ().cqR() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.jU()) ? false : true;
     }
 
-    public void cmn() {
+    public void cuq() {
         setVisibility(0);
-        this.hZV.setVisibility(0);
-        this.hZW.setVisibility(0);
-        this.jfh.setVisibility(8);
+        this.isB.setVisibility(0);
+        this.isC.setVisibility(0);
+        this.jyb.setVisibility(8);
     }
 
-    public void cmo() {
+    public void cur() {
         setVisibility(0);
-        this.hZV.setVisibility(8);
-        this.hZW.setVisibility(8);
-        this.jfh.setVisibility(0);
-        e.jH().removeCallbacks(this.mHideRunnable);
-        e.jH().postDelayed(this.mHideRunnable, 3000L);
+        this.isB.setVisibility(8);
+        this.isC.setVisibility(8);
+        this.jyb.setVisibility(0);
+        e.iB().removeCallbacks(this.mHideRunnable);
+        e.iB().postDelayed(this.mHideRunnable, 3000L);
     }
 
     public void hide() {
@@ -106,18 +106,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.hZV.setOnClickListener(onClickListener);
+        this.isB.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.j(this.hZV, d.C0277d.cp_btn_a);
-            al.k(this.hZV, d.f.rectangle_background_alpha80);
-            al.j(this.hZW, d.C0277d.cp_btn_a);
-            al.k(this.hZW, d.f.blue_rectangle_background);
-            al.j(this.jfh, d.C0277d.cp_btn_a);
-            al.k(this.jfh, d.f.rectangle_background_alpha80);
+            al.j(this.isB, R.color.cp_btn_a);
+            al.k(this.isB, R.drawable.rectangle_background_alpha80);
+            al.j(this.isC, R.color.cp_btn_a);
+            al.k(this.isC, R.drawable.blue_rectangle_background);
+            al.j(this.jyb, R.color.cp_btn_a);
+            al.k(this.jyb, R.drawable.rectangle_background_alpha80);
         }
     }
 }

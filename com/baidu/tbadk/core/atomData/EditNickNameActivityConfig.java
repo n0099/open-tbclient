@@ -5,7 +5,7 @@ import android.os.Build;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditNickNameActivityConfig extends IntentConfig {
     public static final String PARAM_TYPE = "param_type";
@@ -25,7 +25,7 @@ public class EditNickNameActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(d.j.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(R.string.live_error_system_not_support));
         return false;
     }
 }

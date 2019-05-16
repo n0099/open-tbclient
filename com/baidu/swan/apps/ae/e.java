@@ -8,36 +8,36 @@ import com.baidu.swan.apps.b.a;
 import com.baidu.swan.apps.process.messaging.client.a;
 /* loaded from: classes2.dex */
 public final class e extends ContextWrapper {
-    private static e aOa = new e();
-    public final a<b> aOb;
-    public final a<? extends com.baidu.swan.apps.process.messaging.client.a> aOc;
-    public final a<com.baidu.swan.apps.b.a> aOd;
+    private static e aQd = new e();
+    public final a<b> aQe;
+    public final a<? extends com.baidu.swan.apps.process.messaging.client.a> aQf;
+    public final a<com.baidu.swan.apps.b.a> aQg;
 
     private e() {
         super(AppRuntime.getApplication());
-        this.aOb = new a<>();
-        this.aOc = new a().a(new a.c());
-        this.aOd = new a().a(new a.C0115a());
+        this.aQe = new a<>();
+        this.aQf = new a().a(new a.c());
+        this.aQg = new a().a(new a.C0119a());
     }
 
-    public static e Jm() {
-        return aOa;
+    public static e LH() {
+        return aQd;
     }
 
     public synchronized boolean p(final com.baidu.swan.apps.v.b.b bVar) {
         boolean z;
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.mAppId)) {
-                if (this.aOb.get() == null || !bVar.mAppId.equals(this.aOb.get().id)) {
+            if (!TextUtils.isEmpty(bVar.getAppId())) {
+                if (this.aQe.get() == null || !TextUtils.equals(bVar.getAppId(), this.aQe.get().id)) {
                     terminate();
-                    this.aOb.b(new b.a() { // from class: com.baidu.swan.apps.ae.e.1
+                    this.aQe.b(new b.a() { // from class: com.baidu.swan.apps.ae.e.1
                         @Override // com.baidu.swan.apps.ae.b.a
                         String id() {
-                            return bVar.mAppId;
+                            return bVar.getAppId();
                         }
                     });
                 }
-                this.aOb.get().o(bVar);
+                this.aQe.get().o(bVar);
                 z = true;
             }
         }
@@ -46,9 +46,9 @@ public final class e extends ContextWrapper {
     }
 
     public synchronized void terminate() {
-        if (this.aOb.get() != null) {
-            this.aOb.get().release();
-            this.aOb.IT();
+        if (this.aQe.get() != null) {
+            this.aQe.get().release();
+            this.aQe.Lo();
         }
     }
 }

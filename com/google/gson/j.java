@@ -1,13 +1,28 @@
 package com.google.gson;
-/* loaded from: classes2.dex */
-public final class j extends i {
-    public static final j jMM = new j();
 
-    public int hashCode() {
-        return j.class.hashCode();
+import com.google.gson.internal.LinkedTreeMap;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes2.dex */
+public final class j extends h {
+    private final LinkedTreeMap<String, h> kfx = new LinkedTreeMap<>();
+
+    public void a(String str, h hVar) {
+        if (hVar == null) {
+            hVar = i.kfw;
+        }
+        this.kfx.put(str, hVar);
+    }
+
+    public Set<Map.Entry<String, h>> entrySet() {
+        return this.kfx.entrySet();
     }
 
     public boolean equals(Object obj) {
-        return this == obj || (obj instanceof j);
+        return obj == this || ((obj instanceof j) && ((j) obj).kfx.equals(this.kfx));
+    }
+
+    public int hashCode() {
+        return this.kfx.hashCode();
     }
 }

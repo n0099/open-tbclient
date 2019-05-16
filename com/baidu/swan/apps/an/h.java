@@ -3,14 +3,14 @@ package com.baidu.swan.apps.an;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class h {
-    public static boolean hz(String str) {
+    public static boolean ib(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return TextUtils.equals("application/pdf", str) || TextUtils.equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document", str) || TextUtils.equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", str) || TextUtils.equals("application/vnd.openxmlformats-officedocument.presentationml.presentation", str) || TextUtils.equals("application/msword", str) || TextUtils.equals("application/vnd.ms-excel", str) || TextUtils.equals("application/vnd.ms-powerpoint", str);
     }
 
-    public static String hA(String str) {
+    public static String ic(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -84,6 +84,6 @@ public class h {
                 str2 = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
                 break;
         }
-        return !hz(str2) ? "" : str2;
+        return !ib(str2) ? "" : str2;
     }
 }

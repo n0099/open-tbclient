@@ -7,7 +7,7 @@ import java.util.Set;
 import kotlin.TypeCastException;
 /* loaded from: classes2.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a jRB = new a(null);
+    public static final a kjT = new a(null);
 
     public abstract Set getEntries();
 

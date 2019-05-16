@@ -1,27 +1,27 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
     private String labelName = "";
-    private int cem = 0;
-    private boolean cen = false;
+    private int cms = 0;
+    private boolean cmt = false;
     private String labelId = "";
-    private int ceo = 0;
-    private boolean cep = false;
-    private int ceq = al.getColor(d.C0277d.cp_btn_a);
-    private int cer = al.getColor(d.C0277d.cp_link_tip_d);
+    private int cmu = 0;
+    private boolean cmv = false;
+    private int cmw = al.getColor(R.color.cp_btn_a);
+    private int cmx = al.getColor(R.color.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
     }
 
-    public void ja(int i) {
-        this.cem = i;
+    public void jO(int i) {
+        this.cms = i;
     }
 
-    public void ok(String str) {
+    public void pt(String str) {
         this.labelId = str;
     }
 }

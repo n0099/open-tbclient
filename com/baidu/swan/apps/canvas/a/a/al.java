@@ -5,7 +5,7 @@ import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class al extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a

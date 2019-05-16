@@ -10,57 +10,61 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected final String aRM;
+    protected final String aUA;
     protected final Activity mActivity;
     protected final String mScope;
 
     public f(Activity activity, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRM = str2;
+        this.aUA = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean Cd() {
+    protected boolean Df() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.baidu.swan.apps.ae.b Jl = Jl();
-            jSONObject.put("ma_id", Jl.id);
+            com.baidu.swan.apps.ae.b LG = LG();
+            jSONObject.put("ma_id", LG.id);
             jSONObject.put("scope", this.mScope);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            jSONObject.put("app_key", Jl.getAppKey());
-            if (!TextUtils.equals("0", this.aRM)) {
-                jSONObject.put("action_type", this.aRM);
+            jSONObject.put("app_key", LG.getAppKey());
+            if (!TextUtils.equals("0", this.aUA)) {
+                jSONObject.put("action_type", this.aUA);
             }
-            String vC = com.baidu.swan.apps.u.a.CI().vC();
-            if (!TextUtils.isEmpty(vC)) {
-                jSONObject.put("host_api_key", vC);
+            String wr = com.baidu.swan.apps.u.a.DN().wr();
+            if (!TextUtils.isEmpty(wr)) {
+                jSONObject.put("host_api_key", wr);
             }
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        ay("data", jSONObject.toString());
+        aA("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.CI().i(this.mActivity, gVar.Kj());
+        return com.baidu.swan.apps.u.a.DN().i(this.mActivity, gVar.MJ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: ag */
-    public JSONObject C(JSONObject jSONObject) throws JSONException {
-        JSONObject ae = com.baidu.swan.apps.setting.oauth.c.ae(jSONObject);
-        int optInt = ae.optInt("errno", SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
+    /* renamed from: ah */
+    public JSONObject z(JSONObject jSONObject) throws JSONException {
+        JSONObject af = com.baidu.swan.apps.setting.oauth.c.af(jSONObject);
+        int optInt = af.optInt("errno", SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
         if (optInt != 0) {
-            throw new JSONException("Illegal errno=" + optInt + " errms=" + ae.optString("errms"));
+            if (11001 == optInt) {
+                com.baidu.swan.apps.setting.oauth.c.ae(af);
+                com.baidu.swan.apps.setting.oauth.c.az("MaOpenDataRequest", af.toString());
+            }
+            throw new JSONException("Illegal errno=" + optInt + " errms=" + af.optString("errms"));
         }
-        return ae;
+        return af;
     }
 }

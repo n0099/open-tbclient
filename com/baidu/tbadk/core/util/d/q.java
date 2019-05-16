@@ -31,18 +31,18 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adP() {
+    public boolean aiO() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adQ() {
+    public boolean aiP() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c nb(String str) {
+    public com.baidu.adp.lib.Disk.ops.c ok(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a pj = com.baidu.tbadk.imageManager.c.anm().pj(str);
-        if (pj != null) {
-            pj.Of.Oh = "memory";
-            pj.Of.Oi = 0L;
-            pj.Of.Oj = true;
+        com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(str);
+        if (qr != null) {
+            qr.LO.LQ = "memory";
+            qr.LO.LR = 0L;
+            qr.LO.LS = true;
         }
-        return pj;
+        return qr;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,7 +66,7 @@ public class q extends a {
             return null;
         }
         com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
-        cVar.q(cVar.getData());
+        cVar.i(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
             return new com.baidu.adp.widget.ImageView.a(bitmap, false, str, bVar.getRect());
@@ -97,7 +97,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int adR() {
+    public int aiQ() {
         return this.procType;
     }
 }

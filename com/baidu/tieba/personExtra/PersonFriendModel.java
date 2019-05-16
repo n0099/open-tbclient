@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes6.dex */
 public class PersonFriendModel extends BdBaseModel {
-    private static final String cPG = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, cPG);
+    private static final String cXR = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, cXR);
     private ar mData;
     private String mId;
     private boolean mIsHost;
@@ -44,11 +44,11 @@ public class PersonFriendModel extends BdBaseModel {
         this.mData = arVar;
     }
 
-    public ar bRw() {
+    public ar bZC() {
         return this.mData;
     }
 
-    public void bRf() {
+    public void bZc() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

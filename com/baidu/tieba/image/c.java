@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo gzS;
+    private AdvertAppInfo gRe;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -18,34 +18,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.gzS = advertAppInfo;
+        this.gRe = advertAppInfo;
     }
 
-    public void byf() {
-        xJ("click");
-        com.baidu.tieba.recapp.report.c.bXA().a(com.baidu.tieba.recapp.report.f.c(this.gzS, 2, 0));
+    public void bFN() {
+        yY("click");
+        com.baidu.tieba.recapp.report.c.cfE().a(com.baidu.tieba.recapp.report.f.c(this.gRe, 2, 0));
     }
 
-    public void byg() {
-        xJ("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gzS, 2, 0);
-        c.BR("title");
-        com.baidu.tieba.recapp.report.c.bXA().a(c);
+    public void bFO() {
+        yY("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gRe, 2, 0);
+        c.Dn("title");
+        com.baidu.tieba.recapp.report.c.cfE().a(c);
     }
 
-    public void byh() {
-        xJ(SmsLoginView.StatEvent.LOGIN_SHOW);
-        com.baidu.tieba.recapp.report.c.bXA().a(com.baidu.tieba.recapp.report.f.c(this.gzS, 3, 0));
+    public void bFP() {
+        yY(SmsLoginView.StatEvent.LOGIN_SHOW);
+        com.baidu.tieba.recapp.report.c.cfE().a(com.baidu.tieba.recapp.report.f.c(this.gRe, 3, 0));
     }
 
-    public void byi() {
+    public void bFQ() {
     }
 
-    public void xI(String str) {
+    public void yX(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void xJ(String str) {
-        com.baidu.tbadk.distribute.a.alC().a(this.gzS, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
+    public void yY(String str) {
+        com.baidu.tbadk.distribute.a.aqF().a(this.gRe, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
     }
 }

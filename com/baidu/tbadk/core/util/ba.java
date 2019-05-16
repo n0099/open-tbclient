@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba bLA = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba bTm = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
-    private static final Pattern bLD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> bLB;
-    private c bLC;
+    private static final Pattern bTp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> bTn;
+    private c bTo;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
@@ -44,13 +43,13 @@ public class ba {
 
     private ba() {
         this.mListeners = new LinkedList();
-        this.bLB = new ConcurrentHashMap<>();
-        this.bLC = null;
+        this.bTn = new ConcurrentHashMap<>();
+        this.bTo = null;
     }
 
-    public static SpannableString av(Context context, String str) {
+    public static SpannableString aj(Context context, String str) {
         int start;
-        Matcher matcher = bLD.matcher(str);
+        Matcher matcher = bTp.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -64,15 +63,15 @@ public class ba {
         return spannableString;
     }
 
-    public static ba adA() {
-        return bLA;
+    public static ba aiz() {
+        return bTm;
     }
 
     public void a(final a aVar) {
-        if (com.baidu.adp.lib.util.l.ln()) {
+        if (com.baidu.adp.lib.util.l.kh()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.g.e.jH().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
+            com.baidu.adp.lib.g.e.iB().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ba.this.b(aVar);
@@ -89,7 +88,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.bLC = cVar;
+        this.bTo = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -102,9 +101,9 @@ public class ba {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bLB.get(mS(str));
+        b bVar = this.bTn.get(oa(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, mR(mQ(str)));
+            bVar.a(tbPageContext, nZ(nY(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
@@ -122,9 +121,9 @@ public class ba {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bLB.get(mS(str2));
+        b bVar = this.bTn.get(oa(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, mR(mQ(str2)));
+            bVar.a(tbPageContext, nZ(nY(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -139,7 +138,7 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.bLC != null) {
+        if (!z3 && this.bTo != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -150,7 +149,7 @@ public class ba {
         return z4;
     }
 
-    public static Map<String, String> mO(String str) {
+    public static Map<String, String> nW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -168,7 +167,7 @@ public class ba {
         return null;
     }
 
-    public static String mP(String str) {
+    public static String nX(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -176,13 +175,13 @@ public class ba {
         return split[1];
     }
 
-    public static String mQ(String str) {
+    public static String nY(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         int lastIndexOf = str.lastIndexOf("://");
         if (lastIndexOf < 0) {
-            int lastIndexOf2 = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT);
+            int lastIndexOf2 = str.lastIndexOf(":");
             if (lastIndexOf2 < 0 || lastIndexOf2 + 1 > str.length()) {
                 return null;
             }
@@ -194,7 +193,7 @@ public class ba {
         }
     }
 
-    private Map<String, String> mR(String str) {
+    private Map<String, String> nZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -218,15 +217,15 @@ public class ba {
         return hashMap;
     }
 
-    private String mS(String str) {
+    private String oa(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         if (str.contains("://")) {
             return str.substring(0, str.lastIndexOf("://") + 2);
         }
-        if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
-            return str.substring(0, str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT));
+        if (str.contains(":")) {
+            return str.substring(0, str.lastIndexOf(":"));
         }
         return str;
     }
@@ -244,21 +243,21 @@ public class ba {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bLD.matcher(str2).find()) {
-            this.bLC.a(tbPageContext, str, str2, z, dVar, z2);
+        if (bTp.matcher(str2).find()) {
+            this.bTo.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String mS = mS(str);
-            if (!StringUtils.isNull(mS)) {
-                this.bLB.put(mS, bVar);
+            String oa = oa(str);
+            if (!StringUtils.isNull(oa)) {
+                this.bTn.put(oa, bVar);
             }
         }
     }
 
-    public boolean mT(String str) {
-        return bLD.matcher(str).find();
+    public boolean ob(String str) {
+        return bTp.matcher(str).find();
     }
 }

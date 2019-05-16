@@ -1,60 +1,72 @@
 package com.xiaomi.channel.commonutils.android;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.meizu.cloud.pushsdk.constants.MeizuConstants;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class j {
-    private static Context a;
+    private static volatile j a;
+    private Context b;
+    private Handler c = new Handler(Looper.getMainLooper());
+    private Map<String, Map<String, String>> d = new HashMap();
 
-    public static Context a() {
+    private j(Context context) {
+        this.b = context;
+    }
+
+    public static j a(Context context) {
+        if (a == null) {
+            synchronized (j.class) {
+                if (a == null) {
+                    a = new j(context);
+                }
+            }
+        }
         return a;
     }
 
-    public static void a(Context context) {
-        a = context.getApplicationContext();
-    }
-
-    public static String b() {
-        String c = e.c(a);
-        if (c == null) {
-            c = e.e(a);
-        }
-        if (c != null) {
-            try {
-                return Base64.encodeToString(MessageDigest.getInstance("SHA1").digest(c.getBytes()), 8).substring(0, 16);
-            } catch (NoSuchAlgorithmException e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
+    private synchronized String a(String str, String str2) {
+        String str3;
+        if (this.d != null && !TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str2)) {
+                try {
+                    Map<String, String> map = this.d.get(str);
+                    str3 = map != null ? map.get(str2) : "";
+                } catch (Throwable th) {
+                    str3 = "";
+                }
             }
         }
-        return null;
+        str3 = "";
+        return str3;
     }
 
-    public static boolean b(Context context) {
-        try {
-            return (context.getApplicationInfo().flags & 2) != 0;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return false;
+    private synchronized void c(String str, String str2, String str3) {
+        if (this.d == null) {
+            this.d = new HashMap();
         }
-    }
-
-    public static int c() {
-        try {
-            Class<?> cls = Class.forName("miui.os.Build");
-            if (cls.getField("IS_STABLE_VERSION").getBoolean(null)) {
-                return 3;
-            }
-            return cls.getField("IS_DEVELOPMENT_VERSION").getBoolean(null) ? 2 : 1;
-        } catch (Exception e) {
-            return 0;
+        Map<String, String> map = this.d.get(str);
+        if (map == null) {
+            map = new HashMap<>();
         }
+        map.put(str2, str3);
+        this.d.put(str, map);
     }
 
-    public static boolean d() {
-        return TextUtils.equals((String) com.xiaomi.channel.commonutils.reflect.a.a(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES, "get", "sys.boot_completed"), "1");
+    public synchronized void a(String str, String str2, String str3) {
+        c(str, str2, str3);
+        this.c.post(new k(this, str, str2, str3));
+    }
+
+    public synchronized String b(String str, String str2, String str3) {
+        String a2;
+        a2 = a(str, str2);
+        if (TextUtils.isEmpty(a2)) {
+            a2 = this.b.getSharedPreferences(str, 4).getString(str2, str3);
+        }
+        return a2;
     }
 }

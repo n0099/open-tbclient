@@ -1,15 +1,32 @@
 package com.xiaomi.mipush.sdk;
 
+import android.os.Bundle;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
+    private static final String KEY_CATEGORY = "category";
+    private static final String KEY_COMMAND = "command";
+    private static final String KEY_COMMAND_ARGUMENTS = "commandArguments";
+    private static final String KEY_REASON = "reason";
+    private static final String KEY_RESULT_CODE = "resultCode";
     private static final long serialVersionUID = 1;
     private String category;
     private String command;
     private List<String> commandArguments;
     private String reason;
     private long resultCode;
+
+    public static MiPushCommandMessage fromBundle(Bundle bundle) {
+        MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
+        miPushCommandMessage.command = bundle.getString("command");
+        miPushCommandMessage.resultCode = bundle.getLong(KEY_RESULT_CODE);
+        miPushCommandMessage.reason = bundle.getString(KEY_REASON);
+        miPushCommandMessage.commandArguments = bundle.getStringArrayList(KEY_COMMAND_ARGUMENTS);
+        miPushCommandMessage.category = bundle.getString(KEY_CATEGORY);
+        return miPushCommandMessage;
+    }
 
     public String getCategory() {
         return this.category;
@@ -49,6 +66,18 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
 
     public void setResultCode(long j) {
         this.resultCode = j;
+    }
+
+    public Bundle toBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString("command", this.command);
+        bundle.putLong(KEY_RESULT_CODE, this.resultCode);
+        bundle.putString(KEY_REASON, this.reason);
+        if (this.commandArguments != null) {
+            bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) this.commandArguments);
+        }
+        bundle.putString(KEY_CATEGORY, this.category);
+        return bundle;
     }
 
     public String toString() {

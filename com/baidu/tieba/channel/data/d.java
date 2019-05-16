@@ -3,61 +3,61 @@ package com.baidu.tieba.channel.data;
 import tbclient.GetChannelInfo.DataRes;
 /* loaded from: classes6.dex */
 public class d {
-    private int enU = 1;
-    private g enV;
-    private ChannelInfo enW;
-    private ChannelHomeVideoList<h> enX;
+    private int eDD = 1;
+    private g eDE;
+    private ChannelInfo eDF;
+    private ChannelHomeVideoList<h> eDG;
 
-    public g aRo() {
-        return this.enV;
+    public g aYx() {
+        return this.eDE;
     }
 
-    public boolean aRp() {
-        return this.enX == null || this.enX.size() == 0;
+    public boolean aYy() {
+        return this.eDG == null || this.eDG.size() == 0;
     }
 
     public void a(g gVar) {
-        this.enV = gVar;
+        this.eDE = gVar;
     }
 
-    public ChannelInfo aRq() {
-        return this.enW;
+    public ChannelInfo aYz() {
+        return this.eDF;
     }
 
     public void a(ChannelInfo channelInfo) {
-        this.enW = channelInfo;
+        this.eDF = channelInfo;
     }
 
-    public ChannelHomeVideoList<h> aRr() {
-        return this.enX;
+    public ChannelHomeVideoList<h> aYA() {
+        return this.eDG;
     }
 
     public void a(ChannelHomeVideoList<h> channelHomeVideoList) {
-        this.enX = channelHomeVideoList;
+        this.eDG = channelHomeVideoList;
     }
 
     public boolean isHost() {
-        return this.enU == 0;
+        return this.eDD == 0;
     }
 
-    public void ou(int i) {
-        this.enU = i;
+    public void py(int i) {
+        this.eDD = i;
     }
 
-    public boolean aRs() {
-        return this.enV != null && this.enV.isHasMore();
+    public boolean aYB() {
+        return this.eDE != null && this.eDE.isHasMore();
     }
 
     public void b(ChannelHomeVideoList<h> channelHomeVideoList) {
-        if (this.enX != null && channelHomeVideoList != null) {
-            this.enX.addAll(channelHomeVideoList);
+        if (this.eDG != null && channelHomeVideoList != null) {
+            this.eDG.addAll(channelHomeVideoList);
             checkBigVideoType();
         }
     }
 
     public void checkBigVideoType() {
-        if (this.enX != null) {
-            this.enX.checkBigVideoType();
+        if (this.eDG != null) {
+            this.eDG.checkBigVideoType();
         }
     }
 
@@ -65,11 +65,11 @@ public class d {
         d dVar = null;
         if (dataRes != null) {
             dVar = new d();
-            dVar.ou(dataRes.is_guest.intValue());
+            dVar.py(dataRes.is_guest.intValue());
             dVar.a(ChannelInfo.parse(dataRes.channel));
             if (dataRes.video != null) {
                 dVar.a(g.a(dataRes.video.page));
-                dVar.a(h.bp(dataRes.video.list));
+                dVar.a(h.bx(dataRes.video.list));
             }
         }
         return dVar;

@@ -9,61 +9,61 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.d;
 import com.baidu.tbadk.editortools.k;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
-    protected d de(Context context) {
+    protected d cK(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarLauncherType(4);
-        editorTools.setBackgroundColorId(d.C0277d.cp_bg_line_d);
+        editorTools.setBackgroundColorId(R.color.cp_bg_line_d);
         return new a(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.c
-    protected void a(com.baidu.tbadk.editortools.d dVar) {
+    protected void a(d dVar) {
         if (dVar != null) {
-            EditorTools alP = dVar.alP();
+            EditorTools aqS = dVar.aqS();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            alP.ab(arrayList);
-            k jv = alP.jv(5);
-            if (jv != null) {
-                jv.eK(false);
-                jv.cjl = 0;
+            aqS.ai(arrayList);
+            k kj = aqS.kj(5);
+            if (kj != null) {
+                kj.fg(false);
+                kj.crt = 0;
             }
-            alP.b(new c(alP.getContext()));
-            alP.alQ();
-            alP.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            alP.hide();
+            aqS.b(new c(aqS.getContext()));
+            aqS.aqT();
+            aqS.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            aqS.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
-    protected void b(com.baidu.tbadk.editortools.d dVar) {
+    protected void b(d dVar) {
         if (dVar instanceof a) {
-            EditorTools alP = dVar.alP();
+            EditorTools aqS = dVar.aqS();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.alP() != null && aVar2 != null) {
+                    if (aVar != null && aVar.aqS() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.oT((String) aVar2.data);
+                                aVar.qb((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.agg().showToast(d.j.over_limit_tip);
+                                aVar.alf().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cmM();
-                                if (b.this.a(aVar.agg(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
-                                    aVar.amI();
+                                aVar.cuP();
+                                if (b.this.a(aVar.alf(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
+                                    aVar.arL();
                                     return;
                                 }
                                 return;
@@ -71,9 +71,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            alP.setActionListener(4, bVar);
-            alP.setActionListener(7, bVar);
-            alP.setActionListener(8, bVar);
+            aqS.setActionListener(4, bVar);
+            aqS.setActionListener(7, bVar);
+            aqS.setActionListener(8, bVar);
         }
     }
 

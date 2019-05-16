@@ -4,15 +4,36 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import com.baidu.android.pushservice.h.o;
-import com.baidu.android.pushservice.j.m;
+import android.os.Build;
+import com.baidu.android.pushservice.g.m;
 /* loaded from: classes3.dex */
 public class PushInfoProvider extends ContentProvider {
     private Context a;
     private UriMatcher b = new UriMatcher(-1);
+
+    private static boolean a(Context context) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            if (context.getPackageName().startsWith("com.baidu.searchbox")) {
+                return true;
+            }
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                PackageInfo packageInfo = packageManager != null ? packageManager.getPackageInfo(context.getPackageName(), 0) : null;
+                if (packageInfo != null) {
+                    if (packageInfo.applicationInfo.targetSdkVersion >= 24) {
+                        return true;
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
@@ -31,19 +52,17 @@ public class PushInfoProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        synchronized (com.baidu.android.pushservice.d.c.a()) {
-            this.a = getContext();
-            String str = m.F(this.a) ? "pushinfo_v3" : "pushinfo";
-            if (this.b == null) {
-                this.b = new UriMatcher(-1);
-            }
-            try {
-                this.b.addURI(this.a.getPackageName() + ".bdpush", str, 1);
-                this.b.addURI(this.a.getPackageName() + ".bdpush", "verif", 2);
-                this.b.addURI(this.a.getPackageName() + ".bdpush", "msgInfo", 3);
-                this.b.addURI(this.a.getPackageName() + ".bdpush", "appstatus", 4);
-            } catch (Exception e) {
-            }
+        this.a = getContext();
+        String str = a(this.a) ? "pushinfo_v3" : "pushinfo";
+        if (this.b == null) {
+            this.b = new UriMatcher(-1);
+        }
+        try {
+            this.b.addURI(this.a.getPackageName() + ".bdpush", str, 1);
+            this.b.addURI(this.a.getPackageName() + ".bdpush", "verif", 2);
+            this.b.addURI(this.a.getPackageName() + ".bdpush", "msgInfo", 3);
+            this.b.addURI(this.a.getPackageName() + ".bdpush", "appstatus", 4);
+        } catch (Throwable th) {
         }
         return true;
     }
@@ -51,35 +70,35 @@ public class PushInfoProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor cursor;
-        synchronized (com.baidu.android.pushservice.d.c.a()) {
+        synchronized (com.baidu.android.pushservice.c.c.a()) {
             try {
             } catch (Exception e) {
-                o.a(this.a, e);
+                m.a(this.a, e);
             }
             switch (this.b.match(uri)) {
                 case 1:
-                    SQLiteDatabase a = com.baidu.android.pushservice.d.c.a(this.a);
+                    SQLiteDatabase a = com.baidu.android.pushservice.c.c.a(this.a);
                     cursor = a != null ? a.query("PushShareInfo", null, null, null, null, null, null) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 2:
-                    SQLiteDatabase a2 = com.baidu.android.pushservice.d.c.a(this.a);
+                    SQLiteDatabase a2 = com.baidu.android.pushservice.c.c.a(this.a);
                     cursor = a2 != null ? a2.query("PushVerifInfo", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 3:
-                    SQLiteDatabase a3 = com.baidu.android.pushservice.d.c.a(this.a);
+                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.a);
                     cursor = a3 != null ? a3.query("PushMsgInfos", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                         break;
                     }
                     break;
                 case 4:
-                    SQLiteDatabase a4 = com.baidu.android.pushservice.d.c.a(this.a);
+                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.a);
                     cursor = a4 != null ? a4.query("PushAppStatus", strArr, str, strArr2, null, null, str2) : null;
                     if (cursor != null) {
                     }
@@ -116,13 +135,13 @@ public class PushInfoProvider extends ContentProvider {
         Cursor query;
         SQLiteDatabase sQLiteDatabase2;
         long j2 = -1;
-        synchronized (com.baidu.android.pushservice.d.c.a()) {
+        synchronized (com.baidu.android.pushservice.c.c.a()) {
             SQLiteDatabase sQLiteDatabase3 = null;
             Cursor cursor2 = null;
             try {
                 switch (this.b.match(uri)) {
                     case 1:
-                        SQLiteDatabase a = com.baidu.android.pushservice.d.c.a(this.a);
+                        SQLiteDatabase a = com.baidu.android.pushservice.c.c.a(this.a);
                         if (a != null) {
                             try {
                                 query = a.query("PushShareInfo", null, null, null, null, null, null);
@@ -138,7 +157,7 @@ public class PushInfoProvider extends ContentProvider {
                                         sQLiteDatabase = j;
                                         e = e;
                                         try {
-                                            o.a(this.a, e);
+                                            m.a(this.a, e);
                                             if (cursor != null) {
                                                 cursor.close();
                                             }

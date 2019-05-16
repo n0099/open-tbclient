@@ -4,41 +4,41 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a implements e {
-    private final Executor jGr;
-    private final Executor jGs;
-    private final Executor jGt;
-    private final Executor jGu;
+    private final Executor jZe;
+    private final Executor jZf;
+    private final Executor jZg;
+    private final Executor jZh;
 
     public a(int i) {
         k kVar = new k(10);
-        this.jGr = Executors.newFixedThreadPool(2);
-        this.jGs = Executors.newFixedThreadPool(i, kVar);
-        this.jGt = Executors.newFixedThreadPool(i, kVar);
-        this.jGu = Executors.newFixedThreadPool(1, kVar);
+        this.jZe = Executors.newFixedThreadPool(2);
+        this.jZf = Executors.newFixedThreadPool(i, kVar);
+        this.jZg = Executors.newFixedThreadPool(i, kVar);
+        this.jZh = Executors.newFixedThreadPool(1, kVar);
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cwY() {
-        return this.jGr;
+    public Executor cEU() {
+        return this.jZe;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cwZ() {
-        return this.jGr;
+    public Executor cEV() {
+        return this.jZe;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cxa() {
-        return this.jGs;
+    public Executor cEW() {
+        return this.jZf;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cxb() {
-        return this.jGt;
+    public Executor cEX() {
+        return this.jZg;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor cxc() {
-        return this.jGu;
+    public Executor cEY() {
+        return this.jZh;
     }
 }

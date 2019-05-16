@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class k extends ac {
-    private static final int XJ = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds44) * 2);
-    private InterviewLiveLayout XK;
-    private TextView XL;
+    private static final int VA = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private InterviewLiveLayout VB;
+    private TextView VC;
     private int mSkinType;
 
     public k(Context context) {
@@ -27,13 +27,13 @@ public class k extends ac {
     }
 
     private void initUI() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.card_interview_layout, (ViewGroup) null, true);
-        this.mTitle = (TextView) this.mRootView.findViewById(d.g.video_seg_title);
-        this.XL = (TextView) this.mRootView.findViewById(d.g.video_seg_abstract);
-        this.Zq = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
-        this.XK = (InterviewLiveLayout) this.mRootView.findViewById(d.g.frame_interview_no_video);
-        this.Zr = ro();
-        this.Zr.bSV().setBackgroundResource(d.C0277d.transparent);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+        this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
+        this.VC = (TextView) this.mRootView.findViewById(R.id.video_seg_abstract);
+        this.Xi = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
+        this.VB = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
+        this.Xj = qj();
+        this.Xj.caV().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,47 +44,47 @@ public class k extends ac {
 
     @Override // com.baidu.card.b
     public void b(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.XK.setSubClickListener(abVar);
+        this.VB.setSubClickListener(abVar);
     }
 
     @Override // com.baidu.card.ac
-    protected com.baidu.tieba.play.operableVideoView.a ro() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Zq);
+    protected com.baidu.tieba.play.operableVideoView.a qj() {
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Xi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.ac, com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Xz = aVar;
-        if (this.Xz != null && this.Xz.WO() != null) {
-            bg WO = aVar.WO();
-            if (WO.Zf() != null) {
-                this.XK.setVisibility(8);
-                this.Zq.setVisibility(0);
-                this.XL.setVisibility(8);
+        this.Vq = aVar;
+        if (this.Vq != null && this.Vq.abv() != null) {
+            bg abv = aVar.abv();
+            if (abv.adM() != null) {
+                this.VB.setVisibility(8);
+                this.Xi.setVisibility(0);
+                this.VC.setVisibility(8);
                 super.C(aVar);
                 return;
             }
-            this.Zq.setVisibility(8);
-            this.XK.setVisibility(0);
-            this.XL.setVisibility(0);
-            this.XK.C(aVar);
-            au.a(this.mTitle, WO);
-            au.a(this.XL, this.mTitle, WO, XJ);
+            this.Xi.setVisibility(8);
+            this.VB.setVisibility(0);
+            this.VC.setVisibility(0);
+            this.VB.C(aVar);
+            au.a(this.mTitle, abv);
+            au.a(this.VC, this.mTitle, abv, VA);
         }
     }
 
     @Override // com.baidu.card.ac, com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(this.XK, d.f.addresslist_item_bg);
-            this.XK.onChangeSkinType(tbPageContext, this.mSkinType);
+            al.k(this.VB, R.drawable.addresslist_item_bg);
+            this.VB.onChangeSkinType(tbPageContext, this.mSkinType);
         }
         this.mSkinType = i;
     }
 
     public void setFromCDN(boolean z) {
-        this.XK.setFromCDN(z);
+        this.VB.setFromCDN(z);
     }
 }

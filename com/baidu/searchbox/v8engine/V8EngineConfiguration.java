@@ -22,6 +22,19 @@ public class V8EngineConfiguration {
     private List<V8Engine.V8StatusListener> mV8StatusListeners = new ArrayList();
     private V8ThreadDelegatePolicy mV8ThreadDelegatePolicy;
 
+    /* loaded from: classes2.dex */
+    public static class CodeCacheSetting {
+        public String id;
+        public int maxCount;
+        public ArrayList<String> pathList;
+        public int sizeLimit;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface JSCacheCallback {
+        void onCacheResult(CacheInfo cacheInfo);
+    }
+
     public String getBasePath() {
         return this.mBasePath;
     }
@@ -124,5 +137,16 @@ public class V8EngineConfiguration {
 
     public void setFileSystemDelegatePolicy(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
         this.mFileSystemDelegatePolicy = v8FileSystemDelegatePolicy;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class CacheInfo {
+        public boolean cached;
+        public String jsPath;
+
+        public CacheInfo(String str, boolean z) {
+            this.jsPath = str;
+            this.cached = z;
+        }
     }
 }

@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
-    private c jLD;
-    private int jLE;
-    private boolean jLF;
+    private boolean aeU;
+    private c keq;
+    private int ker;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -27,9 +27,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.jLE = -1;
-        this.jLF = false;
-        this.jLD = cVar;
+        this.ker = -1;
+        this.aeU = false;
+        this.keq = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,7 +38,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void c(ByteBuffer byteBuffer, int i, long j) throws Exception {
+    public void f(ByteBuffer byteBuffer, int i, long j) throws Exception {
         int dequeueInputBuffer;
         ByteBuffer[] inputBuffers = this.mEncoder.getInputBuffers();
         while (true) {
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void cAG() throws Exception {
+    public void cIC() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -72,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.jLF) {
+                    if (this.aeU) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.jLE = this.jLD.addTrack(outputFormat);
-                    if (!this.jLD.start()) {
-                        synchronized (this.jLD) {
-                            while (!this.jLD.isStarted()) {
+                    this.ker = this.keq.addTrack(outputFormat);
+                    if (!this.keq.start()) {
+                        synchronized (this.keq) {
+                            while (!this.keq.isStarted()) {
                                 try {
-                                    this.jLD.wait(100L);
+                                    this.keq.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.jLF = true;
+                    this.aeU = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.jLF) {
+                        if (!this.aeU) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.jLD.writeSampleData(this.jLE, byteBuffer, this.mBufferInfo);
+                        this.keq.writeSampleData(this.ker, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.jLD != null) {
-                this.jLD.stop();
-                this.jLD = null;
+            if (this.keq != null) {
+                this.keq.stop();
+                this.keq = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

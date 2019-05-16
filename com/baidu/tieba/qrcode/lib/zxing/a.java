@@ -14,7 +14,7 @@ import java.util.EnumMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class a {
-    public static final Map<DecodeHintType, Object> ifj = new EnumMap(DecodeHintType.class);
+    public static final Map<DecodeHintType, Object> ixS = new EnumMap(DecodeHintType.class);
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -22,16 +22,16 @@ public class a {
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        ifj.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        ifj.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        ifj.put(DecodeHintType.CHARACTER_SET, "utf-8");
+        ixS.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        ixS.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        ixS.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public static String Bm(String str) {
-        return D(Bn(str));
+    public static String CH(String str) {
+        return E(CI(str));
     }
 
-    public static String D(Bitmap bitmap) {
+    public static String E(Bitmap bitmap) {
         RGBLuminanceSource rGBLuminanceSource;
         try {
             int width = bitmap.getWidth();
@@ -40,14 +40,14 @@ public class a {
             bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
             RGBLuminanceSource rGBLuminanceSource2 = new RGBLuminanceSource(width, height, iArr);
             try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), ifj).getText();
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), ixS).getText();
             } catch (Exception e) {
                 e = e;
                 rGBLuminanceSource = rGBLuminanceSource2;
                 e.printStackTrace();
                 if (rGBLuminanceSource != null) {
                     try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), ifj).getText();
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), ixS).getText();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;
@@ -61,12 +61,12 @@ public class a {
         }
     }
 
-    private static Bitmap Bn(String str) {
+    private static Bitmap CI(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(str, options);
-            int i = options.outHeight / 400;
+            int i = options.outHeight / 800;
             options.inSampleSize = i > 0 ? i : 1;
             options.inJustDecodeBounds = false;
             return BitmapFactory.decodeFile(str, options);

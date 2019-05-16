@@ -9,17 +9,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String iNE = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
-    private boolean iNF;
-    private InterestFrsData iNG;
-    private a iNH;
+    private static final String jgx = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
+    private a jgA;
+    private boolean jgy;
+    private InterestFrsData jgz;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -32,30 +32,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean chc() {
-        return this.iNF;
+    public boolean cpg() {
+        return this.jgy;
     }
 
-    public void qr(boolean z) {
-        this.iNF = z;
+    public void rg(boolean z) {
+        this.jgy = z;
     }
 
-    public InterestFrsData chd() {
-        return this.iNG;
+    public InterestFrsData cph() {
+        return this.jgz;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.iNG = interestFrsData;
+        this.jgz = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.iNH = new a(i, i2, i3, bVar);
-        this.iNH.execute(new Void[0]);
+        this.jgA = new a(i, i2, i3, bVar);
+        this.jgA.execute(new Void[0]);
     }
 
-    public void che() {
-        if (this.iNH != null) {
-            this.iNH.cancel();
+    public void cpi() {
+        if (this.jgA != null) {
+            this.jgA.cancel();
         }
     }
 
@@ -72,7 +72,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> hih;
+        private WeakReference<b> hzz;
         private int limit;
         private int offset;
         private int userType;
@@ -81,7 +81,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.hih = new WeakReference<>(bVar);
+            this.hzz = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -90,24 +90,24 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public InterestFrsData doInBackground(Void... voidArr) {
-            x xVar = new x(NewUserGuideModel.iNE);
-            xVar.x("user_type", String.valueOf(this.userType));
-            xVar.x("offset", String.valueOf(this.offset));
-            xVar.x("limit", String.valueOf(this.limit));
-            String acg = xVar.acg();
-            if (xVar.acE().adD().isRequestSuccess()) {
+            x xVar = new x(NewUserGuideModel.jgx);
+            xVar.o("user_type", String.valueOf(this.userType));
+            xVar.o("offset", String.valueOf(this.offset));
+            xVar.o("limit", String.valueOf(this.limit));
+            String ahe = xVar.ahe();
+            if (xVar.ahC().aiC().isRequestSuccess()) {
                 try {
-                    return (InterestFrsData) OrmObject.objectWithJsonStr(acg, InterestFrsData.class);
+                    return (InterestFrsData) OrmObject.objectWithJsonStr(ahe, InterestFrsData.class);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     InterestFrsData interestFrsData = new InterestFrsData();
                     interestFrsData.setErrno(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED);
-                    interestFrsData.setErrmsg(TbadkApplication.getInst().getContext().getString(d.j.neterror));
+                    interestFrsData.setErrmsg(TbadkApplication.getInst().getContext().getString(R.string.neterror));
                     return interestFrsData;
                 }
             }
             InterestFrsData interestFrsData2 = new InterestFrsData();
-            interestFrsData2.setErrno(xVar.acI() == 0 ? -1001 : xVar.acI());
+            interestFrsData2.setErrno(xVar.ahG() == 0 ? -1001 : xVar.ahG());
             interestFrsData2.setErrmsg(xVar.getErrorString());
             return interestFrsData2;
         }
@@ -118,7 +118,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.hih.get();
+            b bVar = this.hzz.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

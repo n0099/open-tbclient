@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.e.c;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes4.dex */
@@ -52,15 +52,15 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.account_restore_activity);
+        setContentView(R.layout.account_restore_activity);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");
-        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(d.j.anti_account_restore));
-        ((LinearLayout.LayoutParams) ((TextView) findViewById(d.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mWebView = (BaseWebView) findViewById(d.g.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(R.string.anti_account_restore));
+        ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mWebView = (BaseWebView) findViewById(R.id.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }

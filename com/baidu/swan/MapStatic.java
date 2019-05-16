@@ -2,7 +2,7 @@ package com.baidu.swan;
 
 import android.util.Log;
 import com.baidu.swan.impl.map.d;
-import com.baidu.tieba.aiapps.apps.h.a;
+import com.baidu.tieba.aiapps.apps.j.a;
 /* loaded from: classes5.dex */
 public class MapStatic {
     static {

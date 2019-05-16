@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> zK;
-    private Message zN;
+    private Set<String> xw;
+    private Message xz;
 
     public g(Message message) {
-        this.zN = message;
-        List<Field> h = com.baidu.adp.lib.OrmObject.a.a.h(message.getClass());
-        this.zK = new HashSet();
-        if (h != null && h.size() > 0) {
-            for (Field field : h) {
+        this.xz = message;
+        List<Field> g = com.baidu.adp.lib.OrmObject.a.a.g(message.getClass());
+        this.xw = new HashSet();
+        if (g != null && g.size() > 0) {
+            for (Field field : g) {
                 if (field != null) {
-                    this.zK.add(field.getName());
+                    this.xw.add(field.getName());
                 }
             }
         }
@@ -26,16 +26,16 @@ public class g implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.zK;
+        return this.xw;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.c(this.zN, str);
+        return com.baidu.adp.lib.OrmObject.a.a.c(this.xz, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void d(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.a(this.zN, str, obj);
+    public void e(String str, Object obj) {
+        com.baidu.adp.lib.OrmObject.a.a.a(this.xz, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

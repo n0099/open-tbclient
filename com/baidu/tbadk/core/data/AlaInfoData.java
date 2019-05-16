@@ -26,6 +26,8 @@ public class AlaInfoData implements Serializable {
     public String hls_url;
     public e label;
     public String label_name;
+    public boolean liveStageForceTop;
+    public String liveStagePicUrl;
     public long live_id;
     public int live_status;
     public int live_type;
@@ -99,6 +101,8 @@ public class AlaInfoData implements Serializable {
                     this.mChallengeInfoData.parserJson(optJSONObject2);
                 }
                 this.frsLiveStageType = jSONObject.optInt("frs_toplive_type");
+                this.liveStagePicUrl = jSONObject.optString("frs_toplive_pic");
+                this.liveStageForceTop = jSONObject.optInt("frs_toplive_force", 0) == 1;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -147,6 +151,8 @@ public class AlaInfoData implements Serializable {
                 this.mChallengeInfoData = new AlaChallengeInfoData();
                 this.mChallengeInfoData.parserProtobuf(alaLiveInfo.challenge_info);
                 this.frsLiveStageType = alaLiveInfo.frs_toplive_type.intValue();
+                this.liveStagePicUrl = alaLiveInfo.frs_toplive_pic;
+                this.liveStageForceTop = alaLiveInfo.frs_toplive_force.intValue() == 1;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

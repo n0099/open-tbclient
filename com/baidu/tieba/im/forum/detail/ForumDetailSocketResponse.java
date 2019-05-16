@@ -3,17 +3,21 @@ package com.baidu.tieba.im.forum.detail;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
+import tbclient.GetForumDetail.BzApplySwitch;
 import tbclient.GetForumDetail.GetForumDetailResIdl;
-import tbclient.ManagerApplyInfo;
+import tbclient.GetForumDetail.ManagerApplyInfo;
+import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
 /* loaded from: classes3.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     private ManagerApplyInfo applyInfo;
+    private BzApplySwitch bzApplySwitch;
     private RecommendForumInfo forumInfo;
     private int isBawuShow;
     private boolean isComplaintShow;
+    private ManagerElectionTab managerElectionTab;
     private PriManagerApplyInfo privateApplyInfo;
     private List<SimpleThreadInfo> threadInfoList;
 
@@ -37,6 +41,8 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
                 this.isComplaintShow = getForumDetailResIdl.data.is_complaint_show.intValue() != 0;
                 this.applyInfo = getForumDetailResIdl.data.bz_apply_info;
                 this.privateApplyInfo = getForumDetailResIdl.data.pribz_apply_info;
+                this.managerElectionTab = getForumDetailResIdl.data.election_tab;
+                this.bzApplySwitch = getForumDetailResIdl.data.bz_apply_switch;
             }
         }
     }
@@ -63,5 +69,13 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
 
     public PriManagerApplyInfo getPrivateApplyInfo() {
         return this.privateApplyInfo;
+    }
+
+    public BzApplySwitch getBzApplySwitch() {
+        return this.bzApplySwitch;
+    }
+
+    public ManagerElectionTab getManagerElectionTab() {
+        return this.managerElectionTab;
     }
 }

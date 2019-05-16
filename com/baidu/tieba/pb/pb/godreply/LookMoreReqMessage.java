@@ -50,14 +50,14 @@ public class LookMoreReqMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         try {
-            int aO = l.aO(TbadkCoreApplication.getInst());
-            int aQ = l.aQ(TbadkCoreApplication.getInst());
+            int af = l.af(TbadkCoreApplication.getInst());
+            int ah = l.ah(TbadkCoreApplication.getInst());
             DataReq.Builder builder = new DataReq.Builder();
             builder.kz = this.kz;
             builder.with_floor = Integer.valueOf(this.with_floor);
             builder.post_id = this.post_id;
-            builder.scr_w = Integer.valueOf(aO);
-            builder.scr_h = Integer.valueOf(aQ);
+            builder.scr_w = Integer.valueOf(af);
+            builder.scr_h = Integer.valueOf(ah);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
             if (z) {

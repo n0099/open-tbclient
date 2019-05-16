@@ -9,11 +9,11 @@ import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class a implements c {
-    private ExcContent hDs;
-    private SpannableString hDt;
+    private ExcContent hVs;
+    private SpannableString hVt;
 
     public a(ExcContent excContent) {
-        this.hDs = excContent;
+        this.hVs = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +22,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bOR() {
-        return b(this.hDs);
+    public CharSequence bWK() {
+        return b(this.hVs);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int oH;
-        a.C0238a pe;
-        if (this.hDt == null && (oH = TbFaceManager.anl().oH((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.anl().oJ(str) + ")";
-            this.hDt = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), oH);
-            if (TbFaceManager.anl().pe(str) != null) {
-                int width = (int) (pe.getWidth() * 0.6d);
+        int pP;
+        a.C0253a qm;
+        if (this.hVt == null && (pP = TbFaceManager.aso().pP((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.aso().pR(str) + ")";
+            this.hVt = new SpannableString(str2 + " ");
+            com.baidu.tbadk.widget.richText.b bVar = new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getContext(), pP);
+            if (TbFaceManager.aso().qm(str) != null) {
+                int width = (int) (qm.getWidth() * 0.6d);
                 bVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 bVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.hDt.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
+            this.hVt.setSpan(new ImageSpan(bVar, 0), 0, str2.length(), 33);
         }
-        return this.hDt;
+        return this.hVt;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bOS() {
+    public boolean bWL() {
         return false;
     }
 }

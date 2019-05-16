@@ -7,9 +7,9 @@ import org.json.JSONObject;
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date izg;
+    private Date iRT;
 
-    protected abstract void bE(JSONObject jSONObject) throws Exception;
+    protected abstract void bQ(JSONObject jSONObject) throws Exception;
 
     public int getErrorCode() {
         return this.errorCode;
@@ -53,9 +53,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.izg = new Date(optLong * 1000);
+                this.iRT = new Date(optLong * 1000);
             }
-            bE(jSONObject);
+            bQ(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不稳定，请稍后再试");
             e.printStackTrace();

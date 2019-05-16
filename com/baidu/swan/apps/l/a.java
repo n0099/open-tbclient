@@ -12,6 +12,6 @@ public class a implements h {
 
     @Override // com.baidu.swan.games.e.h
     public String getUserAgent() {
-        return com.baidu.swan.apps.al.a.LG();
+        return com.baidu.swan.apps.al.a.Om();
     }
 }

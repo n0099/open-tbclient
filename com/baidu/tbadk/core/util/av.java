@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.a.c {
     public av(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 19);
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 20);
     }
 
     @Override // com.baidu.adp.base.a.c
@@ -22,12 +22,13 @@ public class av extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
             b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
-            K(sQLiteDatabase);
             L(sQLiteDatabase);
             M(sQLiteDatabase);
-            P(sQLiteDatabase);
+            N(sQLiteDatabase);
             Q(sQLiteDatabase);
             R(sQLiteDatabase);
+            S(sQLiteDatabase);
+            T(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
@@ -62,6 +63,7 @@ public class av extends com.baidu.adp.base.a.c {
         b(sQLiteDatabase, "DROP TABLE IF EXISTS emotions");
         b(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
         b(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
@@ -85,7 +87,7 @@ public class av extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
         }
         if (i < 7) {
-            K(sQLiteDatabase);
+            L(sQLiteDatabase);
         }
         if (i < 8) {
             b(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
@@ -100,43 +102,44 @@ public class av extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
         }
         if (i < 11) {
-            L(sQLiteDatabase);
+            M(sQLiteDatabase);
         }
         if (i < 12) {
-            M(sQLiteDatabase);
+            N(sQLiteDatabase);
         }
         if (i < 13) {
             b(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
-            N(sQLiteDatabase);
+            O(sQLiteDatabase);
         }
         if (i < 14) {
-            O(sQLiteDatabase);
+            P(sQLiteDatabase);
         }
         if (i < 15) {
             b(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
         }
         if (i < 16) {
-            P(sQLiteDatabase);
-        }
-        if (i < 17) {
             Q(sQLiteDatabase);
         }
-        if (i < 18) {
+        if (i < 17) {
             R(sQLiteDatabase);
         }
-        if (i < 19) {
+        if (i < 18) {
             S(sQLiteDatabase);
+        }
+        if (i < 20) {
+            b(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
+            T(sQLiteDatabase);
         }
     }
 
-    protected void K(SQLiteDatabase sQLiteDatabase) {
+    protected void L(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
         b(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
     }
 
-    protected void L(SQLiteDatabase sQLiteDatabase) {
+    protected void M(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, " CREATE TABLE if not exists user_emotions(id INTEGER primary key autoincrement, uid varchar(128), groupId varchar(64), updateTime bigint(21) default 0)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_ue_uid ON user_emotions(uid)");
         b(sQLiteDatabase, "CREATE TABLE if not exists emotion_group(groupId varchar(64) primary key, groupName varchar(128), groupDesc text, emotionsCount int(11) default 0, width  int(11) default 0, height  int(11) default 0, status  int(11) default 0, bytesLength int(11) default 0, bytesReceived int(11) default 0, downloadUrl varchar(512), downloadTime bigint(21) default 0)");
@@ -145,33 +148,33 @@ public class av extends com.baidu.adp.base.a.c {
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_e_gido ON emotions(groupId, orderId)");
     }
 
-    protected void M(SQLiteDatabase sQLiteDatabase) {
+    protected void N(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists local_game(gameId varchar(64) primary key, gameName varchar(128), gameType int default 0, iconUrl varchar(128), gameLink  varchar(2),packageName varchar(64), launcherActivity  varchar(64),downloadTime varchar(64),installTime varchar(64))");
         b(sQLiteDatabase, "ALTER TABLE setting ADD remind_light int(11) default 1");
     }
 
-    protected void N(SQLiteDatabase sQLiteDatabase) {
+    protected void O(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE account_data ADD gender int");
         b(sQLiteDatabase, "ALTER TABLE account_data ADD member_iconurl varchar(255)");
     }
 
-    protected void O(SQLiteDatabase sQLiteDatabase) {
+    protected void P(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
     }
 
-    protected void P(SQLiteDatabase sQLiteDatabase) {
+    protected void Q(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists user_collect_emotion(pid varchar(30), uid varchar(30), sharp_text varchar(256), order_id int, width int, height int, pic_url varchar(512), thumbnail varchar(512), backup TEXT, primary key(pid, uid))");
     }
 
-    protected void Q(SQLiteDatabase sQLiteDatabase) {
+    protected void R(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE setting ADD zan_me_switch int");
     }
 
-    protected void R(SQLiteDatabase sQLiteDatabase) {
+    protected void S(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
     }
 
-    protected void S(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
+    protected void T(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
     }
 }

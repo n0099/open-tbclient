@@ -7,7 +7,7 @@ import kotlin.collections.y;
 import kotlin.collections.z;
 /* loaded from: classes2.dex */
 public final class i {
-    public static final kotlin.collections.l af(byte[] bArr) {
+    public static final kotlin.collections.l ad(byte[] bArr) {
         p.k(bArr, "array");
         return new b(bArr);
     }
@@ -32,12 +32,12 @@ public final class i {
         return new j(jArr);
     }
 
-    public static final w g(float[] fArr) {
+    public static final w k(float[] fArr) {
         p.k(fArr, "array");
         return new e(fArr);
     }
 
-    public static final u i(double[] dArr) {
+    public static final u j(double[] dArr) {
         p.k(dArr, "array");
         return new d(dArr);
     }

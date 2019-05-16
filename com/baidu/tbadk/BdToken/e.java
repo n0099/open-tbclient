@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class e {
-    private a brC;
+    private a byh;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
+    private com.baidu.adp.framework.listener.a byk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e.this.isLoading = false;
@@ -26,7 +26,7 @@ public class e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(boolean z, q qVar);
+        void a(boolean z, u uVar);
     }
 
     public e() {
@@ -45,9 +45,9 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z, q qVar) {
-        if (this.brC != null) {
-            this.brC.a(z, qVar);
+    public void b(boolean z, u uVar) {
+        if (this.byh != null) {
+            this.byh.a(z, uVar);
         }
     }
 
@@ -57,10 +57,10 @@ public class e {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.mNetMessageListener);
+        MessageManager.getInstance().registerListener(this.byk);
     }
 
     public void a(a aVar) {
-        this.brC = aVar;
+        this.byh = aVar;
     }
 }

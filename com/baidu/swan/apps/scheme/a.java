@@ -11,7 +11,7 @@ public class a implements ISchemeContext {
     public void addInterceptor(UnitedSchemeInterceptChain unitedSchemeInterceptChain) {
         unitedSchemeInterceptChain.addInterceptor(new com.baidu.swan.apps.scheme.a.b());
         unitedSchemeInterceptChain.addInterceptor(new com.baidu.swan.apps.scheme.a.a());
-        unitedSchemeInterceptChain.addInterceptor(new com.baidu.swan.games.k.a());
+        unitedSchemeInterceptChain.addInterceptor(new com.baidu.swan.games.l.a());
     }
 
     @Override // com.baidu.searchbox.unitedscheme.ISchemeContext
@@ -23,6 +23,6 @@ public class a implements ISchemeContext {
 
     @Override // com.baidu.searchbox.unitedscheme.ISchemeContext
     public void showSchemeNotSupportDialog(Context context) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, "current version is not support for this scheme").II();
+        com.baidu.swan.apps.res.widget.b.d.a(context, "current version is not support for this scheme").Ld();
     }
 }

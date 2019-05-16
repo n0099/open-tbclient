@@ -1,219 +1,174 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import java.io.File;
-import java.io.IOException;
-import java.util.Iterator;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.MultipartBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ab extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
+public class ab extends z {
     public ab(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/uploadFile");
+        super(jVar, "/swan/ubcFlowJar");
     }
 
-    @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.y
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.z
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        int i;
         if (bVar == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, "params");
-        if (c == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = c.optString("onProgressUpdate");
-        final String optString2 = c.optString("cb");
-        if (TextUtils.isEmpty(optString2)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal resultCallback");
+        String optString = optParamsAsJo.optString("flowId");
+        if (TextUtils.isEmpty(optString)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
             return false;
         }
-        String Jg = com.baidu.swan.apps.ae.b.Jg();
-        if (TextUtils.isEmpty(Jg)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
-            return false;
-        }
-        String fq = fq(Jg);
-        final String valueOf = String.valueOf(System.currentTimeMillis());
-        Request a = a(c, optString, fq, valueOf, bVar, callbackHandler);
-        if (a == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-            fo(valueOf);
-            return false;
-        }
-        JSONObject optJSONObject = c.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
-        com.baidu.swan.apps.network.a.b bVar2 = new com.baidu.swan.apps.network.a.b();
-        bVar2.n(a(optJSONObject, true));
-        bVar.Jb().a(a, bVar2, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.ab.1
-            @Override // okhttp3.Callback
-            public void onFailure(Call call, IOException iOException) {
-                callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                ab.this.fo(valueOf);
-            }
-
-            @Override // okhttp3.Callback
-            public void onResponse(Call call, Response response) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("statusCode", response.code());
-                    ab.this.a(jSONObject, response.body());
-                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                } catch (Exception e) {
-                    if (y.DEBUG) {
-                        e.printStackTrace();
-                    }
-                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
-                } finally {
-                    ab.this.fo(valueOf);
+        char c = 65535;
+        switch (optString.hashCode()) {
+            case 53647:
+                if (optString.equals("670")) {
+                    c = 0;
+                    break;
                 }
-            }
-        });
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fr(fq), 0));
+                break;
+            case 53648:
+                if (optString.equals("671")) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 54610:
+                if (optString.equals("772")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 55357:
+                if (optString.equals("805")) {
+                    c = 2;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                com.baidu.swan.apps.core.g.a Bv = com.baidu.swan.apps.core.j.c.Bi().Bv();
+                if (Bv instanceof com.baidu.swan.apps.core.g.e) {
+                    i = ((com.baidu.swan.apps.core.g.e) Bv).Aw();
+                    if (DEBUG) {
+                        Log.d("SwanAppAction", "ID_PERFORMANCED_FLOW CodeCache status: " + i);
+                    }
+                } else {
+                    i = 0;
+                }
+                com.baidu.swan.apps.performance.f.HY().ar("codecache", String.valueOf(i)).y(m(optParamsAsJo.optJSONArray("data"))).HE();
+                com.baidu.swan.apps.statistic.e.cu(true);
+                com.baidu.swan.apps.statistic.e.MR();
+                break;
+            case 1:
+                n(optParamsAsJo.optJSONArray("data"));
+                break;
+            case 2:
+                o(optParamsAsJo.optJSONArray("data"));
+                break;
+            case 3:
+                p(optParamsAsJo.optJSONArray("data"));
+                break;
+            default:
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                return false;
+        }
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(@NonNull JSONObject jSONObject, @Nullable ResponseBody responseBody) throws IOException, JSONException {
-        if (responseBody != null) {
-            String string = responseBody.string();
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(string);
-                    if (jSONObject2 != null) {
-                        jSONObject.put("data", jSONObject2);
-                    }
-                } catch (JSONException e) {
-                    jSONObject.put("data", string);
-                } catch (Throwable th) {
-                    if (0 != 0) {
-                        jSONObject.put("data", (Object) null);
-                    }
-                    throw th;
+    List<UbcFlowEvent> m(JSONArray jSONArray) {
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            UbcFlowEvent aa = aa(jSONArray.optJSONObject(i));
+            if (aa != null) {
+                aa.ga("FE");
+                arrayList.add(aa);
+            }
+        }
+        return arrayList;
+    }
+
+    UbcFlowEvent aa(JSONObject jSONObject) {
+        String optString = jSONObject.optString("actionId");
+        long optLong = jSONObject.optLong("timestamp");
+        if (TextUtils.isEmpty(optString)) {
+            return null;
+        }
+        return new UbcFlowEvent(optString).M(optLong);
+    }
+
+    private void n(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            if (DEBUG) {
+                Log.d("SwanAppAction", "SearchFlowEvent from FE, data: " + jSONArray);
+            }
+            try {
+                JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("eventId");
+                    String optString2 = optJSONObject.optString("errorType");
+                    String optString3 = optJSONObject.optString("timeStamp");
+                    SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
+                    searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
+                    searchFlowEvent.data = optString2;
+                    searchFlowEvent.aVE = SearchFlowEvent.EventType.END;
+                    com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
+                }
+            } catch (NumberFormatException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    @Nullable
-    private Request a(@Nullable JSONObject jSONObject, @Nullable final String str, @Nullable String str2, @Nullable final String str3, @Nullable com.baidu.swan.apps.ae.b bVar, @Nullable final CallbackHandler callbackHandler) {
-        HttpUrl fp;
-        if (jSONObject == null || (fp = fp(jSONObject.optString("url"))) == null) {
-            return null;
-        }
-        String httpUrl = fp.toString();
-        if (TextUtils.isEmpty(httpUrl) || !com.baidu.swan.apps.af.a.b.av("uploadFile", httpUrl)) {
-            return null;
-        }
-        String optString = jSONObject.optString("filePath", "");
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.c.b.kb(optString)) {
-            return null;
-        }
-        boolean isInvokedFromSwanGame = UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler);
-        String b = com.baidu.swan.apps.storage.b.b(optString, bVar);
-        if (isInvokedFromSwanGame) {
-            if (!optString.startsWith(WebGLImageLoader.BDFILE)) {
-                String iE = com.baidu.swan.games.f.g.iE(optString);
-                String DJ = com.baidu.swan.apps.w.e.Ea().DJ();
-                if (DJ.endsWith(File.separator)) {
-                    DJ = DJ.substring(0, DJ.length() - 1);
-                }
-                b = DJ + iE.substring("bdfile://code".length());
-            } else if (optString.startsWith(com.baidu.swan.games.f.a.USER_DATA_PATH)) {
-                b = com.baidu.swan.games.f.g.iA(optString);
-            } else if (optString.startsWith("bdfile://tmp")) {
-                b = com.baidu.swan.games.f.g.iB(optString);
-            }
-        }
-        if (TextUtils.isEmpty(b)) {
-            return null;
-        }
-        File file = new File(b);
-        if (!file.exists() || !file.isFile()) {
-            return null;
-        }
-        final long length = file.length();
-        if (length > 26214400) {
-            return null;
-        }
-        String optString2 = jSONObject.optString("name", "");
-        if (TextUtils.isEmpty(optString2)) {
-            return null;
-        }
-        if (jSONObject.has("formData") && !(jSONObject.opt("formData") instanceof JSONObject)) {
-            return null;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-        this.aCi.put(str3, 0L);
-        com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, "multipart/form-data", new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.apps.scheme.actions.ab.2
-            @Override // com.baidu.swan.apps.network.b.a
-            public void z(long j) {
-                ab.this.a(length, j, str, str3, callbackHandler);
-            }
-        });
-        MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-        a(type, optJSONObject);
-        a(type, optString2, file.getName(), cVar);
-        return new Request.Builder().url(httpUrl).tag(str2).post(type.build()).build();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j, long j2, String str, String str2, CallbackHandler callbackHandler) {
-        if (j > 0 && j2 <= j && j2 != 0 && !TextUtils.isEmpty(str) && callbackHandler != null) {
-            int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - fn(str2) > 500 || floor == 100) {
-                if (floor <= 100) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(NotificationCompat.CATEGORY_PROGRESS, String.valueOf(floor));
-                        jSONObject.put("totalBytesSent", String.valueOf(j2));
-                        jSONObject.put("totalBytesExpectedToSend", String.valueOf(j));
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    } catch (Exception e) {
-                        if (DEBUG) {
+    private void o(JSONArray jSONArray) {
+        long longValue;
+        com.baidu.swan.apps.core.d.d zL = com.baidu.swan.apps.w.e.FV().zL();
+        if (zL != null) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(0);
+                if (jSONObject != null) {
+                    String string = jSONObject.getString("eventId");
+                    String optString = jSONObject.optString("timeStamp");
+                    if (!TextUtils.isEmpty(optString)) {
+                        try {
+                            longValue = Long.valueOf(optString).longValue();
+                        } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
+                        zL.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
+                    longValue = 0;
+                    zL.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
-                this.aCi.put(str2, Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    private void a(MultipartBody.Builder builder, String str, String str2, com.baidu.swan.apps.network.c cVar) {
-        if (builder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && cVar != null) {
-            builder.addFormDataPart(str, str2, cVar);
-        }
-    }
-
-    public static void a(MultipartBody.Builder builder, JSONObject jSONObject) {
-        if (builder != null && jSONObject != null && jSONObject.length() >= 1) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    String optString = jSONObject.optString(next);
-                    if (!TextUtils.isEmpty(optString)) {
-                        builder.addFormDataPart(next, optString);
-                    }
-                }
-            }
-        }
+    private void p(@Nullable JSONArray jSONArray) {
+        com.baidu.swan.apps.y.f.GN().g(jSONArray);
     }
 }

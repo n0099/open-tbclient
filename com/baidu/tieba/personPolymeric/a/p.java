@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoList, com.baidu.tieba.personPolymeric.d.a> {
-    private String hPZ;
+    private String iiL;
     private boolean isHost;
     private TbPageContext<PersonPolymericActivity> mContext;
 
@@ -32,7 +32,7 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bM */
     public com.baidu.tieba.personPolymeric.d.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.h.person_polymeric_item_reply, viewGroup, false), this.mContext, this.isHost);
+        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.person_polymeric_item_reply, viewGroup, false), this.mContext, this.isHost);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,10 +41,10 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, com.baidu.tieba.personPolymeric.d.a aVar) {
         if (postInfoList != null && aVar != null) {
-            if (this.hPZ == null) {
-                this.hPZ = postInfoList.user_portrait;
+            if (this.iiL == null) {
+                this.iiL = postInfoList.user_portrait;
             }
-            aVar.a(postInfoList, false, this.hPZ);
+            aVar.a(postInfoList, false, this.iiL);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = postInfoList.content.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -57,26 +57,26 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
                     for (int i3 = 0; i3 < length2; i3++) {
                         stringBuffer.append(postInfoList.content[i2].post_content[i3].text);
                     }
-                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), ap.ao(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
+                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), ap.aC(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            aVar.hSd.setContent(arrayList);
+            aVar.ikP.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                aVar.hSe.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                aVar.ikQ.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                aVar.hSe.setText(postInfoList.title);
+                aVar.ikQ.setText(postInfoList.title);
             }
-            aVar.hSe.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+            aVar.ikQ.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                aVar.hSe.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.ikQ.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                aVar.hSe.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.ikQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            al.k(aVar.hSe, d.f.person_post_line);
-            al.d(aVar.hSe, d.C0277d.common_color_10039, 1);
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
-            aVar.hSe.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            aVar.ib(TbadkCoreApplication.getInst().getSkinType());
+            al.k(aVar.ikQ, R.drawable.person_post_line);
+            al.f(aVar.ikQ, R.color.common_color_10039, 1);
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
+            aVar.ikQ.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            aVar.iP(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }

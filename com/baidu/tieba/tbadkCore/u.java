@@ -9,20 +9,20 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final void aR(Context context, String str) {
+    public static final void aF(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File lR = com.baidu.tbadk.core.util.m.lR(str.replace(".", "_") + ".apk");
-        if (lR != null) {
+        File mZ = com.baidu.tbadk.core.util.m.mZ(str.replace(".", "_") + ".apk");
+        if (mZ != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(lR, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(mZ, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -36,14 +36,14 @@ public class u {
         }
     }
 
-    public static boolean an(Activity activity) {
+    public static boolean aq(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean cV = ab.cV(activity);
+        boolean cA = ab.cA(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return cV;
+        return cA;
     }
 }

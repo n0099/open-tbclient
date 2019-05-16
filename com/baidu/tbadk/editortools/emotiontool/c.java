@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a cjv;
-    private com.baidu.adp.widget.ImageView.a cjw;
     private int cols;
+    private com.baidu.adp.widget.ImageView.a crD;
+    private com.baidu.adp.widget.ImageView.a crE;
     private int rows;
 
-    public abstract boolean ame();
+    public abstract boolean arh();
 
-    public abstract EmotionGroupType amf();
+    public abstract EmotionGroupType ari();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String jy(int i);
+    public abstract String km(int i);
 
-    public abstract boolean oK(String str);
+    public abstract boolean pS(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a oL(String str);
+    public abstract com.baidu.adp.widget.ImageView.a pT(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a oM(String str);
+    public abstract com.baidu.adp.widget.ImageView.a pU(String str);
 
-    public com.baidu.adp.widget.ImageView.a amg() {
-        return this.cjv;
+    public com.baidu.adp.widget.ImageView.a arj() {
+        return this.crD;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.oy();
+            aVar.ns();
         }
-        this.cjv = aVar;
+        this.crD = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a amh() {
-        return this.cjw;
+    public com.baidu.adp.widget.ImageView.a ark() {
+        return this.crE;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.oy();
+            aVar.ns();
         }
-        this.cjw = aVar;
+        this.crE = aVar;
     }
 
-    public int ami() {
+    public int arl() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jz(int i) {
+    public void kn(int i) {
         this.cols = i;
     }
 
-    public int amj() {
+    public int arm() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jA(int i) {
+    public void ko(int i) {
         this.rows = i;
     }
 }

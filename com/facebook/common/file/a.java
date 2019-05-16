@@ -4,18 +4,18 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class a {
     public static void a(File file, b bVar) {
-        bVar.ad(file);
+        bVar.X(file);
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
-                    bVar.ae(file2);
+                    bVar.Y(file2);
                 }
             }
         }
-        bVar.af(file);
+        bVar.Z(file);
     }
 
     public static boolean deleteContents(File file) {
@@ -25,15 +25,15 @@ public class a {
             int length = listFiles.length;
             int i = 0;
             while (i < length) {
-                boolean al = al(listFiles[i]) & z;
+                boolean af = af(listFiles[i]) & z;
                 i++;
-                z = al;
+                z = af;
             }
         }
         return z;
     }
 
-    public static boolean al(File file) {
+    public static boolean af(File file) {
         if (file.isDirectory()) {
             deleteContents(file);
         }

@@ -1,79 +1,49 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class r {
-    private static final Map<String, byte[]> a = new HashMap();
-    private static ArrayList<Pair<String, byte[]>> b = new ArrayList<>();
+    private static volatile r a;
+    private SharedPreferences b;
 
-    public static void a(Context context, int i, String str) {
-        synchronized (a) {
-            for (String str2 : a.keySet()) {
-                a(context, str2, a.get(str2), i, str);
-            }
-            a.clear();
-        }
+    private r(Context context) {
+        this.b = context.getSharedPreferences("mipush", 0);
     }
 
-    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
-        Intent intent = new Intent("com.xiaomi.mipush.ERROR");
-        intent.setPackage(str);
-        intent.putExtra("mipush_payload", bArr);
-        intent.putExtra("mipush_error_code", i);
-        intent.putExtra("mipush_error_msg", str2);
-        context.sendBroadcast(intent, b.a(str));
-    }
-
-    public static void a(XMPushService xMPushService) {
-        try {
-            synchronized (a) {
-                for (String str : a.keySet()) {
-                    aa.a(xMPushService, str, a.get(str));
+    public static r a(Context context) {
+        if (a == null) {
+            synchronized (r.class) {
+                if (a == null) {
+                    a = new r(context);
                 }
-                a.clear();
             }
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            xMPushService.a(10, e);
         }
+        return a;
     }
 
-    public static void a(String str, byte[] bArr) {
-        synchronized (a) {
-            a.put(str, bArr);
-        }
+    public synchronized void a() {
+        SharedPreferences.Editor edit = this.b.edit();
+        edit.remove(Constants.EXTRA_KEY_MIID);
+        edit.commit();
     }
 
-    public static void b(XMPushService xMPushService) {
-        ArrayList<Pair<String, byte[]>> arrayList;
-        try {
-            synchronized (b) {
-                arrayList = b;
-                b = new ArrayList<>();
-            }
-            Iterator<Pair<String, byte[]>> it = arrayList.iterator();
-            while (it.hasNext()) {
-                Pair<String, byte[]> next = it.next();
-                aa.a(xMPushService, (String) next.first, (byte[]) next.second);
-            }
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            xMPushService.a(10, e);
+    public synchronized void a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            str = "0";
         }
+        SharedPreferences.Editor edit = this.b.edit();
+        edit.putString(Constants.EXTRA_KEY_MIID, str);
+        edit.commit();
     }
 
-    public static void b(String str, byte[] bArr) {
-        synchronized (b) {
-            b.add(new Pair<>(str, bArr));
-            if (b.size() > 50) {
-                b.remove(0);
-            }
-        }
+    public synchronized String b() {
+        return this.b.getString(Constants.EXTRA_KEY_MIID, "0");
+    }
+
+    public synchronized boolean c() {
+        return !TextUtils.equals("0", b());
     }
 }

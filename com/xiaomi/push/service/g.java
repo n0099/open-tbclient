@@ -5,79 +5,279 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
-    private static volatile g a;
-    private f b;
+    private static volatile g b;
+    private static String c = "GeoFenceDao.";
+    private Context a;
 
     private g(Context context) {
-        this.b = new f(context);
+        this.a = context;
     }
 
     private synchronized Cursor a(SQLiteDatabase sQLiteDatabase) {
-        Cursor cursor = null;
-        synchronized (this) {
-            com.xiaomi.channel.commonutils.misc.k.a(false);
-            try {
-                cursor = sQLiteDatabase.rawQuery("SELECT * FROM geoMessage", null);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-            }
+        Cursor cursor;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            cursor = sQLiteDatabase.query("geofence", null, null, null, null, null, null);
+        } catch (Exception e) {
+            cursor = null;
         }
         return cursor;
     }
 
     public static g a(Context context) {
-        if (a == null) {
+        if (b == null) {
             synchronized (g.class) {
-                if (a == null) {
-                    a = new g(context);
+                if (b == null) {
+                    b = new g(context);
                 }
             }
         }
-        return a;
+        return b;
     }
 
-    public synchronized int a(String str) {
+    private synchronized com.xiaomi.xmpush.thrift.n a(Cursor cursor) {
+        com.xiaomi.xmpush.thrift.n nVar;
+        try {
+            com.xiaomi.xmpush.thrift.n[] values = com.xiaomi.xmpush.thrift.n.values();
+            int length = values.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    nVar = null;
+                    break;
+                }
+                nVar = values[i];
+                if (TextUtils.equals(cursor.getString(cursor.getColumnIndex("type")), nVar.name())) {
+                    break;
+                }
+                i++;
+            }
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            nVar = null;
+        }
+        return nVar;
+    }
+
+    private synchronized String a(List<com.xiaomi.xmpush.thrift.o> list) {
+        String str;
+        if (list != null) {
+            if (list.size() >= 3) {
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (com.xiaomi.xmpush.thrift.o oVar : list) {
+                        if (oVar != null) {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("point_lantitude", oVar.c());
+                            jSONObject.put("point_longtitude", oVar.a());
+                            jSONArray.put(jSONObject);
+                        }
+                    }
+                    str = jSONArray.toString();
+                } catch (JSONException e) {
+                    com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+                    str = null;
+                }
+            }
+        }
+        com.xiaomi.channel.commonutils.logger.b.a(c + " points unvalidated");
+        str = null;
+        return str;
+    }
+
+    private synchronized com.xiaomi.xmpush.thrift.o b(Cursor cursor) {
+        com.xiaomi.xmpush.thrift.o oVar;
+        oVar = new com.xiaomi.xmpush.thrift.o();
+        try {
+            oVar.b(Double.parseDouble(cursor.getString(cursor.getColumnIndex("center_lantitude"))));
+            oVar.a(Double.parseDouble(cursor.getString(cursor.getColumnIndex("center_longtitude"))));
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            oVar = null;
+        }
+        return oVar;
+    }
+
+    private synchronized ArrayList<com.xiaomi.xmpush.thrift.o> c(Cursor cursor) {
+        ArrayList<com.xiaomi.xmpush.thrift.o> arrayList;
+        ArrayList<com.xiaomi.xmpush.thrift.o> arrayList2 = new ArrayList<>();
+        try {
+            JSONArray jSONArray = new JSONArray(cursor.getString(cursor.getColumnIndex("polygon_points")));
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 >= jSONArray.length()) {
+                    break;
+                }
+                com.xiaomi.xmpush.thrift.o oVar = new com.xiaomi.xmpush.thrift.o();
+                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                oVar.b(jSONObject.getDouble("point_lantitude"));
+                oVar.a(jSONObject.getDouble("point_longtitude"));
+                arrayList2.add(oVar);
+                i = i2 + 1;
+            }
+            arrayList = arrayList2;
+        } catch (JSONException e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            arrayList = null;
+        }
+        return arrayList;
+    }
+
+    private synchronized com.xiaomi.xmpush.thrift.j d(Cursor cursor) {
+        com.xiaomi.xmpush.thrift.j jVar;
+        try {
+            jVar = com.xiaomi.xmpush.thrift.j.valueOf(cursor.getString(cursor.getColumnIndex("coordinate_provider")));
+        } catch (IllegalArgumentException e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            jVar = null;
+        }
+        return jVar;
+    }
+
+    public synchronized int a(String str, String str2) {
         int i = 0;
         synchronized (this) {
-            com.xiaomi.channel.commonutils.misc.k.a(false);
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    SQLiteDatabase writableDatabase = this.b.getWritableDatabase();
-                    int delete = writableDatabase.delete("geoMessage", "message_id = ?", new String[]{str});
-                    writableDatabase.close();
-                    i = delete;
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            com.xiaomi.channel.commonutils.misc.n.a(false);
+            try {
+                if ("Enter".equals(str2) || "Leave".equals(str2) || "Unknown".equals(str2)) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("current_status", str2);
+                    int update = h.a(this.a).a().update("geofence", contentValues, "id=?", new String[]{str});
+                    h.a(this.a).b();
+                    i = update;
                 }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
             }
         }
         return i;
     }
 
-    public synchronized ArrayList<com.xiaomi.push.service.module.b> a() {
-        ArrayList<com.xiaomi.push.service.module.b> arrayList;
-        com.xiaomi.channel.commonutils.misc.k.a(false);
+    public synchronized long a(com.xiaomi.xmpush.thrift.m mVar) {
+        long j;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
         try {
-            SQLiteDatabase writableDatabase = this.b.getWritableDatabase();
-            Cursor a2 = a(writableDatabase);
-            arrayList = new ArrayList<>();
-            if (a2 != null) {
-                while (a2.moveToNext()) {
-                    com.xiaomi.push.service.module.b bVar = new com.xiaomi.push.service.module.b();
-                    bVar.a(a2.getString(a2.getColumnIndex("message_id")));
-                    bVar.b(a2.getString(a2.getColumnIndex("geo_id")));
-                    bVar.a(a2.getBlob(a2.getColumnIndex("content")));
-                    bVar.a(a2.getInt(a2.getColumnIndex("action")));
-                    bVar.a(a2.getLong(a2.getColumnIndex("deadline")));
-                    arrayList.add(bVar);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("id", mVar.a());
+            contentValues.put("appId", Long.valueOf(mVar.e()));
+            contentValues.put("name", mVar.c());
+            contentValues.put(Constants.PACKAGE_NAME, mVar.g());
+            contentValues.put("create_time", Long.valueOf(mVar.i()));
+            contentValues.put("type", mVar.k().name());
+            contentValues.put("center_longtitude", String.valueOf(mVar.m().a()));
+            contentValues.put("center_lantitude", String.valueOf(mVar.m().c()));
+            contentValues.put("circle_radius", Double.valueOf(mVar.o()));
+            contentValues.put("polygon_point", a(mVar.q()));
+            contentValues.put("coordinate_provider", mVar.s().name());
+            contentValues.put("current_status", "Unknown");
+            j = h.a(this.a).a().insert("geofence", null, contentValues);
+            h.a(this.a).b();
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            j = -1;
+        }
+        return j;
+    }
+
+    public synchronized com.xiaomi.xmpush.thrift.m a(String str) {
+        com.xiaomi.xmpush.thrift.m mVar;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            Iterator<com.xiaomi.xmpush.thrift.m> it = a().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    mVar = null;
+                    break;
                 }
-                a2.close();
+                mVar = it.next();
+                if (TextUtils.equals(mVar.a(), str)) {
+                    break;
+                }
             }
-            writableDatabase.close();
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            mVar = null;
+        }
+        return mVar;
+    }
+
+    public synchronized ArrayList<com.xiaomi.xmpush.thrift.m> a() {
+        ArrayList<com.xiaomi.xmpush.thrift.m> arrayList;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            Cursor a = a(h.a(this.a).a());
+            arrayList = new ArrayList<>();
+            if (a != null) {
+                while (a.moveToNext()) {
+                    try {
+                        com.xiaomi.xmpush.thrift.m mVar = new com.xiaomi.xmpush.thrift.m();
+                        mVar.a(a.getString(a.getColumnIndex("id")));
+                        mVar.b(a.getString(a.getColumnIndex("name")));
+                        mVar.a(a.getInt(a.getColumnIndex("appId")));
+                        mVar.c(a.getString(a.getColumnIndex(Constants.PACKAGE_NAME)));
+                        mVar.b(a.getInt(a.getColumnIndex("create_time")));
+                        com.xiaomi.xmpush.thrift.n a2 = a(a);
+                        if (a2 == null) {
+                            com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo type null");
+                        } else {
+                            mVar.a(a2);
+                            if (TextUtils.equals("Circle", a2.name())) {
+                                mVar.a(b(a));
+                                mVar.a(a.getDouble(a.getColumnIndex("circle_radius")));
+                            } else if (TextUtils.equals("Polygon", a2.name())) {
+                                ArrayList<com.xiaomi.xmpush.thrift.o> c2 = c(a);
+                                if (c2 == null || c2.size() < 3) {
+                                    com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo points null or size<3");
+                                } else {
+                                    mVar.a(c2);
+                                }
+                            }
+                            com.xiaomi.xmpush.thrift.j d = d(a);
+                            if (d == null) {
+                                com.xiaomi.channel.commonutils.logger.b.c(c + "findAllGeoFencing: geo Coordinate Provider null ");
+                            } else {
+                                mVar.a(d);
+                                arrayList.add(mVar);
+                            }
+                        }
+                    } catch (Exception e) {
+                        com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+                    }
+                }
+                a.close();
+            }
+            h.a(this.a).b();
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
+            arrayList = null;
+        }
+        return arrayList;
+    }
+
+    public synchronized ArrayList<com.xiaomi.xmpush.thrift.m> b(String str) {
+        ArrayList<com.xiaomi.xmpush.thrift.m> arrayList;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            ArrayList<com.xiaomi.xmpush.thrift.m> a = a();
+            ArrayList<com.xiaomi.xmpush.thrift.m> arrayList2 = new ArrayList<>();
+            Iterator<com.xiaomi.xmpush.thrift.m> it = a.iterator();
+            while (it.hasNext()) {
+                com.xiaomi.xmpush.thrift.m next = it.next();
+                if (TextUtils.equals(next.g(), str)) {
+                    arrayList2.add(next);
+                }
+            }
+            arrayList = arrayList2;
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d(e.toString());
             arrayList = null;
@@ -85,78 +285,62 @@ public class g {
         return arrayList;
     }
 
-    public synchronized boolean a(ArrayList<ContentValues> arrayList) {
-        boolean z;
-        com.xiaomi.channel.commonutils.misc.k.a(false);
-        if (arrayList == null || arrayList.size() <= 0) {
-            z = false;
-        } else {
-            try {
-                SQLiteDatabase writableDatabase = this.b.getWritableDatabase();
-                writableDatabase.beginTransaction();
-                Iterator<ContentValues> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        z = true;
-                        break;
-                    } else if (-1 == writableDatabase.insert("geoMessage", null, it.next())) {
-                        z = false;
+    public synchronized String c(String str) {
+        String str2;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            Cursor a = a(h.a(this.a).a());
+            if (a != null) {
+                while (a.moveToNext()) {
+                    if (TextUtils.equals(a.getString(a.getColumnIndex("id")), str)) {
+                        str2 = a.getString(a.getColumnIndex("current_status"));
+                        com.xiaomi.channel.commonutils.logger.b.c(c + "findGeoStatueByGeoId: geo current statue is " + str2 + " geoId:" + str);
+                        a.close();
                         break;
                     }
                 }
-                if (z) {
-                    writableDatabase.setTransactionSuccessful();
-                }
-                writableDatabase.endTransaction();
-                writableDatabase.close();
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-                z = false;
+                a.close();
             }
+            h.a(this.a).b();
+            str2 = "Unknown";
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            str2 = "Unknown";
         }
-        return z;
+        return str2;
     }
 
-    public synchronized int b(String str) {
-        int i = 0;
-        synchronized (this) {
-            com.xiaomi.channel.commonutils.misc.k.a(false);
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    SQLiteDatabase writableDatabase = this.b.getWritableDatabase();
-                    int delete = writableDatabase.delete("geoMessage", "geo_id = ?", new String[]{str});
-                    writableDatabase.close();
-                    i = delete;
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-                }
+    public synchronized int d(String str) {
+        int i;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            if (a(str) != null) {
+                i = h.a(this.a).a().delete("geofence", "id = ?", new String[]{str});
+                h.a(this.a).b();
+            } else {
+                i = 0;
             }
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            i = 0;
         }
         return i;
     }
 
-    public synchronized ArrayList<com.xiaomi.push.service.module.b> c(String str) {
-        ArrayList<com.xiaomi.push.service.module.b> arrayList;
-        com.xiaomi.channel.commonutils.misc.k.a(false);
-        if (TextUtils.isEmpty(str)) {
-            arrayList = null;
-        } else {
-            try {
-                ArrayList<com.xiaomi.push.service.module.b> a2 = a();
-                ArrayList<com.xiaomi.push.service.module.b> arrayList2 = new ArrayList<>();
-                Iterator<com.xiaomi.push.service.module.b> it = a2.iterator();
-                while (it.hasNext()) {
-                    com.xiaomi.push.service.module.b next = it.next();
-                    if (TextUtils.equals(next.c(), str)) {
-                        arrayList2.add(next);
-                    }
-                }
-                arrayList = arrayList2;
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
-                arrayList = null;
+    public synchronized int e(String str) {
+        int i;
+        com.xiaomi.channel.commonutils.misc.n.a(false);
+        try {
+            if (TextUtils.isEmpty(str)) {
+                i = 0;
+            } else {
+                i = h.a(this.a).a().delete("geofence", "package_name = ?", new String[]{str});
+                h.a(this.a).b();
             }
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            i = 0;
         }
-        return arrayList;
+        return i;
     }
 }

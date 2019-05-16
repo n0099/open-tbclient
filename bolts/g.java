@@ -39,14 +39,14 @@ public class g<TResult> {
     }
 
     private g(TResult tresult) {
-        g((g<TResult>) tresult);
+        h(tresult);
     }
 
     private g(boolean z) {
         if (z) {
             bi();
         } else {
-            g((g<TResult>) null);
+            h(null);
         }
     }
 
@@ -97,7 +97,7 @@ public class g<TResult> {
         return exc;
     }
 
-    public static <TResult> g<TResult> f(TResult tresult) {
+    public static <TResult> g<TResult> g(TResult tresult) {
         if (tresult == null) {
             return (g<TResult>) ke;
         }
@@ -105,7 +105,7 @@ public class g<TResult> {
             return ((Boolean) tresult).booleanValue() ? (g<TResult>) kf : (g<TResult>) kg;
         }
         h hVar = new h();
-        hVar.h((h) tresult);
+        hVar.i(tresult);
         return hVar.bj();
     }
 
@@ -132,7 +132,7 @@ public class g<TResult> {
                         return;
                     }
                     try {
-                        hVar.h((h) callable.call());
+                        hVar.i(callable.call());
                     } catch (CancellationException e) {
                         hVar.bk();
                     } catch (Exception e2) {
@@ -213,7 +213,7 @@ public class g<TResult> {
                         return;
                     }
                     try {
-                        hVar.h((h) fVar.a(gVar));
+                        hVar.i(fVar.a(gVar));
                     } catch (CancellationException e) {
                         hVar.bk();
                     } catch (Exception e2) {
@@ -241,7 +241,7 @@ public class g<TResult> {
                     try {
                         g gVar2 = (g) fVar.a(gVar);
                         if (gVar2 == null) {
-                            hVar.h((h) null);
+                            hVar.i(null);
                         } else {
                             gVar2.a(new f<TContinuationResult, Void>() { // from class: bolts.g.4.1
                                 /* JADX DEBUG: Method merged with bridge method */
@@ -257,7 +257,7 @@ public class g<TResult> {
                                     } else if (gVar3.bf()) {
                                         hVar.h(gVar3.bg());
                                     } else {
-                                        hVar.h((h) gVar3.getResult());
+                                        hVar.i(gVar3.getResult());
                                     }
                                     return null;
                                 }
@@ -307,7 +307,7 @@ public class g<TResult> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean g(TResult tresult) {
+    public boolean h(TResult tresult) {
         boolean z = true;
         synchronized (this.lock) {
             if (this.complete) {

@@ -9,100 +9,105 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ImageRequestBuilder {
     @Nullable
-    private com.facebook.imagepipeline.g.b jGy;
-    private Uri jLo = null;
-    private ImageRequest.RequestLevel jJp = ImageRequest.RequestLevel.FULL_FETCH;
+    private com.facebook.imagepipeline.g.b jZl;
+    private Uri keb = null;
+    private ImageRequest.RequestLevel kcc = ImageRequest.RequestLevel.FULL_FETCH;
     @Nullable
-    private com.facebook.imagepipeline.common.c jES = null;
+    private com.facebook.imagepipeline.common.c jXF = null;
     @Nullable
-    private com.facebook.imagepipeline.common.d jET = null;
-    private com.facebook.imagepipeline.common.a jEU = com.facebook.imagepipeline.common.a.cwI();
-    private ImageRequest.CacheChoice jLn = ImageRequest.CacheChoice.DEFAULT;
-    private boolean jHd = h.cxh().cxB();
-    private boolean jLs = false;
-    private Priority jLt = Priority.HIGH;
+    private com.facebook.imagepipeline.common.d jXG = null;
+    private com.facebook.imagepipeline.common.a jXH = com.facebook.imagepipeline.common.a.cEE();
+    private ImageRequest.CacheChoice kea = ImageRequest.CacheChoice.DEFAULT;
+    private boolean jZQ = h.cFd().cFx();
+    private boolean kef = false;
+    private Priority keg = Priority.HIGH;
     @Nullable
-    private b jKH = null;
-    private boolean jLv = true;
+    private b kdu = null;
+    private boolean kei = true;
     @Nullable
-    private a jLq = null;
+    private a ked = null;
 
-    public static ImageRequestBuilder O(Uri uri) {
-        return new ImageRequestBuilder().P(uri);
+    public static ImageRequestBuilder U(Uri uri) {
+        return new ImageRequestBuilder().V(uri);
     }
 
     private ImageRequestBuilder() {
     }
 
-    public ImageRequestBuilder P(Uri uri) {
+    public ImageRequestBuilder V(Uri uri) {
         g.checkNotNull(uri);
-        this.jLo = uri;
+        this.keb = uri;
         return this;
     }
 
-    public Uri cAn() {
-        return this.jLo;
+    public Uri cIj() {
+        return this.keb;
     }
 
     @Nullable
-    public a cAp() {
-        return this.jLq;
+    public a cIl() {
+        return this.ked;
     }
 
-    public ImageRequest.RequestLevel czC() {
-        return this.jJp;
+    public ImageRequest.RequestLevel cHy() {
+        return this.kcc;
+    }
+
+    public ImageRequestBuilder c(@Nullable com.facebook.imagepipeline.common.c cVar) {
+        this.jXF = cVar;
+        return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.c cAq() {
-        return this.jES;
+    public com.facebook.imagepipeline.common.c cIm() {
+        return this.jXF;
     }
 
     public ImageRequestBuilder a(@Nullable com.facebook.imagepipeline.common.d dVar) {
-        this.jET = dVar;
+        this.jXG = dVar;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d cAr() {
-        return this.jET;
+    public com.facebook.imagepipeline.common.d cIn() {
+        return this.jXG;
     }
 
-    public com.facebook.imagepipeline.common.a cAs() {
-        return this.jEU;
+    public com.facebook.imagepipeline.common.a cIo() {
+        return this.jXH;
     }
 
-    public ImageRequest.CacheChoice cAm() {
-        return this.jLn;
+    public ImageRequest.CacheChoice cIi() {
+        return this.kea;
     }
 
-    public boolean cxB() {
-        return this.jHd;
+    public boolean cFx() {
+        return this.jZQ;
     }
 
-    public boolean cAz() {
-        return this.jLs;
+    public boolean cIv() {
+        return this.kef;
     }
 
-    public boolean cAv() {
-        return this.jLv && com.facebook.common.util.d.s(this.jLo);
+    public boolean cIr() {
+        return this.kei && com.facebook.common.util.d.y(this.keb);
     }
 
-    public Priority cAA() {
-        return this.jLt;
-    }
-
-    @Nullable
-    public b cAx() {
-        return this.jKH;
+    public Priority cIw() {
+        return this.keg;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.b cAy() {
-        return this.jGy;
+    public b cIt() {
+        return this.kdu;
     }
 
-    public ImageRequest cAB() {
+    @Nullable
+    public com.facebook.imagepipeline.g.b cIu() {
+        return this.jZl;
+    }
+
+    public ImageRequest cIx() {
         validate();
         return new ImageRequest(this);
     }
@@ -115,23 +120,23 @@ public class ImageRequestBuilder {
     }
 
     protected void validate() {
-        if (this.jLo == null) {
+        if (this.keb == null) {
             throw new BuilderException("Source must be set!");
         }
-        if (com.facebook.common.util.d.y(this.jLo)) {
-            if (!this.jLo.isAbsolute()) {
+        if (com.facebook.common.util.d.E(this.keb)) {
+            if (!this.keb.isAbsolute()) {
                 throw new BuilderException("Resource URI path must be absolute.");
             }
-            if (this.jLo.getPath().isEmpty()) {
+            if (this.keb.getPath().isEmpty()) {
                 throw new BuilderException("Resource URI must not be empty");
             }
             try {
-                Integer.parseInt(this.jLo.getPath().substring(1));
+                Integer.parseInt(this.keb.getPath().substring(1));
             } catch (NumberFormatException e) {
                 throw new BuilderException("Resource URI path must be a resource id.");
             }
         }
-        if (com.facebook.common.util.d.x(this.jLo) && !this.jLo.isAbsolute()) {
+        if (com.facebook.common.util.d.D(this.keb) && !this.keb.isAbsolute()) {
             throw new BuilderException("Asset URI path must be absolute.");
         }
     }

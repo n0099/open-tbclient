@@ -1,40 +1,81 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
+import android.text.TextUtils;
 /* loaded from: classes3.dex */
-public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
-    public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
+public class d {
+    String a;
+    String b;
+    String c;
+    String d;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public SubAliasStatus c(Intent intent) {
-        return (SubAliasStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SUBALIAS_STATUS);
-    }
+    /* loaded from: classes3.dex */
+    public static class a {
+        private String a;
+        private String b;
+        private String c;
+        private String d;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(SubAliasStatus subAliasStatus, com.meizu.cloud.pushsdk.notification.e eVar) {
-        if (b() != null && subAliasStatus != null) {
-            b().a(c(), subAliasStatus);
+        public a a(String str) {
+            this.a = str;
+            return this;
+        }
+
+        public d a() {
+            return new d(this);
+        }
+
+        public a b(String str) {
+            this.b = str;
+            return this;
+        }
+
+        public a c(String str) {
+            this.c = str;
+            return this;
+        }
+
+        public a d(String str) {
+            this.d = str;
+            return this;
         }
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBALIAS_STATUS.equals(i(intent));
+    public d() {
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 4096;
+    public d(a aVar) {
+        this.a = !TextUtils.isEmpty(aVar.a) ? aVar.a : "";
+        this.b = !TextUtils.isEmpty(aVar.b) ? aVar.b : "";
+        this.c = !TextUtils.isEmpty(aVar.c) ? aVar.c : "";
+        this.d = !TextUtils.isEmpty(aVar.d) ? aVar.d : "";
+    }
+
+    public static a a() {
+        return new a();
+    }
+
+    public String b() {
+        com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
+        cVar.a("task_id", this.a);
+        cVar.a("seq_id", this.b);
+        cVar.a("push_timestamp", this.c);
+        cVar.a("device_id", this.d);
+        return cVar.toString();
+    }
+
+    public String c() {
+        return this.a;
+    }
+
+    public String d() {
+        return this.b;
+    }
+
+    public String e() {
+        return this.c;
+    }
+
+    public String f() {
+        return this.d;
     }
 }

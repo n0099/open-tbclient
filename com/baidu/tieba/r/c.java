@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c iNN;
-    private a iNO = chn();
+    private static c jgG;
+    private a jgH = cpq();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,47 +19,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean chm() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    private boolean cpp() {
+        return com.baidu.tbadk.core.sharedPref.b.agM().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a chn() {
+    private a cpq() {
         CustomResponsedMessage runTask;
-        if (!chm() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!cpp() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c cho() {
-        if (iNN == null) {
+    public static c cpr() {
+        if (jgG == null) {
             synchronized (c.class) {
-                if (iNN == null) {
-                    iNN = new c();
+                if (jgG == null) {
+                    jgG = new c();
                 }
             }
         }
-        return iNN;
+        return jgG;
     }
 
     public void autoTrace(Context context) {
-        if (this.iNO != null) {
-            this.iNO.autoTrace(context);
+        if (this.jgH != null) {
+            this.jgH.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (this.iNO != null) {
-            this.iNO.setAppChannel(context, str, z);
+        if (this.jgH != null) {
+            this.jgH.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (this.iNO != null) {
-            this.iNO.trackWebView(context, webView, webChromeClient);
+        if (this.jgH != null) {
+            this.jgH.trackWebView(context, webView, webChromeClient);
         }
     }
 }

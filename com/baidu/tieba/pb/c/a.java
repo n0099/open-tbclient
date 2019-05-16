@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
@@ -23,7 +22,7 @@ public class a {
         if (bdUniqueId != null && dVar != null) {
             am amVar = new am("common_exp");
             a(amVar, dVar, postData, i, i2, false, str);
-            c.cdp().a(bdUniqueId, str2, amVar);
+            c.clt().a(bdUniqueId, str2, amVar);
         }
     }
 
@@ -51,7 +50,7 @@ public class a {
                 str = postData.getId();
             }
             a(amVar, dVar, postData, i, i2, false, str);
-            amVar.T("obj_locate", i3);
+            amVar.P("obj_locate", i3);
             TiebaStatic.log(amVar);
         }
     }
@@ -62,17 +61,17 @@ public class a {
         }
         am amVar = new am("common_click");
         a(amVar, dVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        amVar.T("obj_locate", i3);
+        amVar.P("obj_locate", i3);
         return amVar;
     }
 
     private static am a(am amVar, d dVar, PostData postData, int i, int i2, boolean z, String str) {
-        amVar.bJ("page_type", "a005").T("obj_floor", i).T("obj_isad", z ? 1 : 0).bJ(ImageViewerConfig.FORUM_ID, dVar.getForumId() + "").bJ("tid", dVar.getThreadId() + "").bJ(VideoPlayActivityConfig.OBJ_ID, str + "").T("post_type", i2);
+        amVar.bT("page_type", "a005").P("obj_floor", i).P("obj_isad", z ? 1 : 0).bT("fid", dVar.getForumId() + "").bT("tid", dVar.getThreadId() + "").bT(VideoPlayActivityConfig.OBJ_ID, str + "").P("post_type", i2);
         if (postData != null) {
-            amVar.bJ(Info.kBaiduPIDKey, postData.getId() + "");
+            amVar.bT(Info.kBaiduPIDKey, postData.getId() + "");
         }
-        if (dVar.bHW() != null) {
-            amVar.T("thread_type", dVar.bHW().threadType);
+        if (dVar.bPI() != null) {
+            amVar.P("thread_type", dVar.bPI().threadType);
         }
         return amVar;
     }

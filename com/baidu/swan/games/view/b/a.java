@@ -16,33 +16,33 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.games.j.a;
-import com.baidu.swan.games.j.c;
+import com.baidu.swan.games.k.a;
+import com.baidu.swan.games.k.c;
 /* loaded from: classes2.dex */
 public class a {
-    private EditText bga;
-    private EditText bgb;
-    private RelativeLayout bgc;
-    private Button bgd;
-    private a.InterfaceC0194a bgf;
-    private c bgg;
+    private EditText blo;
+    private EditText blp;
+    private RelativeLayout blq;
+    private Button blr;
+    private a.InterfaceC0204a blt;
+    private c blu;
     private RelativeLayout mRootView;
-    private boolean bge = false;
-    private View.OnClickListener bgh = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
+    private boolean bls = false;
+    private View.OnClickListener blv = new View.OnClickListener() { // from class: com.baidu.swan.games.view.b.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bgb != null && a.this.bge) {
-                if (a.this.bgf != null) {
-                    a.this.bgf.iN(a.this.bgb.getText().toString());
+            if (a.this.blp != null && a.this.bls) {
+                if (a.this.blt != null) {
+                    a.this.blt.jz(a.this.blp.getText().toString());
                 }
-                if (a.this.bgg != null && !a.this.bgg.bdX && a.this.bgf != null) {
-                    a.this.bgf.Oy();
-                    a.this.jc("");
+                if (a.this.blu != null && !a.this.blu.bin && a.this.blt != null) {
+                    a.this.blt.RE();
+                    a.this.jX("");
                 }
             }
         }
     };
-    private TextWatcher bgi = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
+    private TextWatcher blw = new TextWatcher() { // from class: com.baidu.swan.games.view.b.a.2
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -53,33 +53,33 @@ public class a {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(final Editable editable) {
-            if (a.this.bgf != null) {
-                a.this.bgf.iM(editable.toString());
+            if (a.this.blt != null) {
+                a.this.blt.jy(editable.toString());
             }
-            a.this.bgd.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
+            a.this.blr.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (TextUtils.isEmpty(editable.toString())) {
-                        a.this.bgd.setEnabled(false);
-                    } else if (!a.this.bgd.isEnabled()) {
-                        a.this.bgd.setEnabled(true);
+                        a.this.blr.setEnabled(false);
+                    } else if (!a.this.blr.isEnabled()) {
+                        a.this.blr.setEnabled(true);
                     }
                 }
             });
         }
     };
-    private TextView.OnEditorActionListener bgj = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
+    private TextView.OnEditorActionListener blx = new TextView.OnEditorActionListener() { // from class: com.baidu.swan.games.view.b.a.3
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (a.this.bgg == null || a.this.bgg.bdY != i || a.this.bgb == null || !a.this.bge) {
+            if (a.this.blu == null || a.this.blu.bio != i || a.this.blp == null || !a.this.bls) {
                 return false;
             }
-            if (a.this.bgf != null) {
-                a.this.bgf.iN(a.this.bgb.getText().toString());
+            if (a.this.blt != null) {
+                a.this.blt.jz(a.this.blp.getText().toString());
             }
-            if (!a.this.bgg.bdX && a.this.bgf != null) {
-                a.this.bgf.Oy();
-                a.this.jc("");
+            if (!a.this.blu.bin && a.this.blt != null) {
+                a.this.blt.RE();
+                a.this.jX("");
             }
             return true;
         }
@@ -87,17 +87,17 @@ public class a {
 
     public a(Context context) {
         this.mRootView = (RelativeLayout) LayoutInflater.from(context).inflate(a.g.aiapps_ai_games_input_view, (ViewGroup) null);
-        this.bga = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
-        this.bgc = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
-        this.bgb = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
-        this.bgd = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
-        this.bgd.setOnClickListener(this.bgh);
-        this.bgb.addTextChangedListener(this.bgi);
-        this.bgb.setOnEditorActionListener(this.bgj);
-        this.bgd.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
+        this.blo = (EditText) this.mRootView.findViewById(a.f.ai_games_virtual_input_et);
+        this.blq = (RelativeLayout) this.mRootView.findViewById(a.f.ai_games_real_input_container);
+        this.blp = (EditText) this.mRootView.findViewById(a.f.ai_games_real_input_et);
+        this.blr = (Button) this.mRootView.findViewById(a.f.ai_games_input_send_btn);
+        this.blr.setOnClickListener(this.blv);
+        this.blp.addTextChangedListener(this.blw);
+        this.blp.setOnEditorActionListener(this.blx);
+        this.blr.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bgd.setEnabled(false);
+                a.this.blr.setEnabled(false);
             }
         });
     }
@@ -106,95 +106,105 @@ public class a {
         return this.mRootView;
     }
 
-    public boolean PF() {
-        if (this.bge) {
+    public boolean Ta() {
+        if (this.bls) {
             return false;
         }
-        this.bga.setVisibility(0);
-        this.bgc.setVisibility(8);
-        this.bga.setFocusableInTouchMode(true);
-        this.bga.requestFocus();
-        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.bga, 0);
+        this.blo.setVisibility(0);
+        this.blq.setVisibility(8);
+        this.blo.setFocusableInTouchMode(true);
+        this.blo.requestFocus();
+        ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.blo, 0);
         return true;
     }
 
-    public void eM(int i) {
-        this.bgc.setVisibility(0);
-        this.bgb.setFocusableInTouchMode(true);
-        this.bgb.requestFocus();
-        this.bga.setVisibility(8);
-        this.bge = true;
-        if (this.bgf != null) {
-            this.bgf.eF(i);
+    public void fg(int i) {
+        this.blq.setVisibility(0);
+        this.blp.setFocusableInTouchMode(true);
+        this.blp.requestFocus();
+        this.blo.setVisibility(8);
+        this.bls = true;
+        if (this.blt != null) {
+            this.blt.eV(i);
         }
     }
 
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-        if (inputMethodManager.isActive() && this.bgb != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.bgb.getApplicationWindowToken(), 0);
-            this.bge = false;
-            this.bga.setVisibility(8);
-            this.bgc.setVisibility(8);
-            if (this.bgf != null && this.bgb != null) {
-                this.bgf.iO(this.bgb.getText().toString());
+        if (inputMethodManager.isActive() && this.blp != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.blp.getApplicationWindowToken(), 0);
+            this.bls = false;
+            this.blo.setVisibility(8);
+            this.blq.setVisibility(8);
+            if (this.blt != null && this.blp != null) {
+                this.blt.jA(this.blp.getText().toString());
             }
         }
     }
 
-    public void a(a.InterfaceC0194a interfaceC0194a) {
-        this.bgf = interfaceC0194a;
+    public void a(a.InterfaceC0204a interfaceC0204a) {
+        this.blt = interfaceC0204a;
     }
 
     public void a(final c cVar) {
-        this.bgg = cVar;
-        if (this.bgb != null && cVar != null) {
-            if (!TextUtils.isEmpty(cVar.bdV)) {
-                this.bgb.setText(cVar.bdV);
+        this.blu = cVar;
+        if (this.blp != null && cVar != null) {
+            if (!TextUtils.isEmpty(cVar.bil)) {
+                this.blp.setText(cVar.bil);
                 if (cVar.maxLength > 0) {
-                    if (!TextUtils.isEmpty(cVar.bdV) && cVar.bdV.length() > cVar.maxLength) {
-                        cVar.maxLength = cVar.bdV.length();
+                    if (!TextUtils.isEmpty(cVar.bil) && cVar.bil.length() > cVar.maxLength) {
+                        cVar.maxLength = cVar.bil.length();
                     }
-                    this.bgb.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
+                    this.blp.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cVar.maxLength)});
                 }
-                this.bgb.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
+                this.blp.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.bgb.setSelection(cVar.bdV.length());
+                        int length;
+                        try {
+                            if (a.this.blp.getText().length() <= cVar.bil.length()) {
+                                length = a.this.blp.getText().length();
+                            } else {
+                                length = cVar.bil.length();
+                            }
+                            a.this.blp.setSelection(length);
+                        } catch (Exception e) {
+                            if (com.baidu.swan.apps.b.DEBUG) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }, 300L);
             } else {
-                this.bgb.setText("");
+                this.blp.setText("");
             }
-            this.bgd.setEnabled(!TextUtils.isEmpty(cVar.bdV));
-            if (cVar.bdW) {
-                this.bgb.setMinLines(1);
-                this.bgb.setInputType(131073);
-                this.bgd.setVisibility(0);
-                this.bgd.setText(cVar.bdZ);
+            this.blr.setEnabled(TextUtils.isEmpty(cVar.bil) ? false : true);
+            if (cVar.bim) {
+                this.blp.setMinLines(1);
+                this.blp.setInputType(131073);
+                this.blr.setText(cVar.bip);
                 return;
             }
-            this.bgb.setMaxLines(1);
-            this.bgb.setInputType(1);
-            this.bgd.setVisibility(8);
+            this.blp.setMaxLines(1);
+            this.blp.setInputType(1);
         }
     }
 
-    public boolean jc(final String str) {
-        if (!this.bge || this.bgb == null) {
+    public boolean jX(final String str) {
+        if (!this.bls || this.blp == null) {
             return false;
         }
-        this.bgb.setText(str);
-        this.bgb.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
+        this.blp.setText(str);
+        this.blp.postDelayed(new Runnable() { // from class: com.baidu.swan.games.view.b.a.6
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bgb.setSelection(str.length());
+                a.this.blp.setSelection(str.length());
             }
         }, 300L);
         return true;
     }
 
-    public boolean PG() {
-        return this.bge;
+    public boolean Tb() {
+        return this.bls;
     }
 }

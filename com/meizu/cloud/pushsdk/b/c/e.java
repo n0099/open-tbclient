@@ -1,0 +1,102 @@
+package com.meizu.cloud.pushsdk.b.c;
+
+import com.meizu.cloud.pushsdk.b.c.k;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpPut;
+/* loaded from: classes3.dex */
+public class e implements a {
+    com.meizu.cloud.pushsdk.b.h.a a = new com.meizu.cloud.pushsdk.b.h.a(null);
+
+    private static l a(final HttpURLConnection httpURLConnection) throws IOException {
+        if (httpURLConnection.getDoInput()) {
+            final com.meizu.cloud.pushsdk.b.g.c a = com.meizu.cloud.pushsdk.b.g.f.a(com.meizu.cloud.pushsdk.b.g.f.a(a(httpURLConnection.getResponseCode()) ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream()));
+            return new l() { // from class: com.meizu.cloud.pushsdk.b.c.e.1
+                @Override // com.meizu.cloud.pushsdk.b.c.l
+                public com.meizu.cloud.pushsdk.b.g.c a() {
+                    return a;
+                }
+            };
+        }
+        return null;
+    }
+
+    static void a(HttpURLConnection httpURLConnection, i iVar) throws IOException {
+        switch (iVar.c()) {
+            case 0:
+                httpURLConnection.setRequestMethod("GET");
+                return;
+            case 1:
+                httpURLConnection.setRequestMethod("POST");
+                b(httpURLConnection, iVar);
+                return;
+            case 2:
+                httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+                b(httpURLConnection, iVar);
+                return;
+            case 3:
+                httpURLConnection.setRequestMethod(HttpDelete.METHOD_NAME);
+                return;
+            case 4:
+                httpURLConnection.setRequestMethod(HttpHead.METHOD_NAME);
+                return;
+            case 5:
+                httpURLConnection.setRequestMethod("PATCH");
+                b(httpURLConnection, iVar);
+                return;
+            default:
+                throw new IllegalStateException("Unknown method type.");
+        }
+    }
+
+    protected static boolean a(int i) {
+        return i >= 200 && i < 300;
+    }
+
+    private HttpURLConnection b(i iVar) throws IOException {
+        String fVar = iVar.a().toString();
+        HttpURLConnection a = a(new URL(fVar));
+        a.setConnectTimeout(60000);
+        a.setReadTimeout(60000);
+        a.setUseCaches(false);
+        a.setDoInput(true);
+        if (iVar.f() && fVar.startsWith("https://api-push.meizu.com")) {
+            ((HttpsURLConnection) a).setSSLSocketFactory(this.a);
+        }
+        return a;
+    }
+
+    private static void b(HttpURLConnection httpURLConnection, i iVar) throws IOException {
+        j e = iVar.e();
+        if (e != null) {
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.addRequestProperty("Content-Type", e.a().toString());
+            com.meizu.cloud.pushsdk.b.g.b a = com.meizu.cloud.pushsdk.b.g.f.a(com.meizu.cloud.pushsdk.b.g.f.a(httpURLConnection.getOutputStream()));
+            e.a(a);
+            a.close();
+        }
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.c.a
+    public k a(i iVar) throws IOException {
+        HttpURLConnection b = b(iVar);
+        for (String str : iVar.d().b()) {
+            String a = iVar.a(str);
+            com.meizu.cloud.pushsdk.b.a.a.b("current header name " + str + " value " + a);
+            b.addRequestProperty(str, a);
+        }
+        a(b, iVar);
+        int responseCode = b.getResponseCode();
+        return new k.a().a(responseCode).a(iVar.d()).a(b.getResponseMessage()).a(iVar).a(a(b)).a();
+    }
+
+    protected HttpURLConnection a(URL url) throws IOException {
+        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+        httpURLConnection.setInstanceFollowRedirects(HttpURLConnection.getFollowRedirects());
+        return httpURLConnection;
+    }
+}

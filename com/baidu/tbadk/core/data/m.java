@@ -9,43 +9,43 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private boolean bxO;
-    private int bxP;
-    private int bxQ;
-    private int bxR = 25;
-    private int bxS = 25;
-    private int bxT = 10;
+    private boolean bEZ;
+    private int bFa;
+    private int bFb;
+    private int bFc = 25;
+    private int bFd = 25;
+    private int bFe = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.bxR;
+        return this.bFc;
     }
 
     public int getErrRank() {
-        return this.bxS;
+        return this.bFd;
     }
 
     public int getSlowRank() {
-        return this.bxT;
+        return this.bFe;
     }
 
     public boolean ismSwitch() {
-        return this.bxO;
+        return this.bEZ;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.bxO != z) {
-            com.baidu.adp.lib.stats.a jC = com.baidu.tbadk.core.util.s.jC();
-            jC.append(SocialConstants.PARAM_ACT, "fallback");
-            jC.append("result", z ? "1" : "0");
-            jC.append("type", "switch");
-            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, jC);
+        if (this.bEZ != z) {
+            com.baidu.adp.lib.stats.a iw = com.baidu.tbadk.core.util.s.iw();
+            iw.append(SocialConstants.PARAM_ACT, "fallback");
+            iw.append("result", z ? "1" : "0");
+            iw.append("type", "switch");
+            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, iw);
         }
-        this.bxO = z;
+        this.bEZ = z;
     }
 
     public int getSlowNumber() {
-        return this.bxP;
+        return this.bFa;
     }
 
     public int getTime() {
@@ -53,7 +53,7 @@ public class m {
     }
 
     public int getErrNumber() {
-        return this.bxQ;
+        return this.bFb;
     }
 
     public void parseJson(String str) {
@@ -62,7 +62,7 @@ public class m {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.bxO = false;
+            this.bEZ = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -71,30 +71,30 @@ public class m {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.bxO = true;
+                    this.bEZ = true;
                 } else {
-                    this.bxO = false;
+                    this.bEZ = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.bxQ = optJSONObject.optInt("num");
+                    this.bFb = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.bxP = optJSONObject2.optInt("num");
+                    this.bFa = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.bxR = optJSONObject3.optInt("succ");
-                    this.bxS = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.bxT = optJSONObject3.optInt("slow");
+                    this.bFc = optJSONObject3.optInt("succ");
+                    this.bFd = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.bFe = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.bxP <= 0 || this.bxQ <= 0) {
-                    this.bxO = false;
+                if (this.time <= 0 || this.bFa <= 0 || this.bFb <= 0) {
+                    this.bEZ = false;
                 }
             } catch (Exception e) {
-                this.bxO = false;
+                this.bEZ = false;
                 BdLog.e(e.getMessage());
             }
         }

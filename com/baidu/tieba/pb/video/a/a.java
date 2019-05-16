@@ -21,39 +21,39 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fxV = l.h(TbadkCoreApplication.getInst(), d.e.tbds33);
+    private static final int fOP = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
-        int h;
+        int g;
         if (context != null && textView != null && !StringUtils.isNull(str)) {
-            int color = al.getColor(d.C0277d.cp_cont_j);
+            int color = al.getColor(R.color.cp_cont_j);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
-            int h2 = l.aS(context)[0] - (l.h(context, d.e.tbds48) * 2);
-            int h3 = l.h(context, d.e.tbds116);
+            int g2 = l.aj(context)[0] - (l.g(context, R.dimen.tbds48) * 2);
+            int g3 = l.g(context, R.dimen.tbds116);
             int c = l.c(paint, " 广告");
             int c2 = l.c(paint, "...  ");
             int c3 = l.c(paint, str4);
-            int h4 = c3 + h3 + c + l.h(context, d.e.tbds30);
-            if (h4 >= h2 * 2) {
-                str4 = a(paint, str4, ((((h2 * 2) - h3) - c) - c2) - h) + "...  ";
-            } else if (h4 >= h2 && c3 < h2 && h4 >= h2) {
+            int g4 = c3 + g3 + c + l.g(context, R.dimen.tbds30);
+            if (g4 >= g2 * 2) {
+                str4 = a(paint, str4, ((((g2 * 2) - g3) - c) - c2) - g) + "...  ";
+            } else if (g4 >= g2 && c3 < g2 && g4 >= g2) {
                 str4 = str4.trim() + "\n";
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString("_");
-            Drawable drawable = al.getDrawable(d.f.icon_video_pb_ad_link);
+            Drawable drawable = al.getDrawable(R.drawable.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0362a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0381a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         am amVar = new am("c13313");
-                        amVar.bJ("tid", str3);
+                        amVar.bT("tid", str3);
                         TiebaStatic.log(amVar);
                         com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -61,13 +61,13 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fxV, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(fOP, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             am amVar = new am("c13312");
-            amVar.bJ("tid", str3);
+            amVar.bT("tid", str3);
             TiebaStatic.log(amVar);
         }
     }
@@ -82,12 +82,12 @@ public class a {
 
     /* loaded from: classes4.dex */
     private static class b extends ReplacementSpan {
-        private int fxY;
-        private int fxZ;
+        private int fOS;
+        private int fOT;
 
         public b(int i, int i2) {
-            this.fxY = i;
-            this.fxZ = i2;
+            this.fOS = i;
+            this.fOT = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -105,16 +105,16 @@ public class a {
 
         private TextPaint c(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fxY);
-            textPaint.setColor(this.fxZ);
+            textPaint.setTextSize(this.fOS);
+            textPaint.setColor(this.fOT);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0362a extends ImageSpan {
-        public C0362a(Drawable drawable, int i) {
+    private static class C0381a extends ImageSpan {
+        public C0381a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

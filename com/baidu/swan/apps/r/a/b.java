@@ -17,48 +17,48 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class b extends PopupWindow {
-    private SwanAppActivity avZ;
-    private int awA;
-    private String[] awS;
-    private a awV;
+    private SwanAppActivity aww;
+    private int axc;
+    private String[] axv;
+    private a axy;
     private EditText mEditText;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Ci();
+        void Dk();
 
-        void cx(int i);
+        void cy(int i);
     }
 
     public b(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
         super(swanAppActivity);
-        this.awS = new String[12];
-        cy(i);
+        this.axv = new String[12];
+        cz(i);
         a(swanAppActivity, editText, i2);
     }
 
-    private void cy(int i) {
+    private void cz(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
-            this.awS[i2] = String.valueOf(i2 + 1);
+            this.axv[i2] = String.valueOf(i2 + 1);
         }
         if (i == 1) {
-            this.awS[9] = "X";
+            this.axv[9] = "X";
         } else if (i == 0) {
-            this.awS[9] = "";
+            this.axv[9] = "";
         } else if (i == 2) {
-            this.awS[9] = ".";
+            this.axv[9] = ".";
         }
-        this.awS[10] = "0";
+        this.axv[10] = "0";
     }
 
     private void a(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, final int i) {
-        this.avZ = swanAppActivity;
+        this.aww = swanAppActivity;
         this.mEditText = editText;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(a.g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.awA = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
+        this.axc = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         GridView gridView = (GridView) linearLayout.findViewById(a.f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.r.a.a(swanAppActivity, this.awS));
+        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.r.a.a(swanAppActivity, this.axv));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.r.a.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
@@ -71,9 +71,9 @@ public class b extends PopupWindow {
                         b.this.mEditText.setSelection(selectionStart - 1);
                     }
                 } else if (text.length() < i) {
-                    text.insert(selectionStart, b.this.awS[i2]);
+                    text.insert(selectionStart, b.this.axv[i2]);
                     b.this.mEditText.setText(text);
-                    b.this.mEditText.setSelection(selectionStart + b.this.awS[i2].length());
+                    b.this.mEditText.setSelection(selectionStart + b.this.axv[i2].length());
                 }
             }
         });
@@ -88,28 +88,28 @@ public class b extends PopupWindow {
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.awA);
+        setHeight(this.axc);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
         super.dismiss();
-        if (this.awV != null) {
-            this.awV.Ci();
+        if (this.axy != null) {
+            this.axy.Dk();
         }
     }
 
     public void show() {
         if (!isShowing()) {
-            showAtLocation(this.avZ.getWindow().getDecorView(), 80, 0, 0);
-            if (this.awV != null) {
-                this.awV.cx(this.awA);
+            showAtLocation(this.aww.getWindow().getDecorView(), 80, 0, 0);
+            if (this.axy != null) {
+                this.axy.cy(this.axc);
             }
         }
     }
 
     public void a(@NonNull a aVar) {
-        this.awV = aVar;
+        this.axy = aVar;
     }
 }

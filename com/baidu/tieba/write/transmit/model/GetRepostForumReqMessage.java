@@ -53,6 +53,6 @@ public class GetRepostForumReqMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = b.d(str, 0L);
+        this.forumId = b.c(str, 0L);
     }
 }

@@ -26,7 +26,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean nV() {
+    public static boolean mQ() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -38,7 +38,7 @@ public final class Util {
         }
     }
 
-    public static f k(InputStream inputStream) throws IOException {
+    public static f i(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -60,17 +60,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean r(long j) {
-        long nX = nX();
+    public static final boolean p(long j) {
+        long mS = mS();
         if (j <= 0) {
-            return nX <= 0 || nX >= 31457280;
+            return mS <= 0 || mS >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < nX;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mS;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -142,9 +142,9 @@ public final class Util {
         }
     }
 
-    public static void s(File file) {
+    public static void m(File file) {
         if (file != null && file.exists()) {
-            q(file);
+            k(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -153,14 +153,14 @@ public final class Util {
         }
     }
 
-    public static void q(File file) {
+    public static void k(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            r(file2);
+                            l(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -172,10 +172,10 @@ public final class Util {
         }
     }
 
-    public static void r(File file) {
+    public static void l(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                s(file);
+                m(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -186,7 +186,7 @@ public final class Util {
         }
     }
 
-    public static int b(Signature[] signatureArr, Signature[] signatureArr2) {
+    public static int a(Signature[] signatureArr, Signature[] signatureArr2) {
         if (signatureArr == null) {
             return signatureArr2 == null ? 1 : -1;
         } else if (signatureArr2 == null) {
@@ -204,15 +204,15 @@ public final class Util {
         }
     }
 
-    public static File cq(String str) {
-        PluginSetting bU = PluginPackageManager.ni().bU(str);
-        if (bU == null || bU.apkPath == null || bU.apkPath.length() <= ".apk".length()) {
+    public static File ca(String str) {
+        PluginSetting bE = PluginPackageManager.mc().bE(str);
+        if (bE == null || bE.apkPath == null || bE.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bU.apkPath.substring(0, bU.apkPath.length() - ".apk".length()));
+        return new File(bE.apkPath.substring(0, bE.apkPath.length() - ".apk".length()));
     }
 
-    public static File nW() {
+    public static File mR() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -227,7 +227,7 @@ public final class Util {
         }
     }
 
-    public static String b(ApplicationInfo applicationInfo) {
+    public static String a(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
@@ -252,49 +252,49 @@ public final class Util {
         return sb.substring(0, sb.length() - 1);
     }
 
-    public static String c(ApplicationInfo applicationInfo) {
+    public static String b(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
         return String.valueOf(applicationInfo.metaData.getInt("require_load"));
     }
 
-    public static boolean d(ApplicationInfo applicationInfo) {
+    public static boolean c(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_inject_classloader");
     }
 
-    public static boolean e(ApplicationInfo applicationInfo) {
+    public static boolean d(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("has_res", false);
     }
 
-    public static boolean f(ApplicationInfo applicationInfo) {
+    public static boolean e(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_third", false);
     }
 
-    public static boolean g(ApplicationInfo applicationInfo) {
+    public static boolean f(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_patch", false);
     }
 
-    public static String h(ApplicationInfo applicationInfo) {
+    public static String g(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare P(String str, String str2) {
+    public static VersionCompare J(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -310,12 +310,12 @@ public final class Util {
         int length2 = split2.length;
         int i = length < length2 ? length : length2;
         for (int i2 = 0; i2 < i; i2++) {
-            int l = com.baidu.adp.lib.g.b.l(split[i2], 0);
-            int l2 = com.baidu.adp.lib.g.b.l(split2[i2], 0);
-            if (l > l2) {
+            int f = com.baidu.adp.lib.g.b.f(split[i2], 0);
+            int f2 = com.baidu.adp.lib.g.b.f(split2[i2], 0);
+            if (f > f2) {
                 return VersionCompare.GREATER;
             }
-            if (l < l2) {
+            if (f < f2) {
                 return VersionCompare.LESS;
             }
         }
@@ -335,7 +335,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String cr(String str) {
+    public static String cb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -346,10 +346,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return nW() + File.separator + e(pluginSetting);
+        return mR() + File.separator + e(pluginSetting);
     }
 
-    public static long nX() {
+    public static long mS() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

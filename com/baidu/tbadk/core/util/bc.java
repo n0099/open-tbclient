@@ -12,75 +12,75 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bc {
-    private static int bLJ = -1;
-    private static int bLK = -1;
-    private static boolean bLL = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bLM = new com.baidu.adp.lib.e.a<>(500);
+    private static int bTu = -1;
+    private static int bTv = -1;
+    private static boolean bTw = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> bTx = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean aA(View view);
+        boolean aG(View view);
     }
 
-    public static void cW(Context context) {
+    public static void cB(Context context) {
         mAppContext = context;
-        bLL = true;
+        bTw = true;
     }
 
-    private static void adB() {
+    private static void aiA() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bLK = mAppContext.getResources().getColor(d.C0277d.common_color_10097);
-            bLJ = mAppContext.getResources().getColor(d.C0277d.common_color_10004);
+            bTv = mAppContext.getResources().getColor(R.color.common_color_10097);
+            bTu = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
-    private static int hB(int i) {
-        return dF(i == 1);
+    private static int ip(int i) {
+        return eb(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int dF(boolean z) {
-        if (bLL) {
-            bLL = false;
-            adB();
+    public static int eb(boolean z) {
+        if (bTw) {
+            bTw = false;
+            aiA();
         }
-        return z ? bLJ : bLK;
+        return z ? bTu : bTv;
     }
 
-    public static void aC(View view) {
+    public static void aI(View view) {
         if (view instanceof ViewGroup) {
-            c((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
+            d((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public static void aD(View view) {
+    public static void aJ(View view) {
         if (view != null) {
-            bLM.remove(Integer.valueOf(System.identityHashCode(view)));
+            bTx.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
-    public static void c(ViewGroup viewGroup, int i) {
+    public static void d(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bLM.get(Integer.valueOf(identityHashCode));
+        Integer num = bTx.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
-            d(viewGroup, i);
-            bLM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            e(viewGroup, i);
+            bTx.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.aA(viewGroup)) {
+        if (!z || !aVar.aG(viewGroup)) {
             LinkedList linkedList = new LinkedList();
             while (true) {
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.aA(childAt)) {
+                    if (!aVar.aG(childAt)) {
                         if (childAt instanceof ViewGroup) {
                             linkedList.addLast((ViewGroup) childAt);
                         }
@@ -97,11 +97,11 @@ public class bc {
         }
     }
 
-    private static void d(ViewGroup viewGroup, final int i) {
+    private static void e(ViewGroup viewGroup, final int i) {
         final boolean z = i == 1;
         a(viewGroup, true, new a() { // from class: com.baidu.tbadk.core.util.bc.1
             @Override // com.baidu.tbadk.core.util.bc.a
-            public boolean aA(View view) {
+            public boolean aG(View view) {
                 Object tag = view.getTag();
                 if (tag != null) {
                     if ("skin_text_group".equals(tag)) {
@@ -117,34 +117,34 @@ public class bc {
                         bc.a((CheckBox) view, i);
                         return false;
                     } else if ("skin_sidebar_content".equals(tag)) {
-                        ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? d.k.sidebar_content_1 : d.k.sidebar_content);
+                        ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
                         return false;
                     } else if ("skin_more_up".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.dF(z));
+                            ((RadioButton) view).setTextColor(bc.eb(z));
                         }
-                        al.k(view, d.f.more_up);
+                        al.k(view, R.drawable.more_up);
                         return false;
                     } else if ("skin_more_middle".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.dF(z));
+                            ((RadioButton) view).setTextColor(bc.eb(z));
                         }
-                        al.k(view, d.f.more_middle);
+                        al.k(view, R.drawable.more_middle);
                         return false;
                     } else if ("skin_more_down".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.dF(z));
+                            ((RadioButton) view).setTextColor(bc.eb(z));
                         }
-                        al.k(view, d.f.more_down);
+                        al.k(view, R.drawable.more_down);
                         return false;
                     } else if ("skin_more_all".equals(tag)) {
                         if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bc.dF(z));
+                            ((RadioButton) view).setTextColor(bc.eb(z));
                         }
-                        al.k(view, d.f.more_all);
+                        al.k(view, R.drawable.more_all);
                         return false;
                     } else if ("skin_arrow".equals(tag)) {
-                        al.c((ImageView) view, d.f.icon_ba_top_arrow_big);
+                        al.c((ImageView) view, (int) R.drawable.icon_ba_top_arrow_big);
                         return false;
                     } else if ("skin_list_line".equals(tag)) {
                         bc.m(view, i);
@@ -169,39 +169,39 @@ public class bc {
     }
 
     @Deprecated
-    public static void cX(Context context) {
+    public static void cC(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-            cY(context);
+            cD(context);
         }
     }
 
-    public static void cY(Context context) {
+    public static void cD(Context context) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
         }
     }
 
-    public static void i(Context context, String str, String str2) {
+    public static void l(Context context, String str, String str2) {
         if (context != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
     }
 
-    public static boolean cZ(Context context) {
+    public static boolean cE(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            cY(context);
+            cD(context);
         }
         return isLogin;
     }
 
-    public static boolean j(Context context, String str, String str2) {
+    public static boolean m(Context context, String str, String str2) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            i(context, str, str2);
+            l(context, str, str2);
         }
         return isLogin;
     }
@@ -226,13 +226,13 @@ public class bc {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(hB(i));
+            textView.setTextColor(ip(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(hB(i));
+            checkBox.setTextColor(ip(i));
         }
     }
 

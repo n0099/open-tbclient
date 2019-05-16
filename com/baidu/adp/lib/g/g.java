@@ -60,7 +60,7 @@ public class g {
     }
 
     public static final boolean a(PopupWindow popupWindow) {
-        if (popupWindow == null || aM(popupWindow.getContentView().getContext()) || !z(popupWindow.getContentView())) {
+        if (popupWindow == null || ad(popupWindow.getContentView().getContext()) || !z(popupWindow.getContentView())) {
             return false;
         }
         popupWindow.dismiss();
@@ -69,7 +69,7 @@ public class g {
 
     public static final boolean a(PopupWindow popupWindow, Activity activity) {
         if (popupWindow != null && activity != null) {
-            if (!aM(activity) && z(activity.getWindow().getDecorView())) {
+            if (!ad(activity) && z(activity.getWindow().getDecorView())) {
                 popupWindow.dismiss();
                 return true;
             }
@@ -79,7 +79,7 @@ public class g {
     }
 
     public static final boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (popupWindow == null || view == null || aM(view.getContext()) || !z(view)) {
+        if (popupWindow == null || view == null || ad(view.getContext()) || !z(view)) {
             return false;
         }
         try {
@@ -91,7 +91,7 @@ public class g {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (popupWindow == null || view == null || aM(view.getContext()) || !z(view)) {
+        if (popupWindow == null || view == null || ad(view.getContext()) || !z(view)) {
             return false;
         }
         try {
@@ -103,7 +103,7 @@ public class g {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (popupWindow == null || view == null || aM(view.getContext()) || !z(view)) {
+        if (popupWindow == null || view == null || ad(view.getContext()) || !z(view)) {
             return false;
         }
         try {
@@ -115,7 +115,7 @@ public class g {
     }
 
     public static final boolean q(Activity activity) {
-        if (activity == null || aM(activity)) {
+        if (activity == null || ad(activity)) {
             return false;
         }
         return z(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
@@ -136,7 +136,7 @@ public class g {
         return false;
     }
 
-    private static final boolean aM(Context context) {
+    private static final boolean ad(Context context) {
         if (context instanceof Activity) {
             return ((Activity) context).isFinishing();
         }

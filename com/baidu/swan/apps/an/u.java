@@ -1,65 +1,188 @@
 package com.baidu.swan.apps.an;
 
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import android.util.Log;
+import com.baidu.tieba.keepLive.util.RomTypeUtil;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class u {
-    public static boolean c(File file, String str) {
-        return a(file, str, null);
-    }
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static String aZv;
+    private static String aZw;
 
-    public static boolean a(File file, String str, com.baidu.swan.apps.an.a.c cVar) {
-        boolean z = file == null;
-        if (z || !file.exists() || TextUtils.isEmpty(str)) {
-            if (cVar != null) {
-                cVar.aWE = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
-            }
+    public static boolean bM(Context context) {
+        if (context == null) {
             return false;
         }
-        String c = com.baidu.swan.c.c.c(file, false);
-        if (cVar != null) {
-            cVar.aWE = c;
+        if (isEmui()) {
+            return bN(context);
         }
+        if (OH()) {
+            return bO(context);
+        }
+        if (OI()) {
+            return bP(context);
+        }
+        return false;
+    }
+
+    private static boolean bN(@NonNull Context context) {
         try {
-            String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), hD("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
-            if (cVar != null) {
-                cVar.aWF = str2;
-            }
-            return TextUtils.equals(str2, c);
+            Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
+            return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
         } catch (Exception e) {
-            if (cVar != null) {
-                cVar.aWF = e.getLocalizedMessage();
+            if (DEBUG) {
+                e.printStackTrace();
             }
             return false;
         }
     }
 
-    private static byte[] decryptByPublicKey(byte[] bArr, PublicKey publicKey) throws Exception {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(2, publicKey);
-        return cipher.doFinal(bArr);
+    private static boolean bO(@NonNull Context context) {
+        try {
+            Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
+            return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
+        } catch (Exception e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+            return false;
+        }
     }
 
-    private static PublicKey hD(String str) {
+    private static boolean bP(@NonNull Context context) {
+        return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+    }
+
+    public static boolean isEmui() {
+        return check(RomTypeUtil.ROM_EMUI);
+    }
+
+    public static boolean OH() {
+        return check(RomTypeUtil.ROM_VIVO);
+    }
+
+    public static boolean OI() {
+        return check(RomTypeUtil.ROM_OPPO);
+    }
+
+    public static boolean check(String str) {
+        if (aZv != null) {
+            return aZv.equals(str);
+        }
+        String prop = getProp("ro.miui.ui.version.name");
+        aZw = prop;
+        if (!TextUtils.isEmpty(prop)) {
+            aZv = RomTypeUtil.ROM_MIUI;
+        } else {
+            String prop2 = getProp("ro.build.version.emui");
+            aZw = prop2;
+            if (!TextUtils.isEmpty(prop2)) {
+                aZv = RomTypeUtil.ROM_EMUI;
+            } else {
+                String prop3 = getProp("ro.build.version.opporom");
+                aZw = prop3;
+                if (!TextUtils.isEmpty(prop3)) {
+                    aZv = RomTypeUtil.ROM_OPPO;
+                } else {
+                    String prop4 = getProp("ro.vivo.os.version");
+                    aZw = prop4;
+                    if (!TextUtils.isEmpty(prop4)) {
+                        aZv = RomTypeUtil.ROM_VIVO;
+                    } else {
+                        String prop5 = getProp("ro.smartisan.version");
+                        aZw = prop5;
+                        if (!TextUtils.isEmpty(prop5)) {
+                            aZv = RomTypeUtil.ROM_SMARTISAN;
+                        } else {
+                            String prop6 = getProp("ro.gn.sv.version");
+                            aZw = prop6;
+                            if (!TextUtils.isEmpty(prop6)) {
+                                aZv = RomTypeUtil.ROM_SMARTISAN;
+                            } else {
+                                String prop7 = getProp("ro.build.rom.id");
+                                aZw = prop7;
+                                if (!TextUtils.isEmpty(prop7)) {
+                                    aZv = "NUBIA";
+                                } else {
+                                    aZw = Build.DISPLAY;
+                                    if (aZw.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
+                                        aZv = RomTypeUtil.ROM_FLYME;
+                                    } else {
+                                        aZw = "unknown";
+                                        aZv = Build.MANUFACTURER.toUpperCase();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return aZv.equals(str);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String getProp(String str) {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         try {
-            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-        } catch (UnsupportedEncodingException e) {
-            return null;
-        } catch (NullPointerException e2) {
-            return null;
-        } catch (NoSuchAlgorithmException e3) {
-            return null;
-        } catch (InvalidKeySpecException e4) {
-            return null;
+            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+            try {
+                try {
+                    String readLine = bufferedReader.readLine();
+                    bufferedReader.close();
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                            return readLine;
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            return readLine;
+                        }
+                    }
+                    return readLine;
+                } catch (IOException e2) {
+                    e = e2;
+                    Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e5) {
+            e = e5;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (bufferedReader2 != null) {
+            }
+            throw th;
         }
     }
 }

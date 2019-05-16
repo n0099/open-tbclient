@@ -8,61 +8,65 @@ import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends g<C0171a> {
-    protected final boolean aRw;
+public class a extends g<C0178a> {
+    protected final boolean aUl;
     protected final Activity mActivity;
     protected final String mScope;
 
     public a(Activity activity, boolean z, String str) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRw = z;
+        this.aUl = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean Cd() {
+    protected boolean Df() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", Jl().id);
+            jSONObject.put("ma_id", LG().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", Jl().getAppKey());
+            jSONObject2.put("app_key", LG().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String vC = com.baidu.swan.apps.u.a.CI().vC();
-            if (!TextUtils.isEmpty(vC)) {
-                jSONObject2.put("host_api_key", vC);
+            String wr = com.baidu.swan.apps.u.a.DN().wr();
+            if (!TextUtils.isEmpty(wr)) {
+                jSONObject2.put("host_api_key", wr);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRw));
+            jSONObject3.put("permit", Boolean.toString(this.aUl));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ay("data", jSONObject.toString());
+        aA("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.CI().e(this.mActivity, gVar.Kj());
+        return com.baidu.swan.apps.u.a.DN().e(this.mActivity, gVar.MJ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: B */
-    public C0171a C(JSONObject jSONObject) throws JSONException {
+    /* renamed from: y */
+    public C0178a z(JSONObject jSONObject) throws JSONException {
         String str;
         JSONObject jSONObject2;
-        JSONObject ae = com.baidu.swan.apps.setting.oauth.c.ae(jSONObject);
-        int optInt = ae.optInt("errno", SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
+        JSONObject af = com.baidu.swan.apps.setting.oauth.c.af(jSONObject);
+        int optInt = af.optInt("errno", SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE);
         if (optInt != 0) {
-            throw new JSONException("Illegal errno=" + optInt + " errms=" + ae.optString("errms"));
+            if (11001 == optInt) {
+                com.baidu.swan.apps.setting.oauth.c.ae(af);
+                com.baidu.swan.apps.setting.oauth.c.az("Accredit", af.toString());
+            }
+            throw new JSONException("Illegal errno=" + optInt + " errms=" + af.optString("errms"));
         }
-        JSONObject jSONObject3 = ae.getJSONObject("data");
+        JSONObject jSONObject3 = af.getJSONObject("data");
         if (jSONObject3 == null) {
             str = "";
             jSONObject2 = null;
@@ -70,31 +74,31 @@ public class a extends g<C0171a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0171a(this.aRw, str, jSONObject2);
+        return new C0178a(this.aUl, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public void Ce() {
-        super.Ce();
-        com.baidu.swan.apps.network.c.b.a.Fk();
+    public void Dg() {
+        super.Dg();
+        com.baidu.swan.apps.network.c.b.a.Hp();
     }
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0171a {
-        public final boolean aRx;
-        public final JSONObject aRy;
+    public static class C0178a {
+        public final boolean aUm;
+        public final JSONObject aUn;
         public final String code;
 
-        private C0171a(boolean z, String str, JSONObject jSONObject) {
+        private C0178a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.aRx = z;
-            this.aRy = jSONObject;
+            this.aUm = z;
+            this.aUn = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.aRx), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.aUm), this.code);
         }
     }
 }

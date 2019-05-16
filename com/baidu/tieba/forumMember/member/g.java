@@ -24,8 +24,8 @@ public class g extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.i, h> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.i iVar, h hVar) {
         super.onFillViewHolder(i, view, viewGroup, iVar, hVar);
-        hVar.pE(iVar.getHeight());
-        hVar.hY(iVar.bci());
+        hVar.qK(iVar.getHeight());
+        hVar.iM(iVar.bjC());
         return view;
     }
 }

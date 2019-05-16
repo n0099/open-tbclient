@@ -3,16 +3,16 @@ package com.baidu.tieba.video.editvideo.b;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a iWt;
-    private b iWu;
-    b.a iWv;
+    private com.baidu.tieba.video.editvideo.data.a jpq;
+    private b jpr;
+    b.a jps;
     private Context mContext;
 
     public a(Context context) {
@@ -20,71 +20,71 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.iWt = aVar;
+        this.jpq = aVar;
     }
 
-    public boolean cjr() {
-        return (this.iWt == null || "normal".equalsIgnoreCase(this.iWt.value)) ? false : true;
+    public boolean cru() {
+        return (this.jpq == null || "normal".equalsIgnoreCase(this.jpq.value)) ? false : true;
     }
 
-    public void Dz(String str) {
-        if ((this.iWu == null || !this.iWu.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cju = cju();
+    public void EV(String str) {
+        if ((this.jpr == null || !this.jpr.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String crx = crx();
             String str2 = "normal";
-            if (this.iWt != null) {
-                str2 = this.iWt.value;
+            if (this.jpq != null) {
+                str2 = this.jpq.value;
             }
-            this.iWu = new b(this.mContext, str, cju, str2);
-            if (this.iWv != null) {
-                this.iWu.a(this.iWv);
+            this.jpr = new b(this.mContext, str, crx, str2);
+            if (this.jps != null) {
+                this.jpr.a(this.jps);
             }
-            this.iWu.cjv();
+            this.jpr.cry();
         }
     }
 
-    public boolean cjs() {
-        if (this.iWu != null) {
-            return this.iWu.isRunning();
+    public boolean crv() {
+        if (this.jpr != null) {
+            return this.jpr.isRunning();
         }
         return false;
     }
 
-    public void cjt() {
-        if (this.iWu != null) {
-            this.iWu.cjw();
+    public void crw() {
+        if (this.jpr != null) {
+            this.jpr.crz();
         }
     }
 
     public void a(b.a aVar) {
-        this.iWv = aVar;
-        if (this.iWu != null) {
-            this.iWu.a(this.iWv);
+        this.jps = aVar;
+        if (this.jpr != null) {
+            this.jpr.a(this.jps);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> ey(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> eo(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
         }
-        a(arrayList, d.f.filter_icon_avatar_default, context.getString(d.j.filter_nature), "origin");
-        a(arrayList, d.f.filter_icon_avatar_hongkong, context.getString(d.j.filter_hongkong), "hongkong");
-        a(arrayList, d.f.filter_icon_avatar_refreshing, context.getString(d.j.filter_refreshing), "refreshing");
-        a(arrayList, d.f.filter_icon_avatar_girly, context.getString(d.j.filter_girly), "girly");
-        a(arrayList, d.f.filter_icon_avatar_concrete, context.getString(d.j.filter_concrete), "concrete");
-        a(arrayList, d.f.filter_icon_avatar_warm, context.getString(d.j.filter_warm), "warm");
-        a(arrayList, d.f.filter_icon_avatar_cold, context.getString(d.j.filter_cold), "cold");
-        a(arrayList, d.f.filter_icon_avatar_japanese, context.getString(d.j.filter_japanese), "Japanese");
-        a(arrayList, d.f.filter_icon_avatar_cruz, context.getString(d.j.filter_hdr), "cruz");
-        a(arrayList, d.f.filter_icon_avatar_abao, context.getString(d.j.filter_abao), "abao");
-        a(arrayList, d.f.filter_icon_avatar_dew, context.getString(d.j.filter_dew), "dew");
-        a(arrayList, d.f.filter_icon_avatar_slowlived, context.getString(d.j.filter_slowlived), "slowlived");
-        a(arrayList, d.f.filter_icon_avatar_sweet, context.getString(d.j.filter_sweet), "sweet");
-        a(arrayList, d.f.filter_icon_avatar_boardwalk, context.getString(d.j.filter_boardwalk), "boardwalk");
-        a(arrayList, d.f.filter_icon_avatar_keylime, context.getString(d.j.filter_keylime), "keylime");
-        a(arrayList, d.f.filter_icon_avatar_electric, context.getString(d.j.filter_electric), "electric");
-        a(arrayList, d.f.filter_icon_avatar_silver, context.getString(d.j.filter_silver), "silver");
-        a(arrayList, d.f.filter_icon_avatar_blackwhite, context.getString(d.j.filter_blackwhite), "blackwhite");
+        a(arrayList, R.drawable.filter_icon_avatar_default, context.getString(R.string.filter_nature), "origin");
+        a(arrayList, R.drawable.filter_icon_avatar_hongkong, context.getString(R.string.filter_hongkong), "hongkong");
+        a(arrayList, R.drawable.filter_icon_avatar_refreshing, context.getString(R.string.filter_refreshing), "refreshing");
+        a(arrayList, R.drawable.filter_icon_avatar_girly, context.getString(R.string.filter_girly), "girly");
+        a(arrayList, R.drawable.filter_icon_avatar_concrete, context.getString(R.string.filter_concrete), "concrete");
+        a(arrayList, R.drawable.filter_icon_avatar_warm, context.getString(R.string.filter_warm), "warm");
+        a(arrayList, R.drawable.filter_icon_avatar_cold, context.getString(R.string.filter_cold), "cold");
+        a(arrayList, R.drawable.filter_icon_avatar_japanese, context.getString(R.string.filter_japanese), "Japanese");
+        a(arrayList, R.drawable.filter_icon_avatar_cruz, context.getString(R.string.filter_hdr), "cruz");
+        a(arrayList, R.drawable.filter_icon_avatar_abao, context.getString(R.string.filter_abao), "abao");
+        a(arrayList, R.drawable.filter_icon_avatar_dew, context.getString(R.string.filter_dew), "dew");
+        a(arrayList, R.drawable.filter_icon_avatar_slowlived, context.getString(R.string.filter_slowlived), "slowlived");
+        a(arrayList, R.drawable.filter_icon_avatar_sweet, context.getString(R.string.filter_sweet), "sweet");
+        a(arrayList, R.drawable.filter_icon_avatar_boardwalk, context.getString(R.string.filter_boardwalk), "boardwalk");
+        a(arrayList, R.drawable.filter_icon_avatar_keylime, context.getString(R.string.filter_keylime), "keylime");
+        a(arrayList, R.drawable.filter_icon_avatar_electric, context.getString(R.string.filter_electric), "electric");
+        a(arrayList, R.drawable.filter_icon_avatar_silver, context.getString(R.string.filter_silver), "silver");
+        a(arrayList, R.drawable.filter_icon_avatar_blackwhite, context.getString(R.string.filter_blackwhite), "blackwhite");
         return arrayList;
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cju() {
-        return com.baidu.tieba.video.c.iUq + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String crx() {
+        return com.baidu.tieba.video.c.jnn + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

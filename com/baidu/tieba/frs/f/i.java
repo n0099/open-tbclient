@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -40,27 +40,27 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i {
-    private static void vK(String str) {
+    private static void wZ(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> mO = ba.mO(str);
-        if (mO != null) {
+        Map<String, String> nW = ba.nW(str);
+        if (nW != null) {
             am amVar = new am("c10320");
-            amVar.bJ("obj_locate", mO.get("obj_locate"));
-            amVar.T("obj_type", 1);
-            amVar.bJ(ImageViewerConfig.FORUM_NAME, mO.get("kw"));
-            amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mO.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
-            amVar.bJ("obj_param2", mO.get("obj_param2"));
-            amVar.T("obj_to", 2);
-            amVar.bJ(VideoPlayActivityConfig.OBJ_ID, mO.get("bdid"));
-            if (!ap.isEmpty(mO.get("ext_log"))) {
+            amVar.bT("obj_locate", nW.get("obj_locate"));
+            amVar.P("obj_type", 1);
+            amVar.bT(ImageViewerConfig.FORUM_NAME, nW.get("kw"));
+            amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, nW.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            amVar.bT("obj_param2", nW.get("obj_param2"));
+            amVar.P("obj_to", 2);
+            amVar.bT(VideoPlayActivityConfig.OBJ_ID, nW.get("bdid"));
+            if (!ap.isEmpty(nW.get("ext_log"))) {
                 try {
-                    JSONObject jSONObject = new JSONObject(mO.get("ext_log"));
+                    JSONObject jSONObject = new JSONObject(nW.get("ext_log"));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        amVar.bJ(next, jSONObject.getString(next));
+                        amVar.bT(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -70,7 +70,7 @@ public class i {
         }
     }
 
-    public static d af(Intent intent) {
+    public static d ai(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;
@@ -86,18 +86,18 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    vK(decode);
+                    wZ(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                vK(decode);
+                wZ(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.fuC = data.getQueryParameter("from");
+                    dVar.fLt = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -109,18 +109,18 @@ public class i {
         return dVar;
     }
 
-    public static Intent aH(Context context, String str) {
+    public static Intent av(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
         Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 2);
+        intent.putExtra(DealIntentService.KEY_CLASS, 2);
         intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
         intent.putExtra("from", "nas");
         return intent;
     }
 
-    public static boolean aI(Context context, String str) {
+    public static boolean aw(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -138,14 +138,14 @@ public class i {
 
     public static void a(FrsFragment frsFragment, int i, String[] strArr, int[] iArr) {
         if (frsFragment != null && strArr != null && iArr != null && i == 1) {
-            if (ab.cS(TbadkCoreApplication.getInst().getApplicationContext())) {
+            if (ab.cx(TbadkCoreApplication.getInst().getApplicationContext())) {
                 ak.c(frsFragment.getPageContext());
             } else {
-                frsFragment.showToast(d.j.system_permission_prompt_camera);
+                frsFragment.showToast(R.string.system_permission_prompt_camera);
             }
             ArrayMap<String, Boolean> b = ab.b(strArr, iArr);
             if (b.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") && !b.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
-                frsFragment.showToast(d.j.sdcard_permission_denied_advert_for_camera);
+                frsFragment.showToast(R.string.sdcard_permission_denied_advert_for_camera);
             }
         }
     }
@@ -158,7 +158,7 @@ public class i {
 
     public static void a(FrsFragment frsFragment, String str, bg bgVar, boolean z) {
         if (frsFragment != null && bgVar != null && str != null) {
-            if (!(bgVar == null || bgVar.ZK())) {
+            if (!(bgVar == null || bgVar.aer())) {
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bgVar, frsFragment.getForumName(), "frs_page", 18003, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setStartFrom(3);
@@ -211,15 +211,15 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bgVar != null) {
             String valueOf = String.valueOf(bgVar.getFid());
-            if (bgVar.bDI == null) {
+            if (bgVar.bKZ == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bgVar.bDI.id;
+                str = bgVar.bKZ.id;
                 str2 = valueOf;
             }
-            if (bgVar.Zk() > 0 && com.baidu.tieba.tbadkCore.util.e.cfp()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bgVar.getTid(), String.valueOf(bgVar.Zk()), false, true, "frs_page");
+            if (bgVar.adR() > 0 && com.baidu.tieba.tbadkCore.util.e.cnt()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bgVar.getTid(), String.valueOf(bgVar.adR()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bgVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);
             }
@@ -228,13 +228,13 @@ public class i {
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bgVar.ZX());
+            createFromThreadCfg.setFromSmartFrs(bgVar.aeE());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (bgVar.ZN() && createFromThreadCfg.getIntent() != null) {
+            if (bgVar.aeu() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             frsFragment.sendMessage(new CustomMessage(2004001, createFromThreadCfg));

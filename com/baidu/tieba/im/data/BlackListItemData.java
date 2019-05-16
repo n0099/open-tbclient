@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class BlackListItemData extends AbstractImageProvider {
-    private String ggD;
+    private String gxP;
     private long userId;
     private String userName;
     private String userNameShow;
@@ -13,7 +13,7 @@ public class BlackListItemData extends AbstractImageProvider {
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(brU());
+        arrayList.add(bzG());
         return arrayList;
     }
 
@@ -29,19 +29,19 @@ public class BlackListItemData extends AbstractImageProvider {
         this.userName = str;
     }
 
-    public String brU() {
-        return this.ggD;
+    public String bzG() {
+        return this.gxP;
     }
 
-    public void wF(String str) {
-        this.ggD = str;
+    public void xU(String str) {
+        this.gxP = str;
     }
 
-    public void ob(String str) {
+    public void pl(String str) {
         this.userNameShow = str;
     }
 
-    public String ajN() {
+    public String aoO() {
         return StringUtils.isNull(this.userNameShow) ? this.userName : this.userNameShow;
     }
 }

@@ -1,22 +1,46 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 /* loaded from: classes3.dex */
-class az implements com.xiaomi.smack.f {
-    final /* synthetic */ XMPushService a;
+public class az {
+    private static az a;
+    private Context b;
+    private int c = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public az(XMPushService xMPushService) {
-        this.a = xMPushService;
+    private az(Context context) {
+        this.b = context.getApplicationContext();
     }
 
-    @Override // com.xiaomi.smack.f
-    public void a(com.xiaomi.slim.b bVar) {
-        this.a.a(new XMPushService.c(bVar));
+    public static az a(Context context) {
+        if (a == null) {
+            a = new az(context);
+        }
+        return a;
     }
 
-    @Override // com.xiaomi.smack.f
-    public void b(com.xiaomi.smack.packet.d dVar) {
-        this.a.a(new XMPushService.k(dVar));
+    public boolean a() {
+        return com.xiaomi.channel.commonutils.misc.a.a.contains("xmsf") || com.xiaomi.channel.commonutils.misc.a.a.contains("xiaomi") || com.xiaomi.channel.commonutils.misc.a.a.contains("miui");
+    }
+
+    @SuppressLint({"NewApi"})
+    public int b() {
+        if (this.c != 0) {
+            return this.c;
+        }
+        if (Build.VERSION.SDK_INT >= 17) {
+            this.c = Settings.Global.getInt(this.b.getContentResolver(), "device_provisioned", 0);
+            return this.c;
+        }
+        this.c = Settings.Secure.getInt(this.b.getContentResolver(), "device_provisioned", 0);
+        return this.c;
+    }
+
+    @SuppressLint({"NewApi"})
+    public Uri c() {
+        return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 }

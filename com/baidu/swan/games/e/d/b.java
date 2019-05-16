@@ -1,9 +1,17 @@
 package com.baidu.swan.games.e.d;
+
+import android.support.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 /* loaded from: classes2.dex */
 public interface b {
+    @Nullable
+    V8EngineConfiguration.CodeCacheSetting At();
+
+    String Au();
+
+    String Av();
+
     void a(com.baidu.swan.games.e.a aVar);
 
-    String zt();
-
-    String zu();
+    void b(com.baidu.swan.games.e.a aVar);
 }

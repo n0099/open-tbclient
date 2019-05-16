@@ -14,19 +14,19 @@ public interface o {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    l bWA();
-
-    com.baidu.tieba.p.a bWB();
-
-    h bWC();
-
-    List<AppData> bWD();
-
-    void bWE();
-
-    j bWz();
-
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    j ceD();
+
+    l ceE();
+
+    com.baidu.tieba.p.a ceF();
+
+    h ceG();
+
+    List<AppData> ceH();
+
+    void ceI();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

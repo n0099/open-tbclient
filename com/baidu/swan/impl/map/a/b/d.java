@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ab.a;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 /* loaded from: classes5.dex */
 public class d {
 
@@ -20,11 +20,11 @@ public class d {
             aVar.onFail();
             return;
         }
-        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-        if (IV != null) {
-            IV.IZ().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.impl.map.a.b.d.1
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq != null) {
+            Lq.Lu().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.impl.map.a.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.an.c.a
+                @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
                     if (bool.booleanValue()) {
@@ -39,11 +39,11 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final a aVar) {
-        if (aa.Mm()) {
+        if (ac.OU()) {
             aVar.onSuccess();
         } else {
-            com.baidu.swan.apps.w.e.Ea().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.impl.map.a.b.d.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
+            com.baidu.swan.apps.w.e.FV().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0109a() { // from class: com.baidu.swan.impl.map.a.b.d.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0109a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
                         a.this.onFail();

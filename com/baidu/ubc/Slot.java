@@ -11,47 +11,47 @@ public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.ubc.Slot.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: R */
+        /* renamed from: U */
         public Slot createFromParcel(Parcel parcel) {
             return new Slot(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BG */
+        /* renamed from: CK */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
     };
-    private long bpJ;
-    private JSONObject bpK;
-    private float bpL;
+    private long bvY;
+    private JSONObject bvZ;
+    private float bwa;
     private String mCategory;
     private long mStart;
 
     public Slot(String str, long j, JSONObject jSONObject) {
         this.mStart = 0L;
-        this.bpJ = 0L;
+        this.bvY = 0L;
         this.mStart = j;
         this.mCategory = str;
-        this.bpK = jSONObject;
+        this.bvZ = jSONObject;
     }
 
     protected Slot(Parcel parcel) {
         this.mStart = 0L;
-        this.bpJ = 0L;
+        this.bvY = 0L;
         this.mStart = parcel.readLong();
-        this.bpJ = parcel.readLong();
+        this.bvY = parcel.readLong();
         this.mCategory = parcel.readString();
-        this.bpL = parcel.readFloat();
+        this.bwa = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.mStart);
-        parcel.writeLong(this.bpJ);
+        parcel.writeLong(this.bvY);
         parcel.writeString(this.mCategory);
-        parcel.writeFloat(this.bpL);
+        parcel.writeFloat(this.bwa);
     }
 
     @Override // android.os.Parcelable
@@ -59,37 +59,37 @@ public class Slot implements Parcelable {
         return 0;
     }
 
-    public void C(long j) {
+    public void O(long j) {
         if (j > 0 && j > this.mStart) {
-            this.bpJ = j;
-            this.bpL = (((float) (this.bpJ - this.mStart)) / 1000.0f) + this.bpL;
+            this.bvY = j;
+            this.bwa = (((float) (this.bvY - this.mStart)) / 1000.0f) + this.bwa;
         }
     }
 
-    public void aF(JSONObject jSONObject) {
-        this.bpK = jSONObject;
+    public void aR(JSONObject jSONObject) {
+        this.bvZ = jSONObject;
     }
 
-    public boolean Tn() {
+    public boolean Xo() {
         return this.mStart > 0;
     }
 
-    public boolean To() {
-        return this.bpJ > 0;
+    public boolean Xp() {
+        return this.bvY > 0;
     }
 
     public void clean() {
         this.mStart = 0L;
-        this.bpJ = 0L;
+        this.bvY = 0L;
     }
 
-    public JSONObject Tp() {
+    public JSONObject Xq() {
         JSONObject jSONObject;
         JSONException e;
-        if (TextUtils.isEmpty(this.mCategory) || this.bpL <= 0.0f) {
+        if (TextUtils.isEmpty(this.mCategory) || this.bwa <= 0.0f) {
             return null;
         }
-        String format = String.format("%.3f", Float.valueOf(this.bpL));
+        String format = String.format("%.3f", Float.valueOf(this.bwa));
         try {
             jSONObject = new JSONObject();
         } catch (JSONException e2) {
@@ -99,8 +99,8 @@ public class Slot implements Parcelable {
         try {
             jSONObject.put("id", this.mCategory);
             jSONObject.put("d", format);
-            if (this.bpK != null) {
-                jSONObject.put("info", this.bpK);
+            if (this.bvZ != null) {
+                jSONObject.put("info", this.bvZ);
                 return jSONObject;
             }
             return jSONObject;

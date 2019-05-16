@@ -1,49 +1,22 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class m {
-    private static volatile m a;
-    private SharedPreferences b;
+public class m implements com.xiaomi.tinyData.e {
+    private final XMPushService a;
 
-    private m(Context context) {
-        this.b = context.getSharedPreferences("mipush", 0);
+    public m(XMPushService xMPushService) {
+        this.a = xMPushService;
     }
 
-    public static m a(Context context) {
-        if (a == null) {
-            synchronized (m.class) {
-                if (a == null) {
-                    a = new m(context);
-                }
-            }
-        }
-        return a;
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str) {
+        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
     }
 
-    public synchronized void a() {
-        SharedPreferences.Editor edit = this.b.edit();
-        edit.remove(Constants.EXTRA_KEY_MIID);
-        edit.commit();
-    }
-
-    public synchronized void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            str = "0";
-        }
-        SharedPreferences.Editor edit = this.b.edit();
-        edit.putString(Constants.EXTRA_KEY_MIID, str);
-        edit.commit();
-    }
-
-    public synchronized String b() {
-        return this.b.getString(Constants.EXTRA_KEY_MIID, "0");
-    }
-
-    public synchronized boolean c() {
-        return !TextUtils.equals("0", b());
+    @Override // com.xiaomi.tinyData.e
+    public void a(List<com.xiaomi.xmpush.thrift.f> list, String str, String str2) {
+        com.xiaomi.channel.commonutils.logger.b.a("TinyData LongConnUploader.upload items size:" + list.size() + "  ts:" + System.currentTimeMillis());
+        this.a.a(new n(this, 4, str, list, str2));
     }
 }

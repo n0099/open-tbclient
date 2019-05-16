@@ -4,9 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personCenter.data.i;
+import com.baidu.tieba.personCenter.data.j;
 /* loaded from: classes4.dex */
-public class e extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
+public class e extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,8 +26,8 @@ public class e extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
-        aVar.aRg().a(iVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
+        aVar.aYp().a(jVar);
         return aVar.getView();
     }
 }

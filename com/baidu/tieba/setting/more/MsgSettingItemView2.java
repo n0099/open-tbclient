@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private CheckBox itR;
+    private CheckBox iMF;
     private View mBottomLine;
 
     public MsgSettingItemView2(Context context) {
@@ -26,21 +26,21 @@ public class MsgSettingItemView2 extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(d.h.msg_setting_item_view2, (ViewGroup) this, true);
-        this.itR = (CheckBox) findViewById(d.g.setting_check_view);
-        this.mBottomLine = findViewById(d.g.bottom_line_ll);
+        LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
+        this.iMF = (CheckBox) findViewById(R.id.setting_check_view);
+        this.mBottomLine = findViewById(R.id.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.itR.setText(str);
+        this.iMF.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.itR.setText(i);
+            this.iMF.setText(i);
         }
     }
 
@@ -53,6 +53,6 @@ public class MsgSettingItemView2 extends LinearLayout {
     }
 
     public CheckBox getSwitchView() {
-        return this.itR;
+        return this.iMF;
     }
 }

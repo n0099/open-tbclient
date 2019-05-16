@@ -20,8 +20,8 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        azP();
-        aG(getAgent(), this.mParams.getString("options"));
+        aFZ();
+        au(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -29,49 +29,49 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("ShareDelegation", "onSelfFinish.");
         }
-        azQ();
+        aGa();
     }
 
-    private void azP() {
+    private void aFZ() {
     }
 
-    private void azQ() {
+    private void aGa() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gb(boolean z) {
+    public void gz(boolean z) {
         if (DEBUG) {
             Log.d("ShareDelegation", "notify callBack: " + z);
         }
         this.mResult.putBoolean("share_result", z);
-        azQ();
+        aGa();
         finish();
     }
 
-    private void aG(Context context, String str) {
+    private void au(Context context, String str) {
         if (context == null) {
-            gb(false);
+            gz(false);
             return;
         }
         a aVar = new a();
         try {
-            aVar.aX(new JSONObject(str));
+            aVar.bi(new JSONObject(str));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.gb(false);
+                    b.this.gz(false);
                 }
             };
             shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    b.this.gb(false);
+                    b.this.gz(false);
                 }
             };
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
         } catch (JSONException e) {
-            gb(false);
+            gz(false);
         }
     }
 }

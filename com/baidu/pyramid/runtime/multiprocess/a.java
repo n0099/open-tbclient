@@ -4,8 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,27 +13,26 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final boolean DEBUG = h.DEBUG;
-    private static volatile int ahR = 0;
+    private static volatile int aii = 0;
     private static volatile String sProcessName;
 
-    public static int tP() {
-        int i = ahR;
+    public static int uA() {
+        int i = aii;
         if (i == 0) {
             String processName = getProcessName();
-            String packageName = f.getAppContext().getPackageName();
-            if (TextUtils.equals(processName, packageName) || (processName.startsWith(packageName) && !processName.contains(Config.TRACE_TODAY_VISIT_SPLIT))) {
+            String packageName = e.getAppContext().getPackageName();
+            if (TextUtils.equals(processName, packageName) || (processName.startsWith(packageName) && !processName.contains(":"))) {
                 i = i | 1 | 2;
             } else {
                 i |= 4;
             }
-            ahR = i;
+            aii = i;
         }
         return i;
     }
 
-    public static boolean tQ() {
-        return (tP() & 2) != 0;
+    public static boolean uB() {
+        return (uA() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -44,8 +41,8 @@ public class a {
             synchronized (a.class) {
                 str = sProcessName;
                 if (str == null) {
-                    Context appContext = f.getAppContext();
-                    str = tS();
+                    Context appContext = e.getAppContext();
+                    str = uD();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -56,8 +53,8 @@ public class a {
         return str;
     }
 
-    public static int tR() {
-        Context appContext = f.getAppContext();
+    public static int uC() {
+        Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null) {
@@ -90,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String tS() {
+    private static String uD() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;
@@ -156,8 +153,5 @@ public class a {
     }
 
     private static void c(String str, Exception exc) {
-        if (DEBUG) {
-            Log.e(str, "", exc);
-        }
     }
 }

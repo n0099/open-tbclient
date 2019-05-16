@@ -12,14 +12,14 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.newwidget.ImageView.e;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class CriusTbClipImageView extends TbClipImageView {
-    protected a iop;
-    private Path ioq;
-    private RectF ior;
-    private float[] ios;
-    private int iot;
+    protected a iHd;
+    private Path iHe;
+    private RectF iHf;
+    private float[] iHg;
+    private int iHh;
 
     public CriusTbClipImageView(Context context) {
         this(context, null, 0);
@@ -27,9 +27,9 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iop = new a();
-        this.ioq = new Path();
-        this.iot = getLayerType();
+        this.iHd = new a();
+        this.iHe = new Path();
+        this.iHh = getLayerType();
     }
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet) {
@@ -40,69 +40,69 @@ public class CriusTbClipImageView extends TbClipImageView {
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void init(AttributeSet attributeSet) {
         super.init(attributeSet);
-        this.iop = new a();
+        this.iHd = new a();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.l.BDImageView);
-            this.iop.iol = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_radiusLeftTop, l.dip2px(getContext(), 4.0f));
-            this.iop.iom = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_radiusLeftBottom, l.dip2px(getContext(), 4.0f));
-            this.iop.ion = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_radiusRightTop, l.dip2px(getContext(), 4.0f));
-            this.iop.ioo = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_radiusRightBottom, l.dip2px(getContext(), 4.0f));
-            this.iop.mRadius = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_radius, l.dip2px(getContext(), 4.0f));
-            this.iop.Jc = obtainStyledAttributes.getBoolean(d.l.BDImageView_isRound, false);
-            this.iop.Jd = obtainStyledAttributes.getBoolean(d.l.BDImageView_hasBorder, false);
-            this.iop.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_borderWidth, l.dip2px(getContext(), 1.0f));
-            this.iop.mBorderColor = obtainStyledAttributes.getColor(d.l.BDImageView_borderColor, 201326592);
-            this.iop.Je = obtainStyledAttributes.getBoolean(d.l.BDImageView_borderSurroundContent, false);
-            this.iop.Jg = obtainStyledAttributes.getBoolean(d.l.BDImageView_showGifIcon, true);
-            this.iop.Ji = obtainStyledAttributes.getColor(d.l.BDImageView_foregroundColor, 0);
-            this.mDrawerType = obtainStyledAttributes.getInt(d.l.BDImageView_drawerType, 0);
-            this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(d.l.BDImageView_maxHeight, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(d.l.BDImageView_adjustViewBounds, false);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c.a.BDImageView);
+            this.iHd.iGZ = obtainStyledAttributes.getDimensionPixelSize(1, l.dip2px(getContext(), 4.0f));
+            this.iHd.iHa = obtainStyledAttributes.getDimensionPixelSize(2, l.dip2px(getContext(), 4.0f));
+            this.iHd.iHb = obtainStyledAttributes.getDimensionPixelSize(3, l.dip2px(getContext(), 4.0f));
+            this.iHd.iHc = obtainStyledAttributes.getDimensionPixelSize(4, l.dip2px(getContext(), 4.0f));
+            this.iHd.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, l.dip2px(getContext(), 4.0f));
+            this.iHd.GK = obtainStyledAttributes.getBoolean(5, false);
+            this.iHd.GL = obtainStyledAttributes.getBoolean(6, false);
+            this.iHd.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(7, l.dip2px(getContext(), 1.0f));
+            this.iHd.mBorderColor = obtainStyledAttributes.getColor(8, 201326592);
+            this.iHd.GM = obtainStyledAttributes.getBoolean(9, false);
+            this.iHd.GO = obtainStyledAttributes.getBoolean(10, true);
+            this.iHd.GQ = obtainStyledAttributes.getColor(16, 0);
+            this.mDrawerType = obtainStyledAttributes.getInt(12, 0);
+            this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(13, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(14, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(15, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.iop.iol = l.dip2px(getContext(), 4.0f);
-            this.iop.iom = l.dip2px(getContext(), 4.0f);
-            this.iop.ion = l.dip2px(getContext(), 4.0f);
-            this.iop.ioo = l.dip2px(getContext(), 4.0f);
-            this.iop.mRadius = l.dip2px(getContext(), 4.0f);
-            this.iop.mBorderWidth = l.dip2px(getContext(), 1.0f);
-            this.iop.mBorderColor = 201326592;
+            this.iHd.iGZ = l.dip2px(getContext(), 4.0f);
+            this.iHd.iHa = l.dip2px(getContext(), 4.0f);
+            this.iHd.iHb = l.dip2px(getContext(), 4.0f);
+            this.iHd.iHc = l.dip2px(getContext(), 4.0f);
+            this.iHd.mRadius = l.dip2px(getContext(), 4.0f);
+            this.iHd.mBorderWidth = l.dip2px(getContext(), 1.0f);
+            this.iHd.mBorderColor = 201326592;
         }
-        this.iot = getLayerType();
-        if (Build.VERSION.SDK_INT < 18 && this.iot != 1) {
+        this.iHh = getLayerType();
+        if (Build.VERSION.SDK_INT < 18 && this.iHh != 1) {
             setLayerType(1, null);
         }
-        if (!this.iop.Jc) {
-            this.iop.mRadius = 0.0f;
+        if (!this.iHd.GK) {
+            this.iHd.mRadius = 0.0f;
         }
-        this.mArgs = this.iop;
+        this.mArgs = this.iHd;
         setConrers(0);
-        this.mDrawer = e.mp().aH(this.mDrawerType);
-        this.mDrawer.a(this.iop);
+        this.mDrawer = e.lj().aA(this.mDrawerType);
+        this.mDrawer.a(this.iHd);
     }
 
     public void setRadius(int i, int i2, int i3, int i4) {
         boolean z = false;
-        if (this.iop.iol != i) {
-            this.iop.iol = i;
+        if (this.iHd.iGZ != i) {
+            this.iHd.iGZ = i;
             z = true;
         }
-        if (this.iop.iom != i2) {
-            this.iop.iom = i2;
+        if (this.iHd.iHa != i2) {
+            this.iHd.iHa = i2;
             z = true;
         }
-        if (this.iop.ion != i3) {
-            this.iop.ion = i3;
+        if (this.iHd.iHb != i3) {
+            this.iHd.iHb = i3;
             z = true;
         }
-        if (this.iop.ioo != i4) {
-            this.iop.ioo = i4;
+        if (this.iHd.iHc != i4) {
+            this.iHd.iHc = i4;
             z = true;
         }
         if (z) {
-            this.iot = getLayerType();
-            if (Build.VERSION.SDK_INT < 18 && this.iot != 1) {
+            this.iHh = getLayerType();
+            if (Build.VERSION.SDK_INT < 18 && this.iHh != 1) {
                 setLayerType(1, null);
             }
             invalidate();
@@ -111,41 +111,41 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void setRadius(int i) {
-        this.iop.mRadius = i;
+        this.iHd.mRadius = i;
         setRadius(i, i, i, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        Y(canvas);
-        super.onDraw(canvas);
         Z(canvas);
+        super.onDraw(canvas);
+        aa(canvas);
     }
 
-    private void Y(Canvas canvas) {
-        if (!this.iop.Jc) {
+    private void Z(Canvas canvas) {
+        if (!this.iHd.GK) {
             setDrawerType(1);
-            this.ioq.reset();
-            this.ior = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.ios = new float[]{this.iop.iol, this.iop.iol, this.iop.ion, this.iop.ion, this.iop.ioo, this.iop.ioo, this.iop.iom, this.iop.iom};
-            this.ioq.addRoundRect(this.ior, this.ios, Path.Direction.CW);
+            this.iHe.reset();
+            this.iHf = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iHg = new float[]{this.iHd.iGZ, this.iHd.iGZ, this.iHd.iHb, this.iHd.iHb, this.iHd.iHc, this.iHd.iHc, this.iHd.iHa, this.iHd.iHa};
+            this.iHe.addRoundRect(this.iHf, this.iHg, Path.Direction.CW);
             try {
-                canvas.clipPath(this.ioq);
+                canvas.clipPath(this.iHe);
             } catch (Error e) {
             }
         }
     }
 
-    private void Z(Canvas canvas) {
-        if (!this.iop.Jc && this.iop.Jd) {
+    private void aa(Canvas canvas) {
+        if (!this.iHd.GK && this.iHd.GL) {
             setDrawerType(1);
-            this.ioq.reset();
-            this.ior = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.ios = new float[]{this.iop.iol, this.iop.iol, this.iop.ion, this.iop.ion, this.iop.ioo, this.iop.ioo, this.iop.iom, this.iop.iom};
-            this.ioq.addRoundRect(this.ior, this.ios, Path.Direction.CW);
+            this.iHe.reset();
+            this.iHf = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iHg = new float[]{this.iHd.iGZ, this.iHd.iGZ, this.iHd.iHb, this.iHd.iHb, this.iHd.iHc, this.iHd.iHc, this.iHd.iHa, this.iHd.iHa};
+            this.iHe.addRoundRect(this.iHf, this.iHg, Path.Direction.CW);
             try {
-                canvas.drawPath(this.ioq, this.mDrawer.mBorderPaint);
+                canvas.drawPath(this.iHe, this.mDrawer.mBorderPaint);
             } catch (Error e) {
             }
         }
@@ -154,16 +154,16 @@ public class CriusTbClipImageView extends TbClipImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView
     public void drawBackground(Canvas canvas, Drawable drawable) {
-        if (this.iop.Jc) {
+        if (this.iHd.GK) {
             super.drawBackground(canvas, drawable);
             return;
         }
-        this.ioq.reset();
-        this.ior = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-        this.ios = new float[]{this.iop.iol, this.iop.iol, this.iop.ion, this.iop.ion, this.iop.ioo, this.iop.ioo, this.iop.iom, this.iop.iom};
-        this.ioq.addRoundRect(this.ior, this.ios, Path.Direction.CW);
+        this.iHe.reset();
+        this.iHf = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+        this.iHg = new float[]{this.iHd.iGZ, this.iHd.iGZ, this.iHd.iHb, this.iHd.iHb, this.iHd.iHc, this.iHd.iHc, this.iHd.iHa, this.iHd.iHa};
+        this.iHe.addRoundRect(this.iHf, this.iHg, Path.Direction.CW);
         try {
-            canvas.clipPath(this.ioq);
+            canvas.clipPath(this.iHe);
         } catch (Error e) {
         }
         drawable.draw(canvas);

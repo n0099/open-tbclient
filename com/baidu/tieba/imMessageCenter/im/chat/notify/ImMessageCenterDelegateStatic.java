@@ -13,12 +13,13 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.mainTab.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes4.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView guO;
-    private CustomMessageListener guP;
+    private MessageRedDotView gMb;
+    private CustomMessageListener gMc;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -26,27 +27,27 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c anG() {
+    public c asJ() {
         c cVar = new c();
-        cVar.cog = new MessageCenterFragment();
+        cVar.cwn = new MessageCenterFragment();
         cVar.type = 3;
-        cVar.bOh = d.j.my_message;
-        cVar.nf = d.i.message;
-        cVar.f5com = c.cok;
+        cVar.bVV = R.string.my_message;
+        cVar.kF = R.raw.message;
+        cVar.cwt = c.cwr;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator di(Context context) {
-        this.cnS = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
-        this.guO = new MessageRedDotView(context);
+    public TbFragmentTabIndicator cO(Context context) {
+        this.cvZ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.gMb = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.coD = this.cnS;
-        aVar.view = this.guO;
-        aVar.coA = true;
-        this.cnS.b("msg", aVar);
-        this.guO.setVisibility(4);
-        return this.cnS;
+        aVar.cwK = this.cvZ;
+        aVar.view = this.gMb;
+        aVar.cwH = true;
+        this.cvZ.b("msg", aVar);
+        this.gMb.setVisibility(4);
+        return this.cvZ;
     }
 
     static {
@@ -55,7 +56,7 @@ public class ImMessageCenterDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                    ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+                    ((d) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
                 }
             }
         };
@@ -64,8 +65,8 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void anF() {
-        this.guP = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void asI() {
+        this.gMc = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -90,24 +91,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.guP);
+        MessageManager.getInstance().registerListener(this.gMc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(boolean z, int i) {
-        if (this.guO != null) {
+        if (this.gMb != null) {
             if (z) {
-                this.guO.refresh(i);
-                this.guO.setVisibility(0);
+                this.gMb.refresh(i);
+                this.gMb.setVisibility(0);
                 return;
             }
-            this.guO.setVisibility(8);
+            this.gMb.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void gv() {
-        super.gv();
-        MessageManager.getInstance().unRegisterListener(this.guP);
+    public void fn() {
+        super.fn();
+        MessageManager.getInstance().unRegisterListener(this.gMc);
     }
 }

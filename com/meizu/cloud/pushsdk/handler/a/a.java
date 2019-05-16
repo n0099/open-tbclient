@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.handler.MzPushMessage;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,10 +16,6 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     private com.meizu.cloud.pushsdk.handler.a a;
     private Context b;
     private Map<Integer, String> c;
-
-    protected abstract void a(T t, com.meizu.cloud.pushsdk.notification.e eVar);
-
-    protected abstract T c(Intent intent);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -40,68 +39,84 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         this.c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
         this.c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
         this.c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
+        this.c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
+        this.c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
+        this.c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
+        this.c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
     }
 
-    protected com.meizu.cloud.pushsdk.notification.e a(T t) {
+    private String a(int i) {
+        return this.c.get(Integer.valueOf(i));
+    }
+
+    protected com.meizu.cloud.pushsdk.notification.c a(T t) {
         return null;
     }
 
-    protected void b(T t) {
-    }
-
-    protected void c(T t) {
-    }
-
-    protected int d(T t) {
-        return 0;
-    }
-
-    protected void e(T t) {
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    public String d(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY);
-        if (TextUtils.isEmpty(stringExtra)) {
-            String c = com.meizu.cloud.pushsdk.util.b.c(c());
-            if (TextUtils.isEmpty(c)) {
-                String deviceId = MzSystemUtils.getDeviceId(c());
-                com.meizu.cloud.pushsdk.util.b.b(c(), deviceId);
-                com.meizu.cloud.a.a.e("AbstractMessageHandler", "force get deviceId " + deviceId);
-                return deviceId;
+    public void a(MessageV3 messageV3) {
+        com.meizu.cloud.pushsdk.notification.model.a a = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
+        if (a != null) {
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "delete notifyKey " + a.b() + " notifyId " + a.a());
+            if (TextUtils.isEmpty(a.b())) {
+                com.meizu.cloud.pushsdk.notification.c.b.c(c(), messageV3.getUploadDataPackageName(), a.a());
+            } else {
+                com.meizu.cloud.pushsdk.notification.c.b.a(c(), messageV3.getUploadDataPackageName(), a.b());
             }
-            return c;
         }
-        return stringExtra;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String e(Intent intent) {
-        return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_ID);
-    }
+    protected abstract void a(T t, com.meizu.cloud.pushsdk.notification.c cVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String f(Intent intent) {
-        return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String g(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SERVICE_DEFAULT_PACKAGE_NAME);
-        if (TextUtils.isEmpty(stringExtra)) {
-            return c().getPackageName();
+    public boolean a(int i, String str) {
+        boolean z = true;
+        if (i == 0) {
+            z = com.meizu.cloud.pushsdk.util.b.e(c(), str);
+        } else if (i == 1) {
+            z = com.meizu.cloud.pushsdk.util.b.h(c(), str);
         }
-        return stringExtra;
+        com.meizu.cloud.a.a.e("AbstractMessageHandler", str + (i == 0 ? " canNotificationMessage " : " canThroughMessage ") + z);
+        return z;
+    }
+
+    public boolean a(String str) {
+        try {
+            return c().getPackageName().equals(new JSONObject(str).getString("appId"));
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "parse notification error");
+            return false;
+        }
+    }
+
+    public com.meizu.cloud.pushsdk.handler.a b() {
+        return this.a;
+    }
+
+    public String b(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("launcher");
+            return (!jSONObject.has("pkg") || TextUtils.isEmpty(jSONObject.getString("pkg"))) ? "" : jSONObject.getString("pkg");
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "parse desk top json error");
+            return "";
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String h(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_TIMES_TAMP);
-        com.meizu.cloud.a.a.e("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
-        if (TextUtils.isEmpty(stringExtra)) {
-            return String.valueOf(System.currentTimeMillis() / 1000);
+    public void b(MessageV3 messageV3) {
+        if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
+            b().b(c(), MzPushMessage.fromMessageV3(messageV3));
+        } else if (MzSystemUtils.isRunningProcess(c(), messageV3.getUploadDataPackageName())) {
+            com.meizu.cloud.a.a.i("AbstractMessageHandler", "send notification arrived message to " + messageV3.getUploadDataPackageName());
+            Intent intent = new Intent();
+            intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
+            intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_ARRIVED);
+            MzSystemUtils.sendMessageFromBroadcast(c(), intent, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getUploadDataPackageName());
         }
-        return stringExtra;
+    }
+
+    protected void b(T t) {
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
@@ -136,7 +151,9 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
                     z2 = false;
                     break;
             }
-            if (z && z2) {
+            boolean f = f((a<T>) c);
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "can send message " + f);
+            if (z && z2 && f) {
                 a((a<T>) c, a((a<T>) c));
                 c((a<T>) c);
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "send message end ");
@@ -145,53 +162,61 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         return z;
     }
 
-    public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.a;
-    }
-
     public Context c() {
         return this.b;
     }
 
-    public String i(Intent intent) {
-        return intent.getStringExtra("method");
+    protected abstract T c(Intent intent);
+
+    protected void c(T t) {
     }
 
-    public boolean a(String str) {
-        try {
-            return c().getPackageName().equals(new JSONObject(str).getString("appId"));
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "parse notification error");
-            return false;
-        }
-    }
-
-    public String a(String str, Map<String, String> map) {
-        if (TextUtils.isEmpty(str)) {
-            if (map == null) {
-                str = null;
-            } else {
-                String str2 = map.get("sk");
-                str = TextUtils.isEmpty(str2) ? com.meizu.cloud.pushsdk.pushtracer.utils.d.a((Map) map).toString() : str2;
-            }
-        }
-        com.meizu.cloud.a.a.e("AbstractMessageHandler", "self json " + str);
-        return str;
-    }
-
-    private String a(int i) {
-        return this.c.get(Integer.valueOf(i));
+    protected int d(T t) {
+        return 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean a(int i, String str) {
-        boolean z = true;
-        if (i == 0) {
-            z = com.meizu.cloud.pushsdk.util.b.e(c(), str);
-        } else if (i == 1) {
-            z = com.meizu.cloud.pushsdk.util.b.f(c(), str);
+    public String d(Intent intent) {
+        String stringExtra = intent != null ? intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY) : null;
+        if (TextUtils.isEmpty(stringExtra)) {
+            String deviceId = MzSystemUtils.getDeviceId(c());
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "force get deviceId " + deviceId);
+            return deviceId;
         }
-        com.meizu.cloud.a.a.e("AbstractMessageHandler", str + (i == 0 ? " canNotificationMessage " : " canThroughMessage ") + z);
-        return z;
+        return stringExtra;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String e(Intent intent) {
+        return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_ID);
+    }
+
+    protected void e(T t) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String f(Intent intent) {
+        return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
+    }
+
+    protected boolean f(T t) {
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String g(Intent intent) {
+        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SERVICE_DEFAULT_PACKAGE_NAME);
+        return TextUtils.isEmpty(stringExtra) ? c().getPackageName() : stringExtra;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String h(Intent intent) {
+        String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_TIMES_TAMP);
+        com.meizu.cloud.a.a.e("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
+        return TextUtils.isEmpty(stringExtra) ? String.valueOf(System.currentTimeMillis() / 1000) : stringExtra;
+    }
+
+    public String i(Intent intent) {
+        return intent.getStringExtra("method");
     }
 }

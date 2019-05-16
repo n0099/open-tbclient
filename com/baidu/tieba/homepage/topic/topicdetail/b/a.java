@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewHottopic.DataRes;
@@ -12,11 +12,11 @@ import tbclient.NewHottopic.TopicThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    public String bAq;
-    public String fOb;
-    public b fOc;
-    private boolean fOd;
-    private boolean fOe = false;
+    public String bHC;
+    public String gfk;
+    public b gfl;
+    private boolean gfm;
+    private boolean gfn = false;
     public boolean hasMore;
     public List<m> mDataList;
     public String shareTitle;
@@ -24,49 +24,49 @@ public class a {
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.fOd = false;
+            this.gfm = false;
             if (dataRes.topic_info != null) {
                 this.topicId = dataRes.topic_info.topic_id.longValue();
-                this.bAq = dataRes.topic_info.topic_name;
+                this.bHC = dataRes.topic_info.topic_name;
                 this.shareTitle = dataRes.topic_info.share_title;
-                this.fOb = dataRes.topic_info.share_pic;
-                this.fOc = new b();
-                this.fOc.a(dataRes.topic_info);
+                this.gfk = dataRes.topic_info.share_pic;
+                this.gfl = new b();
+                this.gfl.a(dataRes.topic_info);
                 if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                    this.fOd = true;
+                    this.gfm = true;
                 }
             }
             if (dataRes.pk_module != null) {
-                this.fOe = true;
-                this.fOd = true;
-                if (this.fOc == null) {
-                    this.fOc = new b();
+                this.gfn = true;
+                this.gfm = true;
+                if (this.gfl == null) {
+                    this.gfl = new b();
                 }
-                this.fOc.a(dataRes.pk_module);
+                this.gfl.a(dataRes.pk_module);
             } else {
-                this.fOe = false;
+                this.gfn = false;
             }
             if (dataRes.time_line != null) {
-                this.fOd = true;
-                if (this.fOc == null) {
-                    this.fOc = new b();
+                this.gfm = true;
+                if (this.gfl == null) {
+                    this.gfl = new b();
                 }
-                this.fOc.a(dataRes.time_line);
+                this.gfl.a(dataRes.time_line);
             }
             this.mDataList = new ArrayList();
-            if (!v.T(dataRes.special_topic)) {
-                this.fOd = true;
+            if (!v.aa(dataRes.special_topic)) {
+                this.gfm = true;
                 int i = 1;
                 for (SpecialTopic specialTopic : dataRes.special_topic) {
-                    if (specialTopic != null && !v.T(specialTopic.thread_list)) {
+                    if (specialTopic != null && !v.aa(specialTopic.thread_list)) {
                         boolean z = false;
                         int i2 = i;
                         for (ThreadInfo threadInfo : specialTopic.thread_list) {
                             if (threadInfo != null) {
                                 d dVar = new d();
                                 if (!z) {
-                                    dVar.fOp = true;
-                                    dVar.fOq = specialTopic.title;
+                                    dVar.gfx = true;
+                                    dVar.gfy = specialTopic.title;
                                     z = true;
                                 }
                                 dVar.index = i2;
@@ -80,15 +80,15 @@ public class a {
                     }
                 }
             }
-            if (this.fOd) {
+            if (this.gfm) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar.eED = d.e.tbds78;
-                cVar.fPQ = d.C0277d.cp_bg_line_d;
+                cVar.eUx = R.dimen.tbds78;
+                cVar.ggY = R.color.cp_bg_line_d;
                 this.mDataList.add(cVar);
             }
-            if (dataRes.relate_thread != null && !v.T(dataRes.relate_thread.thread_list)) {
+            if (dataRes.relate_thread != null && !v.aa(dataRes.relate_thread.thread_list)) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar2 = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar2.eED = d.e.tbds16;
+                cVar2.eUx = R.dimen.tbds16;
                 this.mDataList.add(cVar2);
                 this.hasMore = dataRes.relate_thread.has_more.intValue() == 1;
                 for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
@@ -96,7 +96,7 @@ public class a {
                         c cVar3 = new c();
                         cVar3.a(topicThread);
                         cVar3.topicId = this.topicId;
-                        cVar3.fOn = this.fOe;
+                        cVar3.gfv = this.gfn;
                         this.mDataList.add(cVar3);
                     }
                 }
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean bnd() {
-        return this.fOe;
+    public boolean buF() {
+        return this.gfn;
     }
 }

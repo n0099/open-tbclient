@@ -7,17 +7,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView VN;
-    private ObjectAnimator jeA;
-    private View jeu;
-    private View jev;
-    private View jew;
-    private ObjectAnimator jex;
-    private ObjectAnimator jey;
-    private ObjectAnimator jez;
+    private TextView TA;
+    private View jxo;
+    private View jxp;
+    private View jxq;
+    private ObjectAnimator jxr;
+    private ObjectAnimator jxs;
+    private ObjectAnimator jxt;
+    private ObjectAnimator jxu;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -35,85 +35,85 @@ public class VideoRecordButton extends FrameLayout {
     }
 
     private void initView() {
-        inflate(getContext(), d.h.layout_record_button, this);
-        this.jeu = findViewById(d.g.record_layer1);
-        this.jev = findViewById(d.g.record_layer2);
-        this.jew = findViewById(d.g.record_layer3);
-        this.VN = (TextView) findViewById(d.g.tv_tip);
-        this.jew.setScaleX(0.766f);
-        this.jew.setScaleY(0.766f);
+        inflate(getContext(), R.layout.layout_record_button, this);
+        this.jxo = findViewById(R.id.record_layer1);
+        this.jxp = findViewById(R.id.record_layer2);
+        this.jxq = findViewById(R.id.record_layer3);
+        this.TA = (TextView) findViewById(R.id.tv_tip);
+        this.jxq.setScaleX(0.766f);
+        this.jxq.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.jew;
+        return this.jxq;
     }
 
     public View getLayer1() {
-        return this.jeu;
+        return this.jxo;
     }
 
     public View getLayer2() {
-        return this.jev;
+        return this.jxp;
     }
 
     public TextView getTvTip() {
-        return this.VN;
+        return this.TA;
     }
 
-    public void cmf() {
-        if (this.jeA != null && this.jeA.isRunning()) {
-            this.jez.cancel();
+    public void cui() {
+        if (this.jxu != null && this.jxu.isRunning()) {
+            this.jxt.cancel();
         }
-        if (this.jez == null) {
-            this.jez = ObjectAnimator.ofPropertyValuesHolder(this.jev, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.jez.setDuration(200L);
+        if (this.jxt == null) {
+            this.jxt = ObjectAnimator.ofPropertyValuesHolder(this.jxp, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.jxt.setDuration(200L);
         }
-        this.jez.start();
+        this.jxt.start();
     }
 
-    public void cmg() {
-        if (this.jez != null && this.jez.isRunning()) {
-            this.jez.cancel();
+    public void cuj() {
+        if (this.jxt != null && this.jxt.isRunning()) {
+            this.jxt.cancel();
         }
-        if (this.jev.getScaleX() != 1.0f) {
-            if (this.jeA == null) {
-                this.jeA = ObjectAnimator.ofPropertyValuesHolder(this.jev, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.jeA.setDuration(200L);
+        if (this.jxp.getScaleX() != 1.0f) {
+            if (this.jxu == null) {
+                this.jxu = ObjectAnimator.ofPropertyValuesHolder(this.jxp, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.jxu.setDuration(200L);
             }
-            this.jeA.start();
+            this.jxu.start();
         }
     }
 
-    public void qK(boolean z) {
-        if (this.jey != null && this.jey.isRunning()) {
-            this.jey.cancel();
+    public void rz(boolean z) {
+        if (this.jxs != null && this.jxs.isRunning()) {
+            this.jxs.cancel();
         }
-        if (this.jex == null) {
-            this.jex = ObjectAnimator.ofPropertyValuesHolder(this.jew, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.jex.setRepeatCount(-1);
-            this.jex.setRepeatMode(2);
-            this.jex.setDuration(1000L);
+        if (this.jxr == null) {
+            this.jxr = ObjectAnimator.ofPropertyValuesHolder(this.jxq, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.jxr.setRepeatCount(-1);
+            this.jxr.setRepeatMode(2);
+            this.jxr.setDuration(1000L);
         }
-        this.jew.setVisibility(0);
+        this.jxq.setVisibility(0);
         if (z) {
-            this.jeu.setVisibility(8);
+            this.jxo.setVisibility(8);
         } else {
-            this.jeu.setBackgroundResource(d.f.red_square_bg);
+            this.jxo.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.VN.setVisibility(8);
-        this.jex.start();
+        this.TA.setVisibility(8);
+        this.jxr.start();
     }
 
-    public void clU() {
-        if (this.jex != null && this.jex.isRunning()) {
-            this.jex.cancel();
+    public void ctX() {
+        if (this.jxr != null && this.jxr.isRunning()) {
+            this.jxr.cancel();
         }
-        if (this.jey == null) {
-            this.jey = ObjectAnimator.ofPropertyValuesHolder(this.jew, PropertyValuesHolder.ofFloat("scaleX", this.jew.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.jew.getScaleY(), 0.766f));
-            this.jey.setDuration((500.0f * Math.abs(0.766f - this.jew.getScaleX())) / 0.3f);
+        if (this.jxs == null) {
+            this.jxs = ObjectAnimator.ofPropertyValuesHolder(this.jxq, PropertyValuesHolder.ofFloat("scaleX", this.jxq.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.jxq.getScaleY(), 0.766f));
+            this.jxs.setDuration((500.0f * Math.abs(0.766f - this.jxq.getScaleX())) / 0.3f);
         }
-        this.jeu.setVisibility(0);
-        this.jeu.setBackgroundResource(d.f.red_circle_bg);
-        this.jey.start();
+        this.jxo.setVisibility(0);
+        this.jxo.setBackgroundResource(R.drawable.red_circle_bg);
+        this.jxs.start();
     }
 }

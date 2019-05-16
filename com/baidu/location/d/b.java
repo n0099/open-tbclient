@@ -58,7 +58,7 @@ public final class b {
 
     /* renamed from: com.baidu.location.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0048b extends Thread {
+    private class C0047b extends Thread {
         private String a;
         private Long c;
         private BDLocation d;
@@ -67,7 +67,7 @@ public final class b {
         private String g;
         private LinkedHashMap<String, Integer> h;
 
-        private C0048b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
+        private C0047b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
             this.a = str;
             this.c = l;
             this.d = bDLocation;
@@ -176,7 +176,7 @@ public final class b {
                 jSONObject.put("type", "0");
                 jSONObject.put("cuid", com.baidu.location.g.b.a().b);
                 jSONObject.put("ver", "1");
-                jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
+                jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             } catch (Exception e) {
                 jSONObject = null;
             }
@@ -318,7 +318,7 @@ public final class b {
                     jSONObject.put("type", "1");
                     jSONObject.put("cuid", com.baidu.location.g.b.a().b);
                     jSONObject.put("ver", "1");
-                    jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
+                    jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     if (i == 0 || i2 != 0) {
                         jSONObject.put("model", jSONObject3);
                     }
@@ -360,7 +360,7 @@ public final class b {
             jSONObject.put("type", "1");
             jSONObject.put("cuid", com.baidu.location.g.b.a().b);
             jSONObject.put("ver", "1");
-            jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
+            jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
             if (i == 0) {
             }
             jSONObject.put("model", jSONObject3);
@@ -384,7 +384,7 @@ public final class b {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
                     jSONObject.put("cuid", com.baidu.location.g.b.a().b);
-                    jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
+                    jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                     this.t = System.currentTimeMillis();
                 } catch (Exception e) {
                 }
@@ -407,7 +407,7 @@ public final class b {
                         jSONObject.put("type", "3");
                         jSONObject.put("ver", "1");
                         jSONObject.put("cuid", com.baidu.location.g.b.a().b);
-                        jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
+                        jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
                         jSONObject.put("rgc", b);
                         this.t = System.currentTimeMillis();
                     } catch (Exception e) {
@@ -1576,7 +1576,7 @@ public final class b {
                     stringBuffer.append(e.a(bDLocation, i));
                     str3 = stringBuffer.toString();
                 }
-                new C0048b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0047b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             } else {
                 if (bDLocation5 != null) {
@@ -1623,7 +1623,7 @@ public final class b {
                 String str32 = null;
                 if (aVar.a != null) {
                 }
-                new C0048b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0047b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             }
         } else {

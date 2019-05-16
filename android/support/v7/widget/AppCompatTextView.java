@@ -95,8 +95,9 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.TextView, android.view.View
-    protected void drawableStateChanged() {
+    public void drawableStateChanged() {
         super.drawableStateChanged();
         if (this.mBackgroundTintHelper != null) {
             this.mBackgroundTintHelper.applySupportBackgroundTint();

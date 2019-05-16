@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b {
-    public String aBI;
-    public List<c> ayO = new ArrayList();
-    public List<a> ayR = new ArrayList();
-    public String bhm;
-    public TextureMapView bhn;
+    public String aDn;
+    public List<c> azM = new ArrayList();
+    public List<a> azP = new ArrayList();
+    public String bnr;
+    public TextureMapView bns;
     public Context context;
     public String id;
     public boolean isShowLocation;
@@ -26,37 +26,37 @@ public class b {
             return null;
         }
         b bVar = new b();
-        bVar.bhm = cVar.aBH;
+        bVar.bnr = cVar.aDm;
         bVar.id = cVar.id;
-        bVar.aBI = cVar.aBI;
+        bVar.aDn = cVar.aDn;
         bVar.context = context;
-        bVar.bhn = new TextureMapView(context);
+        bVar.bns = new TextureMapView(context);
         bVar.isShowLocation = cVar.isShowLocation;
         return bVar;
     }
 
     public c b(Marker marker) {
-        for (c cVar : this.ayO) {
-            if (marker == cVar.bhp) {
+        for (c cVar : this.azM) {
+            if (marker == cVar.bnu) {
                 return cVar;
             }
         }
         return null;
     }
 
-    public List<c> je(String str) {
+    public List<c> kd(String str) {
         ArrayList arrayList = new ArrayList(1);
-        for (c cVar : this.ayO) {
-            if (cVar.bho != null && TextUtils.equals(str, cVar.bho.id)) {
+        for (c cVar : this.azM) {
+            if (cVar.bnt != null && TextUtils.equals(str, cVar.bnt.id)) {
                 arrayList.add(cVar);
             }
         }
         return arrayList;
     }
 
-    public a as(View view) {
-        for (a aVar : this.ayR) {
-            if (aVar.bhl == view) {
+    public a ay(View view) {
+        for (a aVar : this.azP) {
+            if (aVar.bnq == view) {
                 return aVar;
             }
         }
@@ -64,14 +64,14 @@ public class b {
     }
 
     public void clear() {
-        for (c cVar : this.ayO) {
-            this.bhn.removeView(cVar.bht);
+        for (c cVar : this.azM) {
+            this.bns.removeView(cVar.bny);
         }
-        this.ayO.clear();
-        for (a aVar : this.ayR) {
-            this.bhn.removeView(aVar.bhl);
+        this.azM.clear();
+        for (a aVar : this.azP) {
+            this.bns.removeView(aVar.bnq);
         }
-        this.ayR.clear();
-        this.bhn.getMap().clear();
+        this.azP.clear();
+        this.bns.getMap().clear();
     }
 }

@@ -9,19 +9,19 @@ import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, d> aOf = null;
+    private Map<String, d> aQi = null;
 
     public d a(String str, String str2, @NonNull d dVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return dVar;
         }
-        if (this.aOf == null) {
-            this.aOf = new TreeMap();
+        if (this.aQi == null) {
+            this.aQi = new TreeMap();
         }
-        d dVar2 = this.aOf.get(str2);
+        d dVar2 = this.aQi.get(str2);
         if (dVar2 == null) {
             d b = b(str, str2, dVar);
-            this.aOf.put(str2, b);
+            this.aQi.put(str2, b);
             return b;
         }
         return dVar2;
@@ -39,8 +39,8 @@ public final class a {
             Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + file.exists());
         }
         if (file.exists()) {
-            String B = com.baidu.swan.c.b.B(file);
-            return !TextUtils.isEmpty(B) ? d.a(B, dVar) : dVar;
+            String v = com.baidu.swan.c.a.v(file);
+            return !TextUtils.isEmpty(v) ? d.a(v, dVar) : dVar;
         }
         return dVar;
     }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.aiapps.apps.address.c;
 /* loaded from: classes4.dex */
 public class a {
-    public boolean cSq;
     public String content;
+    public boolean daL;
     public String hint;
     public String label;
     public String type;

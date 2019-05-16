@@ -18,16 +18,16 @@ public class g extends a {
         super(jVar, "/swan/camera/update");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (!(context instanceof Activity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "handle action, but context is not Activity");
             return false;
         }
-        bVar.IZ().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.g.1
+        bVar.Lu().a((Activity) context, "mapp_camera", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.camera.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
             public void D(Boolean bool) {
                 com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) g.this.b(unitedSchemeEntity);
@@ -50,13 +50,13 @@ public class g extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.camera.d.a aVar) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.wm().bt(context)) {
+        if (com.baidu.swan.apps.camera.a.xe().aM(context)) {
             a(unitedSchemeEntity, callbackHandler, a(aVar));
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             return;
         }
-        com.baidu.swan.apps.w.e.Ea().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.camera.a.g.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
+        com.baidu.swan.apps.w.e.FV().a(1, new String[]{"android.permission.CAMERA"}, new a.InterfaceC0109a() { // from class: com.baidu.swan.apps.camera.a.g.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0109a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
                 if (i != 1) {
@@ -93,15 +93,15 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "Model is null");
             return false;
         }
-        String str = aVar.akM;
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBJ;
+        String str = aVar.akY;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aDo;
         if (TextUtils.isEmpty(str) || bVar == null || !bVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (bVar == null));
             return false;
         }
-        CameraPreview dr = com.baidu.swan.apps.camera.a.wm().dr(aVar.aBH);
-        if (dr != null) {
-            dr.b(aVar);
+        CameraPreview de = com.baidu.swan.apps.camera.a.xe().de(aVar.aDm);
+        if (de != null) {
+            de.b(aVar);
         }
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handle update camera instruction end");
         SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(aVar, null);

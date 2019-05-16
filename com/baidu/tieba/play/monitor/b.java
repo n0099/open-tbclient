@@ -9,22 +9,22 @@ public class b {
     public static void a(i iVar, final long j) {
         if (iVar != null) {
             iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.1
-                private long hYO = 0;
+                private long iru = 0;
 
                 @Override // com.baidu.tieba.j.b
-                public void bx(JSONObject jSONObject) throws JSONException {
+                public void bJ(JSONObject jSONObject) throws JSONException {
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void by(JSONObject jSONObject) throws JSONException {
-                    this.hYO = jSONObject.optLong("loadingTime");
+                public void bK(JSONObject jSONObject) throws JSONException {
+                    this.iru = jSONObject.optLong("loadingTime");
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void bz(JSONObject jSONObject) throws JSONException {
-                    if (this.hYO != 0 && j != 0 && this.hYO <= 86400000 && j <= 86400000) {
+                public void bL(JSONObject jSONObject) throws JSONException {
+                    if (this.iru != 0 && j != 0 && this.iru <= 86400000 && j <= 86400000) {
                         jSONObject.put("pbLoadingTime", j);
-                        jSONObject.put("pbVideoPreview", this.hYO + j);
+                        jSONObject.put("pbVideoPreview", this.iru + j);
                     }
                 }
             });
@@ -35,15 +35,15 @@ public class b {
         if (iVar != null) {
             iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.2
                 @Override // com.baidu.tieba.j.b
-                public void bx(JSONObject jSONObject) throws JSONException {
+                public void bJ(JSONObject jSONObject) throws JSONException {
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void by(JSONObject jSONObject) throws JSONException {
+                public void bK(JSONObject jSONObject) throws JSONException {
                 }
 
                 @Override // com.baidu.tieba.j.b
-                public void bz(JSONObject jSONObject) throws JSONException {
+                public void bL(JSONObject jSONObject) throws JSONException {
                     jSONObject.put("flow_count", j);
                     jSONObject.put("play_position", j2);
                     jSONObject.put(WebVideoActivityConfig.KEY_VIDEO_DURATION, j3);

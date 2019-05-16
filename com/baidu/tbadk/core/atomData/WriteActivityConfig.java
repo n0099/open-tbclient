@@ -25,6 +25,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
     public static final String FROM_ADD_PHOTO_LIVE_IN_MISSON = "from_add_photo_live_in_misson";
+    public static final String FROM_FORUM_SHARE = "from_forum_share";
     public static final String HOT_TOPIC = "hot_topic";
     public static final String HOT_TOPIC_ID = "hot_topic_id";
     public static final String HOT_TOPIC_POST_FORUM = "hot_topic_forum_list";
@@ -49,6 +50,9 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String LIVE_GROUP_ZAN_COUNT = "live_group_zan_count";
     public static final String LIVE_TIME_IS_MODIFY = "live_time_is_modify";
     public static final String MEMBER_TYPE = "mem_type";
+    public static final String MORE_FORUM_IMG = "more_forum_img";
+    public static final String MORE_FORUM_TITLE = "more_forum_title";
+    public static final String MORE_FORUM_URL = "more_forum_url";
     public static final String PHOTO_LIVE_COVER_IMAGE = "photolivecoverimage";
     public static final String PHOTO_NAME = "photo_name";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
@@ -175,6 +179,24 @@ public class WriteActivityConfig extends IntentConfig {
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         if (getIntent() != null && writeImagesInfo != null) {
             getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
+        }
+    }
+
+    public void setMoreForumImg(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_img", str);
+        }
+    }
+
+    public void setMoreForumTitle(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_title", str);
+        }
+    }
+
+    public void setMoreForumUrl(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_url", str);
         }
     }
 

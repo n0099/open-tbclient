@@ -1,133 +1,77 @@
 package com.baidu.tieba.aiapps.apps.h;
 
-import android.content.Context;
-import com.baidu.swan.apps.u.b.o;
-import com.baidu.swan.apps.x.a.c;
-import com.baidu.swan.apps.x.a.e;
-import com.baidu.swan.apps.x.a.f;
-import com.baidu.swan.apps.x.a.g;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.b.b.i;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.o.d;
+import com.baidu.tbadk.o.e;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class a implements o {
-    private static o cUV;
+public class a implements i {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private long lastResumeTime;
 
-    public static void a(o oVar) {
-        cUV = oVar;
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
+    @Override // com.baidu.swan.apps.b.b.i
+    public void wG() {
+        if (DEBUG) {
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + com.baidu.swan.apps.ae.b.Lq().id);
         }
-        return cUV.a(context, cVar, bVar, bVar2);
+        this.lastResumeTime = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean b(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
+    public String getCurrentPageKey() {
+        return "a061";
+    }
+
+    public com.baidu.tbadk.o.b getPageStayFilter() {
+        return null;
+    }
+
+    public List<String> getCurrentPageSourceKeyList() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("a001");
+        return arrayList;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.i
+    public void wH() {
+        if (DEBUG) {
+            Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
-        return cUV.b(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean c(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.c(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.a(context, fVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.a(context, eVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean d(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.d(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.a(context, bVar, bVar2, bVar3);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean e(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.e(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean f(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.f(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean g(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.g(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.a(context, aVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, g gVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (cUV == null) {
-            return false;
-        }
-        return cUV.a(context, gVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void c(com.baidu.swan.apps.b.c.c cVar) {
-        if (cUV != null) {
-            cUV.c(cVar);
+        long j = com.baidu.tbadk.core.sharedPref.b.agM().getLong("smart_app_tid", 0L);
+        String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("smart_app_id", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.agM().getString("smart_app_name", "");
+        if (this.lastResumeTime != 0 && j != 0) {
+            long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
+            d dVar = new d();
+            dVar.bh(currentTimeMillis);
+            dVar.qD(getCurrentPageKey());
+            dVar.setTid(j);
+            dVar.cxU = string;
+            dVar.cxV = string2;
+            dVar.ao(getCurrentPageSourceKeyList());
+            e.atQ().fy(true);
+            e.atQ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.core.sharedPref.b.agM().putLong("smart_app_tid", 0L);
         }
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public void d(com.baidu.swan.apps.b.c.c cVar) {
-        if (cUV != null) {
-            cUV.d(cVar);
+    @Override // com.baidu.swan.apps.b.b.i
+    public void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.v.b.b bVar) {
+        if (DEBUG) {
+            Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void e(com.baidu.swan.apps.b.c.c cVar) {
-        if (cUV != null) {
-            cUV.e(cVar);
+        if (com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("key_ai_app_guide_display", true)) {
+            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("key_ai_app_guide_display", false);
+            Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+            intent.putExtra(DealIntentService.KEY_CLASS, 38);
+            swanAppActivity.startService(intent);
         }
     }
 }

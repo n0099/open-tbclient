@@ -13,14 +13,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService bpy;
+    private final ExecutorService aZL;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.bpy = executorService;
+        this.aZL = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -30,17 +30,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.bpy.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.aZL.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.czO().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cHK().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void czH() {
+            public void cHD() {
                 if (submit.cancel(false)) {
-                    aVar.ctB();
+                    aVar.cBy();
                 }
             }
         });
@@ -76,7 +76,7 @@ public class t extends c<s> {
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.C(e);
+                        aVar.B(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -126,12 +126,12 @@ public class t extends c<s> {
     }
 
     private HttpURLConnection b(Uri uri, int i) throws IOException {
-        HttpURLConnection J = J(uri);
-        int responseCode = J.getResponseCode();
-        if (!CC(responseCode)) {
-            if (CD(responseCode)) {
-                String headerField = J.getHeaderField("Location");
-                J.disconnect();
+        HttpURLConnection P = P(uri);
+        int responseCode = P.getResponseCode();
+        if (!DG(responseCode)) {
+            if (DH(responseCode)) {
+                String headerField = P.getHeaderField("Location");
+                P.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
@@ -139,21 +139,21 @@ public class t extends c<s> {
                 }
                 throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            J.disconnect();
+            P.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return J;
+        return P;
     }
 
-    static HttpURLConnection J(Uri uri) throws IOException {
+    static HttpURLConnection P(Uri uri) throws IOException {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean CC(int i) {
+    private static boolean DG(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean CD(int i) {
+    private static boolean DH(int i) {
         switch (i) {
             case 300:
             case 301:

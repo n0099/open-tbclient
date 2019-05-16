@@ -14,28 +14,28 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a {
-    private EditText cPT;
-    private TextView cPU;
-    private ImageView cPV;
-    private InterfaceC0259a cPW;
-    private View.OnClickListener cPX = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText cYe;
+    private TextView cYf;
+    private ImageView cYg;
+    private InterfaceC0274a cYh;
+    private View.OnClickListener cYi = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.cPU) {
-                String a = k.a(a.this.cPT.getText(), null);
+            if (view == a.this.cYf) {
+                String a = k.a(a.this.cYe.getText(), null);
                 if (!StringUtils.isNULL(a)) {
                     if (a.trim().length() != 0) {
-                        a.this.rg(a.trim());
-                        a.this.cPU.setClickable(false);
+                        a.this.sp(a.trim());
+                        a.this.cYf.setClickable(false);
                     } else if (a.length() > 0) {
-                        a.this.mPageContext.showToast(d.j.input_content);
+                        a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
-            } else if (view == a.this.cPV) {
-                a.this.rf("");
+            } else if (view == a.this.cYg) {
+                a.this.so("");
             }
         }
     };
@@ -45,26 +45,26 @@ public class a {
 
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0259a {
-        void re(String str);
+    public interface InterfaceC0274a {
+        void sn(String str);
     }
 
-    public void fL(boolean z) {
-        this.cPU.setClickable(z);
+    public void gi(boolean z) {
+        this.cYf.setClickable(z);
     }
 
-    public void rf(String str) {
-        this.cPT.setText(str);
+    public void so(String str) {
+        this.cYe.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.cPT = (EditText) view.findViewById(d.g.new_search_friend_input);
-        this.cPU = (TextView) view.findViewById(d.g.new_search_friend_search);
-        this.cPV = (ImageView) view.findViewById(d.g.new_search_friend_del);
-        this.cPU.setOnClickListener(this.cPX);
-        this.cPV.setOnClickListener(this.cPX);
+        this.cYe = (EditText) view.findViewById(R.id.new_search_friend_input);
+        this.cYf = (TextView) view.findViewById(R.id.new_search_friend_search);
+        this.cYg = (ImageView) view.findViewById(R.id.new_search_friend_del);
+        this.cYf.setOnClickListener(this.cYi);
+        this.cYg.setOnClickListener(this.cYi);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.cPV.setVisibility(8);
+                    a.this.cYg.setVisibility(8);
                 } else {
-                    a.this.cPV.setVisibility(0);
+                    a.this.cYg.setVisibility(0);
                 }
             }
         };
-        this.cPT.addTextChangedListener(this.mTextWatcher);
-        ib(TbadkCoreApplication.getInst().getSkinType());
+        this.cYe.addTextChangedListener(this.mTextWatcher);
+        iP(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void axe() {
-        this.cPT.removeTextChangedListener(this.mTextWatcher);
+    public void aCk() {
+        this.cYe.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void axf() {
-        l.b(this.context, this.cPT);
+    public void aCl() {
+        l.b(this.context, this.cYe);
     }
 
-    public void a(InterfaceC0259a interfaceC0259a) {
-        this.cPW = interfaceC0259a;
+    public void a(InterfaceC0274a interfaceC0274a) {
+        this.cYh = interfaceC0274a;
     }
 
-    public void ib(int i) {
-        al.d(this.cPU, d.C0277d.cp_cont_g, 1);
-        this.cPT.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
-        al.c(this.cPV, d.f.icon_search_close);
+    public void iP(int i) {
+        al.f(this.cYf, R.color.cp_cont_g, 1);
+        this.cYe.setHintTextColor(al.getColor(R.color.cp_cont_e));
+        al.c(this.cYg, (int) R.drawable.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rg(String str) {
-        if (this.cPW != null) {
-            this.cPW.re(str);
+    public void sp(String str) {
+        if (this.cYh != null) {
+            this.cYh.sn(str);
         }
     }
 }

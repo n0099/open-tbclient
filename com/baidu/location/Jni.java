@@ -2,7 +2,6 @@ package com.baidu.location;
 
 import com.baidu.android.common.so.SoLoader;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.mobstat.Config;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class Jni {
@@ -59,7 +58,7 @@ public class Jni {
             i2 = h;
         }
         try {
-            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(Config.TRACE_TODAY_VISIT_SPLIT);
+            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
             dArr[0] = Double.parseDouble(split[0]);
             dArr[1] = Double.parseDouble(split[1]);
         } catch (UnsatisfiedLinkError e2) {

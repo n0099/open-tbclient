@@ -8,6 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.a.b.a;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,20 +16,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class g extends y {
-    private List<String> aPy;
-    private AtomicBoolean aPz;
+public class g extends z {
+    private List<String> aRC;
+    private AtomicBoolean aRD;
 
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/downloadPackages");
-        this.aPz = new AtomicBoolean(false);
+        this.aRD = new AtomicBoolean(false);
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "call DownloadPackagesAction, thread=" + Thread.currentThread().getName());
-        if (this.aPy == null) {
-            this.aPy = Collections.synchronizedList(new ArrayList());
+        if (this.aRC == null) {
+            this.aRC = Collections.synchronizedList(new ArrayList());
         }
         JSONObject c = c(unitedSchemeEntity, "params");
         if (c == null) {
@@ -36,26 +37,27 @@ public class g extends y {
             return false;
         }
         JSONArray optJSONArray = c.optJSONArray("appKeys");
-        String optString = c.optString("abTest", null);
-        if (!TextUtils.isEmpty(optString)) {
-            com.baidu.swan.apps.core.a.c.aoI = optString;
+        String param = unitedSchemeEntity.getParam(ImageViewerConfig.ABTEST);
+        if (!TextUtils.isEmpty(param)) {
+            com.baidu.swan.apps.core.a.c.aoU = param;
+            com.baidu.swan.apps.v.a.setInfo(com.baidu.swan.apps.core.a.c.aoU);
         }
         if (optJSONArray == null || optJSONArray.length() == 0) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "appKeys must not empty");
             return false;
         }
         for (int i = 0; i < optJSONArray.length(); i++) {
-            String optString2 = optJSONArray.optString(i);
-            if (optString2 != null) {
-                this.aPy.add(optString2);
+            String optString = optJSONArray.optString(i);
+            if (optString != null) {
+                this.aRC.add(optString);
             }
         }
         if (!SwanAppNetworkUtils.isWifiNetworkConnected(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
-        if (!this.aPz.getAndSet(true)) {
-            JH();
+        if (!this.aRD.getAndSet(true)) {
+            Mc();
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
@@ -63,31 +65,31 @@ public class g extends y {
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public void JH() {
-        if (this.aPy == null || this.aPy.isEmpty()) {
-            this.aPz.set(false);
+    public void Mc() {
+        if (this.aRC == null || this.aRC.isEmpty()) {
+            this.aRD.set(false);
             com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preload finish");
             return;
         }
-        final String remove = this.aPy.remove(0);
-        com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preload " + remove + ", waitSize=" + this.aPy.size() + " , thread=" + Thread.currentThread().getName());
-        com.baidu.swan.apps.core.a.b.a.a(remove, new a.InterfaceC0127a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0127a
-            public void xM() {
+        final String remove = this.aRC.remove(0);
+        com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preload " + remove + ", waitSize=" + this.aRC.size() + " , thread=" + Thread.currentThread().getName());
+        com.baidu.swan.apps.core.a.b.a.a(remove, new a.InterfaceC0130a() { // from class: com.baidu.swan.apps.scheme.actions.g.1
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0130a
+            public void yE() {
                 com.baidu.swan.apps.console.c.w("DownloadPackagesAction", "swanAppIdInvalid: " + remove);
-                g.this.JH();
+                g.this.Mc();
             }
 
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0127a
-            public void xN() {
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0130a
+            public void yF() {
                 com.baidu.swan.apps.console.c.i("DownloadPackagesAction", "preDownloadSuccess: " + remove);
-                g.this.JH();
+                g.this.Mc();
             }
 
-            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0127a
+            @Override // com.baidu.swan.apps.core.a.b.a.InterfaceC0130a
             public void bZ(int i) {
                 com.baidu.swan.apps.console.c.w("DownloadPackagesAction", "preDownloadFailed: " + remove + ", errorCode:" + i);
-                g.this.JH();
+                g.this.Mc();
             }
         }, "2");
     }

@@ -1,40 +1,40 @@
 package com.xiaomi.push.service;
 
-import android.content.SharedPreferences;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import android.content.Context;
+import com.xiaomi.push.service.XMPushService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class ad {
-    private static Object a = new Object();
-    private static Map<String, Queue<String>> b = new HashMap();
+public final class ad extends XMPushService.i {
+    final /* synthetic */ XMPushService b;
+    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
+    final /* synthetic */ String d;
+    final /* synthetic */ String e;
 
-    public static boolean a(XMPushService xMPushService, String str, String str2) {
-        synchronized (a) {
-            SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = b.get(str);
-            if (queue == null) {
-                String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                queue = new LinkedList<>();
-                for (String str3 : split) {
-                    queue.add(str3);
-                }
-                b.put(str, queue);
-            }
-            if (queue.contains(str2)) {
-                return true;
-            }
-            queue.add(str2);
-            if (queue.size() > 25) {
-                queue.poll();
-            }
-            String a2 = com.xiaomi.channel.commonutils.string.d.a(queue, Constants.ACCEPT_TIME_SEPARATOR_SP);
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(str, a2);
-            edit.commit();
-            return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar, String str, String str2) {
+        super(i);
+        this.b = xMPushService;
+        this.c = afVar;
+        this.d = str;
+        this.e = str2;
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c);
+            a.h.a("error", this.d);
+            a.h.a("reason", this.e);
+            af.a(this.b, a);
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.b.a(10, e);
         }
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "send wrong message ack for message.";
     }
 }

@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.c> {
-    private TextView XN;
-    private TextView fAo;
-    private TextView ghY;
-    private TextView hMb;
-    private TextView hMc;
-    private TextView hMd;
-    private TextView hMe;
-    private TextView hMf;
-    private ImageView hMg;
-    private LinearLayout hMh;
-    private LinearLayout hMi;
-    private LinearLayout hMj;
-    private LinearLayout hMk;
-    private LinearLayout hMl;
+public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.d> {
+    private TextView VE;
+    private TextView fRl;
+    private TextView gzk;
+    private TextView iel;
+    private TextView iem;
+    private TextView ien;
+    private TextView ieo;
+    private TextView iep;
+    private ImageView ieq;
+    private LinearLayout ier;
+    private LinearLayout ies;
+    private LinearLayout iet;
+    private LinearLayout ieu;
+    private LinearLayout iev;
     private int mSkinType;
     private View mTopLine;
     private UserData mUserData;
@@ -41,41 +41,41 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.fAo = (TextView) view.findViewById(d.g.fans_num);
-        this.hMb = (TextView) view.findViewById(d.g.fans_title);
-        this.hMc = (TextView) view.findViewById(d.g.concer_num);
-        this.hMd = (TextView) view.findViewById(d.g.concer_title);
-        this.hMe = (TextView) view.findViewById(d.g.attention_bar_num);
-        this.hMf = (TextView) view.findViewById(d.g.attention_bar_title);
-        this.ghY = (TextView) view.findViewById(d.g.thread_num);
-        this.XN = (TextView) view.findViewById(d.g.thread_title);
-        this.mTopLine = view.findViewById(d.g.top_divider_line);
-        this.hMl = (LinearLayout) view.findViewById(d.g.attention_container);
-        this.hMh = (LinearLayout) view.findViewById(d.g.fans_action);
-        this.hMi = (LinearLayout) view.findViewById(d.g.concer_action);
-        this.hMj = (LinearLayout) view.findViewById(d.g.attention_action);
-        this.hMk = (LinearLayout) view.findViewById(d.g.thread_action);
-        this.hMg = (ImageView) view.findViewById(d.g.person_center_fans_red_tip);
+        this.fRl = (TextView) view.findViewById(R.id.fans_num);
+        this.iel = (TextView) view.findViewById(R.id.fans_title);
+        this.iem = (TextView) view.findViewById(R.id.concer_num);
+        this.ien = (TextView) view.findViewById(R.id.concer_title);
+        this.ieo = (TextView) view.findViewById(R.id.attention_bar_num);
+        this.iep = (TextView) view.findViewById(R.id.attention_bar_title);
+        this.gzk = (TextView) view.findViewById(R.id.thread_num);
+        this.VE = (TextView) view.findViewById(R.id.thread_title);
+        this.mTopLine = view.findViewById(R.id.top_divider_line);
+        this.iev = (LinearLayout) view.findViewById(R.id.attention_container);
+        this.ier = (LinearLayout) view.findViewById(R.id.fans_action);
+        this.ies = (LinearLayout) view.findViewById(R.id.concer_action);
+        this.iet = (LinearLayout) view.findViewById(R.id.attention_action);
+        this.ieu = (LinearLayout) view.findViewById(R.id.thread_action);
+        this.ieq = (ImageView) view.findViewById(R.id.person_center_fans_red_tip);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.j(this.fAo, d.C0277d.cp_cont_b);
-            al.j(this.hMb, d.C0277d.cp_cont_j);
-            al.j(this.hMc, d.C0277d.cp_cont_b);
-            al.j(this.hMd, d.C0277d.cp_cont_j);
-            al.j(this.hMe, d.C0277d.cp_cont_b);
-            al.j(this.hMf, d.C0277d.cp_cont_j);
-            al.j(this.ghY, d.C0277d.cp_cont_b);
-            al.j(this.XN, d.C0277d.cp_cont_j);
-            al.l(this.mTopLine, d.C0277d.cp_bg_line_e);
-            this.hMg.setImageDrawable(al.T(i, d.f.person_center_red_tip_shape));
-            if (this.hMl != null) {
-                for (int i2 = 0; i2 < this.hMl.getChildCount(); i2++) {
-                    View childAt = this.hMl.getChildAt(i2);
+            al.j(this.fRl, R.color.cp_cont_b);
+            al.j(this.iel, R.color.cp_cont_j);
+            al.j(this.iem, R.color.cp_cont_b);
+            al.j(this.ien, R.color.cp_cont_j);
+            al.j(this.ieo, R.color.cp_cont_b);
+            al.j(this.iep, R.color.cp_cont_j);
+            al.j(this.gzk, R.color.cp_cont_b);
+            al.j(this.VE, R.color.cp_cont_j);
+            al.l(this.mTopLine, R.color.cp_bg_line_e);
+            this.ieq.setImageDrawable(al.S(i, R.drawable.person_center_red_tip_shape));
+            if (this.iev != null) {
+                for (int i2 = 0; i2 < this.iev.getChildCount(); i2++) {
+                    View childAt = this.iev.getChildAt(i2);
                     if (childAt != null) {
-                        al.k(childAt, d.f.person_center_action_item_selector);
+                        al.k(childAt, R.drawable.person_center_action_item_selector);
                     }
                 }
             }
@@ -85,47 +85,47 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.person_center_actions_layout;
+        return R.layout.person_center_actions_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personCenter.data.c cVar) {
-        this.mUserData = cVar.userData;
-        this.fAo.setText(Integer.toString(cVar.hLv));
-        this.hMc.setText(Integer.toString(cVar.hLw));
-        this.hMe.setText(Integer.toString(cVar.hLx));
-        this.ghY.setText(ap.aD(cVar.threadNum));
-        if (cVar.hLy) {
-            this.hMg.setVisibility(0);
+    public void a(com.baidu.tieba.personCenter.data.d dVar) {
+        this.mUserData = dVar.userData;
+        this.fRl.setText(Integer.toString(dVar.idy));
+        this.iem.setText(Integer.toString(dVar.idz));
+        this.ieo.setText(Integer.toString(dVar.idA));
+        this.gzk.setText(ap.aS(dVar.threadNum));
+        if (dVar.idB) {
+            this.ieq.setVisibility(0);
         } else {
-            this.hMg.setVisibility(8);
+            this.ieq.setVisibility(8);
         }
-        this.hMh.setOnClickListener(this);
-        this.hMi.setOnClickListener(this);
-        this.hMj.setOnClickListener(this);
-        this.hMk.setOnClickListener(this);
+        this.ier.setOnClickListener(this);
+        this.ies.setOnClickListener(this);
+        this.iet.setOnClickListener(this);
+        this.ieu.setOnClickListener(this);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view.getId() == d.g.fans_action) {
+            if (view.getId() == R.id.fans_action) {
                 if (this.mUserData != null) {
-                    this.hMg.setVisibility(8);
-                    com.baidu.tieba.o.a.bXS().d(2, false, true);
-                    TiebaStatic.log(new am("c12523").T("obj_locate", 6));
+                    this.ieq.setVisibility(8);
+                    com.baidu.tieba.o.a.cfX().d(2, false, true);
+                    TiebaStatic.log(new am("c12523").P("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex())));
                 }
-            } else if (view.getId() == d.g.concer_action) {
-                TiebaStatic.log(new am("c12523").T("obj_locate", 5));
+            } else if (view.getId() == R.id.concer_action) {
+                TiebaStatic.log(new am("c12523").P("obj_locate", 5));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex())));
-            } else if (view.getId() == d.g.attention_action) {
-                TiebaStatic.log(new am("c12523").T("obj_locate", 7));
+            } else if (view.getId() == R.id.attention_action) {
+                TiebaStatic.log(new am("c12523").P("obj_locate", 7));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getLike_bars(), this.mUserData.getUserId(), this.mUserData.getSex())));
-            } else if (view.getId() == d.g.thread_action) {
-                TiebaStatic.log(new am("c12523").T("obj_locate", 8));
+            } else if (view.getId() == R.id.thread_action) {
+                TiebaStatic.log(new am("c12523").P("obj_locate", 8));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mTbPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getSex(), this.mUserData.getPortrait())));
             }
         }

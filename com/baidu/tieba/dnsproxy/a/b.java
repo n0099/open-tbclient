@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
     String address;
-    float eyA;
+    float eOc;
     private List<Integer> data = new ArrayList();
-    boolean eyB = false;
-    boolean eyC = false;
+    boolean eOd = false;
+    boolean eOe = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void oO(int i) {
+    public void pS(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.eyA = 0.0f;
+            this.eOc = 0.0f;
         } else if (size == 1) {
-            this.eyA = this.data.get(0).intValue();
+            this.eOc = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.eyA = ((i * f3) / size) + f;
-            if (this.eyA < 0.05d) {
-                if (!this.eyB) {
-                    com.baidu.tieba.dnsproxy.d.aUW().R("ip_weight_lower", this.address, String.valueOf(this.eyA));
-                    this.eyB = true;
+            this.eOc = ((i * f3) / size) + f;
+            if (this.eOc < 0.05d) {
+                if (!this.eOd) {
+                    com.baidu.tieba.dnsproxy.d.bce().R("ip_weight_lower", this.address, String.valueOf(this.eOc));
+                    this.eOd = true;
                 }
-            } else if (this.eyB && this.eyA > 0.5d && !this.eyC) {
-                com.baidu.tieba.dnsproxy.d.aUW().R("ip_weight_lower_recover", this.address, String.valueOf(this.eyA));
-                this.eyC = true;
+            } else if (this.eOd && this.eOc > 0.5d && !this.eOe) {
+                com.baidu.tieba.dnsproxy.d.bce().R("ip_weight_lower_recover", this.address, String.valueOf(this.eOc));
+                this.eOe = true;
             }
         }
     }

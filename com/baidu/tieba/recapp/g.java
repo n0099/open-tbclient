@@ -5,61 +5,61 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
     public String forumName;
-    public int igA;
-    public int igB;
-    public int igz;
+    public int izl;
+    public int izm;
+    public int izn;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.igz = 0;
-        this.igA = 0;
-        this.igB = 0;
+        this.izl = 0;
+        this.izm = 0;
+        this.izn = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.igz = 0;
-        this.igA = 0;
-        this.igB = 0;
+        this.izl = 0;
+        this.izm = 0;
+        this.izn = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.igz = jSONObject.optInt("loadmore_count");
-            this.igA = jSONObject.optInt("loadmore_count_pb");
-            this.igB = jSONObject.optInt("refresh_count_pb");
+            this.izl = jSONObject.optInt("loadmore_count");
+            this.izm = jSONObject.optInt("loadmore_count_pb");
+            this.izn = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject bWy() {
+    public JSONObject ceC() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.igz);
-            jSONObject.put("loadmore_count_pb", this.igA);
-            jSONObject.put("refresh_count_pb", this.igB);
+            jSONObject.put("loadmore_count", this.izl);
+            jSONObject.put("loadmore_count_pb", this.izm);
+            jSONObject.put("refresh_count_pb", this.izn);
             return jSONObject;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    public int ae(boolean z, boolean z2) {
-        return z2 ? z ? this.igB : this.igA : z ? this.refreshCount : this.igz;
+    public int af(boolean z, boolean z2) {
+        return z2 ? z ? this.izn : this.izm : z ? this.refreshCount : this.izl;
     }
 
-    public void af(boolean z, boolean z2) {
+    public void ag(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.igB++;
+                this.izn++;
             } else {
-                this.igA++;
+                this.izm++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.igz++;
+            this.izl++;
         }
     }
 }

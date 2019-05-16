@@ -85,15 +85,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0090a {
+    public static class C0092a {
         public static a a = new a();
 
-        private C0090a() {
+        private C0092a() {
         }
     }
 
     public static a a() {
-        return C0090a.a;
+        return C0092a.a;
     }
 
     a() {
@@ -1021,7 +1021,7 @@ public class a {
         HashMap hashMap = new HashMap();
         hashMap.put("pids", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
         hashMap.put("pi_vers", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
-        hashMap.put("package_name", this.c.getPackageName());
+        hashMap.put(Constants.PACKAGE_NAME, this.c.getPackageName());
         hashMap.put("host_ver", PluginFacade.a.a);
         StatService.onEvent("app_pi_info", hashMap);
     }

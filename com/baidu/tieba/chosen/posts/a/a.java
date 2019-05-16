@@ -14,49 +14,49 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView dfn;
-    private TextView eqf;
-    private TextView eqg;
-    private TextView eqh;
-    private View eqi;
+    private TbImageView dpQ;
+    private TextView eFM;
+    private TextView eFN;
+    private TextView eFO;
+    private View eFP;
     private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.dfn = (TbImageView) view.findViewById(d.g.chosen_image_text_img);
-        this.title = (TextView) view.findViewById(d.g.chosen_image_text_title);
-        this.eqi = view.findViewById(d.g.chosen_image_text_divider);
-        this.eqf = (TextView) view.findViewById(d.g.chosen_image_text_forum);
-        this.eqg = (TextView) view.findViewById(d.g.chosen_image_text_praise);
-        this.eqh = (TextView) view.findViewById(d.g.chosen_image_text_comment);
+        this.dpQ = (TbImageView) view.findViewById(R.id.chosen_image_text_img);
+        this.title = (TextView) view.findViewById(R.id.chosen_image_text_title);
+        this.eFP = view.findViewById(R.id.chosen_image_text_divider);
+        this.eFM = (TextView) view.findViewById(R.id.chosen_image_text_forum);
+        this.eFN = (TextView) view.findViewById(R.id.chosen_image_text_praise);
+        this.eFO = (TextView) view.findViewById(R.id.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void ad(final tinfo tinfoVar) {
-        super.ad(tinfoVar);
+    public void af(final tinfo tinfoVar) {
+        super.af(tinfoVar);
         if (tinfoVar != null) {
             String str = null;
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.dfn.startLoad(str, 10, false);
+            this.dpQ.startLoad(str, 10, false);
             this.title.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.eqf.setVisibility(8);
+                this.eFM.setVisibility(8);
             } else {
-                this.eqf.setVisibility(0);
-                this.eqf.setText(UtilHelper.getFixedText(getContext().getString(d.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.eqf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
+                this.eFM.setVisibility(0);
+                this.eFM.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.eFM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str2 = tinfoVar.forum_name;
-                        if (ap.bv(str2)) {
+                        if (ap.bf(str2)) {
                             TiebaStatic.eventStat(a.this.getActivity(), "kantie_6", null, 1, new Object[0]);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.getActivity()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                         }
@@ -64,24 +64,24 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (tinfoVar.zan_num != null) {
-                this.eqg.setText(String.valueOf(tinfoVar.zan_num));
+                this.eFN.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.eqh.setText(String.valueOf(tinfoVar.reply_num));
+                this.eFO.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.eqi.setVisibility(0);
+            this.eFP.setVisibility(0);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.CM(String.valueOf(tinfoVar.forum_id))) {
-                al.d(this.title, d.C0277d.cp_cont_d, 1);
+            if (readThreadHistory != null && readThreadHistory.Ei(String.valueOf(tinfoVar.forum_id))) {
+                al.f(this.title, R.color.cp_cont_d, 1);
             } else {
-                al.d(this.title, d.C0277d.cp_cont_b, 1);
+                al.f(this.title, R.color.cp_cont_b, 1);
             }
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.r.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.s.a.a(tbPageContext, getRootView());
         return true;
     }
 }

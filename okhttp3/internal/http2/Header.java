@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import com.baidu.mobstat.Config;
 import okhttp3.internal.Util;
 import okio.ByteString;
 /* loaded from: classes2.dex */
@@ -8,7 +7,7 @@ public final class Header {
     final int hpackSize;
     public final ByteString name;
     public final ByteString value;
-    public static final ByteString PSEUDO_PREFIX = ByteString.encodeUtf8(Config.TRACE_TODAY_VISIT_SPLIT);
+    public static final ByteString PSEUDO_PREFIX = ByteString.encodeUtf8(":");
     public static final ByteString RESPONSE_STATUS = ByteString.encodeUtf8(":status");
     public static final ByteString TARGET_METHOD = ByteString.encodeUtf8(":method");
     public static final ByteString TARGET_PATH = ByteString.encodeUtf8(":path");

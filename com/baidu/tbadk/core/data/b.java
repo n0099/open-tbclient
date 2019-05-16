@@ -8,22 +8,22 @@ import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class b {
     private int activity_type;
-    private int bqU;
-    private int bwc;
-    private int bwd;
-    private int bwe;
-    private int bwf;
-    private boolean bwg;
-    private String bwh;
-    private int bwi = 1;
-    private int bwj = 1;
-    private int bwk;
-    private bb bwl;
+    private int bDn;
+    private int bDo;
+    private int bDp;
+    private int bDq;
+    private boolean bDr;
+    private String bDs;
+    private int bDt = 1;
+    private int bDu = 1;
+    private int bDv;
+    private bb bDw;
+    private int bxk;
     private int status;
     private int total_num;
     private String url;
 
-    public int WS() {
+    public int abz() {
         return this.activity_type;
     }
 
@@ -31,58 +31,58 @@ public class b {
         return this.status;
     }
 
-    public int WT() {
-        return this.bwc;
+    public int abA() {
+        return this.bDn;
     }
 
-    public int WU() {
-        return this.bwd;
+    public int abB() {
+        return this.bDo;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int WV() {
+    public int abC() {
         return this.total_num;
     }
 
-    public boolean WW() {
-        return this.bwg;
+    public boolean abD() {
+        return this.bDr;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
             this.activity_type = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.bwc = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.bwd = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.bDn = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.bDo = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.bqU = actInfo.activity_id.intValue();
-            this.bwe = actInfo.award_act_id.intValue();
-            this.bwf = actInfo.component_id.intValue();
-            this.bwg = actInfo.is_senior.booleanValue();
-            this.bwh = actInfo.banner_img;
-            this.bwk = actInfo.show_total_num.intValue();
+            this.bxk = actInfo.activity_id.intValue();
+            this.bDp = actInfo.award_act_id.intValue();
+            this.bDq = actInfo.component_id.intValue();
+            this.bDr = actInfo.is_senior.booleanValue();
+            this.bDs = actInfo.banner_img;
+            this.bDv = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
             if (!com.baidu.tbadk.core.util.ap.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.bwi = com.baidu.adp.lib.g.b.l(split[0], 1);
-                    this.bwj = com.baidu.adp.lib.g.b.l(split[1], 1);
+                    this.bDt = com.baidu.adp.lib.g.b.f(split[0], 1);
+                    this.bDu = com.baidu.adp.lib.g.b.f(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.bwi <= 0) {
-                this.bwi = 1;
+            if (this.bDt <= 0) {
+                this.bDt = 1;
             }
-            if (this.bwj <= 0) {
-                this.bwj = 1;
+            if (this.bDu <= 0) {
+                this.bDu = 1;
             }
-            this.bwl = new bb();
-            this.bwl.a(actInfo.lottery_senior);
+            this.bDw = new bb();
+            this.bDw.a(actInfo.lottery_senior);
         }
     }
 
@@ -91,27 +91,27 @@ public class b {
             try {
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.bwc = jSONObject.optInt("begin_time");
-                this.bwd = jSONObject.optInt("end_time");
+                this.bDn = jSONObject.optInt("begin_time");
+                this.bDo = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.bqU = jSONObject.optInt("activity_id");
-                this.bwe = jSONObject.optInt("award_act_id");
-                this.bwf = jSONObject.optInt("component_id");
-                this.bwg = jSONObject.optBoolean("is_senior");
-                this.bwh = jSONObject.optString("banner_img");
-                this.bwk = jSONObject.optInt("show_total_num");
+                this.bxk = jSONObject.optInt("activity_id");
+                this.bDp = jSONObject.optInt("award_act_id");
+                this.bDq = jSONObject.optInt("component_id");
+                this.bDr = jSONObject.optBoolean("is_senior");
+                this.bDs = jSONObject.optString("banner_img");
+                this.bDv = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
                 if (!com.baidu.tbadk.core.util.ap.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.bwi = com.baidu.adp.lib.g.b.l(split[0], 1);
-                    this.bwj = com.baidu.adp.lib.g.b.l(split[1], 1);
+                    this.bDt = com.baidu.adp.lib.g.b.f(split[0], 1);
+                    this.bDu = com.baidu.adp.lib.g.b.f(split[1], 1);
                 }
-                if (this.bwi <= 0) {
-                    this.bwi = 1;
+                if (this.bDt <= 0) {
+                    this.bDt = 1;
                 }
-                if (this.bwj <= 0) {
-                    this.bwj = 1;
+                if (this.bDu <= 0) {
+                    this.bDu = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

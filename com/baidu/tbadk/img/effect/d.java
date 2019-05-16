@@ -25,8 +25,8 @@ public class d extends b {
         if (str != null) {
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 2) {
-                this.maxWidth = com.baidu.adp.lib.g.b.l(split[0], 0);
-                this.maxHeight = com.baidu.adp.lib.g.b.l(split[1], 0);
+                this.maxWidth = com.baidu.adp.lib.g.b.f(split[0], 0);
+                this.maxHeight = com.baidu.adp.lib.g.b.f(split[1], 0);
             }
         }
     }
@@ -36,12 +36,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.anm().jL(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.asp().kz(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap po(String str) throws Exception {
+    public Bitmap qw(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

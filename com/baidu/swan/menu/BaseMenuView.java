@@ -9,17 +9,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.swan.menu.g;
+import com.baidu.swan.menu.f;
 /* loaded from: classes2.dex */
 public abstract class BaseMenuView extends FrameLayout {
-    private TextView bjN;
-    private View bjO;
-    private final int bjP;
+    private TextView bpQ;
+    private View bpR;
+    private final int bpS;
     private View mContentView;
     protected Context mContext;
     private View mMaskView;
 
-    public abstract boolean QZ();
+    public abstract boolean UL();
 
     public BaseMenuView(@NonNull Context context) {
         this(context, null);
@@ -32,12 +32,12 @@ public abstract class BaseMenuView extends FrameLayout {
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        View inflate = inflate(context, g.e.aiapp_menu_base_view_layout, this);
-        this.mMaskView = inflate.findViewById(g.d.background);
-        this.bjN = (TextView) inflate.findViewById(g.d.cancel);
-        this.bjO = inflate.findViewById(g.d.divider);
+        View inflate = inflate(context, f.e.aiapp_menu_base_view_layout, this);
+        this.mMaskView = inflate.findViewById(f.d.background);
+        this.bpQ = (TextView) inflate.findViewById(f.d.cancel);
+        this.bpR = inflate.findViewById(f.d.divider);
         Resources resources = context.getResources();
-        this.bjP = ((int) resources.getDimension(g.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(g.b.aiapp_menu_divider_height));
+        this.bpS = ((int) resources.getDimension(f.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(f.b.aiapp_menu_divider_height));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,23 +50,23 @@ public abstract class BaseMenuView extends FrameLayout {
         if (view != null) {
             int height = view.getHeight();
             if (height != 0) {
-                this.mMaskView.getLayoutParams().height = height + this.bjP;
+                this.mMaskView.getLayoutParams().height = height + this.bpS;
             }
             this.mContentView = view;
-            layoutParams.bottomMargin = this.bjP;
+            layoutParams.bottomMargin = this.bpS;
             addView(view, layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eS(int i) {
-        this.mMaskView.getLayoutParams().height = this.bjP + i;
+    public void fr(int i) {
+        this.mMaskView.getLayoutParams().height = this.bpS + i;
         this.mMaskView.requestLayout();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.bjN.setOnClickListener(onClickListener);
+        this.bpQ.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -79,12 +79,12 @@ public abstract class BaseMenuView extends FrameLayout {
         Resources resources = getResources();
         switch (swanAppMenuMode) {
             case NORMAL:
-                this.mMaskView.setBackgroundColor(resources.getColor(g.a.aiapp_menu_content_bg));
-                this.bjO.setBackgroundColor(resources.getColor(g.a.aiapp_menu_split_line_day));
-                this.bjN.setBackgroundColor(resources.getColor(g.a.aiapp_menu_cancel_text_color_bg));
-                this.bjN.setTextColor(resources.getColorStateList(g.a.aiapp_menu_cancel_text_color_day));
-                this.bjO.setAlpha(1.0f);
-                this.bjN.setAlpha(1.0f);
+                this.mMaskView.setBackground(resources.getDrawable(f.c.swan_common_menu_content_bg));
+                this.bpR.setBackgroundColor(resources.getColor(f.a.aiapp_menu_split_line_day));
+                this.bpQ.setBackgroundColor(resources.getColor(f.a.aiapp_menu_cancel_text_color_bg));
+                this.bpQ.setTextColor(resources.getColorStateList(f.a.aiapp_menu_cancel_text_color_day));
+                this.bpR.setAlpha(1.0f);
+                this.bpQ.setAlpha(1.0f);
                 return;
             default:
                 return;

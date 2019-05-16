@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.b.a;
 
-import com.baidu.swan.apps.b.b.k;
+import com.baidu.swan.apps.b.b.l;
 /* loaded from: classes2.dex */
-public class g implements k {
-    @Override // com.baidu.swan.apps.b.b.k
-    public void uZ() {
+public class g implements l {
+    @Override // com.baidu.swan.apps.b.b.l
+    public void we() {
     }
 }

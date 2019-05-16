@@ -14,17 +14,17 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.aj;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends ImageView {
-    private long cIK;
-    c cIL;
-    private RotateAnimation cIM;
-    private RotateAnimation cIN;
-    private View.OnClickListener cIO;
-    private int clq;
-    private int clr;
+    private long cQT;
+    c cQU;
+    private RotateAnimation cQV;
+    private RotateAnimation cQW;
+    private View.OnClickListener cQX;
+    private int cty;
+    private int ctz;
     private Context mContext;
     private int mPaddingTop;
 
@@ -40,16 +40,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.cIK = 0L;
-        this.cIO = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.cQT = 0L;
+        this.cQX = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.auR();
+                NEGFeedBackView.this.azW();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.cIK > 500) {
-                    NEGFeedBackView.this.bg(view);
+                if (currentTimeMillis - NEGFeedBackView.this.cQT > 500) {
+                    NEGFeedBackView.this.bm(view);
                 }
-                NEGFeedBackView.this.cIK = currentTimeMillis;
+                NEGFeedBackView.this.cQT = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -57,15 +57,15 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.cIL = new c(tbPageContext, this);
-        setOnClickListener(this.cIO);
-        al.c(this, d.f.icon_home_card_delete);
+        this.cQU = new c(tbPageContext, this);
+        setOnClickListener(this.cQX);
+        al.c(this, (int) R.drawable.icon_home_card_delete);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        auS();
+        azX();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.cIL.setUniqueId(bdUniqueId);
+        this.cQU.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -73,75 +73,75 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.clq = i;
-        setPadding(i, this.mPaddingTop, this.clr, 0);
+        this.cty = i;
+        setPadding(i, this.mPaddingTop, this.ctz, 0);
     }
 
     public void setTopPadding(int i) {
         this.mPaddingTop = i;
-        setPadding(this.clq, i, this.clr, 0);
+        setPadding(this.cty, i, this.ctz, 0);
     }
 
     public void setRightPadding(int i) {
-        this.clr = i;
-        setPadding(this.clq, this.mPaddingTop, i, 0);
+        this.ctz = i;
+        setPadding(this.cty, this.mPaddingTop, i, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bg(View view) {
-        this.cIL.bg(view);
+    public void bm(View view) {
+        this.cQU.bm(view);
     }
 
-    public void auR() {
-        this.cIL.auR();
+    public void azW() {
+        this.cQU.azW();
     }
 
-    private void auS() {
-        this.cIM = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
+    private void azX() {
+        this.cQV = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
         OvershootInterpolator overshootInterpolator = new OvershootInterpolator();
-        this.cIM.setInterpolator(overshootInterpolator);
-        this.cIM.setDuration(250L);
-        this.cIM.setFillAfter(true);
-        this.cIN = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.cIN.setInterpolator(overshootInterpolator);
-        this.cIN.setDuration(250L);
-        this.cIN.setFillAfter(true);
+        this.cQV.setInterpolator(overshootInterpolator);
+        this.cQV.setDuration(250L);
+        this.cQV.setFillAfter(true);
+        this.cQW = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.cQW.setInterpolator(overshootInterpolator);
+        this.cQW.setDuration(250L);
+        this.cQW.setFillAfter(true);
     }
 
     public void setCWRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cIM);
+        startAnimation(this.cQV);
     }
 
     public void setACRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cIN);
+        startAnimation(this.cQW);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.cIL.onDetachedFromWindow();
+        this.cQU.onDetachedFromWindow();
     }
 
     public void setData(aj ajVar) {
-        this.cIL.setData(ajVar);
+        this.cQU.setData(ajVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.cIL.setFirstRowSingleColumn(z);
+        this.cQU.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        al.c(this, d.f.icon_home_card_delete);
+        al.c(this, (int) R.drawable.icon_home_card_delete);
     }
 
     public void setEventCallback(a aVar) {
-        this.cIL.setEventCallback(aVar);
+        this.cQU.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.cIL.setDefaultReasonArray(strArr);
+        this.cQU.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {
@@ -159,13 +159,13 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void b(ViewGroup viewGroup, int i, int i2) {
-        int h = l.h(this.mContext, d.e.tbds24);
+        int g = l.g(this.mContext, R.dimen.tbds24);
         setPadding(i2, 0, i2, 0);
         if (viewGroup instanceof RelativeLayout) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
-            layoutParams.rightMargin = h;
+            layoutParams.rightMargin = g;
             viewGroup.addView(this, layoutParams);
         } else if (viewGroup instanceof FrameLayout) {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i, i);

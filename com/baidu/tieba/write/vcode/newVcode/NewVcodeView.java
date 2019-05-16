@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.e;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes3.dex */
 public class NewVcodeView {
-    private b jqg;
+    private b jJi;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
@@ -45,7 +45,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.jqg = bVar;
+        this.jJi = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -58,23 +58,23 @@ public class NewVcodeView {
     private boolean initUI(NewVcodeActivity newVcodeActivity) {
         newVcodeActivity.setActivityBgTransparent();
         newVcodeActivity.setSwipeBackEnabled(false);
-        newVcodeActivity.setContentView(d.h.new_vcode_activity);
-        this.mBlackBackLayout = newVcodeActivity.findViewById(d.g.new_vcode_black_layout);
+        newVcodeActivity.setContentView(R.layout.new_vcode_activity);
+        this.mBlackBackLayout = newVcodeActivity.findViewById(R.id.new_vcode_black_layout);
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.jqg.onPostThreadCancle();
+                NewVcodeView.this.jJi.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
-        this.mPostThreadLoadingView = newVcodeActivity.findViewById(d.g.post_thread_loading_view);
-        this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.g.custom_loading_text);
-        this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(d.j.sending));
+        this.mPostThreadLoadingView = newVcodeActivity.findViewById(R.id.post_thread_loading_view);
+        this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(R.id.custom_loading_text);
+        this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(R.string.sending));
         this.mVcodeToast = new e();
-        this.mVcodeToast.bPR = 1000L;
+        this.mVcodeToast.bXF = 1000L;
         if (this.mWebView == null) {
             try {
-                this.mWebView = (BaseWebView) newVcodeActivity.findViewById(d.g.new_vcode_webview);
+                this.mWebView = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
                 UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.mWebView, 1.2631578f);
                 this.mWebView.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
                 this.mWebView.setInitialScale(100);
@@ -88,13 +88,13 @@ public class NewVcodeView {
                         }
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                            com.baidu.adp.lib.g.e.jH().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.jqg != null) {
-                                NewVcodeView.this.jqg.onPageFinished(webView, str);
+                            com.baidu.adp.lib.g.e.iB().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
+                            if (NewVcodeView.this.jJi != null) {
+                                NewVcodeView.this.jJi.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.jqg != null) {
-                            return NewVcodeView.this.jqg.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.jJi != null) {
+                            return NewVcodeView.this.jJi.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -103,8 +103,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.jqg != null) {
-                            NewVcodeView.this.jqg.onPageFinished(webView, str);
+                        if (NewVcodeView.this.jJi != null) {
+                            NewVcodeView.this.jJi.onPageFinished(webView, str);
                         }
                     }
 
@@ -112,7 +112,7 @@ public class NewVcodeView {
                     public void onReceivedError(WebView webView, int i, String str, String str2) {
                         super.onReceivedError(webView, i, str, str2);
                         NewVcodeView.this.showWebLoadingView(false);
-                        NewVcodeView.this.mContext.showToast(d.j.neterror);
+                        NewVcodeView.this.mContext.showToast(R.string.neterror);
                         NewVcodeView.this.mContext.finish();
                     }
                 });
@@ -155,7 +155,7 @@ public class NewVcodeView {
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.mShowWebViewRunnable);
+        com.baidu.adp.lib.g.e.iB().removeCallbacks(this.mShowWebViewRunnable);
     }
 
     public BaseActivity getContext() {
@@ -175,7 +175,7 @@ public class NewVcodeView {
     }
 
     public void showWebViewDelay(int i) {
-        com.baidu.adp.lib.g.e.jH().postDelayed(this.mShowWebViewRunnable, i);
+        com.baidu.adp.lib.g.e.iB().postDelayed(this.mShowWebViewRunnable, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -189,6 +189,6 @@ public class NewVcodeView {
                 }
             });
         }
-        this.mWebLoadingDialog.dJ(z);
+        this.mWebLoadingDialog.ef(z);
     }
 }

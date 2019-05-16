@@ -3,24 +3,24 @@ package com.baidu.tieba.channel.data;
 import tbclient.ChannelPage;
 /* loaded from: classes6.dex */
 public class g {
-    private int enZ;
-    private int eoa;
+    private int eDI;
+    private int eDJ;
     private int totalCount;
 
     public boolean isHasMore() {
-        return this.enZ == 1;
+        return this.eDI == 1;
     }
 
     public void setHasMore(int i) {
-        this.enZ = i;
+        this.eDI = i;
     }
 
     public void setTotalCount(int i) {
         this.totalCount = i;
     }
 
-    public void ov(int i) {
-        this.eoa = i;
+    public void pz(int i) {
+        this.eDJ = i;
     }
 
     public static g a(ChannelPage channelPage) {
@@ -28,7 +28,7 @@ public class g {
             return null;
         }
         g gVar = new g();
-        gVar.ov(channelPage.total_page.intValue());
+        gVar.pz(channelPage.total_page.intValue());
         gVar.setHasMore(channelPage.has_more.intValue());
         gVar.setTotalCount(channelPage.total_count.intValue());
         return gVar;

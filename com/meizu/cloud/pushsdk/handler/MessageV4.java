@@ -34,25 +34,6 @@ public class MessageV4 extends MessageV3 {
         this.actVideoSetting = (ActVideoSetting) parcel.readParcelable(ActVideoSetting.class.getClassLoader());
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.MessageV3, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.actVideoSetting, i);
-    }
-
-    public ActVideoSetting getActVideoSetting() {
-        return this.actVideoSetting;
-    }
-
-    public void setActVideoSetting(ActVideoSetting actVideoSetting) {
-        this.actVideoSetting = actVideoSetting;
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.MessageV3
-    public String toString() {
-        return "MessageV4{actVideoSetting=" + this.actVideoSetting + '}' + super.toString();
-    }
-
     public static MessageV4 parse(MessageV3 messageV3) {
         MessageV4 messageV4 = new MessageV4();
         if (!TextUtils.isEmpty(messageV3.getNotificationMessage())) {
@@ -70,5 +51,24 @@ public class MessageV4 extends MessageV3 {
         }
         com.meizu.cloud.a.a.i(TAG, "MessageV4 " + messageV4);
         return messageV4;
+    }
+
+    public ActVideoSetting getActVideoSetting() {
+        return this.actVideoSetting;
+    }
+
+    public void setActVideoSetting(ActVideoSetting actVideoSetting) {
+        this.actVideoSetting = actVideoSetting;
+    }
+
+    @Override // com.meizu.cloud.pushsdk.handler.MessageV3
+    public String toString() {
+        return "MessageV4{actVideoSetting=" + this.actVideoSetting + '}' + super.toString();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.handler.MessageV3, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeParcelable(this.actVideoSetting, i);
     }
 }

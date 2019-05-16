@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    final int kai;
-    Object[] kaj;
-    Object[] kak;
-    int kal;
+    int ksA;
+    final int ksx;
+    Object[] ksy;
+    Object[] ksz;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.kaj = new Object[this.kai + 1];
-            this.kak = this.kaj;
-            this.kaj[0] = obj;
-            this.kal = 1;
+            this.ksy = new Object[this.ksx + 1];
+            this.ksz = this.ksy;
+            this.ksy[0] = obj;
+            this.ksA = 1;
             this.size = 1;
-        } else if (this.kal == this.kai) {
-            Object[] objArr = new Object[this.kai + 1];
+        } else if (this.ksA == this.ksx) {
+            Object[] objArr = new Object[this.ksx + 1];
             objArr[0] = obj;
-            this.kak[this.kai] = objArr;
-            this.kak = objArr;
-            this.kal = 1;
+            this.ksz[this.ksx] = objArr;
+            this.ksz = objArr;
+            this.ksA = 1;
             this.size++;
         } else {
-            this.kak[this.kal] = obj;
-            this.kal++;
+            this.ksz[this.ksA] = obj;
+            this.ksA++;
             this.size++;
         }
     }
 
-    public Object[] cEp() {
-        return this.kaj;
+    public Object[] cLV() {
+        return this.ksy;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cEq() {
-        int i = this.kai;
+    List<Object> cLW() {
+        int i = this.ksx;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cEp = cEp();
+        Object[] cLV = cLV();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cEp[i4]);
+            arrayList.add(cLV[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cEp = (Object[]) cEp[i];
+                cLV = (Object[]) cLV[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return cEq().toString();
+        return cLW().toString();
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.crabsdk.b;
 
-import com.baidu.mobstat.Config;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class r {
@@ -43,11 +42,11 @@ public final class r {
                         if (fileName == null) {
                             fileName = "unknown";
                         }
-                        sb.append(fileName).append(Config.TRACE_TODAY_VISIT_SPLIT).append(stackTraceElement.getLineNumber()).append(")\n");
+                        sb.append(fileName).append(":").append(stackTraceElement.getLineNumber()).append(")\n");
                     }
                 }
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.f("ThreadInfo Collector Interrupted!!", e);
+                com.baidu.crabsdk.c.a.a("ThreadInfo Collector Interrupted!!", e);
             }
         }
         return sb.toString();

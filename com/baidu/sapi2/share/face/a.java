@@ -15,11 +15,11 @@ public class a {
     public JSONObject c;
     public String d;
     public Map<String, Long> a = new HashMap();
-    public Map<String, C0099a> e = new HashMap();
+    public Map<String, C0101a> e = new HashMap();
 
     /* renamed from: com.baidu.sapi2.share.face.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0099a {
+    public static class C0101a {
         public int a;
         public String b;
         public String c;
@@ -34,28 +34,28 @@ public class a {
                     long j = 0;
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        C0099a c0099a = new C0099a();
-                        c0099a.b = optJSONObject.optString("livinguname");
-                        c0099a.c = optJSONObject.optString("type");
-                        c0099a.d = optJSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 1L);
-                        c0099a.a = optJSONObject.optInt("errno", -1);
-                        Log.e(Log.TAG, "livingUname", c0099a.b, "type", c0099a.c);
-                        if (!TextUtils.isEmpty(c0099a.b)) {
+                        C0101a c0101a = new C0101a();
+                        c0101a.b = optJSONObject.optString("livinguname");
+                        c0101a.c = optJSONObject.optString("type");
+                        c0101a.d = optJSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 1L);
+                        c0101a.a = optJSONObject.optInt("errno", -1);
+                        Log.e(Log.TAG, "livingUname", c0101a.b, "type", c0101a.c);
+                        if (!TextUtils.isEmpty(c0101a.b)) {
                             if (TextUtils.isEmpty(this.b)) {
-                                j = c0099a.d;
-                                this.b = c0099a.b;
+                                j = c0101a.d;
+                                this.b = c0101a.b;
                                 this.c = optJSONObject;
                             }
-                            if (optJSONObject.optInt("errno") == 0 && c0099a.d > j) {
-                                j = c0099a.d;
-                                this.b = c0099a.b;
+                            if (optJSONObject.optInt("errno") == 0 && c0101a.d > j) {
+                                j = c0101a.d;
+                                this.b = c0101a.b;
                                 this.c = optJSONObject;
                             }
-                            if (TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(c0099a.c)) {
-                                this.d = c0099a.c;
+                            if (TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(c0101a.c)) {
+                                this.d = c0101a.c;
                             }
-                            this.a.put(c0099a.b, Long.valueOf(c0099a.d));
-                            this.e.put(c0099a.b, c0099a);
+                            this.a.put(c0101a.b, Long.valueOf(c0101a.d));
+                            this.e.put(c0101a.b, c0101a);
                         }
                     }
                 }

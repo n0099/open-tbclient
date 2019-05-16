@@ -9,5 +9,9 @@ public interface n {
         void onFailed(int i);
     }
 
+    com.baidu.swan.apps.scheme.actions.e.b Ex();
+
+    void Ey();
+
     void a(String str, boolean z, boolean z2, a aVar);
 }

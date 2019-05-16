@@ -1,48 +1,158 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.Intent;
-import java.util.Iterator;
+import android.content.SharedPreferences;
+import com.xiaomi.channel.commonutils.misc.k;
+import com.xiaomi.push.protobuf.a;
+import com.xiaomi.push.protobuf.b;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-class bh implements Runnable {
-    final /* synthetic */ Context a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
-    final /* synthetic */ bg d;
+public class bh {
+    private static String a;
+    private static bh e = new bh();
+    private List<a> b = new ArrayList();
+    private a.C0485a c;
+    private k.b d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bg bgVar, Context context, String str, String str2) {
-        this.d = bgVar;
-        this.a = context;
-        this.b = str;
-        this.c = str2;
+    /* loaded from: classes3.dex */
+    public static abstract class a {
+        public void a(a.C0485a c0485a) {
+        }
+
+        public void a(b.C0486b c0486b) {
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Iterator<com.xiaomi.push.service.module.b> it = g.a(this.a).c(this.b).iterator();
-        while (it.hasNext()) {
-            com.xiaomi.push.service.module.b next = it.next();
-            if (XMPushService.a(next.e(), this.c)) {
-                if (next.a() >= System.currentTimeMillis()) {
-                    byte[] d = next.d();
-                    if (d == null) {
-                        com.xiaomi.channel.commonutils.logger.b.a("Geo canBeShownMessage content null");
-                    } else {
-                        Intent a = s.a(d, System.currentTimeMillis());
-                        if (a == null) {
-                            com.xiaomi.channel.commonutils.logger.b.a("Geo canBeShownMessage intent null");
-                        } else {
-                            s.a(this.d.a, (String) null, d, a, true);
-                            if (g.a(this.d.a).a(next.b()) == 0) {
-                                com.xiaomi.channel.commonutils.logger.b.a("show some exit geofence message. then remove this message failed. message_id:" + next.b());
-                            }
-                        }
+    private bh() {
+    }
+
+    public static bh a() {
+        return e;
+    }
+
+    public static synchronized String e() {
+        String str;
+        synchronized (bh.class) {
+            if (a == null) {
+                SharedPreferences sharedPreferences = com.xiaomi.channel.commonutils.android.n.a().getSharedPreferences("XMPushServiceConfig", 0);
+                a = sharedPreferences.getString("DeviceUUID", null);
+                if (a == null) {
+                    a = com.xiaomi.channel.commonutils.android.d.a(com.xiaomi.channel.commonutils.android.n.a(), false);
+                    if (a != null) {
+                        sharedPreferences.edit().putString("DeviceUUID", a).commit();
                     }
-                } else if (g.a(this.a).a(next.b()) == 0) {
-                    com.xiaomi.channel.commonutils.logger.b.a("XMPushService remove some geofence message failed. message_id:" + next.b());
                 }
             }
+            str = a;
         }
+        return str;
+    }
+
+    private void f() {
+        if (this.c == null) {
+            h();
+        }
+    }
+
+    private void g() {
+        if (this.d != null) {
+            return;
+        }
+        this.d = new bi(this);
+        com.xiaomi.smack.util.e.a(this.d);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:7:0x0025  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void h() {
+        BufferedInputStream bufferedInputStream;
+        try {
+            try {
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.channel.commonutils.android.n.a().openFileInput("XMCloudCfg"));
+                try {
+                    this.c = a.C0485a.c(com.google.protobuf.micro.b.a(bufferedInputStream));
+                    bufferedInputStream.close();
+                } catch (Exception e2) {
+                    e = e2;
+                    com.xiaomi.channel.commonutils.logger.b.a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.file.b.a(bufferedInputStream);
+                    if (this.c != null) {
+                    }
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.xiaomi.channel.commonutils.file.b.a(bufferedInputStream);
+                throw th;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            bufferedInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedInputStream = null;
+            com.xiaomi.channel.commonutils.file.b.a(bufferedInputStream);
+            throw th;
+        }
+        com.xiaomi.channel.commonutils.file.b.a(bufferedInputStream);
+        if (this.c != null) {
+            this.c = new a.C0485a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        try {
+            if (this.c != null) {
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.channel.commonutils.android.n.a().openFileOutput("XMCloudCfg", 0));
+                com.google.protobuf.micro.c a2 = com.google.protobuf.micro.c.a(bufferedOutputStream);
+                this.c.a(a2);
+                a2.a();
+                bufferedOutputStream.close();
+            }
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a("save config failure: " + e2.getMessage());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(b.C0486b c0486b) {
+        a[] aVarArr;
+        if (c0486b.i() && c0486b.h() > c()) {
+            g();
+        }
+        synchronized (this) {
+            aVarArr = (a[]) this.b.toArray(new a[this.b.size()]);
+        }
+        for (a aVar : aVarArr) {
+            aVar.a(c0486b);
+        }
+    }
+
+    public synchronized void a(a aVar) {
+        this.b.add(aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public synchronized void b() {
+        this.b.clear();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int c() {
+        f();
+        if (this.c != null) {
+            return this.c.d();
+        }
+        return 0;
+    }
+
+    public a.C0485a d() {
+        f();
+        return this.c;
     }
 }

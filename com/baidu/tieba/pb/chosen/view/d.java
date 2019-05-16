@@ -14,63 +14,63 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 /* loaded from: classes5.dex */
 public class d {
-    private TextView dfp;
-    private HeadImageView gJX;
-    private View hjb;
-    private b hjc;
-    private TextView hjd;
-    private BarImageView hje;
-    private TextView hjf;
-    private TextView hjg;
-    private LinearLayout hjh;
+    private TextView bmf;
+    private View hAt;
+    private b hAu;
+    private TextView hAv;
+    private BarImageView hAw;
+    private TextView hAx;
+    private TextView hAy;
+    private LinearLayout hAz;
+    private HeadImageView hbr;
     private TextView title;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void aIU();
+        void AR(String str);
 
-        void dy(String str, String str2);
+        void aPf();
 
-        void zB(String str);
+        void dK(String str, String str2);
     }
 
     public d(Context context) {
-        this.hjb = LayoutInflater.from(context).inflate(d.h.chosen_pb_person_info, (ViewGroup) null);
-        this.title = (TextView) this.hjb.findViewById(d.g.chosen_pb_title);
-        this.gJX = (HeadImageView) this.hjb.findViewById(d.g.chosen_pb_person_info_head);
-        this.dfp = (TextView) this.hjb.findViewById(d.g.chosen_pb_person_info_name);
-        this.hjd = (TextView) this.hjb.findViewById(d.g.chosen_pb_bar_forum_name);
-        this.gJX.setRadius(l.dip2px(context, 2.0f));
-        this.hje = (BarImageView) this.hjb.findViewById(d.g.chosen_pb_bar_pic);
-        this.hjf = (TextView) this.hjb.findViewById(d.g.chosen_pb_bar_attention_number);
-        this.hjg = (TextView) this.hjb.findViewById(d.g.chosen_pb_bar_attention_button);
-        this.hjg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
+        this.hAt = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
+        this.title = (TextView) this.hAt.findViewById(R.id.chosen_pb_title);
+        this.hbr = (HeadImageView) this.hAt.findViewById(R.id.chosen_pb_person_info_head);
+        this.bmf = (TextView) this.hAt.findViewById(R.id.chosen_pb_person_info_name);
+        this.hAv = (TextView) this.hAt.findViewById(R.id.chosen_pb_bar_forum_name);
+        this.hbr.setRadius(l.dip2px(context, 2.0f));
+        this.hAw = (BarImageView) this.hAt.findViewById(R.id.chosen_pb_bar_pic);
+        this.hAx = (TextView) this.hAt.findViewById(R.id.chosen_pb_bar_attention_number);
+        this.hAy = (TextView) this.hAt.findViewById(R.id.chosen_pb_bar_attention_button);
+        this.hAy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.hjc != null) {
-                    d.this.hjc.aIU();
+                if (d.this.hAu != null) {
+                    d.this.hAu.aPf();
                 }
             }
         });
-        this.hjh = (LinearLayout) this.hjb.findViewById(d.g.chosen_pb_bar_container);
+        this.hAz = (LinearLayout) this.hAt.findViewById(R.id.chosen_pb_bar_container);
     }
 
-    public View bHM() {
-        return this.hjb;
+    public View bPy() {
+        return this.hAt;
     }
 
     public void a(b bVar) {
-        this.hjc = bVar;
+        this.hAu = bVar;
     }
 
-    public void zD(String str) {
-        if (!StringUtils.isNull(str) && this.gJX != null) {
-            this.gJX.startLoad(str, 12, false);
+    public void AT(String str) {
+        if (!StringUtils.isNull(str) && this.hbr != null) {
+            this.hbr.startLoad(str, 12, false);
         }
     }
 
@@ -78,81 +78,81 @@ public class d {
         if (excellentPbThreadInfo != null && this.title != null) {
             this.title.setText(excellentPbThreadInfo.title);
             if (StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) || excellentPbThreadInfo.forum.forum_id == null || excellentPbThreadInfo.excid.longValue() <= 0) {
-                this.hjh.setVisibility(8);
+                this.hAz.setVisibility(8);
                 return;
             }
-            i.Wv().kU(excellentPbThreadInfo.forum.forum_name);
-            this.hjh.setVisibility(0);
-            aQ(context, excellentPbThreadInfo.forum.forum_name);
-            if (this.hje != null) {
-                this.hje.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
-                this.hje.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
+            i.abb().lZ(excellentPbThreadInfo.forum.forum_name);
+            this.hAz.setVisibility(0);
+            aE(context, excellentPbThreadInfo.forum.forum_name);
+            if (this.hAw != null) {
+                this.hAw.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
+                this.hAw.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
             }
-            if (this.hjf != null && excellentPbThreadInfo.forum.member_count != null) {
-                this.hjf.setText(ap.ax(excellentPbThreadInfo.forum.member_count.intValue()));
+            if (this.hAx != null && excellentPbThreadInfo.forum.member_count != null) {
+                this.hAx.setText(ap.aL(excellentPbThreadInfo.forum.member_count.intValue()));
             }
             if (excellentPbThreadInfo.forum.is_like != null && excellentPbThreadInfo.forum.is_like.intValue() == 1) {
-                mW(true);
+                nL(true);
             } else {
-                mW(false);
+                nL(false);
             }
         }
     }
 
     public void setName(String str) {
-        if (this.dfp != null) {
-            this.dfp.setText(str);
+        if (this.bmf != null) {
+            this.bmf.setText(str);
         }
     }
 
-    private void aQ(Context context, String str) {
-        if (this.hjd != null) {
+    private void aE(Context context, String str) {
+        if (this.hAv != null) {
             if (StringUtils.isNull(str)) {
-                this.hjd.setVisibility(4);
+                this.hAv.setVisibility(4);
                 return;
             }
-            this.hjd.setText(context.getString(d.j.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-            this.hjd.setOnClickListener(new a(str));
-            this.hjd.setVisibility(0);
+            this.hAv.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+            this.hAv.setOnClickListener(new a(str));
+            this.hAv.setVisibility(0);
         }
     }
 
     public void a(final UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            zD(userInfo.portrait);
-            this.gJX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
+            AT(userInfo.portrait);
+            this.hbr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.r(userInfo.id.longValue(), userInfo.name);
+                    d.this.p(userInfo.id.longValue(), userInfo.name);
                 }
             });
-            this.dfp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.3
+            this.bmf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.r(userInfo.id.longValue(), userInfo.name);
+                    d.this.p(userInfo.id.longValue(), userInfo.name);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r(long j, String str) {
-        if (this.hjc != null) {
-            this.hjc.dy(String.valueOf(j), str);
+    public void p(long j, String str) {
+        if (this.hAu != null) {
+            this.hAu.dK(String.valueOf(j), str);
         }
     }
 
-    public void mW(boolean z) {
+    public void nL(boolean z) {
         if (z) {
-            this.hjg.setText(d.j.relate_forum_is_followed);
-            al.d(this.hjg, d.C0277d.cp_cont_d, 1);
-            this.hjg.setEnabled(false);
+            this.hAy.setText(R.string.relate_forum_is_followed);
+            al.f(this.hAy, R.color.cp_cont_d, 1);
+            this.hAy.setEnabled(false);
             return;
         }
-        this.hjg.setText(d.j.attention);
-        this.hjg.setEnabled(true);
-        al.d(this.hjg, d.C0277d.cp_cont_g, 1);
+        this.hAy.setText(R.string.attention);
+        this.hAy.setEnabled(true);
+        al.f(this.hAy, R.color.cp_cont_g, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,8 +166,8 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.hjc != null) {
-                d.this.hjc.zB(this.forumName);
+            if (d.this.hAu != null) {
+                d.this.hAu.AR(this.forumName);
             }
         }
     }

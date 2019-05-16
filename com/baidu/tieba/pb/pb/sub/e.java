@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends PbListView {
     TbPageContext<?> context;
@@ -10,23 +10,23 @@ public class e extends PbListView {
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.context = tbPageContext;
-        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds74));
-        aev();
-        aex();
-        aey();
-        setTextSize(d.e.tbfontsize33);
+        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds74));
+        aju();
+        ajw();
+        ajx();
+        setTextSize(R.dimen.tbfontsize33);
     }
 
     @Override // com.baidu.tbadk.core.view.PbListView
-    public void aeA() {
-        super.aeA();
-        setText(this.context.getResources().getString(d.j.sub_pb_list_no_more));
+    public void ajz() {
+        super.ajz();
+        setText(this.context.getResources().getString(R.string.sub_pb_list_no_more));
         getView().setVisibility(0);
     }
 
-    public void aYS() {
-        super.aeA();
-        setText(this.context.getResources().getString(d.j.load_more));
+    public void bgm() {
+        super.ajz();
+        setText(this.context.getResources().getString(R.string.load_more));
         getView().setVisibility(0);
     }
 }

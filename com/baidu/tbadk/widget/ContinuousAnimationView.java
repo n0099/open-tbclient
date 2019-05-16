@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.b {
-    private boolean ctT;
-    private boolean ctU;
+    private boolean cCd;
+    private boolean cCe;
 
     public ContinuousAnimationView(Context context) {
         this(context, null);
@@ -22,8 +22,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ctT = false;
-        this.ctU = false;
+        this.cCd = false;
+        this.cCe = false;
         init();
     }
 
@@ -31,52 +31,52 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.aqw();
-                ContinuousAnimationView.this.ctT = true;
+                ContinuousAnimationView.this.avC();
+                ContinuousAnimationView.this.cCd = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.aqt();
-                if (ContinuousAnimationView.this.ctU) {
-                    ContinuousAnimationView.this.ctU = false;
+                ContinuousAnimationView.this.avz();
+                if (ContinuousAnimationView.this.cCe) {
+                    ContinuousAnimationView.this.cCe = false;
                 }
-                ContinuousAnimationView.this.ctT = false;
+                ContinuousAnimationView.this.cCd = false;
                 ContinuousAnimationView.this.setFrame(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.aqu();
+                ContinuousAnimationView.this.avA();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.aqv();
-                if (ContinuousAnimationView.this.ctU) {
+                ContinuousAnimationView.this.avB();
+                if (ContinuousAnimationView.this.cCe) {
                     ContinuousAnimationView.this.cancelAnimation();
-                    ContinuousAnimationView.this.ctU = false;
+                    ContinuousAnimationView.this.cCe = false;
                 }
             }
         });
-        setAnimation(d.i.refresh_load);
-        G(true);
+        setAnimation(R.raw.refresh_load);
+        y(true);
         setFrame(0);
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
-    public void cu() {
+    public void bo() {
         if (isAnimating()) {
             cancelAnimation();
         }
         setAlpha(1.0f);
-        super.cu();
+        super.bo();
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
-    public void cw() {
-        if (this.ctT) {
-            this.ctU = true;
+    public void bq() {
+        if (this.cCd) {
+            this.cCe = true;
         }
     }
 
@@ -91,19 +91,19 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqt() {
+    public void avz() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqu() {
+    public void avA() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqv() {
+    public void avB() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqw() {
+    public void avC() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -115,7 +115,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        cu();
+        bo();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -123,7 +123,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void oP() {
+    public void nJ() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

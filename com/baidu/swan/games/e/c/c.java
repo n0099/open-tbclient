@@ -1,7 +1,7 @@
 package com.baidu.swan.games.e.c;
 
 import android.util.Log;
-import com.baidu.swan.games.audio.e;
+import com.baidu.swan.games.audio.f;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,174 +13,190 @@ import okhttp3.Response;
 /* loaded from: classes2.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bah;
-    private com.baidu.swan.games.network.b bai;
-    private a bbN;
+    private String bem;
+    private com.baidu.swan.games.network.b ben;
+    private a bfO;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.bah = "";
-        this.bai = bVar;
-        this.bah = str;
+        this.bem = "";
+        this.ben = bVar;
+        this.bem = str;
         this.mSrc = str2;
-        this.bbN = aVar;
+        this.bfO = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.bai.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
+        this.ben.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.e.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.bbN != null) {
-                    c.this.bbN.s(-1, c.this.mSrc);
+                if (c.this.bfO != null) {
+                    c.this.bfO.t(-1, c.this.mSrc);
                 }
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:88:0x0193 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-            /* JADX WARN: Removed duplicated region for block: B:98:0x0198 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+            /* JADX WARN: Removed duplicated region for block: B:89:0x0192 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+            /* JADX WARN: Removed duplicated region for block: B:99:0x018d A[EXC_TOP_SPLITTER, SYNTHETIC] */
             @Override // okhttp3.Callback
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public void onResponse(Call call, Response response) {
+                FileOutputStream fileOutputStream;
                 InputStream inputStream;
+                FileOutputStream fileOutputStream2;
                 InputStream inputStream2;
-                FileOutputStream fileOutputStream = null;
+                File file = null;
                 byte[] bArr = new byte[2048];
                 try {
                     inputStream = response.body().byteStream();
                     try {
-                        String hW = e.hW(c.this.mSrc);
-                        String str = c.this.bah + hW.substring(0, hW.lastIndexOf("/"));
-                        File file = new File(str);
-                        if (!file.exists() || !file.isDirectory()) {
-                            file.mkdirs();
-                        }
-                        String substring = hW.substring(hW.lastIndexOf("/") + 1);
-                        int indexOf = substring.indexOf("?v=");
-                        if (indexOf > 0) {
-                            substring = substring.substring(0, indexOf);
-                        }
-                        File file2 = new File(str, substring + ".bddownload");
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                        while (true) {
+                        try {
+                            String iI = f.iI(c.this.mSrc);
+                            String str = c.this.bem + iI.substring(0, iI.lastIndexOf("/"));
+                            File file2 = new File(str);
+                            if (!file2.exists() || !file2.isDirectory()) {
+                                file2.mkdirs();
+                            }
+                            String substring = iI.substring(iI.lastIndexOf("/") + 1);
+                            File file3 = new File(str, substring + ".bddownload");
                             try {
-                                int read = inputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
+                                fileOutputStream = new FileOutputStream(file3);
+                                while (true) {
+                                    try {
+                                        int read = inputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        file = file3;
+                                        fileOutputStream2 = fileOutputStream;
+                                        inputStream2 = inputStream;
+                                        try {
+                                            if (c.DEBUG) {
+                                                Log.e("ImageDownloader", c.this.mSrc + " load failed", e);
+                                            }
+                                            if (file != null) {
+                                                file.delete();
+                                            }
+                                            if (c.this.bfO != null) {
+                                                c.this.bfO.t(-1, c.this.mSrc);
+                                            }
+                                            if (inputStream2 != null) {
+                                                try {
+                                                    inputStream2.close();
+                                                } catch (IOException e2) {
+                                                    Log.e("ImageDownloader", e2.getMessage(), e2);
+                                                }
+                                            }
+                                            if (fileOutputStream2 != null) {
+                                                try {
+                                                    fileOutputStream2.close();
+                                                } catch (IOException e3) {
+                                                    Log.e("ImageDownloader", e3.getMessage(), e3);
+                                                }
+                                            }
+                                            response.close();
+                                            return;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            inputStream = inputStream2;
+                                            fileOutputStream = fileOutputStream2;
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e4) {
+                                                    Log.e("ImageDownloader", e4.getMessage(), e4);
+                                                }
+                                            }
+                                            if (fileOutputStream != null) {
+                                                try {
+                                                    fileOutputStream.close();
+                                                } catch (IOException e5) {
+                                                    Log.e("ImageDownloader", e5.getMessage(), e5);
+                                                }
+                                            }
+                                            response.close();
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        if (inputStream != null) {
+                                        }
+                                        if (fileOutputStream != null) {
+                                        }
+                                        response.close();
+                                        throw th;
+                                    }
                                 }
-                                fileOutputStream2.write(bArr, 0, read);
-                            } catch (Exception e) {
-                                e = e;
-                                fileOutputStream = fileOutputStream2;
-                                inputStream2 = inputStream;
-                                try {
+                                fileOutputStream.flush();
+                                File file4 = new File(str, substring);
+                                if (file4.exists() && !file4.isDirectory()) {
+                                    file4.delete();
+                                }
+                                String absolutePath = file4.getAbsolutePath();
+                                if (file3.renameTo(file4)) {
                                     if (c.DEBUG) {
-                                        Log.e("ImageDownloader", c.this.mSrc + " load failed", e);
+                                        Log.e("ImageDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.bbN != null) {
-                                        c.this.bbN.s(-1, c.this.mSrc);
+                                    if (c.this.bfO != null) {
+                                        c.this.bfO.aQ(c.this.mSrc, absolutePath);
                                     }
-                                    if (inputStream2 != null) {
-                                        try {
-                                            inputStream2.close();
-                                        } catch (IOException e2) {
-                                            Log.e("ImageDownloader", e2.getMessage(), e2);
-                                        }
+                                } else {
+                                    if (c.DEBUG) {
+                                        Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
-                                    if (fileOutputStream != null) {
-                                        try {
-                                            fileOutputStream.close();
-                                        } catch (IOException e3) {
-                                            Log.e("ImageDownloader", e3.getMessage(), e3);
-                                        }
+                                    file3.delete();
+                                    if (c.this.bfO != null) {
+                                        c.this.bfO.t(-1, absolutePath);
                                     }
-                                    response.close();
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    inputStream = inputStream2;
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (IOException e4) {
-                                            Log.e("ImageDownloader", e4.getMessage(), e4);
-                                        }
-                                    }
-                                    if (fileOutputStream != null) {
-                                        try {
-                                            fileOutputStream.close();
-                                        } catch (IOException e5) {
-                                            Log.e("ImageDownloader", e5.getMessage(), e5);
-                                        }
-                                    }
-                                    response.close();
-                                    throw th;
                                 }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileOutputStream = fileOutputStream2;
                                 if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (IOException e6) {
+                                        Log.e("ImageDownloader", e6.getMessage(), e6);
+                                    }
                                 }
                                 if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException e7) {
+                                        Log.e("ImageDownloader", e7.getMessage(), e7);
+                                    }
                                 }
                                 response.close();
-                                throw th;
+                            } catch (Exception e8) {
+                                e = e8;
+                                inputStream2 = inputStream;
+                                file = file3;
+                                fileOutputStream2 = null;
                             }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
                         }
-                        fileOutputStream2.flush();
-                        File file3 = new File(str, substring);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        String absolutePath = file3.getAbsolutePath();
-                        if (file2.renameTo(file3)) {
-                            if (c.DEBUG) {
-                                Log.e("ImageDownloader", c.this.mSrc + " load success path = " + absolutePath);
-                            }
-                            if (c.this.bbN != null) {
-                                c.this.bbN.aN(c.this.mSrc, absolutePath);
-                            }
-                        } else {
-                            if (c.DEBUG) {
-                                Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
-                            }
-                            if (c.this.bbN != null) {
-                                c.this.bbN.s(-1, absolutePath);
-                            }
-                        }
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e6) {
-                                Log.e("ImageDownloader", e6.getMessage(), e6);
-                            }
-                        }
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                            } catch (IOException e7) {
-                                Log.e("ImageDownloader", e7.getMessage(), e7);
-                            }
-                        }
-                        response.close();
-                    } catch (Exception e8) {
-                        e = e8;
+                    } catch (Exception e9) {
+                        e = e9;
+                        fileOutputStream2 = null;
                         inputStream2 = inputStream;
-                    } catch (Throwable th3) {
-                        th = th3;
                     }
-                } catch (Exception e9) {
-                    e = e9;
+                } catch (Exception e10) {
+                    e = e10;
+                    fileOutputStream2 = null;
                     inputStream2 = null;
                 } catch (Throwable th4) {
                     th = th4;
+                    fileOutputStream = null;
                     inputStream = null;
                 }
             }

@@ -16,6 +16,7 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -23,26 +24,26 @@ import com.baidu.tbadk.core.view.h;
 import com.baidu.tbadk.core.view.i;
 import com.baidu.tbadk.m.g;
 import com.baidu.tbadk.m.h;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.home.c;
 import com.baidu.tieba.enterForum.recommend.b.f;
 import com.baidu.tieba.enterForum.recommend.view.ForumTestView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class RecommendView extends FrameLayout implements ForumTestView.a {
-    private BdTypeRecyclerView Qr;
-    private g cXq;
-    private BdSwipeRefreshLayout ddG;
-    private com.baidu.tieba.enterForum.recommend.a eEG;
-    private RecommendForumHeaderView eGf;
-    private com.baidu.tieba.enterForum.recommend.a.a eGg;
-    private com.baidu.tieba.enterForum.recommend.b.a eGh;
-    private com.baidu.tieba.enterForum.home.c eGi;
-    private long eGj;
-    private CustomMessageListener eGk;
-    private CustomMessageListener eGl;
-    c.a eGm;
-    private NoNetworkView.a emz;
+    private BdTypeRecyclerView NZ;
+    private g dhX;
+    private BdSwipeRefreshLayout doi;
+    private NoNetworkView.a eCk;
+    private com.baidu.tieba.enterForum.recommend.a eUA;
+    private RecommendForumHeaderView eVZ;
+    private com.baidu.tieba.enterForum.recommend.a.a eWa;
+    private com.baidu.tieba.enterForum.recommend.b.a eWb;
+    private com.baidu.tieba.enterForum.home.c eWc;
+    private long eWd;
+    private CustomMessageListener eWe;
+    private CustomMessageListener eWf;
+    c.a eWg;
     RecyclerView.OnScrollListener mOnScrollListener;
     private TbPageContext<?> mPageContext;
     private i mPullView;
@@ -56,141 +57,145 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     public RecommendView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.eGk = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.1
+        this.eWe = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (RecommendView.this.eGf != null) {
-                    RecommendView.this.eGf.setSearchHint(TbSingleton.getInstance().getHotSearch());
+                if (RecommendView.this.eVZ != null) {
+                    RecommendView.this.eVZ.setSearchHint(TbSingleton.getInstance().getHotSearch());
                 }
             }
         };
-        this.emz = new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.2
+        this.eCk = new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.2
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-            public void dP(boolean z) {
-                if (z && RecommendView.this.eEG != null) {
-                    RecommendView.this.eEG.loadData();
+            public void el(boolean z) {
+                if (z && RecommendView.this.eUA != null) {
+                    RecommendView.this.eUA.loadData();
                 }
             }
         };
-        this.eGl = new CustomMessageListener(2921383) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.3
+        this.eWf = new CustomMessageListener(2921383) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof Long) {
                     Long l = (Long) customResponsedMessage.getData();
-                    if (RecommendView.this.eGh != null && l != null) {
-                        RecommendView.this.eGj = l.longValue();
-                        if (RecommendView.this.eEG != null) {
-                            RecommendView.this.eEG.loadData();
+                    if (RecommendView.this.eWb != null && l != null) {
+                        RecommendView.this.eWd = l.longValue();
+                        if (RecommendView.this.eUA != null) {
+                            RecommendView.this.eUA.loadData();
                         }
                     }
                 }
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.4
-            private int dcM = -1;
+            private int dno = -1;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (this.dcM != i && RecommendView.this.eGi != null) {
-                    this.dcM = i;
-                    if (this.dcM == 1) {
-                        RecommendView.this.eGi.aBB();
+                if (this.dno != i && RecommendView.this.eWc != null) {
+                    this.dno = i;
+                    if (this.dno == 1) {
+                        RecommendView.this.eWc.aHR();
                         return;
                     }
                     if (RecommendView.this.a(recyclerView)) {
-                        RecommendView.this.eGi.aBC();
+                        RecommendView.this.eWc.aHS();
                     } else {
-                        RecommendView.this.eGi.aBB();
+                        RecommendView.this.eWc.aHR();
                     }
-                    RecommendView.this.eGf.aXn();
+                    RecommendView.this.eVZ.beA();
                 }
             }
         };
-        this.eGm = new c.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.5
+        this.eWg = new c.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.5
             @Override // com.baidu.tieba.enterForum.home.c.a
-            public void aWK() {
-                if (RecommendView.this.eGi != null) {
-                    if (RecommendView.this.a(RecommendView.this.Qr)) {
-                        RecommendView.this.eGi.aBC();
+            public void bdX() {
+                if (RecommendView.this.eWc != null) {
+                    if (RecommendView.this.a(RecommendView.this.NZ)) {
+                        RecommendView.this.eWc.aHS();
                     } else {
-                        RecommendView.this.eGi.aBB();
+                        RecommendView.this.eWc.aHR();
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         init(tbPageContext.getPageActivity());
-        tbPageContext.registerListener(this.eGl);
-        tbPageContext.registerListener(this.eGk);
+        tbPageContext.registerListener(this.eWf);
+        tbPageContext.registerListener(this.eWe);
         onChangeSkinType();
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.fragment_enter_recommend_layout, (ViewGroup) this, true);
-        this.ddG = (BdSwipeRefreshLayout) findViewById(d.g.enter_recommend_refresh_layout);
+        LayoutInflater.from(context).inflate(R.layout.fragment_enter_recommend_layout, (ViewGroup) this, true);
+        setPadding(0, UtilHelper.getStatusBarHeight() + getResources().getDimensionPixelOffset(R.dimen.tbds140), 0, 0);
+        this.doi = (BdSwipeRefreshLayout) findViewById(R.id.enter_recommend_refresh_layout);
         this.mPullView = new i(this.mPageContext);
-        this.ddG.setProgressView(this.mPullView);
-        this.Qr = (BdTypeRecyclerView) findViewById(d.g.enter_recommend_list_view);
-        this.Qr.setLayoutManager(new LinearLayoutManager(context));
-        this.Qr.setFadingEdgeLength(0);
-        this.Qr.setOverScrollMode(2);
-        this.Qr.addOnScrollListener(this.mOnScrollListener);
-        this.eGg = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.Qr);
-        this.eGf = new RecommendForumHeaderView(this.mPageContext);
-        this.eGf.setOnSecectedListener(this);
+        this.doi.setProgressView(this.mPullView);
+        this.NZ = (BdTypeRecyclerView) findViewById(R.id.enter_recommend_list_view);
+        this.NZ.setLayoutManager(new LinearLayoutManager(context));
+        this.NZ.setFadingEdgeLength(0);
+        this.NZ.setOverScrollMode(2);
+        this.NZ.addOnScrollListener(this.mOnScrollListener);
+        this.eWa = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.NZ);
+        this.eVZ = new RecommendForumHeaderView(this.mPageContext);
+        this.eVZ.setOnSecectedListener(this);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.eGg != null) {
-            this.eGg.setPageUniqueId(bdUniqueId);
+        if (this.eWa != null) {
+            this.eWa.setPageUniqueId(bdUniqueId);
         }
         if (this.mPullView != null) {
             this.mPullView.setTag(bdUniqueId);
         }
+        if (this.eVZ != null) {
+            this.eVZ.setPageId(bdUniqueId);
+        }
     }
 
     public void setPresenter(com.baidu.tieba.enterForum.recommend.a aVar) {
-        this.eEG = aVar;
+        this.eUA = aVar;
     }
 
     public void setData(com.baidu.tieba.enterForum.recommend.b.a aVar) {
         if (aVar != null) {
-            this.eGh = aVar;
-            if (v.T(aVar.aXb()) && v.T(aVar.aXa())) {
+            this.eWb = aVar;
+            if (v.aa(aVar.bep()) && v.aa(aVar.beo())) {
                 showNoDataView();
                 return;
             }
-            aOs();
-            List<f> cx = aVar.cx(this.eGj);
-            this.eGj = 0L;
-            f fVar = (f) v.c(cx, 1);
+            aUE();
+            List<f> cU = aVar.cU(this.eWd);
+            this.eWd = 0L;
+            f fVar = (f) v.c(cU, 1);
             if (fVar == null) {
-                fVar = (f) v.c(cx, 0);
+                fVar = (f) v.c(cU, 0);
             }
             long j = fVar != null ? fVar.testId : 0L;
-            bz(cx);
+            bH(cU);
             a(aVar, j);
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.a
-    public void cz(long j) {
-        a(this.eGh, j);
+    public void cW(long j) {
+        a(this.eWb, j);
     }
 
-    private void bz(List<f> list) {
-        if (this.Qr.getHeaderViewsCount() == 0) {
-            this.Qr.addHeaderView(this.eGf);
+    private void bH(List<f> list) {
+        if (this.NZ.getHeaderViewsCount() == 0) {
+            this.NZ.addHeaderView(this.eVZ);
         }
-        this.eGf.setData(list);
-        this.eGf.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.eVZ.setData(list);
+        this.eVZ.setSearchHint(TbSingleton.getInstance().getHotSearch());
     }
 
     private void a(com.baidu.tieba.enterForum.recommend.b.a aVar, long j) {
         if (aVar != null) {
-            this.eGg.setData(aVar.cy(j));
+            this.eWa.setData(aVar.cV(j));
         }
     }
 
@@ -200,57 +205,57 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public void aBJ() {
-        this.ddG.setRefreshing(false);
+    public void aHZ() {
+        this.doi.setRefreshing(false);
     }
 
-    public void aOs() {
-        if (this.Qr != null) {
-            this.Qr.setVisibility(0);
+    public void aUE() {
+        if (this.NZ != null) {
+            this.NZ.setVisibility(0);
         }
     }
 
-    public void cE(boolean z) {
-        if (!aXo()) {
-            if (this.cXq == null) {
-                this.cXq = new g(getContext());
-                this.cXq.onChangeSkinType();
+    public void cV(boolean z) {
+        if (!beC()) {
+            if (this.dhX == null) {
+                this.dhX = new g(getContext());
+                this.dhX.onChangeSkinType();
             }
-            this.cXq.attachView(this, z);
+            this.dhX.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.cXq != null) {
-            this.cXq.dettachView(this);
-            this.cXq = null;
+        if (this.dhX != null) {
+            this.dhX.dettachView(this);
+            this.dhX = null;
         }
     }
 
-    public boolean aXo() {
-        if (this.cXq != null) {
-            return this.cXq.isViewAttached();
+    public boolean beC() {
+        if (this.dhX != null) {
+            return this.dhX.isViewAttached();
         }
         return false;
     }
 
-    public void iD(boolean z) {
-        if (!aXp()) {
+    public void jk(boolean z) {
+        if (!beD()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new com.baidu.tbadk.m.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.kM() && RecommendView.this.eEG != null) {
-                            RecommendView.this.eEG.loadData();
+                        if (j.jG() && RecommendView.this.eUA != null) {
+                            RecommendView.this.eUA.loadData();
                         }
                     }
                 });
             }
-            this.mRefreshView.setTitle(this.mPageContext.getString(d.j.refresh_view_title_text));
-            this.mRefreshView.jO(d.f.new_pic_emotion_09);
+            this.mRefreshView.setTitle(this.mPageContext.getString(R.string.refresh_view_title_text));
+            this.mRefreshView.kC(R.drawable.new_pic_emotion_09);
             this.mRefreshView.attachView(this, z);
-            this.mRefreshView.any();
-            this.Qr.setVisibility(8);
+            this.mRefreshView.asB();
+            this.NZ.setVisibility(8);
         }
     }
 
@@ -259,27 +264,27 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             this.mRefreshView = new com.baidu.tbadk.m.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (j.kM() && RecommendView.this.eEG != null) {
-                        RecommendView.this.eEG.loadData();
+                    if (j.jG() && RecommendView.this.eUA != null) {
+                        RecommendView.this.eUA.loadData();
                     }
                 }
             });
         }
-        this.mRefreshView.jO(d.f.new_pic_emotion_05);
-        this.mRefreshView.setTitle(this.mPageContext.getString(d.j.no_data_text));
+        this.mRefreshView.kC(R.drawable.new_pic_emotion_05);
+        this.mRefreshView.setTitle(this.mPageContext.getString(R.string.no_data_text));
         this.mRefreshView.attachView(this, false);
-        this.mRefreshView.any();
-        this.Qr.setVisibility(8);
+        this.mRefreshView.asB();
+        this.NZ.setVisibility(8);
     }
 
-    public void aBq() {
+    public void aHH() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean aXp() {
+    public boolean beD() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -290,24 +295,24 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.l(this, d.C0277d.cp_bg_line_e);
+            al.l(this, R.color.cp_bg_line_e);
             if (this.mPullView != null) {
-                this.mPullView.ib(skinType);
+                this.mPullView.iP(skinType);
             }
-            if (this.cXq != null) {
-                this.cXq.onChangeSkinType();
+            if (this.dhX != null) {
+                this.dhX.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.eGg != null) {
-                this.eGg.notifyDataSetChanged();
+            if (this.eWa != null) {
+                this.eWa.notifyDataSetChanged();
             }
-            if (this.eGf != null) {
-                this.eGf.onChangeSkinType();
+            if (this.eVZ != null) {
+                this.eVZ.onChangeSkinType();
             }
-            al.l(this.ddG, d.C0277d.cp_bg_line_e);
-            al.l(this.Qr, d.C0277d.cp_bg_line_d);
+            al.l(this.doi, R.color.cp_bg_line_e);
+            al.l(this.NZ, R.color.cp_bg_line_c);
         }
     }
 
@@ -318,22 +323,25 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void setTabViewController(com.baidu.tieba.enterForum.home.c cVar) {
-        this.eGi = cVar;
-        if (this.eGi != null) {
-            this.eGi.b(this.eGm);
-            this.eGi.a(this.eGm);
+        this.eWc = cVar;
+        if (this.eWc != null) {
+            this.eWc.b(this.eWg);
+            this.eWc.a(this.eWg);
         }
     }
 
     public void onDestroy() {
-        if (this.Qr != null) {
-            this.Qr.removeOnScrollListener(this.mOnScrollListener);
+        if (this.NZ != null) {
+            this.NZ.removeOnScrollListener(this.mOnScrollListener);
         }
-        if (this.eGi != null) {
-            this.eGi.b(this.eGm);
+        if (this.eWc != null) {
+            this.eWc.b(this.eWg);
         }
-        aBJ();
+        aHZ();
         hideLoadingView();
-        aBq();
+        aHH();
+        if (this.eVZ != null) {
+            this.eVZ.beB();
+        }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.swan.apps.a;
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean a(Context context, Intent intent, boolean z) {
+    public static boolean b(Context context, Intent intent, boolean z) {
         return a(context, intent, z, true);
     }
 
@@ -45,10 +45,10 @@ public final class b {
     }
 
     public static boolean h(Context context, Intent intent) {
-        return a(context, intent, false);
+        return b(context, intent, false);
     }
 
-    public static void K(Activity activity) {
+    public static void L(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -67,27 +67,27 @@ public final class b {
         }
     }
 
-    public static void L(Activity activity) {
-        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | LN());
-        }
-    }
-
     public static void M(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
+            window.setFlags(1024, 1024);
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | Ou());
+        }
+    }
+
+    public static void N(Activity activity) {
+        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (LN() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.aLa) {
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (Ou() ^ (-1));
+            if (com.baidu.swan.apps.res.widget.a.aMT) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
 
-    public static int LN() {
+    public static int Ou() {
         return 5894;
     }
 }

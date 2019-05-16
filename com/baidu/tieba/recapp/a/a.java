@@ -30,62 +30,62 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0375a c0375a = new C0375a(str, str2, hashMap, dVar);
-                c0375a.setPriority(2);
-                c0375a.execute(new Object[0]);
+                C0394a c0394a = new C0394a(str, str2, hashMap, dVar);
+                c0394a.setPriority(2);
+                c0394a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0375a extends BdAsyncTask<Object, Integer, h> {
-        private String bsM;
-        private d dZU;
-        private HashMap<String, String> gFi;
+    private class C0394a extends BdAsyncTask<Object, Integer, h> {
+        private String bzP;
+        private d ekt;
+        private HashMap<String, String> gWC;
         private volatile x mNetwork = null;
         private String postUrl;
 
-        public C0375a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.bsM = str;
+        public C0394a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+            this.bzP = str;
             this.postUrl = str2;
-            this.gFi = hashMap;
-            this.dZU = dVar;
+            this.gWC = hashMap;
+            this.ekt = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: D */
         public h doInBackground(Object... objArr) {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.gFi.keySet();
+                Set<String> keySet = this.gWC.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.x(str, this.gFi.get(str));
+                            this.mNetwork.o(str, this.gWC.get(str));
                         }
                     }
                 }
-                this.mNetwork.x("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.mNetwork.x("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.acE().adC().mIsNeedTbs = true;
-                String acg = this.mNetwork.acg();
-                if (!this.mNetwork.acE().adD().acH()) {
-                    hVar.errorCode = this.mNetwork.acJ();
-                    hVar.errorString = this.mNetwork.aci();
+                this.mNetwork.o("user_name", TbadkCoreApplication.getCurrentAccountName());
+                this.mNetwork.o("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.mNetwork.ahC().aiB().mIsNeedTbs = true;
+                String ahe = this.mNetwork.ahe();
+                if (!this.mNetwork.ahC().aiC().ahF()) {
+                    hVar.errorCode = this.mNetwork.ahH();
+                    hVar.errorString = this.mNetwork.ahg();
                 } else {
-                    hVar.errorCode = this.mNetwork.acI();
+                    hVar.errorCode = this.mNetwork.ahG();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.acE().adD().isRequestSuccess() && !TextUtils.isEmpty(acg)) {
-                    JSONObject jSONObject = new JSONObject(acg);
+                if (this.mNetwork.ahC().aiC().isRequestSuccess() && !TextUtils.isEmpty(ahe)) {
+                    JSONObject jSONObject = new JSONObject(ahe);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
                             hVar.result = true;
-                            hVar.bsM = this.bsM;
+                            hVar.bzP = this.bzP;
                             return hVar;
                         }
                         String str2 = "";
@@ -93,7 +93,7 @@ public class a extends com.baidu.tbadk.b.a {
                             str2 = jSONObject.optString("msg", "");
                         }
                         hVar.result = false;
-                        hVar.bsM = this.bsM;
+                        hVar.bzP = this.bzP;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -102,7 +102,7 @@ public class a extends com.baidu.tbadk.b.a {
                 BdLog.e(e.getMessage());
             }
             hVar.result = false;
-            hVar.bsM = this.bsM;
+            hVar.bzP = this.bzP;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.dZU != null) {
-                this.dZU.m(hVar);
+            if (this.ekt != null) {
+                this.ekt.m(hVar);
             }
         }
 
@@ -120,20 +120,20 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.dZU != null) {
-                this.dZU.m(null);
+            if (this.ekt != null) {
+                this.ekt.m(null);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.ji();
+                this.mNetwork.ia();
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.dZU != null) {
-                this.dZU.m(null);
+            if (this.ekt != null) {
+                this.ekt.m(null);
             }
         }
     }

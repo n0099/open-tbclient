@@ -1,37 +1,38 @@
 package com.baidu.swan.pms.database.a;
 
 import android.net.Uri;
-import com.baidu.swan.pms.model.i;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.swan.pms.model.h;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class c {
-    private ConcurrentHashMap<Class<?>, b> blH;
-    private ConcurrentHashMap<Class<?>, Uri> blI;
+    private ConcurrentHashMap<Class<?>, b> brJ;
+    private ConcurrentHashMap<Class<?>, Uri> brK;
 
-    private void RA() {
-        this.blH = new ConcurrentHashMap<>();
-        this.blI = new ConcurrentHashMap<>();
-        this.blH.put(com.baidu.swan.pms.model.g.class, new f());
-        this.blH.put(i.class, new g());
-        this.blH.put(com.baidu.swan.pms.model.e.class, new e());
-        this.blH.put(com.baidu.swan.pms.model.c.class, new d());
-        this.blH.put(com.baidu.swan.pms.model.a.class, new a());
-        this.blI.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.blN);
-        this.blI.put(i.class, com.baidu.swan.pms.database.provider.b.auK);
-        this.blI.put(com.baidu.swan.pms.model.e.class, com.baidu.swan.pms.database.provider.b.blL);
-        this.blI.put(com.baidu.swan.pms.model.c.class, com.baidu.swan.pms.database.provider.b.blO);
-        this.blI.put(com.baidu.swan.pms.model.a.class, com.baidu.swan.pms.database.provider.b.blM);
+    private void Vn() {
+        this.brJ = new ConcurrentHashMap<>();
+        this.brK = new ConcurrentHashMap<>();
+        this.brJ.put(com.baidu.swan.pms.model.f.class, new f());
+        this.brJ.put(h.class, new g());
+        this.brJ.put(com.baidu.swan.pms.model.d.class, new e());
+        this.brJ.put(com.baidu.swan.pms.model.b.class, new d());
+        this.brJ.put(PMSAppInfo.class, new a());
+        this.brK.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.brP);
+        this.brK.put(h.class, com.baidu.swan.pms.database.provider.b.avb);
+        this.brK.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.brN);
+        this.brK.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.brQ);
+        this.brK.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.brO);
     }
 
     public c() {
-        RA();
+        Vn();
     }
 
-    public <T> b<T> m(Class<T> cls) {
-        return this.blH.get(cls);
+    public <T> b<T> l(Class<T> cls) {
+        return this.brJ.get(cls);
     }
 
-    public <T> Uri n(Class<T> cls) {
-        return this.blI.get(cls);
+    public <T> Uri m(Class<T> cls) {
+        return this.brK.get(cls);
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeTrimPath implements b {
+    private final Type mR;
     private final String name;
-    private final Type pu;
-    private final com.airbnb.lottie.model.a.b rD;
-    private final com.airbnb.lottie.model.a.b rE;
-    private final com.airbnb.lottie.model.a.b rv;
+    private final com.airbnb.lottie.model.a.b oW;
+    private final com.airbnb.lottie.model.a.b pg;
+    private final com.airbnb.lottie.model.a.b ph;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,30 +31,30 @@ public class ShapeTrimPath implements b {
 
     private ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.pu = type;
-        this.rD = bVar;
-        this.rE = bVar2;
-        this.rv = bVar3;
+        this.mR = type;
+        this.pg = bVar;
+        this.ph = bVar2;
+        this.oW = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dl() {
-        return this.pu;
+    public Type cf() {
+        return this.mR;
     }
 
-    public com.airbnb.lottie.model.a.b eD() {
-        return this.rE;
+    public com.airbnb.lottie.model.a.b dx() {
+        return this.ph;
     }
 
-    public com.airbnb.lottie.model.a.b eE() {
-        return this.rD;
+    public com.airbnb.lottie.model.a.b dy() {
+        return this.pg;
     }
 
-    public com.airbnb.lottie.model.a.b ex() {
-        return this.rv;
+    public com.airbnb.lottie.model.a.b dr() {
+        return this.oW;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -63,7 +63,7 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.rD + ", end: " + this.rE + ", offset: " + this.rv + "}";
+        return "Trim Path: {start: " + this.pg + ", end: " + this.ph + ", offset: " + this.oW + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

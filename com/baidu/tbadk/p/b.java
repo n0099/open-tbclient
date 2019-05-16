@@ -1,233 +1,42 @@
 package com.baidu.tbadk.p;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.l;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.f;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.c;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
-import com.baidu.adp.plugin.util.Util;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.x;
-import com.xiaomi.mipush.sdk.Constants;
-import java.io.File;
-import java.io.IOException;
-import org.apache.http.message.BasicNameValuePair;
+import android.os.Build;
 /* loaded from: classes.dex */
-public class b implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
-    private static final String ADDRESS = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a csf;
-    private boolean csg;
+public class b extends g {
+    private a cyk;
+    private boolean cyl;
+    private boolean cym;
 
-    @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
-    public void a(boolean z, c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
-        if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            if (aVar != null) {
-                aVar.a(false, cVar, null);
-                return;
-            }
-            return;
-        }
-        this.csf = aVar;
-        if (!this.csg) {
-            this.csg = true;
-            new C0243b(cVar, z).execute(new Void[0]);
-        }
-        try {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            File filesDir = inst.getFilesDir();
-            if (filesDir == null) {
-                filesDir = new File("/data/data/" + inst.getPackageName() + "/files/");
-                try {
-                    if (!filesDir.exists()) {
-                        f.u(filesDir);
-                    }
-                } catch (IOException e) {
+    public void aua() {
+        if (!this.cyl && m.auk().aul()) {
+            this.cyl = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.cyk == null) {
+                    this.cyk = new a();
                 }
+                this.cyk.start();
             }
-            File file = new File(filesDir, "pluginsEX");
-            if (file != null && file.exists()) {
-                new a(file).execute(new Void[0]);
-            }
-        } catch (Exception e2) {
-            BdLog.e(e2);
         }
     }
 
-    /* renamed from: com.baidu.tbadk.p.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private class C0243b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
-        private c csi;
-        private boolean csj;
-        private x mNetWork;
-
-        public C0243b(c cVar, boolean z) {
-            this.csj = false;
-            this.csi = cVar;
-            this.csj = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:33:0x00c8  */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x0102  */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x0118  */
-        /* JADX WARN: Removed duplicated region for block: B:41:0x0141  */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public Void doInBackground(Void... voidArr) {
-            String str;
-            boolean z;
-            PluginSettings nI;
-            boolean z2;
-            String str2;
-            PluginNetConfigInfos pluginNetConfigInfos;
-            if (this.csi == null) {
-                publishProgress(null);
-                return null;
-            }
-            if (this.csi.nE() == null || this.csi.nE().size() <= 0) {
-                str = "";
-            } else {
-                StringBuilder sb = new StringBuilder(50);
-                int size = this.csi.nE().size();
-                for (int i = 0; i < size; i++) {
-                    if (i != 0) {
-                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    }
-                    BasicNameValuePair basicNameValuePair = this.csi.nE().get(i);
-                    if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
-                        sb.append(basicNameValuePair.getName());
-                        sb.append(Config.TRACE_TODAY_VISIT_SPLIT);
-                        sb.append(basicNameValuePair.getValue());
-                    }
-                }
-                str = sb.toString();
-            }
-            BdCacheService iy = BdCacheService.iy();
-            l<String> a = iy.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-            String str3 = a.get(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            if (!this.csj && str3 != null) {
-                long d = com.baidu.adp.lib.g.b.d(str3, -1L);
-                if (d != -1 && System.currentTimeMillis() - d < 86400000) {
-                    z = false;
-                    String str4 = null;
-                    nI = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI();
-                    if (nI != null) {
-                        str4 = nI.getContainerVersion();
-                    }
-                    String str5 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + str4 + "_" + str;
-                    if (!z) {
-                        String b = b(a, str);
-                        pluginNetConfigInfos = PluginNetConfigInfos.parse(b);
-                        z2 = z;
-                        str2 = b;
-                    } else {
-                        String a2 = a(a, str5);
-                        PluginNetConfigInfos parse = PluginNetConfigInfos.parse(a2);
-                        if (parse == null) {
-                            str2 = b(a, str);
-                            pluginNetConfigInfos = PluginNetConfigInfos.parse(str2);
-                            z2 = true;
-                        } else {
-                            z2 = z;
-                            str2 = a2;
-                            pluginNetConfigInfos = parse;
-                        }
-                    }
-                    publishProgress(pluginNetConfigInfos);
-                    if (z2) {
-                        iy.a(a);
-                        l<String> a3 = iy.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-                        a3.a(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(System.currentTimeMillis()), 172800000L);
-                        a3.a(str5, str2, 172800000L);
-                    }
-                    return null;
-                }
-            }
-            z = true;
-            String str42 = null;
-            nI = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI();
-            if (nI != null) {
-            }
-            String str52 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + str42 + "_" + str;
-            if (!z) {
-            }
-            publishProgress(pluginNetConfigInfos);
-            if (z2) {
-            }
-            return null;
-        }
-
-        private String a(l<String> lVar, String str) {
-            return lVar.get(str);
-        }
-
-        private String b(l<String> lVar, String str) {
-            this.mNetWork = new x(b.ADDRESS);
-            this.mNetWork.x("plugin_upload_config", str);
-            return this.mNetWork.acg();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
-            super.onProgressUpdate(pluginNetConfigInfosArr);
-            b.this.csg = false;
-            b.this.csf.a(pluginNetConfigInfosArr[0] != null, this.csi, pluginNetConfigInfosArr[0]);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001224));
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel();
-            b.this.csg = false;
-            this.mNetWork.ji();
-            this.mNetWork = null;
+    public void aub() {
+        if (Build.VERSION.SDK_INT >= 16 && this.cyk != null) {
+            this.cyk.stop();
         }
     }
 
-    /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<Void, Void, Void> {
-        private File mFile;
-
-        public a(File file) {
-            this.mFile = null;
-            this.mFile = file;
+    public void auc() {
+        o oVar;
+        if (!this.cym && this.cyk != null && this.cyk.getFps() >= 0 && (oVar = (o) m.auk().kN(this.mSubType)) != null) {
+            oVar.a(this);
+            this.cym = true;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            if (this.mFile != null && this.mFile.exists()) {
-                Util.q(this.mFile);
-                return null;
-            }
-            return null;
+    public int getFps() {
+        if (this.cyk != null) {
+            return this.cyk.getFps();
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Void r1) {
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel();
-        }
+        return -1;
     }
 }

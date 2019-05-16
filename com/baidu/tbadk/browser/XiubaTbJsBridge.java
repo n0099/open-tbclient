@@ -8,7 +8,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -16,7 +15,7 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -44,7 +43,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.2
-        private boolean buz;
+        private boolean bBC;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -55,16 +54,16 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && XiubaTbJsBridge.XIUBA_PACKAGE.equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.buz) {
-                                    this.buz = true;
+                                if (!this.bBC) {
+                                    this.bBC = true;
                                     XiubaTbJsBridge.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 XiubaTbJsBridge.this.callDownloadListener(2);
-                                this.buz = false;
+                                this.bBC = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 XiubaTbJsBridge.this.callDownloadListener(0);
-                                this.buz = false;
+                                this.bBC = false;
                             }
                         }
                     }
@@ -118,11 +117,11 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         if (StringUtils.isNull(str) || (split = str.split("\\.")) == null || split.length == 0) {
             return false;
         }
-        int l = com.baidu.adp.lib.g.b.l(split[0], 0);
-        if (l > 3) {
+        int f = com.baidu.adp.lib.g.b.f(split[0], 0);
+        if (f > 3) {
             return true;
         }
-        return split.length >= 2 && l == 3 && com.baidu.adp.lib.g.b.l(split[1], 0) >= 2;
+        return split.length >= 2 && f == 3 && com.baidu.adp.lib.g.b.f(split[1], 0) >= 2;
     }
 
     private String downLoadAPK(String str, long j, String str2) {
@@ -160,7 +159,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.alH().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.aqK().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,7 +202,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         if (TextUtils.isEmpty(dataString)) {
             return null;
         }
-        String[] split = dataString.split(Config.TRACE_TODAY_VISIT_SPLIT);
+        String[] split = dataString.split(":");
         if (split != null && split.length == 2) {
             return split[1];
         }

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     private float[] mRadius;
@@ -18,21 +18,21 @@ public class RoundRelativeLayout extends RelativeLayout {
 
     public RoundRelativeLayout(Context context) {
         super(context);
-        this.mRoundLayoutRadius = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
         init();
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mRoundLayoutRadius = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
         init();
     }
 
     public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mRoundLayoutRadius = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+        this.mRoundLayoutRadius = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
         init();
     }

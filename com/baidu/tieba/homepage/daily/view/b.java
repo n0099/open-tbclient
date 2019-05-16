@@ -14,40 +14,40 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.daily.b.e;
 import com.baidu.tieba.view.NoScrollGridView;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemClickListener {
-    private TextView fIp;
-    private ImageView fIq;
-    private NoScrollGridView fIr;
-    private d fIs;
+    private TextView fZk;
+    private ImageView fZl;
+    private NoScrollGridView fZm;
+    private d fZn;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.fIp = (TextView) view.findViewById(d.g.topic_title_view);
-        this.fIq = (ImageView) view.findViewById(d.g.topic_more);
-        this.fIq.setOnClickListener(this);
-        this.fIr = (NoScrollGridView) view.findViewById(d.g.topic_gridview);
-        this.fIs = new d(tbPageContext.getPageActivity());
-        this.fIr.setAdapter((ListAdapter) this.fIs);
-        this.fIr.setOnItemClickListener(this);
+        this.fZk = (TextView) view.findViewById(R.id.topic_title_view);
+        this.fZl = (ImageView) view.findViewById(R.id.topic_more);
+        this.fZl.setOnClickListener(this);
+        this.fZm = (NoScrollGridView) view.findViewById(R.id.topic_gridview);
+        this.fZn = new d(tbPageContext.getPageActivity());
+        this.fZm.setAdapter((ListAdapter) this.fZn);
+        this.fZm.setOnItemClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.daily_topic_view;
+        return R.layout.daily_topic_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(e eVar) {
-        if (eVar != null && eVar.fHZ != null) {
-            this.fIs.setData(eVar.fHZ);
+        if (eVar != null && eVar.fYU != null) {
+            this.fZn.setData(eVar.fYU);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -56,37 +56,37 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.j(this.fIp, d.C0277d.cp_cont_b);
-            al.c(this.fIq, d.f.icon_arrow_gray_right_n);
+            al.j(this.fZk, R.color.cp_cont_b);
+            al.c(this.fZl, (int) R.drawable.icon_arrow_gray_right_n);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fIq) {
-            if (com.baidu.tbadk.plugins.b.fi(true)) {
+        if (view == this.fZl) {
+            if (com.baidu.tbadk.plugins.b.fE(true)) {
                 new HotRanklistActivityConfig(getContext()).createNormalConfig("hotforum", "all").start();
             } else {
-                String blI = this.fIs.blI();
-                if (blI != null) {
-                    ba.adA().c(this.mTbPageContext, new String[]{blI});
+                String bte = this.fZn.bte();
+                if (bte != null) {
+                    ba.aiz().c(this.mTbPageContext, new String[]{bte});
                 }
             }
-            TiebaStatic.log(new am("c13177").T("obj_locate", 5));
+            TiebaStatic.log(new am("c13177").P("obj_locate", 5));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        e.a item = this.fIs.getItem(i);
+        e.a item = this.fZn.getItem(i);
         if (item != null) {
-            if (com.baidu.tbadk.plugins.b.fi(true)) {
-                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.XX(), "1").start();
-            } else if (item.aaw() != null) {
-                ba.adA().c(this.mTbPageContext, new String[]{item.aaw()});
+            if (com.baidu.tbadk.plugins.b.fE(true)) {
+                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.acE(), "1").start();
+            } else if (item.afd() != null) {
+                ba.aiz().c(this.mTbPageContext, new String[]{item.afd()});
             }
         }
-        TiebaStatic.log(new am("c13177").T("obj_locate", i + 1));
+        TiebaStatic.log(new am("c13177").P("obj_locate", i + 1));
     }
 
     @Override // com.baidu.tieba.card.a

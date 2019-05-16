@@ -42,7 +42,7 @@ public class i {
             }
             return publicMsg;
         } catch (Exception e) {
-            com.baidu.android.pushservice.g.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
+            com.baidu.android.pushservice.f.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
             return null;
         }
     }
@@ -57,10 +57,34 @@ public class i {
                     if (!TextUtils.isEmpty(this.n)) {
                         JSONObject jSONObject2 = new JSONObject(new String(this.n));
                         String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
-                        if (jSONObject2.isNull("hwsigninfo")) {
+                        if (jSONObject2.isNull("hwprisigninfo")) {
                             return string;
                         }
-                        this.o = jSONObject2.getString("hwsigninfo");
+                        this.o = jSONObject2.getString("hwprisigninfo");
+                        return string;
+                    }
+                }
+            }
+            return null;
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    public String a(String str) {
+        JSONArray jSONArray;
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
+                    a(jSONArray);
+                    if (!TextUtils.isEmpty(this.n)) {
+                        JSONObject jSONObject2 = new JSONObject(this.n);
+                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
+                        if (jSONObject2.isNull("mzpri_signinfo")) {
+                            return string;
+                        }
+                        this.o = jSONObject2.getString("mzpri_signinfo");
                         return string;
                     }
                 }
@@ -118,30 +142,6 @@ public class i {
                 return null;
             }
             return jSONObject2.getString("custom_content");
-        } catch (JSONException e) {
-            return null;
-        }
-    }
-
-    public String c(Context context, String str) {
-        JSONArray jSONArray;
-        try {
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject jSONObject = new JSONObject(str);
-                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
-                    a(jSONArray);
-                    if (!TextUtils.isEmpty(this.n)) {
-                        JSONObject jSONObject2 = new JSONObject(this.n);
-                        String string = !jSONObject2.isNull("custom_content") ? jSONObject2.getString("custom_content") : null;
-                        if (jSONObject2.isNull("mzsigninfo")) {
-                            return string;
-                        }
-                        this.o = jSONObject2.getString("mzsigninfo");
-                        return string;
-                    }
-                }
-            }
-            return null;
         } catch (JSONException e) {
             return null;
         }

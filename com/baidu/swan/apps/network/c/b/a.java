@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.network.c.b;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -21,18 +22,18 @@ public class a extends b {
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void M(JSONObject jSONObject) {
-        com.baidu.swan.apps.ae.b IV;
+    public void L(JSONObject jSONObject) {
+        com.baidu.swan.apps.ae.b Lq;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (IV = com.baidu.swan.apps.ae.b.IV()) != null) {
-            IV.IZ().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null) {
+            Lq.Lu().putString("node_data_accredit_list", jSONObject.toString());
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void Fj() {
+    public void Ho() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -45,18 +46,18 @@ public class a extends b {
         }
     }
 
-    public static void a(@NonNull final com.baidu.swan.apps.an.c.a<Map<String, e>> aVar) {
-        com.baidu.swan.apps.network.c.a.Fd().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+    public static void e(@NonNull final com.baidu.swan.apps.an.d.a<Map<String, e>> aVar) {
+        com.baidu.swan.apps.network.c.a.Hi().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Fh() {
-                Map Fl = a.Fl();
-                if (Fl.size() > 0) {
-                    com.baidu.swan.apps.an.c.a.this.D(Fl);
+            public void Hm() {
+                Map Hq = a.Hq();
+                if (Hq.size() > 0) {
+                    com.baidu.swan.apps.an.d.a.this.D(Hq);
                 } else {
-                    com.baidu.swan.apps.network.c.a.Fd().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.Hi().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Fh() {
-                            com.baidu.swan.apps.an.c.a.this.D(a.Fl());
+                        public void Hm() {
+                            com.baidu.swan.apps.an.d.a.this.D(a.Hq());
                         }
                     });
                 }
@@ -64,18 +65,18 @@ public class a extends b {
         });
     }
 
-    public static void a(final String str, @NonNull final com.baidu.swan.apps.an.c.a<e> aVar) {
-        com.baidu.swan.apps.network.c.a.Fd().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+    public static void a(final String str, @NonNull final com.baidu.swan.apps.an.d.a<e> aVar) {
+        com.baidu.swan.apps.network.c.a.Hi().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Fh() {
-                e eVar = (e) a.Fl().get(str);
+            public void Hm() {
+                e eVar = (e) a.Hq().get(str);
                 if (eVar != null) {
                     aVar.D(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.Fd().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.Hi().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Fh() {
-                            aVar.D(a.Fl().get(str));
+                        public void Hm() {
+                            aVar.D(a.Hq().get(str));
                         }
                     });
                 }
@@ -83,24 +84,30 @@ public class a extends b {
         });
     }
 
-    public static void Fk() {
-        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-        if (IV != null) {
-            com.baidu.swan.apps.network.c.a.Fd().a(new a());
-            IV.IZ().putString("node_data_accredit_list", "");
+    @Nullable
+    public static e fJ(String str) {
+        return Hq().get(str);
+    }
+
+    public static void Hp() {
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq != null) {
+            com.baidu.swan.apps.network.c.a.Hi().a(new a());
+            Lq.Lu().putString("node_data_accredit_list", "");
+            com.baidu.swan.apps.network.c.a.Hi().update();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public static Map<String, e> Fl() {
+    public static Map<String, e> Hq() {
         JSONObject optJSONObject;
         ArrayMap arrayMap = new ArrayMap();
-        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-        if (IV == null) {
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq == null) {
             return arrayMap;
         }
-        String string = IV.IZ().getString("node_data_accredit_list", "");
+        String string = Lq.Lu().getString("node_data_accredit_list", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }
@@ -113,7 +120,7 @@ public class a extends b {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next) && (optJSONObject = optJSONObject2.optJSONObject(next)) != null) {
-                    arrayMap.put(next, e.h(next, optJSONObject));
+                    arrayMap.put(next, e.i(next, optJSONObject));
                 }
             }
             return arrayMap;

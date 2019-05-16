@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements m {
-    public static final BdUniqueId fAw = BdUniqueId.gen();
-    private int ekG;
-    private List<a> fAx;
-    private String fAy;
-    private String fAz;
+    public static final BdUniqueId fRt = BdUniqueId.gen();
+    private int eAu;
+    private List<a> fRu;
+    private String fRv;
+    private String fRw;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.ekG = esport.floor_no.intValue();
+            this.eAu = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.fAy = esport._static.img;
-                this.fAz = esport._static.url;
+                this.fRv = esport._static.img;
+                this.fRw = esport._static.url;
             }
-            this.fAx = new ArrayList();
-            if (!StringUtils.isNull(this.fAy)) {
+            this.fRu = new ArrayList();
+            if (!StringUtils.isNull(this.fRv)) {
                 a aVar = new a();
-                aVar.vR(this.fAy);
-                aVar.vS(this.fAz);
-                this.fAx.add(aVar);
+                aVar.xg(this.fRv);
+                aVar.xh(this.fRw);
+                this.fRu.add(aVar);
             }
-            if (!v.T(esport.billboard)) {
+            if (!v.aa(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.fAx.add(aVar2);
+                    this.fRu.add(aVar2);
                 }
             }
         }
     }
 
-    public int bkq() {
-        return this.ekG;
+    public int brI() {
+        return this.eAu;
     }
 
-    public List<a> bkr() {
-        return this.fAx;
+    public List<a> brJ() {
+        return this.fRu;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fAw;
+        return fRt;
     }
 }

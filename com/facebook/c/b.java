@@ -1,21 +1,21 @@
 package com.facebook.c;
 /* loaded from: classes2.dex */
 public final class b {
-    public static final c jEq = new c("JPEG", "jpeg");
-    public static final c jEr = new c("PNG", "png");
-    public static final c jEs = new c("GIF", "gif");
-    public static final c jEt = new c("BMP", "bmp");
-    public static final c jEu = new c("WEBP_SIMPLE", "webp");
-    public static final c jEv = new c("WEBP_LOSSLESS", "webp");
-    public static final c jEw = new c("WEBP_EXTENDED", "webp");
-    public static final c jEx = new c("WEBP_EXTENDED_WITH_ALPHA", "webp");
-    public static final c jEy = new c("WEBP_ANIMATED", "webp");
+    public static final c jXd = new c("JPEG", "jpeg");
+    public static final c jXe = new c("PNG", "png");
+    public static final c jXf = new c("GIF", "gif");
+    public static final c jXg = new c("BMP", "bmp");
+    public static final c jXh = new c("WEBP_SIMPLE", "webp");
+    public static final c jXi = new c("WEBP_LOSSLESS", "webp");
+    public static final c jXj = new c("WEBP_EXTENDED", "webp");
+    public static final c jXk = new c("WEBP_EXTENDED_WITH_ALPHA", "webp");
+    public static final c jXl = new c("WEBP_ANIMATED", "webp");
 
     public static boolean a(c cVar) {
-        return b(cVar) || cVar == jEy;
+        return b(cVar) || cVar == jXl;
     }
 
     public static boolean b(c cVar) {
-        return cVar == jEu || cVar == jEv || cVar == jEw || cVar == jEx;
+        return cVar == jXh || cVar == jXi || cVar == jXj || cVar == jXk;
     }
 }

@@ -23,33 +23,33 @@ public class b extends c.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public c.C0145c a(Context context, c.C0145c c0145c) {
+    public c.C0150c a(Context context, c.C0150c c0150c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         if (DEBUG) {
-            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aAw.uri);
+            Log.i("CameraTaskStrategy", "CameraTaskStrategy doInBackground uri=" + this.aBt.uri);
         }
-        if (c0145c == null) {
-            c0145c = new c.C0145c();
+        if (c0150c == null) {
+            c0150c = new c.C0150c();
         }
-        if (this.aAw.uri == null) {
-            c0145c.d(true, "uri in pickData is null");
+        if (this.aBt.uri == null) {
+            c0150c.d(true, "uri in pickData is null");
         } else {
-            String path = this.aAw.uri.getPath();
+            String path = this.aBt.uri.getPath();
             if (TextUtils.isEmpty(path)) {
-                c0145c.d(true, this.aAw.uri + " get file path failed");
+                c0150c.d(true, this.aBt.uri + " get file path failed");
             } else {
                 d.c cVar = new d.c();
-                cVar.aAM = path;
+                cVar.aBJ = path;
                 try {
                     mediaMetadataRetriever = new MediaMetadataRetriever();
                     try {
                         try {
-                            mediaMetadataRetriever.setDataSource(cVar.aAM);
+                            mediaMetadataRetriever.setDataSource(cVar.aBJ);
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
                             String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
                             String extractMetadata3 = mediaMetadataRetriever.extractMetadata(9);
-                            cVar.aAL = Long.parseLong(extractMetadata);
-                            cVar.aAK = Long.parseLong(extractMetadata2);
+                            cVar.aBI = Long.parseLong(extractMetadata);
+                            cVar.aBH = Long.parseLong(extractMetadata2);
                             cVar.duration = Long.parseLong(extractMetadata3);
                             cVar.size = new File(path).length();
                             if (mediaMetadataRetriever != null) {
@@ -63,10 +63,10 @@ public class b extends c.b {
                             if (mediaMetadataRetriever != null) {
                                 mediaMetadataRetriever.release();
                             }
-                            this.aAw.aAF = cVar;
-                            if (f(this.aAw)) {
+                            this.aBt.aBC = cVar;
+                            if (f(this.aBt)) {
                             }
-                            return c0145c;
+                            return c0150c;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -85,15 +85,15 @@ public class b extends c.b {
                     }
                     throw th;
                 }
-                this.aAw.aAF = cVar;
-                if (f(this.aAw)) {
-                    this.aAw.aAF.aAJ = com.baidu.swan.apps.storage.b.aD(path, com.baidu.swan.apps.ae.b.Jg());
-                    c0145c.b(0, this.aAw);
+                this.aBt.aBC = cVar;
+                if (f(this.aBt)) {
+                    this.aBt.aBC.aBG = com.baidu.swan.apps.storage.b.aG(path, com.baidu.swan.apps.ae.b.LB());
+                    c0150c.b(0, this.aBt);
                 } else {
-                    c0145c.b(1, this.aAw);
+                    c0150c.b(1, this.aBt);
                 }
             }
         }
-        return c0145c;
+        return c0150c;
     }
 }

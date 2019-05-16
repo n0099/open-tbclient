@@ -1,1467 +1,379 @@
 package com.baidu.android.pushservice.d;
 
-import android.annotation.TargetApi;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Pair;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.pushservice.h.l;
-import com.baidu.android.pushservice.j.m;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.android.pushservice.PushConstants;
+import java.io.InputStream;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a {
-    private static e a = null;
-    private static d b = null;
-    private static final Object c = new Object();
-    private static int d = 200;
+public abstract class a extends com.baidu.android.pushservice.h.c {
+    protected Context a;
+    protected l b;
+    protected String c = com.baidu.android.pushservice.g.e();
+    private C0032a d = new C0032a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public enum EnumC0032a {
-        alarmMsgInfoId,
-        msgId,
-        sendtime,
-        showtime,
-        expiretime,
-        msgEnable,
-        isAlarm
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public enum b {
-        appInfoId,
-        appid,
-        appType,
-        packageName,
-        appName,
-        cFrom,
-        versionCode,
-        versionName,
-        intergratedPushVersion
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public enum c {
-        actionId,
-        actionName,
-        timeStamp,
-        networkStatus,
-        msgType,
-        msgId,
-        msgLen,
-        errorMsg,
-        requestId,
-        stableHeartInterval,
-        errorCode,
-        appid,
-        channel,
-        openByPackageName,
-        packageName
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class d implements DatabaseErrorHandler {
-        private d() {
+    public class C0032a {
+        public C0032a() {
         }
 
-        @TargetApi(16)
-        private void a(String str) {
-            if (str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
-                return;
-            }
-            try {
-                if (Build.VERSION.SDK_INT > 18) {
-                    SQLiteDatabase.deleteDatabase(new File(str));
-                } else {
-                    new File(str).delete();
-                }
-            } catch (Exception e) {
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:18:0x003e  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0056  */
-        @Override // android.database.DatabaseErrorHandler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onCorruption(SQLiteDatabase sQLiteDatabase) {
-            List<Pair<String, String>> list;
-            Throwable th;
-            if (!sQLiteDatabase.isOpen()) {
-                a(sQLiteDatabase.getPath());
-                return;
-            }
-            List<Pair<String, String>> list2 = null;
-            try {
-                list2 = sQLiteDatabase.getAttachedDbs();
-            } catch (SQLiteException e) {
-            } catch (Throwable th2) {
-                list = null;
-                th = th2;
-                if (list == null) {
-                }
-                throw th;
-            }
-            try {
-                sQLiteDatabase.close();
-            } catch (SQLiteException e2) {
-            } catch (Throwable th3) {
-                list = list2;
-                th = th3;
-                if (list == null) {
-                    for (Pair<String, String> pair : list) {
-                        a((String) pair.second);
-                    }
-                } else {
-                    a(sQLiteDatabase.getPath());
-                }
-                throw th;
-            }
-            if (list2 == null) {
-                a(sQLiteDatabase.getPath());
-                return;
-            }
-            for (Pair<String, String> pair2 : list2) {
-                a((String) pair2.second);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class e extends SQLiteOpenHelper {
-        private static final String a = "CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);";
-        private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
-        private static final String c = "CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);";
-        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0032a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0032a.msgId.name() + " TEXT NOT NULL, " + EnumC0032a.sendtime.name() + " LONG NOT NULL, " + EnumC0032a.showtime.name() + " LONG NOT NULL, " + EnumC0032a.expiretime.name() + " LONG NOT NULL, " + EnumC0032a.msgEnable.name() + " INTEGER, " + EnumC0032a.isAlarm.name() + " INTEGER);";
-        private static final String e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
-        private static final String f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
-        private static final String g = "CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);";
-
-        public e(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        }
-
-        public e(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
-            super(context, str, null, i, databaseErrorHandler);
-        }
-
-        private void a(SQLiteDatabase sQLiteDatabase) {
-            try {
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS StatisticsInfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS FileDownloadingInfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS PushBehavior");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS AppInfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS AlarmMsgInfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS NoDisturb");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS MsgArriveApp");
-            } catch (Exception e2) {
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            try {
-                sQLiteDatabase.execSQL(a);
-                sQLiteDatabase.execSQL(b);
-                sQLiteDatabase.execSQL(c);
-                sQLiteDatabase.execSQL(d);
-                sQLiteDatabase.execSQL(e);
-                sQLiteDatabase.execSQL(f);
-                sQLiteDatabase.execSQL(g);
-            } catch (Exception e2) {
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            a(sQLiteDatabase);
-            onCreate(sQLiteDatabase);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    enum f {
-        belongTo,
-        downloadUrl,
-        title,
-        description,
-        savePath,
-        fileName,
-        downloadBytes,
-        totalBytes,
-        downloadStatus,
-        timeStamp
-    }
-
-    /* loaded from: classes3.dex */
-    public static class g {
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public int g;
-        public int h;
-        public int i;
-        public long j;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public enum h {
-        MsgInfoId,
-        msgId,
-        timeStamp
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public enum i {
-        pkgName,
-        startHour,
-        startMinute,
-        endHour,
-        endMinute
-    }
-
-    /* loaded from: classes3.dex */
-    enum j {
-        info_id,
-        packageName,
-        open_type,
-        msgid,
-        app_open_time,
-        app_close_time,
-        use_duration,
-        extra
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE] complete} */
-    public static int a(Context context, long j2, long j3) {
-        Cursor cursor = null;
-        int i2 = 0;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                try {
-                    cursor = e2.rawQuery("SELECT COUNT(*) FROM PushBehavior WHERE " + c.timeStamp.name() + " < " + j2 + " AND " + c.timeStamp.name() + " >= " + j3 + " ;", null);
-                    cursor.moveToFirst();
-                    i2 = cursor.getInt(0);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                } catch (Exception e3) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                } catch (Throwable th) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                    throw th;
-                }
-            }
-        }
-        return i2;
-    }
-
-    public static int a(Context context, String str, int i2) {
-        Cursor cursor;
-        Cursor cursor2;
-        int i3;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return -1;
-            }
-            try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0032a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
-            } catch (Exception e3) {
-                cursor2 = null;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                return -2;
-            }
-            try {
-                if (cursor.getCount() > 0) {
-                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0032a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0032a.msgId + " = " + str);
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                i3 = 0;
-            } catch (Exception e4) {
-                cursor2 = cursor;
-                if (cursor2 != null) {
-                    cursor2.close();
-                }
-                e2.close();
-                i3 = -3;
-                return i3;
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                throw th;
-            }
-            return i3;
-        }
-    }
-
-    public static int a(Context context, String str, g gVar) {
-        int i2 = 0;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                String[] strArr = {str};
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(f.belongTo.name(), gVar.a);
-                contentValues.put(f.downloadUrl.name(), gVar.b);
-                contentValues.put(f.title.name(), gVar.c);
-                contentValues.put(f.description.name(), gVar.d);
-                contentValues.put(f.savePath.name(), gVar.e);
-                contentValues.put(f.fileName.name(), gVar.f);
-                contentValues.put(f.downloadBytes.name(), Integer.valueOf(gVar.g));
-                contentValues.put(f.totalBytes.name(), Integer.valueOf(gVar.h));
-                contentValues.put(f.downloadStatus.name(), Integer.valueOf(gVar.i));
-                contentValues.put(f.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
-                i2 = -1;
-                try {
-                    i2 = e2.update("FileDownloadingInfo", contentValues, f.downloadUrl.name() + "=?", strArr);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return i2;
-    }
-
-    private static int a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
-        if (sQLiteDatabase == null) {
-            return 0;
-        }
-        String[] strArr = {iVar.b()};
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(b.packageName.name(), iVar.b());
-        if (!TextUtils.isEmpty(iVar.a())) {
-            contentValues.put(b.appid.name(), iVar.a());
-        }
-        contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
-        contentValues.put(b.appName.name(), iVar.c());
-        if (!TextUtils.isEmpty(iVar.d())) {
-            contentValues.put(b.cFrom.name(), iVar.d());
-        }
-        contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
-        contentValues.put(b.versionName.name(), iVar.f());
-        contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
-        try {
-            return sQLiteDatabase.update("AppInfo", contentValues, b.packageName.name() + " =?", strArr);
-        } catch (Exception e2) {
-            return -1;
-        }
-    }
-
-    public static long a(Context context, g gVar) {
-        long j2;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
+        public void a(Boolean bool) {
+            com.baidu.android.pushservice.i.l.b("RequetChannelListener#isGetChannelToken#isSucceed=" + bool, a.this.a);
+            if (bool.booleanValue()) {
+                com.baidu.android.pushservice.f.a.c("AbstractProcessor", "netWorkConnect connectResult: " + a.this.c(), a.this.a);
+            } else if (com.baidu.android.pushservice.i.a(a.this.a).e()) {
             } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(f.belongTo.name(), gVar.a);
-                contentValues.put(f.downloadUrl.name(), gVar.b);
-                contentValues.put(f.title.name(), gVar.c);
-                contentValues.put(f.description.name(), gVar.d);
-                contentValues.put(f.savePath.name(), gVar.e);
-                contentValues.put(f.fileName.name(), gVar.f);
-                contentValues.put(f.downloadBytes.name(), Integer.valueOf(gVar.g));
-                contentValues.put(f.totalBytes.name(), Integer.valueOf(gVar.h));
-                contentValues.put(f.downloadStatus.name(), Integer.valueOf(gVar.i));
-                contentValues.put(f.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
-                j2 = 0;
+                a.this.a(10002);
+                com.baidu.android.pushservice.i.l.b("RequetChannelListener#isGetChannelToken#isSucceed=false, errorcode=10002", a.this.a);
+            }
+        }
+    }
+
+    public a(l lVar, Context context) {
+        this.b = lVar;
+        this.a = context.getApplicationContext();
+        a((short) 100);
+        c("http-" + lVar.a);
+    }
+
+    private void a(final String str, final int i) {
+        com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("insertHttpBehavior", (short) 95) { // from class: com.baidu.android.pushservice.d.a.1
+            @Override // com.baidu.android.pushservice.h.c
+            public void a() {
                 try {
-                    j2 = e2.insert("FileDownloadingInfo", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.a aVar) {
-        long j2 = -1;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0032a.msgId.name(), aVar.a);
-                contentValues.put(EnumC0032a.sendtime.name(), Long.valueOf(aVar.b));
-                contentValues.put(EnumC0032a.showtime.name(), Long.valueOf(aVar.c));
-                contentValues.put(EnumC0032a.expiretime.name(), Long.valueOf(aVar.d));
-                contentValues.put(EnumC0032a.isAlarm.name(), Integer.valueOf(aVar.e));
-                contentValues.put(EnumC0032a.msgEnable.name(), Integer.valueOf(aVar.f));
-                try {
-                    j2 = e2.insert("AlarmMsgInfo", null, contentValues);
-                    m.b("AlarmMsgInfoEnum:  insert into database", context);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.b bVar) {
-        long j2;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
-            } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), bVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(bVar.e));
-                contentValues.put(c.networkStatus.name(), bVar.f);
-                contentValues.put(c.appid.name(), bVar.h);
-                contentValues.put(c.errorMsg.name(), bVar.a);
-                contentValues.put(c.requestId.name(), bVar.b);
-                contentValues.put(c.errorCode.name(), Integer.valueOf(bVar.g));
-                contentValues.put(c.packageName.name(), bVar.j);
-                if (bVar.c != null) {
-                    contentValues.put(c.channel.name(), bVar.c);
-                }
-                j2 = 0;
-                try {
-                    j2 = e2.insert("PushBehavior", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.f fVar) {
-        long j2;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
-            } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), fVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(fVar.e));
-                contentValues.put(c.networkStatus.name(), fVar.f);
-                contentValues.put(c.errorMsg.name(), fVar.a);
-                contentValues.put(c.appid.name(), fVar.h);
-                j2 = 0;
-                try {
-                    j2 = e2.insert("PushBehavior", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.h hVar) {
-        long j2;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
-            } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), hVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
-                contentValues.put(c.networkStatus.name(), hVar.f);
-                contentValues.put(c.errorMsg.name(), hVar.i);
-                contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(hVar.a));
-                contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
-                contentValues.put(c.appid.name(), hVar.h);
-                contentValues.put(c.msgId.name(), hVar.b);
-                contentValues.put(c.openByPackageName.name(), hVar.c);
-                j2 = 0;
-                try {
-                    j2 = e2.insert("PushBehavior", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.i iVar) {
-        long j2 = 0;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
-            } else if (b(e2, iVar)) {
-                e2.close();
-            } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(b.appid.name(), iVar.a());
-                contentValues.put(b.appType.name(), Integer.valueOf(iVar.h()));
-                contentValues.put(b.packageName.name(), iVar.b());
-                contentValues.put(b.appName.name(), iVar.c());
-                contentValues.put(b.cFrom.name(), iVar.d());
-                contentValues.put(b.versionCode.name(), Integer.valueOf(iVar.e()));
-                contentValues.put(b.versionName.name(), iVar.f());
-                contentValues.put(b.intergratedPushVersion.name(), Integer.valueOf(iVar.g()));
-                try {
-                    j2 = e2.insert("AppInfo", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static long a(Context context, com.baidu.android.pushservice.h.j jVar) {
-        long j2 = -1;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), jVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(jVar.e));
-                contentValues.put(c.networkStatus.name(), jVar.f);
-                if (jVar.h != null) {
-                    contentValues.put(c.appid.name(), jVar.h);
-                }
-                contentValues.put(c.msgType.name(), Integer.valueOf(jVar.c));
-                contentValues.put(c.msgId.name(), jVar.a);
-                contentValues.put(c.msgLen.name(), Integer.valueOf(jVar.b));
-                contentValues.put(c.errorCode.name(), Integer.valueOf(jVar.g));
-                if (jVar.k != null) {
-                    contentValues.put(c.openByPackageName.name(), jVar.k);
-                }
-                if (TextUtils.isEmpty(jVar.j)) {
-                    e2.close();
-                } else {
-                    contentValues.put(c.packageName.name(), jVar.j);
-                    try {
-                        j2 = e2.insert("PushBehavior", null, contentValues);
-                    } catch (Exception e3) {
+                    com.baidu.android.pushservice.g.f fVar = new com.baidu.android.pushservice.g.f();
+                    fVar.d = str;
+                    fVar.e = System.currentTimeMillis();
+                    fVar.f = com.baidu.android.pushservice.g.a.b.b(a.this.a);
+                    fVar.g = i;
+                    if (str.equals("030403")) {
+                        fVar.i = com.baidu.android.pushservice.i.l.w(a.this.a);
+                    } else if (str.equals("030401")) {
+                        fVar.i = com.baidu.android.pushservice.i.l.x(a.this.a);
                     }
-                    e2.close();
+                    com.baidu.android.pushservice.g.m.b(a.this.a, fVar);
+                } catch (Exception e) {
                 }
             }
-        }
-        return j2;
+        });
     }
 
-    public static long a(Context context, String str, int i2, int i3, int i4, int i5) {
-        Cursor cursor;
-        long j2;
-        synchronized (c) {
-            long j3 = -1;
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return -1L;
-            }
-            Cursor cursor2 = null;
-            try {
-                cursor = e2.query("NoDisturb", new String[]{i.pkgName.name()}, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(i.pkgName.name(), str);
-                    contentValues.put(i.startHour.name(), Integer.valueOf(i2));
-                    contentValues.put(i.startMinute.name(), Integer.valueOf(i3));
-                    contentValues.put(i.endHour.name(), Integer.valueOf(i4));
-                    contentValues.put(i.endMinute.name(), Integer.valueOf(i5));
-                    j3 = (cursor == null || !cursor.moveToNext()) ? e2.insert("NoDisturb", null, contentValues) : (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) ? e2.delete("NoDisturb", i.pkgName.name() + "= ?", new String[]{str}) : e2.update("NoDisturb", contentValues, i.pkgName.name() + "= ?", new String[]{str});
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                    j2 = j3;
-                } catch (Exception e3) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                    j2 = j3;
-                    return j2;
-                } catch (Throwable th) {
-                    cursor2 = cursor;
-                    th = th;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    e2.close();
-                    throw th;
-                }
-            } catch (Exception e4) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return j2;
-        }
-    }
-
-    public static g a(Context context, String str) {
-        g gVar;
-        g gVar2;
-        g gVar3;
-        Cursor cursor = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return null;
-            }
-            try {
-                Cursor query = e2.query("FileDownloadingInfo", null, "(" + f.downloadUrl.name() + "==?)", new String[]{str}, null, null, null);
-                try {
-                    try {
-                        if (query.moveToFirst()) {
-                            gVar3 = new g();
-                            try {
-                                gVar3.a = query.getString(query.getColumnIndex(f.belongTo.name()));
-                                gVar3.b = query.getString(query.getColumnIndex(f.downloadUrl.name()));
-                                gVar3.c = query.getString(query.getColumnIndex(f.title.name()));
-                                gVar3.d = query.getString(query.getColumnIndex(f.description.name()));
-                                gVar3.e = query.getString(query.getColumnIndex(f.savePath.name()));
-                                gVar3.f = query.getString(query.getColumnIndex(f.fileName.name()));
-                                gVar3.g = query.getInt(query.getColumnIndex(f.downloadBytes.name()));
-                                gVar3.h = query.getInt(query.getColumnIndex(f.totalBytes.name()));
-                                gVar3.i = query.getInt(query.getColumnIndex(f.downloadStatus.name()));
-                                gVar3.j = query.getLong(query.getColumnIndex(f.timeStamp.name()));
-                            } catch (Exception e3) {
-                                cursor = query;
-                                gVar = gVar3;
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                e2.close();
-                                gVar2 = gVar;
-                                return gVar2;
-                            }
-                        } else {
-                            gVar3 = null;
-                        }
-                        if (query != null) {
-                            query.close();
-                        }
-                        e2.close();
-                        gVar2 = gVar3;
-                    } catch (Exception e4) {
-                        gVar = null;
-                        cursor = query;
-                    }
-                } catch (Throwable th) {
-                    cursor = query;
-                    th = th;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e2.close();
-                    throw th;
-                }
-            } catch (Exception e5) {
-                gVar = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return gVar2;
-        }
-    }
-
-    public static List<com.baidu.android.pushservice.h.i> a(Context context) {
-        Cursor cursor;
-        Throwable th;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            try {
-                try {
-                    Cursor rawQuery = e2.rawQuery("SELECT * FROM AppInfo;", null);
-                    while (rawQuery.moveToNext()) {
-                        try {
-                            com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
-                            iVar.a(rawQuery.getString(rawQuery.getColumnIndex(b.appid.name())));
-                            iVar.c(rawQuery.getInt(rawQuery.getColumnIndex(b.appType.name())));
-                            iVar.b(rawQuery.getString(rawQuery.getColumnIndex(b.packageName.name())));
-                            iVar.c(rawQuery.getString(rawQuery.getColumnIndex(b.appName.name())));
-                            iVar.d(rawQuery.getString(rawQuery.getColumnIndex(b.cFrom.name())));
-                            iVar.a(rawQuery.getInt(rawQuery.getColumnIndex(b.versionCode.name())));
-                            iVar.e(rawQuery.getString(rawQuery.getColumnIndex(b.versionName.name())));
-                            iVar.b(rawQuery.getInt(rawQuery.getColumnIndex(b.intergratedPushVersion.name())));
-                            arrayList.add(iVar);
-                        } catch (Throwable th2) {
-                            cursor = rawQuery;
-                            th = th2;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            e2.close();
-                            throw th;
-                        }
-                    }
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                    e2.close();
-                } catch (Throwable th3) {
-                    cursor = null;
-                    th = th3;
-                }
-            } catch (Exception e3) {
-                if (0 != 0) {
-                    cursor2.close();
-                }
-                e2.close();
-            }
-            return arrayList;
-        }
-    }
-
-    public static List<com.baidu.android.pushservice.h.e> a(Context context, long j2, long j3, int i2) {
-        Cursor cursor;
-        Throwable th;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            try {
-                try {
-                    Cursor rawQuery = e2.rawQuery("SELECT * FROM PushBehavior WHERE " + c.timeStamp.name() + " < " + j2 + " AND " + c.timeStamp.name() + " >= " + j3 + " LIMIT " + i2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
-                    while (rawQuery.moveToNext()) {
-                        try {
-                            com.baidu.android.pushservice.h.e eVar = new com.baidu.android.pushservice.h.e();
-                            eVar.a(rawQuery.getInt(rawQuery.getColumnIndex(c.actionId.name())));
-                            eVar.a(rawQuery.getString(rawQuery.getColumnIndex(c.actionName.name())));
-                            eVar.f(rawQuery.getString(rawQuery.getColumnIndex(c.appid.name())));
-                            eVar.g(rawQuery.getString(rawQuery.getColumnIndex(c.channel.name())));
-                            eVar.e(rawQuery.getInt(rawQuery.getColumnIndex(c.errorCode.name())));
-                            eVar.d(rawQuery.getString(rawQuery.getColumnIndex(c.errorMsg.name())));
-                            eVar.c(rawQuery.getString(rawQuery.getColumnIndex(c.msgId.name())));
-                            eVar.c(rawQuery.getInt(rawQuery.getColumnIndex(c.msgLen.name())));
-                            eVar.b(rawQuery.getInt(rawQuery.getColumnIndex(c.msgType.name())));
-                            eVar.b(rawQuery.getString(rawQuery.getColumnIndex(c.networkStatus.name())));
-                            eVar.i(rawQuery.getString(rawQuery.getColumnIndex(c.openByPackageName.name())));
-                            eVar.e(rawQuery.getString(rawQuery.getColumnIndex(c.requestId.name())));
-                            eVar.d(rawQuery.getInt(rawQuery.getColumnIndex(c.stableHeartInterval.name())));
-                            eVar.a(rawQuery.getLong(rawQuery.getColumnIndex(c.timeStamp.name())));
-                            eVar.h(rawQuery.getString(rawQuery.getColumnIndex(c.packageName.name())));
-                            arrayList.add(eVar);
-                        } catch (Throwable th2) {
-                            cursor = rawQuery;
-                            th = th2;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            e2.close();
-                            throw th;
-                        }
-                    }
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                    e2.close();
-                } catch (Throwable th3) {
-                    cursor = null;
-                    th = th3;
-                }
-            } catch (Exception e3) {
-                if (0 != 0) {
-                    cursor2.close();
-                }
-                e2.close();
-            }
-            return arrayList;
-        }
-    }
-
-    public static void a() {
-        synchronized (c) {
-            try {
-                if (a != null) {
-                    a.close();
-                    a = null;
-                }
-            } catch (Exception e2) {
-                a = null;
-            }
-        }
-    }
-
-    private static void a(final String str, Context context) {
-        File[] listFiles;
-        File parentFile = context.getDatabasePath("pushstat_6.1.1.db").getParentFile();
-        if (parentFile == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter() { // from class: com.baidu.android.pushservice.d.a.1
-            @Override // java.io.FileFilter
-            public boolean accept(File file) {
-                if (file == null) {
-                    return false;
-                }
-                String name = file.getName();
-                return name.contains("pushstat") && !name.contains(str);
-            }
-        })) == null) {
-            return;
-        }
-        for (File file : listFiles) {
-            if (!file.isDirectory()) {
-                file.delete();
-            }
-        }
-    }
-
-    private static boolean a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.h hVar) {
-        Cursor cursor;
-        Cursor rawQuery;
-        boolean z;
-        Cursor cursor2 = null;
-        if (sQLiteDatabase == null) {
-            return true;
-        }
-        try {
-            try {
-                rawQuery = sQLiteDatabase.rawQuery("SELECT * FROM PushBehavior WHERE " + c.actionName.name() + " = '" + hVar.d + "' AND " + c.errorCode.name() + " = " + hVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
-            } catch (Exception e2) {
-                cursor = null;
-            }
-            try {
-                if (rawQuery.moveToNext()) {
-                    hVar.a = rawQuery.getInt(rawQuery.getColumnIndex(c.stableHeartInterval.name()));
-                    b(sQLiteDatabase, hVar);
-                    z = true;
-                } else {
-                    z = false;
-                }
-            } catch (Exception e3) {
-                cursor = rawQuery;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return false;
-            }
-            if (!z) {
-                if (rawQuery != null) {
-                    rawQuery.close();
-                }
-                return false;
-            } else if (rawQuery != null) {
-                rawQuery.close();
-                return true;
-            } else {
-                return true;
-            }
-        } catch (Throwable th) {
-            if (0 != 0) {
-                cursor2.close();
-            }
-            throw th;
-        }
-    }
-
-    public static int b(Context context, String str) {
-        int i2 = 0;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                i2 = -1;
-                try {
-                    i2 = e2.delete("FileDownloadingInfo", f.downloadUrl.name() + "=?", new String[]{str});
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return i2;
-    }
-
-    private static int b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.h hVar) {
-        if (sQLiteDatabase == null) {
-            return 0;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(c.actionName.name(), hVar.d);
-        contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
-        contentValues.put(c.networkStatus.name(), hVar.f);
-        contentValues.put(c.stableHeartInterval.name(), Integer.valueOf(hVar.a + 1));
-        contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
-        contentValues.put(c.appid.name(), hVar.h);
-        try {
-            sQLiteDatabase.update("PushBehavior", contentValues, c.actionName.name() + " = '" + hVar.d + "' AND " + c.errorCode.name() + " = " + hVar.g + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
-            return -1;
-        } catch (Exception e2) {
-            return -1;
-        }
-    }
-
-    public static long b(Context context, com.baidu.android.pushservice.h.h hVar) {
-        long j2 = 0;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = -1;
-            } else if (a(e2, hVar)) {
-                e2.close();
-            } else {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(c.actionName.name(), hVar.d);
-                contentValues.put(c.timeStamp.name(), Long.valueOf(hVar.e));
-                contentValues.put(c.networkStatus.name(), hVar.f);
-                contentValues.put(c.stableHeartInterval.name(), (Integer) 1);
-                contentValues.put(c.errorCode.name(), Integer.valueOf(hVar.g));
-                contentValues.put(c.appid.name(), hVar.h);
-                try {
-                    j2 = e2.insert("PushBehavior", null, contentValues);
-                } catch (Exception e3) {
-                }
-                e2.close();
-            }
-        }
-        return j2;
-    }
-
-    public static List<g> b(Context context) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            ArrayList arrayList = new ArrayList();
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return arrayList;
-            }
-            try {
-                cursor = e2.query("FileDownloadingInfo", null, null, null, null, null, f.timeStamp.name() + " DESC");
-                while (cursor.moveToNext()) {
-                    try {
-                        g gVar = new g();
-                        gVar.a = cursor.getString(cursor.getColumnIndex(f.belongTo.name()));
-                        gVar.b = cursor.getString(cursor.getColumnIndex(f.downloadUrl.name()));
-                        gVar.c = cursor.getString(cursor.getColumnIndex(f.title.name()));
-                        gVar.d = cursor.getString(cursor.getColumnIndex(f.description.name()));
-                        gVar.e = cursor.getString(cursor.getColumnIndex(f.savePath.name()));
-                        gVar.f = cursor.getString(cursor.getColumnIndex(f.fileName.name()));
-                        gVar.g = cursor.getInt(cursor.getColumnIndex(f.downloadBytes.name()));
-                        gVar.h = cursor.getInt(cursor.getColumnIndex(f.totalBytes.name()));
-                        gVar.i = cursor.getInt(cursor.getColumnIndex(f.downloadStatus.name()));
-                        gVar.j = cursor.getLong(cursor.getColumnIndex(f.timeStamp.name()));
-                        arrayList.add(gVar);
-                    } catch (Exception e3) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e2.close();
-                        return arrayList;
-                    } catch (Throwable th) {
-                        cursor2 = cursor;
-                        th = th;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        e2.close();
-                        throw th;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-            } catch (Exception e4) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return arrayList;
-        }
-    }
-
-    public static boolean b(Context context, long j2, long j3) {
-        boolean z;
-        Cursor cursor;
-        boolean z2 = false;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 != null) {
-                try {
-                    Cursor rawQuery = e2.rawQuery("SELECT " + c.actionName.name() + " FROM PushBehavior WHERE " + c.timeStamp.name() + " < " + j2 + " AND " + c.timeStamp.name() + " >= " + j3 + " ;", null);
-                    while (rawQuery.moveToNext()) {
-                        try {
-                            String string = rawQuery.getString(0);
-                            if (!TextUtils.isEmpty(string) && !string.startsWith(l.t)) {
-                                z2 = true;
-                            }
-                        } catch (Exception e3) {
-                            z = z2;
-                            cursor = rawQuery;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            if (z) {
-                                e2.close();
-                                z2 = z;
-                            } else {
-                                z2 = z;
-                            }
-                            return z2;
-                        }
-                    }
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                    if (z2) {
-                        e2.close();
-                    }
-                } catch (Exception e4) {
-                    z = false;
-                    cursor = null;
-                }
-            }
-        }
-        return z2;
-    }
-
-    private static boolean b(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        if (sQLiteDatabase == null) {
-            return false;
-        }
-        try {
-            cursor = sQLiteDatabase.query("AppInfo", null, b.packageName.name() + " =?", new String[]{iVar.b()}, null, null, null);
-            try {
-            } catch (Exception e2) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return false;
-            } catch (Throwable th) {
-                cursor2 = cursor;
-                th = th;
-                if (cursor2 != null) {
-                    cursor2.close();
-                }
-                throw th;
-            }
-        } catch (Exception e3) {
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        if (!cursor.moveToNext()) {
-            if (cursor != null) {
-                cursor.close();
-            }
-            return false;
-        }
-        if (!TextUtils.equals(iVar.d(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(iVar.e() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(iVar.g() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
-            a(sQLiteDatabase, iVar);
-        }
-        if (cursor != null) {
-            cursor.close();
-        }
-        return true;
-    }
-
-    public static com.baidu.android.pushservice.h.a c(Context context, String str) {
-        Cursor query;
-        Cursor cursor = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return null;
-            }
-            com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-            try {
-                query = e2.query("AlarmMsgInfo", null, EnumC0032a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
-            } catch (Exception e3) {
-            } catch (Throwable th) {
-                th = th;
-            }
-            if (query == null) {
-                if (query != null) {
-                    query.close();
-                }
-                e2.close();
-                return null;
-            }
-            try {
-                if (query.getCount() > 0) {
-                    query.moveToFirst();
-                    aVar.b = query.getLong(query.getColumnIndex(EnumC0032a.sendtime.name()));
-                    aVar.c = query.getLong(query.getColumnIndex(EnumC0032a.showtime.name()));
-                    aVar.d = query.getLong(query.getColumnIndex(EnumC0032a.expiretime.name()));
-                    aVar.e = query.getInt(query.getColumnIndex(EnumC0032a.isAlarm.name()));
-                    aVar.f = query.getInt(query.getColumnIndex(EnumC0032a.msgEnable.name()));
-                }
-                if (query != null) {
-                    query.close();
-                }
-                e2.close();
-            } catch (Exception e4) {
-                cursor = query;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                return aVar;
-            } catch (Throwable th2) {
-                cursor = query;
-                th = th2;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                throw th;
-            }
-            return aVar;
-        }
-    }
-
-    public static void c(Context context) {
-        Cursor cursor;
-        Throwable th;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return;
-            }
-            try {
-                try {
-                    Cursor rawQuery = e2.rawQuery("SELECT * FROM AlarmMsgInfo;", null);
-                    while (rawQuery.moveToNext()) {
-                        try {
-                            com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-                            aVar.a = rawQuery.getString(rawQuery.getColumnIndex(EnumC0032a.msgId.name()));
-                            aVar.b = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0032a.sendtime.name()));
-                            aVar.c = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0032a.showtime.name()));
-                            aVar.d = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0032a.expiretime.name()));
-                            aVar.e = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0032a.isAlarm.name()));
-                            aVar.f = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0032a.msgEnable.name()));
-                            if (aVar.f == 0 || aVar.d < System.currentTimeMillis()) {
-                                d(context, aVar.a);
-                            }
-                        } catch (Throwable th2) {
-                            cursor = rawQuery;
-                            th = th2;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            e2.close();
-                            throw th;
-                        }
-                    }
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                    e2.close();
-                } catch (Throwable th3) {
-                    cursor = null;
-                    th = th3;
-                }
-            } catch (Exception e3) {
-                if (0 != 0) {
-                    cursor2.close();
-                }
-                e2.close();
-            }
-        }
-    }
-
-    public static long d(Context context) {
-        long j2;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                j2 = 0;
-            } else {
-                try {
-                    e2.delete("PushBehavior", null, null);
-                    e2.delete("AppInfo", null, null);
-                } catch (Exception e3) {
-                }
-                e2.close();
-                j2 = -1;
-            }
-        }
-        return j2;
-    }
-
-    public static void d(Context context, String str) {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return;
-            }
-            try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0032a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        e2.delete("AlarmMsgInfo", EnumC0032a.msgId.name() + "= ?", new String[]{str});
-                    } catch (Exception e3) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e2.close();
-                    } catch (Throwable th) {
-                        cursor2 = cursor;
-                        th = th;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        e2.close();
-                        throw th;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-            } catch (Exception e4) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        }
-    }
-
-    private static SQLiteDatabase e(Context context) {
-        e f2 = f(context);
-        if (f2 == null) {
-            return null;
-        }
-        try {
-            return f2.getWritableDatabase();
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0101: MOVE  (r10 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:61:0x0101 */
-    public static boolean e(Context context, String str) {
-        Cursor cursor;
-        Throwable th;
-        Cursor cursor2;
-        Cursor cursor3 = null;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            try {
-                if (e2 == null) {
-                    return true;
-                }
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.clear();
-                    contentValues.put(h.msgId.name(), str);
-                    contentValues.put(h.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
-                    String str2 = h.msgId.name() + " =? ";
-                    cursor2 = e2.query("MsgArriveApp", new String[]{h.msgId.name()}, str2, new String[]{str}, null, null, null);
-                    if (cursor2 != null) {
-                        try {
-                            if (cursor2.getCount() > 0) {
-                                e2.update("MsgArriveApp", contentValues, str2, new String[]{str});
-                                if (cursor2 != null && !cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                                e2.close();
-                                return false;
-                            }
-                        } catch (Exception e3) {
-                            if (com.baidu.android.pushservice.a.d(context)) {
-                                if (cursor2 != null && !cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                                e2.close();
-                                return false;
-                            }
-                            if (cursor2 != null && !cursor2.isClosed()) {
-                                cursor2.close();
-                            }
-                            e2.close();
-                            return true;
-                        }
-                    }
-                    Cursor rawQuery = e2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
-                    rawQuery.moveToFirst();
-                    if (rawQuery.getInt(0) > d) {
-                        e2.delete("MsgArriveApp", null, null);
-                    }
-                    e2.insert("MsgArriveApp", null, contentValues);
-                    if (rawQuery != null && !rawQuery.isClosed()) {
-                        rawQuery.close();
-                    }
-                    e2.close();
-                    return true;
-                } catch (Exception e4) {
-                    cursor2 = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor3 != null && !cursor3.isClosed()) {
-                        cursor3.close();
-                    }
-                    e2.close();
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                cursor3 = cursor;
-                th = th3;
-            }
-        }
-    }
-
-    private static e f(Context context) {
-        synchronized (c) {
-            if (a == null) {
-                String path = context.getDatabasePath("pushstat_6.1.1.db").getPath();
-                a("pushstat_6.1.1.db", context);
-                if (Build.VERSION.SDK_INT >= 11) {
-                    b = new d();
-                    a = new e(context, path, 2, b);
-                } else {
-                    a = new e(context, path, 2);
-                }
-            }
-        }
-        return a;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00cf */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00ba A[Catch: all -> 0x00c1, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x0085, B:21:0x0088, B:22:0x008b, B:27:0x00a0, B:28:0x00a3, B:29:0x00a6, B:32:0x00ac, B:33:0x00af, B:34:0x00b2, B:47:0x00c8, B:48:0x00cb, B:49:0x00ce, B:39:0x00ba, B:40:0x00bd), top: B:54:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00c8 A[Catch: all -> 0x00c1, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x0085, B:21:0x0088, B:22:0x008b, B:27:0x00a0, B:28:0x00a3, B:29:0x00a6, B:32:0x00ac, B:33:0x00af, B:34:0x00b2, B:47:0x00c8, B:48:0x00cb, B:49:0x00ce, B:39:0x00ba, B:40:0x00bd), top: B:54:0x0004 }] */
-    /* JADX WARN: Type inference failed for: r0v1, types: [android.database.sqlite.SQLiteDatabase] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r0v6, types: [int[]] */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:40:0x00bd -> B:34:0x00b2). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00f4 A[Catch: all -> 0x0125, TRY_LEAVE, TryCatch #2 {all -> 0x0125, blocks: (B:39:0x00d2, B:41:0x00f4, B:43:0x0102), top: B:59:0x00d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0102 A[Catch: all -> 0x0125, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0125, blocks: (B:39:0x00d2, B:41:0x00f4, B:43:0x0102), top: B:59:0x00d2 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int[] f(Context context, String str) {
-        Cursor cursor;
-        Cursor cursor2;
-        SQLiteDatabase sQLiteDatabase;
-        synchronized (c) {
-            SQLiteDatabase e2 = e(context);
-            if (e2 == 0) {
-                return null;
+    private int b(int i) {
+        InputStream inputStream;
+        boolean z;
+        int i2;
+        boolean z2;
+        if (i > 0) {
+            String b = com.baidu.android.pushservice.g.b(this.a, i == 1);
+            if (b == null) {
+                return 10002;
             }
+            if (this.c.startsWith("http://")) {
+                this.c = this.c.replace("http://", "");
+                int indexOf = this.c.indexOf("/");
+                if (indexOf > 0) {
+                    this.c = this.c.substring(indexOf);
+                }
+                this.c = "http://" + b + this.c;
+                com.baidu.android.pushservice.f.a.a("AbstractProcessor", " --- abstract request URL: " + this.c, this.a);
+            }
+        }
+        try {
+            HashMap<String, String> hashMap = new HashMap<>();
+            a(hashMap);
+            com.baidu.android.pushservice.e.a a = com.baidu.android.pushservice.e.b.a(this.c, "POST", hashMap);
+            int b2 = a.b();
+            InputStream a2 = a.a();
             try {
-                cursor = e2.query("NoDisturb", null, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
-            } catch (Exception e3) {
-                cursor2 = null;
-                sQLiteDatabase = e2;
-                if (cursor2 != null) {
-                    cursor2.close();
+                if (b2 == 200) {
+                    try {
+                        a(0, b(com.baidu.android.pushservice.g.a.b.a(a2)).getBytes());
+                        z2 = false;
+                        i2 = 0;
+                    } catch (Exception e) {
+                        e = e;
+                        inputStream = a2;
+                        z = false;
+                        try {
+                            com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
+                            if (z) {
+                            }
+                            i2 = -1;
+                            com.baidu.android.pushservice.e.b.a(inputStream);
+                            return i2;
+                        } catch (Throwable th) {
+                            th = th;
+                            com.baidu.android.pushservice.e.b.a(inputStream);
+                            throw th;
+                        }
+                    }
+                } else {
+                    z2 = b2 == 503;
+                    try {
+                        a(com.baidu.android.pushservice.g.a.b.a(a2));
+                        i2 = b2;
+                    } catch (Exception e2) {
+                        e = e2;
+                        inputStream = a2;
+                        z = z2;
+                        com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
+                        if (z) {
+                            com.baidu.android.pushservice.i.l.b("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
+                            a(20001);
+                        } else {
+                            a(10003);
+                        }
+                        i2 = -1;
+                        com.baidu.android.pushservice.e.b.a(inputStream);
+                        return i2;
+                    }
                 }
-                sQLiteDatabase.close();
-                e2 = 0;
-                return e2;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-                if (cursor != null) {
-                    cursor.close();
+                if (a2 == null || b2 == 0) {
+                    if (i >= 2) {
+                        a(10002);
+                    }
+                    i2 = 10002;
                 }
-                e2.close();
+                com.baidu.android.pushservice.e.b.a(a2);
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = a2;
+                com.baidu.android.pushservice.e.b.a(inputStream);
                 throw th;
             }
-            if (cursor != null) {
-                try {
-                } catch (Exception e4) {
-                    cursor2 = cursor;
-                    sQLiteDatabase = e2;
-                    if (cursor2 != null) {
-                    }
-                    sQLiteDatabase.close();
-                    e2 = 0;
-                    return e2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor != null) {
-                    }
-                    e2.close();
-                    throw th;
-                }
-                if (cursor.moveToNext()) {
-                    int i2 = cursor.getInt(cursor.getColumnIndex(i.startHour.name()));
-                    int i3 = cursor.getInt(cursor.getColumnIndex(i.startMinute.name()));
-                    int i4 = cursor.getInt(cursor.getColumnIndex(i.endHour.name()));
-                    int i5 = cursor.getInt(cursor.getColumnIndex(i.endMinute.name()));
-                    if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
-                        int[] iArr = new int[0];
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e2.close();
-                        e2 = iArr;
-                    } else {
-                        int[] iArr2 = {i2, i3, i4, i5};
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e2.close();
-                        e2 = iArr2;
-                    }
-                    return e2;
-                }
-            }
-            if (cursor != null) {
-                cursor.close();
-            }
-            e2.close();
-            e2 = 0;
-            return e2;
+        } catch (Exception e3) {
+            e = e3;
+            inputStream = null;
+            z = false;
+        } catch (Throwable th3) {
+            th = th3;
+            inputStream = null;
         }
+        return i2;
+    }
+
+    private void b(int i, byte[] bArr) {
+        Intent intent = new Intent("com.baidu.android.pushservice.action.internal.RECEIVE");
+        intent.putExtra("method", this.b.a);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
+        intent.putExtra("content", bArr);
+        intent.putExtra("appid", this.b.f);
+        intent.setFlags(32);
+        a(intent);
+        this.a.sendBroadcast(intent);
+    }
+
+    @Override // com.baidu.android.pushservice.h.c
+    public void a() {
+        b();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i) {
+        a(i, PushConstants.a(i).getBytes());
+    }
+
+    protected void a(int i, byte[] bArr) {
+        if (!TextUtils.isEmpty(this.b.b) && this.b.b.equals("internal")) {
+            b(i, bArr);
+        } else if (this.b.m) {
+            Intent intent = new Intent();
+            if (this.b.a.equals("method_sdk_bind")) {
+                intent.setAction("com.baidu.android.pushservice.action.sdk.RECEIVE");
+            } else {
+                intent.setAction(PushConstants.ACTION_RECEIVE);
+            }
+            intent.putExtra("method", this.b.a);
+            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
+            intent.putExtra("content", bArr);
+            intent.setFlags(32);
+            a(intent);
+            com.baidu.android.pushservice.g.a aVar = new com.baidu.android.pushservice.g.a();
+            aVar.g = i;
+            aVar.h = this.b.f;
+            aVar.j = this.b.e;
+            aVar.e = System.currentTimeMillis();
+            aVar.f = com.baidu.android.pushservice.g.a.b.b(this.a);
+            if (this.b.a.equals(PushConstants.METHOD_BIND)) {
+                intent.putExtra("access_token", this.b.d);
+                intent.putExtra("secret_key", this.b.i);
+                intent.putExtra("real_bind", "real_bind");
+                aVar.d = "020101";
+                com.baidu.android.pushservice.g.g gVar = new com.baidu.android.pushservice.g.g();
+                gVar.b(this.b.e);
+                com.baidu.android.pushservice.g.g a = com.baidu.android.pushservice.i.l.a(gVar, this.a, this.b.e);
+                try {
+                    JSONObject jSONObject = new JSONObject(new String(bArr));
+                    aVar.b = jSONObject.getString("request_id");
+                    if (i != 0) {
+                        aVar.a = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                    }
+                    String string = jSONObject.getJSONObject("response_params").getString("appid");
+                    aVar.h = string;
+                    a.a(string);
+                } catch (JSONException e) {
+                }
+                try {
+                    com.baidu.android.pushservice.g.m.a(this.a, aVar);
+                    com.baidu.android.pushservice.g.m.a(this.a, a);
+                } catch (Exception e2) {
+                    com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error " + e2.getMessage(), this.a);
+                }
+            } else if (bArr != null && (this.b.a.equals("method_unbind") || this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP"))) {
+                if (this.b.a.equals("method_unbind")) {
+                    aVar.d = "020301";
+                } else {
+                    aVar.d = "020601";
+                }
+                try {
+                    aVar.b = new JSONObject(new String(bArr)).getString("request_id");
+                } catch (JSONException e3) {
+                    com.baidu.android.pushservice.f.a.b("AbstractProcessor", "unbind failed msg: " + new String(bArr), this.a);
+                    aVar.a = new String(bArr);
+                }
+                try {
+                    com.baidu.android.pushservice.g.m.a(this.a, aVar);
+                } catch (Exception e4) {
+                    com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error " + e4.getMessage(), this.a);
+                }
+            }
+            if (TextUtils.isEmpty(this.b.e)) {
+                return;
+            }
+            com.baidu.android.pushservice.i.l.b("> sendResult to " + this.b.i + ", method:" + this.b.a + ", errorCode : " + i + ", content : " + new String(bArr), this.a);
+            if (this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP") || !TextUtils.isEmpty(this.b.j)) {
+                return;
+            }
+            intent.setPackage(this.b.e);
+            com.baidu.android.pushservice.i.l.b(this.a, intent, intent.getAction(), this.b.e);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(Intent intent) {
+    }
+
+    protected void a(String str) {
+        if (str == null) {
+            return;
+        }
+        if (!str.startsWith("{\"")) {
+            str = str.substring(str.indexOf("{\""));
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            int i = jSONObject.getInt("error_code");
+            String string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+            String string2 = jSONObject.getString("request_id");
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put(PushConstants.EXTRA_ERROR_CODE, string);
+            jSONObject2.put("request_id", string2);
+            a(i, jSONObject2.toString().getBytes());
+        } catch (JSONException e) {
+            com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(HashMap<String, String> hashMap) {
+        b.a(hashMap);
+        String str = this.b.a;
+        if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase(PushConstants.METHOD_BIND)) {
+            if (!TextUtils.isEmpty(this.b.h)) {
+                hashMap.put("bduss", this.b.h);
+                hashMap.put("appid", this.b.f);
+            } else if (!TextUtils.isEmpty(this.b.d)) {
+                hashMap.put("access_token", this.b.d);
+            } else if (TextUtils.isEmpty(this.b.i)) {
+            } else {
+                hashMap.put("apikey", this.b.i);
+            }
+        } else if (!TextUtils.isEmpty(this.b.h)) {
+            if (this.b.e.equals(this.a.getPackageName())) {
+                hashMap.put("pure_bduss", this.b.h);
+            } else {
+                hashMap.put("rsa_bduss", this.b.h);
+            }
+            hashMap.put("appid", this.b.f);
+        } else if (TextUtils.isEmpty(this.b.d)) {
+            if (TextUtils.isEmpty(this.b.i)) {
+                return;
+            }
+            hashMap.put("apikey", this.b.i);
+        } else if (this.b.e.equals(this.a.getPackageName())) {
+            hashMap.put("pure_access_token", this.b.d);
+        } else {
+            hashMap.put("rsa_access_token", this.b.d);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b(String str) {
+        return str;
+    }
+
+    protected void b() {
+        if (this.b == null || TextUtils.isEmpty(this.b.a)) {
+            com.baidu.android.pushservice.i.l.b("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.a);
+        } else if (!this.b.a.equals("com.baidu.android.pushservice.action.UNBIND") && !this.b.a.equals("method_sdk_unbind") && TextUtils.isEmpty(this.b.e) && !this.b.a.equals("com.baidu.android.pushservice.action.UNBINDAPP")) {
+            com.baidu.android.pushservice.i.l.b("AbstractProcessor#execute#Unknown method", this.a);
+        } else if (!com.baidu.android.pushservice.i.g.e(this.a)) {
+            com.baidu.android.pushservice.f.a.b("AbstractProcessor", "Network is not useful!", this.a);
+            com.baidu.android.pushservice.i.l.b("AbstractProcessor#execute#Network is unuseful!", this.a);
+            a(10001);
+            com.baidu.android.pushservice.i.k.a(this.a, new Intent());
+        } else {
+            com.baidu.android.pushservice.i a = com.baidu.android.pushservice.i.a(this.a);
+            synchronized (a) {
+                if (a.f() || !a.e()) {
+                    a.a(this.a, false, this.d);
+                    com.baidu.android.pushservice.i.l.b("AbstractProcessor#requestToken#" + this.b.toString(), this.a);
+                } else {
+                    com.baidu.android.pushservice.f.a.c("AbstractProcessor", "netWorkConnect connectResult: " + c(), this.a);
+                }
+            }
+        }
+    }
+
+    public boolean c() {
+        boolean z = false;
+        if (!TextUtils.isEmpty(this.c)) {
+            int i = 0;
+            while (true) {
+                if (i <= 2) {
+                    int b = b(i);
+                    if (b != 0) {
+                        if (b != 10002) {
+                            break;
+                        }
+                        if (i > 0) {
+                            a("030403", b);
+                        } else {
+                            a("030401", b);
+                        }
+                        i++;
+                    } else {
+                        z = true;
+                        if (i > 0) {
+                            a("030402", b);
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+        } else {
+            com.baidu.android.pushservice.f.a.b("AbstractProcessor", "mUrl is null", this.a);
+        }
+        return z;
     }
 }

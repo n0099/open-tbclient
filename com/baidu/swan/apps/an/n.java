@@ -1,43 +1,106 @@
 package com.baidu.swan.apps.an;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public final class n {
+public class n {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject dm(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return new JSONObject();
-        }
+    public static boolean a(Intent intent, String str, boolean z) {
         try {
-            return new JSONObject(str);
-        } catch (JSONException e) {
+            return intent.getBooleanExtra(str, z);
+        } catch (Throwable th) {
             if (DEBUG) {
-                Log.w("JSONUtils", "JSONObject parsed error!!", e);
+                Log.e("IntentUtils", "getBooleanExtra failed on intent " + intent);
+                return z;
             }
-            return new JSONObject();
+            return z;
         }
     }
 
-    public static JSONArray hC(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return new JSONArray();
-        }
+    public static int a(Intent intent, String str, int i) {
         try {
-            return new JSONArray(str);
-        } catch (JSONException e) {
+            return intent.getIntExtra(str, i);
+        } catch (Throwable th) {
             if (DEBUG) {
-                Log.w("JSONUtils", "JSONArray parsed error!!", e);
+                Log.e("IntentUtils", "getIntExtra failed on intent " + intent);
+                return i;
             }
-            return new JSONArray();
+            return i;
         }
     }
 
-    public static float a(JSONObject jSONObject, String str, float f) {
-        return jSONObject == null ? f : (float) jSONObject.optDouble(str, f);
+    public static long a(Intent intent, String str, long j) {
+        try {
+            return intent.getLongExtra(str, j);
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("IntentUtils", "getLongExtra failed on intent " + intent);
+                return j;
+            }
+            return j;
+        }
+    }
+
+    public static String b(Intent intent, String str) {
+        try {
+            return intent.getStringExtra(str);
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("IntentUtils", "getStringExtra failed on intent " + intent);
+            }
+            return null;
+        }
+    }
+
+    public static Bundle c(Intent intent, String str) {
+        try {
+            return intent.getBundleExtra(str);
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("IntentUtils", "getBundleExtra failed on intent " + intent);
+            }
+            return null;
+        }
+    }
+
+    public static <T extends Parcelable> T d(Intent intent, String str) {
+        try {
+            return (T) intent.getParcelableExtra(str);
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("IntentUtils", "getByteArrayExtra failed on intent " + intent);
+            }
+            return null;
+        }
+    }
+
+    public static boolean O(Activity activity) {
+        if (activity == null || !M(activity.getIntent())) {
+            return false;
+        }
+        try {
+            b.L(activity);
+            return true;
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
+    public static boolean M(Intent intent) {
+        if (intent != null) {
+            try {
+                Bundle extras = intent.getExtras();
+                if (extras != null) {
+                    extras.isEmpty();
+                }
+            } catch (Exception e) {
+                return true;
+            }
+        }
+        return false;
     }
 }

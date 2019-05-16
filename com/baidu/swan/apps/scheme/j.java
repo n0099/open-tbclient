@@ -11,6 +11,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.actions.ac;
 import com.baidu.swan.apps.scheme.actions.o;
 import com.baidu.swan.apps.scheme.actions.p;
 import com.baidu.swan.apps.scheme.actions.q;
@@ -18,7 +19,6 @@ import com.baidu.swan.apps.scheme.actions.s;
 import com.baidu.swan.apps.scheme.actions.t;
 import com.baidu.swan.apps.scheme.actions.w;
 import com.baidu.swan.apps.scheme.actions.x;
-import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.storage.a.l;
 import com.baidu.swan.apps.storage.a.m;
@@ -29,10 +29,10 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class j extends UnitedSchemeBaseDispatcher {
     private static final String TAG = j.class.getSimpleName();
-    protected final Map<String, y> aPk = new HashMap();
+    protected final Map<String, z> aRo = new HashMap();
 
     public j() {
-        JF();
+        Ma();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -59,12 +59,12 @@ public class j extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                 return false;
             }
-            y yVar = this.aPk.get(str);
-            if (yVar != null) {
+            z zVar = this.aRo.get(str);
+            if (zVar != null) {
                 if (unitedSchemeEntity.isOnlyVerify()) {
                     return true;
                 }
-                return yVar.a(context, unitedSchemeEntity, callbackHandler, uri.getPath());
+                return zVar.a(context, unitedSchemeEntity, callbackHandler, uri.getPath());
             }
             str = str.substring(0, str.length() - str2.length());
         }
@@ -77,11 +77,11 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void JF() {
-        this.aPk.clear();
+    protected void Ma() {
+        this.aRo.clear();
         a(new t(this));
         a(new com.baidu.swan.apps.network.i(this));
-        a(new ab(this));
+        a(new ac(this));
         a(new com.baidu.swan.apps.scheme.actions.f(this));
         a(new com.baidu.swan.apps.network.b(this));
         a(new o(this));
@@ -107,11 +107,11 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new x(this));
         a(new com.baidu.swan.apps.scheme.actions.d(this));
         a(new com.baidu.swan.apps.j.a.a(this));
-        a(new aa(this));
+        a(new ab(this));
         a(new q(this));
         a(new p(this));
-        a(new com.baidu.swan.apps.aj.d.a.a(this));
-        a(new com.baidu.swan.apps.aj.d.a.b(this));
+        a(new com.baidu.swan.apps.aj.e.a.a(this));
+        a(new com.baidu.swan.apps.aj.e.a.b(this));
         a(new com.baidu.swan.apps.aj.a.a.a(this));
         a(new com.baidu.swan.apps.aj.a.a.b(this));
         a(new com.baidu.swan.apps.media.c.a.a(this));
@@ -119,17 +119,24 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new com.baidu.swan.apps.media.d.a.a(this));
         a(new com.baidu.swan.apps.network.l(this));
         a(new com.baidu.swan.apps.scheme.actions.j(this));
-        a(new com.baidu.swan.apps.scheme.actions.d.d(this));
+        a(new com.baidu.swan.apps.scheme.actions.d.e(this));
         a(new com.baidu.swan.apps.scheme.actions.d.b(this));
-        a(new com.baidu.swan.games.p.a.c(this));
-        a(new com.baidu.swan.games.p.a.b(this));
+        a(new com.baidu.swan.games.q.a.a.c(this));
+        a(new com.baidu.swan.games.q.a.a.b(this));
         a(new com.baidu.swan.apps.h.a(this));
         a(new w(this));
         a(new SwanAppDownloadAction(this));
-        a(new z(this));
+        a(new aa(this));
+        a(new com.baidu.swan.apps.scheme.actions.d.c(this));
+        a(new com.baidu.swan.apps.scheme.actions.c.a.b(this));
+        a(new com.baidu.swan.apps.scheme.actions.c.a.a(this));
+        a(new com.baidu.swan.apps.aj.g.a.a(this));
+        a(new com.baidu.swan.apps.aj.g.a.b(this));
+        a(new com.baidu.swan.apps.aj.b.a.c(this));
+        a(new com.baidu.swan.apps.aj.b.a.a(this));
     }
 
-    public void a(y yVar) {
-        this.aPk.put(yVar.name, yVar);
+    public void a(z zVar) {
+        this.aRo.put(zVar.name, zVar);
     }
 }

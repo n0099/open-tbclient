@@ -4,9 +4,9 @@ import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
     private String avatar;
-    private boolean bAC;
-    private boolean bAD;
-    public v bAE;
+    private boolean bHO;
+    private boolean bHP;
+    public v bHQ;
     private String forumId;
     private int forumLevel;
     public String forumName;
@@ -23,12 +23,12 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public void dj(boolean z) {
-        this.bAD = z;
+    public void dE(boolean z) {
+        this.bHP = z;
     }
 
-    public boolean Yd() {
-        return this.bAD;
+    public boolean acK() {
+        return this.bHP;
     }
 
     public String getAvatar() {
@@ -37,12 +37,12 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public boolean getIsLike() {
-        return this.bAC;
+        return this.bHO;
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.a
     public void setIsLike(boolean z) {
-        this.bAC = z;
+        this.bHO = z;
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
@@ -50,11 +50,11 @@ public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
             this.forumId = String.valueOf(simpleForum.id);
             this.forumName = simpleForum.name;
             this.avatar = simpleForum.avatar;
-            this.bAC = simpleForum.is_liked.intValue() == 1;
+            this.bHO = simpleForum.is_liked.intValue() == 1;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.bAE = new v();
-                this.bAE.a(simpleForum.multi_forum_perm);
+                this.bHQ = new v();
+                this.bHQ.a(simpleForum.multi_forum_perm);
             }
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
         }

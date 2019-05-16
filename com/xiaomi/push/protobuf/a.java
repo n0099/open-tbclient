@@ -10,7 +10,7 @@ public final class a {
 
     /* renamed from: com.xiaomi.push.protobuf.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0465a extends e {
+    public static final class C0485a extends e {
         private boolean a;
         private boolean c;
         private boolean e;
@@ -22,12 +22,12 @@ public final class a {
         private List<String> i = Collections.emptyList();
         private int j = -1;
 
-        public static C0465a b(byte[] bArr) {
-            return (C0465a) new C0465a().a(bArr);
+        public static C0485a b(byte[] bArr) {
+            return (C0485a) new C0485a().a(bArr);
         }
 
-        public static C0465a c(com.google.protobuf.micro.b bVar) {
-            return new C0465a().a(bVar);
+        public static C0485a c(com.google.protobuf.micro.b bVar) {
+            return new C0485a().a(bVar);
         }
 
         @Override // com.google.protobuf.micro.e
@@ -38,13 +38,13 @@ public final class a {
             return this.j;
         }
 
-        public C0465a a(int i) {
+        public C0485a a(int i) {
             this.a = true;
             this.b = i;
             return this;
         }
 
-        public C0465a a(String str) {
+        public C0485a a(String str) {
             if (str == null) {
                 throw new NullPointerException();
             }
@@ -55,7 +55,7 @@ public final class a {
             return this;
         }
 
-        public C0465a a(boolean z) {
+        public C0485a a(boolean z) {
             this.c = true;
             this.d = z;
             return this;
@@ -99,7 +99,7 @@ public final class a {
             return size;
         }
 
-        public C0465a b(int i) {
+        public C0485a b(int i) {
             this.e = true;
             this.f = i;
             return this;
@@ -108,7 +108,7 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.micro.e
         /* renamed from: b */
-        public C0465a a(com.google.protobuf.micro.b bVar) {
+        public C0485a a(com.google.protobuf.micro.b bVar) {
             while (true) {
                 int a = bVar.a();
                 switch (a) {
@@ -140,7 +140,7 @@ public final class a {
             return this;
         }
 
-        public C0465a b(boolean z) {
+        public C0485a b(boolean z) {
             this.g = true;
             this.h = z;
             return this;

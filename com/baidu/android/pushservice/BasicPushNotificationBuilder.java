@@ -6,7 +6,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.l;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -74,14 +74,14 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
-        if (m.G(context)) {
+        if (l.E(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
                 this.mChannelId = "com.baidu.android.pushservice.push";
             }
             if (TextUtils.isEmpty(this.mChannelName)) {
                 this.mChannelName = "Push";
             }
-            com.baidu.android.pushservice.j.i.a(context, this.mChannelId, this.mChannelName);
+            com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
             builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();

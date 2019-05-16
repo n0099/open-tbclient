@@ -27,33 +27,34 @@ import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
-import com.baidu.swan.apps.core.c.b;
+import com.baidu.swan.apps.core.d.b;
+import com.baidu.swan.impl.map.location.d;
 import com.baidu.swan.impl.map.location.e;
 import com.baidu.swan.impl.map.location.f;
 import com.baidu.swan.impl.map.location.g;
 import com.baidu.swan.impl.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends b implements TextWatcher, View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener, View.OnTouchListener, OnGetPoiSearchResultListener, e {
-    private RecyclerView bhE;
-    private List<g> bhR;
-    private com.baidu.swan.impl.map.location.b bhT;
-    private EditText biQ;
-    private View biR;
-    private TextView biS;
-    private LinearLayoutManager biT;
-    private InputMethodManager biV;
-    private String biY;
-    private boolean biZ;
+    private RecyclerView bnJ;
+    private List<g> bnW;
+    private com.baidu.swan.impl.map.location.b bnY;
+    private EditText boT;
+    private View boU;
+    private TextView boV;
+    private LinearLayoutManager boW;
+    private InputMethodManager boY;
+    private String bpb;
+    private boolean bpc;
     private boolean mIsLoading;
-    private PoiSearch biU = null;
-    private int biW = 0;
-    private int biX = 0;
-    private String bja = "北京";
+    private PoiSearch boX = null;
+    private int boZ = 0;
+    private int bpa = 0;
+    private String bpd = "北京";
 
-    public static a B(Bundle bundle) {
+    public static a C(Bundle bundle) {
         a aVar = new a();
         if (bundle != null) {
             aVar.setArguments(bundle);
@@ -61,20 +62,20 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
         return aVar;
     }
 
-    public void Qg() {
-        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy != null) {
-            uy.ea("navigateTo").A(com.baidu.swan.apps.core.c.e.aqO, com.baidu.swan.apps.core.c.e.aqQ).b(this).yZ();
+    public void TS() {
+        com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi != null) {
+            vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).c(this).zW();
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        com.baidu.swan.impl.map.a.PL();
+        com.baidu.swan.impl.map.a.Tx();
         SDKInitializer.setCoordType(CoordType.GCJ02);
-        View inflate = layoutInflater.inflate(d.h.ai_apps_location_search, viewGroup, false);
+        View inflate = layoutInflater.inflate(R.layout.ai_apps_location_search, viewGroup, false);
         init(inflate);
-        if (yi()) {
+        if (zc()) {
             inflate = Q(inflate);
             cd(-1);
         }
@@ -83,115 +84,115 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void init(View view) {
-        this.bhR = new ArrayList(11);
+        this.bnW = new ArrayList(11);
         if (getArguments() != null) {
             String string = getArguments().getString("city");
             if (TextUtils.isEmpty(string)) {
                 string = "北京";
             }
-            this.bja = string;
+            this.bpd = string;
         }
-        this.biQ = (EditText) view.findViewById(d.g.search_text);
-        this.bhE = (RecyclerView) view.findViewById(d.g.location_list);
-        this.biR = view.findViewById(d.g.no_result_tip);
-        this.biS = (TextView) view.findViewById(d.g.cancel_search);
-        this.biT = new LinearLayoutManager(com.baidu.swan.apps.w.e.Ea().DM());
-        this.bhE.setLayoutManager(this.biT);
-        this.bhT = new com.baidu.swan.impl.map.location.b(com.baidu.swan.apps.w.e.Ea().DM(), this.bhE, this);
-        this.bhE.setAdapter(this.bhT);
-        this.bhE.addItemDecoration(new f(com.baidu.swan.apps.w.e.Ea().DM()));
-        this.bhE.setOnTouchListener(this);
-        this.biS.setOnClickListener(this);
-        this.biU = PoiSearch.newInstance();
-        this.biU.setOnGetPoiSearchResultListener(this);
-        this.biQ.addTextChangedListener(this);
-        this.biQ.setOnFocusChangeListener(this);
-        this.biQ.setOnKeyListener(this);
-        this.biQ.requestFocus();
-        this.bhE.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.swan.impl.map.location.search.a.1
+        this.boT = (EditText) view.findViewById(R.id.search_text);
+        this.bnJ = (RecyclerView) view.findViewById(R.id.location_list);
+        this.boU = view.findViewById(R.id.no_result_tip);
+        this.boV = (TextView) view.findViewById(R.id.cancel_search);
+        this.boW = new LinearLayoutManager(com.baidu.swan.apps.w.e.FV().FH());
+        this.bnJ.setLayoutManager(this.boW);
+        this.bnY = new com.baidu.swan.impl.map.location.b(com.baidu.swan.apps.w.e.FV().FH(), this.bnJ, this);
+        this.bnJ.setAdapter(this.bnY);
+        this.bnJ.addItemDecoration(new f(com.baidu.swan.apps.w.e.FV().FH()));
+        this.bnJ.setOnTouchListener(this);
+        this.boV.setOnClickListener(this);
+        this.boX = PoiSearch.newInstance();
+        this.boX.setOnGetPoiSearchResultListener(this);
+        this.boT.addTextChangedListener(this);
+        this.boT.setOnFocusChangeListener(this);
+        this.boT.setOnKeyListener(this);
+        this.boT.requestFocus();
+        this.bnJ.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.swan.impl.map.location.search.a.1
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                int QE;
+                int Uq;
                 super.onScrollStateChanged(recyclerView, i);
-                if (i == 0 && (QE = a.this.QE()) >= 0 && QE + 1 == a.this.bhT.getItemCount()) {
-                    a.this.QG();
+                if (i == 0 && (Uq = a.this.Uq()) >= 0 && Uq + 1 == a.this.bnY.getItemCount()) {
+                    a.this.Us();
                 }
             }
         });
-        this.biQ.postDelayed(new Runnable() { // from class: com.baidu.swan.impl.map.location.search.a.2
+        this.boT.postDelayed(new Runnable() { // from class: com.baidu.swan.impl.map.location.search.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.d(a.this.biQ, true);
+                a.this.d(a.this.boT, true);
             }
         }, 100L);
     }
 
     public void d(View view, boolean z) {
-        if (this.biV == null) {
-            this.biV = (InputMethodManager) com.baidu.swan.apps.w.e.Ea().DM().getApplicationContext().getSystemService("input_method");
+        if (this.boY == null) {
+            this.boY = (InputMethodManager) com.baidu.swan.apps.w.e.FV().FH().getApplicationContext().getSystemService("input_method");
         }
-        if (this.biV != null) {
+        if (this.boY != null) {
             if (z) {
-                this.biV.showSoftInput(view, 0);
+                this.boY.showSoftInput(view, 0);
             } else {
-                this.biV.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                this.boY.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int QE() {
-        if (this.biT != null) {
-            return this.biT.findLastVisibleItemPosition();
+    public int Uq() {
+        if (this.boW != null) {
+            return this.boW.findLastVisibleItemPosition();
         }
         return -1;
     }
 
     private View getLastItemView() {
-        int QE = QE();
-        if (QE == -1) {
+        int Uq = Uq();
+        if (Uq == -1) {
             return null;
         }
-        return this.biT.findViewByPosition(QE);
+        return this.boW.findViewByPosition(Uq);
     }
 
-    private void QF() {
-        if (!TextUtils.isEmpty(this.biY)) {
-            this.biW = 0;
-            jg(this.biY);
-            d(this.biQ, false);
+    private void Ur() {
+        if (!TextUtils.isEmpty(this.bpb)) {
+            this.boZ = 0;
+            kf(this.bpb);
+            d(this.boT, false);
         }
     }
 
-    private void jg(String str) {
-        this.biU.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.bja).keyword(str).pageCapacity(13).pageNum(this.biW));
+    private void kf(String str) {
+        this.boX.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.bpd).keyword(str).pageCapacity(13).pageNum(this.boZ));
     }
 
-    public void QG() {
+    public void Us() {
         if (!this.mIsLoading) {
-            if (this.biW < this.biX) {
-                jg(this.biY);
+            if (this.boZ < this.bpa) {
+                kf(this.bpb);
                 this.mIsLoading = true;
                 return;
             }
-            QH();
+            Ut();
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.e
     public void a(g gVar) {
         Intent intent = new Intent();
-        if (gVar.biq != null && gVar.biq.location != null) {
-            PoiInfo poiInfo = gVar.biq;
+        if (gVar.bot != null && gVar.bot.location != null) {
+            PoiInfo poiInfo = gVar.bot;
             intent.putExtra("SelectedLocationInfo", new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
         }
         N(intent);
-        Qs();
+        Ue();
     }
 
     private void N(Intent intent) {
-        if (Sv() != null) {
-            Sv().onActivityResult(getTargetRequestCode(), 0, intent);
+        if (Wh() != null) {
+            Wh().onActivityResult(getTargetRequestCode(), 0, intent);
         }
     }
 
@@ -199,48 +200,48 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
     public void onGetPoiResult(PoiResult poiResult) {
         boolean z = false;
         this.mIsLoading = false;
-        if (!this.biZ) {
+        if (!this.bpc) {
             if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
-                this.biX = poiResult.getTotalPageNum();
-                if (this.biW == 0) {
-                    this.bhR.clear();
+                this.bpa = poiResult.getTotalPageNum();
+                if (this.boZ == 0) {
+                    this.bnW.clear();
                 }
-                this.bhR.addAll(g.E(poiResult.getAllPoi()));
-                this.bhT.b(this.bhR, this.biY);
-                this.biW++;
+                this.bnW.addAll(g.F(poiResult.getAllPoi()));
+                this.bnY.b(this.bnW, this.bpb);
+                this.boZ++;
             } else {
-                if (this.biW == 0) {
-                    this.biX = 0;
-                    this.bhR.clear();
-                    this.bhT.setData(this.bhR);
+                if (this.boZ == 0) {
+                    this.bpa = 0;
+                    this.bnW.clear();
+                    this.bnY.setData(this.bnW);
                 }
-                QH();
+                Ut();
             }
-            if (this.biW == 0 && this.bhR.size() == 0) {
+            if (this.boZ == 0 && this.bnW.size() == 0) {
                 z = true;
             }
-            cK(z);
-            if (this.bhR.size() <= 0) {
-                QH();
+            db(z);
+            if (this.bnW.size() <= 0) {
+                Ut();
             }
         }
     }
 
-    private void QH() {
+    private void Ut() {
         View lastItemView = getLastItemView();
         if (lastItemView != null) {
-            RecyclerView.ViewHolder childViewHolder = this.bhE.getChildViewHolder(lastItemView);
-            if (childViewHolder instanceof com.baidu.swan.impl.map.location.d) {
-                ((com.baidu.swan.impl.map.location.d) childViewHolder).cI(false);
+            RecyclerView.ViewHolder childViewHolder = this.bnJ.getChildViewHolder(lastItemView);
+            if (childViewHolder instanceof d) {
+                ((d) childViewHolder).cZ(false);
             }
         }
     }
 
-    public void cK(boolean z) {
-        this.biR.setVisibility(z ? 0 : 8);
+    public void db(boolean z) {
+        this.boU.setVisibility(z ? 0 : 8);
     }
 
-    private void Qs() {
+    private void Ue() {
         if (this.mActivity != null) {
             this.mActivity.onBackPressed();
         }
@@ -249,44 +250,44 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.biU.destroy();
+        this.boX.destroy();
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         if (editable == null || editable.length() <= 0) {
-            this.bhR.clear();
-            this.bhT.setData(this.bhR);
-            this.biY = "";
-            this.biW = 0;
-            this.biX = 0;
-            this.biZ = true;
+            this.bnW.clear();
+            this.bnY.setData(this.bnW);
+            this.bpb = "";
+            this.boZ = 0;
+            this.bpa = 0;
+            this.bpc = true;
             return;
         }
-        this.biZ = false;
-        this.biW = 0;
-        this.biX = 0;
-        this.biY = editable.toString();
-        jg(this.biY);
+        this.bpc = false;
+        this.boZ = 0;
+        this.bpa = 0;
+        this.bpb = editable.toString();
+        kf(this.bpb);
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        d(this.biQ, false);
+        d(this.boT, false);
         return false;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == d.g.cancel_search) {
-            Qs();
+        if (view.getId() == R.id.cancel_search) {
+            Ue();
         }
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 66) {
-            QF();
+            Ur();
             return true;
         }
         return false;
@@ -294,36 +295,41 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
-        d(this.biQ, z);
+        d(this.boT, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.core.c.b
+    @Override // com.baidu.swan.apps.core.d.b
     public void M(View view) {
     }
 
-    @Override // com.baidu.swan.apps.core.c.b, com.baidu.searchbox.widget.SlideInterceptor
+    @Override // com.baidu.swan.apps.core.d.b, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable() {
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.core.c.b
-    public boolean xX() {
+    @Override // com.baidu.swan.apps.core.d.b
+    public boolean yP() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.c.b
-    public boolean vX() {
+    @Override // com.baidu.swan.apps.core.d.b
+    public boolean wO() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.c.b
-    protected void xV() {
+    @Override // com.baidu.swan.apps.core.d.b
+    protected void yN() {
     }
 
-    @Override // com.baidu.swan.apps.core.c.b
-    protected void xW() {
+    @Override // com.baidu.swan.apps.core.d.b
+    protected void yO() {
+    }
+
+    @Override // com.baidu.swan.apps.core.d.b
+    protected boolean xc() {
+        return false;
     }
 
     @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener

@@ -1,11 +1,11 @@
 package com.xiaomi.push.log;
 
-import com.xiaomi.channel.commonutils.misc.h;
+import com.xiaomi.channel.commonutils.misc.k;
 import com.xiaomi.push.log.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class d extends h.b {
-    h.b a;
+public class d extends k.b {
+    k.b a;
     final /* synthetic */ b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +13,21 @@ public class d extends h.b {
         this.b = bVar;
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void b() {
-        b.C0464b c0464b = (b.C0464b) this.b.a.peek();
-        if (c0464b == null || !c0464b.d()) {
+        b.C0484b c0484b = (b.C0484b) this.b.a.peek();
+        if (c0484b == null || !c0484b.d()) {
             return;
         }
-        this.a = (h.b) this.b.a.remove();
-        this.a.b();
+        if (this.b.a.remove(c0484b)) {
+            this.a = c0484b;
+        }
+        if (this.a != null) {
+            this.a.b();
+        }
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void c() {
         if (this.a != null) {
             this.a.c();

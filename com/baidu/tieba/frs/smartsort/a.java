@@ -1,177 +1,92 @@
 package com.baidu.tieba.frs.smartsort;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.l;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tbadk.util.z;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.aq;
+import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a fsH;
-    private boolean fsF = false;
-    private final HashMap<String, ArrayList<d>> fsG = new HashMap<>();
+    private aq dqo;
+    private TextView fBl;
+    private final FrsFragment fGZ;
+    private boolean fJb;
+    private int fJc = -1;
+    private int faF;
 
-    private a() {
-    }
-
-    public static a bia() {
-        if (fsH == null) {
-            synchronized (a.class) {
-                if (fsH == null) {
-                    fsH = new a();
-                }
-            }
+    public a(FrsFragment frsFragment) {
+        this.faF = 0;
+        if (frsFragment == null) {
+            throw new NullPointerException("FrsFragment is null");
         }
-        return fsH;
-    }
-
-    public String bib() {
-        return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    public synchronized long vE(String str) {
-        d vF;
-        vF = vF(str);
-        return vF != null ? vF.lastTime : 0L;
-    }
-
-    public synchronized void r(String str, long j) {
-        if (!TextUtils.isEmpty(str)) {
-            String bib = bib();
-            ArrayList<d> arrayList = this.fsG.get(bib);
-            ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            d vF = vF(str);
-            boolean z = false;
-            if (vF != null) {
-                if (vF.lastTime != j) {
-                    vF.lastTime = j;
-                    z = true;
-                }
-            } else {
-                d dVar = new d();
-                dVar.forumName = str;
-                dVar.lastTime = j;
-                arrayList2.add(dVar);
-                z = true;
-            }
-            if (z) {
-                d(bib, arrayList2);
-            }
+        this.fGZ = frsFragment;
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.faF = UtilHelper.getStatusBarHeight();
         }
     }
 
-    private synchronized void d(String str, ArrayList<d> arrayList) {
-        JSONObject bii;
-        if (!TextUtils.isEmpty(str) && arrayList != null) {
-            JSONArray jSONArray = new JSONArray();
-            int min = Math.min(30, arrayList.size());
-            int size = arrayList.size() > 30 ? arrayList.size() - 30 : 0;
-            ArrayList<d> arrayList2 = new ArrayList<>();
-            for (int i = size; i < min; i++) {
-                d dVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(dVar.forumName) && (bii = dVar.bii()) != null) {
-                    jSONArray.put(bii);
-                    arrayList2.add(dVar);
-                }
+    public void bpv() {
+        if (this.fJb && this.fJc >= 0) {
+            sk(this.fJc);
+        }
+        this.fJb = false;
+    }
+
+    public void sj(int i) {
+        if (i >= 0) {
+            kA(true);
+            sl(i);
+            return;
+        }
+        kA(false);
+        sl(i);
+    }
+
+    private void sk(int i) {
+        FrameLayout frameLayout;
+        String string;
+        k bjM = this.fGZ.bjM();
+        if (bjM != null && bjM.getListView() != null && (frameLayout = (FrameLayout) bjM.blb()) != null) {
+            if (this.fBl == null && this.fGZ.getPageContext() != null) {
+                this.fBl = new TextView(this.fGZ.getPageContext().getPageActivity());
+                this.fBl.setTextSize(0, this.fGZ.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.fBl.setGravity(17);
             }
-            if (!v.T(arrayList2)) {
-                this.fsG.put(str, arrayList2);
-                if (!this.fsF) {
-                    bic();
+            if (this.fBl != null) {
+                if (i > 0) {
+                    string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
-                    vG(jSONArray.toString());
+                    string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
+                this.fBl.setText(string);
             }
+            al.k(this.fBl, R.color.cp_link_tip_a);
+            al.j(this.fBl, R.color.cp_cont_i);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.ds56));
+            if (this.dqo == null) {
+                this.dqo = new aq();
+            }
+            this.dqo.a(this.fBl, frameLayout, layoutParams, 2000);
+            this.fJc = -1;
         }
     }
 
-    private synchronized d vF(String str) {
-        d dVar;
-        if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.fsG.get(bib());
-            if (arrayList != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= arrayList.size()) {
-                        dVar = null;
-                        break;
-                    }
-                    dVar = arrayList.get(i2);
-                    if (str.equalsIgnoreCase(dVar.forumName)) {
-                        break;
-                    }
-                    i = i2 + 1;
-                }
-            } else {
-                dVar = null;
-            }
-        } else {
-            dVar = null;
+    public void kA(boolean z) {
+        this.fJb = z;
+    }
+
+    public void sl(int i) {
+        this.fJc = i;
+    }
+
+    public void onDestroy() {
+        if (this.dqo != null) {
+            this.dqo.onDestroy();
         }
-        return dVar;
-    }
-
-    private void vG(final String str) {
-        aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.z
-            /* renamed from: bie */
-            public l<String> doInBackground() {
-                l bid = a.this.bid();
-                if (bid != null) {
-                    bid.e("frs_smart_sort_last_time", str);
-                    return null;
-                }
-                return null;
-            }
-        }, null);
-    }
-
-    public void bic() {
-        aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.z
-            /* renamed from: bie */
-            public l<String> doInBackground() {
-                l bid = a.this.bid();
-                if (bid != null) {
-                    String str = (String) bid.get("frs_smart_sort_last_time");
-                    if (str != null) {
-                        ArrayList vH = a.this.vH(str);
-                        a.this.fsG.put(a.this.bib(), vH);
-                    }
-                    a.this.fsF = true;
-                    return null;
-                }
-                return null;
-            }
-        }, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public l<String> bid() {
-        return com.baidu.tbadk.core.c.a.aaT().bv("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<d> vH(String str) {
-        ArrayList<d> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new d(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return arrayList;
     }
 }

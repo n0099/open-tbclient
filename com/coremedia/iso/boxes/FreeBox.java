@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.DataSource;
@@ -98,7 +97,7 @@ public class FreeBox implements Box {
     @Override // com.coremedia.iso.boxes.Box
     public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         this.offset = dataSource.position() - byteBuffer.remaining();
-        if (j > PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED) {
+        if (j > 1048576) {
             this.data = dataSource.map(dataSource.position(), j);
             dataSource.position(dataSource.position() + j);
         } else if (!$assertionsDisabled && j >= 2147483647L) {

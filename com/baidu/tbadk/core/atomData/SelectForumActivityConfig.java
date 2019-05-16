@@ -15,6 +15,7 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String EXTRA_KEY_ORIGINAL_THREAD = "extra_key_original_thread";
     public static final String EXTRA_KEY_PRIVATE_THREAD = "extra_key_private_thread";
     public static final int FROM_ALA_SHARE = 1;
+    public static final int FROM_FORUM_SHARE = 4;
     public static final int FROM_SHARE_SDK = 3;
     public static final int FROM_TRANSMIT_SHARE = 2;
     public static final String KEY_APPKEY = "appkey";
@@ -27,6 +28,9 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String KEY_SHARE_LINK = "link";
     public static final String KEY_SHARE_TITLE = "title";
     private static final String KEY_TBOPEN_APP_KEY = "81d0b67309e0c2387a031408597139f358f32b4d";
+    public static final String MORE_FORUM_IMG = "more_forum_img";
+    public static final String MORE_FORUM_TITLE = "more_forum_title";
+    public static final String MORE_FORUM_URL = "more_forum_url";
     public static final String SELECT_FORUM_ID = "select_forum_id";
     public static final String SELECT_FORUM_NAME = "select_forum_name";
     private static final String URL_AIAPPS_SHARE_FORUM = "tieba://baidu.tieba.share:8080/selectForum";
@@ -64,6 +68,24 @@ public class SelectForumActivityConfig extends IntentConfig {
     public void setPrivateThread(int i) {
         if (getIntent() != null) {
             getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
+        }
+    }
+
+    public void setMoreForumImg(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_img", str);
+        }
+    }
+
+    public void setMoreForumTitle(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_title", str);
+        }
+    }
+
+    public void setMoreForumUrl(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("more_forum_url", str);
         }
     }
 

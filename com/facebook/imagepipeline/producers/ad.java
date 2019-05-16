@@ -15,9 +15,9 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class ad<K, T extends Closeable> implements ai<T> {
-    private final ai<T> jJl;
+    private final ai<T> kbY;
     @GuardedBy("this")
-    final Map<K, ad<K, T>.a> jKt = new HashMap();
+    final Map<K, ad<K, T>.a> kdg = new HashMap();
 
     protected abstract K b(aj ajVar);
 
@@ -25,65 +25,65 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(ai<T> aiVar) {
-        this.jJl = aiVar;
+        this.kbY = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<T> jVar, aj ajVar) {
         boolean z;
-        ad<K, T>.a aZ;
+        ad<K, T>.a bb;
         K b = b(ajVar);
         do {
             z = false;
             synchronized (this) {
-                aZ = aZ(b);
-                if (aZ == null) {
-                    aZ = ba(b);
+                bb = bb(b);
+                if (bb == null) {
+                    bb = bc(b);
                     z = true;
                 }
             }
-        } while (!aZ.f(jVar, ajVar));
+        } while (!bb.f(jVar, ajVar));
         if (!z) {
             return;
         }
-        aZ.czY();
+        bb.cHU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized ad<K, T>.a aZ(K k) {
-        return this.jKt.get(k);
+    public synchronized ad<K, T>.a bb(K k) {
+        return this.kdg.get(k);
     }
 
-    private synchronized ad<K, T>.a ba(K k) {
+    private synchronized ad<K, T>.a bc(K k) {
         ad<K, T>.a aVar;
         aVar = new a(k);
-        this.jKt.put(k, aVar);
+        this.kdg.put(k, aVar);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(K k, ad<K, T>.a aVar) {
-        if (this.jKt.get(k) == aVar) {
-            this.jKt.remove(k);
+        if (this.kdg.get(k) == aVar) {
+            this.kdg.remove(k);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a {
-        private final CopyOnWriteArraySet<Pair<j<T>, aj>> jKu = com.facebook.common.internal.h.ctF();
-        @GuardedBy("Multiplexer.this")
-        @Nullable
-        private T jKv;
-        @GuardedBy("Multiplexer.this")
-        private float jKw;
-        @GuardedBy("Multiplexer.this")
-        @Nullable
-        private d jKx;
-        @GuardedBy("Multiplexer.this")
-        @Nullable
-        private ad<K, T>.a.C0436a jKy;
         private final K jo;
+        private final CopyOnWriteArraySet<Pair<j<T>, aj>> kdh = com.facebook.common.internal.h.cBC();
+        @GuardedBy("Multiplexer.this")
+        @Nullable
+        private T kdi;
+        @GuardedBy("Multiplexer.this")
+        private float kdj;
+        @GuardedBy("Multiplexer.this")
+        @Nullable
+        private d kdk;
+        @GuardedBy("Multiplexer.this")
+        @Nullable
+        private ad<K, T>.a.C0455a kdl;
 
         public a(K k) {
             this.jo = k;
@@ -95,21 +95,21 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         public boolean f(j<T> jVar, aj ajVar) {
             Pair<j<T>, aj> create = Pair.create(jVar, ajVar);
             synchronized (this) {
-                if (ad.this.aZ(this.jo) != this) {
+                if (ad.this.bb(this.jo) != this) {
                     return false;
                 }
-                this.jKu.add(create);
-                List<ak> czZ = czZ();
-                List<ak> cAd = cAd();
-                List<ak> cAb = cAb();
-                Closeable closeable = this.jKv;
-                float f = this.jKw;
-                d.ex(czZ);
-                d.ez(cAd);
-                d.ey(cAb);
+                this.kdh.add(create);
+                List<ak> cHV = cHV();
+                List<ak> cHZ = cHZ();
+                List<ak> cHX = cHX();
+                Closeable closeable = this.kdi;
+                float f = this.kdj;
+                d.eF(cHV);
+                d.eH(cHZ);
+                d.eG(cHX);
                 synchronized (create) {
                     synchronized (this) {
-                        if (closeable != this.jKv) {
+                        if (closeable != this.kdi) {
                             closeable = null;
                         } else if (closeable != null) {
                             closeable = ad.this.f(closeable);
@@ -117,7 +117,7 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
                     }
                     if (closeable != null) {
                         if (f > 0.0f) {
-                            jVar.aM(f);
+                            jVar.aQ(f);
                         }
                         jVar.e(closeable, false);
                         c(closeable);
@@ -131,88 +131,88 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         private void a(final Pair<j<T>, aj> pair, aj ajVar) {
             ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ad.a.1
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void czH() {
+                public void cHD() {
                     boolean remove;
                     List list;
                     List list2;
                     d dVar;
                     List list3 = null;
                     synchronized (a.this) {
-                        remove = a.this.jKu.remove(pair);
+                        remove = a.this.kdh.remove(pair);
                         if (!remove) {
                             list = null;
                             list2 = null;
                             dVar = null;
-                        } else if (a.this.jKu.isEmpty()) {
+                        } else if (a.this.kdh.isEmpty()) {
                             list2 = null;
-                            dVar = a.this.jKx;
+                            dVar = a.this.kdk;
                             list = null;
                         } else {
-                            List czZ = a.this.czZ();
-                            list = a.this.cAd();
-                            list2 = czZ;
+                            List cHV = a.this.cHV();
+                            list = a.this.cHZ();
+                            list2 = cHV;
                             dVar = null;
-                            list3 = a.this.cAb();
+                            list3 = a.this.cHX();
                         }
                     }
-                    d.ex(list2);
-                    d.ez(list);
-                    d.ey(list3);
+                    d.eF(list2);
+                    d.eH(list);
+                    d.eG(list3);
                     if (dVar != null) {
                         dVar.cancel();
                     }
                     if (remove) {
-                        ((j) pair.first).ctB();
+                        ((j) pair.first).cBy();
                     }
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void czI() {
-                    d.ex(a.this.czZ());
+                public void cHE() {
+                    d.eF(a.this.cHV());
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void czJ() {
-                    d.ey(a.this.cAb());
+                public void cHF() {
+                    d.eG(a.this.cHX());
                 }
 
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-                public void czK() {
-                    d.ez(a.this.cAd());
+                public void cHG() {
+                    d.eH(a.this.cHZ());
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void czY() {
+        public void cHU() {
             synchronized (this) {
-                com.facebook.common.internal.g.checkArgument(this.jKx == null);
-                com.facebook.common.internal.g.checkArgument(this.jKy == null);
-                if (this.jKu.isEmpty()) {
+                com.facebook.common.internal.g.checkArgument(this.kdk == null);
+                com.facebook.common.internal.g.checkArgument(this.kdl == null);
+                if (this.kdh.isEmpty()) {
                     ad.this.a((ad) this.jo, (ad<ad, T>.a) this);
                     return;
                 }
-                aj ajVar = (aj) this.jKu.iterator().next().second;
-                this.jKx = new d(ajVar.czA(), ajVar.getId(), ajVar.czB(), ajVar.cuW(), ajVar.czC(), cAa(), cAc(), cAe());
-                this.jKy = new C0436a();
-                ad.this.jJl.a(this.jKy, this.jKx);
+                aj ajVar = (aj) this.kdh.iterator().next().second;
+                this.kdk = new d(ajVar.cHw(), ajVar.getId(), ajVar.cHx(), ajVar.cCS(), ajVar.cHy(), cHW(), cHY(), cIa());
+                this.kdl = new C0455a();
+                ad.this.kbY.a(this.kdl, this.kdk);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> czZ() {
-            return this.jKx == null ? null : this.jKx.rv(cAa());
+        public synchronized List<ak> cHV() {
+            return this.kdk == null ? null : this.kdk.sk(cHW());
         }
 
-        private synchronized boolean cAa() {
+        private synchronized boolean cHW() {
             boolean z;
-            Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
+            Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (!((aj) it.next().second).czD()) {
+                } else if (!((aj) it.next().second).cHz()) {
                     z = false;
                     break;
                 }
@@ -222,24 +222,24 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> cAb() {
-            List<ak> rw;
-            if (this.jKx == null) {
-                rw = null;
+        public synchronized List<ak> cHX() {
+            List<ak> sl;
+            if (this.kdk == null) {
+                sl = null;
             } else {
-                rw = this.jKx.rw(cAc());
+                sl = this.kdk.sl(cHY());
             }
-            return rw;
+            return sl;
         }
 
-        private synchronized boolean cAc() {
+        private synchronized boolean cHY() {
             boolean z;
-            Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
+            Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
-                } else if (((aj) it.next().second).czF()) {
+                } else if (((aj) it.next().second).cHB()) {
                     z = true;
                     break;
                 }
@@ -249,51 +249,51 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
 
         /* JADX INFO: Access modifiers changed from: private */
         @Nullable
-        public synchronized List<ak> cAd() {
-            return this.jKx == null ? null : this.jKx.a(cAe());
+        public synchronized List<ak> cHZ() {
+            return this.kdk == null ? null : this.kdk.a(cIa());
         }
 
-        private synchronized Priority cAe() {
+        private synchronized Priority cIa() {
             Priority priority;
             Priority priority2 = Priority.LOW;
-            Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
+            Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
             while (true) {
                 priority = priority2;
                 if (it.hasNext()) {
-                    priority2 = Priority.getHigherPriority(priority, ((aj) it.next().second).czE());
+                    priority2 = Priority.getHigherPriority(priority, ((aj) it.next().second).cHA());
                 }
             }
             return priority;
         }
 
-        public void a(ad<K, T>.a.C0436a c0436a, Throwable th) {
+        public void a(ad<K, T>.a.C0455a c0455a, Throwable th) {
             synchronized (this) {
-                if (this.jKy == c0436a) {
-                    Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
-                    this.jKu.clear();
+                if (this.kdl == c0455a) {
+                    Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
+                    this.kdh.clear();
                     ad.this.a((ad) this.jo, (ad<ad, T>.a) this);
-                    c(this.jKv);
-                    this.jKv = null;
+                    c(this.kdi);
+                    this.kdi = null;
                     while (it.hasNext()) {
                         Pair<j<T>, aj> next = it.next();
                         synchronized (next) {
-                            ((j) next.first).C(th);
+                            ((j) next.first).B(th);
                         }
                     }
                 }
             }
         }
 
-        public void a(ad<K, T>.a.C0436a c0436a, T t, boolean z) {
+        public void a(ad<K, T>.a.C0455a c0455a, T t, boolean z) {
             synchronized (this) {
-                if (this.jKy == c0436a) {
-                    c(this.jKv);
-                    this.jKv = null;
-                    Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
+                if (this.kdl == c0455a) {
+                    c(this.kdi);
+                    this.kdi = null;
+                    Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
                     if (!z) {
-                        this.jKv = (T) ad.this.f(t);
+                        this.kdi = (T) ad.this.f(t);
                     } else {
-                        this.jKu.clear();
+                        this.kdh.clear();
                         ad.this.a((ad) this.jo, (ad<ad, T>.a) this);
                     }
                     while (it.hasNext()) {
@@ -306,27 +306,27 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
         }
 
-        public void a(ad<K, T>.a.C0436a c0436a) {
+        public void a(ad<K, T>.a.C0455a c0455a) {
             synchronized (this) {
-                if (this.jKy == c0436a) {
-                    this.jKy = null;
-                    this.jKx = null;
-                    c(this.jKv);
-                    this.jKv = null;
-                    czY();
+                if (this.kdl == c0455a) {
+                    this.kdl = null;
+                    this.kdk = null;
+                    c(this.kdi);
+                    this.kdi = null;
+                    cHU();
                 }
             }
         }
 
-        public void a(ad<K, T>.a.C0436a c0436a, float f) {
+        public void a(ad<K, T>.a.C0455a c0455a, float f) {
             synchronized (this) {
-                if (this.jKy == c0436a) {
-                    this.jKw = f;
-                    Iterator<Pair<j<T>, aj>> it = this.jKu.iterator();
+                if (this.kdl == c0455a) {
+                    this.kdj = f;
+                    Iterator<Pair<j<T>, aj>> it = this.kdh.iterator();
                     while (it.hasNext()) {
                         Pair<j<T>, aj> next = it.next();
                         synchronized (next) {
-                            ((j) next.first).aM(f);
+                            ((j) next.first).aQ(f);
                         }
                     }
                 }
@@ -346,8 +346,8 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.imagepipeline.producers.ad$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0436a extends b<T> {
-            private C0436a() {
+        public class C0455a extends b<T> {
+            private C0455a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -359,17 +359,17 @@ public abstract class ad<K, T extends Closeable> implements ai<T> {
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void B(Throwable th) {
+            protected void A(Throwable th) {
                 a.this.a(this, th);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void cyv() {
+            protected void cGr() {
                 a.this.a(this);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void ba(float f) {
+            protected void be(float f) {
                 a.this.a(this, f);
             }
         }

@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View hMA;
+    private View bMK;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,24 +27,24 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.hMA = new View(getContext());
-        addView(this.hMA, 0, new RelativeLayout.LayoutParams(-1, -1));
+        this.bMK = new View(getContext());
+        addView(this.bMK, 0, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hMA.getLayoutParams();
-        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(d.e.ds4));
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bMK.getLayoutParams();
+        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(R.dimen.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.hMA.setLayoutParams(layoutParams);
+        this.bMK.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.hMA.setBackgroundDrawable(drawable);
+        this.bMK.setBackgroundDrawable(drawable);
     }
 }

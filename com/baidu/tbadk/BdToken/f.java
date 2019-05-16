@@ -11,32 +11,33 @@ import java.util.HashMap;
 public class f {
     public static String SCHEME = "com.baidu.tieba";
     public static String HOST = "unidispatch";
-    public static String brG = "/homepage";
-    public static String brH = "/enterforum";
-    public static String brI = "/frs";
-    public static String brJ = "/pb";
-    public static String brK = "/tbwebview";
-    public static String brL = "extdata";
-    public static String brM = "kw";
-    public static String brN = "tid";
+    public static String bym = "/homepage";
+    public static String byn = "/enterforum";
+    public static String byo = "/frs";
+    public static String byp = "/pb";
+    public static String byq = "/tbwebview";
+    public static String byr = "extdata";
+    public static String bys = "kw";
+    public static String byt = "tid";
     public static String PARAM_URL = "url";
-    public static String brO = "schemefrom";
-    public static String brP = "maintablocate";
-    public static String brQ = "from_h5";
-    public static String brR = "from_tb_token";
+    public static String byu = "schemefrom";
+    public static String byv = "maintablocate";
+    public static String byw = "from_h5";
+    public static String byx = "from_tb_token";
 
     /* loaded from: classes.dex */
     public interface a {
         void o(HashMap<String, Object> hashMap);
     }
 
-    public static final f Ui() {
-        return b.brS;
+    public static final f YA() {
+        return b.byy;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class b {
-        private static final f brS = new f();
+    public static class b {
+        private static final f byy = new f();
     }
 
     private f() {
@@ -49,76 +50,69 @@ public class f {
     public void a(Uri uri, a aVar) {
         if (uri != null && m(uri)) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String queryParameter = uri.getQueryParameter(brL);
-            String queryParameter2 = uri.getQueryParameter(brO);
-            bp(queryParameter, queryParameter2);
+            String queryParameter = uri.getQueryParameter(byr);
+            String queryParameter2 = uri.getQueryParameter(byu);
+            bx(queryParameter, queryParameter2);
             b(uri, queryParameter2);
-            if (brG.equals(uri.getPath())) {
-                hashMap.put(brP, 2);
-            } else if (brH.equals(uri.getPath())) {
-                hashMap.put(brP, 1);
+            if (bym.equals(uri.getPath())) {
+                hashMap.put(byv, 2);
+            } else if (byn.equals(uri.getPath())) {
+                hashMap.put(byv, 1);
             }
             aVar.o(hashMap);
         }
     }
 
     public void b(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brI.equals(uri.getPath())) {
+        if (uri != null && m(uri) && byo.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(brM, uri.getQueryParameter(brM));
-            String queryParameter = uri.getQueryParameter(brL);
-            String queryParameter2 = uri.getQueryParameter(brO);
-            bp(queryParameter, queryParameter2);
+            hashMap.put(bys, uri.getQueryParameter(bys));
+            String queryParameter = uri.getQueryParameter(byr);
+            String queryParameter2 = uri.getQueryParameter(byu);
+            bx(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
         }
     }
 
     public void c(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brJ.equals(uri.getPath())) {
+        if (uri != null && m(uri) && byp.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(brN, uri.getQueryParameter(brN));
-            String queryParameter = uri.getQueryParameter(brL);
-            String queryParameter2 = uri.getQueryParameter(brO);
-            bp(queryParameter, queryParameter2);
+            hashMap.put(byt, uri.getQueryParameter(byt));
+            String queryParameter = uri.getQueryParameter(byr);
+            String queryParameter2 = uri.getQueryParameter(byu);
+            bx(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
         }
     }
 
     public void d(Uri uri, a aVar) {
-        if (uri != null && m(uri) && brK.equals(uri.getPath())) {
+        if (uri != null && m(uri) && byq.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(PARAM_URL, uri.getQueryParameter(PARAM_URL));
-            String queryParameter = uri.getQueryParameter(brL);
-            String queryParameter2 = uri.getQueryParameter(brO);
-            bp(queryParameter, queryParameter2);
+            String queryParameter = uri.getQueryParameter(byr);
+            String queryParameter2 = uri.getQueryParameter(byu);
+            bx(queryParameter, queryParameter2);
             b(uri, queryParameter2);
             aVar.o(hashMap);
         }
     }
 
-    private void bp(String str, String str2) {
+    private void bx(String str, String str2) {
         if (!ap.isEmpty(str)) {
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(str);
-            if (bVar.getActivityId() != 0 && bVar.TK() != 0) {
-                TbSingleton.getInstance().setInvokeSource(bVar.TL());
-                am amVar = new am("c13321");
-                amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.TL()).T("obj_type", bVar.getActivityId()).T("obj_param1", bVar.TK());
-                if (ap.equals(str2, brR)) {
-                    amVar.T("obj_param2", 2);
-                } else {
-                    amVar.T("obj_param2", 1);
-                }
-                TiebaStatic.log(amVar);
-                c.TX().b(bVar);
+            if (bVar.getActivityId() != 0 && bVar.XU() != 0) {
+                TbSingleton.getInstance().setInvokeSource(bVar.XV());
+                TiebaStatic.log(new am("c13321").bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.XV()).P("obj_type", bVar.getActivityId()).P("obj_param1", bVar.XU()).P("obj_param2", ap.equals(str2, byx) ? 2 : 1).bT("obj_param3", bVar.getSource()).bT("extra", bVar.XW()));
+                c.Yk().l(bVar);
             }
         }
     }
 
     private void b(Uri uri, String str) {
-        if (uri != null && uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null && uri.getQueryParameter("obj_type") != null && !ap.equals(str, brR)) {
-            TiebaStatic.log(new am("c13391").bJ("obj_type", uri.getQueryParameter("obj_type")).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
+        if (uri != null && uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null && uri.getQueryParameter("obj_type") != null && !ap.equals(str, byx)) {
+            TiebaStatic.log(new am("c13391").bT("obj_type", uri.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, uri.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
         }
     }
 }

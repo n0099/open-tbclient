@@ -5,15 +5,15 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class m extends y {
+public class m extends z {
     public m(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/setStorageSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
@@ -30,13 +30,13 @@ public class m extends y {
             return false;
         }
         String optString2 = optParamsAsJo.optString("data");
-        com.baidu.swan.apps.storage.c IY = bVar.IY();
-        if (!IY.KC() && IY.KD().getString(optString, "").length() < optString2.length()) {
+        com.baidu.swan.apps.storage.c Lt = bVar.Lt();
+        if (!Lt.Nb() && Lt.Nc().getString(optString, "").length() < optString2.length()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
             return false;
         }
-        IY.KD().putString(optString, optString2);
-        com.baidu.swan.apps.ak.e.aVT.update();
+        Lt.Nc().putString(optString, optString2);
+        com.baidu.swan.apps.ak.e.aYT.update();
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         return true;
     }

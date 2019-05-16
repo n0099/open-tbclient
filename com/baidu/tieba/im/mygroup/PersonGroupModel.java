@@ -10,14 +10,14 @@ import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes3.dex */
 public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public long friendUid;
-    private RequestUserPermissionMessage gqE;
-    private boolean gqF;
+    private RequestUserPermissionMessage gHR;
+    private boolean gHS;
     public int mImageHeight;
     public int mImageWidth;
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity) {
         super(personGroupActivity.getPageContext());
-        this.gqF = false;
+        this.gHS = false;
         this.mImageWidth = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
@@ -25,7 +25,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity, long j) {
         super(personGroupActivity.getPageContext());
-        this.gqF = false;
+        this.gHS = false;
         this.mImageWidth = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.dip2px(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
@@ -33,23 +33,23 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void update() {
         if (this.friendUid == 0) {
-            if (this.gqF) {
+            if (this.gHS) {
                 super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                 return;
             }
-            this.gqF = true;
+            this.gHS = true;
             super.sendMessage(new GroupsByUidLocalMessage());
             return;
         }
         super.sendMessage(new GroupsByUidMessage(this.friendUid, this.mImageWidth, this.mImageHeight));
     }
 
-    public void db(long j) {
-        this.gqE = dc(j);
-        super.sendMessage(this.gqE);
+    public void dy(long j) {
+        this.gHR = dz(j);
+        super.sendMessage(this.gHR);
     }
 
-    private RequestUserPermissionMessage dc(long j) {
+    private RequestUserPermissionMessage dz(long j) {
         RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
         requestUserPermissionMessage.setForumId(j);
         return requestUserPermissionMessage;
@@ -68,6 +68,6 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.gqE = null;
+        this.gHR = null;
     }
 }

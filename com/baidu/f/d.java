@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
@@ -11,7 +12,7 @@ public class d implements SharedPreferences {
     private SharedPreferences mSp;
 
     public d(String str) {
-        if (TextUtils.isEmpty(str) || "default".equals(str)) {
+        if (TextUtils.isEmpty(str) || NotifyAdapterUtil.PRIMARY_CHANNEL.equals(str)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
             this.mSp = AppRuntime.getAppContext().getSharedPreferences(str, 0);
@@ -74,7 +75,7 @@ public class d implements SharedPreferences {
     }
 
     public void putString(String str, String str2) {
-        aF(str, str2);
+        aI(str, str2);
         this.mSp.edit().putString(str, str2).apply();
     }
 
@@ -86,7 +87,7 @@ public class d implements SharedPreferences {
         this.mSp.edit().putLong(str, j).apply();
     }
 
-    private void aF(String str, String str2) {
+    private void aI(String str, String str2) {
         if (str2 == null || str2.length() <= 256) {
         }
     }

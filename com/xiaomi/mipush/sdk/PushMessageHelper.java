@@ -4,13 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.xiaomi.xmpush.thrift.aj;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PushMessageHelper {
+    public static final String ERROR_MESSAGE = "error_message";
+    public static final String ERROR_TYPE = "error_type";
+    public static final String ERROR_TYPE_NEED_PERMISSION = "error_lack_of_permission";
     public static final String KEY_COMMAND = "key_command";
     public static final String KEY_MESSAGE = "key_message";
     public static final int MESSAGE_COMMAND = 3;
+    public static final int MESSAGE_ERROR = 5;
     public static final int MESSAGE_QUIT = 4;
     public static final int MESSAGE_RAW = 1;
     public static final int MESSAGE_SENDMESSAGE = 2;
@@ -29,41 +32,54 @@ public class PushMessageHelper {
         return miPushCommandMessage;
     }
 
-    public static MiPushMessage generateMessage(aj ajVar, com.xiaomi.xmpush.thrift.r rVar, boolean z) {
+    public static MiPushMessage generateMessage(com.xiaomi.xmpush.thrift.am amVar, com.xiaomi.xmpush.thrift.u uVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ajVar.c());
-        if (!TextUtils.isEmpty(ajVar.j())) {
+        miPushMessage.setMessageId(amVar.c());
+        if (!TextUtils.isEmpty(amVar.j())) {
             miPushMessage.setMessageType(1);
-            miPushMessage.setAlias(ajVar.j());
-        } else if (!TextUtils.isEmpty(ajVar.h())) {
+            miPushMessage.setAlias(amVar.j());
+        } else if (!TextUtils.isEmpty(amVar.h())) {
             miPushMessage.setMessageType(2);
-            miPushMessage.setTopic(ajVar.h());
-        } else if (TextUtils.isEmpty(ajVar.r())) {
+            miPushMessage.setTopic(amVar.h());
+        } else if (TextUtils.isEmpty(amVar.r())) {
             miPushMessage.setMessageType(0);
         } else {
             miPushMessage.setMessageType(3);
-            miPushMessage.setUserAccount(ajVar.r());
+            miPushMessage.setUserAccount(amVar.r());
         }
-        miPushMessage.setCategory(ajVar.p());
-        if (ajVar.l() != null) {
-            miPushMessage.setContent(ajVar.l().f());
+        miPushMessage.setCategory(amVar.p());
+        if (amVar.l() != null) {
+            miPushMessage.setContent(amVar.l().f());
         }
-        if (rVar != null) {
+        if (uVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(rVar.b());
+                miPushMessage.setMessageId(uVar.b());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(rVar.f());
+                miPushMessage.setTopic(uVar.f());
             }
-            miPushMessage.setDescription(rVar.j());
-            miPushMessage.setTitle(rVar.h());
-            miPushMessage.setNotifyType(rVar.l());
-            miPushMessage.setNotifyId(rVar.q());
-            miPushMessage.setPassThrough(rVar.o());
-            miPushMessage.setExtra(rVar.s());
+            miPushMessage.setDescription(uVar.j());
+            miPushMessage.setTitle(uVar.h());
+            miPushMessage.setNotifyType(uVar.l());
+            miPushMessage.setNotifyId(uVar.q());
+            miPushMessage.setPassThrough(uVar.o());
+            miPushMessage.setExtra(uVar.s());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;
+    }
+
+    public static com.xiaomi.xmpush.thrift.u generateMessage(MiPushMessage miPushMessage) {
+        com.xiaomi.xmpush.thrift.u uVar = new com.xiaomi.xmpush.thrift.u();
+        uVar.a(miPushMessage.getMessageId());
+        uVar.b(miPushMessage.getTopic());
+        uVar.d(miPushMessage.getDescription());
+        uVar.c(miPushMessage.getTitle());
+        uVar.c(miPushMessage.getNotifyId());
+        uVar.a(miPushMessage.getNotifyType());
+        uVar.b(miPushMessage.getPassThrough());
+        uVar.a(miPushMessage.getExtra());
+        return uVar;
     }
 
     public static int getPushMode(Context context) {

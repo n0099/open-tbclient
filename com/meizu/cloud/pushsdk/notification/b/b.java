@@ -1,49 +1,30 @@
 package com.meizu.cloud.pushsdk.notification.b;
 
+import android.app.Notification;
 import android.content.Context;
+import android.text.TextUtils;
+import android.widget.RemoteViews;
+import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 /* loaded from: classes3.dex */
-public class b {
-    public static int a(Context context) {
-        return c.a(context).a("push_expandable_big_image_notification", "layout");
+public class b extends c {
+    public b(Context context, PushNotificationBuilder pushNotificationBuilder) {
+        super(context, pushNotificationBuilder);
     }
 
-    public static int b(Context context) {
-        return c.a(context).a("push_expandable_big_text_notification", "layout");
-    }
-
-    public static int c(Context context) {
-        return c.a(context).a("push_pure_pic_notification", "layout");
-    }
-
-    public static int d(Context context) {
-        return c.a(context).a("push_big_notification_title", "id");
-    }
-
-    public static int e(Context context) {
-        return c.a(context).a("push_big_notification_content", "id");
-    }
-
-    public static int f(Context context) {
-        return c.a(context).a("push_big_notification_date", "id");
-    }
-
-    public static int g(Context context) {
-        return c.a(context).a("push_big_bigview_defaultView", "id");
-    }
-
-    public static int h(Context context) {
-        return c.a(context).a("push_big_bigtext_defaultView", "id");
-    }
-
-    public static int i(Context context) {
-        return c.a(context).a("push_pure_bigview_banner", "id");
-    }
-
-    public static int j(Context context) {
-        return c.a(context).a("push_pure_bigview_expanded", "id");
-    }
-
-    public static int k(Context context) {
-        return c.a(context).a("push_big_notification_icon", "id");
+    @Override // com.meizu.cloud.pushsdk.notification.a
+    protected void b(Notification notification, MessageV3 messageV3) {
+        if (MinSdkChecker.isSupportNotificationBuild()) {
+            RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.b(this.a));
+            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.d(this.a), messageV3.getTitle());
+            remoteViews.setLong(com.meizu.cloud.pushsdk.notification.c.c.f(this.a), "setTime", System.currentTimeMillis());
+            a(remoteViews, messageV3);
+            if (messageV3.getmNotificationStyle() != null && !TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableText())) {
+                remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.h(this.a), 0);
+                remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.h(this.a), messageV3.getmNotificationStyle().getExpandableText());
+            }
+            notification.bigContentView = remoteViews;
+        }
     }
 }

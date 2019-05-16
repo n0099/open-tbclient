@@ -1,5 +1,13 @@
 package com.baidu.pyramid.runtime.multiprocess;
+
+import android.os.Bundle;
 /* loaded from: classes.dex */
-public final class b {
-    public static final boolean DEBUG = Boolean.parseBoolean("true");
+public class b {
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public static Bundle uE() {
+            return IPCServiceManager.uE();
+        }
+    }
 }

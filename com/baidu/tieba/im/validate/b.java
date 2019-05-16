@@ -6,81 +6,81 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private View gnV;
-    private HeadImageView gnW;
-    private TextView gnX;
-    private ValidateActivity gti;
-    private TextView gtj;
-    private TextView gtk;
-    private TextView gtl;
-    private ValidateItemData gtm;
+    private View gFi;
+    private HeadImageView gFj;
+    private TextView gFk;
+    private ValidateActivity gKv;
+    private TextView gKw;
+    private TextView gKx;
+    private TextView gKy;
+    private ValidateItemData gKz;
 
     public b(ValidateActivity validateActivity) {
-        super(validateActivity.getPageContext(), d.h.validate_item);
-        this.gti = validateActivity;
+        super(validateActivity.getPageContext(), R.layout.validate_item);
+        this.gKv = validateActivity;
         initView();
     }
 
     void initView() {
-        this.gnV = this.vk.findViewById(d.g.root_view);
-        this.gnW = (HeadImageView) this.gnV.findViewById(d.g.iv_head);
-        this.gnW.setIsRound(false);
-        this.gtj = (TextView) this.gnV.findViewById(d.g.tv_user_name);
-        this.gnX = (TextView) this.gnV.findViewById(d.g.tv_group_name);
-        this.gtk = (TextView) this.gnV.findViewById(d.g.tv_apply_reason);
-        this.gtl = (TextView) this.gnV.findViewById(d.g.btn_pass);
-        this.gtl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.gFi = this.sN.findViewById(R.id.root_view);
+        this.gFj = (HeadImageView) this.gFi.findViewById(R.id.iv_head);
+        this.gFj.setIsRound(false);
+        this.gKw = (TextView) this.gFi.findViewById(R.id.tv_user_name);
+        this.gFk = (TextView) this.gFi.findViewById(R.id.tv_group_name);
+        this.gKx = (TextView) this.gFi.findViewById(R.id.tv_apply_reason);
+        this.gKy = (TextView) this.gFi.findViewById(R.id.btn_pass);
+        this.gKy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.gti.a(b.this.gtl, 100, 0, 0L, b.this.gtm);
+                b.this.gKv.a(b.this.gKy, 100, 0, 0L, b.this.gKz);
             }
         });
-        this.gnW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.gFj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.gti.a(b.this.gnW, 101, 0, 0L, b.this.gtm);
+                b.this.gKv.a(b.this.gFj, 101, 0, 0L, b.this.gKz);
             }
         });
-        this.gnV.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.gFi.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.gti.b(b.this.gnV, 200, 0, 0L, b.this.gtm);
+                b.this.gKv.b(b.this.gFi, 200, 0, 0L, b.this.gKz);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.gtm != null) {
-            this.gti.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.gti.getLayoutMode().onModeChanged(this.gnV);
-            String portrait = this.gtm.getPortrait();
-            this.gnW.setTag(portrait);
-            this.gnW.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.gtm.getUserName())) {
-                this.gtj.setText(this.gtm.getUserName());
+        if (this.gKz != null) {
+            this.gKv.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.gKv.getLayoutMode().onModeChanged(this.gFi);
+            String portrait = this.gKz.getPortrait();
+            this.gFj.setTag(portrait);
+            this.gFj.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.gKz.getUserName())) {
+                this.gKw.setText(this.gKz.getUserName());
             }
-            if (!TextUtils.isEmpty(this.gtm.getGroupName())) {
-                this.gnX.setText(this.gti.getPageContext().getString(d.j.validate_im_apply_prefix) + this.gtm.getGroupName());
+            if (!TextUtils.isEmpty(this.gKz.getGroupName())) {
+                this.gFk.setText(this.gKv.getPageContext().getString(R.string.validate_im_apply_prefix) + this.gKz.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.gtm.getApplyReason())) {
-                this.gtk.setText(this.gti.getPageContext().getString(d.j.validate_im_reason_prefix) + this.gtm.getApplyReason());
+            if (!TextUtils.isEmpty(this.gKz.getApplyReason())) {
+                this.gKx.setText(this.gKv.getPageContext().getString(R.string.validate_im_reason_prefix) + this.gKz.getApplyReason());
             }
-            if (this.gtm.isPass()) {
-                this.gtl.setEnabled(false);
-                this.gtl.setText(this.gti.getPageContext().getString(d.j.passed));
-                al.j(this.gtl, d.C0277d.cp_cont_d);
-                this.gtl.setBackgroundDrawable(null);
+            if (this.gKz.isPass()) {
+                this.gKy.setEnabled(false);
+                this.gKy.setText(this.gKv.getPageContext().getString(R.string.passed));
+                al.j(this.gKy, R.color.cp_cont_d);
+                this.gKy.setBackgroundDrawable(null);
             } else {
-                this.gtl.setEnabled(true);
-                this.gtl.setText(this.gti.getPageContext().getString(d.j.pass));
+                this.gKy.setEnabled(true);
+                this.gKy.setText(this.gKv.getPageContext().getString(R.string.pass));
             }
-            if (!this.gtm.isShown()) {
-                al.k(this.gnV, d.C0277d.common_color_10178);
+            if (!this.gKz.isShown()) {
+                al.k(this.gFi, R.color.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.gtm = validateItemData;
+        this.gKz = validateItemData;
     }
 }

@@ -14,9 +14,9 @@ public class ad extends b {
     public ad(Context context, View view) {
         this.b = null;
         this.c = null;
-        this.a = (RelativeLayout) view.findViewById(R.raw.sapi_camera_open_mouth);
-        this.b = (TextView) this.a.findViewById(R.raw.sapi_camera_photo_done);
-        this.c = (TextView) this.a.findViewById(R.raw.sapi_camera_put_face_round);
+        this.a = (RelativeLayout) view.findViewById(R.raw.sapi_camera_found_face);
+        this.b = (TextView) this.a.findViewById(R.raw.sapi_camera_nod);
+        this.c = (TextView) this.a.findViewById(R.raw.sapi_camera_open_mouth);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

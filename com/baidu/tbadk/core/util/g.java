@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean abY() {
+    public static boolean agV() {
         boolean z = true;
-        if (com.baidu.tbadk.s.ae.jK()) {
+        if (com.baidu.tbadk.t.ah.iE()) {
             String trim = Build.MODEL.trim();
-            String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A"};
+            String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -25,7 +25,11 @@ public class g {
         return false;
     }
 
-    public static boolean abZ() {
+    public static boolean agW() {
         return ap.equals(Build.MODEL.trim(), "ANE-AL00");
+    }
+
+    public static boolean agX() {
+        return ap.equals(Build.MODEL.trim(), "vivo X20A");
     }
 }

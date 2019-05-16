@@ -12,8 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b {
-    private RequestGroupLocModel gsW;
-    private a gsX;
+    private RequestGroupLocModel gKj;
+    private a gKk;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -25,39 +25,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.gsW.setLat(String.valueOf(address.getLatitude()));
-                        b.this.gsW.setLng(String.valueOf(address.getLongitude()));
-                        b.this.gsW.setGroupId(0L);
-                        b.this.gsW.sendMessage();
+                        b.this.gKj.setLat(String.valueOf(address.getLatitude()));
+                        b.this.gKj.setLng(String.valueOf(address.getLongitude()));
+                        b.this.gKj.setGroupId(0L);
+                        b.this.gKj.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.gsX.brd();
+                    b.this.gKk.byP();
                     return;
                 case 4:
                 case 5:
-                    b.this.gsX.brc();
+                    b.this.gKk.byO();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c gsY = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c gKl = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.gsX.brc();
+                b.this.gKk.byO();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.gsX.brc();
+                b.this.gKk.byO();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.gsX.brc();
+                    b.this.gKk.byO();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -67,9 +67,9 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.gsX.brc();
+                    b.this.gKk.byO();
                 } else {
-                    b.this.gsX.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.gKk.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
@@ -79,31 +79,31 @@ public class b {
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void brc();
+        void byO();
 
-        void brd();
+        void byP();
     }
 
     public b(a aVar) {
-        this.gsW = null;
-        this.gsX = null;
-        this.gsW = new RequestGroupLocModel();
-        this.gsX = aVar;
-        this.gsY.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.gsY);
+        this.gKj = null;
+        this.gKk = null;
+        this.gKj = new RequestGroupLocModel();
+        this.gKk = aVar;
+        this.gKl.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.gKl);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.gsW.setUniqueId(bdUniqueId);
+        this.gKj.setUniqueId(bdUniqueId);
     }
 
-    public void arH() {
-        com.baidu.adp.lib.d.a.iW().a(true, this.locationCallBack);
+    public void awN() {
+        com.baidu.adp.lib.d.a.hO().a(true, this.locationCallBack);
     }
 
     public void cancelLoad() {
-        this.gsW.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.gsY);
+        this.gKj.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.gKl);
     }
 }

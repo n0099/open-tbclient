@@ -4,16 +4,16 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class c extends y {
+public class c extends z {
     public c(j jVar) {
         super(jVar, "/swan/closeTabBarRedDot");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
@@ -22,18 +22,24 @@ public class c extends y {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy == null) {
+        com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.d yO = uy.yO();
-        if (yO == null) {
+        com.baidu.swan.apps.core.d.d zL = vi.zL();
+        if (zL == null) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yO.yC().ek(optInt)) {
+        }
+        com.baidu.swan.apps.tabbar.b.a zx = zL.zx();
+        if (zx == null) {
+            com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "bottomBarViewController is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        } else if (!zx.ev(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "close red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

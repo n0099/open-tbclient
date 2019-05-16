@@ -1,106 +1,85 @@
 package com.baidu.tieba.aiapps.apps.m;
 
 import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.sofire.ac.FH;
-import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
-import com.baidu.swan.apps.scheme.j;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.pay.d;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class a extends y {
-    public a(j jVar) {
-        super(jVar, "/swan/getCommonSysInfo");
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.y
-    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
-            c.i("GetSysInfo", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-            return false;
-        }
-        final String optString = n.dm(unitedSchemeEntity.getParam("params")).optString("cb");
-        if (TextUtils.isEmpty(optString)) {
-            c.i("GetSysInfo", "cb is empty");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        bVar.IZ().a((Activity) context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.an.c.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.m.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
-            /* renamed from: b */
-            public void D(Boolean bool) {
-                if (bool.booleanValue()) {
-                    a.this.a(context, optString, callbackHandler);
-                    return;
-                }
-                c.i("GetSysInfo", "non-authorized");
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-            }
-        });
-        c.i("GetSysInfo", "callback success");
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, String str, CallbackHandler callbackHandler) {
-        Context appContext = AppRuntime.getAppContext();
-        String bJ = com.baidu.swan.apps.u.a.CB().bJ(appContext);
-        String imei = TbadkCoreApplication.getInst().getImei();
-        String gz = FH.gz(TbadkCoreApplication.getInst());
-        String bI = com.baidu.swan.apps.u.a.CB().bI(appContext);
-        String cookie = new com.baidu.swan.apps.q.a.b.a().getCookie(".baidu.com");
-        String cg = cg(cookie, "BAIDUID");
-        String cg2 = cg(cookie, "H_WISE_SIDS");
-        if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bJ + ", imei = " + imei + ", zid = " + gz + ", uid = " + bI + ", baiDuId = " + cg + ", sid = " + cg2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bJ);
-            jSONObject.put("imei", imei);
-            jSONObject.put("zid", gz);
-            jSONObject.put("uid", bI);
-            jSONObject.put("baidu_id", cg);
-            jSONObject.put("sid", cg2);
-            c.i("GetSysInfo", "fetch commonSysInfo success");
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private static String cg(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        int length = split.length;
-        for (int i = 0; i != length; i++) {
-            String trim = split[i].trim();
-            String[] split2 = trim.split("=");
-            if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
-                if (split2.length == 2) {
-                    return split2[1];
-                } else {
-                    return trim.substring(split2[0].length() + 1);
+public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
+    private com.baidu.tieba.aiapps.apps.m.a.a dfF;
+    private Activity dfG;
+    private BdUniqueId mPageId = BdUniqueId.gen();
+    private CustomMessageListener dfH = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.m.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof d) {
+                    d dVar = (d) data;
+                    if (getTag() == dVar.tag) {
+                        a.this.mResult.putInt("result_code", dVar.type);
+                        a.this.mResult.putString("result_msg", dVar.message);
+                        a.this.dfF.I(a.this.mResult);
+                        a.this.finish();
+                    }
                 }
             }
         }
-        return null;
+    };
+
+    public void a(com.baidu.tieba.aiapps.apps.m.a.a aVar) {
+        this.dfF = aVar;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        this.dfH.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.dfH);
+        int i = this.mParams.getInt("type");
+        String string = this.mParams.getString("orderInfo");
+        d dVar = new d();
+        dVar.tag = this.mPageId;
+        dVar.type = i;
+        dVar.message = string;
+        dVar.params = (Map) this.mParams.getSerializable("params");
+        if (getAgent() != null) {
+            dVar.context = getAgent();
+        } else if (this.dfG != null) {
+            dVar.context = this.dfG;
+        } else {
+            dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
+        }
+        CustomMessage customMessage = new CustomMessage(2921393, dVar);
+        customMessage.setTag(this.mPageId);
+        boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+        this.mResult.putInt("result_code", sendMessage ? 0 : 1);
+        this.mResult.putString("result_msg", "" + sendMessage);
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
+        this.dfF = null;
+        MessageManager.getInstance().unRegisterListener(this.dfH);
+        super.finish();
+    }
+
+    @Override // com.baidu.swan.apps.a.a
+    public void onResult(int i) {
+        this.mResult.putInt("result_code", i);
+        this.mResult.putString("result_msg", "");
+        finish();
+    }
+
+    public void af(Activity activity) {
+        this.dfG = activity;
     }
 }

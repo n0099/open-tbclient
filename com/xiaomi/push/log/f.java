@@ -1,11 +1,11 @@
 package com.xiaomi.push.log;
 
 import android.content.Context;
-import android.support.v4.media.session.PlaybackStateCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-import com.xiaomi.channel.commonutils.misc.h;
+import com.xiaomi.channel.commonutils.misc.k;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,12 +20,13 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements LoggerInterface {
-    private static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-    private static h b = new h(true);
-    private static String c = "/MiPushLog";
-    private static List<Pair<String, Throwable>> f = Collections.synchronizedList(new ArrayList());
     private String d;
     private Context e;
+    private String f = "";
+    private static final SimpleDateFormat b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+    private static k c = new k(true);
+    public static String a = "/MiPushLog";
+    private static List<Pair<String, Throwable>> g = Collections.synchronizedList(new ArrayList());
 
     public f(Context context) {
         this.e = context;
@@ -35,12 +36,12 @@ public class f implements LoggerInterface {
         this.d = this.e.getPackageName();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x01f6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:110:0x021c */
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.BufferedWriter */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0187 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:132:0x0177 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x019d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v0, types: [java.nio.channels.FileLock] */
     /* JADX WARN: Type inference failed for: r2v12 */
     /* JADX WARN: Type inference failed for: r2v14 */
@@ -57,6 +58,7 @@ public class f implements LoggerInterface {
         RandomAccessFile randomAccessFile2;
         String str;
         String str2;
+        File externalFilesDir;
         BufferedWriter bufferedWriter2 = 0;
         bufferedWriter2 = 0;
         r2 = null;
@@ -66,7 +68,10 @@ public class f implements LoggerInterface {
         FileLock fileLock3 = null;
         BufferedWriter bufferedWriter3 = null;
         try {
-            File file = new File(this.e.getExternalFilesDir(null) + c);
+            if (TextUtils.isEmpty(this.f) && (externalFilesDir = this.e.getExternalFilesDir(null)) != null) {
+                this.f = externalFilesDir.getAbsolutePath() + "";
+            }
+            File file = new File(this.f + a);
             if ((file.exists() && file.isDirectory()) || file.mkdirs()) {
                 File file2 = new File(file, "log.lock");
                 if (!file2.exists() || file2.isDirectory()) {
@@ -77,9 +82,9 @@ public class f implements LoggerInterface {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
                         BufferedWriter bufferedWriter4 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                        while (!f.isEmpty()) {
+                        while (!g.isEmpty()) {
                             try {
-                                Pair<String, Throwable> remove = f.remove(0);
+                                Pair<String, Throwable> remove = g.remove(0);
                                 String str3 = (String) remove.first;
                                 if (remove.second != null) {
                                     str3 = (str3 + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -104,7 +109,7 @@ public class f implements LoggerInterface {
                         }
                         try {
                             File file3 = new File(file, "log1.txt");
-                            if (file3.length() >= PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED) {
+                            if (file3.length() >= 1048576) {
                                 File file4 = new File(file, "log0.txt");
                                 if (file4.exists() && file4.isFile()) {
                                     file4.delete();
@@ -270,8 +275,8 @@ public class f implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public final void log(String str, Throwable th) {
-        f.add(new Pair<>(String.format("%1$s %2$s %3$s ", a.format(new Date()), this.d, str), th));
-        b.a(new g(this));
+        g.add(new Pair<>(String.format("%1$s %2$s %3$s ", b.format(new Date()), this.d, str), th));
+        c.a(new g(this));
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface

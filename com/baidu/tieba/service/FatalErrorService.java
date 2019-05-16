@@ -26,7 +26,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Writer;
 /* loaded from: classes.dex */
 public class FatalErrorService extends BdBaseService {
     private static final String ERROR_TYPE_KEY = "errortype";
@@ -140,9 +139,9 @@ public class FatalErrorService extends BdBaseService {
                                     this.mNetwork = new x(TbConfig.SERVER_ADDRESS + str);
                                     this.mNetwork.d("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                        this.mNetwork.x(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                        this.mNetwork.o(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.acj();
+                                    this.mNetwork.ahh();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -178,9 +177,9 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.acE().adD().isRequestSuccess()) {
+                                        if (this.mNetwork.ahC().aiC().isRequestSuccess()) {
                                             if (z2) {
-                                                X(file);
+                                                R(file);
                                             }
                                             FileWriter fileWriter3 = new FileWriter(file, false);
                                             try {
@@ -324,7 +323,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void X(File file) {
+        private void R(File file) {
             BufferedReader bufferedReader;
             try {
                 bufferedReader = new BufferedReader(new FileReader(file));
@@ -383,18 +382,18 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(m.lT(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(m.lT(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bYn();
-                if (!TbConfig.getVersion().equals(b.getInstance().getString("native_crash_dump_version", ""))) {
-                    b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
+                a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                cgs();
+                if (!TbConfig.getVersion().equals(b.agM().getString("native_crash_dump_version", ""))) {
+                    b.agM().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File lR = m.lR(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (lR != null) {
-                    for (File file : lR.listFiles()) {
+                File mZ = m.mZ(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (mZ != null) {
+                    for (File file : mZ.listFiles()) {
                         if (file.length() >= 1024 && z) {
-                            Y(file);
+                            S(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                         } else {
                             file.delete();
@@ -409,11 +408,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bYn() {
-            File lT = m.lT(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (lT != null) {
+        private void cgs() {
+            File nb = m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (nb != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(lT)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(nb)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -423,7 +422,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            lT.delete();
+                            nb.delete();
                             return;
                         }
                     }
@@ -435,7 +434,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void Y(File file) {
+        private void S(File file) {
             FileWriter fileWriter;
             if (file == null || !file.exists() || !file.isFile()) {
                 return;
@@ -446,7 +445,7 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter = new FileWriter(file, true);
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, ap.adj(), null);
+                            a(fileWriter, ap.aii(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
@@ -458,11 +457,11 @@ public class FatalErrorService extends BdBaseService {
                             a(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                             a(fileWriter, "uname", this.intent.getStringExtra("uname"));
                             fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                            n.b((Writer) fileWriter);
+                            n.a(fileWriter);
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            n.b((Writer) fileWriter);
+                            n.a(fileWriter);
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -470,7 +469,7 @@ public class FatalErrorService extends BdBaseService {
                     } catch (Throwable th) {
                         th = th;
                         fileWriter = null;
-                        n.b((Writer) fileWriter);
+                        n.a(fileWriter);
                         throw th;
                     }
                 }
@@ -495,7 +494,7 @@ public class FatalErrorService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.ji();
+                this.mNetwork.ia();
             }
             FatalErrorService.this.mTask = null;
             super.cancel(true);

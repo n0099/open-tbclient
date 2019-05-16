@@ -19,7 +19,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
     }
 
     public void setPortraitList(List<String> list) {
-        if (!v.T(list)) {
+        if (!v.aa(list)) {
             this.portraitList.clear();
             this.portraitList.addAll(list);
         }

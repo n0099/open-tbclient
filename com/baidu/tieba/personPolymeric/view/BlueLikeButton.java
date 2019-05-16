@@ -13,47 +13,47 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean hSv;
+    private boolean ilh;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.hSv = false;
+        this.ilh = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hSv = false;
+        this.ilh = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hSv = false;
+        this.ilh = false;
     }
 
-    public void dU(boolean z) {
-        this.hSv = z;
+    public void er(boolean z) {
+        this.ilh = z;
         if (z) {
-            setText(d.j.followed);
-            setBackgroundDrawable(al.getDrawable(d.f.selector_like_button_gray_bg));
+            setText(R.string.followed);
+            setBackgroundDrawable(al.getDrawable(R.drawable.selector_like_button_gray_bg));
             setPadding(0, 0, 0, 0);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.d(this, d.C0277d.cp_cont_e, 1);
+            al.f(this, R.color.cp_cont_e, 1);
             return;
         }
-        setText(d.j.attention);
-        setBackgroundDrawable(al.getDrawable(d.f.selector_like_button_bg));
-        setPadding(getResources().getDimensionPixelSize(d.e.tbds20), 0, 0, 0);
-        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.d(this, d.C0277d.cp_cont_g, 1);
+        setText(R.string.attention);
+        setBackgroundDrawable(al.getDrawable(R.drawable.selector_like_button_bg));
+        setPadding(getResources().getDimensionPixelSize(R.dimen.tbds20), 0, 0, 0);
+        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.f(this, R.color.cp_cont_g, 1);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void f(boolean z, int i) {
-        dU(z);
+        er(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -62,26 +62,26 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void ik(int i) {
+    public void iY(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aR(View view) {
-        TiebaStatic.log(new am("c12503").bJ("obj_locate", "4"));
+    public void aX(View view) {
+        TiebaStatic.log(new am("c12503").bT("obj_locate", "4"));
         if (!ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             am amVar = new am("c12507");
-            amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-            amVar.T("obj_locate", 2);
-            amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
+            amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
+            amVar.P("obj_locate", 2);
+            amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(amVar);
         }
-        if (!this.hSv) {
+        if (!this.ilh) {
             Context context = getContext();
-            if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.pageStayDuration.a)) {
+            if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.o.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                List<String> currentPageSourceKeyList = ((com.baidu.tbadk.pageStayDuration.a) context).getCurrentPageSourceKeyList();
+                List<String> currentPageSourceKeyList = ((com.baidu.tbadk.o.a) context).getCurrentPageSourceKeyList();
                 if (currentPageSourceKeyList != null && ap.equals((String) v.c(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !ap.isEmpty(stringExtra)) {
-                    TiebaStatic.log(new am("c12613").T("obj_type", 1).bJ("tid", stringExtra));
+                    TiebaStatic.log(new am("c12613").P("obj_type", 1).bT("tid", stringExtra));
                 }
             }
         }
@@ -93,14 +93,14 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hSv) {
-            setBackgroundDrawable(al.getDrawable(d.f.selector_like_button_gray_bg));
+        if (this.ilh) {
+            setBackgroundDrawable(al.getDrawable(R.drawable.selector_like_button_gray_bg));
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.d(this, d.C0277d.cp_cont_e, 1);
+            al.f(this, R.color.cp_cont_e, 1);
             return;
         }
-        setBackgroundDrawable(al.getDrawable(d.f.selector_like_button_bg));
-        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.d(this, d.C0277d.cp_cont_g, 1);
+        setBackgroundDrawable(al.getDrawable(R.drawable.selector_like_button_bg));
+        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.f(this, R.color.cp_cont_g, 1);
     }
 }

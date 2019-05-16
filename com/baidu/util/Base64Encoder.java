@@ -1,5 +1,5 @@
 package com.baidu.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class Base64Encoder {
     public static final native byte[] nativeB64Decode(byte[] bArr);
 

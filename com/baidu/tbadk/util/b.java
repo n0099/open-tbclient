@@ -5,30 +5,30 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b csW = null;
+    private static b cBf = null;
 
     private b() {
     }
 
-    public static synchronized b apK() {
+    public static synchronized b auO() {
         b bVar;
         synchronized (b.class) {
-            if (csW == null) {
-                csW = new b();
+            if (cBf == null) {
+                cBf = new b();
             }
-            bVar = csW;
+            bVar = cBf;
         }
         return bVar;
     }
 
-    public void apL() {
-        String apM = apM();
-        if (!TextUtils.isEmpty(apM)) {
-            com.baidu.adp.lib.f.c.jB().a(apM, 10, null, 0, 0, null, new Object[0]);
+    public void auP() {
+        String auQ = auQ();
+        if (!TextUtils.isEmpty(auQ)) {
+            com.baidu.adp.lib.f.c.iv().a(auQ, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String apM() {
+    public String auQ() {
         return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
     }
 }

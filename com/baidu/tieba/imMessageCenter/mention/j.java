@@ -13,13 +13,13 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Jy;
-    protected ArrayList<FeedData> gyd = new ArrayList<>();
+    protected boolean Hi;
+    protected ArrayList<FeedData> gPp = new ArrayList<>();
     protected an page = new an();
-    protected h gye = new h();
+    protected h gPq = new h();
 
-    public ArrayList<FeedData> bxJ() {
-        return this.gyd;
+    public ArrayList<FeedData> bFr() {
+        return this.gPp;
     }
 
     public an getPage() {
@@ -35,17 +35,17 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gyd.add(feedData);
-                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                        this.gyd.remove(feedData);
+                    this.gPp.add(feedData);
+                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
+                        this.gPp.remove(feedData);
                     }
                 }
             }
-            this.gye.parserJson(jSONObject.optJSONObject("message"));
+            this.gPq.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
-            this.Jy = true;
+            this.Hi = true;
         } catch (Exception e) {
-            this.Jy = false;
+            this.Hi = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -60,16 +60,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gyd.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                            this.gyd.remove(feedData);
+                        this.gPp.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
+                            this.gPp.remove(feedData);
                         }
                     }
                 }
                 this.page.a(dataRes.page);
-                this.Jy = true;
+                this.Hi = true;
             } catch (Exception e) {
-                this.Jy = false;
+                this.Hi = false;
                 BdLog.e(e.getMessage());
             }
         }
